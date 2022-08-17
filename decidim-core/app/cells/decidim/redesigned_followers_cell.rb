@@ -14,12 +14,12 @@ module Decidim
       render :show
     end
 
-    def followers
-      @followers ||= model.followers.not_blocked.page(params[:page]).per(20)
+    def users
+      @users ||= model.followers.not_blocked.page(params[:page]).per(20)
     end
 
     def validation_messages
-      [t("decidim.followers.no_followers")] if followers.blank?
+      [t("decidim.followers.no_followers")] if users.blank?
     end
   end
 end

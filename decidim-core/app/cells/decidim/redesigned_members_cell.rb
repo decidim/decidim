@@ -3,25 +3,15 @@
 module Decidim
   # This cell is intended to be used on profiles.
   # Lists the members of the given user group.
-  class RedesignedMembersCell < Decidim::ViewModel
-    include Decidim::CellsPaginateHelper
-    include Decidim::ApplicationHelper
-    include Decidim::LayoutHelper
-    include Decidim::Core::Engine.routes.url_helpers
-    include Decidim::CardHelper
-
-    def show
-      render :show
-    end
-
+  class RedesignedMembersCell < RedesignedFollowersCell
     def membership_cell_name
       return "decidim/user_group_admin_membership_profile" if options[:from_admin].presence
 
       "decidim/user_group_membership_profile"
     end
 
-    def memberships
-      @memberships ||= case options[:role].to_s
+    def users
+      @users ||= case options[:role].to_s
                        when "member"
                          Decidim::UserGroups::MemberMemberships.for(model).page(params[:page]).per(20)
                        when "admin"
@@ -32,7 +22,7 @@ module Decidim
     end
 
     def validation_messages
-      [t("decidim.members.no_members")] if memberships.blank?
+      [t("decidim.members.no_members")] if users.blank?
     end
   end
 end
