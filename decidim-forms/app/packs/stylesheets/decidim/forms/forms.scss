@@ -62,6 +62,10 @@
     td:not(:first-child){
       @apply text-center [&>*]:flex [&>*]:items-center [&>*]:justify-center;
     }
+
+    input[type="text"]{
+      @apply min-w-[120px] w-full;
+    }
   }
 
   &__sorting{
