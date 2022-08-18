@@ -9,6 +9,10 @@ module Decidim
 
         render :show
       end
+
+      def position
+        options[:indexed_items].index(model.id) + 1
+      end
     end
   end
 end
