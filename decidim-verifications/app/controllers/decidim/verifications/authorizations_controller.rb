@@ -15,7 +15,7 @@ module Decidim
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper
 
-      layout "layouts/decidim/user_profile", only: [:index]
+      redesign active: true
 
       def new; end
 

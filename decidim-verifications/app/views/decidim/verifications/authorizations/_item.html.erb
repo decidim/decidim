@@ -1,0 +1,15 @@
+<%= link_to url, class: "verification" do %>
+  <%= icon auth_icon || "login-circle-line", class: "verification__icon" %>
+  <div class="verification__text">
+    <h3 class="h5 text-secondary">
+      <%= title %>
+    </h3>
+    <span>
+      <%= explanation %>
+    </span>
+  </div>
+  <button class="button button__sm button__transparent-secondary">
+    <%= button_text %>
+    <%= icon "add-line", class: "w-3.5 h-3.5 fill-current" %>
+  </button>
+<% end %>

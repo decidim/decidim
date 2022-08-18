@@ -1,5 +1,23 @@
 .verification{
+  @apply flex items-center justify-between gap-4 border-[3px] border-background rounded px-4 py-2 cursor-pointer;
+
   &__container{
-    @apply space-y-4;
+    @apply space-y-8;
+  }
+
+  &__icon{
+    @apply flex-none w-8 h-8 text-gray fill-current;
+  }
+
+  &__text{
+    @apply grow space-y-2.5;
+
+    span{
+      @apply inline-block text-sm text-gray-2;
+    }
+  }
+
+  &:hover{
+    @apply border-tertiary;
   }
 }
