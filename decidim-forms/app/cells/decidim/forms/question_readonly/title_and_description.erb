@@ -1,10 +1,8 @@
 <li class="answer-questionnaire__question" data-question-readonly>
   <div class="answer-questionnaire__step-heading">
     <h3><%= translated_attribute(model.body) %></h3>
-    <% if translated_attribute(model.description).present? %>
-      <div>
-        <%= decidim_sanitize_editor translated_attribute(model.description) %>
-      </div>
-    <% end %>
+    <p class="answer-questionnaire__question-description">
+      <em><%= t(model.question_type, scope: "decidim.forms.question_types") %></em>
+    </p>
   </div>
 </li>
