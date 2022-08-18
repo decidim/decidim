@@ -1,9 +1,7 @@
-<%# NOTE: this page does not use a regular layout %>
-<div class="page__layout">
-  <div>
+<%= render layout:"layouts/decidim/shared/layout_center", locals: { columns: 10 } do %>
 
-    <div class="text-center">
-      <h1 class="h1 decorator inline-block mb-12">
+    <div class="text-center py-12">
+      <h1 class="h1 decorator inline-block text-left mb-12">
         <%= title %>
       </h1>
       <p class="text-lg text-gray-2">
@@ -11,28 +9,30 @@
       </p>
     </div>
 
-    <%= cell "decidim/tos_page", :announcement %>
+    <div class="page__container">
+      <%= cell "decidim/tos_page", :announcement %>
 
-    <div class="page__tabbed">
-      <div>
-        <ul class="page__tabbed-list">
-          <% pages.each do |sibling| %>
-            <li>
-              <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), class: "#{"is-selected" if page == sibling}" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <div class="page__tabbed">
+        <div>
+          <ul class="page__tabbed-list">
+            <% pages.each do |sibling| %>
+              <li>
+                <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), class: "#{"is-selected" if page == sibling}" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
 
-      <div>
-        <h2 class="h2"><%= translated_attribute page.title %></h2>
+        <div>
+          <h2 class="h2"><%= translated_attribute page.title %></h2>
 
-        <div class="editor-content mt-6">
-          <%= decidim_sanitize_editor translated_attribute page.content %>
+          <div class="editor-content mt-6">
+            <%= decidim_sanitize_editor translated_attribute page.content %>
+          </div>
         </div>
       </div>
+
+      <%= cell "decidim/tos_page", :form %>
     </div>
 
-    <%= cell "decidim/tos_page", :form %>
-  </div>
-</div>
+<% end %>

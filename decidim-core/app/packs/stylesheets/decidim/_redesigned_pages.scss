@@ -1,4 +1,8 @@
 .page{
+  &__container{
+    @apply flex flex-col gap-8 mb-24;
+  }
+
   &__accordion{
     @apply border-4 border-background rounded p-4;
 
@@ -47,10 +51,7 @@
     @apply grid grid-cols-1 md:grid-cols-2 gap-6;
   }
 
-  &__layout{
-    @apply container grid grid-cols-1 xl:grid-cols-12 pt-12 pb-36 [&>*]:col-start-auto xl:[&>*]:col-start-2 [&>*]:col-span-full xl:[&>*]:col-span-10 [&>*]:space-y-12;
-  }
-
+  // REDESIGN_PENDING: move these styles to a separate component
   &__tabbed{
     @apply grid gap-10 lg:gap-20 grid-cols-1 md:grid-cols-10 first:[&>*]:col-span-full md:first:[&>*]:col-span-3 last:[&>*]:col-span-full md:last:[&>*]:col-span-7;
 
