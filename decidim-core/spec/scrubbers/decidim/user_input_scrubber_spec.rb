@@ -29,7 +29,7 @@ describe Decidim::UserInputScrubber do
     end
   end
 
-  it "allows iframes to embed videos" do
+  it "does not allow iframes" do
     html = "<iframe frameborder=\"0\" allowfullscreen=\"true\" src=\"url\"></iframe>"
     expect(html).to be_scrubbed_as("")
   end
