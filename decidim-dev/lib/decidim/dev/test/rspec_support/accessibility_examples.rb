@@ -61,16 +61,6 @@ module AxeMatchers
   end
 
   class BeAxeClean
-    class << self
-      def load_axe_lib_within(page)
-        return if @axe_core_loaded
-
-        jslib = Rails.root.join("node_modules/axe-core/axe.min.js")
-        page.execute_script jslib.read
-        @axe_core_loaded = true
-      end
-    end
-
     def matches?(page)
       @results = execute_axe(page)
       results["violations"].count.zero?
@@ -89,7 +79,7 @@ module AxeMatchers
     attr_reader :results
 
     def execute_axe(page)
-      self.class.load_axe_lib_within(page)
+      load_axe(page)
 
       script = <<-JS
         var callback = arguments[arguments.length - 1];
@@ -100,6 +90,11 @@ module AxeMatchers
       page = page.driver if page.respond_to?("driver")
       page = page.browser if page.respond_to?("browser") && !page.browser.is_a?(::Symbol)
       page.execute_async_script(script)
+    end
+
+    def load_axe(page)
+      jslib = Rails.root.join("node_modules/axe-core/axe.min.js")
+      page.execute_script jslib.read
     end
   end
 
