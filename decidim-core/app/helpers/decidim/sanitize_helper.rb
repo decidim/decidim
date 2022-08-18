@@ -24,6 +24,10 @@ module Decidim
       end
     end
 
+    def decidim_sanitize_admin(html, options = {})
+      decidim_sanitize(html, { scrubber: Decidim::AdminInputScrubber.new }.merge(options))
+    end
+
     def decidim_sanitize_newsletter(html, options = {})
       if options[:strip_tags]
         strip_tags sanitize(html, scrubber: Decidim::NewsletterScrubber.new)
