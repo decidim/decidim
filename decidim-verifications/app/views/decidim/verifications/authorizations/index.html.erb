@@ -53,7 +53,7 @@
         <% unauthorized_methods.each do |unauthorized_method| %>
           <%= render partial: "item", locals: {
               url: unauthorized_method.root_path(**url_params),
-              auth_icon: nil, # REDESIGN_PENDING: unauthorized_method.try(:icon),
+              auth_icon: unauthorized_method.icon,
               title: t("#{unauthorized_method.key}.name", scope: "decidim.authorization_handlers"),
               explanation: t("#{unauthorized_method.key}.explanation", scope: "decidim.authorization_handlers"),
               button_text: "Suscribirse"

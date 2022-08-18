@@ -18,6 +18,7 @@
   }
 
   &:hover{
+    // REDESIGN_PENDING: Add the following class '[&_button]:button__secondary' once available
     @apply border-tertiary;
   }
 }
