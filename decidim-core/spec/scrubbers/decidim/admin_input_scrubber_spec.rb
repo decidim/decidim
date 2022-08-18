@@ -34,6 +34,11 @@ describe Decidim::AdminInputScrubber do
     expect(html).to be_scrubbed
   end
 
+  it "allows disabled iframes" do
+    html = %(<div class="disabled-iframe"><!-- <iframe src="url"></iframe> --></div>)
+    expect(html).to be_scrubbed
+  end
+
   it "allows most basic tags" do
     html = "<a></a><b></b><strong></strong><em></em><i></i><p></p><br>"
     expect(html).to be_scrubbed
