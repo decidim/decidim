@@ -34,6 +34,16 @@ describe Decidim::UserInputScrubber do
     expect(html).to be_scrubbed_as("")
   end
 
+  it "does not allow comments" do
+    html = "<p>Hello, <!-- world! --></p>"
+    expect(html).to be_scrubbed_as("<p>Hello, </p>")
+  end
+
+  it "does not allow disabled iframes" do
+    html = %(<div class="disabled-iframe"><!-- <iframe src="url"></iframe> --></div>)
+    expect(html).to be_scrubbed_as(%(<div class="disabled-iframe"></div>))
+  end
+
   it "allows most basic tags" do
     html = "<a></a><b></b><strong></strong><em></em><i></i><p></p><br>"
     expect(html).to be_scrubbed
