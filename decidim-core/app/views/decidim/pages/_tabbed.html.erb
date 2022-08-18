@@ -12,12 +12,12 @@
     <div class="page__container">
       <%= cell "decidim/tos_page", :announcement %>
 
-      <div class="page__tabbed">
+      <div class="vertical-tabs">
         <div>
-          <ul class="page__tabbed-list">
+          <ul>
             <% pages.each do |sibling| %>
-              <li>
-                <%= link_to translated_attribute(sibling.title), page_path(sibling.slug), class: "#{"is-selected" if page == sibling}" %>
+              <li class="<%= "is-selected" if page == sibling %>">
+                <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
               </li>
             <% end %>
           </ul>
