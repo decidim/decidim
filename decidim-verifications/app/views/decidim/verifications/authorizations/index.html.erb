@@ -10,10 +10,8 @@
   <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
 <% end %>
 
-<%# NOTE: this page does not use a regular layout %>
-<div class="container">
-
-  <section class="section authorizations-list">
+<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
+  <section class="authorizations-list">
     <% if @granted_authorizations.any? %>
       <div class="verification__container">
         <% @granted_authorizations.each do |authorization| %>
@@ -55,7 +53,7 @@
         <% unauthorized_methods.each do |unauthorized_method| %>
           <%= render partial: "item", locals: {
               url: unauthorized_method.root_path(**url_params),
-              auth_icon: unauthorized_method.try(:icon),
+              auth_icon: nil, # REDESIGN_PENDING: unauthorized_method.try(:icon),
               title: t("#{unauthorized_method.key}.name", scope: "decidim.authorization_handlers"),
               explanation: t("#{unauthorized_method.key}.explanation", scope: "decidim.authorization_handlers"),
               button_text: "Suscribirse"
@@ -64,5 +62,4 @@
       </div>
     <% end %>
   </section>
-
-</div>
+<% end %>

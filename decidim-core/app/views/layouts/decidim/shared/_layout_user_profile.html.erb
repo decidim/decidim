@@ -1,0 +1,22 @@
+<% subtitle = content_for(:subtitle) %>
+
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10 } do %>
+  <div class="text-center py-10">
+    <h1 class="h1 decorator inline-block text-left mb-12">
+      <%= t("title", scope: "layouts.decidim.user_profile") %>
+      <%= " - #{subtitle}" unless subtitle.blank? %>
+    </h1>
+  </div>
+
+  <div class="vertical-tabs mb-24">
+    <div>
+      <ul id="user-settings-tabs">
+        <%= user_menu.render %>
+      </ul>
+    </div>
+
+    <div>
+      <%= yield %>
+    </div>
+  </div>
+<% end %>
