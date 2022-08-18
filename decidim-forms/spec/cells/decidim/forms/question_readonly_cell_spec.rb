@@ -5,12 +5,13 @@ require "spec_helper"
 describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
   controller Decidim::PagesController
 
-  subject { cell("decidim/forms/question_readonly", model) }
+  subject { cell("decidim/forms/question_readonly", model, indexed_items:) }
 
   let(:question) { create :questionnaire_question }
   let(:separator) { create :questionnaire_question, :separator }
   let(:title_and_description) { create :questionnaire_question, :title_and_description }
   let(:model) { question }
+  let(:indexed_items) { [question.id + 1, question.id + 2,  question.id] }
 
   context "when using a separator" do
     let(:model) { separator }
