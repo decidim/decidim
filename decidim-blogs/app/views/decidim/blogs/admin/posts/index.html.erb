@@ -33,14 +33,14 @@
                 <%= post.try(:author).try(:name) %>
               </td>
               <td>
-                <%= l post.created_at, format: "%d/%m/%Y - %H:%M" %>
+                <%= l post.created_at, format: :decidim_short %>
               </td>
-              <% publish_data = set_up_publicatin_time(post.published_at, post.created_at) %>
+              <% publish_data = publish_data(post.published_at) %>
               <td class="table-list__actions">
                 <%= content_tag :span, class: "padding-3", data: { tooltip: true, disable_hover: false, click_open: false }, title: publish_data[:popup] do
-                      publish_data[:icon]
-                    end %>
-                <%= publish_data[:status] %>
+                  publish_data[:icon]
+                end %>
+                <%= l post.published_at, format: :decidim_short %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :blogpost, blog_post: post %>

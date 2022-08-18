@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim::Blogs::Admin
   describe PostsHelper, type: :helper do
+    include Decidim::DisabledRedesignLayout
+
     describe "#post_author_select_field" do
       let(:organization) { create :organization }
       let(:user) { create :user, :admin, :confirmed, organization: }
@@ -111,6 +113,32 @@ module Decidim::Blogs::Admin
 
         it "Returns all types of authors" do
           expect(helper.post_author_select_field(form, name)).to eq(extra_group_fields)
+        end
+      end
+    end
+
+    describe "#publish_data" do
+      let!(:created_at) { 3.days.ago }
+      let(:formatted_created_time) { l(created_at, format: :decidim_short) }
+
+      context "when published_at is reached" do
+        let(:published_at) { 2.days.ago }
+        let(:formatted_published_time) { l(published_at, format: :decidim_short) }
+
+        it "shows correct publishing info" do
+          action = helper.publish_data(published_at)
+          expect(action[:popup]).to eq("Published")
+        end
+      end
+
+      context "when publish in future" do
+        let(:published_at) { 2.days.from_now }
+        let(:formatted_published_time) { l(published_at, format: :decidim_short) }
+
+        it "shows correct publishing info" do
+          action = helper.publish_data(published_at)
+          expect(action[:popup]).to eq("Not published yet")
+          expect(action[:icon]).to include("svg")
         end
       end
     end

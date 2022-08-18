@@ -34,19 +34,15 @@ module Decidim
           form.select(name, select_options)
         end
 
-        def set_up_publicatin_time(published_at, created_at)
-          result = {}
-          result[:popup] = "Published"
-          if published_at.nil?
-            result[:status] = l created_at, format: "%d/%m/%Y - %H:%M"
+        def publish_data(published_at)
+          data = {}
+          if published_at > Time.current
+            data[:icon] = icon("clock", aria_label: "Not published yet", role: "img")
+            data[:popup] = "Not published yet"
           else
-            result[:status] = l published_at, format: "%d/%m/%Y - %H:%M"
-            if published_at >= Time.current
-              result[:icon] = icon("clock", aria_label: "Not published yet", role: "img")
-              result[:popup] = "Not published yet"
-            end
+            data[:popup] = "Published"
           end
-          result
+          data
         end
       end
     end

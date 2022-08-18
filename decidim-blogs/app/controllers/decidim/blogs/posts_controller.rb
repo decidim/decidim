@@ -18,7 +18,7 @@ module Decidim
       private
 
       def paginate_posts
-        @paginate_posts ||= paginate(posts.created_at_desc)
+        @paginate_posts ||= paginate(posts.published.created_at_desc)
       end
 
       def post

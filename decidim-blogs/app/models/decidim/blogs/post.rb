@@ -24,7 +24,10 @@ module Decidim
 
       validates :title, presence: true
 
+      after_save :set_published_at, if: -> { published_at.nil? }
+
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
+      scope :published, -> { where("published_at <= ?", Time.current) }
 
       searchable_fields({
                           participatory_space: { component: :participatory_space },
@@ -72,6 +75,12 @@ module Decidim
 
       def attachment_context
         :admin
+      end
+
+      private
+
+      def set_published_at
+        update_attribute(:published_at, created_at) # rubocop:disable Rails/SkipsModelValidations
       end
     end
   end
