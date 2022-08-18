@@ -32,6 +32,10 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
       translated_question_type = I18n.t(model.question_type, scope: "decidim.forms.question_types")
       expect(subject.call).to have_content(translated_question_type)
     end
+
+    it "doesn't render the element with the answer idx attribute" do
+      expect(subject.call).to have_no_css("[data-answer-idx]")
+    end
   end
 
   context "when using a question" do
@@ -42,6 +46,10 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
     it "renders the question type" do
       translated_question_type = I18n.t(model.question_type, scope: "decidim.forms.question_types")
       expect(subject.call).to have_content(translated_question_type)
+    end
+
+    it "renders the element with the answer idx attribute with the correct position" do
+      expect(subject.call).to have_css("[data-answer-idx='3']")
     end
   end
 end
