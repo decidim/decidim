@@ -22,6 +22,8 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
   end
 
   context "when using a title-and-description" do
+    let(:model) { title_and_description }
+
     it "renders the title-and-description body" do
       expect(subject.call).to have_content(translated(model.body))
     end
