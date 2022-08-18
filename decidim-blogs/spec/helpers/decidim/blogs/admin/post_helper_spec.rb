@@ -119,11 +119,11 @@ module Decidim::Blogs::Admin
 
     describe "#publish_data" do
       let!(:created_at) { 3.days.ago }
-      let(:formatted_created_time) { l(created_at, format: :decidim_short) }
+      let(:formatted_created_time) { created_at.strftime("%d/%m/%Y %H:%M") }
 
       context "when published_at is reached" do
         let(:published_at) { 2.days.ago }
-        let(:formatted_published_time) { l(published_at, format: :decidim_short) }
+        let(:formatted_published_time) { published_at.strftime("%d/%m/%Y %H:%M") }
 
         it "shows correct publishing info" do
           action = helper.publish_data(published_at)
@@ -133,7 +133,7 @@ module Decidim::Blogs::Admin
 
       context "when publish in future" do
         let(:published_at) { 2.days.from_now }
-        let(:formatted_published_time) { l(published_at, format: :decidim_short) }
+        let(:formatted_published_time) { published_at.stftime("%d/%m/%Y %H:%M") }
 
         it "shows correct publishing info" do
           action = helper.publish_data(published_at)
