@@ -11,7 +11,7 @@
     <h3><%= translated_attribute(answer.question.body) %></h3>
     <% if translated_attribute(answer.question.description).present? %>
       <div>
-        <%= decidim_sanitize_editor translated_attribute(answer.question.description), class: "topete" %>
+        <%= decidim_sanitize_editor translated_attribute(answer.question.description) %>
       </div>
     <% end %>
   </div>
