@@ -9,7 +9,7 @@
       @apply p-4 block w-full h-full text-secondary hover:underline;
     }
 
-    li.is-selected a{
+    li.is-active a{
       @apply border-l-4 border-primary font-semibold;
     }
   }

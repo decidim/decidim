@@ -16,7 +16,7 @@
         <div>
           <ul>
             <% pages.each do |sibling| %>
-              <li class="<%= "is-selected" if page == sibling %>">
+              <li class="<%= "is-active" if page == sibling %>">
                 <%= link_to translated_attribute(sibling.title), page_path(sibling.slug) %>
               </li>
             <% end %>
