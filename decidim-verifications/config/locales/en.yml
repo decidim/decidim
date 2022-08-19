@@ -108,8 +108,12 @@ en:
           verify_with_these_options: 'These are the available options to verify your identity:'
         index:
           expired_verification: Verification expired
+          granted_verification: Granted verification
+          introduce_code: Introduce code
           pending_verification: Pending verification
           show_renew_info: Click to renew verification
+          subscribe: Subscribe
+          unauthorized_methods: Verification methods
           unauthorized_verification: New verification
         new:
           authorize: Send

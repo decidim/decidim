@@ -1,5 +1,5 @@
-<%= link_to url, class: "verification" do %>
-  <%= icon auth_icon || "login-circle-line", class: "verification__icon" %>
+<div class="verification">
+  <%= icon auth_icon || "login-circle-line", class: "verification__icon#{ ' is-granted' if defined?(is_granted) && is_granted || false }" %>
   <div class="verification__text">
     <h3 class="h5 text-secondary">
       <%= title %>
@@ -8,8 +8,10 @@
       <%= explanation %>
     </span>
   </div>
-  <button class="button button__sm button__transparent-secondary">
-    <%= button_text %>
-    <%= icon "add-line", class: "w-3.5 h-3.5 fill-current" %>
-  </button>
-<% end %>
+  <% if defined?(url) %>
+    <a href="<%= url %>" class="button button__sm button__transparent-secondary">
+      <%= button_text %>
+      <%= icon "add-line", class: "w-3.5 h-3.5 fill-current" %>
+    </a>
+  <% end %>
+</div>
