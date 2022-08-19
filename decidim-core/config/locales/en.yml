@@ -1322,8 +1322,8 @@ en:
           edit_user_group: Edit group profile
           invite_user: Invite participant
           join_user_group: Request to join group
-          manage_user_group_admins: Manage members
-          manage_user_group_users: Manage admins
+          manage_user_group_admins: Manage admins
+          manage_user_group_users: Manage members
           message: Message
         confirmation_instructions_sent: Email confirmation instructions sent
         create_user_group: Create group
