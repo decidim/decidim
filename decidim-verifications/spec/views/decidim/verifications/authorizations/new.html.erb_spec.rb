@@ -23,7 +23,7 @@ module Decidim
     end
 
     it "renders the form from the partial" do
-      expect(render).to include("partial-demo")
+      expect(render).to include("[data-partial-demo]")
     end
 
     it "renders the button separately" do
@@ -36,7 +36,7 @@ module Decidim
       end
 
       it "renders the form without the partial" do
-        expect(render).not_to include("partial-demo")
+        expect(render).not_to include("[data-partial-demo]")
       end
     end
   end
