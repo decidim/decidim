@@ -21,12 +21,11 @@ module AxeMatchers
         nodes = violation["nodes"]
         [
           "#{index + 1}) #{violation["id"]}: #{violation["help"]} (#{violation["impact"]})",
-          <<~MESSAGE
-            #{indent}#{violation["helpUrl"]}
-            #{indent}The following #{nodes.length} #{nodes.length == 1 ? "node" : "nodes"} violate this rule:
-
-            #{node_messages_for(nodes).compact.map { |n| n.push("") }.flatten.map { |nm| nm.length.positive? ? "#{indent * 2}#{nm}" : "" }.join("\n")}
-          MESSAGE
+          indent_lines(violation["helpUrl"], 1),
+          indent_lines("The following #{nodes.length} #{nodes.length == 1 ? "node" : "nodes"} violate this rule:", 1),
+          "",
+          indent_lines(node_messages_for(nodes), 2),
+          ""
         ]
       end.flatten
     end
@@ -35,8 +34,9 @@ module AxeMatchers
 
     attr_reader :result, :violations
 
-    def indent
-      "    "
+    def indent_lines(lines, indent_level = 1)
+      indent = "    " * indent_level
+      Array(lines).flatten.map { |line| line.length.positive? ? "#{indent}#{line}" : "" }.join("\n")
     end
 
     def node_messages_for(nodes)
@@ -47,8 +47,8 @@ module AxeMatchers
           fix(node["all"], "Fix all of the following:"),
           fix(node["none"], "Fix all of the following:"),
           fix(node["any"], "Fix any of the following:")
-        ].compact
-      end
+        ].compact.presence.tap { |messages| messages&.push("") }
+      end.compact
     end
 
     def fix(checks, message)
