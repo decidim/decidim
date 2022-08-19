@@ -24,8 +24,6 @@ module Decidim
 
       validates :title, presence: true
 
-      after_save :set_published_at, if: -> { published_at.nil? }
-
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
       scope :published, -> { where("published_at <= ?", Time.current) }
 
@@ -38,12 +36,18 @@ module Decidim
                         index_on_create: true,
                         index_on_update: ->(post) { post.visible? })
 
-      def visible?
-        participatory_space.try(:visible?) && component.try(:published?)
+      class << self
+        def all_timestamp_attributes_in_model
+          super + ["published_at"]
+        end
+
+        def log_presenter_class_for(_log)
+          Decidim::Blogs::AdminLog::PostPresenter
+        end
       end
 
-      def self.log_presenter_class_for(_log)
-        Decidim::Blogs::AdminLog::PostPresenter
+      def visible?
+        participatory_space.try(:visible?) && component.try(:published?)
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -75,12 +79,6 @@ module Decidim
 
       def attachment_context
         :admin
-      end
-
-      private
-
-      def set_published_at
-        update_attribute(:published_at, created_at) # rubocop:disable Rails/SkipsModelValidations
       end
     end
   end

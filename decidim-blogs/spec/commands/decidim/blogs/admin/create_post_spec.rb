@@ -41,7 +41,7 @@ module Decidim
 
           it "creates the post" do
             expect { subject.call }.to change(Post, :count).by(1)
-            expect(post.published_at).to be_nil
+            expect(post.published_at).to eq(post.created_at)
           end
 
           it "creates a searchable resource" do
