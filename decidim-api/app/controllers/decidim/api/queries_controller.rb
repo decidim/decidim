@@ -15,12 +15,12 @@ module Decidim
         logger.error e.message
         logger.error e.backtrace.join("\n")
 
-        message = if Rails.env.development?
-                    { message: e.message, backtrace: e.backtrace }
-                  else
-                    { message: "Internal Server error" }
-                  end
-
+        # message = if Rails.env.development?
+        #             { message: e.message, backtrace: e.backtrace }
+        #           else
+        #             { message: "Internal Server error" }
+        #           end
+        message = { message: "Internal Server error" }
         render json: { errors: [message], data: {} }, status: :internal_server_error
       end
 

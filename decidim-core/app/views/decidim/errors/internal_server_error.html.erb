@@ -4,7 +4,31 @@
     <div class="static__message">
       <h1 class="heading1 page-title"><%= t(".title") %></h1>
       <p><%= t(".try_later") %></p>
+      <div rows="6" id="input-text">
+        <p>
+          <span><%= "User Id: " %></span>
+          <%= user = try(:current_user)&.id || "Unknown"%>
+        </p>
+        <p>
+          <span><%= "Date & Time: " %></span>
+          <%= date_and_time = l(Time.current, format: "%d/%m/%Y - %H:%M") %>
+        </p>
+        <p>
+          <span><%= "URL: " %></span>
+          <%= request_url = try(:request).env["HTTP_REFERER"] || "Unknown" %>
+        </p>
+        <input id="urlShareLink" type="text" class="hide" value="<%= "User Id: #{user}\nDate & Time: #{date_and_time}\nURL: #{request_url}" %>">
+        <div class="input-group-button">
+          <button class="button primary float-right"
+            data-clipboard-copy="#urlShareLink"
+            data-clipboard-copy-label="<%= "Text copied!" %>"
+            data-clipboard-copy-message="<%= "another thing" %>"
+            aria-label="<%= "third thing" %>">
+              <%= icon "clipboard", role: "img", "aria-hidden": true %>
+              <%= "copy this" %>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </div>
