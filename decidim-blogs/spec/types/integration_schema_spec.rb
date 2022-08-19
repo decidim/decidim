@@ -8,7 +8,7 @@ describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Blogs" }
   let!(:current_component) { create(:post_component, participatory_space: participatory_process) }
-  let!(:post) { create(:post, :with_endorsements, component: current_component) }
+  let!(:post) { create(:post, :with_endorsements, component: current_component, published_at: 2.days.ago) }
 
   let(:post_single_result) do
     {
@@ -157,7 +157,7 @@ describe "Decidim::Api::QueryType" do
         )
       end
 
-      let!(:other_post) { create(:post, created_at: 2.weeks.ago, updated_at: 1.week.ago, component: current_component) }
+      let!(:other_post) { create(:post, created_at: 2.weeks.ago, updated_at: 1.week.ago, component: current_component, published_at: 2.weeks.from_now) }
       let(:edges) { response["participatoryProcess"]["components"].first["posts"]["edges"] }
 
       context "when ordered by" do
