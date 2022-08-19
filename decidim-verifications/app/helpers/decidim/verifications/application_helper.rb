@@ -8,8 +8,8 @@ module Decidim
 
         body = content_tag :ul do
           [
-            content_tag :li, t("decidim.verifications.id_documents.authorizations.edit.rejection_correctness"),
-            content_tag :li, t("decidim.verifications.id_documents.authorizations.edit.rejection_clarity")
+            content_tag(:li, t("decidim.verifications.id_documents.authorizations.edit.rejection_correctness")),
+            content_tag(:li, t("decidim.verifications.id_documents.authorizations.edit.rejection_clarity"))
           ].join
         end.html_safe
 
