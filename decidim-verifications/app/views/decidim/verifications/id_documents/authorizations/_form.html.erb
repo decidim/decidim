@@ -6,7 +6,7 @@
   <%= form.text_field :document_number %>
 
   <% if using_online? %>
-    <%= form.upload :verification_attachment %>
+    <%= form.upload :verification_attachment, button_class: "button button__lg button__transparent-secondary w-full block mt-4" %>
   <% end %>
 
   <%= form.hidden_field :verification_type, value: verification_type %>

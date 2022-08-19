@@ -15,9 +15,17 @@
 
   <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
 
-  <%= decidim_form_for(@form, url: authorization_path) do |form| %>
-    <%= render partial: "form", locals: { form: form } %>
+  <div class="mb-24">
+    <%= decidim_form_for(@form, url: authorization_path) do |form| %>
+      <%= render partial: "form", locals: { form: form } %>
 
-    <%= form.submit t("decidim.verifications.id_documents.authorizations.new.send"), class: "button button__lg button__secondary", "data-disable-with" => "#{t('decidim.verifications.id_documents.authorizations.new.send')}..." %>
-  <% end %>
+      <div class="form__wrapper-block">
+        <button type="submit" class="button button__lg button__secondary">
+          <%= t("decidim.verifications.id_documents.authorizations.new.send") %>
+          <%= icon "arrow-right-line", class: "fill-current" %>
+        </button>
+      </div>
+    <% end %>
+  </div>
+
 <% end %>
