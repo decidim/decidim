@@ -25,7 +25,7 @@ module AxeMatchers
             #{indent}#{violation["helpUrl"]}
             #{indent}The following #{nodes.length} #{nodes.length == 1 ? "node" : "nodes"} violate this rule:
 
-            #{node_messages_for(nodes).compact.map { |n| n.push("") }.flatten.map { |nm| nm.length.positive? ? "#{indent}#{nm}" : "" }.join("\n")}
+            #{node_messages_for(nodes).compact.map { |n| n.push("") }.flatten.map { |nm| nm.length.positive? ? "#{indent * 2}#{nm}" : "" }.join("\n")}
           MESSAGE
         ]
       end.flatten
