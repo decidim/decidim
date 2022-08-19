@@ -7,7 +7,7 @@
   <%= decidim_form_for(resource, namespace: "password", as: resource_name, url: @send_path || password_path(resource_name), html: { method: :put, class: "register-form new_user" }) do |f| %>
     <%= form_required_explanation %>
 
-    <div class="login__form">
+    <div class="form__wrapper">
       <%= f.hidden_field :reset_password_token %>
 
       <%= f.password_field :password, password_field_options_for(current_user || params["reset_password_token"]) %>
@@ -15,7 +15,7 @@
       <%= f.password_field :password_confirmation, password_field_options_for(current_user || params["reset_password_token"]).except(:help_text) %>
     </div>
 
-    <div class="login__form-block">
+    <div class="form__wrapper-block">
       <button type="submit" class="button button__lg button__secondary">
         <%= t("devise.passwords.edit.change_my_password") %>
         <%= icon "arrow-right-line", class: "fill-current" %>

@@ -1,28 +1,23 @@
-<div class="wrapper">
-  <div class="row collapse">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center page-title">
-        <h1><%= t(".title") %></h1>
-      </div>
-    </div>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_verifications" %>
+<% end %>
 
-    <div class="row">
-      <div class="columns large-6 medium-centered">
-        <div class="card">
-          <div class="card__content">
-            <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
-            <%= decidim_form_for(@form, url: authorization_path) do |form| %>
-              <%= render partial: "form", locals: { form: form } %>
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
+<% end %>
 
-              <div class="card-section">
-                <div class="actions">
-                  <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="h1 decorator inline-block text-left mb-12">
+      <%= t("decidim.verifications.id_documents.authorizations.new.title") %>
+    </h1>
   </div>
-</div>
+
+  <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
+
+  <%= decidim_form_for(@form, url: authorization_path) do |form| %>
+    <%= render partial: "form", locals: { form: form } %>
+
+    <%= form.submit t("decidim.verifications.id_documents.authorizations.new.send"), class: "button button__lg button__secondary", "data-disable-with" => "#{t('decidim.verifications.id_documents.authorizations.new.send')}..." %>
+  <% end %>
+<% end %>
