@@ -4,18 +4,17 @@ module Decidim
   module Verifications
     module ApplicationHelper
       def announcement_title(authorization)
-        return t("decidim.verifications.id_documents.authorizations.edit.being_reviewed") if authorization.rejected?
+        return t("decidim.verifications.id_documents.authorizations.edit.being_reviewed") unless authorization.rejected?
 
         body = content_tag :ul do
-          [
-            content_tag(:li, t("decidim.verifications.id_documents.authorizations.edit.rejection_correctness")),
-            content_tag(:li, t("decidim.verifications.id_documents.authorizations.edit.rejection_clarity"))
-          ].join
-        end.html_safe
+          items = content_tag(:li, t("decidim.verifications.id_documents.authorizations.edit.rejection_correctness"))
+          items += content_tag(:li, t("decidim.verifications.id_documents.authorizations.edit.rejection_clarity")).html_safe
+          items
+        end
 
         {
           title: t("decidim.verifications.id_documents.authorizations.edit.rejection_notice"),
-          body: body
+          body:
         }
       end
     end

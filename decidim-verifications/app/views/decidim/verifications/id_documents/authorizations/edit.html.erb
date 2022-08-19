@@ -9,8 +9,7 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
   <div class="my-12">
-    <%# REDEDIGN_PENDING: sometimes throws an error of announcement_title not found %>
-    <%#= cell("decidim/announcement", announcement_title(authorization), callout_class: authorization.rejected? ? "alert" : "secondary" ) %>
+    <%= cell("decidim/announcement", announcement_title(authorization), callout_class: authorization.rejected? ? "alert" : "secondary" ) %>
   </div>
 
   <%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
