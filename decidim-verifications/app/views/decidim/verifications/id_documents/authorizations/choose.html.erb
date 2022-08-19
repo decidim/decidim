@@ -1,21 +1,24 @@
-<div class="wrapper">
-  <div class="row collapse">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center page-title">
-        <h1><%= t(".title") %></h1>
-      </div>
-    </div>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_verifications" %>
+<% end %>
 
-    <div class="row">
-      <div class="columns large-6 medium-centered">
-        <div class="card">
-          <div class="card__content">
-            <p><%= t(".choose_a_type") %></p>
-            <%= link_to t(".offline"), { action: :new, using: :offline }, class: "button button--sc expanded hollow" %>
-            <%= link_to t(".online"), { action: :new, using: :online }, class: "button button--sc expanded" %>
-          </div>
-        </div>
-      </div>
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="h1 decorator inline-block text-left">
+      <%= t("decidim.verifications.id_documents.authorizations.choose.title") %>
+    </h1>
+  </div>
+
+  <div class="mb-24">
+    <p><%= t("decidim.verifications.id_documents.authorizations.choose.choose_a_type") %></p>
+    <div class="mt-4 flex justify-between">
+      <%= link_to t("decidim.verifications.id_documents.authorizations.choose.offline"), { action: :new, using: :offline }, class: "button button__lg button__transparent-secondary" %>
+      <%= link_to t("decidim.verifications.id_documents.authorizations.choose.online"), { action: :new, using: :online }, class: "button button__lg button__secondary" %>
     </div>
   </div>
-</div>
+
+<% end %>
