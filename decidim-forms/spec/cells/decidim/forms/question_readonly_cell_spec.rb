@@ -11,7 +11,7 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
   let(:separator) { create :questionnaire_question, :separator }
   let(:title_and_description) { create :questionnaire_question, :title_and_description }
   let(:model) { question }
-  let(:indexed_items) { [question.id + 1, question.id + 2,  question.id] }
+  let(:indexed_items) { [question.id + 1, question.id + 2, question.id] }
 
   context "when using a separator" do
     let(:model) { separator }
