@@ -64,30 +64,30 @@ describe AxeMatchers, type: :system do
               https://dequeuniversity.com/rules/axe/4.4/landmark-one-main?application=axeAPI
               The following 1 node violate this rule:
 
-              Selector: html
-              HTML: #{simplified_html}
-              Fix all of the following:
-              - Document does not have a main landmark
+                  Selector: html
+                  HTML: #{simplified_html}
+                  Fix all of the following:
+                  - Document does not have a main landmark
 
 
           2) page-has-heading-one: Page should contain a level-one heading (moderate)
               https://dequeuniversity.com/rules/axe/4.4/page-has-heading-one?application=axeAPI
               The following 1 node violate this rule:
 
-              Selector: html
-              HTML: #{simplified_html}
-              Fix all of the following:
-              - Page must have a level-one heading
+                  Selector: html
+                  HTML: #{simplified_html}
+                  Fix all of the following:
+                  - Page must have a level-one heading
 
 
           3) region: All page content should be contained by landmarks (moderate)
               https://dequeuniversity.com/rules/axe/4.4/region?application=axeAPI
               The following 1 node violate this rule:
 
-              Selector: div
-              HTML: <div><p>Plain HTML page</p></div>
-              Fix any of the following:
-              - Some page content is not contained by landmarks
+                  Selector: div
+                  HTML: <div><p>Plain HTML page</p></div>
+                  Fix any of the following:
+                  - Some page content is not contained by landmarks
 
 
         MSG
