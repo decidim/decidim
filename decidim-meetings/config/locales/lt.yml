@@ -96,6 +96,7 @@ lt:
               'false': Praėję
               'true': Artėjantys
           origin_eq:
+            label: Kilmė
             values:
               official: Oficialus
           scope_id_eq:
@@ -472,7 +473,9 @@ lt:
             past: Praėję
             upcoming: Artėjantys
           my_meetings: Susirinkimai
+          origin: Kilmė
           origin_values:
+            all: Visi
             official: Oficialus
             user_groups: Grupės
           scope: Apimtis
@@ -502,7 +505,34 @@ lt:
           select_a_registration_type: Pasirinkite registracijos tipą
           select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
           show_embedded_iframe_help: Tik kelios paslaugos gali būti integruotos susitikimuose (YouTube, Twitch, Jitsi)
+        index:
+          click_here: Žiūrėti visus susitikimus
+          new_meeting: Naujas susitikimas
+          see_all: Žiūrėti visus susitikimus
+          see_all_withdrawn: Žiūrėti visus atšauktus susitikimus
+          text_banner: Jūs žiūrite susitikimų, kuriuos atšaukė jų autoriai, sąrašą. %{go_back_link}.
+        meeting_minutes:
+          related_information: Susijusi informacija
+        meetings:
+          no_meetings_warning: Nei vienas susitikimas neatitinka jūsų paieškos kriterijų arba nėra suplanuotų susitikimų.
+          upcoming_meetings_warning: Šiuo metu suplanuotų susitikimų nėra, tačiau čia galite rasti visus buvusius susitikimus.
+        new:
+          back: Atgal
+          create: Sukurti
+          title: Sukurkite savo susitikimą
+        registration_confirm:
+          cancel: Atšaukti
+          confirm: Patvirtinti
         show:
+          attendees: Dalyvių skaičius
+          back: Grįžti į sąrašą
+          close_meeting: Uždaryti susitikimą
+          contributions: Nuomonių skaičius
+          date: Data
+          edit_close_meeting: Redaguoti susitikimo ataskaitą
+          edit_meeting: Redaguoti susitikimą
+          going: Jūs užsiregistravote šiame susitikime
+          join: Prisijunkite prie susitikimo
           leave: Atšaukti registraciją
           leave_confirmation: Ar tikrai norite atšaukti savo registraciją į šį susirinkimą?
           link_available_soon: Nuoroda bus prieinama neužilgo
@@ -555,6 +585,21 @@ lt:
         questions:
           closed_question:
             question_results: Klausimų rezultatai
+          index:
+            empty_questions: Viso šio susitikimo metu bus siunčiami klausimai ir galėsite į juos atsakyti. Jie bus rodomi čia.
+          index_admin:
+            admin_dashboard: Administratoriaus skydelis
+            edit: Redaguoti administratoriaus skydelyje
+            question: Klausimas
+            received_answer: gautas atsakymas
+            received_answers: gauti atsakymai
+            results: Rezultatai
+            send: Siųsti
+            sent: Išsiųsta
+          published_question:
+            max_choices_alert: Per daug pasirinktų variantų
+            question: Klausimas
+            question_replied: Klausimas atsakytas
       registration_mailer:
         confirmation:
           confirmed_html: Jūsų registracija į susirinkimą <a href="%{url}">%{title}</a> buvo patvirtinta.
