@@ -20,7 +20,7 @@ module Decidim
     # Returns a String.
     def html_truncate(text, options = {})
       options[:max_length] = options.delete(:length) || options[:max_length]
-      options[:tail] = options.delete(:separator) || options[:tail] || "..."
+      options[:tail] = options.delete(:separator) || options[:tail] || "…"
       options[:count_tags] ||= false
       options[:count_tail] ||= false
       options[:tail_before_final_tag] = true unless options.has_key?(:tail_before_final_tag)
