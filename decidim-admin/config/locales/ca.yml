@@ -510,7 +510,7 @@ ca:
         notice: "%{count} %{resource_name} importat correctament"
       logs:
         filters:
-          participatory_space: Trobar espai de particiació
+          participatory_space: Trobar espai de participació
           text: Cerca per correu electrònic, nom o àlies.
           user: Usuària
         logs_list:
