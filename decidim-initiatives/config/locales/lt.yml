@@ -334,6 +334,7 @@ lt:
         fill_data:
           back: Atgal
           continue: Tęsti
+          fill_data_help: "<ul> <li>Peržiūrėkite savo iniciatyvos turinį. Ar jūsų pavadinimas lengvai suprantamas? Ar jūsų iniciatyvos tikslas aiškus?</li> <li>Turite pasirinkti parašo rūšį. Asmeniškai, internetu, derinti abu būdus</li> <li>Kokia iniciatyvos geografinė taikymo sritis?</li> </ul>"
           initiative_type: Iniciatyvos tipas
           more_information: "(Daugiau informacijos)"
           select_area: Pasirinkti erdvę
