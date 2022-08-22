@@ -515,7 +515,7 @@ es:
           user: Usuaria
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad.
-          no_matching_logs: No hay registros con los filtros de búsqueda seleccionados. Intenta cambiarlos e inténtelo de nuevo.
+          no_matching_logs: No hay registros con los filtros de búsqueda seleccionados. Prueba con otros e inténtalo de nuevo.
       managed_users:
         promotion:
           error: Se ha producido un error al promocionar a esta participante.
