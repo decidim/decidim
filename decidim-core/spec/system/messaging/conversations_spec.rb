@@ -126,7 +126,7 @@ describe "Conversations", type: :system do
       visit_inbox
       click_link "conversation-#{conversation.id}"
 
-      expect(page).to have_content("Conversation with #{interlocutor.name}")
+      expect(page).to have_content("Conversation with\n#{interlocutor.name}")
       expect(page).to have_content("who wants apples?")
     end
 
@@ -229,7 +229,7 @@ describe "Conversations", type: :system do
         end
 
         it "allows user to see old messages" do
-          expect(page).to have_content("Conversation with #{interlocutor.name}")
+          expect(page).to have_content("Conversation with\n#{interlocutor.name}")
           expect(page).to have_content("who wants apples?")
         end
 
