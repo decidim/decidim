@@ -1802,8 +1802,11 @@ lt:
           accept_all: Priimti visus
           accept_only_essential: Sutikti tik su būtinaisiais slapukais
           analytics:
+            description: Šie slapukai naudojami svetainės auditorijai matuoti ir analizuoti, siekiant tobulinti svetainę.
             title: Analitika ir statistika
+          description: Naudojame slapukus siekdami užtikrinti pagrindines svetainės funkcijas ir pagerinti jūsų patirtį. Galite bet kada konfigūruoti ir sutikti su slapukų naudojimu bei keisti leidimų parinktis.
           essential:
+            description: Šie slapukai užtikrina pagrindines svetainės funkcijas ir padeda užtikrinti jos naudotojų saugumą. Jie automatiškai išsaugomi naršyklėje ir negali būti išjungti.
             title: Esminiai
           marketing:
             title: Marketingas
