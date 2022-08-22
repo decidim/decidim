@@ -1809,8 +1809,10 @@ lt:
             description: Šie slapukai užtikrina pagrindines svetainės funkcijas ir padeda užtikrinti jos naudotojų saugumą. Jie automatiškai išsaugomi naršyklėje ir negali būti išjungti.
             title: Esminiai
           marketing:
+            description: Šie slapukai renka informaciją apie tai, kaip naudojatės svetaine, ir gali būti naudojami siekiant teikti labiau suasmenintą rinkodarą įvairiose jūsų lankomose svetainėse.
             title: Marketingas
           preferences:
+            description: Šie slapukai leidžia svetainei prisiminti jūsų ankstesnius pasirinkimus, kad būtų galima labiau suasmeninti svetainės naudotojų patirtį.
             title: Nuostatos
           save_settings: Išsaugoti nustatymus
           title: Slapukų nustatymai
@@ -1818,6 +1820,7 @@ lt:
         warning:
           all_categories: visi slapukai
           change_settings: Keisti slapukų nuostatas
+          consent_required: Norėdami pamatyti šį turinį, turite įjungti %{categories}.
       edit_link:
         edit: Redaguoti
       footer:
