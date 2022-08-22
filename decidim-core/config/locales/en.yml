@@ -1082,14 +1082,10 @@ en:
         index:
           ago: ago
           close: Close modal
-          from: From
-          last_message: Last message
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet
-          read_conversation: Read conversation
           title: Conversations
-          to: To
         reply:
           placeholder: Your reply...
           send: Send
