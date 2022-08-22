@@ -9,8 +9,14 @@ module Decidim
         record = double("record").as_null_object
 
         options = {
-          data: {},
-          html: { novalidate: false }
+          data: {
+            abide: true,
+            "live-validate" => true,
+            "validate-on-blur" => true
+          },
+          html: {
+            novalidate: true
+          }
         }
 
         expect(helper).to receive(:form_for).with(record, options)
