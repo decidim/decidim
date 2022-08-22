@@ -245,15 +245,15 @@ es:
           create_election:
             census: Censo
             errors:
-              census_codes_generated: No se generan códigos electorales para el censo.
-              census_frozen: No se exportan lo códigos electorales.
-              census_uploaded: No se ha subido el censo para estas elecciones.
+              census_codes_generated: Los códigos de la elección para el censo no se han podido generar.
+              census_frozen: Los códigos de la elección no se han podido exportar.
+              census_uploaded: No se ha subido ningún censo para esta elección.
               component_published: La elección <strong>no está publicada</strong>.
               max_selections: Las preguntas no tienen un valor <strong>correcto para la cantidad de respuestas</strong>
               minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
               minimum_questions: La elección <strong>debe tener al menos una pregunta</strong>.
               published: La elección <strong>no está publicada</strong>.
-              time_before: La hora de inicio está en <strong>menos de %{hours} horas</strong> antes de que comience la elección.
+              time_before: Se ha configurado la hora de inicio en <strong>menos de %{hours} horas</strong> antes de que comience la elección.
               trustees_number: El espacio participativo <strong>debe tener al menos %{number} garantes con clave pública</strong>.
             invalid: Hubo un problema al configurar esta elección
             no_trustees: No hay garantes configurados para este espacio participativo
