@@ -614,6 +614,16 @@ lt:
           published_question:
             max_choices_alert: Per daug pasirinktų variantų
             question: Klausimas
+            question_replied: Klausimas atsakytas
+            reply_question: Atsakyti į klausimą
+      public_participants_list:
+        attending_participants: Dalyviai
+        hidden_participants_count:
+          one: ir dar %{count} žmogus
+          few: ir dar %{count} žmonės (-ių)
+          many: ir dar %{count} žmonės (-ių)
+          other: ir dar %{count} žmonės (-ių)
+      read_more: "(skaityti toliau)"
       registration_mailer:
         confirmation:
           confirmed_html: Jūsų registracija į susirinkimą <a href="%{url}">%{title}</a> buvo patvirtinta.
