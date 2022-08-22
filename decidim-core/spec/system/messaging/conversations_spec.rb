@@ -473,18 +473,20 @@ describe "Conversations", type: :system do
         end
       end
 
-      context "when listing the conversations" do
-        before do
-          visit decidim.conversations_path
-        end
+      # REDESIGN_PENDING: After redesing the list of interlocutors is not shortened
+      # to 3 and the full list is rendered. If correct delete this example
+      # it "shows only the first 3 participant name plus the number of remaining participants" do
+      # context "when listing the conversations" do
+      #   before do
+      #     visit decidim.conversations_path
+      #   end
 
-        it "shows only the first 3 participant name plus the number of remaining participants" do
-          within ".mr-s > strong" do
-            expect(page).to have_content("+ 6")
-            expect(page).not_to have_content(user.name.upcase)
-          end
-        end
-      end
+      #     within "[data-interlocutors-list]" do
+      #       expect(page).to have_content("+ 6")
+      #       expect(page).not_to have_content(user.name.upcase)
+      #     end
+      #   end
+      # end
     end
   end
 
