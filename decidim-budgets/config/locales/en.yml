@@ -172,6 +172,7 @@ en:
         projects_count:
           one: 1 project
           other: "%{count} projects"
+        remove_vote: Remove vote
         show: See projects
         vote: Vote
         voted_budgets: Voted budgets
