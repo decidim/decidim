@@ -45,7 +45,7 @@ nl:
         enable_omnipresent_banner: Toon permanente header
         enable_participatory_space_filters: Schakel filters in voor de participatieve ruimte
         facebook_handler: Facebook naam
-        favicon: Pictogram
+        favicon: Favicon
         force_authentication: Verplicht aanmelden
         force_users_to_authenticate_before_access_organization: Verplicht gebruikers om zich aan te melden voor toegang tot de organisatie
         from: E-mailadres afzender
@@ -126,7 +126,7 @@ nl:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Selecteer ten minste één participatieve ruimte
+              at_least_one_space: Selecteer minstens één participatieve ruimte
         organization:
           attributes:
             official_img_footer:
@@ -334,9 +334,17 @@ nl:
         title: Controle conflicten
         transfer:
           email: E-mail
+          error: Er is een probleem opgetreden bij het overbrengen van de huidige deelnemer naar een beheerde deelnemer.
+          name: Naam
+          reason: Reden
+          success: De overdracht is met succes voltooid.
+          title: Overdracht
+        'true': 'Ja'
+        user_name: Gebruiker
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
+          welcome: Welkom bij de beheerder omgeving.
       domain_whitelist:
         form:
           domain_too_short: Domein te kort
@@ -500,6 +508,14 @@ nl:
           file_legend: Een importbestand toevoegen dat zal worden verwerkt.
           import: Importeren
         notice: "%{number} %{resource_name} succesvol geïmporteerd"
+      logs:
+        filters:
+          participatory_space: Zoek een participatieve ruimte
+          text: Doorzoek op e-mail, naam of bijnaam.
+          user: Gebruiker
+        logs_list:
+          no_logs_yet: Er zijn nog geen logs.
+          no_matching_logs: Er zijn geen logs met deze zoekfilters. Probeer ze te wijzigen en opnieuw te proberen.
       managed_users:
         promotion:
           error: Er was een probleem met het promoten van de beheerde deelnemer.
@@ -521,8 +537,10 @@ nl:
         help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
+        moderation: Algemene moderatie
         newsletters: Nieuwsbrieven
         participants: Deelnemers
+        reported_users: Gerapporteerde gebruikers
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -578,6 +596,14 @@ nl:
           fields:
             name: Naam
             plural: Meervoud
+        share_token:
+          fields:
+            created_at: Aangemaakt op
+            expires_at: Vervalt op
+            last_used_at: Laatste keer gebruikt
+            times_used: Aantal keren gebruikt
+            token: Token
+            user: Aangemaakt door
         static_page:
           fields:
             created_at: Aangemaakt op
@@ -603,8 +629,25 @@ nl:
             state: Staat
             users_count: Aantal deelnemers
       moderated_users:
+        index:
+          actions:
+            block: Gebruiker blokkeren
+            title: Acties
+            unblock: Deblokkeer gebruiker
+            unreport: Niet langer rapporteren
+          name: Naam
+          nickname: Bijnaam
+          reason: Reden
+          reports: Aantal rapporteringen
+          title: Gerapporteerde gebruikers weergeven
+        report:
+          reasons:
+            does_not_belong: Hoort niet bij
+            offensive: Beledigend
+            spam: Spam
         tabs:
           blocked: Geblokkeerd
+          unblocked: Niet geblokkeerd
       moderations:
         index:
           title: Moderaties
@@ -711,6 +754,7 @@ nl:
           officialize: "Valideren\n"
           officialized: Gevalideerd
           reofficialize: Hervalideren
+          reports: Rapporten
           show_email: Toon e-mailadres
           status: status
           unblock: Deblokkeer gebruiker
@@ -798,8 +842,23 @@ nl:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
           success: Het CSV-bestand is succesvol geüploaded. We sturen een uitnodigingsmail naar de deelnemers. Dit kan even duren.
         new:
+          destroy:
+            button: Verwijder alle privé deelnemers
+            confirm: Weet je zeker dat je alle privédeelnemers wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt, je kan ze achteraf niet herstellen.
+            empty: Je hebt geen privé deelnemers.
+            explanation: Je hebt %{count} privédeelnemers.
+            title: Verwijder privé deelnemer
+          explanation: 'Upload het CSV-bestand zonder headers. Het moet uit twee kolommen bestaan, met het e-mailadres in de eerste kolom en de naam in de laatste kolom van de gebruikers die je wil toevoegen aan de participatieve ruimte (e-mail, naam). Vermijd tekens als `<>?%&^*#@()[]=+:;"{}\|` in de namen.'
           title: Upload het CSV-bestand
           upload: Upload
+      reminders:
+        create:
+          error: Er is een probleem opgetreden bij het maken van herinneringen.
+          success:
+            one: "%{count} gebruiker zal een herinnering krijgen."
+            other: "%{count} gebruikers zullen een herinnering krijgen."
+        new:
+          submit: Verzenden
       resource_permissions:
         edit:
           submit: Bevestigen
@@ -848,10 +907,16 @@ nl:
           share: Deel
         destroy:
           error: Er is een fout opgetreden bij het vernietigen van de token.
+          success: Token met succes verwijderd.
+        share_tokens:
+          empty: Er zijn geen actieve tokens
+          help: Deze tokens worden gebruikt om deze niet-gepubliceerde bron openbaar te delen met alle gebruikers. Ze worden verborgen wanneer de bron is gepubliceerd. Klik op het pictogram “delen” van het token om de deelbare URL te bezoeken.
+          title: Tokens delen
       shared:
         gallery:
           add_images: Afbeeldingen toevoegen
           delete_image: Afbeelding verwijderen
+          edit_images: Bewerk afbeeldingen
           gallery_legend: Voeg een afbeeldingsgalerij toe (optioneel)
       static_page_topics:
         create:
@@ -905,12 +970,14 @@ nl:
         impersonatable_users: Beheersbare deelnemers
         impersonations: Beheer van deelnemers
         metrics: Cijfers
+        panel: Admin
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's
         statistics: Activiteit
         user_groups: groepen
+        users: Beheerders
       user_group:
         csv_verify:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
@@ -946,6 +1013,7 @@ nl:
           role: Rol
         new:
           create: Nodig uit
+          title: Nodig gebruiker uit als beheerder
       users_statistics:
         users_count:
           admins: Admins
@@ -962,6 +1030,7 @@ nl:
     metrics:
       blocked_users:
         object: geblokkeerde gebruikers
+        title: Geblokkeerde gebruikers
       reported_users:
         object: gerapporteerde gebruikers
         title: Gerapporteerde gebruikers
@@ -995,6 +1064,7 @@ nl:
             hidden_at: Verborgen op
             participatory_space: Participatieve ruimte
             report_count: Aantal
+            reportable_id: ID
             reportable_type: Type
             reported_content_url: Gerapporteerde inhouds-URL
             reports: Meldingen
