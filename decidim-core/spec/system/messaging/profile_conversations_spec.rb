@@ -257,14 +257,14 @@ describe "ProfileConversations", type: :system do
         end
 
         it "appears as unread", :slow do
-          expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "2")
+          expect(page).to have_selector(".conversation__item-unread", text: "2")
         end
 
         it "appears as read after it's seen", :slow do
           click_link "conversation-#{conversation.id}"
           expect(page).to have_content("Please reply!")
 
-          find("a.card--list__data__icon--back").click
+          visit decidim.conversations_path
           expect(page).to have_no_selector(".card.card--widget .unread_message__counter")
         end
       end
