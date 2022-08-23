@@ -1,3 +1,5 @@
-<div>
+<div class="icon--container">
+  <%= icon "project", role: "img", aria_label: Decidim::Budgets::Project.model_name.human(count: 1) %>
+  &nbsp;
   <%= t(:projects_count, scope: i18n_scope, count: Decidim::Budgets::Project.where(budget: budget).count) %>
 </div>
