@@ -1,0 +1,14 @@
+<% if voted? %>
+  <%= link_to(
+        budget_order_path(budget),
+        method: :delete,
+        class: "icon--container",
+        data: { confirm: t(:are_you_sure, scope: "decidim.budgets.projects.budget_summary") }
+      ) do %>
+    <div class="icon--container">
+      <%= icon "trash", role: "img", aria_label: t(:remove_vote, scope: i18n_scope) %>
+      &nbsp;
+      <%= t(:remove_vote, scope: i18n_scope) %>
+    </div>
+  <% end %>
+<% end %>
