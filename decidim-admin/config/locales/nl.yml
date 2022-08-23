@@ -64,6 +64,9 @@ nl:
         host: Host
         instagram_handler: Instagram gebruikersnaam
         logo: Logo
+        machine_translation_display_priority: Voorrang weergave machinevertaling
+        machine_translation_display_priority_original: Oorspronkelijke tekst eerst
+        machine_translation_display_priority_translation: Vertaalde tekst eerst
         name: Naam
         official_img_footer: Officieel logo voettekst
         official_img_header: Officieel logo header
@@ -101,6 +104,8 @@ nl:
         name: Naam
         organization: Organisatie
         plural: Meervoud
+      settings:
+        scope_id: Scope
       static_page:
         allow_public_access: Toegang zonder authenticatie toestaan
         changed_notably: Er zijn merkbare veranderingen geweest.
@@ -119,6 +124,10 @@ nl:
         file: Bestand
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecteer ten minste één participatieve ruimte
         organization:
           attributes:
             official_img_footer:
@@ -167,6 +176,9 @@ nl:
         per_page: Per pagina
         permissions: Permissies
         reject: Weigeren
+        share: Deel
+        user:
+          new: Nieuwe admin
         verify: Verifiëren
       admin_terms_of_use:
         accept:
@@ -249,6 +261,8 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze bijlage.
           success: Bijlage is succesvol bijgewerkt.
+      attachments_privacy_warning:
+        message: Wees voorzichtig bij het werken met bijlagen in een privéruimte. Elke deelnemer kan dit document delen met anderen.
       autocomplete:
         no_results: geen resultaten gevonden
         search_prompt: Typ minimaal drie tekens om te zoeken
@@ -314,7 +328,13 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
           success: Het onderdeel is met succes bijgewerkt.
       conflicts:
+        attempts: Pogingen
+        'false': 'Nee'
+        managed_user_name: Beheerde gebruiker
+        solved: Opgelost
         title: Controle conflicten
+        transfer:
+          email: E-mail
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
