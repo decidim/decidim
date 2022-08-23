@@ -1,0 +1,3 @@
+<div>
+  <%= t(:projects_count, scope: i18n_scope, count: Decidim::Budgets::Project.where(budget: budget).count) %>
+</div>
