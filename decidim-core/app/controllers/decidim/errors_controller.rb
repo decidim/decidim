@@ -10,6 +10,8 @@ module Decidim
     end
 
     def internal_server_error
+      @reference_id = SecureRandom.uuid
+      logger.error @reference_id
       render status: :internal_server_error
     end
   end

@@ -5,27 +5,37 @@
       <h1 class="heading1 page-title"><%= t(".title") %></h1>
       <p><%= t(".try_later") %></p>
       <div rows="6" id="input-text">
-        <p>
-          <span><%= "User Id: " %></span>
-          <%= user = try(:current_user)&.id || "Unknown"%>
-        </p>
-        <p>
-          <span><%= "Date & Time: " %></span>
-          <%= date_and_time = l(Time.current, format: "%d/%m/%Y - %H:%M") %>
-        </p>
-        <p>
-          <span><%= "URL: " %></span>
-          <%= request_url = try(:request).env["HTTP_REFERER"] || "Unknown" %>
-        </p>
-        <input id="urlShareLink" type="text" class="hide" value="<%= "User Id: #{user}\nDate & Time: #{date_and_time}\nURL: #{request_url}" %>">
+        <div class="card--list__item">
+          <div class="card--list__text">
+            <strong class="margin-right-2"><%= t(".user_id") %></strong>
+            <%= user = try(:current_user)&.id || t(".unknown") %>
+          </div>
+        </div>
+        <div class="card--list__item">
+          <div class="card--list__text">
+            <strong class="margin-right-2"><%= t(".date_and_time") %></strong>
+            <%= date_and_time = l(Time.current, format: "%d/%m/%Y - %H:%M") %>
+          </div>
+        </div>
+        <div class="card--list__item">
+          <div class="card--list__text">
+            <strong class="margin-right-2"><%= t(".url") %></strong>
+            <%= request_url = try(:request).env["HTTP_REFERER"] || t(".unknown") %>
+          </div>
+        </div>
+        <div class="card--list__item">
+          <div class="card--list__text">
+            <%= @reference_id %>
+          </div>
+        </div>
+        <input id="urlShareLink" type="text" class="hide" value="<%= "User Id: #{ user }\nDate & Time: #{ date_and_time }\nURL: #{ request_url } Reference ID:#{ @reference_id }" %>">
         <div class="input-group-button">
           <button class="button primary float-right"
             data-clipboard-copy="#urlShareLink"
-            data-clipboard-copy-label="<%= "Text copied!" %>"
-            data-clipboard-copy-message="<%= "another thing" %>"
-            aria-label="<%= "third thing" %>">
+            data-clipboard-copy-label="<%= t(".copied") %>"
+            aria-label="<%= t(".copy_error_message_clarification") %>">
               <%= icon "clipboard", role: "img", "aria-hidden": true %>
-              <%= "copy this" %>
+              <%= t(".copy_to_clipboard") %>
           </button>
         </div>
       </div>
