@@ -1,7 +1,7 @@
 // import { createPopup } from "@picmo/popup-picker"; // overridden due to the bug
 import { PopupPickerController } from "@picmo/popup-picker";
 import { createStyleInjector } from "picmo";
-import * as css from "@picmo/popup-picker/dist/index.css?inline";
+import css from "!css-loader!@picmo/popup-picker/dist/index.css";
 
 /**
  * Turns a deep messages object into a dictionary object with a single level and
