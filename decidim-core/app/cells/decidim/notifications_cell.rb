@@ -17,9 +17,13 @@ module Decidim
     private
 
     def validation_messages
-      return [] if notifications.present?
+      return [] if notifications_with_resource.present?
 
       [t("decidim.notifications.no_notifications")]
+    end
+
+    def notifications_with_resource
+      @notifications_with_resource ||= notifications.select(&:resource)
     end
 
     def notifications

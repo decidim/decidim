@@ -1,5 +1,5 @@
 <div data-notifications>
-  <% notifications.select(&:resource).each do |notification| %>
+  <% notifications_with_resource.each do |notification| %>
     <%= cell("decidim/notification", notification) %>
   <% end %>
 </div>
