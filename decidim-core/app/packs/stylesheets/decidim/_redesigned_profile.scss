@@ -138,7 +138,7 @@
     &-title{
       @apply absolute rounded text-primary bg-white top-full left-1/2 -translate-y-1/2 -translate-x-1/2 z-10 px-1.5 font-semibold;
 
-      box-shadow: 0 4px 6px 0 rgba(211, 211, 211, .25);
+      box-shadow: 0 4px 6px 0 rgba(211, 211, 211, 0.25);
     }
 
     &-name{
