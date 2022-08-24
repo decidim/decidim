@@ -67,6 +67,11 @@ describe "Explore Budgets", :slow, type: :system do
 
           expect(item).to have_selector(".budget-list__icon span.warning")
           expect(item).to have_link("Finish voting", href: budget_path(budget))
+        end
+
+        it "shows the projects count and it has no remove vote link" do
+          visit_component
+
           expect(page).to have_no_content("Remove vote")
           expect(item).to have_content("3 projects")
         end
@@ -88,8 +93,20 @@ describe "Explore Budgets", :slow, type: :system do
 
           expect(item).to have_selector(".budget-list__icon span.success")
           expect(item).to have_link("See projects", href: budget_path(budget))
-          expect(item).to have_content("Remove vote")
+        end
+
+        it "shows the projects count" do
           expect(page).to have_content("0 projects")
+        end
+
+        it "has a link to remove vote" do
+          visit_component
+
+          expect(item).to have_content("Remove vote")
+          within item do
+            accept_confirm { click_link "Remove vote" }
+            expect(Decidim::Budgets::Order.where(budget: budget)).to be_blank
+          end
         end
       end
     end
