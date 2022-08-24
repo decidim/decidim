@@ -1,15 +1,7 @@
-<%
-validations = [];
-
-validations << t("decidim.notifications.no_notifications") if !notifications.any?
-
-validations.each do |validation|
-%>
-  <%= cell("decidim/announcement", validation) %>
-<% end %>
-
-<% notifications.select(&:resource).each do |notification| %>
-  <%= cell("decidim/notification", notification) %>
-<% end %>
+<div data-notifications>
+  <% notifications.select(&:resource).each do |notification| %>
+    <%= cell("decidim/notification", notification) %>
+  <% end %>
+</div>
 
 <%= decidim_paginate notifications %>
