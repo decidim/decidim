@@ -159,6 +159,11 @@ export default function addInputEmoji() {
       picker.addEventListener("emoji:select", ({emoji}) => {
         elem.value += ` ${emoji} `
 
+        // Make sure the input event is dispatched on the input/textarea elements
+        if (elem.tagName === "TEXTAREA" || elem.tagName === "INPUT") {
+          elem.dispatchEvent(new Event("input"));
+        }
+
         const event = new Event("emoji.added");
         elem.dispatchEvent(event);
       });
