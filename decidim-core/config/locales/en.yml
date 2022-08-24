@@ -1708,6 +1708,7 @@ en:
     scopes:
       public: Your public information.
   emojis:
+    button: Add emoji
     categories:
       activities: Activities
       animals-nature: Animals & Nature
