@@ -25,10 +25,10 @@
         </div>
         <div class="card--list__item">
           <div class="card--list__text">
-            <%= @reference_id %>
+            <strong class="margin-right-2"><%= t(".reference") %></strong><%= @reference_id %>
           </div>
         </div>
-        <input id="urlShareLink" type="text" class="hide" value="<%= "User Id: #{ user }\nDate & Time: #{ date_and_time }\nURL: #{ request_url } Reference ID:#{ @reference_id }" %>">
+        <input id="urlShareLink" type="text" class="hide" value="<%= "User Id: #{ user }, Date & Time: #{ date_and_time },URL: #{ request_url },Reference ID:#{ @reference_id }" %>">
         <div class="input-group-button">
           <button class="button primary float-right"
             data-clipboard-copy="#urlShareLink"
