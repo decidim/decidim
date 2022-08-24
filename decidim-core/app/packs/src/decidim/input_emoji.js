@@ -1,4 +1,7 @@
-import { createPopup } from "@picmo/popup-picker";
+// import { createPopup } from "@picmo/popup-picker"; // overridden due to the bug
+import { PopupPickerController } from "@picmo/popup-picker";
+import { createStyleInjector } from "picmo";
+import * as css from "@picmo/popup-picker/dist/index.css?inline";
 
 /**
  * Turns a deep messages object into a dictionary object with a single level and
@@ -22,6 +25,61 @@ const dictionary = (messages, prefix = "") => {
 
   return final;
 };
+
+/**
+ * This override fixes the following bug:
+ * https://github.com/joeattardi/picmo/issues/240
+ *
+ * The `createPopup` override below is also for the same reason. Without the
+ * bug, we could use the `cretePopup` method from @picmo/popup-picker.
+ */
+class PickerController extends PopupPickerController {
+  async open({ triggerElement, referenceElement } = {}) {
+    if (this.isOpen) {
+      return;
+    }
+
+    if (triggerElement) {
+      this.triggerElement = triggerElement;
+    }
+
+    if (referenceElement) {
+      this.referenceElement = referenceElement;
+    }
+
+    await this.initiateOpenStateChange(true);
+    this.options.rootElement.appendChild(this.popupEl);
+    await this.setPosition();
+    this.pickerReset();
+
+    await this.animatePopup(true);
+    await this.animateCloseButton(true);
+    this.picker.setInitialFocus();
+    this.externalEvents.emit("picker:open");
+  }
+
+  pickerReset() {
+    if (this.picker.pickerReady) {
+      this.picker.emojiArea.reset(false);
+      this.picker.showContent(this.emojiArea);
+    }
+
+    this.picker.search?.clear();
+    this.picker.hideVariantPopup();
+  }
+}
+
+const styleInject = createStyleInjector();
+
+const createPopup = (pickerOptions, popupOptions) => {
+  styleInject(css);
+
+  const popup = new PickerController({
+    autoFocus: "auto",
+    ...pickerOptions
+  }, popupOptions);
+  return popup;
+}
 
 // eslint-disable-next-line require-jsdoc
 export default function addInputEmoji() {
