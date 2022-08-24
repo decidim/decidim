@@ -1,7 +1,5 @@
 // import { createPopup } from "@picmo/popup-picker"; // overridden due to the bug
 import { PopupPickerController } from "@picmo/popup-picker";
-import { createStyleInjector } from "picmo";
-import css from "!css-loader!@picmo/popup-picker/dist/index.css";
 
 /**
  * Turns a deep messages object into a dictionary object with a single level and
@@ -69,11 +67,7 @@ class PickerController extends PopupPickerController {
   }
 }
 
-const styleInject = createStyleInjector();
-
 const createPopup = (pickerOptions, popupOptions) => {
-  styleInject(css);
-
   const popup = new PickerController({
     autoFocus: "auto",
     ...pickerOptions
