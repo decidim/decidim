@@ -1080,7 +1080,6 @@ pt:
         sub_hero:
           register: Registar
       index:
-        read_more: Ler mais
         standalone_pages: Páginas
         subheading: Navegar pelas páginas de ajuda de %{name}
         title: Ajuda
