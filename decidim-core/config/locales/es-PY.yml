@@ -604,6 +604,9 @@ es-PY:
       identities:
         done: Hecho
         select_identity: Seleccionar identidad
+    endorsers_list:
+      close: Cerrar
+      endorsed_by: Le gusta a…
     errors:
       internal_server_error:
         title: Ha habido un problema con nuestro servidor
@@ -1734,7 +1737,10 @@ es-PY:
       data_consent:
         details:
           columns:
+            description: Descripción
+            name: Nombre
             service: Servicio
+            type: Tipo
           items:
             _session_id:
               description: Permite a los sitios web recordar a la usuaria dentro de un sitio web cuando se mueve entre páginas web.
@@ -1743,9 +1749,11 @@ es-PY:
               description: Almacena información sobre las cookies permitidas por la usuaria en esta página web.
               service: Esta página web
             pwaInstallPromptSeen:
+              description: Guarda el estado si la notificación de instalación de la aplicación web progresiva (PWA) ya ha sido vista por la usuaria.
               service: Esta página web
           types:
             cookie: Cookie
+            local_storage: Almacenamiento local
         dialog:
           accept_all: Aceptar todas
           accept_only_essential: Aceptar solo las esenciales
@@ -1756,12 +1764,17 @@ es-PY:
           accept_all: Aceptar todas
           accept_only_essential: Aceptar solo las esenciales
           analytics:
+            description: Estas cookies se utilizan para medir y analizar la audiencia del sitio web para ayudar a mejorarlo.
             title: Analíticas y estadísticas
+          description: Utilizamos cookies para asegurar las funcionalidades básicas del sitio web y para mejorar tu experiencia en línea. Puedes configurar y aceptar el uso de las cookies, y modificar tus opciones de consentimiento en cualquier momento.
           essential:
+            description: Estas cookies permiten la funcionalidad clave del sitio web y ayudan a mantener a sus usuarias seguras. Se guardan automáticamente en el navegador y no se pueden desactivar.
             title: Esenciales
           marketing:
+            description: Estas cookies recopilan información sobre cómo utilizas el sitio web y se pueden utilizar para proporcionarte un servicio más personalizado en los diferentes espacios en los que participas.
             title: Marketing
           preferences:
+            description: Estas cookies permiten que el sitio web recuerde las opciones que se han elegido en el pasado en este sitio web para proporcionar una experiencia más personalizada a las usuarias.
             title: Preferencias
           save_settings: Guardar configuración
           title: Configuración de cookies
@@ -1769,6 +1782,7 @@ es-PY:
         warning:
           all_categories: todas las cookies
           change_settings: Cambiar la configuración de cookies
+          consent_required: Necesitas habilitar %{categories} para ver este contenido.
       edit_link:
         edit: Editar
       footer:
@@ -1840,7 +1854,7 @@ es-PY:
     nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: No tiene suficientes caracteres únicos
     password_not_allowed: No se permite
-    password_repeated: no puedes reutilizar una vieja contraseña
+    password_repeated: no puedes reutilizar una contraseña antigua
     password_too_common: Es demasiado común
     password_too_long: Es demasiado largo
     password_too_short: Es demasiado corto
