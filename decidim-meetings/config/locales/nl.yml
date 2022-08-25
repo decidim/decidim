@@ -43,6 +43,10 @@ nl:
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Deze URL kan niet worden ingesloten in vergadering of live evenement pagina
         meeting_agenda:
           attributes:
             base:
@@ -89,12 +93,17 @@ nl:
           scope_id_eq:
             label: Scope
           with_any_origin:
+            label: Afkomstig van
             values:
+              official: Officieel
+              participants: Deelnemer
               user_group: Gebruikersgroepen
           with_any_type:
             label: Type vergadering
             values:
+              hybrid: Hybride
               in_person: Fysiek
+              online: Online
       meeting_copies:
         create:
           error: Er is een fout opgetreden tijdens het dupliceren van deze vergadering.
@@ -118,6 +127,7 @@ nl:
             default_registration_terms: Standaard registratievoorwaarden
             enable_pads_creation: Schakel het maken van pads in
             maps_enabled: Kaarten ingeschakeld
+            registration_code_enabled: Inschrijvingsformulier ingeschakeld
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
             scope_id: Scope
             scopes_enabled: Scopes ingeschakeld
@@ -173,6 +183,9 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
+    forms:
+      meetings:
+        attendees_count_help_text: Vergeet niet om het totale aantal deelnemers aan je vergadering toe te voegen, of het nu een fysieke, online of hybride bijeenkomst is.
     gamification:
       badges:
         attended_meetings:
@@ -194,6 +207,10 @@ nl:
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
+        invalid_destroy:
+          proposals_count:
+            one: 'De vergadering kan niet worden verwijderd omdat er %{count} voorstel aan verbonden is:'
+            other: 'De vergadering kan niet worden verwijderd omdat er %{count} voorstellen aan verbonden zijn:'
         manage_poll: Beheer poll
         new: Nieuwe vergadering
         preview: Voorbeeld
@@ -277,8 +294,13 @@ nl:
             invalid: Er is een probleem opgetreden met het maken van deze vergadering
             success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
           destroy:
+            invalid:
+              proposals_count:
+                one: De vergadering kan niet worden verwijderd omdat er %{count} voorstel aan verbonden is
+                other: De vergadering kan niet worden verwijderd omdat er %{count} voorstellen aan verbonden zijn
             success: Vergadering succesvol verwijderd
           edit:
+            title: Vergadering bewerken
             update: Bijwerken
           form:
             address_help: 'Adres: gebruikt door Geocoder om de locatie te vinden'
@@ -289,6 +311,8 @@ nl:
             registration_url_help: 'Link: verleen deelnemers toegang tot de externe dienst die je gebruikt voor registraties'
             select_a_meeting_type: Selecteer een vergaderingstype
             select_a_registration_type: Selecteer een registratietype
+            select_an_iframe_access_level: Selecteer een iframe toegangsniveau
+            show_embedded_iframe_help: 'Slechts enkele diensten staan embedden in vergadering of live evenement toe op de volgende domeinen: %{domains}'
           index:
             title: Events
           new:
@@ -359,6 +383,8 @@ nl:
           value_types:
             organizer_presenter:
               not_found: 'De organisator is niet gevonden in de database (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} heeft de vragenlijst bijgewerkt voor het %{meeting_name} event"
       application_helper:
         filter_category_values:
           all: Alle
@@ -369,7 +395,19 @@ nl:
       calendar_modal:
         calendar_url: Agenda-URL
         close_window: Venster sluiten
+        copy_calendar_url: Kopieer
+        copy_calendar_url_clarification: Kopieer link naar klembord
+        copy_calendar_url_copied: Gekopieerd!
+        copy_calendar_url_description: Je kunt alle gepubliceerde vergaderingen zien in uw agenda-applicatie. Kopieer en plak deze URL in uw kalender met behulp van de optie "Voeg nieuwe kalender toe van een URL".
+        copy_calendar_url_explanation: Hou er rekening mee dat je een selectie van vergaderingen exporteert, omdat er filters actief zijn. Als je ze allemaal wil exporteren, reset eerst alle filters.
+        copy_calendar_url_message: URL met succes gekopieerd naar klembord.
         export_calendar: Kalender exporteren
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: De vergadering <a href="%{meeting_path}">"%{meeting_title}"</a> is in behandeling om te worden gesloten. Voeg een verslag van de vergadering toe via de knop "Sluiten".
+          greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hallo %{username},
+          subject: Je kunt je vergadering nu sluiten op het %{organization_name} platform met een verslag
       conference_venues: Vergaderlocaties
       content_blocks:
         upcoming_meetings:
@@ -381,6 +419,15 @@ nl:
           index:
             meetings: vergaderingen
             space_type: Participatieve ruimte
+      iframe_access_level:
+        all: Alle bezoekers
+        registered: Geregistreerde deelnemers aan deze vergadering
+        signed_in: Alleen ingelogde deelnemers
+      iframe_embed_type:
+        embed_in_meeting_page: Insluiten in vergaderpagina
+        none: Geen
+        open_in_live_event_page: Open in live event pagina (met optionele polls)
+        open_in_new_tab: Open link in een nieuw tabblad
       last_activity:
         meeting_updated_at_html: "<span>Vergadering bijgewerkt op %{link}</span>"
         new_meeting_at_html: "<span>Nieuwe vergadering op %{link}</span>"
@@ -443,6 +490,7 @@ nl:
           type: Type
           type_values:
             all: Alle
+            hybrid: Hybride
             in_person: Fysiek
             online: Online
         filters_small_view:
@@ -463,6 +511,7 @@ nl:
           select_a_meeting_type: Selecteer een vergaderingstype
           select_a_registration_type: Selecteer een registratietype
           select_an_iframe_access_level: Selecteer een iframe toegangsniveau
+          show_embedded_iframe_help: 'Slechts enkele diensten staan inbedden in vergadering of live evenement toe op de volgende domeinen: %{domains}'
         index:
           click_here: Alle vergaderingen bekijken
           new_meeting: Nieuwe vergadering
@@ -487,6 +536,7 @@ nl:
           close_meeting: Vergadering sluiten
           contributions: Aantal bijdragen
           date: 'Datum:'
+          edit_close_meeting: Bewerk vergaderverslag
           edit_meeting: Bewerk vergadering
           going: Je hebt je ingeschreven voor deze vergadering
           join: Deelnemen aan bijeenkomst
@@ -531,6 +581,7 @@ nl:
           fields:
             closed: Gesloten
             end_time: Einddatum
+            id: ID
             map: Kaart
             official_meeting: Officiële vergadering
             start_time: Startdatum
@@ -543,6 +594,7 @@ nl:
             empty_questions: Tijdens deze vergadering worden er enkele vragen verzonden en je kan ze beantwoorden. Ze zullen hier worden weergegeven.
           index_admin:
             admin_dashboard: Beheer Dashboard
+            edit: Bewerk in admin
             question: Vraag
             received_answer: antwoord ontvangen
             received_answers: ontvangen antwoorden
@@ -580,6 +632,7 @@ nl:
           invalid: Er is een probleem opgetreden bij het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
       type_of_meeting:
+        hybrid: Hybride
         in_person: Fysiek
         online: Online
       types:
