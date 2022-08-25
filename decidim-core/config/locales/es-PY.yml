@@ -1845,7 +1845,7 @@ es-PY:
     nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: No tiene suficientes caracteres únicos
     password_not_allowed: No se permite
-    password_repeated: no puedes reutilizar una vieja contraseña
+    password_repeated: no puedes reutilizar una contraseña antigua
     password_too_common: Es demasiado común
     password_too_long: Es demasiado largo
     password_too_short: Es demasiado corto
