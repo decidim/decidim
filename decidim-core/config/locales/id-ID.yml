@@ -798,7 +798,6 @@ id:
         sub_hero:
           register: Daftar
       index:
-        read_more: Baca lebih lajut
         standalone_pages: Halaman
         subheading: Menavigasi melalui halaman bantuan %{name}
         title: Membantu
