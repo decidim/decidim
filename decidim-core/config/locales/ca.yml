@@ -1245,7 +1245,6 @@ ca:
         sub_hero:
           register: Registra't
       index:
-        read_more: Llegir més
         standalone_pages: Pàgines
         subheading: Navega per les pàgines d'ajuda de %{name}
         title: Ajuda
