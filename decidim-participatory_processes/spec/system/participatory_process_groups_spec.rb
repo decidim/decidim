@@ -325,18 +325,18 @@ describe "Participatory Process Groups", type: :system do
 
       it "shows unique participants count from both participatory processes" do
         within("[data-statistics]") do
-          expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-          expect(page).to have_css(".statistic__title", text: "PARTICIPANTS")
+          expect(page).to have_css("h2.h2", text: "Statistics")
+          expect(page).to have_css(".statistic__title", text: "Participants")
           expect(page).to have_css(".statistic__number", text: "1")
         end
       end
 
       it "shows accumulated resources from components of both participatory processes" do
         within("[data-statistics]") do
-          expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-          expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+          expect(page).to have_css("h2.h2", text: "Statistics")
+          expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "10")
-          expect(page).to have_css(".statistic__title", text: "MEETINGS")
+          expect(page).to have_css(".statistic__title", text: "Meetings")
           expect(page).to have_css(".statistic__number", text: "4")
         end
       end

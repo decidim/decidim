@@ -195,10 +195,10 @@ describe "Assemblies", type: :system do
 
         it "renders the stats for those components are visible" do
           within "[data-statistics]" do
-            expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-            expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+            expect(page).to have_css("h2.h2", text: "Statistics")
+            expect(page).to have_css(".statistic__title", text: "Proposals")
             expect(page).to have_css(".statistic__number", text: "3")
-            expect(page).to have_no_css(".statistic__title", text: "MEETINGS")
+            expect(page).to have_no_css(".statistic__title", text: "Meetings")
             expect(page).to have_no_css(".statistic__number", text: "0")
           end
         end
@@ -208,8 +208,8 @@ describe "Assemblies", type: :system do
         let(:show_statistics) { false }
 
         it "doesn't render the stats for those components that are not visible" do
-          expect(page).to have_no_css("h4.section-heading", text: "STATISTICS")
-          expect(page).to have_no_css(".statistic__title", text: "PROPOSALS")
+          expect(page).to have_no_css("h2.h2", text: "Statistics")
+          expect(page).to have_no_css(".statistic__title", text: "Proposals")
           expect(page).to have_no_css(".statistic__number", text: "3")
         end
       end

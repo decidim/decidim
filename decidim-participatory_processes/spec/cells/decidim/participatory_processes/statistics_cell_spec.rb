@@ -22,7 +22,7 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "renders the title" do
-        expect(subject).to have_css("h3.section-heading", text: "Statistics")
+        expect(subject).to have_css("h2.h2", text: "Statistics")
       end
 
       it "renders each stat" do

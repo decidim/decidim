@@ -16,7 +16,7 @@ module Decidim::Assemblies
       end
 
       it "renders the stat title" do
-        expect(subject).to have_css("h4.statistic__title", text: "Participants")
+        expect(subject).to have_css("span.statistic__title", text: "Participants")
       end
 
       it "renders the stat value" do
