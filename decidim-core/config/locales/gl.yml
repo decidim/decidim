@@ -884,7 +884,6 @@ gl:
         sub_hero:
           register: Rexistrarse
       index:
-        read_more: Le máis
         standalone_pages: Páxinas
         subheading: Navega polas páxinas de axuda de %{name}
         title: Axuda
