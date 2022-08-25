@@ -1094,7 +1094,6 @@ it:
         sub_hero:
           register: Registrati
       index:
-        read_more: Leggi di più
         standalone_pages: pagine
         subheading: Naviga attraverso le pagine di aiuto di %{name}
         title: Aiuto
