@@ -922,7 +922,6 @@ ar:
         sub_hero:
           register: تسجيل
       index:
-        read_more: قراءة المزيد
         standalone_pages: صفحات
         subheading: انتقل من خلال صفحات المساعدة من %{name}
         title: المساعدة
