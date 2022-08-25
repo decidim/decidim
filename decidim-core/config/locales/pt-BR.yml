@@ -1081,7 +1081,6 @@ pt-BR:
         sub_hero:
           register: Registrar-se
       index:
-        read_more: Ler Mais
         standalone_pages: Páginas
         subheading: Navegue pelas páginas de ajuda de %{name}
         title: Ajuda
