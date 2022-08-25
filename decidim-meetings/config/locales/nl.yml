@@ -42,6 +42,10 @@ nl:
         type_of_meeting: Type
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Deze URL kan niet worden ingesloten in vergadering of live evenement pagina
         meeting_agenda:
           attributes:
             base:
