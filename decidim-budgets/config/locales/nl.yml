@@ -89,7 +89,7 @@ nl:
             success: "%{number} voorstellen succesvol geïmporteerd in projecten"
           new:
             create: Voorstellen importeren in projecten
-            no_components: Er zijn geen andere voorstelcomponenten in deze participatieruimte om de voorstellen in projecten te importeren.
+            no_components: Er zijn geen andere voorstelonderdelen in deze participatieruimte om voorstellen in projecten te kunnen importeren.
             select_component: Selecteer een component
             title: Voorstellen importeren
       admin_log:
@@ -135,7 +135,7 @@ nl:
       order_summary_mailer:
         order_summary:
           selected_projects: 'De projecten die je hebt geselecteerd zijn:'
-          subject: Je hebt gestemd op de %{space_name} inspraakruimte
+          subject: Je hebt gestemd in %{space_name}
           voted_on_space: Je hebt gestemd op het %{budget_name} budget voor de %{space_name} inspraakruimte.
           voted_on_space_with_scope: Je hebt gestemd op het %{budget_name} budget voor de %{space_name} inspraakruimte op %{scope_name} (%{scope_type}).
       projects:
@@ -169,15 +169,15 @@ nl:
             description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer minstens %{minimum_number} project(en) en maximum %{maximum_number} projecten en geef zo je voorkeur voor het budget door.
             instruction: "<li>Selecteer minstens %{minimum_number} project(en) en maximum %{maximum_number} projecten en geef zo je voorkeur voor het budget door.</li>"
           projects_rule_maximum_only:
-            description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer maximum %{maximum_number} projecten en geef zo je voorkeur voor het budget door.
+            description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer maximum %{maximum_number} projecten en geef je voorkeuren door om het budget vast te leggen.
             instruction: "<li>Selecteer maximum %{maximum_number} project(en) en geef zo je voorkeur voor het budget door.</li>"
           rules:
-            title: Budget regels
+            title: Budgetregels
           title: U bepaalt het budget
           total_budget: Totale budget
           total_projects: Totaal aantal stemmen
           vote_threshold_percent_rule:
-            description: Voor welke projecten vind jij dat we budget moeten vrijmaken? Wijs ten minste %{minimum_budget} toe aan de projecten die jij wil en geef zo je voorkeur voor het budget door.
+            description: Voor welke projecten vind jij dat we budget moeten vrijmaken? Wijs minstens %{minimum_budget} toe aan de projecten die jij wil en geef zo je voorkeur voor het budget door.
             instruction: "<li>Wijs minstens %{minimum_budget} toe aan de projecten die je wil en geef zo je voorkeur voor het budget door.</li>"
         count:
           projects_count:
@@ -213,8 +213,8 @@ nl:
           random: Willekeurige volgorde
           selected: Geselecteerd
         project:
-          add: Voeg project %{resource_name} toe aan uw stem
-          remove: Verwijder project %{resource_name} uit uw stem
+          add: Voeg project %{resource_name} toe aan je stem
+          remove: Verwijder project %{resource_name} uit je stem
           selected: Geselecteerd
           view: Bekijk
           votes:
@@ -223,9 +223,9 @@ nl:
           you_voted: Je stemde hiervoor
         project_budget_button:
           add: Voeg toe aan je stem
-          add_descriptive: Voeg project %{resource_name} toe aan uw stem
+          add_descriptive: Voeg project %{resource_name} toe aan je stem
           added: Toegevoegd aan je stem
-          added_descriptive: Project %{resource_name} is aan uw stem toegevoegd
+          added_descriptive: Project %{resource_name} is aan je stem toegevoegd
         projects_for: Projecten voor %{name}
         show:
           budget: Begroting
@@ -240,10 +240,10 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
-            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
+            comments_max_length: Commentaar maximale lengte (laat 0 voor standaardwaarde)
             form:
               errors:
-                budget_voting_rule_only_one: Slechts één stemregel moet ingeschakeld zijn
+                budget_voting_rule_only_one: Slechts één stemregel kan ingesteld zijn
                 budget_voting_rule_required: Eén stemregel is vereist
             landing_page_content: Budgetten landingspagina
             more_information_modal: Meer informatie
@@ -253,7 +253,7 @@ nl:
             scopes_enabled: Scopes ingeschakeld
             title: Titel
             total_budget: Totale budget
-            vote_minimum_budget_projects_number: Minimaal aantal projecten om te stemmen
+            vote_minimum_budget_projects_number: Minimumaantal projecten waarvoor moet worden gestemd
             vote_rule_minimum_budget_projects_enabled: 'Inschakelen van regel: minimum aantal projecten waarover gestemd moet worden'
             vote_rule_selected_projects_enabled: 'Activeer regel: er moet over een minimum en een maximum aantal projecten gestemd worden'
             vote_rule_threshold_percent_enabled: 'Regel inschakelen: Minimaal budget percentage'
