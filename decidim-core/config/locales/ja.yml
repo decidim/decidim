@@ -1231,7 +1231,6 @@ ja:
         sub_hero:
           register: 登録
       index:
-        read_more: もっと読む
         standalone_pages: ページ
         subheading: '%{name} のヘルプページをナビゲートします'
         title: ヘルプ
