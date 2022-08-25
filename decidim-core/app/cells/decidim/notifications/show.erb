@@ -1,3 +1,7 @@
+<div class="empty-notifications hidden hide">
+  <%= cell("decidim/announcement", t("decidim.notifications.no_notifications")) %>
+</div>
+
 <div data-notifications>
   <% notifications_with_resource.each do |notification| %>
     <%= cell("decidim/notification", notification) %>
