@@ -7,7 +7,7 @@ nl:
     models:
       decidim/blogs/post:
         one: Post
-        other: berichten
+        other: Posts
   decidim:
     blogs:
       actions:
@@ -15,7 +15,7 @@ nl:
         confirm_destroy: Weet je zeker dat je dit bericht wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
-        new: Nieuw bericht
+        new: Nieuwe blogpost
         title: acties
       admin:
         models:
@@ -38,8 +38,13 @@ nl:
             create: creëren
             title: Maak bericht
           update:
-            invalid: Er zijn fouten opgetreden bij het opslaan van het bericht.
-            success: Bericht succesvol opgeslagen
+            invalid: Er zijn fouten opgetreden bij het opslaan van deze blogpost.
+            success: Post succesvol opgeslagen
+      admin_log:
+        post:
+          create: "%{user_name} heeft de %{resource_name} blog gemaakt in %{space_name}"
+          delete: "%{user_name} heeft de %{resource_name} blog verwijderd in %{space_name}"
+          update: "%{user_name} heeft de %{resource_name} blog bijgewerkt in %{space_name}"
       last_activity:
         new_post_at_html: "<span>Nieuw bericht op %{link}</span>"
       models:
@@ -48,6 +53,7 @@ nl:
             author: Auteur
             body: Tekstgedeelte
             created_at: Aangemaakt op
+            official_blog_post: Officiële blogpost
             title: titel
       posts:
         show:
