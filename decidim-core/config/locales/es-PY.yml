@@ -1248,7 +1248,6 @@ es-PY:
         sub_hero:
           register: Regístrate
       index:
-        read_more: Leer más
         standalone_pages: Páginas
         subheading: Navegar por las páginas de ayuda de %{name}
         title: Ayuda
