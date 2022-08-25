@@ -91,7 +91,8 @@ The correct way to present such element would be as follows:
   <img src="..." alt="Resource title">
   <h2>Resource title</h2>
   <p>Resource description</p>
-  <p aria-label="Read more about Resource">Read more &raquo;</p>
+  <p aria-hidden="true">Read more &raquo;</p>
+  <p class="sr-only">Read more about Resource</p>
 </a>
 ----
 
