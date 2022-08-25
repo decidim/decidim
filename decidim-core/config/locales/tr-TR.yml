@@ -1055,7 +1055,6 @@ tr:
         sub_hero:
           register: Kayıt Ol
       index:
-        read_more: Daha fazla oku
         standalone_pages: Sayfalar
         subheading: '%{name} yardım sayfalarını ziyaret edin'
         title: Yardım
