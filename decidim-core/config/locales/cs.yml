@@ -1286,7 +1286,6 @@ cs:
         sub_hero:
           register: Registrovat
       index:
-        read_more: Přečtěte si více
         standalone_pages: Stránky
         subheading: Procházejte stránky nápovědy %{name}
         title: Pomoc
