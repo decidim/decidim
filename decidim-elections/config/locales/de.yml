@@ -1083,7 +1083,7 @@ de:
             submit: Zertifikat hochladen
             success: Zertifikat erfolgreich hochgeladen.
           create:
-            error: Beim Abschliessen ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
+            error: Beim Abschließen ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Erfolgreich abgeschlossen.
           edit:
             heading: Nachzählung der Stimmen - Nachzählung der Antworten
