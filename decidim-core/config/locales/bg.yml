@@ -954,7 +954,6 @@ bg:
         sub_hero:
           register: Регистрация
       index:
-        read_more: Прочети още
         standalone_pages: Страници
         subheading: Придвижвайте се в помощта на %{name}
         title: Помощ
