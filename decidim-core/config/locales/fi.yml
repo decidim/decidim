@@ -1247,7 +1247,6 @@ fi:
         sub_hero:
           register: Rekisteröidy
       index:
-        read_more: Lue lisää
         standalone_pages: Sivut
         subheading: Selaa palvelun %{name} tietosivuja
         title: Tietoa
