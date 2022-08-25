@@ -994,7 +994,6 @@ el:
         sub_hero:
           register: Εγγραφή
       index:
-        read_more: Διαβάστε περισσότερα
         standalone_pages: Σελίδες
         subheading: Περιηγηθείτε στις σελίδες βοήθειας του %{name}
         title: Βοήθεια
