@@ -16,6 +16,9 @@ import addInputEmoji from "src/decidim/input_emoji"
 import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
+import Accordions from "a11y-accordion-component";
+import Dropdowns from "a11y-dropdown-component";
+import Dialogs from "a11y-dialog-component";
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -82,4 +85,12 @@ $(() => {
   addInputEmoji()
 
   backToListLink(document.querySelectorAll(".js-back-to-list"));
+
+  Accordions.init();
+  Dropdowns.init();
+  // eslint-disable-next-line no-unused-vars
+  const dialog = new Dialogs("[data-dialog]", {
+    openingSelector: "[data-dialog-open]",
+    closingSelector: "[data-dialog-close]"
+  })
 });
