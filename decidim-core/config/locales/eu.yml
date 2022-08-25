@@ -1075,7 +1075,6 @@ eu:
         sub_hero:
           register: Erregistroa
       index:
-        read_more: Irakurri gehiago
         standalone_pages: orrialdeak
         subheading: Laguntza orrietan nabigatzeko %{name}
         title: Laguntza
