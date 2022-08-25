@@ -1171,7 +1171,6 @@ hu:
         sub_hero:
           register: Regisztráció
       index:
-        read_more: Olvass tovább
         standalone_pages: Oldalak
         subheading: Navigáljon a %{name} súgó oldalán
         title: Segítség
