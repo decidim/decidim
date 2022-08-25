@@ -1221,7 +1221,6 @@ de:
         sub_hero:
           register: Registrieren
       index:
-        read_more: Weiterlesen
         standalone_pages: Seiten
         subheading: Navigieren Sie durch die Hilfeseiten von %{name}
         title: Hilfe
