@@ -1278,7 +1278,6 @@ lt:
         sub_hero:
           register: Registruotis
       index:
-        read_more: Skaityti toliau
         standalone_pages: Puslapiai
         subheading: Naršyti %{name} pagalbos puslapiuose
         title: Pagalba
