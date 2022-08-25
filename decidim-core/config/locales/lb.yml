@@ -1077,7 +1077,6 @@ lb:
         sub_hero:
           register: Registréieren
       index:
-        read_more: Weideres liesen
         standalone_pages: Säiten
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren
         title: Hëllef
