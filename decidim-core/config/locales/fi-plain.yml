@@ -604,6 +604,9 @@ fi-pl:
       identities:
         done: Valmis
         select_identity: Valitse henkilöllisyys
+    endorsers_list:
+      close: Sulje
+      endorsed_by: He tykkäävät tästä…
     errors:
       internal_server_error:
         title: Palvelimellamme tapahtui virhe
@@ -1745,9 +1748,11 @@ fi-pl:
               description: Tallentaa tietoja sallimistasi evästeistä tällä sivustolla.
               service: Tämä sivusto
             pwaInstallPromptSeen:
+              description: Tallentaa tiedon siitä, onko progressiivisen verkkosovelluksen (PWA) asennusilmoitus jo nähty käyttäjän toimesta.
               service: Tämä sivusto
           types:
             cookie: Eväste
+            local_storage: Paikallinen tietovarasto
         dialog:
           accept_all: Hyväksy kaikki
           accept_only_essential: Vain välttämättömät
