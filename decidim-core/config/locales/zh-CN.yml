@@ -981,7 +981,6 @@ zh-CN:
         sub_hero:
           register: 注册
       index:
-        read_more: 阅读更多
         standalone_pages: 页 次
         subheading: 浏览 %{name} 的帮助页面
         title: 帮助
