@@ -932,7 +932,6 @@ sk:
         sub_hero:
           register: Registrovať
       index:
-        read_more: Prečítajte si viac
         standalone_pages: Stránky
         subheading: Prechádzajte stránky pomocníka%{name}
         title: Pomoc
