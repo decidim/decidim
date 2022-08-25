@@ -1168,7 +1168,6 @@ sv:
         sub_hero:
           register: Registrera
       index:
-        read_more: Läs mer
         standalone_pages: Sidor
         subheading: Navigera genom hjälpsidorna för %{name}
         title: Hjälp
