@@ -1187,7 +1187,6 @@ pl:
         sub_hero:
           register: Zarejestruj się
       index:
-        read_more: Pokaż więcej
         standalone_pages: Strony
         subheading: '%{name} - zapoznaj się ze stronami pomocy'
         title: Pomoc
