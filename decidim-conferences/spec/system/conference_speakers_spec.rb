@@ -41,8 +41,8 @@ describe "Conference speakers", type: :system do
       it "the menu link is shown" do
         visit decidim_conferences.conference_path(conference)
 
-        within ".process-nav__content" do
-          expect(page).to have_content("SPEAKERS")
+        within ".conference__nav-container" do
+          expect(page).to have_content("Speakers")
           click_link "Speakers"
         end
 
