@@ -50,7 +50,7 @@ module Decidim
           expect(subject["longitude"]).to eq(longitude)
           expect(subject["address"]).to eq(address)
           expect(subject["title"]).to eq("&lt;script&gt;alert(&quot;HEY&quot;)&lt;/script&gt; This is my title")
-          expect(subject["description"]).to eq("<div class=\"ql-editor ql-reset-decidim\">alert(&quot;HEY&quot;) This is my long, but still super interesting, description of my also long, but also sup...</div>")
+          expect(subject["description"]).to eq("<div class=\"ql-editor ql-reset-decidim\">alert(&quot;HEY&quot;) This is my long, but still super interesting, description of my also long, but also sup…</div>")
           expect(subject["link"]).to eq(::Decidim::ResourceLocatorPresenter.new([project.budget, project]).path)
           expect(subject["icon"]).to match(/<svg.+/)
         end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Cookies", type: :system do
+describe "Data consent", type: :system do
   let(:orga) { create(:organization) }
   let(:cookies_description) { "We use cookies on our website to improve the performance and content of the site" }
 
@@ -13,7 +13,7 @@ describe "Cookies", type: :system do
 
   context "when cookie dialog is shown" do
     it "user see the cookie policy" do
-      within "#cc-dialog-wrapper" do
+      within "#dc-dialog-wrapper" do
         expect(page).to have_content "Information about the cookies used on the website"
       end
     end
@@ -41,7 +41,7 @@ describe "Cookies", type: :system do
 
   context "when cookie modal is open" do
     before do
-      within "#cc-dialog-wrapper" do
+      within "#dc-dialog-wrapper" do
         click_button "Settings"
       end
     end
@@ -49,7 +49,7 @@ describe "Cookies", type: :system do
     it "shows cookie" do
       expect(page).not_to have_content("decidim-consent")
       expect(page).not_to have_content("Stores information about the cookies allowed by the user on this website")
-      find(".category-wrapper[data-id='essential']").find("button.cc-title").click
+      find(".category-wrapper[data-id='essential']").find("button.dc-title").click
       expect(page).to have_content("decidim-consent")
       expect(page).to have_content("Stores information about the cookies allowed by the user on this website")
     end
