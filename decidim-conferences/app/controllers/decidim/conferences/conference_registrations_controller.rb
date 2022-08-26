@@ -4,7 +4,6 @@ module Decidim
   module Conferences
     # Exposes the registration resource so users can join and leave conferences.
     class ConferenceRegistrationsController < Decidim::Conferences::ApplicationController
-
       redesign_participatory_space_layout
 
       def create
