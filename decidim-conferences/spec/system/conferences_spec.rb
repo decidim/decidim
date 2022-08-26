@@ -146,10 +146,12 @@ describe "Conferences", type: :system do
     end
 
     context "when the conference has some components" do
+      # REDESIGN_PENDING: Review if this part should be implemened in the
+      # redesigned layout
       it "shows the components" do
-        within ".process-nav" do
-          expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
-          expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
+        within ".conference__nav" do
+          expect(page).to have_content(translated(proposals_component.name, locale: :en))
+          expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
         end
       end
 
