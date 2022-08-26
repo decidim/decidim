@@ -27,7 +27,7 @@
     }
 
     &:hover &-name{
-      @apply underline
+      @apply underline;
     }
   }
 }
