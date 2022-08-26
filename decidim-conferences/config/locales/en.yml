@@ -410,13 +410,7 @@ en:
           no_slots_available: No slots available
           registration: Registration
       conference_program:
-        program_meeting:
-          content: Content
-          location: Location
-          speakers: Speakers
-          streaming: Streaming
         show:
-          day: Day
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -517,16 +511,9 @@ en:
       registration_types:
         index:
           choose_an_option: 'Choose your registration option:'
-          login_as: You are logged in as %{name} <%{email}>
           no_registrations: No registrations
           register: Register
           title: Registration types
-      shared:
-        conference_user_login:
-          already_account: Do you already have an account in decidim?
-          new_user: New user?
-          sign_in: Login to register for the conference
-          sign_up: Create an account in decidim to register for the conference
       show:
         details: Details
         introduction: Introduction
