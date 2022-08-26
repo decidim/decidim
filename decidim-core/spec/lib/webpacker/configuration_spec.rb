@@ -56,7 +56,6 @@ module Decidim
             "stylesheets/decidim/budgets/budgets",
             "stylesheets/decidim/proposals/proposals",
             "stylesheets/decidim/surveys/surveys",
-            "stylesheets/decidim/conferences/conferences",
             "stylesheets/decidim/consultations/consultations",
             "stylesheets/decidim/elections/elections",
             "stylesheets/decidim/votings/votings",
