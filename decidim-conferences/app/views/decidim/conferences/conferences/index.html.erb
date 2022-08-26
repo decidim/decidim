@@ -20,6 +20,8 @@ edit_link(
   <h1 class="h1 decorator"><%= t("decidim.conferences.index.title") %></h1>
 <% end %>
 
+<%= participatory_space_floating_help %>
+
 <%= render layout:"layouts/decidim/shared/layout_two_col" do %>
 
   <% if promoted_conferences.any? %>
