@@ -103,72 +103,74 @@ edit_link(
 
 <%= render partial: "conference_hero" %>
 
-<%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %>
+<div data-conference>
+  <%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %>
 
-  <section class="content-block">
-    <h2 class="h2 decorator"><%= t("conferences.show.introduction", scope: "decidim") %></h2>
-    <div class="content-block__description">
-      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
-    </div>
-  </section>
-
-  <section class="content-block content-block__2col">
-    <h2 class="h2 decorator"><%= t("conferences.show.details", scope: "decidim") %></h2>
-    <div class="content-block__description">
-      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
-    </div>
-
-    <div>
-      <% if current_participatory_space.registrations_enabled? %>
-        <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
-      <% end %>
-      <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
-        <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
-          <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__transparent-secondary" %>
-        <% end %>
-      <% end %>
-    </div>
-  </section>
-
-  <%= render partial: "partners", locals: { conference: current_participatory_space } %>
-
-  <% unless translated_attribute(current_participatory_space.objectives).blank? %>
     <section class="content-block">
-      <h2 class="h2 decorator"><%= t("decidim.conferences.show.objectives") %></h2>
+      <h2 class="h2 decorator"><%= t("conferences.show.introduction", scope: "decidim") %></h2>
       <div class="content-block__description">
-        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.objectives) %>
+        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
       </div>
     </section>
-  <% end %>
 
-  <%= render_hook(:conference_venues) %>
+    <section class="content-block content-block__2col">
+      <h2 class="h2 decorator"><%= t("conferences.show.details", scope: "decidim") %></h2>
+      <div class="content-block__description">
+        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
+      </div>
 
-  <% if current_participatory_space.registrations_enabled? %>
-    <section class="content-block">
-      <h2 class="h2 decorator"><%= t("decidim.conferences.conferences.show.register") %></h2>
-      <% if current_user.present? %>
-        <div class="conference__box">
-          <div>
-            <%= icon "user-follow-line", class: "conference__box-icon" %>
-            <p class="conference__box-title"><%= t("decidim.conferences.conferences.show.make_conference_registration") %></p>
-            <p class="conference__box-description"><%= t("decidim.conferences.conferences.show.login_as", name: current_user.name, email: current_user.email ) %></p>
-          </div>
-          <div>
-            <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
-          </div>
-        </div>
-      <% else %>
-        <%# REDESIGN_PENDING: uncomment the partial once the login boxes has been moved to that location %>
-        <%# Further info: https://github.com/decidim/decidim/issues/9675 %>
-        <%#= render partial: "decidim/devise/shared/boxes" %>
-      <% end %>
+      <div>
+        <% if current_participatory_space.registrations_enabled? %>
+          <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
+        <% end %>
+        <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
+          <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
+            <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__transparent-secondary" %>
+          <% end %>
+        <% end %>
+      </div>
     </section>
+
+    <%= render partial: "partners", locals: { conference: current_participatory_space } %>
+
+    <% unless translated_attribute(current_participatory_space.objectives).blank? %>
+      <section class="content-block">
+        <h2 class="h2 decorator"><%= t("decidim.conferences.show.objectives") %></h2>
+        <div class="content-block__description">
+          <%= decidim_sanitize_editor translated_attribute(current_participatory_space.objectives) %>
+        </div>
+      </section>
+    <% end %>
+
+    <%= render_hook(:conference_venues) %>
+
+    <% if current_participatory_space.registrations_enabled? %>
+      <section class="content-block">
+        <h2 class="h2 decorator"><%= t("decidim.conferences.conferences.show.register") %></h2>
+        <% if current_user.present? %>
+          <div class="conference__box">
+            <div>
+              <%= icon "user-follow-line", class: "conference__box-icon" %>
+              <p class="conference__box-title"><%= t("decidim.conferences.conferences.show.make_conference_registration") %></p>
+              <p class="conference__box-description"><%= t("decidim.conferences.conferences.show.login_as", name: current_user.name, email: current_user.email ) %></p>
+            </div>
+            <div>
+              <%= link_to t("decidim.conferences.conferences.show.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class:"button button__lg button__secondary" %>
+            </div>
+          </div>
+        <% else %>
+          <%# REDESIGN_PENDING: uncomment the partial once the login boxes has been moved to that location %>
+          <%# Further info: https://github.com/decidim/decidim/issues/9675 %>
+          <%#= render partial: "decidim/devise/shared/boxes" %>
+        <% end %>
+      </section>
+    <% end %>
+
+    <%= cell("decidim/conferences/linked_participatory_spaces", current_participatory_space) %>
+
+    <% if current_participatory_space.show_statistics? %>
+      <%= cell("decidim/statistics", stats.highlighted) %>
+    <% end %>
+
   <% end %>
-
-  <%= cell("decidim/conferences/linked_participatory_spaces", current_participatory_space) %>
-
-  <% if current_participatory_space.show_statistics? %>
-    <%= cell("decidim/statistics", stats.highlighted) %>
-  <% end %>
-
-<% end %>
+</div>
