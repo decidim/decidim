@@ -39,5 +39,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::Generators.version
 
-  s.add_development_dependency "bundler", "~> 2.2"
+  s.add_development_dependency "bundler", "~> 2.3"
 end
