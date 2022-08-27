@@ -8,11 +8,6 @@ if File.exist?(File.expand_path("../../.git", __dir__))
   gem "decidim-core"
 end
 
-require "bundler"
-puts "===="
-puts "BUNDLER VERSION: #{Bundler::VERSION}"
-puts "===="
-
 case ARGV[0]
 when "--component"
   ARGV.replace(["component", *ARGV[1..-1]])
