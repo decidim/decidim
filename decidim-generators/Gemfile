@@ -19,6 +19,9 @@ gem "faker", "~> 2.14"
 
 gem "wicked_pdf", "~> 2.1"
 
+# Make sure the bundler version matches the required version that was used to bundle
+gem "bundler", "~> 2.3"
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
