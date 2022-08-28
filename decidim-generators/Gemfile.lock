@@ -844,7 +844,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (~> 1.3)
   brakeman (~> 5.2)
-  bundler (~> 2.3)
   byebug (~> 11.0)
   decidim!
   decidim-conferences!
