@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "bundler"
 require "thor"
 require "active_support/inflector"
 require "decidim/core/version"
@@ -67,8 +66,18 @@ module Decidim
 
         if options[:external]
           inside(component_folder) do
-            Bundler.with_original_env { run "bundle install" }
+            bundler_original_env { run "bundle install" }
           end
+        end
+      end
+
+      private
+
+      def bundler_original_env
+        if defined?(Bundler)
+          Bundler.with_original_env { yield }
+        else
+          yield
         end
       end
     end
