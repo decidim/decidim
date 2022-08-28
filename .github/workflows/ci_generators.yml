@@ -71,6 +71,8 @@ jobs:
       - run: |
           gem cleanup
           gem update --system --no-document
+          gem list --local
+          bundle -v
         name: Gem cleanup and update system gems
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
