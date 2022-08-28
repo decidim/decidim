@@ -1,11 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-puts "==== DECIDIM ===="
-puts "RUBYGEMS: #{Gem.rubygems_version}"
-puts $LOAD_PATH.inspect
-puts "==== DECIDIM ===="
-
 if File.exist?(File.expand_path("../../.git", __dir__))
   ENV["RUBYOPT"] = ENV["RUBYOPT"].to_s.sub("-rsimplecov ", "")
   ENV["RUBYLIB"] = ENV["RUBYLIB"].to_s.sub("#{File.expand_path("..", __dir__)}/lib:", "")
