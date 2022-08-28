@@ -70,7 +70,7 @@ jobs:
             npm-
       - run: |
           gem cleanup
-          gem update --system --no-document
+          gem update --system
           gem list --local
           bundle -v
         name: Gem cleanup and update system gems
