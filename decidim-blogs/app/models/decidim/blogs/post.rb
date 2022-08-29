@@ -45,9 +45,8 @@ module Decidim
           Decidim::Blogs::AdminLog::PostPresenter
         end
       end
-
       def visible?
-        participatory_space.try(:visible?) && component.try(:published?)
+        participatory_space.try(:visible?) && component.try(:published?) && published_at <= Time.current
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.

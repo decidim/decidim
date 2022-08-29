@@ -157,7 +157,7 @@ describe "Decidim::Api::QueryType" do
         )
       end
 
-      let!(:other_post) { create(:post, created_at: 2.weeks.ago, updated_at: 1.week.ago, component: current_component, published_at: 2.weeks.from_now) }
+      let!(:other_post) { create(:post, created_at: 2.weeks.ago, updated_at: 1.week.ago, component: current_component, published_at: 2.weeks.ago) }
       let(:edges) { response["participatoryProcess"]["components"].first["posts"]["edges"] }
 
       context "when ordered by" do
@@ -219,6 +219,18 @@ describe "Decidim::Api::QueryType" do
 
           it { expect(edges).to eq([{ "node" => { "id" => other_post.id.to_s } }]) }
         end
+      end
+
+      context "with unpublished" do
+        let!(:third_post) { create(:post, created_at: 2.weeks.ago, updated_at: 1.week.ago, component: current_component, published_at: 2.weeks.from_now) }
+        let(:criteria) { "order: { id: \"asc\" }" }
+
+        it {
+          expect(edges).to eq([
+                                { "node" => { "id" => post.id.to_s } },
+                                { "node" => { "id" => other_post.id.to_s } }
+                              ])
+        }
       end
     end
   end

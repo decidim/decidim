@@ -118,13 +118,7 @@ module Decidim
     end
 
     def creation_date
-      date_at = if from_context.respond_to?(:published_at) &&
-                   from_context.published_at &&
-                   Time.current >= from_context.published_at
-                  from_context.published_at
-                else
-                  from_context.try(:created_at)
-                end
+      date_at = from_context.try(:published_at) || from_context.try(:created_at)
       l date_at, format: :decidim_short
     end
 

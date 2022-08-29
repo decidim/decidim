@@ -36,6 +36,7 @@ en:
             save: Update
             title: Edit post
           index:
+            not_published_yet: Not published yet
             title: Posts
           new:
             create: Create

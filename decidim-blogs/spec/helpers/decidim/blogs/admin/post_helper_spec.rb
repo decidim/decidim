@@ -127,7 +127,7 @@ module Decidim::Blogs::Admin
 
         it "shows correct publishing info" do
           action = helper.publish_data(published_at)
-          expect(action[:popup]).to eq("Published")
+          expect(action[:popup]).to be_nil
         end
       end
 

@@ -16,7 +16,7 @@ module Decidim
         let(:body) { "Lorem Ipsum dolor sit amet" }
         let(:post) { create(:post, component: current_component, author: current_user) }
         let(:invalid) { false }
-        let(:publish_time) { nil }
+        let(:publish_time) { 2.days.ago }
         let(:form) do
           double(
             invalid?: invalid,

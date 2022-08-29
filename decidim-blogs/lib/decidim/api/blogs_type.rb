@@ -18,7 +18,7 @@ module Decidim
       end
 
       def posts(filter: {}, order: {})
-        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, { filter:, order: }, context)
+        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, { filter:, order: }, context).published
       end
 
       def post(id:)
