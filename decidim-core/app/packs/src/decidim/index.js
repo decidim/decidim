@@ -116,7 +116,5 @@ $(() => {
 
   markAsReadNotifications()
 
-  scrollToBottom()
-
   scrollToLastChild()
 });
