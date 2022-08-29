@@ -137,3 +137,26 @@ lt:
           introduction: 'Šiame puslapyje pateikiami sprendimo burtų keliu %{reference} rezultatai. Naudojantis šia galimybe spręsti burtų keliu, iš rodomų pasiūlymų rinkinio atsitiktine tvarka pasirenkamas rezultatų skaičius %{target_items}, esant vienodai pasiskirstymo tikimybei. Kartu su rezultatais šiame puslapyje pateikiamoje informacijoje nurodoma viskas, ko reikia siekiant kuo labiau padidinti garantijas ir atkurti rezultatus. Šios galimybės spręsti burtų keliu pagrindas – dvigubas atsitiktinumas, kurį užtikrina kauliuko ridenimas (jį patvirtina liudytojai) ir tikslus sprendimo burtų keliu laikas, – informacija, įvedama į atsitiktinės atrankos vykdymo algoritmą. Sprendimo burtų keliu pradžia yra tokia tiksli (sekundės), kad žmogus šio proceso kontroliuoti negali, taigi, tai dvigubas nekontroliuojamas veiksmas sąžiningam rezultatui užtikrinti.  '
           mathematical_result: Rezultatas (1) x (2)
           proposals_selected_by_sortition: Pasiūlymai pasirinkti burtų keliu
+          sortition_reproducibility_details: Rūšiavimo atkuriamumo detalės
+          time_seed: "(2) Time seed"
+          witnesses: Liudytojai
+        sortition:
+          random_seed: Atsitiktinė vertė
+          selected_proposals:
+            one: pasiūlymas pasirinktas
+            few: pasiūlymai pasirinkti
+            many: pasiūlymai pasirinkti
+            other: pasiūlymai pasirinkti
+          view: Peržiūrėti
+        sortition_author:
+          deleted: Ištrintas dalyvis
+        sortition_cancel_author:
+          deleted: Ištrintas dalyvis
+        sortitions_count:
+          count:
+            one: 1 pasirinkimas burtų keliu
+            few: "%{count} pasirinkimai burtų keliu"
+            many: "%{count} pasirinkimų burtų keliu"
+            other: "%{count} pasirinkimai burtų keliu"
+    statistics:
+      sortitions_count: Pasirinkimai burtų keliu
