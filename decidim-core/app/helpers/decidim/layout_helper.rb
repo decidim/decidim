@@ -99,6 +99,7 @@ module Decidim
       redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
 
+    # REDESIGN_PENDING: remove this helper
     def arrow_link(text, url, args = {})
       content_tag :a, href: url, class: "arrow-link #{args.with_indifferent_access[:class]}" do
         inner = text
