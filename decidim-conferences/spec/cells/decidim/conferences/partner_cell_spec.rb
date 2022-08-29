@@ -12,7 +12,7 @@ module Decidim::Conferences
 
     context "when rendering a main_promotor" do
       it "renders a partner card" do
-        expect(subject).to have_css(".partner-box")
+        expect(subject).to have_css(".conference__grid-item")
       end
     end
 
@@ -20,7 +20,7 @@ module Decidim::Conferences
       let(:partner) { create(:partner, :collaborator, conference:) }
 
       it "renders a User_group author card" do
-        expect(subject).to have_css(".partner-box")
+        expect(subject).to have_css(".conference__grid-item")
       end
     end
   end

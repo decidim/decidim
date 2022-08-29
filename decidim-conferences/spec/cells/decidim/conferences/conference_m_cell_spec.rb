@@ -15,10 +15,13 @@ module Decidim::Conferences
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css(".card--conference")
+        expect(subject).to have_css(".conference__list__item")
       end
 
-      it_behaves_like "space cell changes button text CTA"
+      # REDESIGN_PENDING: The footer link dissapears with the redesign. Remove
+      # these shared examples if it's correct
+      #
+      # it_behaves_like "space cell changes button text CTA"
     end
   end
 end
