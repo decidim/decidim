@@ -50,7 +50,7 @@ describe "Conference registrations", type: :system do
     it "the registration button is not visible" do
       visit_conference
 
-      within ".hero__container" do
+      within "[data-conference-hero]" do
         expect(page).not_to have_button("REGISTER")
       end
     end
@@ -68,10 +68,7 @@ describe "Conference registrations", type: :system do
         visit_conference_registration_types
 
         expect(page).to have_css("[data-conference-registration]", count: registration_types_count)
-
-        within ".wrapper" do
-          expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE", count: 5)
-        end
+        expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE", count: 5)
       end
     end
 
@@ -80,9 +77,7 @@ describe "Conference registrations", type: :system do
         it "they have the option to sign in" do
           visit_conference_registration_types
 
-          within ".wrapper" do
-            first(:button, "Registration").click
-          end
+          first(:button, "Registration").click
 
           expect(page).to have_css("#loginModal", visible: :visible)
         end
@@ -108,10 +103,8 @@ describe "Conference registrations", type: :system do
 
         expect(page).to have_content("successfully")
 
-        within ".wrapper" do
-          expect(page).to have_css(".button", text: "ATTENDING")
-          expect(page).to have_css("button[disabled]", text: "REGISTRATION", count: 4)
-        end
+        expect(page).to have_css(".button", text: "ATTENDING")
+        expect(page).to have_css("button[disabled]", text: "REGISTRATION", count: 4)
       end
     end
   end
@@ -130,10 +123,7 @@ describe "Conference registrations", type: :system do
       end
 
       expect(page).to have_content("successfully")
-
-      within ".wrapper" do
-        expect(page).to have_css(".button", text: "REGISTRATION", count: registration_types_count)
-      end
+      expect(page).to have_css(".button", text: "REGISTRATION", count: registration_types_count)
     end
   end
 end
