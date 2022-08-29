@@ -133,7 +133,7 @@ describe "Conferences", type: :system do
     end
 
     it "shows the details of the given conference" do
-      within "[data-conference-hero]" do
+      within "[data-conference-hero]", match: :first do
         expect(page).to have_content(translated(conference.title, locale: :en))
         expect(page).to have_content(translated(conference.slogan, locale: :en))
         expect(page).to have_content(conference.hashtag)

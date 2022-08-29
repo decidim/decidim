@@ -50,8 +50,8 @@ describe "Conference registrations", type: :system do
     it "the registration button is not visible" do
       visit_conference
 
-      within "[data-conference-hero]" do
-        expect(page).not_to have_button("REGISTER")
+      within "[data-conference-hero]", match: :first do
+        expect(page).not_to have_button("Register")
       end
     end
   end
