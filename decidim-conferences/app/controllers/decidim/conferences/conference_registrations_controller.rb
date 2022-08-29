@@ -57,7 +57,17 @@ module Decidim
       private
 
       def ensure_signed_in
-        raise Decidim::ActionForbidden unless user_signed_in?
+        return if user_signed_in?
+
+        case action_name
+        when "create"
+          flash[:alert] = t("conference_registrations.create.unauthorized", scope: "decidim.conferences")
+        when "decline_invitation"
+          flash[:alert] = t("conference_registrations.decline_invitation.unauthorized", scope: "decidim.conferences")
+        else
+          raise Decidim::ActionForbidden
+        end
+        redirect_to(user_has_no_permission_referer || user_has_no_permission_path)
       end
 
       def conference
