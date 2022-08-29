@@ -843,7 +843,30 @@ lt:
             description: Turite paskirstyti mažiausiai %{votes} balsų tarp skirtingų pasiūlymų.
             given_enough_votes: Jūs suteikėte pakankamai paramos.
             supports_remaining: Kad į jūsų balsus būtų atsižvelgta, turite paremti dar %{remaining_votes} pasiūlymus (-ų).
+          proposal_limit:
+            description: Galite parengti iki %{limit} pasiūlymų.
+          threshold_per_proposal:
+            description: Kad pasiūlymai būtų priimti, jie turi surinkti %{limit} balsų
+          title: 'Paramai taikomos šios taisyklės:'
+          vote_limit:
+            description: Galite paremti iki %{limit} pasiūlymų.
+            left: Liko
+            votes: Balsai
+        wizard_aside:
+          back: Grįžti
+          back_from_step_1: Grįžti į pasiūlymus
+          back_from_step_2: Grįžti į pasiūlymus
+          back_from_step_3: Grįžti į pasiūlymų palyginimą
+          back_from_step_4: Grįžti į juodraščio redagavimą
+          info: Jūs kuriate <strong>pasiūlymą</strong>.
         wizard_steps:
+          current_step: Dabartinis veiksmas
+          see_steps: peržiūrėti žingsnius
+          step_1: Sukurkite savo pasiūlymą
+          step_2: Palyginti
+          step_3: Baigti
+          step_4: Paskelbkite savo pasiūlymą
+          step_of: '%{current_step_num} žingsnis iš %{total_steps}'
           title: Pasiūlymo sukūrimo etapai
       proposals_picker:
         choose_proposals: Pasirinkti pasiūlymus
