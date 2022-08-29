@@ -42,6 +42,8 @@ lt:
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} atnaujino tapatybės dokumentų tikrinimo konfigūraciją"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} patvirtino %{resource_name} naudodamas tapatybės dokumentų tikrinimo offline režimu funkciją"
     authorization_handlers:
       admin:
         csv_census:
@@ -78,6 +80,7 @@ lt:
         verify_with_managed_user:
           email_intro: Dalyvis <a href="%{resource_url}">%{resource_title}</a> bandė patvirtinti save kito dalyvio duomenimis (<a href="%{managed_user_url}">%{managed_user_name}</a>).
           email_outro: Patikrinkite <a href="%{conflicts_url}">Patvirtinimų konfliktų sąrašą</a> ir susisiekite su dalyviu, kad patikrintumėte jo informaciją ir išspręstumėte problemą.
+          email_subject: Nepavyko patikrinti kito dalyvio
           notification_title: Dalyvis <a href="%{resource_path}">%{resource_title}</a> bandė patvirtinti save kito dalyvio duomenimis (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
@@ -86,6 +89,14 @@ lt:
           no_data_stored: Duomenys neišsaugomi.
         create:
           error: Kuriant įgaliojimą kilo problema.
+          success: Jums suteiktas leidimas.
+        first_login:
+          title: Patvirtinkite savo tapatybę
+        index:
+          expired_verification: Patvirtinimas baigė galioti
+          pending_verification: Laukiama patvirtinimo
+          show_renew_info: Spustelėkite, kad atnaujintumėte patvirtinimą
+          unauthorized_verification: Naujas patvirtinimas
         new:
           authorize: Siųsti
           authorize_with: Tikrinti %{authorizer}
