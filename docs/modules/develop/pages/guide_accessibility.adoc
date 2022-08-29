@@ -30,6 +30,16 @@ Few other general advices regarding the headings on the page:
 * The `<h1>` of the page should match the first part of that page's `<title>` element, or at least be very close to that
 * Sub-level headings should always be related to each other, i.e. the `<h3>` level heading is related to the `<h2>` heading that preceeded it
 
+==== Unique H1 on every page
+
+Every page should have a unique H1 heading on it. For example, if you have a user profile split into multiple "tabs", each of these "tabs" should have a unique `<h1>` heading instead of all of the "tabs" having e.g. the same user name as their `<h1>`. Having the same `<h1>` for multiple pages is problematic for accessibility because screen reader users often use the `<h1>` to identify which section of the site they are "looking" at. If you have the same `<h1>` on all related pages, it makes identifying those pages confusing for the screen reader users.
+
+==== Heading on important sections
+
+Imagine going to a book store and finding an interesting book cover in the section of books you are interested in. You pick up the book and open it. What is the first thing you generally do after you read through the back cover? Many people open the table of contents of the book and browse it through to get a sense of the contents of the book without reading the whole book.
+
+This situation is comparable to screen reader users "glancing" through the web page contents. Screen reader users often "glance" through the page by looking at all the headings on the page as well as browsing through the links on the page. It is therefore highly important that each important section of the page has a heading to make it easier to understand what imporant sections are on the page just by browsing through its headings.
+
 ==== Color contrast
 
 When creating user interfaces or modifying the colors, always make sure that you are not breaking accessibility with your changes. You can use the http://webaim.org/resources/contrastchecker/[Color contrast checker] to ensure that your colors have enough contrast against the background color where they are displayed at.
