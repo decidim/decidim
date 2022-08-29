@@ -20,6 +20,7 @@ import backToListLink from "src/decidim/back_to_list"
 import Accordions from "a11y-accordion-component";
 import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
+import markAsReadNotifications from "src/decidim/notifications"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -112,6 +113,8 @@ $(() => {
     openingSelector: "[data-dialog-open]",
     closingSelector: "[data-dialog-close]"
   })
+
+  markAsReadNotifications()
 
   scrollToBottom()
 
