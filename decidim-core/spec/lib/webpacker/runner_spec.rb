@@ -49,7 +49,6 @@ module Webpacker
           "stylesheets/decidim/accountability/accountability",
           "stylesheets/decidim/budgets/budgets",
           "stylesheets/decidim/proposals/proposals",
-          "stylesheets/decidim/surveys/surveys",
           "stylesheets/decidim/consultations/consultations",
           "stylesheets/decidim/elections/elections",
           "stylesheets/decidim/votings/votings",
