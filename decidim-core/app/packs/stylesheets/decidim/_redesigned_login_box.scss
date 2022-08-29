@@ -18,6 +18,14 @@
   }
 
   &-link{
-    @apply inline-flex items-center gap-2 text-secondary font-semibold mt-auto;
+    @apply inline-flex items-center gap-1 text-secondary font-semibold mt-auto;
+  }
+
+  &:hover{
+    @apply border-tertiary;
+  }
+
+  &:hover &-link{
+    @apply underline;
   }
 }
