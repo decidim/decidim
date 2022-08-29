@@ -42,6 +42,8 @@ lt:
     admin_log:
       organization:
         update_id_documents_config: "%{user_name} atnaujino tapatybės dokumentų tikrinimo konfigūraciją"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} patvirtino %{resource_name} naudodamas tapatybės dokumentų tikrinimo offline režimu funkciją"
     authorization_handlers:
       admin:
         csv_census:
@@ -80,6 +82,14 @@ lt:
           no_data_stored: Duomenys neišsaugomi.
         create:
           error: Kuriant įgaliojimą kilo problema.
+          success: Jums suteiktas leidimas.
+        first_login:
+          title: Patvirtinkite savo tapatybę
+        index:
+          expired_verification: Patvirtinimas baigė galioti
+          pending_verification: Laukiama patvirtinimo
+          show_renew_info: Spustelėkite, kad atnaujintumėte patvirtinimą
+          unauthorized_verification: Naujas patvirtinimas
         new:
           authorize: Siųsti
           authorize_with: Tikrinti %{authorizer}
