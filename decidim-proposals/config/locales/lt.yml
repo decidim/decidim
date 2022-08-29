@@ -326,10 +326,18 @@ lt:
         description: Priimtų pasiūlymų skaičius
         object: pasiūlymai
         title: Priimti pasiūlymai
+      endorsements:
+        description: Pritarimų pasiūlymams skaičius
+        object: pritarimai
+        title: Pritarimai
       proposals:
         description: Pasiūlymų skaičius
         object: pasiūlymai
         title: Pasiūlymai
+      votes:
+        description: Paramos pasiūlymams skaičius
+        object: balsai
+        title: Balsai
     participatory_spaces:
       highlighted_proposals:
         see_all: Žiūrėti visus pasiūlymus (%{count})
@@ -338,6 +346,7 @@ lt:
         answer_proposal: Atsakyti į pasiūlymą
         edit_proposal: Redaguoti pasiūlymą
         new: Naujas pasiūlymas
+        participatory_texts: Dalyvaujamieji tekstai
         show: Rodyti pasiūlymą
         title: Veiksmai
       admin:
@@ -359,23 +368,36 @@ lt:
           import:
             invalid: Forma netinkama!
             invalid_file: Rinkmenoje yra klaidų, pabandykite redaguoti rinkmenos turinį ir dar kartą ją įkelti.
+            success: Sveikiname! Šie skirsniai tapo pasiūlymais. Dabar galite juos peržiūrėti ir patikslinti prieš paskelbdami.
           index:
+            info_1: Šie skirsniai tapo pasiūlymais. Dabar galite juos peržiūrėti ir patikslinti prieš paskelbdami.
             publish_document: Skelbti dokumentą
             save_draft: Išsaugoti juodraštį
+            title: Peržiūrėti dalyvaujamąjį tekstą
           new_import:
+            accepted_mime_types:
+              md: Markdown
+              odt: ODT
             bottom_hint: "(Dokumentų skirsnius galėsite peržiūrėti ir rūšiuoti)"
+            document_legend: 'Pridėkite mažesnį nei 2MB dokumentą, kiekvienas ne didesnio kaip 3 lygių gylio skirsnis bus išanalizuotas ir įkeltas į „Pasiūlymus“. Priimtini formatai: %{valid_mime_types}'
             title: Pridėti dokumentą
             upload_document: Įkelti dokumentą
           publish:
             invalid: Nepavyko paskelbti pasiūlymų
             success: Visi pasiūlymai paskelbti
           sections:
+            article: "<em>Straipsnis</em>"
             section: "<em>Skirsnis:</em> <strong>%{title}</strong>"
             sub-section: "<em>Poskirsnis:</em> %{title}"
+          update:
+            success: Dalyvaujamasis tekstas atnaujintas.
         proposal_answers:
           form:
             accepted: Priimta
+            answer_proposal: Atsakyti
+            evaluating: Vertinama
             rejected: Atmesta
+            title: Atsakymai į %{title} pasiūlymą
         proposal_notes:
           create:
             error: Kuriant šią pastabą prie pasiūlymo iškilo problema
@@ -397,6 +419,7 @@ lt:
             update: Atnaujinti
           form:
             attachment_legend: "(Neprivaloma) Pridėti priedą"
+            created_in_meeting: Šis pasiūlymas iškeltas susirinkime
             delete_attachment: Ištrinti prikabintą failą
             select_a_category: Pasirinkite kategoriją
             select_a_meeting: Pasirinkite susitikimą
@@ -416,6 +439,8 @@ lt:
             split: Išskaidyti pasiūlymus
             split_button: Skaidyti
             title: Pasiūlymai
+            unassign_from_valuator: Panaikinti vertintojui pavestą užduotį
+            unassign_from_valuator_button: Atšaukti priskyrimą
             update: Atnaujinti
             update_scope_button: Atnaujinti apimtį
           new:
@@ -435,7 +460,15 @@ lt:
             comments_positive_count: Už
             created_at: Sukūrimo data
             documents: Dokumentai
+            endorsements_count: Palaikymų skaičius
+            endorsements_ranking: Reitingavimas pagal pritarimus
+            endorsers: Pritariantieji
             link: Nuoroda
+            n_more_endorsers:
+              one: ir dar vienas
+              few: ir dar %{count}
+              many: ir dar %{count} daugiau
+              other: ir dar %{count} daugiau
             photos: Nuotraukos
             proposals: Pasiūlymai
             ranking: "%{ranking} iš %{total}"
@@ -443,6 +476,8 @@ lt:
             remove_assignment: Pašalinti užduotį
             remove_assignment_confirmation: Ar tikrai norite nušalinti vertintoją nuo šio pasiūlymo?
             valuators: Vertintojai
+            votes_count: Balsų skaičius
+            votes_ranking: Reitingavimas pagal balsų skaičių
           update_category:
             invalid: 'Šie pasiūlymai jau priskirti kategorijai %{subject_name}: %{proposals}.'
             select_a_category: Pasirinkite kategoriją
@@ -452,6 +487,7 @@ lt:
             invalid: 'Šie pasiūlymai jau turi %{subject_name} apimtį: %{proposals}.'
             select_a_proposal: Pasirinkite pasiūlymą
             select_a_scope: Pasirinkite apimtį
+            success: 'Pasiūlymai sėkmingai atnaujinti į %{subject_name} sritį: %{proposals}.'
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus iškilo problema
@@ -531,6 +567,12 @@ lt:
               ok: Atsiimti bendrąjį juodraštį
               title: Tai yra negrįžtamas veiksmas
             success: Bendrasis juodraštis atsiimtas.
+        count:
+          drafts_count:
+            one: "%{count} bendras projektas"
+            few: "%{count} bendri projektai"
+            many: "%{count} bendri projektai"
+            other: "%{count} bendri projektai"
         create:
           error: Kuriant šį bendrąjį juodraštį iškilo problema
           success: Bendrasis juodraštis sukurtas.
@@ -584,6 +626,12 @@ lt:
           edit: Redaguoti bendrąjį juodraštį
           final_proposal: galutinis pasiūlymas
           final_proposal_help_text: Šis juodraštis baigtas. Patikrinkite galutinį pasiūlymą
+          hidden_authors_count:
+            one: ir dar %{count} žmogus
+            few: ir dar %{count} žmonės (-ių)
+            many: ir dar %{count} žmonės (-ių)
+            other: ir dar %{count} žmonės (-ių)
+          info-message: Tai bendras pasiūlymo <strong>projektas (juodraštis)</strong>. Tai reiškia, kad galite padėti jo autoriams parengti pasiūlymą naudodamiesi komentarų skirsniu arba tiesiogiai jį patobulinti, prašydami prieigos jį keisti. Kai autoriai jums suteiks prieigą, galėsite keisti šį juodraštį.
           publish: Paskelbti
           publish_info: Skelbti šią juodraščio versiją arba
           published_proposal: paskelbtas pasiūlymas
@@ -620,6 +668,7 @@ lt:
           fields:
             authors: Autoriai
             comments: Komentarai
+            contributions: Papildymai
         proposal:
           fields:
             category: Kategorija
@@ -631,12 +680,35 @@ lt:
             published_at: Paskelbta
             scope: Apimtis
             state: Būsena
+            title: Pavadinimas
+            valuator: Vertintojas
+            valuators: Vertintojai
+            votes: Balsai
+      new:
+        limit_reached: Naujų pasiūlymų rengti negalite, nes viršijote nustatytą ribą.
+      participatory_text_proposal:
+        alternative_title: Šiuo metu dalyvaujamųjų tekstų nėra
+        buttons:
+          amend: Pakeisti
+          comment: Komentuoti
+          comments: Komentarai
+      proposal_votes:
+        create:
+          error: Išreiškiant paramą pasiūlymui įvyko klaidų.
       proposals:
         compare:
+          continue: Tęsti
+          no_similars_found: Puiku! Panašių pasiūlymų nerasta
           title: Panašūs Pasiūlymai
         complete:
           send: Siųsti
           title: Užbaikite savo pasiūlymą
+        count:
+          proposals_count:
+            one: "%{count} pasiūlymas"
+            few: "%{count} pasiūlymai"
+            many: "%{count} pasiūlymų"
+            other: "%{count} pasiūlymai"
         dynamic_map_instructions:
           description: Koordinatės bus atnaujintos paspaudus mygtuką „Peržiūrėti“. Tačiau adresas nesikeičia.
           instructions: Galite perkelti tašką žemėlapyje.
@@ -668,12 +740,20 @@ lt:
           voted: Balsuota
         filters_small_view:
           close_modal: Uždaryti modalinį langą
+          filter: Filtruoti
           filter_by: Filtruoti pagal
           unfold: Išskleisti
         index:
+          collaborative_drafts_list: Prieiga prie bendrų projektų (juodraščių)
           new_proposal: Naujas pasiūlymas
           see_all_withdrawn: Žiūrėti visus atsiimtus pasiūlymus
           view_proposal: Žiūrėti pasiūlymą
+        linked_proposals:
+          proposal_votes:
+            one: balsas
+            few: balsai
+            many: balsų
+            other: balsai
         new:
           send: Tęsti
         orders:
@@ -690,10 +770,17 @@ lt:
             document_index: Dokumentų rodyklė
           view_index:
             see_index: Žiūrėti rodyklę
+        placeholder:
+          address: 37 Homewood Drive Brownsburg, IN 46112
         preview:
           announcement_body: Jūsų pasiūlymas buvo išsaugotas kaip juodraštis. Jis turi būti paskelbtas, kad jis būtų rodomas svetainėje.
           announcement_title: Jūsų pasiūlymas dar nepaskelbtas
           modify: Modifikuoti pasiūlymą
+          proposal_edit_before_minutes:
+            one: Šį pasiūlymą galėsite keisti pirmą minutę po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
+            few: Šį pasiūlymą galėsite keisti pirmąsias %{count} minutes (-čių) po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
+            many: Šį pasiūlymą galėsite keisti pirmąsias %{count} minutes (-čių) po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
+            other: Šį pasiūlymą galėsite keisti pirmąsias %{count} minutes (-čių) po pasiūlymo paskelbimo. Šiam laiko intervalui pasibaigus, pasiūlymo keisti nebegalėsite.
           publish: Paskelbti
           title: Paskelbkite savo pasiūlymą
         proposal:
@@ -710,11 +797,54 @@ lt:
           comments: Komentarai
           edit_proposal: Redaguoti pasiūlymą
           estimated_cost: Numatomos išlaidos
+          hidden_endorsers_count:
+            one: ir dar %{count} žmogus
+            few: ir dar %{count} žmonės (-ių)
+            many: ir dar %{count} žmonės (-ių)
+            other: ir dar %{count} žmonės (-ių)
           link_to_collaborative_draft_help_text: Šis pasiūlymas yra bendro projekto rezultatas. Peržiūrėkite istoriją
+          link_to_collaborative_draft_text: Peržiūrėti bendrą projektą (juodraštį)
+          link_to_promoted_emendation_help_text: Šis pasiūlymas yra remiamas pakeitimas
+          link_to_promoted_emendation_text: Žiūrėti atmestą pakeitimą.
+          link_to_proposal_from_emendation_help_text: Tai yra atmestas pakeitimas
           link_to_proposal_from_emendation_text: Žiūrėti Pasiūlymą
           proposal_accepted_reason: 'Šis pasiūlymas buvo priimtas, nes:'
           proposal_in_evaluation_reason: Šis pasiūlymas šiuo metu vertinamas
           proposal_rejected_reason: 'Šis pasiūlymas buvo atmestas, nes:'
+          read_less: Suskleisti
+          read_more: Skaityti toliau
+          report: Pranešti
+          withdraw_btn_hint: Persigalvoję galėsite atsiimti savo pasiūlymą, jeigu niekas už jį dar nebalsavo. Pasiūlymas nepašalinamas. Jis bus rodomas atsiimtų pasiūlymų sąraše.
+          withdraw_confirmation_html: Ar tikrai norite atsiimti šį pasiūlymą? <br><br><strong>Šio veiksmo atšaukti negalima!</strong>
+          withdraw_proposal: Atsiimti pasiūlymą
+        tags:
+          changed_from: "(administratorius pakeitė iš <u>%{previous_name}</u>)"
+        update:
+          title: Atnaujinti pasiūlymą
+        vote_button:
+          already_voted: Jau balsuota
+          already_voted_hover: Atsiimti balsą
+          maximum_votes_reached: Pasiektas maksimalus balsų skaičius
+          no_votes_remaining: Balsų neliko
+          vote: Balsuoti
+          votes_blocked: Balsavimas išjungtas
+        votes_count:
+          count:
+            one: Balsas
+            few: Balsai
+            many: Balsų
+            other: Balsai
+          most_popular_proposal: Populiariausias pasiūlymas
+          need_more_votes: Reikia daugiau balsų
+        voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Kiekvienas pasiūlymas gali sukaupti daugiau nei %{limit} balsų
+          minimum_votes_per_user:
+            description: Turite paskirstyti mažiausiai %{votes} balsų tarp skirtingų pasiūlymų.
+            given_enough_votes: Jūs suteikėte pakankamai paramos.
+            supports_remaining: Kad į jūsų balsus būtų atsižvelgta, turite paremti dar %{remaining_votes} pasiūlymus (-ų).
+        wizard_steps:
+          title: Pasiūlymo sukūrimo etapai
       proposals_picker:
         choose_proposals: Pasirinkti pasiūlymus
         close: Uždaryti
@@ -738,9 +868,18 @@ lt:
           title: Versijos
         proposals:
           back_to_resource: Grįžti į pasiūlymą
+      withdraw:
+        errors:
+          has_supports: Šio pasiūlymo negalima atsiimti, nes jau yra už jį balsavusių.
     resource_links:
       copied_from_component:
         proposal_proposal: Susiję pasiūlymai
+      included_projects:
+        project_result: 'Pasiekimai šiame projekte:'
+      included_proposals:
+        proposal_project: 'Šiuose projektuose pateikiamas pasiūlymas:'
+        proposal_result: 'Pasiūlymas įtrauktas į šiuos rezultatus:'
     statistics:
       proposals_accepted: Priimti Pasiūlymai
       proposals_count: Pasiūlymai
+      supports_count: Palaikymai
