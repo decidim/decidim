@@ -19,11 +19,11 @@ module Decidim::Meetings
         contributions_count: 15,
         attending_organizations: "Some organization",
         closed_at: Time.current,
-        proposal_ids: proposal_ids,
+        proposal_ids:,
         current_user: user,
-        video_url: video_url,
-        audio_url: audio_url,
-        closing_visible: closing_visible
+        video_url:,
+        audio_url:,
+        closing_visible:
       )
     end
     let(:proposal_component) do
@@ -98,7 +98,7 @@ module Decidim::Meetings
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: meeting, user: user }
+        let!(:follow) { create :follow, followable: meeting, user: }
 
         it "notifies the change" do
           expect(Decidim::EventsManager)

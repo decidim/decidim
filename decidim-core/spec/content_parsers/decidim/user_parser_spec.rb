@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe ContentParsers::UserParser do
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:user) { create(:user, :confirmed, organization:) }
     let(:context) { { current_organization: organization } }
     let(:parser) { described_class.new(content, context) }
 
@@ -37,7 +37,7 @@ module Decidim
     end
 
     context "when mentioning multiple valid users" do
-      let(:user2) { create(:user, :confirmed, organization: organization) }
+      let(:user2) { create(:user, :confirmed, organization:) }
       let(:content) { "This text contains multiple valid user mentions: @#{user.nickname} and @#{user2.nickname}" }
 
       it "rewrites all mentions" do

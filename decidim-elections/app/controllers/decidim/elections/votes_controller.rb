@@ -18,8 +18,8 @@ module Decidim
         vote_flow.voter_login(params)
         return unless vote_allowed?
 
-        @form = form(Voter::VoteForm).from_params({ voter_token: voter_token, voter_id: voter_id },
-                                                  election: election, user: vote_flow.user)
+        @form = form(Voter::VoteForm).from_params({ voter_token:, voter_id: },
+                                                  election:, user: vote_flow.user)
       end
 
       def create
@@ -29,7 +29,7 @@ module Decidim
 
         return redirect_to election_vote_path(election, id: params[:vote][:encrypted_data_hash], token: vote_flow.voter_id_token) if preview_mode?
 
-        @form = form(Voter::VoteForm).from_params(params, election: election, user: vote_flow.user, email: vote_flow.email)
+        @form = form(Voter::VoteForm).from_params(params, election:, user: vote_flow.user, email: vote_flow.email)
         Voter::CastVote.call(@form) do
           on(:ok) do |vote|
             redirect_to election_vote_path(election, id: vote.encrypted_vote_hash, token: vote_flow.voter_id_token)
@@ -42,7 +42,7 @@ module Decidim
       end
 
       def show
-        enforce_permission_to :view, :election, election: election
+        enforce_permission_to :view, :election, election:
       end
 
       def update
@@ -62,7 +62,7 @@ module Decidim
       def verify
         enforce_permission_to :view, :election, election: election
 
-        @form = form(Voter::VerifyVoteForm).instance(election: election)
+        @form = form(Voter::VerifyVoteForm).instance(election:)
       end
 
       private
@@ -74,7 +74,7 @@ module Decidim
       end
 
       def vote
-        @vote ||= Decidim::Elections::Vote.find_by(election: election, encrypted_vote_hash: params[:id]) if params[:id]
+        @vote ||= Decidim::Elections::Vote.find_by(election:, encrypted_vote_hash: params[:id]) if params[:id]
       end
 
       def exit_path
@@ -86,7 +86,7 @@ module Decidim
       end
 
       def pending_vote
-        @pending_vote ||= Decidim::Elections::Votes::PendingVotes.for.find_by(voter_id: voter_id, election: election)
+        @pending_vote ||= Decidim::Elections::Votes::PendingVotes.for.find_by(voter_id:, election:)
       end
 
       def bulletin_board_client

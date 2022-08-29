@@ -6,21 +6,21 @@ describe "Last activity", type: :system do
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
   let!(:action_log) do
-    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization)
+    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization:)
   end
   let!(:other_action_log) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space)
+    create(:action_log, action: "publish", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
   end
   let(:long_body_comment) { "This is my very long comment for Last Activity card that must be shorten up because is more than 100 chars" }
   let(:another_comment) { create(:comment, body: long_body_comment) }
   let!(:another_action_log) do
-    create(:action_log, action: "create", visibility: "public-only", resource: another_comment, organization: organization)
+    create(:action_log, action: "create", visibility: "public-only", resource: another_comment, organization:)
   end
   let(:component) do
-    create(:component, :published, organization: organization)
+    create(:component, :published, organization:)
   end
   let(:resource) do
-    create(:dummy_resource, component: component, published_at: Time.current)
+    create(:dummy_resource, component:, published_at: Time.current)
   end
 
   before do

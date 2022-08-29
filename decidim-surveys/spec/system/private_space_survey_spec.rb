@@ -22,19 +22,19 @@ describe "Private Space Answer a survey", type: :system do
   end
 
   let!(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: organization }
-  let!(:another_user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create :user, :confirmed, organization: }
+  let!(:another_user) { create(:user, :confirmed, organization:) }
 
   let!(:participatory_space_private_user) { create :participatory_space_private_user, user: another_user, privatable_to: participatory_space_private }
 
-  let!(:questionnaire) { create(:questionnaire, title: title, description: description) }
-  let!(:survey) { create(:survey, component: component, questionnaire: questionnaire) }
-  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
-  let!(:question_conditioned) { create(:questionnaire_question, :conditioned, questionnaire: questionnaire, position: 1) }
+  let!(:questionnaire) { create(:questionnaire, title:, description:) }
+  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
+  let!(:question_conditioned) { create(:questionnaire_question, :conditioned, questionnaire:, position: 1) }
 
   let!(:participatory_space) { participatory_space_private }
 
-  let!(:component) { create(:component, manifest: manifest, participatory_space: participatory_space) }
+  let!(:component) { create(:component, manifest:, participatory_space:) }
 
   before do
     switch_to_host(organization.host)
@@ -46,7 +46,7 @@ describe "Private Space Answer a survey", type: :system do
   end
 
   context "when space is private and transparent" do
-    let!(:participatory_space_private) { create :assembly, :published, organization: organization, private_space: true, is_transparent: true }
+    let!(:participatory_space_private) { create :assembly, :published, organization:, private_space: true, is_transparent: true }
 
     context "when the user is not logged in" do
       it "does not allow answering the survey" do
@@ -117,7 +117,7 @@ describe "Private Space Answer a survey", type: :system do
   end
 
   context "when the spaces is private and not transparent" do
-    let!(:participatory_space_private) { create :assembly, :published, organization: organization, private_space: true, is_transparent: false }
+    let!(:participatory_space_private) { create :assembly, :published, organization:, private_space: true, is_transparent: false }
 
     context "when the user is not logged in" do
       let(:target_path) { main_component_path(component) }

@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::Budgets::Engine.routes }
 
       let(:user) { create(:user, :confirmed, organization: component.organization) }
-      let!(:budget) { create(:budget, component: component) }
+      let!(:budget) { create(:budget, component:) }
 
       before do
         request.env["decidim.current_organization"] = component.organization

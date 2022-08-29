@@ -4,11 +4,11 @@ require "spec_helper"
 
 describe Decidim::Forms::Admin::ApplicationHelper do
   let(:questionnaire) { create(:questionnaire) }
-  let(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
-  let(:condition_question) { create(:questionnaire_question, questionnaire: questionnaire) }
-  let(:answer_option) { create(:answer_option, question: question) }
-  let(:matrix_row) { create(:question_matrix_row, question: question) }
-  let(:display_condition) { create(:display_condition, question: question, condition_question: condition_question) }
+  let(:question) { create(:questionnaire_question, questionnaire:) }
+  let(:condition_question) { create(:questionnaire_question, questionnaire:) }
+  let(:answer_option) { create(:answer_option, question:) }
+  let(:matrix_row) { create(:question_matrix_row, question:) }
+  let(:display_condition) { create(:display_condition, question:, condition_question:) }
 
   describe "#tabs_id_for_question" do
     it "returns the correct tab id" do

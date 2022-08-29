@@ -69,7 +69,7 @@ module Decidim
         private
 
         def questionnaire
-          @questionnaire ||= Decidim::Meetings::Questionnaire.find_or_initialize_by(questionnaire_for: questionnaire_for)
+          @questionnaire ||= Decidim::Meetings::Questionnaire.find_or_initialize_by(questionnaire_for:)
         end
 
         def blank_question
@@ -99,7 +99,7 @@ module Decidim
         end
 
         def poll
-          @poll ||= Poll.find_or_initialize_by(meeting: meeting)
+          @poll ||= Poll.find_or_initialize_by(meeting:)
         end
       end
     end

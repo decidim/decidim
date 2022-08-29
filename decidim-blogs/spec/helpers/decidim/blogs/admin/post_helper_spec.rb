@@ -6,15 +6,15 @@ module Decidim::Blogs::Admin
   describe PostsHelper, type: :helper do
     describe "#post_author_select_field" do
       let(:organization) { create :organization }
-      let(:user) { create :user, :admin, :confirmed, organization: organization }
-      let!(:another_user) { create :user, :admin, :confirmed, organization: organization }
+      let(:user) { create :user, :admin, :confirmed, organization: }
+      let!(:another_user) { create :user, :admin, :confirmed, organization: }
       let!(:user_group) { create :user_group, :verified, decidim_organization_id: organization.id, users: [user] }
       let!(:another_user_group) { create :user_group, :verified, decidim_organization_id: organization.id, users: [another_user] }
       let(:name) { "a-select-form-name" }
       let(:author) { user }
       let(:form) do
         double(
-          object: double(author: author)
+          object: double(author:)
         )
       end
 

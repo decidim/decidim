@@ -5,10 +5,10 @@ require "spec_helper"
 describe "Explore budget notifications", :slow, type: :system do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
-  let(:budget) { create :budget, component: component }
+  let(:budget) { create :budget, component: }
   let(:projects_count) { 5 }
   let!(:projects) do
-    create_list(:project, projects_count, budget: budget)
+    create_list(:project, projects_count, budget:)
   end
   let!(:project) { projects.first }
 
@@ -22,7 +22,7 @@ describe "Explore budget notifications", :slow, type: :system do
         login_as(user, scope: :user)
 
         # Create a notification for the follower
-        create(:follow, followable: component.participatory_space, user: user)
+        create(:follow, followable: component.participatory_space, user:)
         comment = create(:comment, commentable: project, author: other_user)
         perform_enqueued_jobs do
           Decidim::Comments::NewCommentNotificationCreator.new(comment, [], []).create

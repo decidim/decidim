@@ -7,8 +7,8 @@ module Decidim::Admin
     subject { described_class.new(scope, user) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:user) { create :user, :admin, :confirmed, organization: }
+    let(:scope) { create :scope, organization: }
 
     it "destroys the scope" do
       subject.call

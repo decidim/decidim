@@ -17,7 +17,7 @@ module Decidim
       let(:form_params) do
         {
           amendable_gid: amendable.to_sgid.to_s,
-          emendation_params: emendation_params
+          emendation_params:
         }
       end
 

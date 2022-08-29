@@ -6,8 +6,8 @@ describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
   routes { Decidim::Meetings::AdminEngine.routes }
 
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
   let(:meeting) { create(:meeting, :published, component: meeting_component) }
 
@@ -19,8 +19,8 @@ describe Decidim::Meetings::Admin::RegistrationsController, type: :controller do
       meeting_id: meeting.id,
       registrations_enabled: true,
       registration_form_enabled: false,
-      available_slots: available_slots,
-      reserved_slots: reserved_slots,
+      available_slots:,
+      reserved_slots:,
       registration_terms: {}
     }
   end

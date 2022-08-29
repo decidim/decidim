@@ -35,7 +35,7 @@ module Decidim
       end
 
       def call(component, args, _ctx)
-        @query = query_scope.where(component: component)
+        @query = query_scope.where(component:)
                             .includes(:component)
 
         add_filter_keys(args[:filter])

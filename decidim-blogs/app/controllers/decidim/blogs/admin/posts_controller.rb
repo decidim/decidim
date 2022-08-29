@@ -15,7 +15,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :blogpost
-          @form = form(PostForm).from_params(params, current_component: current_component)
+          @form = form(PostForm).from_params(params, current_component:)
 
           CreatePost.call(@form, current_user) do
             on(:ok) do
@@ -37,7 +37,7 @@ module Decidim
 
         def update
           enforce_permission_to :update, :blogpost, blogpost: post
-          @form = form(PostForm).from_params(params, current_component: current_component)
+          @form = form(PostForm).from_params(params, current_component:)
 
           UpdatePost.call(@form, post, current_user) do
             on(:ok) do

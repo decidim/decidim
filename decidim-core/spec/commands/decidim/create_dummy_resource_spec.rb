@@ -16,12 +16,12 @@ module Decidim
     let(:form) do
       double(
         invalid?: invalid,
-        current_user: current_user,
-        title: title,
-        body: body,
-        photos: photos,
+        current_user:,
+        title:,
+        body:,
+        photos:,
         add_photos: uploaded_images,
-        current_component: current_component
+        current_component:
       )
     end
 

@@ -12,7 +12,7 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 3.0.2
+  RUBY_VERSION: 3.1.1
   NODE_VERSION: 16.9.1
 
 jobs:
@@ -56,3 +56,5 @@ jobs:
         name: Lint SCSS files
       - run: ./.github/run_erblint.sh
         name: Lint ERB files
+      - run: npm run markdownlint
+        name: Lint Markdown files

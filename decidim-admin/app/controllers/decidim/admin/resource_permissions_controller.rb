@@ -16,7 +16,7 @@ module Decidim
       end
 
       def update
-        @permissions_form = PermissionsForm.from_params(params).with_context(current_organization: current_organization)
+        @permissions_form = PermissionsForm.from_params(params).with_context(current_organization:)
 
         UpdateResourcePermissions.call(@permissions_form, resource) do
           on(:ok) do

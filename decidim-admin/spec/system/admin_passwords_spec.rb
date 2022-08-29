@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin passwords", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, :admin, password: password, password_updated_at: password_updated_at, organization: organization) }
+  let(:user) { create(:user, :confirmed, :admin, password:, password_updated_at:, organization:) }
   let(:password) { "decidim123456789" }
   let(:new_password) { "decidim987654321" }
   let(:password_updated_at) { nil }

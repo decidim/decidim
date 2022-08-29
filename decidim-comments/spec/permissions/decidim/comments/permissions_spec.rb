@@ -15,10 +15,10 @@ module Decidim::Comments
       { scope: :public, action: action_name, subject: action_subject }
     end
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:component) { create(:component, participatory_space: participatory_process) }
-    let(:commentable) { create(:dummy_resource, component: component) }
-    let(:comment) { create(:comment, commentable: commentable) }
+    let(:commentable) { create(:dummy_resource, component:) }
+    let(:comment) { create(:comment, commentable:) }
 
     # When the subject is not a comment
     it "raises a PermissionNotSetError" do
@@ -36,13 +36,13 @@ module Decidim::Comments
     context "when creating a comment" do
       let(:action_name) { :create }
       let(:action_subject) { :comment }
-      let(:context) { { commentable: commentable } }
+      let(:context) { { commentable: } }
 
       # Without any user
       it { is_expected.to be false }
 
       context "with a user who is allowed to comment" do
-        let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
+        let(:user) { create(:user, :confirmed, locale: "en", organization:) }
 
         it { is_expected.to be true }
 
@@ -54,8 +54,8 @@ module Decidim::Comments
       end
 
       context "with a user who is not allowed to comment" do
-        let(:participatory_process) { create :participatory_process, :private, organization: organization }
-        let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
+        let(:participatory_process) { create :participatory_process, :private, organization: }
+        let(:user) { create(:user, :confirmed, locale: "en", organization:) }
 
         it { is_expected.to be false }
       end
@@ -64,13 +64,13 @@ module Decidim::Comments
     context "when voting a comment" do
       let(:action_name) { :create }
       let(:action_subject) { :comment }
-      let(:context) { { comment: comment } }
+      let(:context) { { comment: } }
 
       # Without any user
       it { is_expected.to be false }
 
       context "with a user who is allowed to comment" do
-        let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
+        let(:user) { create(:user, :confirmed, locale: "en", organization:) }
 
         it { is_expected.to be true }
 
@@ -88,8 +88,8 @@ module Decidim::Comments
       end
 
       context "with a user who is not allowed to comment" do
-        let(:participatory_process) { create :participatory_process, :private, organization: organization }
-        let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
+        let(:participatory_process) { create :participatory_process, :private, organization: }
+        let(:user) { create(:user, :confirmed, locale: "en", organization:) }
 
         it { is_expected.to be false }
       end

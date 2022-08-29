@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin copies participatory process", type: :system do
   include_context "when admin administrating a participatory process"
 
-  let!(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
+  let!(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let!(:component) { create :component, manifest_name: :dummy, participatory_space: participatory_process }
   let!(:category) do
     create(

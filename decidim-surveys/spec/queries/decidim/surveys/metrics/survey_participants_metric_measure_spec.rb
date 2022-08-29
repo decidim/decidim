@@ -6,14 +6,14 @@ describe Decidim::Surveys::Metrics::SurveyParticipantsMetricMeasure do
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
 
   # Answer a survey (Surveys)
-  let(:surveys_component) { create(:surveys_component, :published, participatory_space: participatory_space) }
+  let(:surveys_component) { create(:surveys_component, :published, participatory_space:) }
   let(:survey) { create(:survey, component: surveys_component) }
   let(:questionnaire) { create(:questionnaire, questionnaire_for: survey) }
-  let!(:answers) { create_list(:answer, 5, questionnaire: questionnaire, created_at: day) }
-  let!(:old_answers) { create_list(:answer, 5, questionnaire: questionnaire, created_at: day - 1.week) }
+  let!(:answers) { create_list(:answer, 5, questionnaire:, created_at: day) }
+  let!(:old_answers) { create_list(:answer, 5, questionnaire:, created_at: day - 1.week) }
   # TOTAL Participants for Surveys:
   #  Cumulative: 10
   #  Quantity: 5

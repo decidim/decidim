@@ -5,8 +5,8 @@ shared_context "when assembly admin administrating an assembly" do
     create(
       :assembly_admin,
       :confirmed,
-      organization: organization,
-      assembly: assembly
+      organization:,
+      assembly:
     )
   end
 

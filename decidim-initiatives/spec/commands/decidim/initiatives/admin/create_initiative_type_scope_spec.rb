@@ -14,7 +14,7 @@ module Decidim
 
         describe "Attempt of creating duplicated typed scopes" do
           let(:organization) { create(:organization) }
-          let(:initiative_type) { create(:initiatives_type, organization: organization) }
+          let(:initiative_type) { create(:initiatives_type, organization:) }
           let!(:initiative_type_scope) do
             create(:initiatives_type_scope, type: initiative_type)
           end

@@ -32,7 +32,7 @@ module Decidim::Amendable
         scope: "decidim.amendments.emendation.announcement",
         amendable_type: type,
         proposal_link: link,
-        date: date)
+        date:)
     end
 
     def proposal_link(resource = model.amendable, text = nil)

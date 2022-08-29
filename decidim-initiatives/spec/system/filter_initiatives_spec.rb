@@ -4,17 +4,17 @@ require "spec_helper"
 
 describe "Filter Initiatives", :slow, type: :system do
   let(:organization) { create :organization }
-  let(:type1) { create :initiatives_type, organization: organization }
-  let(:type2) { create :initiatives_type, organization: organization }
-  let(:type3) { create :initiatives_type, organization: organization }
+  let(:type1) { create :initiatives_type, organization: }
+  let(:type2) { create :initiatives_type, organization: }
+  let(:type3) { create :initiatives_type, organization: }
   let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
   let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
   let(:scoped_type3) { create :initiatives_type_scope, type: type3, scope: nil }
-  let(:area_type1) { create(:area_type, organization: organization) }
-  let(:area_type2) { create(:area_type, organization: organization) }
-  let(:area1) { create(:area, area_type: area_type1, organization: organization) }
-  let(:area2) { create(:area, area_type: area_type1, organization: organization) }
-  let(:area3) { create(:area, area_type: area_type2, organization: organization) }
+  let(:area_type1) { create(:area_type, organization:) }
+  let(:area_type2) { create(:area_type, organization:) }
+  let(:area1) { create(:area, area_type: area_type1, organization:) }
+  let(:area2) { create(:area, area_type: area_type1, organization:) }
+  let(:area3) { create(:area, area_type: area_type2, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -22,9 +22,9 @@ describe "Filter Initiatives", :slow, type: :system do
 
   context "when filtering initiatives by SCOPE" do
     before do
-      create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1)
-      create(:initiative, organization: organization, scoped_type: scoped_type2)
-      create(:initiative, organization: organization, scoped_type: scoped_type3)
+      create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
+      create(:initiative, organization:, scoped_type: scoped_type2)
+      create(:initiative, organization:, scoped_type: scoped_type3)
 
       visit decidim_initiatives.initiatives_path
     end
@@ -73,11 +73,11 @@ describe "Filter Initiatives", :slow, type: :system do
 
   context "when filtering initiatives by STATE" do
     before do
-      create_list(:initiative, 4, organization: organization)
-      create_list(:initiative, 3, :accepted, organization: organization)
-      create_list(:initiative, 2, :rejected, organization: organization)
-      create(:initiative, :acceptable, organization: organization)
-      create(:initiative, organization: organization, answered_at: Time.current)
+      create_list(:initiative, 4, organization:)
+      create_list(:initiative, 3, :accepted, organization:)
+      create_list(:initiative, 2, :rejected, organization:)
+      create(:initiative, :acceptable, organization:)
+      create(:initiative, organization:, answered_at: Time.current)
 
       visit decidim_initiatives.initiatives_path
     end
@@ -176,7 +176,7 @@ describe "Filter Initiatives", :slow, type: :system do
       let(:scoped_type3) { nil }
 
       before do
-        create_list(:initiative, 3, organization: organization, scoped_type: scoped_type1)
+        create_list(:initiative, 3, organization:, scoped_type: scoped_type1)
 
         visit decidim_initiatives.initiatives_path
       end
@@ -194,8 +194,8 @@ describe "Filter Initiatives", :slow, type: :system do
 
     context "when there is more than on initiative_type" do
       before do
-        create_list(:initiative, 2, organization: organization, scoped_type: scoped_type1)
-        create(:initiative, organization: organization, scoped_type: scoped_type2)
+        create_list(:initiative, 2, organization:, scoped_type: scoped_type1)
+        create(:initiative, organization:, scoped_type: scoped_type2)
 
         visit decidim_initiatives.initiatives_path
       end
@@ -233,9 +233,9 @@ describe "Filter Initiatives", :slow, type: :system do
 
   context "when filtering initiatives by AREA" do
     before do
-      create_list(:initiative, 2, organization: organization, area: area1)
-      create(:initiative, organization: organization, area: area2)
-      create(:initiative, organization: organization, area: area3)
+      create_list(:initiative, 2, organization:, area: area1)
+      create(:initiative, organization:, area: area2)
+      create(:initiative, organization:, area: area3)
 
       visit decidim_initiatives.initiatives_path
     end
@@ -303,12 +303,12 @@ describe "Filter Initiatives", :slow, type: :system do
     end
 
     context "when logged in" do
-      let(:user) { create :user, :confirmed, organization: organization }
+      let(:user) { create :user, :confirmed, organization: }
 
       before do
-        create_list(:initiative, 2, organization: organization, author: user)
-        create_list(:initiative, 1, :created, organization: organization, author: user)
-        create(:initiative, organization: organization)
+        create_list(:initiative, 2, organization:, author: user)
+        create_list(:initiative, 1, :created, organization:, author: user)
+        create(:initiative, organization:)
 
         login_as user, scope: :user
 

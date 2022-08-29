@@ -9,14 +9,14 @@ shared_examples "with promoted participatory processes and groups" do
     it "includes promoted participatory processes and groups placing groups in first place" do
       create(
         :participatory_process_group,
-        organization: organization
+        organization:
       )
 
       unpromoted_process = create(
         :participatory_process,
         :with_steps,
         :published,
-        organization: organization
+        organization:
       )
       unpromoted_process.active_step.update!(end_date: Time.current.advance(days: 1))
 
@@ -25,14 +25,14 @@ shared_examples "with promoted participatory processes and groups" do
         :with_steps,
         :published,
         :promoted,
-        organization: organization
+        organization:
       )
       promoted_process.active_step.update!(end_date: Time.current.advance(days: 2))
 
       promoted_group = create(
         :participatory_process_group,
         :promoted,
-        organization: organization
+        organization:
       )
 
       _external_promoted_group = create(
@@ -51,14 +51,14 @@ shared_examples "with promoted participatory processes and groups" do
         :with_steps,
         :unpublished,
         :promoted,
-        organization: organization
+        organization:
       )
 
       create(
         :participatory_process,
         :with_steps,
         :unpublished,
-        organization: organization
+        organization:
       )
 
       last =
@@ -67,7 +67,7 @@ shared_examples "with promoted participatory processes and groups" do
           :with_steps,
           :published,
           :promoted,
-          organization: organization
+          organization:
         )
 
       last.active_step.update!(end_date: nil)
@@ -78,7 +78,7 @@ shared_examples "with promoted participatory processes and groups" do
           :with_steps,
           :published,
           :promoted,
-          organization: organization,
+          organization:,
           end_date: Time.current.advance(days: 10)
         )
 
@@ -90,7 +90,7 @@ shared_examples "with promoted participatory processes and groups" do
           :with_steps,
           :published,
           :promoted,
-          organization: organization,
+          organization:,
           end_date: Time.current.advance(days: 8)
         )
 

@@ -11,28 +11,28 @@ module Decidim::Verifications
     let(:prev_week) { Time.zone.today.prev_week }
     let(:all_authorizations) do
       Decidim::Verifications::Authorizations.new(
-        organization: organization
+        organization:
       ).query
     end
     let(:granted_authorizations) do
       Decidim::Verifications::Authorizations.new(
-        organization: organization,
+        organization:,
         granted: true
       ).query
     end
     let(:no_granted_authorizations) do
       Decidim::Verifications::Authorizations.new(
-        organization: organization,
+        organization:,
         granted: false
       ).query
     end
-    let!(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
-    let!(:user0) { create(:user, :admin, :confirmed, organization: organization) }
-    let!(:user1) { create(:user, :admin, :confirmed, organization: organization) }
-    let!(:user2) { create(:user, :admin, :confirmed, organization: organization) }
-    let!(:user3) { create(:user, :admin, :confirmed, organization: organization) }
-    let!(:user4) { create(:user, :admin, :confirmed, organization: organization) }
-    let!(:user5) { create(:user, :admin, :confirmed, organization: organization, managed: true) }
+    let!(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let!(:user0) { create(:user, :admin, :confirmed, organization:) }
+    let!(:user1) { create(:user, :admin, :confirmed, organization:) }
+    let!(:user2) { create(:user, :admin, :confirmed, organization:) }
+    let!(:user3) { create(:user, :admin, :confirmed, organization:) }
+    let!(:user4) { create(:user, :admin, :confirmed, organization:) }
+    let!(:user5) { create(:user, :admin, :confirmed, organization:, managed: true) }
 
     # With 6 authorizations, 3 granted, 2 pending, only 1 granted & managed
     before do

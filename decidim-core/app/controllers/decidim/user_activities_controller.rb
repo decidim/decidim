@@ -36,8 +36,8 @@ module Decidim
 
     def activity_options
       {
-        user: user,
-        current_user: current_user,
+        user:,
+        current_user:,
         resource_name: filter.resource_type
       }
     end

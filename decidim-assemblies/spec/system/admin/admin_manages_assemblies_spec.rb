@@ -73,7 +73,7 @@ describe "Admin manages assemblies", type: :system do
 
   context "when managing parent assemblies" do
     let(:parent_assembly) { nil }
-    let!(:assembly) { create :assembly, organization: organization }
+    let!(:assembly) { create :assembly, organization: }
 
     before do
       switch_to_host(organization.host)
@@ -99,8 +99,8 @@ describe "Admin manages assemblies", type: :system do
           i18n_assemblies_type = assemblies_type.name[I18n.locale.to_s]
 
           context "filtering collection by assemblies_type: #{i18n_assemblies_type}" do
-            let!(:assembly1) { create(:assembly, organization: organization, assemblies_type: assemblies_type1) }
-            let!(:assembly2) { create(:assembly, organization: organization, assemblies_type: assemblies_type2) }
+            let!(:assembly1) { create(:assembly, organization:, assemblies_type: assemblies_type1) }
+            let!(:assembly2) { create(:assembly, organization:, assemblies_type: assemblies_type2) }
 
             it_behaves_like "a filtered collection", options: "Assembly type", filter: i18n_assemblies_type do
               let(:in_filter) { translated(assembly_with_type(type).title) }
@@ -123,8 +123,8 @@ describe "Admin manages assemblies", type: :system do
   end
 
   context "when managing child assemblies" do
-    let!(:parent_assembly) { create :assembly, organization: organization }
-    let!(:child_assembly) { create :assembly, organization: organization, parent: parent_assembly }
+    let!(:parent_assembly) { create :assembly, organization: }
+    let!(:child_assembly) { create :assembly, organization:, parent: parent_assembly }
     let(:assembly) { child_assembly }
 
     before do
@@ -143,12 +143,12 @@ describe "Admin manages assemblies", type: :system do
     describe "listing child assemblies" do
       it_behaves_like "filtering collection by published/unpublished" do
         let!(:published_space) { child_assembly }
-        let!(:unpublished_space) { create(:assembly, :unpublished, parent: parent_assembly, organization: organization) }
+        let!(:unpublished_space) { create(:assembly, :unpublished, parent: parent_assembly, organization:) }
       end
 
       it_behaves_like "filtering collection by private/public" do
         let!(:public_space) { child_assembly }
-        let!(:private_space) { create(:assembly, :private, parent: parent_assembly, organization: organization) }
+        let!(:private_space) { create(:assembly, :private, parent: parent_assembly, organization:) }
       end
     end
   end

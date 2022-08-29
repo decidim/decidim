@@ -31,6 +31,18 @@
 
   &.transparent{
     @apply bg-transparent text-white border border-white;
+
+    &.primary{
+      @apply border-primary text-primary;
+    }
+
+    &.secondary{
+      @apply border-secondary text-secondary;
+    }
+
+    &.tertiary{
+      @apply border-tertiary text-tertiary;
+    }
   }
 
   &.white:hover,
@@ -38,6 +50,6 @@
   &:hover{
     @apply text-white;
 
-    background: linear-gradient(0deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), theme('colors.secondary');
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), theme('colors.secondary');
   }
 }

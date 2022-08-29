@@ -12,7 +12,7 @@ describe "Admin publishes consultation results", type: :system do
   end
 
   describe "publishing results" do
-    let!(:consultation) { create(:consultation, :finished, :unpublished_results, organization: organization) }
+    let!(:consultation) { create(:consultation, :finished, :unpublished_results, organization:) }
 
     before do
       click_link translated(consultation.title)
@@ -30,7 +30,7 @@ describe "Admin publishes consultation results", type: :system do
   end
 
   describe "unpublishing results" do
-    let!(:consultation) { create(:consultation, :published_results, :finished, organization: organization) }
+    let!(:consultation) { create(:consultation, :published_results, :finished, organization:) }
 
     before do
       click_link translated(consultation.title)

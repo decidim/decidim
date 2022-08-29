@@ -9,7 +9,7 @@ module Decidim
         notification_mail(
           from: originator,
           to: user,
-          conversation: conversation,
+          conversation:,
           message: conversation.messages.first.body,
           action: "new_conversation"
         )
@@ -19,7 +19,7 @@ module Decidim
         notification_mail(
           from: originator,
           to: manager,
-          conversation: conversation,
+          conversation:,
           message: conversation.messages.first.body,
           action: "new_group_conversation",
           third_party: group
@@ -30,7 +30,7 @@ module Decidim
         notification_mail(
           from: group,
           to: user,
-          conversation: conversation,
+          conversation:,
           message: conversation.messages.first.body,
           action: "comanagers_new_conversation",
           third_party: manager
@@ -41,7 +41,7 @@ module Decidim
         notification_mail(
           from: sender,
           to: user,
-          conversation: conversation,
+          conversation:,
           message: message.body,
           action: "new_message"
         )
@@ -51,7 +51,7 @@ module Decidim
         notification_mail(
           from: sender,
           to: user,
-          conversation: conversation,
+          conversation:,
           message: message.body,
           action: "new_group_message",
           third_party: group
@@ -62,7 +62,7 @@ module Decidim
         notification_mail(
           from: sender,
           to: user,
-          conversation: conversation,
+          conversation:,
           message: message.body,
           action: "comanagers_new_message",
           third_party: manager
@@ -90,7 +90,7 @@ module Decidim
             group: @third_party&.name
           )
 
-          mail(to: to.email, subject: subject)
+          mail(to: to.email, subject:)
         end
       end
       # rubocop:enable Metrics/ParameterLists

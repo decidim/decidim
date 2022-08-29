@@ -14,9 +14,9 @@ describe PasswordValidator do
         email: ::Faker::Internet.email,
         nickname: ::Faker::Internet.username(specifier: 10..15),
         current_organization: organization,
-        errors: errors,
+        errors:,
         admin?: admin_record,
-        previous_passwords: previous_passwords,
+        previous_passwords:,
         encrypted_password_was: ::Devise::Encryptor.digest(Decidim::User, "decidim123456"),
         encrypted_password_changed?: true
       )

@@ -54,7 +54,7 @@ module Decidim
           end
 
           reminder_registry.messages do |msg|
-            msg.set(:title) { |count: 0| I18n.t("decidim.budgets.admin.reminders.orders.title", count: count) }
+            msg.set(:title) { |count: 0| I18n.t("decidim.budgets.admin.reminders.orders.title", count:) }
             msg.set(:description) { I18n.t("decidim.budgets.admin.reminders.orders.description") }
           end
         end

@@ -32,7 +32,7 @@ module Decidim
         # The verification metadata to validate in the next step.
         def verification_metadata
           {
-            verification_code: verification_code,
+            verification_code:,
             code_sent_at: Time.current
           }
         end

@@ -75,7 +75,7 @@ module Decidim
     end
 
     describe "callbacks" do
-      let(:page) { create(:static_page, slug: slug) }
+      let(:page) { create(:static_page, slug:) }
 
       context "with a default slug" do
         let(:slug) { default_pages.sample }
@@ -121,7 +121,7 @@ module Decidim
     end
 
     describe "default?" do
-      subject(:static_page) { build(:static_page, slug: slug) }
+      subject(:static_page) { build(:static_page, slug:) }
 
       context "when the slug is a default one" do
         let(:slug) { default_pages.sample }

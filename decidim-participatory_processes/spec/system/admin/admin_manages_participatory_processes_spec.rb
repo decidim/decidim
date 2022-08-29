@@ -6,7 +6,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_process_groups) do
-    create_list(:participatory_process_group, 3, organization: organization)
+    create_list(:participatory_process_group, 3, organization:)
   end
 
   before do
@@ -86,7 +86,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
   end
 
   context "when updating a participatory process" do
-    let!(:participatory_process3) { create(:participatory_process, organization: organization) }
+    let!(:participatory_process3) { create(:participatory_process, organization:) }
 
     before do
       visit decidim_admin_participatory_processes.participatory_processes_path

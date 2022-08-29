@@ -5,19 +5,19 @@ require "spec_helper"
 module Decidim::Messaging
   describe StartConversation do
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, :confirmed, organization: organization) }
-    let(:another_user) { create(:user, :confirmed, organization: organization) }
-    let(:extra_user) { create(:user, :confirmed, organization: organization) }
-    let(:user_group) { create(:user_group, :confirmed, organization: organization, users: [user, another_user, extra_user]) }
-    let(:another_user_group) { create(:user_group, :confirmed, organization: organization, users: [another_user, extra_user]) }
+    let(:user) { create(:user, :confirmed, organization:) }
+    let(:another_user) { create(:user, :confirmed, organization:) }
+    let(:extra_user) { create(:user, :confirmed, organization:) }
+    let(:user_group) { create(:user_group, :confirmed, organization:, users: [user, another_user, extra_user]) }
+    let(:another_user_group) { create(:user_group, :confirmed, organization:, users: [another_user, extra_user]) }
     let!(:command) { described_class.new(form) }
     let(:sender) { user }
     let(:interlocutor) { another_user }
     let(:current_user) { user }
     let(:context) do
       {
-        current_user: current_user,
-        sender: sender
+        current_user:,
+        sender:
       }
     end
     let(:form) do
@@ -51,7 +51,7 @@ module Decidim::Messaging
       let(:body) { "<3 from Patagonia" }
       let(:params) do
         {
-          body: body,
+          body:,
           recipient_id: interlocutor.id
         }
       end

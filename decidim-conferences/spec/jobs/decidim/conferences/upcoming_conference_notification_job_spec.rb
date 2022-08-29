@@ -6,12 +6,12 @@ describe Decidim::Conferences::UpcomingConferenceNotificationJob do
   subject { described_class }
 
   let(:organization) { create :organization }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:start_date) { 1.day.from_now }
-  let(:conference) { create :conference, start_date: start_date, organization: organization }
+  let(:conference) { create :conference, start_date:, organization: }
   let(:component) { create :component, manifest_name: :conferences, participatory_space: conference }
   let!(:checksum) { subject.generate_checksum(conference) }
-  let!(:follow) { create :follow, followable: conference, user: user }
+  let!(:follow) { create :follow, followable: conference, user: }
 
   context "when the checksum is correct" do
     it "notifies the upcoming conference" do

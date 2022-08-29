@@ -7,9 +7,9 @@ module Decidim::Meetings
     subject { described_class.new(form, meeting) }
 
     let(:organization) { create :organization, available_locales: [:en] }
-    let(:component) { create(:component, manifest_name: "meetings", organization: organization) }
-    let(:meeting) { create(:meeting, component: component) }
-    let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+    let(:component) { create(:component, manifest_name: "meetings", organization:) }
+    let(:meeting) { create(:meeting, component:) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
     let(:invalid) { false }
     let(:form) do
@@ -45,7 +45,7 @@ module Decidim::Meetings
             ]
           )
         ],
-        current_user: current_user
+        current_user:
       )
     end
 

@@ -7,9 +7,9 @@ describe Decidim::Debates::Admin::UpdateDebate do
 
   let(:debate) { create :debate }
   let(:organization) { debate.component.organization }
-  let(:scope) { create :scope, organization: organization }
+  let(:scope) { create :scope, organization: }
   let(:category) { create :category, participatory_space: debate.component.participatory_space }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
@@ -20,8 +20,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
-      scope: scope,
-      category: category,
+      scope:,
+      category:,
       current_organization: organization,
       comments_enabled: true
     )

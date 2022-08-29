@@ -10,12 +10,12 @@ module Decidim
       end
 
       let!(:questionnaire) { create(:questionnaire) }
-      let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+      let!(:question) { create(:questionnaire_question, questionnaire:) }
       let(:current_user) { create(:user) }
       let(:session_token) { "some-token" }
       let(:context) do
         {
-          session_token: session_token
+          session_token:
         }
       end
 
@@ -46,8 +46,8 @@ module Decidim
       end
 
       describe "responses_by_step" do
-        let!(:separator) { create(:questionnaire_question, questionnaire: questionnaire, position: 1, question_type: :separator) }
-        let!(:question2) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
+        let!(:separator) { create(:questionnaire_question, questionnaire:, position: 1, question_type: :separator) }
+        let!(:question2) { create(:questionnaire_question, questionnaire:, position: 2) }
 
         it "groups responses by their step" do
           result = subject.responses_by_step.map { |step| step.map(&:question_id) }
@@ -74,8 +74,8 @@ module Decidim
       end
 
       describe "total_steps" do
-        let!(:separator) { create(:questionnaire_question, questionnaire: questionnaire, position: 1, question_type: :separator) }
-        let!(:question2) { create(:questionnaire_question, questionnaire: questionnaire, position: 2) }
+        let!(:separator) { create(:questionnaire_question, questionnaire:, position: 1, question_type: :separator) }
+        let!(:question2) { create(:questionnaire_question, questionnaire:, position: 2) }
 
         it "counts the total steps" do
           expect(subject.total_steps).to eq 2

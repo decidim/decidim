@@ -6,14 +6,14 @@ describe "Admin exports initiatives", type: :system do
   include_context "with filterable context"
 
   let!(:initiatives) do
-    create_list(:initiative, 3, organization: organization)
+    create_list(:initiative, 3, organization:)
   end
 
   let!(:created_initiative) do
-    create(:initiative, :created, organization: organization)
+    create(:initiative, :created, organization:)
   end
 
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:organization) { create(:organization) }
 
   before do

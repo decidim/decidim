@@ -12,7 +12,7 @@ describe Decidim::Votings::QuestionResultForm do
   let(:attributes) do
     {
       id: question_id,
-      value: value
+      value:
     }
   end
 

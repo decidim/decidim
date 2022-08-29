@@ -201,7 +201,7 @@ module Decidim
       end
 
       def has_registration_for?(user)
-        registrations.where(user: user).any?
+        registrations.where(user:).any?
       end
 
       def maps_enabled?
@@ -238,7 +238,7 @@ module Decidim
       end
 
       def current_user_can_visit_meeting?(user)
-        Decidim::Meetings::Meeting.visible_for(user).exists?(id: id)
+        Decidim::Meetings::Meeting.visible_for(user).exists?(id:)
       end
 
       def iframe_access_level_allowed_for_user?(user)

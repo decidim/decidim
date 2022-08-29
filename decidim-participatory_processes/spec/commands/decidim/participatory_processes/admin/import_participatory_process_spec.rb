@@ -23,8 +23,8 @@ module Decidim::ParticipatoryProcesses
         import_components?: import_components,
         document: form_doc,
         document_text: document_file,
-        document_type: document_type,
-        current_user: create(:user, organization: organization),
+        document_type:,
+        current_user: create(:user, organization:),
         current_organization: organization,
         invalid?: invalid
       )
@@ -42,7 +42,7 @@ module Decidim::ParticipatoryProcesses
       it "broadcasts ok and create the process" do
         expect { subject.call }.to(
           broadcast(:ok) &&
-          change { ::Decidim::ParticipatoryProcess.where(organization: organization).count }.by(1)
+          change { ::Decidim::ParticipatoryProcess.where(organization:).count }.by(1)
         )
 
         imported_participatory_process = Decidim::ParticipatoryProcess.last

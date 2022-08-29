@@ -7,7 +7,7 @@ module Decidim::Assemblies
     subject { described_class.new(form, assembly_member) }
 
     let!(:assembly) { create(:assembly) }
-    let(:assembly_member) { create :assembly_member, :with_user, assembly: assembly }
+    let(:assembly_member) { create :assembly_member, :with_user, assembly: }
     let!(:current_user) { create :user, :confirmed, organization: assembly.organization }
     let(:user) { nil }
     let(:existing_user) { false }
@@ -25,8 +25,8 @@ module Decidim::Assemblies
           designation_date: Time.current,
           position: Decidim::AssemblyMember::POSITIONS.sample,
           position_other: Faker::Lorem.word,
-          existing_user: existing_user,
-          non_user_avatar: non_user_avatar,
+          existing_user:,
+          non_user_avatar:,
           user_id: user&.id
         }
       }
@@ -35,7 +35,7 @@ module Decidim::Assemblies
       form_klass.from_params(
         form_params
       ).with_context(
-        current_user: current_user,
+        current_user:,
         current_organization: assembly.organization
       )
     end

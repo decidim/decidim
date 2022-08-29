@@ -25,9 +25,10 @@ module Decidim
       {
         autocomplete: "new-password",
         required: true,
-        help_text: help_text,
+        help_text:,
         minlength: min_length,
-        maxlength: ::PasswordValidator::MAX_LENGTH
+        maxlength: ::PasswordValidator::MAX_LENGTH,
+        placeholder: "••••••"
       }
     end
 

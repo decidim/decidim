@@ -7,9 +7,9 @@ describe "Proposals", type: :system do
   let(:manifest_name) { "proposals" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
+  let!(:scope) { create :scope, organization: }
+  let!(:user) { create :user, :confirmed, organization: }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
@@ -39,12 +39,12 @@ describe "Proposals", type: :system do
         let!(:component) do
           create(:proposal_component,
                  :with_creation_enabled,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process,
                  settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id })
         end
 
-        let(:proposal_draft) { create(:proposal, :draft, component: component, users: [user]) }
+        let(:proposal_draft) { create(:proposal, :draft, component:, users: [user]) }
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
@@ -97,7 +97,7 @@ describe "Proposals", type: :system do
           let!(:component) do
             create(:proposal_component,
                    :with_creation_enabled,
-                   manifest: manifest,
+                   manifest:,
                    participatory_space: participatory_process,
                    settings: {
                      geocoding_enabled: true,
@@ -106,7 +106,7 @@ describe "Proposals", type: :system do
                    })
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "It will not solve everything") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
           it "creates a new proposal", :slow do
             visit complete_proposal_path(component, proposal_draft)
@@ -170,11 +170,11 @@ describe "Proposals", type: :system do
                    :with_extra_hashtags,
                    suggested_hashtags: component_suggested_hashtags,
                    automatic_hashtags: component_automatic_hashtags,
-                   manifest: manifest,
+                   manifest:,
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "It will not solve everything") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
           let(:component_automatic_hashtags) { "AutoHashtag1 AutoHashtag2" }
           let(:component_suggested_hashtags) { "SuggestedHashtag1 SuggestedHashtag2" }
 
@@ -198,11 +198,11 @@ describe "Proposals", type: :system do
         end
 
         context "when the user has verified organizations" do
-          let(:user_group) { create(:user_group, :verified, organization: organization) }
-          let(:user_group_proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "Cities need more people, not more cars") }
+          let(:user_group) { create(:user_group, :verified, organization:) }
+          let(:user_group_proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "Cities need more people, not more cars") }
 
           before do
-            create(:user_group_membership, user: user, user_group: user_group)
+            create(:user_group_membership, user:, user_group:)
           end
 
           it "creates a new proposal as a user group", :slow do
@@ -232,7 +232,7 @@ describe "Proposals", type: :system do
             let!(:component) do
               create(:proposal_component,
                      :with_creation_enabled,
-                     manifest: manifest,
+                     manifest:,
                      participatory_space: participatory_process,
                      settings: {
                        geocoding_enabled: true,
@@ -241,7 +241,7 @@ describe "Proposals", type: :system do
                      })
             end
 
-            let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "More sidewalks and less roads", body: "It will not solve everything") }
+            let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "More sidewalks and less roads", body: "It will not solve everything") }
 
             it "creates a new proposal as a user group", :slow do
               visit complete_proposal_path(component, proposal_draft)
@@ -281,7 +281,7 @@ describe "Proposals", type: :system do
               }
             }
 
-            component.update!(permissions: permissions)
+            component.update!(permissions:)
           end
 
           it "shows a modal dialog" do
@@ -296,11 +296,11 @@ describe "Proposals", type: :system do
             create(:proposal_component,
                    :with_creation_enabled,
                    :with_attachments_allowed,
-                   manifest: manifest,
+                   manifest:,
                    participatory_space: participatory_process)
           end
 
-          let(:proposal_draft) { create(:proposal, :draft, users: [user], component: component, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
+          let(:proposal_draft) { create(:proposal, :draft, users: [user], component:, title: "Proposal with attachments", body: "This is my proposal and I want to upload attachments.") }
 
           it "creates a new proposal with attachments" do
             visit complete_proposal_path(component, proposal_draft)
@@ -401,11 +401,11 @@ describe "Proposals", type: :system do
           create(:proposal_component,
                  :with_creation_enabled,
                  :with_proposal_limit,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
-        let!(:proposal_first) { create(:proposal, users: [user], component: component, title: "Creating my first and only proposal", body: "This is my only proposal's body and I'm using it unwisely.") }
+        let!(:proposal_first) { create(:proposal, users: [user], component:, title: "Creating my first and only proposal", body: "This is my only proposal's body and I'm using it unwisely.") }
 
         before do
           visit_component

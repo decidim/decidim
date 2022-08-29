@@ -10,10 +10,10 @@ module Decidim
       with_user(user) do
         @organization = user.organization
         event_class = event_class_name.constantize
-        @event_instance = event_class.new(resource: resource, event_name: event, user: user, extra: extra, user_role: user_role)
+        @event_instance = event_class.new(resource:, event_name: event, user:, extra:, user_role:)
         subject = @event_instance.email_subject
 
-        mail(to: user.email, subject: subject)
+        mail(to: user.email, subject:)
       end
     end
   end

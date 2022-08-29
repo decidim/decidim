@@ -9,10 +9,10 @@ describe "Conferences", type: :system do
   let(:base_conference) do
     create(
       :conference,
-      organization: organization,
+      organization:,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
-      show_statistics: show_statistics
+      show_statistics:
     )
   end
 
@@ -44,7 +44,7 @@ describe "Conferences", type: :system do
 
   context "when there are some conferences and all are unpublished" do
     before do
-      create(:conference, :unpublished, organization: organization)
+      create(:conference, :unpublished, organization:)
       create(:conference, :published)
     end
 
@@ -67,8 +67,8 @@ describe "Conferences", type: :system do
 
   context "when there are some published conferences" do
     let!(:conference) { base_conference }
-    let!(:promoted_conference) { create(:conference, :promoted, organization: organization) }
-    let!(:unpublished_conference) { create(:conference, :unpublished, organization: organization) }
+    let!(:promoted_conference) { create(:conference, :promoted, organization:) }
+    let!(:unpublished_conference) { create(:conference, :unpublished, organization:) }
 
     before do
       visit decidim_conferences.conferences_path

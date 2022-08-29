@@ -9,25 +9,25 @@ module Decidim
         subject { described_class.new(form) }
 
         let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
+        let(:user) { create :user, :admin, :confirmed, organization: }
 
         let(:form) do
           double(
             invalid?: invalid,
             title: { en: "The voting space title" },
             description: { en: "The voting space description" },
-            start_time: start_time,
-            end_time: end_time,
-            slug: slug,
-            scope: scope,
+            start_time:,
+            end_time:,
+            slug:,
+            scope:,
             current_user: user,
             current_organization: organization,
             banner_image: nil,
             introductory_image: nil,
-            promoted: promoted,
-            voting_type: voting_type,
-            census_contact_information: census_contact_information,
-            show_check_census: show_check_census
+            promoted:,
+            voting_type:,
+            census_contact_information:,
+            show_check_census:
           )
         end
 
@@ -37,7 +37,7 @@ module Decidim
         let(:start_time) { 1.day.from_now }
         let(:end_time) { start_time + 1.month }
         let(:slug) { "voting-slug" }
-        let(:scope) { create :scope, organization: organization }
+        let(:scope) { create :scope, organization: }
         let(:promoted) { true }
         let(:voting_type) { "online" }
         let(:census_contact_information) { nil }

@@ -21,7 +21,7 @@ shared_examples "follows" do
 
   context "when the user is following the followable" do
     before do
-      create(:follow, followable: followable, user: user)
+      create(:follow, followable:, user:)
     end
 
     context "when user clicks the Follow button" do
@@ -37,7 +37,7 @@ shared_examples "follows" do
 
   context "when the user is following the followable's participatory space" do
     before do
-      create(:follow, followable: followable.participatory_space, user: user)
+      create(:follow, followable: followable.participatory_space, user:)
     end
 
     context "when user clicks the Follow button" do

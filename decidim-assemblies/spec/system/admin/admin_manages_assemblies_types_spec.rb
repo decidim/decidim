@@ -33,7 +33,7 @@ describe "Admin manages assemblies", type: :system do
     end
 
     context "with existing assemblies types" do
-      let!(:assembly_type) { create(:assemblies_type, organization: organization) }
+      let!(:assembly_type) { create(:assemblies_type, organization:) }
 
       before do
         visit current_path

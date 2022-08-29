@@ -14,15 +14,15 @@ module Decidim
           include_context "with map utility" do
             subject { utility }
 
-            let(:config) { { api_key: api_key } }
+            let(:config) { { api_key: } }
           end
 
           describe "#url_params" do
             it "returns the default params" do
               expect(
                 subject.url_params(
-                  latitude: latitude,
-                  longitude: longitude
+                  latitude:,
+                  longitude:
                 )
               ).to eq(
                 apiKey: "key1234",
@@ -38,8 +38,8 @@ module Decidim
               it "returns the correct params" do
                 expect(
                   subject.url_params(
-                    latitude: latitude,
-                    longitude: longitude,
+                    latitude:,
+                    longitude:,
                     options: {
                       zoom: 10,
                       width: 200,
@@ -64,8 +64,8 @@ module Decidim
               it "returns the default params" do
                 expect(
                   subject.url_params(
-                    latitude: latitude,
-                    longitude: longitude
+                    latitude:,
+                    longitude:
                   )
                 ).to eq(
                   app_id: "appid123",

@@ -6,7 +6,7 @@ module Decidim
   describe ConferenceUserRole do
     subject { conference_user_role }
 
-    let(:conference_user_role) { build(:conference_user_role, role: role) }
+    let(:conference_user_role) { build(:conference_user_role, role:) }
     let(:role) { "admin" }
 
     it { is_expected.to be_valid }
@@ -58,8 +58,8 @@ module Decidim
       let(:conference_user_role) do
         build(
           :conference_user_role,
-          user: user,
-          conference: conference,
+          user:,
+          conference:,
           role: "admin"
         )
       end
@@ -78,7 +78,7 @@ module Decidim
       end
 
       let!(:existing_role) do
-        create(:conference_user_role, role: role)
+        create(:conference_user_role, role:)
       end
 
       it { is_expected.not_to be_valid }

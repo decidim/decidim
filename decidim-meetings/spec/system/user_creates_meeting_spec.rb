@@ -7,7 +7,7 @@ describe "User creates meeting", type: :system do
   let(:manifest_name) { "meetings" }
 
   let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let(:current_component) { create :meeting_component, participatory_space: participatory_process }
   let(:start_time) { 1.day.from_now }
   let(:meetings_count) { 5 }
@@ -27,8 +27,8 @@ describe "User creates meeting", type: :system do
   end
 
   context "when creating a new meeting", :serves_geocoding_autocomplete do
-    let(:user) { create :user, :confirmed, organization: organization }
-    let!(:category) { create :category, participatory_space: participatory_space }
+    let(:user) { create :user, :confirmed, organization: }
+    let!(:category) { create :category, participatory_space: }
 
     context "when the user is not logged in" do
       it "redirects the user to the sign in page" do
@@ -60,7 +60,7 @@ describe "User creates meeting", type: :system do
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
         let(:online_meeting_url) { "http://decidim.org" }
-        let(:meeting_scope) { create :scope, organization: organization }
+        let(:meeting_scope) { create :scope, organization: }
         let(:datetime_format) { I18n.t("time.formats.decidim_short") }
         let(:time_format) { I18n.t("time.formats.time_of_day") }
 
@@ -140,7 +140,7 @@ describe "User creates meeting", type: :system do
         end
 
         context "when creating as a user group" do
-          let!(:user_group) { create :user_group, :verified, organization: organization, users: [user] }
+          let!(:user_group) { create :user_group, :verified, organization:, users: [user] }
 
           it "creates a new meeting", :slow do
             stub_geocoding(meeting_address, [latitude, longitude])
@@ -227,7 +227,7 @@ describe "User creates meeting", type: :system do
               }
             }
 
-            component.update!(permissions: permissions)
+            component.update!(permissions:)
           end
 
           it "shows a modal dialog" do

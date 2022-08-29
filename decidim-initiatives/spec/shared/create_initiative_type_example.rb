@@ -2,7 +2,7 @@
 
 shared_examples "create an initiative type" do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, organization: organization) }
+  let(:user) { create(:user, organization:) }
 
   let(:form) do
     form_klass.from_params(

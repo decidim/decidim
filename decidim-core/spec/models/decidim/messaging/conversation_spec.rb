@@ -9,7 +9,7 @@ describe Decidim::Messaging::Conversation do
     let(:from) { nil }
     let(:conversation) do
       described_class.start!(
-        originator: originator,
+        originator:,
         interlocutors: [interlocutor],
         body: "Hei!",
         user: from
@@ -21,7 +21,7 @@ describe Decidim::Messaging::Conversation do
     context "when there are more than 2 participants" do
       let(:conversation) do
         described_class.start!(
-          originator: originator,
+          originator:,
           interlocutors: [interlocutor, interlocutor2],
           body: "Hei!"
         )

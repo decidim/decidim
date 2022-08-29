@@ -7,7 +7,7 @@ describe "Space moderator manages global moderations", type: :system do
     create(
       :process_moderator,
       :confirmed,
-      organization: organization,
+      organization:,
       participatory_process: participatory_space
     )
   end
@@ -37,7 +37,7 @@ describe "Space moderator manages global moderations", type: :system do
 
   context "when the user can manage a space without moderations" do
     let(:participatory_space) do
-      create :participatory_process, organization: organization
+      create :participatory_process, organization:
     end
 
     it "can't see any moderation" do

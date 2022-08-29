@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) { create :organization }
-      let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+      let(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -16,7 +16,7 @@ module Decidim
       end
 
       describe "GET users and user groups in json format" do
-        let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization: organization, email: "d.mail@example.org") }
+        let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization:, email: "d.mail@example.org") }
         let!(:other_user) { create(:user, name: "Daisy O'connor", nickname: "daisy_o", email: "d.mail.o@example.org") }
         let!(:user_group) do
           create(
@@ -26,7 +26,7 @@ module Decidim
             nickname: "daisy_org",
             email: "d.mail.org@example.org",
             users: [user],
-            organization: organization
+            organization:
           )
         end
         let(:parsed_response) { JSON.parse(response.body).map(&:symbolize_keys) }
@@ -60,7 +60,7 @@ module Decidim
       end
 
       describe "GET users in json format" do
-        let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization: organization) }
+        let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization:) }
         let!(:other_user) { create(:user, name: "Daisy O'connor", nickname: "daisy_o") }
         let!(:user_group) do
           create(
@@ -69,7 +69,7 @@ module Decidim
             name: "Daisy Organization",
             nickname: "daysy_org",
             users: [user],
-            organization: organization
+            organization:
           )
         end
 

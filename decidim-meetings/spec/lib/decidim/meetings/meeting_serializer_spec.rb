@@ -25,8 +25,8 @@ module Decidim
       let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
 
       before do
-        meeting.update!(category: category)
-        meeting.update!(scope: scope)
+        meeting.update!(category:)
+        meeting.update!(scope:)
         meeting.link_resources(proposals, "proposals_from_meeting")
         meeting.link_resources(results, "meetings_through_proposals")
       end

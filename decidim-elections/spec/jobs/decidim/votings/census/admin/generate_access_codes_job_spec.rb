@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
   let(:dataset) { create(:dataset, status: :generating_codes) }
-  let(:user) { create(:user, :admin, organization: organization) }
+  let(:user) { create(:user, :admin, organization:) }
   let(:organization) { dataset&.organization || create(:organization) }
 
   describe "queue" do
@@ -47,7 +47,7 @@ describe Decidim::Votings::Census::Admin::GenerateAccessCodesJob do
     end
 
     context "when this input is valid" do
-      let!(:data) { create_list(:datum, 5, dataset: dataset) }
+      let!(:data) { create_list(:datum, 5, dataset:) }
 
       it "generates the codes" do
         described_class.perform_now(dataset, user)

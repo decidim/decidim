@@ -7,7 +7,7 @@ module Decidim
     include_context "when a simple event"
 
     let(:user_group) { create :user_group, users: [] }
-    let!(:membership) { create :user_group_membership, user_group: user_group, role: :member }
+    let!(:membership) { create :user_group_membership, user_group:, role: :member }
     let(:extra) { { user_group_name: user_group.name, user_group_nickname: user_group.nickname } }
     let(:event_name) { "decidim.events.groups.join_request_rejected" }
     let(:resource) { user_group }

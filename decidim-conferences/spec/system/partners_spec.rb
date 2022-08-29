@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Conference partners", type: :system do
   let(:organization) { create(:organization) }
-  let(:conference) { create(:conference, organization: organization) }
+  let(:conference) { create(:conference, organization:) }
   let(:current_participatory_space) { conference }
 
   before do
@@ -19,8 +19,8 @@ describe "Conference partners", type: :system do
   end
 
   context "when there are partners" do
-    let!(:main_promotors) { create_list(:partner, 2, :main_promotor, conference: conference) }
-    let!(:collaborators) { create_list(:partner, 2, :collaborator, conference: conference) }
+    let!(:main_promotors) { create_list(:partner, 2, :main_promotor, conference:) }
+    let!(:collaborators) { create_list(:partner, 2, :collaborator, conference:) }
     let!(:partners) { main_promotors + collaborators }
 
     it "the menu link is shown" do

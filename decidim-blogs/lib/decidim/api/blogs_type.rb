@@ -18,11 +18,11 @@ module Decidim
       end
 
       def posts(filter: {}, order: {})
-        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, { filter: filter, order: order }, context)
+        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, { filter:, order: }, context)
       end
 
       def post(id:)
-        Decidim::Core::ComponentFinderBase.new(model_class: Post).call(object, { id: id }, context)
+        Decidim::Core::ComponentFinderBase.new(model_class: Post).call(object, { id: }, context)
       end
     end
   end

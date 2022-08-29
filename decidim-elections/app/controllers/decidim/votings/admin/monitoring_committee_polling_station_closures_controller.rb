@@ -17,7 +17,7 @@ module Decidim
         end
 
         def show
-          enforce_permission_to :read, :monitoring_committee_polling_station_closure, voting: current_voting, closure: closure
+          enforce_permission_to :read, :monitoring_committee_polling_station_closure, voting: current_voting, closure:
         end
 
         def edit

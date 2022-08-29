@@ -52,7 +52,7 @@ module Decidim
           result.update(key => selected_handlers(value).any? ? serialized : {})
         end
 
-        resource_permissions.update!(permissions: permissions)
+        resource_permissions.update!(permissions:)
       end
 
       def resource_permissions

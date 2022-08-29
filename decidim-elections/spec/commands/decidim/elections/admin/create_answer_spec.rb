@@ -8,25 +8,25 @@ describe Decidim::Elections::Admin::CreateAnswer do
   let(:organization) { component.organization }
   let(:participatory_process) { component.participatory_space }
   let(:component) { election.component }
-  let(:question) { create :question, election: election }
+  let(:question) { create :question, election: }
   let(:election) { create :election }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
       title: { en: "title" },
       description: { en: "description" },
       weight: 10,
-      proposals: proposals,
+      proposals:,
       proposal_ids: proposals.map(&:id),
       attachment: attachment_params,
-      photos: photos,
+      photos:,
       add_photos: uploaded_photos,
       current_user: user,
       current_component: component,
       current_organization: organization,
-      election: election,
-      question: question
+      election:,
+      question:
     )
   end
   let(:proposals) { [] }

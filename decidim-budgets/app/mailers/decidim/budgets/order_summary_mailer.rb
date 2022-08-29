@@ -28,7 +28,7 @@ module Decidim
             budget_name: translated_attribute(@budget.title),
             space_name: translated_attribute(@space.title)
           )
-          mail(to: user.email, subject: subject)
+          mail(to: user.email, subject:)
         end
       end
     end

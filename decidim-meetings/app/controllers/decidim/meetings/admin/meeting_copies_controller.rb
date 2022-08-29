@@ -17,7 +17,7 @@ module Decidim
         def create
           enforce_permission_to :copy, :meeting, meeting: meeting
 
-          @form = form(MeetingCopyForm).from_params(params, current_component: current_component)
+          @form = form(MeetingCopyForm).from_params(params, current_component:)
 
           CopyMeeting.call(@form, meeting) do
             on(:ok) do

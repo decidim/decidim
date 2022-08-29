@@ -7,7 +7,7 @@ module Decidim::Conferences
     subject { described_class.new(media_link, current_user) }
 
     let(:conference) { create(:conference) }
-    let(:media_link) { create :media_link, conference: conference }
+    let(:media_link) { create :media_link, conference: }
     let!(:current_user) { create :user, :confirmed, organization: conference.organization }
 
     context "when everything is ok" do

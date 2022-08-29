@@ -8,12 +8,12 @@ module Decidim::Meetings
 
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
-    let(:meeting) { create :meeting, registrations_enabled: registrations_enabled, available_slots: available_slots }
+    let(:meeting) { create :meeting, registrations_enabled:, available_slots: }
     let(:user) { create :user, :confirmed, organization: meeting.organization }
     let(:user_leaving_meeting) { user }
 
     before do
-      create(:registration, meeting: meeting, user: user)
+      create(:registration, meeting:, user:)
     end
 
     context "when everything is ok" do

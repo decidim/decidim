@@ -109,7 +109,7 @@ module Decidim
       #
       # author - the author to check for authorship
       def authored_by?(author)
-        coauthorships.exists?(author: author)
+        coauthorships.exists?(author:)
       end
 
       # Returns the identities for the authors, whether they are user groups, users or others.
@@ -159,9 +159,9 @@ module Decidim
         user_group = extra_attributes[:user_group]
 
         return if coauthorships.exists?(decidim_author_id: author.id, decidim_author_type: author.class.base_class.name) && user_group.blank?
-        return if user_group && coauthorships.exists?(user_group: user_group)
+        return if user_group && coauthorships.exists?(user_group:)
 
-        coauthorship_attributes = extra_attributes.merge(author: author)
+        coauthorship_attributes = extra_attributes.merge(author:)
 
         if persisted?
           coauthorships.create!(coauthorship_attributes)

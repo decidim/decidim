@@ -38,7 +38,7 @@ describe "Manage OAuth applications", type: :system do
   end
 
   context "with existing applications" do
-    let!(:application) { create(:oauth_application, organization: organization) }
+    let!(:application) { create(:oauth_application, organization:) }
 
     before do
       visit current_path

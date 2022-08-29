@@ -40,10 +40,10 @@ module Decidim
         @template.render("decidim/shared/check_boxes_tree",
                          form: self,
                          attribute: method,
-                         collection: collection,
+                         collection:,
                          check_boxes_tree_id: check_boxes_tree_id(method),
                          hide_node: "false",
-                         options: options).html_safe
+                         options:).html_safe
       end
     end
 

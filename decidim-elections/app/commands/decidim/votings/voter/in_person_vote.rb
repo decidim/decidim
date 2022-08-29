@@ -44,7 +44,7 @@ module Decidim
             election: form.election,
             polling_station: form.polling_station,
             polling_officer: form.polling_officer,
-            message_id: message_id,
+            message_id:,
             voter_id: form.voter_id,
             status: :pending
           )

@@ -6,7 +6,7 @@ describe "Admin manages participatory process groups", type: :system do
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_processes) do
-    create_list(:participatory_process, 3, organization: organization)
+    create_list(:participatory_process, 3, organization:)
   end
 
   let(:image1_filename) { "city.jpeg" }
@@ -64,8 +64,8 @@ describe "Admin manages participatory process groups", type: :system do
   end
 
   context "with existing groups" do
-    let!(:participatory_processes) { create_list(:participatory_process, 3, organization: organization) }
-    let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
+    let!(:participatory_processes) { create_list(:participatory_process, 3, organization:) }
+    let!(:participatory_process_group) { create(:participatory_process_group, organization:) }
 
     let(:image2_filename) { "city2.jpeg" }
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }

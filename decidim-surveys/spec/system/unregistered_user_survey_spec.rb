@@ -22,9 +22,9 @@ describe "Answer a survey", type: :system do
       "es" => "<p>Contenido de la encuesta</p>"
     }
   end
-  let!(:questionnaire) { create(:questionnaire, title: title, description: description) }
-  let!(:survey) { create(:survey, component: component, questionnaire: questionnaire) }
-  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
+  let!(:questionnaire) { create(:questionnaire, title:, description:) }
+  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
 
   include_context "with a component"
 

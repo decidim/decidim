@@ -33,7 +33,7 @@ module Decidim
       end
 
       def self.newsletter_participant_ids(component)
-        surveys = Decidim::Surveys::Survey.joins(:component, :questionnaire).where(component: component)
+        surveys = Decidim::Surveys::Survey.joins(:component, :questionnaire).where(component:)
         questionnaires = Decidim::Forms::Questionnaire.includes(:questionnaire_for)
                                                       .where(questionnaire_for_type: Decidim::Surveys::Survey.name, questionnaire_for_id: surveys.pluck(:id))
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage attachment collections examples" do
-  let!(:attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
+  let!(:attachment_collection) { create(:attachment_collection, collection_for:) }
 
   before do
     visit current_path
@@ -80,7 +80,7 @@ shared_examples "manage attachment collections examples" do
   end
 
   context "when deleting a attachment collection" do
-    let!(:attachment_collection2) { create(:attachment_collection, collection_for: collection_for) }
+    let!(:attachment_collection2) { create(:attachment_collection, collection_for:) }
 
     context "when the attachment collection has no associated content", :slow do
       before do
@@ -101,7 +101,7 @@ shared_examples "manage attachment collections examples" do
     end
 
     context "when the attachment collection has associated content" do
-      let!(:attachment) { create(:attachment, attached_to: collection_for, attachment_collection: attachment_collection) }
+      let!(:attachment) { create(:attachment, attached_to: collection_for, attachment_collection:) }
 
       before do
         visit current_path

@@ -24,8 +24,8 @@ module Decidim
         Decidim.traceability.perform_action!(:create, ParticipatoryProcess, @user, visibility: "all") do
           @imported_process = ParticipatoryProcess.new(
             organization: @organization,
-            title: title,
-            slug: slug,
+            title:,
+            slug:,
             subtitle: attributes["subtitle"],
             hashtag: attributes["hashtag"],
             description: attributes["description"],

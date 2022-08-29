@@ -48,7 +48,7 @@ describe "Invite process moderator", type: :system do
     let(:email) { "moderator@example.org" }
 
     let!(:moderator) do
-      create :user, :confirmed, :admin_terms_accepted, email: email, organization: organization
+      create :user, :confirmed, :admin_terms_accepted, email:, organization:
     end
 
     before do

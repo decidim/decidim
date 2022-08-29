@@ -4,13 +4,13 @@ require "spec_helper"
 
 describe "Grouped Multiple Answers Question", type: :system do
   let(:organization) { create(:organization) }
-  let(:consultation) { create(:consultation, :active, organization: organization) }
-  let(:question) { create :question, :multiple, :published, consultation: consultation }
+  let(:consultation) { create(:consultation, :active, organization:) }
+  let(:question) { create :question, :multiple, :published, consultation: }
   let(:response_group) { create :response_group }
-  let(:user) { create :user, :confirmed, organization: organization }
+  let(:user) { create :user, :confirmed, organization: }
 
   context "when response is grouped" do
-    let!(:response) { create :response, question: question, response_group: response_group }
+    let!(:response) { create :response, question:, response_group: }
 
     before do
       switch_to_host(organization.host)
@@ -27,7 +27,7 @@ describe "Grouped Multiple Answers Question", type: :system do
   end
 
   context "when response is not grouped" do
-    let!(:response) { create :response, question: question }
+    let!(:response) { create :response, question: }
 
     before do
       switch_to_host(organization.host)

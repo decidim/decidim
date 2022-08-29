@@ -17,7 +17,7 @@ module Decidim
 
           @newsletter.update!(
             sent_at: Time.current,
-            extended_data: extended_data,
+            extended_data:,
             total_recipients: recipients.count,
             total_deliveries: 0
           )

@@ -19,7 +19,7 @@ module Decidim
 
       def name_uniqueness
         return unless organization
-        return unless organization.areas.where(name: name, area_type: area_type).where.not(id: id).any?
+        return unless organization.areas.where(name:, area_type:).where.not(id:).any?
 
         errors.add(:name, :taken)
       end

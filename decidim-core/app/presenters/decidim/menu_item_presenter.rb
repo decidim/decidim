@@ -57,7 +57,7 @@ module Decidim
     def active_class
       active_link_to_class(
         url,
-        active: active,
+        active:,
         class_active: @options.active_class
       )
     end

@@ -224,8 +224,8 @@ module Decidim
     # block - A block that receive the components to filter out the stat.
     #
     # Returns nothing.
-    def register_stat(name, options = {}, &block)
-      stats.register(name, options, &block)
+    def register_stat(name, options = {}, &)
+      stats.register(name, options, &)
     end
 
     # Public: Finds the permission class from its name, using the

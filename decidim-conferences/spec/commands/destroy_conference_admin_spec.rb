@@ -7,7 +7,7 @@ module Decidim::Conferences
     subject { described_class.new(role, current_user) }
 
     let(:my_conference) { create :conference }
-    let(:role) { create :conference_user_role, user: user, conference: my_conference, role: :admin }
+    let(:role) { create :conference_user_role, user:, conference: my_conference, role: :admin }
     let!(:current_user) { create :user, email: "some_email@example.org", organization: my_conference.organization }
     let!(:user) { create :user, :confirmed, organization: my_conference.organization }
 

@@ -8,9 +8,9 @@ module Decidim::Verifications::IdDocuments::Admin
 
     let(:attributes) do
       {
-        online: online,
-        offline: offline,
-        offline_explanation: offline_explanation
+        online:,
+        offline:,
+        offline_explanation:
       }
     end
     let(:organization) { create :organization }

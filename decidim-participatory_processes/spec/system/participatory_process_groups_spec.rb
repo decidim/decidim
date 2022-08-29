@@ -9,7 +9,7 @@ describe "Participatory Process Groups", type: :system do
     create(
       :participatory_process_group,
       :with_participatory_processes,
-      organization: organization,
+      organization:,
       title: { en: "Title", ca: "Títol", es: "Título" },
       hashtag: "my_awesome_hashtag",
       group_url: "https://www.example.org/external"
@@ -70,7 +70,7 @@ describe "Participatory Process Groups", type: :system do
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :title
@@ -103,7 +103,7 @@ describe "Participatory Process Groups", type: :system do
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :metadata
@@ -125,7 +125,7 @@ describe "Participatory Process Groups", type: :system do
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :cta,
@@ -164,7 +164,7 @@ describe "Participatory Process Groups", type: :system do
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :highlighted_proposals
@@ -200,7 +200,7 @@ describe "Participatory Process Groups", type: :system do
       before do
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :highlighted_results
@@ -232,7 +232,7 @@ describe "Participatory Process Groups", type: :system do
         # rubocop:disable Naming/VariableNumber
         create(
           :content_block,
-          organization: organization,
+          organization:,
           scope_name: :participatory_process_group_homepage,
           scoped_resource_id: participatory_process_group.id,
           manifest_name: :html_1,
@@ -265,7 +265,7 @@ describe "Participatory Process Groups", type: :system do
     before do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         scope_name: :participatory_process_group_homepage,
         scoped_resource_id: participatory_process_group.id,
         manifest_name: :highlighted_meetings
@@ -287,7 +287,7 @@ describe "Participatory Process Groups", type: :system do
     before do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         scope_name: :participatory_process_group_homepage,
         scoped_resource_id: participatory_process_group.id,
         manifest_name: :stats
@@ -308,7 +308,7 @@ describe "Participatory Process Groups", type: :system do
       let!(:proposals_component) { create(:component, :published, participatory_space: process, manifest_name: :proposals) }
       let!(:other_process_proposals_component) { create(:component, :published, participatory_space: other_process, manifest_name: :proposals) }
       let!(:other_process_meetings_component) { create(:component, :published, participatory_space: other_process, manifest_name: :meetings) }
-      let!(:user) { create(:user, organization: organization) }
+      let!(:user) { create(:user, organization:) }
 
       before do
         create_list(:proposal, 3, component: proposals_component)
@@ -344,12 +344,12 @@ describe "Participatory Process Groups", type: :system do
   end
 
   context "when participatory processes block is enabled" do
-    let!(:scope) { create :scope, organization: organization }
-    let!(:area) { create :area, organization: organization }
+    let!(:scope) { create :scope, organization: }
+    let!(:area) { create :area, organization: }
     let!(:participatory_process_group) do
       create(
         :participatory_process_group,
-        organization: organization
+        organization:
       )
     end
     let!(:past_process_with_scope) do
@@ -357,9 +357,9 @@ describe "Participatory Process Groups", type: :system do
         :participatory_process,
         :published,
         :past,
-        scope: scope,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        scope:,
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:active_process) do
@@ -368,8 +368,8 @@ describe "Participatory Process Groups", type: :system do
         :published,
         :active,
         start_date: 1.year.ago,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:active_process_with_scope) do
@@ -378,9 +378,9 @@ describe "Participatory Process Groups", type: :system do
         :published,
         :active,
         start_date: 1.month.ago,
-        scope: scope,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        scope:,
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:active_process_with_area) do
@@ -389,9 +389,9 @@ describe "Participatory Process Groups", type: :system do
         :published,
         :active,
         start_date: 1.week.ago,
-        area: area,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        area:,
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:upcoming_process_with_area) do
@@ -399,9 +399,9 @@ describe "Participatory Process Groups", type: :system do
         :participatory_process,
         :published,
         :upcoming,
-        area: area,
-        organization: organization,
-        participatory_process_group: participatory_process_group
+        area:,
+        organization:,
+        participatory_process_group:
       )
     end
     let!(:other_group_process) do
@@ -409,10 +409,10 @@ describe "Participatory Process Groups", type: :system do
         :participatory_process,
         :published,
         :active,
-        scope: scope,
-        area: area,
-        organization: organization,
-        participatory_process_group: create(:participatory_process_group, organization: organization)
+        scope:,
+        area:,
+        organization:,
+        participatory_process_group: create(:participatory_process_group, organization:)
       )
     end
     let(:titles) { page.all(".card__title") }
@@ -436,7 +436,7 @@ describe "Participatory Process Groups", type: :system do
     before do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         scope_name: :participatory_process_group_homepage,
         scoped_resource_id: participatory_process_group.id,
         manifest_name: :participatory_processes

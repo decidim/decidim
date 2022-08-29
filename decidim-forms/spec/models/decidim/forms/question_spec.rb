@@ -9,8 +9,8 @@ module Decidim
 
       let(:questionnaire) { create(:questionnaire) }
       let(:question_type) { "short_answer" }
-      let(:question) { build(:questionnaire_question, questionnaire: questionnaire, question_type: question_type) }
-      let(:display_conditions) { create_list(:display_condition, 2, question: question) }
+      let(:question) { build(:questionnaire_question, questionnaire:, question_type:) }
+      let(:display_conditions) { create_list(:display_condition, 2, question:) }
 
       it { is_expected.to be_valid }
 
@@ -23,7 +23,7 @@ module Decidim
       end
 
       context "when there are answer_options belonging to this question" do
-        let(:answer_options) { create_list(:answer_option, 3, question: question) }
+        let(:answer_options) { create_list(:answer_option, 3, question:) }
 
         it "has an association of answer_options" do
           expect(subject.answer_options).to contain_exactly(*answer_options)
@@ -31,7 +31,7 @@ module Decidim
       end
 
       context "when there are matrix_rows belonging to this question" do
-        let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question) }
+        let(:matrix_rows) { create_list(:question_matrix_row, 3, question:) }
 
         it "has an association of matrix_rows" do
           expect(subject.matrix_rows).to contain_exactly(*matrix_rows)
@@ -45,8 +45,8 @@ module Decidim
       end
 
       describe "scopes" do
-        let(:question_not_conditioned) { create(:questionnaire_question, questionnaire: questionnaire) }
-        let(:question_conditioned) { create(:questionnaire_question, :conditioned, questionnaire: questionnaire) }
+        let(:question_not_conditioned) { create(:questionnaire_question, questionnaire:) }
+        let(:question_conditioned) { create(:questionnaire_question, :conditioned, questionnaire:) }
 
         describe "#conditioned" do
           it "includes questions that have display conditions" do

@@ -90,7 +90,7 @@ module Decidim
                 from: self,
                 to: resource,
                 name: link_name,
-                data: data
+                data:
               )
             end
           end
@@ -153,7 +153,7 @@ module Decidim
       #
       # Returns an Array of Strings.
       def linked_classes_for(component)
-        scope = where(component: component)
+        scope = where(component:)
 
         from = scope
                .joins(:resource_links_from)
@@ -164,8 +164,8 @@ module Decidim
              .where(decidim_resource_links: { to_type: name })
 
         ResourceLink
-          .where(from: from)
-          .or(ResourceLink.where(to: to))
+          .where(from:)
+          .or(ResourceLink.where(to:))
           .pluck(:from_type, :to_type)
           .flatten
           .uniq

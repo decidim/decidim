@@ -12,9 +12,9 @@ module Decidim::Conferences
       create(:component, manifest_name: :meetings, participatory_space: conference)
     end
 
-    let!(:meeting1) { create(:meeting, :published, component: component, start_time: 1.day.from_now.midday + 90.minutes, end_time: 1.day.from_now.midday + 180.minutes) }
-    let!(:meeting2) { create(:meeting, :published, component: component, start_time: 1.day.from_now.midday, end_time: 1.day.from_now.midday + 60.minutes) }
-    let!(:meeting3) { create(:meeting, :published, component: component, start_time: 3.days.from_now.midday, end_time: 3.days.from_now.midday + 60.minutes) }
+    let!(:meeting1) { create(:meeting, :published, component:, start_time: 1.day.from_now.midday + 90.minutes, end_time: 1.day.from_now.midday + 180.minutes) }
+    let!(:meeting2) { create(:meeting, :published, component:, start_time: 1.day.from_now.midday, end_time: 1.day.from_now.midday + 60.minutes) }
+    let!(:meeting3) { create(:meeting, :published, component:, start_time: 3.days.from_now.midday, end_time: 3.days.from_now.midday + 60.minutes) }
     let!(:day) { meeting1.start_time.to_date }
 
     describe "query" do

@@ -8,11 +8,11 @@ module Decidim
       subject { answer }
 
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, organization: organization) }
-      let(:participatory_process) { create(:participatory_process, organization: organization) }
+      let(:user) { create(:user, organization:) }
+      let(:participatory_process) { create(:participatory_process, organization:) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
-      let(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:answer) { create(:answer, questionnaire: questionnaire, question: question, user: user) }
+      let(:question) { create(:questionnaire_question, questionnaire:) }
+      let(:answer) { create(:answer, questionnaire:, question:, user:) }
 
       it { is_expected.to be_valid }
 

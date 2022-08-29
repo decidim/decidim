@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe Decidim::Elections::Trustees::ByParticipatorySpaceTrusteeIds do
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:assembly) { create(:assembly) }
   let(:user) { create :user, :confirmed }
 

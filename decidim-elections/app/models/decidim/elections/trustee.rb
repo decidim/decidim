@@ -12,7 +12,7 @@ module Decidim
       has_many :trustees_participatory_spaces, inverse_of: :trustee, foreign_key: "decidim_elections_trustee_id", dependent: :destroy
 
       def self.trustee?(user)
-        exists?(user: user)
+        exists?(user:)
       end
 
       def self.log_presenter_class_for(_log)
@@ -20,7 +20,7 @@ module Decidim
       end
 
       def self.for(user)
-        find_by(user: user)
+        find_by(user:)
       end
 
       def slug

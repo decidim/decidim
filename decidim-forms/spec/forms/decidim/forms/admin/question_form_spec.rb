@@ -25,10 +25,10 @@ module Decidim
             body_en: "Body en",
             body_ca: "Body ca",
             body_es: "Body es",
-            question_type: question_type,
-            max_characters: max_characters,
-            position: position,
-            deleted: deleted
+            question_type:,
+            max_characters:,
+            position:,
+            deleted:
           }
         end
 

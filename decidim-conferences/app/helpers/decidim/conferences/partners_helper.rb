@@ -8,7 +8,7 @@ module Decidim
       #
       # Returns nothing.
       def partners_for(conference)
-        render partial: "partners", locals: { conference: conference }
+        render partial: "partners", locals: { conference: }
       end
     end
   end

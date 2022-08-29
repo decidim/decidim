@@ -15,9 +15,9 @@ module Decidim::Assemblies
     let(:form) do
       double(
         invalid?: invalid,
-        email: email,
-        role: role,
-        name: name,
+        email:,
+        role:,
+        name:,
         current_participatory_space: my_assembly
       )
     end
@@ -43,7 +43,7 @@ module Decidim::Assemblies
     context "when everything is ok" do
       it "creates the user role" do
         subject.call
-        roles = Decidim::AssemblyUserRole.where(user: user)
+        roles = Decidim::AssemblyUserRole.where(user:)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
@@ -109,7 +109,7 @@ module Decidim::Assemblies
         it "doesn't get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          roles = Decidim::AssemblyUserRole.where(user: user)
+          roles = Decidim::AssemblyUserRole.where(user:)
 
           expect(roles.count).to eq 1
           expect(roles.first.role).to eq "admin"

@@ -17,10 +17,10 @@ module Decidim::Meetings
     end
     let(:intervals) { [3.days, 7.days] }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create(:participatory_process, organization: organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let!(:component) { create(:component, :published, manifest_name: "meetings", participatory_space: participatory_process) }
-    let(:user) { create(:user, :admin, organization: organization, email: "user@example.org") }
-    let!(:meeting) { create(:meeting, :published, component: component, author: user, start_time: start_time, end_time: end_time, closed_at: closed_at) }
+    let(:user) { create(:user, :admin, organization:, email: "user@example.org") }
+    let!(:meeting) { create(:meeting, :published, component:, author: user, start_time:, end_time:, closed_at:) }
     let(:closed_at) { nil }
 
     before do
@@ -89,7 +89,7 @@ module Decidim::Meetings
       end
 
       context "when the reminder exists" do
-        let!(:reminder) { create(:reminder, user: user, component: component) }
+        let!(:reminder) { create(:reminder, user:, component:) }
         let(:start_time) { 4.days.ago }
         let(:end_time) { 3.days.ago }
 

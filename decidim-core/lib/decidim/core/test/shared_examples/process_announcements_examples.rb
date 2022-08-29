@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage processes announcements" do
-  let!(:participatory_process) { create(:participatory_process, organization: organization) }
+  let!(:participatory_process) { create(:participatory_process, organization:) }
 
   it "can customize a general announcement for the process" do
     click_link translated(participatory_process.title)

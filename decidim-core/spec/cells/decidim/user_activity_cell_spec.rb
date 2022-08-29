@@ -13,9 +13,9 @@ describe Decidim::UserActivityCell, type: :cell do
       "decidim/user_activity",
       model,
       context: {
-        activities: activities,
-        filter: filter,
-        resource_types: resource_types,
+        activities:,
+        filter:,
+        resource_types:,
         user: model
       }
     )
@@ -36,13 +36,13 @@ describe Decidim::UserActivityCell, type: :cell do
   let(:filter) { Decidim::FilterResource::Filter.new({ resource_type: resource_types }) }
   let(:current_user) { nil }
   let(:component) { create(:component, :published) }
-  let(:commentable) { create(:dummy_resource, component: component, published_at: Time.current) }
-  let(:comments) { create_list(:comment, 15, author: model, commentable: commentable) }
+  let(:commentable) { create(:dummy_resource, component:, published_at: Time.current) }
+  let(:comments) { create_list(:comment, 15, author: model, commentable:) }
   let(:activities) do
     Decidim::PublicActivities.new(
       component.organization,
       user: model,
-      current_user: current_user,
+      current_user:,
       resource_type: "all",
       resource_name: filter.resource_type
     ).query.page(current_page).per(10)

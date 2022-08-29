@@ -7,7 +7,7 @@ module Decidim
     describe ExpireImpersonationJob do
       let(:user) { create(:user, :managed) }
       let(:current_user) { create(:user, :admin, organization: user.organization) }
-      let!(:impersonation_log) { create(:impersonation_log, admin: current_user, user: user) }
+      let!(:impersonation_log) { create(:impersonation_log, admin: current_user, user:) }
 
       it "marks the impersonation as expired" do
         ExpireImpersonationJob.perform_now(user, current_user)

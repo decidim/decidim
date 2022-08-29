@@ -17,9 +17,9 @@ describe Decidim::Comments::UserGroupMentionedEvent do
     }
   end
 
-  let(:group) { create :user_group, organization: organization, users: members + [user] }
-  let(:members) { create_list :user, 2, organization: organization }
-  let(:user) { create :user, organization: organization, locale: "ca" }
+  let(:group) { create :user_group, organization:, users: members + [user] }
+  let(:members) { create_list :user, 2, organization: }
+  let(:user) { create :user, organization:, locale: "ca" }
 
   let(:parsed_body) { Decidim::ContentProcessor.parse("Comment mentioning some user group, @#{group.nickname}", current_organization: organization) }
   let(:parsed_ca_body) { Decidim::ContentProcessor.parse("Un commentaire pour @#{group.nickname}", current_organization: organization) }
@@ -60,10 +60,10 @@ describe Decidim::Comments::UserGroupMentionedEvent do
   end
 
   describe "resource_text" do
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:component) { create(:component, participatory_space: participatory_process) }
-    let(:commentable) { create(:dummy_resource, component: component) }
-    let!(:comment) { create :comment, body: body, commentable: commentable }
+    let(:commentable) { create(:dummy_resource, component:) }
+    let!(:comment) { create :comment, body:, commentable: }
 
     it "correctly renders comments with mentions" do
       expect(subject.resource_text).not_to include("gid://")
@@ -75,10 +75,10 @@ describe Decidim::Comments::UserGroupMentionedEvent do
     let(:en_body) { parsed_body.rewrite }
 
     let(:body) { { en: en_body, machine_translations: { ca: parsed_ca_body.rewrite } } }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:component) { create(:component, participatory_space: participatory_process) }
-    let(:commentable) { create(:dummy_resource, component: component) }
-    let(:comment) { create :comment, body: body, commentable: commentable }
+    let(:commentable) { create(:dummy_resource, component:) }
+    let(:comment) { create :comment, body:, commentable: }
     let(:en_version) { en_comment_content }
     let(:translatable) { true }
     let(:machine_translated) { ca_comment_content }

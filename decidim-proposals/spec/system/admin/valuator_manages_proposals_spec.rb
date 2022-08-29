@@ -6,14 +6,14 @@ describe "Valuator manages proposals", type: :system do
   let(:manifest_name) { "proposals" }
   let!(:assigned_proposal) { create :proposal, component: current_component }
   let!(:unassigned_proposal) { create :proposal, component: current_component }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
-  let!(:user) { create :user, organization: organization }
-  let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: participatory_process }
-  let!(:another_user) { create :user, organization: organization }
-  let!(:another_valuator_role) { create :participatory_process_user_role, role: :valuator, user: another_user, participatory_process: participatory_process }
+  let!(:user) { create :user, organization: }
+  let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user:, participatory_process: }
+  let!(:another_user) { create :user, organization: }
+  let!(:another_valuator_role) { create :participatory_process_user_role, role: :valuator, user: another_user, participatory_process: }
 
   include Decidim::ComponentPathHelper
 

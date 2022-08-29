@@ -9,11 +9,11 @@ module Decidim::Conferences
     let(:registrations_enabled) { true }
     let(:available_slots) { 10 }
     let(:organization) { create :organization }
-    let!(:conference) { create :conference, organization: organization, registrations_enabled: registrations_enabled, available_slots: available_slots }
-    let!(:current_user) { create :conference_admin, conference: conference }
-    let!(:registration_type) { create :registration_type, conference: conference }
-    let(:user) { create :user, :confirmed, organization: organization }
-    let!(:conference_registration) { create :conference_registration, :unconfirmed, conference: conference, registration_type: registration_type, user: user }
+    let!(:conference) { create :conference, organization:, registrations_enabled:, available_slots: }
+    let!(:current_user) { create :conference_admin, conference: }
+    let!(:registration_type) { create :registration_type, conference: }
+    let(:user) { create :user, :confirmed, organization: }
+    let!(:conference_registration) { create :conference_registration, :unconfirmed, conference:, registration_type:, user: }
 
     context "when everything is ok" do
       it "broadcasts ok" do

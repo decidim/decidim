@@ -39,7 +39,7 @@ describe "Admin manages trustees", type: :system do
       create_list(:trustee, collection_size) do |trustee|
         trustee.trustees_participatory_spaces << build(
           :trustees_participatory_space,
-          participatory_space: participatory_space
+          participatory_space:
         )
       end
     end
@@ -66,7 +66,7 @@ describe "Admin manages trustees", type: :system do
       create_list(:trustee, 4) do |trustee|
         trustee.trustees_participatory_spaces << build(
           :trustees_participatory_space,
-          participatory_space: participatory_space
+          participatory_space:
         )
       end
     end
@@ -85,7 +85,7 @@ describe "Admin manages trustees", type: :system do
   end
 
   context "when removing trustee from participatory space" do
-    let!(:trustee_participatory_space) { create :trustees_participatory_space, participatory_space: participatory_space }
+    let!(:trustee_participatory_space) { create :trustees_participatory_space, participatory_space: }
 
     before do
       visit current_path
@@ -105,7 +105,7 @@ describe "Admin manages trustees", type: :system do
   end
 
   context "when inside an assembly" do
-    let(:participatory_space) { create(:assembly, organization: organization) }
+    let(:participatory_space) { create(:assembly, organization:) }
 
     it "shows the trustees page" do
       expect(page).to have_content("New Trustee")
@@ -113,7 +113,7 @@ describe "Admin manages trustees", type: :system do
   end
 
   context "when inside a voting" do
-    let(:participatory_space) { create(:voting, organization: organization) }
+    let(:participatory_space) { create(:voting, organization:) }
 
     it "shows the trustees page" do
       expect(page).to have_content("New Trustee")

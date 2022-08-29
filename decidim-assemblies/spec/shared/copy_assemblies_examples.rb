@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "copy assemblies" do
-  let!(:assembly) { create(:assembly, organization: organization) }
+  let!(:assembly) { create(:assembly, organization:) }
   let!(:component) { create :component, manifest_name: :dummy, participatory_space: assembly }
   let!(:category) do
     create(
@@ -88,8 +88,8 @@ shared_examples "copy assemblies" do
   end
 
   context "when copying a child assembly" do
-    let!(:assembly_parent) { create(:assembly, organization: organization) }
-    let!(:assembly) { create(:assembly, parent: assembly_parent, organization: organization) }
+    let!(:assembly_parent) { create(:assembly, organization:) }
+    let!(:assembly) { create(:assembly, parent: assembly_parent, organization:) }
 
     it "copies the child assembly with the basic fields" do
       click_link "Assemblies", match: :first

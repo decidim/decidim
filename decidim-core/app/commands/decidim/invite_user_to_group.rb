@@ -37,7 +37,7 @@ module Decidim
     def invite_user
       Decidim::UserGroupMembership.create!(
         user: form.user,
-        user_group: user_group,
+        user_group:,
         role: :invited
       )
     end
@@ -56,7 +56,7 @@ module Decidim
     end
 
     def user_belongs_to_group?
-      Decidim::UserGroupMembership.where(user: form.user, user_group: user_group).any?
+      Decidim::UserGroupMembership.where(user: form.user, user_group:).any?
     end
   end
 end

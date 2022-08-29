@@ -89,6 +89,10 @@ module Decidim
                                           default: true,
                                           desc: "Don't run Webpack install"
 
+      class_option :dev_ssl, type: :boolean,
+                             default: false,
+                             desc: "Don't add Puma development SSL configuration options"
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -123,6 +127,9 @@ module Decidim
 
         if branch.present?
           get target_gemfile, "Gemfile", force: true
+          append_file "Gemfile", %(\ngem "net-imap", "~> 0.2.3", group: :development)
+          append_file "Gemfile", %(\ngem "net-pop", "~> 0.1.1", group: :development)
+          append_file "Gemfile", %(\ngem "net-smtp", "~> 0.3.1", group: :development)
           get "#{target_gemfile}.lock", "Gemfile.lock", force: true
         else
           copy_file target_gemfile, "Gemfile", force: true
@@ -219,6 +226,24 @@ module Decidim
         return unless File.exist?("config/spring.rb")
 
         prepend_to_file "config/spring.rb", "require \"decidim/spring\"\n\n"
+      end
+
+      def puma_ssl_options
+        return unless options[:dev_ssl]
+
+        append_file "config/puma.rb", <<~CONFIG
+
+          # Development SSL
+          if ENV["DEV_SSL"] && defined?(Bundler) && (dev_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-dev" })
+            cert_dir = ENV.fetch("DEV_SSL_DIR") { "\#{dev_gem.full_gem_path}/lib/decidim/dev/assets" }
+            ssl_bind(
+              "0.0.0.0",
+              ENV.fetch("DEV_SSL_PORT") { 3443 },
+              cert_pem: File.read("\#{cert_dir}/ssl-cert.pem"),
+              key_pem: File.read("\#{cert_dir}/ssl-key.pem")
+            )
+          end
+        CONFIG
       end
 
       def modify_gitignore

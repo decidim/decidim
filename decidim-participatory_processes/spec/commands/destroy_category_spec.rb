@@ -6,7 +6,7 @@ require "decidim/admin/test/commands/destroy_category_examples"
 module Decidim::Admin
   describe DestroyCategory do
     include_examples "DestroyCategory command" do
-      let(:participatory_space) { create(:participatory_process, organization: organization) }
+      let(:participatory_space) { create(:participatory_process, organization:) }
     end
   end
 end

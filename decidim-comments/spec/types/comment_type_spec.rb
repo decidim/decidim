@@ -15,7 +15,7 @@ module Decidim
         let(:query) { "{ author { name } }" }
         let(:commentable) { build(:dummy_resource) }
         let(:model) do
-          create(:comment, author: author, user_group: user_group, commentable: commentable)
+          create(:comment, author:, user_group:, commentable:)
         end
 
         context "when the author is a user" do

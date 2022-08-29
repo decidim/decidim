@@ -7,19 +7,19 @@ describe "Orders", type: :system do
   let(:manifest_name) { "budgets" }
 
   let(:organization) { create :organization, available_authorizations: %w(dummy_authorization_handler) }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: }
   let(:project) { projects.first }
 
   let!(:component) do
     create(:budgets_component,
            :with_vote_threshold_percent,
-           manifest: manifest,
+           manifest:,
            participatory_space: participatory_process)
   end
-  let(:budget) { create :budget, component: component }
+  let(:budget) { create :budget, component: }
 
   context "when the user is not logged in" do
-    let!(:projects) { create_list(:project, 1, budget: budget, budget_amount: 25_000_000) }
+    let!(:projects) { create_list(:project, 1, budget:, budget_amount: 25_000_000) }
 
     it "is given the option to sign in" do
       visit_budget
@@ -33,7 +33,7 @@ describe "Orders", type: :system do
   end
 
   context "when the user is logged in" do
-    let!(:projects) { create_list(:project, 3, budget: budget, budget_amount: 25_000_000) }
+    let!(:projects) { create_list(:project, 3, budget:, budget_amount: 25_000_000) }
 
     before do
       login_as user, scope: :user
@@ -62,7 +62,7 @@ describe "Orders", type: :system do
         let!(:component) do
           create(:budgets_component,
                  :with_minimum_budget_projects,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
@@ -84,7 +84,7 @@ describe "Orders", type: :system do
           create(:budgets_component,
                  :with_budget_projects_range,
                  vote_minimum_budget_projects_number: 0,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
@@ -105,7 +105,7 @@ describe "Orders", type: :system do
         let!(:component) do
           create(:budgets_component,
                  :with_budget_projects_range,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
@@ -160,7 +160,7 @@ describe "Orders", type: :system do
         let!(:component) do
           create(:budgets_component,
                  :with_minimum_budget_projects,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
@@ -196,7 +196,7 @@ describe "Orders", type: :system do
           create(:budgets_component,
                  :with_budget_projects_range,
                  vote_minimum_budget_projects_number: 0,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
@@ -231,7 +231,7 @@ describe "Orders", type: :system do
         let!(:component) do
           create(:budgets_component,
                  :with_budget_projects_range,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
@@ -273,7 +273,7 @@ describe "Orders", type: :system do
           }
         }
 
-        component.update!(permissions: permissions)
+        component.update!(permissions:)
       end
 
       it "shows a modal dialog" do
@@ -288,8 +288,8 @@ describe "Orders", type: :system do
     end
 
     context "and has pending order" do
-      let!(:order) { create(:order, user: user, budget: budget) }
-      let!(:line_item) { create(:line_item, order: order, project: project) }
+      let!(:order) { create(:order, user:, budget:) }
+      let!(:line_item) { create(:line_item, order:, project:) }
 
       it "removes a project from the current order" do
         visit_budget
@@ -341,7 +341,7 @@ describe "Orders", type: :system do
       end
 
       context "and try to vote a project that exceed the total budget" do
-        let!(:expensive_project) { create(:project, budget: budget, budget_amount: 250_000_000) }
+        let!(:expensive_project) { create(:project, budget:, budget_amount: 250_000_000) }
 
         it "cannot add the project" do
           visit_budget
@@ -355,7 +355,7 @@ describe "Orders", type: :system do
       end
 
       context "and in project show page cant exceed the budget" do
-        let!(:expensive_project) { create(:project, budget: budget, budget_amount: 250_000_000) }
+        let!(:expensive_project) { create(:project, budget:, budget_amount: 250_000_000) }
 
         it "cannot add the project" do
           page.visit Decidim::EngineRouter.main_proxy(component).budget_project_path(budget, expensive_project)
@@ -369,7 +369,7 @@ describe "Orders", type: :system do
       end
 
       context "and add another project exceeding vote threshold" do
-        let!(:other_project) { create(:project, budget: budget, budget_amount: 50_000_000) }
+        let!(:other_project) { create(:project, budget:, budget_amount: 50_000_000) }
 
         it "can complete the checkout process" do
           visit_budget
@@ -418,8 +418,8 @@ describe "Orders", type: :system do
         end
 
         context "when the order total budget exceeds the threshold" do
-          let(:projects) { create_list(:project, 2, budget: budget, budget_amount: 36_000_000) }
-          let(:order_percent) { create(:order, user: user, budget: budget) }
+          let(:projects) { create_list(:project, 2, budget:, budget_amount: 36_000_000) }
+          let(:order_percent) { create(:order, user:, budget:) }
 
           before do
             order.destroy!
@@ -436,7 +436,7 @@ describe "Orders", type: :system do
 
           context "when user has voted" do
             let(:router) { Decidim::EngineRouter.main_proxy(component) }
-            let(:another_user) { create(:user, :confirmed, organization: organization) }
+            let(:another_user) { create(:user, :confirmed, organization:) }
 
             before do
               find("[data-toggle='budget-confirm']").click
@@ -470,11 +470,11 @@ describe "Orders", type: :system do
         let(:component) do
           create(:budgets_component,
                  :with_minimum_budget_projects,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
-        let!(:order_min) { create(:order, user: user, budget: budget) }
+        let!(:order_min) { create(:order, user:, budget:) }
 
         it "shows the rule description" do
           visit_budget
@@ -513,7 +513,7 @@ describe "Orders", type: :system do
 
     context "and has a finished order" do
       let!(:order) do
-        order = create(:order, user: user, budget: budget)
+        order = create(:order, user:, budget:)
         order.projects = projects
         order.checked_out_at = Time.current
         order.save!
@@ -553,7 +553,7 @@ describe "Orders", type: :system do
       let!(:component) do
         create(:budgets_component,
                :with_votes_disabled,
-               manifest: manifest,
+               manifest:,
                participatory_space: participatory_process)
       end
 
@@ -568,12 +568,12 @@ describe "Orders", type: :system do
       let!(:component) do
         create(:budgets_component,
                :with_show_votes_enabled,
-               manifest: manifest,
+               manifest:,
                participatory_space: participatory_process)
       end
 
       let!(:order) do
-        order = create(:order, user: user, budget: budget)
+        order = create(:order, user:, budget:)
         order.projects = projects
         order.checked_out_at = Time.current
         order.save!
@@ -593,10 +593,10 @@ describe "Orders", type: :system do
       let!(:component) do
         create(:budgets_component,
                :with_voting_finished,
-               manifest: manifest,
+               manifest:,
                participatory_space: participatory_process)
       end
-      let!(:projects) { create_list(:project, 2, :selected, budget: budget, budget_amount: 25_000_000) }
+      let!(:projects) { create_list(:project, 2, :selected, budget:, budget_amount: 25_000_000) }
 
       it "renders selected projects" do
         visit_budget
@@ -610,7 +610,7 @@ describe "Orders", type: :system do
     it "respects the projects_per_page setting when under total projects" do
       component.update!(settings: { projects_per_page: 1 })
 
-      create_list(:project, 2, budget: budget)
+      create_list(:project, 2, budget:)
 
       visit_budget
 
@@ -620,7 +620,7 @@ describe "Orders", type: :system do
     it "respects the projects_per_page setting when it matches total projects" do
       component.update!(settings: { projects_per_page: 2 })
 
-      create_list(:project, 2, budget: budget)
+      create_list(:project, 2, budget:)
 
       visit_budget
 
@@ -630,7 +630,7 @@ describe "Orders", type: :system do
     it "respects the projects_per_page setting when over total projects" do
       component.update!(settings: { projects_per_page: 3 })
 
-      create_list(:project, 2, budget: budget)
+      create_list(:project, 2, budget:)
 
       visit_budget
 
@@ -639,7 +639,7 @@ describe "Orders", type: :system do
   end
 
   describe "show" do
-    let!(:project) { create(:project, budget: budget, budget_amount: 25_000_000) }
+    let!(:project) { create(:project, budget:, budget_amount: 25_000_000) }
 
     before do
       visit resource_locator([budget, project]).path

@@ -67,7 +67,7 @@ shared_examples "manage categories examples" do
   end
 
   context "when deleting a category" do
-    let!(:category2) { create(:category, participatory_space: participatory_space) }
+    let!(:category2) { create(:category, participatory_space:) }
 
     context "when the category has no associated content" do
       context "when the category has no subcategories" do
@@ -110,8 +110,8 @@ shared_examples "manage categories examples" do
     end
 
     context "when the category has associated content" do
-      let!(:component) { create(:component, participatory_space: participatory_space) }
-      let!(:dummy_resource) { create(:dummy_resource, component: component, category: category) }
+      let!(:component) { create(:component, participatory_space:) }
+      let!(:dummy_resource) { create(:dummy_resource, component:, category:) }
 
       it "cannot delete it" do
         visit current_path

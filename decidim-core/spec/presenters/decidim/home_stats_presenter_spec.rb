@@ -5,12 +5,12 @@ require "decidim/assemblies/test/factories"
 
 module Decidim
   describe HomeStatsPresenter do
-    subject { described_class.new(organization: organization) }
+    subject { described_class.new(organization:) }
 
     let!(:organization) { create(:organization) }
-    let!(:user) { create(:user, :confirmed, organization: organization) }
-    let!(:process) { create(:participatory_process, :published, organization: organization) }
-    let!(:assembly) { create(:assembly, :published, organization: organization) }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let!(:process) { create(:participatory_process, :published, organization:) }
+    let!(:assembly) { create(:assembly, :published, organization:) }
     let!(:process_component) { create :component, participatory_space: process }
     let!(:assembly_component) { create :component, participatory_space: assembly }
 

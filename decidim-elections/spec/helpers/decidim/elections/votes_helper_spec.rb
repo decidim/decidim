@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Elections
     describe VotesHelper do
-      let(:question) { create :question, :complete, answers: 3, random_answers_order: random_answers_order }
+      let(:question) { create :question, :complete, answers: 3, random_answers_order: }
       let(:random_answers_order) { true }
 
       let(:helper) do

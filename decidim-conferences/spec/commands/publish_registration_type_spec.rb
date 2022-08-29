@@ -7,7 +7,7 @@ module Decidim::Conferences
     subject { described_class.new(registration_type, user) }
 
     let(:conference) { create :conference }
-    let!(:registration_type) { create :registration_type, :unpublished, conference: conference }
+    let!(:registration_type) { create :registration_type, :unpublished, conference: }
     let(:user) { create :user, organization: conference.organization }
 
     context "when the registration type is nil" do

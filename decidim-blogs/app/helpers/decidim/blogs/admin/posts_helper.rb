@@ -16,7 +16,7 @@ module Decidim
         # Returns the post's body truncated.
         def post_description_admin(post, max_length = 100)
           body = translated_attribute(post.body)
-          CGI.unescapeHTML html_truncate(body, max_length: max_length)
+          CGI.unescapeHTML html_truncate(body, max_length:)
         end
 
         def post_author_select_field(form, name, _options = {})

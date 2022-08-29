@@ -6,7 +6,7 @@ describe "GraphiQL", type: :system do
   let!(:organization) { create(:organization) }
 
   let!(:participatory_process) do
-    create(:participatory_process, organization: organization)
+    create(:participatory_process, organization:)
   end
 
   before do

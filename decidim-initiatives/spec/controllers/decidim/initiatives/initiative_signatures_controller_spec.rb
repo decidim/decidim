@@ -8,8 +8,8 @@ module Decidim
       routes { Decidim::Initiatives::Engine.routes }
 
       let(:organization) { create(:organization) }
-      let(:initiative_with_user_extra_fields) { create(:initiative, :with_user_extra_fields_collection, organization: organization) }
-      let(:initiative_without_user_extra_fields) { create(:initiative, organization: organization) }
+      let(:initiative_with_user_extra_fields) { create(:initiative, :with_user_extra_fields_collection, organization:) }
+      let(:initiative_without_user_extra_fields) { create(:initiative, organization:) }
       let(:initiative) { initiative_without_user_extra_fields }
 
       before do
@@ -46,7 +46,7 @@ module Decidim
           it "do not register the vote" do
             expect do
               post :create, params: { initiative_slug: initiative.slug, format: :js }
-            end.not_to(change { InitiativesVote.where(initiative: initiative).count })
+            end.not_to(change { InitiativesVote.where(initiative:).count })
           end
         end
       end

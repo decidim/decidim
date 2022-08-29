@@ -19,7 +19,7 @@ module Decidim
       let(:warden) do
         double(
           authenticate!: authenticated,
-          user: user
+          user:
         )
       end
 
@@ -27,13 +27,13 @@ module Decidim
         let(:authenticated) { true }
 
         context "with a regular user" do
-          let(:user) { create(:user, :confirmed, organization: organization) }
+          let(:user) { create(:user, :confirmed, organization:) }
 
           it { is_expected.to be_falsey }
         end
 
         context "with an organization admin" do
-          let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+          let(:user) { create(:user, :confirmed, :admin, organization:) }
 
           it { is_expected.to be_truthy }
         end

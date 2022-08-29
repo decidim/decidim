@@ -7,9 +7,9 @@ describe "Filter Proposals", :slow, type: :system do
   let(:manifest_name) { "proposals" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
+  let!(:scope) { create :scope, organization: }
+  let!(:user) { create :user, :confirmed, organization: }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   context "when caching is enabled", :caching do
     before do
@@ -47,8 +47,8 @@ describe "Filter Proposals", :slow, type: :system do
 
       context "with 'official' origin" do
         it "lists the filtered proposals" do
-          create_list(:proposal, 2, :official, component: component, scope: scope)
-          create(:proposal, component: component, scope: scope)
+          create_list(:proposal, 2, :official, component:, scope:)
+          create(:proposal, component:, scope:)
           visit_component
 
           within ".filters .with_any_origin_check_boxes_tree_filter" do
@@ -63,8 +63,8 @@ describe "Filter Proposals", :slow, type: :system do
 
       context "with 'participants' origin" do
         it "lists the filtered proposals" do
-          create_list(:proposal, 2, component: component, scope: scope)
-          create(:proposal, :official, component: component, scope: scope)
+          create_list(:proposal, 2, component:, scope:)
+          create(:proposal, :official, component:, scope:)
           visit_component
 
           within ".filters .with_any_origin_check_boxes_tree_filter" do
@@ -98,9 +98,9 @@ describe "Filter Proposals", :slow, type: :system do
     let!(:scope2) { create :scope, organization: participatory_process.organization }
 
     before do
-      create_list(:proposal, 2, component: component, scope: scope)
-      create(:proposal, component: component, scope: scope2)
-      create(:proposal, component: component, scope: nil)
+      create_list(:proposal, 2, component:, scope:)
+      create(:proposal, component:, scope: scope2)
+      create(:proposal, component:, scope: nil)
       visit_component
     end
 
@@ -212,7 +212,7 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         it "lists accepted proposals" do
-          create(:proposal, :accepted, component: component, scope: scope)
+          create(:proposal, :accepted, component:, scope:)
           visit_component
 
           within ".filters .with_any_state_check_boxes_tree_filter" do
@@ -230,7 +230,7 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         it "lists the filtered proposals" do
-          create(:proposal, :rejected, component: component, scope: scope)
+          create(:proposal, :rejected, component:, scope:)
           visit_component
 
           within ".filters .with_any_state_check_boxes_tree_filter" do
@@ -248,10 +248,10 @@ describe "Filter Proposals", :slow, type: :system do
         end
 
         context "when there are proposals with answers not published" do
-          let!(:proposal) { create(:proposal, :accepted_not_published, component: component, scope: scope) }
+          let!(:proposal) { create(:proposal, :accepted_not_published, component:, scope:) }
 
           before do
-            create(:proposal, :accepted, component: component, scope: scope)
+            create(:proposal, :accepted, component:, scope:)
 
             visit_component
           end
@@ -329,9 +329,9 @@ describe "Filter Proposals", :slow, type: :system do
     context "when the user is logged in" do
       let!(:category2) { create :category, participatory_space: participatory_process }
       let!(:category3) { create :category, participatory_space: participatory_process }
-      let!(:proposal1) { create(:proposal, component: component, category: category) }
-      let!(:proposal2) { create(:proposal, component: component, category: category2) }
-      let!(:proposal3) { create(:proposal, component: component, category: category3) }
+      let!(:proposal1) { create(:proposal, component:, category:) }
+      let!(:proposal2) { create(:proposal, component:, category: category2) }
+      let!(:proposal3) { create(:proposal, component:, category: category3) }
 
       before do
         login_as user, scope: :user
@@ -364,10 +364,10 @@ describe "Filter Proposals", :slow, type: :system do
 
   context "when filtering proposals by ACTIVITY" do
     let(:active_step_id) { component.participatory_space.active_step.id }
-    let!(:voted_proposal) { create(:proposal, component: component) }
+    let!(:voted_proposal) { create(:proposal, component:) }
     let!(:vote) { create(:proposal_vote, proposal: voted_proposal, author: user) }
-    let!(:proposal_list) { create_list(:proposal, 3, component: component) }
-    let!(:created_proposal) { create(:proposal, component: component, users: [user]) }
+    let!(:proposal_list) { create_list(:proposal, 3, component:) }
+    let!(:created_proposal) { create(:proposal, component:, users: [user]) }
 
     context "when the user is logged in" do
       before do
@@ -441,9 +441,9 @@ describe "Filter Proposals", :slow, type: :system do
 
   context "when filtering proposals by TYPE" do
     context "when there are amendments to proposals" do
-      let!(:proposal) { create(:proposal, component: component, scope: scope) }
-      let!(:emendation) { create(:proposal, component: component, scope: scope) }
-      let!(:amendment) { create(:amendment, amendable: proposal, emendation: emendation) }
+      let!(:proposal) { create(:proposal, component:, scope:) }
+      let!(:emendation) { create(:proposal, component:, scope:) }
+      let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
 
       before do
         visit_component
@@ -501,7 +501,7 @@ describe "Filter Proposals", :slow, type: :system do
 
           context "when the user is logged in" do
             context "and has amended a proposal" do
-              let!(:new_emendation) { create(:proposal, component: component, scope: scope) }
+              let!(:new_emendation) { create(:proposal, component:, scope:) }
               let!(:new_amendment) { create(:amendment, amendable: proposal, emendation: new_emendation, amender: new_emendation.creator_author) }
               let(:user) { new_amendment.amender }
 
@@ -574,7 +574,7 @@ describe "Filter Proposals", :slow, type: :system do
 
           context "when the user is logged in" do
             context "and has amended a proposal" do
-              let!(:new_emendation) { create(:proposal, component: component, scope: scope) }
+              let!(:new_emendation) { create(:proposal, component:, scope:) }
               let!(:new_amendment) { create(:amendment, amendable: proposal, emendation: new_emendation, amender: new_emendation.creator_author) }
               let(:user) { new_amendment.amender }
 
@@ -633,10 +633,10 @@ describe "Filter Proposals", :slow, type: :system do
 
   context "when using the browser history", :slow do
     before do
-      create_list(:proposal, 2, component: component)
-      create_list(:proposal, 2, :official, component: component)
-      create_list(:proposal, 2, :official, :accepted, component: component)
-      create_list(:proposal, 2, :official, :rejected, component: component)
+      create_list(:proposal, 2, component:)
+      create_list(:proposal, 2, :official, component:)
+      create_list(:proposal, 2, :official, :accepted, component:)
+      create_list(:proposal, 2, :official, :rejected, component:)
 
       visit_component
     end
@@ -688,10 +688,10 @@ describe "Filter Proposals", :slow, type: :system do
 
   context "when using the 'back to list' link", :slow do
     before do
-      create_list(:proposal, 2, component: component)
-      create_list(:proposal, 2, :official, component: component)
-      create_list(:proposal, 2, :official, :accepted, component: component)
-      create_list(:proposal, 2, :official, :rejected, component: component)
+      create_list(:proposal, 2, component:)
+      create_list(:proposal, 2, :official, component:)
+      create_list(:proposal, 2, :official, :accepted, component:)
+      create_list(:proposal, 2, :official, :rejected, component:)
 
       visit_component
     end

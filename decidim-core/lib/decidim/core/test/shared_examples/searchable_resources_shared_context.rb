@@ -2,8 +2,8 @@
 
 RSpec.shared_context "when a resource is ready for global search" do
   let!(:organization) { create(:organization) }
-  let!(:author) { create(:user, :admin, organization: organization) }
-  let!(:scope1) { create :scope, organization: organization }
+  let!(:author) { create(:user, :admin, organization:) }
+  let!(:scope1) { create :scope, organization: }
 
   let(:test_locales) { [:ca, :en, :es] }
   let(:description1) do

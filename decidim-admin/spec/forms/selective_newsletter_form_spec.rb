@@ -13,11 +13,11 @@ module Decidim
       end
 
       let(:organization) { create(:organization) }
-      let!(:user) { create :user, :confirmed, :admin, organization: organization }
+      let!(:user) { create :user, :confirmed, :admin, organization: }
       let(:scopes) do
-        create_list(:scope, 5, organization: organization)
+        create_list(:scope, 5, organization:)
       end
-      let(:participatory_processes) { create_list(:participatory_process, rand(1..9), organization: organization) }
+      let(:participatory_processes) { create_list(:participatory_process, rand(1..9), organization:) }
       let(:selected_participatory_processes) { [participatory_processes.first.id.to_s] }
       let(:send_to_all_users) { user.admin? }
       let(:send_to_participants) { false }
@@ -90,12 +90,12 @@ module Decidim
       end
 
       context "when the user is a space admin" do
-        let(:user) { create(:user, organization: organization) }
+        let(:user) { create(:user, organization:) }
 
         let(:participatory_process_user_role) do
           build(
             :participatory_process_user_role,
-            user: user,
+            user:,
             participatory_process: participatory_processes.first,
             role: "admin"
           )

@@ -6,7 +6,7 @@ describe "show", type: :system do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:proposal) { create(:proposal, component: component) }
+  let!(:proposal) { create(:proposal, component:) }
 
   before do
     visit_component

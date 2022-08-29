@@ -123,8 +123,8 @@ module Decidim
           file = cw_file(attachment)
           destination.attach(
             io: file,
-            content_type: content_type,
-            filename: filename
+            content_type:,
+            filename:
           )
           destination.record.save if destination.record.new_record?
 
@@ -138,7 +138,7 @@ module Decidim
 
           routes_mappings << { instance: "Decidim::ContentBlock##{block.id}",
                                attachment_origin_attribute: image_config[:name],
-                               origin_path: origin_path,
+                               origin_path:,
                                destination_path: Rails.application.routes.url_helpers.rails_blob_url(destination.blob, only_path: true) }
         rescue StandardError
           logger.info "[ERROR] Exception migrating Decidim::ContentBlock##{block.id} attachment #{image_config[:name]}" \
@@ -169,8 +169,8 @@ module Decidim
         file = cw_file(attachment)
         copy.send(as_attribute).attach(
           io: file,
-          content_type: content_type,
-          filename: filename
+          content_type:,
+          filename:
         )
 
         cw_checksum = downloaded_file_checksum(file)
@@ -182,7 +182,7 @@ module Decidim
         routes_mappings << {
           instance: "#{klass}##{item.id}",
           attachment_origin_attribute: cw_attribute.to_s,
-          origin_path: origin_path,
+          origin_path:,
           destination_path: Rails.application.routes.url_helpers.rails_blob_url(copy.send(as_attribute).blob, only_path: true)
         }
       rescue StandardError

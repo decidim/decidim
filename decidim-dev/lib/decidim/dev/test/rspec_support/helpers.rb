@@ -37,7 +37,7 @@ module Decidim::ComponentTestHelpers
   end
 
   def have_admin_callout(text)
-    have_selector(".callout--full", text: text)
+    have_selector(".callout--full", text:)
   end
 end
 

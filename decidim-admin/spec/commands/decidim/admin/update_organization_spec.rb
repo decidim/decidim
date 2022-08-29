@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UpdateOrganization do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
       let(:params) do
         {
           organization: {

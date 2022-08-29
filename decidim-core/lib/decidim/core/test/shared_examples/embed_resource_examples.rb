@@ -36,7 +36,7 @@ shared_examples_for "an embed resource" do |options|
 
       context "when the participatory_space is an assembly" do
         let(:assembly) do
-          create(:assembly, organization: organization)
+          create(:assembly, organization:)
         end
         let(:participatory_space) { assembly }
 

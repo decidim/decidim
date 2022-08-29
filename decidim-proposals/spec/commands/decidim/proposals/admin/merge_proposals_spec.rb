@@ -13,10 +13,10 @@ module Decidim
           let(:form) do
             instance_double(
               ProposalsMergeForm,
-              current_component: current_component,
+              current_component:,
               current_organization: current_component.organization,
-              target_component: target_component,
-              proposals: proposals,
+              target_component:,
+              proposals:,
               valid?: valid,
               same_component?: same_component,
               current_user: create(:user, :admin, organization: current_component.organization)

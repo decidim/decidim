@@ -7,7 +7,7 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
 
   subject { cell("decidim/navbar_admin_link", model).call }
 
-  let(:model) { { link_url: link_url, link_options: link_options } }
+  let(:model) { { link_url:, link_options: } }
   let(:link_url) { "https://link.url" }
   let(:link_options) { {} }
 

@@ -15,9 +15,9 @@ describe Decidim::Elections::Voter::VoteForm do
   end
   let(:context) do
     {
-      user: user,
-      email: email,
-      election: election
+      user:,
+      email:,
+      election:
     }
   end
   let(:user) { create(:user) }

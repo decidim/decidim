@@ -8,7 +8,7 @@ describe "Admin copies meetings", type: :system do
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:service_titles) { ["This is the first service", "This is the second service"] }
-  let!(:meeting) { create :meeting, type_of_meeting, :published, scope: scope, services: [], component: current_component }
+  let!(:meeting) { create :meeting, type_of_meeting, :published, scope:, services: [], component: current_component }
 
   include Decidim::SanitizeHelper
   include_context "when managing a component as an admin"

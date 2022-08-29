@@ -12,7 +12,7 @@ describe "Monitoring committee member manages votings", type: :system do
   end
 
   describe "when listing votings" do
-    let(:other_voting) { create(:voting, organization: organization) }
+    let(:other_voting) { create(:voting, organization:) }
 
     it "only lists the voting I'm a monitoring committee member of" do
       within "#votings table" do

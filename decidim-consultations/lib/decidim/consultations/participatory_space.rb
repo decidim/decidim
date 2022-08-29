@@ -7,7 +7,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
   participatory_space.stylesheet = "decidim/consultations/consultations"
 
   participatory_space.participatory_spaces do |organization|
-    Decidim::Consultation.where(organization: organization)
+    Decidim::Consultation.where(organization:)
   end
 
   participatory_space.query_type = "Decidim::Consultations::ConsultationType"
@@ -49,7 +49,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       published_at: Time.now.utc,
       start_voting_date: Time.zone.today,
       end_voting_date: Time.zone.today + 1.month,
-      organization: organization,
+      organization:,
       banner_image: ActiveStorage::Blob.create_and_upload!(
         io: File.open(File.join(seeds_root, "city2.jpeg")),
         filename: "banner_image.jpeg",
@@ -81,7 +81,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       results_published_at: Time.zone.today - 1.month,
       start_voting_date: Time.zone.today - 2.months,
       end_voting_date: Time.zone.today - 1.month,
-      organization: organization,
+      organization:,
       banner_image: ActiveStorage::Blob.create_and_upload!(
         io: File.open(File.join(seeds_root, "city2.jpeg")),
         filename: "banner_image.jpeg",
@@ -112,7 +112,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       published_at: Time.zone.today + 1.month,
       start_voting_date: Time.zone.today + 1.month + 1.day,
       end_voting_date: Time.zone.today + 2.months,
-      organization: organization,
+      organization:,
       banner_image: ActiveStorage::Blob.create_and_upload!(
         io: File.open(File.join(seeds_root, "city2.jpeg")),
         filename: "banner_image.jpeg",
@@ -136,7 +136,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     [finished_consultation, active_consultation, upcoming_consultation].each do |consultation|
       4.times do
         params = {
-          consultation: consultation,
+          consultation:,
           slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
           decidim_scope_id: Decidim::Scope.reorder(Arel.sql("RANDOM()")).first.id,
           title: Decidim::Faker::Localized.sentence(word_count: 3),
@@ -147,7 +147,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
           question_context: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          organization: organization,
+          organization:,
           hero_image: ActiveStorage::Blob.create_and_upload!(
             io: File.open(File.join(seeds_root, "city.jpeg")),
             filename: "hero_image.jpeg",
@@ -176,7 +176,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
 
         2.times do
           Decidim::Consultations::Response.create(
-            question: question,
+            question:,
             title: Decidim::Faker::Localized.sentence(word_count: 3)
           )
         end

@@ -46,7 +46,7 @@ module Decidim
           event: "decidim.events.initiatives.initiative_sent_to_technical_validation",
           event_class: Decidim::Initiatives::InitiativeSentToTechnicalValidationEvent,
           resource: initiative,
-          affected_users: affected_users,
+          affected_users:,
           force_send: true
         }
 

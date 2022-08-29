@@ -191,7 +191,7 @@ describe Decidim::Search do
       let(:resource_type) { "Decidim::DummyResources::DummyResource" }
 
       before do
-        create_list(:searchable_resource, 5, organization: current_organization, resource_type: resource_type, content_a: "Where's your crown king nothing?")
+        create_list(:searchable_resource, 5, organization: current_organization, resource_type:, content_a: "Where's your crown king nothing?")
 
         # rubocop:disable RSpec/FactoryBot/CreateList
         3.times do
@@ -274,7 +274,7 @@ describe Decidim::Search do
 
     context "with scope" do
       let!(:scoped_resource) do
-        create(:searchable_resource, organization: current_organization, scope: scope, content_a: "Where's your crown king nothing?")
+        create(:searchable_resource, organization: current_organization, scope:, content_a: "Where's your crown king nothing?")
       end
 
       before do

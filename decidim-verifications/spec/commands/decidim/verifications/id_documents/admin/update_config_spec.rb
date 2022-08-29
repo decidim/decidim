@@ -8,13 +8,13 @@ module Decidim::Verifications::IdDocuments::Admin
 
     let(:form) do
       ConfigForm.from_params(
-        online: online,
-        offline: offline,
-        offline_explanation: offline_explanation
+        online:,
+        offline:,
+        offline_explanation:
       ).with_context(current_organization: organization, current_user: user)
     end
     let(:organization) { create :organization }
-    let(:user) { create :user, organization: organization }
+    let(:user) { create :user, organization: }
     let(:online) { true }
     let(:offline) { true }
     let(:offline_explanation) { { en: "Blah" } }

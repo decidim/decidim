@@ -30,7 +30,7 @@ module Decidim
 
         context "when querying proposals with categories" do
           let(:category) { create(:category, participatory_space: model.participatory_space) }
-          let!(:proposal_with_category) { create(:proposal, component: model, category: category) }
+          let!(:proposal_with_category) { create(:proposal, component: model, category:) }
           let(:all_proposals) { published_proposals + [proposal_with_category] }
 
           let(:query) { "{ proposals { edges { node { id, category { id } } } } }" }

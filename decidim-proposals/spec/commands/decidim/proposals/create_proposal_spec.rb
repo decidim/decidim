@@ -8,7 +8,7 @@ module Decidim
       let(:form_klass) { ProposalWizardCreateStepForm }
       let(:component) { create(:proposal_component) }
       let(:organization) { component.organization }
-      let(:user) { create :user, :admin, :confirmed, organization: organization }
+      let(:user) { create :user, :admin, :confirmed, organization: }
       let(:form) do
         form_klass.from_params(
           form_params
@@ -20,10 +20,10 @@ module Decidim
         )
       end
 
-      let(:author) { create(:user, organization: organization) }
+      let(:author) { create(:user, organization:) }
 
       let(:user_group) do
-        create(:user_group, :verified, organization: organization, users: [author])
+        create(:user_group, :verified, organization:, users: [author])
       end
 
       describe "call" do
@@ -143,7 +143,7 @@ module Decidim
               end
 
               before do
-                create_list(:proposal, 2, component: component, users: [author])
+                create_list(:proposal, 2, component:, users: [author])
               end
 
               it "checks the user group doesn't exceed the amount of proposals independently of the author" do
@@ -163,28 +163,28 @@ module Decidim
               let(:user_group) { nil }
 
               before do
-                create(:proposal, :withdrawn, users: [author], component: component)
+                create(:proposal, :withdrawn, users: [author], component:)
               end
 
               it "checks the user doesn't exceed the amount of proposals" do
                 expect { command.call }.to broadcast(:ok)
                 expect { command.call }.to broadcast(:invalid)
 
-                user_proposal_count = Decidim::Coauthorship.where(author: author, coauthorable_type: "Decidim::Proposals::Proposal").count
+                user_proposal_count = Decidim::Coauthorship.where(author:, coauthorable_type: "Decidim::Proposals::Proposal").count
                 expect(user_proposal_count).to eq(2)
               end
             end
 
             describe "when the author is a user_group" do
               before do
-                create(:proposal, :withdrawn, users: [author], user_groups: [user_group], component: component)
+                create(:proposal, :withdrawn, users: [author], user_groups: [user_group], component:)
               end
 
               it "checks the user_group doesn't exceed the amount of proposals" do
                 expect { command.call }.to broadcast(:ok)
                 expect { command.call }.to broadcast(:invalid)
 
-                user_group_proposal_count = Decidim::Coauthorship.where(user_group: user_group, coauthorable_type: "Decidim::Proposals::Proposal").count
+                user_group_proposal_count = Decidim::Coauthorship.where(user_group:, coauthorable_type: "Decidim::Proposals::Proposal").count
                 expect(user_group_proposal_count).to eq(2)
               end
             end

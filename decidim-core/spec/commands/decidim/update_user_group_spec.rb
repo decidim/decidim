@@ -7,8 +7,8 @@ module Decidim
     describe UpdateUserGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create :user, :confirmed, organization: organization }
-        let(:user_group) { create :user_group, users: [user], organization: organization }
+        let(:user) { create :user, :confirmed, organization: }
+        let(:user_group) { create :user_group, users: [user], organization: }
 
         let(:name) { "My super duper group" }
         let(:nickname) { "new_nickname" }
@@ -93,7 +93,7 @@ module Decidim
                   event: "decidim.events.groups.user_group_updated",
                   event_class: Decidim::UserGroupUpdatedEvent,
                   resource: user_group,
-                  affected_users: a_collection_containing_exactly(*Decidim::User.where(organization: organization, admin: true).all)
+                  affected_users: a_collection_containing_exactly(*Decidim::User.where(organization:, admin: true).all)
                 )
 
               command.call

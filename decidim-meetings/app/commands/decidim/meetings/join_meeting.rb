@@ -42,7 +42,7 @@ module Decidim
       attr_reader :meeting, :user, :user_group, :registration, :registration_form
 
       def accept_invitation
-        meeting.invites.find_by(user: user)&.accept!
+        meeting.invites.find_by(user:)&.accept!
       end
 
       def answer_questionnaire
@@ -61,9 +61,9 @@ module Decidim
 
       def create_registration
         @registration = Decidim::Meetings::Registration.create!(
-          meeting: meeting,
-          user: user,
-          user_group: user_group,
+          meeting:,
+          user:,
+          user_group:,
           public_participation: registration_form.public_participation
         )
       end
@@ -107,7 +107,7 @@ module Decidim
           resource: @meeting,
           affected_users: participatory_space_admins,
           extra: {
-            percentage: percentage
+            percentage:
           }
         )
       end

@@ -8,10 +8,10 @@ module Decidim::Conferences
     include Decidim::TranslationsHelper
 
     let(:organization) { create(:organization) }
-    let(:conference) { create(:conference, organization: organization) }
-    let(:user) { create(:user, organization: organization) }
-    let(:registration_type) { create(:registration_type, conference: conference) }
-    let(:conference_registration) { create(:conference_registration, conference: conference, registration_type: registration_type, user: user) }
+    let(:conference) { create(:conference, organization:) }
+    let(:user) { create(:user, organization:) }
+    let(:registration_type) { create(:registration_type, conference:) }
+    let(:conference_registration) { create(:conference_registration, conference:, registration_type:, user:) }
     let(:mail_pending) { described_class.pending_validation(user, conference, registration_type) }
     let(:mail) { described_class.confirmation(user, conference, registration_type) }
 

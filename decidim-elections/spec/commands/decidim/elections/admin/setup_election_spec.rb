@@ -7,22 +7,22 @@ describe Decidim::Elections::Admin::SetupElection do
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
   let(:invalid) { false }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let!(:election) { create :election, :complete }
-  let!(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, election: election) }
+  let!(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, election:) }
   let(:trustees) { create_list :trustee, 5, :with_public_key }
   let(:trustee_ids) { trustees.pluck(:id) }
   let(:form) do
     double(
       invalid?: invalid,
-      election: election,
+      election:,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_organization: organization,
-      trustee_ids: trustee_ids,
-      bulletin_board: bulletin_board
+      trustee_ids:,
+      bulletin_board:
     )
   end
   let(:scheme) do

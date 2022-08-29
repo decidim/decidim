@@ -51,7 +51,7 @@ module Decidim
           if process
             [process]
           else
-            Decidim::ParticipatoryProcess.where(organization: organization)
+            Decidim::ParticipatoryProcess.where(organization:)
           end
         end
       end

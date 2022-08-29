@@ -8,7 +8,7 @@ require "spec_helper"
 # the passthru validator uses it for the upload form objects.
 describe UploaderContentTypeValidator do
   subject do
-    dummy_record = validatable.new(organization: organization)
+    dummy_record = validatable.new(organization:)
     dummy_record.class.validators_on(:file).each do |validator|
       validator.validate_each(dummy_record, :file, file)
     end

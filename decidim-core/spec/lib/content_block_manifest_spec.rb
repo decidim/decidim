@@ -11,7 +11,7 @@ module Decidim
     let(:public_name_key) { "my.fake.key.name" }
     let(:attributes) do
       {
-        name: name
+        name:
       }
     end
 
@@ -64,7 +64,7 @@ module Decidim
     end
 
     describe "initializing via a block" do
-      let(:attributes) { { name: name } }
+      let(:attributes) { { name: } }
 
       it "is valid" do
         setup = proc do |content_block|
@@ -93,7 +93,7 @@ module Decidim
     end
 
     describe "when adding settings" do
-      let(:attributes) { { name: name } }
+      let(:attributes) { { name: } }
 
       it "is valid" do
         setup = proc do |content_block|

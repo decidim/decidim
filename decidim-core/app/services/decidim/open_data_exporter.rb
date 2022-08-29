@@ -64,10 +64,10 @@ module Decidim
 
       headers.uniq!
 
-      data = CSV.generate_line(headers, col_sep: col_sep)
+      data = CSV.generate_line(headers, col_sep:)
       collection.each do |content|
-        CSV.foreach(content, headers: true, col_sep: col_sep) do |row|
-          data << CSV.generate_line(row.values_at(*headers), col_sep: col_sep)
+        CSV.foreach(content, headers: true, col_sep:) do |row|
+          data << CSV.generate_line(row.values_at(*headers), col_sep:)
         end
         File.unlink(content)
       end

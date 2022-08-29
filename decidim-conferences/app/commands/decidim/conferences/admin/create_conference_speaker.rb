@@ -62,7 +62,7 @@ module Decidim
             "short_bio"
           ).symbolize_keys.merge(
             decidim_conference_id: conference.id,
-            conference: conference,
+            conference:,
             user: form.user
           ).merge(
             attachment_attributes(:avatar)

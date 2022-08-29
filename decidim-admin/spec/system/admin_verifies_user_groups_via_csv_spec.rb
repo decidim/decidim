@@ -5,15 +5,15 @@ require "spec_helper"
 describe "Admin verifies user groups via CSV", type: :system do
   let(:organization) { create(:organization) }
 
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let!(:user_group) do
     create(
       :user_group,
       :confirmed,
       email: "my_usergroup@example.org", # hardcoded in the CSV file
-      organization: organization,
-      users: [create(:user, organization: organization)]
+      organization:,
+      users: [create(:user, organization:)]
     )
   end
 

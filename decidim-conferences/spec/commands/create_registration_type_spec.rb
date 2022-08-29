@@ -26,7 +26,7 @@ module Decidim::Conferences
       double(
         Admin::RegistrationTypeForm,
         invalid?: invalid,
-        current_user: current_user,
+        current_user:,
         title: { en: "title" },
         attributes: {
           "title" => { en: "title" },

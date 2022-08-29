@@ -17,7 +17,7 @@ RSpec.describe "Election search", type: :request do
       :election,
       :published,
       :ongoing,
-      component: component,
+      component:,
       description: Decidim::Faker::Localized.literal("Chambray chia selvage hammock health goth.")
     )
   end
@@ -26,7 +26,7 @@ RSpec.describe "Election search", type: :request do
       :election,
       :published,
       :ongoing,
-      component: component,
+      component:,
       description: Decidim::Faker::Localized.literal("Tacos gentrify celiac mixtape.")
     )
   end
@@ -35,7 +35,7 @@ RSpec.describe "Election search", type: :request do
       :election,
       :published,
       :upcoming,
-      component: component,
+      component:,
       description: Decidim::Faker::Localized.literal("Selfies kale chips taxidermy adaptogen.")
     )
   end
@@ -44,14 +44,14 @@ RSpec.describe "Election search", type: :request do
       :election,
       :published,
       :finished,
-      component: component
+      component:
     )
   end
   let!(:unpublished_election) do
     create(
       :election,
       :upcoming,
-      component: component
+      component:
     )
   end
   let!(:external_election) { create :election }

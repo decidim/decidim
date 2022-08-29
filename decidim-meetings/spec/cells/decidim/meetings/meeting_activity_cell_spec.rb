@@ -12,7 +12,7 @@ module Decidim
       let(:action_log) do
         create(
           :action_log,
-          action: action,
+          action:,
           resource: meeting,
           organization: meeting.organization,
           component: meeting.component,

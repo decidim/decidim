@@ -7,9 +7,9 @@ describe "Sorting elections", type: :system do
   let(:manifest_name) { "elections" }
 
   let(:organization) { create :organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let!(:election1) { create :election, :complete, :published, :ongoing, component: component, start_time: 1.day.ago }
-  let!(:election2) { create :election, :complete, :published, :ongoing, component: component, start_time: 2.days.ago }
+  let!(:user) { create :user, :confirmed, organization: }
+  let!(:election1) { create :election, :complete, :published, :ongoing, component:, start_time: 1.day.ago }
+  let!(:election2) { create :election, :complete, :published, :ongoing, component:, start_time: 2.days.ago }
 
   before do
     switch_to_host(organization.host)

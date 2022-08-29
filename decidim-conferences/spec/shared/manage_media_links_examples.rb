@@ -40,7 +40,7 @@ shared_examples "manage media links examples" do
   end
 
   describe "when managing other conference media links" do
-    let!(:media_link) { create(:media_link, conference: conference) }
+    let!(:media_link) { create(:media_link, conference:) }
 
     before do
       visit current_path
@@ -96,7 +96,7 @@ shared_examples "manage media links examples" do
 
   context "when paginating" do
     let!(:collection_size) { 15 }
-    let!(:collection) { create_list(:media_link, collection_size, conference: conference) }
+    let!(:collection) { create_list(:media_link, collection_size, conference:) }
     let!(:resource_selector) { "#media_links tbody tr" }
 
     before do

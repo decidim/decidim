@@ -42,15 +42,15 @@ module Decidim::Conferences
     let(:form_params) do
       {
         conference_speaker: {
-          full_name: full_name,
-          position: position,
-          affiliation: affiliation,
-          short_bio: short_bio,
-          twitter_handle: twitter_handle,
-          personal_url: personal_url,
-          avatar: avatar,
-          existing_user: existing_user,
-          user_id: user_id,
+          full_name:,
+          position:,
+          affiliation:,
+          short_bio:,
+          twitter_handle:,
+          personal_url:,
+          avatar:,
+          existing_user:,
+          user_id:,
           conference_meeting_ids: meeting_ids
         }
       }
@@ -59,7 +59,7 @@ module Decidim::Conferences
       form_klass.from_params(
         form_params
       ).with_context(
-        current_user: current_user,
+        current_user:,
         current_organization: conference.organization
       )
     end

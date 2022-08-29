@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) { create :organization }
-      let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+      let(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -16,7 +16,7 @@ module Decidim
       end
 
       describe "unblock" do
-        let!(:user) { create(:user, :blocked, :confirmed, organization: organization, nickname: "some_nickname") }
+        let!(:user) { create(:user, :blocked, :confirmed, organization:, nickname: "some_nickname") }
 
         context "when having a user" do
           it "flashes a notice message" do
@@ -56,7 +56,7 @@ module Decidim
       end
 
       describe "block" do
-        let!(:user) { create(:user, :confirmed, organization: organization, nickname: "some_nickname") }
+        let!(:user) { create(:user, :confirmed, organization:, nickname: "some_nickname") }
 
         context "when having a user" do
           it "flashes a notice message" do

@@ -10,7 +10,7 @@ describe Decidim::Votings::ClosureSignForm do
 
   let(:attributes) do
     {
-      signed: signed
+      signed:
     }
   end
 

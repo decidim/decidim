@@ -21,7 +21,7 @@ module Decidim
             sign_up_as: "user",
             name: "User",
             nickname: "nickname",
-            email: email,
+            email:,
             password: "rPYWYKQJrXm97b4ytswc",
             password_confirmation: "rPYWYKQJrXm97b4ytswc",
             tos_agreement: "1",
@@ -59,7 +59,7 @@ module Decidim
       end
 
       context "when the registering user has pending invitations" do
-        let(:user) { create(:user, organization: organization, email: email) }
+        let(:user) { create(:user, organization:, email:) }
 
         before do
           user.invite!

@@ -16,12 +16,12 @@ module Decidim
           }
 
           prompt_params = {
-            url: url,
+            url:,
             text: t("proposals_picker.choose_proposals", scope: "decidim.proposals")
           }
 
           form.data_picker(field, picker_options, prompt_params) do |item|
-            { url: url, text: present(item).id_and_title }
+            { url:, text: present(item).id_and_title }
           end
         end
       end

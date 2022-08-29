@@ -69,10 +69,10 @@ module Decidim
           description: { current_locale => form.description },
           author: current_user,
           decidim_user_group_id: form.decidim_user_group_id,
-          scoped_type: scoped_type,
-          area: area,
+          scoped_type:,
+          area:,
           signature_type: form.signature_type,
-          signature_end_date: signature_end_date,
+          signature_end_date:,
           state: "created"
         )
       end
@@ -129,7 +129,7 @@ module Decidim
                .from_params(followable_gid: initiative.to_signed_global_id.to_s)
                .with_context(
                  current_organization: initiative.organization,
-                 current_user: current_user
+                 current_user:
                )
 
         Decidim::CreateFollow.new(form, current_user).call
@@ -140,7 +140,7 @@ module Decidim
                .from_params(initiative_id: initiative.id, user_id: initiative.decidim_author_id, state: "accepted")
                .with_context(
                  current_organization: initiative.organization,
-                 current_user: current_user
+                 current_user:
                )
 
         Decidim::Initiatives::SpawnCommitteeRequest.new(form, current_user).call

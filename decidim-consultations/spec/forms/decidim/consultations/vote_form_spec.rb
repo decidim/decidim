@@ -11,7 +11,7 @@ module Decidim
       let(:decidim_consultations_response_id) { response.id }
       let(:attributes) do
         {
-          decidim_consultations_response_id: decidim_consultations_response_id
+          decidim_consultations_response_id:
         }
       end
 

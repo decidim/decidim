@@ -7,11 +7,11 @@ module Decidim::Votings
     subject { described_class.new(form, closure) }
 
     let(:closure) { create(:ps_closure) }
-    let(:context) { { closure: closure } }
+    let(:context) { { closure: } }
 
     let(:params) do
       {
-        signed: signed
+        signed:
       }
     end
     let(:signed) { true }

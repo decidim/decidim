@@ -6,7 +6,7 @@ describe "Follow proposals", type: :system do
   let(:manifest_name) { "proposals" }
 
   let!(:followable) do
-    create(:proposal, component: component)
+    create(:proposal, component:)
   end
 
   let(:followable_path) { resource_locator(followable).path }

@@ -6,10 +6,10 @@ describe "Support Proposal", type: :system, slow: true do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:proposals) { create_list(:proposal, 3, component: component) }
-  let!(:proposal) { Decidim::Proposals::Proposal.find_by(component: component) }
+  let!(:proposals) { create_list(:proposal, 3, component:) }
+  let!(:proposal) { Decidim::Proposals::Proposal.find_by(component:) }
   let(:proposal_title) { translated(proposal.title) }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: }
 
   def expect_page_not_to_include_votes
     expect(page).to have_no_button("Support")
@@ -46,7 +46,7 @@ describe "Support Proposal", type: :system, slow: true do
     let!(:component) do
       create(:proposal_component,
              :with_votes_blocked,
-             manifest: manifest,
+             manifest:,
              participatory_space: participatory_process)
     end
 
@@ -60,7 +60,7 @@ describe "Support Proposal", type: :system, slow: true do
     let!(:component) do
       create(:proposal_component,
              :with_votes_enabled,
-             manifest: manifest,
+             manifest:,
              participatory_space: participatory_process)
     end
 
@@ -100,7 +100,7 @@ describe "Support Proposal", type: :system, slow: true do
 
       context "when the proposal is already voted" do
         before do
-          create(:proposal_vote, proposal: proposal, author: user)
+          create(:proposal_vote, proposal:, author: user)
           visit_component
         end
 
@@ -134,8 +134,8 @@ describe "Support Proposal", type: :system, slow: true do
           create(:proposal_component,
                  :with_votes_enabled,
                  :with_vote_limit,
-                 vote_limit: vote_limit,
-                 manifest: manifest,
+                 vote_limit:,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
@@ -145,8 +145,8 @@ describe "Support Proposal", type: :system, slow: true do
               create(:proposal_component,
                      :with_votes_blocked,
                      :with_vote_limit,
-                     vote_limit: vote_limit,
-                     manifest: manifest,
+                     vote_limit:,
+                     manifest:,
                      participatory_space: participatory_process)
             end
 
@@ -163,8 +163,8 @@ describe "Support Proposal", type: :system, slow: true do
               create(:proposal_component,
                      :with_votes_enabled,
                      :with_vote_limit,
-                     vote_limit: vote_limit,
-                     manifest: manifest,
+                     vote_limit:,
+                     manifest:,
                      participatory_space: participatory_process)
             end
 
@@ -202,7 +202,7 @@ describe "Support Proposal", type: :system, slow: true do
               }
             }
 
-            component.update!(permissions: permissions)
+            component.update!(permissions:)
             visit_component
           end
 
@@ -217,7 +217,7 @@ describe "Support Proposal", type: :system, slow: true do
 
         context "when the proposal is already voted" do
           before do
-            create(:proposal_vote, proposal: proposal, author: user)
+            create(:proposal_vote, proposal:, author: user)
             visit_component
           end
 
@@ -246,7 +246,7 @@ describe "Support Proposal", type: :system, slow: true do
           let(:vote_limit) { 1 }
 
           before do
-            create(:proposal_vote, proposal: proposal, author: user)
+            create(:proposal_vote, proposal:, author: user)
             visit_component
           end
 
@@ -258,7 +258,7 @@ describe "Support Proposal", type: :system, slow: true do
             let!(:component) do
               create(:proposal_component,
                      :with_votes_blocked,
-                     manifest: manifest,
+                     manifest:,
                      participatory_space: participatory_process)
             end
 
@@ -275,7 +275,7 @@ describe "Support Proposal", type: :system, slow: true do
     end
 
     context "when the proposal is rejected", :slow do
-      let!(:rejected_proposal) { create(:proposal, :rejected, component: component) }
+      let!(:rejected_proposal) { create(:proposal, :rejected, component:) }
       let!(:rejected_proposal_title) { translated(rejected_proposal.title) }
 
       before do
@@ -304,7 +304,7 @@ describe "Support Proposal", type: :system, slow: true do
         create(:proposal_component,
                :with_votes_enabled,
                :with_threshold_per_proposal,
-               manifest: manifest,
+               manifest:,
                participatory_space: participatory_process)
       end
 
@@ -313,7 +313,7 @@ describe "Support Proposal", type: :system, slow: true do
       end
 
       it "doesn't allow users to vote to a proposal that's reached the limit" do
-        create(:proposal_vote, proposal: proposal)
+        create(:proposal_vote, proposal:)
         visit_component
 
         proposal_element = page.find(".card--proposal", text: proposal_title)
@@ -345,7 +345,7 @@ describe "Support Proposal", type: :system, slow: true do
                :with_votes_enabled,
                :with_threshold_per_proposal,
                :with_can_accumulate_supports_beyond_threshold,
-               manifest: manifest,
+               manifest:,
                participatory_space: participatory_process)
       end
 
@@ -354,7 +354,7 @@ describe "Support Proposal", type: :system, slow: true do
       end
 
       it "allows users to vote on proposals over the limit" do
-        create(:proposal_vote, proposal: proposal)
+        create(:proposal_vote, proposal:)
         visit_component
 
         proposal_element = page.find(".card--proposal", text: proposal_title)
@@ -373,7 +373,7 @@ describe "Support Proposal", type: :system, slow: true do
                :with_votes_enabled,
                :with_minimum_votes_per_user,
                minimum_votes_per_user: 3,
-               manifest: manifest,
+               manifest:,
                participatory_space: participatory_process)
       end
 

@@ -15,7 +15,7 @@ module Decidim
         def create
           enforce_permission_to :import_proposals, :projects
 
-          @form = form(Admin::ProjectImportProposalsForm).from_params(params, budget: budget)
+          @form = form(Admin::ProjectImportProposalsForm).from_params(params, budget:)
           Admin::ImportProposalsToBudgets.call(@form) do
             on(:ok) do |projects|
               flash[:notice] = I18n.t("proposals_imports.create.success", scope: "decidim.budgets.admin", number: projects.length)

@@ -11,7 +11,7 @@ module Decidim
         include TranslatableAttributes
         mimic :participatory_process
         attribute :url, String
-      end.from_params(url: url)
+      end.from_params(url:)
     end
     let(:attribute) { :description }
     let(:options) do

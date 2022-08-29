@@ -9,7 +9,7 @@ module Decidim
     let(:base64_content) { File.open(Decidim::Dev.asset("base64_content.html")) }
     let(:html_without_images) { "<p>This is an awesome paragraph</p><p>Tiene acentos, cómo no</p>" }
     let(:user) { create(:user, :confirmed, :admin) }
-    let(:context) { { user: user } }
+    let(:context) { { user: } }
     let(:parser) { described_class.new(content, context) }
 
     describe "inline_images?" do

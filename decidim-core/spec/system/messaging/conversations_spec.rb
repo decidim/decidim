@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Conversations", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: organization }
+  let(:user) { create :user, :confirmed, organization: }
 
   before do
     switch_to_host(organization.host)
@@ -44,7 +44,7 @@ describe "Conversations", type: :system do
   end
 
   context "when starting a conversation" do
-    let(:recipient) { create(:user, organization: organization) }
+    let(:recipient) { create(:user, organization:) }
 
     before do
       visit decidim.new_conversation_path(recipient_id: recipient.id)
@@ -62,7 +62,7 @@ describe "Conversations", type: :system do
     it_behaves_like "create new conversation"
 
     context "and recipient has restricted communications" do
-      let(:recipient) { create(:user, direct_message_types: "followed-only", organization: organization) }
+      let(:recipient) { create(:user, direct_message_types: "followed-only", organization:) }
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
@@ -99,7 +99,7 @@ describe "Conversations", type: :system do
   end
 
   context "when user has conversations" do
-    let(:interlocutor) { create(:user, :confirmed, organization: organization) }
+    let(:interlocutor) { create(:user, :confirmed, organization:) }
 
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(
@@ -220,7 +220,7 @@ describe "Conversations", type: :system do
     end
 
     context "when interlocutor has restricted conversations" do
-      let(:interlocutor) { create(:user, :confirmed, direct_message_types: "followed-only", organization: organization) }
+      let(:interlocutor) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
       context "and interlocutor does not follow user" do
         before do
@@ -261,7 +261,7 @@ describe "Conversations", type: :system do
     end
 
     context "when visiting recipient's profile page" do
-      let(:recipient) { create(:user, :confirmed, organization: organization) }
+      let(:recipient) { create(:user, :confirmed, organization:) }
 
       before do
         visit decidim.profile_path(recipient.nickname)
@@ -272,7 +272,7 @@ describe "Conversations", type: :system do
       end
 
       context "and recipient has restricted communications" do
-        let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization: organization) }
+        let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
         it "has contact muted" do
           expect(page).not_to have_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
@@ -283,7 +283,7 @@ describe "Conversations", type: :system do
 
     describe "on mentioned list" do
       context "when someone direct messages disabled" do
-        let!(:interlocutor2) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
+        let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
         it "can't be selected on the mentioned list", :slow do
           visit_inbox
@@ -299,7 +299,7 @@ describe "Conversations", type: :system do
 
   describe "when having a conversation with multiple participants" do
     context "and it's with only one participant" do
-      let(:user1) { create(:user, organization: organization) }
+      let(:user1) { create(:user, organization:) }
       let!(:conversation2) do
         Decidim::Messaging::Conversation.start!(
           originator: user,
@@ -348,9 +348,9 @@ describe "Conversations", type: :system do
     end
 
     context "and it's with four participants" do
-      let(:user1) { create(:user, organization: organization) }
-      let(:user2) { create(:user_group, organization: organization) }
-      let(:user3) { create(:user, organization: organization) }
+      let(:user1) { create(:user, organization:) }
+      let(:user2) { create(:user_group, organization:) }
+      let(:user3) { create(:user, organization:) }
       let!(:conversation4) do
         Decidim::Messaging::Conversation.start!(
           originator: user,
@@ -408,15 +408,15 @@ describe "Conversations", type: :system do
     end
 
     context "and it's with ten participants" do
-      let(:user1) { create(:user, organization: organization) }
-      let(:user2) { create(:user_group, organization: organization) }
-      let(:user3) { create(:user, organization: organization) }
-      let(:user4) { create(:user, organization: organization) }
-      let(:user5) { create(:user, organization: organization) }
-      let(:user6) { create(:user, organization: organization) }
-      let(:user7) { create(:user, organization: organization) }
-      let(:user8) { create(:user, organization: organization) }
-      let(:user9) { create(:user, organization: organization) }
+      let(:user1) { create(:user, organization:) }
+      let(:user2) { create(:user_group, organization:) }
+      let(:user3) { create(:user, organization:) }
+      let(:user4) { create(:user, organization:) }
+      let(:user5) { create(:user, organization:) }
+      let(:user6) { create(:user, organization:) }
+      let(:user7) { create(:user, organization:) }
+      let(:user8) { create(:user, organization:) }
+      let(:user9) { create(:user, organization:) }
       let!(:conversation10) do
         Decidim::Messaging::Conversation.start!(
           originator: user,
@@ -489,7 +489,7 @@ describe "Conversations", type: :system do
   end
 
   context "when user is deleted" do
-    let(:interlocutor) { create(:user, :confirmed, organization: organization) }
+    let(:interlocutor) { create(:user, :confirmed, organization:) }
 
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(

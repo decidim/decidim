@@ -133,8 +133,8 @@ module Decidim
     # block - A block that receive the components to filter out the stat.
     #
     # Returns nothing.
-    def register_stat(name, options = {}, &block)
-      stats.register(name, options, &block)
+    def register_stat(name, options = {}, &)
+      stats.register(name, options, &)
     end
 
     # Public: Registers a resource. Exposes a DSL defined by
@@ -147,8 +147,8 @@ module Decidim
     # block - A Block that will be called to set the Resource attributes.
     #
     # Returns nothing.
-    def register_resource(name, &block)
-      Decidim.register_resource(name, &block)
+    def register_resource(name, &)
+      Decidim.register_resource(name, &)
     end
 
     # Public: Registers an export artifact with a name and its properties

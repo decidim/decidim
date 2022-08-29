@@ -8,8 +8,8 @@ module Decidim::Verifications
 
     let(:params) do
       {
-        impersonated_only: impersonated_only,
-        before_date: before_date
+        impersonated_only:,
+        before_date:
       }
     end
     let(:form) do
@@ -24,36 +24,36 @@ module Decidim::Verifications
     let(:before_date) { prev_week }
     let(:all_authorizations) do
       Decidim::Verifications::Authorizations.new(
-        organization: organization
+        organization:
       ).query
     end
     let(:granted_authorizations) do
       Decidim::Verifications::Authorizations.new(
-        organization: organization,
+        organization:,
         granted: true
       ).query
     end
     let(:no_granted_authorizations) do
       Decidim::Verifications::Authorizations.new(
-        organization: organization,
+        organization:,
         granted: false
       ).query
     end
     let(:impersonated_authorizations) do
       Decidim::Verifications::AuthorizationsBeforeDate.new(
-        organization: organization,
+        organization:,
         date: now,
         granted: true,
         impersonated_only: true
       ).query
     end
-    let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
-    let(:user0) { create(:user, :admin, :confirmed, organization: organization) }
-    let(:user1) { create(:user, :admin, :confirmed, organization: organization) }
-    let(:user2) { create(:user, :admin, :confirmed, organization: organization) }
-    let(:user3) { create(:user, :admin, :confirmed, organization: organization) }
-    let(:user4) { create(:user, :admin, :confirmed, organization: organization) }
-    let(:user5) { create(:user, :admin, :confirmed, organization: organization, managed: true) }
+    let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+    let(:user0) { create(:user, :admin, :confirmed, organization:) }
+    let(:user1) { create(:user, :admin, :confirmed, organization:) }
+    let(:user2) { create(:user, :admin, :confirmed, organization:) }
+    let(:user3) { create(:user, :admin, :confirmed, organization:) }
+    let(:user4) { create(:user, :admin, :confirmed, organization:) }
+    let(:user5) { create(:user, :admin, :confirmed, organization:, managed: true) }
 
     describe "when creating a revoke all authorizations command" do
       context "with organization not set neither current_user but impersonated_only & before_date" do

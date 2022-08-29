@@ -11,7 +11,7 @@ module Decidim
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
 
           @form = if closure.certificate_phase?
-                    form(ClosureCertifyForm).instance.with_context(closure: closure)
+                    form(ClosureCertifyForm).instance.with_context(closure:)
                   elsif closure.signature_phase?
                     form(ClosureSignForm).instance
                   end
@@ -29,7 +29,7 @@ module Decidim
 
         def create
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
-          @form = form(EnvelopesResultForm).from_params(params).with_context(polling_officer: polling_officer)
+          @form = form(EnvelopesResultForm).from_params(params).with_context(polling_officer:)
 
           CreatePollingStationClosure.call(@form) do
             on(:ok) do
@@ -71,7 +71,7 @@ module Decidim
         def certify
           enforce_permission_to :manage, :polling_station_results, polling_officer: polling_officer
 
-          @form = form(ClosureCertifyForm).from_params(params).with_context(closure: closure)
+          @form = form(ClosureCertifyForm).from_params(params).with_context(closure:)
 
           CertifyPollingStationClosure.call(@form, closure) do
             on(:ok) do
@@ -119,11 +119,11 @@ module Decidim
         end
 
         def closure
-          @closure ||= polling_station.closures.find_by(election: election)
+          @closure ||= polling_station.closures.find_by(election:)
         end
 
         def polling_station_election_votes_count
-          @polling_station_election_votes_count ||= polling_station.in_person_votes.where(election: election).count
+          @polling_station_election_votes_count ||= polling_station.in_person_votes.where(election:).count
         end
       end
     end

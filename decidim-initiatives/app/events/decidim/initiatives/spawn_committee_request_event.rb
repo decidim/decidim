@@ -9,35 +9,35 @@ module Decidim
       def email_subject
         I18n.t(
           "decidim.initiatives.events.spawn_committee_request_event.email_subject",
-          applicant_nickname: applicant_nickname
+          applicant_nickname:
         )
       end
 
       def email_intro
         I18n.t(
           "decidim.initiatives.events.spawn_committee_request_event.email_intro",
-          resource_title: resource_title,
-          resource_url: resource_url,
-          applicant_profile_url: applicant_profile_url,
-          applicant_nickname: applicant_nickname
+          resource_title:,
+          resource_url:,
+          applicant_profile_url:,
+          applicant_nickname:
         )
       end
 
       def email_outro
         I18n.t(
           "decidim.initiatives.events.spawn_committee_request_event.email_outro",
-          resource_title: resource_title,
-          resource_url: resource_url
+          resource_title:,
+          resource_url:
         )
       end
 
       def notification_title
         I18n.t(
           "decidim.initiatives.events.spawn_committee_request_event.notification_title",
-          resource_title: resource_title,
-          resource_url: resource_url,
-          applicant_profile_url: applicant_profile_url,
-          applicant_nickname: applicant_nickname
+          resource_title:,
+          resource_url:,
+          applicant_profile_url:,
+          applicant_nickname:
         ).html_safe
       end
 

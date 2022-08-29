@@ -11,7 +11,7 @@ module Decidim::ParticipatoryProcesses
       create(:participatory_process,
              :promoted,
              :with_steps,
-             organization: organization,
+             organization:,
              current_step_ends: 1.month.from_now)
     end
 
@@ -19,7 +19,7 @@ module Decidim::ParticipatoryProcesses
       create(:participatory_process,
              :promoted,
              :with_steps,
-             organization: organization,
+             organization:,
              current_step_ends: 2.months.from_now)
     end
 
@@ -27,11 +27,11 @@ module Decidim::ParticipatoryProcesses
       create(:participatory_process,
              :published,
              :with_steps,
-             organization: organization)
+             organization:)
     end
 
     let!(:local_non_promoted_process_without_steps) do
-      create(:participatory_process, :published, organization: organization)
+      create(:participatory_process, :published, organization:)
     end
 
     before { create(:participatory_process) }

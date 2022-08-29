@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "ProfileConversations", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create :user, :confirmed, organization: organization }
-  let(:another_user) { create(:user, :confirmed, organization: organization) }
-  let(:extra_user) { create(:user, :confirmed, organization: organization) }
-  let(:user_group) { create(:user_group, :confirmed, organization: organization, users: [user, extra_user]) }
+  let(:user) { create :user, :confirmed, organization: }
+  let(:another_user) { create(:user, :confirmed, organization:) }
+  let(:extra_user) { create(:user, :confirmed, organization:) }
+  let(:user_group) { create(:user_group, :confirmed, organization:, users: [user, extra_user]) }
 
   let(:profile) { user_group }
 
@@ -52,7 +52,7 @@ describe "ProfileConversations", type: :system do
   end
 
   context "when starting a conversation" do
-    let(:recipient) { create(:user, organization: organization) }
+    let(:recipient) { create(:user, organization:) }
 
     before do
       visit decidim.new_profile_conversation_path(nickname: profile.nickname, recipient_id: recipient.id)
@@ -66,7 +66,7 @@ describe "ProfileConversations", type: :system do
     it_behaves_like "create new conversation"
 
     context "and recipient has restricted communications" do
-      let(:recipient) { create(:user, direct_message_types: "followed-only", organization: organization) }
+      let(:recipient) { create(:user, direct_message_types: "followed-only", organization:) }
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
@@ -103,7 +103,7 @@ describe "ProfileConversations", type: :system do
   end
 
   context "when profile has conversations" do
-    let(:interlocutor) { create(:user, :confirmed, organization: organization) }
+    let(:interlocutor) { create(:user, :confirmed, organization:) }
     let(:start_message) { "who wants apples?" }
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(
@@ -271,7 +271,7 @@ describe "ProfileConversations", type: :system do
     end
 
     context "when interlocutor has restricted conversations" do
-      let(:interlocutor) { create(:user, :confirmed, direct_message_types: "followed-only", organization: organization) }
+      let(:interlocutor) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
       context "and interlocutor does not follow profile" do
         before do
@@ -309,7 +309,7 @@ describe "ProfileConversations", type: :system do
 
     describe "on mentioned list" do
       context "when someone direct messages disabled" do
-        let!(:interlocutor2) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
+        let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
         it "can't be selected on the mentioned list", :slow do
           visit_profile_inbox

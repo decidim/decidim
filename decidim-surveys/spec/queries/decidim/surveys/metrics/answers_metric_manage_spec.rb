@@ -5,12 +5,12 @@ require "spec_helper"
 describe Decidim::Surveys::Metrics::AnswersMetricManage do
   let(:day) { Time.zone.today - 1.day }
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, organization: organization) }
-  let(:surveys_component) { create(:surveys_component, :published, participatory_space: participatory_space) }
+  let(:participatory_space) { create(:participatory_process, organization:) }
+  let(:surveys_component) { create(:surveys_component, :published, participatory_space:) }
   let(:survey) { create(:survey, component: surveys_component) }
   let(:questionnaire) { create(:questionnaire, questionnaire_for: survey) }
-  let!(:answers) { create_list(:answer, 5, questionnaire: questionnaire, created_at: day) }
-  let!(:old_answers) { create_list(:answer, 5, questionnaire: questionnaire, created_at: day - 1.week) }
+  let!(:answers) { create_list(:answer, 5, questionnaire:, created_at: day) }
+  let!(:old_answers) { create_list(:answer, 5, questionnaire:, created_at: day - 1.week) }
 
   include_context "when managing metrics"
 
@@ -31,7 +31,7 @@ describe Decidim::Surveys::Metrics::AnswersMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "survey_answers", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil, participatory_space: participatory_space, related_object: survey)
+      create(:metric, metric_type: "survey_answers", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:, related_object: survey)
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)

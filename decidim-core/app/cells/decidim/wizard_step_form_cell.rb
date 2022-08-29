@@ -104,7 +104,7 @@ module Decidim
 
     # Returns a translation with the current step number and the total steps number.
     def i18n_wizard_header_step_of
-      t(".wizard_header.step_of", current_step: current_step, total_steps: total_steps)
+      t(".wizard_header.step_of", current_step:, total_steps:)
     end
 
     # Returns a link that toggles the steps in the mobile view.

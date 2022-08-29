@@ -137,11 +137,11 @@ module Decidim
         end
 
         def user_monitoring_committee?
-          Decidim::Votings::MonitoringCommitteeMember.exists?(user: user)
+          Decidim::Votings::MonitoringCommitteeMember.exists?(user:)
         end
 
         def user_monitoring_committee_for_voting?
-          Decidim::Votings::MonitoringCommitteeMember.exists?(user: user, voting: voting)
+          Decidim::Votings::MonitoringCommitteeMember.exists?(user:, voting:)
         end
 
         def voting

@@ -5,14 +5,14 @@ require "spec_helper"
 module Decidim
   module Conferences
     describe CurrentComponent do
-      let(:request) { double(params: params, env: env) }
+      let(:request) { double(params:, env:) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
       let(:organization) do
         create(:organization)
       end
-      let(:current_conference) { create(:conference, organization: organization) }
-      let(:other_conference) { create(:conference, organization: organization) }
+      let(:current_conference) { create(:conference, organization:) }
+      let(:other_conference) { create(:conference, organization:) }
       let(:env) do
         { "decidim.current_organization" => organization }
       end

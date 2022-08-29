@@ -80,7 +80,7 @@ Decidim.register_component(:accountability) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,
       manifest_name: :accountability,
       published_at: Time.current,
-      participatory_space: participatory_space,
+      participatory_space:,
       settings: {
         intro: Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(word_count: 4) },
         categories_label: Decidim::Faker::Localized.word,
@@ -98,7 +98,7 @@ Decidim.register_component(:accountability) do |component|
 
     5.times do |i|
       Decidim::Accountability::Status.create!(
-        component: component,
+        component:,
         name: Decidim::Faker::Localized.word,
         key: "status_#{i}"
       )
@@ -115,7 +115,7 @@ Decidim.register_component(:accountability) do |component|
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
           parent: parent_category,
-          participatory_space: participatory_space
+          participatory_space:
         )
       end
 
@@ -124,9 +124,9 @@ Decidim.register_component(:accountability) do |component|
           Decidim::Accountability::Result,
           admin_user,
           {
-            component: component,
+            component:,
             scope: participatory_space.organization.scopes.sample,
-            category: category,
+            category:,
             title: Decidim::Faker::Localized.sentence(word_count: 2),
             description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
@@ -142,7 +142,7 @@ Decidim.register_component(:accountability) do |component|
             Decidim::Accountability::Result,
             admin_user,
             {
-              component: component,
+              component:,
               parent: result,
               start_date: Time.zone.today,
               end_date: Time.zone.today + 10,

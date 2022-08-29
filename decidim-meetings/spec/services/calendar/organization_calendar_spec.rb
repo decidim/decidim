@@ -48,7 +48,7 @@ module Decidim::Meetings::Calendar
     describe "#filters" do
       subject { described_class.for(organization, filters) }
 
-      let(:online_meeting) { create :meeting, :official, :online, component: component }
+      let(:online_meeting) { create :meeting, :official, :online, component: }
       let(:online_meeting2) { create :meeting, :not_official, :online, component: component2 }
       let!(:withdrawn_meeting) { create :meeting, :published, :withdrawn, component: component2 }
       let!(:filters) { { "with_any_origin" => ["", "official"], "with_any_type" => ["", "online"] } }
