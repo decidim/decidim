@@ -15,28 +15,33 @@
 
   <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
 
-  <h1 class="h1 decorator my-12"><%= translated_attribute questionnaire.title %></h1>
-
-  <div class="text-xl text-gray-2 mb-10">
-    <%= decidim_sanitize_editor translated_attribute questionnaire.description %>
+  <div class="text-center py-10">
+    <h1 class="h1 decorator inline-block text-left mb-12">
+      <%= translated_attribute questionnaire.title %>
+    </h1>
+    <div class="text-lg text-gray-2 text-left">
+      <%= decidim_sanitize_editor translated_attribute questionnaire.description %>
+    </div>
   </div>
 
-  <% unless questionnaire_for.try(:component)&.try(:published?) %>
-    <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.questionnaire_not_published.body"), callout_class: "warning") %>
-  <% end %>
+  <div class="mb-24">
+    <% unless questionnaire_for.try(:component)&.try(:published?) %>
+      <%= cell("decidim/announcement", t("decidim.forms.questionnaires.show.questionnaire_not_published.body"), callout_class: "warning") %>
+    <% end %>
 
-  <% if allow_answers? %>
-    <% if visitor_can_answer? %>
-      <% if visitor_already_answered? %>
-        <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: t("decidim.forms.questionnaires.show.questionnaire_answered.body") }) %>
+    <% if allow_answers? %>
+      <% if visitor_can_answer? %>
+        <% if visitor_already_answered? %>
+          <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_answered.title"), body: t("decidim.forms.questionnaires.show.questionnaire_answered.body") }) %>
+        <% else %>
+          <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
+        <% end %>
       <% else %>
-        <%= render partial: "decidim/forms/questionnaires/questionnaire" %>
+        <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
       <% end %>
     <% else %>
-      <%= render partial: "decidim/forms/questionnaires/questionnaire_readonly" %>
+      <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
     <% end %>
-  <% else %>
-    <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_closed.title"), body: t("decidim.forms.questionnaires.show.questionnaire_closed.body") }, callout_class: "warning") %>
-  <% end %>
+  </div>
 
 <% end %>
