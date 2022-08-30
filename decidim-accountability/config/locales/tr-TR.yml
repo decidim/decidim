@@ -134,8 +134,6 @@ tr:
           row_number: Satır
           subject: Sonuçların içe aktarılması başarılı
           success: Sonuçların içe aktarılması başarılı. Sonuçları yönetim arayüzünde inceleyebilirsiniz.
-      last_activity:
-        new_result_at_html: "<span> %{link}</span>yeni sonuç"
       models:
         result:
           fields:
