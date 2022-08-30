@@ -136,8 +136,6 @@ lb:
           row_number: Zeile
           subject: Ergebnisse wurden erfolgreich importiert
           success: Ergebnisse wurden erfolgreich importiert. Sie können die Ergebnisse über die Administrationsoberfläche aufrufen.
-      last_activity:
-        new_result_at_html: "<span>Neues Ergebnis bei %{link}</span>"
       models:
         result:
           fields:
