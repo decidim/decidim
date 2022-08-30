@@ -501,8 +501,6 @@ sv:
         promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till kampanjutskottet. Bjud in till kampanjutskottet genom att vidarebefordra följande länk
         status_change_body_for: 'Initiativet %{title} har ändrat status till: %{state}'
         status_change_for: Initiativet %{title} har ändrat status
-      last_activity:
-        new_initiative: Nytt initiativ
       modal:
         not_authorized:
           authorizations_page: Visa behörigheter
