@@ -740,6 +740,9 @@ cs:
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
         success: Koncept návrhu byl úspěšně smazán.
+      last_activity:
+        new_proposal: 'Nový návrh:'
+        proposal_updated: 'Návrh aktualizován:'
       models:
         collaborative_draft:
           fields:
