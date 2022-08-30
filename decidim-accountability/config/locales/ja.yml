@@ -144,8 +144,6 @@ ja:
           row_number: 行
           subject: 結果のインポートに成功しました
           success: 結果のインポートに成功しました。管理画面で結果を確認できます。
-      last_activity:
-        new_result_at_html: "<span>新しい結果 %{link}</span>"
       models:
         result:
           fields:
