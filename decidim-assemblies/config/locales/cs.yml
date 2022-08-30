@@ -361,8 +361,6 @@ cs:
         working_group: Pracovní skupina
       index:
         title: Shromáždění
-      last_activity:
-        new_assembly: Nové shromáždění
       pages:
         home:
           highlighted_assemblies:
