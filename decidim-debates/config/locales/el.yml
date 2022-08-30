@@ -97,8 +97,6 @@ el:
         show:
           back: Επιστροφή στη λίστα
           date: Ημερομηνία
-      last_activity:
-        new_debate_at_html: "<span>Νέα συζήτηση στο %{link}</span>"
       models:
         debate:
           fields:
