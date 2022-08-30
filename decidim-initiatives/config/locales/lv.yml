@@ -427,8 +427,6 @@ lv:
         promotal_committee_help: Atcerieties, ka uz veicināšanas komiteju ir jāuzaicina vismaz %{member_count} cilvēku. Pārsūtiet šo saiti, lai uzaicinātu cilvēkus uz veicināšanas komiteju
         status_change_body_for: 'Iniciatīvas %{title} statuss ir mainīts: %{state}'
         status_change_for: Iniciatīvas %{title} statuss ir mainīts
-      last_activity:
-        new_initiative: Jauna iniciatīva
       pages:
         home:
           highlighted_initiatives:
