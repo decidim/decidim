@@ -58,8 +58,6 @@ sv:
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.
-      last_activity:
-        new_survey_at_html: "<span>Ny enkät på %{link}</span>"
       surveys:
         answer:
           invalid: Det gick inte att besvara enkäten.
