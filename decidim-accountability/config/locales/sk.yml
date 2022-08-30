@@ -134,8 +134,6 @@ sk:
           row_number: Riadky
           subject: Import výsledkov bol úspešný
           success: Import výsledkov bol úspešný. Výsledky je možné skontrolovať v správcovskom rozhraní.
-      last_activity:
-        new_result_at_html: "<span>Nový výsledok na %{link}</span>"
       models:
         result:
           fields:
