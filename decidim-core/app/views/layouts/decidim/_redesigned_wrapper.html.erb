@@ -4,7 +4,9 @@
     <%= render partial: "layouts/decidim/header/redesigned_menu" %>
   </header>
 
-  <%= yield %>
+  <div data-content>
+    <%= yield %>
+  </div>
 
   <footer>
     <%= render partial: "layouts/decidim/footer/redesigned_main" %>
