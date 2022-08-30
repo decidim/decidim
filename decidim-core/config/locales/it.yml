@@ -1138,7 +1138,6 @@ it:
         members: Utenti
         officialized: Partecipante ufficiale
         send_private_message: Invia messaggio privato
-        timeline: Ultime attività
         view_full_profile: Visualizza il profilo completo
       sidebar:
         badges:
