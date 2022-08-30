@@ -145,6 +145,8 @@ fr:
           row_number: Ligne
           subject: Import des résultats réussi
           success: Import des résultats réussi. Vous pouvez consulter les résultats dans l'interface d'administration.
+      last_activity:
+        new_result: 'Nouveau résultat :'
       models:
         result:
           fields:
