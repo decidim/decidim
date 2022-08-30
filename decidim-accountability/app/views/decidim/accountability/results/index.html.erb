@@ -1,4 +1,4 @@
-<div class="row accountability">
+<!-- <div class="row accountability">
   <div class="small-12 columns">
     <%= render partial: "scope_filters", locals: { url_method: :results_path } %>
   </div>
@@ -14,4 +14,38 @@
       <%= render partial: "results_leaf", locals: { results: results, total_count: results.total_count } %>
     <% end %>
   </div>
-</div>
+</div> -->
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_accountability" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
+<% end %>
+
+<% content_for :aside do %>
+  <h1 class="h1 decorator"><%= t("decidim.components.accountability.name") %></h1>
+
+  <%# REDESIGN_PENDING: Perhaps a cell will fit better %>
+  <%= render partial: "status", locals: {
+    title: t("decidim.accountability.results.home_header.global_status"),
+    progress: progress_calculator(current_scope, nil).present? && progress_calculator(current_scope, nil),
+    extra_classes: "accountability__status__lg"
+  } %>
+
+  <% if current_component.has_subscopes? %>
+    <%= render partial: "scope_filters" %>
+  <% end %>
+
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <% if results.any?{|r| r.children_count > 0 } %>
+    <%= render partial: "results_parent", locals: { results: results, total_count: results.total_count } %>
+  <% else %>
+    <%= render partial: "results_leaf", locals: { results: results, total_count: results.total_count } %>
+  <% end %>
+
+<% end %>

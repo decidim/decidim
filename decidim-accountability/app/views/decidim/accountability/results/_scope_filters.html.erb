@@ -1,31 +1,44 @@
-<div class="scope-filters section">
-  <% if current_component.has_subscopes? %>
-    <div><%= t("results.filters.scopes", scope: "decidim.accountability") %></div>
+<div class="w-full">
+  <ul class="filter-container" data-scope-filters>
+    <%
+      items = []
 
-    <ul class="tags tags--action">
-      <li <%= active_class_if_current(nil) %>>
-          <%= link_to url_for(filter: { with_category: category.try(:id) }) do %>
-            <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 2) %></span>
-            <%= t("results.filters.all", scope: "decidim.accountability") %>
-          <% end %>
+      items << [
+        url_for(filter: { with_category: category.try(:id) }),
+        t("results.filters.all", scope: "decidim.accountability"),
+        "apps-2-line",
+        nil == current_scope,
+        Decidim::Scope.model_name.human(count: 2)
+      ];
+      items << [
+        url_for(filter: { with_scope: current_participatory_space.scope.id, with_category: category.try(:id) }),
+        translated_attribute(current_participatory_space.scope.name),
+        "price-tag-3-line",
+        current_participatory_space.scope.id.to_s == current_scope.to_s,
+        Decidim::Scope.model_name.human(count: 1)
+      ] if current_participatory_space.scope;
+
+      current_participatory_space.subscopes.map do |scope|
+        item = [
+          url_for(filter: { with_scope: scope.id, with_category: category.try(:id) }),
+          translated_attribute(scope.name),
+          "price-tag-3-line",
+          scope.id.to_s == current_scope.to_s,
+          Decidim::Scope.model_name.human(count: 1)
+        ]
+        items << item
+      end
+
+      items.each do |item| %>
+
+      <li>
+        <%= link_to item[0], class: "filter#{ ' is-active' if item[3]}" do %>
+          <span class="sr-only"><%= item[4] %></span>
+          <%= icon item[2] %>
+          <span><%= item[1] %></span>
+        <% end %>
       </li>
 
-      <% if current_participatory_space.scope %>
-        <li <%= active_class_if_current(current_participatory_space.scope.id) %>>
-          <%= link_to url_for(filter: { with_scope: current_participatory_space.scope.id, with_category: category.try(:id) }) do %>
-            <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 1) %></span>
-            <%= translated_attribute(current_participatory_space.scope.name) %>
-          <% end %>
-        </li>
-      <% end %>
-      <% current_participatory_space.subscopes.each do |scope| %>
-        <li <%= active_class_if_current(scope.id) %>>
-          <%= link_to url_for(filter: { with_scope: scope.id, with_category: category.try(:id) }) do %>
-            <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 1) %></span>
-            <%= translated_attribute(scope.name) %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+    <% end %>
+  </ul>
 </div>
