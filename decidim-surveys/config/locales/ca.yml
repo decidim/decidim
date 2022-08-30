@@ -59,8 +59,6 @@ ca:
           update:
             invalid: S'ha produït un error en desar l'enquesta.
             success: Enquesta desada correctament.
-      last_activity:
-        new_survey_at_html: "<span>Nova enquesta a %{link}</span>"
       surveys:
         answer:
           invalid: S'ha produït un error en respondre l'enquesta.
