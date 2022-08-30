@@ -301,8 +301,6 @@ el:
           index:
             meetings: Συσκέψεις
             space_type: Χώρος συμμετοχής
-      last_activity:
-        new_meeting_at_html: "<span>Νέα σύσκεψη σε %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
