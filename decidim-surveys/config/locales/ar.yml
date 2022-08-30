@@ -57,8 +57,6 @@ ar:
           update:
             invalid: كانت هناك مشكلة في إنقاذ المسح.
             success: تم حفظ الاستطلاع بنجاح.
-      last_activity:
-        new_survey_at_html: "<span>استطلاع جديد في %{link}</span>"
       surveys:
         answer:
           invalid: كانت هناك مشكلة في الإجابة على الاستبيان.
