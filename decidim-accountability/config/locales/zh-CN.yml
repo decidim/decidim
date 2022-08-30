@@ -126,8 +126,6 @@ zh-CN:
           row_number: 行
           subject: 成功导入结果
           success: 成功导入结果。您可以在管理界面查看结果。
-      last_activity:
-        new_result_at_html: "<span>在 %{link}的新结果</span>"
       models:
         result:
           fields:
