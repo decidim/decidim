@@ -345,8 +345,6 @@ ro:
         working_group: Sub-grup de lucru
       index:
         title: Grupuri de lucru
-      last_activity:
-        new_assembly: Grup de lucru nou
       pages:
         home:
           highlighted_assemblies:
