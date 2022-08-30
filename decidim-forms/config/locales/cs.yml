@@ -155,6 +155,7 @@ cs:
           max_choices: 'Max možnosti: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: Již máte účet?
             anonymous_user_message: <a href="%{sign_in_link}">Přihlaste se svým účtem</a> nebo <a href="%{sign_up_link}">zaregistrujte</a> abyste odpověděli na dotazník.
             title: Odpovězte na dotazník
           current_step: Krok %{step}
