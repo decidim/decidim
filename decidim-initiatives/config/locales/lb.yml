@@ -412,8 +412,6 @@ lb:
           label: 'Initiativen sortieren nach:'
         print:
           city: Uertschaft
-      last_activity:
-        new_initiative: Neue Initiative
       modal:
         not_authorized:
           authorizations_page: Autorisierungen anzeigen
