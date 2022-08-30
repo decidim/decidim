@@ -171,9 +171,6 @@ hu:
             title: Verziók
         versions_list:
           back_to_resource: Visszalépés a vitához
-      last_activity:
-        debate_updated_at_html: "<span>Találkozó frissítve %{link}</span>"
-        new_debate_at_html: "<span>Új vita %{link}</span>"
       models:
         debate:
           fields:
