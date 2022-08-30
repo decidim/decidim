@@ -361,8 +361,6 @@ lt:
         working_group: Darbo grupė
       index:
         title: Asamblėjos
-      last_activity:
-        new_assembly: Nauja asamblėja
       pages:
         home:
           highlighted_assemblies:
