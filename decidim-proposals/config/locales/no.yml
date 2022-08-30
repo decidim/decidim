@@ -652,8 +652,6 @@
       destroy_draft:
         error: Det oppsto et problem med å slette samarbeids utkastet.
         success: Forslags utkastet ble slettet.
-      last_activity:
-        new_proposal_at_html: "<span>Nytt forslag på %{link}</span>"
       models:
         collaborative_draft:
           fields:
