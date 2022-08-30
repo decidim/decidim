@@ -567,8 +567,6 @@ hu:
         promotal_committee_help: Ne feledd, hogy legalább %{member_count} embert kell meghívnod a támogató bizottságba. Ezt a linket küldd el azoknak, akiket szeretnél meghívni
         status_change_body_for: 'A(z) %{title} kezdeményezés megváltozott állapota: %{state}'
         status_change_for: A(z) %{title} kezdeményezés állapota változott
-      last_activity:
-        new_initiative: Új kezdeményezés
       modal:
         not_authorized:
           authorizations_page: Engedélyezések megtekintése
