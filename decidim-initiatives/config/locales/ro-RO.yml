@@ -551,8 +551,6 @@ ro:
         promotal_committee_help: Nu uita că trebuie să inviți cel puțin %{member_count} persoane în comisia de promovare. Poți trimite link-ul următor pentru a invita persoane în comitetul de promovare
         status_change_body_for: 'Inițiativa %{title} și-a schimbat statutul după cum urmează: %{state}'
         status_change_for: Inițiativa %{title} și-a schimbat statutul
-      last_activity:
-        new_initiative: Inițiativă nouă
       modal:
         not_authorized:
           authorizations_page: Vezi autorizațiile
