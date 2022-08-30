@@ -613,8 +613,6 @@ zh-CN:
       destroy_draft:
         error: 删除合作草案时出现问题。
         success: 提案草案已成功删除。
-      last_activity:
-        new_proposal_at_html: "<span>在 %{link}的新提议</span>"
       models:
         collaborative_draft:
           fields:
