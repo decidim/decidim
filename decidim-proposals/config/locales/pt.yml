@@ -680,9 +680,6 @@ pt:
       destroy_draft:
         error: Ocorreu um problema ao eliminar o rascunho colaborativo.
         success: O rascunho da proposta foi eliminado corretamente.
-      last_activity:
-        new_proposal_at_html: "<span>Nova proposta em %{link}</span>"
-        proposal_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
       models:
         collaborative_draft:
           fields:
