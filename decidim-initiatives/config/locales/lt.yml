@@ -584,8 +584,6 @@ lt:
         promotal_committee_help: Atminkite, kad į rėmimo komitetą turite pakviesti bent %{member_count} narius. Persiųskite šią nuorodą ir pakvieskite narių į rėmėjų komitetą
         status_change_body_for: 'Iniciatyvos %{title} būsena pasikeitė į: %{state}'
         status_change_for: Iniciatyvos %{title} būsena pasikeitė
-      last_activity:
-        new_initiative: Nauja iniciatyva
       pages:
         home:
           highlighted_initiatives:
