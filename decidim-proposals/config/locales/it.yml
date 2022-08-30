@@ -660,9 +660,6 @@ it:
       destroy_draft:
         error: Si sono verificati errori durante l'eliminazione della bozza della proposta.
         success: La bozza della proposta è stata cancellata con successo.
-      last_activity:
-        new_proposal_at_html: "<span>Nuova proposta al %{link}</span>"
-        proposal_updated_at_html: "<span>Proposta aggiornata a%{link}</span>"
       models:
         collaborative_draft:
           fields:
