@@ -276,9 +276,6 @@ sk:
         title: Otázky z %{scope_name}
       index:
         title: Konzultácie
-      last_activity:
-        new_consultation: Nová konzultácia
-        new_question_at_html: "<span>Nová otázka na %{link}</span>"
       pages:
         home:
           highlighted_consultations:
