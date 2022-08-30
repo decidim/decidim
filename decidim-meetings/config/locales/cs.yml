@@ -439,6 +439,9 @@ cs:
         none: Žádný
         open_in_live_event_page: Otevřít na stránce živé události (s volitelnými anketami)
         open_in_new_tab: Otevřít URL v nové kartě
+      last_activity:
+        meeting_updated: 'Schůze aktualizována:'
+        new_meeting: 'Nová schůze:'
       layouts:
         live_event:
           administrate: Spravovat
