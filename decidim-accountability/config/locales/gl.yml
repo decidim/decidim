@@ -136,8 +136,6 @@ gl:
           row_number: Fila
           subject: Resultados importados con éxito
           success: Resultados importados con éxito. Podes revisar os resultados no panel de administración.
-      last_activity:
-        new_result_at_html: "<span>Novo resultado en %{link}</span>"
       models:
         result:
           fields:
