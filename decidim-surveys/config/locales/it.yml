@@ -58,8 +58,6 @@ it:
           update:
             invalid: Ci sono stati degli errori durante il salvataggio del sondaggio.
             success: Sondaggio salvato correttamente.
-      last_activity:
-        new_survey_at_html: "<span>Nuovo sondaggio al %{link}</span>"
       surveys:
         answer:
           invalid: Ci sono stati errori nel rispondere al sondaggio.
