@@ -145,8 +145,6 @@ ca:
           row_number: Fila
           subject: Els resultats s'han importat correctament
           success: Els resultats s'han important correctament. Pots revisar els resultats a través del panell d'administració.
-      last_activity:
-        new_result_at_html: "<span>Nou resultat a %{link}</span>"
       models:
         result:
           fields:
