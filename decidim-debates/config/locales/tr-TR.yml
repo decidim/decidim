@@ -167,8 +167,6 @@ tr:
             title: Sürümler
         versions_list:
           back_to_resource: Tartışmaya geri dön
-      last_activity:
-        new_debate_at_html: "<span> %{link}</span> linkinde yeni tartışma"
       models:
         debate:
           fields:
