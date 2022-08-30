@@ -638,8 +638,6 @@ tr:
       destroy_draft:
         error: Ortak çalışma taslağı silinirken bir sorun oluştu.
         success: Teklif taslağı başarıyla silindi.
-      last_activity:
-        new_proposal_at_html: "<span>%{link} adresinde yeni teklif</span>"
       models:
         collaborative_draft:
           fields:
