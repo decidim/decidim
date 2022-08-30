@@ -147,8 +147,6 @@ cs:
           row_number: Řádek
           subject: Úspěšný import výsledků
           success: Úspěšný import výsledků. Výsledky můžete zkontrolovat v rozhraní administrace.
-      last_activity:
-        new_result_at_html: "<span>Nový výsledek v %{link}</span>"
       models:
         result:
           fields:
