@@ -63,6 +63,8 @@ cs:
           update:
             invalid: Při ukládání průzkumu došlo k chybám.
             success: Průzkum byl úspěšně uložen.
+      last_activity:
+        new_survey: 'Nový průzkum:'
       surveys:
         answer:
           invalid: Při odpovědi na průzkum došlo k chybám.
