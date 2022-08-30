@@ -48,6 +48,10 @@ module Decidim
       end
     end
 
+    def public_users_followings
+      @public_users_followings ||= self.class.joins(:follows).where(decidim_follows: { user: self }).not_blocked
+    end
+
     private
 
     def only_public(klass, ids)
