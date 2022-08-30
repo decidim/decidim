@@ -364,14 +364,14 @@ describe "Initiative", type: :system do
         end
 
         it "shows the available initiative types" do
-          within "main" do
+          within "[data-content]" do
             expect(page).to have_content(translated(initiative_type.title, locale: :en))
             expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative_type.description, locale: :en), tags: []))
           end
         end
 
         it "do not show initiative types without related scopes" do
-          within "main" do
+          within "[data-content]" do
             expect(page).not_to have_content(translated(third_initiative_type.title, locale: :en))
             expect(page).not_to have_content(ActionView::Base.full_sanitizer.sanitize(translated(third_initiative_type.description, locale: :en), tags: []))
           end

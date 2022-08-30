@@ -19,7 +19,7 @@ describe "User prints the initiative", type: :system do
     end
 
     it "shows a printable form when created" do
-      within "main" do
+      within "[data-content]" do
         expect(page).to have_content(translated(initiative.title, locale: :en))
         expect(page).to have_content(translated(initiative.type.title, locale: :en))
         expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
@@ -30,7 +30,7 @@ describe "User prints the initiative", type: :system do
       let(:state) { :validating }
 
       it "shows a printable form when validating" do
-        within "main" do
+        within "[data-content]" do
           expect(page).to have_content(translated(initiative.title, locale: :en))
           expect(page).to have_content(translated(initiative.type.title, locale: :en))
           expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
@@ -42,7 +42,7 @@ describe "User prints the initiative", type: :system do
       let(:organization) { create :organization, logo: Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
 
       it "shows a printable form when created" do
-        within "main" do
+        within "[data-content]" do
           expect(page).to have_content(translated(initiative.title, locale: :en))
           expect(page).to have_content(translated(initiative.type.title, locale: :en))
           expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(translated(initiative.description, locale: :en), tags: []))
