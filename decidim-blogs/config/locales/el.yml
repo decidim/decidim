@@ -39,8 +39,6 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της ανάρτησης.
             success: Η ανάρτηση αποθηκεύτηκε με επιτυχία
-      last_activity:
-        new_post_at_html: "<span>Νέα ανάρτηση στις %{link}</span>"
       models:
         post:
           fields:
