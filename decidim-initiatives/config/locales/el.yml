@@ -425,8 +425,6 @@ el:
         promotal_committee_help: Να θυμάστε ότι πρέπει να προσκαλέσετε τουλάχιστον %{member_count} άτομα στην επιτροπή προώθησης. Προωθήστε τον παρακάτω σύνδεσμο για να προσκαλέσετε άτομα στην επιτροπή προώθησης
         status_change_body_for: 'Η κατάσταση της πρωτοβουλίας %{title} άλλαξε σε: %{state}'
         status_change_for: Η κατάσταση της πρωτοβουλίας %{title} άλλαξε
-      last_activity:
-        new_initiative: Νέα πρωτοβουλία
       pages:
         home:
           highlighted_initiatives:
