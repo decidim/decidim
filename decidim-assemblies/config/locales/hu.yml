@@ -353,7 +353,7 @@ hu:
       index:
         title: Gyűlések
       last_activity:
-        new_assembly: Új összeszerelés
+        new_assembly: Új gyűlés
       pages:
         home:
           highlighted_assemblies:
