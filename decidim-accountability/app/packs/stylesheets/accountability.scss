@@ -1,0 +1,69 @@
+.accountability{
+  &__status{
+    @apply flex flex-col gap-3 w-full p-4 rounded bg-background;
+
+    &-title{
+      @apply font-semibold text-secondary text-lg;
+    }
+
+    &-progress{
+      @apply mt-auto w-full h-4 rounded overflow-hidden bg-white [&>*]:bg-success [&>*]:h-full;
+    }
+
+    &-value{
+      @apply flex justify-between items-baseline text-gray-2;
+
+      > :first-child{
+        @apply text-4xl font-bold;
+      }
+    }
+
+    &__lg{
+      @apply gap-4 p-6 bg-white drop-shadow-[0_4px_6px_rgba(211,211,211,0.25)];
+    }
+
+    &__lg &-title{
+      @apply text-2xl text-gray-2;
+    }
+
+    &__lg &-progress{
+      @apply bg-background;
+    }
+
+    &__lg &-value > :first-child{
+      @apply text-[48px];
+    }
+
+    &__sm{
+      @apply bg-white border-2 border-background;
+    }
+
+    &__sm &-progress{
+      @apply bg-background;
+    }
+
+    &__sm &-title{
+      @apply text-md;
+    }
+
+    &__sm &-value > :last-child:not(:only-child){
+      @apply text-sm;
+    }
+  }
+
+  &__grid{
+    @apply grid md:grid-cols-3 items-start gap-x-10 gap-y-8 md:gap-y-16;
+
+    > :nth-child(even){
+      @apply hidden md:grid md:col-span-2;
+    }
+
+    &-title{
+      @apply text-gray-2 uppercase font-semibold;
+    }
+  }
+
+  &__subgrid{
+    @apply grid grid-cols-2 gap-6;
+  }
+}

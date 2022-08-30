@@ -1,11 +1,59 @@
-<div class="row accountability">
-  <div class="small-12 columns">
-    <%= render partial: "home_header" %>
-    <%= render partial: "scope_filters", locals: { url_method: :root_path } %>
-    <%= render partial: "home_categories" %>
-  </div>
-</div>
-
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_accountability" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
+<% end %>
+
+<% content_for :aside do %>
+  <h1 class="h1 decorator"><%= t("decidim.components.accountability.name") %></h1>
+
+  <%# REDESIGN_PENDING: Perhaps a cell will fit better %>
+  <%= render partial: "status", locals: {
+    title: t("decidim.accountability.results.home_header.global_status"),
+    progress: progress_calculator(current_scope, nil).present? && progress_calculator(current_scope, nil),
+    extra_classes: "accountability__status__lg"
+  } %>
+
+  <div class="scope-filters section">
+    <% if current_component.has_subscopes? %>
+      <div><%= t("results.filters.scopes", scope: "decidim.accountability") %></div>
+
+      <ul class="tags tags--action">
+        <li <%= active_class_if_current(nil) %>>
+            <%= link_to url_for(filter: { with_category: category.try(:id) }) do %>
+              <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 2) %></span>
+              <%= t("results.filters.all", scope: "decidim.accountability") %>
+            <% end %>
+        </li>
+
+        <% if current_participatory_space.scope %>
+          <li <%= active_class_if_current(current_participatory_space.scope.id) %>>
+            <%= link_to url_for(filter: { with_scope: current_participatory_space.scope.id, with_category: category.try(:id) }) do %>
+              <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 1) %></span>
+              <%= translated_attribute(current_participatory_space.scope.name) %>
+            <% end %>
+          </li>
+        <% end %>
+        <% current_participatory_space.subscopes.each do |scope| %>
+          <li <%= active_class_if_current(scope.id) %>>
+            <%= link_to url_for(filter: { with_scope: scope.id, with_category: category.try(:id) }) do %>
+              <span class="show-for-sr"><%= Decidim::Scope.model_name.human(count: 1) %></span>
+              <%= translated_attribute(scope.name) %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <div class="editor-content"><%== translated_attribute component_settings.intro %></div>
+
+  <%= render partial: "home_categories" %>
+
 <% end %>
