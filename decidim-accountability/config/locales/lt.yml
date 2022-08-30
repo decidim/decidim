@@ -147,8 +147,6 @@ lt:
           row_number: Eilutė
           subject: Rezultatai sėkmingai importuoti
           success: Rezultatai sėkmingai importuoti. Rezultatus galite peržiūrėti administravimo sąsajoje.
-      last_activity:
-        new_result_at_html: "<span>Naujas rezultatas %{link}</span>"
       models:
         result:
           fields:
