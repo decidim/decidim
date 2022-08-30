@@ -175,6 +175,9 @@ cs:
             title: Verze
         versions_list:
           back_to_resource: Přejít zpět k debatě
+      last_activity:
+        debate_updated: 'Debata aktualizována:'
+        new_debate: 'Nová debata:'
       models:
         debate:
           fields:
