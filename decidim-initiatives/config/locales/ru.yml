@@ -292,6 +292,8 @@ ru:
         promotal_committee_help: Помните, что вы должны пригласить не менее %{member_count} человек в рабочую группу по продвижению. Перешлите им следующую ссылку, чтобы пригласить их в рабочую группу по продвижению
         status_change_body_for: 'Состояние почина %{title} изменилось на: %{state}'
         status_change_for: Состояние почина %{title} изменилось
+      last_activity:
+        new_initiative: Добавить почин
       pages:
         home:
           highlighted_initiatives:
