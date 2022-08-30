@@ -254,9 +254,6 @@ zh-CN:
         title: 来自 %{scope_name} 的问题
       index:
         title: 协商
-      last_activity:
-        new_consultation: 新建咨询
-        new_question_at_html: "<span>在 %{link}的新问题</span>"
       pages:
         home:
           highlighted_consultations:
