@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim
   describe ErrorsController, type: :controller do
     let!(:organization) { create :organization }
+
     controller Decidim::ErrorsController do
       def auth_token
         render plain: "Error", status: :internal_server_error
