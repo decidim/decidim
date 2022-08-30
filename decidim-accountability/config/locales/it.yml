@@ -136,8 +136,6 @@ it:
           row_number: Riga
           subject: Importazione dei risultati riuscita
           success: Importazione riuscita dei risultati. È possibile rivedere i risultati nell'interfaccia di amministrazione.
-      last_activity:
-        new_result_at_html: "<span>Nuovo risultato a %{link}</span>"
       models:
         result:
           fields:
