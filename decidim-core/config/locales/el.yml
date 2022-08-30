@@ -1035,7 +1035,6 @@ el:
         groups: Ομάδες
         members: Μέλη
         officialized: Επίσημος συμμετέχων
-        timeline: Χρονοδιάγραμμα
         view_full_profile: Εμφάνιση πλήρους προφίλ
       sidebar:
         badges:
