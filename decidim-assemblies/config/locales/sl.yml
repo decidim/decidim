@@ -210,6 +210,8 @@ sl:
         commission: Provizija
       index:
         title: Združbe
+      last_activity:
+        new_assembly: Nova združba
       pages:
         home:
           highlighted_assemblies:
