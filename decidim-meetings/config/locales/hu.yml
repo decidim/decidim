@@ -427,9 +427,6 @@ hu:
         none: Nincs
         open_in_live_event_page: Megnyitás az élő esemény oldalán (opcionális szavazásokkal)
         open_in_new_tab: Megnyitás új fülön
-      last_activity:
-        meeting_updated_at_html: "<span>Találkozó frissítve %{link}</span>"
-        new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
       layouts:
         live_event:
           administrate: Admin
