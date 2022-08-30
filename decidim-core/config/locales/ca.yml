@@ -1294,7 +1294,6 @@ ca:
         members: Membres
         officialized: Participant oficial
         send_private_message: Enviar missatge privat
-        timeline: Línia de temps
         view_full_profile: Mostra el perfil complet
       sidebar:
         badges:
