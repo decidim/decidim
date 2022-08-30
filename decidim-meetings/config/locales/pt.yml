@@ -378,9 +378,6 @@ pt:
           index:
             meetings: Reuniões
             space_type: Espaço participativo
-      last_activity:
-        meeting_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
-        new_meeting_at_html: "<span>Nova reunião em %{link}</span>"
       layouts:
         live_event:
           administrate: Administradores
