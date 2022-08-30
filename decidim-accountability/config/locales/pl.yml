@@ -147,8 +147,6 @@ pl:
           row_number: Wiersz
           subject: Importowanie wyników zakończyło się pomyślnie
           success: Importowanie wyników zakończyło się pomyślnie. Możesz przejrzeć wyniki w panelu administracyjnym.
-      last_activity:
-        new_result_at_html: "<span>Nowy wynik w %{link}</span>"
       models:
         result:
           fields:
