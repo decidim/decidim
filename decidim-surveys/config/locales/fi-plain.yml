@@ -59,8 +59,6 @@ fi-pl:
           update:
             invalid: Kyselyn tallennus epäonnistui.
             success: Kysely tallennettu onnistuneesti.
-      last_activity:
-        new_survey_at_html: "<span>Uusi kysely osoitteessa %{link}</span>"
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
