@@ -128,8 +128,6 @@ da:
           row_number: Række
           subject: Succesfuld import af resultater
           success: Succesfuld import af resultater. Du kan gennemgå resultaterne i administrator interfacet.
-      last_activity:
-        new_result_at_html: "<span>Nyt resultat på %{link}</span>"
       models:
         result:
           fields:
