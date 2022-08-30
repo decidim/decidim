@@ -724,8 +724,8 @@ en:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
       last_activity:
-        new_proposal_at_html: "<span>New proposal at %{link}</span>"
-        proposal_updated_at_html: "<span>Proposal updated at %{link}</span>"
+        new_proposal: 'New proposal:'
+        proposal_updated: 'Proposal updated:'
       models:
         collaborative_draft:
           fields:

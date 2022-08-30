@@ -47,6 +47,21 @@ module Decidim
         end
       end
 
+      def build_choices(answer, form_answer)
+        use_position = form_answer.sorting?
+
+        form_answer.selected_choices.each_with_index do |choice, idx|
+          choice_position = use_position ? choice.position.presence || idx : choice.position
+          answer.choices.build(
+            body: choice.body,
+            custom_body: choice.custom_body,
+            decidim_answer_option_id: choice.answer_option_id,
+            decidim_question_matrix_row_id: choice.matrix_row_id,
+            position: choice_position
+          )
+        end
+      end
+
       def answer_questionnaire
         @main_form = @form
         @errors = nil
@@ -62,15 +77,7 @@ module Decidim
               ip_hash: form.context.ip_hash
             )
 
-            form_answer.selected_choices.each do |choice|
-              answer.choices.build(
-                body: choice.body,
-                custom_body: choice.custom_body,
-                decidim_answer_option_id: choice.answer_option_id,
-                decidim_question_matrix_row_id: choice.matrix_row_id,
-                position: choice.position
-              )
-            end
+            build_choices(answer, form_answer)
 
             answer.save!
 

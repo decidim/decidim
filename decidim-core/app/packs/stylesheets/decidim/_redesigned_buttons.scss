@@ -1,27 +1,27 @@
 .button{
   @apply inline-flex items-center justify-center font-semibold border-0 rounded whitespace-nowrap transition cursor-pointer;
 
-  &.sm{
+  &__sm{
     @apply text-sm px-4 py-1.5 gap-1.5;
   }
 
-  &.lg{
+  &__lg{
     @apply text-lg px-6 py-3 gap-2;
   }
 
-  &.xl{
+  &__xl{
     @apply text-xl px-8 py-4 gap-4;
   }
 
-  &.primary{
+  &__primary{
     @apply bg-primary text-white;
   }
 
-  &.secondary{
+  &__secondary{
     @apply bg-secondary text-white;
   }
 
-  &.tertiary{
+  &__tertiary{
     @apply bg-tertiary text-white;
   }
 
