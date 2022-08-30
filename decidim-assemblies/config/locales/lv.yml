@@ -311,8 +311,6 @@ lv:
         working_group: Darba grupa
       index:
         title: Asambleja
-      last_activity:
-        new_assembly: Jauna asambleja
       pages:
         home:
           highlighted_assemblies:
