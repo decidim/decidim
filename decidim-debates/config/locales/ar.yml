@@ -110,8 +110,6 @@ ar:
           date: التاريخ
           groups_count: الفِرَق
           participants_count: المشاركون
-      last_activity:
-        new_debate_at_html: "<span>مناقشة جديدة في %{link}</span>"
       models:
         debate:
           fields:
