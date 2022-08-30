@@ -262,9 +262,6 @@ el:
         title: Ερωτήσεις από το πεδίο εφαρμογής %{scope_name}
       index:
         title: Διαβουλεύσεις
-      last_activity:
-        new_consultation: Νέα διαβούλευση
-        new_question_at_html: "<span>Νέα ερώτηση στις %{link}</span>"
       pages:
         home:
           highlighted_consultations:
