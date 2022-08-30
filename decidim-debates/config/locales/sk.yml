@@ -100,8 +100,6 @@ sk:
           title: Nová debata
         show:
           back: Späť na zoznam
-      last_activity:
-        new_debate_at_html: "<span>Nová debata na %{link}</span>"
       models:
         debate:
           fields:
