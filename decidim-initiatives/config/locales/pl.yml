@@ -557,8 +557,6 @@ pl:
         promotal_committee_help: Pamiętaj, że musisz zaprosić co najmniej %{member_count} osób do komitetu organizacyjnego. Prześlij poniższy link, aby zaprosić ludzi do komitetu
         status_change_body_for: 'Inicjatywa %{title} zmieniła swój status na: %{state}'
         status_change_for: Inicjatywa %{title} zmieniła swój status
-      last_activity:
-        new_initiative: Nowa inicjatywa
       modal:
         not_authorized:
           authorizations_page: Zobacz autoryzacje
