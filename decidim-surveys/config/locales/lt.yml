@@ -63,8 +63,6 @@ lt:
           update:
             invalid: Išsaugant šią apklausą iškilo problema.
             success: Apklausa išsaugota.
-      last_activity:
-        new_survey_at_html: "<span>Nauja apklausa %{link}</span>"
       surveys:
         answer:
           invalid: Atsakant į šios apklausos klausimus iškilo problema.
