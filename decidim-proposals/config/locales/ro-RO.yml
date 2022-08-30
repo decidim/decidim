@@ -709,9 +709,6 @@ ro:
       destroy_draft:
         error: A apărut o eroare la ștergerea ciornei colaborative.
         success: Ciorna de propunere a fost ştearsă cu succes.
-      last_activity:
-        new_proposal_at_html: "<span>Propunere nouă la %{link}</span>"
-        proposal_updated_at_html: "<span>Propunere actualizată la %{link}</span>"
       models:
         collaborative_draft:
           fields:
