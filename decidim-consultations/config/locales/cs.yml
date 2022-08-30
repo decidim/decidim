@@ -280,6 +280,9 @@ cs:
         title: Otázky od %{scope_name}
       index:
         title: Konzultace
+      last_activity:
+        new_consultation: 'Nová konzultace:'
+        new_question: 'Nová otázka:'
       pages:
         home:
           highlighted_consultations:
