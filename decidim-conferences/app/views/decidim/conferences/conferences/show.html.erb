@@ -14,14 +14,6 @@ edit_link(
 )
 %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_conferences" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_conferences", media: "all" %>
-<% end %>
-
 <% content_for :aside do %>
   <div class="conference__nav-container">
     <ul class="conference__nav">

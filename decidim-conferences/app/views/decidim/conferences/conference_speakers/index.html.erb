@@ -9,14 +9,6 @@ edit_link(
 )
 %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_conferences" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_conferences", media: "all" %>
-<% end %>
-
 <%# NOTE: this page does not use a regular layout %>
 <div class="container">
 

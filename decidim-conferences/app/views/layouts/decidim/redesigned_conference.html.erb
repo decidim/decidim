@@ -5,6 +5,14 @@
   description: translated_attribute(current_participatory_space.short_description),
 ) %>
 
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_conferences" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_conferences", media: "all" %>
+<% end %>
+
 <%= render "layouts/decidim/redesigned_application" do %>
   <%= yield %>
 <% end %>
