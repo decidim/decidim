@@ -352,8 +352,6 @@ pl:
         working_group: Grupa robocza
       index:
         title: Zespoły
-      last_activity:
-        new_assembly: Nowy zespół
       pages:
         home:
           highlighted_assemblies:
