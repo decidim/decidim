@@ -555,8 +555,6 @@ ar:
       destroy_draft:
         error: حدثت مشكلة في حذف المسودة التعاونية.
         success: تم حذف مسودة الاقتراح بنجاح.
-      last_activity:
-        new_proposal_at_html: "<span>اقتراح جديد في %{link}</span>"
       models:
         collaborative_draft:
           fields:
