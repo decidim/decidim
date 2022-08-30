@@ -177,6 +177,8 @@ cs:
         error: Při aktualizaci účtu došlo k chybě.
         success: Váš účet byl úspěšně aktualizován.
         success_with_email_confirmation: Váš účet byl úspěšně aktualizován. Obdržíte e-mail, který potvrdí vaši novou e-mailovou adresu.
+    activity:
+      time_ago: "před %{time}"
     admin:
       actions:
         cancel: Zrušit
@@ -831,6 +833,11 @@ cs:
         other: "%{count} sledujících"
       no_followers: Zatím žádní sledující.
     following:
+      following_count:
+        one: "%{count} sleduje"
+        few: "%{count} sledují"
+        many: "%{count} sleduje"
+        other: "%{count} sledujících"
       no_followings: Nesleduje nikoho ani nic.
       non_public_followings: Některé z uvedených zdrojů nejsou veřejné.
     follows:
@@ -919,6 +926,7 @@ cs:
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
+      title: Jaké jsou odznaky?
     group_admins:
       actions:
         are_you_sure: Jste si jisti? Toto uživatele ze skupiny neodstraní.
@@ -1342,6 +1350,15 @@ cs:
           info: Odznaky jsou získávány prováděním konkrétní činnosti v platformě.
           title: Odznaky
       user:
+        actions:
+          create_user_group: Vytvořit skupinu
+          edit_profile: Upravit profil
+          edit_user_group: Upravit profil skupiny
+          invite_user: Pozvat účastníka
+          join_user_group: Požádat o připojení ke skupině
+          manage_user_group_admins: Spravovat správce
+          manage_user_group_users: Spravovat členy
+          message: Zpráva
         confirmation_instructions_sent: Byly odeslány pokyny pro potvrzení e-mailu
         create_user_group: Vytvořit skupinu
         edit_profile: Editovat profil
