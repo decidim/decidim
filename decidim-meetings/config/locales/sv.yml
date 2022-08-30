@@ -411,9 +411,6 @@ sv:
         none: Ingen
         open_in_live_event_page: Öppna i live event sida (med valfria omröstningar)
         open_in_new_tab: Öppna länk i ny flik
-      last_activity:
-        meeting_updated_at_html: "<span>Mötet uppdaterades på %{link}</span>"
-        new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
       layouts:
         live_event:
           administrate: Administrera
