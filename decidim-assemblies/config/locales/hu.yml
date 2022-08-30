@@ -355,8 +355,6 @@ hu:
         working_group: Munkacsoport
       index:
         title: Gyűlések
-      last_activity:
-        new_assembly: Új összeszerelés
       pages:
         home:
           highlighted_assemblies:
