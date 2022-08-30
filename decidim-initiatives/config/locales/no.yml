@@ -552,8 +552,6 @@
         promotal_committee_help: Husk at du må invitere minst %{member_count} folk til promotør komiteen. Videresend den følgene lenken for å invitere folk til promotør komiteen
         status_change_body_for: 'Initiativet %{title} har endret sin status til: %{state}'
         status_change_for: Initiativet %{title} har endret sin status
-      last_activity:
-        new_initiative: Nytt initiativ
       modal:
         not_authorized:
           authorizations_page: Vis godkjennelser
