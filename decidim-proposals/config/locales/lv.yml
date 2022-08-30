@@ -602,8 +602,6 @@ lv:
       destroy_draft:
         error: Sadarbības projekta dzēšanas laikā radās problēma.
         success: Grozījuma projekts tika veiksmīgi izdzēsts.
-      last_activity:
-        new_proposal_at_html: "<span>Jauns priekšlikums %{link}</span>"
       models:
         collaborative_draft:
           fields:
