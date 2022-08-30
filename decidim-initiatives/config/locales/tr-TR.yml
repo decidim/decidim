@@ -512,8 +512,6 @@ tr:
         promotal_committee_help: Tanıtım komitesine en az %{member_count} kişiyi davet etmeniz gerektiğini unutmayın. İnsanları tanıtım komitesine davet etmek için aşağıdaki bağlantıyı iletin
         status_change_body_for: 'Girişim %{title} statüsünü değiştirildi: %{state}'
         status_change_for: Girişim %{title} durumu değişti
-      last_activity:
-        new_initiative: Yeni girişim
       modal:
         not_authorized:
           authorizations_page: İzinleri görüntüle
