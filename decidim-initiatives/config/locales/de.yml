@@ -564,8 +564,6 @@ de:
         promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promoter-Komitee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promoter-Komitee einzuladen
         status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}'
         status_change_for: Die Initiative %{title} hat ihren Status geändert
-      last_activity:
-        new_initiative: Neue Initiative
       modal:
         not_authorized:
           authorizations_page: Autorisierungen anzeigen
