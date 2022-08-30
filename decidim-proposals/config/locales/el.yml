@@ -603,8 +603,6 @@ el:
       destroy_draft:
         error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή του προσχεδίου συνεργασίας.
         success: Το προσχέδιο πρότασης διαγράφηκε με επιτυχία.
-      last_activity:
-        new_proposal_at_html: "<span>Νέα πρόταση σε %{link}</span>"
       models:
         collaborative_draft:
           fields:
