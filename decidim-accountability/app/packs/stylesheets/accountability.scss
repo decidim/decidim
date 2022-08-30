@@ -3,18 +3,22 @@
     @apply flex flex-col gap-3 w-full p-4 rounded bg-background;
 
     &-title{
-      @apply font-semibold text-secondary text-lg;
+      @apply font-semibold text-secondary text-lg [&+*]:mt-auto;
     }
 
     &-progress{
-      @apply mt-auto w-full h-4 rounded overflow-hidden bg-white [&>*]:bg-success [&>*]:h-full;
+      @apply w-full h-4 rounded overflow-hidden bg-white [&>*]:bg-success [&>*]:h-full;
     }
 
     &-value{
-      @apply flex justify-between items-baseline text-gray-2;
+      @apply flex justify-between items-baseline gap-1 text-gray-2;
 
       > :first-child{
         @apply text-4xl font-bold;
+      }
+
+      > :last-child:not(:only-child){
+        @apply truncate;
       }
     }
 
