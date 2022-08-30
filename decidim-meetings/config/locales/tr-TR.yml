@@ -332,8 +332,6 @@ tr:
           index:
             meetings: Toplantılar
             space_type: Katılımcı alan
-      last_activity:
-        new_meeting_at_html: "<span>%{link} </span> adresinde yeni toplantı"
       mailer:
         invite_join_meeting_mailer:
           invite:
