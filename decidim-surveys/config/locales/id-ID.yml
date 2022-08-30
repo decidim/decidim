@@ -46,8 +46,6 @@ id:
           update:
             invalid: Terjadi masalah saat menyimpan survei.
             success: Survei berhasil disimpan.
-      last_activity:
-        new_survey_at_html: "<span>Survei baru di %{link}</span>"
       surveys:
         answer:
           invalid: Ada masalah saat menjawab survei.
