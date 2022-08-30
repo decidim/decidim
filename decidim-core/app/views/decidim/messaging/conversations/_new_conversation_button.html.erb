@@ -12,7 +12,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <%= decidim_form_for(@form, url: conversations_check_multiple_url, html: { class: "form new_attachment" }) do |f| %>
+      <%= decidim_form_for(@form, url: conversations_check_multiple_url, html: { class: "form new_attachment", id: "new_conversation_modal" }) do |f| %>
         <div class="container wrapper--inner">
           <div class="row">
             <div class="columns large-12">
