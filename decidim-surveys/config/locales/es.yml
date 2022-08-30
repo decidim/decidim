@@ -59,8 +59,6 @@ es:
           update:
             invalid: Se ha producido un error al guardar la encuesta.
             success: Encuesta guardada correctamente.
-      last_activity:
-        new_survey_at_html: "<span>Nueva encuesta en %{link}</span>"
       surveys:
         answer:
           invalid: Se ha producido un error al responder la encuesta.
