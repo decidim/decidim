@@ -145,8 +145,6 @@ es-MX:
           row_number: Fila
           subject: Los resultados se han importado correctamente
           success: Los resultados se han importante correctamente. Puedes revisar los resultados a través del panel de administración.
-      last_activity:
-        new_result_at_html: "<span>Nuevo resultado en %{link}</span>"
       models:
         result:
           fields:
