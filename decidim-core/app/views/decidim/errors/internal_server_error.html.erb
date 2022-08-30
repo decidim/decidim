@@ -1,42 +1,49 @@
 <div class="wrapper">
   <div class="row">
     <div class="large-8 large-centered">
-    <div class="static__message">
-      <h1 class="heading1 page-title"><%= t(".title") %></h1>
-      <p><%= t(".try_later") %></p>
-      <div rows="6" id="input-text">
-        <div class="card--list__item">
-          <div class="card--list__text">
-            <strong class="margin-right-2"><%= t(".user_id") %></strong>
-            <%= user = try(:current_user)&.id || t(".unknown") %>
-          </div>
+      <div class="static__message">
+        <h1 class="heading1 page-title"><%= t(".title") %></h1>
+        <p><%= t(".try_later") %></p>
+        <div class="table-scroll">
+          <table class="table-list">
+            <tr>
+              <th><%= t(".user_id") %></th>
+              <td> <%= user = try(:current_user)&.id || t(".unknown") %></td>
+            </tr>
+            <tr>
+              <th><%= t(".date_and_time") %></th>
+              <td><%= date_and_time = l(Time.current, format: "%Y-%m-%dT%H:%M:%S.%6N") %></td>
+            </tr>
+            <tr>
+              <th><%= t(".url") %></th>
+              <td><%= request_url = try(:request).original_url %></td>
+            </tr>
+            <tr>
+              <th><%= t(".request_method") %></th>
+              <td><%= @method %></td>
+            </tr>
+            <tr>
+              <th><%= t(".reference") %></th>
+              <td><%= reference_id = Decidim::LogReferenceGenerator.new(request).generate_reference %></td>
+            </tr>
+          </table>
         </div>
-        <div class="card--list__item">
-          <div class="card--list__text">
-            <strong class="margin-right-2"><%= t(".date_and_time") %></strong>
-            <%= date_and_time = l(Time.current, format: "%d/%m/%Y - %H:%M") %>
+        <div class="input-group">
+          <textarea id="urlShareLink" class="hide">
+            <%= "User Id: #{ user }" %>
+            <%= "Date & Time: #{ date_and_time }" %>
+            <%= "URL: #{ request_url }" %>
+            <%= "Reference: #{ reference_id }" %>
+          </textarea>
+          <div class="input-group-button">
+            <button class="button primary float-right"
+              data-clipboard-copy="#urlShareLink"
+              data-clipboard-copy-label="<%= t(".copied") %>"
+              aria-label="<%= t(".copy_error_message_clarification") %>">
+                <%= icon "clipboard", role: "img", "aria-hidden": true %>
+                <%= t(".copy_to_clipboard") %>
+            </button>
           </div>
-        </div>
-        <div class="card--list__item">
-          <div class="card--list__text">
-            <strong class="margin-right-2"><%= t(".url") %></strong>
-            <%= request_url = try(:request).env["HTTP_REFERER"] || t(".unknown") %>
-          </div>
-        </div>
-        <div class="card--list__item">
-          <div class="card--list__text">
-            <strong class="margin-right-2"><%= t(".reference") %></strong><%= @reference_id %>
-          </div>
-        </div>
-        <input id="urlShareLink" type="text" class="hide" value="<%= "User Id: #{ user }, Date & Time: #{ date_and_time },URL: #{ request_url },Reference ID:#{ @reference_id }" %>">
-        <div class="input-group-button">
-          <button class="button primary float-right"
-            data-clipboard-copy="#urlShareLink"
-            data-clipboard-copy-label="<%= t(".copied") %>"
-            aria-label="<%= t(".copy_error_message_clarification") %>">
-              <%= icon "clipboard", role: "img", "aria-hidden": true %>
-              <%= t(".copy_to_clipboard") %>
-          </button>
         </div>
       </div>
     </div>

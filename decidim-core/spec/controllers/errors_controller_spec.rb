@@ -5,8 +5,6 @@ require "spec_helper"
 module Decidim
   describe ErrorsController, type: :controller do
     let!(:organization) { create :organization }
-    let(:reference_id) { "ee3406bc-7602-4cbe-8807-37808f7f9ed8" }
-
     controller Decidim::ErrorsController do
       def auth_token
         render plain: "Error", status: :internal_server_error
@@ -36,17 +34,9 @@ module Decidim
     end
 
     describe "internal_server_error" do
-      before { allow(SecureRandom).to receive(:uuid).and_return(reference_id) }
-
       it "reports the correct status code on GET" do
         get :internal_server_error
         expect(response).to have_http_status(:internal_server_error)
-      end
-
-      it "adds a unique id to the logger" do
-        allow(Rails.logger).to receive(:error)
-        expect(Rails.logger).to receive(:error).with(reference_id)
-        get :internal_server_error
       end
 
       it "reports the correct status code on POST" do
