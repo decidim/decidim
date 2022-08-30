@@ -145,8 +145,6 @@ hu:
           row_number: Sor
           subject: Eredmények sikeres importálása
           success: Eredmények sikeres importálása. Az eredményeket az adminisztrációs felületen tekintheti meg.
-      last_activity:
-        new_result_at_html: "<span>Új eredmény %{link}</span>kor"
       models:
         result:
           fields:
