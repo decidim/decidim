@@ -332,8 +332,6 @@ tr:
         working_group: Çalışma Grubu
       index:
         title: Kurullar
-      last_activity:
-        new_assembly: Yeni kurul
       pages:
         home:
           highlighted_assemblies:
