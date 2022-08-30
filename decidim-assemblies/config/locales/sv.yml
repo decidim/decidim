@@ -346,8 +346,6 @@ sv:
         working_group: Arbetsgrupp
       index:
         title: Grupper
-      last_activity:
-        new_assembly: Ny grupp
       pages:
         home:
           highlighted_assemblies:
