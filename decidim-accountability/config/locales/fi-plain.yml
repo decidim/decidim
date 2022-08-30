@@ -145,8 +145,6 @@ fi-pl:
           row_number: Rivi
           subject: Tulosten tuonti onnistui
           success: Tulosten tuonti onnistui. Voit katsoa tulokset hallintapaneelista.
-      last_activity:
-        new_result_at_html: "<span>Uusi tulos osoitteessa %{link}</span>"
       models:
         result:
           fields:
