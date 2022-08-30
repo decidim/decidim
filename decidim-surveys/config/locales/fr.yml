@@ -59,8 +59,6 @@ fr:
           update:
             invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
-      last_activity:
-        new_survey_at_html: "<span>Nouvelle enquête à %{link}</span>"
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
