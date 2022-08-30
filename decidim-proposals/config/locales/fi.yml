@@ -722,9 +722,6 @@ fi:
       destroy_draft:
         error: Ehdotusluonnoksen poistaminen epäonnistui.
         success: Ehdotusluonnoksen poistaminen onnistui.
-      last_activity:
-        new_proposal_at_html: "<span>Uusi ehdotus osoitteessa %{link}</span>"
-        proposal_updated_at_html: "<span>Ehdotus päivitetty osoitteessa %{link}</span>"
       models:
         collaborative_draft:
           fields:
