@@ -345,8 +345,6 @@ gl:
         working_group: Grupo de traballo
       index:
         title: Asembleas
-      last_activity:
-        new_assembly: Nova montaxe
       pages:
         home:
           highlighted_assemblies:
