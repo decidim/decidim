@@ -568,8 +568,6 @@ fr:
         promotal_committee_help: Rappelez-vous que vous devez inviter au moins %{member_count} personnes au Comité de promotion. Envoyez le lien suivant pour les inviter
         status_change_body_for: 'Le statut de la pétition %{title} a été changé pour : %{state}'
         status_change_for: La pétition %{title} a changé de statut
-      last_activity:
-        new_initiative: Nouvelle pétition
       modal:
         not_authorized:
           authorizations_page: Voir les autorisations
