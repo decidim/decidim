@@ -50,8 +50,6 @@ zh-CN:
           update:
             invalid: 保存调查时出现问题。
             success: 调查保存成功。
-      last_activity:
-        new_survey_at_html: "<span>在 %{link}上的新调查</span>"
       surveys:
         answer:
           invalid: 回答调查时出现问题。
