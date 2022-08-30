@@ -46,6 +46,8 @@ cs:
           create: "%{user_name} vytvořil příspěvek %{resource_name} v %{space_name}"
           delete: "%{user_name} odstranil příspěvek %{resource_name} z %{space_name}"
           update: "%{user_name} aktualizoval příspěvek %{resource_name} v %{space_name}"
+      last_activity:
+        new_post: 'Nový příspěvek:'
       models:
         post:
           fields:
