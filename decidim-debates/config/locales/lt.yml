@@ -175,9 +175,6 @@ lt:
             title: Versijos
         versions_list:
           back_to_resource: Grįžti į diskusiją
-      last_activity:
-        debate_updated_at_html: "<span>Diskusija atnaujinta %{link}</span>"
-        new_debate_at_html: "<span>Nauja diskusija %{link}</span>"
       models:
         debate:
           fields:
