@@ -171,6 +171,9 @@ fr:
             title: Versions
         versions_list:
           back_to_resource: Revenir au débat
+      last_activity:
+        debate_updated: 'Débat mis à jour :'
+        new_debate: 'Nouveau débat :'
       models:
         debate:
           fields:
