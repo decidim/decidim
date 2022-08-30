@@ -413,9 +413,6 @@ de:
         none: Keiner
         open_in_live_event_page: In Live-Event-Seite öffnen (mit optionalen Umfragen)
         open_in_new_tab: Link in neuem Tab öffnen
-      last_activity:
-        meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
-        new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
       layouts:
         live_event:
           administrate: Administrativ
