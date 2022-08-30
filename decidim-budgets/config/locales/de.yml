@@ -167,8 +167,6 @@ de:
         show: Projekte ansehen
         vote: Abstimmen
         voted_on: Sie haben über %{links} abgestimmt
-      last_activity:
-        new_vote_at_html: "<span>Neue Budgetverteilung unter %{link}</span>"
       limit_announcement:
         cant_vote: Sie können nicht über dieses Budget abstimmen. <a href="%{landing_path}">Versuchen Sie es mit einem anderen Budget</a>.
         limit_reached: Sie haben aktive Stimmen in %{links}. Um über dieses Budget abstimmen zu können, müssen Sie <a href="%{landing_path}">Ihre Stimme löschen und neu </a> beginnen.
