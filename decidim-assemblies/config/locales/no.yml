@@ -342,8 +342,6 @@
         working_group: Arbeidsgruppe
       index:
         title: Forsamlinger
-      last_activity:
-        new_assembly: Ny forsamling
       pages:
         home:
           highlighted_assemblies:
