@@ -504,8 +504,6 @@ id:
       destroy_draft:
         error: Terjadi kesalahan saat menghapus draf proposal.
         success: Proposal proposal berhasil dihapus.
-      last_activity:
-        new_proposal_at_html: "<span>Proposal baru pada %{link}</span>"
       models:
         collaborative_draft:
           fields:
