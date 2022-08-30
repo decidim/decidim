@@ -279,9 +279,6 @@ pl:
         title: 'Pytania z zakresu: %{scope_name}'
       index:
         title: Konsultacje
-      last_activity:
-        new_consultation: Nowa konsultacja
-        new_question_at_html: "<span>Nowe pytanie o %{link}</span>"
       pages:
         home:
           highlighted_consultations:
