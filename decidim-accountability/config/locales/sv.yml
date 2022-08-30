@@ -141,8 +141,6 @@ sv:
           row_number: Rad
           subject: Lyckad import av resultat
           success: Lyckad import av resultat. Du kan granska resultaten i administrationsgränssnittet.
-      last_activity:
-        new_result_at_html: "<span>Nytt resultat på %{link}</span>"
       models:
         result:
           fields:
