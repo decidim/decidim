@@ -44,8 +44,6 @@ de:
           create: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} gelöscht"
           update: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} aktualisiert"
-      last_activity:
-        new_post_at_html: "<span>Neuer Beitrag bei %{link}</span>"
       models:
         post:
           fields:
