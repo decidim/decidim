@@ -214,6 +214,8 @@ uk:
         title: Питання з %{scope_name}
       index:
         title: Консультації
+      last_activity:
+        new_consultation: Додати консультацію
       pages:
         home:
           highlighted_consultations:
