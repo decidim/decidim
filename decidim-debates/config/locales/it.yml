@@ -171,9 +171,6 @@ it:
             title: Versioni
         versions_list:
           back_to_resource: Torna al dibattito
-      last_activity:
-        debate_updated_at_html: "<span>Dibattito aggiornato su %{link}</span>"
-        new_debate_at_html: "<span>Nuovo dibattito al %{link}</span>"
       models:
         debate:
           fields:
