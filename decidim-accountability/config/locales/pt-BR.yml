@@ -136,8 +136,6 @@ pt-BR:
           row_number: Linha
           subject: Importação bem sucedida de resultados
           success: Importação bem sucedida de resultados. Você pode revisar os resultados na interface de administração.
-      last_activity:
-        new_result_at_html: "<span>Novo resultado em %{link}</span>"
       models:
         result:
           fields:
