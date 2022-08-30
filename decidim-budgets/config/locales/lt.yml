@@ -175,8 +175,6 @@ lt:
         show: Peržiūrėti projektus
         vote: Balsuoti
         voted_on: Jūs balsavote dėl %{links}
-      last_activity:
-        new_vote_at_html: "<span>Naujas biudžeto balsavimas nuorodoje %{link}</span>"
       limit_announcement:
         cant_vote: Negalite balsuoti šito biudžeto. <a href="%{landing_path}"> Pabandykite kitą biudžetą.</a>
         limit_reached: Turite aktyvių balsų %{links}. Tam, kad balsuoti šiame biudžete turite <a href="%{landing_path}"> ištrinti balsus ir pradėti iš naujo</a>.
