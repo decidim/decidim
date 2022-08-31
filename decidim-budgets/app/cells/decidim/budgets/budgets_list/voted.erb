@@ -17,26 +17,5 @@
         <%= t(:finished_message, scope: i18n_scope) %>
       </p>
     <% end %>
-
-    <% if voting_open? %>
-      <div>
-        <% if !voted.one? && voted.any? %>
-          <ul>
-            <% voted.each do |budget| %>
-              <li>
-                <%= link_to(
-                            t("cancel_order.more_than_one", scope: i18n_scope, name: translated_attribute(budget.title)),
-                            budget_order_path(budget),
-                            method: :delete,
-                            class: "cancel-order",
-                            data: {
-                              confirm: t("projects.budget_summary.are_you_sure", scope: "decidim.budgets")
-                            }) %>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-      </div>
-    <% end %>
   </div>
 <% end %>
