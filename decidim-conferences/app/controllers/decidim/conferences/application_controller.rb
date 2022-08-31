@@ -12,6 +12,8 @@ module Decidim
       include RedesignLayout
       redesign active: true
 
+      layout "layouts/decidim/conferences/application"
+
       register_permissions(::Decidim::Conferences::ApplicationController,
                            Decidim::Conferences::Permissions,
                            Decidim::Admin::Permissions,
