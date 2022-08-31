@@ -21,10 +21,11 @@ module Decidim
       def alert_box(value, alert_class, closable)
         options = {
           class: "flash #{alert_class}",
+          data: { "alert-box": "" },
           role: "alert",
           aria: { atomic: "true" }
         }
-        options[:data] = { closable: "" } if closable
+        options[:data] = options[:data].merge({ closable: "" }) if closable
         icon = {
           secondary: "information-line",
           alert: "information-line",

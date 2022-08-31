@@ -24,7 +24,7 @@ describe "Admin passwords", type: :system do
       fill_in :password_user_password, with: new_password
       fill_in :password_user_password_confirmation, with: new_password
       click_button "Change my password"
-      expect(page).to have_css(".callout.success")
+      expect(page).to have_css("[data-alert-box].success")
       expect(page).to have_content("Password successfully updated")
       expect(user.reload.password_updated_at).to be_between(2.seconds.ago, Time.current)
     end
@@ -50,7 +50,7 @@ describe "Admin passwords", type: :system do
         fill_in :password_user_password, with: new_password
         fill_in :password_user_password_confirmation, with: new_password
         click_button "Change my password"
-        expect(page).to have_css(".callout.success")
+        expect(page).to have_css("[data-alert-box].success")
         expect(page).to have_current_path(decidim_admin.root_path)
       end
     end
