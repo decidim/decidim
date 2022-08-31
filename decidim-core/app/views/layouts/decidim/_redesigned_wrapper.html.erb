@@ -4,6 +4,10 @@
     <%= render partial: "layouts/decidim/header/redesigned_menu" %>
   </header>
 
+  <div class="container">
+    <%= display_flash_messages %>
+  </div>
+
   <%= yield %>
 
   <footer>
