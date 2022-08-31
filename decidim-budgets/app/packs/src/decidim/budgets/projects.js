@@ -35,10 +35,10 @@ $(() => {
 
   // This hack moves the flash inside the layout (as in the redesign) only for the budgets page
   // Redesign: this should be removed after the redesign is finished
-  const $budgetsToVote = $('#budgets-to-vote');
-  const $flash = $('.flash.success');
-  if($budgetsToVote.length && $flash.length) {
-    $('.flash.callout').prependTo($('.wrapper .row:eq(0)'));
-    $('.flash.callout').css('margin-bottom', '1rem');
+  const $budgetsToVote = $("#budgets-to-vote");
+  const $flash = $(".flash.success");
+  if ($budgetsToVote.length && $flash.length) {
+    $(".flash.callout").prependTo($(".wrapper .row:eq(0)"));
+    $(".flash.callout").css("margin-bottom", "1rem");
   }
 });
