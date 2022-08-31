@@ -29,7 +29,7 @@ module Decidim
           secondary: "information-line",
           alert: "information-line",
           warning: "alert-line",
-          success: "checkbox-circle-line",
+          success: "checkbox-circle-line"
         }
         content_tag(:div, options) do
           concat icon(icon[alert_class])
@@ -54,7 +54,7 @@ module Decidim
       end
 
       def message(value)
-        return content_tag(:span, value, class: "flash__message") if !value.is_a?(Hash)
+        return content_tag(:span, value, class: "flash__message") unless value.is_a?(Hash)
 
         content_tag(:span, class: "flash__message") do
           concat value[:title]
