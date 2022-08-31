@@ -322,6 +322,7 @@ en:
       checkout:
         error: There was a problem processing your vote
         success_html: Your vote has been successfully accepted. You can explore the <a href="%{rest_of_budgets_link}">rest of budgets</a>.
+        success_no_left_budgets_html: Your vote has been successfully accepted.
       destroy:
         error: There was a problem canceling your vote
         success: Your vote has been successfully canceled

@@ -11,7 +11,8 @@ module Decidim
 
         Checkout.call(current_order) do
           on(:ok) do
-            flash[:notice] = I18n.t("orders.checkout.success_html", scope: "decidim", rest_of_budgets_link: "#budgets-to-vote")
+            i18n_key = pending_to_vote_budgets.any? ? "orders.checkout.success_html" : "orders.checkout.success_no_left_budgets_html"
+            flash[:notice] = I18n.t(i18n_key, scope: "decidim", rest_of_budgets_link: "#budgets-to-vote")
             redirect_to budgets_path
           end
 
@@ -48,6 +49,10 @@ module Decidim
         else
           budgets_path
         end
+      end
+
+      def pending_to_vote_budgets
+        current_workflow.budgets - current_workflow.voted - [current_order.budget]
       end
     end
   end
