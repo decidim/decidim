@@ -13,6 +13,14 @@ edit_link(
 )
 %>
 
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_accountability" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
+<% end %>
+
 <% if result.children.any? %>
   <%= render partial: "show_parent", locals: { result: result } %>
 <% else %>

@@ -2,6 +2,10 @@
   &__status{
     @apply flex flex-col gap-3 w-full p-4 rounded bg-background;
 
+    &-container{
+      @apply w-full last:[&>*]:flex last:[&>*]:gap-1;
+    }
+
     &-title{
       @apply font-semibold text-secondary text-lg [&+*]:mt-auto;
     }
@@ -53,6 +57,18 @@
     &__sm &-value > :last-child:not(:only-child){
       @apply text-sm;
     }
+
+    &__xs{
+      @apply gap-1 bg-white drop-shadow-[0_4px_6px_rgba(211,211,211,0.25)];
+    }
+
+    &__xs &-progress{
+      @apply hidden;
+    }
+
+    &__xs &-value > :first-child{
+      @apply text-lg;
+    }
   }
 
   &__grid{
@@ -75,7 +91,7 @@
     @apply flex justify-between items-center gap-4 px-4 border-l-4 border-background rounded overflow-hidden hover:border-tertiary;
 
     &-container{
-      @apply space-y-10;
+      @apply space-y-10 my-20;
     }
 
     &-details{
