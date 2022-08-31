@@ -76,6 +76,10 @@
 .budget-progress_medium_mark{
   text-align: center;
   transform: translateX(-50%);
+
+  @include breakpoint(smallmedium down){
+    display: none;
+  }
 }
 
 .budget-progress_right_mark{
