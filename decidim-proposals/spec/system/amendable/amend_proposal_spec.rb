@@ -362,7 +362,7 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is changed the state of the emendation" do
-            expect(page).to have_css(".callout.alert", text: "This amendment for the proposal #{proposal_title} was rejected")
+            expect(page).to have_css(".callout.alert[data-announcement]", text: "This amendment for the proposal #{proposal_title} was rejected")
           end
         end
       end

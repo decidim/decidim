@@ -147,7 +147,7 @@ en:
           subject: Successful import of results
           success: Successful import of results. You can review the results in the administration interface.
       last_activity:
-        new_result_at_html: "<span>New result at %{link}</span>"
+        new_result: 'New result:'
       models:
         result:
           fields:

@@ -201,7 +201,7 @@ module Decidim
     #
     # Returns an HTML-safe String.
     def form_required_explanation
-      content_tag(:div, class: "help-text help-text-form-required-fields") do
+      content_tag(:div, class: "help-text") do
         I18n.t("forms.required_explanation")
       end
     end

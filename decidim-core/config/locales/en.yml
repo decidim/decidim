@@ -155,6 +155,8 @@ en:
         error: There was a problem updating your account.
         success: Your account was successfully updated.
         success_with_email_confirmation: Your account was successfully updated. You'll receive an email to confirm your new email address.
+    activity:
+      time_ago: "%{time} ago"
     admin:
       actions:
         cancel: Cancel
@@ -799,6 +801,9 @@ en:
         other: "%{count} followers"
       no_followers: No followers yet.
     following:
+      following_count:
+        one: "%{count} follow"
+        other: "%{count} follows"
       no_followings: Doesn't follow anyone or anything yet.
       non_public_followings: Some of the resources followed are not public.
     follows:
@@ -887,6 +892,7 @@ en:
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
+      title: What are the badges?
     group_admins:
       actions:
         are_you_sure: Are you sure? This won't remove the participant from the group.
@@ -1124,6 +1130,7 @@ en:
         title: Participants
     newsletter_mailer:
       newsletter:
+        no_reply_notice: This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
         see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
@@ -1254,7 +1261,6 @@ en:
         sub_hero:
           register: Register
       index:
-        read_more: Read more
         standalone_pages: Pages
         subheading: Navigate through the help pages of %{name}
         title: Help
@@ -1304,13 +1310,21 @@ en:
         members: Members
         officialized: Official participant
         send_private_message: Send private message
-        timeline: Timeline
         view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
+        actions:
+          create_user_group: Create group
+          edit_profile: Edit profile
+          edit_user_group: Edit group profile
+          invite_user: Invite participant
+          join_user_group: Request to join group
+          manage_user_group_admins: Manage admins
+          manage_user_group_users: Manage members
+          message: Message
         confirmation_instructions_sent: Email confirmation instructions sent
         create_user_group: Create group
         edit_profile: Edit profile
