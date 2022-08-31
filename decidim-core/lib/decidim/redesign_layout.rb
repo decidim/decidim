@@ -102,8 +102,12 @@ module Decidim
         if conditional_layout?
           redesigned_layout(current_participatory_space_manifest.context(current_participatory_space_context).layout)
         else
-          redesigned_layout(FALLBACK_LAYOUT)
+          redesigned_layout(fallback_layout)
         end
+      end
+
+      def fallback_layout
+        FALLBACK_LAYOUT
       end
 
       def conditional_layout?

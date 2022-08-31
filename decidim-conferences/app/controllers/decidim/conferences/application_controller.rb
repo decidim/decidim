@@ -19,6 +19,10 @@ module Decidim
 
       private
 
+      def fallback_layout
+        "layouts/decidim/conferences/application"
+      end
+
       def permissions_context
         super.merge(
           current_participatory_space: try(:current_participatory_space)
