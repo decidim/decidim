@@ -624,8 +624,8 @@ en:
         title: There was a problem with our server
         try_later: Please try again later. If the error persists, please copy the following info and send it to platform maintainers with other information you may provide.
         unknown: Unknown
-        url: 'URL:'
-        user_id: 'User ID:'
+        url: URL
+        user: User ID
       not_found:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.

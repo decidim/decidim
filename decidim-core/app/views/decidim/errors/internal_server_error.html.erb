@@ -7,34 +7,29 @@
         <div class="table-scroll">
           <table class="table-list">
             <tr>
-              <th><%= t(".user_id") %></th>
-              <td> <%= user = try(:current_user)&.id || t(".unknown") %></td>
+              <th><%= t(".user", user_id: "") %></th>
+              <td> <%= user_id = try(:current_user)&.id || t(".unknown") %></td>
             </tr>
             <tr>
-              <th><%= t(".date_and_time") %></th>
+              <th><%= t(".date_and_time", date_and_time:"") %></th>
               <td><%= date_and_time = l(Time.current, format: "%Y-%m-%dT%H:%M:%S.%6N") %></td>
             </tr>
             <tr>
-              <th><%= t(".url") %></th>
+              <th><%= t(".url", url: "") %></th>
               <td><%= request_url = try(:request).original_url %></td>
             </tr>
             <tr>
-              <th><%= t(".request_method") %></th>
+              <th><%= t(".request_method", method: "") %></th>
               <td><%= @method %></td>
             </tr>
             <tr>
-              <th><%= t(".reference") %></th>
-              <td><%= reference_id = Decidim::LogReferenceGenerator.new(request).generate_reference %></td>
+              <th><%= t(".reference", reference_id: "") %></th>
+              <td><%= @reference_id %></td>
             </tr>
           </table>
         </div>
         <div class="input-group">
-          <textarea id="urlShareLink" class="hide">
-            <%= "User Id: #{ user }" %>
-            <%= "Date & Time: #{ date_and_time }" %>
-            <%= "URL: #{ request_url }" %>
-            <%= "Reference: #{ reference_id }" %>
-          </textarea>
+          <textarea id="urlShareLink" class="hide"><%= @plain_info %></textarea>
           <div class="input-group-button">
             <button class="button primary float-right"
               data-clipboard-copy="#urlShareLink"
