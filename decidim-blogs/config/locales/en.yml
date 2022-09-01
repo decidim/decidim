@@ -46,7 +46,7 @@ en:
           delete: "%{user_name} deleted the %{resource_name} blog post from %{space_name}"
           update: "%{user_name} updated the %{resource_name} blog post in %{space_name}"
       last_activity:
-        new_post_at_html: "<span>New post at %{link}</span>"
+        new_post: 'New post:'
       models:
         post:
           fields:
@@ -57,13 +57,8 @@ en:
             title: title
       posts:
         show:
-          back: Back to list
           comments: Comments
           view: View
-        sidebar_blog:
-          comments: comments
-          most_commented_posts: Most commented posts
-      read_more: Read more
     components:
       blogs:
         actions:
