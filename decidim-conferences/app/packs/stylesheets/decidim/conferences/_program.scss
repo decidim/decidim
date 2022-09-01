@@ -2,7 +2,7 @@
   @apply mb-16 md:mb-36;
 
   &-selector{
-    @apply flex gap-1 justify-end [&~*]:mt-6;
+    @apply grid grid-cols-2 md:flex gap-4 md:gap-1 justify-end [&~*]:mt-6 [&_button]:w-full;
 
     [aria-expanded="true"]{
       @apply button__secondary;
@@ -10,7 +10,7 @@
   }
 
   &-item{
-    @apply grid grid-cols-12 gap-x-2 items-start first:[&>*]:col-span-2 last:[&>*]:col-span-10;
+    @apply grid grid-cols-12 gap-2 items-start first:[&>*]:col-span-12 md:first:[&>*]:col-span-2 last:[&>*]:col-span-12 md:last:[&>*]:col-span-10;
   }
 
   &-time{
@@ -18,10 +18,10 @@
   }
 
   &-category{
-    @apply h-10 w-full bg-background grid place-items-center border-b-2 border-gray-3 text-center text-md text-gray-2 font-normal;
+    @apply h-10 w-full bg-background border-b-2 border-gray-3 text-center text-md text-gray-2 font-normal truncate;
 
     &-container{
-      @apply flex gap-2 [&>*]:grow;
+      @apply flex gap-2 [&>*]:grow [&>*]:min-w-0;
     }
 
     &-content{

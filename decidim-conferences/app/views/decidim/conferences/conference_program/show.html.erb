@@ -13,7 +13,7 @@ end
 
 <%# NOTE: this page does not use a regular layout %>
 <main class="container" data-component="accordion" data-multiselectable="false" data-collapsible="false">
-  <h1 class="h1 decorator my-12">
+  <h1 class="h3 md:h1 decorator my-12">
     <span class="not-sr-only"><%= t(".program") %></span>
     <span class="sr-only"><%= t(".program") %> (<%= translated_attribute current_participatory_space.title %>)</span>
   </h1>
@@ -22,7 +22,7 @@ end
     <ul class="conference__program-selector">
       <% meeting_days.each_with_index do |day, i| %>
         <li>
-          <button class="button button__lg button__transparent-secondary" data-controls="conference-panel<%= i %>" data-open="<%= "true" if i == 0 %>">
+          <button class="button button__sm md:button__lg button__transparent-secondary" data-controls="conference-panel<%= i %>" data-open="<%= "true" if i == 0 %>">
             <%= l day, format: :decidim_with_day_and_month_name %>
           </button>
         </li>
