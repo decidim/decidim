@@ -1,0 +1,5 @@
+<% if translated_attribute(current_settings.announcement).present? %>
+  <%= cell("decidim/announcement_with_truncate", current_settings.announcement) %>
+<% elsif translated_attribute(component_settings.announcement).present? %>
+  <%= cell("decidim/announcement_with_truncate", component_settings.announcement) %>
+<% end %>
