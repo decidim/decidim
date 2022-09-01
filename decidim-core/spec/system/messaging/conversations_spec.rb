@@ -117,7 +117,7 @@ describe "Conversations", type: :system do
       visit_inbox
 
       within ".conversation__container" do
-        expect(page).to have_selector(".conversation__item", text: /#{interlocutor.name}/i)
+        expect(page).to have_selector(".conversation__item img[alt='Avatar: #{interlocutor.name}']")
         expect(page).to have_selector(".conversation__item", text: "who wants apples?")
       end
     end
@@ -395,12 +395,12 @@ describe "Conversations", type: :system do
           visit decidim.conversations_path
         end
 
-        it "shows only the 3 other participant name" do
+        it "shows only the 3 other participant avatars" do
           within "[data-interlocutors-list]" do
-            expect(page).to have_content(user1.name)
-            expect(page).to have_content(user2.name)
-            expect(page).to have_content(user3.name)
-            expect(page).not_to have_content(user.name)
+            expect(page).to have_css("img[alt='Avatar: #{user1.name}']")
+            expect(page).to have_css("img[alt='Avatar: #{user2.name}']")
+            expect(page).to have_css("img[alt='Avatar: #{user3.name}']")
+            expect(page).to have_no_css("img[alt='Avatar: #{user.name}']")
           end
         end
       end
@@ -509,7 +509,7 @@ describe "Conversations", type: :system do
       visit_inbox
 
       within ".conversation__container" do
-        expect(page).to have_selector(".conversation__item", text: /Participant deleted/i)
+        expect(page).to have_selector(".conversation__item img[alt='Avatar: Participant deleted']")
         expect(page).to have_selector(".conversation__item", text: "who wants apples?")
       end
     end
