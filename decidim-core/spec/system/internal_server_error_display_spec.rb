@@ -35,7 +35,7 @@ describe "Internal server error display", type: :system do
     end
 
     it "generates the copiable form" do
-      expect(page).to have_content("Please try again later. If the error persists, please copy the following info and send it to platform maintainers with other information you may provide.")
+      expect(page).to have_content("Please try again later. If the error persists, please copy the following info and send it to platform maintainers with any other information you may want to share.")
       within find("tr", text: "User ID") do
         expect(page).to have_content("Unknown")
       end

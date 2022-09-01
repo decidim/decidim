@@ -622,7 +622,7 @@ en:
         reference: Reference
         request_method: Request method
         title: There was a problem with our server
-        try_later: Please try again later. If the error persists, please copy the following info and send it to platform maintainers with other information you may provide.
+        try_later: Please try again later. If the error persists, please copy the following info and send it to platform maintainers with any other information you may want to share.
         unknown: Unknown
         url: URL
         user: User ID
