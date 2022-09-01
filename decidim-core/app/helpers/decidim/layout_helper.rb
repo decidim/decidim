@@ -29,6 +29,19 @@ module Decidim
       favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
     end
 
+    # Outputs an SVG-based icon.
+    #
+    # name    - The String with the icon name.
+    # options - The Hash options used to customize the icon (default {}):
+    #             :width  - The Number of width in pixels (optional).
+    #             :height - The Number of height in pixels (optional).
+    #             :title - The title for the SVG element (optional, similar to alt for img)
+    #             :aria_label - The String to set as aria label (optional).
+    #             :aria_hidden - The Truthy value to enable aria_hidden (optional).
+    #             :role - The String to set as the role (optional).
+    #             :class - The String to add as a CSS class (optional).
+    #
+    # Returns a String.
     def redesigned_icon(name, options = {})
       default_html_properties = {
         "width" => "1em",
@@ -47,19 +60,6 @@ module Decidim
       end
     end
 
-    # Outputs an SVG-based icon.
-    #
-    # name    - The String with the icon name.
-    # options - The Hash options used to customize the icon (default {}):
-    #             :width  - The Number of width in pixels (optional).
-    #             :height - The Number of height in pixels (optional).
-    #             :title - The title for the SVG element (optional, similar to alt for img)
-    #             :aria_label - The String to set as aria label (optional).
-    #             :aria_hidden - The Truthy value to enable aria_hidden (optional).
-    #             :role - The String to set as the role (optional).
-    #             :class - The String to add as a CSS class (optional).
-    #
-    # Returns a String.
     def legacy_icon(name, options = {})
       options = options.with_indifferent_access
       html_properties = {}
@@ -162,12 +162,12 @@ module Decidim
 
     # Renders a view with the customizable CSS variables in two flavours:
     # 1. as a hexadecimal valid CSS color (ie: #ff0000)
-    # 2. as a disassembled RGB components (ie: 255,0,0)
+    # 2. as a disassembled RGB components (ie: 255 0 0)
     #
     # Example:
     #
     # --primary: #ff0000;
-    # --primary-rgb: 255,0,0
+    # --primary-rgb: 255 0 0
     #
     # Hexadecimal variables can be used as a normal CSS color:
     #
@@ -178,7 +178,7 @@ module Decidim
     #
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
-      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
+      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex} #{v[3..4].hex} #{v[5..6].hex};" }.join
       render partial: "layouts/decidim/organization_colors", locals: { css: }
     end
 

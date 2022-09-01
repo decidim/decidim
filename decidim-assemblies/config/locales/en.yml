@@ -357,7 +357,7 @@ en:
       index:
         title: Assemblies
       last_activity:
-        new_assembly: New assembly
+        new_assembly: 'New assembly:'
       pages:
         home:
           highlighted_assemblies:

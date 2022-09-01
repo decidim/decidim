@@ -45,7 +45,7 @@ describe "Last activity", type: :system do
 
     it "displays the activities at the home page" do
       within "#last_activity" do
-        expect(page).to have_css(".card--activity", count: 3)
+        expect(page).to have_css("[data-activity]", count: 3)
       end
     end
 
@@ -72,7 +72,7 @@ describe "Last activity", type: :system do
       end
 
       it "shows all activities" do
-        expect(page).to have_css(".card--activity", count: 3)
+        expect(page).to have_css("[data-activity]", count: 3)
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
@@ -86,7 +86,7 @@ describe "Last activity", type: :system do
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
         expect(page).to have_no_content(translated(resource.title))
-        expect(page).to have_css(".card--activity", count: 2)
+        expect(page).to have_css("[data-activity]", count: 2)
       end
 
       context "when there are activities from private spaces" do
@@ -98,7 +98,7 @@ describe "Last activity", type: :system do
         end
 
         it "doesn't show the activities" do
-          expect(page).to have_css(".card--activity", count: 0)
+          expect(page).to have_css("[data-activity]", count: 0)
         end
       end
     end
