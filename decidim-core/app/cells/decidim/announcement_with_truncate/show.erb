@@ -1,0 +1,18 @@
+<div class="row column" data-view-more>
+  <%= content_tag :div, class: "callout announcement mb-sm #{callout_class} cell-announcement" do %>
+    <% if has_title? %>
+      <p class="heading5"><%= clean_title %></p>
+
+      <div data-show-less><%= clean_body(true) %></div>
+    <% else %>
+      <div data-show-less><%= clean_announcement(true) %></div>
+    <% end %>
+
+    <% if has_truncated? %>
+      <div data-show-more><%= has_title? ? clean_body : clean_announcement %></div>
+
+      <p data-show-less><button data-action-more><%= t("view_more", scope: "layouts.decidim.announcements") %> ^</button><p>
+      <p data-show-more><button data-action-less><%= t("close", scope: "layouts.decidim.announcements") %> ^</button><p>
+    <% end %>
+  <% end %>
+</div>

@@ -1737,6 +1737,9 @@ en:
     timestamp_error_message: Sorry, that was too quick! Please resubmit.
   layouts:
     decidim:
+      announcements:
+        close: Close
+        view_more: More information
       cookie_consent:
         cookie_details:
           columns:
