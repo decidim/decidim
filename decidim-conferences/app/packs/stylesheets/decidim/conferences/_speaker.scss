@@ -1,6 +1,6 @@
 .conference__speaker{
   &__container{
-    @apply grid grid-cols-2 md:grid-cols-5 gap-x-4 md:gap-x-16 gap-y-10 mb-16 md:mb-36;
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 md:gap-x-8 lg:gap-x-16 gap-y-10 mb-16 md:mb-36;
   }
 
   &__item{
@@ -28,6 +28,58 @@
 
     &:hover &-name{
       @apply underline;
+    }
+  }
+
+  &__modal{
+    @apply p-6 md:pr-12 md:pb-12 w-[90%] lg:max-w-[900px] relative;
+
+    [data-dialog-close]{
+      @apply absolute top-4 right-4 text-2xl outline-none;
+    }
+
+    &-title{
+      @apply flex gap-2 items-center text-2xl text-black font-semibold;
+    }
+
+    &-img{
+      @apply w-1/4 flex-none rounded ring-4 ring-tertiary overflow-hidden aspect-square;
+
+      img{
+        @apply w-full h-full object-cover;
+      }
+    }
+
+    &-bio{
+      @apply w-full divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0;
+
+      &-container{
+        @apply flex flex-col md:flex-row gap-4 md:gap-10 items-start mt-10 w-full;
+      }
+
+      &-name{
+        @apply text-black text-2xl font-semibold;
+      }
+
+      &-roles{
+        @apply mt-4 text-gray-2 text-sm after:[&_span]:content-['_/_'] last:after:[&_span]:content-[''];
+      }
+
+      &-networks{
+        @apply flex flex-wrap mt-4 flex gap-2 md:gap-6 text-secondary text-sm [&>*]:flex [&>*]:items-center [&>*]:gap-1.5;
+      }
+
+      &-description{
+        @apply text-gray-2 text-md;
+      }
+
+      &-meetings{
+        @apply text-secondary text-md flex flex-col gap-2;
+
+        &-title{
+          @apply text-gray-2 font-bold mb-4;
+        }
+      }
     }
   }
 }

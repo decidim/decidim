@@ -18,14 +18,15 @@ edit_link(
 <% end %>
 
 <%# NOTE: this page does not use a regular layout %>
-<div class="container">
+<main class="container">
 
   <section class="section">
-    <h1 class="h1 decorator my-12"><%= t("registration_types.index.register", scope: "decidim.conferences") %></h1>
+    <h1 class="h1 decorator my-12">
+      <span class="not-sr-only"><%= t("registration_types.index.register", scope: "decidim.conferences") %></span>
+      <span class="sr-only"><%= t("registration_types.index.register", scope: "decidim.conferences") %> (<%= translated_attribute current_participatory_space.title %>)</span>
+    </h1>
 
-    <%# REDESIGN_PENDING: uncomment the partial once the login boxes has been moved to that location %>
-    <%# Further info: https://github.com/decidim/decidim/issues/9675 %>
-    <%#= render partial: "decidim/devise/shared/login_boxes" %>
+    <%= render partial: "decidim/devise/shared/login_boxes" %>
 
     <% if collection.any? %>
       <p class="conference__registration-container-title"><%= t(".choose_an_option") %></p>
@@ -39,4 +40,4 @@ edit_link(
     <% end %>
   </section>
 
-</div>
+</main>

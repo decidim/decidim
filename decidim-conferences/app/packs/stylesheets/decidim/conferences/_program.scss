@@ -4,11 +4,9 @@
   &-selector{
     @apply flex gap-1 justify-end [&~*]:mt-6;
 
-    // REDESIGN_PENDING: Uncomment this block once merged https://github.com/decidim/decidim/pull/9387
-    // Otherwise TailwindCSS won't compile
-    // [aria-expanded="true"]{
-    //   @apply button__secondary;
-    // }
+    [aria-expanded="true"]{
+      @apply button__secondary;
+    }
   }
 
   &-item{
