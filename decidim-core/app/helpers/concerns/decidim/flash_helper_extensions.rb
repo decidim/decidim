@@ -25,7 +25,7 @@ module Decidim
           role: "alert",
           aria: { atomic: "true" }
         }
-        options[:data] = options[:data].merge({ closable: "" }) if closable
+        options[:data] = options[:data].merge(closable: "") if closable
         icon = {
           secondary: "information-line",
           alert: "information-line",
