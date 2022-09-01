@@ -3,16 +3,26 @@
     <% if has_title? %>
       <p class="heading5"><%= clean_title %></p>
 
-      <div data-show-less><%= clean_body(truncate_text: true) %></div>
+      <div data-show-less class="announcement-show-less"><%= clean_body(truncate_text: true) %></div>
     <% else %>
-      <div data-show-less><%= clean_announcement(truncate_text: true) %></div>
+      <div data-show-less class="announcement-show-less"><%= clean_announcement(truncate_text: true) %></div>
     <% end %>
 
     <% if has_truncated? %>
       <div data-show-more><%= has_title? ? clean_body : clean_announcement %></div>
 
-      <p data-show-less><button data-action-more><%= t("view_more", scope: "layouts.decidim.announcements") %> ^</button><p>
-      <p data-show-more><button data-action-less><%= t("close", scope: "layouts.decidim.announcements") %> ^</button><p>
+      <p data-show-less>
+        <button data-action-more class="announcement-show-button">
+          <%= t("view_more", scope: "layouts.decidim.announcements") %>
+          <%== icon("arrow-drop-down-line", role: "img", class: "announcement-show-icon") %>
+        </button>
+      </p>
+      <p data-show-more>
+        <button data-action-less class="announcement-show-button">
+          <%= t("close", scope: "layouts.decidim.announcements") %>
+          <%== icon("arrow-drop-up-line", role: "img", class: "announcement-show-icon") %>
+        </button>
+      <p>
     <% end %>
   <% end %>
 </div>

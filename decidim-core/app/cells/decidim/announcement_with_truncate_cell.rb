@@ -19,9 +19,10 @@ module Decidim
   #   - `callout_class`: The Css class to apply. Default to `"secondary"`
   #
   class AnnouncementWithTruncateCell < Decidim::ViewModel
+    include Decidim::LayoutHelper
     include Decidim::SanitizeHelper
 
-    TRUNCATE_LENGTH = 200
+    TRUNCATE_LENGTH = 250
 
     def show
       return if clean_body.blank? && clean_announcement.blank?
