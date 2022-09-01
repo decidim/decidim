@@ -445,7 +445,9 @@ en:
           go_to_twitter: Go to Twitter
       conference_speakers:
         index:
-          speakers: Speakers
+          speakers:
+            one: Speaker
+            other: Speakers
       conferences:
         partners:
           collaborators: Partners

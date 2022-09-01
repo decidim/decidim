@@ -1,6 +1,3 @@
-<%# TODO: borrar path %>
-<% avatar_path = "https://randomuser.me/api/portraits/women/#{rand(50)}.jpg" %>
-
 <div class="conference__speaker__item" data-conference-speaker data-dialog-open="<%= model.id %>">
   <div class="conference__speaker__item-image">
     <%= image_tag avatar_path, alt: nickname || "" %>
@@ -19,7 +16,7 @@
 
   <div data-dialog="<%= model.id %>">
     <div class="conference__speaker__modal">
-      <button type="button" data-dialog-close="<%= model.id %>">&times;</button>
+      <button type="button" data-dialog-close="<%= model.id %>" data-dialog-close-default>&times;</button>
       <div class="conference__speaker__modal-title">
         <%= icon "user-voice-line", class: "w-6 h-6 text-gray fill-current" %>
         <span><%= t("decidim.conferences.conference_speakers.index.speakers", count: 1) %></span>

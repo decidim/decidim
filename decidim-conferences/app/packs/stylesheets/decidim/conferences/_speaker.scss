@@ -32,11 +32,7 @@
   }
 
   &__modal{
-    @apply p-6 md:pr-12 md:pb-12 w-[90%] lg:max-w-[900px] relative;
-
-    [data-dialog-close]{
-      @apply absolute top-4 right-4 text-2xl outline-none;
-    }
+    @apply md:pr-12 md:pb-12;
 
     &-title{
       @apply flex gap-2 items-center text-2xl text-black font-semibold;

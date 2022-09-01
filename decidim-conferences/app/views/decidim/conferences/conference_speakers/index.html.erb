@@ -13,7 +13,7 @@ edit_link(
 <main class="container">
 
   <section id="conference_speakers-grid">
-    <h1 class="h1 decorator my-12"><%= t("decidim.conferences.conference_speakers.index.speakers") %></h1>
+    <h1 class="h1 decorator my-12"><%= t("decidim.conferences.conference_speakers.index.speakers", count: "") %></h1>
     <div class="conference__speaker__container">
       <%= render(collection) %>
     </div>

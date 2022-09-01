@@ -18,10 +18,14 @@
   }
 
   &-button{
-    @apply w-full md:w-1/3 flex items-center justify-between md:justify-end gap-8 px-6 py-3 bg-background rounded;
+    @apply w-32 truncate;
 
-    & > *:first-child{
-      @apply text-xl font-semibold;
+    &-container{
+      @apply w-full md:w-1/3 flex items-center justify-between md:justify-end gap-8 px-6 py-3 bg-background rounded;
+
+      & > *:first-child{
+        @apply text-xl font-semibold whitespace-nowrap;
+      }
     }
   }
 
@@ -33,7 +37,11 @@
     @apply underline;
   }
 
-  &:hover &-button button{
+  &:hover &-button{
     @apply bg-secondary text-white border-transparent;
+  }
+
+  &-modal{
+    @apply p-6;
   }
 }
