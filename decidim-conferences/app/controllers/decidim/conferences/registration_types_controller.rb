@@ -4,6 +4,7 @@ module Decidim
   module Conferences
     class RegistrationTypesController < Decidim::Conferences::ApplicationController
       include ParticipatorySpaceContext
+
       redesign_participatory_space_layout only: :index
 
       helper_method :collection, :conference

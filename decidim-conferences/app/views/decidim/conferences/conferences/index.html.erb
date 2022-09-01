@@ -18,13 +18,13 @@ edit_link(
 
   <% if promoted_conferences.any? %>
     <section id="highlighted-conferences" class="conference__list__highlighted-container">
-      <h3 class="h3 decorator"><%= t("conferences.index.promoted_conferences", scope: "layouts.decidim") %></h3>
+      <h2 class="h3 decorator"><%= t("conferences.index.promoted_conferences", scope: "layouts.decidim") %></h2>
       <%= render partial: "promoted_conference", collection: promoted_conferences, as: :promoted_conference %>
     </section>
   <% end %>
 
   <section id="conferences-grid" class="conference__list__item-container">
-    <h3 class="h3 decorator"><%= t("conferences.order_by_conferences.conferences", scope: "layouts.decidim", count: collection.count) %></h3>
+    <h2 class="h3 decorator"><%= t("conferences.order_by_conferences.conferences", scope: "layouts.decidim", count: collection.count) %></h2>
     <div class="conference__list__item-grid">
       <%= render(collection) %>
     </div>

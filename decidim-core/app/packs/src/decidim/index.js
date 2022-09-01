@@ -65,7 +65,8 @@ $(() => {
     createQuillEditor(container);
   });
 
-  document.querySelectorAll("a[target=\"_blank\"]:not([no-external-link])").forEach((elem) => new ExternalLink(elem))
+  // initialize external-link feature only to the matching elements
+  document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
 
   // Mount comments component
   $("[data-decidim-comments]").each((_i, el) => {

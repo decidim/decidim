@@ -1,13 +1,13 @@
 .conference__list{
   &__highlighted{
-    @apply ring ring-4 ring-background hover:ring-tertiary rounded flex hover:cursor-pointer;
+    @apply ring ring-4 ring-background hover:ring-tertiary rounded flex flex-col md:flex-row hover:cursor-pointer;
 
     &-container{
-      @apply space-y-12 mb-28;
+      @apply space-y-12 mb-16 md:mb-28;
     }
 
     &-img{
-      @apply w-1/2 aspect-video rounded-l overflow-hidden;
+      @apply w-full md:w-1/2 aspect-video rounded-t md:rounded-t-none md:rounded-l overflow-hidden;
 
       img{
         @apply w-full h-full object-cover;
@@ -15,7 +15,7 @@
     }
 
     &-text{
-      @apply w-1/2 px-8 py-6 space-y-4 text-gray-2;
+      @apply w-full md:w-1/2 px-4 md:px-8 py-3 md:py-6 space-y-2 md:space-y-4 text-gray-2;
     }
 
     &:hover &-text h3{
@@ -31,7 +31,7 @@
     }
 
     &-grid{
-      @apply grid gap-x-12 gap-y-16 grid-cols-2;
+      @apply grid gap-4 md:gap-x-12 md:gap-y-16 grid-cols-2;
     }
 
     &-img{
@@ -43,7 +43,7 @@
     }
 
     &-text{
-      @apply p-4 block text-secondary;
+      @apply p-2 md:p-4 block text-secondary;
 
       h4{
         /* min-height: line-height * num_lines */

@@ -1,5 +1,7 @@
 <%# REDESIGN_PENDING: this link will trigger a modal window with the meeting itself %>
-<%= link_to present(meeting).title, resource_locator(meeting).path, class: "h3 text-secondary", data: { "conference-program-title": "" } %>
+<%= link_to resource_locator(meeting).path, class: "", data: { "conference-program-title": "" } do %>
+  <h2 class="h3 text-secondary"><%= present(meeting).title %></h2>
+<% end %>
 
 <% conference_meeting = meeting.becomes(Decidim::ConferenceMeeting) %>
 <% speakers = conference_meeting.conference_speakers %>
@@ -19,12 +21,12 @@
 <% if meeting.closing_visible? && (meeting.video_url.presence || meeting.audio_url.presence) %>
   <div class="conference__program-attribute">
     <%= icon "link", class: "w-3.5 h-3.5 text-gray fill-current" %>
-    <div>
+    <div class="conference__program-attribute-url">
       <% if meeting.video_url.presence %>
-        <u><%= link_to meeting.video_url, meeting.video_url, target: "_blank" %></u>
+        <%= link_to meeting.video_url, meeting.video_url, target: "_blank" %>
       <% end %>
       <% if meeting.audio_url.presence %>
-        <u><%= link_to meeting.audio_url, meeting.audio_url, target: "_blank" %></u>
+        <%= link_to meeting.audio_url, meeting.audio_url, target: "_blank" %>
       <% end %>
     </div>
   </div>

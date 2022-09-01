@@ -29,18 +29,19 @@ import "src/decidim/append_elements"
 import "src/decidim/user_registrations"
 import "src/decidim/account_form"
 import "src/decidim/data_picker"
+// REDESIGN_PENDING: remove deprecated js file (now it's a decidim_core.js dependency)
 // import "src/decidim/dropdowns_menus" -- deprecated
 import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
 import "src/decidim/form_validator"
 import "src/decidim/form_remote"
 import "src/decidim/ajax_modals"
+// REDESIGN_PENDING: remove deprecated js file (now it's a decidim_core.js dependency)
 // import "src/decidim/conferences" -- deprecated
 import "src/decidim/tooltip_keep_on_hover"
 import "src/decidim/diff_mode_dropdown"
 import "src/decidim/conversations"
 import "src/decidim/delayed"
-// import "src/decidim/icon" -- imported in submodules
 import "src/decidim/vizzs"
 import "src/decidim/responsive_horizontal_tabs"
 import "src/decidim/security/selfxss_warning"
