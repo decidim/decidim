@@ -20,6 +20,7 @@ describe "Admin imports projects to accountability", type: :system do
 
   context "when there are no budgets components to import" do
     before do
+      find("span", text: "Import").click
       click_on "Import projects to results"
     end
 
@@ -31,10 +32,13 @@ describe "Admin imports projects to accountability", type: :system do
   describe "import" do
     let!(:result_sets) { create_list(:result, 5, created_at: Time.current, component:) }
 
-    before { visit current_path }
+    before do
+      visit current_path
+      find("span", text: "Import").click
+    end
 
     it "link exists only in main list" do
-      expect(page).to have_content(t("decidim.accountability.actions.import"))
+      expect(page).to have_content("Import projects to results")
       page.find(".table-list tr:nth-child(1) td:nth-child(2)").click
       expect(page).not_to have_content(t("decidim.accountability.actions.import"))
     end
@@ -45,6 +49,7 @@ describe "Admin imports projects to accountability", type: :system do
     let!(:budget) { create(:budget, component: budget_component, total_budget: 26_000_000) }
 
     before do
+      find("span", text: "Import").click
       click_on "Import projects to results"
     end
 
