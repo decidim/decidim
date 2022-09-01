@@ -27,7 +27,6 @@ module Decidim
       end
 
       def post(id:)
-        # posts.find_by(id:)
         scope =
           if context[:current_user]&.admin?
             Post
