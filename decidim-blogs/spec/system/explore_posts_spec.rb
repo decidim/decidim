@@ -61,14 +61,6 @@ describe "Explore posts", type: :system do
         expect(Decidim::Blogs::Post.count).to eq(3)
         expect(page).to have_css(resource_selector, count: 2)
       end
-
-      # context "when trying to browse into unpublished post" do
-      #   it "renders 404 error" do
-      #     expect do
-      #       visit resource_locator(unpublished).path
-      #     end.to raise_error(ActiveRecord::RecordNotFound)
-      #   end
-      # end
     end
   end
 

@@ -225,12 +225,27 @@ describe "Decidim::Api::QueryType" do
         let!(:third_post) { create(:post, created_at: 2.weeks.ago, updated_at: 1.week.ago, component: current_component, published_at: 2.weeks.from_now) }
         let(:criteria) { "order: { id: \"asc\" }" }
 
-        it {
-          expect(edges).to eq([
-                                { "node" => { "id" => post.id.to_s } },
-                                { "node" => { "id" => other_post.id.to_s } }
-                              ])
-        }
+        context "when not admin" do
+          it {
+            expect(edges).to eq([
+                                  { "node" => { "id" => post.id.to_s } },
+                                  { "node" => { "id" => other_post.id.to_s } }
+                                ])
+          }
+        end
+
+        context "with admin user" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization:) }
+          let(:organization) { create :organization }
+
+          it {
+            expect(edges).to eq([
+                                  { "node" => { "id" => post.id.to_s } },
+                                  { "node" => { "id" => other_post.id.to_s } },
+                                  { "node" => { "id" => third_post.id.to_s } }
+                                ])
+          }
+        end
       end
     end
   end

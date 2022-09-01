@@ -45,6 +45,7 @@ module Decidim
           Decidim::Blogs::AdminLog::PostPresenter
         end
       end
+
       def visible?
         participatory_space.try(:visible?) && component.try(:published?) && published_at <= Time.current
       end

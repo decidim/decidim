@@ -119,6 +119,7 @@ module Decidim
 
     def creation_date
       date_at = from_context.try(:published_at) || from_context.try(:created_at)
+
       l date_at, format: :decidim_short
     end
 
