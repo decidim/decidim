@@ -267,7 +267,7 @@ describe "Conversations", type: :system do
       end
 
       it "has a contact link" do
-        expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: recipient.id))
+        expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
       end
 
       context "and recipient has restricted communications" do
@@ -275,7 +275,11 @@ describe "Conversations", type: :system do
 
         it "has contact muted" do
           expect(page).not_to have_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
-          expect(page).to have_selector("svg.icon--envelope-closed.muted")
+
+          # REDESIGN_PENDING: After redesign there is no indicator of muted
+          # conversations. Delete this expectation if it's OK
+          #
+          # expect(page).to have_selector("svg.icon--envelope-closed.muted")
         end
       end
     end
