@@ -7,6 +7,7 @@ describe "Conversations", type: :system do
   let(:user) { create :user, :confirmed, organization: }
 
   before do
+    allow(Decidim.config).to receive(:redesign_active).and_return(true)
     switch_to_host(organization.host)
     login_as user, scope: :user
   end
@@ -534,8 +535,7 @@ describe "Conversations", type: :system do
   def visit_inbox
     visit decidim.root_path
 
-    within ".topbar__user__logged" do
-      find(".icon--envelope-closed").click
-    end
+    find("#dropdown-summary-account").click
+    click_link("Conversations")
   end
 end
