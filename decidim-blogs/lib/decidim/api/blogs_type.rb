@@ -27,7 +27,15 @@ module Decidim
       end
 
       def post(id:)
-        posts.find_by(id:)
+        # posts.find_by(id:)
+        scope =
+          if context[:current_user]&.admin?
+            Post
+          else
+            Post.published
+          end
+
+        Decidim::Core::ComponentFinderBase.new(model_class: scope).call(object, { id: }, context)
       end
     end
   end
