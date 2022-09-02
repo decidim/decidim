@@ -594,7 +594,6 @@ ja:
     errors:
       internal_server_error:
         title: サーバーに問題が発生しました
-        try_later: 後でもう一度お試しください。
       not_found:
         back_home: ホームに戻る
         content_doesnt_exist: このアドレスは正しくないか削除されています。
