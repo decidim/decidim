@@ -1,9 +1,14 @@
+<% content_for :flash_messages do %>
+  <%= display_flash_messages %>
+<% end %>
+
 <div class="layout-2col<%= " layout-2col__reverse" if reverse ||= false %>">
   <div>
     <aside>
       <%= yield :aside %>
     </aside>
     <main>
+      <%= content_for :flash_messages %>
       <%= yield %>
     </main>
   </div>
