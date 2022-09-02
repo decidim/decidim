@@ -648,7 +648,6 @@ cs:
     errors:
       internal_server_error:
         title: Vyskytl se problém s naším serverem
-        try_later: Prosím zkuste to znovu později.
       not_found:
         back_home: Zpět na úvodní stránku
         content_doesnt_exist: Tato adresa je nesprávná nebo byla odstraněna.
