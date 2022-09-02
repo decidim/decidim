@@ -172,7 +172,6 @@ is-IS:
     errors:
       internal_server_error:
         title: Vandamál kom upp við netþjóninn okkar
-        try_later: Vinsamlegast reyndu aftur síðar.
       not_found:
         back_home: Heima
         content_doesnt_exist: Þetta netfang er rangt eða hefur verið fjarlægt.
