@@ -447,7 +447,6 @@ lv:
     errors:
       internal_server_error:
         title: Radās problēma ar mūsu serveri
-        try_later: Lūdzu, mēģiniet vēlreiz vēlāk.
       not_found:
         back_home: Atpakaļ uz sākumu
         content_doesnt_exist: Šī adrese nav pareiza vai ir noņemta.
