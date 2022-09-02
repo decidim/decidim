@@ -44,7 +44,6 @@
           fields:
             author: Forfatter
             body: Tekst
-            created_at: Opprettet på
             title: tittel
       posts:
         show:
