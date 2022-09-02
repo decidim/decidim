@@ -49,7 +49,6 @@ nl:
           fields:
             author: Auteur
             body: Tekstgedeelte
-            created_at: Aangemaakt op
             official_blog_post: Officiële blogpost
             title: titel
       posts:
