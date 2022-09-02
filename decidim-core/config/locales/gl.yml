@@ -405,7 +405,6 @@ gl:
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor
-        try_later: Por favor inténtao de novo máis tarde.
       not_found:
         back_home: Volver a casa
         content_doesnt_exist: Este enderezo non é correcto ou se eliminou.
