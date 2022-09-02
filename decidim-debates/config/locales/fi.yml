@@ -171,6 +171,9 @@ fi:
             title: Versiot
         versions_list:
           back_to_resource: Takaisin keskusteluun
+      last_activity:
+        debate_updated: 'Keskustelu päivitetty:'
+        new_debate: 'Uusi keskustelu:'
       models:
         debate:
           fields:
