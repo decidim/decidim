@@ -20,6 +20,7 @@ module Decidim
                   else
                     { message: "Internal Server error" }
                   end
+
         render json: { errors: [message], data: {} }, status: :internal_server_error
       end
 
