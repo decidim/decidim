@@ -153,6 +153,8 @@ fr-CA:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse email.
+    activity:
+      time_ago: "il y a %{time}"
     admin:
       actions:
         cancel: Annuler
@@ -788,6 +790,9 @@ fr-CA:
         other: "%{count} abonnés"
       no_followers: Aucun abonné pour le moment.
     following:
+      following_count:
+        one: "%{count} abonné"
+        other: "%{count} abonnés"
       no_followings: Aucun abonnement
       non_public_followings: Certaines des ressources suivies ne sont pas publiques.
     follows:
@@ -876,6 +881,7 @@ fr-CA:
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
+      title: Quels sont les badges ?
     group_admins:
       actions:
         are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur du groupe.
@@ -1299,6 +1305,15 @@ fr-CA:
           info: Les badges sont gagnés en effectuant des activités spécifiques sur la plateforme.
           title: Badges
       user:
+        actions:
+          create_user_group: Créer un groupe
+          edit_profile: Modifier le profil
+          edit_user_group: Modifier le profil du groupe
+          invite_user: Inviter un participant
+          join_user_group: Demander à rejoindre ce groupe
+          manage_user_group_admins: Gérer les administrateurs
+          manage_user_group_users: Gérer les membres
+          message: Message
         confirmation_instructions_sent: Instructions de confirmation par courrier électronique envoyées
         create_user_group: Créer un groupe
         edit_profile: Mettre à jour le profil
