@@ -269,7 +269,6 @@ uk:
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
-        try_later: Будь ласка, спробуйте ще раз пізніше.
       not_found:
         back_home: Повернутися на головну
         content_doesnt_exist: Ця адреса невірна або була видалена.
