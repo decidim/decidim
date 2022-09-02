@@ -427,6 +427,9 @@ fr-CA:
         none: Aucun
         open_in_live_event_page: Ouvrir dans la page de l'événement en direct (avec sondages facultatifs)
         open_in_new_tab: Ouvrir le lien dans un nouvel onglet
+      last_activity:
+        meeting_updated: 'Rencontre mise à jour :'
+        new_meeting: 'Nouvelle rencontre :'
       layouts:
         live_event:
           administrate: Administrer
