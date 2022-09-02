@@ -607,7 +607,6 @@ fr:
     errors:
       internal_server_error:
         title: Il y a eu un problème avec notre serveur
-        try_later: Veuillez réessayer plus tard.
       not_found:
         back_home: Retour à l'accueil
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
