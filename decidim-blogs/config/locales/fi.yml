@@ -51,7 +51,6 @@ fi:
           fields:
             author: Laatija
             body: Leipäteksti
-            created_at: Luotu
             official_blog_post: Virallinen artikkeli
             title: otsikko
       posts:
