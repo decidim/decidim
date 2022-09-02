@@ -44,7 +44,6 @@ it:
           fields:
             author: Autore
             body: Corpo
-            created_at: Creato a
             title: titolo
       posts:
         show:
