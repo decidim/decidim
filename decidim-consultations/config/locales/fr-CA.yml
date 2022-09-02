@@ -264,6 +264,9 @@ fr-CA:
         title: Questions de %{scope_name}
       index:
         title: Votations
+      last_activity:
+        new_consultation: 'Nouvelle consultation :'
+        new_question: 'Nouvelle question :'
       pages:
         home:
           highlighted_consultations:
