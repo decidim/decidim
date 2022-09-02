@@ -647,7 +647,17 @@ cs:
       endorsed_by: Líbí se…
     errors:
       internal_server_error:
+        copied: Text zkopírován!
+        copy_error_message_clarification: Kopírovat chybovou zprávu do schránky
+        copy_to_clipboard: Kopírovat do schránky
+        date_and_time: Datum a čas
+        reference: Odkaz
+        request_method: Metoda požadavku
         title: Vyskytl se problém s naším serverem
+        try_later: Zkuste to prosím znovu později. Pokud chyba přetrvává, zkopírujte prosím následující informace a pošlete je správci platformy s dalšími informacemi, které budete chtít sdílet.
+        unknown: Neznámý
+        url: URL
+        user: ID uživatele
       not_found:
         back_home: Zpět na úvodní stránku
         content_doesnt_exist: Tato adresa je nesprávná nebo byla odstraněna.
