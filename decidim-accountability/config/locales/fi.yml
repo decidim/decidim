@@ -38,6 +38,7 @@ fi:
         confirm_destroy: Oletko varma, että haluat poistaa tämän kohteen nimeltä "%{name}"?
         destroy: Poista
         edit: Muokkaa
+        import: Tuo projekteja tuloksiin
         import_csv: Tuo CSV
         new: Uusi %{name}
         preview: Esikatsele
@@ -63,6 +64,22 @@ fi:
             name: Tila
           timeline_entry:
             name: Aikajanan merkintä
+        projects_import:
+          create:
+            invalid: Projektien tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut projekteja toteutukseen.
+          new:
+            create: Tuo
+            import_all_selected_projects: Tuo kaikki toteutukseen valitut projektit
+            new_items:
+              one: 1 toteutukseen valittu projekti tuodaan
+              other: "%{count} toteutukseen valittua projektia tuodaan"
+            no_components: Tässä osallisuustilassa ei ole yhtään budjetointikomponenttia, josta projektit voitaisiin tuoda tuloksiksi.
+            origin_component_id: Lähdekomponentti
+            select_component: Valitse komponentti
+            success:
+              one: 1 projekti on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu
+              other: "%{count} projektia on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu"
+            title: Tuo projekteja vastuullisuuskomponenttiin
         results:
           create:
             invalid: Tuloksen luonti epäonnistui
@@ -145,6 +162,15 @@ fi:
           row_number: Rivi
           subject: Tulosten tuonti onnistui
           success: Tulosten tuonti onnistui. Voit katsoa tulokset hallintapaneelista.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Yksi tulos tuotiin projekteista.
+            other: "%{count} tulosta tuotiin projekteista."
+          subject: Tulosten tuonti onnistui
+          success: Projektien tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
+      last_activity:
+        new_result: 'Uusi tulos:'
       models:
         result:
           fields:
