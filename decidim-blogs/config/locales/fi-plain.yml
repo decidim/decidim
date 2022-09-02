@@ -44,12 +44,13 @@ fi-pl:
           create: "%{user_name} loi blogikirjoituksen %{resource_name} tilassa %{space_name}"
           delete: "%{user_name} poisti blogikirjoituksen %{resource_name} tilasta %{space_name}"
           update: "%{user_name} päivitti blogikirjoitusta %{resource_name} tilassa %{space_name}"
+      last_activity:
+        new_post: 'Uusi artikkeli:'
       models:
         post:
           fields:
             author: Kirjoittaja
             body: Leipäteksti
-            created_at: Luotu
             official_blog_post: Virallinen artikkeli
             title: otsikko
       posts:
