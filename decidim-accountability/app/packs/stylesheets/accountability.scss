@@ -1,6 +1,6 @@
 .accountability{
   &__status{
-    @apply flex flex-col gap-3 w-full p-4 rounded bg-background;
+    @apply flex flex-col gap-3 w-full;
 
     &-container{
       @apply w-full last:[&>*]:flex last:[&>*]:gap-1;
@@ -22,52 +22,72 @@
       }
 
       > :last-child:not(:only-child){
-        @apply truncate;
+        @apply text-sm truncate;
       }
     }
 
-    &__lg{
+    &__home{
       @apply gap-4 p-6 bg-white drop-shadow-[0_4px_6px_rgba(211,211,211,0.25)];
     }
 
-    &__lg &-title{
-      @apply text-2xl text-gray-2;
+    &__home &-title{
+      @apply text-xl text-gray-2;
     }
 
-    &__lg &-progress{
+    &__home &-progress{
       @apply bg-background;
     }
 
-    &__lg &-value > :first-child{
+    &__home &-value > :first-child{
       @apply text-[48px];
     }
 
-    &__sm{
-      @apply bg-white border-2 border-background;
+    &__background{
+      @apply bg-background p-4;
     }
 
-    &__sm &-progress{
+    &__border{
+      @apply border-2 border-background rounded p-4;
+    }
+
+    &__border &-progress{
       @apply bg-background;
     }
 
-    &__sm &-title{
-      @apply text-md;
+    &__border &-title{
+      @apply text-md text-secondary;
     }
 
-    &__sm &-value > :last-child:not(:only-child){
-      @apply text-sm;
+    &__parent{
+      @apply p-4 gap-1 bg-white drop-shadow-[0_4px_6px_rgba(211,211,211,0.25)];
     }
 
-    &__xs{
-      @apply gap-1 bg-white drop-shadow-[0_4px_6px_rgba(211,211,211,0.25)];
-    }
-
-    &__xs &-progress{
+    &__parent &-progress{
       @apply hidden;
     }
 
-    &__xs &-value > :first-child{
-      @apply text-lg;
+    &__parent &-value > :first-child{
+      @apply text-xl;
+    }
+
+    &__child{
+      @apply mt-4 p-4 bg-white drop-shadow-[0_4px_6px_rgba(211,211,211,0.25)];
+    }
+
+    &__child &-title{
+      @apply text-md;
+    }
+
+    &__child &-progress{
+      @apply bg-background;
+    }
+
+    &__child &-value > :first-child{
+      @apply text-3xl;
+    }
+
+    &__project &-title{
+      @apply text-gray-2 text-md font-normal;
     }
   }
 

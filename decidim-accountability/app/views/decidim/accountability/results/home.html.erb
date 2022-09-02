@@ -12,7 +12,7 @@
   <%= render partial: "status", locals: {
     title: t("decidim.accountability.results.home_header.global_status"),
     progress: progress_calculator(current_scope, nil).present? && progress_calculator(current_scope, nil),
-    extra_classes: "accountability__status__lg"
+    extra_classes: "accountability__status__home"
   } %>
 
   <% if current_component.has_subscopes? %>

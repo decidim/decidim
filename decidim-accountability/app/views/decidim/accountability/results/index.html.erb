@@ -12,10 +12,10 @@
   <div class="accountability__status-container">
     <%# REDESIGN_PENDING: variables mocked for the current_scope's parent %>
     <%= render partial: "status", locals: {
-      url: "back",
+      url: "",
       title: t("decidim.accountability.results.home_header.global_status"),
       progress: false,
-      extra_classes: "accountability__status__xs"
+      extra_classes: "accountability__status__parent"
     } %>
 
     <div>
@@ -27,7 +27,7 @@
         title: "Title of this current_scope",
         progress: 20,
         count: results.total_count > 0 && display_count(results.total_count),
-        extra_classes: "accountability__status__sm mt-4"
+        extra_classes: "accountability__status__child"
       } %>
     </div>
   </div>
