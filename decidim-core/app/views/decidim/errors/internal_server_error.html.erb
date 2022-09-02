@@ -8,23 +8,23 @@
           <table class="table-list">
             <tr>
               <th><%= t(".user", user_id: "") %></th>
-              <td> <%= user_id = try(:current_user)&.id || t(".unknown") %></td>
+              <td> <%= @info_hash[:user] %></td>
             </tr>
             <tr>
               <th><%= t(".date_and_time", date_and_time:"") %></th>
-              <td><%= date_and_time = l(Time.current, format: "%Y-%m-%dT%H:%M:%S.%6N") %></td>
+              <td><%= @info_hash[:date_and_time] %></td>
             </tr>
             <tr>
               <th><%= t(".url", url: "") %></th>
-              <td><%= request_url = try(:request).original_url %></td>
+              <td><%= @info_hash[:url] %></td>
             </tr>
             <tr>
               <th><%= t(".request_method", method: "") %></th>
-              <td><%= @method %></td>
+              <td><%= @info_hash[:request_method] %></td>
             </tr>
             <tr>
               <th><%= t(".reference", reference_id: "") %></th>
-              <td><%= @reference_id %></td>
+              <td><%= @info_hash[:reference] %></td>
             </tr>
           </table>
         </div>
