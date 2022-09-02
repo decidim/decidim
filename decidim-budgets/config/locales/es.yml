@@ -130,17 +130,22 @@ es:
         voting_finished: Has votado en este presupuesto
         voting_started: Has empezado a votar en este presupuesto
       budgets_list:
+        budgets: Presupuestos
         cancel_order:
           more_than_one: eliminar tu voto en %{name} y empezar de nuevo
           only_one: eliminar tu voto y empezar de nuevo.
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
         if_change_opinion: Si has cambiado de opinión, puedes
-        my_budgets: Mis presupuestos
         progress: Finalizar votación
         show: Ver proyectos
         vote: Votar
         voted_on: Has votado en %{links}
+        projects_count:
+            one: 1 proyecto
+            other: "%{count} proyectos"
+        remove_vote: Eliminar voto
+        voted_budgets: Presupuestos votados
       limit_announcement:
         cant_vote: No puedes votar en este presupuesto. <a href="%{landing_path}"> Prueba con otro presupuesto</a>.
         limit_reached: Tienes votos activos en %{links}. Para votar en este presupuesto debes <a href="%{landing_path}">borrar tu voto y empezar de nuevo</a>.
@@ -228,6 +233,23 @@ es:
           unfold: Desplegar
         order_progress:
           vote: Vota
+          assigned: Asignado
+          budget: Presupuesto
+          dynamic_help:
+            keep_adding_projects: Continua añadiendo proyectos
+            minimum_reached: Has llegado al mínimo para poder votar
+            start_adding_projects: Comienza a añadir proyectos
+          minimum: Mínimo
+          minimum_projects_rule:
+            description: Selecciona al menos %{minimum_number} proyectos que quieras votar y vota de acuerdo a tus preferencias para definir el presupuesto.
+          projects_rule:
+            description: Seleccion entre %{minimum_number} y %{maximum_number} proyectos que quieras votar y vota de acuerdo a tus preferencias para definir el presupuesto.
+          projects_rule_maximum_only:
+            description: Selecciona hasta %{maximum_number} proyectos que quieras votar y vota de acuerdo a tus preferencias para definir el presupuesto.
+          vote: Vota
+          vote_threshold_percent_rule:
+            description: Asigna al menos %{minimum_budget} a los proyectos que quieras votar y vota de acuerdo a tus preferencias para definir el presupuesto.
+
         order_selected_projects:
           remove: Eliminar
           selected_projects:
@@ -317,7 +339,8 @@ es:
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto
-        success: Tu voto se ha tramitado correctamente
+        success_html: Tu voto se ha tramitado correctamente. Puedes explorar <a href="%{rest_of_budgets_link}">el resto de presupuestos</a>.
+        success_no_left_budgets_html: Tu voto se ha tramitado correctamente
       destroy:
         error: Se ha producido un error al cancelar tu voto
         success: Tu voto se ha cancelado correctamente

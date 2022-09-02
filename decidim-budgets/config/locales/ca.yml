@@ -130,17 +130,22 @@ ca:
         voting_finished: Has votat en aquest pressupost
         voting_started: Has començat a votar en aquest pressupost
       budgets_list:
+        budgets: Pressupostos
         cancel_order:
           more_than_one: eliminar el teu vot a %{name} i començar de nou
           only_one: eliminar el teu vot i començar de nou.
         finished_message: Has finalitzat el procés de votació. Gràcies per participar-hi!
         highlighted_cta: Votar a %{name}
         if_change_opinion: Si has canviat d'opinió, pots
-        my_budgets: Els meus pressupostos
         progress: Acaba la votació
         show: Mostra els projectes
         vote: Vota
         voted_on: Has votat a %{links}
+        projects_count:
+            one: 1 projecte
+            other: "%{count} projectes"
+        remove_vote: Eliminar vot
+        voted_budgets: Pressupostos votats
       limit_announcement:
         cant_vote: No pots votar a aquests pressupostos. <a href="%{landing_path}"> Prova amb un altre pressupost </a>.
         limit_reached: Tens vots actius a %{links}. Per votar en aquest pressupot has d' <a href="%{landing_path}">esborrar el teu vot i començar de nou</a>.
@@ -228,6 +233,22 @@ ca:
           unfold: Desplegar
         order_progress:
           vote: Vota
+          assigned: Assignat
+          budget: Pressupost
+          dynamic_help:
+            keep_adding_projects: Continua afegint projects
+            minimum_reached: Has arrivat al mínim per a poder votar
+            start_adding_projects: Comença a afegir projectes
+          minimum: Mínim
+          minimum_projects_rule:
+            description: Tria almenys %{minimum_number} projectes que vullgues votar i vota d'acord a les teves preferències per a definir el pressupost.
+          projects_rule:
+            description: Tria almenys %{minimum_number} i fins a %{maximum_number} projectes que vullgues votar i vota d'acord a les teves preferències per a definir el pressupost.
+          projects_rule_maximum_only:
+            description: Tria fins a %{maximum_number} projectes que vullgues votar i vota d'acord a les teves preferències per a definir el pressupost.
+          vote: Vota
+          vote_threshold_percent_rule:
+            description: Assigna almenys %{minimum_budget} als projectes que vullgues votar i vota d'acord a les teves preferències per a definir el pressupost.
         order_selected_projects:
           remove: Esborrar
           selected_projects:
@@ -317,7 +338,8 @@ ca:
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot
-        success: El teu vot s'ha tramitat correctament
+        success_html: El teu vot s'ha tramitat correctament. Pots explorar <a href="%{rest_of_budgets_link}">la resta de pressupostos</a>.
+        success_no_left_budgets_html: El teu vot s'ha tramitat correctament.
       destroy:
         error: S'ha produït un error en cancel·lar el teu vot
         success: El teu vot ha estat cancel·lat correctament
