@@ -1,0 +1,16 @@
+<% add_decidim_page_title(translated_attribute(current_component.name)) if try(:current_component) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
+<% add_decidim_meta_tags(
+  image_url: current_participatory_space.attached_uploader(:banner_image).path,
+  description: translated_attribute(current_participatory_space.short_description),
+) %>
+
+<%= content_for :participatory_space_menu do %>
+  <%= render partial: "layouts/decidim/header/redesigned_menu" %>
+<% end %>
+
+<%= render "layouts/decidim/redesigned_application" do %>
+    <%= yield %>
+<% end %>
+
+<% provide :meta_image_url, current_participatory_space.attached_uploader(:banner_image).path %>

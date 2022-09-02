@@ -2,7 +2,7 @@
   <header>
     <%= render partial: "layouts/decidim/admin_links" if current_user&.admin %>
     <%= render partial: "layouts/decidim/header/redesigned_main" %>
-    <%= render partial: "layouts/decidim/header/redesigned_menu" %>
+    <%= content_for :participatory_space_menu %>
   </header>
 
   <div class="container">
