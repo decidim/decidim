@@ -637,7 +637,6 @@ lt:
     errors:
       internal_server_error:
         title: Serveryje kilo problema
-        try_later: Bandykite dar kartą vėliau.
       not_found:
         back_home: Grįžti į pagrindinį puslapį
         content_doesnt_exist: Šis adresas neteisingas arba pašalintas.
