@@ -444,7 +444,6 @@ bg:
     errors:
       internal_server_error:
         title: Възникна проблем с нашия сървър
-        try_later: Опитайте отново по-късно.
       not_found:
         back_home: Към Начало
         content_doesnt_exist: Този адрес е неправилен или е премахнат.
