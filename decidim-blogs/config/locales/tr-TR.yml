@@ -43,7 +43,6 @@ tr:
           fields:
             author: Yazar
             body: Vücut
-            created_at: Adresinde düzenlendi
             title: Başlık
       posts:
         show:
