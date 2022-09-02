@@ -595,7 +595,6 @@ de:
     errors:
       internal_server_error:
         title: Auf unserem Server ist ein Problem aufgetreten
-        try_later: Bitte versuchen Sie es später nochmal.
       not_found:
         back_home: Zurück zur Startseite
         content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
