@@ -51,7 +51,6 @@ lt:
           fields:
             author: Autorė(-ius)
             body: Pagrindinė dalis
-            created_at: Sukurta
             official_blog_post: Oficiali publikacija
             title: pavadinimas
       posts:
