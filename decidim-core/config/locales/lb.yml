@@ -517,7 +517,6 @@ lb:
     errors:
       internal_server_error:
         title: Op eisem Server ass e Problem opgetrueden
-        try_later: Bitte versuchen Sie es später nochmal.
       not_found:
         back_home: Zréck op d'Startsäit
         content_doesnt_exist: Dës Adress ass falsch oder gouf geläscht.
