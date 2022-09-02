@@ -49,7 +49,6 @@ ca:
           fields:
             author: Autora
             body: Cos
-            created_at: Creat el
             official_blog_post: Post oficial
             title: títol
       posts:
