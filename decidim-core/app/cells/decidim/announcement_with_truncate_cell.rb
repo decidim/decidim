@@ -34,9 +34,9 @@ module Decidim
 
     def has_truncated?
       if has_title?
-        clean_body.length > TRUNCATE_LENGTH
+        clean_body(truncate_text: true) != clean_body(truncate_text: false)
       else
-        clean_announcement.length > TRUNCATE_LENGTH
+        clean_announcement(truncate_text: true) != clean_announcement(truncate_text: false)
       end
     end
 
@@ -76,7 +76,23 @@ module Decidim
 
     def clean(value, truncate_text)
       translated_value = translated_attribute(value)
-      translated_value = truncate(translated_value, length: TRUNCATE_LENGTH, escape: false) if truncate_text
+
+      if truncate_text
+        line_breaks = ["</p>", "<br>", "<br />", "<br/>", "\n"].freeze
+        found = false
+
+        line_breaks.each do |line_break|
+          value_splitted = translated_value.split(line_break)
+          if value_splitted.size > 1
+            found = true
+            translated_value = value_splitted.first
+            break
+          end
+        end
+
+        # When not found the line break, do a truncate
+        translated_value = truncate(translated_value, length: TRUNCATE_LENGTH, escape: false) unless found
+      end
 
       decidim_sanitize(translated_value)
     end
