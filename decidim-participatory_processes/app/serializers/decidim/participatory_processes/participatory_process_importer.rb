@@ -44,7 +44,7 @@ module Decidim
             scopes_enabled: attributes["scopes_enabled"],
             participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
-          
+
           import_hero_image(attributes["remote_hero_image_url"]) if attributes["remote_hero_image_url"].present?
           import_banner_image(attributes["remote_banner_image_url"]) if attributes["remote_banner_image_url"].present?
 
@@ -154,13 +154,13 @@ module Decidim
       def import_hero_image(attribute)
         io, filename = io_and_filename_image(attribute)
 
-        @imported_process.hero_image.attach(io: io, filename: filename)
+        @imported_process.hero_image.attach(io:, filename:)
       end
 
       def import_banner_image(attribute)
         io, filename = io_and_filename_image(attribute)
 
-        @imported_process.banner_image.attach(io: io, filename: filename)
+        @imported_process.banner_image.attach(io:, filename:)
       end
 
       private
@@ -194,11 +194,11 @@ module Decidim
 
       def io_and_filename_image(image_url)
         uri = URI.parse(image_url)
-        
+
         filename = File.basename(uri.path)
         io = URI.parse(image_url).open
 
-        return io, filename
+        [io, filename]
       end
     end
   end

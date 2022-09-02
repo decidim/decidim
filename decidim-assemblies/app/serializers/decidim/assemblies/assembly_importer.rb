@@ -144,13 +144,13 @@ module Decidim
       def import_hero_image(attribute)
         io, filename = io_and_filename_image(attribute)
 
-        @imported_assembly.hero_image.attach(io: io, filename: filename)
+        @imported_assembly.hero_image.attach(io:, filename:)
       end
 
       def import_banner_image(attribute)
         io, filename = io_and_filename_image(attribute)
 
-        @imported_assembly.banner_image.attach(io: io, filename: filename)
+        @imported_assembly.banner_image.attach(io:, filename:)
       end
 
       private
@@ -184,11 +184,11 @@ module Decidim
 
       def io_and_filename_image(image_url)
         uri = URI.parse(image_url)
-        
+
         filename = File.basename(uri.path)
         io = URI.parse(image_url).open
 
-        return io, filename
+        [io, filename]
       end
     end
   end

@@ -27,30 +27,11 @@ describe "Admin imports participatory process", type: :system do
         )
         fill_in :participatory_process_slug, with: "pp-import"
       end
-      
-      hero_file = Decidim::Dev.asset("city.jpeg")
-      banner_file = Decidim::Dev.asset("city2.jpeg")
-      dest_folder = "../spec/decidim_dummy_app/uploads/decidim/participatory_process/hero_image/1/"
-      FileUtils.mkdir_p(dest_folder)
-      
-      FileUtils.cp(hero_file, dest_folder)
-      FileUtils.cp(banner_file, dest_folder)
-      
-      file_json = File.read(Decidim::Dev.asset("participatory_processes.json"))
-      original_json = JSON.parse(file_json).first
-      
-      hero_url = "#{current_host}:#{Capybara.current_session.server.port}/uploads/decidim/participatory_process/hero_image/1/city.jpeg"
-      banner_url = "#{current_host}:#{Capybara.current_session.server.port}/uploads/decidim/participatory_process/hero_image/1/city.jpeg"
-      
-      original_json['remote_hero_image_url'] = hero_url
-      original_json['remote_banner_image_url'] = banner_url
-      
-      file = Tempfile.new('participatory_processes')
-      file.write(original_json)
-      file.rewind
-      
-      participatory_processes_json = file.read
-      dynamically_attach_file(:participatory_process_document, participatory_processes_json)
+
+      do_stub_rq_with_rs_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
+      do_stub_rq_with_rs_format("http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg", "image/jpeg")
+
+      dynamically_attach_file(:participatory_process_document, Decidim::Dev.asset("participatory_processes.json"))
 
       click_button "Import"
     end
