@@ -355,6 +355,8 @@ fi-pl:
         working_group: Työryhmä
       index:
         title: Ryhmät
+      last_activity:
+        new_assembly: 'Uusi ryhmä:'
       pages:
         home:
           highlighted_assemblies:
