@@ -342,7 +342,6 @@ ru:
     errors:
       internal_server_error:
         title: При попытке связи с нашим сервером произошла ошибка
-        try_later: Пожалуйста, повторите попытку позже.
       not_found:
         back_home: Вернуться на главную
         content_doesnt_exist: Этот адрес неверен или был удален.
