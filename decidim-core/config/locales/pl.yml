@@ -621,7 +621,6 @@ pl:
     errors:
       internal_server_error:
         title: Wystąpił problem z naszym serwerem
-        try_later: Spróbuj ponownie później.
       not_found:
         back_home: Powrót na stronę główną
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
