@@ -458,7 +458,6 @@ sk:
     errors:
       internal_server_error:
         title: Vyskytol sa problém s naším serverom
-        try_later: Prosím skúste to znova neskôr.
       not_found:
         back_home: Späť na úvodnú stránku
         content_doesnt_exist: Táto adresa je nesprávna alebo bola odstránená.
