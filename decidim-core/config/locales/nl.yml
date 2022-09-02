@@ -538,7 +538,6 @@ nl:
     errors:
       internal_server_error:
         title: Er was een probleem met de server
-        try_later: Probeer het later opnieuw.
       not_found:
         back_home: Terug naar de hoofdpagina
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
