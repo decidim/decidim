@@ -516,7 +516,6 @@ pt:
     errors:
       internal_server_error:
         title: Houve um problema com o nosso servidor
-        try_later: Por favor, tente novamente mais tarde.
       not_found:
         back_home: Voltar ao início
         content_doesnt_exist: Este endereço está incorreto ou foi apagado.
