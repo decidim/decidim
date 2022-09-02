@@ -46,7 +46,6 @@ pl:
           fields:
             author: Autor
             body: Treść
-            created_at: Utworzono
             title: Tytuł
       posts:
         show:
