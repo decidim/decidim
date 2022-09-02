@@ -450,7 +450,6 @@ ar:
     errors:
       internal_server_error:
         title: كانت هناك مشكلة في الخادم الخاص بنا
-        try_later: الرجاء معاودة المحاولة في وقت لاحق.
       not_found:
         back_home: العودة إلى المنزل
         content_doesnt_exist: هذا العنوان غير صحيح أو تمت إزالته.
