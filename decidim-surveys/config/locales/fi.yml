@@ -59,6 +59,8 @@ fi:
           update:
             invalid: Kyselyn tallennus epäonnistui.
             success: Kyselyn tallennus onnistui.
+      last_activity:
+        new_survey: 'Uusi kysely:'
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
