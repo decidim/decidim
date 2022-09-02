@@ -581,7 +581,6 @@ hu:
     errors:
       internal_server_error:
         title: Valami probléma volt a szerverrel
-        try_later: Próbáld újra később.
       not_found:
         back_home: Vissza a főoldalra
         content_doesnt_exist: A cím helytelen vagy el lett távolítva.
