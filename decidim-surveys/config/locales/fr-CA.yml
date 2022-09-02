@@ -59,6 +59,8 @@ fr-CA:
           update:
             invalid: Erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.
+      last_activity:
+        new_survey: 'Nouvelle enquête :'
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
