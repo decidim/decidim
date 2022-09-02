@@ -514,7 +514,6 @@ eu:
     errors:
       internal_server_error:
         title: Arazo bat izan da gure zerbitzariarekin
-        try_later: Mesedez beranduago saiatu.
       not_found:
         back_home: Itzuli hasierara
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
