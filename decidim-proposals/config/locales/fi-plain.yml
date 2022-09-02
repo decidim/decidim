@@ -722,6 +722,9 @@ fi-pl:
       destroy_draft:
         error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
         success: Ehdotusluonnos poistettiin onnistuneesti.
+      last_activity:
+        new_proposal: 'Uusi ehdotus:'
+        proposal_updated: 'Ehdotusta on päivitetty:'
       models:
         collaborative_draft:
           fields:
