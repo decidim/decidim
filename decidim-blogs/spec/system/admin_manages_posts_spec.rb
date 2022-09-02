@@ -27,12 +27,11 @@ describe "Admin manages posts", type: :system do
   it "sets publish time correctly" do
     within "table" do
       within find("tr", text: translated(post1.title)) do
-        expect(find("td:nth-child(5)")).to have_content(two_days_ago)
-        expect(find("td:nth-child(4)")).to have_content(two_days_ago)
+        expect(page).to have_content(two_days_ago)
       end
       within find("tr", text: translated(post2.title)) do
-        expect(find("td:nth-child(5)")).to have_content(two_days_from_now)
-        expect(find("td:nth-child(5) svg")[:class]).to have_content("icon--clock icon")
+        expect(page).to have_content(two_days_from_now)
+        expect(find("td:nth-child(4) svg")[:class]).to have_content("icon--clock icon")
       end
     end
   end
