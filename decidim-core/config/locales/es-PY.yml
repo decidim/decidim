@@ -610,7 +610,6 @@ es-PY:
     errors:
       internal_server_error:
         title: Ha habido un problema con nuestro servidor
-        try_later: Por favor, vuelve a intentarlo más tarde.
       not_found:
         back_home: Volver al inicio
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
