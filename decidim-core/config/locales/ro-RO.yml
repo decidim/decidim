@@ -536,7 +536,6 @@ ro:
     errors:
       internal_server_error:
         title: A apărut o problemă cu serverul nostru
-        try_later: Te rugăm să încerci mai târziu.
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
