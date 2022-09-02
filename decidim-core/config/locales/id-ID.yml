@@ -365,7 +365,6 @@ id:
     errors:
       internal_server_error:
         title: Ada masalah dengan server kami
-        try_later: Silakan coba lagi nanti.
       not_found:
         back_home: Kembali ke rumah
         content_doesnt_exist: Alamat ini salah atau telah dihapus.
