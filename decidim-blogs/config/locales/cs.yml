@@ -1,5 +1,8 @@
 cs:
   activemodel:
+    attributes:
+      post:
+        published_at: Čas zveřejnění
     models:
       decidim/blogs/create_post_event: Nový blogový příspěvek
   activerecord:
@@ -34,6 +37,7 @@ cs:
             save: Aktualizovat
             title: Upravit příspěvek
           index:
+            not_published_yet: Zatím nezveřejněno
             title: Příspěvky
           new:
             create: Vytvořit
@@ -54,6 +58,7 @@ cs:
             author: Autor
             body: Tělo
             official_blog_post: Oficiální příspěvek
+            published_at: Čas zveřejnění
             title: titulek
       posts:
         show:
