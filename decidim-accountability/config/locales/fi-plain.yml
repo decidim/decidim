@@ -76,6 +76,10 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole yhtään budjetointikomponenttia, josta projektit voitaisiin tuoda tuloksiksi.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
+            success:
+              one: 1 projekti on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu
+              other: "%{count} projektia on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu"
+            title: Tuo projekteja vastuullisuuskomponenttiin
         results:
           create:
             invalid: Tuloksen luonnissa tapahtui virhe
@@ -158,6 +162,15 @@ fi-pl:
           row_number: Rivi
           subject: Tulosten tuonti onnistui
           success: Tulosten tuonti onnistui. Voit katsoa tulokset hallintapaneelista.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Yksi tulos tuotiin projekteista.
+            other: "%{count} tulosta tuotiin projekteista."
+          subject: Tulosten tuonti onnistui
+          success: Projektien tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
+      last_activity:
+        new_result: 'Uusi tulos:'
       models:
         result:
           fields:
