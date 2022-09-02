@@ -460,7 +460,6 @@ el:
     errors:
       internal_server_error:
         title: Υπήρξε ένα πρόβλημα με τον διακομιστή μας
-        try_later: Δοκιμάστε ξανά αργότερα.
       not_found:
         back_home: Επιστροφή στην αρχική
         content_doesnt_exist: Αυτή η διεύθυνση είναι εσφαλμένη ή έχει καταργηθεί.
