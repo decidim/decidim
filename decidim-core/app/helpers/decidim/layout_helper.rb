@@ -3,6 +3,8 @@
 module Decidim
   # View helpers related to the layout.
   module LayoutHelper
+    include Decidim::ModalHelper
+
     # Public: Generates a set of meta tags that generate the different favicon
     # versions for an organization.
     #

@@ -5,7 +5,6 @@ module Decidim
     # This cell renders the card for an instance of an Conference Speaker
     class ConferenceSpeakerCell < Decidim::AuthorCell
       include Decidim::Meetings::MeetingCellsHelper
-      include Decidim::ModalHelper
       include Cell::ViewModel::Partial
       include Decidim::Conferences::Engine.routes.url_helpers
       property :name
@@ -13,7 +12,7 @@ module Decidim
       property :profile_path
 
       def show
-        render :show_with_helpers
+        render :show
       end
 
       def speakers_list
