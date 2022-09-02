@@ -40,6 +40,7 @@ cs:
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         destroy: Odstranit
         edit: Upravit
+        import: Importovat projekty do výsledků
         import_csv: Importovat CSV
         new: Nový %{name}
         preview: Náhled
@@ -65,6 +66,16 @@ cs:
             name: Stav
           timeline_entry:
             name: Záznam v harmonogramu
+        projects_import:
+          create:
+            invalid: Došlo k potížím při importu projektů do výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
+          new:
+            create: Importovat
+            import_all_selected_projects: Importovat všechny projekty vybrané pro realizaci
+            no_components: V tomto participačním prostoru nejsou žádné složky rozpočtů pro import projektů do výsledků.
+            origin_component_id: Původ komponenty
+            select_component: Vybrat komponentu
+            title: Importovat projekty k odpovědnosti
         results:
           create:
             invalid: Při vytváření tohoto výsledku došlo k problému
@@ -147,6 +158,9 @@ cs:
           row_number: Řádek
           subject: Úspěšný import výsledků
           success: Úspěšný import výsledků. Výsledky můžete zkontrolovat v rozhraní administrace.
+      import_projects_mailer:
+        import:
+          subject: Úspěšný import projektů
       last_activity:
         new_result: 'Nový výsledek:'
       models:
