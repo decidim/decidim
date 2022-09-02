@@ -607,7 +607,6 @@ ca:
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor
-        try_later: Si us plau, torna-ho a intentar més tard.
       not_found:
         back_home: Torna a l'inici
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
