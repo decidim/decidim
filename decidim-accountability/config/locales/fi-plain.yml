@@ -38,6 +38,7 @@ fi-pl:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
+        import: Tuo projekteja tuloksiin
         import_csv: Tuo CSV
         new: Uusi %{name}
         preview: Esikatsele
@@ -63,6 +64,18 @@ fi-pl:
             name: Tila
           timeline_entry:
             name: Aikajanan merkintä
+        projects_import:
+          create:
+            invalid: Projektien tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut projekteja toteutukseen.
+          new:
+            create: Tuo
+            import_all_selected_projects: Tuo kaikki toteutukseen valitut projektit
+            new_items:
+              one: 1 toteutukseen valittu projekti tuodaan
+              other: "%{count} toteutukseen valittua projektia tuodaan"
+            no_components: Tässä osallisuustilassa ei ole yhtään budjetointikomponenttia, josta projektit voitaisiin tuoda tuloksiksi.
+            origin_component_id: Lähdekomponentti
+            select_component: Valitse komponentti
         results:
           create:
             invalid: Tuloksen luonnissa tapahtui virhe
