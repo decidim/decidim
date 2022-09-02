@@ -70,7 +70,6 @@ describe "Conversations", type: :system do
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
-          skip "REDESIGN_PENDING: This test will pass once merged https://github.com/decidim/decidim/pull/9774"
           expect(page).not_to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
           expect(page).to have_content("You are not authorized to perform this action")
         end
