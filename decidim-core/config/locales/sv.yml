@@ -567,7 +567,6 @@ sv:
     errors:
       internal_server_error:
         title: Det uppstod ett problem med vår server
-        try_later: Försök igen senare.
       not_found:
         back_home: Tillbaka hem
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
