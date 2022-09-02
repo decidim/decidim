@@ -264,6 +264,9 @@ fi-pl:
         title: Kysymykset teemasta %{scope_name}
       index:
         title: Kuulemiset
+      last_activity:
+        new_consultation: 'Uusi kuuleminen:'
+        new_question: 'Uusi kysymys:'
       pages:
         home:
           highlighted_consultations:
