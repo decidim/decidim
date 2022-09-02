@@ -722,6 +722,9 @@ fr-CA:
       destroy_draft:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
         success: Le brouillon de la proposition a bien été supprimé.
+      last_activity:
+        new_proposal: 'Nouvelle proposition :'
+        proposal_updated: 'Proposition mise à jour :'
       models:
         collaborative_draft:
           fields:
