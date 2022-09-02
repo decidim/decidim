@@ -51,7 +51,6 @@ fr:
           fields:
             author: Auteur
             body: Corps du texte
-            created_at: Créé à
             official_blog_post: Article officiel
             title: titre
       posts:
