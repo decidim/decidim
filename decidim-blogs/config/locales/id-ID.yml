@@ -41,7 +41,6 @@ id:
           fields:
             author: Penulis
             body: Tubuh
-            created_at: Dibuat di
             title: judul
       posts:
         show:
