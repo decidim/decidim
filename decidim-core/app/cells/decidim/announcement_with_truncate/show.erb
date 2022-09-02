@@ -3,9 +3,9 @@
     <% if has_title? %>
       <p class="heading5"><%= clean_title %></p>
 
-      <div data-show-less class="announcement-show-less"><%= clean_body(truncate_text: true) %></div>
+      <div data-show-less <%= %Q(class="announcement-show-less").html_safe if has_truncated? %>><%= clean_body(truncate_text: true) %></div>
     <% else %>
-      <div data-show-less class="announcement-show-less"><%= clean_announcement(truncate_text: true) %></div>
+      <div data-show-less <%= %Q(class="announcement-show-less").html_safe if has_truncated? %>><%= clean_announcement(truncate_text: true) %></div>
     <% end %>
 
     <% if has_truncated? %>
