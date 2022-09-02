@@ -443,7 +443,6 @@ zh-CN:
     errors:
       internal_server_error:
         title: 服务器出现问题
-        try_later: 请稍后再试。
       not_found:
         back_home: 返回首页
         content_doesnt_exist: 此地址不正确或已被删除。
