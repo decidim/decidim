@@ -44,7 +44,6 @@ sk:
           fields:
             author: Autor
             body: Telo textu
-            created_at: Vytvorené
             title: názov
       posts:
         show:
