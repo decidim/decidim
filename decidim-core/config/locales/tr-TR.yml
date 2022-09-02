@@ -504,7 +504,6 @@ tr:
     errors:
       internal_server_error:
         title: Sunucumuzla ilgili bir sorun oluştu
-        try_later: Lütfen daha sonra tekrar deneyiniz.
       not_found:
         back_home: Eve dön
         content_doesnt_exist: Bu adres yanlış veya kaldırılmış.
