@@ -44,7 +44,6 @@ eu:
           fields:
             author: Egilea
             body: Gorputzeko
-            created_at: Sortutako at
             title: Izenburua
       posts:
         show:
