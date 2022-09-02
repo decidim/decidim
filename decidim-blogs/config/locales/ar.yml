@@ -48,7 +48,6 @@ ar:
           fields:
             author: مؤلف
             body: الجسم
-            created_at: أنشئت في
             title: عنوان
       posts:
         show:
