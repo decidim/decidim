@@ -49,7 +49,6 @@ es:
           fields:
             author: Autora
             body: Cuerpo
-            created_at: Creado en
             official_blog_post: Post oficial
             title: título
       posts:
