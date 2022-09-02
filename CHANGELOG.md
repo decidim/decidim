@@ -219,6 +219,14 @@ bin/rails runner -e production 'Decidim::User.find_each { |u| puts "Processing u
 
 You can read more about this change on PR [\#8658](https://github.com/decidim/decidim/pull/8658).
 
+#### 3.6. Add CORS policy for dynamic file uploads
+
+This release allows Decidim users to upload files to Decidim dynamically from their browsers. If you are using any external file storage providers, such as Amazon S3, Google Cloud Storage or Azure Storage, you need to configure a CORS policy for these service providers to make the uploads work for the end users. If you are using the default configurations with a local file storage, you don't have to do any extra configuration to make this work.
+
+To configure the CORS policy for each 3rd party service, please refer to the [Active Storage section](https://docs.decidim.org/en/services/activestorage.html) of the documentation.
+
+You can read more about this change on PR [\#8681](https://github.com/decidim/decidim/pull/8681).
+
 ### 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
