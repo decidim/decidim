@@ -72,9 +72,19 @@ cs:
           new:
             create: Importovat
             import_all_selected_projects: Importovat všechny projekty vybrané pro realizaci
+            new_items:
+              one: 1 vybraný projekt bude importován
+              few: "%{count} vybrané projekty budou importovány"
+              many: "%{count} vybraných projektů bude importováno"
+              other: "%{count} vybraných projektů bude importováno"
             no_components: V tomto participačním prostoru nejsou žádné složky rozpočtů pro import projektů do výsledků.
             origin_component_id: Původ komponenty
             select_component: Vybrat komponentu
+            success:
+              one: 1 projekt, který má být importován. Po dokončení budete upozorněni e-mailem
+              few: "%{count} projekty jsou ve frontě na import. Po dokončení budete informováni e-mailem"
+              many: "%{count} projektů je ve frontě na import. Po dokončení budete informováni e-mailem"
+              other: "%{count} projektů je ve frontě na import. Po dokončení budete informováni e-mailem"
             title: Importovat projekty k odpovědnosti
         results:
           create:
@@ -160,7 +170,13 @@ cs:
           success: Úspěšný import výsledků. Výsledky můžete zkontrolovat v rozhraní administrace.
       import_projects_mailer:
         import:
+          added_projects:
+            one: Jeden výsledek byl importován z projektů.
+            few: "%{count} výsledky byly importovány z projektů."
+            many: "%{count} výsledků bylo importováno z projektů."
+            other: "%{count} výsledků bylo importováno z projektů."
           subject: Úspěšný import projektů
+          success: Úspěšný import projektů do výsledků v komponentě %{component_name}. Výsledky si můžete prohlédnout v administračním rozhraní.
       last_activity:
         new_result: 'Nový výsledek:'
       models:
