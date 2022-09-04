@@ -77,6 +77,15 @@ lt:
               few: "%{count} pasirinkti projektai bus importuoti"
               many: "%{count} pasirinktų projektų bus importuoti"
               other: "%{count} pasirinkti projektai bus importuoti"
+            no_components: Šioje dalyvaujamojoje erdvėje nėra biudžeto komponentų, skirtų importuoti į rezultatus.
+            origin_component_id: Pirminis komponentas
+            select_component: Pasirinkite komponentą
+            success:
+              one: 1 projektas įtrauktas į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu
+              few: "%{count} projektai įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu"
+              many: "%{count} projektų buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu"
+              other: "%{count} projektai buvo įtraukti į importavimo eilę. Pasibaigus procesui, būsite informuoti el. paštu"
+            title: Importuoti projektus į „Atskaitomybę“
         results:
           create:
             invalid: Kuriant šį rezultatą iškilo problema
@@ -159,6 +168,17 @@ lt:
           row_number: Eilutė
           subject: Rezultatai sėkmingai importuoti
           success: Rezultatai sėkmingai importuoti. Rezultatus galite peržiūrėti administravimo sąsajoje.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Vienas rezultatas buvo importuotas iš projektų.
+            few: "%{count} rezultatai buvo importuoti iš projektų."
+            many: "%{count} rezultatų buvo importuoti iš projektų."
+            other: "%{count} rezultatai buvo importuoti iš projektų."
+          subject: Projektai sėkmingai importuoti
+          success: Sėkmingai importuoti projektai į komponento %{component_name} rezultatus. Rezultatus galite peržiūrėti administravimo sąsajoje.
+      last_activity:
+        new_result: 'Naujas rezultatas:'
       models:
         result:
           fields:
