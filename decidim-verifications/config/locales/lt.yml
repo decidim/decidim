@@ -90,6 +90,10 @@ lt:
         create:
           error: Kuriant įgaliojimą kilo problema.
           success: Jums suteiktas leidimas.
+          unconfirmed: Kad gautumėte leidimą, turite patvirtinti savo el. pašto adresą.
+        destroy:
+          error: Šalinant leidimą iškilo problema.
+          success: Leidimą pašalinote.
         first_login:
           title: Patvirtinkite savo tapatybę
         index:
@@ -160,19 +164,25 @@ lt:
               error: Tikrinimo duomenys nesutampa. Bandykite dar kartą ir prašykite dalyviui juos pakeisti
             new:
               cancel: Atšaukti
+              verify: Patikrinti
           pending_authorizations:
             index:
               config: Nustatymai
               offline_verification: Tikrinimas atjungties režimu
+              verification_number: 'Tikrinimas #%{n}'
         authorizations:
           choose:
             choose_a_type: 'Pasirinkite, kaip norite būti tikrinami:'
+            offline: Offline
+            online: Online
             title: Identifikuokite save naudodami tapatybės dokumentą
           create:
             error: Įkeliant jūsų dokumentą iškilo problema
             success: Dokumentas įkeltas
           edit:
             being_reviewed: Peržiūrime jūsų dokumentus. Netrukus jus patikrinsime
+            offline: Naudoti tikrinimo offline režimu funkciją
+            online: Naudoti tikrinimo online režimu funkciją
             rejection_clarity: Įsitikinkite, kad įkeltame paveikslėlyje informacija būtų aiškiai matoma
             rejection_correctness: Įsitikinkite, kad suvedėte teisingą informaciją
             rejection_notice: Jus identifikuojant iškilo problema. Bandykite dar kartą
@@ -184,6 +194,7 @@ lt:
             error: Iš naujo įkeliant jūsų dokumentą iškilo problema
             success: Dokumentas iš naujo įkeltas
         dni: Asmens tapatybės dokumentas
+        nie: NIE
         passport: Pasas
       postal_letter:
         admin:
@@ -193,8 +204,18 @@ lt:
               letter_sent_at: Laiškas išsiųstas
               mark_as_sent: Pažymėti kaip išsiųstą
               not_yet_sent: Dar neišsiųsta
+              title: Vykstantys tikrinimai
+              username: Slapyvardis
+              verification_code: Patvirtinimo kodas
+          postages:
+            create:
+              error: Iškilo klaida pažymint laišką kaip išsiųstą
+              success: Laiškas pažymėtas kaip išsiųstas
         authorizations:
+          create:
+            success: Dėkojame! Jūsų adresu atsiųsime patvirtinimo kodą
           edit:
+            send: Patvirtinti
             title: Įveskite gautą patvirtinimo kodą
             waiting_for_letter: Netrukus jūsų adresu išsiųsime laišką su patvirtinimo kodu
           new:
