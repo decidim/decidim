@@ -1,5 +1,8 @@
 lt:
   activemodel:
+    attributes:
+      post:
+        published_at: Paskelbimo laikas
     models:
       decidim/blogs/create_post_event: Naujas tinklaraščio įrašas
   activerecord:
@@ -34,6 +37,7 @@ lt:
             save: Atnaujinimas
             title: Redaguoti publikaciją
           index:
+            not_published_yet: Dar nepaskelbta
             title: Publikacijos
           new:
             create: Sukurti
@@ -46,12 +50,15 @@ lt:
           create: "%{user_name} sukūrė %{resource_name} tinklaraščio įrašą %{space_name}"
           delete: "%{user_name} ištrynė %{resource_name} tinklaraščio įrašą iš %{space_name}"
           update: "%{user_name} atnaujino %{resource_name} tinklaraščio įrašą %{space_name}"
+      last_activity:
+        new_post: 'Naujas įrašas:'
       models:
         post:
           fields:
             author: Autorė(-ius)
             body: Pagrindinė dalis
             official_blog_post: Oficiali publikacija
+            published_at: Paskelbimo laikas
             title: pavadinimas
       posts:
         show:
