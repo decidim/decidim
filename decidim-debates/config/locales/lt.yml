@@ -175,6 +175,9 @@ lt:
             title: Versijos
         versions_list:
           back_to_resource: Grįžti į diskusiją
+      last_activity:
+        debate_updated: 'Diskusija atnaujinta:'
+        new_debate: 'Nauja diskusija:'
       models:
         debate:
           fields:
