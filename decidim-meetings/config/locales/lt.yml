@@ -434,6 +434,9 @@ lt:
         none: Nėra
         open_in_live_event_page: Atidaryti renginio puslapyje (pasirinktinai - su apklausomis)
         open_in_new_tab: Atidaryti naujame skirtuke
+      last_activity:
+        meeting_updated: 'Susitikimas atnaujintas:'
+        new_meeting: 'Naujas susitikimas:'
       layouts:
         live_event:
           administrate: Administruoti
