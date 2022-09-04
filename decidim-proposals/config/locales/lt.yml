@@ -740,6 +740,9 @@ lt:
       destroy_draft:
         error: Šalinant bendrąjį juodraštį iškilo problema.
         success: Pasiūlymo projektas pašalintas.
+      last_activity:
+        new_proposal: 'Naujas pasiūlymas:'
+        proposal_updated: 'Pasiūlymas atnaujintas:'
       models:
         collaborative_draft:
           fields:
