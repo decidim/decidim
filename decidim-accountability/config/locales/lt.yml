@@ -40,6 +40,7 @@ lt:
         confirm_destroy: Ar tikrai norite pašalinti šį %{name}?
         destroy: Ištrinti
         edit: Redaguoti
+        import: Importuoti projektus į rezultatus
         import_csv: Importuoti CSV
         new: Naujas %{name}
         preview: Peržiūra
@@ -65,6 +66,17 @@ lt:
             name: Statusas
           timeline_entry:
             name: Laiko juostos įrašas
+        projects_import:
+          create:
+            invalid: Importuojant projektus į rezultatus iškilo problema. Atidžiai vykdykite instrukcijas ir įsitikinkite, kad pasirinkote įgyvendinimui skirtus projektus.
+          new:
+            create: Importuoti
+            import_all_selected_projects: Importuoti visus projektus, kurie buvo pasirinkti įgyvendinimui
+            new_items:
+              one: 1 pasirinktas projektas bus importuotas
+              few: "%{count} pasirinkti projektai bus importuoti"
+              many: "%{count} pasirinktų projektų bus importuoti"
+              other: "%{count} pasirinkti projektai bus importuoti"
         results:
           create:
             invalid: Kuriant šį rezultatą iškilo problema
