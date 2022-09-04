@@ -280,6 +280,9 @@ lt:
         title: '%{scope_name} pateikti klausimai'
       index:
         title: Konsultacijos
+      last_activity:
+        new_consultation: 'Nauja konsultacija:'
+        new_question: 'Naujas klausimas:'
       pages:
         home:
           highlighted_consultations:
