@@ -177,6 +177,8 @@ lt:
         error: Atnaujinant paskyrą kilo problema.
         success: Paskyra sėkmingai atnaujinta.
         success_with_email_confirmation: Paskyra sėkmingai atnaujinta. Gausite el. laišką naujo el. pašto patvirtinimui.
+    activity:
+      time_ago: "Prieš %{time}"
     admin:
       actions:
         cancel: Atšaukti
@@ -636,7 +638,17 @@ lt:
       endorsed_by: Mėgiama…
     errors:
       internal_server_error:
+        copied: Tekstas nukopijuotas!
+        copy_error_message_clarification: Nukopijuokite klaidos pranešimą į mainų sritį
+        copy_to_clipboard: Kopijuoti į mainų sritį
+        date_and_time: Data ir Laikas
+        reference: Nuoroda
+        request_method: Prašymo būdas
         title: Serveryje kilo problema
+        try_later: Pabandykite dar kartą vėliau. Jei klaida išlieka, nukopijuokite šią informaciją ir nusiųskite ją platformos prižiūrėtojams kartu su visa kita informacija, kuria norite pasidalinti.
+        unknown: Nežinoma
+        url: URL
+        user: Naudotojo ID
       not_found:
         back_home: Grįžti į pagrindinį puslapį
         content_doesnt_exist: Šis adresas neteisingas arba pašalintas.
@@ -822,6 +834,11 @@ lt:
         other: "%{count} sekėjai"
       no_followers: Dar nėra sekėjų.
     following:
+      following_count:
+        one: "%{count} sekėjas"
+        few: "%{count} sekėjai"
+        many: "%{count} sekėjų"
+        other: "%{count} sekėjai"
       no_followings: Dar nieko neseka.
       non_public_followings: Kai kurie sekami ištekliai nėra vieši.
     follows:
@@ -910,6 +927,7 @@ lt:
       description: Ženkleliai – tai dalyvių veiksmų ir veiklos platformoje pripažinimas. Susipažindami su platforma, joje dalyvaudami ir bendraudami, pelnysite įvairių ženklelių.
       level: '%{level} lygis'
       reached_top: Pasiekėte aukščiausią šio ženklelio lygį.
+      title: Kas yra ženkleliai?
     group_admins:
       actions:
         are_you_sure: Ar jūs tuo tikri? Tai nepašalins dalyvio iš grupės.
@@ -1333,6 +1351,15 @@ lt:
           info: Ženkleliai pelnomi vykdant konkrečias veiklas platformoje.
           title: Ženkleliai
       user:
+        actions:
+          create_user_group: Sukurti grupę
+          edit_profile: Redaguoti profilį
+          edit_user_group: Redaguoti grupės profilį
+          invite_user: Kviesti dalyvį
+          join_user_group: Prašyti prisijungti prie grupės
+          manage_user_group_admins: Valdyti administratorių duomenis
+          manage_user_group_users: Valdyti narius
+          message: Pranešimas
         confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas
         create_user_group: Sukurti grupę
         edit_profile: Redaguoti profilį
