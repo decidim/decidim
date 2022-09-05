@@ -9,9 +9,9 @@
 
   <div class="conversation__item-snippet">
     <div class="conversation__item-snippet-title" data-interlocutors-list>
-      <h5 class="h5 text-secondary">
+      <h2 class="h5 text-secondary">
         <%= conversation.interlocutors(current_user).last.name %>
-      </h5>
+      </h2>
 
       <% if conversation.interlocutors(current_user).count > 1 %>
         <div class="flex -space-x-2">
