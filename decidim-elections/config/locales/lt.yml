@@ -591,6 +591,12 @@ lt:
             upload_icon: Ikona indikuojanti parsisiuntimo veiksmą
           tally_started_steps:
             back: Atgal
+            description: Šių rinkimų rezultatai skaičiuojami Skelbimų lentoje. Norint užbaigti šį procesą, būtinas jūsų, kaip Patikėtinio, dalyvavimas.
+            keys:
+              end_tally: Balsų skaičiavimas baigtas
+              tally:
+                cast: Duoti balsai
+                share: Balsų dalis
             list:
               status: Būsena
               task: Užduotis
@@ -601,6 +607,7 @@ lt:
               completed: Baigta
               pending: Laukiama
               processing: Apdorojama
+            title: Balsai %{election}
           update:
             error: Rinkimų būsena neatnaujinta.
             success: 'Rinkimų būsena yra: %{status}'
@@ -1343,6 +1350,7 @@ lt:
           invalid: Tikrinant surašymo duomenis iškilo problema.
           success:
             access_link: el. paštu.
+            access_link_with_sms: SMS ar el. paštu.
             info: Turėjote gauti prieigos kodą per paštą. Jei negavote, išsiųskite užklausą čia
             title: Jūsų surašymo duomenys teisingi!
           title: Ar galiu balsuoti?
