@@ -42,6 +42,10 @@ lt:
           valuator_role_id: Vertintojo vardas ir pavardė
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Netinkamas dokumento tipas. Priimtini formatai: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -604,6 +608,7 @@ lt:
           all: Visi
         filter_origin_values:
           all: Visi
+          citizens: Piliečiai
           meetings: Susitikimai
           official: Oficialūs
           user_groups: Grupės
@@ -785,8 +790,11 @@ lt:
           instructions: Galite perkelti tašką žemėlapyje.
         edit:
           add_documents: Dokumentai
+          add_images: Rinkmena
           attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
+          delete_document: Ištrinti Dokumentą
+          delete_image: Pašalinti Paveikslėlį
           gallery_legend: "(Neprivaloma) Pridėkite vaizdą prie pasiūlymo kortelės"
           select_a_category: Pasirinkite kategoriją
           send: Siųsti
@@ -871,6 +879,7 @@ lt:
           changes_at_title: '„%{title}“ pakeitimas'
           comments: Komentarai
           edit_proposal: Redaguoti pasiūlymą
+          endorsements_list: Pritarimų Sąrašas
           estimated_cost: Numatomos išlaidos
           hidden_endorsers_count:
             one: ir dar %{count} žmogus
