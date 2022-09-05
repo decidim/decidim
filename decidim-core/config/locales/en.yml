@@ -620,7 +620,7 @@ en:
         copied: Text copied!
         copy_error_message_clarification: Copy error message to clipboard
         copy_to_clipboard: Copy to clipboard
-        date_and_time: Date and Time
+        date_and_time: Date and time
         reference: Reference
         request_method: Request method
         title: There was a problem with our server
