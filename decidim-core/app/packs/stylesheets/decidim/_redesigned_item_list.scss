@@ -1,0 +1,15 @@
+.item-list{
+  @apply flex gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary;
+
+  &__title{
+    @apply text-secondary mb-3;
+  }
+
+  &__metadata{
+    @apply mt-auto;
+  }
+
+  &:hover &__title{
+    @apply underline;
+  }
+}

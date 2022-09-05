@@ -134,4 +134,42 @@
       @apply underline;
     }
   }
+
+  &__project{
+    &-aside{
+      @apply bg-background p-4 rounded divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0;
+
+      &-item{
+        @apply text-gray-2 space-y-1.5;
+
+        > :first-child{
+          @apply text-sm flex items-center gap-1;
+        }
+
+        > :last-child{
+          @apply text-md font-semibold;
+        }
+      }
+    }
+
+    &-timeline{
+      @apply flex flex-col gap-6;
+
+      &-entry{
+        @apply flex items-start gap-2 relative before:absolute before:w-px before:-z-10 before:left-3 before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-6 before:-top-3 first:before:top-3;
+
+        &-number{
+          @apply rounded-full w-6 h-6 bg-background grid place-items-center text-gray-2 text-lg font-semibold;
+        }
+
+        &-attributes{
+          @apply text-gray-2 text-sm;
+
+          > :first-child{
+            @apply text-lg font-semibold;
+          }
+        }
+      }
+    }
+  }
 }

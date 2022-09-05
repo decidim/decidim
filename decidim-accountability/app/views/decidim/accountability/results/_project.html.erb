@@ -1,5 +1,5 @@
 <%# REDESIGN_PENDING: the drawer layout, should have its own shared layout %>
-<div class="grid grid-cols-12">
+<div class="grid grid-cols-12 gap-7">
   <div class="col-span-9">
     <h2 class="h2 decorator"><%= translated_attribute result.title %></h2>
 
@@ -7,63 +7,44 @@
       <%== translated_attribute result.description %>
     </div>
 
-    <%# REDESIGN_PENDING: missing design %>
-    <%= cell "decidim/tags", result, context: { extra_classes: ["tags--result"] } %>
+    <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+      <ul class="tab-x-container">
+        <%
+          tabs = []
 
-    <div class="mt-8">
-      <%= render partial: "stats_box" %>
-      <%= render partial: "timeline", locals: { result: result } if result.timeline_entries.any? %>
-      <%= attachments_for result %>
+          tabs << ["project_timeline", t("decidim.accountability.results.timeline.title"), "route-line"] if result.timeline_entries.any?
+          tabs << ["project_proposals", t("activemodel.attributes.result.proposals"), "chat-new-line"]
+          tabs << ["project_projects", t("activemodel.attributes.result.project_ids"), "git-pull-request-line"]
+
+          tabs.each_with_index do |tab, i| %>
+          <li class="tab-x" data-controls="panel-<%= tab[0] %>" data-open="<%= "true" if i == 0 %>"><%= icon tab[2], class: "text-gray fill-current" %><%= tab[1] %></li>
+        <% end %>
+      </ul>
+
+      <%
+        panels = []
+
+        panels << ["project_timeline", { result: result }] if result.timeline_entries.any?
+        panels << ["project_proposals", {}]
+        panels << ["project_projects", {}]
+
+        panels.each do |panel| %>
+        <div id="panel-<%= panel[0] %>" class="py-8">
+          <%= render partial: panel[0], locals: panel[1] %>
+        </div>
+      <% end %>
     </div>
 
-    <%= render partial: "stats" %>
+    <div class="mt-8">
+      <%= cell "decidim/tags", result %>
+    </div>
+
     <%= comments_for result %>
   </div>
 
   <div class="col-span-3">
-
-    <div class="bg-background p-4 rounded divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0">
-      <% if component_settings.display_progress_enabled? && result.progress.present? %>
-        <%= render partial: "status", locals: {
-          title: t("models.result.fields.progress", scope: "decidim.accountability"),
-          progress: result.progress,
-          extra_classes: "accountability__status__project"
-        } %>
-      <% end %>
-
-      <%
-        items = []
-
-        date_title = []
-        date_title << t("models.result.fields.start_date", scope: "decidim.accountability") if result.start_date
-        date_title << t("models.result.fields.end_date", scope: "decidim.accountability") if result.end_date
-
-        date_value = []
-        date_value << l(result.start_date, format: :decidim_short_with_month_name_short) if result.start_date
-        date_value << l(result.end_date, format: :decidim_short_with_month_name_short) if result.end_date
-
-        items << [
-          date_title.join(" / "),
-          date_value.join(" / "),
-          "calendar-todo-line"
-        ] if result.start_date;
-        items << [
-          t("models.result.fields.status", scope: "decidim.accountability"),
-          translated_attribute(result.status.name),
-          "focus-2-line"
-        ] if result.status;
-        items << [
-          t("models.status.fields.description", scope: "decidim.accountability"),
-          translated_attribute(result.status.description),
-          "file-text-line"
-        ] if result.status && translated_attribute(result.status.description).present?;
-
-        items.each do |item| %>
-        <div class="text-gray-2 space-y-1.5">
-          <div class="text-sm flex items-center gap-1"><%= icon item[2], class: "w-3.5 h-3.5 fill-current text-gray" %><%= item[0] %></div>
-          <div class="text-md font-semibold"><%= item[1] %></div>
-        </div>
-      <% end %>
+    <div class="accountability__project-aside">
+      <%= render partial: "project_aside", locals: { result: result } %>
     </div>
   </div>
 </div>
