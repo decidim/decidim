@@ -103,9 +103,12 @@ lt:
             values:
               official: Oficialūs
               participants: Dalyvis
+              user_group: Naudotojų Grupės
           with_any_type:
+            label: Susitikimo tipas
             values:
               hybrid: Hibridiniai
+              in_person: Fizinis
               online: Internetiniai
       meeting_copies:
         create:
@@ -362,6 +365,7 @@ lt:
             available_slots_help: Jei nėra ribojimų įrašykite 0.
             invites: Pakvietimai
             recommendation_message: Dėl privatumo priežasčių rekomenduojame ištrinti šią įrašo formą, kai jos nebereikės. Pagal numatytuosius parametrus, ji ištrinama praėjus 3 mėnesiams nuo susirinkimo pabaigos.
+            registration_email_help: Šis tekstas bus rodomas registracijos patvirtinimo el. laiško viduryje. Iš karto po registracijos kodo.
             registration_form: Registracijos forma
             registrations_count:
               one: Yra %{count} registracija.
@@ -421,6 +425,7 @@ lt:
         upcoming_meetings:
           name: Artėjantys susirinkimai
           upcoming_meetings: Artėjantys susirinkimai
+          view_all_meetings: Peržiūrėti visus
       directory:
         meetings:
           index:
