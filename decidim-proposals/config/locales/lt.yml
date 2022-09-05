@@ -42,6 +42,10 @@ lt:
           valuator_role_id: Vertintojo vardas ir pavardė
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              invalid_document_type: 'Netinkamas dokumento tipas. Priimtini formatai: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -129,6 +133,7 @@ lt:
         name: Pasiūlymai
         settings:
           global:
+            allow_card_image: Leisti kortelės atvaizdą
             amendments_enabled: Pataisos leidžiamos
             amendments_enabled_help: Jeigu jie aktyvūs, sukonfigūruokite kiekvieno etapo pakeitimo požymius.
             amendments_wizard_help_text: Pakeitimų vedlio pagalbos tekstas
@@ -197,21 +202,33 @@ lt:
             email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
             notification_title: Kažkas paliko pastabą dėl pasiūlymo <a href="%{resource_path}">%{resource_title}</a>. Peržiūrėkite ją <a href="%{admin_proposal_info_path}">administratoriaus srityje</a>
         collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} buvo priimtas kaip <a href="%{resource_path}">%{resource_title}</a> bendradarbiavimo juodraščio bendraautorius.'
+          email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
           email_subject: "%{requester_name}, kaip %{resource_title} bendraautoriui, suteikta prieiga."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a>, <strong>, kaip </strong> bendro juodraščio <a href="%{resource_path}">%{resource_title}</a> bendraautoriui, suteikta prieiga.
         collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} buvo atmestas kaip <a href="%{resource_path}">%{resource_title}</a> bendradarbiavimo juodraščio bendraautorius.'
+          email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
           email_subject: "%{requester_name} nesuteikta prieigos prie bendro juodraščio %{resource_title} kaip bendraautoriui."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> nesuteikta <strong>prieigos kaip </strong> juodraščio <a href="%{resource_path}">%{resource_title}</a> bendraautoriui.
         collaborative_draft_access_requested:
+          email_intro: '%{requester_name} paprašė prieigos kaip bendraautorius. Galite <strong>priimti arba atmesti užklausą</strong> iš bendro projekto (juodraščio) <a href="%{resource_path}">%{resource_title}</a> puslapio.'
+          email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
           email_subject: "%{requester_name} paprašė prieigos, kad galėtų prisidėti prie %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> paprašė prieigos, kad galėtų prisidėti prie bendro juodraščio <a href="%{resource_path}">%{resource_title}</a>. Užklausą <strong>priimkite arba atmeskite</strong>.
         collaborative_draft_access_requester_accepted:
+          email_intro: Jums suteikta prieiga kaip bendro juodraščio <a href="%{resource_path}">%{resource_title}</a> bendraautoriui.
+          email_outro: Šį pranešimą gavote dėl to, kad pateikėte prašymą tapti <a href="%{resource_path}">%{resource_title}</a> bendraautoriumi.
           email_subject: Jūs patvirtintas %{resource_title} bendraautoriumi.
           notification_title: Jums suteikta <strong>prieiga kaip </strong> bendro juodraščio <a href="%{resource_path}">%{resource_title}</a> bendraautoriui.
         collaborative_draft_access_requester_rejected:
+          email_intro: Jums nebuvo suteikta bendraautoriaus prieiga prie <a href="%{resource_path}">%{resource_title}</a> juodraščio.
+          email_outro: Šį pranešimą gavote dėl to, kad pateikėte prašymą tapti <a href="%{resource_path}">%{resource_title}</a> bendraautoriumi.
           email_subject: Jūs prašymas tapti %{resource_title} bendraautoriumi atmestas.
           notification_title: Jums <strong>nesuteikta prieiga prie </strong> juodraščio <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> atsiėmė <a href="%{resource_path}">%{resource_title}</a> juodraštį.
+          email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
           email_subject: "%{author_name} %{author_nickname} atsiėmė juodraštį %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_nickname}</a><strong> atsiėmė</strong><a href="%{resource_path}">%{resource_title}</a> juodraštį.
         creation_enabled:
@@ -260,6 +277,7 @@ lt:
           email_intro: Erdvėje „%{participatory_space_title}“, kurią sekate, pridėtas pasiūlymas „%{resource_title}“.
           email_outro: Šį pranešimą gavote dėl to, kad sekate „%{participatory_space_title}“. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: '%{participatory_space_title} pridėtas naujas pasiūlymas „%{resource_title}“'
+          notification_title: '%{participatory_space_title} pridėtas pasiūlymas <a href="%{resource_path}">%{resource_title}</a>'
         proposal_rejected:
           affected_user:
             email_intro: 'Jūsų pasiūlymas „%{resource_title}“ atmestas. Atsakymą galite perskaityti šiame puslapyje:'
@@ -345,6 +363,7 @@ lt:
       actions:
         answer_proposal: Atsakyti į pasiūlymą
         edit_proposal: Redaguoti pasiūlymą
+        import: Importuoti iš kito komponento
         new: Naujas pasiūlymas
         participatory_texts: Dalyvaujamieji tekstai
         show: Rodyti pasiūlymą
@@ -500,9 +519,11 @@ lt:
             title: Importuoti pasiūlymus
         proposals_merges:
           create:
+            invalid: Suliejant pasirinktus pasiūlymus iškilo problema.
             success: Pasiūlymai sulieti į vieną naują pasiūlymą.
         proposals_splits:
           create:
+            invalid: Skaidant pasirinktus pasiūlymus iškilo problema.
             success: Pasiūlymai išskaidyti į naujus.
         valuation_assignments:
           create:
@@ -533,6 +554,7 @@ lt:
           all: Visi
         filter_origin_values:
           all: Visi
+          citizens: Piliečiai
           meetings: Susitikimai
           official: Oficialūs
           user_groups: Grupės
@@ -714,8 +736,11 @@ lt:
           instructions: Galite perkelti tašką žemėlapyje.
         edit:
           add_documents: Dokumentai
+          add_images: Rinkmena
           attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
+          delete_document: Ištrinti Dokumentą
+          delete_image: Pašalinti Paveikslėlį
           gallery_legend: "(Neprivaloma) Pridėkite vaizdą prie pasiūlymo kortelės"
           select_a_category: Pasirinkite kategoriją
           send: Siųsti
@@ -756,6 +781,7 @@ lt:
             other: balsai
         new:
           send: Tęsti
+          title: Sukurti Savo Pasiūlymą
         orders:
           label: 'Rikiuoti pasiūlymus pagal:'
           most_commented: Labiausiai komentuojamas
@@ -796,6 +822,7 @@ lt:
           changes_at_title: '„%{title}“ pakeitimas'
           comments: Komentarai
           edit_proposal: Redaguoti pasiūlymą
+          endorsements_list: Pritarimų Sąrašas
           estimated_cost: Numatomos išlaidos
           hidden_endorsers_count:
             one: ir dar %{count} žmogus
