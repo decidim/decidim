@@ -42,6 +42,10 @@ lt:
         type_of_meeting: Tipas
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Šis URL negali būti pridėtas
         meeting_agenda:
           attributes:
             base:
@@ -94,11 +98,16 @@ lt:
           origin_eq:
             label: Kilmė
             values:
+              citizen: Pilietis
               official: Oficialus
+              user_group: Naudotojų Grupės
           scope_id_eq:
             label: Apimtis
           type_eq:
+            label: Susitikimo tipas
             values:
+              hybrid: Abu
+              in_person: Fizinis
               online: Virtualūs
       meeting_copies:
         create:
@@ -179,6 +188,9 @@ lt:
           email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
           email_subject: '"%{resource_title}" susirinkimas prasidės už mažiau nei 48 val.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas prasidės už mažiau nei 48 val.
+    forms:
+      meetings:
+        attendees_count_help_text: Nepamirškite nurodyti viso renginio dalyvių skaičiaus. Nesvarbu, ar tai būtų fizinis dalyvavimas, ar hibridas, ar internetu, svarbu žinoti, kiek žmonių dalyvauja.
     gamification:
       badges:
         attended_meetings:
@@ -306,9 +318,11 @@ lt:
             location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
             location_hints_help: 'Vietos priedėliai: papildoma informacija kaip pvz. buto numeris, iš kurios pusės įeiti ir t. t.'
             online_meeting_url_help: 'Nuoroda: leisti dalyviams tiesiai prisijungti prie susirinkimo'
+            registration_email_help: Šis tekstas bus rodomas registracijos patvirtinimo el. laiško viduryje. Iš karto po registracijos kodo.
             registration_url_help: 'Nuoroda: leisti dalyviams eiti į išorinę registracijos sistemą'
             select_a_meeting_type: Prašome pasirinkti susirinkimo tipą
             select_a_registration_type: Prašome pasirinkti registracijos tipą
+            show_embedded_iframe_help: Ar įterpti šio vaizdo konferencijos URL „iframe“? Tik kelios paslaugos leidžia įterpimą (pvz., Youtube, Twitch...)
           index:
             title: Susirinkimai
           new:
@@ -387,7 +401,9 @@ lt:
       conference_venues: Konferencijos vietos
       content_blocks:
         upcoming_events:
+          name: Būsimi renginiai
           upcoming_events: Artėjantys susirinkimai
+          view_all_events: Peržiūrėti visus
       directory:
         meetings:
           index:
@@ -454,6 +470,7 @@ lt:
           origin: Kilmė
           origin_values:
             all: Visi
+            citizens: Piliečiai
             official: Oficialus
             user_groups: Grupės
           scope: Apimtis
@@ -461,6 +478,7 @@ lt:
           type: Tipas
           type_values:
             all: Visi
+            hybrid: Abu
             in_person: Fiziniai
             online: Virtualūs
         filters_small_view:
@@ -480,6 +498,7 @@ lt:
           select_a_category: Pasirinkite kategoriją
           select_a_meeting_type: Pasirinkite susitikimo tipą
           select_a_registration_type: Pasirinkite registracijos tipą
+          show_embedded_iframe_help: Ar įterpti šio vaizdo konferencijos URL „iframe“? Tik kelios paslaugos leidžia įterpimą (pvz., Youtube, Twitch...)
         index:
           new_meeting: Naujas susitikimas
         meeting_minutes:
@@ -543,6 +562,7 @@ lt:
           fields:
             closed: Uždaryta
             end_time: Pabaigos data
+            id: Id
             map: Žemėlapis
             official_meeting: Oficialus susirinkimas
             start_time: Pradžios data
@@ -555,6 +575,7 @@ lt:
             empty_questions: Viso šio susitikimo metu bus siunčiami klausimai ir galėsite į juos atsakyti. Jie bus rodomi čia.
           index_admin:
             admin_dashboard: Administratoriaus skydelis
+            edit: Redaguoti administratoriaus skydelyje
             question: Klausimas
             received_answer: gautas atsakymas
             received_answers: gauti atsakymai
@@ -594,6 +615,7 @@ lt:
           invalid: Paliekant šį susirinkimą iškilo problema.
           success: Sėkmingai palikote susirinkimą.
       type_of_meeting:
+        hybrid: Abu
         in_person: Fizinis
         online: Virtualus
       types:
