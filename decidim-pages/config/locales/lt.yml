@@ -31,5 +31,7 @@ lt:
             invalid: Išsaugant šį puslapį iškilo problema.
             success: Puslapis išsaugotas.
       home:
+        hero:
+          participate_title: Dalyvauti platformos procesuose
         sub_hero:
           register_title: Užsiregistruokite norėdami susikurti paskyrą
