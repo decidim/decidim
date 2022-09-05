@@ -38,6 +38,7 @@ fr:
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
         destroy: Supprimer
         edit: Modifier
+        import: Importer des projets
         import_csv: Importer un fichier CSV
         new: Nouvelle %{name}
         preview: Aperçu
@@ -63,6 +64,22 @@ fr:
             name: Progression
           timeline_entry:
             name: Élément de chronologie
+        projects_import:
+          create:
+            invalid: Il y a eu un problème lors de l'importation des projets, veuillez suivre attentivement les instructions et assurez-vous que vous avez bien sélectionné les projets à mettre en œuvre.
+          new:
+            create: Importer
+            import_all_selected_projects: Importer tous les projets sélectionnés
+            new_items:
+              one: 1 projet sélectionné va être importé
+              other: "%{count} projets sélectionnés vont être importés"
+            no_components: Il n'y a aucune fonctionnalité Budget dans cet espace participatif depuis laquelle importer des projets.
+            origin_component_id: Fonctionnalité d'origine
+            select_component: Sélectionner une fonctionnalité
+            success:
+              one: 1 projet mis en file d'attente pour être importé. Vous serez notifié par email une fois l'import terminé
+              other: "%{count} projets mis en file d'attente pour être importés. Vous serez notifié par email une fois l'import terminé"
+            title: Importer des projets vers la fonctionnalité Suivi
         results:
           create:
             invalid: Un problème est survenu lors de la création de cette réalisation
@@ -145,6 +162,13 @@ fr:
           row_number: Ligne
           subject: Import des résultats réussi
           success: Import des résultats réussi. Vous pouvez consulter les résultats dans l'interface d'administration.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Une réalisation a été importée depuis des projets.
+            other: "%{count} réalisations ont été importées depuis des projets."
+          subject: Importation des projets réalisée avec succès
+          success: Projets importés avec succès dans la fonctionnalité %{component_name}. Vous pouvez consulter les réalisations dans l'interface d'administration.
       last_activity:
         new_result: 'Nouveau résultat :'
       models:
