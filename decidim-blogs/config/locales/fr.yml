@@ -1,5 +1,8 @@
 fr:
   activemodel:
+    attributes:
+      post:
+        published_at: Date de publication
     models:
       decidim/blogs/create_post_event: Nouvel article
   activerecord:
@@ -32,6 +35,7 @@ fr:
             save: Mettre à jour
             title: Éditer le post
           index:
+            not_published_yet: Pas encore publié
             title: Articles
           new:
             create: Créer
@@ -52,6 +56,7 @@ fr:
             author: Auteur
             body: Corps du texte
             official_blog_post: Article officiel
+            published_at: Date de publication
             title: titre
       posts:
         show:
