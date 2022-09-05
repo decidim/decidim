@@ -34,6 +34,7 @@ lt:
           step:
             allow_answers: Leisti atsakymus
             allow_unregistered: Leisti neregistruotiems naudotojams atsakyti į apklausos klausimus
+            allow_unregistered_help: Jeigu apklausa aktyvi, norint atsakyti į jos klausimus, prisijungti nereikės. Dėl to duomenys gali būti nepakankami arba nepatikimi. Be to, jie bus labiau pažeidžiami įvykus automatiniams išpuoliams. Naudokite atsargiai!
             announcement: Pranešimas
     events:
       surveys:
