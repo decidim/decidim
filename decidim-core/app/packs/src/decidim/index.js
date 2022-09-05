@@ -73,7 +73,7 @@ $(() => {
     createQuillEditor(container);
   });
 
-  document.querySelectorAll("a[target=\"_blank\"]:not([no-external-link])").forEach((elem) => new ExternalLink(elem))
+  document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
 
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
