@@ -280,6 +280,8 @@ lt:
             update: Atnaujinti
           form:
             authorizations: Autorizacijos nustatymai
+            child_scope_threshold_enabled_help: 'Šis konfigūracijos variantas neleidžia turėti fizinių balsų. Jis įgalina subskyrius ir veikia su autorizavimo tvarkykle, kuri susieja apimtį su naudotoju. Įsitikinkite, kad pasirenkate teisingą įgaliojimą autorizacijų nustatymuose esančiuose žemiau. Tam, kad tai veiktų, sritys turi būti sukonfigūruotos hierarchiškai: 1. Motininis - N Jaunesnysis. Daugiau informacijos galite rasti <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank"> iniciatyvų administratorių dokumentacijos puslapyje</a>.'
+            only_global_scope_enabled_help: Pažymėkite šį laukelį, jei įjungėte "Įgalinti parašus pagal poskyrį" ir nustatėte visuotinę apimtį kaip motininę apimtį. Įjungus šį laukelį iniciatyvos tipo pasirinkimas bus praleistas iniciatyvos kūrimo vedlyje. Jei reikia daugiau informacijos apie tai, kaip veikia ši sąranka, žr. šią <a href="https://docs.decidim.org/admin-manual/en/initiatives/" target="_blank">nuorodą</a>.
             options: Variantai
             title: Bendra informacija
           initiative_type_scopes:
@@ -412,6 +414,7 @@ lt:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> pateikė paraišką prisijungti prie <a href="%{resource_url}">%{resource_title}</a> iniciatyvos remėjų komiteto. Norėdami priimti ar atmesti paraišką, spauskite <a href="%{resource_url}/edit">čia</a>.
       form:
         add_attachments: Dokumentai
+        attachment_legend: "(Neprivaloma) Pridėti priedą"
         delete_attachment: Ištrinti
       index:
         title: Iniciatyvos
@@ -480,6 +483,11 @@ lt:
           unfold: Išskleisti
         index_header:
           new_initiative: Nauja iniciatyva
+          not_authorized:
+            authorizations_page: Peržiūrėti leidimus
+            close: Uždaryti
+            explanation: Norėdami sukurti naują iniciatyvą, turite būti patikrintas.
+            title: Reikalinga autorizacija
         initiatives:
           closed_initiatives_warning: Šiuo metu atvirų iniciatyvų nėra, tačiau čia galite rasti visų baigtų svarstyti iniciatyvų sąrašą.
           no_initiatives_warning: Jūsų paieškos kriterijus atitinkančių iniciatyvų nerasta.
