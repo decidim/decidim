@@ -98,12 +98,16 @@ lt:
           origin_eq:
             label: Kilmė
             values:
+              citizen: Pilietis
               official: Oficialus
+              user_group: Naudotojų Grupės
           scope_id_eq:
             label: Apimtis
           type_eq:
+            label: Susitikimo tipas
             values:
               hybrid: Hibridiniai
+              in_person: Fizinis
               online: Virtualūs
       meeting_copies:
         create:
@@ -314,6 +318,7 @@ lt:
             location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
             location_hints_help: 'Vietos priedėliai: papildoma informacija kaip pvz. buto numeris, iš kurios pusės įeiti ir t. t.'
             online_meeting_url_help: 'Nuoroda: leisti dalyviams tiesiai prisijungti prie susirinkimo'
+            registration_email_help: Šis tekstas bus rodomas registracijos patvirtinimo el. laiško viduryje. Iš karto po registracijos kodo.
             registration_url_help: 'Nuoroda: leisti dalyviams eiti į išorinę registracijos sistemą'
             select_a_meeting_type: Prašome pasirinkti susirinkimo tipą
             select_a_registration_type: Prašome pasirinkti registracijos tipą
@@ -406,6 +411,7 @@ lt:
         upcoming_meetings:
           name: Artėjantys susirinkimai
           upcoming_meetings: Artėjantys susirinkimai
+          view_all_meetings: Peržiūrėti visus
       directory:
         meetings:
           index:
@@ -476,6 +482,7 @@ lt:
           origin: Kilmė
           origin_values:
             all: Visi
+            citizens: Piliečiai
             official: Oficialus
             user_groups: Grupės
           scope: Apimtis
