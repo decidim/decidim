@@ -586,6 +586,12 @@ lt:
         status_change_for: Iniciatyvos %{title} būsena pasikeitė
       last_activity:
         new_initiative: 'Nauja iniciatyva:'
+      modal:
+        not_authorized:
+          authorizations_page: Peržiūrėti leidimus
+          close: Uždaryti
+          explanation: Norėdami sukurti naują iniciatyvą, turite būti patikrintas.
+          title: Reikalinga autorizacija
       pages:
         home:
           highlighted_initiatives:
