@@ -60,6 +60,12 @@ lt:
         email: El. paštas
         name: Vardas
         role: Rolė
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              invalid_document_type: 'Netinkamas dokumento tipas. Priimtini formatai: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Etapas aktyvuotas
       decidim/participatory_process_step_changed_event: Eatapas pakeistas
