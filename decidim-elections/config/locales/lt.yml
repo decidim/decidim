@@ -585,6 +585,12 @@ lt:
             upload_icon: Ikona indikuojanti parsisiuntimo veiksmą
           tally_started_steps:
             back: Atgal
+            description: Šių rinkimų rezultatai skaičiuojami Skelbimų lentoje. Norint užbaigti šį procesą, būtinas jūsų, kaip Patikėtinio, dalyvavimas.
+            keys:
+              end_tally: Balsų skaičiavimas baigtas
+              tally:
+                cast: Duoti balsai
+                share: Balsų dalis
             list:
               status: Būsena
               task: Užduotis
@@ -595,6 +601,7 @@ lt:
               completed: Baigta
               pending: Laukiama
               processing: Apdorojama
+            title: Balsai %{election}
           update:
             error: Rinkimų būsena neatnaujinta.
             success: 'Rinkimų būsena yra: %{status}'
@@ -1086,6 +1093,8 @@ lt:
             create:
               invalid: Kuriant surašymą kilo problema. Pabandykite dar kartą vėliau.
               invalid_csv_header: Trūksta CSV antraščių, arba jos nėra teisingos - prašome atidžiai perskaityti instrukcijas
+            creating_data:
+              info_message: "<strong>Prašome palaukti</strong>, aprodota %{processed_count} iš %{raw_count} eilučių iš %{file} failo."
             delete:
               button: Pašalinti visus surašymo duomenis
               confirm: Pašalinus visus surašymo duomenis, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
@@ -1099,6 +1108,8 @@ lt:
               file_not_exist: Failas neegzistuoja
               launch_error: Pradedant prieigos kodų eksportą kilo problema
               launch_success: Prieigos kodų eksportas prasidėjo. Neužilgo gausite el. laišką į %{email}
+            exporting_access_codes:
+              info_message: "<strong>Prašome palaukti</strong>, eskportas ruošiamas ir neužilgo jį gausite į %{email}"
             freeze:
               callout: Surašymas užšaldytas ir negali būti pakeistas.
             generate_access_codes:
@@ -1109,6 +1120,8 @@ lt:
               info_message_warn: Prašome patikrinti ar netrūksta duomenų, nes %{data_count} įrašai buvo sukurti ir įkeltas failas file %{file} turėjo %{raw_count} eilučių.
               launch_error: Pradedant prieigos kodų generavimą kilo problema
               launch_success: Kodų generavimas pradėtas.
+            generating_access_codes:
+              info_message: "<strong>Prašome palaukti</strong>, balsavimo prieigos kodai yra generuojami..."
             new:
               file_help:
                 explanation: 'Failo gairės:'
@@ -1328,6 +1341,7 @@ lt:
           invalid: Tikrinant surašymo duomenis iškilo problema.
           success:
             access_link: el. paštu.
+            access_link_with_sms: SMS ar el. paštu.
             info: Turėjote gauti prieigos kodą per paštą. Jei negavote, išsiųskite užklausą čia
             title: Jūsų surašymo duomenys teisingi!
           title: Ar galiu balsuoti?
