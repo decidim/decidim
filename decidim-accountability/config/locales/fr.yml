@@ -170,7 +170,7 @@ fr:
           subject: Importation des projets réalisée avec succès
           success: Projets importés avec succès dans la fonctionnalité %{component_name}. Vous pouvez consulter les réalisations dans l'interface d'administration.
       last_activity:
-        new_result: 'Nouveau résultat :'
+        new_result: 'Nouvelle réalisation :'
       models:
         result:
           fields:
