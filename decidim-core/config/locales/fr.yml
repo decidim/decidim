@@ -606,7 +606,17 @@ fr:
       endorsed_by: Aimé par…
     errors:
       internal_server_error:
+        copied: Texte copié !
+        copy_error_message_clarification: Copier le message d'erreur dans le presse-papiers
+        copy_to_clipboard: Copier dans le presse-papiers
+        date_and_time: Date et heure
+        reference: Référence
+        request_method: Méthode de requête
         title: Il y a eu un problème avec notre serveur
+        try_later: Veuillez réessayer plus tard. Si l'erreur persiste, copiez les informations suivantes et envoyez-les aux responsables de la plateforme avec toute autre information que vous pourriez vouloir partager.
+        unknown: Inconnue
+        url: URL
+        user: Identifiant de l'utilisateur
       not_found:
         back_home: Retour à l'accueil
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
