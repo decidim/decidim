@@ -882,6 +882,7 @@ lt:
           changes_at_title: '„%{title}“ pakeitimas'
           comments: Komentarai
           edit_proposal: Redaguoti pasiūlymą
+          endorsements_list: Pritarimų Sąrašas
           estimated_cost: Numatomos išlaidos
           hidden_endorsers_count:
             one: ir dar %{count} žmogus
