@@ -118,6 +118,10 @@ lt:
         extension_allowlist: 'Priimtini formatai:'
       images:
         dimensions: "%{width} x %{height} px"
+        dimensions_info: 'Šis vaizdas bus:'
+        processors:
+          resize_and_pad: Pakeisto dydžio ir užpildytas iki
+          resize_to_fit: Pakeistas dydis, kad tilptų
       question_types:
         files: Dokumentai
         long_answer: Ilgas atsakymas
