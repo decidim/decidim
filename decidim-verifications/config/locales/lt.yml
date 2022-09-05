@@ -95,7 +95,16 @@ lt:
           error: Šalinant leidimą iškilo problema.
           success: Leidimą pašalinote.
         first_login:
+          actions:
+            another_dummy_authorization_handler: Patikrinkti pagal kitą leidimų tvarkytojo pavyzdį
+            csv_census: Patikrinti pagal organizacijos surašymo duomenis
+            dummy_authorization_handler: Patikrinti pagal leidimų tvarkytojo pavyzdį
+            dummy_authorization_workflow: Patikrinti pagal leidimų suteikimo eigos pavyzdį
+            id_documents: Patikrinimas įkeliant savo tapatybės dokumentą
+            postal_letter: Patikrinimas pašto laišku gaunant tikrinimo kodą
+            sms: Patikrinimas gaunant tikrinimo kodą SMS
           title: Patvirtinkite savo tapatybę
+          verify_with_these_options: 'Savo tapatybę galite patvirtinti šiomis priemonėmis:'
         index:
           expired_verification: Patvirtinimas baigė galioti
           pending_verification: Laukiama patvirtinimo
@@ -141,7 +150,17 @@ lt:
             success: Jūsų paskyra patikrinta.
       dummy_authorization:
         extra_explanation:
+          postal_codes:
+            one: Dalyvauti gali tik tie dalyviai, kurių pašto kodas %{postal_codes}.
+            few: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}.'
+            many: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}.'
+            other: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}.'
           scope: Dalyvauti gali tik tie dalyviai, kurių sritis %{scope_name}.
+          user_postal_codes:
+            one: Dalyvauti gali tik dalyviai, kurių pašto kodas yra %{postal_codes}, o jūsų pašto kodas yra %{user_postal_code}.
+            few: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}. Jūsų pašto kodas %{user_postal_code}.'
+            many: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}. Jūsų pašto kodas %{user_postal_code}.'
+            other: 'Dalyvauti gali tik tie dalyviai, kurių pašto kodas yra vienas iš šių: %{postal_codes}. Jūsų pašto kodas %{user_postal_code}.'
           user_scope: Dalyvauti gali tik dalyviai, kurių sritis yra %{scope_name}, o jūsų sritis yra %{user_scope_name}.
       id_documents:
         admin:
@@ -157,18 +176,22 @@ lt:
               error: Tikrinimo duomenys nesutampa. Bandykite dar kartą arba atmeskite tikrinimą, kad dalyvis galėtų pakeisti duomenis
               success: Dalyvis patikrintas
             new:
+              introduce_user_data: Pristatykite duomenis paveikslėlyje
               reject: Atmesti
               verify: Patikrinti
           offline_confirmations:
             create:
               error: Tikrinimo duomenys nesutampa. Bandykite dar kartą ir prašykite dalyviui juos pakeisti
+              success: Dalyvis patikrintas
             new:
               cancel: Atšaukti
+              introduce_user_data: Pristatykite dalyvio el. pašto adresą ir dokumento duomenis
               verify: Patikrinti
           pending_authorizations:
             index:
               config: Nustatymai
               offline_verification: Tikrinimas atjungties režimu
+              title: Vyksta tikrinimas online rėžimu
               verification_number: 'Tikrinimas #%{n}'
           rejections:
             create:
@@ -216,6 +239,7 @@ lt:
               success: Laiškas pažymėtas kaip išsiųstas
         authorizations:
           create:
+            error: Dėl jūsų užklausos iškilo problema
             success: Dėkojame! Jūsų adresu atsiųsime patvirtinimo kodą
           edit:
             send: Patvirtinti
@@ -232,6 +256,8 @@ lt:
           create:
             error: Dėl jūsų užklausos iškilo problema
             success: Dėkojame! Jūsų telefonu išsiuntėme SMS žinutę.
+          destroy:
+            success: Tikrinimo kodas nustatytas iš naujo. Dar kartą įveskite savo telefono numerį.
           edit:
             confirm_destroy: Ar tikrai norite iš naujo nustatyti tikrinimo kodą?
             destroy: Tikrinimo kodą nustatyti iš naujo
@@ -244,3 +270,6 @@ lt:
           update:
             error: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą SMS žinutę.
             success: Sveikiname! Jūs patikrinti.
+  errors:
+    messages:
+      uppercase_only_letters_numbers: visos raidės turi būti didžiosios ir tik raidės ir (arba) skaičiai
