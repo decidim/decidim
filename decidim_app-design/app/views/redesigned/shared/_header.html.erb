@@ -2,17 +2,17 @@
   <div class="relative w-full">
     <div class="container flex justify-between items-center py-5">
       <div class="w-3/4 md:w-2/5 lg:w-1/4 prose prose-img:max-h-16 prose-img:my-0">
-        <a aria-label="Ir a la página principal" href="https://decidim-redesign.populate.tools/?locale=es">
-          <img alt="Logo oficial de Christiansen and Sons"
-            src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaElEIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c895dfe64864d46f17dc18a9ff302e8f373988d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RW5KbGMybDZaVjkwYjE5bWFYUmJCMmtDV0FKcEFhQT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--83695be0b77a0a09899ae9c34db5a58e390533c3/70420ac6f28aad7f138f03c645b8f190.png" />
+        <a aria-label="Go to front page" href="https://decidim-redesign.populate.tools/">
+          <img alt="Christiansen and Sons's official logo"
+            src="/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaElEIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--5c895dfe64864d46f17dc18a9ff302e8f373988d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RW5KbGMybDZaVjkwYjE5bWFYUmJCMmtDV0FKcEFhQT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--83695be0b77a0a09899ae9c34db5a58e390533c3/70420ac6f28aad7f138f03c645b8f190.png">
         </a>
       </div>
       <div class="hidden md:block md:w-2/5 lg:w-1/6">
-        <form id="form-search_topbar" action="/search?locale=es" accept-charset="UTF-8" method="get">
+        <form id="form-search_topbar" action="/search" accept-charset="UTF-8" method="get">
           <label class="block relative rounded text-md bg-background">
-            <span class="sr-only">Buscar</span>
-            <input type="text" class="block bg-transparent w-full px-4 py-1.5 reset-defaults" placeholder="Buscar">
-            <button type="submit" class="absolute right-2 inset-y-2 text-secondary" aria-label="Buscar">
+            <span class="sr-only">Search</span>
+            <input type="text" class="block bg-transparent w-full px-4 py-1.5 reset-defaults" placeholder="Search">
+            <button type="submit" class="absolute right-2 inset-y-2 text-secondary" aria-label="Search">
               <svg width="1em" height="1em" role="img" aria-hidden="true">
                 <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-search-line"></use>
               </svg>
@@ -21,58 +21,57 @@
         </form>
       </div>
       <div class="hidden lg:flex justify-between text-center divide-x-2 divide-gray-3 ml-auto">
-        <a class="flex flex-col items-center text-secondary px-8" aria-label="Ayuda" href="/pages?locale=es">
+        <a class="flex flex-col items-center text-secondary px-8" aria-label="Help" href="/pages">
           <svg width="1em" height="1em" role="img" aria-hidden="true" class="w-5 h-5 fill-current">
             <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-question-line"></use>
-          </svg><span class="text-sm first-letter:uppercase">Ayuda</span>
+          </svg><span class="text-sm first-letter:uppercase">Help</span>
         </a>
         <div class="flex px-8 gap-x-8">
-          <a class="flex flex-col items-center text-secondary" aria-label="Encuentros" href="/meetings/">
+          <a class="flex flex-col items-center text-secondary" aria-label="Meetings" href="/meetings/">
             <svg width="1em" height="1em" role="img" aria-hidden="true" class="w-5 h-5 fill-current">
               <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-road-map-line"></use>
-            </svg><span class="text-sm first-letter:uppercase">Encuentros</span>
-          </a> <a class="flex flex-col items-center text-secondary" aria-label="Actividad"
-            href="/last_activities?locale=es">
+            </svg><span class="text-sm first-letter:uppercase">Meetings</span>
+          </a> <a class="flex flex-col items-center text-secondary" aria-label="Activity" href="/last_activities">
             <svg width="1em" height="1em" role="img" aria-hidden="true" class="w-5 h-5 fill-current">
               <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-bubble-chart-line">
               </use>
-            </svg><span class="text-sm first-letter:uppercase">Actividad</span>
+            </svg><span class="text-sm first-letter:uppercase">Activity</span>
           </a>
         </div>
-        <a class="flex flex-col items-center text-secondary px-8" aria-label="Entra" href="/users/sign_in?locale=es">
+        <a class="flex flex-col items-center text-secondary px-8" aria-label="Sign In" href="/users/sign_in">
           <svg width="1em" height="1em" role="img" aria-hidden="true" class="w-5 h-5 fill-current">
             <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-login-box-line"></use>
-          </svg><span class="text-sm first-letter:uppercase">Entra</span>
+          </svg><span class="text-sm first-letter:uppercase">Sign In</span>
         </a>
       </div>
 
       <div class="lg:hidden">
         <div
           class="fixed bottom-0 left-0 z-20 bg-white w-full px-4 py-3 grid grid-cols-4 text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)]">
-          <a href="" class="flex flex-col items-center" aria-label="Entra">
+          <a href="" class="flex flex-col items-center" aria-label="Sign In">
             <svg width="1em" height="1em" role="img" aria-hidden="true" class="w-8 h-8 fill-current">
               <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-home-2-line"></use>
             </svg>
             <span class="text-sm first-letter:uppercase">Inici</span>
           </a>
-          <a href="" class="flex flex-col items-center" aria-label="Buscar">
+          <a href="" class="flex flex-col items-center" aria-label="Search">
             <svg width="1em" height="1em" role="img" aria-hidden="true" class="w-8 h-8 fill-current">
               <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-search-line"></use>
             </svg>
-            <span class="text-sm first-letter:uppercase">Buscar</span>
+            <span class="text-sm first-letter:uppercase">Search</span>
           </a>
-          <a href="" class="flex flex-col items-center" aria-label="Actividad">
+          <a href="" class="flex flex-col items-center" aria-label="Activity">
             <svg width="1em" height="1em" role="img" aria-hidden="true" class="w-8 h-8 fill-current">
               <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-bubble-chart-line">
               </use>
             </svg>
-            <span class="text-sm first-letter:uppercase">Actividad</span>
+            <span class="text-sm first-letter:uppercase">Activity</span>
           </a>
-          <a href="/users/sign_in?locale=es" class="flex flex-col items-center" aria-label="Entra">
+          <a href="/users/sign_in" class="flex flex-col items-center" aria-label="Sign In">
             <svg width="1em" height="1em" role="img" aria-hidden="true" class="w-8 h-8 fill-current">
               <use href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-login-box-line"></use>
             </svg>
-            <span class="text-sm first-letter:uppercase">Entra</span>
+            <span class="text-sm first-letter:uppercase">Sign In</span>
           </a>
 
         </div>
@@ -91,10 +90,10 @@
               <div class="flex flex-col md:flex-row justify-between p-4 md:p-8 gap-x-8">
                 <div class="w-full md:w-1/2">
                   <h3 class="h4 md:h3">Benvinguda a la plataforma participativa decidim.barcelona</h3>
-                  <p class="text-md md:text-lg text-gray-2 mt-5">Bienvenida a la plataforma participativa Christiansen
-                    and Sons.</p>
-                  <p class="text-md md:text-lg text-gray-2 mt-5">Construyamos una sociedad más abierta, transparente y
-                    colaborativa. <br /> Únete, participa y decide.</p>
+                  <p class="text-md md:text-lg text-gray-2 mt-5">Welcome to Christiansen and Sons participatory
+                    platform.</p>
+                  <p class="text-md md:text-lg text-gray-2 mt-5">Let's build a more open, transparent and collaborative
+                    society.<br> Join, participate and decide.</p>
 
                 </div>
                 <ul
@@ -171,7 +170,7 @@
                         <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                       </div>
                       <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                       </div>
                     </div>
                     <div class="flex justify-between gap-4">
@@ -182,7 +181,7 @@
                         <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                       </div>
                       <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                       </div>
                     </div>
                     <div class="flex justify-between gap-4">
@@ -193,7 +192,7 @@
                         <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                       </div>
                       <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                       </div>
                     </div>
                     <div class="flex justify-between gap-4">
@@ -204,11 +203,11 @@
                         <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                       </div>
                       <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                       </div>
                     </div>
                   </div>
-                  <a href="" class="arrow-link mt-4 text-secondary">Última actividad<svg width="1em" height="1em"
+                  <a href="" class="arrow-link mt-4 text-secondary">Last activity<svg width="1em" height="1em"
                       role="img" aria-hidden="true" class="fill-current">
                       <use
                         href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-right-line">
@@ -249,10 +248,10 @@
               <div class="flex flex-col md:flex-row justify-between p-4 md:p-8 gap-x-8">
                 <div class="w-full md:w-1/2">
                   <h3 class="h4 md:h3">Benvinguda a la plataforma participativa decidim.barcelona</h3>
-                  <p class="text-md md:text-lg text-gray-2 mt-5">Bienvenida a la plataforma participativa Christiansen
-                    and Sons.</p>
-                  <p class="text-md md:text-lg text-gray-2 mt-5">Construyamos una sociedad más abierta, transparente y
-                    colaborativa. <br /> Únete, participa y decide.</p>
+                  <p class="text-md md:text-lg text-gray-2 mt-5">Welcome to Christiansen and Sons participatory
+                    platform.</p>
+                  <p class="text-md md:text-lg text-gray-2 mt-5">Let's build a more open, transparent and collaborative
+                    society.<br> Join, participate and decide.</p>
 
                 </div>
                 <ul
@@ -329,7 +328,7 @@
                         <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                       </div>
                       <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                       </div>
                     </div>
                     <div class="flex justify-between gap-4">
@@ -340,7 +339,7 @@
                         <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                       </div>
                       <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                       </div>
                     </div>
                     <div class="flex justify-between gap-4">
@@ -351,7 +350,7 @@
                         <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                       </div>
                       <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                       </div>
                     </div>
                     <div class="flex justify-between gap-4">
@@ -362,11 +361,11 @@
                         <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                       </div>
                       <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                        <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                       </div>
                     </div>
                   </div>
-                  <a href="" class="arrow-link mt-4 text-secondary">Última actividad<svg width="1em" height="1em"
+                  <a href="" class="arrow-link mt-4 text-secondary">Last activity<svg width="1em" height="1em"
                       role="img" aria-hidden="true" class="fill-current">
                       <use
                         href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-right-line">
@@ -396,7 +395,7 @@
             aria-controls="secondary-dropdown">
             <span
               class="opacity-0 group-hover:opacity-100 transition z-0 absolute top-0 left-0 w-full h-full brightness-75 bg-primary"></span>
-            <span class="relative z-10">Imaginem el nou ecobarri de Ca n&#39; Ametller</span>
+            <span class="relative z-10">Imaginem el nou ecobarri de Ca n' Ametller</span>
           </summary>
           <div id="secondary-dropdown" aria-labelledby="secondary-dropdown-summary"
             class="absolute top-[calc(100%+1rem)] left-0 z-20">
@@ -439,7 +438,7 @@
                       <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                     </div>
                     <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                     </div>
                   </div>
                   <div class="flex justify-between gap-4">
@@ -450,7 +449,7 @@
                       <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                     </div>
                     <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                     </div>
                   </div>
                   <div class="flex justify-between gap-4">
@@ -461,7 +460,7 @@
                       <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                     </div>
                     <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                     </div>
                   </div>
                   <div class="flex justify-between gap-4">
@@ -472,12 +471,12 @@
                       <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                     </div>
                     <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                     </div>
                   </div>
                 </div>
-                <a href="" class="arrow-link mt-4 text-secondary">Última actividad<svg width="1em" height="1em"
-                    role="img" aria-hidden="true" class="fill-current">
+                <a href="" class="arrow-link mt-4 text-secondary">Last activity<svg width="1em" height="1em" role="img"
+                    aria-hidden="true" class="fill-current">
                     <use
                       href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-right-line">
                     </use>
@@ -566,7 +565,7 @@
               <span class="hidden">/</span>
               <span class="cursor-pointer  ">Process</span>
               <span class="">/</span>
-              <span class="cursor-pointer truncate font-bold">Imaginem el nou ecobarri de Ca n&#39; Ametller</span>
+              <span class="cursor-pointer truncate font-bold">Imaginem el nou ecobarri de Ca n' Ametller</span>
             </div>
 
             <svg width="1em" height="1em" role="img" aria-hidden="true" class="flex-none w-6 h-6 fill-current">
@@ -614,7 +613,7 @@
                       <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                     </div>
                     <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                     </div>
                   </div>
                   <div class="flex justify-between gap-4">
@@ -625,7 +624,7 @@
                       <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                     </div>
                     <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                     </div>
                   </div>
                   <div class="flex justify-between gap-4">
@@ -636,7 +635,7 @@
                       <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                     </div>
                     <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                     </div>
                   </div>
                   <div class="flex justify-between gap-4">
@@ -647,12 +646,12 @@
                       <span class="text-gray-2">Pressupostos Participatius 2020-21</span>
                     </div>
                     <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
-                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360" />
+                      <img class="object-cover w-full h-full" src="https://www.fillmurray.com/640/360">
                     </div>
                   </div>
                 </div>
-                <a href="" class="arrow-link mt-4 text-secondary">Última actividad<svg width="1em" height="1em"
-                    role="img" aria-hidden="true" class="fill-current">
+                <a href="" class="arrow-link mt-4 text-secondary">Last activity<svg width="1em" height="1em" role="img"
+                    aria-hidden="true" class="fill-current">
                     <use
                       href="/decidim-packs/media/images/remixicon.symbol-5540ed538fb6bd400d2a.svg#ri-arrow-right-line">
                     </use>
@@ -713,4 +712,5 @@
 
     </div>
   </div>
+
 </header>

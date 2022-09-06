@@ -9,17 +9,18 @@
   </head>
 
   <body>
-    <%= render partial: "redesigned/header" %>
+    <%= render partial: "redesigned/shared/header" %>
 
     <%= yield %>
 
-    <%= render partial: "redesigned/footer" %>
+    <%= render partial: "redesigned/shared/footer" %>
 
     <%= snippets.display(:foot) %>
-    <script>
-      Decidim.config.set(<%== { icons_path: asset_pack_path("media/images/remixicon.symbol.svg") }.to_json %>);
-    </script>
 
     <%= javascript_pack_tag "redesigned", defer: false, 'data-turbolinks-track': "reload" %>
+
+    <script defer>
+      Decidim.config.set(<%== { icons_path: asset_pack_path("media/images/remixicon.symbol.svg") }.to_json %>);
+    </script>
   </body>
 </html>
