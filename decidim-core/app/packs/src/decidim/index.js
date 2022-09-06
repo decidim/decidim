@@ -31,6 +31,7 @@ window.Decidim.CommentsComponent = CommentsComponent;
 window.Decidim.addInputEmoji = addInputEmoji;
 
 $(() => {
+
   window.theDataPicker = new DataPicker($(".data-picker"));
   window.focusGuard = new FocusGuard(document.querySelector("body"));
 
@@ -94,6 +95,14 @@ $(() => {
     openingSelector: "[data-dialog-open]",
     closingSelector: "[data-dialog-close]"
   })
+
+  document.querySelectorAll("[data-drawer]").forEach(
+    ({ dataset: { drawer } }) =>
+      new Dialogs(`[data-drawer="${drawer}"]`, {
+        openingSelector: `[data-drawer-open="${drawer}"]`,
+        closingSelector: `[data-drawer-close="${drawer}"]`
+      })
+  );
 
   markAsReadNotifications()
 });
