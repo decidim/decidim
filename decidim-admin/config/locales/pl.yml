@@ -942,7 +942,7 @@ pl:
           title: Edytuj stronę
           update: Aktualizuj
         form:
-          none: Żadna
+          none: Bez tematu
           slug_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia istotna zmiana
