@@ -1,0 +1,15 @@
+<div class="container py-12">
+  <button class="button button__lg button__primary" data-drawer-open>Trigger</button>
+
+  <% content_for :aside do %>
+    <div class="h-full bg-primary/10 text-3xl grid place-items-center">
+      aside
+    </div>
+  <% end %>
+
+  <%= render layout: "redesigned/shared/drawer", locals: { next: "https://www..", prev: "https://www.." } do %>
+    <div class="h-full bg-secondary/10 text-3xl grid place-items-center">
+      main
+    </div>
+  <% end %>
+</div>
