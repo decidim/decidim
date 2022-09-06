@@ -81,7 +81,7 @@ module Decidim
       private
 
       def set_redesign
-        @enable_redesign = Decidim.redesign_active unless @enable_redesign.is_a?(FalseClass)
+        @enable_redesign = Decidim.redesign_active unless !Rails.env.test? && @enable_redesign.is_a?(FalseClass)
       end
 
       def redesigned?(layout)
