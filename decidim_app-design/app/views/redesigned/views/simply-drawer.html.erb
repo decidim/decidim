@@ -1,0 +1,54 @@
+<div class="container py-12">
+  <button class="button button__lg button__primary" onclick="openDrawer()">Trigger</button>
+  <div id="drawer" class="drawer fixed top-0 left-1/4 w-3/4 h-full bg-white slideOutRight" hidden>
+    floating drawer content
+  </div>
+</div>
+
+
+<style>
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.slideOutRight {
+  animation-duration: 300ms;
+  animation-name: slideOutRight;
+}
+
+.slideInRight {
+  animation-duration: 300ms;
+  animation-name: slideInRight;
+}
+
+</style>
+<script>
+const panel = document.getElementById("drawer")
+function openDrawer(params) {
+  panel.classList.toggle("slideInRight")
+  panel.classList.toggle("slideOutRight")
+
+  setTimeout(() => {
+    panel.hidden = !panel.hidden
+  }, 300);
+}
+</script>
