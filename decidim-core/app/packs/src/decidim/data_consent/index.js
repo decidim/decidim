@@ -33,13 +33,12 @@ const initModal = (manager) => {
     const categoryButton = categoryEl.querySelector(".dc-title");
     const categoryDescription = categoryEl.querySelector(".dc-description");
     categoryButton.addEventListener("click", () => {
-      const hidden = categoryDescription.classList.contains("hide");
-      if (hidden) {
+      if (categoryDescription.hidden) {
         categoryButton.classList.add("open");
-        categoryDescription.classList.remove("hide");
+        categoryDescription.hidden = false;
       } else {
         categoryButton.classList.remove("open");
-        categoryDescription.classList.add("hide");
+        categoryDescription.hidden = true;
       }
     })
   })
