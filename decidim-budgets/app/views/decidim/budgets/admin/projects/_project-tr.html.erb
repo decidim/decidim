@@ -6,7 +6,11 @@
     <%= project.id %><br>
   </td>
   <td>
-    <%= translated_attribute(project.title) %><br>
+    <% if allowed_to? :update, :project, project: project %>
+      <%= link_to translated_attribute(project.title), resource_locator([budget, project]).edit %><br>
+    <% else %>
+      <%= translated_attribute(project.title) %><br>
+    <% end %>
   </td>
   <td>
     <% if project.category %>

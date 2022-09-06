@@ -25,7 +25,13 @@
           <% sortitions.each do |sortition| %>
           <tr>
             <td><%= sortition.reference %></td>
-            <td><%= decidim_html_escape(translated_attribute(sortition.title)) %></td>
+            <td>
+              <% if allowed_to? :update, :sortition, sortition: sortition %>
+                <%= link_to decidim_html_escape(translated_attribute(sortition.title)), edit_sortition_path(sortition) %>
+              <% else %>
+                <%= decidim_html_escape(translated_attribute(sortition.title)) %>
+              <% end %>
+            </td>
             <td><%= l sortition.created_at, format: :short %></td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :sortition, sortition: sortition %>

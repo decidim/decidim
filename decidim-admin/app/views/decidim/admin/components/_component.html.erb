@@ -1,7 +1,11 @@
 <% if user_role_config.component_is_accessible?(component.manifest_name) %>
   <tr class="component-<%= component.id %>">
     <td>
-      <%= translated_attribute component.name %>
+      <% if component.manifest.admin_engine %>
+        <%= link_to translated_attribute(component.name), manage_component_path(component) %><br>
+      <% else %>
+        <%= translated_attribute component.name %>
+      <% end %>
     </td>
     <td>
       <%= t "decidim.components.#{component.manifest.name}.name" %>

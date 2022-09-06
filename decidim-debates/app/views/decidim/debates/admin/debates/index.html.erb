@@ -25,7 +25,11 @@
           <% debates.each do |debate| %>
             <tr data-id="<%= debate.id %>">
               <td>
-                <%= present(debate).title(html_escape: true) %><br>
+                <% if allowed_to? :update, :debate, debate: debate %>
+                  <%= link_to present(debate).title(html_escape: true), edit_debate_path(debate) %>
+                <% else %>
+                  <%= present(debate).title(html_escape: true) %><br>
+                <% end %>
               </td>
               <td>
                 <% if debate.start_time %>

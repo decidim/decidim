@@ -34,7 +34,11 @@
           <% budgets.each do |budget| %>
             <tr data-id="<%= budget.id %>">
               <td>
-                <%= translated_attribute(budget.title) %>
+                <% if allowed_to? :update, :budget, budget: budget %>
+                  <%= link_to translated_attribute(budget.title), edit_budget_path(budget) %><br>
+                <% else %>
+                  <%= translated_attribute(budget.title) %>
+                <% end %>
               </td>
               <td>
                 <%= number_to_currency budget.total_budget, unit: Decidim.currency_unit, precision: 0 %>

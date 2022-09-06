@@ -33,7 +33,11 @@
                     <%= icon "star" %>
                   </span>
                 <% end %>
-                <%= translated_attribute(group.title) %>
+                <% if allowed_to? :update, :process_group, process_group: group %>
+                  <%= link_to translated_attribute(group.title), [:edit, group] %>
+                <% else %>
+                  <%= translated_attribute(group.title) %>
+                <% end %>
               </td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :process_group, process_group: group %>

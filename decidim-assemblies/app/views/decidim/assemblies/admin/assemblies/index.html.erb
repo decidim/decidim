@@ -52,7 +52,12 @@
                     <%= icon "star", role: "img", "aria-hidden": true %>
                   </span>
                 <% end %>
-                <%= translated_attribute(assembly.title) %>
+
+                <% if allowed_to? :update, :assembly, assembly: assembly %>
+                  <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %><br>
+                <% else %>
+                  <%= translated_attribute(assembly.title) %>
+                <% end %>
               </td>
               <td>
                 <%= l(assembly.created_at, format: :short) %>

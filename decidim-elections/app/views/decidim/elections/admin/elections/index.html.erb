@@ -23,7 +23,11 @@
           <% elections.each do |election| %>
             <tr data-id="<%= election.id %>">
               <td>
-                <%= translated_attribute(election.title) %>
+                <% if allowed_to? :update, :election, election: election %>
+                  <%= link_to translated_attribute(election.title), edit_election_path(election) %>
+                <% else %>
+                  <%= translated_attribute(election.title) %>
+                <% end %>
               </td>
               <td>
                 <% if election.start_time %>

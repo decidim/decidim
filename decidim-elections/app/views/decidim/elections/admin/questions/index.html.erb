@@ -23,7 +23,11 @@
           <% questions.each do |question| %>
             <tr data-id="<%= question.id %>">
               <td>
-                <%= translated_attribute(question.title) %>
+                <% if allowed_to? :update, :question, election: election, question: question %>
+                  <%= link_to translated_attribute(question.title), edit_election_question_path(election, question) %>
+                <% else %>
+                  <%= translated_attribute(question.title) %>
+                <% end %>
               </td>
               <td>
                 <%= question.answers.count %>
