@@ -15,9 +15,7 @@ describe "Conversations", type: :system do
   context "when user has no conversations" do
     before { visit_inbox }
 
-    skip "REDESIGN_PENDING: the accessibility tests won't pass until redesigned layout fixed" do
-      it_behaves_like "accessible page"
-    end
+    it_behaves_like "accessible page"
 
     it "shows a notice informing about that" do
       expect(page).to have_content("You have no conversations yet")
@@ -52,9 +50,7 @@ describe "Conversations", type: :system do
       visit decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
-    skip "REDESIGN_PENDING: The accessibility tests won't pass until redesigned layout fixed" do
-      it_behaves_like "accessible page"
-    end
+    it_behaves_like "accessible page"
 
     it "shows an empty conversation page" do
       expect(page).to have_no_selector(".card--list__item")
@@ -113,10 +109,8 @@ describe "Conversations", type: :system do
       )
     end
 
-    skip "REDESIGN_PENDING: The accessibility tests won't pass until redesigned layout fixed" do
-      it_behaves_like "accessible page" do
-        before { visit_inbox }
-      end
+    it_behaves_like "accessible page" do
+      before { visit_inbox }
     end
 
     it "shows user's conversation list" do
@@ -443,9 +437,7 @@ describe "Conversations", type: :system do
                                               ])
         end
 
-        skip "REDESIGN_PENDING: The accessibility tests won't pass until redesigned layout fixed" do
-          it_behaves_like "accessible page"
-        end
+        it_behaves_like "accessible page"
 
         it "shows the other nine participants names" do
           within ".conversation .conversation__participants" do
