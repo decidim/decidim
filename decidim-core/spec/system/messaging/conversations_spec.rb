@@ -8,7 +8,7 @@ describe "Conversations", type: :system do
   let!(:redesign_enabled?) { true }
 
   before do
-    allow(Decidim.config).to receive(:redesign_active).and_return(redesign_enabled?)
+    Decidim.config.redesign_active = redesign_enabled?
     switch_to_host(organization.host)
     login_as user, scope: :user
   end
