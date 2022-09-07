@@ -1,6 +1,6 @@
 <div class="profile__activity">
   <div class="filter-container">
-    <button data-component="dropdown" data-target="dropdown-menu">
+    <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
       <% filter_items.each_with_index do |filter, i| %>
         <span class="<%= 'is-active' if (params.dig(:filter, :resource_type) || all_types_key) == filter[:name] %>">
           <%= resource_type_icon(filter[:name]) %><%= filter[:translation] %>

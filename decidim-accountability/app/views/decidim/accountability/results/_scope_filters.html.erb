@@ -37,7 +37,7 @@
 
 <div class="w-full">
   <div class="filter-container">
-    <button data-component="dropdown" data-target="dropdown-menu">
+    <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
       <% items.each do |item| %>
         <%= content_tag :span, class: "#{ 'is-active' if item[3]}" do %>
           <span class="sr-only"><%= item[4] %></span>

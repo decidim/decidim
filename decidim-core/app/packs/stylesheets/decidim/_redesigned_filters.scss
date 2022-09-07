@@ -4,7 +4,7 @@
   &-container{
     @apply sticky top-0 md:top-2 rounded border-4 border-background md:border-0;
 
-    [id*="dropdown"]{
+    [id*="dropdown-menu"]{
       @apply flex flex-col gap-2 md:gap-4 mx-3.5 py-3.5 md:mx-0 md:px-0 border-t md:border-t-0 border-gray-3 cursor-pointer;
 
       &[aria-hidden="true"]{
@@ -48,7 +48,7 @@
   }
 
   &-container [type="radio"]:checked + &,
-  &-container [id*="dropdown"] .is-active,
+  &-container [id*="dropdown-menu"] .is-active,
   &:hover{
     @apply bg-background-4;
 
