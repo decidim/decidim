@@ -48,6 +48,8 @@ de:
       decidim/welcome_notification_event: Willkommensnachricht
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Zeit
       decidim/user:
         current_password: Aktuelles Passwort
         email: E-Mail
@@ -149,6 +151,8 @@ de:
         error: Beim Aktualisieren Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich aktualisiert.
         success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
+    activity:
+      time_ago: "Vor %{time}"
     admin:
       actions:
         cancel: Stornieren
@@ -592,9 +596,17 @@ de:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
+    endorsers_list:
+      close: Schliessen
     errors:
       internal_server_error:
+        copied: Text Kopiert!
+        copy_to_clipboard: In die Zwischenablage kopieren
+        date_and_time: Datum und Zeit
+        reference: Referenz
         title: Auf unserem Server ist ein Problem aufgetreten
+        unknown: Unbekannt
+        url: URL
       not_found:
         back_home: Zurück zur Startseite
         content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
@@ -1149,6 +1161,8 @@ de:
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
       no_notifications: Noch keine Benachrichtigungen
+      show:
+        missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
@@ -1275,6 +1289,13 @@ de:
           info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
           title: Abzeichen
       user:
+        actions:
+          create_user_group: Gruppe erstellen
+          edit_profile: Profil bearbeiten
+          invite_user: Teilnehmer einladen
+          manage_user_group_admins: Admins verwalten
+          manage_user_group_users: Mitglieder verwalten
+          message: Nachricht
         confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet
         create_user_group: Gruppe erstellen
         edit_profile: Profil bearbeiten
@@ -1705,6 +1726,8 @@ de:
       data_consent:
         details:
           columns:
+            description: Beschreibung
+            name: Name
             service: Service
           items:
             _session_id:
@@ -1717,6 +1740,7 @@ de:
               service: Diese Website
           types:
             cookie: Cookie
+            local_storage: Lokaler Speicher
         dialog:
           accept_all: Alle akzeptieren
           accept_only_essential: Nur essentielle Cookies akzeptieren
@@ -1740,6 +1764,7 @@ de:
         warning:
           all_categories: alle Cookies
           change_settings: Cookie Einstellungen ändern
+          consent_required: Sie müssen %{categories} aktivieren, um diesen Inhalt sehen zu können.
       edit_link:
         edit: Bearbeiten
       footer:
@@ -1764,6 +1789,8 @@ de:
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren
+      offline_banner:
+        cache_version_page: Hoppla! Ihr Netzwerk ist offline. Dies ist eine zuvor gecachte Version der Seite, die Sie besuchen, möglicherweise ist der Inhalt nicht aktuell.
       social_media_links:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
@@ -1813,6 +1840,10 @@ de:
     password_too_common: ist zu allgemein
     password_too_long: es ist zu lang
     password_too_short: ist zu kurz
+  ransack:
+    predicates:
+      dtgt: nach
+      dtlt: vor
   social_share_button:
     delicious: Köstlich
     douban: Douban
@@ -1869,8 +1900,10 @@ de:
       option_unified: Zusammengefasst
   views:
     pagination:
+      next: Weiter
       next_title: Verknüpfung zur nächsten Seite
       pagination: Paginierung
+      previous: Zurück
       previous_title: Verknüpfung zur vorherigen Seite
       title: 'Seitenzahl:'
       truncate: "&hellip;"
