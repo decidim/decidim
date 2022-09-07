@@ -50,10 +50,10 @@
   }
 
   &__activity{
-    @apply grid md:grid-cols-8 items-start gap-4 md:gap-12;
+    @apply grid md:grid-cols-8 items-start gap-4 md:gap-12 md:first:[&>*]:col-span-2 md:last:[&>*]:col-span-6;
 
     &__container{
-      @apply md:col-span-6 divide-y divide-gray-3;
+      @apply divide-y divide-gray-3;
     }
 
     &__item{

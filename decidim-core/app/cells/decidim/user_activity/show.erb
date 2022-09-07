@@ -1,5 +1,11 @@
 <div class="profile__activity">
-    <%= redesigned_filter_form_for context[:filter], url_for, class: "new_filter filter-container bg-white" do |form| %>
+  <div class="filter-container">
+    <button data-component="dropdown" data-target="dropdown-menu">
+      <%= icon "arrow-up-s-line", class: "w-4 h-4 flex-none text-gray fill-current" %>
+      <%= icon "arrow-down-s-line", class: "w-4 h-4 flex-none text-gray fill-current" %>
+      <span><%= t("decidim.searches.filters_small_view.filter") %></span>
+    </button>
+    <%= redesigned_filter_form_for context[:filter], url_for, class: "new_filter", id: "dropdown-menu" do |form| %>
       <%= form.collection_radio_buttons(
             :resource_type,
             filter_items_for_radiobuttons,
@@ -10,14 +16,15 @@
               builder.label { builder.radio_button(class: "reset-defaults", hidden: true) + content_tag(:div, builder.text, class: "filter") }
         end %>
     <% end %>
-    <div class="profile__activity__container" id="activities-container">
-      <% if activities.length == 0 %>
-        <%= cell "decidim/announcement", t("decidim.user_activity.index.no_activities_warning") %>
-      <% else %>
-        <%= cell "decidim/activities", activities %>
-      <% end %>
-    </div>
   </div>
+  <div class="profile__activity__container" id="activities-container">
+    <% if activities.length == 0 %>
+      <%= cell "decidim/announcement", t("decidim.user_activity.index.no_activities_warning") %>
+    <% else %>
+      <%= cell "decidim/activities", activities %>
+    <% end %>
+  </div>
+</div>
 
 <div id="decidim-paginate-container">
   <%= decidim_paginate activities %>

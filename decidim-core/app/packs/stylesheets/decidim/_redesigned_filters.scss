@@ -2,7 +2,33 @@
   @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
 
   &-container{
-    @apply md:col-span-2 flex flex-row overflow-x-auto md:flex-col gap-4 sticky top-0 md:top-2 py-2 md:py-0;
+    @apply sticky top-0 md:top-2 rounded bg-background md:bg-transparent;
+
+    [id*="dropdown"]{
+      @apply flex flex-col gap-2 md:gap-4 py-2 px-6 md:p-0 cursor-pointer;
+
+      &[aria-hidden="true"]{
+        @apply hidden md:flex;
+      }
+    }
+
+    [data-target*="dropdown"]{
+      @apply w-full md:hidden flex items-center gap-2 px-2 py-4 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+
+      span{
+        @apply font-bold text-gray-2;
+      }
+
+      &[aria-expanded="false"] svg:last-of-type,
+      &[aria-expanded="true"] svg:first-of-type{
+        @apply hidden;
+      }
+
+      &[aria-expanded="true"] svg:last-of-type,
+      &[aria-expanded="false"] svg:first-of-type{
+        @apply block;
+      }
+    }
   }
 
   svg{
