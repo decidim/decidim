@@ -35,6 +35,5 @@ class ApplicationController < ActionController::Base
   helper Decidim::SanitizeHelper
   helper Decidim::TwitterSearchHelper
 
-
   protect_from_forgery with: :exception
 end
