@@ -94,17 +94,23 @@
   &__grid{
     @apply grid md:grid-cols-3 items-start gap-x-10 gap-y-8 md:gap-y-16;
 
-    > :nth-child(even){
-      @apply hidden md:grid md:col-span-2;
+    & > :nth-child(even){
+      @apply grid md:col-span-2;
+    }
+
+    /* display the titles only for the first two rows in desktop */
+    & > :nth-child(1) &-title,
+    & > :nth-child(2) &-title{
+      @apply md:block;
     }
 
     &-title{
-      @apply text-gray-2 uppercase font-semibold;
+      @apply block md:hidden mb-8 text-gray-2 uppercase font-semibold;
     }
   }
 
   &__subgrid{
-    @apply grid grid-cols-2 gap-6;
+    @apply grid md:grid-cols-2 gap-6;
   }
 
   &__result{

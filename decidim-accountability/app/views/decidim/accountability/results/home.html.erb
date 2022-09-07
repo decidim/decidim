@@ -7,7 +7,7 @@
 <% end %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= t("decidim.components.accountability.name") %></h1>
+  <h1 class="h3 md:h1 decorator"><%= t("decidim.components.accountability.name") %></h1>
 
   <%= render partial: "status", locals: {
     title: t("decidim.accountability.results.home_header.global_status"),
