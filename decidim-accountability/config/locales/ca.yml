@@ -38,6 +38,7 @@ ca:
         confirm_destroy: Segur que vols suprimir aquest %{name}?
         destroy: Esborrar
         edit: Editar
+        import: Importar projectes a resultats
         import_csv: Importar CSV
         new: Nou/va %{name}
         preview: Previsualitzar
@@ -63,6 +64,11 @@ ca:
             name: Estat
           timeline_entry:
             name: Entrada de la cronologia
+        projects_import:
+          create:
+            invalid: Hi ha hagut un problema important els projectes com a resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
+          new:
+            create: Importar
         results:
           create:
             invalid: S'ha produït un error en crear aquest resultat
