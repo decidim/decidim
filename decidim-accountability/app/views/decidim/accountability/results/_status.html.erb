@@ -4,8 +4,9 @@
   title ||= ""
   progress ||= 0
   count ||= nil
+%>
 
-  status = capture do %>
+<% status = capture do %>
   <p class="accountability__status-title"><%= title %></p>
 
   <% if component_settings.display_progress_enabled? %>

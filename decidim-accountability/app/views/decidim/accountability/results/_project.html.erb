@@ -15,8 +15,9 @@
           tabs << ["project_timeline", t("decidim.accountability.results.timeline.title"), "route-line"] if result.timeline_entries.any?
           tabs << ["project_proposals", t("activemodel.attributes.result.proposals"), "chat-new-line"]
           tabs << ["project_projects", t("activemodel.attributes.result.project_ids"), "git-pull-request-line"]
+        %>
 
-          tabs.each_with_index do |tab, i| %>
+        <% tabs.each_with_index do |tab, i| %>
           <li class="tab-x" data-controls="panel-<%= tab[0] %>" data-open="<%= "true" if i == 0 %>"><%= icon tab[2], class: "text-gray fill-current" %><%= tab[1] %></li>
         <% end %>
       </ul>
@@ -27,8 +28,9 @@
         panels << ["project_timeline", { result: result }] if result.timeline_entries.any?
         panels << ["project_proposals", {}]
         panels << ["project_projects", {}]
+      %>
 
-        panels.each do |panel| %>
+      <% panels.each do |panel| %>
         <div id="panel-<%= panel[0] %>" class="py-8">
           <%= render partial: panel[0], locals: panel[1] %>
         </div>

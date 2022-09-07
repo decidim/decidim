@@ -32,8 +32,9 @@
     translated_attribute(result.status.description),
     "file-text-line"
   ] if result.status && translated_attribute(result.status.description).present?;
+%>
 
-  items.each do |item| %>
+<% items.each do |item| %>
   <div class="accountability__project-aside-item">
     <div><%= icon item[2], class: "w-3.5 h-3.5 fill-current text-gray" %><%= item[0] %></div>
     <div><%= item[1] %></div>
