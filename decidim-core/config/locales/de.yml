@@ -1088,6 +1088,8 @@ de:
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
       no_notifications: Noch keine Benachrichtigungen
+      show:
+        missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
     notifications_settings:
       show:
         administrators: Administratoren
