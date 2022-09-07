@@ -39,7 +39,7 @@ module Decidim
       end
 
       def enable_redesign
-        Decidim.config.redesign_active
+        Decidim::Organization.exists?(twitter_handler: "redesigned")
       end
 
       def redesign(opts = {})
@@ -57,7 +57,8 @@ module Decidim
       end
 
       def redesigned_layout(layout_value)
-        return layout_value unless Decidim.redesign_active && layout_value.is_a?(String)
+        # return layout_value unless Decidim.redesign_active && layout_value.is_a?(String)
+        return layout_value unless enable_redesign && layout_value.is_a?(String)
 
         # if @enable_redesign && !redesigned?(layout_value)
         if enable_redesign && !redesigned?(layout_value)

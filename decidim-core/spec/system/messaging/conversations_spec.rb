@@ -3,22 +3,13 @@
 require "spec_helper"
 
 describe "Conversations", type: :system do
-  let(:organization) { create(:organization) }
+  let!(:organization) { create(:organization, twitter_handler: "redesigned") }
   let(:user) { create :user, :confirmed, organization: }
   let!(:redesign_enabled?) { true }
 
   before do
-    Decidim.config.redesign_active = redesign_enabled?
     switch_to_host(organization.host)
     login_as user, scope: :user
-  end
-
-  context "with redesign config" do
-    it "mocks redesign configuration" do
-      expect(Decidim.config.redesign_active).to eq(redesign_enabled?)
-      visit_inbox
-      expect(Decidim.config.redesign_active).to eq(redesign_enabled?)
-    end
   end
 
   context "when user has no conversations" do
