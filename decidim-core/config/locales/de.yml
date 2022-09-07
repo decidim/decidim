@@ -1151,6 +1151,8 @@ de:
         translated_text: 'Automatisch übersetzter Text:'
     notifications:
       no_notifications: Noch keine Benachrichtigungen
+      show:
+        missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
     notifications_digest_mailer:
       header:
         daily: Tägliche Zusammenfassung
@@ -1775,6 +1777,8 @@ de:
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren
+      offline_banner:
+        cache_version_page: Hoppla! Ihr Netzwerk ist offline. Dies ist eine zuvor gecachte Version der Seite, die Sie besuchen, möglicherweise ist der Inhalt nicht aktuell.
       social_media_links:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
