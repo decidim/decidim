@@ -114,7 +114,7 @@
   }
 
   &__result{
-    @apply flex justify-between items-center gap-4 px-4 border-l-4 border-background rounded overflow-hidden hover:border-tertiary;
+    @apply flex justify-between items-center gap-4 px-4 border-l-4 border-background rounded overflow-hidden cursor-pointer hover:border-tertiary;
 
     &-container{
       @apply space-y-10 my-20;

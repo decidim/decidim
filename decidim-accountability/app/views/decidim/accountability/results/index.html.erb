@@ -32,9 +32,7 @@
     </div>
   </div>
 
-  <% if current_component.has_subscopes? %>
-    <%= render partial: "scope_filters" %>
-  <% end %>
+  <%= render partial: "scope_filters" if current_component.has_subscopes? %>
 
 <% end %>
 

@@ -1,52 +1,56 @@
-<%# REDESIGN_PENDING: this content is deprecated. See decidim_app-design/app/views/redesigned/views/accountability-project.html.erb %>
-<div class="grid grid-cols-12 gap-7">
-  <div class="col-span-9">
-    <h2 class="h2 decorator"><%= translated_attribute result.title %></h2>
+<%
+  tabs = []
 
-    <div class="editor-content mt-8">
-      <%== translated_attribute result.description %>
-    </div>
+  tabs << ["project_timeline", t("decidim.accountability.results.timeline.title"), "route-line"] if result.timeline_entries.any?
+  tabs << ["project_proposals", t("activemodel.attributes.result.proposals"), "chat-new-line"]
 
-    <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
-      <ul class="tab-x-container">
-        <%
-          tabs = []
+  panels = []
 
-          tabs << ["project_timeline", t("decidim.accountability.results.timeline.title"), "route-line"] if result.timeline_entries.any?
-          tabs << ["project_proposals", t("activemodel.attributes.result.proposals"), "chat-new-line"]
-          tabs << ["project_projects", t("activemodel.attributes.result.project_ids"), "git-pull-request-line"]
-        %>
+  panels << ["project_timeline", { result: result }] if result.timeline_entries.any?
+  panels << ["project_proposals", {}]
+%>
 
-        <% tabs.each_with_index do |tab, i| %>
-          <li class="tab-x" data-controls="panel-<%= tab[0] %>" data-open="<%= "true" if i == 0 %>"><%= icon tab[2], class: "text-gray fill-current" %><%= tab[1] %></li>
-        <% end %>
-      </ul>
-
-      <%
-        panels = []
-
-        panels << ["project_timeline", { result: result }] if result.timeline_entries.any?
-        panels << ["project_proposals", {}]
-        panels << ["project_projects", {}]
-      %>
-
-      <% panels.each do |panel| %>
-        <div id="panel-<%= panel[0] %>" class="py-8">
-          <%= render partial: panel[0], locals: panel[1] %>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="mt-8">
-      <%= cell "decidim/tags", result %>
-    </div>
-
-    <%= comments_for result %>
-  </div>
-
-  <div class="col-span-3">
-    <div class="accountability__project-aside">
-      <%= render partial: "project_aside", locals: { result: result } %>
-    </div>
-  </div>
+<%# REDESIGN_PENDING: Remove the mock content once integrated in the index view %>
+<!-- MOCK CONTENT -->
+<div class="container">
+  <button class="button button__lg button__primary" data-drawer-open>Trigger</button>
 </div>
+<!-- end MOCK CONTENT -->
+
+<% content_for :aside do %>
+
+  <div class="accountability__project-aside">
+    <%= render partial: "project_aside", locals: { result: result } %>
+  </div>
+
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/drawer" , locals: { next: "https://www.." , prev: "https://www.." } do %>
+
+  <h2 class="h2 decorator"><%= translated_attribute result.title %></h2>
+
+  <div class="editor-content mt-8">
+    <%== translated_attribute result.description %>
+  </div>
+
+  <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+    <ul class="tab-x-container">
+      <% tabs.each_with_index do |tab, i| %>
+        <li class="tab-x" data-controls="panel-<%= tab[0] %>" data-open="<%= "true" if i == 0 %>"><%= icon tab[2], class: "text-gray fill-current" %><%= tab[1] %></li>
+      <% end %>
+    </ul>
+
+    <% panels.each do |panel| %>
+      <div id="panel-<%= panel[0] %>" class="py-8">
+        <%= render partial: panel[0], locals: panel[1] %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-8">
+    <%= cell "decidim/tags", result %>
+  </div>
+
+  <%= comments_for result %>
+
+<% end %>
