@@ -9,6 +9,9 @@ module Decidim
 
       helper ConversationHelper
 
+      include RedesignLayout
+      redesign active: true
+
       before_action :authenticate_user!
 
       helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups, :validation_messages
