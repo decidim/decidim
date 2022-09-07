@@ -6,7 +6,14 @@
 
 # Ignore bundler config.
 /.bundle
+
+# Ignore the files and folders generated through Webpack
+/public/decidim-packs
+/public/packs
+/public/packs-test
 /public/assets
+/public/sw.js
+/public/sw.js.map
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -14,12 +21,26 @@
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
 
+# Debugger history file
 .byebug_history
 
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+
+# Ignore env configuration files
+.env
+.envrc
+.rbenv-vars
 .nvmrc
-/public/decidim-packs
-/public/packs
-/public/packs-test
+
+# Ignore node modules
 /node_modules
+
+# Ignore Tailwind configuration
+tailwind.config.js
