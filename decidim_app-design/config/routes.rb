@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+
 Rails.application.routes.draw do
+
   scope "/:layout/" do
     get "/*id" => "pages#show", as: :page, format: false
 
@@ -9,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   root to: "pages#show", id: "index"
+
+  mount Decidim::Core::Engine => '/'
 end

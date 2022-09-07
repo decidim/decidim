@@ -9,11 +9,9 @@
   </head>
 
   <body>
-    <%= render partial: "redesigned/shared/header" %>
-
-    <%= yield %>
-
-    <%= render partial: "redesigned/shared/footer" %>
+    <%= render "layouts/decidim/redesigned_wrapper" do %>
+      <%= yield %>
+    <% end %>
 
     <%= snippets.display(:foot) %>
 
