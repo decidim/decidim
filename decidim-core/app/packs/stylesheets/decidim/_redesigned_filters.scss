@@ -23,6 +23,10 @@
         }
       }
 
+      > svg{
+        @apply w-8 h-8 flex-none text-secondary fill-current;
+      }
+
       &[aria-expanded="false"] > svg:last-of-type,
       &[aria-expanded="true"] > svg:first-of-type{
         @apply hidden;
