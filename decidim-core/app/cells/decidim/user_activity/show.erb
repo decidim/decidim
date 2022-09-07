@@ -1,9 +1,10 @@
 <div class="profile__activity">
   <div class="filter-container">
     <button data-component="dropdown" data-target="dropdown-menu">
-      <%= icon "arrow-up-s-line", class: "w-4 h-4 flex-none text-gray fill-current" %>
+      <%# REDESIGN_PENDING: replace the following span for the current selection %>
+      <span>Filter</span>
       <%= icon "arrow-down-s-line", class: "w-4 h-4 flex-none text-gray fill-current" %>
-      <span><%= t("decidim.searches.filters_small_view.filter") %></span>
+      <%= icon "arrow-up-s-line", class: "w-4 h-4 flex-none text-gray fill-current" %>
     </button>
     <%= redesigned_filter_form_for context[:filter], url_for, class: "new_filter", id: "dropdown-menu" do |form| %>
       <%= form.collection_radio_buttons(
