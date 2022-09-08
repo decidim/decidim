@@ -1,13 +1,11 @@
-<div class="expanded">
-  <div class="wrapper wrapper--inner">
-    <div class="row">
-      <div class="large-12">
-        <h2 id="modalTitle" class="reveal__title"><%= t(".modal_title") %></h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="row columns multiple-mentions" data-name="recipient_id[]" data-multiple="true">
-        <label for="add_conversation_users"><%= t(".add_max_users") %></label>
+<div class="conversation__modal-form-container">
+  <%= icon "question-answer-line", class: "w-6 h-6 text-gray fill-current flex-none" %>
+  <div>
+    <h2 id="dialog-title-conversation" class="conversation__modal-form-title"><%= t(".modal_title") %></h2>
+    <div class="form__wrapper">
+      <label for="add_conversation_users" class="conversation__modal-form multiple-mentions" data-name="recipient_id[]" data-multiple="true">
+        <%= t("decidim.metrics.participants.title") %>
+        <div class="help-text"><%= t(".add_max_users") %></div>
         <input id="add_conversation_users" type="text"
             spellcheck="false"
             autocomplete="off"
@@ -16,10 +14,8 @@
             data-selected="multiple-mentions-selected"
             contenteditable="true"
             data-direct-messages-disabled="<%= t("decidim.messaging.conversations.add_conversation_users.participant_with_disabled_message_reception") %>">
-      </div>
-      <div class="columns large-12">
-        <ul class="multiple-mentions-selected"></ul>
-      </div>
+      </label>
     </div>
+    <ul class="conversation__modal-form-results multiple-mentions-selected"></ul>
   </div>
 </div>
