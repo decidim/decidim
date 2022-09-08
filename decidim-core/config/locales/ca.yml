@@ -153,6 +153,8 @@ ca:
         error: S'ha produït un error en actualitzar el teu compte.
         success: El teu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
+    activity:
+      time_ago: "Fa %{time}"
     admin:
       actions:
         cancel: Cancel·lar
@@ -606,7 +608,17 @@ ca:
       endorsed_by: Li agrada a…
     errors:
       internal_server_error:
+        copied: Text copiat!
+        copy_error_message_clarification: Missatge d'error copiat amb el porta-retalls
+        copy_to_clipboard: Copiar al porta-retalls
+        date_and_time: Data i hora
+        reference: Referència
+        request_method: Mètode de sol·licitud
         title: Hi ha hagut un problema amb el nostre servidor
+        try_later: Si us plau, intenta-ho de nou més tard. Si l'error persisteix, si us plau copia la següent informació i envia-la a les mantenidores de la plataforma amb qualsevol altra informació que vulguis compartir.
+        unknown: Desconegut
+        url: URL
+        user: ID de participant
       not_found:
         back_home: Torna a l'inici
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
@@ -877,6 +889,7 @@ ca:
       description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus.
       level: Nivell %{level}
       reached_top: Has arribat al màxim nivell d'aquesta insígnia.
+      title: Què són les ensenyes?
     group_admins:
       actions:
         are_you_sure: Segura? Això no eliminarà la participant del grup.
@@ -1114,6 +1127,7 @@ ca:
         title: Participants
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
         note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
         see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <a href="%{link}" target="_blank"> versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
@@ -1299,6 +1313,15 @@ ca:
           info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
           title: Insígnies
       user:
+        actions:
+          create_user_group: Crear un grup
+          edit_profile: Editar el perfil
+          edit_user_group: Editar el perfil del grup
+          invite_user: Convidar a una participant
+          join_user_group: Sol·licitar unir-se al grup
+          manage_user_group_admins: Gestionar les administradores
+          manage_user_group_users: Gestionar les membres
+          message: Missatge
         confirmation_instructions_sent: Instruccions de confirmació de correu electrònic enviades
         create_user_group: Crea un grup
         edit_profile: Edita el perfil
