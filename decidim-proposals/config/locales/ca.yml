@@ -722,6 +722,9 @@ ca:
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
         success: L'esborrany de proposta s'ha eliminat correctament.
+      last_activity:
+        new_proposal: 'Nova proposta:'
+        proposal_updated: 'Proposta actualitzada:'
       models:
         collaborative_draft:
           fields:
