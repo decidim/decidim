@@ -35,7 +35,7 @@
             <tr data-id="<%= budget.id %>">
               <td>
                 <% if allowed_to? :update, :budget, budget: budget %>
-                  <%= link_to translated_attribute(budget.title), edit_budget_path(budget) %><br>
+                  <%= link_to translated_attribute(budget.title), budget_projects_path(budget) %><br>
                 <% else %>
                   <%= translated_attribute(budget.title) %>
                 <% end %>
