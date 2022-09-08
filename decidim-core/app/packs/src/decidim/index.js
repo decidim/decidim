@@ -89,11 +89,15 @@ $(() => {
 
   Accordions.init();
   Dropdowns.init();
-  // eslint-disable-next-line no-unused-vars
-  const dialog = new Dialogs("[data-dialog]", {
-    openingSelector: "[data-dialog-open]",
-    closingSelector: "[data-dialog-close]"
-  })
+  document.querySelectorAll("[data-dialog]").forEach(
+    ({ dataset: { dialog } }) =>
+      new Dialogs(`[data-dialog="${dialog}"]`, {
+        openingSelector: `[data-dialog-open="${dialog}"]`,
+        closingSelector: `[data-dialog-close="${dialog}"]`,
+        labelledby: `dialog-title-"${dialog}"`,
+        describedby: `dialog-desc-"${dialog}"`
+      })
+  );
 
   markAsReadNotifications()
 });
