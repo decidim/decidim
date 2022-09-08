@@ -427,6 +427,9 @@ ca:
         none: Cap
         open_in_live_event_page: Obrir a la pàgina de l'esdeveniment en directe (amb opció d'enquestes)
         open_in_new_tab: Obrir en una nova pestanya
+      last_activity:
+        meeting_updated: 'Trobada actualitzada:'
+        new_meeting: 'Nova trobada:'
       layouts:
         live_event:
           administrate: Administrar
