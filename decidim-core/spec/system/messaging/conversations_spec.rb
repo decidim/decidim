@@ -267,7 +267,11 @@ describe "Conversations", type: :system do
       end
 
       it "has a contact link" do
-        expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
+        if Decidim.redesign_active
+          expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
+        else
+          expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: recipient.id))
+        end
       end
 
       context "and recipient has restricted communications" do
@@ -537,7 +541,13 @@ describe "Conversations", type: :system do
   def visit_inbox
     visit decidim.root_path
 
-    find("#dropdown-summary-account").click
-    click_link("Conversations")
+    if Decidim.redesign_active
+      find("#dropdown-summary-account").click
+      click_link("Conversations")
+    else
+      within ".topbar__user__logged" do
+        find(".icon--envelope-closed").click
+      end
+    end
   end
 end
