@@ -171,6 +171,9 @@ ca:
             title: Versions
         versions_list:
           back_to_resource: Tornar al debat
+      last_activity:
+        debate_updated: 'Debat actualitzat:'
+        new_debate: 'Nou debat:'
       models:
         debate:
           fields:
