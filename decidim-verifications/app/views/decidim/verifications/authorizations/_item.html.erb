@@ -1,5 +1,5 @@
-<div class="verification">
-  <%= icon auth_icon || "login-circle-line", class: "verification__icon#{ ' is-granted' if defined?(is_granted) && is_granted || false }" %>
+<% verification = capture do %>
+  <%= icon auth_icon || "login-circle-line", class: "verification__icon#{ ' is-granted' if local_assigns[:is_granted].present? }" %>
   <div class="verification__text">
     <h3 class="h5 text-secondary">
       <%= title %>
@@ -8,10 +8,19 @@
       <%= explanation %>
     </span>
   </div>
-  <% if defined?(url) %>
-    <a href="<%= url %>" class="button button__sm button__transparent-secondary">
-      <%= button_text %>
-      <%= icon "add-line", class: "w-3.5 h-3.5 fill-current" %>
-    </a>
+  <% if local_assigns[:is_granted].present? %>
+    <%= icon "refresh-line", class: "w-6 h-6 flex-none text-secondary fill-current" %>
+  <% else %>
+    <%= icon "arrow-right-s-line", class: "w-6 h-6 flex-none text-secondary fill-current" %>
   <% end %>
-</div>
+<% end %>
+
+<% if defined?(url) %>
+  <a href="<%= url %>" class="verification" title="<%= button_text %>">
+    <%= verification %>
+  </a>
+<% else %>
+  <div class="verification">
+    <%= verification %>
+  </div>
+<% end %>
