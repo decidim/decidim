@@ -333,7 +333,7 @@ Decidim.configure do |config|
   #
   # config.machine_translation_service = "MyTranslationService"
 
-  config.redesign_active = true
+  config.redesign_active = Rails.application.secrets.decidim[:redesign_active] if Rails.application.secrets.decidim[:redesign_active].present?
 
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.

@@ -368,7 +368,7 @@ module Decidim
   # If set to true redesigned versions of layouts and cells will be used by
   # default
   config_accessor :redesign_active do
-    true
+    false
   end
 
   # The Decidim::Exporters::CSV's default column separator
