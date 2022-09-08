@@ -18,7 +18,7 @@ module Decidim
       content_tag(:div, data: { dialog: opts[:id] || "" }) do
         content_tag(:div, class: opts[:class]) do
           button +
-          yield.html_safe
+            yield.html_safe
         end
       end
     end
