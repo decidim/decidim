@@ -9,12 +9,15 @@ module Decidim
 
       helper ConversationHelper
 
-      include RedesignLayout
-      redesign active: true
+      layout "layouts/decidim/application", force_redesign: true
 
       before_action :authenticate_user!
 
       helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups, :validation_messages
+
+      def redesign_enabled?
+        true
+      end
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:

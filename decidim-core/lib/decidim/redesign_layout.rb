@@ -29,7 +29,7 @@ module Decidim
 
     class_methods do
       def layout(layout, conditions = {})
-        # set_redesign
+        calculate_redesign(conditions.extract!(:force_redesign))
 
         if layout.is_a?(String)
           super(redesigned_layout(layout), **conditions)
@@ -38,12 +38,12 @@ module Decidim
         end
       end
 
-      def enable_redesign
-        Decidim::Organization.exists?(twitter_handler: "redesigned")
+      def force_redesign
+        calculate_redesign(force_redesign: true)
       end
 
       def redesign(opts = {})
-        # @enable_redesign = Decidim.redesign_active && opts.fetch(:active, true)
+        @enable_redesign = opts.delete(:force_redesign) ? true : Decidim.redesign_active && opts.fetch(:active, true)
 
         layout_conditions = opts.slice(:except, :only) || _layout_conditions
 
@@ -57,14 +57,11 @@ module Decidim
       end
 
       def redesigned_layout(layout_value)
-        # return layout_value unless Decidim.redesign_active && layout_value.is_a?(String)
-        return layout_value unless enable_redesign && layout_value.is_a?(String)
+        return layout_value unless (Rails.env.test? || Decidim.redesign_active) && layout_value.is_a?(String)
 
-        # if @enable_redesign && !redesigned?(layout_value)
-        if enable_redesign && !redesigned?(layout_value)
+        if @enable_redesign && !redesigned?(layout_value)
           layout_value.sub(%r{.*\K/(_?)}, "/\\1redesigned_")
-        # elsif !@enable_redesign
-        elsif !enable_redesign
+        elsif !@enable_redesign
           layout_value.sub(%r{.*\K/_?redesigned}, "/\\1")
         else
           layout_value
@@ -72,9 +69,9 @@ module Decidim
       end
 
       def redesign_enabled?
-        # set_redesign
+        calculate_redesign
 
-        enable_redesign
+        @enable_redesign
       end
 
       def redesign_layout_conditions
@@ -87,9 +84,13 @@ module Decidim
 
       private
 
-      # def set_redesign
-      #   @enable_redesign = Decidim.redesign_active unless !Rails.env.test? && @enable_redesign.is_a?(FalseClass)
-      # end
+      def calculate_redesign(opts = {})
+        @enable_redesign = if opts[:force_redesign]
+                             true
+                           else
+                             Decidim.redesign_active unless !Rails.env.test? && @enable_redesign.is_a?(FalseClass)
+                           end
+      end
 
       def redesigned?(layout)
         %r{.*\K/_?redesigned}.match?(layout)
@@ -101,7 +102,7 @@ module Decidim
     end
 
     included do
-      delegate :redesigned_layout, :redesign, :redesign_enabled?, :redesign_layout_conditions, to: :class
+      delegate :redesigned_layout, :redesign, :redesign_enabled?, :redesign_layout_conditions, :force_redesign, to: :class
 
       helper_method :redesigned_layout, :redesign_enabled?
 
