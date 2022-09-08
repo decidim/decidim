@@ -264,6 +264,9 @@ ca:
         title: Preguntes de %{scope_name}
       index:
         title: Consultes
+      last_activity:
+        new_consultation: 'Nova consulta:'
+        new_question: 'Nova pregunta:'
       pages:
         home:
           highlighted_consultations:
