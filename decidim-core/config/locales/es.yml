@@ -801,6 +801,9 @@ es:
         other: "%{count} seguidoras"
       no_followers: Aún no hay seguidores.
     following:
+      following_count:
+        one: "%{count} lo sigue"
+        other: "%{count} lo siguen"
       no_followings: No sigue a nadie ni a ninguna actividad.
       non_public_followings: Algunos de los recursos seguidos no son públicos.
     follows:
