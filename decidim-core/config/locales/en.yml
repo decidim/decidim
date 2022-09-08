@@ -1087,7 +1087,6 @@ en:
           ok: OK
         index:
           ago: ago
-          close: Close modal
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet
