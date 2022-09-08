@@ -167,6 +167,10 @@ es:
           added_projects:
             one: Se ha importado un proyecto desde proyectos.
             other: "Se han importado %{count} resultados desde proyectos."
+          subject: Los proyectos se han importado correctamente
+          success: Los proyectos importados como resultados con éxito al componente %{component_name}. Puedes revisar los resultados en el tablero de administración.
+      last_activity:
+        new_result: 'Nuevo resultado:'
       models:
         result:
           fields:
