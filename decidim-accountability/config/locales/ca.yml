@@ -167,6 +167,10 @@ ca:
           added_projects:
             one: S'ha importat un resultat des de projectes.
             other: "S'han importat %{count} resultats des de projectes."
+          subject: Els projectes s'han importat correctament
+          success: Projectes importats com a resultats amb èxit al component %{component_name}. Pots revisar els resultats al taulell d'administració.
+      last_activity:
+        new_result: 'Nou resultat:'
       models:
         result:
           fields:
