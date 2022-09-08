@@ -355,6 +355,8 @@ ca:
         working_group: Grup de treball
       index:
         title: Assemblees
+      last_activity:
+        new_assembly: 'Nova assemblea:'
       pages:
         home:
           highlighted_assemblies:
