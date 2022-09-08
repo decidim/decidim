@@ -1,13 +1,22 @@
 <%
+
   tabs = []
-
-  tabs << ["project_timeline", t("decidim.accountability.results.timeline.title"), "route-line"] if result.timeline_entries.any?
-  tabs << ["project_proposals", t("activemodel.attributes.result.proposals"), "chat-new-line"]
-
   panels = []
 
-  panels << ["project_timeline", { result: result }] if result.timeline_entries.any?
-  panels << ["project_proposals", {}]
+  if result.children.any?
+    tabs << ["list", t("decidim.accountability.results.timeline.title"), "route-line"] if result.timeline_entries.any?
+    panels << ["list", { results: result.children }]
+  else
+    tabs << ["project_timeline", t("decidim.accountability.results.timeline.title"), "route-line"] if result.timeline_entries.any?
+    tabs << ["included_proposals", t("activemodel.attributes.result.proposals"), "chat-new-line"]
+    tabs << ["included_projects", t("activemodel.attributes.result.project_ids"), "git-pull-request-line"]
+    tabs << ["included_meetings", t("activemodel.attributes.result.meetings_ids"), "treasure-map-line"]
+    panels << ["project_timeline", { result: result }] if result.timeline_entries.any?
+    panels << ["included_proposals", {}]
+    panels << ["included_projects", {}]
+    panels << ["included_meetings", {}]
+  end
+
 %>
 
 <%# REDESIGN_PENDING: Remove the mock content once integrated in the index view %>
@@ -47,7 +56,12 @@
     <% end %>
   </div>
 
-  <div class="mt-8">
+  <div class="mt-8 accountability__project-actions">
+    <%# REDESIGN_PENDING: integrate button %>
+    <button class="button button__sm button__transparent-secondary">
+      Comment
+      <%= icon "chat-1-line", class: "fill-current flex-none" %>
+    </button>
     <%= cell "decidim/tags", result %>
   </div>
 

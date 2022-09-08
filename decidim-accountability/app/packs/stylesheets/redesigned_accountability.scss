@@ -114,11 +114,7 @@
   }
 
   &__result{
-    @apply flex justify-between items-center gap-4 px-4 border-l-4 border-background rounded overflow-hidden cursor-pointer hover:border-tertiary;
-
-    &-container{
-      @apply space-y-10 my-20;
-    }
+    @apply flex justify-between items-center gap-4 px-4 border-l-4 border-background rounded overflow-hidden mt-6 first:mt-0 cursor-pointer hover:border-tertiary;
 
     &-details{
       @apply flex text-sm text-gray-2;
@@ -176,6 +172,14 @@
           }
         }
       }
+    }
+
+    &-actions{
+      @apply flex justify-between items-center;
+    }
+
+    &-list{
+      @apply space-y-6;
     }
   }
 }

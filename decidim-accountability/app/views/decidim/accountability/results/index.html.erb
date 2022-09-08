@@ -42,6 +42,9 @@
   <h2 class="h4"><%= "Title of this current_scope" %></h2>
   <div class="editor-content mt-4"><%= "Intro of this current_scope" %></div>
 
-  <%= render partial: "list", locals: { results: results, total_count: results.total_count } %>
+  <div id="results" class="my-20">
+    <%= render partial: "list", locals: { results: results, total_count: results.total_count } %>
+    <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
+  </div>
 
 <% end %>
