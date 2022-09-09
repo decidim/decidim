@@ -1,5 +1,5 @@
 .conference__registration{
-  @apply item-list flex-col md:flex-row items-start md:items-center justify-between cursor-pointer;
+  @apply flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 rounded-l px-4 border-l-4 border-background;
 
   &-container{
     @apply w-full md:w-3/5 space-y-10 mb-16 md:mb-36;
@@ -11,10 +11,10 @@
 
   &-text{
     @apply text-sm text-gray-2 space-y-2.5 md:space-y-4;
-  }
 
-  &-details{
-    @apply item-list__metadata;
+    & > *:last-child{
+      @apply flex items-center gap-1.5 first:[&>*]:flex-none;
+    }
   }
 
   &-button{
@@ -27,6 +27,14 @@
         @apply text-xl font-semibold whitespace-nowrap;
       }
     }
+  }
+
+  &:hover{
+    @apply cursor-pointer border-tertiary;
+  }
+
+  &:hover &-text > *:first-child{
+    @apply underline;
   }
 
   &:hover &-button{
