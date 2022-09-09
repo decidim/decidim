@@ -203,14 +203,6 @@ describe "ProfileConversations", type: :system do
         expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "2")
         expect(page).to have_selector(".card.card--widget .unread_message__counter", text: "1")
       end
-
-      # REDESIGN_PENDING: With redesign the user groups section dissapear and this counter is not
-      # shown. Delete this test if this is the expected behavior.
-      # it "shows the number of unread messages in the conversation page" do
-      #   visit_inbox
-
-      #   expect(page).to have_selector(".user-groups .card--list__author .card--list__counter", text: "3")
-      # end
     end
 
     context "and they are read" do

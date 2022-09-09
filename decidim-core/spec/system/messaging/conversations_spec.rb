@@ -279,11 +279,6 @@ describe "Conversations", type: :system do
 
         it "has contact muted" do
           expect(page).not_to have_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
-
-          # REDESIGN_PENDING: After redesign there is no indicator of muted
-          # conversations. Delete this expectation if it's OK
-          #
-          # expect(page).to have_selector("svg.icon--envelope-closed.muted")
         end
       end
     end
@@ -479,21 +474,6 @@ describe "Conversations", type: :system do
           end
         end
       end
-
-      # REDESIGN_PENDING: After redesing the list of interlocutors is not shortened
-      # to 3 and the full list is rendered. If correct delete this example
-      # it "shows only the first 3 participant name plus the number of remaining participants" do
-      # context "when listing the conversations" do
-      #   before do
-      #     visit decidim.conversations_path
-      #   end
-
-      #     within "[data-interlocutors-list]" do
-      #       expect(page).to have_content("+ 6")
-      #       expect(page).not_to have_content(user.name.upcase)
-      #     end
-      #   end
-      # end
     end
   end
 
