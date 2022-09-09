@@ -44,7 +44,6 @@ describe "Explore meetings", :slow, type: :system do
           expect(page).to have_css(".card--meeting", count: 6)
         end
 
-        expect(page).to have_css("#meetings-count", text: "6 MEETINGS")
         expect(page).to have_content(translated(upcoming_meeting.title))
       end
 
@@ -201,7 +200,6 @@ describe "Explore meetings", :slow, type: :system do
           find("#content form.new_filter .icon--magnifying-glass").click
         end
 
-        expect(page).to have_css("#meetings-count", text: "1 MEETING")
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(meetings.first.title))
       end
@@ -250,8 +248,6 @@ describe "Explore meetings", :slow, type: :system do
               choose "Past"
             end
 
-            expect(page).to have_css("#meetings-count", text: "3 MEETINGS")
-
             result = page.find("#meetings .card-grid").text
             expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
             expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting2.title))
@@ -265,8 +261,6 @@ describe "Explore meetings", :slow, type: :system do
               choose "Upcoming"
             end
 
-            expect(page).to have_css("#meetings-count", text: "8 MEETINGS")
-
             result = page.find("#meetings .card-grid").text
             expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
             expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
@@ -279,8 +273,6 @@ describe "Explore meetings", :slow, type: :system do
             within ".with_any_date_collection_radio_buttons_filter" do
               choose "All"
             end
-
-            expect(page).to have_css("#meetings-count", text: "11 MEETINGS")
 
             result = page.find("#meetings .card-grid").text
             expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))

@@ -16,10 +16,6 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
-  <h1 class="section-heading" id="meetings-count">
-    <%= render partial: "decidim/meetings/meetings/count" %>
-  </h1>
-
   <%= cell "decidim/meetings/meetings_map", search.result %>
 
   <div id="meetings" class="columns mediumlarge-8 large-9">
