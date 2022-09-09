@@ -441,8 +441,6 @@ en:
       conference_speaker_cell:
         personal_url:
           personal_website: Personal website
-        twitter_handle:
-          go_to_twitter: Go to Twitter
       conference_speakers:
         index:
           speakers:
