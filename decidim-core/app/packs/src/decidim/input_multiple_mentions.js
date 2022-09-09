@@ -16,7 +16,7 @@ const updateSubmitButton = ($fieldContainer, $selectedItems) => {
 }
 
 $(() => {
-  const $fieldContainer = $(".multiple-mentions");
+  const $fieldContainer = $(".js-multiple-mentions");
   if ($fieldContainer.length < 1) {
     return;
   }
