@@ -14,5 +14,10 @@
     <div class="row column">
       <%= form.translated :editor, :body, toolbar: :full, lines: 30, label: t("models.components.body", scope: "decidim.blogs.admin") %>
     </div>
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.datetime_field :published_at %>
+      </div>
+    </div>
   </div>
 </div>
