@@ -33,7 +33,9 @@ const initModal = (manager) => {
     const categoryButton = categoryEl.querySelector(".dc-title");
     const categoryDescription = categoryEl.querySelector(".dc-description");
     categoryButton.addEventListener("click", () => {
-      if (categoryDescription.hidden) {
+      // REDESIGN_PENDING: Remove the hide class when redesign enabled
+      const hidden = categoryDescription.classList.contains("hide") || categoryDescription.hidden;
+      if (hidden) {
         categoryButton.classList.add("open");
         categoryDescription.hidden = false;
         // REDESIGN_PENDING: Remove the hide class when redesign enabled
