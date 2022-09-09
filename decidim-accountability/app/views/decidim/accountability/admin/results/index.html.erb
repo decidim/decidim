@@ -7,7 +7,15 @@
         <%= link_to t("actions.new", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_result_path(parent_id: parent_result), class: "button tiny button--simple" if allowed_to? :create, :result %>
         <%= render partial: "decidim/accountability/admin/shared/subnav" unless parent_result %>
         <%= export_dropdown %>
-        <%= link_to t("actions.import_csv", scope: "decidim.accountability"), import_results_path, class: "button tiny button--simple" if allowed_to? :create, :result %>
+        <%= import_dropdown do %>
+          <li class="imports--component imports--results">
+            <%= link_to t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")), new_projects_import_path if allowed_to?(:create, :result) && parent_result.nil? %>
+          </li>
+          <li class="imports--component imports--results">
+            <%= link_to t("actions.import_csv", scope: "decidim.accountability"), import_results_path if allowed_to? :create, :result %>
+          </li>
+        <% end %>
+
       </div>
     </h2>
   </div>
