@@ -1,0 +1,36 @@
+.meeting{
+  @apply flex items-stretch gap-4 cursor-pointer;
+
+  &__container{
+    @apply space-y-10;
+  }
+
+  &__calendar{
+    @apply w-14 flex flex-col items-stretch gap-1 rounded overflow-hidden bg-background text-center;
+
+    &-month{
+      @apply bg-primary uppercase text-white text-xs;
+    }
+
+    &-day{
+      @apply text-black text-[28px] font-semibold;
+    }
+
+    &-time{
+      @apply text-black text-xs;
+    }
+  }
+
+  &__text{
+    @apply flex flex-col;
+
+    &-details{
+      /* REDESIGN_PENDING: enable when available. Current in https://github.com/decidim/decidim/pull/9772 */
+      // @apply item-list__metadata;
+    }
+  }
+
+  &:hover h2{
+    @apply underline;
+  }
+}

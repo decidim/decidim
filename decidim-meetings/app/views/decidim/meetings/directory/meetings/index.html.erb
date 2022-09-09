@@ -12,13 +12,20 @@
   <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
 
   <%= render partial: "filters" %>
+
+  <%= render partial: "decidim/meetings/calendar_modal", locals: {
+    path: short_url(
+      route_name: "calendar",
+      params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+    )
+  } %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
   <%= cell "decidim/meetings/meetings_map", search.result %>
 
-  <div id="meetings" class="columns mediumlarge-8 large-9">
+  <div id="meetings">
     <%= render partial: "meetings" %>
   </div>
 <% end %>
