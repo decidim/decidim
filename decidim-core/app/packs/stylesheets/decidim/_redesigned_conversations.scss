@@ -76,46 +76,42 @@
   }
 
   &__modal{
-    &-form{
-      @apply last:[&>*]:w-full;
+    &-container{
+      @apply flex items-start gap-2 last:[&>*]:grow last:[&>*]:pr-6;
+    }
 
-      &-container{
-        @apply flex items-start gap-2 last:[&>*]:grow last:[&>*]:pr-6;
+    &-title{
+      @apply text-2xl text-black font-semibold;
+    }
+
+    &-results{
+      @apply mb-20 flex flex-wrap gap-x-8 gap-y-4;
+    }
+
+    [role="listbox"],
+    &-results{
+      li{
+        @apply flex items-center gap-2;
       }
 
-      &-title{
-        @apply text-2xl text-black font-semibold;
+      img{
+        @apply rounded-full w-6 h-6 object-cover;
       }
 
-      &-results{
-        @apply mb-20 flex flex-wrap gap-x-8 gap-y-4;
+      span{
+        @apply font-semibold text-sm text-secondary;
       }
 
-      [role="listbox"],
-      &-results{
-        li{
-          @apply flex items-center gap-2;
-        }
+      small{
+        @apply font-normal text-gray-2 text-xs;
+      }
 
-        img{
-          @apply rounded-full w-6 h-6 object-cover;
-        }
+      svg{
+        @apply w-4 h-4 text-primary fill-current;
+      }
 
-        span{
-          @apply font-semibold text-sm text-secondary;
-        }
-
-        small{
-          @apply font-normal text-gray-2 text-xs;
-        }
-
-        svg{
-          @apply w-4 h-4 text-primary fill-current;
-        }
-
-        .is-group{
-          @apply flex items-center gap-1;
-        }
+      .is-group{
+        @apply flex items-center gap-1;
       }
     }
 
