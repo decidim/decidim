@@ -57,6 +57,10 @@
     }
   }
 
+  &[disabled]{
+    @apply text-gray bg-background-3 border border-gray;
+  }
+
   &__transparent:hover,
   &:hover{
     @apply text-white;
