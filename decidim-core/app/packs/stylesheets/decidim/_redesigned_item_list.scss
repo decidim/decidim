@@ -7,6 +7,14 @@
 
   &__metadata{
     @apply mt-auto;
+
+    & > span{
+      @apply inline-flex items-center gap-1 px-6 border-background border-x first:pl-0 last:pr-0 first:border-l-0 last:border-r-0 text-sm text-gray-2;
+
+      & > svg{
+        @apply w-3.5 h-3.5 fill-current text-gray;
+      }
+    }
   }
 
   &:hover &__title{

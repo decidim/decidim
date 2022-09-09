@@ -117,11 +117,7 @@
     @apply flex justify-between items-center gap-4 px-4 border-l-4 border-background rounded overflow-hidden mt-6 first:mt-0 cursor-pointer hover:border-tertiary;
 
     &-details{
-      @apply flex text-sm text-gray-2;
-
-      & > span{
-        @apply inline-flex items-center gap-1 px-6 border-background border-x first:pl-0 last:pr-0 first:border-l-0 last:border-r-0;
-      }
+      @apply flex item-list__metadata;
 
       &-container{
         @apply space-y-2.5;
