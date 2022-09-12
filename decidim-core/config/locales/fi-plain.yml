@@ -611,7 +611,17 @@ fi-pl:
       endorsed_by: He tykkäävät tästä…
     errors:
       internal_server_error:
+        copied: Teksti kopioitu!
+        copy_error_message_clarification: Kopioi virheviesti leikepöydälle
+        copy_to_clipboard: Kopioi leikepöydälle
+        date_and_time: Päivämäärä ja kellonaika
+        reference: Viite
+        request_method: Pyynnön metodi
         title: Palvelimellamme tapahtui virhe
+        try_later: Yritä myöhemmin uudelleen. Jos ongelma jatkuu, kopioi seuraavat tiedot ja lähetä ne alustan ylläpitäjille. Halutessasi voit liittää mukaan myös mitä tahansa muuta tietoa, mitä haluat jakaa.
+        unknown: Ei tiedossa
+        url: URL
+        user: Käyttäjän ID
       not_found:
         back_home: Takaisin kotisivulle
         content_doesnt_exist: Tämä osoite on virheellinen tai käytöstä poistunut.
