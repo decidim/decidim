@@ -1781,8 +1781,11 @@ lt:
             decidim-consent:
               description: Saugo informaciją apie vartotojo leidžiamus slapukus šioje svetainėje.
               service: Ši svetainė
+            pwaInstallPromptSeen:
+              description: Išsaugo būseną jei progresyvios web aplikacijos instaliacijos pranešimas jau buvo matytas naudotojo.
           types:
             cookie: Slapukas
+            local_storage: Vietinė saugykla
         dialog:
           accept_all: Priimti visus
           accept_only_essential: Sutikti tik su būtinaisiais slapukais
