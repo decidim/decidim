@@ -1744,6 +1744,7 @@ fi:
               service: Tämä sivusto
             pwaInstallPromptSeen:
               description: Tallentaa tiedon siitä, onko progressiivisen verkkosovelluksen (PWA) asennusilmoitus jo nähty käyttäjän toimesta.
+              service: Tämä sivusto
           types:
             cookie: Eväste
             local_storage: Paikallinen tietovarasto
