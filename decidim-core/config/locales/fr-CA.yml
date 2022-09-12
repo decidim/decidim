@@ -603,10 +603,20 @@ fr-CA:
         select_identity: Sélectionner une identité
     endorsers_list:
       close: Fermer
-      endorsed_by: Aimé par…
+      endorsed_by: Soutenu par …
     errors:
       internal_server_error:
+        copied: Texte copié !
+        copy_error_message_clarification: Copier le message d'erreur dans le presse-papiers
+        copy_to_clipboard: Copier dans le presse-papiers
+        date_and_time: Date et heure
+        reference: Référence
+        request_method: Méthode de requête
         title: Il y a eu un problème avec notre serveur
+        try_later: Veuillez réessayer plus tard. Si l'erreur persiste, copiez les informations suivantes et envoyez-les aux responsables de la plateforme avec toute autre information que vous pourriez vouloir partager.
+        unknown: Inconnue
+        url: URL
+        user: Identifiant de l'utilisateur
       not_found:
         back_home: Retour à l'accueil
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
@@ -880,7 +890,7 @@ fr-CA:
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
-      title: Quels sont les badges ?
+      title: Que sont les badges ?
     group_admins:
       actions:
         are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur du groupe.
@@ -1308,7 +1318,7 @@ fr-CA:
           create_user_group: Créer un groupe
           edit_profile: Modifier le profil
           edit_user_group: Modifier le profil du groupe
-          invite_user: Inviter un participant
+          invite_user: Inviter un utilisateur
           join_user_group: Demander à rejoindre ce groupe
           manage_user_group_admins: Gérer les administrateurs
           manage_user_group_users: Gérer les membres
