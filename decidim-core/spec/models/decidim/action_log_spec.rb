@@ -118,6 +118,19 @@ describe Decidim::ActionLog do
       it { is_expected.to be_falsey }
     end
 
+    context "when resource does not exist" do
+      before do
+        allow(Rails.logger).to receive(:warn).at_least(:once)
+        action_log.resource_type = "ANonExistingClass"
+        action_log.participatory_space.save!
+      end
+
+      it "creates a log entry" do
+        expect(subject).to be_falsey
+        expect(Rails.logger).to have_received(:warn).with(/Failed resource/).once
+      end
+    end
+
     it { is_expected.to be_truthy }
   end
 end
