@@ -18,7 +18,7 @@
             session_path(:user)
           end
     %>
-    <%= decidim_form_for(Decidim::User.new, namespace: "login", as: :user, url: path) do |f| %>
+    <%= decidim_form_for(Decidim::User.new, namespace: "login", as: :user, url: path, html: { class: nil }) do |f| %>
       <div class="login__modal-form">
         <div class="form__wrapper">
           <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
