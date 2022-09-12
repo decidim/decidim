@@ -167,6 +167,9 @@ es-PY:
             title: Versiones
         versions_list:
           back_to_resource: Volver al debate
+      last_activity:
+        debate_updated: 'Debate actualizado:'
+        new_debate: 'Nuevo debate:'
       models:
         debate:
           fields:
