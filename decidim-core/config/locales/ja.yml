@@ -1722,8 +1722,11 @@ ja:
             decidim-consent:
               description: このウェブサイトでユーザーが許可するクッキーに関する情報を保存します。
               service: このウェブサイト
+            pwaInstallPromptSeen:
+              description: プログレッシブウェブアプリケーション(PWA) のインストール通知がユーザーによって既に表示されている場合、ステータスを保存します。
           types:
             cookie: クッキー
+            local_storage: ローカルストレージ
         dialog:
           accept_all: すべて受け入れる
           accept_only_essential: 必須のみを受け入れる
