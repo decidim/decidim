@@ -18,7 +18,7 @@ describe "DataPortability", type: :system do
 
     describe "show button export data" do
       it "export the user's data" do
-        within ".row.data-portability" do
+        within ".data-portability" do
           expect(page).to have_content("Download the data")
           expect(page).to have_content(user.email)
         end
