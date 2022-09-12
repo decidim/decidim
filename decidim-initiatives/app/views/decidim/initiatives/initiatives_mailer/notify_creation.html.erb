@@ -18,5 +18,5 @@
 <p>
   <%= t("check_initiative_details", scope: "decidim.initiatives.initiatives_mailer.initiative_link") %>
   <%= link_to t("here",  scope: "decidim.initiatives.initiatives_mailer.initiative_link"),
-              decidim_admin_initiatives.initiative_url(@initiative, host: @organization.host) %>
+              decidim_initiatives.initiative_url(@initiative, host: @organization.host) %>
 </p>
