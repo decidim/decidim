@@ -30,6 +30,7 @@ module Decidim
 
       it "has an associated agenda" do
         expect(agenda_item.agenda).to be_a(Decidim::Meetings::Agenda)
+        expect(Decidim::Meetings::AgendaItem.last.agenda).to be_a(Decidim::Meetings::Agenda)
       end
 
       describe ".first_class" do
