@@ -13,7 +13,9 @@ module Decidim
 
       def index; end
 
-      def show; end
+      def show
+        raise ActionController::RoutingError, "Not Found" unless post
+      end
 
       private
 
@@ -26,7 +28,11 @@ module Decidim
       end
 
       def posts
-        @posts ||= Post.where(component: current_component)
+        @posts ||= if current_user&.admin?
+                     Post.where(component: current_component)
+                   else
+                     Post.published.where(component: current_component)
+                   end
       end
 
       # PROVISIONAL if we implement counter cache
