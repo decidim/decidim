@@ -722,6 +722,9 @@ es-MX:
       destroy_draft:
         error: Se han producido errores al eliminar el borrador de la propuesta.
         success: El borrador de la propuesta fue eliminado con éxito.
+      last_activity:
+        new_proposal: 'Nueva propuesta:'
+        proposal_updated: 'Propuesta actualizada:'
       models:
         collaborative_draft:
           fields:
