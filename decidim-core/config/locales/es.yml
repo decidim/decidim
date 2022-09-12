@@ -1739,8 +1739,11 @@ es:
             decidim-consent:
               description: Almacena información sobre las cookies permitidas por la usuaria en esta página web.
               service: Esta página web
+            pwaInstallPromptSeen:
+              description: Guarda el estado si la notificación de instalación de la aplicación web progresiva (PWA) ya ha sido vista por la usuaria.
           types:
             cookie: Cookie
+            local_storage: Almacenamiento local
         dialog:
           accept_all: Aceptar todas
           accept_only_essential: Aceptar solo las esenciales
