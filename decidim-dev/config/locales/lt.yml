@@ -15,6 +15,12 @@ lt:
       dummy:
         settings:
           global:
+            guided: Vedama įvestis
+            guided_help: Pagalbos tekstas
+            guided_readonly: Išjungta įvestis
+            guided_rich: Vedama turtinga įvestis
+            guided_rich_help_html: HTML <strong>pagalbos</strong> tekstas
+            guided_rich_readonly_html: HTML <strong>pagalbos</strong>tekstas išjungtai įvesčiai
             readonly_attribute: Tik skaitomas atributas
             test: Bandymas
             test_choices:
