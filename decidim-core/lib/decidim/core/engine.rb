@@ -254,7 +254,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
       end
 
-      initializer "doorkeeper" do
+      initializer "doorkeeper", before: "doorkeeper.params.filter" do
         Doorkeeper.configure do
           orm :active_record
 
