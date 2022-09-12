@@ -34,7 +34,7 @@ import "src/decidim/append_redirect_url_to_modals"
 import "src/decidim/form_attachments"
 import "src/decidim/form_validator"
 import "src/decidim/form_remote"
-import "src/decidim/ajax_modals"
+// import "src/decidim/ajax_modals" -- imported in submodules
 import "src/decidim/conferences"
 import "src/decidim/tooltip_keep_on_hover"
 import "src/decidim/diff_mode_dropdown"
