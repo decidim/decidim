@@ -39,7 +39,7 @@ describe "Internal server error display", type: :system do
       within find("tr", text: "User ID") do
         expect(page).to have_content("Unknown")
       end
-      within find("tr", text: "Date and Time") do
+      within find("tr", text: "Date and time") do
         expect(page).to have_content("2022-01-01T12:00:00.000000")
       end
       within find("tr", text: "URL") do
