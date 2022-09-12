@@ -1,4 +1,4 @@
-<%= decidim_modal id: model.id, class: "conference__registration-modal" do %>
+<%= decidim_modal id: "conference-registration-confirm-#{model.id}", class: "conference__registration-modal" do %>
   <div class="flex items-center gap-2">
     <%= icon "ticket-line", class: "w-6 h-6 text-gray fill-current flex-none" %>
     <div class="font-semibold text-black text-2xl" id="dialog-title-<%= model.id %>"><%= I18n.t("registration", scope: "decidim.conferences.conference.show") %></div>
