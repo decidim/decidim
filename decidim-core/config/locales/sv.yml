@@ -1642,20 +1642,14 @@ sv:
     timestamp_error_message: Det gick för snabbt! Försök igen.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
-            description: Beskrivning
-            name: Namn
             service: Tjänst
-            type: Typ
-          cookies:
-            pwaInstallPromptSeen:
-              service: Denna webbplats
           types:
             cookie: Cookie
         dialog:
-          cookie_settings: Inställningar
+          settings: Inställningar
         modal:
           save_settings: Spara inställningar
       edit_link:
