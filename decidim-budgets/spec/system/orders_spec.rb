@@ -446,7 +446,7 @@ describe "Orders", type: :system do
 
             it "shows private-only activity log entry" do
               page.visit decidim.profile_activity_path(nickname: user.nickname)
-              expect(page).to have_content("New budgeting vote at #{translated(budget.participatory_space.title)}")
+              expect(page).to have_content("New budgeting vote at #{translated(budget.title)}")
               expect(page).to have_link(translated(budget.title), href: router.budget_path(budget))
             end
 

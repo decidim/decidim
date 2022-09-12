@@ -1,0 +1,5 @@
+<% if model.deleted? %>
+  <span><%= t("decidim.profile.deleted") %></span>
+<% else %>
+  <span><%= decidim_sanitize author_name %></span>
+<% end %>

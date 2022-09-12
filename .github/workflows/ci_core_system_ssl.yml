@@ -1,0 +1,78 @@
+name: "[CI] Core (system specs SSL)"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    paths:
+      - "*"
+      - ".github/**"
+      - "decidim-core/**"
+      - "decidim-dev/**"
+
+env:
+  CI: "true"
+  RUBY_VERSION: 3.1.1
+  NODE_VERSION: 16.9.1
+  DECIDIM_MODULE: decidim-core
+  PARALLEL_TEST_PROCESSORS: 2
+  DECIDIM_SERVICE_WORKER_ENABLED: true
+  TEST_SSL: true
+
+jobs:
+  main:
+    name: Tests
+    runs-on: ubuntu-latest
+    if: "!startsWith(github.head_ref, 'chore/l10n')"
+    timeout-minutes: 60
+    services:
+      postgres:
+        image: postgres:11
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+      validator:
+        image: ghcr.io/validator/validator:latest
+        ports: ["8888:8888"]
+    env:
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      RUBYOPT: '-W:no-deprecated'
+      VALIDATOR_HTML_URI: http://localhost:8888/
+    steps:
+      - uses: actions/checkout@v2.0.0
+        with:
+          fetch-depth: 1
+      - uses: ./.github/actions/module-rspec
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ env.DECIDIM_MODULE }}
+          processor_count: ${{ env.PARALLEL_TEST_PROCESSORS }}
+          ruby_version: ${{ env.RUBY_VERSION }}
+          node_version: ${{ env.NODE_VERSION }}
+      - run: |
+          sudo Xvfb -ac $DISPLAY -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
+          bundle exec rake parallel:spec[spec/system/data_consent/organization_spec.rb]
+        name: RSpec
+        working-directory: ${{ env.DECIDIM_MODULE }}
+        env:
+          SIMPLECOV: "true"
+          DISPLAY: ":99"
+      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+        name: Upload coverage
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: screenshots
+          path: ./spec/decidim_dummy_app/tmp/screenshots
+          if-no-files-found: ignore

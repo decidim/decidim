@@ -1,3 +1,5 @@
+<!-- markdownlint-disable-file link-fragments -->
+
 ## About the GraphQL API
 
 [Decidim](https://github.com/decidim/decidim) comes with an API that follows the [GraphQL](https://graphql.org/) specification. It has a comprehensive coverage of all the public content that can be found on the website.
@@ -16,7 +18,7 @@ The GraphQL format is a JSON formatted text that is specified in a query. Respon
 
 For instance, you can check the version of a Decidim installation by using `curl` in the terminal:
 
-```
+```bash
 curl -sSH "Content-Type: application/json" \
 -d '{"query": "{ decidim { version } }"}' \
 https://www.decidim.barcelona/api/
@@ -26,7 +28,7 @@ Note that `Content-Type` needs to be specified.
 
 The query can also be used in GraphiQL, in that case you can skip the `"query"` text:
 
-```
+```graphql
 {
   decidim {
     version
@@ -66,7 +68,7 @@ Each "Type" is just a pre-defined structure with fields, or just an Scalar (Stri
 
 For instance, to obtain *all the participatory processes in a Decidim installation published since January 2018* and order them by published date, we could execute the next query:
 
-```
+```graphql
 {
   participatoryProcesses(filter: {publishedSince: "2018-01-01"}, order: {publishedAt: "asc"}) {
     slug
@@ -79,7 +81,7 @@ For instance, to obtain *all the participatory processes in a Decidim installati
 
 Response should look like:
 
-```
+```json
 {
   "data": {
     "participatoryProcesses": [
@@ -106,10 +108,10 @@ In the former query, each keyword represents a type, the words `publishedSince`,
 
 The other keywords however, are objects representing certain entities:
 
-- `participatoryProcesses` is a type that represents a collection of participatory spaces. It accepts arguments (`filter` and `order`), which are other object types as well. `slug` and `title` are the fields of the participatory process we are interested in, there are "Types" too.
-- `filter` is a [ParticipatoryProcessFilter](#ParticipatoryProcessFilter)\* input type, it has several properties that allows us to refine our search. One of them is the `publishedSince` property with the initial date from which to list entries.
-- `order ` is a [ParticipatoryProcessSort](#ParticipatoryProcessSort) type, works the same way as the filter but with the goal of ordering the results.
-- `title` is a [TranslatedField](#TranslatedField) type, which allows us to deal with multi-language fields.
+* `participatoryProcesses` is a type that represents a collection of participatory spaces. It accepts arguments (`filter` and `order`), which are other object types as well. `slug` and `title` are the fields of the participatory process we are interested in, there are "Types" too.
+* `filter` is a [ParticipatoryProcessFilter](#ParticipatoryProcessFilter)\* input type, it has several properties that allows us to refine our search. One of them is the `publishedSince` property with the initial date from which to list entries.
+* `order` is a [ParticipatoryProcessSort](#ParticipatoryProcessSort) type, works the same way as the filter but with the goal of ordering the results.
+* `title` is a [TranslatedField](#TranslatedField) type, which allows us to deal with multi-language fields.
 
 Finally, note that the returned object is an array, each item of which is a representation of the object we requested.
 
@@ -130,7 +132,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > Example (this is not a real Decidim query):
 >
-> ```
+> ```graphql
 >  some_collection(filter: { locale: "en", title: "ideas"}) {
 >    id
 >  }
@@ -142,7 +144,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > Example of ordering alphabetically by the title content in French language:
 >
-> ```
+> ```graphql
 > some_collection(order: { locale: "en", title: "asc"}) {
 >   id
 > }
@@ -160,7 +162,7 @@ The previous example uses the collection type for participatory processes. You c
 
 As an example for a single item query, you can run:
 
-```
+```graphql
 {
   participatoryProcess(slug: "consectetur-at") {
     slug
@@ -173,7 +175,7 @@ As an example for a single item query, you can run:
 
 And the response will be:
 
-```
+```json
 {
   "data": {
     "participatoryProcess": {
@@ -206,7 +208,7 @@ Every participatory space may (and should) have some components. There are 9 off
 
 If you know the `id`\* of a specific component you can obtain it by querying it directly:
 
-```
+```graphql
 {
   component(id:2) {
     id
@@ -224,7 +226,7 @@ If you know the `id`\* of a specific component you can obtain it by querying it 
 
 Response:
 
-```
+```json
 {
   "data": {
     "component": {
@@ -250,13 +252,13 @@ The process is analogue as what has been explained in the case of searching for 
 >
 > In this case, 3257.
 
-#### What about component's collections?
+##### What about component's collections?
 
 Glad you asked, component's collections cannot be retrieved directly, the are available *in the context* of a participatory space.
 
 For instance, we can query all the components in an particular Assembly as follows:
 
-```
+```graphql
 {
   assembly(id: 3) {
     components {
@@ -272,7 +274,7 @@ For instance, we can query all the components in an particular Assembly as follo
 
 The response will be similar to:
 
-```
+```json
 {
   "data": {
     "assembly": {
@@ -313,7 +315,7 @@ The response will be similar to:
 
 We can also apply some filters by using the [ComponentFilter](#ComponentFilter) type. In the next query we would like to *find all the components with geolocation enabled in the assembly with id=2*:
 
-```
+```graphql
 {
   assembly(id: 2) {
     components(filter: {withGeolocationEnabled: true}) {
@@ -329,7 +331,7 @@ We can also apply some filters by using the [ComponentFilter](#ComponentFilter) 
 
 The response:
 
-```
+```json
 {
   "data": {
     "assembly": {
@@ -363,8 +365,7 @@ In the previous examples we've queried for this property:
 
 Response fragment:
 
-```
-...
+```json
       "components": [
         {
           "id": "38",
@@ -373,12 +374,11 @@ Response fragment:
           },
           "__typename": "Meetings"
         }
-...
 ```
 
 So, if we want to access the rest of the properties in a polymorphic object, we should do it through the `... on` operator as follows:
 
-```
+```graphql
 {
   assembly(id: 2) {
     components {
@@ -393,7 +393,7 @@ So, if we want to access the rest of the properties in a polymorphic object, we 
 
 Consider this query:
 
-```
+```graphql
 {
   assembly(id: 3) {
     components(filter: {type: "Proposals"}) {
@@ -420,7 +420,7 @@ Consider this query:
 
 The response:
 
-```
+```json
 {
   "data": {
     "assembly": {
@@ -501,14 +501,14 @@ The next line is just a property of the type *Proposals* which is a type of coll
 
 Typically, a connection is used to paginate long results, for this purpose the results are not directly available but encapsulated inside the list *edges* in several *node* results. Also there are more arguments available in order to navigate between pages. This are the arguments:
 
-- `first`: Returns the first *n* elements from the list
-- `after`: Returns the elements in the list that come after the specified *cursor*
-- `last`: Returns the last *n* elements from the list
-- `before`: Returns the elements in the list that come before the specified *cursor*
+* `first`: Returns the first *n* elements from the list
+* `after`: Returns the elements in the list that come after the specified *cursor*
+* `last`: Returns the last *n* elements from the list
+* `before`: Returns the elements in the list that come before the specified *cursor*
 
 Example:
 
-```
+```graphql
 {
   assembly(id: 3) {
     components(filter: {type: "Proposals"}) {
@@ -541,7 +541,7 @@ Example:
 
 Being the response:
 
-```
+```json
 {
   "data": {
     "assembly": {
@@ -592,5 +592,3 @@ As you can see, a part from the *edges* list, you can access to the object *page
 For more info on how connections work, you can check the official guide:
 
 https://graphql.org/learn/pagination/
-
-
