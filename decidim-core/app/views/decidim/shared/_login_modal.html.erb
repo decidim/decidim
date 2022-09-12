@@ -6,8 +6,8 @@
 
   <% if current_organization.sign_in_enabled? %>
     <div class="login__modal-form">
-      <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
       <% cache current_organization do %>
+        <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
       <% end %>
     </div>
 
@@ -20,7 +20,7 @@
     %>
     <%= decidim_form_for(Decidim::User.new, namespace: "login", as: :user, url: path) do |f| %>
       <div class="login__modal-form">
-        <div class="login__form">
+        <div class="form__wrapper">
           <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
 
           <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••" %>
