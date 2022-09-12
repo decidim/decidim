@@ -1724,6 +1724,7 @@ de:
               service: Diese Website
           types:
             cookie: Cookie
+            local_storage: Lokaler Speicher
         dialog:
           accept_all: Alle akzeptieren
           accept_only_essential: Nur essentielle Cookies akzeptieren
