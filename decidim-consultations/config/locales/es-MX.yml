@@ -264,6 +264,9 @@ es-MX:
         title: Preguntas de %{scope_name}
       index:
         title: Consultas
+      last_activity:
+        new_consultation: 'Nueva consulta:'
+        new_question: 'Nueva pregunta:'
       pages:
         home:
           highlighted_consultations:
