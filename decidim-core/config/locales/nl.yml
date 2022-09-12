@@ -1563,6 +1563,11 @@ nl:
             description: Beschrijving
             name: Naam
             type: Type
+          cookies:
+            pwaInstallPromptSeen:
+              description: Bewaart de status als de progressieve webapplicatie (PWA) installatiemelding al gezien is door de gebruiker.
+          types:
+            local_storage: Lokale opslag
       edit_link:
         edit: Bewerk
       footer:
