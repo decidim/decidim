@@ -82,7 +82,8 @@ module Decidim
       scope :visible_for, lambda { |user|
         (all.distinct if user&.admin?) ||
           if user.present?
-            spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
+            spaces = Decidim.participatory_space_registry.manifests.filter_map do |manifest|
+              next unless manifest.model_class_name.constantize.respond_to?(:table_name)
               {
                 name: manifest.model_class_name.constantize.table_name.singularize,
                 class_name: manifest.model_class_name
