@@ -1740,6 +1740,7 @@ fr:
               service: Ce site web
             pwaInstallPromptSeen:
               description: Stocke l'état si la notification d'installation de l'application web progressive (PWA) a déjà été vue par l'utilisateur.
+              service: Ce site web
           types:
             cookie: Cookie
             local_storage: Sauvegarde Locale
