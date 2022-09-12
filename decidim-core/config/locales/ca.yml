@@ -1739,8 +1739,11 @@ ca:
             decidim-consent:
               description: Emmagatzema informació sobre les galetes permeses per la usuària en aquesta pàgina web.
               service: Aquesta pàgina web
+            pwaInstallPromptSeen:
+              description: Guarda l'estat si la notificació d'instal·lació de l'aplicació web progressiva (PWA) ja ha estat vista per la usuària.
           types:
             cookie: Galeta
+            local_storage: Emmagatzematge local
         dialog:
           accept_all: Acceptar totes
           accept_only_essential: Acceptar només les essencials
