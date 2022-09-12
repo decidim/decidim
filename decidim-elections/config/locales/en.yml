@@ -1079,7 +1079,7 @@ en:
               invalid: An error occurred uploading the census, please try again later.
               invalid_csv_header: The CSV headers are missing or not correct - please read the instructions carefully
             creating_data:
-              info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file."
+              info_message: "<strong>Please wait</strong>, processed %{processed_count} of %{raw_count} rows from %{file} file (this may take several minutes)."
             delete:
               button: Delete all census data
               confirm: Deleting all the census data cannot be undone. Are you sure you want to continue?
@@ -1094,9 +1094,13 @@ en:
               launch_error: Problem launching the access codes export
               launch_success: Access codes export launched. Shortly you will receive an email to %{email}
             exporting_access_codes:
-              info_message: "<strong>Please wait</strong>, the export is being prepared, you will receive it shortly to %{email}"
+              info_message: "<strong>Please wait</strong>, the export is being prepared, you will receive it shortly to %{email} (this may take several minutes)."
             freeze:
               callout: The census is frozen and cannot be modified.
+              help_html: |
+                The census data has been uploaded, the codes generated and exported successfully.<br>
+                <strong>You are now ready to start the election.</strong><br>
+                Use the exported CSV with the individual codes to distribute it along your census using you own means or activate the "Can I vote" tab to let anyone retrieve this code using their own census data.
             generate_access_codes:
               button: Generate voting Access Codes
               callout: You can now proceed to generate the access codes. Mind that after generating the access codes you will not be able to modify the census anymore.
@@ -1105,8 +1109,9 @@ en:
               info_message_warn: Please check that no data is missing, because %{data_count} records were created and the uploaded file %{file} had %{raw_count} rows.
               launch_error: Problem launching the access codes generation
               launch_success: Codes generation launched.
+              start_over: Please delete the current census and start over again with a proper CSV file with valid rows.
             generating_access_codes:
-              info_message: "<strong>Please wait</strong>, the voting access codes are being generated..."
+              info_message: "<strong>Please wait</strong>, the voting access codes are being generated (this may take several minutes)..."
             new:
               file_help:
                 explanation: 'Guidance for file:'
