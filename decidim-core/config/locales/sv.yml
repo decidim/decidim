@@ -1649,6 +1649,9 @@ sv:
             name: Namn
             service: Tjänst
             type: Typ
+          cookies:
+            pwaInstallPromptSeen:
+              service: Denna webbplats
           types:
             cookie: Cookie
         dialog:
