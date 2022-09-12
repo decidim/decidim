@@ -41,7 +41,7 @@ describe "Meeting live event", type: :system do
   context "with essential cookies only" do
     before do
       visit decidim.root_path
-      select_cookies("essential")
+      data_consent("essential")
     end
 
     it "tells that you need to enable cookies" do
