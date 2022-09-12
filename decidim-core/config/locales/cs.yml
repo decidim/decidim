@@ -1789,8 +1789,11 @@ cs:
             decidim-consent:
               description: Uloží informace o cookies povolených uživatelem na této stránce.
               service: Tato stránka
+            pwaInstallPromptSeen:
+              description: Uloží stav, pokud uživatel již viděl instalační oznámení progresivní webové aplikace (PWA).
           types:
             cookie: Cookie
+            local_storage: Místní úložiště
         dialog:
           accept_all: Přijmout vše
           accept_only_essential: Přijmout pouze nezbytné soubory cookie
