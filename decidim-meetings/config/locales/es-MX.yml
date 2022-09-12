@@ -427,6 +427,9 @@ es-MX:
         none: Ninguno
         open_in_live_event_page: Abrir en la página del evento en directo (con encuestas opcionales)
         open_in_new_tab: Abrir en nueva pestaña
+      last_activity:
+        meeting_updated: 'Encuentro actualizado:'
+        new_meeting: 'Nuevo encuentro:'
       layouts:
         live_event:
           administrate: Administrar
