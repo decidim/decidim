@@ -59,6 +59,8 @@ es-MX:
           update:
             invalid: Se han producido errores al guardar la encuesta.
             success: Encuesta guardada correctamente.
+      last_activity:
+        new_survey: 'Nueva encuesta:'
       surveys:
         answer:
           invalid: Se han producido errores al responder a la encuesta.
