@@ -1775,14 +1775,14 @@ cs:
     timestamp_error_message: Promiňte, bylo to příliš rychlé! Znovu odešlete.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: Popis
-            name: Jméno
+            name: Název
             service: Služba
             type: Typ
-          cookies:
+          items:
             _session_id:
               description: Umožňuje webovým stránkám zapamatovat si uživatele na webových stránkách, když se pohybují mezi webovými stránkami.
               service: Tato stránka
@@ -1791,43 +1791,44 @@ cs:
               service: Tato stránka
             pwaInstallPromptSeen:
               description: Uloží stav, pokud uživatel již viděl instalační oznámení progresivní webové aplikace (PWA).
+              service: Tato stránka
           types:
             cookie: Cookie
             local_storage: Místní úložiště
         dialog:
           accept_all: Přijmout vše
           accept_only_essential: Přijmout pouze nezbytné soubory cookie
-          cookie_settings: Nastavení
           description: Na našich webových stránkách používáme soubory cookie ke zlepšení výkonu a obsahu těchto stránek. Soubory cookie nám umožňují poskytovat individuálnější uživatelské nastavení a sociální kanály.
+          settings: Nastavení
           title: Informace o cookies používaných na internetových stránkách
         modal:
           accept_all: Přijmout vše
           accept_only_essential: Přijmout pouze nezbytné soubory cookie
           analytics:
-            description: Analytické soubory cookie jsou soubory cookie, které sledují, jak se uživatelé pohybují a komunikují s webem. Shromážděné informace slouží k tomu, aby majitel vylepšil webové stránky.
+            description: Tyto soubory cookie se používají k měření a analýze publika internetových stránek, aby pomohly zlepšit webové stránky.
             title: Analytika a statistiky
-          description: Soubory cookie používáme, abychom zajistili základní funkce webových stránek a zlepšili vaše online zážitky. Pro každou kategorii si můžete vybrat, zda se chcete přihlásit/odhlásit.
+          description: Soubory cookie používáme, abychom zajistili základní funkce webových stránek a zlepšili vaše online zkušenosti. Můžete si kdykoliv nastavit a akceptovat používání cookies a změnit své možnosti souhlasu.
           essential:
-            description: Tyto soubory cookie jsou nezbytné pro správné fungování nešich webových stránek. Bez těchto souborů cookie by tyto stránky nefungovaly správně.
+            description: Tyto soubory cookie umožňují klíčové funkce webu a pomáhají udržet uživatele v bezpečí. Jsou automaticky uloženy v prohlížeči a nemohou být zakázány.
             title: Zásadní
           marketing:
-            description: Tyto soubory cookie shromažďují informace o tom, jak používáte webové stránky, které jste navštívili a na které odkazy jste klikli.
+            description: Tyto soubory cookie shromažďují informace o tom, jak používáte webovou stránku a mohou být využity k poskytování více individualizovaného marketingu na různých webových stránkách, které používáte.
             title: Marketing
           preferences:
-            description: Tyto soubory cookie umožňují webovým stránkám zapamatovat si vybrání možností, které jste učinili v minulosti
+            description: Tyto soubory cookie umožňují si pamatovat si volby, které jste učinili v minulosti na těchto webových stránkách, aby poskytovaly více individualizovaného zážitku pro uživatele webových stránek.
             title: Předvolby
           save_settings: Uložit nastavení
           title: Nastavení cookies
           toggle: Přepínač %{consent_category}
         warning:
-          all_cookies: všechny soubory cookie
-          change_cookie_settings: Změnit nastavení cookie
-          need_cookies: Abyste mohli vidět tento obsah, musíte povolit %{cookies}.
+          all_categories: všechny soubory cookie
+          change_settings: Změnit nastavení cookie
+          consent_required: Abyste mohli vidět tento obsah, musíte povolit %{categories}.
       edit_link:
         edit: Upravit
       footer:
         cc_by_license: Licence Creative Commons
-        cookie_settings: Nastavení cookies
+        data_consent_settings: Nastavení cookies
         decidim_logo: Logo Decidim
         download_open_data: Stáhněte si soubory s otevřenými daty
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
