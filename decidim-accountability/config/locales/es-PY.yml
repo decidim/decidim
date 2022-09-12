@@ -38,6 +38,7 @@ es-PY:
         confirm_destroy: '¿Está seguro de que quiere eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
+        import: Importar proyectos a resultados
         import_csv: Importar CSV
         new: Nuevo/a %{name}
         preview: Previsualizar
@@ -63,6 +64,22 @@ es-PY:
             name: Estado
           timeline_entry:
             name: Evolución del proyecto
+        projects_import:
+          create:
+            invalid: Hubo un problema al importar los proyectos como resultados, por favor, sigue las instrucciones cuidadosamente y asegúrate que has marcado los proyectos seleccionados para su implementación.
+          new:
+            create: Importar
+            import_all_selected_projects: Importar todos los proyectos seleccionados para ser implementados
+            new_items:
+              one: Se importará 1 proyecto seleccionado
+              other: "Se importarán %{count} proyectos seleccionados"
+            no_components: No hay ningún componente de presupuestos en este espacio de participación para importar los proyectos como resultados.
+            origin_component_id: Componente de origen
+            select_component: Selecciona un componente
+            success:
+              one: Hay 1 proyecto en la cola de importación. Serás notificado por correo electrónico, cuando se complete la importación
+              other: "Hay %{count} proyectos para ser importado. Serás notificado por correo electrónico, cuando se complete la importación"
+            title: Importar Proyectos a Seguimiento
         results:
           create:
             invalid: Ha habido un problema al crear este resultado
@@ -145,6 +162,15 @@ es-PY:
           row_number: Fila
           subject: Los resultados se han importado correctamente
           success: Los resultados se han importante correctamente. Puedes revisar los resultados a través del panel de administración.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Se ha importado un proyecto desde proyectos.
+            other: "Se han importado %{count} resultados desde proyectos."
+          subject: Los proyectos se han importado correctamente
+          success: Los proyectos importados como resultados con éxito al componente %{component_name}. Puedes revisar los resultados en el tablero de administración.
+      last_activity:
+        new_result: 'Nuevo resultado:'
       models:
         result:
           fields:
