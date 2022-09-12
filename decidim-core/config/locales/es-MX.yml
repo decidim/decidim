@@ -153,6 +153,8 @@ es-MX:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
+    activity:
+      time_ago: "Hace %{time}"
     admin:
       actions:
         cancel: Cancelar
@@ -609,7 +611,17 @@ es-MX:
       endorsed_by: Le gusta a…
     errors:
       internal_server_error:
+        copied: '¡Texto copiado!'
+        copy_error_message_clarification: Mensaje de error copiado al portapapeles
+        copy_to_clipboard: Copiar al portapapeles
+        date_and_time: Fecha y hora
+        reference: Referencia
+        request_method: Método de solicitud
         title: Ha habido un problema con nuestro servidor
+        try_later: Inténtalo de nuevo más tarde. Si el error persiste, por favor copia la siguiente información y envíala a los mantenedores de la plataforma con cualquier otra información que quieras compartir.
+        unknown: Desconocido
+        url: URL
+        user: ID de participante
       not_found:
         back_home: Volver al inicio
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
@@ -792,6 +804,9 @@ es-MX:
         other: "%{count} seguidoras"
       no_followers: Aún no hay seguidores.
     following:
+      following_count:
+        one: "%{count} lo sigue"
+        other: "%{count} lo siguen"
       no_followings: No sigue a nadie ni a nada todavía.
       non_public_followings: Algunos de los recursos seguidos no son públicos.
     follows:
@@ -880,6 +895,7 @@ es-MX:
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
+      title: '¿Qué son las insignias?'
     group_admins:
       actions:
         are_you_sure: '¿Estás seguro? Esto no eliminará al usuario del grupo.'
@@ -1117,6 +1133,7 @@ es-MX:
         title: Usuarios
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Este correo electrónico se ha enviado des de una dirección de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
         see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
@@ -1302,6 +1319,15 @@ es-MX:
           info: Los distintivos se obtienen realizando una actividad específica en la plataforma.
           title: Distintivos
       user:
+        actions:
+          create_user_group: Crear un grupo
+          edit_profile: Editar el perfil
+          edit_user_group: Editar el perfil del grupo
+          invite_user: Invitar a una participante
+          join_user_group: Solicitar unirse al grupo
+          manage_user_group_admins: Gestionar las administradoras
+          manage_user_group_users: Gestionar las miembros
+          message: Mensaje
         confirmation_instructions_sent: Instrucciones de confirmación por correo electrónico enviadas
         create_user_group: Crear un grupo
         edit_profile: Editar perfil
