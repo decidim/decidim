@@ -41,24 +41,32 @@ module Decidim
         expect(nickname.length).to eq(20)
       end
 
-      it "resolves conflicts with current nicknames" do
-        create(:user, nickname: "ana_pastor")
+      shared_examples "resolves existing conflicts" do |factory|
+        it "resolves conflicts with current nicknames" do
+          create(factory, nickname: "ana_pastor")
 
-        expect(subject.nicknamize("ana_pastor")).to eq("ana_pastor_2")
+          expect(subject.nicknamize("ana_pastor")).to eq("ana_pastor_2")
+        end
+
+        it "resolves conflicts with long current nicknames" do
+          create(factory, nickname: "felipe_rocks_so_much")
+
+          expect(subject.nicknamize("Felipe Rocks So Much")).to eq("felipe_rocks_so_mu_2")
+        end
+
+        it "resolves conflicts with other existing nicknames" do
+          create(factory, nickname: "existing")
+          create(factory, nickname: "existing_1")
+          create(factory, nickname: "existing_2")
+
+          expect(subject.nicknamize("existing")).to eq("existing_3")
+        end
       end
 
-      it "resolves conflicts with long current nicknames" do
-        create(:user, nickname: "felipe_rocks_so_much")
+      it_behaves_like "resolves existing conflicts", :user
 
-        expect(subject.nicknamize("Felipe Rocks So Much")).to eq("felipe_rocks_so_mu_2")
-      end
-
-      it "resolves conflicts with other existing nicknames" do
-        create(:user, nickname: "existing")
-        create(:user, nickname: "existing_1")
-        create(:user, nickname: "existing_2")
-
-        expect(subject.nicknamize("existing")).to eq("existing_3")
+      context "when user groups have the same nickname" do
+        it_behaves_like "resolves existing conflicts", :user_group
       end
     end
   end

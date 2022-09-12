@@ -52,7 +52,7 @@ module Decidim
         candidate = name
 
         2.step do |n|
-          return candidate if Decidim::User.where("nickname ILIKE ?", candidate.downcase).where(scope).empty?
+          return candidate if Decidim::UserBaseEntity.where("nickname ILIKE ?", candidate.downcase).where(scope).empty?
 
           candidate = numbered_variation_of(name, n)
         end
