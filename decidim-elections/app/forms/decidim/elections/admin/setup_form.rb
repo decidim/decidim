@@ -13,6 +13,12 @@ module Decidim
           validations.each do |message, t_args, valid|
             errors.add(message, I18n.t("steps.create_election.errors.#{message}", **t_args, scope: "decidim.elections.admin")) unless valid
           end
+
+          if needs_census?
+            census_validations.each do |message, t_args, valid|
+              errors.add(message, I18n.t("steps.create_election.errors.#{message}", **t_args, scope: "decidim.elections.admin")) unless valid
+            end
+          end
         end
 
         def current_step; end
@@ -40,8 +46,24 @@ module Decidim
           ].freeze
         end
 
+        def census_validations
+          return [] unless needs_census?
+
+          @census_validations ||= [
+            [:census_uploaded, {}, census.present? && census.data.exists?],
+            [:census_codes_generated, {}, census_codes_generated?],
+            [:census_frozen, {}, census&.freeze?]
+          ].freeze
+        end
+
         def messages
           @messages ||= validations.to_h do |message, t_args, _valid|
+            [message, I18n.t("steps.create_election.requirements.#{message}", **t_args, scope: "decidim.elections.admin")]
+          end
+        end
+
+        def census_messages
+          @census_messages ||= census_validations.to_h do |message, t_args, _valid|
             [message, I18n.t("steps.create_election.requirements.#{message}", **t_args, scope: "decidim.elections.admin")]
           end
         end
@@ -56,6 +78,26 @@ module Decidim
 
         def bulletin_board
           @bulletin_board ||= context[:bulletin_board] || Decidim::Elections.bulletin_board
+        end
+
+        def needs_census?
+          vote_flow.is_a?(Decidim::Votings::CensusVoteFlow)
+        end
+
+        def vote_flow
+          @vote_flow ||= election.participatory_space.try(:vote_flow_for, election)
+        end
+
+        def census_codes_generated?
+          return unless needs_census?
+
+          census&.codes_generated? || census&.exporting_codes? || census&.freeze?
+        end
+
+        def census
+          return unless needs_census?
+
+          @census ||= election.component.participatory_space.dataset
         end
 
         def main_button?

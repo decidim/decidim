@@ -106,7 +106,7 @@ FactoryBot.define do
 
   factory :dataset, class: "Decidim::Votings::Census::Dataset" do
     voting { create(:voting) }
-    file { "file.csv" }
+    filename { "file.csv" }
     status { "init_data" }
     csv_row_raw_count { 1 }
     csv_row_processed_count { 1 }

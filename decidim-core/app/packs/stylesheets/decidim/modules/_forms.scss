@@ -77,6 +77,11 @@ label > [type="radio"]{
     margin-right: 1rem;
     flex-shrink: 0;
   }
+
+  &,
+  &.tiny{
+    height: auto;
+  }
 }
 
 .switch{

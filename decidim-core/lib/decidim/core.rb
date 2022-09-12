@@ -421,6 +421,10 @@ module Decidim
           {
             type: "cookie",
             name: Decidim.consent_cookie_name
+          },
+          {
+            type: "local_storage",
+            name: "pwaInstallPromptSeen"
           }
         ]
       },
