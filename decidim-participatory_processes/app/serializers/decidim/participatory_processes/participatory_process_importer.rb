@@ -44,9 +44,8 @@ module Decidim
             scopes_enabled: attributes["scopes_enabled"],
             participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
-
-          import_hero_image(attributes["remote_hero_image_url"]) if attributes["remote_hero_image_url"].present?
-          import_banner_image(attributes["remote_banner_image_url"]) if attributes["remote_banner_image_url"].present?
+          @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
+          @imported_process.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
 
           @imported_process.save!
           @imported_process
@@ -151,18 +150,6 @@ module Decidim
         importer.import(components, @user)
       end
 
-      def import_hero_image(attribute)
-        io, filename = io_and_filename_image(attribute)
-
-        @imported_process.hero_image.attach(io:, filename:)
-      end
-
-      def import_banner_image(attribute)
-        io, filename = io_and_filename_image(attribute)
-
-        @imported_process.banner_image.attach(io:, filename:)
-      end
-
       private
 
       def create_attachment_collection(attributes)
@@ -190,15 +177,6 @@ module Decidim
         end
       rescue StandardError
         nil
-      end
-
-      def io_and_filename_image(image_url)
-        uri = URI.parse(image_url)
-
-        filename = File.basename(uri.path)
-        io = URI.parse(image_url).open
-
-        [io, filename]
       end
     end
   end

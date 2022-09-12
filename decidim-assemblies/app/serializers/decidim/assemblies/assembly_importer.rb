@@ -61,8 +61,8 @@ module Decidim
             meta_scope: attributes["meta_scope"],
             announcement: attributes["announcement"]
           )
-          import_hero_image(attributes["remote_hero_image_url"]) if attributes["remote_hero_image_url"].present?
-          import_banner_image(attributes["remote_banner_image_url"]) if attributes["remote_banner_image_url"].present?
+          @imported_assembly.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
+          @imported_assembly.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
 
           @imported_assembly.save!
           @imported_assembly
@@ -141,18 +141,6 @@ module Decidim
         importer.import(components, @user)
       end
 
-      def import_hero_image(attribute)
-        io, filename = io_and_filename_image(attribute)
-
-        @imported_assembly.hero_image.attach(io:, filename:)
-      end
-
-      def import_banner_image(attribute)
-        io, filename = io_and_filename_image(attribute)
-
-        @imported_assembly.banner_image.attach(io:, filename:)
-      end
-
       private
 
       def create_attachment_collection(attributes)
@@ -180,15 +168,6 @@ module Decidim
         end
       rescue StandardError
         nil
-      end
-
-      def io_and_filename_image(image_url)
-        uri = URI.parse(image_url)
-
-        filename = File.basename(uri.path)
-        io = URI.parse(image_url).open
-
-        [io, filename]
       end
     end
   end
