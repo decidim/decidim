@@ -262,7 +262,11 @@ lt:
             success: Klausimas atnaujintas
         steps:
           create_election:
+            census: Surašymas
             errors:
+              census_codes_generated: Rinkimų kodai surašymui nėra sugeneruoti.
+              census_frozen: Rinkimų kodai nėra eksportuoti.
+              census_uploaded: Šiems rinkimams nėra surašymo.
               component_published: Rinkimų komponentas <strong>nėra publikuotas</strong>.
               max_selections: Klausimai neturi <strong>teisingos vertės atsakymų kiekiui</strong>
               minimum_answers: Klausimai turi turėti bent <strong>du atsakymus</strong>.
@@ -277,6 +281,9 @@ lt:
               'false': neturi <strong>viešo rakto</strong>
               'true': turi <strong>viešą raktą</strong>
             requirements:
+              census_codes_generated: Surašymo kodai sugeneruoti.
+              census_frozen: Kodai eksportuoti ir surašymas užšaldytas.
+              census_uploaded: Surašymas įkeliamas.
               component_published: Rinkimų komponentas <strong>paskelbtas</strong>.
               max_selections: Visi klausimai turi teisingą kiekį <strong>maksimalių klausimų</strong>.
               minimum_answers: Kiekvienas klausimas turi bent <strong>du atsakymus</strong>.
@@ -1094,7 +1101,7 @@ lt:
               invalid: Kuriant surašymą kilo problema. Pabandykite dar kartą vėliau.
               invalid_csv_header: Trūksta CSV antraščių, arba jos nėra teisingos - prašome atidžiai perskaityti instrukcijas
             creating_data:
-              info_message: "<strong>Prašome palaukti</strong>, aprodota %{processed_count} iš %{raw_count} eilučių iš %{file} failo."
+              info_message: "<strong>Prašome palaukti</strong>, aprodota %{processed_count} iš %{raw_count} eilučių iš %{file} failo (tai gali užtrukti kelias minutes)."
             delete:
               button: Pašalinti visus surašymo duomenis
               confirm: Pašalinus visus surašymo duomenis, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
@@ -1109,9 +1116,11 @@ lt:
               launch_error: Pradedant prieigos kodų eksportą kilo problema
               launch_success: Prieigos kodų eksportas prasidėjo. Neužilgo gausite el. laišką į %{email}
             exporting_access_codes:
-              info_message: "<strong>Prašome palaukti</strong>, eskportas ruošiamas ir neužilgo jį gausite į %{email}"
+              info_message: "<strong>Prašome palaukti</strong>, eskportas ruošiamas ir neužilgo gausite kodus į %{email}."
             freeze:
               callout: Surašymas užšaldytas ir negali būti pakeistas.
+              help_html: |
+                Surašymo duomenys buvo įkelti - kodai sugeneruoti ir sėkmingai eksportuoti.<br><strong>Esate pasiruošę pradėti rinkimus</strong><br>Naudokite eksportuota CSV su individualiais kodais, kad juos išdalinti surašytiems asmenims arba aktyvuokite "Ar galiu balsuoti" skiltį, kad bet kas galėtų surasti savo kodą.
             generate_access_codes:
               button: Generuoti balsavimo prieigos kodus
               callout: Dabar galite sugeneruoti prieigos kodus. Atsižvelkite į tai, kad sugeneravus prieigos kodus nebegalėsite pakeisti surašymo.
@@ -1120,8 +1129,9 @@ lt:
               info_message_warn: Prašome patikrinti ar netrūksta duomenų, nes %{data_count} įrašai buvo sukurti ir įkeltas failas file %{file} turėjo %{raw_count} eilučių.
               launch_error: Pradedant prieigos kodų generavimą kilo problema
               launch_success: Kodų generavimas pradėtas.
+              start_over: Prašome pašalinti turimą surašymą ir pradėkite iš naujo su deramu CSV failu ir teisingomis eilutėmis.
             generating_access_codes:
-              info_message: "<strong>Prašome palaukti</strong>, balsavimo prieigos kodai yra generuojami..."
+              info_message: "<strong>Prašome palaukti</strong>, balsavimo prieigos kodai yra generuojami (tai gali užtrukti kelias minutes)..."
             new:
               file_help:
                 explanation: 'Failo gairės:'
