@@ -155,7 +155,11 @@ es-MX:
           max_choices: 'Opciones máximas: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: '¿Ya tienes una cuenta?'
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrese</a> para responder al cuestionario.
+            are_you_new?: '¿Eres una nueva usuaria?'
+            sign_in_description: Inicia tu sesión para responder la encuesta
+            sign_up_description: Crea una cuenta de participante para realizar la encuesta
             title: Responde al cuestionario
           current_step: Paso %{step}
           of_total_steps: de %{total_steps}
@@ -174,6 +178,7 @@ es-MX:
           questionnaire_not_published:
             body: Este formulario no se ha publicado todavía.
           tos_agreement: Al responder aceptas los Términos y condiciones de uso
+          upload_file: Subir un archivo
       step_navigation:
         show:
           are_you_sure: Esta acción no se puede deshacer y no podrás editar tus respuestas. ¿Estás seguro?
