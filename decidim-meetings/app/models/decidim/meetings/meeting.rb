@@ -83,9 +83,11 @@ module Decidim
         (all.distinct if user&.admin?) ||
           if user.present?
             spaces = Decidim.participatory_space_registry.manifests.filter_map do |manifest|
-              next unless manifest.model_class_name.constantize.respond_to?(:table_name)
+              table_name = manifest.model_class_name.constantize.try(:table_name)
+              next if table_name.blank?
+
               {
-                name: manifest.model_class_name.constantize.table_name.singularize,
+                name: table_name.singularize,
                 class_name: manifest.model_class_name
               }
             end
