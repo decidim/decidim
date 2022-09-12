@@ -1451,7 +1451,6 @@ en:
       follow_button:
         sign_in_before_follow: Please sign in before performing this action
       login_modal:
-        close_modal: Close modal
         please_sign_in: Please sign in
         sign_up: Sign up
       mentions_modal:
