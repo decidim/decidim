@@ -94,9 +94,9 @@ $(() => {
     ({ dataset: { dialog } }) =>
       new Dialogs(`[data-dialog="${dialog}"]`, {
         openingSelector: `[data-dialog-open="${dialog}"]`,
-        closingSelector: `[data-dialog-close="${dialog}"]`,
-        labelledby: `dialog-title-"${dialog}"`,
-        describedby: `dialog-desc-"${dialog}"`
+        closingSelector: `[data-dialog-close="${dialog}"]`
+        // labelledby: `dialog-title-${dialog}`
+        // describedby: `dialog-desc-${dialog}`
       })
   );
 
