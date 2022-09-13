@@ -1,10 +1,10 @@
 <%= decidim_modal id: "conference-registration-confirm-#{model.id}", class: "conference__registration-modal" do %>
   <div class="flex items-center gap-2">
     <%= icon "ticket-line", class: "w-6 h-6 text-gray fill-current flex-none" %>
-    <div class="font-semibold text-black text-2xl" id="dialog-title-<%= model.id %>"><%= I18n.t("registration", scope: "decidim.conferences.conference.show") %></div>
+    <div class="font-semibold text-black text-2xl" id="dialog-title-conference-registration-confirm-<%= model.id %>"><%= I18n.t("registration", scope: "decidim.conferences.conference.show") %></div>
   </div>
 
-  <div id="dialog-desc-<%= model.id %>" class="text-gray-2 text-xl mt-9">
+  <div id="dialog-desc-conference-registration-confirm-<%= model.id %>" class="text-gray-2 text-xl mt-9">
     <%= decidim_sanitize_editor translated_attribute(conference.registration_terms) %>
   </div>
 
