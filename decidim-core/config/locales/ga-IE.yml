@@ -322,8 +322,6 @@ ga:
       edit:
         submit_button: Sábháil
     registrations:
-      edit:
-        update: Nuashonraigh
       new:
         sign_up: Cláraigh
     sessions:
