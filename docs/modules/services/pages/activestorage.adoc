@@ -64,8 +64,7 @@ Before running that command you need to have a `cors.json` file in the same dire
 ]
 ----
 
-Further information:
-https://cloud.google.com/storage/docs/configuring-cors
+Read more at https://cloud.google.com/storage/docs/configuring-cors[Google Cloud Storage CORS documentation].
 
 === Azure Storage
 
