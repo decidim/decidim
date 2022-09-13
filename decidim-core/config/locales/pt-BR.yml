@@ -1475,15 +1475,6 @@ pt-BR:
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
-      edit:
-        are_you_sure: Você tem certeza?
-        cancel_my_account: Cancelar minha conta
-        currently_waiting_confirmation_for_email: 'Atualmente aguardando confirmação para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se você não quiser mudá-lo
-        title: Editar %{resource}
-        unhappy: Infeliz?
-        update: Atualizar
-        we_need_your_current_password_to_confirm_your_changes: Precisamos da sua senha atual para confirmar suas alterações
       new:
         sign_up: inscrever-se
       signed_up: Bem vinda! Você se inscreveu com sucesso.
