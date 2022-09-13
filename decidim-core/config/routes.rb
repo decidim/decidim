@@ -13,11 +13,29 @@ Decidim::Core::Engine.routes.draw do
                invitations: "decidim/devise/invitations",
                sessions: "decidim/devise/sessions",
                confirmations: "decidim/devise/confirmations",
-               registrations: "decidim/devise/registrations",
                passwords: "decidim/devise/passwords",
                unlocks: "decidim/devise/unlocks",
                omniauth_callbacks: "decidim/devise/omniauth_registrations"
-             }
+             },
+             skip: [:registrations]
+
+  # Manually define the registration routes because otherwise the default "edit"
+  # route would be exposed through Devise while we already have the edit and
+  # destroy routes available through the account pages.
+  resource(
+    :registration,
+    only: [:new, :create],
+    as: :user_registration,
+    path: "/users",
+    path_names: { new: "sign_up" },
+    controller: "devise/registrations"
+  ) do
+    # The "cancel" route forces the session data which is usually expired after
+    # sign in to be expired now. This is useful if the user wants to cancel
+    # OAuth signing in/up in the middle of the process, removing all OAuth
+    # session data. @see [Devise::RegistrationsController#cancel]
+    get :cancel
+  end
 
   devise_for :user_groups,
              class_name: "Decidim::UserGroup",
