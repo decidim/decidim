@@ -41,8 +41,8 @@ module Decidim::ParticipatoryProcesses
     let(:import_categories) { false }
 
     def stub_calls_to_external_files
-      do_stub_rq_with_rs_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
-      do_stub_rq_with_rs_format("http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg", "image/jpeg")
+      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
+      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg", "image/jpeg")
     end
 
     shared_examples "import participatory_process succeeds" do

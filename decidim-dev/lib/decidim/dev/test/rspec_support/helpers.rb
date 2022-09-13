@@ -40,7 +40,7 @@ module Decidim::ComponentTestHelpers
     have_selector(".callout--full", text:)
   end
 
-  def do_stub_rq_with_rs_format(rq_url, rs_format)
+  def stub_get_request_with_format(rq_url, rs_format)
     stub_request(:get, rq_url)
       .with(
         headers: {

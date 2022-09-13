@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "tempfile"
-require "json"
 
 describe "Admin imports participatory process", type: :system do
   include_context "when admin administrating a participatory process"
@@ -28,8 +26,8 @@ describe "Admin imports participatory process", type: :system do
         fill_in :participatory_process_slug, with: "pp-import"
       end
 
-      do_stub_rq_with_rs_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
-      do_stub_rq_with_rs_format("http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg", "image/jpeg")
+      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
+      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg", "image/jpeg")
 
       dynamically_attach_file(:participatory_process_document, Decidim::Dev.asset("participatory_processes.json"))
 
