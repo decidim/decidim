@@ -39,8 +39,7 @@ Locate the bucket, go into the "Permissions" tab and find the section titled "CO
 ]
 ----
 
-Further information:
-https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html
+Read more at https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html[Amazon S3 CORS documentation].
 
 ===  Google Cloud Storage
 
@@ -65,8 +64,7 @@ Before running that command you need to have a `cors.json` file in the same dire
 ]
 ----
 
-Further information:
-https://cloud.google.com/storage/docs/configuring-cors
+Read more at https://cloud.google.com/storage/docs/configuring-cors[Google Cloud Storage CORS documentation].
 
 === Azure Storage
 
@@ -93,5 +91,4 @@ When using the Azure REST API, you can use the `Set Blob Service Properties` ope
 </Cors>
 ----
 
-Further information:
-https://docs.microsoft.com/en-us/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services
+Read more at https://docs.microsoft.com/en-us/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services[Azure Storage CORS documentation].
