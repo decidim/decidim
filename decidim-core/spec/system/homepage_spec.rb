@@ -116,7 +116,7 @@ describe "Homepage", type: :system do
             end
 
             expect(page).to have_current_path decidim.new_user_session_path
-            expect(page).to have_content("Sign in")
+            expect(page).to have_content("Log in")
             expect(page).to have_content("New to the platform?")
           end
         end
