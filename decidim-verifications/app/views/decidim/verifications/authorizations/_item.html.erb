@@ -1,9 +1,9 @@
 <% verification = capture do %>
   <%= icon auth_icon || "login-circle-line", class: "verification__icon#{ ' is-granted' if local_assigns[:is_granted].present? }" %>
   <div class="verification__text">
-    <h3 class="h5 text-secondary">
+    <h2 class="h5 text-secondary">
       <%= title %>
-    </h3>
+    </h2>
     <span>
       <%= explanation %>
     </span>
@@ -23,5 +23,5 @@
   <div class="verification" data-dialog-open="renew-modal" data-dialog-remote-url="<%= remote_url %>">
     <%= verification %>
   </div>
-  <%= decidim_modal id: "renew-modal", remote: true %>
+  <%= decidim_modal id: "renew-modal", class:"verification-modal", remote: true if remote_url %>
 <% end %>

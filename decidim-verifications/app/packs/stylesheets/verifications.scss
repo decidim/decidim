@@ -33,3 +33,25 @@
     @apply underline;
   }
 }
+
+.verification-modal{
+  &__title{
+    @apply flex items-baseline gap-2;
+  }
+
+  &__text{
+    @apply text-lg text-gray-2 mt-8 mb-12 space-y-8;
+
+    ul, ol{
+      @apply list-disc pl-4;
+    }
+  }
+
+  &__name{
+    @apply text-xl font-semibold block mb-2;
+  }
+
+  &__actions{
+    @apply flex justify-between items-center;
+  }
+}
