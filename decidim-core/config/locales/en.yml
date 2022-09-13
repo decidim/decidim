@@ -385,7 +385,6 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
-      renew: Renew verification
       sms:
         explanation: Submit your mobile phone number so we can check your identity.
         name: Code by SMS

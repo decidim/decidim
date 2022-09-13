@@ -114,13 +114,11 @@ en:
           show_renew_info: Click to renew verification
           subscribe: Subscribe
           unauthorized_methods: Verification methods
-          unauthorized_verification: New verification
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}
         renew_modal:
           cancel: Cancel
-          close: close
           continue: Continue
           info_renew: If you want to update the data, continue with the renewal
           title: Renew Verification
