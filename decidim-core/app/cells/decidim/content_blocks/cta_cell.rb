@@ -16,7 +16,7 @@ module Decidim
       end
 
       def translated_description
-        @translated_description ||= decidim_sanitize_editor(translated_attribute(model.settings.description))
+        @translated_description ||= decidim_sanitize_editor_admin(translated_attribute(model.settings.description))
       end
 
       def button_url

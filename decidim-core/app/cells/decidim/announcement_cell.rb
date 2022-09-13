@@ -62,7 +62,7 @@ module Decidim
     end
 
     def clean(value)
-      decidim_sanitize(translated_attribute(value))
+      decidim_sanitize_admin(translated_attribute(value))
     end
   end
 end
