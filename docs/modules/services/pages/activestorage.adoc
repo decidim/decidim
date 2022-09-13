@@ -48,7 +48,7 @@ Google Cloud Storage requires you to use the `gsutil` command line tool to set t
 [source,bash]
 ----
 gsutil cors set cors.json gs://your-bucket-name
----
+----
 
 Before running that command you need to have a `cors.json` file in the same directory where you are runnign the command from with the following content (replace `https://www.example.com` with the actual domain of your service):
 
