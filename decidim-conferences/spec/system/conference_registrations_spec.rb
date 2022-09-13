@@ -98,7 +98,7 @@ describe "Conference registrations", type: :system do
 
         within "#conference-registration-confirm-#{registration_type.id}" do
           expect(page).to have_content "A legal text"
-          page.find(".button.expanded").click
+          click_button "Confirm"
         end
 
         expect(page).to have_content("successfully")
