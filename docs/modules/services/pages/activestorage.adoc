@@ -39,8 +39,7 @@ Locate the bucket, go into the "Permissions" tab and find the section titled "CO
 ]
 ----
 
-Further information:
-https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html
+Read more at https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html[Amazon S3 CORS documentation].
 
 ===  Google Cloud Storage
 
