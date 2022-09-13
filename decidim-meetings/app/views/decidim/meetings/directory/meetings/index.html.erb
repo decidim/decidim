@@ -23,7 +23,14 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
 
-  <%= cell "decidim/meetings/meetings_map", search.result %>
+  <div class="meeting__map">
+    <%= cell "decidim/meetings/meetings_map", search.result %>
+  </div>
+
+  <a href="" class="meeting__link">
+    <%= "See the full calendar" %>
+    <%= icon "calendar-2-line", class: "fill-current" %>
+  </a>
 
   <div id="meetings">
     <%= render partial: "meetings" %>

@@ -5,6 +5,15 @@
     @apply space-y-10;
   }
 
+  &__map{
+    /* negative main padding values */
+    @apply md:-ml-16 -mt-6 md:-mt-12;
+  }
+
+  &__link{
+    @apply py-6 flex items-center justify-end gap-1 text-secondary;
+  }
+
   &__calendar{
     @apply w-14 flex flex-col items-stretch gap-1 rounded overflow-hidden bg-background text-center;
 
@@ -13,7 +22,7 @@
     }
 
     &-day{
-      @apply text-black text-[28px] font-semibold;
+      @apply text-black text-2xl font-semibold;
     }
 
     &-time{
