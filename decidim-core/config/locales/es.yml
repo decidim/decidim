@@ -1676,15 +1676,6 @@ es:
       updated_not_active: Tu contraseña se ha modificado correctamente.
     registrations:
       destroyed: Tu cuenta se ha cancelado correctamente. Esperamos volver a verte pronto.
-      edit:
-        are_you_sure: '¿Estás segura?'
-        cancel_my_account: Cancelar mi cuenta
-        currently_waiting_confirmation_for_email: 'Estamos esperando la confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: Déjalo en blanco si no quieres cambiarlo
-        title: Editar %{resource}
-        unhappy: '¿Infeliz?'
-        update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: Necesitamos tu contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
       signed_up: '¡Bienvenida! Te has registrado con éxito.'
