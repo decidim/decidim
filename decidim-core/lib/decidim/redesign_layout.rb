@@ -49,8 +49,10 @@ module Decidim
       def redesign_participatory_space_layout(options = {})
         @redesign_layout_conditions = conditions_parsed(options)
 
+        skip_authorize_participatory_space = options.delete(:skip_authorize_participatory_space)
+
         layout :participatory_space_redesign_layout, **options
-        before_action :authorize_participatory_space, **options
+        before_action(:authorize_participatory_space, **options) unless skip_authorize_participatory_space
       end
 
       def redesigned_layout(layout_value)
