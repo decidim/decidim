@@ -1714,15 +1714,6 @@ lt:
       updated_not_active: Jūsų slaptažodis pakeistas.
     registrations:
       destroyed: Jūsų sąskaita buvo sėkmingai panaikinta. Mes tikimės netrukus Jus vėl pamatyti.
-      edit:
-        are_you_sure: Ar esate tikri?
-        cancel_my_account: Panaikinti mano paskyrą
-        currently_waiting_confirmation_for_email: 'Dabar laukiama patvirtinimo dėl: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: jei nenorite jo keisti, palikite tuščią
-        title: Redaguoti %{resource}
-        unhappy: Nepatenkinti?
-        update: Atnaujinti
-        we_need_your_current_password_to_confirm_your_changes: kad galėtume patvirtinti jūsų pakeitimus, mums reikia jūsų dabartinio slaptažodžio
       new:
         sign_up: Užsiregistruoti
       signed_up: Sveiki atvykę! Jūs sėkmingai užsiregistravote.
