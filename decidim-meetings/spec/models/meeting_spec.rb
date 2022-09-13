@@ -66,8 +66,9 @@ module Decidim::Meetings
       end
     end
 
-    describe "#visible_for" do
-      subject { Decidim::Meetings::Meeting.visible_for(user) }
+    describe "#visible_meeting_for" do
+      subject { Decidim::Meetings::Meeting.visible_meeting_for(user) }
+
       let(:meeting) { create :meeting, :published }
       let(:user) { create :user, organization: meeting.component.organization }
 
