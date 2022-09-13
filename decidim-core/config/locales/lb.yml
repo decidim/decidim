@@ -1476,7 +1476,7 @@ lb:
     registrations:
       destroyed: Däin Kont gouf zou gemaach. Mir hoffen dech geschwënn erëm ze gesinn.
       edit:
-        are_you_sure: Bass de sécher?
+        are_you_sure: Bass du sécher?
         cancel_my_account: Kont erstellen ofbriechen
         currently_waiting_confirmation_for_email: 'Op Bestätegung waarden fir: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: net ausfëllen wann s'de keng Ännerung wëlls
