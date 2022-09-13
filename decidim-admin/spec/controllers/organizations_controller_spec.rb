@@ -8,7 +8,7 @@ module Decidim
       routes { Decidim::Admin::Engine.routes }
 
       let(:organization) { create :organization }
-      let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+      let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -16,10 +16,10 @@ module Decidim
       end
 
       describe "GET users and user groups in json format" do
-        let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization:, email: "d.mail@example.org") }
-        let!(:blocked_user) { create(:user, :blocked, name: "Daisy Blocked", nickname: "daisy_b", organization:, email: "d.mail.b@example.org") }
-        let!(:managed_user) { create(:user, :managed, name: "Daisy Managed", nickname: "daisy_g", organization:, email: "d.mail.g@example.org") }
-        let!(:deleted_user) { create(:user, :deleted, name: "Daisy Deleted", nickname: "daisy_d", organization:, email: "d.mail.d@example.org") }
+        let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization: organization, email: "d.mail@example.org") }
+        let!(:blocked_user) { create(:user, :blocked, name: "Daisy Blocked", nickname: "daisy_b", organization: organization, email: "d.mail.b@example.org") }
+        let!(:managed_user) { create(:user, :managed, name: "Daisy Managed", nickname: "daisy_g", organization: organization, email: "d.mail.g@example.org") }
+        let!(:deleted_user) { create(:user, :deleted, name: "Daisy Deleted", nickname: "daisy_d", organization: organization, email: "d.mail.d@example.org") }
         let!(:other_user) { create(:user, name: "Daisy O'connor", nickname: "daisy_o", email: "d.mail.o@example.org") }
         let!(:user_group) do
           create(
@@ -29,7 +29,7 @@ module Decidim
             nickname: "daisy_org",
             email: "d.mail.org@example.org",
             users: [user],
-            organization:
+            organization: organization
           )
         end
         let(:parsed_response) { JSON.parse(response.body).map(&:symbolize_keys) }
@@ -71,7 +71,7 @@ module Decidim
         end
 
         context "when user is blocked" do
-          let!(:user) { create(:user, :blocked, name: "Daisy Miller", nickname: "daisy_m", organization:) }
+          let!(:user) { create(:user, :blocked, name: "Daisy Miller", nickname: "daisy_m", organization: organization) }
 
           it "returns an empty json array" do
             get :users, format: :json, params: { term: "daisy" }
@@ -80,7 +80,7 @@ module Decidim
         end
 
         context "when user is managed" do
-          let!(:user) { create(:user, :managed, name: "Daisy Miller", nickname: "daisy_m", organization:) }
+          let!(:user) { create(:user, :managed, name: "Daisy Miller", nickname: "daisy_m", organization: organization) }
 
           it "returns an empty json array" do
             get :users, format: :json, params: { term: "daisy" }
@@ -89,7 +89,7 @@ module Decidim
         end
 
         context "when user is deleted" do
-          let!(:user) { create(:user, :deleted, name: "Daisy Miller", nickname: "daisy_m", organization:) }
+          let!(:user) { create(:user, :deleted, name: "Daisy Miller", nickname: "daisy_m", organization: organization) }
 
           it "returns an empty json array" do
             get :users, format: :json, params: { term: "daisy" }
@@ -99,7 +99,7 @@ module Decidim
       end
 
       describe "GET users in json format" do
-        let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization:) }
+        let!(:user) { create(:user, name: "Daisy Miller", nickname: "daisy_m", organization: organization) }
         let!(:other_user) { create(:user, name: "Daisy O'connor", nickname: "daisy_o") }
         let!(:user_group) do
           create(
@@ -108,7 +108,7 @@ module Decidim
             name: "Daisy Organization",
             nickname: "daysy_org",
             users: [user],
-            organization:
+            organization: organization
           )
         end
 
@@ -150,7 +150,7 @@ module Decidim
         end
 
         context "when user is blocked" do
-          let!(:user) { create(:user, :blocked, name: "Daisy Miller", nickname: "daisy_m", organization:) }
+          let!(:user) { create(:user, :blocked, name: "Daisy Miller", nickname: "daisy_m", organization: organization) }
 
           it "returns an empty json array" do
             get :users, format: :json, params: { term: "daisy" }
@@ -159,7 +159,7 @@ module Decidim
         end
 
         context "when user is managed" do
-          let!(:user) { create(:user, :managed, name: "Daisy Miller", nickname: "daisy_m", organization:) }
+          let!(:user) { create(:user, :managed, name: "Daisy Miller", nickname: "daisy_m", organization: organization) }
 
           it "returns an empty json array" do
             get :users, format: :json, params: { term: "daisy" }
@@ -168,7 +168,7 @@ module Decidim
         end
 
         context "when user is deleted" do
-          let!(:user) { create(:user, :deleted, name: "Daisy Miller", nickname: "daisy_m", organization:) }
+          let!(:user) { create(:user, :deleted, name: "Daisy Miller", nickname: "daisy_m", organization: organization) }
 
           it "returns an empty json array" do
             get :users, format: :json, params: { term: "daisy" }
