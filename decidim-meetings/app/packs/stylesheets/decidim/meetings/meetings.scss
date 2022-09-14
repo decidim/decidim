@@ -43,3 +43,27 @@
     @apply underline;
   }
 }
+
+.meeting-modal{
+  @apply pr-16 pb-16;
+
+  &__title{
+    @apply flex items-baseline gap-2;
+  }
+
+  &__text{
+    @apply text-lg text-gray-2;
+  }
+
+  &__input{
+    @apply text-lg text-gray-2 relative;
+
+    input{
+      @apply w-full;
+    }
+
+    button{
+      @apply z-10 absolute top-1/2 right-2 -translate-y-1/2 text-sm;
+    }
+  }
+}
