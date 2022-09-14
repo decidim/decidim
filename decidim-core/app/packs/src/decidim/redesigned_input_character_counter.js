@@ -86,9 +86,6 @@ export default class InputCharacterCounter {
       }
     }
 
-    // this.updateInputLength();
-    // this.previousInputLength = this.inputLength;
-
     if (this.$target.length > 0 && (this.maxCharacters > 0 || this.minCharacters > 0)) {
       // Create the screen reader target element. We don't want to constantly
       // announce every change to screen reader, only occasionally.
