@@ -11,7 +11,19 @@
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
 
-  <%= render partial: "filters" %>
+  <%
+    # REDESING_PENDING: same partial as in calendar
+    # REDESING_PENDING: display only the current and the next month
+
+    current_year = Date.new(2022,1,1).all_year;
+    events = Date.new(2022,1,1).all_year.to_a.sample(15);
+  %>
+
+  <% current_year.group_by {|e| e.month}.take(2).take(2).each do |month| %>
+    <%= render partial: "month", locals: { month: month, events: events } %>
+  <% end %>
+
+  <%#= render partial: "filters" %>
 
   <%= render partial: "decidim/meetings/calendar_modal", locals: {
     path: short_url(
