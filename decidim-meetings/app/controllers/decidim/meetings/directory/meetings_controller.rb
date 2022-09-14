@@ -19,6 +19,8 @@ module Decidim
 
         helper_method :meetings, :search
 
+        def year_calendar; end
+
         def calendar
           render plain: CalendarRenderer.for(current_organization, params[:filter]), content_type: "type/calendar"
         end

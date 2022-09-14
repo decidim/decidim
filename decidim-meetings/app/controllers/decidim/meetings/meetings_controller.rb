@@ -54,6 +54,10 @@ module Decidim
         end
       end
 
+      def year_calendar
+        render template: "decidim/meetings/directory/meetings/year_calendar"
+      end
+
       def show
         raise ActionController::RoutingError, "Not Found" unless meeting
 

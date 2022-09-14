@@ -1,0 +1,45 @@
+<% add_decidim_page_title(t("decidim.meetings.directory.meetings.index.meetings")) %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
+<% end %>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_meetings" %>
+<% end %>
+
+<% content_for :aside do %>
+  <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
+
+  <%
+    # REDESING_PENDING: same partial as in calendar
+    # REDESING_PENDING: display only the current and the next month
+
+    current_year = Date.new(2022,1,1).all_year;
+    events = Date.new(2022,1,1).all_year.to_a.sample(15);
+  %>
+
+  <% current_year.group_by {|e| e.month}.take(2).take(2).each do |month| %>
+    <%= render partial: "decidim/meetings/directory/meetings/month", locals: { month: month, events: events } %>
+  <% end %>
+
+  <%#= render partial: "filters" %>
+
+  <%= render partial: "decidim/meetings/calendar_modal", locals: {
+    path: short_url(
+      route_name: "calendar",
+      params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+    )
+  } %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <%# REDESIGN_PENDING: Add new route %>
+  <a href="" class="meeting__link">
+    <%= "See the full calendar" %>
+    <%= icon "calendar-2-line", class: "fill-current" %>
+  </a>
+
+  <%# REDESIGN_PENDING: Move this partial to the actual route %>
+  <%= render partial: "decidim/meetings/directory/meetings/calendar" %>
+<% end %>

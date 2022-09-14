@@ -25,7 +25,7 @@
     events = Date.new(2022,1,1).all_year.to_a.sample(15);
   %>
 
-  <% current_year.group_by {|e| e.month}.each do |month| %>
-    <%= render partial: "month", locals: { month: month, events: events } %>
+  <% current_year.group_by { |e| e.month }.each do |month| %>
+    <%= render partial: "decidim/meetings/directory/meetings/month", locals: { month: month, events: events } %>
   <% end %>
 </div>
