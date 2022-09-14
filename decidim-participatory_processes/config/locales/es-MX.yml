@@ -95,6 +95,7 @@ es-MX:
           all_processes: Mostrar todos los procesos
           process_groups: Grupos de proceso
         import_process: Importar
+        moderate: Moderar
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
