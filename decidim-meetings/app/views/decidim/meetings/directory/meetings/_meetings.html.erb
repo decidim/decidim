@@ -3,7 +3,7 @@
 <% else %>
   <div class="meeting__container">
     <% meetings.each do |meeting| %>
-      <div class="meeting">
+      <a href="<%= resource_locator(meeting).path %>" class="meeting">
         <div class="meeting__calendar">
           <div class="meeting__calendar-month"><%= l(meeting.start_time, format: "%b") %></div>
           <div class="meeting__calendar-day"><%= l(meeting.start_time, format: "%d") %></div>
@@ -28,7 +28,7 @@
             <% end %>
           </div>
         </div>
-      </div>
+      </a>
     <% end %>
   </div>
 

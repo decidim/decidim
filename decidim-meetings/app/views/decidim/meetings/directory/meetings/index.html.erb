@@ -27,6 +27,7 @@
     <%= cell "decidim/meetings/meetings_map", search.result %>
   </div>
 
+  <%# REDESIGN_PENDING: Add new route %>
   <a href="" class="meeting__link">
     <%= "See the full calendar" %>
     <%= icon "calendar-2-line", class: "fill-current" %>
@@ -35,4 +36,7 @@
   <div id="meetings">
     <%= render partial: "meetings" %>
   </div>
+
+  <%# REDESIGN_PENDING: Move this partial to the actual route %>
+  <%= render partial: "calendar" %>
 <% end %>
