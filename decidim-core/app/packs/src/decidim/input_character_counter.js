@@ -38,7 +38,7 @@ export default class InputCharacterCounter {
     // Define the closest length for the input "gaps" defined by the threshold.
     if (this.maxCharacters > 10) {
       if (this.maxCharacters > 100) {
-        this.announceThreshold = Math.floor(this.maxCharacters * SR_ANNOUNCE_THRESHOLD_RATIO / 100) * 100;
+        this.announceThreshold = Math.floor(this.maxCharacters * SR_ANNOUNCE_THRESHOLD_RATIO);
       } else {
         this.announceThreshold = 10;
       }
