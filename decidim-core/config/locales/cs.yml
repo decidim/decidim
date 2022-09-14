@@ -750,7 +750,7 @@ cs:
         click_button: 'Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
         download: Stažení
       export:
-        ready: V příloze naleznete exportovanou exportovanou verzi.
+        ready: V příloze naleznete zazipovanou verzi vašeho exportu.
       subject: Váš export "%{name}" je připraven
     filters:
       linked_classes:
