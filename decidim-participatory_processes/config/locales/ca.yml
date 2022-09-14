@@ -95,6 +95,7 @@ ca:
           all_processes: Mostra tots els processos
           process_groups: Grups de processos
         import_process: Importar
+        moderate: Moderar
         new_process: Nou procés
         new_process_group: Nou grup de processos
         new_process_step: Nova fase
