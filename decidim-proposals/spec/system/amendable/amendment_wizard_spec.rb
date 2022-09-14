@@ -87,7 +87,7 @@ describe "Amendment Wizard", type: :system do
             expect(page).to have_css(".card--proposal", count: 1)
           end
 
-          within ".flash.callout.success" do
+          within "[data-alert-box].success" do
             expect(page).to have_content("Amendment draft has been created successfully.")
           end
         end
@@ -117,7 +117,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "shows no similar proposal found callout" do
-          within ".flash.callout.success" do
+          within "[data-alert-box].success" do
             expect(page).to have_content("No similar emendations found.")
           end
         end
@@ -159,7 +159,7 @@ describe "Amendment Wizard", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".flash.callout.success" do
+        within "[data-alert-box].success" do
           expect(page).to have_content("Amendment draft successfully updated.")
         end
       end
@@ -173,7 +173,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "redirects to step_1: Create your amendment" do
-          within ".flash.callout.success" do
+          within "[data-alert-box].success" do
             expect(page).to have_content("Amendment draft was successfully deleted.")
           end
 
@@ -209,7 +209,7 @@ describe "Amendment Wizard", type: :system do
               expect(page).to have_content("EDIT AMENDMENT DRAFT")
             end
 
-            within ".flash.callout.success" do
+            within "[data-alert-box].success" do
               expect(page).to have_content("No similar emendations found.")
             end
           end
@@ -265,7 +265,7 @@ describe "Amendment Wizard", type: :system do
         it "publishes the amendment" do
           expect(page).to have_css(".callout.warning[data-announcement]", text: "This amendment for the proposal #{translated(proposal.title)} is being evaluated.")
 
-          within ".flash.callout.success" do
+          within "[data-alert-box].success" do
             expect(page).to have_content("Amendment successfully published.")
           end
         end
