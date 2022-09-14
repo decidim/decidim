@@ -95,6 +95,7 @@ fr:
           all_processes: Afficher tous les processus
           process_groups: Groupes de processus
         import_process: Importer
+        moderate: Modérer
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape
