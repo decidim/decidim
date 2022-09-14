@@ -11,6 +11,8 @@ module Decidim
     helper Decidim::ResourceHelper
     helper_method :activities, :resource_types, :user
 
+    redesign active: true
+
     def index
       raise ActionController::RoutingError, "Missing user: #{params[:nickname]}" unless user
       raise ActionController::RoutingError, "Blocked User" if user.blocked? && !current_user&.admin?
@@ -48,6 +50,10 @@ module Decidim
 
     def default_filter_params
       { resource_type: nil }
+    end
+
+    def all_value
+      "all"
     end
 
     def resource_types

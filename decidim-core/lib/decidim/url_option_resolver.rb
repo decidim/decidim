@@ -39,7 +39,7 @@ module Decidim
             80
           end
 
-        ENV.fetch("PORT", default_port).to_i
+        ENV.fetch("HTTP_PORT", default_port).to_i
       end
     end
 
