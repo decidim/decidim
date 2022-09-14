@@ -95,6 +95,7 @@ fi-pl:
           all_processes: Näytä kaikki prosessit
           process_groups: Prosessiryhmät
         import_process: Tuo
+        moderate: Moderoi
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
         new_process_step: Uusi vaihe
