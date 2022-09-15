@@ -22,7 +22,7 @@
 
             classes << "is-today" if day == Date.today
             classes << "is-past-event" if events.include? day and day < Date.today
-            classes << "is-future-event" if events.include? day and day > Date.today
+            classes << "is-upcoming-event" if events.include? day and day > Date.today
           %>
           <td class="<%= classes.join(" ") %>"><%= l day, format: "%d" %></td>
         <% end %>
