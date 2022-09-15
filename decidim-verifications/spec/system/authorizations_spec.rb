@@ -17,9 +17,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       before do
         visit decidim.root_path
-        find(".sign-in-link").click
+        click_link("Sign In")
 
-        within "form.new_user" do
+        within "form.new_user", match: :first do
           fill_in :session_user_email, with: user.email
           fill_in :session_user_password, with: "decidim123456789"
           find("*[type=submit]").click
@@ -47,9 +47,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       before do
         visit decidim.root_path
-        find(".sign-in-link").click
+        click_link("Sign In")
 
-        within "form.new_user" do
+        within "form.new_user", match: :first do
           fill_in :session_user_email, with: user.email
           fill_in :session_user_password, with: "decidim123456789"
           find("*[type=submit]").click
