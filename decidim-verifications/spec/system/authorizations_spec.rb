@@ -229,8 +229,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       let(:authorizations) { [] }
 
       it "doesn't list authorizations" do
-        click_link user.name
-        expect(page).to have_no_content("Authorizations")
+        visit decidim_verifications.authorizations_path
+        expect(page).to have_no_link("Authorizations")
       end
     end
   end
