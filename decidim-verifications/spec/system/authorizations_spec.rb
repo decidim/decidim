@@ -59,7 +59,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       end
 
       it "allows the user to choose which one to authorize against to" do
-        expect(page).to have_css("a[href]", count: 2)
+        expect(page).to have_css("a[href]", text: /\AVerify against /, count: 2)
       end
     end
   end
