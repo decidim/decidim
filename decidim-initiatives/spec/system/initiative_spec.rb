@@ -141,4 +141,33 @@ describe "Initiative", type: :system do
       end
     end
   end
+
+  describe "initiative components" do
+    let!(:initiative) { base_initiative }
+    let!(:meetings_component) { create(:component, :published, participatory_space: initiative, manifest_name: :meetings) }
+    let!(:proposals_component) { create(:component, :unpublished, participatory_space: initiative, manifest_name: :proposals) }
+
+    before do
+      create_list(:meeting, 3, :published, component: meetings_component)
+      allow(Decidim).to receive(:component_manifests).and_return([meetings_component.manifest, proposals_component.manifest])
+    end
+
+    context "when requesting the initiative path" do
+      before { visit decidim_initiatives.initiative_path(initiative) }
+
+      it "shows the components" do
+        within ".process-nav" do
+          expect(page).to have_content(translated(meetings_component.name, locale: :en).upcase)
+          expect(page).to have_no_content(translated(proposals_component.name, locale: :en).upcase)
+        end
+      end
+
+      it "allows visiting the components" do
+        within ".process-nav" do
+          click_link translated(meetings_component.name, locale: :en)
+        end
+        expect(page).to have_content("3 MEETINGS")
+      end
+    end
+  end
 end

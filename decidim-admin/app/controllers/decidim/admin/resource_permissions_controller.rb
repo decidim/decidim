@@ -83,7 +83,7 @@ module Decidim
       end
 
       def manifest_name
-        @manifest_name ||= resource.manifest.name
+        @manifest_name ||= resource.resource_manifest.name
       end
 
       def permissions
