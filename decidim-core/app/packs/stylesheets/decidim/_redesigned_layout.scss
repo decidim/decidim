@@ -31,7 +31,7 @@
     --tw-gradient-stops: var(--tw-gradient-to) 0%, var(--tw-gradient-to) 50%, var(--tw-gradient-from) 50%;
 
     aside{
-      @apply order-last;
+      @apply order-last pr-0;
     }
 
     main{
