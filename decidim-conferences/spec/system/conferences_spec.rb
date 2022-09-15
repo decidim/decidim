@@ -139,10 +139,8 @@ describe "Conferences", type: :system do
         expect(page).to have_content(conference.hashtag)
       end
 
-      within "[data-conference]" do
-        expect(page).to have_content(translated(conference.description, locale: :en))
-        expect(page).to have_content(translated(conference.short_description, locale: :en))
-      end
+      expect(page).to have_content(translated(conference.description, locale: :en))
+      expect(page).to have_content(translated(conference.short_description, locale: :en))
     end
 
     context "when the conference has some components" do

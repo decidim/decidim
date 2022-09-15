@@ -26,8 +26,7 @@ edit_link(
 
 <%= render partial: "conference_hero" %>
 
-<div data-conference>
-  <%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %>
+<%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true } do %>
 
     <section class="content-block">
       <h2 class="h2 decorator"><%= t("conferences.show.introduction", scope: "decidim") %></h2>
@@ -96,4 +95,3 @@ edit_link(
     <% end %>
 
   <% end %>
-</div>
