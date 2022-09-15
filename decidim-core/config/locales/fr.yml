@@ -1647,15 +1647,6 @@ fr:
       updated_not_active: Votre mot de passe a été changé avec succès.
     registrations:
       destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
-      edit:
-        are_you_sure: Êtes-vous sûr?
-        cancel_my_account: Supprimer mon compte
-        currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
-        title: Modifier %{resource}
-        unhappy: Pas satisfait ?
-        update: Mettre à jour
-        we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
         sign_up: Créer un compte
       signed_up: Bienvenue! Votre compte a été créé avec succès.
