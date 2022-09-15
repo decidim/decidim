@@ -18,7 +18,7 @@ module Decidim
 
       # Matches a hashtag if it starts with a letter or number
       # and only contains letters, numbers or underscores.
-      HASHTAG_REGEX = /\s\K\B#([[:alnum:]](?:[[:alnum:]]|_)*)\b/i
+      HASHTAG_REGEX = /(?:\A|\s\K)\B#([[:alnum:]](?:[[:alnum:]]|_)*)\b/i
 
       # Replaces hashtags name with new or existing hashtags models global ids.
       #
