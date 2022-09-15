@@ -16,7 +16,12 @@ edit_link(
 
 <%= content_for :aside do %>
   <div class="conference__nav-container">
-    <ul class="conference__nav">
+    <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+      <span><%= t("decidim.searches.filters.jump_to") %></span>
+      <%= icon "arrow-down-s-line" %>
+      <%= icon "arrow-up-s-line" %>
+    </button>
+    <ul id="dropdown-menu" class="conference__nav">
       <%= render partial: "layouts/decidim/conferences/conference_nav_item", collection: conference_nav_items, as: :item %>
     </ul>
   </div>
