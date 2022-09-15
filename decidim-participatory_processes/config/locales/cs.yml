@@ -127,7 +127,7 @@ cs:
           info: Info
           moderations: Moderování
           private_users: Soukromí uživatelé
-          process_admins: Zpracovat uživatele
+          process_admins: Administrátoři procesu
           steps: Kroky
       models:
         participatory_process:
