@@ -1692,15 +1692,6 @@ cs:
       updated_not_active: Vaše heslo bylo úspěšně změněno.
     registrations:
       destroyed: Sbohem! Váš účet byl úspěšně zrušen. Doufáme, že vás brzy uvidíme.
-      edit:
-        are_you_sure: Jste si jisti?
-        cancel_my_account: Zrušit můj účet
-        currently_waiting_confirmation_for_email: 'Aktuálně čeká potvrzení o: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: ponechte prázdné, pokud nechcete změnit
-        title: Upravit %{resource}
-        unhappy: Nešťastný?
-        update: Aktualizace
-        we_need_your_current_password_to_confirm_your_changes: pro potvrzení změn potřebujeme vaše aktuální heslo
       new:
         sign_up: Přihlásit se
       signed_up: Vítejte! Úspěšně jste se zaregistrovali.
