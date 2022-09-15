@@ -76,7 +76,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       it "allows the user to authorize against available authorizations" do
         visit_authorizations
-        click_link "Example authorization"
+        click_link(text: /Example authorization/)
 
         fill_in "Document number", with: "123456789X"
         page.execute_script("$('#authorization_handler_birthday').focus()")
@@ -89,13 +89,13 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
-          expect(page).to have_no_link("Example authorization")
+          expect(page).to have_no_link(text: /Example authorization/)
         end
       end
 
       it "checks if the given data is invalid" do
         visit_authorizations
-        click_link "Example authorization"
+        click_link(text: /Example authorization/)
 
         fill_in "Document number", with: "12345678"
         page.execute_script("$('#authorization_handler_birthday').focus()")
@@ -131,7 +131,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             visit_authorizations
 
             within ".authorizations-list" do
-              expect(page).to have_no_link("Example authorization")
+              expect(page).to have_no_link(text: /Example authorization/)
               expect(page).to have_no_css(".authorization-renewable")
             end
           end
@@ -146,14 +146,13 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             visit_authorizations
 
             within ".authorizations-list" do
-              expect(page).to have_link("Example authorization")
-              expect(page).to have_css(".authorization-renewable")
+              expect(page).to have_css("div[data-dialog-open='renew-modal']", text: /Example authorization/)
             end
           end
 
           it "shows a modal with renew information" do
             visit_authorizations
-            click_link "Example authorization"
+            page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
 
             within "#renew-modal" do
               expect(page).to have_content("Example authorization")
@@ -166,7 +165,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           describe "and clicks on the button to renew" do
             it "shows the verification form to start again" do
               visit_authorizations
-              click_link "Example authorization"
+              page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
               within "#renew-modal" do
                 click_link "Continue"
               end
@@ -187,7 +186,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           visit_authorizations
 
           within ".authorizations-list" do
-            expect(page).to have_no_link("Example authorization")
+            expect(page).to have_no_link(text: /Example authorization/)
             expect(page).to have_content(I18n.l(authorization.granted_at, format: :long))
           end
         end
@@ -202,8 +201,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           visit_authorizations
 
           within ".authorizations-list" do
-            expect(page).to have_link("Example authorization")
-            click_link "Example authorization"
+            expect(page).to have_css("div[data-dialog-open='renew-modal']", text: /Example authorization/)
+            page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
           end
 
           within "#renew-modal" do
