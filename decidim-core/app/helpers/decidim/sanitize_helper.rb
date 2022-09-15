@@ -18,9 +18,9 @@ module Decidim
     def decidim_sanitize(html, options = {})
       scrubber = options[:scrubber] || Decidim::UserInputScrubber.new
       if options[:strip_tags]
-        strip_tags sanitize(html, scrubber:)
+        strip_tags sanitize(html, scrubber: scrubber)
       else
-        sanitize(html, scrubber:)
+        sanitize(html, scrubber: scrubber)
       end
     end
 
