@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::UserInputScrubber do
+describe Decidim::AdminInputScrubber do
   subject { described_class.new }
 
   def scrub(html)
@@ -29,19 +29,14 @@ describe Decidim::UserInputScrubber do
     end
   end
 
-  it "does not allow iframes" do
+  it "allows iframes to embed videos" do
     html = "<iframe frameborder=\"0\" allowfullscreen=\"true\" src=\"url\"></iframe>"
-    expect(html).to be_scrubbed_as("")
+    expect(html).to be_scrubbed
   end
 
-  it "does not allow comments" do
-    html = "<p>Hello, <!-- world! --></p>"
-    expect(html).to be_scrubbed_as("<p>Hello, </p>")
-  end
-
-  it "does not allow disabled iframes" do
+  it "allows disabled iframes" do
     html = %(<div class="disabled-iframe"><!-- <iframe src="url"></iframe> --></div>)
-    expect(html).to be_scrubbed_as(%(<div class="disabled-iframe"></div>))
+    expect(html).to be_scrubbed
   end
 
   it "allows most basic tags" do
