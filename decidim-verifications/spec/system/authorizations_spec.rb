@@ -38,7 +38,9 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       it "allows the user to skip it" do
         click_link "start exploring"
         expect(page).to have_current_path decidim.account_path
-        expect(page).to have_content("Participant settings")
+
+        # REDESIGN_PENDING: This page is not redesigned
+        expect(page).to have_content("Participant settings") unless Decidim.redesign_active
       end
     end
 
