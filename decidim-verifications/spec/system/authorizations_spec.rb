@@ -75,11 +75,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       let(:authorizations) { ["dummy_authorization_handler"] }
 
       it "allows the user to authorize against available authorizations" do
-        within_user_menu do
-          click_link "My account"
-        end
-
-        click_link "Authorizations"
+        visit_authorizations
         click_link "Example authorization"
 
         fill_in "Document number", with: "123456789X"
@@ -89,9 +85,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         expect(page).to have_content("You've been successfully authorized")
 
-        within "#user-settings-tabs" do
-          click_link "Authorizations"
-        end
+        visit_authorizations
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
@@ -100,11 +94,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       end
 
       it "checks if the given data is invalid" do
-        within_user_menu do
-          click_link "My account"
-        end
-
-        click_link "Authorizations"
+        visit_authorizations
         click_link "Example authorization"
 
         fill_in "Document number", with: "12345678"
@@ -124,11 +114,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       end
 
       it "shows the authorization at their account" do
-        within_user_menu do
-          click_link "My account"
-        end
-
-        click_link "Authorizations"
+        visit_authorizations
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
@@ -142,11 +128,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           end
 
           it "can't be renewed yet" do
-            within_user_menu do
-              click_link "My account"
-            end
-
-            click_link "Authorizations"
+            visit_authorizations
 
             within ".authorizations-list" do
               expect(page).to have_no_link("Example authorization")
@@ -161,11 +143,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           end
 
           it "can be renewed" do
-            within_user_menu do
-              click_link "My account"
-            end
-
-            click_link "Authorizations"
+            visit_authorizations
 
             within ".authorizations-list" do
               expect(page).to have_link("Example authorization")
@@ -174,11 +152,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           end
 
           it "shows a modal with renew information" do
-            within_user_menu do
-              click_link "My account"
-            end
-
-            click_link "Authorizations"
+            visit_authorizations
             click_link "Example authorization"
 
             within "#renew-modal" do
@@ -191,10 +165,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
           describe "and clicks on the button to renew" do
             it "shows the verification form to start again" do
-              within_user_menu do
-                click_link "My account"
-              end
-              click_link "Authorizations"
+              visit_authorizations
               click_link "Example authorization"
               within "#renew-modal" do
                 click_link "Continue"
@@ -213,11 +184,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         end
 
         it "can't be renewed yet" do
-          within_user_menu do
-            click_link "My account"
-          end
-
-          click_link "Authorizations"
+          visit_authorizations
 
           within ".authorizations-list" do
             expect(page).to have_no_link("Example authorization")
@@ -232,11 +199,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         end
 
         it "can be renewed" do
-          within_user_menu do
-            click_link "My account"
-          end
-
-          click_link "Authorizations"
+          visit_authorizations
 
           within ".authorizations-list" do
             expect(page).to have_link("Example authorization")
@@ -262,6 +225,20 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         click_link user.name
         expect(page).to have_no_content("Authorizations")
       end
+    end
+  end
+
+  private
+
+  def visit_authorizations
+    if Decidim.redesign_active
+      visit decidim_verifications.authorizations_path
+    else
+      within_user_menu do
+        click_link "My account"
+      end
+
+      click_link "Authorizations"
     end
   end
 end
