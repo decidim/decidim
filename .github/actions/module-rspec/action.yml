@@ -19,7 +19,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+    - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
       if: "github.ref != 'refs/heads/develop'"
       env:
         GITHUB_TOKEN: " ${{ inputs.github_token }}"
