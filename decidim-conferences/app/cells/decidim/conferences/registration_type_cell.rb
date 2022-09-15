@@ -37,7 +37,7 @@ module Decidim
       end
 
       def button_classes
-        "button button__sm"
+        "button button__sm button__transparent-secondary"
       end
 
       def conference
