@@ -11,6 +11,13 @@
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
 
+  <% if allowed_to?(:create, :meeting) %>
+    <%= action_authorized_link_to :create, new_meeting_path, class: "button button__lg button__secondary", data: { "redirect_url" => new_meeting_path } do %>
+      <span><%= t("new_meeting", scope: "decidim.meetings.meetings.index") %></span>
+      <%= icon "add" %>
+    <% end %>
+  <% end %>
+
   <%
     # REDESING_PENDING: same partial as in calendar
     # REDESING_PENDING: display only the current and the next month
@@ -39,9 +46,8 @@
     <%= cell "decidim/meetings/meetings_map", search.result %>
   </div>
 
-  <%# REDESIGN_PENDING: Add new route %>
-  <a href="" class="meeting__link">
-    <%= "See the full calendar" %>
+  <a href="<%= year_calendar_path %>" class="meeting__link">
+    <%= t "decidim.meetings.directory.meetings.index.go_to_calendar" %>
     <%= icon "calendar-2-line", class: "fill-current" %>
   </a>
 
@@ -49,6 +55,4 @@
     <%= render partial: "meetings" %>
   </div>
 
-  <%# REDESIGN_PENDING: Move this partial to the actual route %>
-  <%= render partial: "calendar" %>
 <% end %>

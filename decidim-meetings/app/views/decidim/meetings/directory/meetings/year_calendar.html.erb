@@ -11,16 +11,11 @@
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
 
-  <%
-    # REDESING_PENDING: same partial as in calendar
-    # REDESING_PENDING: display only the current and the next month
-
-    current_year = Date.new(2022,1,1).all_year;
-    events = Date.new(2022,1,1).all_year.to_a.sample(15);
-  %>
-
-  <% current_year.group_by {|e| e.month}.take(2).take(2).each do |month| %>
-    <%= render partial: "decidim/meetings/directory/meetings/month", locals: { month: month, events: events } %>
+  <% if allowed_to?(:create, :meeting) %>
+    <%= action_authorized_link_to :create, new_meeting_path, class: "button button__lg button__secondary", data: { "redirect_url" => new_meeting_path } do %>
+      <span><%= t("new_meeting", scope: "decidim.meetings.meetings.index") %></span>
+      <%= icon "add" %>
+    <% end %>
   <% end %>
 
   <%#= render partial: "filters" %>
@@ -34,12 +29,35 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%# REDESIGN_PENDING: Add new route %>
-  <a href="" class="meeting__link">
-    <%= "See the full calendar" %>
-    <%= icon "calendar-2-line", class: "fill-current" %>
-  </a>
+  <%# REDESIGN_PENDING: include links %>
+  <div class="meeting-calendar__selector-container">
+    <div class="meeting-calendar__selector">
+      <a href="" class="meeting-calendar__selector-arrow">
+        <%= icon "arrow-left-s-line", class: "w-6 h-6 text-secondary fill-current" %>
+      </a>
+      <h2 class="h2">2020</h2>
+      <a href="" class="meeting-calendar__selector-arrow">
+        <%= icon "arrow-right-s-line", class: "w-6 h-6 text-secondary fill-current" %>
+      </a>
+    </div>
+    <a href="<%= meetings_path %>" class="meeting-calendar__link">
+      <%= t "decidim.meetings.directory.meetings.index.go_to_list" %>
+      <%= icon "list-check-2", class: "w-3.5 h-3.5 text-secondary fill-current" %>
+    </a>
+  </div>
 
-  <%# REDESIGN_PENDING: Move this partial to the actual route %>
-  <%= render partial: "decidim/meetings/directory/meetings/calendar" %>
+  <div class="meeting-calendar">
+    <%
+      # REDESING_PENDING: integrate the actual current year
+      # REDESING_PENDING: allow start week both Sunday or Monday
+      # REDESING_PENDING: create a function to generate a month (~ html table). It reused in home
+
+      current_year = Date.new(2022,1,1).all_year;
+      events = Date.new(2022,1,1).all_year.to_a.sample(15);
+    %>
+
+    <% current_year.group_by { |e| e.month }.each do |month| %>
+      <%= render partial: "decidim/meetings/directory/meetings/month", locals: { month: month, events: events } %>
+    <% end %>
+  </div>
 <% end %>
