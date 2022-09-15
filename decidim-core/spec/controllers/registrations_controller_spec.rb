@@ -69,7 +69,7 @@ module Decidim
                 sign_up_as: "",
                 name: "",
                 nickname: "",
-                email:,
+                email: email,
                 password: "123",
                 password_confirmation: "456",
                 tos_agreement: "0",
