@@ -38,7 +38,16 @@ Capybara.register_driver :headless_chrome do |app|
   )
 end
 
-Capybara.server_port = rand(5000..6999)
+1.step do
+  port = rand(5000..6999)
+  begin
+    Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
+  rescue Errno::ECONNREFUSED
+    # When connection is refused, the port is available for use.
+    Capybara.server_port = port
+    break
+  end
+end
 
 # In order to work with PWA apps, Chrome can't be run in headless mode, and requires
 # setting up special prefs and flags
