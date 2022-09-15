@@ -109,6 +109,11 @@ module Decidim::Conferences
         expect(action_log.version).to be_present
       end
 
+      it "sets the avatar" do
+        subject.call
+        expect(conference_speaker.avatar.blob).to be_a(ActiveStorage::Blob)
+      end
+
       it "links meetings" do
         subject.call
 
