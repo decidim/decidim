@@ -1,5 +1,5 @@
 .button{
-  @apply inline-flex items-center justify-center font-semibold rounded whitespace-nowrap transition cursor-pointer;
+  @apply inline-flex items-center justify-center font-semibold rounded whitespace-nowrap transition cursor-pointer [&>span]:truncate [&>svg]:flex-none [&>svg]:fill-current first-letter:[&>span]:uppercase;
 
   &__sm{
     @apply text-sm px-4 py-1.5 gap-1.5;
