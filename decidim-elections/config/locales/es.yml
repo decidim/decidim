@@ -384,7 +384,7 @@ es:
           modal:
             close: Cerrar
             communication_lost: Desafortunadamente, parece que la comunicación con el servidor de votación (Bulletin Board) se ha perdido.<br>Puede ser que la conexión a Internet esté averiada o que el servidor de destino esté demasiado ocupado.<br>Puedes intentarlo más tarde o ponerte en contacto con el servicio de asistencia si este problema persiste.
-            generic_error: Desafortunadamente, se ha producido un error desconocido. Es probable que tu navegador no esté soportado o que estés usando el modo "incognito" o "privado" que no es compatible.
+            generic_error: Desafortunadamente, se ha producido un error desconocido. Es probable que tu navegador no esté soportado o que estés usando el modo "incógnito" o "privado" que no es compatible.
             title: Algo salió mal
       election_m:
         badge_name:
@@ -1097,7 +1097,7 @@ es:
               callout: El censo está cerrado y no se puede modificar.
               help_html: |
                 Los datos del censo Se han subido correctamente, los códigos se han generado y exportado con éxito.<br><strong>Ahora estás lista para comenzar la elección.</strong><br>
-                Utiliza el CSV exportado que incluye los códigos individuales para distribuirlo al cens utilizando tus propios medios o active la pestaña "¿Puedo votar?" para permitir que cualquiera recupere este código usando sus propis datos de censales.
+                Utiliza el CSV exportado, que incluye los códigos individuales para distribuirlo al censo utilizando tus propios medios, o active la pestaña "¿Puedo votar?", para permitir que cualquiera recupere este código usando sus propios datos de censales.
             generate_access_codes:
               button: Generar códigos de acceso de la votación
               callout: Ahora puedes generar los códigos de acceso. Ten en cuenta que después de generarlos ya no podrás modificar más el censo.
