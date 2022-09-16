@@ -1,31 +1,25 @@
 <div class="accountability__grid my-20">
   <% first_class_categories.each do |category| %>
-  <% next if (category_results_count = count_calculator(current_scope, category.id)) == 0 %>
-
     <div>
       <span class="accountability__grid-title"><%= categories_label %></span>
-      <%= render partial: "status", locals: {
-        url: results_path(filter: { with_category: category, with_scope: current_scope }),
-        title: translated_attribute(category.name),
-        progress: progress_calculator(current_scope, category.id).present? && progress_calculator(current_scope, category.id),
-        count: category_results_count && category_results_count > 0 && display_count(category_results_count),
-        extra_classes: "accountability__status__background"
-      } %>
+      <%= cell(
+            "decidim/accountability/status",
+            category,
+            extra_classes: "accountability__status__background",
+            url: results_path(filter: { with_category: category, with_scope: current_scope })
+          ) %>
     </div>
 
     <div>
       <span class="accountability__grid-title"><%= subcategories_label %></span>
       <div class="accountability__subgrid">
         <% category.subcategories.each do |subcategory| %>
-          <% if (subcategory_results_count = count_calculator(current_scope, subcategory.id)) > 0 %>
-            <%= render partial: "status", locals: {
-              url: results_path(filter: { with_category: subcategory, with_scope: current_scope }),
-              title: translated_attribute(subcategory.name),
-              progress: progress_calculator(current_scope, subcategory.id).present? && progress_calculator(current_scope, subcategory.id),
-              count: display_count(subcategory_results_count),
-              extra_classes: "accountability__status__border"
-            } %>
-          <% end %>
+          <%= cell(
+                "decidim/accountability/status",
+                subcategory,
+                extra_classes: "accountability__status__border",
+                url: results_path(filter: { with_category: subcategory, with_scope: current_scope })
+              ) %>
         <% end %>
       </div>
     </div>

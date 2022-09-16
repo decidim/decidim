@@ -1,0 +1,14 @@
+<p class="accountability__status-title"><%= title %></p>
+
+<% if component_settings.display_progress_enabled? %>
+  <div class="accountability__status-progress">
+    <div style="width:<%= progress %>%"></div>
+  </div>
+<% end %>
+
+<div class="accountability__status-value">
+  <span><%= display_percentage progress %></span>
+  <% if count %>
+    <span><%= count %></span>
+  <% end %>
+</div>
