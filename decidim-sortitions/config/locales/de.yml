@@ -20,6 +20,8 @@ de:
   decidim:
     components:
       sortitions:
+        actions:
+          comment: Kommentar
         name: Sortierungen
         settings:
           global:

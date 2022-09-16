@@ -122,6 +122,9 @@ de:
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
       errors:
         answer:
           body: Körper kann nicht leer sein
@@ -129,6 +132,9 @@ de:
         extension_allowlist: 'Gültige Formate:'
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Dieses Bild wird skaliert und an %{dimensions} angepasst.
+          resize_to_fit: Dieses Bild wird auf %{dimensions} skaliert.
       question_types:
         files: Dateien
         long_answer: Lange Antwort

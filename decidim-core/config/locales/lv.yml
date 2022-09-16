@@ -1278,15 +1278,6 @@ lv:
       updated_not_active: Jūsu parole ir veiksmīgi nomainīta.
     registrations:
       destroyed: Jūsu konts ir veiksmīgi atcelts. Mēs ceram jūs drīz atkal redzēt.
-      edit:
-        are_you_sure: Vai esat pārliecināts?
-        cancel_my_account: Atcelt manu kontu
-        currently_waiting_confirmation_for_email: 'Pašlaik tiek gaidīts apstiprinājums e-pastam: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: atstājiet tukšu, ja nevēlaties to mainīt
-        title: Labot %{resource}
-        unhappy: Neesat apmierināts?
-        update: Atjaunināt
-        we_need_your_current_password_to_confirm_your_changes: mums ir nepieciešama jūsu pašreizējā parole, lai apstiprinātu izmaiņas
       new:
         sign_up: Reģistrēties
       signed_up: Laipni lūdzam! Jūsu reģistrācija bija veiksmīga.

@@ -1652,15 +1652,6 @@ es-PY:
       updated_not_active: Tu contraseña ha sido cambiada exitosamente.
     registrations:
       destroyed: '¡Adiós! Su cuenta ha sido cancelada exitosamente. Esperamos volver a verte pronto.'
-      edit:
-        are_you_sure: '¿Estás seguro?'
-        cancel_my_account: Cancelar mi cuenta
-        currently_waiting_confirmation_for_email: 'En espera de confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: déjelo en blanco si no quiere cambiarlo
-        title: Editar %{resource}
-        unhappy: '¿Infeliz?'
-        update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
       signed_up: '¡Bienvenido! Usted se ha registrado exitosamente.'
@@ -1729,56 +1720,60 @@ es-PY:
     timestamp_error_message: Lo siento, has sido demasiado rápido! Por favor, vuelva a enviar.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: Descripción
             name: Nombre
             service: Servicio
             type: Tipo
-          cookies:
+          items:
             _session_id:
               description: Permite a los sitios web recordar a la usuaria dentro de un sitio web cuando se mueve entre páginas web.
               service: Esta página web
             decidim-consent:
               description: Almacena información sobre las cookies permitidas por la usuaria en esta página web.
               service: Esta página web
+            pwaInstallPromptSeen:
+              description: Guarda el estado si la notificación de instalación de la aplicación web progresiva (PWA) ya ha sido vista por la usuaria.
+              service: Esta página web
           types:
             cookie: Cookie
+            local_storage: Almacenamiento local
         dialog:
           accept_all: Aceptar todas
           accept_only_essential: Aceptar solo las esenciales
-          cookie_settings: Configuración
           description: Utilizamos cookies en nuestro sitio web para mejorar el rendimiento y el contenido del mismo. Las cookies nos permiten ofrecer una experiencia de usuario y unos contenidos más personalizados desde nuestros canales de redes sociales.
+          settings: Configuración
           title: Información sobre las cookies utilizadas en la página web
         modal:
           accept_all: Aceptar todas
           accept_only_essential: Aceptar solo las esenciales
           analytics:
-            description: Las cookies analíticas son cookies que rastrean cómo las usuarias navegan e interactúan con la página web. La información recopilada se utiliza para ayudar a la propietaria de la web a mejorar la página.
+            description: Estas cookies se utilizan para medir y analizar la audiencia del sitio web para ayudar a mejorarlo.
             title: Analíticas y estadísticas
-          description: Utilizamos cookies para asegurar las funcionalidades básicas de la página web y para mejorar tu experiencia en línea. Puedes elegir activarlas o desactivarlas por cada categoría cuando quieras.
+          description: Utilizamos cookies para asegurar las funcionalidades básicas del sitio web y para mejorar tu experiencia en línea. Puedes configurar y aceptar el uso de las cookies, y modificar tus opciones de consentimiento en cualquier momento.
           essential:
-            description: Estas cookies son esenciales para el buen funcionamiento de esta página web. Sin estas cookies, esta página web no funcionará correctamente.
+            description: Estas cookies permiten la funcionalidad clave del sitio web y ayudan a mantener a sus usuarias seguras. Se guardan automáticamente en el navegador y no se pueden desactivar.
             title: Esenciales
           marketing:
-            description: Estas cookies recopilan información sobre cómo utilizas la plataforma, qué páginas visitaste y a qué enlaces hiciste clic.
+            description: Estas cookies recopilan información sobre cómo utilizas el sitio web y se pueden utilizar para proporcionarte un servicio más personalizado en los diferentes espacios en los que participas.
             title: Marketing
           preferences:
-            description: Estas cookies permiten a la plataforma recordar las opciones que has hecho en el pasado
+            description: Estas cookies permiten que el sitio web recuerde las opciones que se han elegido en el pasado en este sitio web para proporcionar una experiencia más personalizada a las usuarias.
             title: Preferencias
           save_settings: Guardar configuración
           title: Configuración de cookies
           toggle: Cambiar %{consent_category}
         warning:
-          all_cookies: todas las cookies
-          change_cookie_settings: Cambiar la configuración de cookies
-          need_cookies: Necesitas habilitar %{cookies} para ver este contenido.
+          all_categories: todas las cookies
+          change_settings: Cambiar la configuración de cookies
+          consent_required: Necesitas habilitar %{categories} para ver este contenido.
       edit_link:
         edit: Editar
       footer:
         cc_by_license: Con licencia Creative Commons
-        cookie_settings: Configuración de cookies
+        data_consent_settings: Configuración de cookies
         decidim_logo: Logo Decidim
         download_open_data: Descargar ficheros de datos abiertos
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
@@ -1835,7 +1830,7 @@ es-PY:
         see_more: Ver más
   locale:
     name: Castellano
-    name_with_error: Inglés (¡error!)
+    name_with_error: Castellano (¡error!)
   password_validator:
     blacklisted: en la lista negra
     domain_included_in_password: Es muy similar a este nombre de dominio
@@ -1845,7 +1840,7 @@ es-PY:
     nickname_included_in_password: es demasiado similar a tu alias
     not_enough_unique_characters: No tiene suficientes caracteres únicos
     password_not_allowed: No se permite
-    password_repeated: no puedes reutilizar una vieja contraseña
+    password_repeated: no puedes reutilizar una contraseña antigua
     password_too_common: Es demasiado común
     password_too_long: Es demasiado largo
     password_too_short: Es demasiado corto

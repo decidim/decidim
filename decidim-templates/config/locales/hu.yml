@@ -1,2 +1,74 @@
 ---
 hu:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Cím
+      template:
+        description: Leírás
+        name: Név
+  decidim:
+    admin:
+      menu:
+        templates: Sablonok
+      templates:
+        apply:
+          error: Probléma merült fel a sablon alkalmazása során.
+          success: Sablon sikeresen alkalmazva
+        copy:
+          error: Probléma merült fel a sablon másolása során.
+          success: Sablon sikeresen másolva
+        create:
+          error: Probléma történt az sablon létrehozásakor.
+          success: Sablon létrhehozása sikeres
+        destroy:
+          success: Sablon törlése sikeres
+        empty: Nincsenek még sablonok.
+        update:
+          error: Probléma merült fel a sablon frissítése során.
+          success: A sablon sikeresen frissült
+      titles:
+        template_types:
+          questionnaires: Kérdőív-sablonok
+        templates: Sablonok
+    models:
+      questionnaire_template:
+        fields:
+          questions: Kérdések száma
+          title: Kérdõív címe
+      template:
+        fields:
+          created_at: 'Létrehozva:'
+        name: Sablon
+    templates:
+      admin:
+        questionnaire_templates:
+          choose:
+            create_from_template: Létrehozás sablonból
+            description: Egy új kérdőív létrehozására készült. Választhatsz előre létrehozott sablonok közül amelyeket később módosíthatsz.
+            label: Válassz egy sablont
+            placeholder: Válassz egy sablont
+            skip_template: Átugrás
+          edit:
+            edit: Szerkesztés
+            empty: Még nincsenek kérdések
+            questionnaire: Kérdőív
+          form:
+            save: Mentés
+            template_title: Sablon információi
+            title: Kérdőív sablon %{questionnaire_for}
+          index:
+            confirm_delete: Biztos törölni szeretné a sablont?
+            title: Kérdőív-sablonok
+          preview:
+            current_step: Lépés %{step}
+            of_total_steps: 'ennyiből: %{total_steps}'
+            tos_agreement: A részvétellel elfogadja az Általános Szerződési Feltételeket
+      admin_log:
+        template:
+          create: "%{user_name} létrehozta a(z) %{resource_name} kérdőív sablont"
+          delete: "%{user_name} törölte a(z) %{resource_name} kérdőív sablont"
+          duplicate: "%{user_name} duplikálta a(z) %{resource_name} kérdőív sablont"
+          update: "%{user_name} frissítette a(z) %{resource_name} kérdőív sablont"
+      template_types:
+        questionnaires: Kérdőívek

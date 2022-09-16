@@ -613,7 +613,7 @@ pl:
           fields:
             created_at: Data utworzenia
             email: E-mail
-            last_sign_in_at: Ostatni dzień rejestracji
+            last_sign_in_at: Ostatnie logowanie
             name: Imię
             role: Rola
             roles:
@@ -946,7 +946,7 @@ pl:
           title: Edytuj stronę
           update: Aktualizuj
         form:
-          none: Żadna
+          none: Bez tematu
           slug_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia istotna zmiana

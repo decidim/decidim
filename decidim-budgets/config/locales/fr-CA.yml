@@ -319,6 +319,7 @@ fr-CA:
               errors:
                 budget_voting_rule_only_one: Une seule règle de vote doit être activée
                 budget_voting_rule_required: Une règle de vote est requise
+            geocoding_enabled: Géocodage activé
             landing_page_content: Page d'accueil des budgets
             more_information_modal: Plus d’informations
             projects_per_page: Projets par page

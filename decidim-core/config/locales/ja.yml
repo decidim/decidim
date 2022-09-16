@@ -142,6 +142,9 @@ ja:
     admin:
       actions:
         cancel: キャンセル
+      password_change:
+        alert: 先に進むにはパスワードを変更する必要があります
+        notification: 管理者ユーザーは、 %{days} 日ごとにパスワードを変更する必要があります。
     admin_log:
       area:
         create: "%{user_name} が %{resource_name} 領域を作成しました"
@@ -332,6 +335,7 @@ ja:
         other: コメント
       endorsements:
         other: オススメ
+      official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: '「A」で始まるパスポート番号を入力して確認する'
@@ -1251,6 +1255,10 @@ ja:
           title: '必須：サービス利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
+    passwords:
+      update:
+        error: パスワードの更新中に問題が発生しました
+        success: パスワードが正常に更新されました
     profile:
       deleted: 参加者が削除されました
       inaccessible_message: このプロファイルは利用規約違反によりアクセスできません
@@ -1614,6 +1622,8 @@ ja:
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
         password_help: "半角英数字%{minimun_characters}文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
+        password_help_admin: "%{minimun_characters} 文字以上であり、過度に一般的ではない文字列 (例: 123456)ではなく, あなたのニックネームやあなたの電子メール、そしてあなたの古いパスワードと異なる文字列を指定してください。"
+        title: パスワードの変更
       new:
         forgot_your_password: パスワードをお忘れですか？
         send_me_reset_password_instructions: パスワードリセット手順を送信してください
@@ -1624,15 +1634,6 @@ ja:
       updated_not_active: パスワードが正常に変更されました。
     registrations:
       destroyed: お客様のアカウントは正常にキャンセルされました。しばらくお待ちください。
-      edit:
-        are_you_sure: よろしいですか？
-        cancel_my_account: アカウントをキャンセルする
-        currently_waiting_confirmation_for_email: '現在確認待ち: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 変更したくない場合は空白のままにしてください
-        title: '%{resource} を編集'
-        unhappy: 不満？
-        update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 変更を確認するには現在のパスワードが必要です
       new:
         sign_up: 新規登録
       signed_up: ようこそ！正常に登録完了しました。
@@ -1698,56 +1699,60 @@ ja:
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: 説明
             name: 名前
             service: サービス
-            type: タイプ
-          cookies:
+            type: 種別
+          items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。
               service: このウェブサイト
             decidim-consent:
               description: このウェブサイトでユーザーが許可するクッキーに関する情報を保存します。
               service: このウェブサイト
+            pwaInstallPromptSeen:
+              description: プログレッシブウェブアプリケーション(PWA) のインストール通知がユーザーによって既に表示されている場合、ステータスを保存します。
+              service: このウェブサイト
           types:
             cookie: クッキー
+            local_storage: ローカルストレージ
         dialog:
           accept_all: すべて受け入れる
           accept_only_essential: 必須のみを受け入れる
-          cookie_settings: 設定
           description: 本サイトは、サイトのパフォーマンスとコンテンツを向上させるために、ウェブサイト上でクッキーを使用しています。 クッキーは、より多くの個々のユーザーエクスペリエンスとソーシャルメディアチャネルを提供することができます。
+          settings: 設定
           title: ウェブサイトで使用されるクッキーに関する情報
         modal:
           accept_all: すべて受け入れる
           accept_only_essential: 必須のみを受け入れる
           analytics:
-            description: 分析クッキーは、ユーザーがウェブサイトをどのようにナビゲートして操作するかを追跡するクッキーです。 収集された情報は、ウェブサイトの所有者がウェブサイトを改善するために使用されます。
+            description: これらのクッキーは、ウェブサイトの改善に役立つウェブサイトの視聴者を測定および分析するために使用されます。
             title: 分析と統計
-          description: 本サイトはウェブサイトの基本的な機能を確保し、お客様のオンライン体験を向上させるためにクッキーを使用しています。 いつでもオプトイン/オプトアウトするカテゴリを選択できます。
+          description: このサイトは、ウェブサイトの基本的な機能を確保し、ユーザーのオンライン体験を向上させるためにクッキーを使用しています。 Cookieの使用を設定および承認したり、同意オプションを変更することはいつでもできます。
           essential:
-            description: これらのクッキーは、本ウェブサイトの基本的な機能に不可欠です。これらのクッキーがなければ、ウェブサイトが正しく機能しません。
+            description: これらのクッキーは、ウェブサイトの主要な機能を可能にし、ユーザーの安全を保つために使われます。 自動的にブラウザに保存され、無効にすることはできません。
             title: 必須
           marketing:
-            description: これらのクッキーは、ユーザーがウェブサイトをどのように使用するか、ユーザーが訪問したページ、およびユーザーがクリックしたリンクに関する情報を収集します。
+            description: これらのクッキーは、お客様がウェブサイトをどのように使用するかに関する情報を収集し、お客様が使用するさまざまなウェブサイトでよりパーソナライズされたマーケティングを提供するために利用することができます。
             title: マーケティング
           preferences:
-            description: これらのクッキーは、過去に行った選択をウェブサイトが記憶することを可能にします
+            description: これらのクッキーは、ウェブサイト上で過去に行った選択をウェブサイトが記憶し、ユーザーによりパーソナライズされた体験を提供することを可能にします。
             title: 設定
           save_settings: 設定を保存
           title: Cookieの設定
           toggle: '%{consent_category} の切り替え'
         warning:
-          all_cookies: すべてのクッキー
-          change_cookie_settings: Cookie の設定を変更する
-          need_cookies: このコンテンツを表示するには %{cookies} を有効にする必要があります。
+          all_categories: すべてのクッキー
+          change_settings: Cookie の設定を変更する
+          consent_required: このコンテンツを表示するには %{categories} を有効にする必要があります。
       edit_link:
         edit: 編集
       footer:
         cc_by_license: クリエイティブコモンズライセンス
-        cookie_settings: Cookieの設定
+        data_consent_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
         download_open_data: オープンデータファイルをダウンロード
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
@@ -1804,7 +1809,7 @@ ja:
         see_more: もっと見る
   locale:
     name: 日本語
-    name_with_error: 英語 (エラー!)
+    name_with_error: 日本語 (エラー!)
   password_validator:
     blacklisted: ブラックリストに登録済み
     domain_included_in_password: このドメイン名に似ています
@@ -1814,6 +1819,7 @@ ja:
     nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
     password_not_allowed: は許可されていません
+    password_repeated: 古いパスワードは再利用できません
     password_too_common: あまりにも一般的です
     password_too_long: 長すぎます
     password_too_short: 短すぎます

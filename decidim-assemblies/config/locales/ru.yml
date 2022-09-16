@@ -269,6 +269,8 @@ ru:
         public: Граждане
       index:
         title: Собрания
+      last_activity:
+        new_assembly: Добавить собрание
       pages:
         home:
           highlighted_assemblies:

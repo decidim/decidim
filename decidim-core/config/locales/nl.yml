@@ -1480,15 +1480,6 @@ nl:
       updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
       destroyed: Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
-      edit:
-        are_you_sure: Weet je het zeker?
-        cancel_my_account: Annuleer mijn account
-        currently_waiting_confirmation_for_email: 'Momenteel wachtende bevestiging voor: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laat leeg als je het niet wilt wijzigen
-        title: Bewerk %{resource}
-        unhappy: Ongelukkig?
-        update: Bijwerken
-        we_need_your_current_password_to_confirm_your_changes: we hebben je huidige wachtwoord nodig om je wijzigingen te bevestigen
       new:
         sign_up: Aanmelden
       signed_up: Welkom! Je hebt je succesvol aangemeld.
@@ -1557,6 +1548,21 @@ nl:
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            description: Beschrijving
+            name: Naam
+            type: Type
+          items:
+            pwaInstallPromptSeen:
+              description: Bewaart de status als de progressieve webapplicatie (PWA) installatiemelding al gezien is door de gebruiker.
+          types:
+            local_storage: Lokale opslag
+        modal:
+          analytics:
+            description: Deze cookies worden gebruikt om het gebruik van de website te meten en te analyseren en zo de website te verbeteren.
+          description: We gebruiken cookies om de basisfunctionaliteiten van de website te garanderen en jouw online-ervaring te verbeteren. Je kunt op elk gewenst moment het gebruik van de cookies configureren en accepteren of je toestemmingsopties wijzigen.
       edit_link:
         edit: Bewerk
       footer:
@@ -1610,7 +1616,7 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-    name_with_error: Engels (fout!)
+    name_with_error: Nederlands (fout!)
   password_validator:
     blacklisted: staat op de zwarte lijst
     domain_included_in_password: lijkt te veel op deze domeinnaam

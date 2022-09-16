@@ -383,6 +383,8 @@ fr:
           value_types:
             organizer_presenter:
               not_found: 'L''organisateur n''a pas été trouvé dans la base de données (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} a mis à jour le questionnaire pour la réunion %{meeting_name}"
       application_helper:
         filter_category_values:
           all: Tout

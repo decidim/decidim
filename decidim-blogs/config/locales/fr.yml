@@ -40,6 +40,11 @@ fr:
           update:
             invalid: Il y a eu des erreurs lors de l'enregistrement de l'article.
             success: Article enregistré avec succès
+      admin_log:
+        post:
+          create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé l'article de blog %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour l'article de blog %{resource_name} dans %{space_name}"
       last_activity:
         new_post_at_html: "<span>Nouvel article à %{link}</span>"
       models:
@@ -48,6 +53,7 @@ fr:
             author: Auteur
             body: Corps du texte
             created_at: Créé à
+            official_blog_post: Article officiel
             title: titre
       posts:
         show:

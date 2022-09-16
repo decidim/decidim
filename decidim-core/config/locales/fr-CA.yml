@@ -174,11 +174,19 @@ fr-CA:
         create: "%{user_name} a créé le fichier %{resource_name}"
         delete: "%{user_name} a supprimé le fichier %{resource_name}"
         update: "%{user_name} a mis à jour le fichier %{resource_name}"
+      category:
+        create: "%{user_name} a ajouté la catégorie %{resource_name} à l'espace %{space_name}"
+        delete: "%{user_name} a supprimé la catégorie %{resource_name} sur l'espace %{space_name}"
+        update: "%{user_name} a mis à jour la catégorie %{resource_name} dans l'espace %{space_name}"
       component:
         create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        export_component: "%{user_name} a exporté le %{resource_name} %{component_name} dans %{space_name} en tant que %{format_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+        update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} a mis à jour la section d'aide %{resource_name}"
       helpers:
         answers: réponses
         comments: commentaires
@@ -200,6 +208,7 @@ fr-CA:
         update: "%{user_name} a mis à jour l'application OAuth %{resource_name}"
       organization:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
+        update_external_domain: "%{user_name} a mis à jour les domaines externes de l'organisation"
       participatory_space_private_user:
         create: "%{user_name} invité %{resource_name} pour être un utilisateur privé"
         create_via_csv: "%{user_name} a invité %{resource_name} via CSV à être un utilisateur privé"
@@ -341,6 +350,7 @@ fr-CA:
       endorsements:
         one: soutien
         other: soutiens
+      official_author: Officiel
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Obtenir une vérification en saisissant un numéro de passeport commençant par "A"
@@ -1637,15 +1647,6 @@ fr-CA:
       updated_not_active: Votre mot de passe a été changé avec succès.
     registrations:
       destroyed: Au revoir! Votre compte a été annulé avec succès. Nous espérons te revoir bientôt.
-      edit:
-        are_you_sure: Êtes-vous sûr?
-        cancel_my_account: Supprimer mon compte
-        currently_waiting_confirmation_for_email: 'En attente de confirmation pour: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laisser vide si vous ne voulez pas le changer
-        title: Modifier %{resource}
-        unhappy: Pas satisfait ?
-        update: Mettre à jour
-        we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour confirmer vos modifications
       new:
         sign_up: S'inscrire
       signed_up: Bienvenue! Vous vous êtes inscrit avec succès.
@@ -1714,52 +1715,60 @@ fr-CA:
     timestamp_error_message: Désolé, c'était trop rapide ! Veuillez le renvoyer.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: Description
             name: Nom
             service: Service
             type: Type
-          cookies:
+          items:
             _session_id:
+              description: Permet aux sites Web de se souvenir de l'utilisateur au sein d'un même site lorsqu'il navigue d'une page à l'autre.
               service: Ce site web
             decidim-consent:
               description: Stocke des informations sur les cookies autorisés par l'utilisateur sur ce site web.
               service: Ce site web
+            pwaInstallPromptSeen:
+              description: Stocke l'état si la notification d'installation de l'application web progressive (PWA) a déjà été vue par l'utilisateur.
+              service: Ce site web
           types:
             cookie: Cookie
+            local_storage: Sauvegarde Locale
         dialog:
           accept_all: Tout accepter
           accept_only_essential: Accepter seulement l'essentiel
-          cookie_settings: Paramètres
           description: Nous utilisons des cookies sur notre site Web pour améliorer la performance et le contenu du site. Les cookies nous permettent de fournir une expérience utilisateur plus individuelle et les canaux de médias sociaux.
+          settings: Paramètres
           title: Informations sur les cookies utilisés sur le site web
         modal:
           accept_all: Tout accepter
           accept_only_essential: Accepter seulement l'essentiel
           analytics:
+            description: Ces cookies sont utilisés pour mesurer et analyser le public du site afin de l'améliorer.
             title: Analyses et statistiques
+          description: Nous utilisons des cookies pour assurer les fonctionnalités de base du site Web et pour améliorer votre expérience en ligne. Vous pouvez configurer et accepter l'utilisation des cookies et modifier vos options de consentement à tout moment.
           essential:
+            description: Ces cookies permettent le fonctionnement essentiel du site Web et aident à sécuriser ses utilisateurs. Ils sont automatiquement enregistrés dans le navigateur et ne peuvent pas être désactivés.
             title: Essentiels
           marketing:
-            description: Ces cookies recueillent des informations sur la façon dont vous utilisez le site Web, sur les pages que vous avez visitées et sur les liens sur lesquels vous avez cliqués.
+            description: Ces cookies recueillent des informations sur la façon dont vous utilisez le site Web et peuvent être utilisés pour vous offrir un marketing plus personnalisé sur les différents sites Web que vous utilisez.
             title: Marketing
           preferences:
-            description: Ces cookies permettent au site Web de se souvenir des choix que vous avez faits par le passé
+            description: Ces cookies permettent au site Web de se souvenir des choix que vous avez faits par le passé sur ce site pour offrir une expérience plus personnalisée aux utilisateurs du site.
             title: Préférences
           save_settings: Enregistrer les paramètres
           title: Paramètres des cookies
           toggle: Activer/désactiver %{consent_category}
         warning:
-          all_cookies: tous les cookies
-          change_cookie_settings: Modifier les paramètres des cookies
-          need_cookies: Vous devez activer %{cookies} pour voir ce contenu.
+          all_categories: tous les cookies
+          change_settings: Modifier les paramètres des cookies
+          consent_required: Vous devez activer %{categories} pour voir ce contenu.
       edit_link:
         edit: Modifier
       footer:
         cc_by_license: Licence Creative Commons
-        cookie_settings: Paramètres des cookies
+        data_consent_settings: Paramètres des cookies
         decidim_logo: Logo Decidim
         download_open_data: Télécharger les fichiers Open Data
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
@@ -1816,7 +1825,7 @@ fr-CA:
         see_more: Voir plus
   locale:
     name: Français
-    name_with_error: Anglais (erreur !)
+    name_with_error: Français (erreur !)
   password_validator:
     blacklisted: sur liste noire
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme

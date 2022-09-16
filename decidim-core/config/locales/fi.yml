@@ -1651,15 +1651,6 @@ fi:
       updated_not_active: Salasanasi vaihtaminen onnistui.
     registrations:
       destroyed: Tilisi poistaminen onnistui. Toivomme näkevämme sinut pian uudelleen.
-      edit:
-        are_you_sure: Oletko varma?
-        cancel_my_account: Poista tilini
-        currently_waiting_confirmation_for_email: 'Odottaa varmistusta sähköpostista: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: jätä tyhjäksi, jos et halua muuttaa
-        title: Muokkaa %{resource}
-        unhappy: Oletko tyytymätön?
-        update: Päivitä
-        we_need_your_current_password_to_confirm_your_changes: tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset
       new:
         sign_up: Rekisteröidy
       signed_up: Tervetuloa! Sisäänkirjautuminen onnistui.
@@ -1728,56 +1719,60 @@ fi:
     timestamp_error_message: Pahoittelut, olit liian nopea! Lähetä lomake uudestaan.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: Kuvaus
             name: Nimi
             service: Palvelu
             type: Tyyppi
-          cookies:
+          items:
             _session_id:
               description: Mahdollistaa verkkosivuston muistavan käyttäjän, kun käyttäjä liikkuu sivuston eri sivujen välillä.
               service: Tämä sivusto
             decidim-consent:
               description: Tallentaa tietoja sallimistasi evästeistä tällä sivustolla.
               service: Tämä sivusto
+            pwaInstallPromptSeen:
+              description: Tallentaa tiedon siitä, onko progressiivisen verkkosovelluksen (PWA) asennusilmoitus jo nähty käyttäjän toimesta.
+              service: Tämä sivusto
           types:
             cookie: Eväste
+            local_storage: Paikallinen tietovarasto
         dialog:
           accept_all: Hyväksy kaikki
           accept_only_essential: Vain välttämättömät
-          cookie_settings: Asetukset
           description: Käytämme sivustollamme evästeitä sivuston suorituskyvyn ja sisällön parantamiseksi. Evästeiden avulla voimme tarjota yksilöllisemmän käyttäjäkokemuksen ja sisältöjä sosiaalisen median kanavista.
+          settings: Asetukset
           title: Tietoa verkkosivustolla käytetyistä evästeistä
         modal:
           accept_all: Hyväksy kaikki
           accept_only_essential: Vain välttämättömät
           analytics:
-            description: Analytiikkaevästeet keräävät tietoja siitä, kuinka käyttäjät selaavat verkkosivustoa ja käyttävät sen eri ominaisuuksia. Kerättyjä tietoja käytetään auttamaan sivuston omistajaa parantamaan sivustoa.
+            description: Näitä evästeitä käytetään sivuston kävijätilastojen mittaamiseen ja analysointiin, jotta sivustoa voidaan parantaa.
             title: Analytiikka ja tilastot
-          description: Käytämme evästeitä varmistaaksemme sivuston perustoiminnot ja parantaaksemme sen käyttökokemusta. Voit hyväksyä tai estää evästekategorioita haluamallasi tavalla koska tahansa.
+          description: Käytämme evästeitä varmistaaksemme sivuston perustoiminnot ja parantaaksemme sen käyttökokemusta. Voit määrittää sallimiesi evästeiden käytön ja muokata näitä asetuksia milloin tahansa.
           essential:
-            description: Nämä evästeet ovat välttämättömiä verkkosivuston toiminnan kannalta. Ilman näitä evästeitä sivusto ei toimi kunnolla.
+            description: Nämä evästeet mahdollistavat sivuston perustoiminnot ja auttavat pitämään sen käyttäjät suojattuina. Ne tallennetaan automaattisesti selaimeen, eikä sivusto toimi ilman niitä, minkä takia ne ovat pakollisia.
             title: Välttämättömät
           marketing:
-            description: Nämä evästeet keräävät tietoa siitä, miten käytät verkkosivustoa, millä sivuilla vierailet ja mitä linkkejä olet klikannut.
+            description: Nämä evästeet keräävät tietoa siitä, miten käytät verkkosivustoa, ja niitä voidaan hyödyntää personoidumman markkinoinnin tarjoamiseen eri sivustojen kautta.
             title: Markkinointi
           preferences:
-            description: Näiden evästeiden avulla verkkosivusto muistaa aikaisemmin tekemäsi henkilökohtaiset valinnat ja mieltymykset
+            description: Näiden evästeiden avulla verkkosivusto voi muistaa aiemmin tällä sivustolla tekemiäsi valintoja tarjotaksemme sinulle henkilökohtaisemman käyttökokemuksen tällä sivustolla.
             title: Mieltymykset
           save_settings: Tallenna asetukset
           title: Evästeasetukset
           toggle: Muuta tilaa kohteelle %{consent_category}
         warning:
-          all_cookies: kaikki evästeet
-          change_cookie_settings: Muuta evästeasetuksiasi
-          need_cookies: Sinun täytyy sallia %{cookies}-evästeet nähdäksesi tämän sisällön.
+          all_categories: kaikki evästeet
+          change_settings: Muuta evästeasetuksiasi
+          consent_required: Sinun täytyy sallia %{categories} nähdäksesi tämän sisällön.
       edit_link:
         edit: Muokkaa
       footer:
         cc_by_license: Creative Commons -lisenssi
-        cookie_settings: Evästeasetukset
+        data_consent_settings: Evästeasetukset
         decidim_logo: Decidim-logo
         download_open_data: Lataa avoimet datatiedostot
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.

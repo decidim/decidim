@@ -123,6 +123,10 @@ sv:
           create: "%{user_name} skapade resultatet %{resource_name} i %{space_name}"
           delete: "%{user_name} raderade resultatet %{resource_name} i %{space_name}"
           update: "%{user_name} uppdaterade resultatet %{resource_name} i %{space_name}"
+        status:
+          create: "%{user_name} skapade statusen %{resource_name}"
+          delete: "%{user_name} raderade statusen %{resource_name}"
+          update: "%{user_name} uppdaterade statusen %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'

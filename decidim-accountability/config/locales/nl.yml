@@ -22,6 +22,7 @@ nl:
       timeline_entry:
         description: Beschrijving
         entry_date: Datum
+        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Voorstel opgenomen in een resultaat
       decidim/accountability/result_progress_updated_event: Resultaat voortgang bijgewerkt
@@ -50,6 +51,7 @@ nl:
         import_results:
           new:
             import: Importeren
+            info: "<p>Wij bevelen aan dat u de volgende stappen volgt:</p><ol><li>Maak de Statussen aan voor de Resultaten die u wilt toevoegen (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Maak ten minste één Resultaat handmatig aan via dit Beheerderspaneel (<a href='%{link_new_result}' target='_blank'>link</a>) voordat u Importeren gebruikt, zodat u een beter inzicht hebt in het formaat en wat u moet invullen.</li><li>Download de Export in CSV-formaat (%{link_export_csv})</li><li>Voer de wijzigingen lokaal door. U kunt alleen de volgende kolommen van de CSV wijzigen:</li></ol><ul><li><b>category/id:</b> ID voor de Categorie</li><li><b>scope/id:</b> ID voor het Toepassingsgebied</li><li><b>parent/id:</b> ID van de hoofdwaarde (voor aanverwante resultaten). Facultatief</li><li><b>title/I18N:</b> Titel in X taal</li><li><b>description/I18N:</b> Beschrijving in X taal</li><li><b>start_date:</b> datum waarop de uitvoering van het resultaat start (formaat JJJJ-MM-DD)</li><li><b>end_date:</b> datum waarop de uitvoering van het resultaat eindigt (formaat JJJJ-MM-DD)</li><li><b>status/id:</b> ID van de status voor dit resultaat</li><li><b>progress:</b> Percentage (van 0 tot 100) van de uitvoering</li><li><b>proposals_ids:</b> intern ID van de aanverwante voorstellen (gescheiden door een komma). Het wordt automatisch omgezet in <span class='attribute-name'>proposal_url</span></li></ul>"
             link: link
             title: Importeer resultaten van CSV
         imports:
@@ -121,6 +123,14 @@ nl:
           create: "%{user_name} heeft het resultaat %{resource_name} gemaakt in %{space_name}"
           delete: "%{user_name} verwijderde het resultaat %{resource_name} in %{space_name}"
           update: "%{user_name} bijgewerkt resultaat %{resource_name} in %{space_name}"
+        status:
+          create: "%{user_name} heeft %{resource_name} status aangemaakt"
+          delete: "%{user_name} heeft %{resource_name} status verwijderd"
+          update: "%{user_name} heeft %{resource_name} status bijgewerkt"
+        timeline_entry:
+          create: "%{user_name} heeft timeline entry %{resource_name} aangemaakt"
+          delete: "%{user_name} heeft timeline entry %{resource_name} verwijderd"
+          update: "%{user_name} heeft timeline entry %{resource_name} bijgewerkt"
         value_types:
           parent_presenter:
             not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
@@ -159,6 +169,7 @@ nl:
         timeline_entry:
           fields:
             entry_date: Datum
+            title: Titel
       result_m:
         executed: Uitgevoerd
         view: Bekijk

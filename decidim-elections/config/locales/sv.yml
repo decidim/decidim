@@ -398,8 +398,6 @@ sv:
           text: 'Du kan kontrollera att din röst har lagts till i röstsedeln med följande identifierare: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         failed:
           header: Röst ej framgångsrik
-          modal:
-            close: Stäng
           try_again: Försök igen
         header:
           ballot_decision: Lägg eller granska din röst
