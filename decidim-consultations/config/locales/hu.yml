@@ -238,6 +238,8 @@ hu:
           label: 'Konzultációk rendezése:'
           random: Véletlenszerű
           recent: Legutóbbi
+        show:
+          dates: Dátumok
       content_blocks:
         highlighted_consultations:
           name: Kiemelt konzultációk
@@ -318,6 +320,8 @@ hu:
     help:
       participatory_spaces:
         consultations:
+          contextual: "<p><strong>A konzultációk</strong> egy olyan funkció, amely lehetővé teszi, hogy világos kérdést tegyél fel, felhívást tegyél közzé a konzultációban való részvételre, vitát generálj egy kérdésben mindazoknak, akik egy szervezetet alkotnak. Amikor a konzultáció megnyílik, lehetőség van szavazni és közzétenni a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan területre vonatkozhatnak, amelyek egy szervezetet érintenek. Néhány példa: megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál. Igennel vagy nemmel dönteni arról, hogy a szervezet egy megállapodást aláírjon vagy sem, egy nagyobb szervezet részévé váljon, egy új stratégiai terv érvényesítése vagy elutasítása kérdésében állást foglaljon, vagy egy munkacsoport munkájának eredményét elfogadja, vagy adott esetben meghatározni, hogy az adott pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
+          page: "<p><strong>A konzultációk</strong> egy olyan terület, amely lehetővé teszi, hogy világos kérdést tegyél fel, felhívást tegyél közzé a konzultációban való részvételre, vitát generálj egy kérdésben egy szervezet tagjai számára. Amikor a konzultáció időpontja megérkezik, lehetőség van szavazni és közzétenni a szavazatok eredményeit.</p> <p>Példák: A konzultációk szinte bármely olyan területre vonatkozhatnak, amelyek egy szervezetet érintenek. Néhány példa: megváltoztatja a szervezet nevét vagy logóját, amely számos alternatívát kínál. Igennel vagy nemmel dönteni arról, hogy a szervezet egy megállapodást aláírjon vagy sem, egy nagyobb szervezet részévé váljon, egy új stratégiai terv érvényesítése vagy elutasítása kérdésében állást foglaljon, vagy egy munkacsoport munkájának eredményét elfogadja, vagy adott esetben meghatározni, hogy az adott pozícióknak legfeljebb 1, 2 vagy 3 mandátumnak kell-e maradnia.</p>\n"
           title: Mi a konzultáció?
     menu:
       consultations: Konzultációk
@@ -342,17 +346,23 @@ hu:
         verification_required: Ellenőrizd fiókod a szavazáshoz
         vote: Szavazás
       vote_modal:
+        close_modal: Ablak bezárás
         contextual_help: Válassz az opciók közül.
         title: 'Konzultáció: kérdés-szavazás'
       vote_modal_confirm:
         change: Módosítás
+        close_modal: Ablak bezárás
         confirm: Megerősítés
         contextual_help: Erősítsd meg a kiválasztott opciót.
         title: 'Konzultáció: erősítsd meg a szavazatot'
     resources:
       consultations:
         actions:
+          comment: Megjegyzés
           vote: Szavazás
+    statistics:
+      consultations_count: Konzultációk
+      votes_count: Szavazások
   layouts:
     decidim:
       consultation_voting_data:

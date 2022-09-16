@@ -1472,8 +1472,8 @@ zh-CN:
       widget:
         see_more: 查看更多
   locale:
-    name: Distr.
-    name_with_error: 英文(错误!)
+    name: 中文
+    name_with_error: 中文(错误!)
   password_validator:
     domain_included_in_password: 与这个域名太近了
     email_included_in_password: 与您的电子邮件太相似了

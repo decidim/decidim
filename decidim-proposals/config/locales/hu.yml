@@ -671,8 +671,11 @@ hu:
             other: "%{count} javaslatot"
         edit:
           add_documents: Dokumentumok
+          add_images: Fájl
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
+          delete_document: Dokumentum törlése
+          delete_image: Kép törlése
           select_a_category: Válassz kategóriát
           send: Küldés
           title: Javaslat szerkesztése

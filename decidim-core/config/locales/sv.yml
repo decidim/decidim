@@ -41,6 +41,7 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_endorsed_event: Resurs instämd
+      decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
       decidim/user:
@@ -123,7 +124,7 @@ sv:
           ok: Ja, radera mitt konto
           question: Är du säker på att du vill radera ditt konto?
           title: Radera mitt konto
-        explanation: Ange skälet till varför du vill radera ditt konto (valfritt).
+        explanation: Ange skälet till varför du vill radera ditt konto (frivilligt).
       destroy:
         error: Det gick inte att radera ditt konto.
         success: Ditt konto har raderats.

@@ -214,6 +214,8 @@ is-IS:
         public: Opinber
       index:
         title: Þing
+      last_activity:
+        new_assembly: Nýtt þing
       pages:
         home:
           highlighted_assemblies:

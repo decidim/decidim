@@ -123,6 +123,10 @@
         file: Fil
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Velg minst et rom
         organization:
           attributes:
             official_img_footer:
@@ -1038,6 +1042,7 @@
             hidden_at: Skjult på
             participatory_space: Deltakerrom
             report_count: Antall
+            reportable_id: ID
             reportable_type: Type
             reported_content_url: Rapportert innholds URL
             reports: Rapporter

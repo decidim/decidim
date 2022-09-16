@@ -75,13 +75,6 @@ it:
       postal_letter:
         explanation: Ti invieremo una lettera postale con un codice che dovrai inserire per poter verificare il tuo indirizzo
         name: Codice via lettera postale
-    events:
-      verifications:
-        verify_with_managed_user:
-          email_intro: L'utente<a href="%{resource_path}">%{resource_title}</a> ha provato a verificarsi con i dati dell'utente<a href="%{managed_user_path}">%{managed_user_name}</a>.
-          email_outro: Controllare l'<a href="%{conflicts_path}">elenco dei conflitti nelle verifiche</a> e contattare l'utente per verificare i propri dati e risolvere il problema.
-          email_subject: 'Tentativo di verifica fallito: l''utente esiste già'
-          notification_title: L'utente<a href="%{resource_path}">%{resource_title}</a> ha provato a verificarsi con i dati dell'utente<a href="%{managed_user_path}">%{managed_user_name}</a>.
     verifications:
       authorizations:
         authorization_metadata:

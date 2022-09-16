@@ -45,7 +45,7 @@ nl:
         enable_omnipresent_banner: Toon permanente header
         enable_participatory_space_filters: Schakel filters in voor de participatieve ruimte
         facebook_handler: Facebook naam
-        favicon: Pictogram
+        favicon: Favicon
         force_authentication: Verplicht aanmelden
         force_users_to_authenticate_before_access_organization: Verplicht gebruikers om zich aan te melden voor toegang tot de organisatie
         from: E-mailadres afzender
@@ -63,6 +63,9 @@ nl:
         host: Host
         instagram_handler: Instagram gebruikersnaam
         logo: Logo
+        machine_translation_display_priority: Voorrang weergave machinevertaling
+        machine_translation_display_priority_original: Oorspronkelijke tekst eerst
+        machine_translation_display_priority_translation: Vertaalde tekst eerst
         name: Naam
         official_img_footer: Officieel logo voettekst
         official_img_header: Officieel logo header
@@ -100,6 +103,8 @@ nl:
         name: Naam
         organization: Organisatie
         plural: Meervoud
+      settings:
+        scope_id: Scope
       static_page:
         allow_public_access: Toegang zonder authenticatie toestaan
         changed_notably: Er zijn merkbare veranderingen geweest.
@@ -118,6 +123,10 @@ nl:
         file: Bestand
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecteer minstens één participatieve ruimte
         organization:
           attributes:
             official_img_footer:
@@ -166,6 +175,7 @@ nl:
         per_page: Per pagina
         permissions: Permissies
         reject: Weigeren
+        share: Deel
         user:
           new: Nieuwe gebruiker
         verify: Verifiëren
@@ -315,7 +325,20 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
           success: Het onderdeel is met succes bijgewerkt.
       conflicts:
+        attempts: Pogingen
+        'false': 'Nee'
+        managed_user_name: Beheerde gebruiker
+        solved: Opgelost
         title: Controle conflicten
+        transfer:
+          email: E-mail
+          error: Er is een probleem opgetreden bij het overbrengen van de huidige deelnemer naar een beheerde deelnemer.
+          name: Naam
+          reason: Reden
+          success: De overdracht is met succes voltooid.
+          title: Overdracht
+        'true': 'Ja'
+        user_name: Gebruiker
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
@@ -507,8 +530,10 @@ nl:
         help_sections: Helpsecties
         homepage: Startpagina
         impersonations: Zich voordoen als
+        moderation: Algemene moderatie
         newsletters: Nieuwsbrieven
         participants: Deelnemers
+        reported_users: Gerapporteerde gebruikers
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -564,6 +589,14 @@ nl:
           fields:
             name: Naam
             plural: Meervoud
+        share_token:
+          fields:
+            created_at: Aangemaakt op
+            expires_at: Vervalt op
+            last_used_at: Laatste keer gebruikt
+            times_used: Aantal keren gebruikt
+            token: Token
+            user: Aangemaakt door
         static_page:
           fields:
             created_at: Aangemaakt op
@@ -589,8 +622,25 @@ nl:
             state: Staat
             users_count: Aantal deelnemers
       moderated_users:
+        index:
+          actions:
+            block: Gebruiker blokkeren
+            title: Acties
+            unblock: Deblokkeer gebruiker
+            unreport: Niet langer rapporteren
+          name: Naam
+          nickname: Bijnaam
+          reason: Reden
+          reports: Aantal rapporteringen
+          title: Gerapporteerde gebruikers weergeven
+        report:
+          reasons:
+            does_not_belong: Hoort niet bij
+            offensive: Beledigend
+            spam: Spam
         tabs:
           blocked: Geblokkeerd
+          unblocked: Niet geblokkeerd
       moderations:
         index:
           title: Moderaties
@@ -697,6 +747,7 @@ nl:
           officialize: "Valideren\n"
           officialized: Gevalideerd
           reofficialize: Hervalideren
+          reports: Rapporten
           show_email: Toon e-mailadres
           status: status
           unblock: Deblokkeer gebruiker
@@ -784,6 +835,7 @@ nl:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
           success: Het CSV-bestand is succesvol geüploaded. We sturen een uitnodigingsmail naar de deelnemers. Dit kan even duren.
         new:
+          explanation: 'Upload het CSV-bestand zonder headers. Het moet uit twee kolommen bestaan, met het e-mailadres in de eerste kolom en de naam in de laatste kolom van de gebruikers die je wil toevoegen aan de participatieve ruimte (e-mail, naam). Vermijd tekens als `<>?%&^*#@()[]=+:;"{}\|` in de namen.'
           title: Upload het CSV-bestand
           upload: Upload
       resource_permissions:
@@ -834,6 +886,11 @@ nl:
           share: Deel
         destroy:
           error: Er is een fout opgetreden bij het vernietigen van de token.
+          success: Token met succes verwijderd.
+        share_tokens:
+          empty: Er zijn geen actieve tokens
+          help: Deze tokens worden gebruikt om deze niet-gepubliceerde bron openbaar te delen met alle gebruikers. Ze worden verborgen wanneer de bron is gepubliceerd. Klik op het pictogram “delen” van het token om de deelbare URL te bezoeken.
+          title: Tokens delen
       shared:
         gallery:
           add_images: Afbeeldingen toevoegen
@@ -891,6 +948,7 @@ nl:
         impersonatable_users: Beheersbare deelnemers
         impersonations: Beheer van deelnemers
         metrics: Cijfers
+        panel: Admin
         participants: Deelnemers
         scope_types: Scope types
         scopes: Scopes
@@ -950,6 +1008,7 @@ nl:
     metrics:
       blocked_users:
         object: geblokkeerde gebruikers
+        title: Geblokkeerde gebruikers
       reported_users:
         object: gerapporteerde gebruikers
         title: Gerapporteerde gebruikers
@@ -983,6 +1042,7 @@ nl:
             hidden_at: Verborgen op
             participatory_space: Participatieve ruimte
             report_count: Aantal
+            reportable_id: ID
             reportable_type: Type
             reported_content_url: Gerapporteerde inhouds-URL
             reports: Meldingen

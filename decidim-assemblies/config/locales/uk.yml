@@ -269,6 +269,8 @@ uk:
         public: Громадяни
       index:
         title: Збори
+      last_activity:
+        new_assembly: Додати збори
       pages:
         home:
           highlighted_assemblies:
