@@ -47,6 +47,20 @@
     @apply text-sm text-gray-2 whitespace-nowrap first-letter:uppercase;
   }
 
+  button{
+    @apply ml-auto first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+
+    &[aria-expanded="false"] > svg:last-of-type,
+    &[aria-expanded="true"] > svg:first-of-type{
+      @apply hidden;
+    }
+
+    &[aria-expanded="true"] > svg:last-of-type,
+    &[aria-expanded="false"] > svg:first-of-type{
+      @apply block;
+    }
+  }
+
   &-container [type="radio"]:checked + &,
   &-container [id*="dropdown-menu"] .is-active,
   &:hover{
