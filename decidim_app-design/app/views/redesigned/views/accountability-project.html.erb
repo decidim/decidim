@@ -1,10 +1,8 @@
 <% result = Decidim::Accountability::Result.take %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-
   <!-- MOCKED CONTENT -->
   <code><%= result.timeline_entries.any? %></code>
-
 
   <%= stylesheet_pack_tag "decidim_accountability", media: "all", 'data-turbolinks-track': "reload" %>
 
@@ -42,8 +40,7 @@
 
   <% end %>
 
-  <%= render layout: "redesigned/shared/drawer" , locals: { next: "https://www.." , prev: "https://www.." } do %>
-
+  <%= render layout: "redesigned/shared/drawer", locals: { next: "https://www..", prev: "https://www.." } do %>
     <h2 class="h2 decorator">Entiendo tú esto</h2>
 
     <div class="editor-content mt-8">
