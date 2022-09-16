@@ -51,7 +51,7 @@ module Decidim
 
         skip_authorize_participatory_space = options.delete(:skip_authorize_participatory_space)
 
-        layout :participatory_space_redesign_layout, **options
+        layout :participatory_space_redesign_layout
         before_action(:authorize_participatory_space, **options) unless skip_authorize_participatory_space
       end
 
