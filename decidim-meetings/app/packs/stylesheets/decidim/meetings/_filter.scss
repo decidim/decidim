@@ -17,16 +17,21 @@
     @apply self-stretch;
   }
 
-  [id*="dropdown"]{
+  &__items{
     @apply flex flex-col gap-2 mx-3.5 py-3.5 md:mx-0 md:px-0 border-t md:border-t-0 border-gray-3 cursor-pointer;
-
-    &[aria-hidden="true"]{
-      @apply hidden;
-    }
   }
 
-  [data-controls*="dropdown"]{
-    @apply w-full flex items-center justify-start gap-2 p-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+  // nesting cases
+  &__items &__items{
+    @apply ml-6;
+  }
+
+  > button{
+    @apply flex items-center justify-start gap-2 p-2
+  }
+
+  [data-controls*="panel"]{
+    @apply first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
     & > span{
       @apply text-gray-2 font-bold;

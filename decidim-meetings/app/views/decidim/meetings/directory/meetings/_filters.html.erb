@@ -31,12 +31,12 @@
 
   <% filters.each do |f| %>
     <div class="meeting-filter">
-      <button data-controls="dropdown-panel-<%= f[0] %>" data-open="true">
+      <button data-controls="panel-<%= f[0] %>" data-open="true">
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
         <span><%= t(f[0], scope: f[4]) %></span>
       </button>
-      <%= redesigned_filter_form_for filter, url_for, id: "dropdown-panel-#{f[0]}" do |form| %>
+      <%= redesigned_filter_form_for filter, url_for, id: "panel-#{f[0]}", class: "meeting-filter__items" do |form| %>
         <%= form.send(
             f[1] == "radio" ? "collection_radio_buttons" : "collection_check_boxes",
             f[2],
@@ -49,4 +49,159 @@
       <% end %>
     </div>
   <% end %>
+
+  <%# REDESIGN_PENDING: nested filters are mocked %>
+  <div class="meeting-filter">
+    <button data-controls="panel-scope" data-open="true">
+      <%= icon "arrow-down-s-line" %>
+      <%= icon "arrow-up-s-line" %>
+      <span><%= "SCOPE MOCK" %></span>
+    </button>
+
+    <form id="panel-scope" class="meeting-filter__items" action="/meetings/meetings" accept-charset="UTF-8" method="get">
+      <input type="hidden" name="filter[with_any_date]" value="" autocomplete="off">
+
+      <label for="no-childs">
+        <input class="reset-defaults"
+          type="checkbox" value="all" name="filter[with_any_date]"
+          id="no-childs" hidden="hidden">
+
+        <div class="filter">
+          <%= icon "apps-2-line" %>
+          <span>No childs</span>
+        </div>
+      </label>
+
+      <label for="one-nest">
+        <input
+          class="reset-defaults" type="checkbox" value="upcoming" checked="checked" name="filter[with_any_date]"
+          id="one-nest" hidden="hidden">
+
+        <div class="filter">
+          <%= icon "calendar-2-line" %>
+          <span>One nesting level</span>
+          <button data-controls="panel-one-nest" onclick="event.preventDefault()">
+            <%= icon "arrow-down-s-fill" %>
+            <%= icon "arrow-up-s-fill" %>
+          </button>
+        </div>
+      </label>
+
+      <div id="panel-one-nest" class="meeting-filter__items">
+        <label for="one-child-1">
+          <input
+            class="reset-defaults" type="checkbox" value="upcoming" checked="checked" name="filter[with_any_date]"
+            id="one-child-1" hidden="hidden">
+
+          <div class="filter">
+            <%= icon "calendar-2-line" %>
+            <span>Option 1 in child</span>
+          </div>
+        </label>
+        <label for="one-child-2">
+          <input
+            class="reset-defaults" type="checkbox" value="upcoming" checked="checked" name="filter[with_any_date]"
+            id="one-child-2" hidden="hidden">
+
+          <div class="filter">
+            <%= icon "calendar-2-line" %>
+            <span>Option 2 in child</span>
+          </div>
+        </label>
+      </div>
+
+      <label for="multi-nest">
+        <input
+          class="reset-defaults" type="checkbox" value="past" name="filter[with_any_date]"
+          id="multi-nest" hidden="hidden">
+
+        <div class="filter">
+          <%= icon "calendar-check-line" %>
+          <span>More nesting levels</span>
+          <button data-controls="panel-multi-nest" data-open="false" onclick="event.preventDefault()">
+            <%= icon "arrow-down-s-fill" %>
+            <%= icon "arrow-up-s-fill" %>
+          </button>
+        </div>
+      </label>
+
+      <div id="panel-multi-nest" class="meeting-filter__items">
+        <label for="multi-nest-1">
+          <input
+            class="reset-defaults" type="checkbox" value="upcoming" checked="checked" name="filter[with_any_date]"
+            id="multi-nest-1" hidden="hidden">
+
+          <div class="filter">
+            <%= icon "calendar-2-line" %>
+            <span>sublevel 1 element 1</span>
+            <button data-controls="panel-multi-nest-1" data-open="false" onclick="event.preventDefault()">
+              <%= icon "arrow-down-s-fill" %>
+              <%= icon "arrow-up-s-fill" %>
+            </button>
+          </div>
+        </label>
+
+        <div id="panel-multi-nest-1" class="meeting-filter__items">
+          <label for="multi-nest-1-1">
+            <input
+              class="reset-defaults" type="checkbox" value="past" name="filter[with_any_date]"
+              id="multi-nest-1-1" hidden="hidden">
+
+            <div class="filter">
+              <%= icon "calendar-check-line" %>
+              <span>sublevel 2 element 1</span>
+            </div>
+          </label>
+          <label for="multi-nest-1-2">
+            <input
+              class="reset-defaults" type="checkbox" value="past" name="filter[with_any_date]"
+              id="multi-nest-1-2" hidden="hidden">
+
+            <div class="filter">
+              <%= icon "calendar-check-line" %>
+              <span>sublevel 2 element 2</span>
+            </div>
+          </label>
+        </div>
+
+        <label for="one-child-2">
+          <input
+            class="reset-defaults" type="checkbox" value="upcoming" checked="checked" name="filter[with_any_date]"
+            id="one-child-2" hidden="hidden">
+
+          <div class="filter">
+            <%= icon "calendar-2-line" %>
+            <span>sublevel 1 element 2</span>
+            <button data-controls="panel-multi-nest-2" data-open="false" onclick="event.preventDefault()">
+              <%= icon "arrow-down-s-fill" %>
+              <%= icon "arrow-up-s-fill" %>
+            </button>
+          </div>
+        </label>
+
+        <div id="panel-multi-nest-2" class="meeting-filter__items">
+          <label for="multi-nest-2-1">
+            <input
+              class="reset-defaults" type="checkbox" value="past" name="filter[with_any_date]"
+              id="multi-nest-2-1" hidden="hidden">
+
+            <div class="filter">
+              <%= icon "calendar-check-line" %>
+              <span>sublevel 2 element 1</span>
+            </div>
+          </label>
+          <label for="multi-nest-2-2">
+            <input
+              class="reset-defaults" type="checkbox" value="past" name="filter[with_any_date]"
+              id="multi-nest-2-2" hidden="hidden">
+
+            <div class="filter">
+              <%= icon "calendar-check-line" %>
+              <span>sublevel 2 element 2</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
