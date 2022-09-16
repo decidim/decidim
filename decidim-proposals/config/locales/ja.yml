@@ -713,6 +713,9 @@ ja:
       destroy_draft:
         error: 共同作業のドラフトを削除する際に問題が発生しました。
         success: 提案の下書きは正常に削除されました。
+      last_activity:
+        new_proposal: '新しい提案:'
+        proposal_updated: '更新された提案:'
       models:
         collaborative_draft:
           fields:
