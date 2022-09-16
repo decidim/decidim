@@ -256,6 +256,9 @@ ja:
         title: '%{scope_name} からの質問'
       index:
         title: 議案
+      last_activity:
+        new_consultation: '新しいコンサルテーション:'
+        new_question: '新しい質問:'
       pages:
         home:
           highlighted_consultations:
