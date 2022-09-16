@@ -148,7 +148,7 @@ cs:
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
-            can_accumulate_supports_beyond_threshold: Mohou hromadit podpěry za prahem
+            can_accumulate_supports_beyond_threshold: Mohou hromadit podpory za prahem
             collaborative_drafts_enabled: Společné koncepty povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
