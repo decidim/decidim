@@ -37,6 +37,7 @@ ja:
         confirm_destroy: この %{name} を削除してもよろしいですか？
         destroy: 削除
         edit: 編集
+        import: プロジェクトを結果にインポート
         import_csv: CSVをインポート
         new: 新しい %{name}
         preview: プレビュー
@@ -62,6 +63,20 @@ ja:
             name: ステータス
           timeline_entry:
             name: タイムラインのエントリ
+        projects_import:
+          create:
+            invalid: プロジェクトを結果にインポートする際に問題が発生しました。指示に従い、実装のためにプロジェクトを選択していることを確認してください。
+          new:
+            create: インポート
+            import_all_selected_projects: 実装のために選択されたすべてのプロジェクトをインポート
+            new_items:
+              other: "選択した %{count} 件のプロジェクトがインポートされます"
+            no_components: この参加スペースにはプロジェクトを結果にインポートするための予算コンポーネントはありません。
+            origin_component_id: 元のコンポーネント
+            select_component: コンポーネントを選択
+            success:
+              other: "%{count} 件のプロジェクトをインポートする準備を行いました。完了するとメールで通知されます。"
+            title: アカウンタビリティコンポーネントにプロジェクトをインポート
         results:
           create:
             invalid: この結果を作成する際に問題が発生しました
@@ -144,6 +159,14 @@ ja:
           row_number: 行
           subject: 結果のインポートに成功しました
           success: 結果のインポートに成功しました。管理画面で結果を確認できます。
+      import_projects_mailer:
+        import:
+          added_projects:
+            other: "%{count} 件の結果がプロジェクトからインポートされました。"
+          subject: プロジェクトのインポートに成功しました
+          success: '%{component_name} コンポーネントに結果をインポートしました。管理インターフェイスで結果を確認できます。'
+      last_activity:
+        new_result: '新しい結果:'
       models:
         result:
           fields:
