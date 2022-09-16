@@ -53,7 +53,7 @@
     }
 
     &-item{
-      @apply flex items-center gap-1 text-white font-semibold [&>svg]:fill-current;
+      @apply flex items-center gap-1 text-white font-semibold hover:underline [&>svg]:fill-current;
     }
   }
 

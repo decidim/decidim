@@ -18,7 +18,7 @@
   }
 
   &-button{
-    @apply w-28 md:w-32;
+    @apply truncate md:w-32;
 
     &-container{
       @apply w-full md:w-72 flex items-center justify-between md:justify-end gap-4 md:gap-8 px-3 md:px-6 py-3 bg-background rounded;
