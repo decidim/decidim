@@ -560,6 +560,8 @@ ja:
         promotal_committee_help: 少なくとも %{member_count} 人をプロモーター委員会に招待する必要があります。推進委員会に招待するには、次のリンクを進めてください。
         status_change_body_for: 'イニシアチブ %{title} がステータスを %{state}に変更しました'
         status_change_for: イニシアチブ %{title} のステータスが変更されました
+      last_activity:
+        new_initiative: '新しいイニシアチブ:'
       modal:
         not_authorized:
           authorizations_page: 権限を表示
