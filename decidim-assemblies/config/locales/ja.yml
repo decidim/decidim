@@ -352,6 +352,8 @@ ja:
         working_group: ワーキンググループ
       index:
         title: 参加スペース
+      last_activity:
+        new_assembly: '新しい参加スペース:'
       pages:
         home:
           highlighted_assemblies:
