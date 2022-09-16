@@ -1307,6 +1307,9 @@ ja:
           edit_user_group: グループプロフィールを編集
           invite_user: 参加者を招待
           join_user_group: グループへの参加リクエスト
+          manage_user_group_admins: 管理者の管理
+          manage_user_group_users: メンバーの管理
+          message: メッセージ
         confirmation_instructions_sent: メール確認の手順が送信されました
         create_user_group: グループを作成
         edit_profile: プロフィールを編集
