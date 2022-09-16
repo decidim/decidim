@@ -169,6 +169,9 @@ ja:
             title: バージョン
         versions_list:
           back_to_resource: ディベートに戻る
+      last_activity:
+        debate_updated: 'ディベートの更新日時:'
+        new_debate: '新しいディベート:'
       models:
         debate:
           fields:
