@@ -141,6 +141,8 @@ ja:
         error: アカウントの更新に問題が発生しました。
         success: アカウントが正常に更新されました。
         success_with_email_confirmation: アカウントが正常に更新されました。新しいメールアドレスを確認するためのメールが届きます。
+    activity:
+      time_ago: "%{time} 前"
     admin:
       actions:
         cancel: キャンセル
@@ -593,7 +595,17 @@ ja:
       endorsed_by: オススメ
     errors:
       internal_server_error:
+        copied: テキストをコピーしました
+        copy_error_message_clarification: エラーメッセージをクリップボードにコピー
+        copy_to_clipboard: クリップボードにコピー
+        date_and_time: 日付と時刻
+        reference: 参照
+        request_method: リクエストメソッド
         title: サーバーに問題が発生しました
+        try_later: 後ほどもう一度お試しください。 エラーが解決しない場合は、以下の情報をコピーし、共有したい情報と合わせてプラットフォームのメンテナに送信してください。
+        unknown: 不明
+        url: URL
+        user: ユーザー ID
       not_found:
         back_home: ホームに戻る
         content_doesnt_exist: このアドレスは正しくないか削除されています。
@@ -775,6 +787,8 @@ ja:
         other: "%{count} 人のフォロワー"
       no_followers: フォロワーはまだいません。
     following:
+      following_count:
+        other: "{{count}} フォロワー"
       no_followings: フォローしている人やコンテンツはありません
       non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:
@@ -863,6 +877,7 @@ ja:
       description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。
       level: レベル %{level}
       reached_top: このバッジの最高レベルに達しました。
+      title: バッジとは？
     group_admins:
       actions:
         are_you_sure: 本当によろしいですか？グループから参加者を削除しません。
@@ -1100,6 +1115,7 @@ ja:
         title: 参加者
     newsletter_mailer:
       newsletter:
+        no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
         note: '%{organization_name}でニュースレターを購読しているため、このメールを受信しました。 <a href="%{link}">通知ページ</a> で設定を変更できます。'
         see_on_website: このメールは正しく表示されませんか？ <a href="%{link}" target="_blank">ウェブサイト</a> で確認してください。
         unsubscribe: この種類のメールの受信を拒否するには、 <a href="%{link}" target="_blank" class="unsubscribe">購読解除</a>.
@@ -1285,6 +1301,12 @@ ja:
           info: バッジはプラットフォームで特定のアクティビティを実行することで獲得できます。
           title: バッジ
       user:
+        actions:
+          create_user_group: グループを作成
+          edit_profile: プロフィールを編集
+          edit_user_group: グループプロフィールを編集
+          invite_user: 参加者を招待
+          join_user_group: グループへの参加リクエスト
         confirmation_instructions_sent: メール確認の手順が送信されました
         create_user_group: グループを作成
         edit_profile: プロフィールを編集
