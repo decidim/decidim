@@ -8,8 +8,8 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
-        progress: Progress
         meetings_ids: Included meetings
+        progress: Progress
         project_ids: Included projects
         proposals: Included proposals
         start_date: Start date
