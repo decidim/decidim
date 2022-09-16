@@ -1,5 +1,8 @@
 ja:
   activemodel:
+    attributes:
+      post:
+        published_at: 公開時刻
     models:
       decidim/blogs/create_post_event: 新しいブログ投稿
   activerecord:
@@ -31,6 +34,7 @@ ja:
             save: 更新
             title: 投稿を編集
           index:
+            not_published_yet: 非公開
             title: 投稿
           new:
             create: 作成
@@ -43,12 +47,15 @@ ja:
           create: "%{user_name} が %{space_name} でブログ投稿 %{resource_name} を作成しました"
           delete: "%{user_name} がブログ投稿 %{resource_name} を %{space_name} から削除しました"
           update: "%{user_name} が %{space_name} のブログ投稿 %{resource_name} を更新しました"
+      last_activity:
+        new_post: '新しい投稿:'
       models:
         post:
           fields:
             author: 作成者
             body: 本文
             official_blog_post: 公式ポスト
+            published_at: 公開時刻
             title: タイトル
       posts:
         show:
