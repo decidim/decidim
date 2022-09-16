@@ -171,9 +171,9 @@ shared_examples "manage invites" do
       it "allows searching by text" do
         visit_meeting_invites_page
 
-        within ".filters__search" do
+        within "[data-filters]" do
           fill_in :q, with: invites.first.user.email
-          find(".icon--magnifying-glass").click
+          find('button[type="submit"]').click
         end
 
         within "#meeting-invites table tbody" do

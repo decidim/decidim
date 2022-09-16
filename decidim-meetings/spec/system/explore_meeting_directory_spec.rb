@@ -298,7 +298,7 @@ describe "Explore meeting directory", type: :system do
       end
 
       expect(page).to have_no_css(".card--meeting")
-      within(all(".filters__section")[7]) do
+      within('form[id*="space_type"]') do
         uncheck "All"
         check "Assemblies"
       end
