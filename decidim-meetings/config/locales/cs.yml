@@ -190,7 +190,7 @@ cs:
           notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bude zahájeno za méně než 48 hodin.
     forms:
       meetings:
-        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobně, online nebo hybridně.
+        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobní, online nebo smíšené.
     gamification:
       badges:
         attended_meetings:
