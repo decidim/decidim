@@ -15,10 +15,10 @@ module Decidim
     def decidim_modal(opts = {}, &)
       opts[:closable] = true unless opts.has_key?(:closable)
       button = opts[:closable] == false ? "" : content_tag(:button, "&times".html_safe, type: :button, data: { dialog_close: opts[:id] || "", dialog_closable: "" })
-      content_tag(:div, data: { dialog: opts[:id] || "" }) do
-        content_tag(:div, class: opts[:class]) do
-          button +
-            yield.html_safe
+      content = opts[:remote].nil? ? button + capture(&).html_safe : icon("loader-3-line")
+      content_tag(:div, id: opts[:id], data: { dialog: opts[:id] || "" }) do
+        content_tag(:div, id: "#{opts[:id]}-content", class: opts[:class]) do
+          content
         end
       end
     end

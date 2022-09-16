@@ -44,7 +44,7 @@ describe Decidim::UploadModalCell, type: :cell do
   end
 
   it "renders the open button" do
-    expect(subject).to have_css(".add-file[type='button']")
+    expect(subject).to have_css("[data-upload][type='button']")
   end
 
   it "renders modal" do
@@ -52,7 +52,7 @@ describe Decidim::UploadModalCell, type: :cell do
   end
 
   it "renders dropzone" do
-    expect(subject).to have_css(".dropzone")
+    expect(subject).to have_css("[data-dropzone]")
   end
 
   context "when file is required" do

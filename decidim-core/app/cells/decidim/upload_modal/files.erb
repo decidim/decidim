@@ -1,7 +1,7 @@
 <div class="dynamic-uploads <%= with_title %> upload-container-for-<%= attribute %>">
   <%= tag.strong label unless has_title? %>
   <div class="<%= actions_wrapper_class %>">
-    <div class="active-uploads">
+    <div class="active-uploads upload-modal__files" data-active-uploads>
       <% attachments.each do |attachment| %>
         <% next if attachment.is_a? Array %>
 
@@ -19,6 +19,7 @@
         </div>
       <% end %>
     </div>
+
     <%= tag.button button_label,
       id: button_id,
       name: attribute,

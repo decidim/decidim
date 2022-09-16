@@ -768,7 +768,7 @@ module Decidim
         let(:present?) { true }
 
         it "renders the add file button" do
-          expect(parsed.css("button.add-file")).not_to be_empty
+          expect(parsed.css("button[data-upload]")).not_to be_empty
         end
       end
 

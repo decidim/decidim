@@ -29,9 +29,7 @@ module Decidim
     end
 
     def button_class
-      "button small hollow add-field add-file" if has_title?
-
-      "button small add-file"
+      options[:button_class] || ""
     end
 
     def label
