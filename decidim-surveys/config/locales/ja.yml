@@ -57,6 +57,8 @@ ja:
           update:
             invalid: 調査の保存中に問題が発生しました。
             success: アンケートを保存しました。
+      last_activity:
+        new_survey: '新しいアンケート:'
       surveys:
         answer:
           invalid: アンケートの回答に問題がありました。
