@@ -461,14 +461,13 @@
                 cast: Opptelling ferdig
                 share: Opptellingsandel
             list:
-              status: Status
               task: Oppgave
             process_warning: Når prosessen er startet, bør du ikke gå ut av denne siden før prosessen er ferdig. Det vil ta flere minutter fordi alle tillitsmenn skal kobles til dette for å fullføre.
             start: Start
             start_icon: Ikon som indikerer en startknapp for å starte generering av valgnøklene
             status:
               completed: Fullført
-              pending: Venter
+              pending: Ventende
               processing: Behandler
             title: Opptelling for %{election}
           update:
@@ -555,6 +554,10 @@
           email_intro: 'Valget %{resource_title} er nå aktivt for %{participatory_space_title}. Du kan se det fra denne siden:'
     votings:
       admin:
+        landing_page:
+          content_blocks:
+            edit:
+              update: Oppdater
         menu:
           votings_submenu:
             monitoring_committee: Kontrollgruppe
@@ -563,6 +566,11 @@
           census:
             create:
               invalid_csv_header: Topptekst i CSV-en har feil antall felt - vennligst les instruksjonene nøye
+      content_blocks:
+        landing_page:
+          description:
+            show_less: Les mindre
+            show_more: Les mer
       polling_officer_zone:
         in_person_votes:
           complete_voting:

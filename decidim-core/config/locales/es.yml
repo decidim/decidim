@@ -1491,7 +1491,7 @@ es:
     registrations:
       destroyed: Tu cuenta se ha cancelado correctamente. Esperamos volver a verte pronto.
       edit:
-        are_you_sure: '¿Estás segura?'
+        are_you_sure: '¿Estás seguro?'
         cancel_my_account: Cancelar mi cuenta
         currently_waiting_confirmation_for_email: 'Estamos esperando la confirmación para: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: Déjalo en blanco si no quieres cambiarlo
@@ -1627,7 +1627,7 @@ es:
         see_more: Ver más
   locale:
     name: Castellano
-    name_with_error: Inglés (¡error!)
+    name_with_error: Castellano (¡error!)
   password_validator:
     domain_included_in_password: es demasiado similar a este nombre de dominio
     email_included_in_password: es demasiado similar a tu correo electrónico

@@ -301,6 +301,8 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{author_nickname}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: المبادرة التي أقرتها %{author_nickname}
           notification_title: تمت الموافقة على مبادرة <a href="%{resource_path}">%{resource_title}</a> من قبل <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      form:
+        attachment_legend: "(اختياري) إضافة مرفقات"
       index:
         title: المبادرات
       initiative_signatures:

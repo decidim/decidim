@@ -359,6 +359,7 @@ de:
     resources:
       consultations:
         actions:
+          comment: Kommentar
           vote: Abstimmung
     statistics:
       consultations_count: Beratungen

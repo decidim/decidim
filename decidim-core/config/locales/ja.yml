@@ -398,7 +398,7 @@ ja:
         name: ヒーロー画像
       hero_settings_form:
         background_image: 背景画像
-        welcome_text: ようこそテキスト
+        welcome_text: ウェルカムテキスト
       highlighted_content_banner:
         name: 強調表示されたコンテンツバナー
       highlighted_elements_settings_form:
@@ -1618,7 +1618,7 @@ ja:
         see_more: もっと見る
   locale:
     name: 日本語
-    name_with_error: 英語 (エラー!)
+    name_with_error: 日本語 (エラー!)
   password_validator:
     domain_included_in_password: このドメイン名に似ています
     email_included_in_password: はあなたのメールアドレスに似ています

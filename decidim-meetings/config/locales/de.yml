@@ -23,6 +23,7 @@ de:
         decidim_user_group_id: Benutzergruppe
         description: Beschreibung
         end_time: Endzeit
+        id: ID
         location: Ort
         location_hints: Standorthinweise
         online_meeting_url: Online Meeting URL
@@ -34,12 +35,17 @@ de:
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
+        show_embedded_iframe: Eingebetteten Iframe für diese URL anzeigen
         start_time: Startzeit
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
     errors:
       models:
+        meeting:
+          attributes:
+            show_embedded_iframe:
+              not_embeddable: Diese URL kann nicht eingebettet werden
         meeting_agenda:
           attributes:
             base:
@@ -71,6 +77,13 @@ de:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Kategorie
+          closed_at_present:
+            label: Status
+            values:
+              'false': Offen
+              'true': Geschlossen
           is_upcoming_true:
             label: Datum
             values:
@@ -79,6 +92,7 @@ de:
           origin_eq:
             label: Ursprung
             values:
+              citizen: Bürger
               official: Offiziell
               user_group: Benutzergruppen
           scope_id_eq:
@@ -100,6 +114,7 @@ de:
     components:
       meetings:
         actions:
+          comment: Kommentar
           join: Beitreten
         name: Meetings
         settings:
@@ -110,6 +125,7 @@ de:
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
+            maps_enabled: Karten aktiviert
             registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             scope_id: Bereich
@@ -134,6 +150,7 @@ de:
             email_subject: Die Sitzung "%{resource_title}" wurde geschlossen
             notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> wurde geschlossen.
         meeting_created:
+          button_text: Für das Treffen anmelden
           email_intro: Die Sitzung "%{resource_title}" wurde zu "%{participatory_space_title}" hinzugefügt, welchem Sie folgen.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{participatory_space_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Neue Sitzung zu %{participatory_space_title} hinzugefügt
@@ -165,6 +182,9 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Sitzung "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Die Sitzung "%{resource_title}" beginnt in weniger als 48 Stunden.
           notification_title: Die Sitzung <a href="%{resource_path}">%{resource_title}</a> beginnt in weniger als 48 Stunden.
+    forms:
+      meetings:
+        attendees_count_help_text: 'Vergessen Sie nicht, die Gesamtzahl der Teilnehmer Ihrer Veranstaltung anzugeben. Ob offline, hybrid oder online: es ist wichtig, dass wir wissen, wie viele Menschen beteiligt waren.'
     gamification:
       badges:
         attended_meetings:
@@ -190,6 +210,7 @@ de:
           proposals_count:
             one: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist:'
             other: 'Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind:'
+        manage_poll: Umfrage verwalten
         new: Neue Sitzung
         preview: Vorschau
         registrations: Anmeldungen
@@ -226,6 +247,7 @@ de:
             invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
             success: Agenda erfolgreich aktualisiert
         exports:
+          answers: Antworten
           meeting_comments: Kommentare
           meetings: Treffen
           registrations: Anmeldungen
@@ -260,6 +282,9 @@ de:
           edit:
             close: Schließen
             title: Sitzung beenden
+        meeting_copies:
+          form:
+            select_a_meeting_type: Bitte eine Meeting-Typ auswählen
         meetings:
           close:
             invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
@@ -287,6 +312,7 @@ de:
             registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
             select_a_meeting_type: Bitte eine Meeting-Typ auswählen
             select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+            show_embedded_iframe_help: Gibt an, ob das iFrame für diese Videokonferenz-URL eingebettet werden soll. Nur wenige Dienste erlauben das Einbetten (bspw. Youtube, Twitch...)
           index:
             title: Meetings
           new:
@@ -311,6 +337,9 @@ de:
           update:
             invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
             success: Sitzung erfolgreich aktualisiert
+        meetings_poll:
+          form:
+            title: Fragebogen für %{questionnaire_for} bearbeiten
         models:
           meeting:
             name: Treffen
@@ -398,6 +427,8 @@ de:
           apple: Zu Apple Kalender hinzufügen
           close_window: Fenster schließen
           full_details_html: Für alle Details gehen Sie zu %{link}
+          google: Zum Google-Kalender hinzufügen
+          outlook: Zum Outlook-Kalender hinzufügen
         count:
           meetings_count:
             one: "%{count} Besprechung"
@@ -450,6 +481,7 @@ de:
           select_a_category: Bitte wählen sie eine Kategorie
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
+          show_embedded_iframe_help: Gibt an, ob das iFrame für diese Videokonferenz-URL eingebettet werden soll. Nur wenige Dienste erlauben das Einbetten (bspw. Youtube, Twitch...)
         index:
           new_meeting: Neue Besprechung
         meeting_minutes:
@@ -475,6 +507,9 @@ de:
           join: Tritt dem Treffen bei
           leave: Registrierung stornieren
           leave_confirmation: Sind Sie sicher dass Sie Ihre Registrierung für diese Sitzung stornieren möchten?
+          link_available_soon: Link in Kürze verfügbar
+          link_closed: Der Link, um an dem Treffen teilzunehmen, wird einige Minuten vor dem Start verfügbar sein
+          live_event: Dieses Meeting findet gerade statt
           meeting_minutes: Sitzungsprotokolle
           no_slots_available: Keine Steckplätze verfügbar
           organizations: Teilnahme an Organisationen
@@ -486,6 +521,7 @@ de:
             one: "%{count} Slot bleibt übrig"
             other: "Noch %{count} Slots"
           view: Anzeigen
+          visit_finished: Vergangene Treffen anzeigen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Sitzung erfolgreich aktualisiert.
@@ -506,15 +542,32 @@ de:
           fields:
             closed: Geschlossen
             end_time: Endtermin
+            id: ID
             map: Karte
             official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum
             title: Titel
       polls:
         questions:
+          index:
+            empty_questions: Während dieses Treffens werden einige Fragen gesendet und Sie werden sie beantworten können. Sie werden hier angezeigt.
+          index_admin:
+            admin_dashboard: Administrations-Dashboard
+            edit: Im Adminbereich bearbeiten
+            question: Frage
+            received_answer: Antwort erhalten
+            received_answers: erhaltene Antworten
+            results: Ergebnisse
+            send: Senden
+            sent: Gesendet
           published_question:
+            max_choices_alert: Es wurden zu viele Auswahlmöglichkeiten ausgewählt
             question: Frage
             question_replied: Frage beantwortet
+      public_participants_list:
+        hidden_participants_count:
+          one: und %{count} weitere Person
+          other: und %{count} weitere Personen
       read_more: "(Weiterlesen)"
       registration_mailer:
         confirmation:

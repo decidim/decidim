@@ -274,7 +274,7 @@ fi:
             submit: Lähetä
             title: Tulokset julkaistu
           tally:
-            title: Ääntenlaskun prosessi
+            title: Ääntenlasku
             trustees: Luottamushenkilöt
           tally_ended:
             answer: Vastaus
@@ -529,11 +529,11 @@ fi:
             list:
               status: Tila
               task: Tehtävä
-            process_warning: Kun prosessi on aloitettu, sinun ei tule poistua tältä sivulta ennen kuin prosessi saatetaan päätökseen. Tämä kestää useita minuutteja, koska kaikkien luottamushenkilöiden tulee olla yhteydessä samanaikaisesti, jotta prosessi voidaan päättää.
+            process_warning: Kun prosessi on käynnistetty, sinun ei tule poistua tältä sivulta ennen kuin prosessi päättyy. Se kestää useita minuutteja, koska kaikkiin luottamushenkilöihin tulee olla yhteydessä, jotta prosessi voidaan päättää.
             start: Aloita
             start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnille
             status:
-              completed: Suoritettu
+              completed: Valmis
               pending: Odottaa
               processing: Käsitellään
             title: Ääntenlaskenta vaaleille %{election}

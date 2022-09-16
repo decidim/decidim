@@ -577,6 +577,9 @@ de:
     menu:
       initiatives: Initiativen
     resources:
+      initiative:
+        actions:
+          comment: Kommentar
       initiatives_type:
         actions:
           title: Aktionen
@@ -608,7 +611,7 @@ de:
         title: Zeichen %{initiative_title}
       initiatives:
         initiative:
-          check: Hör zu
+          check: Mehr erfahren
           check_and_support: Überprüfe es und unterschreibe es
         no_initiatives_yet:
           no_initiatives_yet: Keine Initiativen bisher!

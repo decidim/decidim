@@ -55,6 +55,10 @@ ar:
       postal_letter:
         explanation: سنرسل لك خطابًا بريديًا مع رمز يتعين عليك إدخاله حتى نتمكن من التحقق من عنوانك
         name: رمز عن طريق البريد
+    events:
+      verifications:
+        verify_with_managed_user:
+          notification_title: المشاركة <a href="%{resource_path}">%{resource_title}</a> حاولت أثبات التحقق من نفسها ببيانات المشاركة المُدارة <a href="%{managed_user_path}">%{managed_user_name}</a>
     verifications:
       authorizations:
         create:
@@ -145,7 +149,7 @@ ar:
               verification_number: 'التحقق #%{n}'
           rejections:
             create:
-              success: تم رفض التحقق. ستتم مطالبة المشاركين بتعديل مستنداتها
+              success: تم رفض التحقق. ستتم مطالبة المشاركة بتعديل مستنداتها
         authorizations:
           choose:
             choose_a_type: 'الرجاء تحديد الطريقة التي تريد التحقق منها:'

@@ -161,7 +161,7 @@ sk:
             preview: Náhľad
             print: Tlač
           show:
-            print: Vytlačiť
+            print: Tlač
           update:
             error: Došlo k chybe
             success: Iniciatíva občanov bola úspešne aktualizovaná

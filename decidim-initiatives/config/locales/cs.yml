@@ -245,7 +245,7 @@ cs:
             new: Nový
             photos: Fotky
           show:
-            print: Vytisknout
+            print: Tisk
           update:
             error: Došlo k chybě
             success: Iniciativa občanů byla úspěšně aktualizována

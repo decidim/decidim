@@ -136,7 +136,7 @@ fi:
           random_seed: Satunnainen jako
           selected_proposals:
             one: ehdotus valittu
-            other: '%{count} ehdotusta valittu'
+            other: ehdotuksia valittu
           view: Näytä
         sortition_author:
           deleted: Poistettu käyttäjä

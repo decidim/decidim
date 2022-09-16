@@ -514,7 +514,7 @@ pt:
             upload_election_keys: Enviar chaves de eleição
             upload_icon: Ícone que indica uma acção de descarregar
           tally_steps:
-            back: Recuar
+            back: Retroceder
             description: Os resultados desta eleição estão a ser processados no Quadro Informativo. Para completar este processo é necessária a sua participação como curador.
             keys:
               end_tally: A contagem  terminou

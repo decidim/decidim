@@ -412,7 +412,7 @@ pl:
         count:
           meetings_count:
             one: "%{count} spotkanie"
-            few: "%{count} spotkań"
+            few: "%{count} spotkania"
             many: "%{count} spotkań"
             other: "%{count} spotkań"
         create:

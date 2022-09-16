@@ -429,7 +429,7 @@ sv:
             title: Uppdatera förslag
             update: Uppdatera
           form:
-            attachment_legend: "(Valfritt) Lägg till en bilaga"
+            attachment_legend: "(Frivilligt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
             delete_attachment: Ta bort bilaga
             select_a_category: Välj en kategori
@@ -587,7 +587,7 @@ sv:
           error: Det gick inte att skapa det gemensamma utkastet
           success: Det gemensamma utkastet har skapats.
         edit:
-          attachment_legend: "(Valfritt) Lägg till en bilaga"
+          attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
           select_a_category: Välj en kategori
           send: Skicka
@@ -721,7 +721,7 @@ sv:
         edit:
           add_documents: Dokument
           add_images: Bild
-          attachment_legend: "(Valfritt) Lägg till en bilaga"
+          attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
           delete_document: Radera dokument
           delete_image: Radera bild

@@ -258,6 +258,8 @@ de:
         download: Datei herunterladen
       documents:
         related_documents: Zugehörige Dokumente
+      geocoding:
+        geocoded_address: Adresse
       photos:
         related_photos: Zugehörige Bilder
     author:
@@ -454,7 +456,7 @@ de:
           newsletter: Gelegentlich einen Newsletter mit relevanten Informationen erhalten
           newsletter_title: Kontakterlaubnis
           nickname_help: Ihr Pseudonym in %{organization}. Kann nur Buchstaben, Zahlen, '-' und '_' enthalten.
-          password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z.B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+          password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
           sign_in: Anmelden
           sign_up: Registrieren
           sign_up_as:
@@ -475,7 +477,7 @@ de:
       shared:
         newsletter_modal:
           buttons:
-            check: Überprüfen und fortfahren
+            check: Kontakterlaubnis erteilen und fortfahren
             close_modal: Modal schließen
             uncheck: Ohne Kontakterlaubnis fortfahren
           notice: |-
@@ -693,6 +695,7 @@ de:
       no_followers: Noch keine Follower.
     following:
       no_followings: Folgt noch niemandem oder irgendetwas.
+      non_public_followings: Einige der gefolgten Ressourcen sind nicht öffentlich.
     follows:
       create:
         button: Folgen
@@ -854,6 +857,15 @@ de:
       index:
         last_activity: Letzte Aktivität
         resource_type: Art
+    links:
+      invalid_url: Ungültige URL
+      warning:
+        body_1: Sie sind dabei einen externen Link zu besuchen und wir möchten, dass Sie hinsichtlich der Inhalte auf der externen Seite vorsichtig sind.
+        body_2: Bitte überprüfen Sie den Link und stellen Sie sicher, dass es sich um eine vertrauenswürdige Seite handelt, bevor Sie fortfahren.
+        cancel: Abbrechen
+        close_modal: Dialog schließen
+        proceed: Fortfahren
+        title: Externen Link öffnen
     log:
       base_presenter:
         create: "%{user_name} hat %{resource_name} erstellt"
@@ -948,7 +960,7 @@ de:
           new_conversation: Neue Unterhaltung
           next: Weiter
           no_conversations: Du hast noch keine Unterhaltungen
-          title: Gespräche
+          title: Nachrichten
         reply:
           placeholder: Ihre Antwort...
           send: Senden
@@ -956,6 +968,7 @@ de:
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
+          deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
           not_allowed: Dieser Teilnehmer akzeptiert keine direkten Nachrichten.
           title: Gespräch mit %{usernames}
         start:
@@ -1255,6 +1268,8 @@ de:
         filters:
           areas: Bereiche
           select_an_area: Wählen Sie einen Bereich aus
+      public_participation:
+        public_participation: Meine Teilnahme öffentlich anzeigen
       reference:
         reference: 'Referenz: %{reference}'
       represent_user_group:
@@ -1318,6 +1333,7 @@ de:
         title_reply: Antworten
       show:
         back: Alle Unterhaltungen anzeigen
+        deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
         not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
         title: Unterhaltung mit %{usernames}
       update:
@@ -1542,6 +1558,10 @@ de:
       too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
+    length_validator:
+      minimum:
+        one: Mindestens %{count} Zeichen
+        other: Mindestens %{count} Zeichen
     required: Erforderlich
     required_explanation: "* Pflichtfelder sind mit einem Stern gekennzeichnet"
   invisible_captcha:
@@ -1609,7 +1629,7 @@ de:
         see_more: Mehr sehen
   locale:
     name: Deutsch
-    name_with_error: Englisch (Fehler!)
+    name_with_error: Deutsch (Fehler!)
   password_validator:
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich

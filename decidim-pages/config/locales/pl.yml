@@ -31,5 +31,7 @@ pl:
             invalid: Podczas zapisywania strony wystąpił błąd.
             success: Strona została zapisana.
       home:
+        hero:
+          participate_title: Weź udział w procesach udostępnionych na platformie
         sub_hero:
           register_title: Zarejestruj się, aby utworzyć konto

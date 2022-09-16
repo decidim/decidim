@@ -1626,7 +1626,7 @@ fr-CA:
         see_more: Voir plus
   locale:
     name: Français
-    name_with_error: Anglais (erreur !)
+    name_with_error: Français (erreur !)
   password_validator:
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email

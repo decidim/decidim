@@ -82,6 +82,8 @@ ar:
         loading: جارٍ تحميل التعليقات ...
         single_comment_warning: يمكنك الإطلاع على التعليقات المتبقية الأخرى <a href="%{url}">هنا</a>.
         single_comment_warning_title: إنك ترى تعليقا واحدا
+      edit_comment_modal_form:
+        close: أغلق
     events:
       comments:
         comment_by_followed_user:

@@ -61,10 +61,10 @@
           status:
             name: Status
           timeline_entry:
-            name: Tidslinje oppføring
+            name: Oppføring i tidslinjen
         results:
           create:
-            invalid: Det oppsto et problem med å opprette dette resultatet
+            invalid: Det oppstod et problem med å opprette dette resultatet
             success: Resultat ble opprettet
           destroy:
             success: Resultat ble slettet

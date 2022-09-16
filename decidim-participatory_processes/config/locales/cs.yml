@@ -78,9 +78,9 @@ cs:
         other: Participativní procesy
       decidim/participatory_process_group:
         one: Skupina účastnických procesů
-        few: Skupiny zúčastněných procesů
-        many: Skupiny zúčastněných procesů
-        other: Skupiny zúčastněných procesů
+        few: Skupiny účastnických procesů
+        many: Skupiny účastnických procesů
+        other: Skupiny účastnických procesů
       decidim/participatory_process_step:
         one: Krok
         few: Kroky
@@ -122,7 +122,7 @@ cs:
           info: Info
           moderations: Moderování
           private_users: Soukromí uživatelé
-          process_admins: Zpracovat uživatele
+          process_admins: Administrátoři procesu
           steps: Kroky
       models:
         participatory_process:
@@ -268,7 +268,7 @@ cs:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
           success: Skupina úspěšně vytvořená skupina účastníků.
       titles:
-        participatory_process_groups: Skupiny zúčastněných procesů
+        participatory_process_groups: Skupiny účastnických procesů
         participatory_processes: Participativní procesy
       users:
         resend_invitation:
@@ -352,7 +352,7 @@ cs:
             many: "%{count} procesů"
             other: "%{count} procesy"
       show:
-        title: Skupiny zúčastněných procesů
+        title: Skupiny účastnických procesů
     participatory_process_steps:
       index:
         process_steps: Procesní kroky

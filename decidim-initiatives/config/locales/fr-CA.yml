@@ -89,7 +89,7 @@ fr-CA:
         committee_members: Membres de comité
         components: Fonctionnalités
         information: Informations
-        initiatives: Initiatives
+        initiatives: Pétitions
         initiatives_types: Types d'initiatives
         moderations: Modérations
       models:
@@ -100,7 +100,7 @@ fr-CA:
             published_at: Publiée à
             state: État
             supports_count: Signatures
-            title: Initiatives
+            title: Pétitions
         initiatives_type_scope:
           fields:
             scope: Secteur
@@ -127,7 +127,7 @@ fr-CA:
             time_and_date: Heure et date
             timestamp: Horodatage
       titles:
-        initiatives: Initiatives
+        initiatives: Pétitions
         initiatives_types: Types d'initiative
     events:
       initiatives:
@@ -194,7 +194,7 @@ fr-CA:
             created_at: Créé à
             description: Description
             initiative_votes_count: Nombre de votes
-            initiatives: Initiatives
+            initiatives: Pétitions
             state: Etat
         committee_requests:
           index:
@@ -212,7 +212,7 @@ fr-CA:
               label: 'Trier l''élément par :'
               most_recent: Les plus récentes
         exports:
-          initiatives: Initiatives
+          initiatives: Pétitions
         initiatives:
           edit:
             accept: Accepter l'initiative
@@ -411,7 +411,7 @@ fr-CA:
         attachment_legend: "(Facultatif) Ajouter une pièce jointe"
         delete_attachment: Supprimer
       index:
-        title: Initiatives
+        title: Pétitions
       initiative_signatures:
         fill_personal_data:
           continue: Continuer
@@ -455,8 +455,8 @@ fr-CA:
           title: Membres du Comité de promotion
         count:
           title:
-            one: "%{count} initiative"
-            other: "%{count} initiatives"
+            one: "%{count} pétition"
+            other: "%{count} pétitions"
         filters:
           any: Tout
           area: Zone
@@ -577,7 +577,7 @@ fr-CA:
         shared:
           back_to_resource: Retour à l'initiative
     menu:
-      initiatives: Initiatives
+      initiatives: Pétitions
     resources:
       initiative:
         actions:
@@ -599,7 +599,7 @@ fr-CA:
         step: Étape %{current} de %{total}
         title: Créer une nouvelle initiative
       initiative_header:
-        initiative_menu_item: Initiative
+        initiative_menu_item: Pétition
       initiative_signature_creation_header:
         back: Retour
         fill_personal_data: Complétez vos données

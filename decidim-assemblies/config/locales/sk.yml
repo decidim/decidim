@@ -137,6 +137,8 @@ sk:
         assemblies_types:
           form:
             title: Názov
+      last_activity:
+        new_assembly: Nové zhromaždenie
       pages:
         home:
           highlighted_assemblies:

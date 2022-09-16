@@ -519,7 +519,7 @@ ca:
             upload_election_keys: Pujar claus de l'elecció
             upload_icon: Icona que indica una acció de descàrrega
           tally_steps:
-            back: Tornar
+            back: Enrere
             description: Els resultats d'aquesta elecció s'estan computant al Bulletin Board. Per completar aquest procés, és necessària la teva participació com a garant.
             keys:
               end_tally: Recompte finalitzat
@@ -531,7 +531,7 @@ ca:
               task: Tasca
             process_warning: Un cop ha començat el procés, no hauries de sortir d'aquesta pàgina fins que aquest acabi. Trigarà varis minuts, ja que tots els garants han de connectar-se al mateix temps per completar-lo.
             start: Començar
-            start_icon: Icona que indica un botó d'inici per començar la generació de claus d'una elecció
+            start_icon: Icona que indica un botó d'inici per a la generació de claus d'una elecció
             status:
               completed: Completada
               pending: Pendent
