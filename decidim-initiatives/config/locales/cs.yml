@@ -12,7 +12,7 @@ cs:
         signature_type: Typ sbírky podpisu
         signature_type_values:
           any: Online nebo naživo
-          offline: Z očí do očí
+          offline: Osobně
           online: OnLine
         state: Stav
         title: Titul
