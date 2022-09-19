@@ -17,7 +17,7 @@
   <%= form.hidden_field "state", value: params.dig("filter", "state") %>
 
   <% unless @forced_past_meetings %>
-    <%= form.check_boxes_tree :date, filter_date_values, legend_title: t(".date") %>
+    <%= form.collection_radio_buttons :date, filter_date_values, :first, :last, legend_title: t(".date") %>
   <% end %>
 
   <%= form.check_boxes_tree :type, filter_type_values, legend_title: t(".type") %>

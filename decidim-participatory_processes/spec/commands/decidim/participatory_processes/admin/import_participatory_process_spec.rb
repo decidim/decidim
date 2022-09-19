@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::ImportParticipatoryProcess do
+    include Decidim::ComponentTestHelpers
+
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
@@ -38,7 +40,14 @@ module Decidim::ParticipatoryProcesses
     let(:import_attachments) { false }
     let(:import_categories) { false }
 
+    def stub_calls_to_external_files
+      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/hero_image/1/city.jpeg", "image/jpeg")
+      stub_get_request_with_format("http://localhost:3000/uploads/decidim/participatory_process/banner_image/1/city2.jpeg", "image/jpeg")
+    end
+
     shared_examples "import participatory_process succeeds" do
+      before { stub_calls_to_external_files }
+
       it "broadcasts ok and create the process" do
         expect { subject.call }.to(
           broadcast(:ok) &&
@@ -80,6 +89,7 @@ module Decidim::ParticipatoryProcesses
       let(:import_components) { true }
 
       it "imports a participatory process and the steps" do
+        stub_calls_to_external_files
         expect { subject.call }.to change { Decidim::Component.count }.by(3)
         expect(Decidim::Component.where(participatory_space_id: Decidim::ParticipatoryProcess.last).count).to eq 3
       end
@@ -95,6 +105,7 @@ module Decidim::ParticipatoryProcesses
       let(:import_steps) { true }
 
       it "imports a participatory process and the steps" do
+        stub_calls_to_external_files
         expect { subject.call }.to change { Decidim::ParticipatoryProcessStep.count }.by(1)
         expect(Decidim::ParticipatoryProcessStep.distinct.pluck(:decidim_participatory_process_id).count).to eq 1
 
@@ -115,6 +126,8 @@ module Decidim::ParticipatoryProcesses
       let(:import_categories) { true }
 
       it "imports a participatory process and the categories" do
+        stub_calls_to_external_files
+
         expect { subject.call }.to change { Decidim::Category.count }.by(8)
         expect(Decidim::Category.unscoped.distinct.pluck(:decidim_participatory_space_id).count).to eq 1
 
@@ -139,6 +152,8 @@ module Decidim::ParticipatoryProcesses
 
       context "when attachment collections exists" do
         it "imports a participatory process and the collections" do
+          stub_calls_to_external_files
+
           expect { subject.call }.to change { Decidim::AttachmentCollection.count }.by(1)
           imported_participatory_process_collection = Decidim::AttachmentCollection.first
           expect(imported_participatory_process_collection.name).to eq("ca" => "assumenda", "en" => "cumque", "es" => "rem")

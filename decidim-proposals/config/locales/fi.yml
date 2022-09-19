@@ -213,6 +213,7 @@ fi:
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
+            publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
             suggested_hashtags: Käyttäjille ehdotettavat aihetunnisteet (hashtag) uusille ehdotuksille
             votes_blocked: Kannatukset estetty
             votes_enabled: Kannatukset käytössä
@@ -302,6 +303,7 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi ehdotus "%{resource_title}" lisätty kohteeseen %{participatory_space_title}
           notification_title: '%{author} on lisännyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> kohteeseen %{participatory_space_title}'
+          notification_title_official: Virallinen ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hylätty. Voit lukea vastauksen täältä:'

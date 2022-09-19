@@ -1,1 +1,37 @@
 lt:
+  activerecord:
+    models:
+      decidim/pages/page:
+        one: Puslapis
+        few: Puslapiai
+        many: Puslapiai
+        other: Puslapiai
+  decidim:
+    admin_log:
+      page:
+        update: "%{user_name} atnaujino %{resource_name} puslapį %{space_name}"
+    components:
+      pages:
+        name: Puslapis
+        settings:
+          global:
+            announcement: Pranešimas
+          step:
+            announcement: Pranešimas
+    pages:
+      admin:
+        models:
+          components:
+            body: Pagrindinė dalis
+        pages:
+          edit:
+            save: Atnaujinimas
+            title: Redaguoti puslapį
+          update:
+            invalid: Išsaugant šį puslapį iškilo problema.
+            success: Puslapis išsaugotas.
+      home:
+        hero:
+          participate_title: Dalyvauti platformos procesuose
+        sub_hero:
+          register_title: Užsiregistruokite norėdami susikurti paskyrą

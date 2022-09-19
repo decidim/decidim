@@ -12,7 +12,6 @@ sv:
         start_time: Röstningsstart vid
         title: Titel
       question:
-        description: Beskrivning
         max_selections: Maximalt antal val
         title: Titel
       voting:
@@ -45,12 +44,18 @@ sv:
       decidim/elections/question:
         one: Fråga
         other: Frågor
+      decidim/voting:
+        one: Omröstning
+        other: Omröstningar
       decidim/votings/census/dataset:
         one: Datamängd
         other: Datamängder
       decidim/votings/census/datum:
         one: Datum
         other: Datum
+      decidim/votings/polling_officer:
+        one: Röstmottagare
+        other: Röstmottagare
       decidim/votings/polling_station:
         one: Vallokal
         other: Vallokaler
@@ -80,6 +85,7 @@ sv:
           label: Bekräftad
           values:
             'false': Bekräftad
+            'true': Ej Validerad
     components:
       elections:
         actions:
@@ -96,6 +102,7 @@ sv:
         destroy: Förstör
         edit: Redigera
         import: Importera förslag till svar
+        manage_answers: Hantera svar
         manage_questions: Hantera frågor
         manage_steps: Hanterade steg
         new: Ny %{name}
@@ -120,6 +127,8 @@ sv:
             create: Skapa svar
             title: Nytt svar
           not_selected: Inte vald
+          select:
+            disable: Avmarkera svar
           selected: Valda
           update:
             invalid: Det gick inte att uppdatera svaret
@@ -195,6 +204,8 @@ sv:
           key_ceremony:
             continue: Fortsätt
             title: Nyckelceremoni
+          key_ceremony_ended:
+            title: Redo att börja
           processing: Bearbetar...
           results_published:
             answer: Svar
@@ -262,6 +273,7 @@ sv:
           results_title: Resultat
           started: Startad
           title: Omröstningslogg
+          vote_title: Omröstningsprocess
         filters:
           active: Aktiv
           all: Allt
@@ -278,6 +290,10 @@ sv:
           percentage: "%{count}%"
           selected: Valda
           title: Omröstningsresultat
+          votes:
+            one: "%{count} röster"
+            other: "%{count} röster"
+            zero: "%{count} röster"
         show:
           action_button:
             change_vote: Ändra din röst
@@ -285,6 +301,8 @@ sv:
             vote_again: Rösta om
           election_log: Omröstningslogg
           preview: Förhandsgranska
+          verify:
+            already_voted: Redan röstat?
           voting_period_status:
             finished: Omröstningen började den %{start_time} och slutade den %{end_time}
             upcoming: Omröstningen börjar den %{start_time}
@@ -350,6 +368,7 @@ sv:
                 action_required:
                   'false': 'Nej'
                   name: Åtgärd krävs?
+                  'true': Utför åtgärd
                 bb_status: Status
                 election: Val
                 voting_period: Röstningsperiod
@@ -378,6 +397,8 @@ sv:
           text: 'Du kan kontrollera att din röst har lagts till i röstsedeln med följande identifierare: <strong class="evote__poll-id">%{e_vote_poll_id}</strong>'
         failed:
           header: Röst ej framgångsrik
+          modal:
+            close: Stäng
           try_again: Försök igen
         header:
           ballot_decision: Lägg eller granska din röst
@@ -397,10 +418,13 @@ sv:
           selections: "%{selected} av %{max_selections}<br> val"
         onboarding_modal:
           close: Stäng fönstret
+          create_account: Skapa konto
           no_account: Nej tack.
         verify:
           content:
             heading: Verifiera din röst
+          error:
+            header: Hittade inga omröstningar!
           form:
             back: Tillbaka till Decidim
             submit: Kontrollera
@@ -440,6 +464,12 @@ sv:
               title: Åtgärder
           new:
             create: Skapa
+        content_blocks:
+          landing_page:
+            metrics:
+              name: Omröstningsmetrik
+            timeline:
+              name: Omröstningstidslinje
         index:
           not_published: Ej publicerade
           published: Publicerad
@@ -474,12 +504,14 @@ sv:
             fields:
               email: E-post
               name: Namn
+            name: Röstmottagare
           polling_station:
             fields:
               address: Adress
               polling_station_managers: Koordinatorer
               polling_station_president: Ordförande
               title: Titel
+            name: Röststation
           voting:
             fields:
               created_at: Skapad den
@@ -491,6 +523,11 @@ sv:
             title: Åtgärder
             view: Visa
           results:
+            result_types:
+              blank_answers: Tomma svar
+              blank_ballots: Tomma röstsedlar
+              total_ballots: Totalt antal röstsedlar
+              valid_ballots: Giltiga röstsedlar
             selected: Valda
             totals: Totalt
           show:
@@ -544,6 +581,8 @@ sv:
           edit:
             update: Uppdatera
           form:
+            promoted: Annonserad
+            slug: Slug
             title: Titel
             voting_type:
               hybrid: Hybrid
@@ -577,6 +616,7 @@ sv:
       pages:
         home:
           highlighted_votings:
+            active_votings: Activa omröstningar
             see_all_votings: Se alla omröstningar
       polling_officer_zone:
         closures:
@@ -591,6 +631,7 @@ sv:
             heading: Omräkning
             modal_ballots_count_error:
               close_modal: Stäng
+              total_people: 'Totala människor:'
             polling_station: 'Vallokal:'
           show:
             heading: Omräkning
@@ -600,6 +641,7 @@ sv:
             confirm: Fortsätt
         in_person_votes:
           in_person_form:
+            date_of_birth: Födelsedatum
             day: Dag
             day_placeholder: DD
             document_number: Dokumentnummer
@@ -633,6 +675,7 @@ sv:
           unassigned: Otilldelad
       polling_station_closure_recount:
         signed: Signerat
+        total_ballots: 'Totalt antal röstsedlar:'
       polling_stations:
         actions:
           confirm_destroy: Är du säker?
@@ -641,6 +684,8 @@ sv:
           new: Ny
           title: Åtgärder
       votings:
+        access_code_modal:
+          title: Få behörighetskod
         check_census:
           check_status: Kontrollera status
           title: Kan jag rösta?
@@ -650,11 +695,16 @@ sv:
           day_placeholder: DD
           document_number: Dokumentnummer
           document_number_placeholder: ID-nummer
+          document_type: Dokumenttyp
           month: Månad
           month_placeholder: MM
           postal_code: Postnummer
           year: År
           year_placeholder: ÅÅÅÅ
+        count:
+          title:
+            one: "%{count} omröstning"
+            other: "%{count} omröstningar"
         elections_log:
           election_log: Omröstningslogg
           title: Omröstningslogg
@@ -676,6 +726,7 @@ sv:
           access_code: Behörighetskod
           access_code_placeholder: Behörighetskod
           start_voting: Starta omröstningen
+          step: Identifikation
         orders:
           label: 'Sortera omröstningar efter:'
           random: Slumpmässig

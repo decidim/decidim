@@ -1545,7 +1545,7 @@ ca:
     registrations:
       destroyed: El teu compte s'ha cancel·lat correctament. Esperem tornar-te a veure aviat.
       edit:
-        are_you_sure: Estàs segura?
+        are_you_sure: Estàs segur?
         cancel_my_account: Cancel·lar el meu compte
         currently_waiting_confirmation_for_email: 'Estem esperant la confirmació per a: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: Deixa-ho en blanc si no vols canviar-lo
@@ -1681,7 +1681,7 @@ ca:
         see_more: Veure més
   locale:
     name: Català
-    name_with_error: Anglès (error!)
+    name_with_error: Català (error!)
   password_validator:
     blacklisted: a la llista negra
     domain_included_in_password: és massa semblant a aquest nom de domini

@@ -213,6 +213,7 @@ ca:
             endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: Resposta a propostes activada
             publish_answers_immediately: Publica les respostes a les propostes immediatament
+            publish_answers_immediately_help_html: 'Tingues present que si respons alguna proposta sense que això estigui habilitat, l''hauràs de publicar-les manualment seleccionant-les i fent servir l''acció de publicar. Per a més informació sobre el funcionament, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pàgina de documentació de les respostes a les propostes</a>.'
             suggested_hashtags: Hashtags suggerits a les participants per a noves propostes
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
@@ -302,6 +303,7 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta "%{resource_title}" afegida a %{participatory_space_title}
           notification_title: '%{author} ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}'
+          notification_title_official: S'ha afegit la proposta oficial <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
@@ -433,14 +435,14 @@ ca:
             info_1: Les seccions següents s'han convertit a propostes. Ara pots revisar-les i ajustar-les abans de publicar.
             publish_document: Publicar el document
             save_draft: Desa l'esborrany
-            title: PREVISUALITZAR EL TEXT PARTICIPATIU
+            title: Previsualitzar el text participatiu
           new_import:
             accepted_mime_types:
               md: Markdown
               odt: ODT
             bottom_hint: "(Podràs previsualitzar i ordenar les seccions del document)"
             document_legend: 'Afegeix un document de menys de 2 Mb, cadascuna de les seccions (fins a 3 nivells de profunditat) es convertiran a propostes. Els formats suportats són: %{valid_mime_types}'
-            title: AFEGIR DOCUMENT
+            title: Afegir document
             upload_document: Puja el document
           publish:
             invalid: No s'han pogut publicar propostes

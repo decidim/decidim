@@ -12,7 +12,7 @@ cs:
         signature_type: Typ sbírky podpisu
         signature_type_values:
           any: Online nebo naživo
-          offline: Z očí do očí
+          offline: Osobně
           online: OnLine
         state: Stav
         title: Titul
@@ -23,7 +23,7 @@ cs:
         attachments_enabled: Povolit přílohy
         banner_image: Obrázek banneru
         child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
-        collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
+        collect_user_extra_fields: Shromažďovat osobní údaje účastníků při podpisu
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
         document_number_authorization_handler: Autorizace k ověření čísla dokumentu pro podpisy

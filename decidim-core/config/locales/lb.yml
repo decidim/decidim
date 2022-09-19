@@ -458,7 +458,7 @@ lb:
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
-          password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal (z.B. 123456) an et dierf net däin Benotzernumm oder deng Email-Adress enthalen."
+          password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal Zeechen (z.B. 123456) an et dierf weder däin Pseudonym nach deng Email-Adress enthalen."
           sign_in: Umelden
           sign_up: Registréieren
           sign_up_as:
@@ -1488,7 +1488,7 @@ lb:
     registrations:
       destroyed: Däin Kont gouf zou gemaach. Mir hoffen dech geschwënn erëm ze gesinn.
       edit:
-        are_you_sure: Bass de sécher?
+        are_you_sure: Bass du sécher?
         cancel_my_account: Kont erstellen ofbriechen
         currently_waiting_confirmation_for_email: 'Op Bestätegung waarden fir: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: net ausfëllen wann s'de keng Ännerung wëlls

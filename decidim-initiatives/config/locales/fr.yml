@@ -19,7 +19,7 @@ fr:
       initiatives_committee_member:
         user: Membre du Comité de promotion
       initiatives_type:
-        area_enabled: Permettre aux auteurs de choisir le périmètre d'application pour leur pétition
+        area_enabled: Permettre aux auteurs de choisir le périmètre d'assemblée pour leur pétition
         attachments_enabled: Autoriser les pièces jointes
         banner_image: Image d'en-tête
         child_scope_threshold_enabled: Autoriser les signatures par sous-secteur

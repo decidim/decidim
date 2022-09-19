@@ -148,7 +148,7 @@ cs:
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
-            can_accumulate_supports_beyond_threshold: Mohou hromadit podpěry za prahem
+            can_accumulate_supports_beyond_threshold: Mohou hromadit podpory za prahem
             collaborative_drafts_enabled: Společné koncepty povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
@@ -221,6 +221,7 @@ cs:
             endorsements_enabled: Schvalování povoleno
             proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
+            publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasování bylo blokováno
             votes_enabled: Hlasování povoleno
@@ -310,6 +311,7 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Nový návrh "%{resource_title}" byl přidán k %{participatory_space_title}
           notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title} uživatelem %{author}
+          notification_title_official: Oficiální návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'

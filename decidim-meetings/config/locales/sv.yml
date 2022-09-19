@@ -100,6 +100,7 @@ sv:
           type_eq:
             label: Mötestyp
             values:
+              hybrid: Hybrid
               in_person: Fysiska
               online: Online
       meeting_copies:
@@ -472,6 +473,7 @@ sv:
           type: Typ
           type_values:
             all: Allt
+            hybrid: Hybrid
             in_person: Fysiska
             online: Online
         filters_small_view:
@@ -562,6 +564,7 @@ sv:
           fields:
             closed: Stängd
             end_time: Slutdatum
+            id: ID
             map: Karta
             official_meeting: Officiellt möte
             start_time: Startdatum
@@ -611,6 +614,7 @@ sv:
           invalid: Det gick inte att lämna mötet.
           success: Du har lämnat mötet.
       type_of_meeting:
+        hybrid: Hybrid
         in_person: Fysiska
         online: Online
       types:

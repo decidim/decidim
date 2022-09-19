@@ -66,6 +66,35 @@ module Decidim::Meetings
       end
     end
 
+    describe "#visible_meeting_for" do
+      subject { Decidim::Meetings::Meeting.visible_meeting_for(user) }
+
+      let(:meeting) { create :meeting, :published }
+      let(:user) { create :user, organization: meeting.component.organization }
+
+      it "returns published meetings" do
+        expect(subject).to include(meeting)
+      end
+
+      context "when the meeting is not published" do
+        let(:meeting) { create :meeting }
+
+        it "does not returns the meeting" do
+          expect(subject).not_to include(meeting)
+        end
+      end
+
+      context "when some participatory space does not have a model" do
+        before do
+          allow(Decidim::Assembly).to receive(:table_name).and_return(nil)
+        end
+
+        it "does not return an exception" do
+          expect(subject).to include(meeting)
+        end
+      end
+    end
+
     describe "#can_be_joined_by?" do
       subject { meeting.can_be_joined_by?(user) }
 

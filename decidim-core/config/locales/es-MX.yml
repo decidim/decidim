@@ -44,7 +44,7 @@ es-MX:
       decidim/removed_from_group: Eliminado del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
       decidim/resource_hidden_event: Recurso oculto
-      decidim/user_group_created_event: Grupo de usuarios creado
+      decidim/user_group_created_event: Grupo creado
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
@@ -1685,7 +1685,7 @@ es-MX:
         see_more: Ver más
   locale:
     name: Español
-    name_with_error: Inglés (¡error!)
+    name_with_error: Español (¡error!)
   password_validator:
     blacklisted: en la lista negra
     domain_included_in_password: Es muy similar a este nombre de dominio

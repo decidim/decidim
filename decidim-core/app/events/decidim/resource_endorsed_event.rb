@@ -15,7 +15,8 @@ module Decidim
     end
 
     def resource_text
-      resource.body
+      return resource.body if resource.respond_to? :body
+      return resource.description if resource.respond_to? :description
     end
 
     def resource_type

@@ -108,7 +108,8 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= paginate(search.results.order(start_time: :desc))
+        is_past_meetings = params.dig("filter", "date")&.include?("past")
+        @meetings ||= paginate(search.results.order(start_time: is_past_meetings ? :desc : :asc))
       end
 
       def registration
@@ -126,7 +127,7 @@ module Decidim
       def default_filter_params
         {
           search_text: "",
-          date: %w(upcoming),
+          date: "upcoming",
           activity: "all",
           scope_id: default_filter_scope_params,
           category_id: default_filter_category_params,

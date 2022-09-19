@@ -1,62 +1,60 @@
 <% add_decidim_page_title(t("notifications_settings", scope: "layouts.decidim.user_profile")) %>
 <% content_for(:subtitle) { t("notifications_settings", scope: "layouts.decidim.user_profile") } %>
 
-<div class="row">
-  <%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
-    <p><strong><%= t(".receive_notifications_about") %></strong></p>
-    <div class="switch tiny switch-with-label notifications_from_own_activity">
-      <%= f.label :notifications_from_own_activity do %>
-        <%= f.check_box :notifications_from_own_activity, label: false, class: "switch-input" %>
-        <span class="switch-paddle"></span>
-        <span class="switch-label"><%= t(".own_activity") %></span>
-      <% end %>
-    </div>
-    <div class="switch tiny switch-with-label notifications_from_followed">
-      <%= f.label :notifications_from_followed do %>
-        <%= f.check_box :notifications_from_followed, label: false, class: "switch-input" %>
-        <span class="switch-paddle"></span>
-        <span class="switch-label"><%= t(".everything_followed") %></span>
-      <% end %>
-    </div>
-
-    <p><strong><%= t(".send_notifications_by_email") %></strong></p>
-    <div class="switch tiny switch-with-label email_on_notification">
-      <%= f.label :email_on_notification do %>
-        <%= f.check_box :email_on_notification, label: false, class: "switch-input" %>
-        <span class="switch-paddle"></span>
-        <span class="switch-label"><%= t(".email_on_notification") %></span>
-      <% end %>
-    </div>
-
-    <p><strong><%= t(".newsletters") %></strong></p>
-    <div class="switch tiny switch-with-label newsletter_notifications">
-      <label>
-        <%= f.check_box :newsletter_notifications, label: false, class: "switch-input" %>
-        <span class="switch-paddle"></span>
-        <span class="switch-label"><%= t(".newsletter_notifications") %></span>
-      </label>
-    </div>
-
-    <p><strong><%= t(".direct_messages") %></strong></p>
-    <div class="switch tiny switch-with-label allow_public_contact">
-      <label>
-        <%= f.check_box :allow_public_contact, label: false, class: "switch-input" %>
-        <span class="switch-paddle"></span>
-        <span class="switch-label"><%= t(".allow_public_contact") %></span>
-      </label>
-    </div>
-
-    <% if @notifications_settings.user_is_moderator?(current_user) %>
-      <p><strong><%= t(".administrators") %></strong></p>
-      <div class="switch tiny switch-with-label email_on_moderations">
-        <label>
-          <%= f.check_box :email_on_moderations, label: false, class: "switch-input" %>
-          <span class="switch-paddle"></span>
-          <span class="switch-label"><%= t(".email_on_moderations") %></span>
-        </label>
-      </div>
+<%= form_for(@notifications_settings, url: notifications_settings_path, method: :put, class: "user-form") do |f| %>
+  <p><strong><%= t(".receive_notifications_about") %></strong></p>
+  <div class="switch tiny switch-with-label notifications_from_own_activity">
+    <%= f.label :notifications_from_own_activity do %>
+      <%= f.check_box :notifications_from_own_activity, label: false, class: "switch-input" %>
+      <span class="switch-paddle"></span>
+      <span class="switch-label"><%= t(".own_activity") %></span>
     <% end %>
+  </div>
+  <div class="switch tiny switch-with-label notifications_from_followed">
+    <%= f.label :notifications_from_followed do %>
+      <%= f.check_box :notifications_from_followed, label: false, class: "switch-input" %>
+      <span class="switch-paddle"></span>
+      <span class="switch-label"><%= t(".everything_followed") %></span>
+    <% end %>
+  </div>
 
-    <%= f.submit t(".update_notifications_settings") %>
+  <p><strong><%= t(".send_notifications_by_email") %></strong></p>
+  <div class="switch tiny switch-with-label email_on_notification">
+    <%= f.label :email_on_notification do %>
+      <%= f.check_box :email_on_notification, label: false, class: "switch-input" %>
+      <span class="switch-paddle"></span>
+      <span class="switch-label"><%= t(".email_on_notification") %></span>
+    <% end %>
+  </div>
+
+  <p><strong><%= t(".newsletters") %></strong></p>
+  <div class="switch tiny switch-with-label newsletter_notifications">
+    <label>
+      <%= f.check_box :newsletter_notifications, label: false, class: "switch-input" %>
+      <span class="switch-paddle"></span>
+      <span class="switch-label"><%= t(".newsletter_notifications") %></span>
+    </label>
+  </div>
+
+  <p><strong><%= t(".direct_messages") %></strong></p>
+  <div class="switch tiny switch-with-label allow_public_contact">
+    <label>
+      <%= f.check_box :allow_public_contact, label: false, class: "switch-input" %>
+      <span class="switch-paddle"></span>
+      <span class="switch-label"><%= t(".allow_public_contact") %></span>
+    </label>
+  </div>
+
+  <% if @notifications_settings.user_is_moderator?(current_user) %>
+    <p><strong><%= t(".administrators") %></strong></p>
+    <div class="switch tiny switch-with-label email_on_moderations">
+      <label>
+        <%= f.check_box :email_on_moderations, label: false, class: "switch-input" %>
+        <span class="switch-paddle"></span>
+        <span class="switch-label"><%= t(".email_on_moderations") %></span>
+      </label>
+    </div>
   <% end %>
-</div>
+
+  <%= f.submit t(".update_notifications_settings") %>
+<% end %>
