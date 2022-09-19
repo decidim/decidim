@@ -6,37 +6,4 @@
   } %>
 <% end %>
 
-<%
-  items = []
-
-  date_title = []
-  date_title << t("models.result.fields.start_date", scope: "decidim.accountability") if result.start_date
-  date_title << t("models.result.fields.end_date", scope: "decidim.accountability") if result.end_date
-
-  date_value = []
-  date_value << l(result.start_date, format: :decidim_short_with_month_name_short) if result.start_date
-  date_value << l(result.end_date, format: :decidim_short_with_month_name_short) if result.end_date
-
-  items << [
-    date_title.join(" / "),
-    date_value.join(" / "),
-    "calendar-todo-line"
-  ] if result.start_date;
-  items << [
-    t("models.result.fields.status", scope: "decidim.accountability"),
-    translated_attribute(result.status.name),
-    "focus-2-line"
-  ] if result.status;
-  items << [
-    t("models.status.fields.description", scope: "decidim.accountability"),
-    translated_attribute(result.status.description),
-    "file-text-line"
-  ] if result.status && translated_attribute(result.status.description).present?;
-%>
-
-<% items.each do |item| %>
-  <div class="accountability__project-aside-item">
-    <div><%= icon item[2], class: "w-3.5 h-3.5 fill-current text-gray" %><%= item[0] %></div>
-    <div><%= item[1] %></div>
-  </div>
-<% end %>
+<%= cell("decidim/accountability/result", result) %>
