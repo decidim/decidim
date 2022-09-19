@@ -826,12 +826,12 @@ en:
     forms:
       current_image: Current image
       default_image: Default image
+      emoji_chooser: Choose an emoji
       errors:
         decidim/user:
           password: The password is too short.
           password_confirmation: Password confirmation must match the password.
         error: There's an error in this field.
-      emoji_chooser: Choose an emoji
       file_help:
         file:
           explanation: 'Guidance for file:'
