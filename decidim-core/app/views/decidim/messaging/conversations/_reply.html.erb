@@ -1,4 +1,4 @@
-<div class="border-t-2 border-background mt-6 py-12">
+<div class="conversation__reply-container">
   <% if conversation.with_deleted_users?(current_user) %>
     <%= cell("decidim/announcement", t("decidim.messaging.conversations.show.deleted_accounts"), callout_class: "warning") %>
   <% elsif conversation.accept_user?(current_user) %>

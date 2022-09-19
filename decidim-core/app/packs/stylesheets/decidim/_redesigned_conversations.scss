@@ -70,6 +70,10 @@
   &__reply{
     @apply flex flex-col w-full md:w-2/3 mx-auto;
 
+    &-container{
+      @apply border-t-2 border-background mt-6 py-12;
+    }
+
     textarea{
       @apply w-full border border-gray rounded-lg px-4 py-2;
     }
