@@ -6,10 +6,10 @@
       <%= t("decidim.messaging.conversations.index.title") %>
     </h1>
 
-    <div class="flex flex-row-reverse md:flex-col gap-4 md:gap-8">
+    <div class="flex flex-row md:flex-col gap-2 md:gap-8">
       <%= render partial: "new_conversation_button" %>
 
-      <%= link_to decidim.conversations_path, class: "button button__lg md:button__sm button__transparent-secondary md:button__text-secondary" do %>
+      <%= link_to decidim.conversations_path, class: "button button__sm md:button__lg button__transparent-secondary md:button__text-secondary" do %>
         <%= icon "arrow-left-line", class: "fill-current" %>
         <span class="sr-only md:not-sr-only"><%= t("decidim.messaging.conversations.show.back") %></span>
       <% end %>
