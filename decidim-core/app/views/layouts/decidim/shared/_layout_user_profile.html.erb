@@ -10,7 +10,13 @@
 
   <div class="vertical-tabs mb-24">
     <nav>
-      <ul id="user-settings-tabs" class="vertical-tabs__list">
+      <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+        <%# REDESIGN_PENDING: The following span should be multiple, as it's done in decidim-core/app/cells/decidim/user_activity/show.erb (L4-L8) %>
+        <span><%= t("decidim.searches.filters.jump_to") %></span>
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+      </button>
+      <ul id="dropdown-menu" class="vertical-tabs__list">
         <%= user_menu.render %>
       </ul>
     </nav>
