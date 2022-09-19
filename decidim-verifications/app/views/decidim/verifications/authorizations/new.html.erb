@@ -18,10 +18,17 @@
       <% if lookup_context.exists?(handler.to_partial_path, [], true) %>
         <%= render partial: handler.to_partial_path, locals: { handler: handler, form: form } %>
       <% else %>
-        <%= form.all_fields %>
+        <div class="form__wrapper">
+          <%= form.all_fields %>
+        </div>
       <% end %>
 
-      <div class="form__wrapper-block">
+      <div class="form__wrapper-block flex-row justify-between">
+        <%# REDESIGN_PENDING: link to main index %>
+        <a href="" class="button button__lg button__text-secondary">
+          <%= icon "arrow-left-line", class: "fill-current" %>
+          <%= t("decidim.wizard_step_form.wizard_aside.back") %>
+        </a>
         <button type="submit" class="button button__lg button__secondary">
           <%= t("decidim.verifications.authorizations.new.authorize") %>
           <%= icon "arrow-right-line", class: "fill-current" %>

@@ -6,6 +6,7 @@
   <%= form.text_field :document_number %>
 
   <% if using_online? %>
+    <%# REDESIGN_PENDING: trigger the upload-modal. It requires to refactor upload method %>
     <%= form.upload :verification_attachment, button_class: "button button__lg button__transparent-secondary w-full block mt-4" %>
   <% end %>
 

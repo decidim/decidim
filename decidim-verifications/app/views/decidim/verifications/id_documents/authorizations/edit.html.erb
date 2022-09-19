@@ -18,7 +18,12 @@
     <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
       <%= render partial: "form", locals: { form: form } %>
 
-      <div class="form__wrapper-block">
+      <div class="form__wrapper-block flex-row justify-between">
+        <%# REDESIGN_PENDING: link to main index %>
+        <a href="" class="button button__lg button__text-secondary">
+          <%= icon "arrow-left-line", class: "fill-current" %>
+          <%= t("decidim.wizard_step_form.wizard_aside.back") %>
+        </a>
         <button type="submit" class="button button__lg button__secondary">
           <%= t("decidim.verifications.id_documents.authorizations.edit.send") %>
           <%= icon "arrow-right-line", class: "fill-current" %>

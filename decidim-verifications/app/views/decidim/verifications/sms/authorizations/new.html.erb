@@ -21,7 +21,12 @@
         <%= form.text_field :mobile_phone_number %>
       </div>
 
-      <div class="form__wrapper-block">
+      <div class="form__wrapper-block flex-row justify-between">
+        <%# REDESIGN_PENDING: link to main index %>
+        <a href="" class="button button__lg button__text-secondary">
+          <%= icon "arrow-left-line", class: "fill-current" %>
+          <%= t("decidim.wizard_step_form.wizard_aside.back") %>
+        </a>
         <button type="submit" class="button button__lg button__secondary">
           <%= t("decidim.verifications.sms.authorizations.new.send") %>
           <%= icon "arrow-right-line", class: "fill-current" %>
