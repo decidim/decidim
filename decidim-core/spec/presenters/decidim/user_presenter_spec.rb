@@ -9,7 +9,17 @@ module Decidim
     describe "#nickname" do
       subject { described_class.new(user).nickname }
 
-      it { is_expected.to eq("@#{user.nickname}") }
+      context "when not blocked" do
+        it { is_expected.to eq("@#{user.nickname}") }
+      end
+
+      context "when blocked" do
+        before do
+          user.blocked = true
+        end
+
+        it { is_expected.to eq("") }
+      end
     end
 
     context "when user is not officialized" do

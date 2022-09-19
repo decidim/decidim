@@ -6,7 +6,7 @@ describe "Last activity", type: :system do
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
   let!(:action_log) do
-    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization:)
+    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
   end
   let!(:other_action_log) do
     create(:action_log, action: "publish", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
@@ -14,7 +14,7 @@ describe "Last activity", type: :system do
   let(:long_body_comment) { "This is my very long comment for Last Activity card that must be shorten up because is more than 100 chars" }
   let(:another_comment) { create(:comment, body: long_body_comment) }
   let!(:another_action_log) do
-    create(:action_log, action: "create", visibility: "public-only", resource: another_comment, organization:)
+    create(:action_log, created_at: 2.days.ago, action: "create", visibility: "public-only", resource: another_comment, organization:)
   end
   let(:component) do
     create(:component, :published, organization:)
@@ -45,7 +45,7 @@ describe "Last activity", type: :system do
 
     it "displays the activities at the home page" do
       within "#last_activity" do
-        expect(page).to have_css(".card--activity", count: 3)
+        expect(page).to have_css("[data-activity]", count: 3)
       end
     end
 
@@ -72,10 +72,16 @@ describe "Last activity", type: :system do
       end
 
       it "shows all activities" do
-        expect(page).to have_css(".card--activity", count: 3)
+        expect(page).to have_css("[data-activity]", count: 3)
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
+      end
+
+      it "shows the activities in correct order" do
+        result = page.find("#activities .row").text
+        expect(result.index(translated(resource.title))).to be < result.index(translated(comment.commentable.title))
+        expect(result.index(translated(comment.commentable.title))).to be < result.index(translated(another_comment.commentable.title))
       end
 
       it "allows filtering by type" do
@@ -86,7 +92,7 @@ describe "Last activity", type: :system do
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
         expect(page).to have_no_content(translated(resource.title))
-        expect(page).to have_css(".card--activity", count: 2)
+        expect(page).to have_css("[data-activity]", count: 2)
       end
 
       context "when there are activities from private spaces" do
@@ -98,7 +104,7 @@ describe "Last activity", type: :system do
         end
 
         it "doesn't show the activities" do
-          expect(page).to have_css(".card--activity", count: 0)
+          expect(page).to have_css("[data-activity]", count: 0)
         end
       end
     end

@@ -11,21 +11,39 @@ module Decidim
   class EndorsersListCell < Decidim::ViewModel
     include ApplicationHelper
 
+    MAX_ITEMS_STACKED = 3
+
     def show
-      return unless endorsers.any?
+      return unless base_relation.exists?
+
+      return render :full if full_list?
 
       render
     end
 
     private
 
+    def full_list?
+      options[:layout] == :full
+    end
+
     # Finds the correct author for each endorsement.
     #
     # Returns an Array of presented Users/UserGroups
-    def endorsers
-      @endorsers ||= model.endorsements.for_listing
-                          .includes(:author, :user_group)
-                          .map { |identity| present(identity.normalized_author) }
+    def visible_endorsers
+      @visible_endorsers ||= base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.normalized_author) }
+    end
+
+    def full_endorsers
+      @full_endorsers ||= base_relation.map { |identity| present(identity.normalized_author) }
+    end
+
+    def base_relation
+      @base_relation ||= model.endorsements.for_listing.includes(:author, :user_group)
+    end
+
+    def endorsers_count
+      base_relation.count
     end
   end
 end

@@ -22,7 +22,7 @@ jobs:
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
         if: "github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -56,3 +56,5 @@ jobs:
         name: Lint SCSS files
       - run: ./.github/run_erblint.sh
         name: Lint ERB files
+      - run: npm run markdownlint
+        name: Lint Markdown files
