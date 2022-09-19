@@ -1100,7 +1100,7 @@ en:
           next: Next
           no_conversations: You have no conversations yet
           title: Conversations
-        reply:
+        reply_form:
           placeholder: Your reply...
           send: Send
         show:
