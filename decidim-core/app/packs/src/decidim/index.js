@@ -13,7 +13,7 @@ import FormValidator from "src/decidim/form_validator"
 import CommentsComponent from "src/decidim/comments/comments.component"
 import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
-import addInputEmoji from "src/decidim/input_emoji"
+import addInputEmoji, { CreateEmojiButton } from "src/decidim/input_emoji"
 import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
@@ -30,6 +30,7 @@ window.Decidim.FormValidator = FormValidator;
 window.Decidim.DataPicker = DataPicker;
 window.Decidim.CommentsComponent = CommentsComponent;
 window.Decidim.addInputEmoji = addInputEmoji;
+window.Decidim.CreateEmojiButton = CreateEmojiButton;
 
 /**
  * Initializer event for those script who require to be triggered
