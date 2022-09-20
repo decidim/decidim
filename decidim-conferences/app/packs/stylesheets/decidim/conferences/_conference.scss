@@ -22,33 +22,11 @@
       @apply ml-0 md:ml-6 bg-primary p-3 md:p-6 rounded w-full md:w-auto self-stretch;
 
       [id*="dropdown-menu"]{
-        @apply flex flex-col py-3.5 md:py-0 mt-3.5 md:mt-0 border-t md:border-t-0 border-gray-3 cursor-pointer;
-
-        &[aria-hidden="true"]{
-          @apply hidden md:flex;
-        }
+        @apply mx-0;
       }
 
       [data-target*="dropdown"]{
-        @apply w-full md:hidden flex items-center justify-between gap-2 text-white first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
-
-        & > span{
-          @apply flex items-center gap-2 [&_svg]:fill-current font-semibold;
-        }
-
-        > svg{
-          @apply w-8 h-8 flex-none fill-current;
-        }
-
-        &[aria-expanded="false"] > svg:last-of-type,
-        &[aria-expanded="true"] > svg:first-of-type{
-          @apply hidden;
-        }
-
-        &[aria-expanded="true"] > svg:last-of-type,
-        &[aria-expanded="false"] > svg:first-of-type{
-          @apply block;
-        }
+        @apply p-0 [&>span]:text-white [&>svg]:text-white;
       }
     }
 

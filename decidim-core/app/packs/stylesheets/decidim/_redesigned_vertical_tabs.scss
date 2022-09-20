@@ -10,7 +10,11 @@
     }
 
     li.is-active a{
-      @apply border-l-4 border-primary font-semibold;
+      @apply border-l-0 md:border-l-4 border-primary font-semibold;
     }
+  }
+
+  nav{
+    @apply rounded border-4 border-background md:border-0;
   }
 }
