@@ -193,7 +193,7 @@ shared_examples "manage moderations" do
       end
     end
     let!(:moderations) do
-      comments.first(comments.length - 1).map do |reportable|
+      comments.map do |reportable|
         space = reportable.is_a?(Decidim::Participable) ? reportable : reportable.participatory_space
         moderation = create(:moderation, reportable:, report_count: 1, participatory_space: space, reported_content: reportable.reported_searchable_content_text)
         create(:report, moderation:)
@@ -212,6 +212,16 @@ shared_examples "manage moderations" do
           expect(page).to have_content "Spam"
         end
       end
+    end
+
+    it "user can hide them" do
+      moderation_id = moderations.first.id
+      within "tr[data-id=\"#{moderation_id}\"]" do
+        click_link "Hide"
+      end
+
+      expect(page).to have_admin_callout("Resource successfully hidden")
+      expect(page).not_to have_selector("tr[data-id=\"#{moderation_id}\"]")
     end
   end
 end
