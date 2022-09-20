@@ -286,8 +286,7 @@ describe "Authentication", type: :system do
     it "sends a welcome notification" do
       find("a.topbar__notifications").click
 
-      within "#notifications" do
-        expect(page).to have_content("Welcome")
+      within "[data-notifications]" do
         expect(page).to have_content("thanks for joining #{organization.name}")
       end
 

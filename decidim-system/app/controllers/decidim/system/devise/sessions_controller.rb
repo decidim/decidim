@@ -7,6 +7,7 @@ module Decidim
       # and views.
       class SessionsController < ::Devise::SessionsController
         include Decidim::LocaleSwitcher
+        include DisabledRedesignLayout
 
         helper Decidim::DecidimFormHelper
 
