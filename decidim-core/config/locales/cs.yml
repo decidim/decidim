@@ -1408,7 +1408,7 @@ cs:
     scopes:
       global: Globální oblast působnosti
       picker:
-        cancel: zrušení
+        cancel: Zrušit
         change: Změnit vybraný rozsah
         choose: Vybrat
         currently_selected: Aktuálně vybraný rozsah
