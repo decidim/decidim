@@ -1,63 +1,10 @@
-<% add_decidim_page_title(t("decidim.meetings.directory.meetings.index.meetings")) %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_meetings" %>
-<% end %>
-
-<% content_for :aside do %>
-  <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
-
-  <% if allowed_to?(:create, :meeting) %>
-    <%= action_authorized_link_to :create, new_meeting_path, class: "button button__lg button__secondary", data: { "redirect_url" => new_meeting_path } do %>
-      <span><%= t("new_meeting", scope: "decidim.meetings.meetings.index") %></span>
-      <%= icon "add" %>
-    <% end %>
-  <% end %>
-
-  <%= render partial: "filters" %>
-
-  <%= render partial: "decidim/meetings/calendar_modal", locals: {
-    path: short_url(
-      route_name: "calendar",
-      params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
-    )
-  } %>
-<% end %>
-
-<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <%# REDESIGN_PENDING: include links %>
-  <div class="meeting-calendar__selector-container">
-    <div class="meeting-calendar__selector">
-      <a href="" class="meeting-calendar__selector-arrow">
-        <%= icon "arrow-left-s-line", class: "w-6 h-6 text-secondary fill-current" %>
-      </a>
-      <h2 class="h2">2020</h2>
-      <a href="" class="meeting-calendar__selector-arrow">
-        <%= icon "arrow-right-s-line", class: "w-6 h-6 text-secondary fill-current" %>
-      </a>
-    </div>
-    <a href="<%= meetings_path %>" class="meeting-calendar__link">
-      <%= t "decidim.meetings.directory.meetings.index.go_to_list" %>
-      <%= icon "list-check-2", class: "w-3.5 h-3.5 text-secondary fill-current" %>
-    </a>
-  </div>
-
-  <div class="meeting-calendar">
-    <%
-      # REDESING_PENDING: integrate the actual current year
-      # REDESING_PENDING: allow start week both Sunday or Monday
-      # REDESING_PENDING: create a function to generate a month (~ html table). It reused in home
-
-      current_year = Date.new(2022,1,1).all_year;
-      events = Date.new(2022,1,1).all_year.to_a.sample(15);
-    %>
-
-    <% current_year.group_by { |e| e.month }.each do |month| %>
-      <%= render partial: "decidim/meetings/directory/meetings/month", locals: { month: month, events: events } %>
-    <% end %>
-  </div>
-<% end %>
+<%= render partial: "decidim/meetings/shared/year_calendar", locals: {
+  search_variable: :title_or_description_cont,
+  display_filter_date: !@forced_past_meetings,
+  display_filter_type: true,
+  display_filter_scopes: true,
+  display_filter_categories: true,
+  display_filter_origin: true,
+  display_filter_space_type: true,
+  display_filter_activity: current_user.present?
+} %>

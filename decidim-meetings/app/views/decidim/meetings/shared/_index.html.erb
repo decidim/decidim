@@ -1,0 +1,67 @@
+<% add_decidim_page_title(t("decidim.meetings.directory.meetings.index.meetings")) %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
+<% end %>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_meetings" %>
+<% end %>
+
+<% content_for :aside do %>
+  <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
+
+  <% if allowed_to?(:create, :meeting) %>
+    <%= action_authorized_link_to :create, new_meeting_path, class: "button button__lg button__secondary", data: { "redirect_url" => new_meeting_path } do %>
+      <span><%= t("new_meeting", scope: "decidim.meetings.meetings.index") %></span>
+      <%= icon "add" %>
+    <% end %>
+  <% end %>
+
+  <%
+    # REDESING_PENDING: same partial as in calendar
+    # REDESING_PENDING: display only the current and the next month
+
+    current_year = Date.new(2022,1,1).all_year;
+    events = Date.new(2022,1,1).all_year.to_a.sample(15);
+  %>
+
+  <% current_year.group_by {|e| e.month}.take(2).take(2).each do |month| %>
+    <%= render partial: "decidim/meetings/shared/month", locals: { month: month, events: events } %>
+  <% end %>
+
+  <%= render partial: "decidim/meetings/shared/filters", locals: {
+    search_variable: search_variable,
+    display_filter_date: display_filter_date,
+    display_filter_type: display_filter_type,
+    display_filter_scopes: display_filter_scopes,
+    display_filter_categories: display_filter_categories,
+    display_filter_origin: display_filter_origin,
+    display_filter_space_type: display_filter_space_type,
+    display_filter_activity: display_filter_activity
+  } %>
+
+  <%= render partial: "decidim/meetings/calendar_modal", locals: {
+    path: short_url(
+      route_name: "calendar",
+      params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+    )
+  } %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+
+  <% if display_map %>
+  <div class="meeting__map">
+    <%= cell "decidim/meetings/meetings_map", search.result %>
+  </div>
+  <% end %>
+
+  <a href="<%= year_calendar_path %>" class="meeting__link">
+    <%= t "decidim.meetings.directory.meetings.index.go_to_calendar" %>
+    <%= icon "calendar-2-line", class: "fill-current" %>
+  </a>
+
+  <%= render partial: "decidim/meetings/shared/meetings" %>
+
+<% end %>

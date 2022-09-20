@@ -2,7 +2,7 @@
 
 <%= redesigned_filter_form_for filter, url_for, class: "meeting-filter__container", data: { filters: "", component: "accordion" } do |form| %>
   <div class="meeting-search">
-    <%= form.search_field :title_or_description_cont,
+    <%= form.search_field search_variable,
       label: false,
       placeholder: t("decidim.meetings.meetings.filters.search"),
       title: t("decidim.meetings.meetings.filters.search"),
@@ -17,16 +17,16 @@
   <%
     filters = [];
 
-    filters << ["date", "radio", :with_any_date, filter_date_values, "decidim.meetings.meetings.filters"] unless @forced_past_meetings;
-    filters << ["type", "check_box", :with_any_type, filter_type_values, "decidim.meetings.meetings.filters"];
+    filters << ["date", "radio", :with_any_date, filter_date_values, "decidim.meetings.meetings.filters"] if display_filter_date;
+    filters << ["type", "check_box", :with_any_type, filter_type_values, "decidim.meetings.meetings.filters"] if display_filter_type;
 
     # REDESIGN_PENDING: transform into array as the others
-    #filters << ["scope", "check_box", :with_any_scope, directory_filter_scopes_values, "decidim.meetings.meetings.filters"];
-    #filters << ["category", "check_box", :with_any_global_category, directory_filter_categories_values, "decidim.meetings.meetings.filters"];
+    #filters << ["scope", "check_box", :with_any_scope, directory_filter_scopes_values, "decidim.meetings.meetings.filters"] if display_filter_scopes;
+    #filters << ["category", "check_box", :with_any_global_category, directory_filter_categories_values, "decidim.meetings.meetings.filters"] if display_filter_categories;
 
-    filters << ["origin", "check_box", :with_any_origin, directory_filter_origin_values, "decidim.meetings.meetings.filters"];
-    filters << ["space_type", "check_box", :with_any_space, directory_meeting_spaces_values, "decidim.meetings.directory.meetings.index"];
-    filters << ["activity", "radio", :activity, activity_filter_values, "decidim.meetings.meetings.filters"] if current_user;
+    filters << ["origin", "check_box", :with_any_origin, directory_filter_origin_values, "decidim.meetings.meetings.filters"] if display_filter_origin;
+    filters << ["space_type", "check_box", :with_any_space, directory_meeting_spaces_values, "decidim.meetings.directory.meetings.index"] if display_filter_space_type;
+    filters << ["activity", "radio", :activity, activity_filter_values, "decidim.meetings.meetings.filters"] if display_filter_activity;
   %>
 
   <% filters.each do |f| %>

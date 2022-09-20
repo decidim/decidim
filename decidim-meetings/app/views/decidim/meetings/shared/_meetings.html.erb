@@ -1,7 +1,9 @@
 <% if meetings.length == 0 %>
   cell("decidim/announcement", t("decidim.meetings.meetings.meetings.no_meetings_warning"), callout_class: "warning" )
+<% elseif @forced_past_meetings %>
+  cell("decidim/announcement", t("decidim.meetings.meetings.meetings.upcoming_meetings_warning"), callout_class: "warning" )
 <% else %>
-  <div class="meeting__container">
+  <div id="meetings" class="meeting__container">
     <% meetings.each do |meeting| %>
       <a href="<%= resource_locator(meeting).path %>" class="meeting">
         <div class="meeting__calendar">
