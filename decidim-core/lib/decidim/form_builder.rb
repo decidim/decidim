@@ -844,7 +844,7 @@ module Decidim
     end
 
     def extension_allowlist_help(extension_allowlist)
-      ["#{I18n.t("extension_allowlist", scope: "decidim.forms.files")} #{extension_allowlist.map { |ext| ext }.join(", ")}"]
+      [I18n.t("extension_allowlist", scope: "decidim.forms.files", extensions: extension_allowlist.map { |ext| ext }.join(", "))]
     end
 
     def image_dimensions_help(dimensions_info)
