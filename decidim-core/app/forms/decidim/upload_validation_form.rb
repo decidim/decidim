@@ -85,6 +85,10 @@ module Decidim
         @attachment_context = attachment_context
       end
 
+      def organization
+        __getobj__
+      end
+
       def self.primary_key
         :id
       end
