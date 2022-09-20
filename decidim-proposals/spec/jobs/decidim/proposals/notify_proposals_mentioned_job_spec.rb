@@ -12,8 +12,10 @@ module Decidim
       let(:comment) { create(:comment, commentable:) }
       let(:proposal_component) { create(:proposal_component, organization:) }
       let(:proposal_metadata) { Decidim::ContentParsers::ProposalParser::Metadata.new([]) }
-      let(:linked_proposal) { create(:proposal, component: proposal_component) }
+      let(:users) { [create(:user, :confirmed, organization:)] }
+      let(:linked_proposal) { create(:proposal, component: proposal_component, users:) }
       let(:linked_proposal_official) { create(:proposal, :official, component: proposal_component) }
+      let(:author) { create(:user, organization: commentable.organization) }
 
       describe "integration" do
         it "is correctly scheduled" do
@@ -68,6 +70,41 @@ module Decidim
             )
 
           subject.perform_now(comment.id, linked_proposals)
+        end
+
+        context "when the author is the same as proposal user" do
+          before do
+            comment.update(author: users.first)
+          end
+
+          it "does not notify the same user" do
+            expect(Decidim::EventsManager)
+              .not_to receive(:publish)
+              .with(
+                event: "decidim.events.proposals.proposal_mentioned",
+                event_class: Decidim::Proposals::ProposalMentionedEvent,
+                resource: commentable,
+                affected_users: [linked_proposal.creator_author],
+                extra: {
+                  comment_id: comment.id,
+                  mentioned_proposal_id: linked_proposal.id
+                }
+              )
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.proposals.proposal_mentioned",
+                event_class: Decidim::Proposals::ProposalMentionedEvent,
+                resource: commentable,
+                affected_users: [space_admin],
+                extra: {
+                  comment_id: comment.id,
+                  mentioned_proposal_id: linked_proposal_official.id
+                }
+              )
+
+            subject.perform_now(comment.id, linked_proposals)
+          end
         end
       end
     end

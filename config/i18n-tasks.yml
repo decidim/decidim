@@ -328,6 +328,8 @@ ignore_unused:
   - decidim.blogs.admin_log.*
   - decidim.templates.admin_log.*
   - ransack.predicates.*
+  - decidim.profiles.user.actions.*
+  - decidim.forms.questionnaires.show.answer_questionnaire.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
