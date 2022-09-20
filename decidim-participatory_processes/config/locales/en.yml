@@ -96,6 +96,7 @@ en:
           all_processes: Show all processes
           process_groups: Process Groups
         import_process: Import
+        moderate: Moderate
         new_process: New process
         new_process_group: New process group
         new_process_step: New phase

@@ -14,7 +14,7 @@ module Decidim
     attribute :email
     attribute :password
     attribute :password_confirmation
-    attribute :avatar
+    attribute :avatar, Decidim::Attributes::Blob
     attribute :remove_avatar, Boolean, default: false
     attribute :personal_url
     attribute :about

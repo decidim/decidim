@@ -51,7 +51,7 @@ RSpec.shared_examples "manage debates" do
 
   describe "previewing debates" do
     it "links the debate correctly" do
-      link = find("a", text: translated(debate.title))
+      link = find("a", class: "action-icon--preview")
       expect(link[:href]).to include(resource_locator(debate).path)
     end
 
