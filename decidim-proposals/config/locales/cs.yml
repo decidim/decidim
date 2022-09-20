@@ -502,7 +502,7 @@ cs:
             actions: Akce
             assign_to_valuator: Přiřadit hodnotiteli
             assign_to_valuator_button: Přiřadit
-            cancel: zrušení
+            cancel: Zrušit
             change_category: Změnit kategorii
             change_scope: Změnit rozsah
             merge: Sloučit do nového
@@ -632,7 +632,7 @@ cs:
             error: Při publikování konceptu spolupráce došlo k chybám.
             irreversible_action_modal:
               body: Po zveřejnění návrhu jako návrhu návrh již nebude upravitelný. Návrh nepřijme nové autory ani příspěvky.
-              cancel: zrušení
+              cancel: Zrušit
               ok: Publikovat jako návrh
               title: Následující akce je nevratná
             success: Projekt spolupráce byl úspěšně zveřejněn jako návrh.
@@ -641,7 +641,7 @@ cs:
             error: Došlo k chybě při uzavření návrhu spolupráce.
             irreversible_action_modal:
               body: Po uzavření konceptu již návrh nebude upravitelný. Návrh nepřijme nové autory nebo příspěvky.
-              cancel: zrušení
+              cancel: Zrušit
               ok: Vyjměte návrh spolupráce
               title: Následující akce je nevratná
             success: Kolaborativní návrh byl úspěšně zrušen.
