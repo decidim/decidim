@@ -1065,7 +1065,7 @@ cs:
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
     managed_users:
-      expired_session: Aktuální platnost sesouhlasení již vypršela.
+      expired_session: Aktuální relace správy účastníka vypršela.
     map:
       dynamic:
         screen_reader_explanation: Následující prvek je mapa, která prezentuje položky na této stránce jako mapové body. Prvek lze použít s čtečkou obrazovky, ale může být těžko srozumitelný.
@@ -1207,7 +1207,7 @@ cs:
       unathorized: Je nám líto, tento odkaz již není k dispozici
       update:
         error: Došlo k chybě
-        success: Nastavení Newsletteru bylo úspěšně aktualizováno
+        success: Nastavení Zpravodaje bylo úspěšně aktualizováno
     newsletters_opt_in_mailer:
       notify:
         body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. S novým obecným nařízením o ochraně osobních údajů (GDPR) ze dne 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme vaše "OK" pro pokračování v zasílání relevantních informací o aktivitách %{organization_name}.
@@ -1368,7 +1368,7 @@ cs:
           manage_user_group_admins: Spravovat správce
           manage_user_group_users: Spravovat členy
           message: Zpráva
-        confirmation_instructions_sent: Byly odeslány pokyny pro potvrzení e-mailu
+        confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány
         create_user_group: Vytvořit skupinu
         edit_profile: Editovat profil
         edit_user_group: Upravit profil skupiny
@@ -1378,7 +1378,7 @@ cs:
         leave_user_group: Opustit skupinu
         manage_user_group_admins: Správa administrátorů
         manage_user_group_users: Správa členů
-        resend_email_confirmation_instructions: Opakujte e-mailové pokyny k potvrzení
+        resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
     reported_mailer:
       hide:
         hello: Zdravím %{name},
@@ -1842,7 +1842,7 @@ cs:
           title: Nastavení cookies
           toggle: Přepínač %{consent_category}
         warning:
-          all_categories: všechny soubory cookie
+          all_categories: všechny cookie
           change_settings: Změnit nastavení cookie
           consent_required: Abyste mohli vidět tento obsah, musíte povolit %{categories}.
       edit_link:
