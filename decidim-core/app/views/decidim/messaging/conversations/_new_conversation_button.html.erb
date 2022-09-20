@@ -8,10 +8,10 @@
     <%= render "add_conversation_users", object: f, locals: { title: "new title" } %>
 
     <div class="conversation__modal-actions">
-      <button type="button" class="button button__lg button__transparent-secondary" data-dialog-close="conversation">
+      <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="conversation">
         <%= t("decidim.shared.confirm_modal.cancel") %>
       </button>
-      <button type="submit" class="button button__lg button__secondary">
+      <button type="submit" class="button button__sm md:button__lg button__secondary">
         <%= t("next", scope: "decidim.messaging.conversations.index") %>
         <%= icon "arrow-right-line", class: "fill-current" %>
       </button>
