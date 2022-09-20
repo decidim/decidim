@@ -7,10 +7,7 @@ module Decidim
       include Decidim::ComponentPathHelper
 
       def title
-        I18n.t(
-          "decidim.surveys.last_activity.new_survey_at_html",
-          link: participatory_space_link
-        )
+        I18n.t("decidim.surveys.last_activity.new_survey")
       end
 
       def activity_link_path

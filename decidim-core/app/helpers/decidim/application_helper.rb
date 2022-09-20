@@ -8,6 +8,7 @@ module Decidim
     include Decidim::ContextualHelpHelper
     include Decidim::AmendmentsHelper
     include Decidim::CacheHelper
+    include Decidim::RedesignHelper
 
     # Truncates a given text respecting its HTML tags.
     #
@@ -20,7 +21,7 @@ module Decidim
     # Returns a String.
     def html_truncate(text, options = {})
       options[:max_length] = options.delete(:length) || options[:max_length]
-      options[:tail] = options.delete(:separator) || options[:tail] || "..."
+      options[:tail] = options.delete(:separator) || options[:tail] || "…"
       options[:count_tags] ||= false
       options[:count_tail] ||= false
       options[:tail_before_final_tag] = true unless options.has_key?(:tail_before_final_tag)
@@ -100,9 +101,7 @@ module Decidim
     def cell(name, model, options = {}, &)
       options = { context: { current_user: } }.deep_merge(options)
 
-      redesigned_name = redesigned_layout(name)
-      name = redesigned_name if Object.const_defined?("#{redesigned_name}_cell".camelize)
-      super(name, model, options, &)
+      super(redesigned_cell_name(name), model, options, &)
     end
 
     # Public: Builds the URL for the step Call To Action. Takes URL params
