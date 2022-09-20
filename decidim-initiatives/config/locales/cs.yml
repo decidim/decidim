@@ -56,9 +56,9 @@ cs:
   activerecord:
     models:
       decidim/initiative:
-        one: Initativní
+        one: Iniciativa
         few: Iniciativy
-        many: Iniciativy
+        many: Iniciativ
         other: Iniciativy
       decidim/initiative_comittee:
         one: Výbor
@@ -335,7 +335,7 @@ cs:
           all: Vše
           answered: Odpovězeno
           closed: Uzavřeno
-          open: otevřeno
+          open: Otevřeno
           rejected: Nedostatek podpisů
         filter_type_values:
           all: Vše
@@ -567,10 +567,10 @@ cs:
           votes_blocked: Podpis zakázán
         votes_count:
           count:
-            one: PODPIS
-            few: PODPISY
-            many: PODPISY
-            other: PODPISY
+            one: Podpis
+            few: Podpisy
+            many: Podpisů
+            other: Podpisů
           most_popular_initiative: Nejoblíbenější iniciativa
           need_more_votes: Potřebujete další podpisy
       initiatives_mailer:
