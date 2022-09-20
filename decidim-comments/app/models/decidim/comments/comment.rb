@@ -56,8 +56,6 @@ module Decidim
       validate :body_length
       validate :commentable_can_have_comments
 
-      delegate :organization, to: :commentable
-
       scope :not_deleted, -> { where(deleted_at: nil) }
 
       translatable_fields :body
@@ -79,6 +77,10 @@ module Decidim
 
       def self.negative
         where(alignment: -1)
+      end
+
+      def organization
+        commentable&.organization || participatory_space&.organization
       end
 
       def visible?
