@@ -11,60 +11,9 @@
 }
 
 .meeting-filter{
-  @apply w-full rounded border-4 border-background md:border-0;
+  @apply relative;
 
   &__container{
     @apply self-stretch;
-  }
-
-  &__items{
-    @apply flex flex-col gap-2 mx-3.5 py-3.5 md:mx-0 md:px-0 border-t md:border-t-0 border-gray-3 cursor-pointer;
-  }
-
-  // nesting cases
-  &__items &__items{
-    @apply ml-6;
-  }
-
-  > button{
-    @apply flex items-center justify-start gap-2 p-2
-  }
-
-  [data-controls*="panel"]{
-    @apply first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
-
-    & > span{
-      @apply text-gray-2 font-bold;
-    }
-
-    > svg{
-      @apply w-4 h-4 text-gray fill-current;
-    }
-
-    &[aria-expanded="false"] > svg:last-of-type,
-    &[aria-expanded="true"] > svg:first-of-type{
-      @apply hidden;
-    }
-
-    &[aria-expanded="true"] > svg:last-of-type,
-    &[aria-expanded="false"] > svg:first-of-type{
-      @apply block;
-    }
-  }
-
-  :checked + *{
-    @apply bg-background-4;
-
-    svg{
-      @apply text-secondary;
-    }
-
-    span{
-      @apply text-secondary font-semibold;
-    }
-  }
-
-  & + &{
-    @apply mt-8;
   }
 }

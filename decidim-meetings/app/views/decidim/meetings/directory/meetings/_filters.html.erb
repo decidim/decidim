@@ -1,7 +1,7 @@
 <%# = render partial: "decidim/shared/filter_form_help", locals: { skip_to_id: "meetings" } %>
 
-<div class="meeting-filter__container" data-filters data-component="accordion">
-  <%= redesigned_filter_form_for filter, "", class: "meeting-search" do |form| %>
+<%= redesigned_filter_form_for filter, url_for, class: "meeting-filter__container", data: { filters: "", component: "accordion" } do |form| %>
+  <div class="meeting-search">
     <%= form.search_field :title_or_description_cont,
       label: false,
       placeholder: t("decidim.meetings.meetings.filters.search"),
@@ -12,7 +12,7 @@
     <button type="submit" aria-controls="meetings" aria_label="<%= t("decidim.meetings.meetings.filters.search") %>">
       <%= icon "search-line"  %>
     </button>
-  <% end %>
+  </div>
 
   <%
     filters = [];
@@ -30,13 +30,13 @@
   %>
 
   <% filters.each do |f| %>
-    <div class="meeting-filter">
-      <button data-controls="panel-<%= f[0] %>" data-open="true">
+    <div class="meeting-filter filter-container">
+      <button data-controls="panel-dropdown-menu-<%= f[0] %>" data-open="true">
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
         <span><%= t(f[0], scope: f[4]) %></span>
       </button>
-      <%= redesigned_filter_form_for filter, url_for, id: "panel-#{f[0]}", class: "meeting-filter__items" do |form| %>
+      <div id="panel-dropdown-menu-<%= f[0] %>">
         <%= form.send(
             f[1] == "radio" ? "collection_radio_buttons" : "collection_check_boxes",
             f[2],
@@ -46,19 +46,19 @@
         ) do |builder|
               builder.label { builder.send(f[1] == "radio" ? "radio_button" : "check_box", class: "reset-defaults" , hidden: true ) + content_tag(:div, builder.text, class: "filter" ) }
           end %>
-      <% end %>
+      </div>
     </div>
   <% end %>
 
   <%# REDESIGN_PENDING: nested filters are mocked %>
-  <div class="meeting-filter">
+  <div class="meeting-filter filter-container">
     <button data-controls="panel-scope" data-open="true">
       <%= icon "arrow-down-s-line" %>
       <%= icon "arrow-up-s-line" %>
       <span><%= "SCOPE MOCK" %></span>
     </button>
 
-    <form id="panel-scope" class="meeting-filter__items" action="/meetings/meetings" accept-charset="UTF-8" method="get">
+    <div id="panel-scope">
       <input type="hidden" name="filter[with_any_date]" value="" autocomplete="off">
 
       <label for="no-childs">
@@ -80,14 +80,14 @@
         <div class="filter">
           <%= icon "calendar-2-line" %>
           <span>One nesting level</span>
-          <button data-controls="panel-one-nest" onclick="event.preventDefault()">
+          <button data-controls="panel-dropdown-menu-one-nest" onclick="event.preventDefault()">
             <%= icon "arrow-down-s-fill" %>
             <%= icon "arrow-up-s-fill" %>
           </button>
         </div>
       </label>
 
-      <div id="panel-one-nest" class="meeting-filter__items">
+      <div id="panel-dropdown-menu-one-nest">
         <label for="one-child-1">
           <input
             class="reset-defaults" type="checkbox" value="upcoming" checked="checked" name="filter[with_any_date]"
@@ -125,7 +125,7 @@
         </div>
       </label>
 
-      <div id="panel-multi-nest" class="meeting-filter__items">
+      <div id="panel-multi-nest">
         <label for="multi-nest-1">
           <input
             class="reset-defaults" type="checkbox" value="upcoming" checked="checked" name="filter[with_any_date]"
@@ -141,7 +141,7 @@
           </div>
         </label>
 
-        <div id="panel-multi-nest-1" class="meeting-filter__items">
+        <div id="panel-multi-nest-1">
           <label for="multi-nest-1-1">
             <input
               class="reset-defaults" type="checkbox" value="past" name="filter[with_any_date]"
@@ -179,7 +179,7 @@
           </div>
         </label>
 
-        <div id="panel-multi-nest-2" class="meeting-filter__items">
+        <div id="panel-multi-nest-2">
           <label for="multi-nest-2-1">
             <input
               class="reset-defaults" type="checkbox" value="past" name="filter[with_any_date]"
@@ -202,6 +202,7 @@
           </label>
         </div>
       </div>
-    </form>
+    </div>
   </div>
-</div>
+
+<% end #end_form %>
