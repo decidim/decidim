@@ -50,7 +50,17 @@ class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeVa
   #
   # @see ActiveModel::Validations::FileContentTypeValidator#mark_invalid
   def mark_invalid(record, attribute, error, option_types)
-    allowed_extensions = Decidim.organization_settings(record).upload_allowed_file_extensions if error == :allowed_file_content_types
+    allowed_extensions = nil
+    if error == :allowed_file_content_types
+      uploader = record.attached_uploader(attribute) if record.respond_to?(:attached_uploader)
+      allowed_extensions =
+        # Note that this may be a private method in some uploaders.
+        if uploader && uploader.respond_to?(:extension_allowlist, true)
+          uploader.send(:extension_allowlist)
+        else
+          Decidim.organization_settings(record).upload_allowed_file_extensions
+        end
+    end
     mark_invalid_original(record, attribute, error, invalid_types(option_types, allowed_extensions))
   end
 end
