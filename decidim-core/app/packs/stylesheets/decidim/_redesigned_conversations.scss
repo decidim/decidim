@@ -3,6 +3,14 @@
     @apply divide-y divide-gray-3;
   }
 
+  &__aside{
+    @apply w-full flex md:flex-col items-start justify-between gap-4 md:gap-8;
+
+    &-actions{
+      @apply flex flex-row md:flex-col gap-2 md:gap-8 items-center md:items-start;
+    }
+  }
+
   &__item{
     @apply flex items-center justify-between gap-4 py-4 first:pt-0 last:pb-0;
 
