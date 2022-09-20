@@ -93,7 +93,9 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
     end
 
     it "update a participatory process without images does not delete them" do
-      click_link translated(participatory_process3.title)
+      within find("tr", text: translated(participatory_process3.title)) do
+        click_link "Configure"
+      end
       click_submenu_link "Info"
       click_button "Update"
 
