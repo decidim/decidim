@@ -819,6 +819,7 @@ fi-pl:
     forms:
       current_image: Nykyinen kuva
       default_image: Oletuskuva
+      emoji_chooser: Valitse emoji
       errors:
         decidim/user:
           password: Salasana on liian lyhyt.
@@ -1093,6 +1094,9 @@ fi-pl:
           next: Seuraava
           no_conversations: Sinulla ei vielä ole keskusteluja
           title: Keskustelut
+        reply_form:
+          placeholder: Vastauksesi...
+          send: Lähetä
         show:
           back: Takaisin kaikkiin keskusteluihin
           chat_with: Keskustelu osallistujien kanssa
@@ -1100,6 +1104,7 @@ fi-pl:
           not_allowed: Tämä osallistuja ei halua vastaanottaa yksityisviestejä.
           title: 'Keskustelu: %{usernames}'
         start:
+          placeholder: Viestisi...
           send: Lähetä
         update:
           error: Viestiä ei lähetetty virheen takia
