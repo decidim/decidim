@@ -14,27 +14,45 @@ module Decidim
       delegate :current_component, :component_settings, to: :controller
 
       def show
-        return if results_count.zero?
+        return if results_count&.zero? || progress.blank?
 
         render
       end
 
       private
 
+      def scope
+        current_scope.presence
+      end
+
       def url
         options[:url]
       end
 
       def title
-        translated_attribute(model.name)
+        if model.is_a? Decidim::Category
+          translated_attribute(model.name)
+        else
+          options[:title]
+        end
       end
 
       def results_count
-        @results_count ||= count_calculator(current_scope, model.id)
+        @results_count ||= if model.is_a? Decidim::Category
+                             count_calculator(scope, model.id)
+                           else
+                             options[:count]
+                           end
       end
 
       def progress
-        progress_calculator(current_scope, model.id).presence
+        if model.is_a? Decidim::Category
+          progress_calculator(scope, model.id).presence
+        elsif model.respond_to?(:progress)
+          model.progress
+        else
+          options[:progress] || progress_calculator(scope, nil).presence
+        end
       end
 
       def extra_classes
