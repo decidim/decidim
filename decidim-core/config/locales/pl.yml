@@ -1037,8 +1037,6 @@ pl:
           modal_title: Nowa konwersacja
           no_results: Brak wyników
           participant_with_disabled_message_reception: Ten uczestnik wyłączył odbiór wiadomości
-        conversation:
-          show: Pokaż rozmowę z %{sender}
         create:
           error: Rozmowa nie rozpoczęła się. Spróbuj ponownie później
         error_modal:
@@ -1048,18 +1046,10 @@ pl:
           ok: ok
         index:
           ago: temu
-          close: Zamknij okno
-          from: Od
-          groups: Moje grupy
-          last_message: Ostatnia wiadomość
           new_conversation: Nowa konwersacja
           next: Dalej
           no_conversations: Nie masz jeszcze żadnych konwersacji
           title: Konwersacje
-        reply:
-          placeholder: Twoja odpowiedź...
-          send: Wyślij
-          title: Odpowiedz
         show:
           back: Powrót do wszystkich konwersacji
           chat_with: Konwersacja z
@@ -1067,7 +1057,6 @@ pl:
           title: Konwersacja z %{usernames}
         start:
           send: Wyślij
-          title: Zacznij konwersację
         update:
           error: Wiadomość nie została wysłana z powodu błędu
     metrics:
