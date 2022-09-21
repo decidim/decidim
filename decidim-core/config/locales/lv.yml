@@ -828,24 +828,15 @@ lv:
           error: Saruna nav sākusies. Pamēģiniet vēlreiz vēlāk
         index:
           ago: pirms
-          close: Aizvērt modal
-          from: "No"
-          groups: Manas grupas
-          last_message: Pēdējā ziņa
           new_conversation: Jauna saruna
           next: Nākamais
           no_conversations: Jums vēl nav sarunu
           title: Sarunas
-        reply:
-          placeholder: Jūsu atbilde...
-          send: Sūtīt
-          title: Atbildēt
         show:
           chat_with: Saruna ar
           title: Saruna ar %{usernames}
         start:
           send: Sūtīt
-          title: Sākt sarunu
     metrics:
       followers:
         description: Dalībnieku skaits, kas seko šai līdzdalības telpai
