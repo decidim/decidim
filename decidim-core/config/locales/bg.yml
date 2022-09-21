@@ -826,24 +826,15 @@ bg:
           error: Разговора не започна. Опитайте по-късно
         index:
           ago: преди
-          close: Затвори прозорчето
-          from: Oт
-          groups: Моите Групи
-          last_message: Последно съобщение
           new_conversation: Нов разговор
           next: Напред
           no_conversations: Все още нямате разговори
           title: Разговори
-        reply:
-          placeholder: Вашият отговор...
-          send: Изпрати
-          title: Отговори
         show:
           chat_with: Разговор с
           title: Разговор с %{usernames}
         start:
           send: Изпрати
-          title: Започнете разговор
     metrics:
       followers:
         description: Брой участници, които следват това пространство
