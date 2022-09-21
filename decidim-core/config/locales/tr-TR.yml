@@ -911,8 +911,6 @@ tr:
           modal_title: Yeni görüşme
           no_results: Sonuç bulunamadı
           participant_with_disabled_message_reception: Bu katılımcı mesaj alımını devre dışı bıraktı
-        conversation:
-          show: '%{sender} ile görüşmeleri göster'
         create:
           error: Konuşma başlamadı. Daha sonra tekrar deneyin
         error_modal:
@@ -922,25 +920,16 @@ tr:
           ok: OK
         index:
           ago: önce
-          close: Pencereyi kapat
-          from: Gönderen
-          groups: Gruplarım
-          last_message: Son mesaj
           new_conversation: Yeni görüşme
           next: Sonraki
           no_conversations: Henüz konuşma yok
           title: Konuşmalar
-        reply:
-          placeholder: Cevabınız...
-          send: Gönder
-          title: Cevapla
         show:
           back: Tüm görüşmelere dön
           chat_with: ile görüşme
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
-          title: Bir görüşme başlat
         update:
           error: Bir hata nedeniyle mesaj gönderilemedi
     metrics:
