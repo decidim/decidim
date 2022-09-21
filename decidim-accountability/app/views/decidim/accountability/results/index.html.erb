@@ -35,14 +35,16 @@
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-
-  <%# REDESIGN_PENDING: This content is a mock %>
-  <h2 class="h4"><%= "Title of this current_scope" %></h2>
-  <div class="editor-content mt-4"><%= "Intro of this current_scope" %></div>
+  <% if category.present? %>
+    <h2 class="h4"><%= translated_attribute category.name %></h2>
+    <div class="editor-content mt-4"><%= translated_attribute(category.description).html_safe %></div>
+  <% else %>
+    <h2 class="h4"><%= t("decidim.accountability.results.home_header.global_status") %></h2>
+  <% end %>
 
   <div id="results" class="my-20">
-    <%= render partial: "list", locals: { results: results, total_count: results.total_count } %>
+    <%# <%= render partial: "list", locals: { results: results, total_count: results.total_count } %1> %>
+    <%= cell "decidim/accountability/results", results %>
     <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
   </div>
-
 <% end %>

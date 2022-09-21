@@ -1,68 +1,37 @@
-<%
-  tabs = []
-  panels = []
-
-  if result.children.any?
-    tabs << ["list", t("decidim.accountability.results.timeline.title"), "route-line"] if result.timeline_entries.any?
-    panels << ["list", { results: result.children }]
-  else
-    tabs << ["project_timeline", t("decidim.accountability.results.timeline.title"), "route-line"] if result.timeline_entries.any?
-    tabs << ["included_proposals", t("activemodel.attributes.result.proposals"), "chat-new-line"]
-    tabs << ["included_projects", t("activemodel.attributes.result.project_ids"), "git-pull-request-line"]
-    tabs << ["included_meetings", t("activemodel.attributes.result.meetings_ids"), "treasure-map-line"]
-    panels << ["project_timeline", { result: result }] if result.timeline_entries.any?
-    panels << ["included_proposals", {}]
-    panels << ["included_projects", {}]
-    panels << ["included_meetings", {}]
-  end
-%>
-
 <%# REDESIGN_PENDING: Remove the mock content once integrated in the index view %>
 <!-- MOCK CONTENT -->
-<div class="container">
-  <button class="button button__lg button__primary" data-drawer-open>Trigger</button>
-</div>
+<%# <div class="container"> %>
+<%#   <button class="button button__lg button__primary" data-drawer-open>Trigger</button> %>
+<%# </div> %>
 <!-- end MOCK CONTENT -->
 
 <% content_for :aside do %>
-
   <div class="accountability__project-aside">
-    <%= render partial: "project_aside", locals: { result: result } %>
-  </div>
+    <% if component_settings.display_progress_enabled? %>
+      <%= cell(
+        "decidim/accountability/status",
+        result,
+        title: t("models.result.fields.progress", scope: "decidim.accountability"),
+        extra_classes: "accountability__status__project"
+      ) %>
+  <% end %>
 
+  <%= cell("decidim/accountability/result", result) %>
+  </div>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/drawer" , locals: { next: "https://www.." , prev: "https://www.." } do %>
-
-  <h2 class="h2 decorator"><%= translated_attribute result.title %></h2>
-
-  <div class="editor-content mt-8">
-    <%== translated_attribute result.description %>
-  </div>
-
-  <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
-    <ul class="tab-x-container">
-      <% tabs.each_with_index do |tab, i| %>
-        <li class="tab-x" data-controls="panel-<%= tab[0] %>" data-open="<%= "true" if i == 0 %>"><%= icon tab[2], class: "text-gray fill-current" %><%= tab[1] %></li>
-      <% end %>
-    </ul>
-
-    <% panels.each do |panel| %>
-      <div id="panel-<%= panel[0] %>" class="py-8">
-        <%= render partial: panel[0], locals: panel[1] %>
-      </div>
-    <% end %>
-  </div>
+<%# REDESIGN_PENDING: Resolve the drawer feature using turbo %>
+<%# <%= render layout: "layouts/decidim/shared/drawer" , locals: { next: "https://www.." , prev: "https://www.." } do %1> %>
+  <%= cell("decidim/accountability/project", result) %>
 
   <div class="mt-8 accountability__project-actions">
     <%# REDESIGN_PENDING: integrate button %>
     <button class="button button__sm button__transparent-secondary">
-      Comment
+      <%= t(:comment, scope: "decidim.components.accountability.actions") %>
       <%= icon "chat-1-line", class: "fill-current flex-none" %>
     </button>
     <%= cell "decidim/tags", result %>
   </div>
 
   <%= comments_for result %>
-
-<% end %>
+<%# <% end %1> %>

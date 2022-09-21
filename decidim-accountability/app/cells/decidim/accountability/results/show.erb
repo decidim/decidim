@@ -1,5 +1,5 @@
 <% results.each do |result| %>
-  <%= link_to result, class: "accountability__result" do %>
+  <%= link_to resource_locator(result).path, class: "accountability__result" do %>
     <div class="accountability__result-details-container">
       <h3 class="h5 text-secondary">
         <%= translated_attribute result.title %>
