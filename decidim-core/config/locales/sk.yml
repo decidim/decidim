@@ -821,15 +821,12 @@ sk:
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply:
-          placeholder: Vaša odpoveď...
           send: Poslat
-          title: Odpověď
         show:
           chat_with: Konverzácia s
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
-          title: Spusťte konverzaci
     metrics:
       followers:
         description: Počet účastníkov, ktorí sledujú tento participatívny priestor
