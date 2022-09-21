@@ -935,8 +935,6 @@ pt-BR:
           modal_title: Nova conversa
           no_results: Nenhum resultado
           participant_with_disabled_message_reception: Este usuário desativou o recebimento de mensagens
-        conversation:
-          show: Mostrar conversa com %{sender}
         create:
           error: Conversa não iniciada. Tente mais tarde
         error_modal:
@@ -946,18 +944,10 @@ pt-BR:
           ok: OK
         index:
           ago: atrás
-          close: Fechar modal
-          from: De
-          groups: Meus grupos
-          last_message: Última mensagem
           new_conversation: Nova conversa
           next: Próxima
           no_conversations: Ainda não há conversas
           title: Conversas
-        reply:
-          placeholder: Sua resposta...
-          send: Mandar
-          title: Resposta
         show:
           back: Voltar para todas as conversas
           chat_with: Conversa com
@@ -965,7 +955,6 @@ pt-BR:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-          title: Comece uma conversa
         update:
           error: A mensagem não foi enviada devido a um erro
     metrics:
