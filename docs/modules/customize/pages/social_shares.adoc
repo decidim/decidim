@@ -1,14 +1,6 @@
 = Social shares services
 
-Starting with the v0.27.0, you have the following social shares services that you can enable.
-
-== Configuration
-
-By using the `DECIDIM_SOCIAL_SHARE_SERVICES` environment variable, you can enable snervices:
-
-The format of this is like this "Facebook, Twitter".
-
-The possible services that you can enable are:
+Starting with the v0.27.0, you have the following social shares services that you can enable:
 
 * Douban
 * Email
@@ -24,6 +16,17 @@ The possible services that you can enable are:
 * Vkontakte
 * WhatsApp
 * Xing
+
+== Configuration
+
+You can enable the social shares services by using the `DECIDIM_SOCIAL_SHARE_SERVICES` environment variable.
+
+The format of this variable is as follows
+
+[source,console]
+----
+DECIDIM_SOCIAL_SHARE_SERVICES="Facebook, Twitter"
+----
 
 NOTE: Services names are case sensitive.
 
