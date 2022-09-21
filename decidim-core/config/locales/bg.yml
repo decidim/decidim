@@ -851,7 +851,7 @@ bg:
           title: Разговор с %{usernames}
         start:
           send: Изпрати
-          title: Започнете разговор
+          title: Започни разговор
     metrics:
       followers:
         description: Брой участници, които следват това пространство
