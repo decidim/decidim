@@ -1080,8 +1080,6 @@ fi-pl:
           modal_title: Uusi keskustelu
           no_results: Ei tuloksia
           participant_with_disabled_message_reception: Tämä osallistuja on estänyt itseltään viestien vastaanottamisen
-        conversation:
-          show: Näytä keskustelu henkilöiden %{sender} kanssa
         create:
           error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         error_modal:
@@ -1091,19 +1089,10 @@ fi-pl:
           ok: OK
         index:
           ago: sitten
-          close: Sulje ikkuna
-          from: Lähettäjältä
-          groups: Omat ryhmäni
-          last_message: Viimeisin viesti
           new_conversation: Uusi keskustelu
           next: Seuraava
           no_conversations: Sinulla ei vielä ole keskusteluja
           title: Keskustelut
-          to: Vastaanottaja
-        reply:
-          placeholder: Vastauksesi...
-          send: Lähetä
-          title: Vastaa
         show:
           back: Takaisin kaikkiin keskusteluihin
           chat_with: Keskustelu osallistujien kanssa
@@ -1112,7 +1101,6 @@ fi-pl:
           title: 'Keskustelu: %{usernames}'
         start:
           send: Lähetä
-          title: Aloita keskustelu
         update:
           error: Viestiä ei lähetetty virheen takia
     metrics:
