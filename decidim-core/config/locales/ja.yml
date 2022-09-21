@@ -1063,8 +1063,6 @@ ja:
           modal_title: 新しい会話
           no_results: 結果がありません
           participant_with_disabled_message_reception: この参加者はメッセージの受信を無効にしています
-        conversation:
-          show: '%{sender} との会話を表示'
         create:
           error: 会話が開始されませんでした。後でもう一度お試しください。
         error_modal:
@@ -1074,19 +1072,10 @@ ja:
           ok: OK
         index:
           ago: 前
-          close: モーダルを閉じる
-          from: '差出人:'
-          groups: 自分のグループ
-          last_message: 最後のメッセージ
           new_conversation: 新しい会話
           next: 次へ
           no_conversations: 会話がまだありません
           title: 会話
-          to: 宛先
-        reply:
-          placeholder: あなたの返信...
-          send: 送信
-          title: 返信
         show:
           back: すべての会話に戻る
           chat_with: 会話
@@ -1095,7 +1084,6 @@ ja:
           title: '%{usernames} との会話'
         start:
           send: 送信
-          title: 会話を開始
         update:
           error: エラーのためメッセージは送信されませんでした
     metrics:
