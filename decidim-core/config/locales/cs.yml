@@ -1121,8 +1121,6 @@ cs:
           modal_title: Nová konverzace
           no_results: Žádné výsledky
           participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv
-        conversation:
-          show: Zobrazit konverzaci s %{sender}
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         error_modal:
@@ -1132,19 +1130,10 @@ cs:
           ok: OK
         index:
           ago: před
-          close: Zavřít okno
-          from: Od
-          groups: Moje skupiny
-          last_message: Poslední zpráva
           new_conversation: Nová konverzace
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
-          to: Komu
-        reply:
-          placeholder: Vaše odpověď...
-          send: Poslat
-          title: Odpověď
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
@@ -1153,7 +1142,6 @@ cs:
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
-          title: Spusťte konverzaci
         update:
           error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
