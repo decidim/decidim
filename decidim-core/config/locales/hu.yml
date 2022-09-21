@@ -992,8 +992,6 @@ hu:
           modal_title: Új beszélgetés
           no_results: Nincs eredmény
           participant_with_disabled_message_reception: Ez a résztvevő letiltotta az üzenetek fogadását
-        conversation:
-          show: Beszélgetés megjelenítése vele %{sender}
         create:
           error: A beszélgetés megakadt. Próbáld újra később
         error_modal:
@@ -1003,19 +1001,10 @@ hu:
           ok: OK
         index:
           ago: óta
-          close: Modal bezárása
-          from: Feladó
-          groups: Csoportjaim
-          last_message: Utolsó üzenet
           new_conversation: Új beszélgetés
           next: Következő
           no_conversations: Még nincsenek beszélgetések
           title: Beszélgetések
-          to: Címzett
-        reply:
-          placeholder: A válaszod...
-          send: Elküld
-          title: Válasz
         show:
           back: Vissza az összes beszélgetéshez
           chat_with: Beszélgetés vele
@@ -1024,7 +1013,6 @@ hu:
           title: 'Beszélgetés vele: %{usernames}'
         start:
           send: Küldés
-          title: Beszélgetés indítása
         update:
           error: Hiba folytán nem került kiküldésre az üzenet
     metrics:
