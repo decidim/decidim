@@ -89,7 +89,7 @@ cs:
           fields:
             created_at: Vytvořeno v
             file_upload_settings: Nastavení nahrávání souborů
-            name: název
+            name: Název
             omniauth_settings: Nastavení Omniauth
             smtp_settings: SMTP nastavení
           name: Organizace
