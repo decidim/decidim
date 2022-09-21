@@ -969,8 +969,6 @@
           modal_title: Ny Samtale
           no_results: Ingen resultater
           participant_with_disabled_message_reception: Denne deltakeren har fjernet muligheten for å sende melding
-        conversation:
-          show: Vis samtale med %{sender}
         create:
           error: Samtalen har ikke startet. Prøv igjen senere
         error_modal:
@@ -980,19 +978,10 @@
           ok: Ok
         index:
           ago: siden
-          close: Lukk modal
-          from: Fra
-          groups: Mine grupper
-          last_message: Siste melding
           new_conversation: Ny samtale
           next: Neste
           no_conversations: Du har ingen samtaler ennå
           title: Samtaler
-          to: Til
-        reply:
-          placeholder: Ditt svar...
-          send: Send
-          title: Svar
         show:
           back: Tilbake til alle samtaler
           chat_with: Samtale med
@@ -1001,7 +990,6 @@
           title: Samtale med %{usernames}
         start:
           send: Send
-          title: Start en samtale
         update:
           error: Meldingen ble ikke sendt på grunn av en feil
     metrics:
