@@ -9,11 +9,13 @@
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.components.accountability.name") %></h1>
 
-  <%= render partial: "status", locals: {
-    title: t("decidim.accountability.results.home_header.global_status"),
-    progress: progress_calculator(current_scope, nil).present? && progress_calculator(current_scope, nil),
-    extra_classes: "accountability__status__home"
-  } %>
+  <%= cell(
+        "decidim/accountability/status",
+        nil,
+        title: t("decidim.accountability.results.home_header.global_status"),
+        progress: progress_calculator(current_scope, nil).presence,
+        extra_classes: "accountability__status__home"
+      ) %>
 
   <% if current_component.has_subscopes? %>
     <%= render partial: "scope_filters" %>

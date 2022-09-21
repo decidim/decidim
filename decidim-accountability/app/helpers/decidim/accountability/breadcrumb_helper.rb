@@ -22,6 +22,12 @@ module Decidim
 
         @category ||= current_participatory_space.categories.find(category_id.is_a?(Array) ? category_id.first : category_id)
       end
+
+      def categories_hierarchy
+        return [] if category.blank?
+
+        [*category.parent.presence, category]
+      end
     end
   end
 end

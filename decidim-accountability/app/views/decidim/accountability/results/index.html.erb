@@ -10,26 +10,24 @@
   <h1 class="h1 decorator"><%= t("decidim.components.accountability.name") %></h1>
 
   <div class="accountability__status-container">
-    <%# REDESIGN_PENDING: variables mocked for the current_scope's parent %>
-    <%= render partial: "status", locals: {
-      url: "",
-      title: t("decidim.accountability.results.home_header.global_status"),
-      progress: false,
-      extra_classes: "accountability__status__parent"
-    } %>
-
-    <div>
-      <svg width="24" height="43" viewBox="0 0 24 43" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-tertiary">
-        <path d="M23.6979 35.6924C24.0211 36.0156 24.0211 36.5396 23.6979 36.8628L18.4312 42.1296C18.108 42.4527 17.5841 42.4527 17.2608 42.1296C16.9376 41.8064 16.9376 41.2824 17.2608 40.9592L21.9424 36.2776L17.2608 31.5961C16.9376 31.2729 16.9376 30.7489 17.2608 30.4257C17.584 30.1025 18.108 30.1025 18.4312 30.4257L23.6979 35.6924ZM2.4247 0V20.9346H0.769531V0.000447832L2.4247 0ZM16.9402 35.45H23.1127V37.1052H16.9402V35.45ZM2.4247 20.9346C2.4247 28.9512 8.92354 35.45 16.9402 35.45V37.1052C8.00938 37.1052 0.769531 29.8654 0.769531 20.9346H2.4247Z" fill="currentColor" />
-      </svg>
-      <%# REDESIGN_PENDING: variables mocked for the current_scope %>
-      <%= render partial: "status", locals: {
-        title: "Title of this current_scope",
-        progress: 20,
-        count: results.total_count > 0 && display_count(results.total_count),
-        extra_classes: "accountability__status__child"
-      } %>
-    </div>
+    <%= cell(
+          "decidim/accountability/status",
+          nil,
+          url: results_path,
+          title: t("decidim.accountability.results.home_header.global_status"),
+          extra_classes: "accountability__status__parent"
+        ) %>
+    <% categories_hierarchy.each do |category| %>
+      <div>
+        <%= external_icon "media/images/breadcrumb_arrow.svg" %>
+        <%= cell(
+              "decidim/accountability/status",
+              category,
+              extra_classes: "accountability__status__child",
+              url: results_path(filter: { with_category: category, with_scope: current_scope })
+            ) %>
+      </div>
+    <% end %>
   </div>
 
   <%= render partial: "scope_filters" if current_component.has_subscopes? %>
