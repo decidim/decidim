@@ -860,6 +860,7 @@ cs:
     forms:
       current_image: Aktuální obrázek
       default_image: Výchozí obrázek
+      emoji_chooser: Vybrat emoji
       errors:
         decidim/user:
           password: Heslo je příliš krátké.
@@ -1134,6 +1135,9 @@ cs:
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
+        reply_form:
+          placeholder: Vaše odpověď...
+          send: Odeslat
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
