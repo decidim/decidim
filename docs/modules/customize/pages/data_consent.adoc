@@ -15,7 +15,7 @@ By default there are four (4) data consent categories: **essential**, **preferen
 The recommended place for scripts is ```app/views/layouts/decidim/_head_extra.html.erb```.
 For example, if you want to add a script that requires marketing consent, you can add the following code:
 
-[source,javascript]
+[source,html]
 ----
 <script type="text/plain" data-consent="marketing">
   console.log("marketing data consent given");
