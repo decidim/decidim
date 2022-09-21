@@ -13,12 +13,18 @@ module Decidim
       delegate :start_date, :end_date, :status, :category, :parent, to: :model
 
       def show
-        render
+        render template
       end
 
       private
 
+      def template
+        @template ||= options[:template] || :show
+      end
+
       def items
+        return [dates_item_compact, category_item].compact if template == :list
+
         [dates_item, status_item, status_description].compact
       end
 
