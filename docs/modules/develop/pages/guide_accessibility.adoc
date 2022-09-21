@@ -65,13 +65,21 @@ Sometimes it may be tempting to create a button element just by using a `<div>` 
 
 ==== Accessibility labels
 
-Always provide accessibility labels on the elements to make them easier to use with assistive technologies. Here are few tips regarding these labels:
+Always when defining elements, make sure they make sense for screen reader users. When you write "read more", the screen reader user might ask you "read more about what?". People who can see the page visually can easily associate the word "more" to the item it is visually associated with but this does not apply to screen reader users. When you have a visual control which allows you e.g. to add a project to your vote and it is indicated with an icon without a label, the screen reader user will hear the SVG <title> element "check".
+
+When creating new elements, always think that some people may not be able to see them with their eyes. Always provide accessibility labels on the elements to make them easier to use with assistive technologies. Here are few tips regarding these labels:
 
 * When adding images using the `<img>` tag, always provide an alternative text using the `alt="..."` attribute.
 * When providing buttons without any text inside them, such as `[X]` or `[🔍]`, always provide an accessibility label for those buttons using the `aria-label="..."` attribute.
 * Complex elements that have a lot of information or functionality inside them (such as cards with a lot of information) should be correctly labelled using the `aria-label="..."` attribute. Most of the times such elements should be also marked with the correct landmark role, which is often "region" in these cases. This is particularly important if the card element has some functionality inside it, such as "liking" something, as the landmark role indicates what you are performing the action against.
 
 If you embed `<svg>` images on the website, those embedded images should have a translated `<title>` element inside them that describes the SVG for those users who are unable to see the image. Note that many times the `<title>` element in the SVGs that you download from the internet may just be a technical name for that element or written in English. If you embed such elements on the page, the `<title>` element should be always translated to the user's language. If you find this hard to implement, do not embed the SVG on the page and use an `<img>` element instead with the alternative text indicated with the `alt="..."` attribute. Also note that if you use SVGs for icons, most of the times these icons can be hidden from assistive technologies completely when you don't necessarily need to add the translated `<title>` to those images.
+
+For more information, refer to:
+https://www.w3.org/TR/WCAG21/#non-text-content
+https://www.w3.org/TR/WCAG21/#focus-order
+https://www.w3.org/TR/WCAG21/#link-purpose-in-context
+https://www.w3.org/TR/WCAG21/#headings-and-labels
 
 ==== Adjacent links for the same resource
 
@@ -111,6 +119,20 @@ This way you would only provide a single link to the same resource instead of th
 For more information, refer to:
 https://www.w3.org/WAI/WCAG21/Techniques/html/H2
 
+==== Dynamic functionality changes the page context unintuitively
+
+Changes in the form inputs should not change the context of the page automatically. By default, dynamic filtering is forbidden by the accessibility criteria. If you explain such functionality in advance (i.e. advice the user), it is allowed.
+
+In other words this means that forms that provide filtering capabilities on the page, should either:
+
+a. Provide explanation above the form for screen reader users and normal seeing users what happens if the user changes any of the filtering inputs on the form.
+b. Provide a "Search" button which performs the search after the user purposefully clicks that button knowing it will perform filtering on the page.
+
+Also note that similar guidelines apply to any elements that dynamically change the page in some way, including accordion elements, dropdown menus, popup elements, etc. Make sure to always indicate the dynamic functionaltiy with the correct ARIA attributes as explained in the section that follows.
+
+For more information, refer to:
+https://www.w3.org/TR/WCAG21/#on-input
+
 ==== Utilize ARIA attributes where possible
 
 Many elements that provide interactive functionality on the website require ARIA attributes on them to make them accessible. A couple of example of such cases include:
@@ -149,6 +171,13 @@ The automated accessibility auditing tools only cover about 50% of the total acc
 === Valid HTML
 
 Always ensure the web pages have valid HTML. You can test this by copying at the source of the page and pasting it into the https://validator.w3.org/#validate_by_input[HTML validator tool].
+
+Some general guidelines for making the page content valid HTML:
+
+- The page should always have only one `<main>` element and one only. Avoid using this element in the partials and sub-views if the layout already wraps the page contents into this element.
+- Use the `<section>` element with caution but when you decide to use it, ensure it has an identifying heading element (h2-h6).
+- Use the `<article>` element with caution but when you decide to use it, ensure that you are semantically defining an article level content. For example, a proposal **card** or a blog article **teaser** are not semantically articles that define "A complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication." If you are using an `<article>` tag, ensure you are describing the full content of the article and also defining the heading element inside the article (see same issue for `<section>` element).
+- When defining an ID attribute for the elements, ensure the values of those attributes are unique on the page. E.g. when a filtering form is doubled for desktop and mobile, the doubled filtering control inside that form needs to have a unique ID in both of its parent elements. So if you are e.g. repeating the same partial multiple times on the page, make sure any ID attributes it contains are always unique in each instance of the generated HTML.
 
 === Accessibility tests
 
