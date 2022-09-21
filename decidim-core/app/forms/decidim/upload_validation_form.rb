@@ -76,17 +76,14 @@ module Decidim
     # are added to, e.g. proposals (participant contenxt) or participatory
     # processes (admin context). Unfortunately this information is not available
     # when the parameters are passed to the upload validation.
-    class AttachmentContextProxy < SimpleDelegator
-      attr_reader :attachment_context
+    class AttachmentContextProxy
+      attr_reader :organization, :attachment_context
+
+      delegate :id, :_read_attribute, to: :organization
 
       def initialize(organization, attachment_context)
-        super(organization)
-
+        @organization = organization
         @attachment_context = attachment_context
-      end
-
-      def organization
-        __getobj__
       end
 
       def self.primary_key
