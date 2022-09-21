@@ -1060,8 +1060,6 @@ de:
           modal_title: Neue Unterhaltung
           no_results: Keine Ergebnisse
           participant_with_disabled_message_reception: Dieser Teilnehmer hat Nachrichten deaktiviert
-        conversation:
-          show: Gespräch mit %{sender} anzeigen
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         error_modal:
@@ -1071,19 +1069,10 @@ de:
           ok: OK
         index:
           ago: vor
-          close: Modal schließen
-          from: Von
-          groups: Meine Gruppen
-          last_message: Letzte Nachricht
           new_conversation: Neue Unterhaltung
           next: Weiter
           no_conversations: Du hast noch keine Unterhaltungen
           title: Nachrichten
-          to: An
-        reply:
-          placeholder: Ihre Antwort...
-          send: Senden
-          title: Antworten
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
@@ -1092,7 +1081,6 @@ de:
           title: Gespräch mit %{usernames}
         start:
           send: Senden
-          title: Ein Gespräch beginnen
         update:
           error: Nachricht wurde aufgrund eines Fehlers nicht gesendet
     metrics:
