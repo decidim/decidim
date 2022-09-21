@@ -929,8 +929,6 @@ eu:
           modal_title: Elkarrizketa berria
           no_results: Emaitzarik ez
           participant_with_disabled_message_reception: Erabiltzaile honek mezuak jasotzea desaktibatu du
-        conversation:
-          show: Erakutsi elkarrizketa honekin %{sender}
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         error_modal:
@@ -940,18 +938,10 @@ eu:
           ok: Ados
         index:
           ago: orain dela
-          close: Itxi leihoa
-          from: Nondik
-          groups: Nire taldeak
-          last_message: Azken mezua
           new_conversation: Elkarrizketa berria
           next: Hurrengoa
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
-        reply:
-          placeholder: Zure erantzuna...
-          send: Bidali
-          title: Erantzun
         show:
           back: Itzuli elkarrizketa guztietara
           chat_with: Elkarrizketa honekin
@@ -959,7 +949,6 @@ eu:
           title: Elkarrizketa honekin %{usernames}
         start:
           send: Bidali
-          title: Hasi elkarrizketa bat
         update:
           error: Mezua ez da bidali akats batengatik
     metrics:
