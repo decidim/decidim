@@ -1145,6 +1145,7 @@ cs:
           not_allowed: Tento uživatel nepřijímá přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
+          placeholder: Vaše zpráva...
           send: Poslat
         update:
           error: Zpráva nebyla odeslána z důvodu chyby
