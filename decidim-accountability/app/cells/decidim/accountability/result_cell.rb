@@ -10,7 +10,7 @@ module Decidim
       include Decidim::TranslationsHelper
       include ActiveSupport::NumberHelper
 
-      delegate :start_date, :end_date, :status, to: :model
+      delegate :start_date, :end_date, :status, :category, :parent, to: :model
 
       def show
         render
@@ -20,6 +20,21 @@ module Decidim
 
       def items
         [dates_item, status_item, status_description].compact
+      end
+
+      def category_item
+        return if inherited_category.blank?
+
+        {
+          text: translated_attribute(inherited_category.name),
+          icon: "price-tag-3-line"
+        }
+      end
+
+      def inherited_category
+        return category if category.present?
+
+        parent&.category
       end
 
       def dates_item
