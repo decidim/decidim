@@ -213,6 +213,8 @@ en:
           global_status: Global execution status
         nav_breadcrumb:
           global: Global execution
+        search:
+          search: Search for actions
         show:
           stats:
             attendees: Attendees
