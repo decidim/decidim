@@ -772,19 +772,13 @@ gl:
         create:
           error: Non se iniciou a conversa. Téntao de novo máis tarde
         index:
-          close: Pechar modal
           no_conversations: Aínda non tes conversas
           title: Conversas
-          to: Para
-        reply:
-          send: Enviar
-          title: Responder
         show:
           deleted_accounts: Non podes manter unha conversa con contas eliminadas.
           title: Conversa con %{usernames}
         start:
           send: Enviar
-          title: Comezar unha conversa
     metrics:
       followers:
         description: Número de usuarios que seguen este espazo de participación
