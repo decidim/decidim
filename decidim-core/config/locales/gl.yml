@@ -767,13 +767,11 @@ gl:
           to: Para
         reply:
           send: Enviar
-          title: Responder
         show:
           deleted_accounts: Non podes manter unha conversa con contas eliminadas.
           title: Conversa con %{usernames}
         start:
           send: Enviar
-          title: Comezar unha conversa
     metrics:
       followers:
         description: Número de usuarios que seguen este espazo de participación
