@@ -940,8 +940,6 @@ it:
           modal_title: Nuova conversazione
           no_results: Nessun risultato
           participant_with_disabled_message_reception: Questo utente ha disabilitato la ricezione dei messaggi
-        conversation:
-          show: Mostra conversazione con %{sender}
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         error_modal:
@@ -951,18 +949,10 @@ it:
           ok: Ok
         index:
           ago: fa
-          close: Chiudi modale
-          from: Da
-          groups: I miei gruppi
-          last_message: Ultimo messaggio
           new_conversation: Nuova conversazione
           next: Successivo
           no_conversations: Non hai ancora conversazioni
           title: Conversazioni
-        reply:
-          placeholder: La tua risposta...
-          send: Inviare
-          title: Rispondi
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
@@ -971,7 +961,6 @@ it:
           title: Conversazione con %{usernames}
         start:
           send: Invia
-          title: Inizia una conversazione
         update:
           error: Messaggio non inviato a causa di un errore
     metrics:
