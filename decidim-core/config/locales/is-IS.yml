@@ -263,7 +263,6 @@ is-IS:
           no_conversations: Þú hefur enga samtöl ennþá
         start:
           send: Senda
-          title: Byrjaðu samtal
     newsletter_mailer:
       newsletter:
         note: Þú fékkst þennan tölvupóst vegna þess að þú ert áskrifandi að fréttabréfinu á %{organization_name}. Þú getur breytt stillingum þínum á <a href="%{link}">tilkynningarsíðunni þinni</a>.
