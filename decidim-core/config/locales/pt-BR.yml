@@ -963,7 +963,7 @@ pt-BR:
           title: Conversas
         reply:
           placeholder: Sua resposta...
-          send: Mandar
+          send: Enviar
           title: Resposta
         show:
           back: Voltar para todas as conversas
@@ -972,7 +972,7 @@ pt-BR:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-          title: Comece uma conversa
+          title: Iniciar uma conversa
         update:
           error: A mensagem não foi enviada devido a um erro
     metrics:
