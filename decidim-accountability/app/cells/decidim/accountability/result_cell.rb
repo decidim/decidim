@@ -22,6 +22,15 @@ module Decidim
         [dates_item, status_item, status_description].compact
       end
 
+      def dates_item_compact
+        return if start_date.blank?
+
+        {
+          text: date_values(format: :decidim_with_month_name_short).join(" -> "),
+          icon: "calendar-todo-line"
+        }
+      end
+
       def category_item
         return if inherited_category.blank?
 
@@ -41,20 +50,22 @@ module Decidim
         return if start_date.blank?
 
         date_title = [
-          *(t("models.result.fields.start_date", scope: "decidim.accountability") if result.start_date),
-          *(t("models.result.fields.end_date", scope: "decidim.accountability") if result.end_date)
-        ].join(" / ")
-
-        date_values = [
-          *(l(result.start_date, format: :decidim_short_with_month_name_short) if result.start_date),
-          *(l(result.end_date, format: :decidim_short_with_month_name_short) if result.end_date)
+          *(t("models.result.fields.start_date", scope: "decidim.accountability") if start_date),
+          *(t("models.result.fields.end_date", scope: "decidim.accountability") if end_date)
         ].join(" / ")
 
         {
           text: date_title,
           icon: "calendar-todo-line",
-          value: date_values
+          value: date_values.join(" / ")
         }
+      end
+
+      def date_values(format: :decidim_short_with_month_name_short)
+        @date_values ||= [
+          *(l(start_date, format:) if start_date),
+          *(l(end_date, format:) if end_date)
+        ]
       end
 
       def status_item
