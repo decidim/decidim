@@ -931,8 +931,6 @@ lb:
           modal_title: Nei Konversatioun
           no_results: Keen Resultat
           participant_with_disabled_message_reception: Dësen Teilnehmer huet Noriichten desaktivéiert
-        conversation:
-          show: Konversatioun mam %{sender} uweisen
         create:
           error: D'Konversatioun gouf net gestart. Probéier méi spéit nach emol
         error_modal:
@@ -942,18 +940,10 @@ lb:
           ok: OK
         index:
           ago: virun
-          close: Modal zou maachen
-          from: Vum
-          groups: Meng Gruppen
-          last_message: Lescht Noriicht
           new_conversation: Nei Konversatioun
           next: Weider
           no_conversations: Du hues nach keng Konversatiounen
           title: Konversatiounen
-        reply:
-          placeholder: Deng Äntwert...
-          send: Senden
-          title: Äntweren
         show:
           back: Zeréck bei all d'Konversatiounen
           chat_with: Konversatioun mat
@@ -961,7 +951,6 @@ lb:
           title: Konversatioun mam %{usernames}
         start:
           send: Senden
-          title: Eng Konversatioun ufänken
         update:
           error: Wéinst engem Feeler konnt d'Noriicht net geschéckt ginn
     metrics:
