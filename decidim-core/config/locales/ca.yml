@@ -1078,8 +1078,6 @@ ca:
           modal_title: Nova conversa
           no_results: No hi ha resultats
           participant_with_disabled_message_reception: Aquesta participant ha desactivat la recepció de missatges
-        conversation:
-          show: Mostrar la conversa amb %{sender}
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         error_modal:
@@ -1089,19 +1087,10 @@ ca:
           ok: D'acord
         index:
           ago: fa
-          close: Tanca modal
-          from: De
-          groups: Els meus grups
-          last_message: Darrer missatge
           new_conversation: Nova conversa
           next: Següent
           no_conversations: Encara no tens converses
           title: Converses
-          to: Per a
-        reply:
-          placeholder: La teva resposta...
-          send: Enviar
-          title: Respon
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
@@ -1110,7 +1099,6 @@ ca:
           title: Conversa amb %{usernames}
         start:
           send: Enviar
-          title: Comença una conversa
         update:
           error: El missatge no ha estat enviat degut a un error
     metrics:
