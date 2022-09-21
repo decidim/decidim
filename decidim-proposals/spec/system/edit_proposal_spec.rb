@@ -104,7 +104,7 @@ describe "Edit proposals", type: :system do
               click_button "Save"
             end
             click_button "Send"
-            expect(page).to have_selector("div.flash.callout.success")
+            expect(page).to have_selector("[data-alert-box].success")
             expect(Decidim::Attachment.count).to eq(2)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title)).to eq(attachment_image_title)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
@@ -130,7 +130,7 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           click_button "Send"
-          expect(page).to have_selector("div.flash.callout.success")
+          expect(page).to have_selector("[data-alert-box].success")
           expect(page).to have_selector(".thumbnail[alt='city']")
           expect(page).to have_selector(".thumbnail[alt='icon']")
           expect(page).to have_selector(".thumbnail[alt='avatar']")

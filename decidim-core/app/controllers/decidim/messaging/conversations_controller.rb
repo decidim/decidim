@@ -9,9 +9,15 @@ module Decidim
 
       helper ConversationHelper
 
+      layout "layouts/decidim/application", force_redesign: true
+
       before_action :authenticate_user!
 
-      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups
+      helper_method :conversation, :user_grouped_messages, :sender_is_user?, :user_groups, :validation_messages
+
+      def redesign_enabled?
+        true
+      end
 
       # Shows the form to initiate a conversation with an user (the recipient)
       # recipient is passed via GET parameter:
@@ -60,6 +66,8 @@ module Decidim
 
         @conversations = UserConversations.for(current_user)
         @form = MessageForm.new
+
+        validation_messages << t("decidim.messaging.conversations.index.no_conversations") if @conversations.blank?
       end
 
       def show
@@ -97,10 +105,15 @@ module Decidim
 
       private
 
+      # deprecated
       def user_groups
         return [] unless current_organization.user_groups_enabled?
 
         current_user.manageable_user_groups
+      end
+
+      def validation_messages
+        @validation_messages ||= []
       end
 
       def conversation

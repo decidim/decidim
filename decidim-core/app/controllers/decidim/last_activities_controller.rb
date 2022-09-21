@@ -35,6 +35,7 @@ module Decidim
       ActionLog
         .where(visibility: %w(public-only all))
         .where(organization: current_organization)
+        .order(created_at: :desc)
     end
 
     def default_filter_params

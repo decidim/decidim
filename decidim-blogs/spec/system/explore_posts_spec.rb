@@ -50,6 +50,18 @@ describe "Explore posts", type: :system do
         expect(page).to have_css("[data-pages] [data-page]", count: 2)
       end
     end
+
+    context "with some unpublished posts" do
+      let!(:unpublished) { create(:post, component:, published_at: 2.days.from_now) }
+      let!(:resource_selector) { "div[data-post]" }
+
+      before { visit_component }
+
+      it "shows only published blogs" do
+        expect(Decidim::Blogs::Post.count).to eq(3)
+        expect(page).to have_css(resource_selector, count: 2)
+      end
+    end
   end
 
   describe "show" do

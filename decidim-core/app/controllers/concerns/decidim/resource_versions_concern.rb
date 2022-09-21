@@ -10,6 +10,10 @@ module Decidim
       helper Decidim::TraceabilityHelper
       helper_method :current_version, :versioned_resource
 
+      def show
+        raise ActionController::RoutingError, "Not found" unless current_version
+      end
+
       private
 
       # Overwrite this method in your controller to define how to find the

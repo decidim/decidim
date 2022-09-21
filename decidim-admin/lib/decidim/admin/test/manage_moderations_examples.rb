@@ -137,6 +137,39 @@ shared_examples "manage moderations" do
         expect(page).to have_no_selector("tr[data-id=\"#{moderation.id}\"]")
       end
     end
+
+    context "when the user changes language" do
+      around do |example|
+        previous_backend = I18n.backend
+        I18n.backend = I18n::Backend::Simple.new
+        example.run
+        I18n.backend = previous_backend
+      end
+
+      before do
+        I18n.backend.store_translations(
+          :ca,
+          activerecord: {
+            models: {
+              moderation.reportable.class.name.underscore.to_sym => {
+                one: "Objecte informable",
+                other: "Objectes informables"
+              }
+            }
+          }
+        )
+
+        within_language_menu do
+          click_link "Català"
+        end
+      end
+
+      it "renders the reportable types in the selected language" do
+        within "tr[data-id=\"#{moderation.id}\"]" do
+          expect(page).to have_content("Objecte informable")
+        end
+      end
+    end
   end
 
   context "when listing hidden resources" do

@@ -1,10 +1,16 @@
+<% content_for :flash_messages do %>
+  <%= display_flash_messages %>
+<% end %>
+
 <div class="layout-2col">
   <div>
     <aside>
       <%= yield :aside %>
     </aside>
-    <main>
+    <% main_tag = redesign_enabled? ? :main : :div %>
+    <%= content_tag main_tag do %>
+      <%= content_for :flash_messages %>
       <%= yield %>
-    </main>
+    <% end %>
   </div>
 </div>
