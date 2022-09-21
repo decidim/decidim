@@ -1004,8 +1004,6 @@ sv:
           modal_title: Nytt samtal
           no_results: Inga resultat
           participant_with_disabled_message_reception: Deltagaren har avaktiverat att ta emot meddelanden
-        conversation:
-          show: Visa konversation med %{sender}
         create:
           error: Konversationen har inte startat. Försök igen senare
         error_modal:
@@ -1015,19 +1013,10 @@ sv:
           ok: OK
         index:
           ago: sedan
-          close: Stäng modal
-          from: Från
-          groups: Mina grupper
-          last_message: Senaste meddelande
           new_conversation: Nytt samtal
           next: Nästa
           no_conversations: Du har inga konversationer än
           title: Samtal
-          to: Till
-        reply:
-          placeholder: Ditt svar...
-          send: Skicka
-          title: Svara
         show:
           back: Tillbaka till alla konversationer
           chat_with: Konversation med
@@ -1036,7 +1025,6 @@ sv:
           title: Samtal med %{usernames}
         start:
           send: Skicka
-          title: Starta en konversation
         update:
           error: Meddelandet skickades inte på grund av ett fel
     metrics:
