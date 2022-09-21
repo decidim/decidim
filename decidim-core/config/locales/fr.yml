@@ -1076,8 +1076,6 @@ fr:
           modal_title: Nouvelle conversation
           no_results: Aucun résultat
           participant_with_disabled_message_reception: Ce participant a désactivé la réception de message
-        conversation:
-          show: Afficher la conversation avec %{sender}
         create:
           error: La conversation n'a pas commencé. Réessayez plus tard
         error_modal:
@@ -1087,19 +1085,10 @@ fr:
           ok: Ok
         index:
           ago: il y a
-          close: Fermer la fenêtre
-          from: De
-          groups: Mes groupes
-          last_message: Dernier message
           new_conversation: Nouvelle conversation
           next: Suivant
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
-          to: À
-        reply:
-          placeholder: Votre réponse...
-          send: Envoyer
-          title: Répondre
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
@@ -1108,7 +1097,6 @@ fr:
           title: Conversation avec %{usernames}
         start:
           send: Envoyer
-          title: Commencer une conversation
         update:
           error: 'Erreur : votre message n''a pas pu être envoyé'
     metrics:
