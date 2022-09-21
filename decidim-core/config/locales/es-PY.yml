@@ -1012,7 +1012,7 @@ es-PY:
         reply:
           placeholder: Tu respuesta...
           send: Enviar
-          title: Respuesta
+          title: Responder
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
