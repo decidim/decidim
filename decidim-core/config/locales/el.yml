@@ -859,31 +859,20 @@ el:
           modal_title: Νέα συνομιλία
           no_results: Δεν υπάρχουν αποτελέσματα
           participant_with_disabled_message_reception: Αυτός ο συμμετέχων έχει απενεργοποιήσει τη λήψη μηνυμάτων
-        conversation:
-          show: Δείξτε συζήτηση με %{sender}
         create:
           error: Η συνομιλία δεν ξεκίνησε. Δοκιμάστε ξανά αργότερα.
         index:
           ago: πριν
-          close: Κλείσιμο βοηθητικού στοιχείου
-          from: Από
-          groups: Οι ομάδες μου
-          last_message: Τελευταίο μήνυμα
           new_conversation: Νέα συνομιλία
           next: Επόμενο
           no_conversations: Δεν έχετε ακόμα συνομιλίες
           title: Συνομιλίες
-        reply:
-          placeholder: Η απάντησή σας...
-          send: Αποστολή
-          title: Απάντηση
         show:
           back: Πίσω σε όλες τις συνομιλίες
           chat_with: Συνομιλία με
           title: Συνομιλία με τους χρήστες %{usernames}
         start:
           send: Αποστολή
-          title: Έναρξη συνομιλίας
     metrics:
       followers:
         description: Αριθμός συμμετεχόντων που ακολουθούν αυτόν τον χώρο συμμετοχής
