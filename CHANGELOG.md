@@ -62,6 +62,18 @@ You can read more about this change on PR [\#9026](https://github.com/decidim/de
 
 ### 5. Changes in APIs
 
+#### 5.1. Tailwind CSS instead of Foundation
+
+In this version we are introducing Tailwind CSS as the underlying layer to build the user interface on. In the previous versions, we used Foundation but its development stagnated which led to changing the whole layer that we are using to build user interfaces on.
+
+This means that in case you have done any changes in the Decidim user interface or developed any modules with participant facing user interfaces, you need to do changes in all your views, partials and view components (aka cells).
+
+Tailwind is quite different from Foundation and it cannot
+
+You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
+
+You can read more about Tailwind from the [Tailwind documentation](https://tailwindcss.com/docs/utility-first).
+
 ### Detailed changes
 
 #### Added
