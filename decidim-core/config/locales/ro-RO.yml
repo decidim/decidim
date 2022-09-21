@@ -956,8 +956,6 @@ ro:
           modal_title: Conversație nouă
           no_results: Niciun rezultat
           participant_with_disabled_message_reception: Acest participant a dezactivat recepția de mesaje
-        conversation:
-          show: Arată conversația cu %{sender}
         create:
           error: Conversația nu a început. Încercați din nou mai târziu
         error_modal:
@@ -967,19 +965,10 @@ ro:
           ok: Ok
         index:
           ago: acum
-          close: Închide fereastra
-          from: De la
-          groups: Grupurile mele
-          last_message: Ultimul mesaj
           new_conversation: Conversație nouă
           next: Următoarea
           no_conversations: Încă nu aveți conversații
           title: Conversații
-          to: Către
-        reply:
-          placeholder: Răspunsul tău...
-          send: Trimite
-          title: Răspuns
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
@@ -988,7 +977,6 @@ ro:
           title: Conversație cu %{usernames}
         start:
           send: Trimite
-          title: Începe o conversație
         update:
           error: Mesajul nu a fost trimis din cauza unei erori
     metrics:
