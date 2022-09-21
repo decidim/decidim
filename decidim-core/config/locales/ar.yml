@@ -813,21 +813,14 @@ ar:
         create:
           error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
         index:
-          close: إغلاق مشروط
-          groups: فِرَقي
-          last_message: آخر رسالة
           new_conversation: محادثة جديدة
           next: التالي
           no_conversations: ليس لديك محادثات حتى الآن
           title: المحادثات
-        reply:
-          send: إرسال
-          title: رد
         show:
           title: المحادثة مع %{usernames}
         start:
           send: إرسال
-          title: بدء محادثة
     metrics:
       followers:
         description: عدد المشاركين الذين يتبعون مساحة المشاركة هذه
