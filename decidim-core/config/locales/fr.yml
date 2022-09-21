@@ -815,6 +815,7 @@ fr:
     forms:
       current_image: Image actuelle
       default_image: Image par défaut
+      emoji_chooser: Choisissez un émoji
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -1089,6 +1090,9 @@ fr:
           next: Suivant
           no_conversations: Vous n'avez encore aucune conversation
           title: Conversations
+        reply_form:
+          placeholder: Votre réponse...
+          send: Envoyer
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
@@ -1096,6 +1100,7 @@ fr:
           not_allowed: Cet utilisateur ne souhaite pas recevoir de messages directs.
           title: Conversation avec %{usernames}
         start:
+          placeholder: Votre message...
           send: Envoyer
         update:
           error: 'Erreur : votre message n''a pas pu être envoyé'
