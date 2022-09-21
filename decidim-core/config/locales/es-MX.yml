@@ -1081,8 +1081,6 @@ es-MX:
           modal_title: Nueva conversación
           no_results: No hay resultados
           participant_with_disabled_message_reception: Esta participante ha desactivado la recepción de mensajes
-        conversation:
-          show: Mostrar la conversación con %{sender}
         create:
           error: Conversación no iniciada. Inténtalo más tarde
         error_modal:
@@ -1092,19 +1090,10 @@ es-MX:
           ok: De acuerdo
         index:
           ago: anteriores
-          close: Cerrar modal
-          from: 'De:'
-          groups: Mis grupos
-          last_message: Último mensaje
           new_conversation: Nueva conversación
           next: Siguente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
-          to: A
-        reply:
-          placeholder: Tu respuesta...
-          send: Enviar
-          title: Respuesta
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
@@ -1113,7 +1102,6 @@ es-MX:
           title: Conversación con %{usernames}
         start:
           send: Enviar
-          title: Iniciar una conversación
         update:
           error: El mensaje no fue enviado debido a un error
     metrics:
