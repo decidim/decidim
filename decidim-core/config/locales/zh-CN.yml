@@ -839,8 +839,6 @@ zh-CN:
           modal_title: 新建对话
           no_results: 没有结果
           participant_with_disabled_message_reception: 此参与者已禁用消息接收功能
-        conversation:
-          show: 显示与 %{sender} 的对话
         create:
           error: 对话未开始，请稍后再试
         error_modal:
@@ -850,25 +848,16 @@ zh-CN:
           ok: 好的
         index:
           ago: 前
-          close: 关闭模式
-          from: 来自
-          groups: 我的群组
-          last_message: 最后一条消息
           new_conversation: 新建对话
           next: 下一个
           no_conversations: 您还没有对话
           title: 对话
-        reply:
-          placeholder: 您的回复...
-          send: 发送
-          title: 答复
         show:
           back: 回到所有对话
           chat_with: 对话
           title: 与 %{usernames} 的对话
         start:
           send: 发送
-          title: 开始对话
         update:
           error: 消息因错误而未发送
     metrics:
