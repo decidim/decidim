@@ -3,8 +3,8 @@
 @import "tailwindcss/utilities";
 
 :root{
-  --primary: #f30;
-  --primary-rgb: 255 51 0;
+  --primary: #e02d2d;
+  --primary-rgb: 224 45 45;
   --secondary: #155abf;
   --secondary-rgb: 21 90 191;
   --tertiary: #ebc34b;
@@ -42,6 +42,7 @@
   @import "stylesheets/decidim/redesigned_tabs_x.scss";
   @import "stylesheets/decidim/redesigned_item_list.scss";
   @import "stylesheets/decidim/redesigned_drawer.scss";
+  @import "stylesheets/decidim/redesigned_modal.scss";
 }
 
 // On the other hand, the following styles match with specific routes
@@ -49,6 +50,7 @@
 @import "stylesheets/decidim/redesigned_pages.scss";
 @import "stylesheets/decidim/redesigned_notifications.scss";
 @import "stylesheets/decidim/redesigned_profile.scss";
+@import "stylesheets/decidim/redesigned_conversations.scss";
 
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.

@@ -25,6 +25,10 @@ module Decidim
       options[:author_name_text] || model.name
     end
 
+    def display_name
+      model.deleted? ? t("decidim.profile.deleted") : decidim_sanitize(author_name)
+    end
+
     def show
       render layout
     end

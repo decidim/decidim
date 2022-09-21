@@ -1,5 +1,5 @@
 .button{
-  @apply inline-flex items-center justify-center font-semibold rounded whitespace-nowrap transition cursor-pointer;
+  @apply inline-flex items-center justify-center font-semibold border border-transparent rounded whitespace-nowrap transition cursor-pointer;
 
   &__sm{
     @apply text-sm px-4 py-1.5 gap-1.5;
@@ -42,19 +42,23 @@
   }
 
   &__text{
-    @apply bg-transparent text-black;
+    @apply bg-transparent text-black border-0;
 
     &-primary{
-      @apply text-primary;
+      @apply button__text text-primary;
     }
 
     &-secondary{
-      @apply text-secondary;
+      @apply button__text text-secondary;
     }
 
     &-tertiary{
-      @apply text-tertiary;
+      @apply button__text text-tertiary;
     }
+  }
+
+  &[disabled]{
+    @apply text-gray bg-background-3 border border-gray;
   }
 
   &__transparent:hover,
