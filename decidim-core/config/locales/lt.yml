@@ -1113,8 +1113,6 @@ lt:
           modal_title: Naujas pokalbis
           no_results: Rezultatų nerasta
           participant_with_disabled_message_reception: Šis dalyvis išjungė pranešimų gavimo funkciją
-        conversation:
-          show: Rodyti pokalbį su %{sender}
         create:
           error: Pokalbis neprasidėjo. Bandykite dar kartą vėliau
         error_modal:
@@ -1124,19 +1122,10 @@ lt:
           ok: Gerai
         index:
           ago: prieš
-          close: Uždaryti modalinį langą
-          from: Nuo
-          groups: Mano grupės
-          last_message: Paskutinė žinutė
           new_conversation: Naujas pokalbis
           next: Kitas
           no_conversations: Dar neturite pokalbių
           title: Pokalbiai
-          to: Kam
-        reply:
-          placeholder: Jūsų atsakymas...
-          send: Siųsti
-          title: Atsakyti
         show:
           back: Grįžti į visus pokalbius
           chat_with: Pokalbis su
@@ -1145,7 +1134,6 @@ lt:
           title: Pokalbis su %{usernames}
         start:
           send: Siųsti
-          title: Pradėti pokalbį
         update:
           error: Žinutė nebuvo išsiųsta dėl įvykusios klaidos
     metrics:
