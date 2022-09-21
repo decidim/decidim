@@ -43,7 +43,6 @@
   <% end %>
 
   <div id="results" class="my-20">
-    <%# <%= render partial: "list", locals: { results: results, total_count: results.total_count } %1> %>
     <%= cell "decidim/accountability/results", results %>
     <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
   </div>
