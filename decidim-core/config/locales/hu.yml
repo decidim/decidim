@@ -950,7 +950,7 @@ hu:
           to: Címzett
         reply:
           placeholder: A válaszod...
-          send: Elküld
+          send: Küldés
           title: Válasz
         show:
           back: Vissza az összes beszélgetéshez
