@@ -56,7 +56,7 @@ Each time the job executes it checks all currently active and published particip
 
 Platform administrators will always have the possibility to manually change phases, although if a cron job is configured the change may be undone.
 
-These feature also changes the step `start_date` and `end_date`  fields to timestamps.
+This feature also changes the step `start_date` and `end_date`  fields to timestamps.
 
 You can read more about this change on PR [\#9026](https://github.com/decidim/decidim/pull/9026).
 
