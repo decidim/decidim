@@ -225,10 +225,10 @@ RSpec.shared_examples "manage debates" do
       within "table" do
         within find("tr", text: translated(debate.title)) do
           expect(page).to have_no_selector(".action-icon--edit")
+          page.find(".action-icon--close").click
         end
       end
 
-      page.find(".action-icon--close").click
       expect(page).to have_content("The debate was great")
     end
 
