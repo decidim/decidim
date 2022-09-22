@@ -2,6 +2,7 @@
 
 <%= render partial: "decidim/meetings/shared/index", locals: {
   display_map: current_component.settings.maps_enabled? && search.result.not_online.exists?,
+  calendar_url: year_calendar_meetings_path,
   search_variable: :search_text_cont,
   display_filter_date: false,
   display_filter_type: false,
@@ -14,6 +15,7 @@
 
 <%#= render partial: "decidim/meetings/shared/index", locals: {
   display_map: current_component.settings.maps_enabled? && search.result.not_online.exists?,
+  calendar_url: year_calendar_meetings_path,
   search_variable: :search_text_cont,
   display_filter_date: !@forced_past_meetings,
   display_filter_type: true,
