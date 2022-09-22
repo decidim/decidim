@@ -8,6 +8,7 @@ module Decidim
       include Decidim::Meetings::ApplicationHelper
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
+      include Decidim::EndorsableHelper
 
       # Public: truncates the meeting description
       #
@@ -33,7 +34,7 @@ module Decidim
         when "private", "withdraw"
           "alert"
         when "transparent"
-          "secondary"
+          "reverse"
         end
       end
 

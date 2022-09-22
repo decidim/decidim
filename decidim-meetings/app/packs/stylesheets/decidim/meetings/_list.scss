@@ -1,4 +1,4 @@
-.meeting{
+.meeting-list{
   @apply flex items-stretch gap-4 cursor-pointer;
 
   &__container{
@@ -7,58 +7,11 @@
 
   &__map{
     /* negative main padding values */
-    @apply md:-ml-16 -mt-6 md:-mt-12;
+    @apply md:-ml-16 -mt-6 md:-mt-12 aspect-[21/9];
   }
 
   &__link{
     @apply py-6 flex items-center justify-end gap-1 text-secondary;
-  }
-
-  &__calendar{
-    @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center;
-
-    &-container{
-      @apply border-4 border-background flex gap-5 items-start rounded overflow-hidden last:[&>*:not(:only-child)]:grow;
-    }
-
-    &-month{
-      @apply bg-primary uppercase text-white text-xs;
-    }
-
-    &-day{
-      @apply text-black text-2xl font-semibold;
-    }
-
-    &-time{
-      @apply text-black text-xs;
-    }
-
-    &-month,
-    &-day,
-    &-time{
-      @apply inline-flex items-center justify-evenly empty:[&>span]:hidden;
-    }
-
-    &-separator{
-      @apply text-sm;
-    }
-
-    &__lg{
-      @apply w-32 flex-none justify-center;
-    }
-
-    &__lg &-month{
-      @apply py-1 text-md;
-    }
-
-    &__lg &-day{
-      // REDESIGN_PENDING: Replace [48px] with 5xl when available
-      @apply text-[48px] leading-[60px];
-    }
-
-    &__lg &-time{
-      @apply text-md;
-    }
   }
 
   &__text{
@@ -68,10 +21,6 @@
       /* REDESIGN_PENDING: enable when available. Current in https://github.com/decidim/decidim/pull/9772 */
       // @apply item-list__metadata;
     }
-  }
-
-  &:hover h2{
-    @apply underline;
   }
 
   &__modal{
@@ -98,9 +47,7 @@
     }
   }
 
-  &__filter{
-    &-container{
-      @apply self-stretch;
-    }
+  &:hover h2{
+    @apply underline;
   }
 }

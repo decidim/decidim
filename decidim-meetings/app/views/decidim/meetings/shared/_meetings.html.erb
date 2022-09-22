@@ -3,15 +3,15 @@
 <% elseif @forced_past_meetings %>
   cell("decidim/announcement", t("decidim.meetings.meetings.meetings.upcoming_meetings_warning"), callout_class: "warning" )
 <% else %>
-  <div id="meetings" class="meeting__container">
+  <div id="meetings" class="meeting-list__container">
     <% meetings.each do |meeting| %>
-      <a href="<%= resource_locator(meeting).path %>" class="meeting">
+      <a href="<%= resource_locator(meeting).path %>" class="meeting-list">
         <div class="meeting__calendar">
           <div class="meeting__calendar-month"><%= l(meeting.start_time, format: "%b") %></div>
           <div class="meeting__calendar-day"><%= l(meeting.start_time, format: "%d") %></div>
           <div class="meeting__calendar-time"><%= l(meeting.start_time, format: "%H:%m") %></div>
         </div>
-        <div class="meeting__text">
+        <div class="meeting-list__text">
           <h2 class="h4 text-secondary"><%= translated_attribute meeting.title %></h2>
           <div class="meeting__text-details">
             <%

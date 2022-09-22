@@ -3,16 +3,16 @@
   <%= icon "download-cloud-2-line", class: "fill-current" %>
 </button>
 
-<%= decidim_modal id: "calendarShare", class: "meeting__modal" do %>
-<div class="meeting__modal-title">
+<%= decidim_modal id: "calendarShare", class: "meeting-list__modal" do %>
+<div class="meeting-list__modal-title">
   <%= icon "share-forward-2-line", class: "w-6 h-6 text-gray fill-current flex-none" %>
   <div class="space-y-8">
     <h3 id="dialog-title-calendarShare" class="h3"><%= t(".calendar_url") %></h3>
 
-    <div id="dialog-desc-calendarShare" class="meeting__modal-text"><%= t(".copy_calendar_url_description") %></div>
-    <div class="meeting__modal-text"><%= t(".copy_calendar_url_explanation") %></div>
+    <div id="dialog-desc-calendarShare" class="meeting-list__modal-text"><%= t(".copy_calendar_url_description") %></div>
+    <div class="meeting-list__modal-text"><%= t(".copy_calendar_url_explanation") %></div>
 
-    <div class="meeting__modal-input">
+    <div class="meeting-list__modal-input">
       <input id="urlCalendarUrl" type="text" title="<%= t(".calendar_url") %>" value="<%= "#{path}" %>" readonly>
       <button
         data-clipboard-copy="#urlCalendarUrl"

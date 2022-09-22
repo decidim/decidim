@@ -105,14 +105,15 @@ edit_link(
 
 <%= render layout: "layouts/decidim/shared/drawer" do %>
 
+<div class="meeting__container">
+
   <h2 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
 
-  <div class="meeting__calendar-container">
+  <div class="meeting__calendar-container mt-8">
     <%
-      same_month = meeting.start_time.month == meeting.end_time.month
-      same_day = meeting.start_time.day == meeting.end_time.day
+      same_month = meeting.start_time.month == meeting.end_time.month;
+      same_day = meeting.start_time.day == meeting.end_time.day;
     %>
-
     <div class="meeting__calendar meeting__calendar__lg">
       <div class="meeting__calendar-month">
         <span><%= l(meeting.start_time, format: !same_month ? "%b" : "%B") %></span>
@@ -135,23 +136,25 @@ edit_link(
     <% end %>
   </div>
 
-  <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), has_actions: true, from: meeting, context: { extra_classes: ["author-data--small"] } %>
+  <div class="meeting__author">
+    <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: [:date], layout: :compact %>
 
-  <% if meeting.private_meeting? %>
-    <span class="<%= meeting_type_badge_css_class("private") %> label proposal-status">
-      <%= t("private_meeting", scope: "decidim.meetings.types") %>
-    </span>
-  <% end %>
-  <% if meeting.private_meeting? and meeting.transparent? %>
-    <span class="<%= meeting_type_badge_css_class("transparent") %> label proposal-status">
-      <%= t("transparent", scope: "decidim.meetings.types") %>
-    </span>
-  <% end %>
-  <% if meeting.withdrawn? %>
-    <span class="<%= meeting_type_badge_css_class("withdraw") %> label proposal-status">
-      <%= t("withdraw", scope: "decidim.meetings.types") %>
-    </span>
-  <% end %>
+    <% if meeting.private_meeting? %>
+      <span class="<%= meeting_type_badge_css_class("private") %> label">
+        <%= t("private_meeting", scope: "decidim.meetings.types") %>
+      </span>
+    <% end %>
+    <% if meeting.private_meeting? and meeting.transparent? %>
+      <span class="<%= meeting_type_badge_css_class("transparent") %> label">
+        <%= t("transparent", scope: "decidim.meetings.types") %>
+      </span>
+    <% end %>
+    <% if meeting.withdrawn? %>
+      <span class="<%= meeting_type_badge_css_class("withdraw") %> label">
+        <%= t("withdraw", scope: "decidim.meetings.types") %>
+      </span>
+    <% end %>
+  </div>
 
   <%= render_meeting_body(@meeting) %>
 
@@ -160,7 +163,16 @@ edit_link(
     <%= cell "decidim/meetings/online_meeting_link", meeting %>
   <% end %>
 
-  <%= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
+  <div class="meeting__actions">
+    <div>
+      <!-- endorsers -->
+      <%= link_to "#comments", class: "button button__sm button__transparent-secondary" do %>
+        <%= t("decidim.blogs.posts.show.comments") %>
+        <%= icon "chat-1-line", class: "fill-current flex-none" %>
+      <% end %>
+    </div>
+    <%= cell "decidim/tags", meeting %>
+  </div>
 
   <% if meeting.agenda.present? && meeting.agenda.visible? %>
     <%= render "meeting_agenda" %>
@@ -199,5 +211,7 @@ edit_link(
   <%= pad_iframe_for meeting %>
 
   <%= cell("decidim/flag_modal", meeting) %>
+
+</div>
 
 <% end %>
