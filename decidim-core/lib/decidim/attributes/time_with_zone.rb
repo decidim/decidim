@@ -10,7 +10,10 @@ module Decidim
 
         Time.zone.strptime(value, I18n.t("time.formats.decidim_short"))
       rescue ArgumentError
-        nil
+        fallback = super
+        return fallback unless fallback.is_a?(Time)
+
+        ActiveSupport::TimeWithZone.new(fallback, Time.zone)
       end
 
       def type
