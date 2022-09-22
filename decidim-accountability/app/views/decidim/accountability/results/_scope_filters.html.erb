@@ -1,5 +1,7 @@
 <% items = filter_items_for(participatory_space: current_participatory_space, category:) %>
-<div class="w-full">
+<div class="accountability__filters">
+  <%= render partial: "search" %>
+
   <div class="filter-container">
     <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
       <% items.each do |item| %>

@@ -178,4 +178,8 @@
       @apply space-y-6;
     }
   }
+
+  &__filters{
+    @apply w-full space-y-10
+  }
 }
