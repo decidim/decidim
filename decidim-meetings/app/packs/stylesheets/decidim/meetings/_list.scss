@@ -97,4 +97,10 @@
       }
     }
   }
+
+  &__filter{
+    &-container{
+      @apply self-stretch;
+    }
+  }
 }
