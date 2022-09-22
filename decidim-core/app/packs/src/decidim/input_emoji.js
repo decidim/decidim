@@ -23,11 +23,12 @@ const dictionary = (messages, prefix = "") => {
   return final;
 };
 
+let I18N_CONFIG = null;
+
 export class EmojiButton {
-  static i18nConfig = null;
   static i18n() {
-    if (EmojiButton.i18nConfig) {
-      return EmojiButton.i18nConfig;
+    if (I18N_CONFIG) {
+      return I18N_CONFIG;
     }
 
     const allMessages = window.Decidim.config.get("messages");
@@ -40,11 +41,11 @@ export class EmojiButton {
 
     // dictionary = the messages dictionary passed to Picmo
     // messages = local "extra" messages
-    EmojiButton.i18nConfig = {
+    I18N_CONFIG = {
       dictionary: dict,
       messages: { buttonText }
     }
-    return EmojiButton.i18nConfig;
+    return I18N_CONFIG;
   }
 
   constructor(elem) {
