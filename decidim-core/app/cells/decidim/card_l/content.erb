@@ -1,0 +1,5 @@
+<%= render :image if has_image? %>
+<div class="<%= prefix_class("list-item__content") %>">
+  <%= render :title %>
+  <%= render :description if has_description? %>
+</div>

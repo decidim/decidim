@@ -1,0 +1,7 @@
+<h3 class="h4 <%= prefix_class("list-item__title") %>">
+  <% if has_link_to_resource? && !link_whole_card? %>
+    <%= link_to title, resource_path %>
+  <% else %>
+    <%= title %>
+  <% end %>
+</h3>

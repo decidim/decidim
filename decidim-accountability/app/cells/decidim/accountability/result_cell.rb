@@ -4,7 +4,7 @@ require "cell/partial"
 
 module Decidim
   module Accountability
-    # This cell renders the result card for an instance of a Result
+    # This cell renders metadata for an instance of a Result
     class ResultCell < Decidim::ViewModel
       include Decidim::SanitizeHelper
       include Decidim::TranslationsHelper

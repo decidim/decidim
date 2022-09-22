@@ -20,7 +20,7 @@ Decidim.register_component(:accountability) do |component|
   component.register_resource(:result) do |resource|
     resource.model_class_name = "Decidim::Accountability::Result"
     resource.template = "decidim/accountability/results/linked_results"
-    resource.card = "decidim/accountability/result"
+    resource.card = "decidim/accountability/result_card"
     resource.searchable = false
     resource.actions = %w(comment)
   end
