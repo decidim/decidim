@@ -8,7 +8,9 @@
     <%= display_flash_messages %>
   </div>
 
-  <%= yield %>
+  <div data-content>
+    <%= yield %>
+  </div>
 
   <footer>
     <%= render partial: "layouts/decidim/footer/redesigned_main" %>
