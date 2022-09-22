@@ -7,7 +7,7 @@ module Decidim
     let(:user_group) { create(:user_group, :confirmed) }
     let(:renderer) { described_class.new(content) }
     let(:presenter) { Decidim::UserGroupPresenter.new(user_group) }
-    let(:profile_url) { "http://#{user_group.organization.host}/profiles/#{user_group.nickname}" }
+    let(:profile_url) { "http://#{user_group.organization.host}:#{Capybara.server_port}/profiles/#{user_group.nickname}" }
 
     context "when content has a valid Decidim::UserGroup Global ID" do
       let(:content) { "This text contains a valid Decidim::UserGroup Global ID: #{user_group.to_global_id}" }

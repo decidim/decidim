@@ -7,7 +7,7 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
 
   let(:event_name) { "decidim.events.verifications.managed_user_error_event" }
   let(:resource) { create :conflict }
-  let(:organization_host) { resource.current_user.organization.host }
+  let(:organization_host) { "#{resource.current_user.organization.host}:#{Capybara.server_port}" }
 
   describe "resource_title" do
     it "is generated correctly" do
