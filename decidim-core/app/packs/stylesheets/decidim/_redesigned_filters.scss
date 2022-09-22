@@ -40,6 +40,18 @@
     }
   }
 
+  &-search{
+    @apply w-full relative;
+
+    input{
+      @apply w-full;
+    }
+
+    button{
+      @apply absolute right-2 inset-y-2;
+    }
+  }
+
   svg{
     @apply w-4 h-4 flex-none text-gray fill-current;
   }
