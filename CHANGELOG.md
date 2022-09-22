@@ -96,6 +96,7 @@ And define your own services in the environment variable `DECIDIM_SOCIAL_SHARE_S
 With this change you can also define your own services. See [documentation for social share services customization](https://docs.decidim.org/en/customize/social_shares/).
 
 #### Tailwind CSS introduction
+
 ### 5. Changes in APIs
 
 #### 5.1. Tailwind CSS instead of Foundation
