@@ -62,21 +62,27 @@ export default class InputCharacterCounter {
     if (this.$target.length > 0) {
       this.$target.attr("id", targetId)
     } else {
-      this.$target = $(`<span id="${targetId}" class="form-input-extra-before" />`)
+      const span = document.createElement("span")
+      span.id = targetId
+      span.className = "input-character-counter__text"
+
+      this.$target = $(span)
+
+      const container = document.createElement("span")
+      container.className = "input-character-counter__container"
+      container.appendChild(span)
 
       // If input is a hidden for WYSIWYG editor add it at the end
       if (this.$input.parent().is(".editor")) {
         this.$input.parent().after(this.$target);
-      }
-      // Prefix and suffix columns are wrapped in columns, so put the
-      // character counter before that.
-      else if (
-        this.$input.parent().is(".columns") &&
-        this.$input.parent().parent().is(".row")
-      ) {
-        this.$input.parent().parent().after(this.$target);
       } else {
-        this.$input.after(this.$target);
+        const wrapper = document.createElement("span")
+        wrapper.className = "input-character-counter"
+
+        // The form errors need to be in the same container with the field they
+        // belong to for Foundation Abide to show them automatically.
+        this.$input.next(".form-error").addBack().wrapAll(wrapper)
+        this.$input.after(container);
       }
     }
 
@@ -84,11 +90,10 @@ export default class InputCharacterCounter {
       // Create the screen reader target element. We don't want to constantly
       // announce every change to screen reader, only occasionally.
       this.$srTarget = $(
-        `<span role="status" id="${targetId}_sr" class="show-for-sr remaining-character-count-sr" />`
+        `<span role="status" id="${targetId}_sr" class="sr-only remaining-character-count-sr" />`
       );
       this.$target.before(this.$srTarget);
       this.$target.attr("aria-hidden", "true");
-
       this.$userInput = this.$input;
 
       // In WYSIWYG editors (Quill) we need to find the active editor from the

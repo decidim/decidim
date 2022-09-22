@@ -40,3 +40,47 @@
 .help-text{
   @apply block text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline;
 }
+
+.form-error{
+  @apply mt-2 hidden font-normal text-sm text-primary;
+}
+
+*:invalid ~ .form-error{
+  @apply block;
+}
+
+.input-character-counter{
+  @apply relative mt-4;
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    @apply mt-0;
+  }
+
+  &__container{
+    @apply absolute top-0 right-0 -translate-y-full;
+  }
+
+  &__text{
+    @apply font-normal inline-block text-xs text-gray-2;
+  }
+}
+
+.emoji{
+  &__container{
+    @apply relative;
+  }
+
+  &__trigger{
+    @apply relative;
+  }
+
+  &__button{
+    @apply absolute right-4 bottom-4 cursor-pointer text-gray-2;
+  }
+
+  &__button svg{
+    width: 1em;
+  }
+}
