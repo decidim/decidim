@@ -18,6 +18,15 @@
           extra_classes: "accountability__status__parent"
         ) %>
     <% categories_hierarchy.each do |category| %>
+      <%= cell(
+            "decidim/accountability/status",
+            category,
+            url: results_path(filter: { with_category: category, with_scope: current_scope }),
+            extra_classes: "accountability__status__parent",
+            render_count: false
+          ) %>
+    <% end %>
+    <% if category.present? %>
       <div>
         <%= external_icon "media/images/breadcrumb_arrow.svg" %>
         <%= cell(

@@ -60,9 +60,15 @@ module Decidim
       end
 
       def count
-        return unless results_count&.positive?
+        return unless results_count&.positive? && render_count
 
         display_count(results_count)
+      end
+
+      def render_count
+        return true unless options.has_key?(:render_count)
+
+        options[:render_count]
       end
 
       def count_calculator(scope_id, category_id)
