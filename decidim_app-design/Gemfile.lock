@@ -497,7 +497,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
-    io-wait (0.2.3)
+    io-wait (0.2.1)
     json (2.6.1)
     jwt (2.2.3)
     kaminari (1.2.2)
@@ -538,7 +538,7 @@ GEM
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
-    minitest (5.16.3)
+    minitest (5.15.0)
     msgpack (1.4.5)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -857,8 +857,10 @@ DEPENDENCIES
   decidim-initiatives!
   decidim-templates!
   faker (~> 2.14)
+  io-wait (= 0.2.1)
   letter_opener_web (~> 2.0)
   listen (~> 3.1)
+  minitest (= 5.15.0)
   net-imap (~> 0.2.3)
   net-pop (~> 0.1.1)
   net-smtp (~> 0.3.1)
