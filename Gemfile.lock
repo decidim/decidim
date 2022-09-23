@@ -497,7 +497,8 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     invisible_captcha (0.13.0)
       rails (>= 3.2.0)
-    json (2.6.2)
+    io-wait (0.2.3)
+    json (2.6.1)
     jwt (2.2.3)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
@@ -551,7 +552,8 @@ GEM
       digest
       net-protocol
       timeout
-    net-protocol (0.1.3)
+    net-protocol (0.1.2)
+      io-wait
       timeout
     net-smtp (0.3.1)
       digest
@@ -613,7 +615,7 @@ GEM
     premailer-rails (1.11.1)
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
-    psych (4.0.5)
+    psych (4.0.3)
       stringio
     public_suffix (4.0.7)
     puma (5.6.4)
@@ -775,15 +777,15 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
-    stringio (3.0.2)
-    strscan (3.0.3)
+    stringio (3.0.1)
+    strscan (3.0.1)
     temple (0.8.2)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    timeout (0.3.0)
+    timeout (0.2.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     uber (0.1.0)
