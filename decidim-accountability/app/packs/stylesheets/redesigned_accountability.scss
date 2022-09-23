@@ -125,7 +125,7 @@
     }
 
     &-progress{
-      @apply rounded px-6 py-4 bg-background font-bold text-[22px];
+      @apply ml-auto rounded px-6 py-4 bg-background font-bold text-[22px];
     }
 
     &:hover h3{
