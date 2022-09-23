@@ -65,7 +65,7 @@ Gem::Specification.new do |s|
   # see https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
   # Also note that we need Rails 6.1.5+,
   # see https://gist.github.com/yahonda/2776d8d7b6ea7045359f38c10449937b
-  s.add_dependency "psych", ">= 4.0.0"
+  s.add_dependency "psych", "~> 4.0", ">= 4.0.0"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
   s.add_dependency "rack-attack", "~> 6.0"
   s.add_dependency "rails", "~> 6.1.5"
