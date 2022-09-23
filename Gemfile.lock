@@ -372,7 +372,7 @@ GEM
       actionmailer (>= 5.0)
       devise (>= 4.6)
     diff-lcs (1.5.0)
-    diffy (3.4.1)
+    diffy (3.4.2)
     digest (3.1.0)
     doc2text (0.4.5)
       nokogiri (>= 1.13.2, < 1.14.0)
