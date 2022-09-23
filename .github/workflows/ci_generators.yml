@@ -68,6 +68,8 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
+      - run: gem update --system
+        name: Update system gems
       - run: gem cleanup && gem list
         name: Gem cleanup & list
       - run: bundle install --jobs 4 --retry 3 && gem list
