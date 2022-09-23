@@ -23,7 +23,9 @@ edit_link(
   <%= javascript_pack_tag "decidim_meetings" %>
 <% end %>
 
+<!-- MOCK CONTENT -->
 <button class="button button__secondary button__lg" data-drawer-open>open</button>
+<!-- END MOCK CONTENT -->
 
 <% content_for :aside do %>
 
@@ -165,46 +167,49 @@ edit_link(
 
   <div class="meeting__actions">
     <div>
-      <!-- endorsers -->
-      <%= link_to "#comments", class: "button button__sm button__transparent-secondary" do %>
-        <%= t("decidim.blogs.posts.show.comments") %>
-        <%= icon "chat-1-line", class: "fill-current flex-none" %>
-      <% end %>
+      <%# REDESING_PENDING: Uncomment when available: https://github.com/decidim/decidim/pull/9852 %>
+      <%#= cell "decidim/endorsers_list_button", meeting %>
+      <%#= endorsement_buttons_cell(post) %>
+      <%#= cell "decidim/comments_button", nil %>
     </div>
     <%= cell "decidim/tags", meeting %>
   </div>
 
+  <%= cell "decidim/meetings/redesigned_meeting", meeting %>
+
   <% if meeting.agenda.present? && meeting.agenda.visible? %>
-    <%= render "meeting_agenda" %>
+    <%#= render "meeting_agenda" %>
   <% end %>
 
-  <%= cell "decidim/meetings/public_participants_list", meeting %>
+  <% if false %>
+    <%= cell "decidim/meetings/public_participants_list", meeting %>
 
-  <% if !meeting.closed? && meeting.user_group_registrations.any? %>
-    <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
-    <div class="section">
-      <h4 class="section-heading"><%= t(".organizations") %></h4>
-      <div class="card card--list">
-        <% Decidim::UserGroup.where(id: user_group_ids).each do |group| %>
-          <div class="card--list__item">
-            <div class="card--list__text card--list__text--top">
-            <%= cell "decidim/author", present(group) %>
+    <% if !meeting.closed? && meeting.user_group_registrations.any? %>
+      <% user_group_ids = meeting.user_group_registrations.user_group_ids %>
+      <div class="section">
+        <h4 class="section-heading"><%= t(".organizations") %></h4>
+        <div class="card card--list">
+          <% Decidim::UserGroup.where(id: user_group_ids).each do |group| %>
+            <div class="card--list__item">
+              <div class="card--list__text card--list__text--top">
+              <%= cell "decidim/author", present(group) %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 
-  <% if meeting.closed? && meeting.closing_visible? %>
-    <div class="section">
-      <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
-      <%= decidim_sanitize_editor translated_attribute meeting.closing_report %>
-    </div>
-  <% end %>
+    <% if meeting.closed? && meeting.closing_visible? %>
+      <div class="section">
+        <h3 class="section-heading"><%= t(".meeting_minutes") %></h3>
+        <%= decidim_sanitize_editor translated_attribute meeting.closing_report %>
+      </div>
+    <% end %>
 
-  <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
-  <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
+    <%= linked_resources_for meeting, :proposals, "proposals_from_meeting" %>
+    <%= linked_resources_for meeting, :results, "meetings_through_proposals" %>
+  <% end %>
 
   <%= attachments_for meeting %>
   <%= comments_for meeting %>

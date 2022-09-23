@@ -61,6 +61,10 @@
   }
 
   &__actions{
-    @apply flex items-center justify-between first:[&>*]:flex
+    @apply flex items-center justify-between first:[&>*]:flex;
+  }
+
+  &__grid{
+    @apply grid grid-cols-4 gap-x-12 gap-y-4;
   }
 }
