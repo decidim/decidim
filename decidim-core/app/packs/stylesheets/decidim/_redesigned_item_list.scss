@@ -1,8 +1,24 @@
 .item-list{
   @apply flex gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary;
 
+  &__content{
+    @apply flex flex-col gap-2.5;
+  }
+
   &__title{
-    @apply text-secondary mb-3;
+    @apply h4 text-secondary;
+  }
+
+  &__image{
+    @apply w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
+
+    img{
+      @apply w-full h-full object-cover;
+    }
+  }
+
+  &__text{
+    @apply text-gray-2;
   }
 
   &__metadata{
@@ -15,6 +31,10 @@
         @apply w-3.5 h-3.5 fill-current text-gray;
       }
     }
+  }
+
+  & + &{
+    @apply mt-6;
   }
 
   &:hover &__title{

@@ -24,8 +24,16 @@ module Decidim
       "#{class_base_name}_#{resource.id}"
     end
 
+    def extra_class
+      ""
+    end
+
     def presented_resource
       present(resource)
+    end
+
+    def render_extra_data?
+      options[:render_extra_data]
     end
 
     def resource_path
@@ -55,7 +63,7 @@ module Decidim
     end
 
     def link_whole_card?
-      false
+      options[:link_whole_card]
     end
 
     def has_description?
@@ -63,7 +71,7 @@ module Decidim
     end
 
     def metadata_cell
-      nil
+      "decidim/card_metadata"
     end
 
     def has_author?
@@ -77,6 +85,12 @@ module Decidim
 
     def title
       translated_attribute resource.title
+    end
+
+    def title_tag
+      # REDESIGN_PENDING: May this tag should be a header below :h2 calculated
+      # dynamically?
+      options[:title_tag] || :div
     end
 
     def description
