@@ -68,8 +68,8 @@ jobs:
           key: npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             npm-
-      - run: gem list
-        name: Gem list
+      - run: gem cleanup && gem list
+        name: Gem cleanup & list
       - run: bundle install --jobs 4 --retry 3 && gem list
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}
