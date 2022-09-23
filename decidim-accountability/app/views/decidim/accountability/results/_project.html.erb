@@ -1,8 +1,8 @@
 <%# REDESIGN_PENDING: Remove the mock content once integrated in the index view %>
 <!-- MOCK CONTENT -->
-<%# <div class="container"> %>
-<%#   <button class="button button__lg button__primary" data-drawer-open>Trigger</button> %>
-<%# </div> %>
+<div class="container">
+  <button class="button button__lg button__primary" data-drawer-open>Trigger</button>
+</div>
 <!-- end MOCK CONTENT -->
 
 <% content_for :aside do %>
@@ -21,7 +21,7 @@
 <% end %>
 
 <%# REDESIGN_PENDING: Resolve the drawer feature using turbo %>
-<%# <%= render layout: "layouts/decidim/shared/drawer" , locals: { next: "https://www.." , prev: "https://www.." } do %1> %>
+<%= render layout: "layouts/decidim/shared/drawer" , locals: { next: "https://www.." , prev: "https://www.." } do %>
   <%= cell("decidim/accountability/project", result) %>
 
   <div class="mt-8 accountability__project-actions">
@@ -34,4 +34,4 @@
   </div>
 
   <%= comments_for result %>
-<%# <% end %1> %>
+<% end %>
