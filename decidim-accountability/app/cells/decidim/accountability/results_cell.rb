@@ -6,10 +6,7 @@ module Decidim
   module Accountability
     # This cell renders a list of results
     class ResultsCell < Decidim::ViewModel
-      include ApplicationHelper
-      include ActiveSupport::NumberHelper
-
-      delegate :component_settings, to: :controller
+      include Decidim::CardHelper
 
       alias results model
     end
