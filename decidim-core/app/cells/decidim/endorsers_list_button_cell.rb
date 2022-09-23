@@ -2,5 +2,6 @@
 
 module Decidim
   class EndorsersListButtonCell < Decidim::ViewModel
+    include LayoutHelper
   end
 end

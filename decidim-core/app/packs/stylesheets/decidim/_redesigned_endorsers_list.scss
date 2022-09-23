@@ -1,0 +1,32 @@
+.endorsers-list{
+  @apply space-y-3;
+
+  &__text{
+    @apply text-sm text-gray-2;
+  }
+
+  &__grid{
+    @apply flex flex-wrap gap-y-3;
+  }
+
+  &__avatar,
+  &__counter{
+    @apply rounded-full overflow-hidden border border-white inline-block w-6 h-6;
+  }
+
+  &__counter{
+    @apply bg-background inline-grid place-items-center text-secondary text-xs font-semibold transition;
+  }
+
+  &__button{
+    @apply block ml-auto text-right text-xs text-secondary cursor-pointer;
+  }
+
+  &__trigger{
+    @apply flex -space-x-2;
+  }
+
+  &__trigger[aria-expanded="true"] &__counter{
+    @apply text-white bg-secondary border-secondary;
+  }
+}

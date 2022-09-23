@@ -2,5 +2,6 @@
 
 module Decidim
   class ShareButtonCell < Decidim::ViewModel
+    include LayoutHelper
   end
 end
