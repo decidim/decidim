@@ -62,31 +62,6 @@
 
     &-right{
       @apply flex items-center gap-1;
-
-      button{
-        /* stylelint-disable-next-line number-leading-zero */
-        @apply flex items-center gap-1;
-      }
-    }
-
-    .is-active span:last-child{
-      @apply text-white bg-secondary border-secondary;
-    }
-  }
-
-  &__endorsers{
-    @apply space-y-3;
-
-    &-text{
-      @apply text-sm text-gray-2;
-    }
-
-    &-grid{
-      @apply flex flex-wrap gap-y-3;
-    }
-
-    &-button{
-      @apply block ml-auto text-right text-xs text-secondary cursor-pointer;
     }
   }
 }
