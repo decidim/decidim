@@ -857,10 +857,8 @@ DEPENDENCIES
   decidim-initiatives!
   decidim-templates!
   faker (~> 2.14)
-  io-wait (= 0.2.1)
   letter_opener_web (~> 2.0)
   listen (~> 3.1)
-  minitest (= 5.15.0)
   net-imap (~> 0.2.3)
   net-pop (~> 0.1.1)
   net-smtp (~> 0.3.1)
