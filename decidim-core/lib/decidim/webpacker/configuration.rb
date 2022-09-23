@@ -20,7 +20,7 @@ module Decidim
         load_asset_configurations
 
         # Read the original configuration and append the paths
-        config = YAML.load_file(original_configuration_file_path)
+        config = YAML.load_file(original_configuration_file_path, aliases: true)
         default = config["default"] || {}
         all_additional_paths = default["additional_paths"] || []
         all_additional_paths += additional_paths

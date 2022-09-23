@@ -16,7 +16,7 @@ module Decidim
         let(:runtime_config_path) do
           Rails.application.root.join("tmp/webpacker_runtime.yml")
         end
-        let(:runtime_config) { YAML.load_file(runtime_config_path) }
+        let(:runtime_config) { YAML.load_file(runtime_config_path, aliases: true) }
         let(:core_path) do
           core_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-core" }
           core_gem.full_gem_path
