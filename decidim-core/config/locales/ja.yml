@@ -802,6 +802,7 @@ ja:
     forms:
       current_image: 現在の画像
       default_image: デフォルトの画像
+      emoji_chooser: 絵文字を選択
       errors:
         decidim/user:
           password: パスワードが短すぎます。
@@ -1076,6 +1077,9 @@ ja:
           next: 次へ
           no_conversations: 会話がまだありません
           title: 会話
+        reply_form:
+          placeholder: あなたの返信...
+          send: 送信
         show:
           back: すべての会話に戻る
           chat_with: 会話
@@ -1083,6 +1087,7 @@ ja:
           not_allowed: この参加者はダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
+          placeholder: あなたのメッセージ...
           send: 送信
         update:
           error: エラーのためメッセージは送信されませんでした
