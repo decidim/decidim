@@ -764,7 +764,7 @@ shared_examples "comments" do
 
         it "replaces the mention with a link to the user's profile" do
           expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}", wait: 20)
-          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}/profiles/#{mentioned_user.nickname}"
+          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}:#{Capybara.server_port}/profiles/#{mentioned_user.nickname}"
         end
       end
 

@@ -91,7 +91,7 @@ module Decidim
     end
 
     def can_contact_user?
-      !own_profile? && presented_profile.can_be_contacted?
+      !own_profile? && presented_profile.can_be_contacted? && current_or_new_conversation_path_with(presented_profile).present?
     end
   end
 end
