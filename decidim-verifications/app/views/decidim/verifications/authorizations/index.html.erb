@@ -13,65 +13,28 @@
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
   <section class="authorizations-list">
     <%
-      # REDESIGN_PENDING: Move to controller
+        subsections = []
 
-      authorizations = []
+        subsections << {
+          title: t("authorizations.index.granted_verification", scope: "decidim.verifications"),
+          items: @granted_authorizations.map { |authorization| granted_authorization_display_data(authorization, redirect_url) }
+        } if @granted_authorizations.any?
 
-      if @granted_authorizations.any?
-        granted = []
-        granted << t("authorizations.index.granted_verification", scope: "decidim.verifications")
-        granted << @granted_authorizations.map do |authorization|
-          {
-            url: authorization.renewable? ? nil : authorization.expired? ? authorization_method(authorization).root_path(**url_params) : nil,
-            remote_url: authorization.renewable? ? renew_modal_authorizations_path(handler: authorization.name) : nil,
-            auth_icon: "checkbox-circle-line",
-            is_granted: true,
-            title: t("#{authorization.name}.name", scope: "decidim.authorization_handlers"),
-            explanation: authorization.expired? ? t("expired_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.expires_at, format: :long)) : "#{t("granted_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.granted_at, format: :long))} #{t("expires_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.expires_at, format: :long)) if authorization.expires_at.present? }",
-            button_text: authorization.renewable? ? t("authorizations.index.show_renew_info", scope: "decidim.verifications") : authorization.expired? ? t("authorizations.index.expired_verification", scope: "decidim.verifications") : nil
-          }
-        end
+        subsections << {
+          title: t("authorizations.index.pending_verification", scope: "decidim.verifications"),
+          items: @pending_authorizations.map { |authorization| pending_authorization_display_data(authorization, redirect_url) }
+        } if @pending_authorizations.any?
 
-        authorizations << granted
-      end
-
-      if @pending_authorizations.any?
-        pending = []
-        pending << t("authorizations.index.pending_verification", scope: "decidim.verifications")
-        pending << @pending_authorizations.map do |authorization|
-          {
-            url: authorization_method(authorization).resume_authorization_path(**url_params),
-            auth_icon: "loader-2-line",
-            title: t("#{authorization.name}.name", scope: "decidim.authorization_handlers"),
-            explanation: t("started_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.updated_at, format: :long)),
-            button_text: t("authorizations.index.introduce_code", scope: "decidim.verifications")
-          }
-        end
-
-        authorizations << pending
-      end
-
-      if unauthorized_methods.any?
-        unauthorized = []
-        unauthorized << t("authorizations.index.unauthorized_methods", scope: "decidim.verifications")
-        unauthorized << unauthorized_methods.map do |unauthorized_method|
-          {
-            url: unauthorized_method.root_path(**url_params),
-            auth_icon: unauthorized_method.icon,
-            title: t("#{unauthorized_method.key}.name", scope: "decidim.authorization_handlers"),
-            explanation: t("#{unauthorized_method.key}.explanation", scope: "decidim.authorization_handlers"),
-            button_text: t("authorizations.index.subscribe", scope: "decidim.verifications")
-          }
-        end
-
-        authorizations << unauthorized
-      end
+        subsections << {
+          title: t("authorizations.index.unauthorized_methods", scope: "decidim.verifications"),
+          items: unauthorized_methods.map { |method| unauthorized_method_display_data(method, redirect_url) }
+        } if unauthorized_methods.any?
     %>
 
-    <% authorizations.each do |auth| %>
-      <div class="verification__container-title"><%= auth[0] %></div>
+    <% subsections.each do |subsection| %>
+      <div class="verification__container-title"><%= subsection[:title] %></div>
       <div class="verification__container">
-        <% auth[1].each do |locals| %>
+        <% subsection[:items].each do |locals| %>
           <%= render partial: "item", locals: locals %>
         <% end %>
       </div>
