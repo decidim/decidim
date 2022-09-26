@@ -1,7 +1,7 @@
-<div class="verification-modal__title">
-  <%= icon "refresh-line", class: "w-6 h-6 text-gray fill-current" %>
+<div data-dialog-container>
+  <%= icon "refresh-line" %>
   <div>
-    <h3 class="h3" id="dialog-title-renew-modal">
+    <h3 class="h3" id="dialog-title-renew-modal" data-dialog-title>
       <%= t("renew_modal.title", scope: "decidim.verifications.authorizations") %>
     </h3>
 
@@ -20,7 +20,7 @@
   </div>
 </div>
 
-<div class="verification-modal__actions">
+<div data-dialog-actions>
   <button class="button button__lg button__transparent-secondary" data-dialog-close="renew-modal">
     <%= t("renew_modal.cancel", scope: "decidim.verifications.authorizations") %>
   </button>
