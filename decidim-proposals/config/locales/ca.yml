@@ -636,7 +636,6 @@ ca:
             one: "%{count} esborrany de col·laboració"
             other: "%{count} esborrany de col·laboració"
         create:
-          error: S'ha produït un error en crear aquest esborrany col·laboratiu
           success: Esborrany col·laboratiu creat correctament.
         edit:
           attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
