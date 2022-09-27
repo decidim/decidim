@@ -526,7 +526,6 @@ sk:
             many: "%{count} návrh spolupráce"
             other: "%{count} návrh spolupráce"
         create:
-          error: Pri vytváraní tohto konceptu spolupráce vyskytol problém
           success: Projekt spolupráce bol úspešne vytvorený.
         edit:
           attachment_legend: "(Voliteľné) Pridanie prílohy"
