@@ -1,12 +1,3 @@
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_verifications" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
-<% end %>
-
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
     <h1 class="h1 decorator inline-block text-left">
       <%= t("decidim.verifications.sms.authorizations.edit.title") %>
@@ -39,4 +30,3 @@
       <%= link_to t("decidim.verifications.sms.authorizations.edit.destroy"), decidim_sms.authorization_path, method: :delete, data: { confirm: t("decidim.verifications.sms.authorizations.edit.confirm_destroy") }, class: "underline text-secondary" %>
     </p>
   </div>
-<% end %>

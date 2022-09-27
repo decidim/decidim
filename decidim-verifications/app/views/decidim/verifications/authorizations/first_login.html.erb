@@ -1,12 +1,3 @@
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_verifications" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
-<% end %>
-
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
     <h1 class="h1 decorator inline-block text-left mb-12">
       <%= t("decidim.verifications.authorizations.first_login.title") %>
@@ -22,4 +13,3 @@
     <% end %>
     <p class="prose prose-a:text-secondary"><%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.</p>
   </div>
-<% end %>

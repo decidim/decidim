@@ -15,13 +15,15 @@ module Decidim
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper
 
-      redesign active: true
+      layout "layouts/decidim/authorizations", except: :index
 
       def new; end
 
       def index
         @granted_authorizations = granted_authorizations
         @pending_authorizations = pending_authorizations
+
+        render layout: redesigned_layout("layouts/decidim/user_profile")
       end
 
       def first_login

@@ -5,6 +5,8 @@ module Decidim
     class ApplicationController < Decidim::ApplicationController
       include NeedsPermission
 
+      layout "layouts/decidim/authorizations"
+
       before_action :confirmed_user, only: [:new, :create, :renew]
 
       def new

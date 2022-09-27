@@ -1,13 +1,3 @@
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_verifications" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
-<% end %>
-
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
-
   <div class="my-12">
     <%= cell("decidim/announcement", announcement_title(authorization), callout_class: authorization.rejected? ? "alert" : "secondary" ) %>
   </div>
@@ -34,5 +24,3 @@
       </div>
     <% end %>
   </div>
-
-<% end %>

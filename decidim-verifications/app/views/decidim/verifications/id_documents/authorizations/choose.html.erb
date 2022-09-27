@@ -1,12 +1,3 @@
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_verifications" %>
-<% end %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
-<% end %>
-
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
     <h1 class="h1 decorator inline-block text-left">
       <%= t("decidim.verifications.id_documents.authorizations.choose.title") %>
@@ -20,5 +11,3 @@
       <%= link_to t("decidim.verifications.id_documents.authorizations.choose.online"), { action: :new, using: :online }, class: "button button__lg button__secondary" %>
     </div>
   </div>
-
-<% end %>
