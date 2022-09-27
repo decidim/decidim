@@ -10,7 +10,7 @@ ja:
         scope_id: 対象範囲
         state: 都道府県：
         title: タイトル
-        user_group_id: 以下として共同ドラフトを作成します。
+        user_group_id: 共同草案として作成します
       proposal:
         address: 住所
         answer: 回答
@@ -223,34 +223,34 @@ ja:
             email_subject: 誰かが提案 %{resource_title} にメモを残しました。
             notification_title: 誰かが提案 <a href="%{resource_path}">%{resource_title}</a>にメモを残しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトのコントリビューターとして承認されました。'
+          email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} は %{resource_title} の貢献者としてアクセスできるようになりました。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <strong>コントリビューターとして</strong> <a href="%{resource_path}">%{resource_title}</a> 共同ドラフトのコントリビューターとしてアクセスできるようになりました。
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <strong>コントリビューターとして</strong> <a href="%{resource_path}">%{resource_title}</a> 共同草案のコントリビューターとしてアクセスできるようになりました。
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトのコントリビューターとしてのアクセスを拒否されました。'
+          email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとしてのアクセスを拒否されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
-          email_subject: "%{requester_name} は、 %{resource_title} の共同ドラフトの貢献者としてアクセスするために拒否されました。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> が <strong>コントリビューターとしてアクセスを拒否されました <a href="%{resource_path}">%{resource_title}</a> 共同ドラフトのコントリビューター</strong>
+          email_subject: "%{requester_name} は、 %{resource_title} の共同草案の貢献者としてアクセスするために拒否されました。"
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> が <strong>コントリビューターとしてアクセスを拒否されました <a href="%{resource_path}">%{resource_title}</a> 共同草案のコントリビューター</strong>
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} がコントリビューターとしてアクセスをリクエストしました。 <strong></strong> <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトページからリクエストを承認または拒否できます。'
+          email_intro: '%{requester_name} がコントリビューターとしてアクセスをリクエストしました。 <strong></strong> <a href="%{resource_url}">%{resource_title}</a> の共同草案ページからリクエストを承認または拒否できます。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
           email_subject: "%{requester_name} が %{resource_title} に貢献するためにアクセスをリクエストしました。"
-          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトにアクセスをリクエストしました。 <strong>リクエストを承認または拒否してください</strong>。
+          notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> は、 <a href="%{resource_path}">%{resource_title}</a> の共同草案にアクセスをリクエストしました。 <strong>リクエストを承認または拒否してください</strong>。
         collaborative_draft_access_requester_accepted:
-          email_intro: <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトのコントリビューターとして承認されました。
+          email_intro: <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターになることをリクエストしたため、この通知を受け取りました。
           email_subject: '%{resource_title} の貢献者として承認されました。'
-          notification_title: あなたは <strong></strong> <a href="%{resource_path}">%{resource_title}</a> の共同ドラフトの貢献者としてアクセスすることを受け入れられました。
+          notification_title: あなたは <strong></strong> <a href="%{resource_path}">%{resource_title}</a> の共同草案の貢献者としてアクセスすることを受け入れられました。
         collaborative_draft_access_requester_rejected:
-          email_intro: <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトのコントリビューターとしてのアクセスは拒否されました。
+          email_intro: <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとしてのアクセスは拒否されました。
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターになることをリクエストしたため、この通知を受け取りました。
           email_subject: '%{resource_title} の貢献者として拒否されました。'
           notification_title: 共同草稿<a href="%{resource_path}">%{resource_title}</a>の<strong>投稿者としてのアクセスを拒否</strong>されました。
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> は、 <a href="%{resource_url}">%{resource_title}</a> の共同ドラフトを撤回しました。
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案を撤回しました。
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
-          email_subject: "%{author_name} %{author_nickname} は %{resource_title} の共同ドラフトを撤回しました。"
+          email_subject: "%{author_name} %{author_nickname} は %{resource_title} の共同草案を撤回しました。"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が、共同草稿 <a href="%{resource_path}">%{resource_title}</a> を<strong>撤回しました。</strong>
         creation_enabled:
           email_intro: '%{participatory_space_title}で新しい提案を作成できるようになりました! このページに参加してください:'
@@ -608,34 +608,34 @@ ja:
       collaborative_drafts:
         collaborative_draft:
           publish:
-            error: 共同作業のドラフトを公開する際に問題が発生しました。
+            error: 共同草案を公開する際に問題が発生しました。
             irreversible_action_modal:
-              body: 提案としてドラフトを公開した後、ドラフトは編集できなくなります。提案は新しい著者や貢献者を受け入れません。
+              body: 提案として草案を公開した後、草案は編集できなくなります。提案は新しい著者や貢献者を受け入れません。
               cancel: キャンセル
               ok: 提案として公開
               title: 次のアクションは取り消せません
-            success: 共同ドラフトは提案として正常に公開されました。
-          view_collaborative_draft: 共同作業のドラフトを表示
+            success: 共同草案は提案として正常に公開されました。
+          view_collaborative_draft: 共同草案を表示
           withdraw:
-            error: 共同作業のドラフトを閉じる際に問題が発生しました。
+            error: 共同草案を閉じる際に問題が発生しました。
             irreversible_action_modal:
-              body: ドラフトを閉じた後、ドラフトは編集できなくなります。ドラフトは新しい投稿者や投稿を受け入れません。
+              body: 草案を閉じた後、草案は編集できなくなります。草案は新しい投稿者や投稿を受け入れません。
               cancel: キャンセル
-              ok: 共同作業の下書きを撤回する
+              ok: 共同草案を撤回する
               title: 次のアクションは取り消せません
-            success: 共同ドラフトは正常に撤回されました。
+            success: 共同草案は正常に撤回されました。
         count:
           drafts_count:
-            other: "%{count} 件の共同の下書きです"
+            other: "%{count} 件の共同草案"
         create:
-          error: 共同作業の下書き作成中に問題が発生しました
-          success: 共同作業の下書きを作成しました。
+          error: 共同草案の作成中に問題が発生しました
+          success: 共同草案を作成しました。
         edit:
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
           select_a_category: カテゴリを選択してください
           send: 送信
-          title: 共同作業の下書きを編集
+          title: 共同草案を編集
         filters:
           all: すべて
           amendment: 修正
@@ -655,9 +655,9 @@ ja:
         new:
           send: 続ける
         new_collaborative_draft_button:
-          new_collaborative_draft: 新しい共同作業の下書きを作成
+          new_collaborative_draft: 新しい共同草案を作成
         orders:
-          label: '下書きの注文:'
+          label: '草案の依頼:'
           most_contributed: 最も貢献したもの
           random: ランダム
           recent: 最近のもの
@@ -677,31 +677,31 @@ ja:
             success: "@%{user} はコラボレーターとして正常に拒否されました"
         show:
           back: 戻る
-          edit: 共同作業の下書きを編集
+          edit: 共同草案を編集
           final_proposal: 最終的な提案
-          final_proposal_help_text: このドラフトは終了しました。最終提案を確認してください。
+          final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
           hidden_authors_count:
             other: '%{count} 人以上'
-          info-message: これは提案のための <strong>共同ドラフト</strong> です。 これは、以下のコメントセクションを使用して提案を作成したり、編集するためのアクセスを要求することで、提案を改善したりすることができることを意味します。 作成者がアクセスを許可すると、このドラフトを変更することができます。
+          info-message: これは提案のための <strong>共同草案</strong> です。 これは、以下のコメントセクションを使用して提案を作成したり、編集するためのアクセスを要求することで、提案を改善したりできることを意味します。 作成者がアクセスを許可すると、この草案を変更できます。
           publish: 公開
-          publish_info: このバージョンの下書きを公開するか、
+          publish_info: このバージョンの草案を公開するか、
           published_proposal: 公開された提案
           request_access: アクセスを要求する
           requested_access: アクセスがリクエストされました
           version_history: この提案のバージョン履歴を見る
-          withdraw: ドラフトを撤回する
+          withdraw: 草案を撤回する
         states:
           open: 開く
           published: 公開済み
           withdrawn: 撤回
         update:
-          error: 共同作業のドラフトを保存する際に問題が発生しました。
-          success: 共同作業の下書きが正常に更新されました。
+          error: 共同草案を保存する際に問題が発生しました。
+          success: 共同草案が正常に更新されました。
         wizard_aside:
           back_from_collaborative_draft: 共同草案に戻る
-          info: <strong>共同ドラフト</strong>を作成しています。
+          info: <strong>共同草案</strong>を作成しています。
         wizard_header:
-          title: 共同作業の下書きを作成する
+          title: 共同草案を作成する
       content_blocks:
         highlighted_proposals:
           proposals: 提案
@@ -709,7 +709,7 @@ ja:
         error: 提案を保存する際に問題がありました。
         success: 提案は正常に作成されました。ドラフトとして保存されました。
       destroy_draft:
-        error: 共同作業のドラフトを削除する際に問題が発生しました。
+        error: 共同草案を削除する際に問題が発生しました。
         success: 提案の下書きは正常に削除されました。
       last_activity:
         new_proposal_at_html: "<span> %{link}で新しい提案</span>"
@@ -796,7 +796,7 @@ ja:
           unfold: 展開する
         index:
           click_here: すべての提案を見る
-          collaborative_drafts_list: 共同作業の下書きにアクセスする
+          collaborative_drafts_list: 共同草案にアクセスする
           new_proposal: 新しい提案
           see_all: すべての提案を見る
           see_all_withdrawn: すべての撤回された提案を見る
@@ -849,8 +849,8 @@ ja:
           estimated_cost: 推定コスト
           hidden_endorsers_count:
             other: '%{count} 人以上'
-          link_to_collaborative_draft_help_text: この提案は共同ドラフトの結果です。履歴を確認してください
-          link_to_collaborative_draft_text: 共同作業の下書きを見る
+          link_to_collaborative_draft_help_text: この提案は共同草案の結果です。履歴を確認してください
+          link_to_collaborative_draft_text: 共同草案を見る
           link_to_promoted_emendation_help_text: この提案は奨励された提案です
           link_to_promoted_emendation_text: 拒否されたemendationを参照してください。
           link_to_proposal_from_emendation_help_text: これが拒否されました
@@ -926,7 +926,7 @@ ja:
         error: 提案を保存する際に問題がありました。
         success: 提案が正常に更新されました。
       update_draft:
-        error: 共同作業のドラフトを保存する際に問題が発生しました。
+        error: 共同草案を保存する際に問題が発生しました。
         success: 提案ドラフトが正常に更新されました。
       versions:
         collaborative_drafts:
