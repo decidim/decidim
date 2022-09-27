@@ -652,7 +652,6 @@ cs:
             many: "%{count} návrh spolupráce"
             other: "%{count} návrh spolupráce"
         create:
-          error: Při vytváření tohoto konceptu spolupráce došlo k potížím
           success: Projekt spolupráce byl úspěšně vytvořen.
         edit:
           attachment_legend: "(Volitelné) Přidání přílohy"
