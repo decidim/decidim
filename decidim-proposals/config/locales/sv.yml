@@ -616,7 +616,6 @@ sv:
             one: "%{count} gemensamt utkast"
             other: "%{count} gemensamma utkast"
         create:
-          error: Det gick inte att skapa det gemensamma utkastet
           success: Det gemensamma utkastet har skapats.
         edit:
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
