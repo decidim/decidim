@@ -607,7 +607,6 @@ de:
             one: "%{count} kollaborativer Entwurf"
             other: "%{count} kollaborativer Entwurf"
         create:
-          error: Beim Erstellen dieser kollaborativen Entwürfe ist ein Problem aufgetreten
           success: Collaborative Draft wurde erfolgreich erstellt.
         edit:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
