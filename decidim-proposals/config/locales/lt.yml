@@ -652,7 +652,6 @@ lt:
             many: "%{count} bendri projektai"
             other: "%{count} bendri projektai"
         create:
-          error: Kuriant šį bendrąjį juodraštį iškilo problema
           success: Bendrasis juodraštis sukurtas.
         edit:
           attachment_legend: "(Neprivaloma) Pridėti priedą"
