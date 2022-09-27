@@ -425,7 +425,6 @@ id:
           drafts_count:
             other: "%{count} draf kolaboratif"
         create:
-          error: Ada masalah saat membuat draf kolaboratif ini
           success: Draf kolaboratif berhasil dibuat.
         edit:
           attachment_legend: "(Opsional) Tambahkan lampiran"
