@@ -636,7 +636,6 @@ fi:
             one: "%{count} yhteistyöluonnos"
             other: "%{count} yhteistyöluonnosta"
         create:
-          error: Yhteistyöluonnoksen luonti epäonnistui
           success: Yhteistyöluonnoksen luonti onnistui.
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
