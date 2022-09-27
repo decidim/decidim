@@ -539,7 +539,6 @@ hu:
             one: "%{count} közös vázlat"
             other: "%{count} együttműködési tervezet"
         create:
-          error: Hiba a közösen szerkesztett vázlatok létrehozásakor
           success: Közös vázlat létrehozása sikeres.
         edit:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
