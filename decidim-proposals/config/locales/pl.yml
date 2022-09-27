@@ -573,7 +573,6 @@ pl:
             many: "%{count} wspólne szkice"
             other: "%{count} wspólne szkice"
         create:
-          error: Podczas tworzenia wspólnych szkiców wystąpił błąd
           success: Utworzono wspólny szkic.
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
