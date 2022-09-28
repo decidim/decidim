@@ -369,7 +369,8 @@ describe "Explore results", versioning: true, type: :system do
 
         it "enables filtering by scope" do
           within "[data-scope-filters]" do
-            expect(page).to have_content(/Scopes/i)
+            expect(page).to have_content(/All/i)
+            expect(page).to have_content(translated(scope.name))
           end
         end
       end
