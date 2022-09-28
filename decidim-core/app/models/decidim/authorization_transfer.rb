@@ -7,8 +7,8 @@ module Decidim
   # authorized it, then deleted their account, and finally decided to register
   # again and authorize their account for a second time.
   #
-  # To register an authorization transfer handler to handle the authorization
-  # transfer handler in a specific module, use the following code example.
+  # To register an authorization transfer handler in a specific module, use the
+  # following code example.
   #
   # @example Register authorization handler
   #   Decidim::AuthorizationTransfer.register(:my_module) do |transfer, auth_handler|
