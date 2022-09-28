@@ -34,5 +34,7 @@
     <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
   </div>
 
+  <%# REDESIGN_PENDING: Both comments and attachments sections are pending %>
   <%= comments_for result %>
+  <%= attachments_for result %>
 <% end %>
