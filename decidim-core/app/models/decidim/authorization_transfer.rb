@@ -157,7 +157,7 @@ module Decidim
     #
     # @return [Boolean] A boolean indicating whether the record is read only.
     def readonly?
-      !new_record?
+      !new_record? && !destroyed_by_association
     end
 
     # This announces the transfer to external modules that can perform their own

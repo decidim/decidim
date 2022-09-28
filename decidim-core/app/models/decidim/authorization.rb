@@ -23,6 +23,7 @@ module Decidim
 
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     has_one :organization, through: :user, class_name: "Decidim::Organization"
+    has_many :transfers, class_name: "Decidim::AuthorizationTransfer", dependent: :destroy
 
     validates :name, uniqueness: { scope: :decidim_user_id }
     validates :verification_metadata, absence: true, if: :granted?
