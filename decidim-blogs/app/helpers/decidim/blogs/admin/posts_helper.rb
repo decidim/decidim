@@ -33,6 +33,15 @@ module Decidim
 
           form.select(name, select_options)
         end
+
+        def publish_data(published_at)
+          data = {}
+          if published_at > Time.current
+            data[:icon] = icon("clock", aria_label: t("decidim.blogs.admin.posts.index.not_published_yet"), role: "img")
+            data[:popup] = t("decidim.blogs.admin.posts.index.not_published_yet")
+          end
+          data
+        end
       end
     end
   end
