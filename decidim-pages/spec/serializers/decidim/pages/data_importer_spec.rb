@@ -14,30 +14,40 @@ module Decidim::Pages
     describe "#import" do
       subject { importer.import(as_json, user) }
 
-      let(:as_json) do
-        JSON.parse(
-          <<~JSON
-            {
-              "body": {
-                "en": "English content",
-                "ca": "Catalan content",
-                "es": "Spanish content"
+      context "with body" do
+        let(:as_json) do
+          JSON.parse(
+            <<~JSON
+              {
+                "body": {
+                  "en": "English content",
+                  "ca": "Catalan content",
+                  "es": "Spanish content"
+                }
               }
+            JSON
+          )
+        end
+
+        it "imports the page" do
+          expect(subject).to be_a(Decidim::Pages::Page)
+          expect(subject.id).to eq(Page.find_by(component: component).id)
+          expect(subject.body).to eq(
+            {
+              "en" => "English content",
+              "ca" => "Catalan content",
+              "es" => "Spanish content"
             }
-          JSON
-        )
+          )
+        end
       end
 
-      it "imports the page" do
-        expect(subject).to be_a(Decidim::Pages::Page)
-        expect(subject.id).to eq(Page.find_by(component: component).id)
-        expect(subject.body).to eq(
-          {
-            "en" => "English content",
-            "ca" => "Catalan content",
-            "es" => "Spanish content"
-          }
-        )
+      context "without body" do
+        let(:as_json) { nil }
+
+        it "doesn't import the page" do
+          expect(subject).to be_nil
+        end
       end
     end
   end

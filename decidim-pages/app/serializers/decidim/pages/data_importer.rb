@@ -15,6 +15,8 @@ module Decidim
       # @param _user [Decidim::User] The user performing the import.
       # @return [Decidim::Pages::Page] The imported page
       def import(serialized, _user)
+        return unless serialized
+
         Page.create!(
           component: @component,
           body: serialized["body"]
