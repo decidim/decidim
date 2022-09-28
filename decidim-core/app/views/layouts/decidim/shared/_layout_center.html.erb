@@ -1,5 +1,6 @@
-<%= render layout:"layouts/decidim/shared/layout_one_col" do %>
-  <div class="layout-center">
+<% columns ||= 6 %>
+<div class="layout-1col">
+  <div class="<%= columns == 10 ? "cols-10" : columns == 8 ? "cols-8" : "cols-6" %>">
     <%= yield %>
   </div>
-<% end %>
+</div>

@@ -162,7 +162,7 @@ describe "Assemblies", type: :system do
       end
 
       it "shows the details of the given assembly" do
-        within "main" do
+        within "[data-content]" do
           expect(page).to have_content(translated(assembly.title, locale: :en))
           expect(page).to have_content(translated(assembly.subtitle, locale: :en))
           expect(page).to have_content(translated(assembly.description, locale: :en))

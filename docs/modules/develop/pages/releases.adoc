@@ -76,13 +76,33 @@ You can read more about this change on PR [\#XXXX](https://github.com/decidim/de
 
 ### 5. Changes in APIs
 
-### Added
+#### 5.1. [[TITLE OF THE CHANGE]]
 
-### Changed
+In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 
-### Fixed
+If you have used code as such:
 
-### Removed
+```ruby
+# Explain the usage of the API as it was in the previous version
+result = 1 + 1 if before
+```
+
+You need to change it to:
+
+```ruby
+# Explain the usage of the API as it is in the new version
+result = 1 + 1 if after
+```
+
+### Detailed changes
+
+#### Added
+
+#### Changed
+
+#### Fixed
+
+#### Removed
 
 ...
 

@@ -33,12 +33,18 @@ const initModal = (manager) => {
     const categoryButton = categoryEl.querySelector(".dc-title");
     const categoryDescription = categoryEl.querySelector(".dc-description");
     categoryButton.addEventListener("click", () => {
-      const hidden = categoryDescription.classList.contains("hide");
+      // REDESIGN_PENDING: Remove the hide class when redesign enabled
+      const hidden = categoryDescription.classList.contains("hide") || categoryDescription.hidden;
       if (hidden) {
         categoryButton.classList.add("open");
+        categoryDescription.hidden = false;
+        // REDESIGN_PENDING: Remove the hide class when redesign enabled
         categoryDescription.classList.remove("hide");
+
       } else {
         categoryButton.classList.remove("open");
+        categoryDescription.hidden = true;
+        // REDESIGN_PENDING: Remove the hide class when redesign enabled
         categoryDescription.classList.add("hide");
       }
     })

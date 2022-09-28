@@ -4,7 +4,15 @@
     <%= render partial: "layouts/decidim/header/redesigned_menu" %>
   </header>
 
-  <%= yield %>
+  <% unless content_for? :flash_messages %>
+    <div class="container">
+      <%= display_flash_messages %>
+    </div>
+  <% end %>
+
+  <div data-content>
+    <%= yield %>
+  </div>
 
   <footer>
     <%= render partial: "layouts/decidim/footer/redesigned_main" %>

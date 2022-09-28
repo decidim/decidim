@@ -1,5 +1,17 @@
 .layout-1col{
-  @apply grow container grid grid-cols-12 [&>*]:col-span-12 md:[&>*]:col-start-2 md:[&>*]:col-span-10 lg:[&>*]:col-start-3 lg:[&>*]:col-span-8;
+  @apply container grid grid-cols-12;
+
+  .cols-6{
+    @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8 grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6;
+  }
+
+  .cols-8{
+    @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8;
+  }
+
+  .cols-10{
+    @apply col-span-12 lg:col-start-2 lg:col-span-10;
+  }
 }
 
 .layout-2col{
@@ -8,7 +20,7 @@
   --tw-gradient-stops: var(--tw-gradient-from) 0%, var(--tw-gradient-from) 50%, var(--tw-gradient-to) 50%;
 
   aside{
-    @apply col-span-3 py-6 md:py-12 gap-12 flex justify-between items-start md:justify-start md:flex-col;
+    @apply col-span-3 py-6 md:py-12 gap-12 flex flex-col justify-between items-start md:justify-start;
   }
 
   main{
@@ -26,8 +38,4 @@
       @apply pl-0 md:pr-16;
     }
   }
-}
-
-.layout-center{
-  @apply grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6 mb-28;
 }

@@ -3,8 +3,9 @@
 require "spec_helper"
 
 describe "Conversations", type: :system do
-  let(:organization) { create(:organization) }
+  let!(:organization) { create(:organization, twitter_handler: "redesigned") }
   let(:user) { create :user, :confirmed, organization: }
+  let!(:redesign_enabled?) { true }
 
   before do
     switch_to_host(organization.host)
@@ -21,9 +22,8 @@ describe "Conversations", type: :system do
     end
 
     it "shows the topbar button as inactive" do
-      within ".topbar__user__logged" do
-        expect(page).to have_no_selector("a.topbar__conversations.is-active")
-        expect(page).to have_selector("a.topbar__conversations")
+      within "#dropdown-summary-account" do
+        expect(page).to have_no_selector("span[data-unread-items]")
       end
     end
   end
@@ -31,15 +31,15 @@ describe "Conversations", type: :system do
   shared_examples "create new conversation" do
     it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
-      expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
     end
 
     it "redirects to an existing conversation if it exists already", :slow do
       start_conversation("Is this a Ryanair style democracy?")
-      expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
 
       visit decidim.new_conversation_path(recipient_id: recipient.id)
-      expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
 
@@ -81,7 +81,7 @@ describe "Conversations", type: :system do
 
           it "redirects to the existing conversation" do
             visit decidim.new_conversation_path(recipient_id: recipient.id)
-            expect(page).to have_selector(".conversation-chat:last-child", text: "Is this a Ryanair style democracy?")
+            expect(page).to have_selector(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
           end
         end
       end
@@ -116,9 +116,9 @@ describe "Conversations", type: :system do
     it "shows user's conversation list" do
       visit_inbox
 
-      within ".conversations" do
-        expect(page).to have_selector(".card.card--widget", text: /#{interlocutor.name}/i)
-        expect(page).to have_selector(".card.card--widget", text: "who wants apples?")
+      within ".conversation__container" do
+        expect(page).to have_selector(".conversation__item img[alt='Avatar: #{interlocutor.name}']")
+        expect(page).to have_selector(".conversation__item", text: "who wants apples?")
       end
     end
 
@@ -126,7 +126,7 @@ describe "Conversations", type: :system do
       visit_inbox
       click_link "conversation-#{conversation.id}"
 
-      expect(page).to have_content("Conversation with #{interlocutor.name}")
+      expect(page).to have_content("Conversation with\n#{interlocutor.name}")
       expect(page).to have_content("who wants apples?")
     end
 
@@ -138,13 +138,13 @@ describe "Conversations", type: :system do
       end
 
       it "shows the topbar button as active" do
-        within ".topbar__user__logged" do
-          expect(page).to have_selector("a.topbar__conversations.is-active")
+        within "#dropdown-summary-account" do
+          expect(page).to have_selector("span[data-unread-items]")
         end
       end
 
       it "shows the number of unread messages per conversation" do
-        expect(page).to have_selector(".card--list__item .unread_message__counter", text: "1")
+        expect(page).to have_selector(".conversation__item-unread", text: "1")
       end
     end
 
@@ -152,14 +152,13 @@ describe "Conversations", type: :system do
       before { visit_inbox }
 
       it "shows the topbar button as inactive" do
-        within ".topbar__user__logged" do
-          expect(page).to have_no_selector("a.topbar__conversations.is-active")
-          expect(page).to have_selector("a.topbar__conversations")
+        within "#dropdown-summary-account" do
+          expect(page).to have_no_selector("span[data-unread-items]")
         end
       end
 
       it "does not show an unread count" do
-        expect(page).to have_no_selector(".card--list__item .unread_message__counter")
+        expect(page).to have_selector(".conversation__item-unread", text: "")
       end
     end
 
@@ -176,27 +175,27 @@ describe "Conversations", type: :system do
 
       it "appears as the last message", :slow do
         click_button "Send"
-        expect(page).to have_selector(".conversation-chat:last-child", text: message_body)
+        expect(page).to have_selector(".conversation__message:last-child", text: message_body)
       end
 
       context "and interlocutor sees it" do
         before do
           click_button "Send"
-          expect(page).to have_selector(".conversation-chat:last-child", text: message_body)
+          expect(page).to have_selector(".conversation__message:last-child", text: message_body)
           relogin_as interlocutor
           visit_inbox
         end
 
         it "appears as unread", :slow do
-          expect(page).to have_selector(".card--list__item .unread_message__counter", text: "2")
+          expect(page).to have_selector(".conversation__item-unread", text: "2")
         end
 
         it "appears as read after it's seen", :slow do
           click_link "conversation-#{conversation.id}"
           expect(page).to have_content("Please reply!")
 
-          find("a.card--list__data__icon--back").click
-          expect(page).to have_no_selector(".card--list__item .unread_message__counter")
+          visit_inbox
+          expect(page).to have_selector(".conversation__item-unread", text: "")
         end
       end
     end
@@ -229,7 +228,7 @@ describe "Conversations", type: :system do
         end
 
         it "allows user to see old messages" do
-          expect(page).to have_content("Conversation with #{interlocutor.name}")
+          expect(page).to have_content("Conversation with\n#{interlocutor.name}")
           expect(page).to have_content("who wants apples?")
         end
 
@@ -255,7 +254,7 @@ describe "Conversations", type: :system do
           expect(page).to have_content("Send")
           click_button "Send"
 
-          expect(page).to have_selector(".conversation-chat:last-child", text: "Please reply!")
+          expect(page).to have_selector(".conversation__message:last-child", text: "Please reply!")
         end
       end
     end
@@ -268,7 +267,11 @@ describe "Conversations", type: :system do
       end
 
       it "has a contact link" do
-        expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: recipient.id))
+        if Decidim.redesign_active
+          expect(page).to have_link(title: "Message", href: decidim.new_conversation_path(recipient_id: recipient.id))
+        else
+          expect(page).to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: recipient.id))
+        end
       end
 
       context "and recipient has restricted communications" do
@@ -276,7 +279,6 @@ describe "Conversations", type: :system do
 
         it "has contact muted" do
           expect(page).not_to have_link(href: decidim.new_conversation_path(recipient_id: recipient.id))
-          expect(page).to have_selector("svg.icon--envelope-closed.muted")
         end
       end
     end
@@ -314,7 +316,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".conversation-header .ml-s" do
+          within ".conversation .conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).not_to have_content(user.name)
           end
@@ -327,7 +329,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".conversation-header .ml-s" do
+          within ".conversation .conversation__participants" do
             expect(page).to have_content(user1.name)
           end
         end
@@ -339,7 +341,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows only the other participant name" do
-          within ".mr-s > strong" do
+          within "[data-interlocutors-list]" do
             expect(page).to have_content(user1.name)
             expect(page).not_to have_content(user.name)
           end
@@ -367,7 +369,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other three participants names" do
-          within ".conversation-header .ml-s" do
+          within ".conversation .conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -382,7 +384,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other three participants names" do
-          within ".conversation-header .ml-s" do
+          within ".conversation .conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -396,12 +398,12 @@ describe "Conversations", type: :system do
           visit decidim.conversations_path
         end
 
-        it "shows only the 3 other participant name" do
-          within ".mr-s > strong" do
-            expect(page).to have_content(user1.name)
-            expect(page).to have_content(user2.name)
-            expect(page).to have_content(user3.name)
-            expect(page).not_to have_content(user.name)
+        it "shows only the 3 other participant avatars" do
+          within "[data-interlocutors-list]" do
+            expect(page).to have_css("img[alt='Avatar: #{user1.name}']")
+            expect(page).to have_css("img[alt='Avatar: #{user2.name}']")
+            expect(page).to have_css("img[alt='Avatar: #{user3.name}']")
+            expect(page).to have_no_css("img[alt='Avatar: #{user.name}']")
           end
         end
       end
@@ -437,7 +439,7 @@ describe "Conversations", type: :system do
         it_behaves_like "accessible page"
 
         it "shows the other nine participants names" do
-          within ".conversation-header .ml-s" do
+          within ".conversation .conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -458,7 +460,7 @@ describe "Conversations", type: :system do
         end
 
         it "shows the other nine participants names" do
-          within ".conversation-header .ml-s" do
+          within ".conversation .conversation__participants" do
             expect(page).to have_content(user1.name)
             expect(page).to have_content(user2.name)
             expect(page).to have_content(user3.name)
@@ -469,19 +471,6 @@ describe "Conversations", type: :system do
             expect(page).to have_content(user8.name)
             expect(page).to have_content(user9.name)
             expect(page).not_to have_content(user.name)
-          end
-        end
-      end
-
-      context "when listing the conversations" do
-        before do
-          visit decidim.conversations_path
-        end
-
-        it "shows only the first 3 participant name plus the number of remaining participants" do
-          within ".mr-s > strong" do
-            expect(page).to have_content("+ 6")
-            expect(page).not_to have_content(user.name.upcase)
           end
         end
       end
@@ -507,9 +496,9 @@ describe "Conversations", type: :system do
     it "shows user's conversation list" do
       visit_inbox
 
-      within ".conversations" do
-        expect(page).to have_selector(".card.card--widget", text: /Participant deleted/i)
-        expect(page).to have_selector(".card.card--widget", text: "who wants apples?")
+      within ".conversation__container" do
+        expect(page).to have_selector(".conversation__item img[alt='Avatar: Participant deleted']")
+        expect(page).to have_selector(".conversation__item", text: "who wants apples?")
       end
     end
 
@@ -517,7 +506,7 @@ describe "Conversations", type: :system do
       visit_inbox
       click_link "conversation-#{conversation.id}"
 
-      expect(page).to have_content("Conversation with Participant deleted")
+      expect(page).to have_content("Conversation with\nParticipant deleted")
       expect(page).to have_content("who wants apples?")
     end
   end
@@ -532,8 +521,13 @@ describe "Conversations", type: :system do
   def visit_inbox
     visit decidim.root_path
 
-    within ".topbar__user__logged" do
-      find(".icon--envelope-closed").click
+    if Decidim.redesign_active
+      find("#dropdown-summary-account").click
+      click_link("Conversations")
+    else
+      within ".topbar__user__logged" do
+        find(".icon--envelope-closed").click
+      end
     end
   end
 end
