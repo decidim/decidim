@@ -817,6 +817,7 @@ ca:
     forms:
       current_image: Imatge actual
       default_image: Imatge predeterminada
+      emoji_chooser: Tria un emoji
       errors:
         decidim/user:
           password: La contrasenya és massa curta.
@@ -1091,6 +1092,9 @@ ca:
           next: Següent
           no_conversations: Encara no tens converses
           title: Converses
+        reply_form:
+          placeholder: La teva resposta...
+          send: Enviar
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
@@ -1098,6 +1102,7 @@ ca:
           not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
+          placeholder: El teu missatge…
           send: Enviar
         update:
           error: El missatge no ha estat enviat degut a un error
