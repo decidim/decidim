@@ -132,7 +132,7 @@ module Decidim
 
       def run_all(command, out: $stdout, include_root: true)
         all_dirs(include_root: include_root) do |dir|
-          status = run_at(dir, command, out:)
+          status = run_at(dir, command, out: out)
 
           break if !status && fail_fast?
         end
