@@ -117,7 +117,6 @@ describe "Explore results", versioning: true, type: :system do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("2 RESULTS")
         within("div#results") do
           expect(page).to have_content(translated(matching_result1.title))
           expect(page).to have_content(translated(matching_result2.title))
