@@ -817,6 +817,7 @@ es:
     forms:
       current_image: Imagen actual
       default_image: Imagen predeterminada
+      emoji_chooser: Elige un emoji
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -1091,6 +1092,9 @@ es:
           next: Siguiente
           no_conversations: Aún no tienes conversaciones
           title: Conversaciones
+        reply_form:
+          placeholder: Tu respuesta...
+          send: Enviar
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
@@ -1098,6 +1102,7 @@ es:
           not_allowed: Esta participante no acepta mensajes directos.
           title: Conversación con %{usernames}
         start:
+          placeholder: Tu mensaje...
           send: Enviar
         update:
           error: El mensaje no fue enviado debido a un error
