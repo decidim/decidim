@@ -84,7 +84,7 @@ describe "Notifications", type: :system do
     end
 
     it "shows the notifications" do
-      expect(page).to have_selector(".card.card--widget")
+      expect(page).to have_selector(".notification")
     end
 
     context "when setting a single notification as read" do
@@ -92,7 +92,7 @@ describe "Notifications", type: :system do
 
       it "hides the notification from the page" do
         expect(page).to have_content(translated(notification_title))
-        find(".mark-as-read-button").click
+        find("[data-notification-read]").click
         expect(page).to have_no_content(translated(notification_title))
         expect(page).to have_content("No notifications yet")
       end
@@ -101,7 +101,7 @@ describe "Notifications", type: :system do
     context "when setting all notifications as read" do
       it "hides all notifications from the page" do
         click_link "Mark all as read"
-        expect(page).not_to have_selector("#notifications")
+        expect(page).not_to have_selector("[data-notification]")
         expect(page).to have_content("No notifications yet")
 
         within ".title-bar" do
@@ -124,7 +124,7 @@ describe "Notifications", type: :system do
 
     it "shows the notification with the group mentioned" do
       group = Decidim::UserGroup.find(notification.extra["group_id"])
-      element = page.find(".card-data__item--expand")
+      element = page.find(".notification")
       notification_text = element.text
 
       expect(notification_text).to include("as a member of #{group.name} @#{group.nickname}")

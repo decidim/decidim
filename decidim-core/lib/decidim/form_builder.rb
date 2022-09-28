@@ -387,7 +387,14 @@ module Decidim
     def datetime_field(attribute, options = {})
       value = object.send(attribute)
       data = { datepicker: "", timepicker: "" }
-      data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(ActiveSupport::TimeWithZone)
+      if value.present?
+        case value
+        when ActiveSupport::TimeWithZone
+          data[:startdate] = I18n.l(value, format: :decidim_short)
+        when Time, DateTime
+          data[:startdate] = I18n.l(value.in_time_zone(Time.zone), format: :decidim_short)
+        end
+      end
       datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
 
@@ -590,8 +597,8 @@ module Decidim
       content += abide_error_element(attribute) if class_options[:pattern] || class_options[:required]
       content = content.html_safe
 
-      html = wrap_prefix_and_postfix(content, prefix, postfix)
-      html + error_and_help_text(attribute, options.merge(help_text:))
+      html = error_and_help_text(attribute, options.merge(help_text:))
+      html + wrap_prefix_and_postfix(content, prefix, postfix)
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity
@@ -802,7 +809,7 @@ module Decidim
       screenreader_title = content_tag(
         :span,
         I18n.t("required", scope: "forms"),
-        class: "show-for-sr"
+        class: "sr-only"
       )
       content_tag(
         :span,

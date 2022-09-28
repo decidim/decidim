@@ -637,7 +637,7 @@ en:
             one: "%{count} collaborative draft"
             other: "%{count} collaborative drafts"
         create:
-          error: There was a problem creating this collaborative drafts
+          error: There was a problem creating this collaborative draft.
           success: Collaborative draft successfully created.
         edit:
           attachment_legend: "(Optional) Add an attachment"
@@ -724,8 +724,8 @@ en:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
       last_activity:
-        new_proposal_at_html: "<span>New proposal at %{link}</span>"
-        proposal_updated_at_html: "<span>Proposal updated at %{link}</span>"
+        new_proposal: 'New proposal:'
+        proposal_updated: 'Proposal updated:'
       models:
         collaborative_draft:
           fields:
@@ -860,7 +860,6 @@ en:
           changes_at_title: Amendment to "%{title}"
           comments: Comments
           edit_proposal: Edit proposal
-          endorsements_list: List of Endorsements
           estimated_cost: Estimated cost
           hidden_endorsers_count:
             one: and %{count} more person

@@ -5,7 +5,6 @@ require "spec_helper"
 module Decidim
   describe PushNotificationPresenter, type: :presenter do
     let(:notification) { create(:notification) }
-    let(:np) { described_class.new(notification) }
 
     subject { described_class.new(notification) }
 

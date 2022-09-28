@@ -12,7 +12,11 @@ shared_examples "follows" do
       it "makes the user follow the followable" do
         visit followable_path
         expect do
-          click_button "Follow"
+          if Decidim.redesign_active
+            click_link "Follow"
+          else
+            click_button "Follow"
+          end
           expect(page).to have_content "Stop following"
         end.to change(Decidim::Follow, :count).by(1)
       end
@@ -28,7 +32,11 @@ shared_examples "follows" do
       it "makes the user follow the followable" do
         visit followable_path
         expect do
-          click_button "Stop following"
+          if Decidim.redesign_active
+            click_link "Stop following"
+          else
+            click_button "Stop following"
+          end
           expect(page).to have_content "Follow"
         end.to change(Decidim::Follow, :count).by(-1)
       end
@@ -44,7 +52,11 @@ shared_examples "follows" do
       it "makes the user follow the followable" do
         visit followable_path
         expect do
-          click_button "Following #{translated(followable.participatory_space.title)}"
+          if Decidim.redesign_active
+            click_link "Follow"
+          else
+            click_button "Follow"
+          end
           expect(page).to have_content "Stop following"
         end.to change(Decidim::Follow, :count).by(1)
       end
