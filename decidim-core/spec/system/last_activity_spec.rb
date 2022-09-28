@@ -4,7 +4,8 @@ require "spec_helper"
 
 describe "Last activity", type: :system do
   let(:organization) { create(:organization) }
-  let(:comment) { create(:comment) }
+  let(:commentable) { create(:dummy_resource, component:) }
+  let(:comment) { create(:comment, commentable:) }
   let!(:action_log) do
     create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
   end
@@ -93,6 +94,29 @@ describe "Last activity", type: :system do
         expect(page).to have_content(translated(another_comment.commentable.title))
         expect(page).to have_no_content(translated(resource.title))
         expect(page).to have_css("[data-activity]", count: 2)
+      end
+
+      context "when there are recently update old activities" do
+        let(:commentables) { create_list(:dummy_resource, 20, component:) }
+        let(:comments) { commentables.map { |commentable| create(:comment, commentable:) } }
+        let!(:action_logs) do
+          comments.map do |comment|
+            create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
+          end
+        end
+
+        let(:old_commentable) { create(:dummy_resource, component:) }
+        let(:old_comment) { create(:comment, commentable: old_commentable, created_at: 2.years.ago) }
+        let!(:create_action_log) { create(:action_log, created_at: 2.years.ago, action: "create", visibility: "public-only", resource: old_comment, organization:) }
+        let!(:update_action_log) { create(:action_log, created_at: 1.minute.ago, action: "update", visibility: "public-only", resource: old_comment, organization:) }
+
+        before do
+          visit current_path
+        end
+
+        it "doesn't show the old activities at the top of the list" do
+          expect(page).not_to have_content(translated(old_comment.commentable.title))
+        end
       end
 
       context "when there are activities from private spaces" do

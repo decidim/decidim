@@ -826,6 +826,7 @@ en:
     forms:
       current_image: Current image
       default_image: Default image
+      emoji_chooser: Choose an emoji
       errors:
         decidim/user:
           password: The password is too short.
@@ -1087,8 +1088,6 @@ en:
           modal_title: New conversation
           no_results: No results
           participant_with_disabled_message_reception: This participant has disabled message reception
-        conversation:
-          show: Show conversation with %{sender}
         create:
           error: Conversation not started. Try again later
         error_modal:
@@ -1098,19 +1097,13 @@ en:
           ok: OK
         index:
           ago: ago
-          close: Close modal
-          from: From
-          groups: My groups
-          last_message: Last message
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet
           title: Conversations
-          to: To
-        reply:
+        reply_form:
           placeholder: Your reply...
           send: Send
-          title: Reply
         show:
           back: Back to all conversations
           chat_with: Conversation with
@@ -1118,8 +1111,8 @@ en:
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
+          placeholder: Your message...
           send: Send
-          title: Start a conversation
         update:
           error: Message was not sent due to an error
     metrics:

@@ -10,6 +10,7 @@ export default function createQuillEditor(container) {
   const toolbar = $(container).data("toolbar");
   const disabled = $(container).data("disabled");
 
+  const allowedEmptyContentSelector = "iframe";
   let quillToolbar = [
     ["bold", "italic", "underline", "linebreak"],
     [{ list: "ordered" }, { list: "bullet" }],
@@ -93,10 +94,15 @@ export default function createQuillEditor(container) {
     });
     container.dispatchEvent(event);
 
-    if (text === "\n" || text === "\n\n") {
+    if ((text === "\n" || text === "\n\n") && quill.root.querySelectorAll(allowedEmptyContentSelector).length === 0) {
       $input.val("");
     } else {
-      $input.val(quill.root.innerHTML);
+      const emptyParagraph = "<p><br></p>";
+      const cleanHTML = quill.root.innerHTML.replace(
+        new RegExp(`^${emptyParagraph}|${emptyParagraph}$`, "g"),
+        ""
+      );
+      $input.val(cleanHTML);
     }
   });
   // After editor is ready, linebreak_module deletes two extraneous new lines

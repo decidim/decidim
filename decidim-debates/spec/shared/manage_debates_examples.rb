@@ -51,8 +51,10 @@ RSpec.shared_examples "manage debates" do
 
   describe "previewing debates" do
     it "links the debate correctly" do
-      link = find("a", class: "action-icon--preview")
-      expect(link[:href]).to include(resource_locator(debate).path)
+      within find("tr", text: translated(debate.title)) do
+        link = find("a", class: "action-icon--preview")
+        expect(link[:href]).to include(resource_locator(debate).path)
+      end
     end
 
     it "shows a preview of the debate" do
@@ -225,10 +227,10 @@ RSpec.shared_examples "manage debates" do
       within "table" do
         within find("tr", text: translated(debate.title)) do
           expect(page).to have_no_selector(".action-icon--edit")
+          page.find(".action-icon--close").click
         end
       end
 
-      page.find(".action-icon--close").click
       expect(page).to have_content("The debate was great")
     end
 
