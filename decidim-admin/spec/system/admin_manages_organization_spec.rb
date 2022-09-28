@@ -348,6 +348,29 @@ describe "Admin manages organization", type: :system do
           )["innerHTML"]).to eq(terms_content.to_s.gsub("\n", ""))
         end
       end
+
+      context "when the admin terms of use content has only a video" do
+        let(:organization) { create(:organization, admin_terms_of_use_body: {}) }
+
+        it "saves the content correctly with the video" do
+          within ".editor" do
+            within ".editor .ql-toolbar" do
+              find("button.ql-video").click
+            end
+            within "div[data-mode='video'].ql-tooltip.ql-editing" do
+              find("input[data-video='Embed URL']").fill_in with: "https://www.youtube.com/watch?v=f6JMgJAQ2tc"
+              find("a.ql-action").click
+            end
+          end
+
+          click_button "Update"
+
+          organization.reload
+          expect(translated(organization.admin_terms_of_use_body)).to eq(
+            %(<iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https://www.youtube.com/embed/f6JMgJAQ2tc?showinfo=0"></iframe>)
+          )
+        end
+      end
     end
   end
 
