@@ -251,6 +251,8 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows the comments" do
+        skip "REDESIGN_PENDING - Comments integration pending"
+
         comments.each do |comment|
           expect(page).to have_content(comment.body.values.first)
         end
