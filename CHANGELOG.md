@@ -60,7 +60,21 @@ This feature also changes the step `start_date` and `end_date`  fields to timest
 
 You can read more about this change on PR [\#9026](https://github.com/decidim/decidim/pull/9026).
 
-#### Automated authorization conflict handling for deleted users
+### 5. Changes in APIs
+
+#### 5.1. Tailwind CSS instead of Foundation
+
+In this version we are introducing Tailwind CSS as the underlying layer to build the user interface on. In the previous versions, we used Foundation but its development stagnated which led to changing the whole layer that we are using to build user interfaces on.
+
+This means that in case you have done any changes in the Decidim user interface or developed any modules with participant facing user interfaces, you need to do changes in all your views, partials and view components (aka cells).
+
+Tailwind is quite different from Foundation and it cannot
+
+You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
+
+You can read more about Tailwind from the [Tailwind documentation](https://tailwindcss.com/docs/utility-first).
+
+#### 5.2. Automated authorization conflict handling for deleted users
 
 In previous Decidim versions authorization conflicts (i.e. authorizing the user with the same unique data as a previous user) needed to be always handled manually. Now these are automatically handled for cases where the original user had authorized their account, then deleted their account and finally authorized the new account with the same details as the previous account.
 
@@ -181,21 +195,6 @@ end
 Note that when unregistering an authorization transfer handler, the transfers will still work normally for the other transfer handlers and no conflicts are reported for the admin users in case of conflict situation between a new authorization and a previous authorization for a deleted user. In this case, the authorization is transferred to the new user normally but the unregistered transfer handlers are not called which means those records will not be transferred between the user accounts. For conflicts between normal registered users or managed users, the conflicts are still reported as before. The automated authorization transfers only happen in case the previously authorized conflicting user account was deleted.
 
 You can read more about this change at PR [\#9463](https://github.com/decidim/decidim/pull/9463).
-
-#### Tailwind CSS introduction
-### 5. Changes in APIs
-
-#### 5.1. Tailwind CSS instead of Foundation
-
-In this version we are introducing Tailwind CSS as the underlying layer to build the user interface on. In the previous versions, we used Foundation but its development stagnated which led to changing the whole layer that we are using to build user interfaces on.
-
-This means that in case you have done any changes in the Decidim user interface or developed any modules with participant facing user interfaces, you need to do changes in all your views, partials and view components (aka cells).
-
-Tailwind is quite different from Foundation and it cannot
-
-You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
-
-You can read more about Tailwind from the [Tailwind documentation](https://tailwindcss.com/docs/utility-first).
 
 ### Detailed changes
 
