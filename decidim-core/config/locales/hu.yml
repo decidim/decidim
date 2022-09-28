@@ -608,6 +608,7 @@ hu:
     errors:
       internal_server_error:
         copied: Szöveg kimásolva!
+        reference: Referencia
         title: Valami probléma volt a szerverrel
       not_found:
         back_home: Vissza a főoldalra
