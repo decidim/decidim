@@ -41,6 +41,25 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         expect(page).to have_content("Participant settings")
       end
 
+      context "and a duplicate authorization exists for an existing user" do
+        let(:document_number) { "123456789X" }
+        let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: authorizations.first) }
+        let!(:other_user) { create(:user, :confirmed, organization: user.organization) }
+
+        it "transfers the authorization from the deleted user" do
+          fill_in "Document number", with: document_number
+          page.execute_script("$('#authorization_handler_birthday').focus()")
+          page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+
+          expect { click_button "Send" }.not_to change(Decidim::Authorization, :count)
+          expect(page).to have_content("There was a problem creating the authorization.")
+          expect(page).to have_content("A participant is already authorized with the same data. An administrator will contact you to verify your details.")
+
+          expect { click_button "Send" }.not_to change(Decidim::AuthorizationTransfer, :count)
+          expect(page).to have_content("There was a problem creating the authorization.")
+        end
+      end
+
       context "and a duplicate authorization exists for a deleted user" do
         let(:document_number) { "123456789X" }
         let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: authorizations.first) }
