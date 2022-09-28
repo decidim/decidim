@@ -1,5 +1,17 @@
 /* eslint max-lines: ["error", 350] */
 
+/**
+ * Quill clipboard utilities
+ *
+ * Copyright (c) 2017, Slab
+ * Copyright (c) 2014, Jason Chen
+ * Copyright (c) 2013, salesforce.com
+ * BSD 3-Clause "New" or "Revised" License
+ *
+ * Extends the original version from https://github.com/quilljs/quill
+ * Relevant parts converted from TypeScript to JavaScript
+ */
+
 import CodeBlock from "quill/formats/code";
 import { matchNewline, matchBreak, deltaEndsWith, traverse } from "src/decidim/editor/clipboard_utilities";
 
