@@ -57,7 +57,7 @@ module Decidim
           panels += [
             { id: "included_proposals", method: :cell, args: ["decidim/linked_resources_for", result, { type: :proposals, link_name: "included_proposals" }] },
             { id: "included_projects", method: :cell, args: ["decidim/linked_resources_for", result, { type: :projects, link_name: "included_projects" }] },
-            { id: "included_meetings", method: :cell, args: ["decidim/linked_resources_for", result, { type: :meetings, link_name: "included_meetings" }] }
+            { id: "included_meetings", method: :cell, args: ["decidim/linked_resources_for", result, { type: :meetings, link_name: "meetings_through_proposals" }] }
           ]
         end
         panels
