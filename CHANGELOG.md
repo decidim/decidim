@@ -60,7 +60,7 @@ This feature also changes the step `start_date` and `end_date`  fields to timest
 
 You can read more about this change on PR [\#9026](https://github.com/decidim/decidim/pull/9026).
 
-#### Social Share Button change
+#### 4.2. Social Share Button change
 
 As the gem that we were using for sharing to Social Network don't support Webpacker, we have implemented the same functionality in `decidim-core`.
 
@@ -94,8 +94,6 @@ decidim_default: &decidim_default
 And define your own services in the environment variable `DECIDIM_SOCIAL_SHARE_SERVICES` with the services that you want.
 
 With this change you can also define your own services. See [documentation for social share services customization](https://docs.decidim.org/en/customize/social_shares/).
-
-#### Tailwind CSS introduction
 
 ### 5. Changes in APIs
 
