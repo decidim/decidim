@@ -12,7 +12,7 @@ module Decidim
     #
     # @return [Boolean] a boolean indicating whether the record is read only.
     def readonly?
-      !new_record?
+      !new_record? && !destroyed_by_association
     end
 
     # Returns the resource type for the records which is the value of the
