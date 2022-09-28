@@ -274,6 +274,7 @@ describe "Explore results", versioning: true, type: :system do
       before do
         result.link_resources(proposals, "included_proposals")
         visit current_path
+        select_tab("Included proposals")
       end
 
       it "shows related proposals" do
@@ -301,6 +302,7 @@ describe "Explore results", versioning: true, type: :system do
       before do
         result.link_resources(projects, "included_projects")
         visit current_path
+        select_tab("Included projects")
       end
 
       it "shows related projects" do
@@ -325,6 +327,7 @@ describe "Explore results", versioning: true, type: :system do
       before do
         result.link_resources(meetings, "meetings_through_proposals")
         visit current_path
+        select_tab("Included meetings")
       end
 
       it "shows related meetings" do
@@ -376,4 +379,8 @@ describe "Explore results", versioning: true, type: :system do
       let(:attached_to) { result }
     end
   end
+end
+
+def select_tab(text)
+  find("li.tab-x", text:).click
 end
