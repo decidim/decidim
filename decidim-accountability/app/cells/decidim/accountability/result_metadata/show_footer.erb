@@ -1,0 +1,13 @@
+<div class="mt-8 accountability__project-actions">
+  <ul data-result-footer>
+    <% items.each do |item| %>
+      <li>
+        <% if item.has_key? :partial %>
+          <%= render item[:partial] %>
+        <% else %>
+          <%= item[:text] %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
