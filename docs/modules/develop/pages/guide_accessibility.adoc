@@ -24,7 +24,7 @@ This section contains some common mistakes that developers tend to do regarding 
 
 Every page should have a logical heading order when using the `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>` and `<h6>` heading elements. This means that you cannot add e.g. a `<h3>` if the previous heading was `<h1>` before the sub-level heading element appears in the document. `<h1>` should be followed by `<h2>`. Under the `<h2>`, you can add `<h3>`.
 
-Few other general pieces of advices regarding the headings on the page:
+Few other general bits of advice regarding the headings on the page:
 
 * Every page should have only one `<h1>` element on them to indicate the main topic of that page
 * The `<h1>` of the page should match the first part of that page's `<title>` element, or at least be very close to that
@@ -227,10 +227,10 @@ Screen readers are mostly used by people with visual disabilities. To test the s
 
 === Voice control
 
-Some people may need to use their devices using speech in case they have physical disabilities that make it hard for them to use the common pointing devices, such as a touch screen or a mouse. To test the service with voice control, try using it without a keyboard, mouse or touch screen, just by using your mouth to speak. Common software used for voice control includes:
+Some people may need to use their devices using speech in case they have physical disabilities that make it hard for them to use the common pointing devices, such as a touch screen or a mouse. To test the service with voice control, try using it without a keyboard, mouse, or touch screen, just by using your mouth to speak. Common software used for voice control includes:
 
 - Windows: Speech Recognition (built-in some Windows versions, limited language support)
 - Apple (macOS, iOS): Voice Control
 - Chrome browser: Speech Recognition Anywhere
-- Linux: varies, just use browser extensions
+- Linux: Varies, just use browser extensions
 - Android: Voice Access
