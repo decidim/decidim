@@ -14,12 +14,16 @@ module Decidim
       delegate :current_component, :component_settings, to: :controller
 
       def show
-        return if results_count&.zero? || progress.blank?
+        return unless render?
 
         render
       end
 
       private
+
+      def render?
+        options[:render_blank] || (results_count&.positive? || progress.present?)
+      end
 
       def scope
         current_scope.presence
