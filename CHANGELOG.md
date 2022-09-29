@@ -1,5 +1,29 @@
 # Change Log
 
+## [0.27.0](https://github.com/decidim/decidim/tree/0.27.0)
+
+### Detailed changes
+
+#### Added
+
+Nothing.
+
+#### Changed
+
+Nothing.
+
+#### Fixed
+
+Nothing.
+
+#### Removed
+
+Nothing.
+
+#### Developer improvements
+
+Nothing.
+
 ## [0.27.0.rc2](https://github.com/decidim/decidim/tree/0.27.0.rc2)
 
 ### Detailed changes
