@@ -38,15 +38,18 @@ export class Uploader {
         formClass: this.modal.options.formObjectClass
       });
 
-      fetch(`/upload_validations?${params.toString()}`, {
+      return fetch(`/upload_validations?${params.toString()}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-CSRF-Token": $("meta[name=csrf-token]").attr("content")
         }
-      }).then((response) => response.json()).then((data) => callback(data));
-
-      this.validationSent = true;
+      }).
+        then((response) => response.json()).
+        then((data) => {
+          this.validationSent = true;
+          callback(data);
+        });
     }
   }
 

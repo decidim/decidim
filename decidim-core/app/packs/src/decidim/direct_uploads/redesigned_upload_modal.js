@@ -53,6 +53,8 @@ export default class UploadModal {
       attachmentName: file.name
     });
 
+    const item = this.createUploadItem(file, uploader.errors)
+
     if (!uploader.errors.length) {
       uploader.upload.create((error, blob) => {
         if (error) {
@@ -69,12 +71,22 @@ export default class UploadModal {
 
           file.hiddenField = { value: blob.signed_id, name }
 
-          uploader.validate(blob.signed_id);
+          // since the validation step is async, we must wait for the responses
+          uploader.validate(blob.signed_id).then(() => {
+            const neo = this.createUploadItem(file, uploader.errors)
+            this.uploadItems.replaceChild(neo, item)
+          });
         }
       });
     }
 
-    this.createUploadItem(file, uploader.errors)
+    // add the item to the DOM
+    this.uploadItems.appendChild(item);
+    // add only the validated files to the array of File(s)
+    if (!uploader.errors.length) {
+      this.items.push(file)
+    }
+
     this.updateDropZone();
   }
 
@@ -166,13 +178,6 @@ export default class UploadModal {
 
     // append the listeners to the template
     container.querySelector("button").addEventListener("click", this.handleButtonClick.bind(this))
-
-    // add the item to the DOM
-    this.uploadItems.appendChild(container);
-    // add only the validated files to the array of File(s)
-    if (!errors.length) {
-      this.items.push(file)
-    }
 
     return container;
   }
