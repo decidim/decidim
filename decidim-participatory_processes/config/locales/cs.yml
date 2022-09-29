@@ -305,7 +305,7 @@ cs:
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Krok %{resource_title} je nyní aktivní pro <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Byly aktualizovány datumy pro krok %{resource_title} v %{participatory_space_title}. Můžete je vidět z této stránky:'
+          email_intro: 'Data pro %{resource_title} fáze na %{participatory_space_title} byly aktualizovány. Můžete si je prohlédnout na této stránce:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Byly aktualizovány data pro krok <a href="%{resource_path}">%{resource_title}</a> ve <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
@@ -386,9 +386,9 @@ cs:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
             duration: Doba trvání
             filters: Filtry
-            images: snímky
+            images: Obrázky
             metadata: Metadata
-            other: jiný
+            other: Ostatní
             related_processes: Související procesy
             scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
             select_an_area: Vyberte oblast

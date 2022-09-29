@@ -1016,7 +1016,7 @@ fr-CA:
           title: Conversation avec %{usernames}
         start:
           send: Envoyer
-          title: Commencer une conversation
+          title: Démarrer une conversation
         update:
           error: 'Erreur : votre message n''a pas pu être envoyé'
     metrics:

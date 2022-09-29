@@ -114,7 +114,7 @@ cs:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
         renew_modal:
-          cancel: zrušení
+          cancel: Zrušit
           close: zavřít
           continue: Pokračovat
           info_renew: Pokud chcete aktualizovat data, pokračujte obnovením
@@ -184,7 +184,7 @@ cs:
               error: Ověření neodpovídá vloženým údajům. Zkuste to znovu, nebo řekněte uživateli, ať si je změní
               success: Uživatel úspěšně ověřen
             new:
-              cancel: zrušení
+              cancel: Zrušit
               introduce_user_data: Zadejte e-mail uživatele a data dokumentu
               verify: Ověřte
           pending_authorizations:

@@ -24,7 +24,7 @@ hu:
       component:
         name: Név
         published_at: Publikálva
-        weight: Rendelési pozíció
+        weight: Pozíció sorrend
       id: ID
       import:
         user_group_id: Az importáltak létrehozása mint
@@ -104,7 +104,7 @@ hu:
         organization: Szervezet
         plural: Plurális
       settings:
-        scope_id: Hatáskör
+        scope_id: Hatókör
       static_page:
         allow_public_access: Hozzáférés engedélyezése authentikáció nélkül
         changed_notably: Észrevehető változások történtek.
@@ -213,7 +213,7 @@ hu:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
-          has_spaces: Ez a terület mással összefüggő terekkel rendelkezik. Kérjük, győződjön meg róla, hogy egyetlen Részvételi tér sem hivatkozik erre a területre, mielőtt törölné.
+          has_spaces: Ez a terület mással összefüggő terekkel rendelkezik. Kérjük, győződjön meg róla, hogy egyetlen részvételi tér sem hivatkozik erre a területre, mielőtt törölné.
           success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
@@ -479,11 +479,18 @@ hu:
           invalid_indexes:
             lines:
               detail: Ellenőrizze a sorok helyes formázását, valamint hogy érvényes rekordokat tartalmaznak.
+              message:
+                one: Hibát találtam az import fájlban a következő sorban %{indexes}.
+                other: Hibát találtam az import fájlban a következő sorokban %{indexes}.
             records:
               detail: Ellenőrizze a sorok helyes formázását, valamint hogy érvényes rekordokat tartalmaznak.
+              message:
+                one: Hibát találtam az importfájlban a rendelésszámmal rendelkező rekordnál %{indexes}.
+                other: Hibát találtam az importfájlban a rendelésszámmal rendelkező rekordoknál %{indexes}.
           missing_headers:
             detail: Kérjük, ellenőrizze, hogy a fájl tartalmazza-e a szükséges oszlopokat.
         error: Hiba történt az importálás során
+        example_error: Nem sikerült példát létrehozni a megadott típusra
         new:
           accepted_mime_types:
             csv: csv
@@ -493,6 +500,7 @@ hu:
             back: Vissza
           download_example: Példa letöltése
           download_example_format: Példa mint %{name}
+          file_legend: Adjon hozzá egy importált fájlt, amelyet elemezni fog.
           import: Import
         notice: "%{count} %{resource_name} sikeresen importálva"
       logs:

@@ -66,7 +66,7 @@ cs:
         user_id: Uživatel
       assembly_user_role:
         email: E-mail
-        name: název
+        name: Název
         role: Role
     errors:
       models:
@@ -136,7 +136,7 @@ cs:
           success: Typ shromáždění byl úspěšně aktualizován.
       assembly_copies:
         new:
-          copy: kopírovat
+          copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Zduplikovat shromáždění
       assembly_imports:
@@ -223,18 +223,18 @@ cs:
           fields:
             ceased_date: Datum ukončení
             designation_date: Datum označení
-            full_name: název
+            full_name: Název
             position: Pozice
           name: Člen
           positions:
-            other: jiný
+            other: Ostatní
             president: Prezident
             secretary: Tajemník
-            vice_president: Víceprezident
+            vice_president: Místopředseda
         assembly_user_role:
           fields:
             email: E-mail
-            name: název
+            name: Název
             role: Role
           name: Administrátor shromáždění
           roles:
@@ -275,10 +275,10 @@ cs:
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
             filters: Filtry
-            images: snímky
+            images: Obrázky
             included_at_help: Vyberte datum, kdy bylo toto shromáždění přidáno do aplikace Decidim. Nemusí to být nutně stejné jako datum vytvoření.
             metadata: Metadata
-            other: jiný
+            other: Ostatní
             select_a_created_by: Vybrat vytvořeno od
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ shromáždění

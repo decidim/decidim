@@ -185,7 +185,7 @@ cs:
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s následujícími podmínkami
-          are_you_sure: Oravdu chcete odmítnout podmínky používání správce?
+          are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
         required_review:
@@ -213,7 +213,7 @@ cs:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
-          has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účatnický prostor neodkazuje na tuto oblast.
+          has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účastnický prostor neodkazuje na tuto oblast.
           success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
@@ -504,9 +504,9 @@ cs:
         example_error: Nelze vytvořit příklad pro daný typ
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (.xlsx)
           actions:
             back: Zpět
           download_example: Stáhnout příklad
@@ -591,11 +591,11 @@ cs:
           name: Participační prostor soukromého účastníka
         scope:
           fields:
-            name: název
+            name: Název
             scope_type: Typ oblasti působnosti
         scope_type:
           fields:
-            name: název
+            name: Název
             plural: Množné číslo
         share_token:
           fields:
@@ -614,7 +614,7 @@ cs:
             created_at: Datum vzniku
             email: E-mail
             last_sign_in_at: Datum posledního přihlášení
-            name: název
+            name: Název
             role: Role
             roles:
               admin: Správce
@@ -625,7 +625,7 @@ cs:
             actions: Akce
             created_at: Vytvořeno v
             document_number: Číslo dokumentu
-            name: název
+            name: Název
             phone: Telefon
             state: Stav
             users_count: Počet účastníků
@@ -741,15 +741,15 @@ cs:
           error: Při blokování uživatele došlo k chybě
           success: Uživatel byl úspěšně zablokován
         create:
-          success: Uživatel úspěšně oficializován
+          success: Účastník úspěšně oficiálně zaregistrován
         destroy:
-          success: Uživatel úspěšně zbaven oficializace
+          success: Uživatel úspěšně zbaven oficiální registrace
         index:
           actions: Akce
           badge: Odznak
           block: Zablokovat uživatele
           created_at: Vytvořeno na
-          name: název
+          name: Název
           nickname: Přezdívka
           not_officialized: Neověřeno
           officialize: Ověřit
@@ -783,7 +783,7 @@ cs:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: V některých textových oblastech budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
+          rich_text_editor_in_public_views_help: V některých textových polích budou účastníci moci vložit některé HTML tagy pomocí textového editoru.
           social_handlers: Sociální
           twitter: Twitter
           url: URL
@@ -977,7 +977,7 @@ cs:
       user_groups:
         index:
           state:
-            pending: čekající
+            pending: Čekající
             rejected: Odmítnuto
             verified: Ověřeno
           verify_via_csv: Ověřit pomocí CSV
