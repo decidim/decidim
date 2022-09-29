@@ -15,7 +15,7 @@ header{
     }
 
     &__button{
-      @apply button button__xs bg-white/[.15] text-black font-normal;
+      @apply button button__xs bg-white/[0.15] text-black font-normal;
     }
   }
 }
