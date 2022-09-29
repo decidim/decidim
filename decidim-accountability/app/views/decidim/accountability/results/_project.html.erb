@@ -31,10 +31,13 @@
       <%= icon "chat-1-line", class: "fill-current flex-none" %>
     </button>
     <%= cell "decidim/tags", result %>
-    <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
   </div>
 
   <%# REDESIGN_PENDING: Both comments and attachments sections are pending %>
   <%= comments_for result %>
   <%= attachments_for result %>
+
+  <div class="mt-8">
+    <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
+  </div>
 <% end %>

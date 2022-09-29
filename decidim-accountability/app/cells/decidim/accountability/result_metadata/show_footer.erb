@@ -1,13 +1,11 @@
-<div class="mt-8 accountability__project-actions">
-  <ul data-result-footer>
-    <% items.each do |item| %>
-      <li>
-        <% if item.has_key? :partial %>
-          <%= render item[:partial] %>
-        <% else %>
-          <%= item[:text] %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<ul class="drawer-metadata__container" data-result-footer>
+  <% items.each do |item| %>
+    <li class="drawer-metadata__item">
+      <% if item.has_key? :partial %>
+        <%= render item[:partial] %>
+      <% else %>
+        <%= item[:text] %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

@@ -10,6 +10,7 @@ module Decidim
       include Decidim::ResourceReferenceHelper
       include Decidim::ResourceVersionsHelper
       include Decidim::Accountability::Engine.routes.url_helpers
+      include Decidim::LayoutHelper
 
       delegate :start_date, :end_date, :status, :category, :parent, :reference, to: :model
 
