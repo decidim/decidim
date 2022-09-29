@@ -10,7 +10,7 @@ module Decidim
     #         * class: A string of extra css classes
     #
     # Returns a String.
-    def resource_reference(resource, options = {})
+    def resource_reference(resource)
       return unless resource.respond_to?(:reference) && resource.reference.present?
 
       localized_reference(resource.reference)
