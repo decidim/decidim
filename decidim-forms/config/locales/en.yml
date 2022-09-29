@@ -147,6 +147,8 @@ en:
         single_option: Single option
         sorting: Sorting
         title_and_description: Title and description
+      questionnaire_answer_presenter:
+        download_attachment: Download attachment
       questionnaires:
         answer:
           invalid: There was a problem answering the form.
