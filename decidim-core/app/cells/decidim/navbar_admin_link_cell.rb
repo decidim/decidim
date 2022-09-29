@@ -34,12 +34,6 @@ module Decidim
       model[:link_options][:name]
     end
 
-    def link_class
-      return if model[:link_options][:class].blank?
-
-      model[:link_options][:class]
-    end
-
     def icon_options
       options = model[:icon_options].presence || {}
 

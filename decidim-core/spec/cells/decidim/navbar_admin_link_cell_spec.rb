@@ -34,17 +34,12 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
     let(:link_options) do
       {
         name: "Answer",
-        icon: "comment-square",
-        class: "my-class"
+        icon: "comment-square"
       }
     end
 
     it "renders the link url" do
       expect(subject).to have_link(href: "https://another.link.url")
-    end
-
-    it "renders the link wrapper with the custom class" do
-      expect(subject).to have_css(".topbar__admin__link.my-class")
     end
 
     it "renders the custom link name: Edit" do
