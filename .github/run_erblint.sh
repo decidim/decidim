@@ -2,7 +2,7 @@
 
 shopt -s globstar
 
-DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+DEFAULT_BRANCH=develop
 
 # Scan only the modified ERB files
 bundle exec erblint $(git diff --name-only "${DEFAULT_BRANCH}" | grep '.erb$')
