@@ -1061,6 +1061,7 @@ fi:
         moderation:
           fields:
             created_at: Luonnin ajankohta
+            deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
             report_count: Määrä
