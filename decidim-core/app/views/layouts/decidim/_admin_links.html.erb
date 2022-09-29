@@ -1,2 +1,15 @@
-<%= content_for(:extra_admin_link) if content_for?(:extra_admin_link) %>
-<%= content_for(:edit_link) if content_for?(:edit_link) %>
+<div class="admin-bar__container">
+  <div class="admin-bar">
+    <div class="admin-bar__block">
+      <span class="admin-bar__title">Administrator</span>
+      <%= link_to decidim_admin.root_path, class: "admin-bar__button" do %>
+        <span><%= t("layouts.decidim.user_menu.admin_dashboard") %></span>
+        <%= icon "equalizer-line" %>
+      <% end %>
+    </div>
+    <div class="admin-bar__block">
+      <%= content_for(:extra_admin_link) if content_for?(:extra_admin_link) %>
+      <%= content_for(:edit_link) if content_for?(:edit_link) %>
+    </div>
+  </div>
+</div>

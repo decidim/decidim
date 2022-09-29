@@ -1,0 +1,21 @@
+header{
+  .admin-bar{
+    @apply container flex items-center justify-between;
+
+    &__container{
+      @apply bg-tertiary py-2;
+    }
+
+    &__title{
+      @apply text-sm font-bold text-black;
+    }
+
+    &__block{
+      @apply flex items-center gap-4;
+    }
+
+    &__button{
+      @apply button button__xs bg-white/[.15] text-black font-normal;
+    }
+  }
+}

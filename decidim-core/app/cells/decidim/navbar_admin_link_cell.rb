@@ -23,7 +23,7 @@ module Decidim
     end
 
     def link_icon_name
-      return "pencil" if model[:link_options][:icon].blank?
+      return "pencil-line" if model[:link_options][:icon].blank?
 
       model[:link_options][:icon]
     end
