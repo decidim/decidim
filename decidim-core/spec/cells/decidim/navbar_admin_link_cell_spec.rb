@@ -24,8 +24,8 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
       expect(subject).to have_css("span", text: "Edit")
     end
 
-    it "renders the icon: pencil" do
-      expect(subject).to have_css("svg.icon--pencil")
+    it "renders the icon: pencil-line" do
+      expect(subject).to have_css("svg.icon--pencil-line")
     end
   end
 
