@@ -13,7 +13,7 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
 
   context "when rendering with the defaults" do
     it "renders the link wrapper" do
-      expect(subject).to have_css(".topbar__admin__link")
+      expect(subject).to have_css(".admin-bar__button")
     end
 
     it "renders the link url" do
