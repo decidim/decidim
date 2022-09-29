@@ -1,6 +1,4 @@
 import { DirectUpload } from "@rails/activestorage";
-import { createElement } from "src/decidim/direct_uploads/upload_utility";
-import icon from "src/decidim/redesigned_icon";
 
 export class Uploader {
   constructor(modal, options) {

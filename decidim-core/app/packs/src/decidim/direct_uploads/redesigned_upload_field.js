@@ -1,5 +1,5 @@
 import UploadModal from "src/decidim/direct_uploads/redesigned_upload_modal";
-import { truncateFilename, createHiddenInput } from "src/decidim/direct_uploads/upload_utility";
+import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
 
 const addButtonEventListener = (modal) => {
   modal.button.addEventListener("click", (event) => {

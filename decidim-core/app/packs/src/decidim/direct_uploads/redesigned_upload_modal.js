@@ -1,6 +1,6 @@
 import { Uploader } from "src/decidim/direct_uploads/redesigned_uploader";
 import icon from "src/decidim/redesigned_icon";
-import { truncateFilename, checkTitles, createHiddenInput } from "src/decidim/direct_uploads/upload_utility";
+import { truncateFilename } from "src/decidim/direct_uploads/upload_utility";
 
 // This class handles logic inside upload modal, but since modal is not inside the form
 // logic here moves "upload items" / hidden inputs to form.

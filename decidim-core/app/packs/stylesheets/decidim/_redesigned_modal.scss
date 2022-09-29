@@ -69,11 +69,11 @@
       }
 
       [data-template="error"] div:not(:first-child){
-        @apply flex flex-col gap-2 [&_label]:font-semibold
+        @apply flex flex-col gap-2 [&_label]:font-semibold;
       }
 
       [data-template="titled"] div:not(:first-child){
-        @apply flex items-stretch gap-12 [&>div]:flex [&>div]:flex-col [&>div]:gap-2 [&_label]:font-semibold
+        @apply flex items-stretch gap-12 [&>div]:flex [&>div]:flex-col [&>div]:gap-2 [&_label]:font-semibold;
       }
 
       img{
