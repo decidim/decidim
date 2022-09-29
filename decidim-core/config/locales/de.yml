@@ -1019,7 +1019,7 @@ de:
           title: Gespräch mit %{usernames}
         start:
           send: Senden
-          title: Ein Gespräch beginnen
+          title: Eine Unterhaltung beginnen
         update:
           error: Nachricht wurde aufgrund eines Fehlers nicht gesendet
     metrics:

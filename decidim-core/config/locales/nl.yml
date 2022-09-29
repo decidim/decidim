@@ -973,7 +973,7 @@ nl:
           title: conversaties
         reply:
           placeholder: Jouw antwoord...
-          send: Sturen
+          send: Verzenden
           title: Beantwoorden
         show:
           back: Terug naar alle gesprekken
@@ -983,7 +983,7 @@ nl:
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
-          title: Een gesprek beginnen
+          title: Gesprek starten
         update:
           error: Bericht is niet verzonden vanwege een fout
     metrics:

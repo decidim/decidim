@@ -15,14 +15,14 @@ cs:
         address: Adresa
         answer: Odpovědět
         answered_at: Odpovězeno na
-        automatic_hashtags: Hashtags se automaticky přidali
+        automatic_hashtags: Hashtagy automaticky přidány
         body: Tělo
         category_id: Kategorie
         decidim_scope_id: Rozsah
         has_address: Má adresu
         scope_id: Oblast působnosti
         state: Stav
-        suggested_hashtags: Navrhované hashtags
+        suggested_hashtags: Navrhované hashtagy
         title: Titul
         user_group_id: Vytvořit návrh jako
       proposal_answer:
@@ -153,7 +153,7 @@ cs:
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
-            default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou opory blokovány, pak budou seřazeny podle nejpodporovanější.
+            default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou podpory blokovány, pak budou seřazeny podle nejpodporovanější.
             default_sort_order_options:
               default: Výchozí
               most_commented: Nejvíce komentované
@@ -205,9 +205,9 @@ cs:
             automatic_hashtags: Do všech návrhů byly přidány značky Hashtags
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Účastníci mohou vytvářet návrhy
-            creation_enabled_readonly: Toto nastavení je zakázáno, pokud aktivujete funkci účastnických textů. Chcete-li nahrát návrhy jako participativní text, klikněte na tlačítko Participatory Texts a postupujte podle pokynů.
+            creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
-            default_sort_order_help: Výchozí znamená, že pokud jsou podporované funkce povoleny, budou návrhy zobrazeny náhodně, a pokud jsou opory blokovány, pak budou seřazeny podle nejpodporovanější.
+            default_sort_order_help: Ve výchozím nastavení to znamená, že pokud jsou podpory povoleny, budou návrhy zobrazeny náhodně seřazené, a pokud jsou podpory blokovány, budou seřazeny podle nejvíce podporovaných.
             default_sort_order_options:
               default: Výchozí
               most_commented: Nejvíce komentované
@@ -357,11 +357,11 @@ cs:
             - Podpořte návrhy, které se vám líbí nebo které jsou zajímavé
           description: Tento odznak je udělen při podpoře návrhů jiných lidí.
           description_another: Tento uživatel podpořil %{score} návrhů.
-          description_own: Podporili jste %{score} návrhů.
+          description_own: Podpořili jste %{score} návrhů.
           name: Podpora návrhů
           next_level_in: Poskytněte podporu %{score} dalších návrhů, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel zatím nepodporoval žádné návrhy.
-          unearned_own: Podporili jste ještě žádné návrhy.
+          unearned_own: Zatím jste nepodpořili žádné návrhy.
         proposals:
           conditions:
             - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
@@ -502,7 +502,7 @@ cs:
             actions: Akce
             assign_to_valuator: Přiřadit hodnotiteli
             assign_to_valuator_button: Přiřadit
-            cancel: zrušení
+            cancel: Zrušit
             change_category: Změnit kategorii
             change_scope: Změnit rozsah
             merge: Sloučit do nového
@@ -632,7 +632,7 @@ cs:
             error: Při publikování konceptu spolupráce došlo k chybám.
             irreversible_action_modal:
               body: Po zveřejnění návrhu jako návrhu návrh již nebude upravitelný. Návrh nepřijme nové autory ani příspěvky.
-              cancel: zrušení
+              cancel: Zrušit
               ok: Publikovat jako návrh
               title: Následující akce je nevratná
             success: Projekt spolupráce byl úspěšně zveřejněn jako návrh.
@@ -641,7 +641,7 @@ cs:
             error: Došlo k chybě při uzavření návrhu spolupráce.
             irreversible_action_modal:
               body: Po uzavření konceptu již návrh nebude upravitelný. Návrh nepřijme nové autory nebo příspěvky.
-              cancel: zrušení
+              cancel: Zrušit
               ok: Vyjměte návrh spolupráce
               title: Následující akce je nevratná
             success: Kolaborativní návrh byl úspěšně zrušen.
@@ -664,7 +664,7 @@ cs:
           all: Vše
           amendment: Změny
           category: Kategorie
-          open: otevřeno
+          open: Otevřeno
           published: Publikováno
           related_to: Související s
           scope: Rozsah
@@ -709,7 +709,7 @@ cs:
             few: a %{count} dalších lidí
             many: a %{count} dalších lidí
             other: a %{count} dalších lidí
-          info-message: Jedná se o <strong>kolaborativní návrh</strong> k návrhu. To znamená, že můžete pomoci jejich autorům formovat návrh pomocí níže uvedené poznámky nebo je vylepšit přímo tím, že požádáte o přístup k jeho úpravám. Jakmile vám autoři udělí přístup, budete moci tento návrh provést.
+          info-message: Toto je <strong>kolaborativní návrh</strong> k návrhu. To znamená, že můžete pomoci jejich autorům formovat návrh pomocí níže uvedené poznámky nebo je vylepšit přímo tím, že požádáte o přístup k jeho úpravám. Jakmile vám autoři udělí přístup, budete moci tento návrh provést.
           publish: Publikovat
           publish_info: Publikujte tuto verzi konceptu nebo
           published_proposal: zveřejněný návrh
@@ -718,7 +718,7 @@ cs:
           version_history: viz historii verzí tohoto návrhu
           withdraw: stáhnout návrh
         states:
-          open: otevřeno
+          open: Otevřeno
           published: Publikováno
           withdrawn: Staženo
         update:
@@ -916,10 +916,10 @@ cs:
           votes_blocked: Hlasování je zakázáno
         votes_count:
           count:
-            one: HLASOVÁNÍ
-            few: HLASOVÁNÍ
-            many: HLASOVÁNÍ
-            other: HLASOVÁNÍ
+            one: Podpora
+            few: Podpory
+            many: Podpor
+            other: Podpor
           most_popular_proposal: Nejoblíbenější návrh
           need_more_votes: Potřebujete více hlasů
         voting_rules:

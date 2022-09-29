@@ -66,7 +66,7 @@ cs:
         user_id: Uživatel
       conference_user_role:
         email: E-mail
-        name: název
+        name: Název
         role: Role
     errors:
       models:
@@ -99,7 +99,7 @@ cs:
         send_diplomas: Odeslání certifikátů o účasti
       conference_copies:
         new:
-          copy: kopírovat
+          copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Duplikovat konferenci
       conference_publications:
@@ -222,7 +222,7 @@ cs:
         conference_user_role:
           fields:
             email: E-mail
-            name: název
+            name: Název
             role: Role
           name: Administrátor konference
           roles:
@@ -232,7 +232,7 @@ cs:
             valuator: Hodnotitel
         media_link:
           fields:
-            date: datum
+            date: Datum
             link: Odkaz
             title: Název
           name: Odkaz na média
@@ -240,7 +240,7 @@ cs:
           fields:
             link: Odkaz
             logo: Logo
-            name: název
+            name: Název
             partner_type: Typ
           name: Partner
           types:
@@ -409,7 +409,7 @@ cs:
           success: Konferenční certifikáty o návštěvě byly zaslány správně
       conference:
         registration_confirm:
-          cancel: zrušení
+          cancel: Zrušit
           confirm: Potvrdit
         show:
           free: Volný, uvolnit
@@ -488,7 +488,7 @@ cs:
         conference_invite:
           fields:
             email: E-mail
-            name: název
+            name: Název
             registration_type: Typ registrace
             sent_at: Odeslané
             status: Postavení
@@ -499,12 +499,12 @@ cs:
         conference_registration:
           fields:
             email: E-mail
-            name: název
+            name: Název
             registration_type: Typ registrace
             state: Stav
             states:
               confirmed: Potvrzeno
-              pending: čekající
+              pending: Čekající
       pages:
         home:
           highlighted_conferences:

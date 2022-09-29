@@ -963,7 +963,7 @@ pt:
           title: Conversas
         reply:
           placeholder: A sua resposta...
-          send: Mandar
+          send: Enviar
           title: Responder
         show:
           back: Retroceder a todas as conversas

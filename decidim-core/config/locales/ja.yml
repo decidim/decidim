@@ -706,7 +706,7 @@ ja:
     filters:
       linked_classes:
         all: すべて
-        collaborative_draft: 共同ドラフト（下書き）
+        collaborative_draft: 共同草案
         dummy_resource: ダミーリソース
         meeting: ミーティング
         project: プロジェクト

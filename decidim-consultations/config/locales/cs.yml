@@ -329,7 +329,7 @@ cs:
       show:
         badge_name:
           finished: Dokončeno
-          open: otevřeno
+          open: Otevřeno
           open_votes: Hlasování zahájeno
           published_results: Publikované výsledky
         footer_button_text:

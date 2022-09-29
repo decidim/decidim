@@ -1009,7 +1009,7 @@ ca:
         reply:
           placeholder: La teva resposta...
           send: Enviar
-          title: Respon
+          title: Respondre
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
@@ -1018,7 +1018,7 @@ ca:
           title: Conversa amb %{usernames}
         start:
           send: Enviar
-          title: Comença una conversa
+          title: Iniciar una conversa
         update:
           error: El missatge no ha estat enviat degut a un error
     metrics:
