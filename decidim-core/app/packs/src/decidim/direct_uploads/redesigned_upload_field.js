@@ -13,6 +13,9 @@ const updateModalTitle = (modal) => {
 const updateActiveUploads = (modal) => {
   const files = document.querySelector("[data-active-uploads]")
 
+  // fastest way to clean children nodes
+  files.textContent = ""
+
   modal.items.forEach((item) => {
     let title = truncateFilename(item.name, 19)
 
@@ -50,6 +53,16 @@ const updateActiveUploads = (modal) => {
   modal.updateAddAttachmentsButton();
 }
 
+const highlightDropzone = (modal) => {
+  modal.emptyItems.classList.add("is-dragover")
+  modal.uploadItems.classList.add("is-dragover")
+}
+
+const resetDropzone = (modal) => {
+  modal.emptyItems.classList.remove("is-dragover")
+  modal.uploadItems.classList.remove("is-dragover")
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const attachmentButtons = document.querySelectorAll("button[data-upload]");
 
@@ -66,9 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.button.addEventListener("click", (event) => event.preventDefault() || updateModalTitle(modal))
 
     // avoid browser to open the file
-    modal.dropZone.addEventListener("dragover", (event) => event.preventDefault())
+    modal.dropZone.addEventListener("dragover", (event) => event.preventDefault() || highlightDropzone(modal))
     // avoid browser to open the file and then, process the files
-    modal.dropZone.addEventListener("drop", (event) => event.preventDefault() || Array.from(event.dataTransfer.files).forEach((file) => modal.uploadFile(file)))
+    modal.dropZone.addEventListener("drop", (event) => event.preventDefault() || resetDropzone(modal) || Array.from(event.dataTransfer.files).forEach((file) => modal.uploadFile(file)))
 
     // update the DOM with the validated items from the modal
     modal.saveButton.addEventListener("click", (event) => event.preventDefault() || updateActiveUploads(modal));

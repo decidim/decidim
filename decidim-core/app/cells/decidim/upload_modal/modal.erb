@@ -4,28 +4,15 @@
   <div>
     <h2 id="dialog-title-<%= modal_id %>" data-dialog-title data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h2>
 
-    <div data-name="<%= attribute %>" data-dropzone>
+    <div data-name="<%= attribute %>" class="upload-modal__dropzone-container" data-dropzone>
       <%= form.file_field add_attribute,
         id: "files-#{modal_id}",
-        class: "hidden",
         label: false,
         required: false,
         multiple: multiple,
         direct_upload: true,
+        hidden: true,
         data: { direct_upload_url: direct_upload_url } %>
-
-      <div id="dropzone-no-items" class="upload-modal__dropzone">
-        <div class="upload-modal__dropzone-placeholder">
-          <span>
-            <%= icon "upload-cloud-2-line", class: "w-8 h-8 text-gray fill-current" %>
-            <%= t("decidim.forms.upload_help.dropzone") %>
-          </span>
-          <label class="button button__sm button__secondary" for="files-<%= modal_id %>">
-            <span><%= t("decidim.forms.upload.select_file") %></span>
-            <%= icon "arrow-right-line", class: "fill-current" %>
-          </label>
-        </div>
-      </div>
 
       <%= tag.ul id: "dropzone-items", class: "upload-modal__dropzone", hidden: true, data: {
         locales: {
@@ -40,6 +27,19 @@
           validation_error: t("decidim.forms.upload.labels.validation_error")
         }
       } %>
+
+      <div id="dropzone-no-items" class="upload-modal__dropzone">
+        <div class="upload-modal__dropzone-placeholder">
+          <span>
+            <%= icon "upload-cloud-2-line", class: "w-8 h-8 text-gray fill-current" %>
+            <%= t("decidim.forms.upload_help.dropzone") %>
+          </span>
+          <label class="button button__sm button__secondary" for="files-<%= modal_id %>">
+            <span><%= t("decidim.forms.upload.select_file") %></span>
+            <%= icon "arrow-right-line", class: "fill-current" %>
+          </label>
+        </div>
+      </div>
     </div>
 
     <div class="upload-modal__text">
