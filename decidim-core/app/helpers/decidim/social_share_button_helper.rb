@@ -6,9 +6,7 @@ module Decidim
     def social_share_button_tag(title, args)
       return unless enabled_services.length.positive?
 
-      content_tag :div, class: "social-share-button" do
-        render_social_share_buttons(enabled_services, title, args)
-      end
+      render_social_share_buttons(enabled_services, title, args)
     end
 
     def render_social_share_buttons(services, title, args)
@@ -25,10 +23,9 @@ module Decidim
         uri,
         rel: "nofollow",
         data: { site: service.name.downcase },
-        class: "ssb-icon ssb-#{service.name.downcase}",
         title: t("decidim.shared.share_modal.share_to", service: service.name)
       ) do
-        image_tag service.icon_path, alt: t("decidim.shared.share_modal.share_to", service: service.name)
+        icon("#{service.name.downcase}-line") + content_tag(:span, service.name)
       end
     end
 

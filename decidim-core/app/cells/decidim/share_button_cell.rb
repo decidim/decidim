@@ -15,5 +15,9 @@ module Decidim
     def icon_name
       "share-line"
     end
+
+    def html_options
+      { data: { "dialog-open": "socialShare" } }
+    end
   end
 end

@@ -1,0 +1,25 @@
+.share-modal{
+  &__list{
+    @apply mt-8 grid grid-cols-4 gap-6;
+
+    > *{
+      @apply button button__lg border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg min-w-[50%];
+
+      svg{
+        @apply w-6 h-6 fill-current;
+      }
+    }
+  }
+
+  &__input{
+    @apply mt-8 w-full relative;
+
+    input{
+      @apply w-full;
+    }
+
+    button{
+      @apply absolute right-2 inset-y-2;
+    }
+  }
+}

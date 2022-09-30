@@ -12,30 +12,30 @@ describe "Social share button", type: :system do
     it "shows the 'socialShare' modal" do
       within "#socialShare", visible: :visible do
         expect(page).to have_css("h3", text: "Share:")
-        expect(page).to have_css(".social-share-button")
+        expect(page).to have_css("[data-social-share]")
       end
     end
 
     it "shows the 'Share to Twitter' button" do
-      within ".social-share-button" do
+      within "[data-social-share]" do
         expect(page).to have_css('a[data-site="twitter"]')
       end
     end
 
     it "shows the 'Share to Facebook' button" do
-      within ".social-share-button" do
+      within "[data-social-share]" do
         expect(page).to have_css('a[data-site="facebook"]')
       end
     end
 
     it "shows the 'Share to Telegram' button" do
-      within ".social-share-button" do
+      within "[data-social-share]" do
         expect(page).to have_css('a[data-site="telegram"]')
       end
     end
 
     it "shows the 'Share to Whatsapp' button" do
-      within ".social-share-button" do
+      within "[data-social-share]" do
         expect(page).to have_css('a[data-site="whatsapp"]')
       end
     end

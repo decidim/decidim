@@ -1,0 +1,23 @@
+<%= decidim_modal id: "socialShare", class: "share-modal" do %>
+<div data-dialog-container>
+  <%= icon "share-line" %>
+  <div>
+    <h3 id="dialog-title-socialShare" data-dialog-title><%= t("share", scope: "decidim.shared.share_modal") %></h3>
+
+    <div class="share-modal__list" data-social-share>
+      <%= social_share_button_tag(decidim_page_title,
+        url: decidim_meta_url,
+        image: decidim_meta_image_url,
+        desc: h(decidim_meta_description),
+        via: decidim_meta_twitter_handler) %>
+    </div>
+
+    <div class="share-modal__input">
+      <input id="urlShareLink" type="text" title="<%= t("share_link" , scope: "decidim.shared.share_modal") %>" value="<%= decidim_meta_url %>" readonly>
+      <button type="button">
+        <%= icon "file-copy-line"  %>
+      </button>
+    </div>
+  </div>
+</div>
+<% end %>
