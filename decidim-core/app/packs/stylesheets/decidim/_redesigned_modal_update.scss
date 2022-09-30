@@ -14,7 +14,7 @@
       @apply w-full flex items-center justify-between gap-4 font-semibold text-gray-2 text-md [&>span]:inline-flex [&>span]:items-center [&>span]:gap-2;
     }
 
-    &.is-dragover{
+    &.is-dragover:last-child{
       @apply border-2 border-secondary border-dashed bg-background-4;
     }
 

@@ -32,6 +32,7 @@ export default class UploadModal {
     this.name = this.button.name;
     this.modal = document.querySelector(`#${button.dataset.dialogOpen}`);
     this.saveButton = this.modal.querySelector("button[data-dropzone-save]");
+    this.cancelButton = this.modal.querySelector("button[data-dropzone-cancel]");
     this.modalTitle = this.modal.querySelector("[data-dialog-title]");
     this.dropZone = this.modal.querySelector("[data-dropzone]");
 
@@ -110,7 +111,6 @@ export default class UploadModal {
 
     this.uploadItems.hidden = !inputHasFiles;
     this.saveButton.disabled = !inputHasFiles;
-    // this.input.disabled = inputHasFiles;
   }
 
   createUploadItem(file, errors, opts = {}) {
@@ -203,5 +203,11 @@ export default class UploadModal {
     } else {
       this.button.innerHTML = this.modalTitle.dataset.editlabel;
     }
+  }
+
+  cleanAllFiles() {
+    this.items = []
+    this.uploadItems.textContent = ""
+    this.updateDropZone();
   }
 }

@@ -63,6 +63,8 @@ const resetDropzone = (modal) => {
   modal.uploadItems.classList.remove("is-dragover")
 }
 
+/* NOTE: all this actions are supposed to work using the modal object,
+  so, perhaps, it would be more accurate to move all the inner listeners to the UploadModal class */
 document.addEventListener("DOMContentLoaded", () => {
   const attachmentButtons = document.querySelectorAll("button[data-upload]");
 
@@ -85,5 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // update the DOM with the validated items from the modal
     modal.saveButton.addEventListener("click", (event) => event.preventDefault() || updateActiveUploads(modal));
+    // remove the uploaded files if cancel button is clicked
+    modal.cancelButton.addEventListener("click", (event) => event.preventDefault() || modal.cleanAllFiles())
   })
 })
