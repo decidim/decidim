@@ -1255,6 +1255,7 @@ eu:
         copy_share_link_message: Lotura arbelera zuzen kopiatu da.
         share: Partekatu
         share_link: Partekatu esteka
+        share_to: 'Partekatu honekin: %{service}'
     statistics:
       comments_count: Iruzkinak
       endorsements_count: Atxikimenduak
