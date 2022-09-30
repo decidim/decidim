@@ -36,7 +36,6 @@ require "doorkeeper-i18n"
 require "batch-loader"
 require "mime-types"
 require "diffy"
-require "social-share-button"
 require "ransack"
 require "wisper"
 require "webpacker"
@@ -559,6 +558,79 @@ module Decidim
         Decidim::Gamification.register_badge(:followers) do |badge|
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }
+        end
+      end
+
+      initializer "decidim.core.add_social_share_services" do
+        Decidim.register_social_share_service("Douban") do |service|
+          service.icon = "douban.svg"
+          service.share_uri = "http://shuo.douban.com/!service/share?href=%{url}&name=%{title}&image=%{image}&sel=%{desc}"
+        end
+
+        Decidim.register_social_share_service("Email") do |service|
+          service.icon = "email.svg"
+          service.share_uri = "mailto:?subject=%{title}&body=%{url}"
+        end
+
+        Decidim.register_social_share_service("Facebook") do |service|
+          service.icon = "facebook.svg"
+          service.share_uri = "http://www.facebook.com/sharer/sharer.php?u=%{url}"
+        end
+
+        Decidim.register_social_share_service("Google Bookmark") do |service|
+          service.icon = "google_bookmark.svg"
+          service.share_uri = "https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=%{url}&title=%{title}"
+        end
+
+        Decidim.register_social_share_service("Hacker News") do |service|
+          service.icon = "hacker_news.svg"
+          service.share_uri = "http://news.ycombinator.com/submitlink?u=%{url}&t=%{title}"
+        end
+
+        Decidim.register_social_share_service("LinkedIn") do |service|
+          service.icon = "linkedin.svg"
+          service.share_uri = "https://www.linkedin.com/shareArticle?mini=true&url=%{url}&title=%{title}&summary=%{desc}"
+        end
+
+        Decidim.register_social_share_service("Odnoklassniki") do |service|
+          service.icon = "odnoklassniki.svg"
+          service.share_uri = "https://connect.ok.ru/offer?url=%{url}&title=%{title}&description=%{desc}&imageUrl=%{image}"
+        end
+
+        Decidim.register_social_share_service("Pinterest") do |service|
+          service.icon = "pinterest.svg"
+          service.share_uri = "http://www.pinterest.com/pin/create/button/?url=%{url}&media=%{image}&description=%{title}"
+        end
+
+        Decidim.register_social_share_service("Reddit") do |service|
+          service.icon = "reddit.svg"
+          service.share_uri = "http://www.reddit.com/submit?url=%{url}&newwindow=1"
+        end
+
+        Decidim.register_social_share_service("Telegram") do |service|
+          service.icon = "telegram.svg"
+          service.share_uri = "https://telegram.me/share/url?text=%{title}&url=%{url}"
+        end
+
+        Decidim.register_social_share_service("Twitter") do |service|
+          service.icon = "twitter.svg"
+          service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
+          service.optional_params = %w(hashtags via)
+        end
+
+        Decidim.register_social_share_service("Vkontakte") do |service|
+          service.icon = "vkontakte.svg"
+          service.share_uri = "http://vk.com/share.php?url=%{url}&title=%{title}&image=%{image}"
+        end
+
+        Decidim.register_social_share_service("WhatsApp") do |service|
+          service.icon = "whatsapp.svg"
+          service.share_uri = "https://api.whatsapp.com/send?text=%{title}%%0A%{url}"
+        end
+
+        Decidim.register_social_share_service("Xing") do |service|
+          service.icon = "xing.svg"
+          service.share_uri = "https://www.xing.com/spi/shares/new?url=%{url}"
         end
       end
 
