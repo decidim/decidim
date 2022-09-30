@@ -1,0 +1,49 @@
+<div class="reveal upload-modal" id="<%= modal_id %>" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title" data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h3>
+    <button class="close-button" data-close aria-label="<%= t("layouts.decidim.upload_modal.close_modal") %>"
+      type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="help">
+    <span><%= explanation %></span>
+    <ul>
+      <% help_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="row dropzone-container" data-name="<%= attribute %>">
+    <%= tag.div class: "upload-items", data: {
+        locales: {
+          error: t("decidim.forms.upload.labels.error"),
+          title_required: t("decidim.forms.upload.labels.title_required"),
+          file_size_too_large: t("decidim.forms.upload.labels.file_size_too_large", megabytes: (max_file_size_mb)),
+          remove: t("decidim.forms.upload.labels.remove"),
+          title: t("decidim.forms.upload.labels.title"),
+          uploaded: t("decidim.forms.upload.labels.uploaded"),
+          validating: t("decidim.forms.upload.labels.validating"),
+          validation_error: t("decidim.forms.upload.labels.validation_error")
+        }
+      } %>
+    <label class="dropzone">
+      <%= form.file_field add_attribute,
+        id: nil,
+        class: "hide",
+        label: false,
+        multiple: true,
+        direct_upload: true,
+        data: { direct_upload_url: direct_upload_url } %>
+      <span><%= t("decidim.forms.upload_help.dropzone") %></span>
+    </label>
+  </div>
+
+  <div class="row columns reveal__content">
+    <div class="text-center">
+      <button class="button add-file-<%= attribute %>" data-close><%= t("decidim.forms.upload.labels.save") %></button>
+      <button class="link cancel-attachment margin-left-1" data-close><%= t("decidim.forms.upload.labels.cancel") %></button>
+    </div>
+  </div>
+</div>
