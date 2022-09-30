@@ -6,6 +6,6 @@
   @apply cursor-pointer;
 
   &__container{
-    @apply flex gap-4 [&>*]:w-1/2;
+    @apply flex gap-4 [&>*]:w-1/2 first:[&>*]:self-center;
   }
 }

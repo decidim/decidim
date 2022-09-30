@@ -9,6 +9,7 @@ module Decidim
       include ApplicationHelper
       include Decidim::ResourceHelper
       include Decidim::TranslationsHelper
+      include Decidim::LayoutHelper
 
       delegate :current_component, :component_settings, to: :controller
 
