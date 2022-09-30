@@ -1460,6 +1460,7 @@ fr-CA:
         copy_share_link_message: Le lien a bien été copié dans le presse-papier.
         share: Partager
         share_link: Lien de partage
+        share_to: Partager sur %{service}
     statistics:
       comments_count: Commentaires
       endorsements_count: Soutiens
