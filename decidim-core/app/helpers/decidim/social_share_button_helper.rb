@@ -6,7 +6,13 @@ module Decidim
     def social_share_button_tag(title, args)
       return unless enabled_services.length.positive?
 
-      render_social_share_buttons(enabled_services, title, args)
+      if redesign_enabled?
+        render_social_share_buttons(enabled_services, title, args)
+      else
+        content_tag :div, class: "social-share-button" do
+          render_social_share_buttons(enabled_services, title, args)
+        end
+      end
     end
 
     def render_social_share_buttons(services, title, args)
