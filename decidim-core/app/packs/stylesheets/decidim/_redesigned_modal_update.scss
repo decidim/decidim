@@ -108,15 +108,19 @@
     }
   }
 
-  &__files > *{
-    @apply flex flex-col gap-2;
+  &__files{
+    @apply mt-1;
 
-    div{
-      @apply w-full rounded bg-background flex items-center justify-center py-4 [&_img]:object-cover [&_img]:h-[200px];
-    }
+    > *{
+      @apply flex flex-col gap-2;
 
-    span{
-      @apply text-sm text-gray-2 mx-auto;
+      div{
+        @apply w-full rounded bg-background flex items-center justify-center py-4 [&_img]:object-cover [&_img]:h-[200px];
+      }
+
+      span{
+        @apply text-sm text-gray-2 mx-auto;
+      }
     }
   }
 }
