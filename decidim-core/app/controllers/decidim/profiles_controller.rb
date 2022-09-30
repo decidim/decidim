@@ -8,7 +8,7 @@ module Decidim
 
     helper Decidim::Messaging::ConversationHelper
 
-    helper_method :profile_holder, :active_content
+    helper_method :profile_holder, :active_content, :context_menu
 
     before_action :ensure_profile_holder
     before_action :ensure_profile_holder_is_a_group, only: [:members]
