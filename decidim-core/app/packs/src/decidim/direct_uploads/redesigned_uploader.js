@@ -26,7 +26,7 @@ export class Uploader {
       }
     }
 
-    if (this.validationSent) {
+    if (!this.validationSent) {
       let property = this.modal.options.addAttribute;
       if (this.modal.options.titled) {
         property = "file"
