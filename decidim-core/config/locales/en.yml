@@ -613,7 +613,6 @@ en:
         done: Done
         select_identity: Select identity
     endorsers_list:
-      close: Close
       endorsed_by: Liked by…
     errors:
       internal_server_error:
