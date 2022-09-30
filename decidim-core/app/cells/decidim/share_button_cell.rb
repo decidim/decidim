@@ -12,14 +12,6 @@ module Decidim
       t("decidim.shared.share_modal.share")
     end
 
-    def icon_classes
-      nil
-    end
-
-    def text_classes
-      nil
-    end
-
     def icon_name
       "share-line"
     end

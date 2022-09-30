@@ -13,14 +13,6 @@ module Decidim
       t("decidim.comments.comments_title")
     end
 
-    def icon_classes
-      nil
-    end
-
-    def text_classes
-      nil
-    end
-
     def icon_name
       "chat-1-line"
     end

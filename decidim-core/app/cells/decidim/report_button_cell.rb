@@ -12,14 +12,6 @@ module Decidim
       t("decidim.shared.flag_modal.report")
     end
 
-    def icon_classes
-      nil
-    end
-
-    def text_classes
-      nil
-    end
-
     def icon_name
       "flag-line"
     end
