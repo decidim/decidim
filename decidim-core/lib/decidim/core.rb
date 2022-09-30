@@ -110,6 +110,7 @@ module Decidim
   autoload :AttributeObject, "decidim/attribute_object"
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
+  autoload :SocialShareServiceManifest, "decidim/social_share_service_manifest"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
@@ -365,6 +366,11 @@ module Decidim
     # "MyTranslationService"
   end
 
+  # Social Networking services used for social sharing
+  config_accessor :social_share_services do
+    %w(Twitter Facebook WhatsApp Telegram)
+  end
+
   # If set to true redesigned versions of layouts and cells will be used by
   # default
   config_accessor :redesign_active do
@@ -559,6 +565,16 @@ module Decidim
     resource_registry.register(name, &)
   end
 
+  # Public: Registers a social share service.
+  #
+  # Returns nothing.
+  def self.register_social_share_service(name, &)
+    social_share_services_registry.register(name, &)
+  end
+
+  # Public: Registers a notification setting.
+  #
+  # Returns nothing.
   def self.notification_settings(name, &)
     notification_settings_registry.register(name, &)
   end
@@ -626,6 +642,7 @@ module Decidim
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
   end
 
+  # Public: Stores the registry of reminders
   def self.reminders_registry
     @reminders_registry ||= ReminderRegistry.new
   end
@@ -635,6 +652,12 @@ module Decidim
     @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
+  # Public: Stores the registry of social shares services
+  def self.social_share_services_registry
+    @social_share_services_registry ||= ManifestRegistry.new(:social_share_services)
+  end
+
+  # Public: Stores the registry of notifications settings
   def self.notification_settings_registry
     @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
   end

@@ -47,7 +47,6 @@ module Decidim
 
       def copy_initializer
         copy_file "carrierwave.rb", "config/initializers/carrierwave.rb"
-        copy_file "social_share_button.rb", "config/initializers/social_share_button.rb"
       end
 
       def secrets
