@@ -59,7 +59,9 @@ export default class UploadModal {
     // add the item to the DOM, before validations
     this.uploadItems.appendChild(item);
 
-    if (!uploader.errors.length) {
+    if (uploader.errors.length) {
+      this.updateDropZone();
+    } else {
       uploader.upload.create((error, blob) => {
         if (error) {
           uploader.errors = [error]
@@ -89,9 +91,9 @@ export default class UploadModal {
                 const img = item.querySelector("img")
                 img.src = result
               }
-
-              this.updateDropZone();
             }
+
+            this.updateDropZone();
           });
         }
       });
