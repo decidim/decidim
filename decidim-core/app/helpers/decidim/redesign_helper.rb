@@ -10,5 +10,16 @@ module Decidim
 
       redesigned_name
     end
+
+    # REDESIGN_PENDING: When redesign enabled for all the controllers this
+    # method will be unnecessary and the dialog-open key should be used
+    # directly instead of calling this
+    def modal_open_key
+      redesign_enabled? ? "dialog-open" : "open"
+    end
+
+    def data_modal_open_key
+      "data-#{modal_open_key}"
+    end
   end
 end
