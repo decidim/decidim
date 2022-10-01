@@ -1507,6 +1507,7 @@ cs:
         copy_share_link_message: Odkaz byl úspěšně zkopírován do schránky.
         share: Sdílet
         share_link: Sdílet odkaz
+        share_to: Sdílet na %{service}
     statistics:
       comments_count: Komentáře
       endorsements_count: Schválení
