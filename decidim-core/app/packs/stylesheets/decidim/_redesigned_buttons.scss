@@ -1,6 +1,10 @@
 .button{
   @apply inline-flex items-center justify-center font-semibold border border-transparent rounded whitespace-nowrap transition cursor-pointer;
 
+  &__xs{
+    @apply text-sm px-3 py-1 gap-1;
+  }
+
   &__sm{
     @apply text-sm px-4 py-1.5 gap-1.5;
   }
