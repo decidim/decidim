@@ -561,24 +561,30 @@ module Decidim
         end
       end
 
+      # Icon library used: https://remixicon.com/
+      # Just provide the respective icon name (unprefixed) and the brand color,
+      # if a social-network icon is missing there, you can provide as well a SVG file as used to
       initializer "decidim.core.add_social_share_services" do
         Decidim.register_social_share_service("Douban") do |service|
-          service.icon = "douban.svg"
+          service.icon = "douban-line"
+          service.color = "#2496cd"
           service.share_uri = "http://shuo.douban.com/!service/share?href=%{url}&name=%{title}&image=%{image}&sel=%{desc}"
         end
 
         Decidim.register_social_share_service("Email") do |service|
-          service.icon = "email.svg"
+          service.icon = "mail-line"
           service.share_uri = "mailto:?subject=%{title}&body=%{url}"
         end
 
         Decidim.register_social_share_service("Facebook") do |service|
-          service.icon = "facebook.svg"
+          service.icon = "facebook-circle-line"
+          service.color = "#1877f2"
           service.share_uri = "http://www.facebook.com/sharer/sharer.php?u=%{url}"
         end
 
         Decidim.register_social_share_service("Google Bookmark") do |service|
-          service.icon = "google_bookmark.svg"
+          service.icon = "google-line"
+          service.color = "#4285f4"
           service.share_uri = "https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=%{url}&title=%{title}"
         end
 
@@ -588,7 +594,8 @@ module Decidim
         end
 
         Decidim.register_social_share_service("LinkedIn") do |service|
-          service.icon = "linkedin.svg"
+          service.icon = "linkedin-box-fill"
+          service.color = "#0a66c2"
           service.share_uri = "https://www.linkedin.com/shareArticle?mini=true&url=%{url}&title=%{title}&summary=%{desc}"
         end
 
@@ -598,22 +605,26 @@ module Decidim
         end
 
         Decidim.register_social_share_service("Pinterest") do |service|
-          service.icon = "pinterest.svg"
+          service.icon = "pinterest-line"
+          service.color = "#bd081c"
           service.share_uri = "http://www.pinterest.com/pin/create/button/?url=%{url}&media=%{image}&description=%{title}"
         end
 
         Decidim.register_social_share_service("Reddit") do |service|
-          service.icon = "reddit.svg"
+          service.icon = "reddit-line"
+          service.color = "#ff4500"
           service.share_uri = "http://www.reddit.com/submit?url=%{url}&newwindow=1"
         end
 
         Decidim.register_social_share_service("Telegram") do |service|
-          service.icon = "telegram.svg"
+          service.icon = "telegram-line"
+          service.color = "#0088cc"
           service.share_uri = "https://telegram.me/share/url?text=%{title}&url=%{url}"
         end
 
         Decidim.register_social_share_service("Twitter") do |service|
-          service.icon = "twitter.svg"
+          service.icon = "twitter-line"
+          service.color = "#1da1f2"
           service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
           service.optional_params = %w(hashtags via)
         end
@@ -624,12 +635,14 @@ module Decidim
         end
 
         Decidim.register_social_share_service("WhatsApp") do |service|
-          service.icon = "whatsapp.svg"
+          service.icon = "whatsapp-line"
+          service.color = "#25d366"
           service.share_uri = "https://api.whatsapp.com/send?text=%{title}%%0A%{url}"
         end
 
         Decidim.register_social_share_service("Xing") do |service|
-          service.icon = "xing.svg"
+          service.icon = "xing-line"
+          service.color = "#cfdc00"
           service.share_uri = "https://www.xing.com/spi/shares/new?url=%{url}"
         end
       end

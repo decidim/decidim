@@ -1,10 +1,13 @@
 .share-modal{
+  @apply pb-16 pr-16;
+
   &__list{
     @apply mt-8 grid grid-cols-4 gap-6;
 
     > *{
-      @apply button button__lg border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg min-w-[50%];
+      @apply button button__lg border border-gray hover:border-tertiary shadow-[0_4px_6px_rgba(211,211,211,0.25)] text-md text-gray-2 gap-2;
 
+      img,
       svg{
         @apply w-6 h-6 fill-current;
       }
@@ -19,7 +22,7 @@
     }
 
     button{
-      @apply absolute right-2 inset-y-2;
+      @apply absolute right-2 inset-y-2 text-secondary [&>svg]:fill-current;
     }
   }
 }

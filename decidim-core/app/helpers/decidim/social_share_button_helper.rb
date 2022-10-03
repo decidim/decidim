@@ -25,13 +25,19 @@ module Decidim
       uri = service.formatted_share_uri(title, args)
       return unless uri
 
+      if service.icon.include? ".svg"
+        social_icon = image_tag service.icon_path, alt: t("decidim.shared.share_modal.share_to", service: service.name)
+      else
+        social_icon = icon(service.icon, style: "color: #{service.color};")
+      end
+
       link_to(
         uri,
         rel: "nofollow",
         data: { site: service.name.downcase },
         title: t("decidim.shared.share_modal.share_to", service: service.name)
       ) do
-        icon("#{service.name.downcase}-line") + content_tag(:span, service.name)
+        social_icon + content_tag(:span, service.name)
       end
     end
 
