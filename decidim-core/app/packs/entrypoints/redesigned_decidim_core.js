@@ -65,6 +65,9 @@ import "entrypoints/redesigned_decidim_core.scss"
 // Import from the Rails instance application
 import "src/decidim/decidim_application"
 
+// Turbo
+import "@hotwired/turbo-rails"
+
 // Images
 require.context("../images", true)
 
