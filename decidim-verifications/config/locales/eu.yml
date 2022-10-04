@@ -90,6 +90,7 @@ eu:
         create:
           error: Errore bat gertatu da baimena sortzean.
           success: Ongi baimendu duzu.
+          transferred: 'Zure baimenetan oinarrituta, honako datu hauek berreskuratu ditugu:'
           unconfirmed: Zure posta elektronikoa baieztatzeko, baimena eman behar duzu.
         destroy:
           error: Arazo bat izan da baimena ezabatzean.
