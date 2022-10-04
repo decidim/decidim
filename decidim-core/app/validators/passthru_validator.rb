@@ -62,7 +62,18 @@ class PassthruValidator < ActiveModel::EachValidator
     elsif dummy.respond_to?(:organization=) && record.respond_to?(:organization)
       dummy.organization = record.organization
     end
+    validation_record_context(dummy, record)
     dummy
+  end
+
+  def validation_record_context(dummy, record)
+    if dummy.is_a?(Decidim::Form)
+      dummy.with_context(
+        current_organization: record.try(:current_organization) || record.try(:ganization),
+        current_participatory_space: record.try(:current_participatory_space) || record.try(:participatory_space),
+        current_component: record.try(:current_component) || record.try(:component)
+      )
+    end
   end
 
   def target_validators(attribute)
