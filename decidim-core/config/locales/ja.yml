@@ -598,7 +598,6 @@ ja:
         copied: テキストをコピーしました
         copy_error_message_clarification: エラーメッセージをクリップボードにコピー
         copy_to_clipboard: クリップボードにコピー
-        date_and_time: 日付と時刻
         reference: 参照
         request_method: リクエストメソッド
         title: サーバーに問題が発生しました
@@ -1706,7 +1705,6 @@ ja:
         other: 'リクエストの処理中に複数のエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
-      too_short: 短すぎます（15文字未満）
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
     length_validator:
