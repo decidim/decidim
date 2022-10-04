@@ -279,7 +279,6 @@
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av "%{resource_title}".
-            email_subject: Forslaget ditt har blitt avvist
             notification_title: Forslaget ditt <a href="%{resource_path}">%{resource_title}</a> har blitt avvist.
           follower:
             email_intro: 'Forslaget "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
