@@ -42,10 +42,6 @@ de:
           valuator_role_id: Name des Schätzers
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              allowed_file_content_types: 'Ungültiger Dokumenttyp. Zulässige Formate sind: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -288,7 +284,6 @@ de:
           affected_user:
             email_intro: 'Ihr Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
-            email_subject: Ihr Vorschlag wurde abgelehnt
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
