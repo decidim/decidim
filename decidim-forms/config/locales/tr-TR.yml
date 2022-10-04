@@ -109,8 +109,6 @@ tr:
       errors:
         answer:
           body: Vücut boş olamaz
-      files:
-        extension_allowlist: 'Kabul edilen biçimler:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
