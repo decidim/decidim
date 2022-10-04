@@ -35,7 +35,7 @@ module Decidim
           it "renders a sanizized body" do
             expect(subject).to eq(
               <<~HTML.strip
-                <div class=\"ql-editor ql-reset-decidim\"><ul>
+                <div class="ql-editor-display"><ul>
                 <li>First</li>
                 <li>Second</li>
                 <li>Third</li>
