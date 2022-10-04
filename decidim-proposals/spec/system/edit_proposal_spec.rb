@@ -55,7 +55,7 @@ describe "Edit proposals", type: :system do
         dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
-        expect(page).to have_content("only files with the following extensions are allowed: bmp, gif, jpeg, jpg, pdf, png, rtf, txt")
+        expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, pdf, png, rtf, txt")
       end
 
       context "with a file and photo" do
