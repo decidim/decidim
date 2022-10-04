@@ -17,7 +17,6 @@ tr:
           success: Şablon başarıyla silindi
         empty: Burada henüz şablon yok.
         update:
-          error: Bu şablonu güncellerken bir sorun oluştu.
           success: Şablon başarıyla güncellendi
       titles:
         template_types:
