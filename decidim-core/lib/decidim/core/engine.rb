@@ -680,6 +680,14 @@ module Decidim
         end
       end
 
+      initializer "decidim.authorization_transfer" do
+        Decidim::AuthorizationTransfer.register(:core) do |transfer|
+          transfer.move_records(Decidim::Coauthorship, :decidim_author_id)
+          transfer.move_records(Decidim::Endorsement, :decidim_author_id)
+          transfer.move_records(Decidim::Amendment, :decidim_user_id)
+        end
+      end
+
       config.to_prepare do
         FoundationRailsHelper::FlashHelper.include Decidim::FlashHelperExtensions
       end
