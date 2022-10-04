@@ -254,5 +254,17 @@ shared_examples "manage posts" do
         expect(page).to have_content(author.name)
       end
     end
+
+    it "changes the publish time" do
+      within find("tr", text: translated(post1.title)) do
+        click_link "Edit"
+      end
+      within ".edit_post" do
+        fill_in "Publish time", with: "01/01/2022 00:00"
+        find("*[type=submit]").click
+      end
+      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_content("01/01/2022 00:00")
+    end
   end
 end

@@ -1062,6 +1062,7 @@ en:
         moderation:
           fields:
             created_at: Creation date
+            deleted_resource: Deleted resource
             hidden_at: Hidden at
             participatory_space: Participatory space
             report_count: Count
