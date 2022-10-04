@@ -42,10 +42,6 @@ fi-pl:
           valuator_role_id: Arvioijan nimi
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -308,7 +304,6 @@ fi-pl:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hylätty. Voit lukea vastauksen täältä:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen "%{resource_title}".
-            email_subject: Ehdotuksesi hylättiin
             notification_title: Ehdotuksesi <a href="%{resource_path}">%{resource_title}</a> on hylätty.
           follower:
             email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
