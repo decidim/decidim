@@ -68,12 +68,6 @@ es-MX:
         email: Correo electrónico
         name: Nombre
         role: Rol de usuario
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              allowed_file_content_types: 'Tipo de documento inválido. Los formatos aceptados son: %{types}'
   activerecord:
     models:
       decidim/assembly:
