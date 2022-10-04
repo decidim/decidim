@@ -90,6 +90,7 @@ cs:
         create:
           error: Při vytváření oprávnění došlo k chybě.
           success: Byl jste úspěšně autorizován.
+          transferred: 'Na základě Vašeho povolení jsme získali následující údaje o účasti:'
           unconfirmed: Potřebujete potvrdit svůj e-mail, abyste se autorizovali.
         destroy:
           error: Při odstraňování autorizace došlo k chybě.
