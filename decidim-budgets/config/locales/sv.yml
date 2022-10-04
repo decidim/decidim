@@ -90,6 +90,7 @@ sv:
           index:
             actions: Åtgärder
             cancel: Avbryt
+            change_selected: Ändra valda
             deselect_implementation: Avmarkera
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
@@ -103,6 +104,10 @@ sv:
           update:
             invalid: Det gick inte att uppdatera projektet
             success: Projektet har uppdaterats
+          update_selected:
+            invalid: 'Dessa projekt hade redan valts: %{projects}.'
+            select_a_selection: Vänligen välj de utvalda projekten
+            success: 'Projekturvalet ändrades framgångsrikt: %{projects}.'
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen till projekten
@@ -150,6 +155,8 @@ sv:
         show: Visa projekt
         vote: Rösta
         voted_on: Du har röstat på %{links}
+      last_activity:
+        new_vote_at_html: "<span>Ny omröstning på %{link}</span>"
       limit_announcement:
         cant_vote: Du kan inte rösta på denna budget. <a href="%{landing_path}">Pröva en annan budget</a>.
         limit_reached: Du har aktiva röster i %{links}. För att rösta måste du <a href="%{landing_path}">ta bort din röst och börja om</a>.
