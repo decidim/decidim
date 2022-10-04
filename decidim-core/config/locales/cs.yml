@@ -650,7 +650,6 @@ cs:
         copied: Text zkopírován!
         copy_error_message_clarification: Kopírovat chybovou zprávu do schránky
         copy_to_clipboard: Kopírovat do schránky
-        date_and_time: Datum a čas
         reference: Odkaz
         request_method: Metoda požadavku
         title: Vyskytl se problém s naším serverem
@@ -1774,7 +1773,6 @@ cs:
         other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
-      too_short: je příliš krátká (pod 15 znaků)
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
     length_validator:
