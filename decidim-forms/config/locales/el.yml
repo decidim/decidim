@@ -65,8 +65,6 @@ el:
       errors:
         answer:
           body: Το σώμα δεν μπορεί να είναι κενό
-      files:
-        extension_allowlist: 'Αποδεκτές μορφές:'
       images:
         dimensions: "Π %{width} x Υ %{height} px"
       question_types:
