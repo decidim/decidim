@@ -614,7 +614,6 @@ fi:
         copied: Teksti kopioitu!
         copy_error_message_clarification: Kopioi virheviesti leikepöydälle
         copy_to_clipboard: Kopioi leikepöydälle
-        date_and_time: Päivämäärä ja kellonaika
         reference: Viite
         request_method: Pyynnön metodi
         title: Palvelimellamme tapahtui virhe
@@ -1726,7 +1725,6 @@ fi:
         other: 'Virheitä käsiteltäessä pyyntöä:'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
-      too_short: liian lyhyt (alle 15 merkkiä)
   forms:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:
