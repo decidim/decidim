@@ -261,6 +261,13 @@ module Decidim
         end
       end
 
+      initializer "decidim.validators" do
+        config.to_prepare do
+          # Decidim overrides to the file content type validator
+          require "file_content_type_validator"
+        end
+      end
+
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:user, :user_group, :hashtag, :link]
