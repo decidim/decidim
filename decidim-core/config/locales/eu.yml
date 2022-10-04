@@ -87,6 +87,7 @@ eu:
           question: Ziur zure kontua ezabatu nahi duzula?
           title: Ezabatu nire kontua
         explanation: Mesedez, zure kontu ezabatu nahi izateko arrazoia azaldu (aukerakoa).
+        leaving_authorizations_behind: Egiaztatze-prozesu honetako hainbat datu gorde egingo dira segurtasunagatik. Beste kontu bat sortu eta, berriz ere, egiaztatzeko prozesuari ekin nahi badiozu, datu horiek berreskuratu egingo dira.
       destroy:
         error: Errore bat gertatu da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
@@ -513,6 +514,7 @@ eu:
         select_identity: Hautatu identitatea
     errors:
       internal_server_error:
+        date_and_time: Data eta ordua
         title: Arazo bat izan da gure zerbitzariarekin
       not_found:
         back_home: Itzuli hasierara
@@ -714,6 +716,8 @@ eu:
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
         max_file_size: 'Artxiboaren gehieneko tamaina: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Onartutako formatuak: %{extensions}'
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
@@ -1495,6 +1499,7 @@ eu:
       public: Zure informazio publikoa.
   errors:
     messages:
+      allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
       already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
       confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
@@ -1512,7 +1517,7 @@ eu:
         other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
-      too_short: laburra da (15 karaktere baino gutxiago)
+      too_short: laburregia da (gutxienez %{count} karaktere behar dira)
   forms:
     correct_errors: Akatsak daude galdetegian, mesedez, zuzendu jarraitu ahal izateko.
     required: Nahitaezkoa da
