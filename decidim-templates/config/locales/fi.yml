@@ -24,7 +24,6 @@ fi:
           success: Mallipohjan poistaminen onnistui
         empty: Mallipohjia ei ole vielä lisätty.
         update:
-          error: Mallipohjan päivitys epäonnistui.
           success: Mallipohjan päivitys onnistui
       titles:
         template_types:
