@@ -124,8 +124,6 @@ sv:
       errors:
         answer:
           body: Kroppen kan inte vara to
-      files:
-        extension_allowlist: 'Godkända format:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
