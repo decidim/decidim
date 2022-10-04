@@ -89,10 +89,8 @@ sv:
           index:
             actions: Åtgärder
             cancel: Avbryt
-            deselect_implementation: Avmarkera
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
-            select_for_implementation: Välj
             selected: Valda
             title: Projekt
             update: Uppdatera
