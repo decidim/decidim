@@ -24,7 +24,6 @@ es-PY:
           success: Plantilla eliminada correctamente
         empty: Todavía no hay plantillas.
         update:
-          error: Se ha producido un error al actualizar esta plantilla.
           success: Plantilla actualizada correctamente
       titles:
         template_types:
