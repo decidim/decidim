@@ -101,6 +101,12 @@ module Decidim
       initializer "decidim_debates.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      initializer "decidim_debates.authorization_transfer" do
+        Decidim::AuthorizationTransfer.register(:debates) do |transfer|
+          transfer.move_records(Decidim::Debates::Debate, :decidim_author_id)
+        end
+      end
     end
   end
 end

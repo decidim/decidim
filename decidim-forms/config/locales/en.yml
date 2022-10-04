@@ -130,8 +130,6 @@ en:
       errors:
         answer:
           body: Body can't be blank
-      files:
-        extension_allowlist: 'Accepted formats:'
       images:
         dimensions: "%{width} x %{height} px"
         processors:

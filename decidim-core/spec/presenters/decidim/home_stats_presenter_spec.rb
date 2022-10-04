@@ -13,6 +13,15 @@ module Decidim
     let!(:assembly) { create(:assembly, :published, organization:) }
     let!(:process_component) { create :component, participatory_space: process }
     let!(:assembly_component) { create :component, participatory_space: assembly }
+    let(:extra_manifest) do
+      # The extra manifest registers the same stat as the actual component
+      # manifest to test that there are no duplicate stats in the results.
+      Decidim::ComponentManifest.new(name: :dummy_another).tap do |manifest|
+        manifest.register_stat :dummies_count_medium, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, _start_at, _end_at|
+          components.count
+        end
+      end
+    end
 
     around do |example|
       Decidim.stats.register :foo, priority: StatsRegistry::HIGH_PRIORITY, &proc { 10 }
@@ -28,6 +37,7 @@ module Decidim
 
     before do
       manifests = Decidim.component_manifests.select { |manifest| manifest.name == :dummy }
+      manifests << extra_manifest
       allow(Decidim).to receive(:component_manifests).and_return(manifests)
     end
 
@@ -48,7 +58,7 @@ module Decidim
       it "renders a collection of medium priority stats" do
         stats =
           [{ stat_number: 20, stat_title: :bar },
-           { stat_number: 200, stat_title: :dummies_count_medium }]
+           { stat_number: 202, stat_title: :dummies_count_medium }]
 
         expect(subject.not_highlighted).to eq(stats)
       end

@@ -12,6 +12,13 @@ module Decidim
       user_group || author
     end
 
+    # Reports the mapped resource type for authorization transfers.
+    #
+    # @return [String] The resource type as string (i.e. its class name).
+    def mapped_resource_type
+      coauthorable_type
+    end
+
     private
 
     # As it is used to validate by comparing to author.organization
