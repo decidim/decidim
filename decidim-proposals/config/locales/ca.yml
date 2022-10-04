@@ -42,10 +42,6 @@ ca:
           valuator_role_id: Nom de l'avaluadora
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              allowed_file_content_types: 'Tipus de document invàlid. Els formats que s''accepten són: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -308,7 +304,6 @@ ca:
           affected_user:
             email_intro: 'La teva proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè ets autora de "%{resource_title}".
-            email_subject: La teva proposta ha estat rebutjada
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a> ha estat rebutjada.
           follower:
             email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
