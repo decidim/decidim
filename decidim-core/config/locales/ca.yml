@@ -611,7 +611,6 @@ ca:
         copied: Text copiat!
         copy_error_message_clarification: Missatge d'error copiat amb el porta-retalls
         copy_to_clipboard: Copiar al porta-retalls
-        date_and_time: Data i hora
         reference: Referència
         request_method: Mètode de sol·licitud
         title: Hi ha hagut un problema amb el nostre servidor
@@ -1723,7 +1722,6 @@ ca:
         other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
-      too_short: És massa curt (menys de 15 caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:
