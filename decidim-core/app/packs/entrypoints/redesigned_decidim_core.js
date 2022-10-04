@@ -53,7 +53,7 @@ import "src/decidim/represent_user_group"
 import "src/decidim/impersonation"
 // import "src/decidim/start_conversation_dialog" -- deprecated
 import "src/decidim/notifications"
-import "src/decidim/identity_selector_dialog"
+// import "src/decidim/identity_selector_dialog" -- deprecated
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/sw"

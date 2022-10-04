@@ -1,0 +1,18 @@
+.identities-modal{
+  &__list{
+    @apply py-10 space-y-2;
+
+    li{
+      @apply w-full border-4 border-background rounded p-2 flex items-center justify-between cursor-pointer;
+
+      &.is-selected,
+      &:hover{
+        @apply border-primary/10;
+      }
+
+      svg{
+        @apply w-6 h-6 text-success fill-current;
+      }
+    }
+  }
+}

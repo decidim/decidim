@@ -1,11 +1,8 @@
 <div id="resource-<%= resource&.id %>-endorsement-button">
-  <button id="select-identity-button" type="button" name="button" class="<%= button_classes %>">
+  <button id="select-identity-button" type="button" name="button" class="<%= button_classes %>" data-dialog-open="user-identities" data-dialog-remote-url="<%= reveal_identities_url %>">
     <%= endorse_translated %>
-    <%= icon "heart-add-line", class: "fill-current" %>
+    <%= icon "heart-add-line" %>
   </button>
 
-  <div class="reveal collapse"
-       id="user-identities"
-       data-reveal data-reveal-identities-url="<%= reveal_identities_url %>">
-  </div>
+  <%= decidim_modal id: "user-identities", class: "identities-modal", remote: true %>
 </div>
