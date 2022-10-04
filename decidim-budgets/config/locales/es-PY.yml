@@ -92,11 +92,8 @@ es-PY:
             cancel: Cancelar
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
-            change_selected: Cambiar la selección
-            deselect_implementation: Deseleccionar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
-            select_for_implementation: Seleccionar
             selected: Seleccionado
             title: Proyectos
             update: Actualizar
@@ -118,10 +115,7 @@ es-PY:
             select_a_scope: Por favor, selecciona un ámbito
             success: 'Los proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
           update_selected:
-            invalid: 'Estos proyectos ya estaban seleccionados: %{projects}.'
             select_a_project: Por favor, selecciona un proyecto
-            select_a_selection: Por favor, elige un estado
-            success: 'Selección de proyectos cambiada con éxito: %{projects}.'
         proposals_imports:
           create:
             invalid: Ha habido un problema al importar las propuestas en proyectos
