@@ -1531,7 +1531,6 @@ it:
         other: 'Ci sono stati molteplici errori durante l''elaborazione della tua richiesta:'
       too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
       too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
-      too_short: è troppo corto (meno di 15 caratteri)
   forms:
     correct_errors: Ci sono errori nel modulo, correggerli per continuare.
     length_validator:
