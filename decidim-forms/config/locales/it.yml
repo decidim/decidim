@@ -114,8 +114,6 @@ it:
       errors:
         answer:
           body: Il corpo non può essere vuoto
-      files:
-        extension_allowlist: 'Formati accettati:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
