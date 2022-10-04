@@ -90,6 +90,7 @@ fi:
         create:
           error: Vahvistuksen luonti epäonnistui.
           success: Tilisi vahvistaminen onnistui.
+          transferred: 'Seuraavat tiedot palautettiin tunnistautumisesi perusteella:'
           unconfirmed: Sinun on vahvistettava sähköpostisi valtuuttaksesi käyttäjätilisi.
         destroy:
           error: Vahvistuksen poisto epäonnistui.
