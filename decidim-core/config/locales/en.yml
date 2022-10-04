@@ -827,7 +827,6 @@ en:
     forms:
       current_image: Current image
       default_image: Default image
-      emoji_chooser: Choose an emoji
       errors:
         decidim/user:
           password: The password is too short.
@@ -1718,6 +1717,31 @@ en:
   doorkeeper:
     scopes:
       public: Your public information.
+  emojis:
+    button: Add emoji
+    categories:
+      activities: Activities
+      animals-nature: Animals & Nature
+      custom: Custom
+      flags: Flags
+      food-drink: Food & Drink
+      objects: Objects
+      people-body: People & Body
+      recents: Recently Used
+      smileys-emotion: Smileys & Emotion
+      symbols: Symbols
+      travel-places: Travel & Places
+    error:
+      load: Failed to load emojis
+    recents:
+      clear: Clear recent emojis
+      none: You haven't selected any emojis yet.
+    retry: Try again
+    search:
+      _: Search emojis...
+      clear: Clear search
+      error: Failed to search emojis
+      not_found: No results found
   errors:
     messages:
       allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
