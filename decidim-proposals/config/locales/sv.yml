@@ -289,7 +289,6 @@ sv:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
-            email_subject: Ditt förslag har avslagits
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avslagits.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
