@@ -621,7 +621,7 @@ en:
         copied: Text copied!
         copy_error_message_clarification: Copy error message to clipboard
         copy_to_clipboard: Copy to clipboard
-        date_and_time: Date and Time
+        date_and_time: Date and time
         reference: Reference
         request_method: Request method
         title: There was a problem with our server
@@ -1738,7 +1738,7 @@ en:
         other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
-      too_short: is too short (under 15 characters)
+      too_short: is too short (under %{count} characters)
   forms:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:
