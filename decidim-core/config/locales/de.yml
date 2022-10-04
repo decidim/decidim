@@ -602,7 +602,6 @@ de:
       internal_server_error:
         copied: Text Kopiert!
         copy_to_clipboard: In die Zwischenablage kopieren
-        date_and_time: Datum und Zeit
         reference: Referenz
         title: Auf unserem Server ist ein Problem aufgetreten
         unknown: Unbekannt
@@ -1688,7 +1687,6 @@ de:
         other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
-      too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
     length_validator:
