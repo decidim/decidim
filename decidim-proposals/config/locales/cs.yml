@@ -42,10 +42,6 @@ cs:
           valuator_role_id: Název hodnotitele
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              allowed_file_content_types: 'Neplatný typ dokumentu. Přijatelné formáty jsou: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -316,7 +312,6 @@ cs:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
-            email_subject: Váš návrh byl zamítnut
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
           follower:
             email_intro: 'Návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
