@@ -129,8 +129,6 @@ fi:
       errors:
         answer:
           body: Runkoteksti ei voi olla tyhjä
-      files:
-        extension_allowlist: 'Sallitut tiedostopäätteet:'
       images:
         dimensions: "%{width} x %{height} pikseliä"
         processors:
