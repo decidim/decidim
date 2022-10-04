@@ -32,7 +32,7 @@ describe "Answer a survey", type: :system do
     it "does not allow answering the survey" do
       visit_component
 
-      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+      expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       expect(page).to have_no_i18n_content(question.body)
@@ -69,7 +69,7 @@ describe "Answer a survey", type: :system do
       it "does not allow answering the survey" do
         visit_component
 
-        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
         expect(page).to have_no_i18n_content(question.body)
@@ -100,7 +100,8 @@ describe "Answer a survey", type: :system do
 
     it "shows action log entry" do
       page.visit decidim.profile_activity_path(nickname: user.nickname)
-      expect(page).to have_content("New survey at #{translated(survey.component.participatory_space.title)}")
+      expect(page).to have_content("New survey: #{translated(survey.questionnaire.title)}")
+      expect(page).to have_content(translated(survey.component.participatory_space.title))
       expect(page).to have_link(translated(survey.questionnaire.title), href: router.survey_path(survey))
     end
   end

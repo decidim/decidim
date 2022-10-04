@@ -18,11 +18,23 @@ module Decidim
       end
 
       def posts(filter: {}, order: {})
-        Decidim::Core::ComponentListBase.new(model_class: Post).call(object, { filter:, order: }, context)
+        base_query = Decidim::Core::ComponentListBase.new(model_class: Post).call(object, { filter:, order: }, context)
+        if context[:current_user]&.admin?
+          base_query
+        else
+          base_query.published
+        end
       end
 
       def post(id:)
-        Decidim::Core::ComponentFinderBase.new(model_class: Post).call(object, { id: }, context)
+        scope =
+          if context[:current_user]&.admin?
+            Post
+          else
+            Post.published
+          end
+
+        Decidim::Core::ComponentFinderBase.new(model_class: scope).call(object, { id: }, context)
       end
     end
   end

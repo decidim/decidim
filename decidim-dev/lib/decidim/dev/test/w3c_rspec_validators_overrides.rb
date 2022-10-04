@@ -17,7 +17,15 @@ module W3CValidators
 
     def ignore_errors
       @ignore_errors ||= [
-        "CSS: “--content-height”: One operand must be a number."
+        "CSS: “min-height”: One operand must be a number.",
+        "CSS: “grid-template-columns”: One operand must be a number.",
+        "CSS: “grid-auto-rows”: One operand must be a number.",
+        "CSS: “--emoji-area-height”: One operand must be a number.",
+        "CSS: “--picker-width”: One operand must be a number.",
+        "CSS: “height”: The types are incompatible.",
+        "CSS: “--emoji-preview-height”: The types are incompatible.",
+        "CSS: “--emoji-preview-height-full”: Invalid type: “var(--emoji-preview-height) + var(--emoji-preview-margin)”.",
+        "CSS: “--search-height-full”: Invalid type: “var(--search-height) + var(--search-margin)”."
       ]
     end
 
