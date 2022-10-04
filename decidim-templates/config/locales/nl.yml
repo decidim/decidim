@@ -24,7 +24,6 @@ nl:
           success: Template met succes verwijderd
         empty: Er zijn nog geen templates.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit template.
           success: Template met succes bijgewerkt
       titles:
         template_types:
