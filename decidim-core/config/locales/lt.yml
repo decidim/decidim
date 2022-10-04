@@ -641,7 +641,6 @@ lt:
         copied: Tekstas nukopijuotas!
         copy_error_message_clarification: Nukopijuokite klaidos pranešimą į mainų sritį
         copy_to_clipboard: Kopijuoti į mainų sritį
-        date_and_time: Data ir Laikas
         reference: Nuoroda
         request_method: Prašymo būdas
         title: Serveryje kilo problema
@@ -1760,7 +1759,6 @@ lt:
         other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
-      too_short: per trumpas (mažiau nei 15 ženklų)
   forms:
     correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
     length_validator:
