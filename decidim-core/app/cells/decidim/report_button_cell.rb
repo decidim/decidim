@@ -15,5 +15,9 @@ module Decidim
     def icon_name
       "flag-line"
     end
+
+    def html_options
+      { data: { "dialog-open": current_user ? "flagModal" : "loginModal" } }
+    end
   end
 end
