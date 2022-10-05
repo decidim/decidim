@@ -90,6 +90,7 @@ es:
         create:
           error: Se ha producido un error al crear la autorización.
           success: Has sido autorizada correctamente.
+          transferred: 'Se han recuperado los siguientes datos de participación a partir de tu autorización:'
           unconfirmed: Necesitas confirmar tu correo electrónico para poder autorizarte.
         destroy:
           error: Se ha producido un error al borrar la autorización.
