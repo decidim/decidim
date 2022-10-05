@@ -92,8 +92,10 @@ es:
             cancel: Cancelar
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
+            deselect_implementation: No seleccionado para implementar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
+            select_for_implementation: Seleccionado para implementar
             selected: Seleccionado
             title: Proyectos
             update: Actualizar
@@ -115,6 +117,8 @@ es:
             select_a_scope: Por favor, selecciona un ámbito
             success: 'Los proyectos se han actualizado correctamente al ámbito %{subject_name}: %{projects}.'
           update_selected:
+            invalid:
+              selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{projects}.'
             select_a_project: Por favor, selecciona un proyecto
         proposals_imports:
           create:
