@@ -92,8 +92,10 @@ ca:
             cancel: Cancel·lar
             change_category: Canviar categoria
             change_scope: Canviar àmbit
+            deselect_implementation: No s'ha seleccionat per implementar
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
+            select_for_implementation: Seleccionat per implementar
             selected: Seleccionat
             title: Projectes
             update: Actualitzar
@@ -115,6 +117,8 @@ ca:
             select_a_scope: Si us plau, selecciona un àmbit
             success: 'Els projectes s''han actualitzat correctament a l''àmbit %{subject_name}: %{projects}.'
           update_selected:
+            invalid:
+              selected: 'Aquests projectes ja han estat seleccionats per a ser implementats: %{projects}.'
             select_a_project: Si us plau, selecciona un projecte
         proposals_imports:
           create:
