@@ -1,5 +1,5 @@
 .item-list{
-  @apply flex gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary;
+  @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary;
 
   &__content{
     @apply flex flex-col gap-2.5;
@@ -25,7 +25,7 @@
     @apply mt-auto;
 
     & > span{
-      @apply inline-flex items-center gap-1 px-6 border-background border-x first:pl-0 last:pr-0 first:border-l-0 last:border-r-0 text-sm text-gray-2;
+      @apply inline-flex items-center gap-1 px-0 md:px-6 border-background border-0 md:border-x first:pl-0 last:pr-0 first:border-l-0 last:border-r-0 text-sm text-gray-2;
 
       & > svg{
         @apply w-3.5 h-3.5 fill-current text-gray;
