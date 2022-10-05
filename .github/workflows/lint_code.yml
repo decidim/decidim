@@ -54,7 +54,7 @@ jobs:
         name: Lint JS files
       - run: npm run stylelint
         name: Lint SCSS files
-      - run: npm run erblint
+      - run: ./.github/run_erblint.sh
         name: Lint ERB files
       - run: npm run markdownlint
         name: Lint Markdown files
