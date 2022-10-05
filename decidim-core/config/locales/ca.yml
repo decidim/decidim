@@ -129,6 +129,7 @@ ca:
           question: Segur que vols eliminar el teu compte?
           title: Eliminar el meu compte
         explanation: Si us plau, explica'ns la raó per la qual vols eliminar el teu compte (opcional).
+        leaving_authorizations_behind: Algunes dades vinculades a la teva autorització es guardaran per motius de seguretat. Si crees un altre compte i l'autoritzes de nou, aquestes dades es recuperaran al teu nou compte.
       destroy:
         error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
@@ -611,6 +612,7 @@ ca:
         copied: Text copiat!
         copy_error_message_clarification: Missatge d'error copiat amb el porta-retalls
         copy_to_clipboard: Copiar al porta-retalls
+        date_and_time: Data i hora
         reference: Referència
         request_method: Mètode de sol·licitud
         title: Hi ha hagut un problema amb el nostre servidor
@@ -839,6 +841,8 @@ ca:
         allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
         max_file_dimension: 'Mides máximes de l''arxiu: %{resolution} pixels'
         max_file_size: 'Mida màxima del fitxer:%{megabytes}MB'
+      files:
+        extension_allowlist: 'Formats acceptats: %{extensions}'
       upload:
         labels:
           add_attachment: Afegir adjunt
@@ -1461,6 +1465,7 @@ ca:
         copy_share_link_message: S'ha copiat l'enllaç al porta-retalls.
         share: Compartir
         share_link: Compartir l'enllaç
+        share_to: Compartir a %{service}
     statistics:
       comments_count: Comentaris
       endorsements_count: Adhesions
@@ -1705,6 +1710,7 @@ ca:
       public: La teva informació pública.
   errors:
     messages:
+      allowed_file_content_types: 'Només s''accepten arxius amb les següents extensions: %{types}'
       already_confirmed: ja s'ha confirmat, si us plau intenta iniciar la sessió
       confirmation_period_expired: s'ha de confirmar dins de %{period}, si us plau sol·licita'n un de nou
       content_type_allowlist_error: el tipus de fitxer no és vàlid
@@ -1722,6 +1728,7 @@ ca:
         other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
+      too_short: És massa curt (menys %{count} caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:
