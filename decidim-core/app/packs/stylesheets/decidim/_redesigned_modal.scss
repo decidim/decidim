@@ -30,7 +30,7 @@
   }
 
   [data-dialog-actions]{
-    @apply flex justify-between items-center;
+    @apply flex justify-between items-center only:[&>*]:ml-auto;
   }
 }
 
