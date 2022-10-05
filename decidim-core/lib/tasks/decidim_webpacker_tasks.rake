@@ -19,6 +19,9 @@ namespace :decidim do
       # Webpack JS config files
       copy_folder_to_application "decidim-core/lib/decidim/webpacker/webpack", "config"
 
+      # Install turbo
+      Rake::Task["turbo:install"].invoke
+
       # Install JS dependencies
       install_decidim_npm
 
