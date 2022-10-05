@@ -929,7 +929,7 @@ tr:
           ok: OK
         index:
           ago: önce
-          close: Pencereyi kapat
+          close: Yakın kalıcı
           from: Gönderen
           groups: Gruplarım
           last_message: Son mesaj
@@ -947,7 +947,7 @@ tr:
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
-          title: Bir görüşme başlat
+          title: Bir görüşme başlatın
         update:
           error: Bir hata nedeniyle mesaj gönderilemedi
     metrics:

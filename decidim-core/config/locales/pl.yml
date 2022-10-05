@@ -1031,7 +1031,7 @@ pl:
           title: Konwersacja z %{usernames}
         start:
           send: Wyślij
-          title: Zacznij konwersację
+          title: Rozpocznij konwersację
         update:
           error: Wiadomość nie została wysłana z powodu błędu
     metrics:

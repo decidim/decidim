@@ -333,6 +333,7 @@ hu:
           foo: Foo
         name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
+      renew: Hitelesítés megújítása
       sms:
         explanation: Küldd el mobiltelefonszámodat, hogy ellenőrizhessük személyazonosságod.
         name: Kód SMS-ben
@@ -353,6 +354,8 @@ hu:
           authorize: 'Engedélyezés ezzel: "%{authorization}"'
           explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
           title: Engedély szükséges
+        ok:
+          title: Az oldal látogatása alatt hitelesítésre került a fiókja. Az oldal újratöltése szükséges a művelet végrehajtásához
         pending:
           explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
           resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
@@ -367,9 +370,15 @@ hu:
           explanation_html: Annak érdekében, hogy ezt a műveletet elvégezhesse, engedélyeznie kell, mielőtt ezt elvégezné, meg kell erősítenie az e-mail címét <strong>%{email}</strong>.
           request_confirmation_instructions: Kérjen megerősítési utasítást
           title: Erősítsd meg az e-mail címed
+      show:
+        close_modal: Felugró ablak bezárása
     block_user_mailer:
       notify:
+        body_1: A fiókod zárolva van.
+        body_2: 'Indok: %{justification}'
+        greetings: Üdvözöli a  <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Helló,
+        subject: A fiókja blokklásra került - kezdeményező %{organization_name}
     collapsible_list:
       hidden_elements_count:
         one: és még %{count}
@@ -378,6 +387,7 @@ hu:
       see_more: "(tovább)"
     components:
       component_order_selector:
+        no_content: Nem találtunk a feltételeknek megfelelő tartalmat
         order:
           all_types: Minden típus
           collaborative_draft: Közös vázlat
@@ -417,8 +427,12 @@ hu:
             dummy_step_translatable_text: Hamis Lépés Fordítható Szöveg
     contact: Kapcsolat
     content_blocks:
+      cta:
+        name: Kép, szöveg és cselekvésre hívó gomb
       cta_settings_form:
         background_image: Háttérkép
+        button_text: Cselekvésre felhívás szövege
+        button_url: Cselekvésre felhívó URL
         description: Leírás
       footer_sub_hero:
         name: Lábléc sub hero banner
@@ -467,6 +481,7 @@ hu:
           email_already_exists: Egy másik fiók ugyanezt az email címet használja
         new:
           complete_profile: Profil kiegészítése
+          nickname_help: A beceneved itt %{organization} csak betűket, számokat '-' és '_' jeleket tartalmazhat.
           sign_up: Töltsd ki a hiányzó adatokat
           subtitle: A regisztráció befejezéséhez töltsd ki a következő űrlapot
           username_help: Bejegyzésekben megjelenő nyilvános megnevezés. Az anonimitás megőrzése érdekében bármilyen név lehet.
@@ -475,6 +490,7 @@ hu:
           already_have_an_account?: Már van egy fiókod?
           newsletter: Hírlevél fogadása a legfontosabb információkkal
           newsletter_title: Kapcsolatfelvételi engedély
+          nickname_help: A beceneved itt %{organization} csak betűket, számokat '-' és '_' jeleket tartalmazhat.
           password_help: "%{minimun_characters} karakter a minimum, nem lehet túl gyakori (pl. 123456), és különböznie kell a becenevétől és az e-mail címétől."
           sign_in: Belépés
           sign_up: Regisztráció
@@ -491,6 +507,8 @@ hu:
           register: Hozz létre egy fiókot
           sign_in_disabled: Külső fiókkal is hozzáférhetsz
           sign_up_disabled: A bejelentkezés le van tiltva, a meglévő felhasználói fiókoddal hozzáférhetsz
+        user:
+          timed_out: Túl sokáig volt inaktív, ezért automatikusan kijelentkezett a szolgáltatásból. Ha továbbra is használni szeretné a szolgáltatást, jelentkezzen be újra.
       shared:
         newsletter_modal:
           buttons:
@@ -525,8 +543,10 @@ hu:
       create:
         error: Hiba történt a kép feltöltése közben
         success: Kép sikeresen feltöltve
+      drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsable:
       endorsements: Jóváhagyások
+      endorsements_count: Támogatások száma
     endorsement_buttons_cell:
       already_endorsed: Jóváhagyva
       endorse: Jóváhagy
@@ -950,7 +970,7 @@ hu:
           to: Címzett
         reply:
           placeholder: A válaszod...
-          send: Elküld
+          send: Küldés
           title: Válasz
         show:
           back: Vissza az összes beszélgetéshez

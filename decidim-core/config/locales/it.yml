@@ -965,7 +965,7 @@ it:
           ok: Ok
         index:
           ago: fa
-          close: Chiudi modale
+          close: Chiudi modalità
           from: Da
           groups: I miei gruppi
           last_message: Ultimo messaggio
@@ -975,7 +975,7 @@ it:
           title: Conversazioni
         reply:
           placeholder: La tua risposta...
-          send: Inviare
+          send: Invia
           title: Rispondi
         show:
           back: Torna a tutte le conversazioni

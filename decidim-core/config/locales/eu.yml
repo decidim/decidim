@@ -953,8 +953,8 @@ eu:
           ok: Ados
         index:
           ago: orain dela
-          close: Itxi leihoa
-          from: Nondik
+          close: Itxi modal
+          from: Nork
           groups: Nire taldeak
           last_message: Azken mezua
           new_conversation: Elkarrizketa berria
@@ -972,7 +972,7 @@ eu:
           title: Elkarrizketa honekin %{usernames}
         start:
           send: Bidali
-          title: Hasi elkarrizketa bat
+          title: Hasi elkarrizketa
         update:
           error: Mezua ez da bidali akats batengatik
     metrics:

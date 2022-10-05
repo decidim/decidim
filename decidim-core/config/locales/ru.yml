@@ -512,10 +512,8 @@ ru:
           no_conversations: У вас еще нет бесед
         reply:
           send: Отправить
-          title: Ответить
         start:
           send: Отправить
-          title: Начать беседу
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.

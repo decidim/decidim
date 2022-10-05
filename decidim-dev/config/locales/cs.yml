@@ -14,8 +14,10 @@ cs:
       dummy:
         settings:
           global:
+            guided: Řízené zadávání
             guided_help: Text nápovědy
             guided_readonly: Zakázaný zápis
+            guided_rich: Řízené plnohodnotné zadávání
             guided_rich_help_html: HTML textová <strong>nápověda</strong>
             guided_rich_readonly_html: HTML <strong>nápověda</strong> text pro zakázaný zápis
             readonly_attribute: Atribut pouze pro čtení

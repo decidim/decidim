@@ -969,7 +969,7 @@ cs:
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
     managed_users:
-      expired_session: Aktuální platnost sesouhlasení již vypršela.
+      expired_session: Aktuální relace správy účastníka vypršela.
     map:
       dynamic:
         screen_reader_explanation: Následující prvek je mapa, která prezentuje položky na této stránce jako mapové body. Prvek lze použít s čtečkou obrazovky, ale může být těžko srozumitelný.
@@ -1048,7 +1048,7 @@ cs:
         reply:
           placeholder: Vaše odpověď...
           send: Poslat
-          title: Odpověď
+          title: Odpovědět
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
@@ -1057,7 +1057,7 @@ cs:
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
-          title: Spusťte konverzaci
+          title: Zahájit konverzaci
         update:
           error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
@@ -1110,7 +1110,7 @@ cs:
       unathorized: Je nám líto, tento odkaz již není k dispozici
       update:
         error: Došlo k chybě
-        success: Nastavení Newsletteru bylo úspěšně aktualizováno
+        success: Nastavení Zpravodaje bylo úspěšně aktualizováno
     newsletters_opt_in_mailer:
       notify:
         body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. S novým obecným nařízením o ochraně osobních údajů (GDPR) ze dne 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme vaše "OK" pro pokračování v zasílání relevantních informací o aktivitách %{organization_name}.
@@ -1236,7 +1236,7 @@ cs:
           info: Odznaky jsou získávány prováděním konkrétní činnosti v platformě.
           title: Odznaky
       user:
-        confirmation_instructions_sent: Byly odeslány pokyny pro potvrzení e-mailu
+        confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány
         create_user_group: Vytvořit skupinu
         edit_profile: Editovat profil
         edit_user_group: Upravit profil skupiny
@@ -1246,7 +1246,7 @@ cs:
         leave_user_group: Opustit skupinu
         manage_user_group_admins: Správa administrátorů
         manage_user_group_users: Správa členů
-        resend_email_confirmation_instructions: Opakujte e-mailové pokyny k potvrzení
+        resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
     reported_mailer:
       hide:
         hello: Zdravím %{name},
@@ -1276,7 +1276,7 @@ cs:
     scopes:
       global: Globální oblast působnosti
       picker:
-        cancel: zrušení
+        cancel: Zrušit
         change: Změnit vybraný rozsah
         choose: Vybrat
         currently_selected: Aktuálně vybraný rozsah

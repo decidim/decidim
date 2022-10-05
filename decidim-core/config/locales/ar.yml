@@ -804,12 +804,10 @@ ar:
           title: المحادثات
         reply:
           send: إرسال
-          title: رد
         show:
           title: المحادثة مع %{usernames}
         start:
           send: إرسال
-          title: بدء محادثة
     metrics:
       followers:
         description: عدد المشاركين الذين يتبعون مساحة المشاركة هذه

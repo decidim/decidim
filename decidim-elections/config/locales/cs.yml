@@ -270,7 +270,7 @@ cs:
               census_codes_generated: Vytvářejí se kódy pro rejstřík obyvatel.
               census_frozen: Kódy jsou exportovány a rejstřík obyvatel je zmrazen.
               census_uploaded: Rejstřík obyvatel je nahrán.
-              component_published: Vilební složka je <strong>publikována</strong>.
+              component_published: Volební komponenta je <strong>publikována</strong>.
               max_selections: Všechny otázky mají správnou hodnotu pro <strong>maximum odpovědí</strong>.
               minimum_answers: Každá otázka má <strong>alespoň 2 odpovědi</strong>.
               minimum_questions: Volba má <strong>alespoň jednu otázku</strong>.
@@ -644,7 +644,7 @@ cs:
           back: Zahájit proces hlasování znovu
           ballot_hash: 'Identifikátor vašeho hlasování:'
           cast: Uložte hlasování, abyste dokončili vaše hlasování
-          description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
+          description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
           header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
         casting:
           header: Hlasování...
@@ -716,7 +716,7 @@ cs:
             header: Hlasování nenalezeno!
             info: Kód hlasu nebyl nalezen v %{link} volebních urnám, zkuste to znovu.
           form:
-            back: Zpět na Deidim
+            back: Zpět na Decidim
             submit: Ověřit
             vote_identifier: 'Identifikační kód:'
           header:
@@ -750,7 +750,7 @@ cs:
             notification_title: Jste důvěrník pro <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
-            email_intro: 'Váš hlas byl přijat! Pomocí tvého hlasovacího tokenu: %{encrypted_vote_hash}, můžete ověřit svůj hlas <a href="%{verify_url}">zde</a>.'
+            email_intro: 'Váš hlas byl přijat! Pomocí vašeho hlasovacího tokenu: %{encrypted_vote_hash}, můžete ověřit svůj hlas <a href="%{verify_url}">zde</a>.'
             email_outro: Obdrželi jste toto oznámení, protože jste hlasovali pro hlasování %{resource_name}.
             email_subject: Váš hlas pro %{resource_name} byl přijat.
             notification_title: 'Váš hlas byl přijat. Ověřte svůj hlas <a href="%{verify_url}">zde</a> pomocí hlasovacího tokenu: %{encrypted_vote_hash}'
@@ -1040,7 +1040,7 @@ cs:
             promoted: Propagováno
             select_a_voting_type: Vyberte prosím typ hlasování
             slug: Slug
-            slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slug se používá k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
             voting_type:
               hybrid: Hybridní

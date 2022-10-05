@@ -267,9 +267,10 @@ is-IS:
           error: Samtal ekki hafin. Reyndu aftur seinna
         index:
           no_conversations: Þú hefur enga samtöl ennþá
+        reply:
+          send: Senda
         start:
           send: Senda
-          title: Byrjaðu samtal
     newsletter_mailer:
       newsletter:
         note: Þú fékkst þennan tölvupóst vegna þess að þú ert áskrifandi að fréttabréfinu á %{organization_name}. Þú getur breytt stillingum þínum á <a href="%{link}">tilkynningarsíðunni þinni</a>.

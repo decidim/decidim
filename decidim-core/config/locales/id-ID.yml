@@ -710,12 +710,10 @@ id:
           title: Percakapan
         reply:
           send: Kirim
-          title: Balasan
         show:
           title: Percakapan dengan %{usernames}
         start:
           send: Kirim
-          title: Mulai percakapan
     metrics:
       followers:
         description: Jumlah pengguna yang mengikuti ruang partisipasi ini
