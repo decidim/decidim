@@ -119,7 +119,11 @@ es:
           update_selected:
             invalid:
               selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{projects}.'
+              unselected: 'Estos proyectos han sido fueron deseleccionados de ser implementados: %{projects}.'
             select_a_project: Por favor, selecciona un proyecto
+            success:
+              selected: 'Estos proyectos fueron seleccionados con éxito para ser implementados: %{projects}.'
+              unselected: 'Estos proyectos fueron deseleccionados con éxito para ser implementados: %{projects}.'
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas a proyectos
