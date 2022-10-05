@@ -90,6 +90,7 @@ ca:
         create:
           error: S'ha produït un error en crear l'autorització.
           success: Has estat autoritzada amb correctament.
+          transferred: 'S''han recuperat les següents dades de participació a partir de la teva autorització:'
           unconfirmed: Cal que confirmis el teu correu electrònic per a poder autoritzar-te.
         destroy:
           error: S'ha produït un error en esborrar la verificació.
