@@ -27,7 +27,7 @@ module Decidim
     def show
       return render :disabled_endorsements if endorsements_blocked_or_user_can_not_participate?
       return render unless current_user
-      return render :user_verification_button unless endorse_allowed?
+      return render :verification_modal unless endorse_allowed?
       return render :select_identity_button if user_has_verified_groups?
 
       render

@@ -68,6 +68,10 @@ en:
           create: Create
           destroy: Delete
           update: Update
+          endorse: Endorse
+          vote: Vote
+          amend: Amend
+          comment: Comment
         name: Blog
         settings:
           global:
