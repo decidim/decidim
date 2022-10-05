@@ -51,7 +51,7 @@
     }
 
     &__border &-progress{
-      @apply bg-background;
+      @apply invisible;
     }
 
     &__border &-title{
