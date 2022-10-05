@@ -24,6 +24,7 @@ ca:
           success: La plantilla s'ha eliminat correctament
         empty: Encara no hi ha plantilles.
         update:
+          error: S'ha produït un error en actualitzar aquesta plantilla.
           success: La plantilla s'ha actualitzat correctament
       titles:
         template_types:
