@@ -74,7 +74,7 @@ describe UploaderContentTypeValidator do
       it "adds the correct content type error with the allowed extensions" do
         expect(subject.count).to eq(1)
         expect(subject[:file]).to eq(
-          ["only files with the following extensions are allowed: bmp, gif, jpeg, jpg, png"]
+          ["only files with the following extensions are allowed: jpeg, jpg, png"]
         )
       end
     end
@@ -108,7 +108,7 @@ describe UploaderContentTypeValidator do
       it "adds the recognized extensions and content type to the error in correct order" do
         expect(subject.count).to eq(1)
         expect(subject[:file]).to eq(
-          ["only files with the following extensions are allowed: bmp, gif, jpeg, jpg, png, foobar/*"]
+          ["only files with the following extensions are allowed: jpeg, jpg, png, foobar/*"]
         )
       end
     end
