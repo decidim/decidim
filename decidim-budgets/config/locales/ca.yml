@@ -119,7 +119,11 @@ ca:
           update_selected:
             invalid:
               selected: 'Aquests projectes ja han estat seleccionats per a ser implementats: %{projects}.'
+              unselected: 'Aquests projectes han estat deseleccionats de ser implementats: %{projects}.'
             select_a_project: Si us plau, selecciona un projecte
+            success:
+              selected: 'Aquests projectes s''han seleccionat correctament per a ser implementats: %{projects}.'
+              unselected: 'Aquests projectes s''han deseleccionat correctament per a ser implementats: %{projects}.'
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes en projectes
