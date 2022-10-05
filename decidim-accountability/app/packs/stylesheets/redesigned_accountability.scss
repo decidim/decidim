@@ -113,24 +113,8 @@
     @apply grid md:grid-cols-2 gap-6;
   }
 
-  &__result{
-    @apply flex justify-between items-center gap-4 px-4 border-l-4 border-background rounded overflow-hidden mt-6 first:mt-0 cursor-pointer hover:border-tertiary;
-
-    &-details{
-      @apply flex item-list__metadata;
-
-      &-container{
-        @apply space-y-2.5;
-      }
-    }
-
-    &-progress{
-      @apply ml-auto rounded px-6 py-4 bg-background font-bold text-[22px];
-    }
-
-    &:hover h3{
-      @apply underline;
-    }
+  &__progress{
+    @apply ml-auto rounded px-3 md:px-6 py-4 bg-background font-bold text-xl w-full md:w-auto min-w-[120px] grid place-items-center;
   }
 
   &__project{
