@@ -1,4 +1,5 @@
 ---
+
 en:
   activemodel:
     attributes:
@@ -42,6 +43,17 @@ en:
         name: Template
     templates:
       admin:
+        proposal_answer_templates:
+          form:
+            save: Save
+            template_title: Template information
+            answer_template: Answer template
+            hint: <strong>Hint:</strong> You can use theese variables anywhere on the answer template that will be replaced when using the template
+            hint1: <strong>"%{organization}"</strong> will be replaced by the organization's name
+            hint2: <strong>"%{name}"</strong> will be replaced by the author's name
+            hint3: <strong>"%{admin}"</strong> will be replaced by the admin's name (the one answering the proposal)
+          index:
+            title: Proposal answers
         questionnaire_templates:
           choose:
             create_from_template: Create from template
@@ -66,3 +78,4 @@ en:
             tos_agreement: By participating you accept its Terms of Service
       template_types:
         questionnaires: Questionnaires
+        proposal_answer_templates: Proposal Answers

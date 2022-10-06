@@ -20,7 +20,8 @@ module Decidim
             @form.current_user,
             name: @form.name,
             description: @form.description,
-            organization: @form.current_organization
+            organization: @form.current_organization,
+            target: :questionnaire
           )
 
           @questionnaire = Decidim::Forms::Questionnaire.create!(questionnaire_for: @template)

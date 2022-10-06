@@ -11,6 +11,7 @@ module Decidim
     include Loggable
     include Decidim::ShareableWithToken
     include ScopableComponent
+    include Decidim::Templates::Templatable if defined? Decidim::Templates::Templatable
 
     belongs_to :participatory_space, polymorphic: true
 

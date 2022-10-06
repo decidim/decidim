@@ -39,7 +39,8 @@ module Decidim
           @copied_template = Template.create!(
             organization: @template.organization,
             name: @template.name,
-            description: @template.description
+            description: @template.description,
+            target: :questionnaire,
           )
           @resource = Decidim::Forms::Questionnaire.create!(
             @template.templatable.dup.attributes.merge(

@@ -11,6 +11,9 @@ module Decidim
 
       routes do
         ## Routes for Questionnaire Templates
+        resources :proposal_answer_templates do
+
+        end
         resources :questionnaire_templates do
           member do
             post :copy

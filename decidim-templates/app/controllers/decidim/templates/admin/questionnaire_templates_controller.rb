@@ -22,7 +22,7 @@ module Decidim
               term = params[:term]
 
               @templates = search(term)
-
+identify_resource
               render json: @templates.map { |t| { value: t.id, label: translated_attribute(t.name) } }
             end
           end
@@ -76,7 +76,7 @@ module Decidim
         def update
           enforce_permission_to :update, :template, template: template
           @form = form(TemplateForm).from_params(params)
-          UpdateTemplate.call(template, @form, current_user) do
+          UpdateQuestionnaireTemplate.call(template, @form, current_user) do
             on(:ok) do |questionnaire_template|
               flash[:notice] = I18n.t("templates.update.success", scope: "decidim.admin")
               redirect_to edit_questionnaire_template_path(questionnaire_template)
