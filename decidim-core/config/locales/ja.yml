@@ -117,6 +117,7 @@ ja:
           question: アカウントを削除してもよろしいですか？
           title: アカウントを削除する
         explanation: アカウントを削除する理由を入力してください (オプション)。
+        leaving_authorizations_behind: 認証に紐付けられたデータがセキュリティのために保存されます。 別のアカウントを作成して再度認証すると、このデータは新しいアカウントで復元されます。
       destroy:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
@@ -598,6 +599,7 @@ ja:
         copied: テキストをコピーしました
         copy_error_message_clarification: エラーメッセージをクリップボードにコピー
         copy_to_clipboard: クリップボードにコピー
+        date_and_time: 日付と時刻
         reference: 参照
         request_method: リクエストメソッド
         title: サーバーに問題が発生しました
@@ -824,6 +826,8 @@ ja:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
         max_file_dimension: '最大ファイルサイズ: %{resolution} ピクセル'
         max_file_size: '最大ファイルサイズ: %{megabytes}MB'
+      files:
+        extension_allowlist: '対応しているフォーマット: %{extensions}'
       upload:
         labels:
           add_attachment: 添付ファイルを追加
@@ -1445,6 +1449,7 @@ ja:
         copy_share_link_message: リンクをクリップボードにコピーしました。
         share: 共有
         share_link: リンクを共有
+        share_to: '%{service} に共有'
     statistics:
       comments_count: コメント
       endorsements_count: オススメ
@@ -1689,6 +1694,7 @@ ja:
       public: 公開情報
   errors:
     messages:
+      allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'
       already_confirmed: が確認されました。ログインしてみてください
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
       content_type_allowlist_error: ファイルの種類が無効です
@@ -1705,6 +1711,7 @@ ja:
         other: 'リクエストの処理中に複数のエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
+      too_short: は短すぎます( %{count} 文字以下)
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
     length_validator:
