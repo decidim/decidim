@@ -42,6 +42,10 @@ ja:
           valuator_role_id: 評価者名
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されています: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -300,6 +304,7 @@ ja:
           affected_user:
             email_intro: 'あなたの提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
             email_outro: あなたは "%{resource_title}" の作成者であるため、この通知を受け取りました。
+            email_subject: 提案が拒否されました
             notification_title: あなたの提案 <a href="%{resource_path}">%{resource_title}</a> が却下されました。
           follower:
             email_intro: '提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
