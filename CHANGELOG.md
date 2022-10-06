@@ -31,30 +31,22 @@ bin/rails db:migrate
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-#### 3.1. [[TITLE OF THE ACTION]]
+#### 3.1. Tailwind CSS introduction
 
-You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker, which generates Tailwind configuration dynamically when Webpacker is invoked.
+
+You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
+
+You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
 ### 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
  with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-#### 4.1. [[TITLE OF THE TASK]]
+#### 4.1. Automatically change active step in participatory processes
 
-```bash
-4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK
-```
-
-You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
-
-### 5. Changes in APIs
-
-### Added
-
-#### Automatically change active step in participatory processes
-
-PR [\#9026](https://github.com/decidim/decidim/pull/9026) adds the ability to automatically change the active step of participatory processess. This is an optional behavior that system admins can enable by configuring a cron job. The frequency of the cron task should be decided by the system admin and depends on each platform's use cases. A precision of 15min is enough for most cases. An example of a crontab job may be:
+We have added the ability to automatically change the active step of participatory processess. This is an optional behavior that system admins can enable by configuring a cron job. The frequency of the cron task should be decided by the system admin and depends on each platform's use cases. A precision of 15min is enough for most cases. An example of a crontab job may be:
 
 ```bash
 */15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
@@ -64,21 +56,68 @@ Each time the job executes it checks all currently active and published particip
 
 Platform administrators will always have the possibility to manually change phases, although if a cron job is configured the change may be undone.
 
-This PR also changes the Step `start_date` and `end_date`  fields to timestamps.
+This feature also changes the step `start_date` and `end_date`  fields to timestamps.
 
-### Changed
+You can read more about this change on PR [\#9026](https://github.com/decidim/decidim/pull/9026).
 
-#### Tailwind CSS introduction
+#### 4.2. Social Share Button change
 
-Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker,
-which generates Tailwind configuration dynamically when Webpacker is invoked. More details in the PR [#9480](https://github.com/decidim/decidim/pull/9480/).
+As the gem that we were using for sharing to Social Network don't support Webpacker, we have implemented the same functionality in `decidim-core`.
 
-You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app
-from scratch, that entry will already be included in the `.gitignore`.
+If you want to have the default social share services enabled (Twitter, Facebook, WhatsApp and Telegram), then you can just remove the initializer in your application:
 
-### Fixed
+```console
+rm config/initializers/social_share_button.rb
+```
 
-### Removed
+If you want to change the default social share services, you'll need to remove this initializer and add it to the Decidim initializer. We recommend doing it with the environment variables and secrets to be consistent with the rest of configurations.
+
+```console
+rm config/initializers/social_share_button.rb
+```
+
+```ruby
+# In config/initializers/decidim.rb
+Decidim.configure do |config|
+(...)
+  config.social_share_services = Rails.application.secrets.decidim[:social_share_services]
+end
+```
+
+```ruby
+# In config/secrets.yml
+decidim_default: &decidim_default
+(...)
+  social_share_services: <%= Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "Twitter, Facebook, WhatsApp, Telegram").to_array.to_json %>
+```
+
+And define your own services in the environment variable `DECIDIM_SOCIAL_SHARE_SERVICES` with the services that you want.
+
+With this change you can also define your own services. See [documentation for social share services customization](https://docs.decidim.org/en/customize/social_shares/).
+
+### 5. Changes in APIs
+
+#### 5.1. Tailwind CSS instead of Foundation
+
+In this version we are introducing Tailwind CSS as the underlying layer to build the user interface on. In the previous versions, we used Foundation but its development stagnated which led to changing the whole layer that we are using to build user interfaces on.
+
+This means that in case you have done any changes in the Decidim user interface or developed any modules with participant facing user interfaces, you need to do changes in all your views, partials and view components (aka cells).
+
+Tailwind is quite different from Foundation and it cannot
+
+You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
+
+You can read more about Tailwind from the [Tailwind documentation](https://tailwindcss.com/docs/utility-first).
+
+### Detailed changes
+
+#### Added
+
+#### Changed
+
+#### Fixed
+
+#### Removed
 
 ## Previous versions
 
