@@ -23,6 +23,12 @@ eu:
       postal_letter_postage:
         full_address: Helbide osoa
         verification_code: Egiaztapen kodea
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
   decidim:
     admin:
       menu:
