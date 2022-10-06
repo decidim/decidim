@@ -861,7 +861,7 @@ en:
           explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
-            joanna.doe@example.org%{csv_col_sep}Joanna Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Upload your CSV file
           upload: Upload
       reminders:
