@@ -62,6 +62,12 @@ module Decidim
         end
         panels
       end
+
+      def panel_contents
+        @panel_contents ||= panels.each_with_object({}) do |panel, contents|
+          contents[panel[:id]] = send(panel[:method], *panel[:args]).to_s.html_safe
+        end.compact_blank
+      end
     end
   end
 end

@@ -7,13 +7,14 @@
   <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
     <ul class="tab-x-container">
       <% tabs.each_with_index do |tab, i| %>
+        <% next unless panel_contents.has_key?(tab[:id]) %>
         <li class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>"><%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %></li>
       <% end %>
     </ul>
 
-    <% panels.each do |panel| %>
-      <div id="panel-<%= panel[:id] %>" class="py-8">
-        <%= send(panel[:method], *panel[:args]) %>
+    <% panel_contents.each do |id, content| %>
+      <div id="panel-<%= id %>" class="py-8">
+        <%= content %>
       </div>
     <% end %>
   </div>
