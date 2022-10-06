@@ -22,28 +22,30 @@
           </thead>
           <tbody>
           <% @templates.each do |template| %>
-            <tr data-questionnaire_template-id="<%= template.id %>">
-              <td><%= link_to translated_attribute(template.name), edit_questionnaire_template_path(template) %></td>
-              <td><%= link_to translated_attribute(template.templatable.title), edit_questionnaire_path(template) %></td>
-              <td><%= template.templatable.questions.count.to_i %></td>
+            <tr data-proposal_answer-id="<%= template.id %>">
+              <td><%= link_to_if allowed_to?(:update, :template, template: template) , translated_attribute(template.name), edit_proposal_answer_template_path(template) %></td>
+              <td> <%= t(template.field_values.dig("internal_state"), scope: 'decidim.proposals.admin.proposal_answers.form') %></td>
+              <td><%= availability_option_as_text(template) %></td>
               <td><%= l template.created_at, format: :long %></td>
               <td class="table-list__actions">
-                <% if allowed_to?(:update, :template, questionnaire_template: template) %>
-                  <%= icon_link_to "pencil", edit_questionnaire_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
+                <% if allowed_to?(:update, :template, template: template) %>
+                  <%= icon_link_to "pencil", edit_proposal_answer_template_path(template), t("actions.edit", scope: "decidim.admin"), class: "edit" %>
                 <% end %>
 
-                <% if allowed_to?(:copy, :template, questionnaire_template: template) %>
-                  <%= icon_link_to "clipboard", copy_questionnaire_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>
+                <% if allowed_to?(:copy, :template, template: template) %>
+                  <%= icon_link_to "clipboard", copy_proposal_answer_template_path(template), t("actions.duplicate", scope: "decidim.admin"), method: :post %>
                 <% end %>
 
-                <% if allowed_to?(:destroy, :template, questionnaire_template: template) %>
-                  <%= icon_link_to "circle-x", questionnaire_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
+                <% if allowed_to?(:destroy, :template, template: template) %>
+                  <%= icon_link_to "circle-x", proposal_answer_template_path(template), t("actions.destroy", scope: "decidim.admin"), method: :delete, data: { confirm: t(".confirm_delete") }, class: "action-icon--remove" %>
                 <% end %>
               </td>
             </tr>
           <% end %>
+
           </tbody>
         </table>
+        <%= paginate @templates, theme: "decidim" %>
       </div>
     <% else %>
       <%= t("templates.empty", scope: "decidim.admin") %>

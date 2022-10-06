@@ -22,7 +22,7 @@ module Decidim
           broadcast(:ok)
         end
 
-        private
+        protected
 
         attr_reader :template, :current_user
 

@@ -54,6 +54,7 @@ en:
             hint3: <strong>"%{admin}"</strong> will be replaced by the admin's name (the one answering the proposal)
           index:
             title: Proposal answers
+            confirm_delete: Are you sure you want to delete this template?
         questionnaire_templates:
           choose:
             create_from_template: Create from template

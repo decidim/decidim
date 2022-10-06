@@ -5,8 +5,9 @@ module Decidim
     module Admin
       class ProposalAnswerTemplatesController < Decidim::Templates::Admin::ApplicationController
         include Decidim::TranslatableAttributes
+        include Decidim::Paginable
 
-        helper_method :avaliablity_options
+        helper_method :availability_option_as_text, :availability_options_for_select
 
         def new
           enforce_permission_to :create, :template
@@ -37,6 +38,16 @@ module Decidim
           end
         end
 
+        def destroy
+          enforce_permission_to :destroy, :template, template: template
+
+          DestroyTemplate.call(template, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("templates.destroy.success", scope: "decidim.admin")
+              redirect_to action: :index
+            end
+          end
+        end
 
         def update
           enforce_permission_to :update, :template, template: template
@@ -51,6 +62,22 @@ module Decidim
               @template = template
               flash.now[:error] = I18n.t("templates.update.error", scope: "decidim.admin")
               render action: :edit
+            end
+          end
+        end
+
+        def copy
+          enforce_permission_to :copy, :template
+
+          CopyProposalAnswerTemplate.call(template) do
+            on(:ok) do
+              flash[:notice] = I18n.t("templates.copy.success", scope: "decidim.admin")
+              redirect_to action: :index
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("templates.copy.error", scope: "decidim.admin")
+              redirect_to action: :index
             end
           end
         end
@@ -73,13 +100,22 @@ module Decidim
 
         private
 
+        def availability_option_as_text(template)
+          key = "%s-%d" % [template.templatable_type.demodulize.tableize,template.templatable_id]
+          avaliablity_options.fetch(key)
+        end
+
+        def availability_options_for_select
+          avaliablity_options.collect {|key, value| [value, key] }.to_a
+        end
+
         def avaliablity_options
-          options = [ ['Global scope', "organization-%d" % [current_organization.id] ]  ]
-          options += Decidim::Component.includes(:participatory_space).where(manifest_name: :proposals)
-                       .select{|a| a.participatory_space.decidim_organization_id == current_organization.id }.map do |component|
-            [ formated_name(component), "components-%d" % component.id]
+          @avaliablity_options = { "organizations-%d" % [current_organization.id] => 'Global scope'}
+          Decidim::Component.includes(:participatory_space).where(manifest_name: :proposals)
+            .select{|a| a.participatory_space.decidim_organization_id == current_organization.id }.each do |component|
+            @avaliablity_options["components-%d" % component.id] = formated_name(component)
           end
-          options
+          @avaliablity_options
         end
 
         def formated_name(component)
@@ -91,7 +127,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= current_organization.templates.where(target: :proposal_answer)
+          @collection ||= paginate(current_organization.templates.where(target: :proposal_answer))
         end
       end
     end
