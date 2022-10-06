@@ -30,6 +30,8 @@ module Decidim
     alias resource model
 
     def show
+      return if linked_resources.blank?
+
       render :show
     end
 
