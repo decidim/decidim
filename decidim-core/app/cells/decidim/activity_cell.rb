@@ -10,6 +10,7 @@ module Decidim
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
+    include ActionView::Helpers::DateHelper
 
     def show
       return unless renderable?
@@ -72,7 +73,7 @@ module Decidim
     end
 
     def created_at
-      I18n.l(model.created_at, format: :short)
+      t("decidim.activity.time_ago", time: time_ago_in_words(model.created_at))
     end
 
     def user

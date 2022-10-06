@@ -33,8 +33,12 @@ module Decidim
 
     def search_collection
       ActionLog
-        .where(visibility: %w(public-only all))
-        .where(organization: current_organization)
+        .where(
+          organization: current_organization,
+          visibility: %w(public-only all)
+        )
+        .with_new_resource_type("all")
+        .order(created_at: :desc)
     end
 
     def default_filter_params

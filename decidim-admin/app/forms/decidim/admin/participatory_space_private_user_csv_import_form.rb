@@ -23,6 +23,8 @@ module Decidim
         process_import_file(file) do |(_email, user_name)|
           errors.add(:user_name, :invalid) if user_name.blank? || !user_name.match?(UserBaseEntity::REGEXP_NAME)
         end
+      rescue CSV::MalformedCSVError
+        errors.add(:file, :malformed)
       end
     end
   end

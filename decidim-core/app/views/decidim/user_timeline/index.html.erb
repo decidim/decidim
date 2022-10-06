@@ -1,8 +1,0 @@
-<% add_decidim_page_title(t("timeline", scope: "decidim.profiles.show")) %>
-
-<%= cell "decidim/profile", user, context: {
-  content_cell: "decidim/user_activity",
-  activities: activities,
-  filter: filter,
-  resource_types: resource_types
-} %>

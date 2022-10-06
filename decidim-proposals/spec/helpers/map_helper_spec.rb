@@ -67,7 +67,7 @@ module Decidim
           expect(subject["longitude"]).to eq(longitude)
           expect(subject["address"]).to eq(address)
           expect(subject["title"]).to eq("&lt;script&gt;alert(&quot;HEY&quot;)&lt;/script&gt; This is my title")
-          expect(subject["body"]).to eq("<div class=\"ql-editor ql-reset-decidim\">alert(&quot;HEY&quot;) This is my long, but still super interesting, body of my also long, but also super inte...</div>")
+          expect(subject["body"]).to eq("<div class=\"ql-editor ql-reset-decidim\">alert(&quot;HEY&quot;) This is my long, but still super interesting, body of my also long, but also super inte…</div>")
           expect(subject["link"]).to eq(Decidim::Proposals::ProposalPresenter.new(proposal).proposal_path)
           expect(subject["icon"]).to match(/<svg.+/)
         end

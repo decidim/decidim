@@ -24,7 +24,12 @@ describe "Participatory texts", type: :system do
     prop_block.hover
     clean_proposal_body = strip_tags(translated(proposal.body))
 
-    expect(prop_block).to have_button("Follow")
+    if Decidim.redesign_active
+      expect(prop_block).to have_link("Follow")
+    else
+      expect(prop_block).to have_button("Follow")
+    end
+
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
     expect(prop_block).to have_link(proposal.comments_count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"

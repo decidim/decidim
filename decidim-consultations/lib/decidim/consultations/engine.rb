@@ -93,6 +93,12 @@ module Decidim
       initializer "decidim_consultations.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      initializer "decidim_consultations.authorization_transfer" do
+        Decidim::AuthorizationTransfer.register(:consultations) do |transfer|
+          transfer.move_records(Decidim::Consultations::Vote, :decidim_author_id)
+        end
+      end
     end
   end
 end
