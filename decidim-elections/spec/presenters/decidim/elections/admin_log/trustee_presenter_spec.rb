@@ -10,8 +10,8 @@ module Decidim
     let(:action_log) do
       create(
         :action_log,
-        action: action,
-        resource: resource
+        action:,
+        resource:
       )
     end
 

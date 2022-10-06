@@ -53,7 +53,7 @@ module Decidim
           ) do
             Decidim::ConferenceUserRole.find_or_create_by!(
               role: form.role.to_sym,
-              user: user,
+              user:,
               conference: @conference
             )
           end
@@ -87,7 +87,7 @@ module Decidim
                          organization: conference.organization,
                          admin: false,
                          invited_by: current_user,
-                         invitation_instructions: invitation_instructions)
+                         invitation_instructions:)
         end
 
         def invitation_instructions

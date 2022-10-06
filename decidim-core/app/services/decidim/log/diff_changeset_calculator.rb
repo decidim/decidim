@@ -111,7 +111,7 @@ module Decidim
             label: label || generate_label(attribute),
             new_value: values[1],
             previous_value: values[0],
-            type: type
+            type:
           }
         ]
       end
@@ -132,7 +132,7 @@ module Decidim
                 end
         return label unless locale
 
-        locale_name = I18n.t("locale.name", locale: locale) if I18n.available_locales.include?(locale.to_sym)
+        locale_name = I18n.t("locale.name", locale:) if I18n.available_locales.include?(locale.to_sym)
         locale_name ||= locale
 
         "#{label} (#{locale_name})"

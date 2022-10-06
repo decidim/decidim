@@ -106,7 +106,7 @@ cs:
           with_any_type:
             label: Typ schůzky
             values:
-              hybrid: Obojí
+              hybrid: Hybridní
               in_person: Osobně
               online: Online
       meeting_copies:
@@ -190,7 +190,7 @@ cs:
           notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bude zahájeno za méně než 48 hodin.
     forms:
       meetings:
-        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků vaší akce. Ať už jde o osobní, kombinovanou nebo on-line, je důležité, abychom věděli, kolik lidí je zapojeno.
+        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobně, online nebo hybridně.
     gamification:
       badges:
         attended_meetings:
@@ -321,7 +321,7 @@ cs:
             select_a_meeting_type: Vyberte prosím typ schůzky
             select_a_registration_type: Vyberte prosím typ registrace
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-            show_embedded_iframe_help: Pouze pár služeb umožňuje vložení do schůzky nebo živé události (YouTube, Twitch a Jitsi)
+            show_embedded_iframe_help: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
           index:
             title: Setkání
           new:
@@ -394,6 +394,8 @@ cs:
           value_types:
             organizer_presenter:
               not_found: 'Organizátor nebyl nalezen v databázi (ID: %{id})'
+        questionnaire:
+          update: "%{user_name} aktualizoval dotazník pro schůzku %{meeting_name}"
       application_helper:
         filter_category_values:
           all: Vše
@@ -404,7 +406,19 @@ cs:
       calendar_modal:
         calendar_url: Adresa URL kalendáře
         close_window: Zavřete okno
+        copy_calendar_url: Kopírovat
+        copy_calendar_url_clarification: Kopírovat URL kalendáře do schránky
+        copy_calendar_url_copied: Zkopírováno!
+        copy_calendar_url_description: Všechny zveřejněné schůzky můžete vidět v aplikaci nebo poskytovateli kalendáře. Zkopírujte a vložte tuto URL do kalendáře pomocí možnosti "Přidat nový kalendář z URL".
+        copy_calendar_url_explanation: Vezměte prosím na vědomí, že exportujete výběr schůzek, protože existují aktivní filtry. Pokud si přejete exportovat všechny, resetujte nejprve všechny filtry.
+        copy_calendar_url_message: URL byla úspěšně zkopírována do schránky.
         export_calendar: Exportovat kalendář
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: Schůzka <a href="%{meeting_path}">"%{meeting_title}"</a> čeká na ukončení. Přidejte prosím zprávu o schůzce pomocí tlačítka "Zavřít schůzku".
+          greetings: Dobrý den,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Dobrý den %{username},
+          subject: Nyní můžete svou schůzku uzavřít se zprávou o platformě %{organization_name}
       conference_venues: Konferenční prostory
       content_blocks:
         upcoming_meetings:
@@ -489,7 +503,7 @@ cs:
           type: Typ
           type_values:
             all: Vše
-            hybrid: Obojí
+            hybrid: Hybridní
             in_person: Osobně
             online: Online
         filters_small_view:
@@ -510,7 +524,7 @@ cs:
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
           select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
-          show_embedded_iframe_help: Pouze pár služeb umožňuje vložení do schůzky nebo živé události (YouTube, Twitch a Jitsi)
+          show_embedded_iframe_help: 'Pouze pár služeb umožňuje vložení do schůzky nebo živé události z následujících domén: %{domains}'
         index:
           click_here: Zobrazit všechny schůzky
           new_meeting: Nová schůzka
@@ -582,7 +596,7 @@ cs:
           fields:
             closed: Zavřeno
             end_time: Datum ukončení
-            id: Id
+            id: ID
             map: Mapa
             official_meeting: Oficiální schůzka
             start_time: Datum zahájení
@@ -595,7 +609,7 @@ cs:
             empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
           index_admin:
             admin_dashboard: Řídicí panel administrace
-            edit: Upravit v administraci
+            edit: Upravit v panelu administrace
             question: Otázka
             received_answer: přijatá odpověď
             received_answers: přijaté odpovědi
@@ -635,7 +649,7 @@ cs:
           invalid: Při setkání došlo k problému.
           success: Zasedání jste úspěšně opustili.
       type_of_meeting:
-        hybrid: Obojí
+        hybrid: Hybridní
         in_person: Osobně
         online: Online
       types:

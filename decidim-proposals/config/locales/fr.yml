@@ -45,7 +45,7 @@ fr:
         participatory_text:
           attributes:
             document:
-              invalid_document_type: 'Type de document invalide. Les formats acceptés sont: %{valid_mime_types}'
+              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -221,110 +221,110 @@ fr:
         admin:
           proposal_note_created:
             email_intro: Quelqu'un a laissé une note sur la proposition "%{resource_title}". Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d'administration</a>
-            email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
+            email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
             notification_title: Quelqu'un a laissé une note sur la proposition <a href="%{resource_path}">%{resource_title}</a>. Consultez-la à <a href="%{admin_proposal_info_path}">le panneau d'administration</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} a été accepté en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} a été accepté en tant que contributeur du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{requester_name} a été accepté pour accéder en tant que contributeur du %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>admis à l' accès en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} a été refusé d''accès en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} a été refusé d''accès en tant que contributeur du brouillpn collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{requester_name} a été rejetée pour accéder en tant que contributeur du %{resource_title} projet de collaboration."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} demandé l''accès en tant que contributeur. Vous pouvez <strong>accepter ou rejeter la demande</strong> de la page de brouillon collaboratif <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: '%{requester_name} a demandé à contribuer au brouillon. Vous pouvez <strong>accepter ou rejeter la demande</strong> depuis la page du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{requester_name} demandé un accès pour contribuer à %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> demandé un accès pour contribuer au projet de collaboration <a href="%{resource_path}">%{resource_title}</a> . S'il vous plaît <strong>accepter ou rejeter la demande</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Vous avez été accepté pour accéder en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Vous avez été accepté pour accéder en tant que contributeur du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir contributeur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous avez été accepté comme contributeur de %{resource_title}.
           notification_title: Vous avez été <strong>accepté d'accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         collaborative_draft_access_requester_rejected:
-          email_intro: Vous avez été refusé à accéder en tant que contributeur du projet collaboratif <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: Votre demande d'accès au brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a> a été rejetée.
+          email_outro: Vous avez reçu cette notification car vous avez demandé à devenir contributeur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous avez été rejeté en tant que contributeur de %{resource_title}.
           notification_title: Vous avez été <strong>rejeté pour accéder en tant que contributeur</strong> du <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> retiré le projet de collaboration <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_path}">%{resource_title}</a>.
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> a retiré le brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{author_name} %{author_nickname} retiré le %{resource_title} projet de collaboration."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>retiré</strong> le <a href="%{resource_path}">%{resource_title}</a> projet de collaboration.
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page :'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant créer de <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Vous pouvez soutenir les différentes propositions dans %{participatory_space_title} ! Commencez à participer en vous rendant sur cette page :'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
+          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous pouvez désormais soutenir des propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">soutenir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Votre proposition a été acceptée
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
           follower:
             email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
+            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Une proposition que vous suivez a été acceptée
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_evaluating:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez rechercher une réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Votre proposition est en cours d'évaluation
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
           follower:
             email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour voir si une réponse a été formulée :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
+            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Une proposition que vous suivez est en cours d'évaluation
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
         proposal_mentioned:
           email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_url}">dans cet espace</a> dans les commentaires.
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
           notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a>, dans les commentaires.
         proposal_published:
           email_intro: '%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition appelée "%{resource_title}". Découvrez-le et contribuez:'
-          email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez %{author_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Nouvelle proposition "%{resource_title}" par %{author_nickname}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_published_for_space:
           email_intro: La proposition "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez cesser de le suivre en cliquant sur le lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Nouvelle proposition "%{resource_title}" ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title} par %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Votre proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse sur cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}".
+            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Votre proposition a été rejetée
             notification_title: Votre proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
           follower:
             email_intro: 'La proposition "%{resource_title}" n''a pas été retenue. Vous pouvez lire le commentaire ici :'
-            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
+            email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Une proposition que vous suivez n'a pas été retenue
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La catégorie de la proposition %{resource_title} a été mise à jour
           notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         proposal_update_scope:
           email_intro: 'Un administrateur a mis à jour la portée de votre proposition "%{resource_title}", regardez-la dans cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La portée de la proposition %{resource_title} a été mise à jour
           notification_title: La portée de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
           email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous pouvez désormais voter les propositions dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
@@ -455,6 +455,7 @@ fr:
             accepted: Retenue
             answer_proposal: Répondre
             evaluating: En cours d'évaluation
+            not_answered: Non répondu
             rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:

@@ -68,12 +68,6 @@ sv:
         email: E-post
         name: Namn
         role: Roll
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Ogiltig dokumenttyp. Godkända format är: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -319,6 +313,9 @@ sv:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Om den här gruppen
       assembly_members:
         index:
           members: Medlemmar
@@ -386,7 +383,6 @@ sv:
         related_participatory_processes: Relaterade dialoger
         scope: Omfång
         social_networks: Sociala nätverk
-        social_networks_title: Dela denna grupp på
         target: Vilka deltar
     assembly_members:
       assembly_member:
@@ -397,7 +393,7 @@ sv:
       assemblies:
         create_assembly_member:
           email_intro: En administratör för församlingen <a href="%{resource_url}">%{resource_name}</a> har lagt till dig som en av dess medlemmar.
-          email_outro: Du har fått det här meddelandet eftersom du har blivit inbjuden till en församling. Kolla <a href="%{resource_path}">samlingssidan</a> för att bidra!
+          email_outro: Du har fått denna avisering eftersom du har bjudits in till en grupp. Ta en titt på <a href="%{resource_url}">gruppsidan</a> för att bidra!
           email_subject: Du har blivit inbjuden att vara medlem i församlingen %{resource_name}!
           notification_title: Du har blivit registrerad som medlem i församlingen <a href="%{resource_path}">%{resource_name}</a>. Kolla <a href="%{resource_path}">mötessidan</a> för att bidra!
       assembly:

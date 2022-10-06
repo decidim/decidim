@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "Amendment Diff", versioning: true, type: :system do
   let!(:component) { create(:proposal_component) }
-  let!(:proposal) { create(:proposal, title: { en: "Original long enough title" }, body: { en: "Original one liner body" }, component: component) }
+  let!(:proposal) { create(:proposal, title: { en: "Original long enough title" }, body: { en: "Original one liner body" }, component:) }
   # The first version of the emendation should hold the original proposal attribute values being amended.
-  let!(:emendation) { create(:proposal, title: proposal.title, body: proposal.body, component: component) }
-  let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
+  let!(:emendation) { create(:proposal, title: proposal.title, body: proposal.body, component:) }
+  let!(:amendment) { create :amendment, amendable: proposal, emendation: }
 
   let(:emendation_path) { Decidim::ResourceLocatorPresenter.new(emendation).path }
   let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }

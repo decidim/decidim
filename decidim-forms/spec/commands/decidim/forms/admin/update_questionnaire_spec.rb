@@ -9,6 +9,7 @@ module Decidim
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
         let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
+        let(:user) { create(:user, organization: current_organization) }
         let(:published_at) { nil }
         let(:form_params) do
           {
@@ -199,10 +200,10 @@ module Decidim
           QuestionnaireForm.from_params(
             questionnaire: form_params
           ).with_context(
-            current_organization: current_organization
+            current_organization:
           )
         end
-        let(:command) { described_class.new(form, questionnaire) }
+        let(:command) { described_class.new(form, questionnaire, user) }
 
         describe "when the form is invalid" do
           before do
@@ -264,10 +265,22 @@ module Decidim
             expect(questionnaire.questions[5].answer_options[0].free_text).to be(true)
             expect(questionnaire.questions[5].matrix_rows[0].body["en"]).to eq(form_params["questions"]["5"]["matrix_rows"]["0"]["body"]["en"])
           end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:perform_action!)
+              .with("update", questionnaire, user)
+              .and_call_original
+
+            expect { command.call }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.action).to eq("update")
+            expect(action_log.version).to be_present
+          end
         end
 
         describe "when the questionnaire has an existing question" do
-          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire) }
+          let!(:question) { create(:questionnaire_question, questionnaire:) }
 
           context "and the question should be removed" do
             let(:form_params) do
@@ -309,7 +322,7 @@ module Decidim
         end
 
         describe "when the questionnaire has existing questions" do
-          let!(:questions) { 0.upto(3).to_a.map { |x| create(:questionnaire_question, questionnaire: questionnaire, position: x) } }
+          let!(:questions) { 0.upto(3).to_a.map { |x| create(:questionnaire_question, questionnaire:, position: x) } }
           let!(:question_2_answer_options) { create_list(:answer_option, 3, question: questions.second) }
 
           context "and display conditions are to be created" do
@@ -342,9 +355,9 @@ module Decidim
                     "body" => questions[1].body,
                     "position" => 1,
                     "question_type" => "single_option",
-                    "answer_options" => Hash[question_2_answer_options.map do |answer_option|
+                    "answer_options" => question_2_answer_options.to_h do |answer_option|
                       [answer_option.id.to_s, { "id" => answer_option.id, "body" => answer_option.body, "free_text" => answer_option.free_text, "deleted" => false }]
-                    end]
+                    end
                   },
                   "3" => {
                     "id" => questions[2].id,

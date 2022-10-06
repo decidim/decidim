@@ -3,7 +3,7 @@
 require "spec_helper"
 describe "Admin manages moderated users", type: :system do
   let(:organization) { create(:organization) }
-  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let(:model_name) { Decidim::User.model_name }
   let(:resource_controller) { Decidim::Admin::ModeratedUsersController }
 
@@ -23,9 +23,9 @@ describe "Admin manages moderated users", type: :system do
   include_context "with filterable context"
 
   context "when on reported users path" do
-    let!(:first_user) { create(:user, :confirmed, organization: organization) }
-    let!(:second_user) { create(:user, :confirmed, organization: organization) }
-    let!(:third_user) { create(:user, :confirmed, organization: organization) }
+    let!(:first_user) { create(:user, :confirmed, organization:) }
+    let!(:second_user) { create(:user, :confirmed, organization:) }
+    let!(:third_user) { create(:user, :confirmed, organization:) }
 
     before do
       visit decidim_admin.moderated_users_path
@@ -88,12 +88,12 @@ describe "Admin manages moderated users", type: :system do
     end
 
     context "when there is a lot of reported users" do
-      let!(:collection) { create_list(:user, 50, :confirmed, organization: organization) }
+      let!(:collection) { create_list(:user, 50, :confirmed, organization:) }
 
       before do
         collection.each do |user|
-          moderation = create(:user_moderation, user: user, report_count: 1)
-          create(:user_report, moderation: moderation, user: admin, reason: "spam")
+          moderation = create(:user_moderation, user:, report_count: 1)
+          create(:user_report, moderation:, user: admin, reason: "spam")
         end
       end
 
@@ -102,9 +102,9 @@ describe "Admin manages moderated users", type: :system do
   end
 
   context "when on blocked users path" do
-    let!(:first_user) { create(:user, :confirmed, :blocked, organization: organization) }
-    let!(:second_user) { create(:user, :confirmed, :blocked, organization: organization) }
-    let!(:third_user) { create(:user, :confirmed, :blocked, organization: organization) }
+    let!(:first_user) { create(:user, :confirmed, :blocked, organization:) }
+    let!(:second_user) { create(:user, :confirmed, :blocked, organization:) }
+    let!(:third_user) { create(:user, :confirmed, :blocked, organization:) }
 
     before do
       visit decidim_admin.moderated_users_path(blocked: true)
@@ -161,12 +161,12 @@ describe "Admin manages moderated users", type: :system do
     end
 
     context "when there is a lot of reported users" do
-      let!(:collection) { create_list(:user, 50, :confirmed, :blocked, organization: organization) }
+      let!(:collection) { create_list(:user, 50, :confirmed, :blocked, organization:) }
 
       before do
         collection.each do |user|
-          moderation = create(:user_moderation, user: user, report_count: 1)
-          create(:user_report, moderation: moderation, user: admin, reason: "spam")
+          moderation = create(:user_moderation, user:, report_count: 1)
+          create(:user_report, moderation:, user: admin, reason: "spam")
         end
       end
 

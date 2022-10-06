@@ -9,7 +9,7 @@ describe Decidim::Meetings::RegistrationCodeValidatedEvent do
   let(:event_name) { "decidim.events.meetings.registration_code_validated" }
 
   let(:registration) { create :registration, meeting: resource }
-  let(:extra) { { registration: registration } }
+  let(:extra) { { registration: } }
 
   it_behaves_like "a simple event"
   it_behaves_like "a translated meeting event"

@@ -44,7 +44,7 @@ describe "Menu", type: :system do
 
     context "and clicking on a subpage of that entry" do
       before do
-        page = create(:static_page, organization: organization)
+        page = create(:static_page, organization:)
 
         visit current_path
 
@@ -58,7 +58,7 @@ describe "Menu", type: :system do
   end
 
   context "with a user logged in and multiple languages" do
-    let!(:user) { create :user, :confirmed, organization: organization }
+    let!(:user) { create :user, :confirmed, organization: }
 
     before do
       login_as user, scope: :user

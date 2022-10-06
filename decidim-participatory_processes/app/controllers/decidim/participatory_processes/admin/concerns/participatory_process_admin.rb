@@ -32,7 +32,7 @@ module Decidim
             end
 
             def permissions_context
-              super.merge(current_participatory_space: current_participatory_space)
+              super.merge(current_participatory_space:)
             end
 
             alias_method :current_participatory_process, :current_participatory_space

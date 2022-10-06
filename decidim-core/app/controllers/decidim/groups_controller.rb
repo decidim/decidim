@@ -64,6 +64,11 @@ module Decidim
           redirect_back fallback_location: profile_path(accepted_user_group.nickname)
         end
 
+        on(:last_admin) do
+          flash[:alert] = t("groups.leave.last_admin", scope: "decidim")
+          redirect_back fallback_location: profile_path(accepted_user_group.nickname)
+        end
+
         on(:invalid) do
           flash[:alert] = t("groups.leave.error", scope: "decidim")
           redirect_back fallback_location: profile_path(accepted_user_group.nickname)

@@ -71,7 +71,9 @@ shared_examples "manage conferences" do
     let(:image3_path) { Decidim::Dev.asset(image3_filename) }
 
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a conference" do
@@ -99,7 +101,9 @@ shared_examples "manage conferences" do
 
   describe "updating an conference without images" do
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "update an conference without images does not delete them" do
@@ -115,7 +119,7 @@ shared_examples "manage conferences" do
 
   describe "previewing conferences" do
     context "when the conference is unpublished" do
-      let!(:conference) { create(:conference, :unpublished, organization: organization) }
+      let!(:conference) { create(:conference, :unpublished, organization:) }
 
       it "allows the user to preview the unpublished conference" do
         within find("tr", text: translated(conference.title)) do
@@ -127,7 +131,7 @@ shared_examples "manage conferences" do
     end
 
     context "when the conference is published" do
-      let!(:conference) { create(:conference, organization: organization) }
+      let!(:conference) { create(:conference, organization:) }
 
       it "allows the user to preview the unpublished conference" do
         within find("tr", text: translated(conference.title)) do
@@ -147,10 +151,12 @@ shared_examples "manage conferences" do
   end
 
   describe "publishing a conference" do
-    let!(:conference) { create(:conference, :unpublished, organization: organization) }
+    let!(:conference) { create(:conference, :unpublished, organization:) }
 
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the conference" do
@@ -165,10 +171,12 @@ shared_examples "manage conferences" do
   end
 
   describe "unpublishing a conference" do
-    let!(:conference) { create(:conference, organization: organization) }
+    let!(:conference) { create(:conference, organization:) }
 
     before do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the conference" do
@@ -193,14 +201,16 @@ shared_examples "manage conferences" do
   end
 
   context "when the conference has a scope" do
-    let(:scope) { create(:scope, organization: organization) }
+    let(:scope) { create(:scope, organization:) }
 
     before do
-      conference.update!(scopes_enabled: true, scope: scope)
+      conference.update!(scopes_enabled: true, scope:)
     end
 
     it "disables the scope for the conference" do
-      click_link translated(conference.title)
+      within find("tr", text: translated(conference.title)) do
+        click_link "Configure"
+      end
 
       uncheck :conference_scopes_enabled
 

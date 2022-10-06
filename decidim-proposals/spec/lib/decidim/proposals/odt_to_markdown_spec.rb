@@ -7,15 +7,17 @@ module Decidim
     describe OdtToMarkdown do
       context "when libreoffice odt file" do
         it "transforms into markdown" do
-          file = IO.read(Decidim::Dev.asset("participatory_text.odt"))
+          file = File.read(Decidim::Dev.asset("participatory_text.odt"))
           transformer = DocToMarkdown.new(file, DocToMarkdown::ODT_MIME_TYPE)
 
-          expected = IO.read(Decidim::Dev.asset("participatory_text.md"))
-          expected.strip!
+          expected = File.read(Decidim::Dev.asset("participatory_text.md"))
+          # remove the HTML commnets
+          expected.gsub!(/<!--.*-->/, "")
           # doc2text does not support ordered lists use - instead
           expected.gsub!(/^\d\. /, "- ")
           # doc2text can not embed images, instead leaves the title, expect this
           expected.gsub!(/^![^\n]+\n/, "Decidim Logo\n")
+          expected.strip!
 
           actual = transformer.to_md
           actual.strip!

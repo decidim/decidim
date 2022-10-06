@@ -11,7 +11,7 @@ module Decidim::Budgets
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
     let(:category) { create(:category, participatory_space: budget.component.participatory_space) }
     let(:scope) { create(:scope, organization: category.participatory_space.organization) }
-    let(:project) { create(:project, budget: budget, category: category, scope: scope) }
+    let(:project) { create(:project, budget:, category:, scope:) }
 
     subject { described_class.new(project) }
 

@@ -8,7 +8,7 @@ module Decidim
     def switch_to_host(host = "lvh.me")
       raise "Can't switch to a custom host unless it really exists. Use `whatever.lvh.me` as a workaround." unless /lvh\.me$/.match?(host)
 
-      app_host = (host ? "http://#{host}" : nil)
+      app_host = (host ? "#{protocol}://#{host}" : nil)
       Capybara.app_host = app_host
     end
 
@@ -17,7 +17,13 @@ module Decidim
     end
 
     def switch_to_secure_context_host
-      Capybara.app_host = "http://localhost"
+      Capybara.app_host = "#{protocol}://localhost"
+    end
+
+    def protocol
+      return "https" if ENV["TEST_SSL"]
+
+      "http"
     end
   end
 end
@@ -31,11 +37,50 @@ Capybara.register_driver :headless_chrome do |app|
                   else
                     "--window-size=1920,1080"
                   end
+  options.args << "--ignore-certificate-errors" if ENV["TEST_SSL"]
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    capabilities: [options]
+  )
+end
+
+1.step do
+  port = rand(5000..6999)
+  begin
+    Socket.tcp("127.0.0.1", port, connect_timeout: 5).close
+  rescue Errno::ECONNREFUSED
+    # When connection is refused, the port is available for use.
+    Capybara.server_port = port
+    break
+  end
+end
+
+# In order to work with PWA apps, Chrome can't be run in headless mode, and requires
+# setting up special prefs and flags
+Capybara.register_driver :pwa_chrome do |app|
+  options = ::Selenium::WebDriver::Chrome::Options.new
+  options.args << "--no-sandbox"
+  # Don't limit browser resources
+  options.args << "--disable-dev-shm-usage"
+  # Add pwa.lvh.me host as a secure origin
+  options.args << "--unsafely-treat-insecure-origin-as-secure=http://pwa.lvh.me:#{Capybara.server_port}"
+  # User data flag is mandatory when preferences and locale state is set
+  options.args << "--user-data-dir=/tmp/decidim_tests_user_data_#{rand(1000)}"
+  options.args << if ENV["BIG_SCREEN_SIZE"].present?
+                    "--window-size=1920,3000"
+                  else
+                    "--window-size=1920,1080"
+                  end
+  # Set notifications allowed in http protocol
+  options.local_state["browser.enabled_labs_experiments"] = ["enable-system-notifications@1", "unsafely-treat-insecure-origin-as-secure"]
+  # Mark notification permission as enabled
+  options.prefs["profile.default_content_setting_values.notifications"] = 1
 
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    options: options
+    capabilities: [options]
   )
 end
 
@@ -48,13 +93,22 @@ Capybara.register_driver :iphone do |app|
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,
-    options: options
+    capabilities: [options]
   )
 end
 
-Capybara.server = :puma, { Silent: true, Threads: "1:1" }
-
-Capybara.asset_host = "http://localhost:3000"
+server_options = { Silent: true, queue_requests: false }
+if ENV["TEST_SSL"]
+  dev_gem = Bundler.load.specs.find { |spec| spec.name == "decidim-dev" }
+  cert_dir = "#{dev_gem.full_gem_path}/lib/decidim/dev/assets"
+  server_options.merge!(
+    Host: "ssl://#{Capybara.server_host}:#{Capybara.server_port}?key=#{cert_dir}/ssl-key.pem&cert=#{cert_dir}/ssl-cert.pem"
+  )
+  Capybara.asset_host = "https://localhost:3000"
+else
+  Capybara.asset_host = "http://localhost:3000"
+end
+Capybara.server = :puma, server_options
 
 Capybara.server_errors = [SyntaxError, StandardError]
 
@@ -64,6 +118,21 @@ RSpec.configure do |config|
   config.before :each, type: :system do
     driven_by(:headless_chrome)
     switch_to_default_host
+    domain = (try(:organization) || try(:current_organization))&.host
+    if domain
+      # Javascript sets the cookie also for all subdomains but localhost is a
+      # special case.
+      domain = ".#{domain}" unless domain == "localhost"
+      page.driver.browser.execute_cdp(
+        "Network.setCookie",
+        domain:,
+        name: Decidim.consent_cookie_name,
+        value: { essential: true }.to_json,
+        path: "/",
+        expires: 1.day.from_now.to_i,
+        same_site: "Lax"
+      )
+    end
   end
 
   config.before :each, driver: :rack_test do
@@ -79,7 +148,7 @@ RSpec.configure do |config|
   end
 
   config.after(type: :system) do |example|
-    warn page.driver.browser.manage.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
+    warn page.driver.browser.logs.get(:browser) unless example.metadata[:driver].eql?(:rack_test)
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system

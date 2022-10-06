@@ -9,7 +9,7 @@ shared_examples "create an initiative" do
       .from_params(form_params)
       .with_context(
         current_organization: initiative_type.organization,
-        initiative_type: initiative_type
+        initiative_type:
       )
   end
   let(:uploaded_files) { [] }
@@ -55,7 +55,7 @@ shared_examples "create an initiative" do
       it "creates a new initiative" do
         expect do
           command.call
-        end.to change { Decidim::Initiative.count }.by(1)
+        end.to change(Decidim::Initiative, :count).by(1)
       end
 
       context "when attachment is present" do

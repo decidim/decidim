@@ -15,6 +15,8 @@ module Decidim
       private
 
       def diff_fields_mapping
+        return { external_domain_whitelist: :string } if action == "update_external_domain"
+
         settings_attributes_mapping
           .merge(omnipresent_banner_attributes_mapping)
           .merge(highlighted_content_banner_attributes_mapping)
@@ -79,9 +81,12 @@ module Decidim
       end
 
       def action_string
-        return "decidim.admin_log.organization.update_id_documents_config" if action == "update_id_documents_config"
-
-        "decidim.admin_log.organization.update"
+        case action
+        when "update_id_documents_config", "update_external_domain"
+          "decidim.admin_log.organization.#{action}"
+        else
+          "decidim.admin_log.organization.update"
+        end
       end
 
       def i18n_labels_scope
@@ -89,7 +94,7 @@ module Decidim
       end
 
       def diff_actions
-        super + %w(update_id_documents_config)
+        super + %w(update_id_documents_config update_external_domain)
       end
     end
   end

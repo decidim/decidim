@@ -11,10 +11,10 @@ module Decidim
       let(:all) { [online, offline, mixed] }
 
       let(:organization) { create(:organization) }
-      let(:initiative_type) { create(:initiatives_type, signature_type: signature_type, organization: organization) }
+      let(:initiative_type) { create(:initiatives_type, signature_type:, organization:) }
       let(:scope) { create(:initiatives_type_scope, type: initiative_type) }
       let(:initiative_state) { "created" }
-      let(:initiative) { create(:initiative, organization: organization, scoped_type: scope, signature_type: signature_type, state: initiative_state) }
+      let(:initiative) { create(:initiative, organization:, scoped_type: scope, signature_type:, state: initiative_state) }
 
       let(:form_klass) { ::Decidim::Initiatives::Admin::InitiativeForm }
       let(:form) do
@@ -22,7 +22,7 @@ module Decidim
           form_params
         ).with_context(
           current_organization: organization,
-          initiative: initiative
+          initiative:
         )
       end
       let(:form_params) do

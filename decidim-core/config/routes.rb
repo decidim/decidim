@@ -13,11 +13,29 @@ Decidim::Core::Engine.routes.draw do
                invitations: "decidim/devise/invitations",
                sessions: "decidim/devise/sessions",
                confirmations: "decidim/devise/confirmations",
-               registrations: "decidim/devise/registrations",
                passwords: "decidim/devise/passwords",
                unlocks: "decidim/devise/unlocks",
                omniauth_callbacks: "decidim/devise/omniauth_registrations"
-             }
+             },
+             skip: [:registrations]
+
+  # Manually define the registration routes because otherwise the default "edit"
+  # route would be exposed through Devise while we already have the edit and
+  # destroy routes available through the account pages.
+  resource(
+    :registration,
+    only: [:new, :create],
+    as: :user_registration,
+    path: "/users",
+    path_names: { new: "sign_up" },
+    controller: "devise/registrations"
+  ) do
+    # The "cancel" route forces the session data which is usually expired after
+    # sign in to be expired now. This is useful if the user wants to cancel
+    # OAuth signing in/up in the middle of the process, removing all OAuth
+    # session data. @see [Devise::RegistrationsController#cancel]
+    get :cancel
+  end
 
   devise_for :user_groups,
              class_name: "Decidim::UserGroup",
@@ -47,6 +65,11 @@ Decidim::Core::Engine.routes.draw do
   end
 
   authenticate(:user) do
+    devise_scope :user do
+      get "change_password" => "devise/passwords"
+      put "apply_password" => "devise/passwords"
+    end
+
     resource :account, only: [:show, :update, :destroy], controller: "account" do
       member do
         get :delete
@@ -73,6 +96,7 @@ Decidim::Core::Engine.routes.draw do
       end
     end
 
+    resources :notifications_subscriptions, param: :auth, only: [:create, :destroy]
     resource :user_interests, only: [:show, :update]
 
     get "/authorization_modals/:authorization_action/f/:component_id(/:resource_name/:resource_id)", to: "authorization_modals#show", as: :authorization_modal
@@ -111,7 +135,6 @@ Decidim::Core::Engine.routes.draw do
     get "groups", to: "profiles#groups", as: "profile_groups"
     get "members", to: "profiles#members", as: "profile_members"
     get "activity", to: "user_activities#index", as: "profile_activity"
-    get "timeline", to: "user_timeline#index", as: "profile_timeline"
     resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
   end
 
@@ -129,7 +152,6 @@ Decidim::Core::Engine.routes.draw do
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map
-  get "/cookies/accept", to: "cookie_policy#accept", as: :accept_cookies
   put "/pages/terms-and-conditions/accept", to: "tos#accept_tos", as: :accept_tos
 
   match "/404", to: "errors#not_found", via: :all
@@ -175,6 +197,8 @@ Decidim::Core::Engine.routes.draw do
   resources :upload_validations, only: [:create]
 
   resources :last_activities, only: [:index]
+
+  resources :short_links, only: [:index, :show], path: "s"
 
   use_doorkeeper do
     skip_controllers :applications, :authorized_applications

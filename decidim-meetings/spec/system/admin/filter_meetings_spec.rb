@@ -7,22 +7,22 @@ describe "Admin filters meetings", type: :system do
   let(:manifest_name) { "meetings" }
   let(:model_name) { Decidim::Meetings::Meeting.model_name }
   let(:resource_controller) { Decidim::Meetings::Admin::MeetingsController }
-  let!(:meeting) { create :meeting, scope: scope, component: current_component }
+  let!(:meeting) { create :meeting, scope:, component: current_component }
 
   include_context "when managing a component as an admin"
 
   TYPES = Decidim::Meetings::Meeting::TYPE_OF_MEETING.map(&:to_sym)
 
   def create_meeting_with_trait(trait)
-    create(:meeting, trait, component: component)
+    create(:meeting, trait, component:)
   end
 
   def meeting_with_type(type)
-    Decidim::Meetings::Meeting.where(component: component).find_by(type_of_meeting: type)
+    Decidim::Meetings::Meeting.where(component:).find_by(type_of_meeting: type)
   end
 
   def meeting_without_type(type)
-    Decidim::Meetings::Meeting.where(component: component).where.not(type_of_meeting: type).sample
+    Decidim::Meetings::Meeting.where(component:).where.not(type_of_meeting: type).sample
   end
 
   context "when filtering by type" do
@@ -45,11 +45,11 @@ describe "Admin filters meetings", type: :system do
   end
 
   context "when filtering by scope" do
-    let!(:scope1) { create(:scope, organization: organization, name: { "en" => "Scope1" }) }
-    let!(:scope2) { create(:scope, organization: organization, name: { "en" => "Scope2" }) }
-    let!(:meeting_with_scope1) { create(:meeting, component: component, scope: scope1) }
+    let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
+    let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
+    let!(:meeting_with_scope1) { create(:meeting, component:, scope: scope1) }
     let(:meeting_with_scope1_title) { translated(meeting_with_scope1.title) }
-    let!(:meeting_with_scope2) { create(:meeting, component: component, scope: scope2) }
+    let!(:meeting_with_scope2) { create(:meeting, component:, scope: scope2) }
     let(:meeting_with_scope2_title) { translated(meeting_with_scope2.title) }
 
     before { visit_component_admin }
@@ -66,9 +66,9 @@ describe "Admin filters meetings", type: :system do
   end
 
   context "when filtering by origin" do
-    let!(:official_meeting) { create(:meeting, :official, component: component) }
-    let!(:participant_meeting) { create(:meeting, :not_official, component: component) }
-    let!(:user_group_meeting) { create(:meeting, :user_group_author, component: component) }
+    let!(:official_meeting) { create(:meeting, :official, component:) }
+    let!(:participant_meeting) { create(:meeting, :not_official, component:) }
+    let!(:user_group_meeting) { create(:meeting, :user_group_author, component:) }
 
     before { visit_component_admin }
 
@@ -122,8 +122,8 @@ describe "Admin filters meetings", type: :system do
   end
 
   context "when filtering by Date" do
-    let!(:past_meeting) { create(:meeting, :past, component: component) }
-    let!(:future_meeting) { create(:meeting, :upcoming, component: component) }
+    let!(:past_meeting) { create(:meeting, :past, component:) }
+    let!(:future_meeting) { create(:meeting, :upcoming, component:) }
 
     before { visit_component_admin }
 
@@ -139,8 +139,8 @@ describe "Admin filters meetings", type: :system do
   end
 
   context "when searching by ID or title" do
-    let!(:meeting1) { create(:meeting, component: component) }
-    let!(:meeting2) { create(:meeting, component: component) }
+    let!(:meeting1) { create(:meeting, component:) }
+    let!(:meeting2) { create(:meeting, component:) }
     let!(:meeting1_title) { translated(meeting1.title) }
     let!(:meeting2_title) { translated(meeting2.title) }
 
@@ -160,6 +160,6 @@ describe "Admin filters meetings", type: :system do
   end
 
   it_behaves_like "paginating a collection" do
-    let!(:collection) { create_list(:meeting, 50, component: component) }
+    let!(:collection) { create_list(:meeting, 50, component:) }
   end
 end

@@ -6,7 +6,7 @@ module Decidim
   module ContentParsers
     describe ProposalParser do
       let(:organization) { create(:organization) }
-      let(:component) { create(:proposal_component, organization: organization) }
+      let(:component) { create(:proposal_component, organization:) }
       let(:context) { { current_organization: organization } }
       let!(:parser) { Decidim::ContentParsers::ProposalParser.new(content, context) }
 
@@ -63,12 +63,14 @@ module Decidim
         end
 
         context "when content links to an organization different from current" do
-          let(:proposal) { create(:proposal, component: component) }
+          let(:proposal) { create(:proposal, component:) }
           let(:external_proposal) { create(:proposal, component: create(:proposal_component, organization: create(:organization))) }
           let(:content) do
             url = proposal_url(external_proposal)
             "This content references proposal #{url}."
           end
+
+          it { is_expected.to eq(content) }
 
           it "does not recognize the proposal" do
             subject
@@ -77,7 +79,7 @@ module Decidim
         end
 
         context "when content has one link" do
-          let(:proposal) { create(:proposal, component: component) }
+          let(:proposal) { create(:proposal, component:) }
           let(:content) do
             url = proposal_url(proposal)
             "This content references proposal #{url}."
@@ -108,9 +110,9 @@ module Decidim
         end
 
         context "when content has many links" do
-          let(:proposal1) { create(:proposal, component: component) }
-          let(:proposal2) { create(:proposal, component: component) }
-          let(:proposal3) { create(:proposal, component: component) }
+          let(:proposal1) { create(:proposal, component:) }
+          let(:proposal2) { create(:proposal, component:) }
+          let(:proposal3) { create(:proposal, component:) }
           let(:content) do
             url1 = proposal_url(proposal1)
             url2 = proposal_url(proposal2)
@@ -128,7 +130,7 @@ module Decidim
         end
 
         context "when content has a link that is not in a proposals component" do
-          let(:proposal) { create(:proposal, component: component) }
+          let(:proposal) { create(:proposal, component:) }
           let(:content) do
             url = proposal_url(proposal).sub(%r{/proposals/}, "/something-else/")
             "This content references a non-proposal with same ID as a proposal #{url}."
@@ -161,7 +163,7 @@ module Decidim
         end
 
         context "when proposal in content does not exist" do
-          let(:proposal) { create(:proposal, component: component) }
+          let(:proposal) { create(:proposal, component:) }
           let(:url) { proposal_url(proposal) }
           let(:content) do
             proposal.destroy
@@ -178,7 +180,7 @@ module Decidim
         end
 
         context "when proposal is linked via ID" do
-          let(:proposal) { create(:proposal, component: component) }
+          let(:proposal) { create(:proposal, component:) }
           let(:content) { "This content references proposal ~#{proposal.id}." }
 
           it { is_expected.to eq("This content references proposal #{proposal.to_global_id}.") }

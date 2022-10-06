@@ -26,7 +26,7 @@ shared_examples_for "a translated event" do
   end
 
   context "when is machine machine translated" do
-    let(:user) { create :user, organization: organization, locale: "ca" }
+    let(:user) { create :user, organization:, locale: "ca" }
 
     around do |example|
       I18n.with_locale(user.locale) { example.run }

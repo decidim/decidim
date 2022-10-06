@@ -63,12 +63,6 @@ hu:
         email: Email
         name: Név
         role: Szerep
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Nem megfelelő dokument típus. Az elfogadott formátumok: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -369,7 +363,6 @@ hu:
         related_participatory_processes: Kapcsolódó részvételi folyamatok
         scope: Hatáskör
         social_networks: Közösségi háló
-        social_networks_title: Ennek a gyűlésnek a megosztása
         target: Ki vesz részt benne
     assembly_members:
       assembly_member:

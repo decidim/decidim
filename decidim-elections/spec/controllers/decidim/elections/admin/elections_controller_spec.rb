@@ -17,7 +17,7 @@ describe Decidim::Elections::Admin::ElectionsController, type: :controller do
   describe "PATCH update" do
     let(:datetime_format) { I18n.t("time.formats.decidim_short") }
     let(:component) { create(:elections_component) }
-    let(:election) { create(:election, component: component) }
+    let(:election) { create(:election, component:) }
     let(:election_title) { election.title }
     let(:election_params) do
       {
@@ -51,7 +51,7 @@ describe Decidim::Elections::Admin::ElectionsController, type: :controller do
     context "when the existing election has photos and there are other errors on the form" do
       include_context "with controller rendering the view" do
         let(:election_title) { { en: "" } }
-        let(:election) { create(:election, :with_photos, component: component) }
+        let(:election) { create(:election, :with_photos, component:) }
 
         it "displays the editing form with errors" do
           patch :update, params: params

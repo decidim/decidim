@@ -17,8 +17,12 @@ module Decidim
 
         def i18n_params
           super.merge(
-            ballot_style_code: action_log.resource.code
+            ballot_style_code: ballot_style_code.to_s
           )
+        end
+
+        def ballot_style_code
+          action_log&.resource&.code || action_log.extra["code"]
         end
 
         def action_string

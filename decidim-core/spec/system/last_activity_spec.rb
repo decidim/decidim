@@ -4,23 +4,24 @@ require "spec_helper"
 
 describe "Last activity", type: :system do
   let(:organization) { create(:organization) }
-  let(:comment) { create(:comment) }
+  let(:commentable) { create(:dummy_resource, component:) }
+  let(:comment) { create(:comment, commentable:) }
   let!(:action_log) do
-    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization)
+    create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
   end
   let!(:other_action_log) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space)
+    create(:action_log, action: "publish", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
   end
   let(:long_body_comment) { "This is my very long comment for Last Activity card that must be shorten up because is more than 100 chars" }
   let(:another_comment) { create(:comment, body: long_body_comment) }
   let!(:another_action_log) do
-    create(:action_log, action: "create", visibility: "public-only", resource: another_comment, organization: organization)
+    create(:action_log, created_at: 2.days.ago, action: "create", visibility: "public-only", resource: another_comment, organization:)
   end
   let(:component) do
-    create(:component, :published, organization: organization)
+    create(:component, :published, organization:)
   end
   let(:resource) do
-    create(:dummy_resource, component: component, published_at: Time.current)
+    create(:dummy_resource, component:, published_at: Time.current)
   end
 
   before do
@@ -38,14 +39,14 @@ describe "Last activity", type: :system do
     switch_to_host organization.host
   end
 
-  describe "accessing the last activity page" do
+  describe "accessing the homepage with the last activity content block enabled" do
     before do
       page.visit decidim.root_path
     end
 
     it "displays the activities at the home page" do
-      within ".upcoming-events" do
-        expect(page).to have_css(".card--activity", count: 3)
+      within "#last_activity" do
+        expect(page).to have_css("[data-activity]", count: 3)
       end
     end
 
@@ -54,18 +55,34 @@ describe "Last activity", type: :system do
       expect(page).to have_no_content(another_comment.translated_body)
     end
 
+    context "when there is a deleted comment" do
+      let(:comment) { create(:comment, :deleted, body: "This is deleted") }
+
+      it "isn't shown" do
+        within "#last_activity" do
+          expect(page).not_to have_content("This is deleted")
+        end
+      end
+    end
+
     context "when viewing all activities" do
       before do
-        within ".upcoming-events" do
+        within "#last_activity" do
           click_link "View all"
         end
       end
 
       it "shows all activities" do
-        expect(page).to have_css(".card--activity", count: 3)
+        expect(page).to have_css("[data-activity]", count: 3)
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
+      end
+
+      it "shows the activities in correct order" do
+        result = page.find("#activities .row").text
+        expect(result.index(translated(resource.title))).to be < result.index(translated(comment.commentable.title))
+        expect(result.index(translated(comment.commentable.title))).to be < result.index(translated(another_comment.commentable.title))
       end
 
       it "allows filtering by type" do
@@ -76,7 +93,30 @@ describe "Last activity", type: :system do
         expect(page).to have_content(translated(comment.commentable.title))
         expect(page).to have_content(translated(another_comment.commentable.title))
         expect(page).to have_no_content(translated(resource.title))
-        expect(page).to have_css(".card--activity", count: 2)
+        expect(page).to have_css("[data-activity]", count: 2)
+      end
+
+      context "when there are recently update old activities" do
+        let(:commentables) { create_list(:dummy_resource, 20, component:) }
+        let(:comments) { commentables.map { |commentable| create(:comment, commentable:) } }
+        let!(:action_logs) do
+          comments.map do |comment|
+            create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
+          end
+        end
+
+        let(:old_commentable) { create(:dummy_resource, component:) }
+        let(:old_comment) { create(:comment, commentable: old_commentable, created_at: 2.years.ago) }
+        let!(:create_action_log) { create(:action_log, created_at: 2.years.ago, action: "create", visibility: "public-only", resource: old_comment, organization:) }
+        let!(:update_action_log) { create(:action_log, created_at: 1.minute.ago, action: "update", visibility: "public-only", resource: old_comment, organization:) }
+
+        before do
+          visit current_path
+        end
+
+        it "doesn't show the old activities at the top of the list" do
+          expect(page).not_to have_content(translated(old_comment.commentable.title))
+        end
       end
 
       context "when there are activities from private spaces" do
@@ -88,7 +128,7 @@ describe "Last activity", type: :system do
         end
 
         it "doesn't show the activities" do
-          expect(page).to have_css(".card--activity", count: 0)
+          expect(page).to have_css("[data-activity]", count: 0)
         end
       end
     end

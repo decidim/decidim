@@ -24,7 +24,12 @@ describe "Participatory texts", type: :system do
     prop_block.hover
     clean_proposal_body = strip_tags(translated(proposal.body))
 
-    expect(prop_block).to have_button("Follow")
+    if Decidim.redesign_active
+      expect(prop_block).to have_link("Follow")
+    else
+      expect(prop_block).to have_button("Follow")
+    end
+
     expect(prop_block).to have_link("Comment") if component.settings.comments_enabled
     expect(prop_block).to have_link(proposal.comments_count.to_s) if component.settings.comments_enabled
     expect(prop_block).to have_content(clean_proposal_body) if proposal.participatory_text_level == "article"
@@ -94,7 +99,7 @@ describe "Participatory texts", type: :system do
       let!(:component) do
         create(:proposal_component,
                :with_participatory_texts_enabled,
-               manifest: manifest,
+               manifest:,
                participatory_space: participatory_process)
       end
 
@@ -108,12 +113,12 @@ describe "Participatory texts", type: :system do
     end
 
     context "when admin has published a participatory text" do
-      let!(:participatory_text) { create :participatory_text, component: component }
-      let!(:proposals) { create_list(:proposal, 3, :published, component: component) }
+      let!(:participatory_text) { create :participatory_text, component: }
+      let!(:proposals) { create_list(:proposal, 3, :published, component:) }
       let!(:component) do
         create(:proposal_component,
                :with_participatory_texts_enabled,
-               manifest: manifest,
+               manifest:,
                participatory_space: participatory_process)
       end
 
@@ -143,11 +148,11 @@ describe "Participatory texts", type: :system do
       end
 
       context "with existing amendments" do
-        let!(:emendation_1) { create(:proposal, :published, component: component) }
-        let!(:amendment_1) { create :amendment, amendable: proposals.first, emendation: emendation_1 }
-        let!(:emendation_2) { create(:proposal, component: component) }
-        let!(:amendment_2) { create(:amendment, amendable: proposals.first, emendation: emendation_2) }
-        let(:user) { amendment_1.amender }
+        let!(:emendation1) { create(:proposal, :published, component:) }
+        let!(:amendment1) { create :amendment, amendable: proposals.first, emendation: emendation1 }
+        let!(:emendation2) { create(:proposal, component:) }
+        let!(:amendment2) { create(:amendment, amendable: proposals.first, emendation: emendation2) }
+        let(:user) { amendment1.amender }
 
         context "when amendment CREATION is enabled" do
           before { update_step_settings(amendment_creation_enabled: true) }
@@ -200,7 +205,7 @@ describe "Participatory texts", type: :system do
             before { update_step_settings(amendments_visibility: "all") }
 
             context "when the user is logged in" do
-              let(:user) { amendment_1.amender }
+              let(:user) { amendment1.amender }
 
               before { login_as user, scope: :user }
 
@@ -222,7 +227,7 @@ describe "Participatory texts", type: :system do
             before { update_step_settings(amendments_visibility: "participants") }
 
             context "when the user is logged in" do
-              let(:user) { amendment_1.amender }
+              let(:user) { amendment1.amender }
 
               before { login_as user, scope: :user }
 
@@ -244,7 +249,7 @@ describe "Participatory texts", type: :system do
           create(:proposal_component,
                  :with_participatory_texts_enabled,
                  :with_votes_enabled,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 
@@ -256,7 +261,7 @@ describe "Participatory texts", type: :system do
           create(:proposal_component,
                  :with_comments_disabled,
                  :with_participatory_texts_enabled,
-                 manifest: manifest,
+                 manifest:,
                  participatory_space: participatory_process)
         end
 

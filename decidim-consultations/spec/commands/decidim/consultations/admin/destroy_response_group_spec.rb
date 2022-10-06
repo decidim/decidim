@@ -18,7 +18,7 @@ module Decidim
         end
 
         context "when the response_group is not empty" do
-          let!(:response) { create :response, response_group: response_group }
+          let!(:response) { create :response, response_group: }
 
           it "doesn't destroy the response_group" do
             expect do

@@ -25,7 +25,6 @@ lv:
           step:
             allow_answers: Atļaut atbildes
             allow_unregistered: Ļaujiet nereģistrētiem lietotājiem atbildēt uz jautājumiem aptaujā
-            allow_unregistered_help: Ja tā būs iespējota, nevajadzēs pierakstīties, lai atbildētu uz aptaujas jautājumiem. Tas var radīt neprecīzus vai neuzticamus datu, un tā būs jutīgāka pret automatizētiem uzbrukumiem. Lietojiet piesardzīgi!
             announcement: Paziņojums
     events:
       surveys:

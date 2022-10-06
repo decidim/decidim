@@ -62,7 +62,7 @@ module Decidim
       def remaining_votes
         return 1 unless vote_limit_enabled?
 
-        proposals = Proposal.where(component: component)
+        proposals = Proposal.where(component:)
         votes_count = ProposalVote.where(author: user, proposal: proposals).size
         component_settings.vote_limit - votes_count
       end

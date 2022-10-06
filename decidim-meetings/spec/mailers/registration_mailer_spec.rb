@@ -7,11 +7,11 @@ module Decidim::Meetings
     include ActionView::Helpers::SanitizeHelper
 
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create(:participatory_process, organization: organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let(:component) { create(:component, manifest_name: :meetings, participatory_space: participatory_process) }
-    let(:user) { create(:user, organization: organization) }
-    let(:meeting) { create(:meeting, component: component) }
-    let(:registration) { create(:registration, meeting: meeting, user: user) }
+    let(:user) { create(:user, organization:) }
+    let(:meeting) { create(:meeting, component:) }
+    let(:registration) { create(:registration, meeting:, user:) }
     let(:mail) { described_class.confirmation(user, meeting, registration) }
 
     describe "confirmation" do

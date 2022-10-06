@@ -15,6 +15,7 @@ module Decidim
         helper Decidim::FiltersHelper
         helper Decidim::Meetings::MapHelper
         helper Decidim::ResourceHelper
+        helper Decidim::ShortLinkHelper
 
         helper_method :meetings, :search
 
@@ -25,7 +26,8 @@ module Decidim
         private
 
         def meetings
-          @meetings ||= paginate(search.result)
+          is_past_meetings = params.dig("filter", "with_any_date")&.include?("past")
+          @meetings ||= paginate(search.result.order(start_time: is_past_meetings ? :desc : :asc))
         end
 
         def search_collection

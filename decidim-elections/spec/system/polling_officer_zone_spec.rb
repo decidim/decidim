@@ -4,13 +4,13 @@ require "spec_helper"
 
 describe "Polling Officer zone", type: :system do
   let(:organization) { create(:organization, :secure_context) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:polling_officers) { [assigned_polling_officer, unassigned_polling_officer] }
-  let(:voting) { create(:voting, organization: organization) }
-  let(:other_voting) { create(:voting, organization: organization) }
-  let(:polling_station) { create(:polling_station, voting: voting) }
-  let(:assigned_polling_officer) { create(:polling_officer, voting: voting, user: user, presided_polling_station: polling_station) }
-  let(:unassigned_polling_officer) { create(:polling_officer, voting: other_voting, user: user) }
+  let(:voting) { create(:voting, organization:) }
+  let(:other_voting) { create(:voting, organization:) }
+  let(:polling_station) { create(:polling_station, voting:) }
+  let(:assigned_polling_officer) { create(:polling_officer, voting:, user:, presided_polling_station: polling_station) }
+  let(:unassigned_polling_officer) { create(:polling_officer, voting: other_voting, user:) }
 
   before do
     polling_officers
@@ -46,7 +46,7 @@ describe "Polling Officer zone", type: :system do
 
   context "when the user is a polling officer and an election has finished" do
     let(:component) { create(:elections_component, participatory_space: voting) }
-    let!(:election) { create(:election, :published, :finished, questions: questions, component: component) }
+    let!(:election) { create(:election, :published, :finished, questions:, component:) }
     let(:questions) { [create(:question, :complete)] }
 
     it "can access the new results form for the polling station" do
@@ -105,7 +105,7 @@ describe "Polling Officer zone", type: :system do
     end
 
     describe "when attaching the physical certificate image to the closure", processing_uploads_for: Decidim::AttachmentUploader do
-      let!(:closure) { create(:ps_closure, :with_results, phase: :certificate, election: election, polling_station: polling_station) }
+      let!(:closure) { create(:ps_closure, :with_results, phase: :certificate, election:, polling_station:) }
 
       before do
         visit decidim_votings_polling_officer_zone.polling_officer_election_closure_path(assigned_polling_officer, election)
@@ -125,7 +125,7 @@ describe "Polling Officer zone", type: :system do
     end
 
     describe "when signing the closure" do
-      let!(:closure) { create(:ps_closure, :with_results, phase: :signature, election: election, polling_station: polling_station) }
+      let!(:closure) { create(:ps_closure, :with_results, phase: :signature, election:, polling_station:) }
 
       before do
         visit decidim_votings_polling_officer_zone.polling_officer_election_closure_path(assigned_polling_officer, election)

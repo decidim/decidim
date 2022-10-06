@@ -7,7 +7,7 @@ describe BudgetsWorkflowRandom do
 
   let!(:budgets) { create_list(:budget, 6, component: budgets_component) }
   let(:budgets_component) { create(:budgets_component) }
-  let(:current_user) { create(:user, :admin, organization: organization) }
+  let(:current_user) { create(:user, :admin, organization:) }
   let(:organization) { budgets_component.organization }
 
   let(:chosen_resource) { workflow.send(:random_resource) }

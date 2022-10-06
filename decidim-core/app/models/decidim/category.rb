@@ -6,6 +6,7 @@ module Decidim
   class Category < ApplicationRecord
     include Decidim::TranslatableResource
     include Decidim::FilterableResource
+    include Decidim::Traceable
 
     translatable_fields :name
 
@@ -39,6 +40,10 @@ module Decidim
       categorizations.empty?
     end
 
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::CategoryPresenter
+    end
+
     # Allow ransacker to search for a key in a hstore column (`name`.`en`)
     ransacker_i18n :name
 
@@ -54,6 +59,7 @@ module Decidim
 
     def subcategories_have_same_participatory_space
       return unless parent
+      return if participatory_space == parent.participatory_space
 
       self.participatory_space = parent.participatory_space
     end

@@ -124,21 +124,21 @@ describe "Admin manages budgets", type: :system do
   describe "component page shows finished and pending orders of all budgets" do
     context "when component has many budgets with orders" do
       let(:budget2) { create(:budget, :with_projects, component: current_component) }
-      let(:project) { create(:project, budget: budget, budget_amount: 90_000_000) }
+      let(:project) { create(:project, budget:, budget_amount: 90_000_000) }
       let(:project2) { create(:project, budget: budget2, budget_amount: 95_000_000) }
-      let(:user2) { create :user, :confirmed, organization: organization }
-      let(:user3) { create :user, :confirmed, organization: organization }
+      let(:user2) { create :user, :confirmed, organization: }
+      let(:user3) { create :user, :confirmed, organization: }
 
       # User has one finished and pending order
       let!(:finished_order) do
-        order = create(:order, user: user, budget: budget)
+        order = create(:order, user:, budget:)
         order.projects << project
         order.checked_out_at = Time.current
         order.save!
         order
       end
       let!(:pending_order) do
-        order = create(:order, user: user, budget: budget2)
+        order = create(:order, user:, budget: budget2)
         order.projects << project2
         order.save!
         order
@@ -146,7 +146,7 @@ describe "Admin manages budgets", type: :system do
 
       # User2 has two finished orders
       let!(:finished_order2) do
-        order = create(:order, user: user2, budget: budget)
+        order = create(:order, user: user2, budget:)
         order.projects << project
         order.checked_out_at = Time.current
         order.save!

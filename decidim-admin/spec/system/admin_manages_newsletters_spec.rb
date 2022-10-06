@@ -7,8 +7,8 @@ end
 
 describe "Admin manages newsletters", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization: organization) }
-  let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization:) }
+  let!(:deliverable_users) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -91,7 +91,7 @@ describe "Admin manages newsletters", type: :system do
   describe "previews a newsletter" do
     let!(:newsletter) do
       create(:newsletter,
-             organization: organization,
+             organization:,
              subject: {
                en: "A fancy newsletter for %{name}",
                es: "Un correo electrónico muy chulo para %{name}",
@@ -116,7 +116,7 @@ describe "Admin manages newsletters", type: :system do
   end
 
   describe "update newsletter" do
-    let!(:newsletter) { create(:newsletter, organization: organization) }
+    let!(:newsletter) { create(:newsletter, organization:) }
 
     it "allows a newsletter to be updated" do
       visit decidim_admin.newsletters_path
@@ -150,13 +150,13 @@ describe "Admin manages newsletters", type: :system do
   end
 
   describe "select newsletter recipients" do
-    let!(:participatory_process) { create(:participatory_process, organization: organization) }
-    let!(:assembly) { create(:assembly, organization: organization) }
-    let!(:conference) { create(:conference, organization: organization) }
-    let!(:consultation) { create(:consultation, organization: organization) }
-    let(:question) { create(:question, :published, consultation: consultation) }
-    let!(:initiative) { create(:initiative, organization: organization) }
-    let!(:newsletter) { create(:newsletter, organization: organization) }
+    let!(:participatory_process) { create(:participatory_process, organization:) }
+    let!(:assembly) { create(:assembly, organization:) }
+    let!(:conference) { create(:conference, organization:) }
+    let!(:consultation) { create(:consultation, organization:) }
+    let(:question) { create(:question, :published, consultation:) }
+    let!(:initiative) { create(:initiative, organization:) }
+    let!(:newsletter) { create(:newsletter, organization:) }
     let(:spaces) { [participatory_process, assembly, conference, consultation, initiative] }
     let!(:component) { create(:dummy_component, participatory_space: participatory_process) }
 
@@ -239,7 +239,7 @@ describe "Admin manages newsletters", type: :system do
 
       let!(:participants) do
         deliverable_users.each do |participant|
-          create(:dummy_resource, component: component, author: participant, published_at: Time.current)
+          create(:dummy_resource, component:, author: participant, published_at: Time.current)
         end
       end
 
@@ -273,7 +273,7 @@ describe "Admin manages newsletters", type: :system do
 
     context "when selecting both followers and participants" do
       let(:recipients_count) { (followers + participants).size }
-      let!(:deliverable_users2) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization: organization) }
+      let!(:deliverable_users2) { create_list(:user, 5, :confirmed, newsletter_notifications_at: Time.current, organization:) }
 
       let!(:followers) do
         deliverable_users.each do |follower|
@@ -283,7 +283,7 @@ describe "Admin manages newsletters", type: :system do
 
       let!(:participants) do
         deliverable_users2.each do |participant|
-          create(:dummy_resource, component: component, author: participant, published_at: Time.current)
+          create(:dummy_resource, component:, author: participant, published_at: Time.current)
         end
       end
 
@@ -317,7 +317,7 @@ describe "Admin manages newsletters", type: :system do
   end
 
   describe "deleting a newsletter" do
-    let!(:newsletter) { create(:newsletter, organization: organization) }
+    let!(:newsletter) { create(:newsletter, organization:) }
 
     it "deletes a newsletter" do
       visit decidim_admin.newsletters_path

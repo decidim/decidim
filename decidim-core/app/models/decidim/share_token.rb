@@ -2,8 +2,6 @@
 
 module Decidim
   class ShareToken < ApplicationRecord
-    validates :organization, presence: true
-    validates :user, presence: true
     validates :token, presence: true, uniqueness: { scope: [:decidim_organization_id, :token_for_type, :token_for_id] }
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
@@ -13,7 +11,7 @@ module Decidim
     after_initialize :generate, :set_default_expiration
 
     def self.use!(token_for:, token:)
-      record = find_by!(token_for: token_for, token: token)
+      record = find_by!(token_for:, token:)
       record.use!
     end
 
@@ -38,7 +36,7 @@ module Decidim
 
       loop do
         self.token = SecureRandom.hex(32)
-        break if ShareToken.find_by(token: token).blank?
+        break if ShareToken.find_by(token:).blank?
       end
     end
 

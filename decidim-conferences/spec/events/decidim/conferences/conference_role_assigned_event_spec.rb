@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::Conferences::ConferenceRoleAssignedEvent do
   include_context "when a simple event"
 
-  let(:resource) { create :conference }
+  let(:resource) { create :conference, title: { en: "It's my conference" } }
   let(:event_name) { "decidim.events.conferences.role_assigned" }
-  let(:role) { create :conference_user_role, user: user, conference: resource, role: :admin }
-  let(:extra) { { role: role } }
+  let(:role) { create :conference_user_role, user:, conference: resource, role: :admin }
+  let(:extra) { { role: } }
 
   it_behaves_like "a simple event"
 

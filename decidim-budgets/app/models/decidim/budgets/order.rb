@@ -15,7 +15,6 @@ module Decidim
       has_many :projects, through: :line_items, class_name: "Decidim::Budgets::Project", foreign_key: "decidim_project_id"
 
       validates :user, uniqueness: { scope: :budget }
-      validates :budget, presence: true
       validate :user_belongs_to_organization
 
       # Rules active for the budget threshold and minimum budgets rules.

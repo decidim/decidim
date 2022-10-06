@@ -7,7 +7,7 @@ module Decidim
     class PermissionsForm < Form
       mimic :component_permissions
 
-      attribute :permissions, Hash[String => PermissionForm]
+      attribute(:permissions, { String => PermissionForm })
     end
   end
 end

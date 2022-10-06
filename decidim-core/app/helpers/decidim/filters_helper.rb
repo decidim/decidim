@@ -18,14 +18,33 @@ module Decidim
           filter,
           namespace: filter_form_namespace,
           builder: FilterFormBuilder,
-          url: url,
+          url:,
           as: :filter,
           method: :get,
           remote: true,
           html: { id: nil }.merge(html_options)
         ) do |form|
-          yield form
+          # Cannot use `concat()` here because it's not available in cells
+          inner = []
+          inner << hidden_field_tag("per_page", params[:per_page], id: nil) if params[:per_page]
+          inner << capture { yield form }
+          inner.join.html_safe
         end
+      end
+    end
+
+    def redesigned_filter_form_for(filter, url = url_for, html_options = {})
+      form_for(
+        filter,
+        namespace: filter_form_namespace,
+        builder: FormBuilder,
+        url:,
+        as: :filter,
+        method: :get,
+        remote: true,
+        html: { id: nil }.merge(html_options)
+      ) do |form|
+        yield form
       end
     end
 

@@ -41,6 +41,12 @@ module Decidim
 
       # Block-level calls ######################
 
+      # Recarpet callback to preprocess the document.
+      # Removes the HTML comment from the markdown file
+      def preprocess(document)
+        document.gsub(/<!--.*-->/, "")
+      end
+
       # Recarpet callback to process headers.
       # Creates Paricipatory Text Proposals at Section and Subsection levels.
       def header(title, level)
@@ -133,12 +139,12 @@ module Decidim
           component: @component,
           title: { I18n.locale => title },
           body: { I18n.locale => body },
-          participatory_text_level: participatory_text_level
+          participatory_text_level:
         }
 
         PaperTrail.request(enabled: false) do
           proposal = Decidim::Proposals::ProposalBuilder.create(
-            attributes: attributes,
+            attributes:,
             author: @component.organization,
             action_user: @current_user
           )

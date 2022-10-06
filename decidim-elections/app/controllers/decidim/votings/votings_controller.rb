@@ -42,20 +42,24 @@ module Decidim
       helper_method :election, :exit_path, :election_log_path, :elections
 
       def login
-        @form = form(Census::LoginForm).from_params(params, election: election)
+        @form = form(Census::LoginForm).from_params(params, election:)
 
         render :login,
                layout: "decidim/election_votes"
       end
 
       def show_check_census
+        raise ActionController::RoutingError, "Not Found" unless current_participatory_space.check_census_enabled?
+
         @form = form(Census::CheckForm).instance
         render :check_census, locals: { success: false, not_found: false }
       end
 
       def check_census
+        raise ActionController::RoutingError, "Not Found" unless current_participatory_space.check_census_enabled?
+
         @form = form(Census::CheckForm).from_params(params).with_context(
-          current_participatory_space: current_participatory_space
+          current_participatory_space:
         )
 
         success = not_found = false
@@ -73,7 +77,7 @@ module Decidim
           end
         end
 
-        render action: :check_census, locals: { success: success, not_found: not_found, datum: datum }
+        render action: :check_census, locals: { success:, not_found:, datum: }
       end
 
       def send_access_code
@@ -85,7 +89,7 @@ module Decidim
             flash[:alert] = t("send_access_code.invalid", scope: "decidim.votings.votings")
           end
         end
-        render action: :check_census, locals: { success: true, not_found: false, datum: datum }
+        render action: :check_census, locals: { success: true, not_found: false, datum: }
       end
 
       def elections_log
@@ -103,6 +107,8 @@ module Decidim
       end
 
       def elections
+        raise ActionController::RoutingError, "Not Found" unless current_participatory_space
+
         Decidim::Elections::Election.where(component: current_participatory_space.components).where.not(bb_status: nil)
       end
 

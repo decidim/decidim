@@ -21,7 +21,7 @@ module Decidim::System
     end
     let(:application) { create(:oauth_application) }
     let(:organization) { application.organization }
-    let(:user) { create(:user, organization: organization) }
+    let(:user) { create(:user, organization:) }
     let(:context) do
       {
         current_user: user,

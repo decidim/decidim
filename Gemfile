@@ -20,21 +20,18 @@ gem "faker", "~> 2.14"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  # Use latest simplecov from master until next version of simplecov is
-  # released (greather than 0.18.5)
-  # See https://github.com/decidim/decidim/issues/6230
-  gem "simplecov", "~> 0.19.0"
-
   gem "decidim-dev", path: "."
 
   gem "brakeman", "~> 5.2"
+  gem "net-imap", "~> 0.2.3"
+  gem "net-pop", "~> 0.1.1"
+  gem "net-smtp", "~> 0.3.1"
   gem "parallel_tests", "~> 3.7"
 end
 
 group :development do
-  gem "letter_opener_web", "~> 1.3"
+  gem "letter_opener_web", "~> 2.0"
   gem "listen", "~> 3.1"
-  gem "rubocop-faker"
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 4.2"

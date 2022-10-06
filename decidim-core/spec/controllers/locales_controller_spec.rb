@@ -20,7 +20,7 @@ module Decidim
       end
 
       context "when the user is signed in" do
-        let(:user) { create(:user, :confirmed, locale: "en", organization: organization) }
+        let(:user) { create(:user, :confirmed, locale: "en", organization:) }
 
         before do
           sign_in user, scope: :user
@@ -28,7 +28,7 @@ module Decidim
 
         context "when the given locale is valid" do
           it "changes the user's locale" do
-            post :create, params: { locale: locale }
+            post :create, params: { locale: }
             expect(user.reload.locale).to eq("ca")
           end
         end
@@ -37,14 +37,14 @@ module Decidim
           let(:locale) { "foo" }
 
           it "doesn't change the user's locale" do
-            post :create, params: { locale: locale }
+            post :create, params: { locale: }
             expect(user.locale).to eq("en")
           end
         end
       end
 
       it "redirects the user adding the new locale to the query params" do
-        post :create, params: { locale: locale }
+        post :create, params: { locale: }
         expect(response).to redirect_to("/?locale=ca")
       end
 
@@ -54,7 +54,7 @@ module Decidim
         end
 
         it "keeps the original query params too" do
-          post :create, params: { locale: locale }
+          post :create, params: { locale: }
           expect(response).to redirect_to("/search?param1=foo&param2=bar&locale=ca")
         end
 
@@ -64,7 +64,7 @@ module Decidim
           end
 
           it "replaces it" do
-            post :create, params: { locale: locale }
+            post :create, params: { locale: }
             expect(response).to redirect_to("/search?param1=foo&param2=bar&locale=ca")
           end
         end

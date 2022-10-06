@@ -23,15 +23,15 @@ module Decidim
 
           def new
             enforce_permission_to :create, :attachment_collection
-            @form = form(AttachmentCollectionForm).from_params({}, collection_for: collection_for)
+            @form = form(AttachmentCollectionForm).from_params({}, collection_for:)
             render template: "decidim/admin/attachment_collections/new"
           end
 
           def create
             enforce_permission_to :create, :attachment_collection
-            @form = form(AttachmentCollectionForm).from_params(params, collection_for: collection_for)
+            @form = form(AttachmentCollectionForm).from_params(params, collection_for:)
 
-            CreateAttachmentCollection.call(@form, collection_for) do
+            CreateAttachmentCollection.call(@form, collection_for, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachment_collections.create.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -47,16 +47,16 @@ module Decidim
           def edit
             @attachment_collection = collection.find(params[:id])
             enforce_permission_to :update, :attachment_collection, attachment_collection: @attachment_collection
-            @form = form(AttachmentCollectionForm).from_model(@attachment_collection, collection_for: collection_for)
+            @form = form(AttachmentCollectionForm).from_model(@attachment_collection, collection_for:)
             render template: "decidim/admin/attachment_collections/edit"
           end
 
           def update
             @attachment_collection = collection.find(params[:id])
             enforce_permission_to :update, :attachment_collection, attachment_collection: @attachment_collection
-            @form = form(AttachmentCollectionForm).from_params(params, collection_for: collection_for)
+            @form = form(AttachmentCollectionForm).from_params(params, collection_for:)
 
-            UpdateAttachmentCollection.call(@attachment_collection, @form) do
+            UpdateAttachmentCollection.call(@attachment_collection, @form, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachment_collections.update.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -78,7 +78,10 @@ module Decidim
           def destroy
             @attachment_collection = collection.find(params[:id])
             enforce_permission_to :destroy, :attachment_collection, attachment_collection: @attachment_collection
-            @attachment_collection.destroy!
+
+            Decidim.traceability.perform_action!("delete", @attachment_collection, current_user) do
+              @attachment_collection.destroy!
+            end
 
             flash[:notice] = I18n.t("attachment_collections.destroy.success", scope: "decidim.admin")
 

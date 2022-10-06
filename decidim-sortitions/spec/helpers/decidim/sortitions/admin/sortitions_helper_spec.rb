@@ -15,7 +15,7 @@ module Decidim
         end
 
         describe "sortition_category" do
-          let(:sortition) { double(category: category) }
+          let(:sortition) { double(category:) }
 
           context "when category is null" do
             let(:category) { nil }

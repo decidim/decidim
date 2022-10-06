@@ -58,7 +58,6 @@ zh-CN:
     'true': '否'
   carrierwave:
     errors:
-      image_too_big: 图片过大
       not_inside_organization: 该文件没有附加到任何组织
   date:
     formats:
@@ -71,9 +70,6 @@ zh-CN:
       logo: "%{organization}的官方标志"
       skip_button: 跳转到主要内容
     account:
-      data_portability_export:
-        file_no_exists: 文件不存在
-        notice: 目前正在下载您的数据。完成后，您将收到一封电子邮件。
       delete:
         confirm:
           close: 关闭窗口
@@ -84,6 +80,9 @@ zh-CN:
       destroy:
         error: 删除您的帐户时出错。
         success: 您的帐户已成功删除。
+      download_your_data_export:
+        file_no_exists: 文件不存在
+        notice: 目前正在下载您的数据。完成后，您将收到一封电子邮件。
       show:
         change_password: 更改密码
         update_account: 更新帐户
@@ -324,8 +323,8 @@ zh-CN:
             amendments_enabled: 修改已启用
             comments_enabled: 评论已启用
             comments_max_length: 评论最大长度
-            dummy_global_attribute_1: 虚拟属性 1
-            dummy_global_attribute_2: 虚拟属性 2
+            dummy_global_attribute1: 虚拟属性 1
+            dummy_global_attribute2: 虚拟属性 2
             dummy_global_translatable_text: 虚拟可翻译文本
             enable_pads_creation: 启用页面创建
             resources_permissions_enabled: 资源权限已启用
@@ -337,8 +336,8 @@ zh-CN:
             amendment_reaction_enabled: 修正反应已启用
             amendments_visibility: 修正可见性
             comments_blocked: 评论已阻止
-            dummy_step_attribute_1: 虚拟步骤属性 1
-            dummy_step_attribute_2: 虚拟步骤属性 2
+            dummy_step_attribute1: 虚拟步骤属性 1
+            dummy_step_attribute2: 虚拟步骤属性 2
             dummy_step_translatable_text: 虚拟步骤可翻译文本
     contact: 聯繫人
     content_blocks:
@@ -370,12 +369,6 @@ zh-CN:
       actions:
         login_before_access: 请在访问前使用您的帐户登录
         unauthorized: 您无权执行此操作
-    data_portability:
-      export:
-        ready: 准备好
-      show:
-        download_data: 下载数据
-        request_data: 请求数据
     datepicker:
       help_text: '预期格式: %{datepicker_format}'
     devise:
@@ -392,7 +385,6 @@ zh-CN:
           already_have_an_account?: 已经有一个帐户？
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
-          password_help: "%{minimun_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
           sign_in: 登录
           sign_up: 注册
           sign_up_as:
@@ -432,6 +424,12 @@ zh-CN:
           this_application_will_not_be_able_to: '此应用程序将无法：'
           update_profile: 更新您的个人资料
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> 想要使用您的帐户"
+    download_your_data:
+      export:
+        ready: 准备好
+      show:
+        download_data: 下载数据
+        request_data: 请求数据
     endorsable:
       endorsements: 授权
       endorsements_count: 批准次数
@@ -582,7 +580,7 @@ zh-CN:
           email_subject: "%{nickname} 更新了他们的个人资料"
           notification_title: 您关注的 %{name} (%{nickname}) 的 <a href="%{resource_path}">个人资料页面</a> 已经更新。
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: 下载
       export:
         ready: 请找到您导出的压缩版本。
@@ -748,7 +746,6 @@ zh-CN:
       no_user_groups: 尚不属于任何群组。
       roles:
         admin: 管理员
-        creator: 创建者
         member: 成员
       update:
         error: 更新群组时出错
@@ -939,13 +936,11 @@ zh-CN:
       show:
         allow_public_contact: 允许任何人向我发送一条直接消息，即使我没有关注它们。
         direct_messages: 从任何人接收私信
-        email_on_notification: 每次我收到通知时，我都想收到一封电子邮件。
         everything_followed: 我关注的所有情况
         newsletter_notifications: 我想要收到新闻简报
         newsletters: 新闻通讯
         own_activity: 我自己的活动，例如当有人在我的建议中评论或提到我时
         receive_notifications_about: 我想要获取通知关于
-        send_notifications_by_email: 通过电子邮件发送通知
         update_notifications_settings: 保存更改
       update:
         error: 更新您的通知设置时出现问题。
@@ -1003,7 +998,6 @@ zh-CN:
           agreement: 我同意这些条款
           legend: 同意使用条款
         refuse:
-          modal_body: 如果您拒绝，您将无法使用平台，您可以 <a href="%{data_portability_path}">下载您的数据</a> 和/或 <a href="%{delete_path}">删除您的帐户</a>。
           modal_btn_continue: 接受并继续
           modal_btn_exit: 我稍后再查看
           modal_button: 拒绝条款
@@ -1267,7 +1261,6 @@ zh-CN:
     invitations:
       edit:
         header: 完成创建您的帐户
-        nickname_help: 您在 %{organization} 中的昵称。
         submit_button: 保存
         subtitle: 如果您接受邀请，请设置您的昵称和密码。
       invitation_removed: 您的邀请已被删除。
@@ -1334,7 +1327,6 @@ zh-CN:
     passwords:
       edit:
         change_my_password: 更改我的密码
-        change_your_password: 更改您的密码
         confirm_new_password: 确认新密码
         new_password: 新密码
         password_help: "%{minimun_characters} 个字符，必须不要太常见(例如，123456)，并且必须不同于您的昵称和电子邮件。"
@@ -1419,10 +1411,6 @@ zh-CN:
     timestamp_error_message: 对不起，这太快了！请重新提交。
   layouts:
     decidim:
-      cookie_warning:
-        description_html: 此网站使用 cookies。通过继续浏览网站，您同意我们使用 cookies。 %{link}。
-        link_label: 了解更多关于 cookie
-        ok: 我同意
       edit_link:
         edit: 编辑
       footer:

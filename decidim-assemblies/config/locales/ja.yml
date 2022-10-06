@@ -73,7 +73,7 @@ ja:
         assembly:
           attributes:
             document:
-              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
+              allowed_file_content_types: '無効なドキュメントタイプです。使用できるフォーマット: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -239,6 +239,9 @@ ja:
     admin_log:
       assembly:
         create: "%{user_name} が %{resource_name} 参加スペースを作成しました"
+        duplicate: "%{user_name} が %{resource_name} 参加スペースを複製しました"
+        export: "%{user_name} は %{resource_name} 参加スペースをエクスポートしました"
+        import: "%{user_name} が %{resource_name} 参加スペースをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加スペースを公開しました"
         unpublish: "%{user_name} が %{resource_name} 参加スペースを非公開にしました"
         update: "%{user_name} が %{resource_name} 参加スペースを更新しました"
@@ -386,7 +389,7 @@ ja:
         related_participatory_processes: 関連する参加型プロセス
         scope: スコープ
         social_networks: ソーシャル ネットワーク
-        social_networks_title: この参加スペースを共有
+        social_networks_title: 参加スペースを訪問
         target: 参加者
     assembly_members:
       assembly_member:
@@ -397,7 +400,7 @@ ja:
       assemblies:
         create_assembly_member:
           email_intro: <a href="%{resource_url}">%{resource_name}</a> 参加スペースの管理者があなたをメンバーの一人として追加しました。
-          email_outro: 参加スペースに招待されたため、この通知を受け取りました。 <a href="%{resource_path}">参加スペースページ</a> を確認して貢献してください！
+          email_outro: 参加スペースに招待されたため、この通知を受け取りました。 <a href="%{resource_url}">参加スペースのページ</a> を確認して協力してください！
           email_subject: あなたは %{resource_name} 参加スペースのメンバーに招待されています！
           notification_title: 参加スペース <a href="%{resource_path}">%{resource_name}</a>のメンバーとして登録されました。貢献するには <a href="%{resource_path}">参加スペースページ</a> を確認してください！
       assembly:

@@ -24,6 +24,12 @@ en:
       postal_letter_postage:
         full_address: Full address
         verification_code: Verification code
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
   decidim:
     admin:
       menu:
@@ -79,10 +85,10 @@ en:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: The participant <a href="%{resource_path}">%{resource_title}</a> has tried to verify themself with the data of the managed participant <a href="%{managed_user_path}">%{managed_user_name}</a>.
-          email_outro: Check the <a href="%{conflicts_path}">Verifications's conflicts list</a> and contact the participant to verify their details and solve the issue.
-          email_subject: Failed verification attempt against a managed participant
-          notification_title: The participant <a href="%{resource_path}">%{resource_title}</a> has tried to verify themself with the data of the managed participant <a href="%{managed_user_path}">%{managed_user_name}</a>.
+          email_intro: The participant <a href="%{resource_url}">%{resource_title}</a> has tried to verify themself with the data of another participant (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Check the <a href="%{conflicts_url}">Verifications's conflicts list</a> and contact the participant to verify their details and solve the issue.
+          email_subject: Failed verification attempt against another participant
+          notification_title: The participant <a href="%{resource_path}">%{resource_title}</a> has tried to verify themself with the data of another participant (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -91,6 +97,7 @@ en:
         create:
           error: There was a problem creating the authorization.
           success: You've been successfully authorized.
+          transferred: 'We have recovered the following participation data based on your authorization:'
           unconfirmed: You need to confirm your email in order to authorize yourself.
         destroy:
           error: There was a problem deleting the authorization.

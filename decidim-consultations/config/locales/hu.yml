@@ -359,7 +359,6 @@ hu:
         start_voting_date: Szavazás kezdése
       question_components:
         question_menu_item: A kérdés
-        unfold: Kibontás
       question_header:
         back_to_consultation: Összes konzultáció megtekintése
         back_to_question: Vissza a kérdéshez

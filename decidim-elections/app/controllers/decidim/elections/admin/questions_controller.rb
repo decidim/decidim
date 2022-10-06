@@ -14,7 +14,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :question, election: election
-          @form = form(QuestionForm).from_params(params, election: election)
+          @form = form(QuestionForm).from_params(params, election:)
 
           CreateQuestion.call(@form) do
             on(:ok) do
@@ -24,6 +24,11 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("questions.create.invalid", scope: "decidim.elections.admin")
+              render action: "new"
+            end
+
+            on(:election_started) do
+              flash.now[:alert] = I18n.t("questions.create.election_started", scope: "decidim.elections.admin")
               render action: "new"
             end
           end
@@ -36,7 +41,7 @@ module Decidim
 
         def update
           enforce_permission_to :update, :question, election: election, question: question
-          @form = form(QuestionForm).from_params(params, election: election)
+          @form = form(QuestionForm).from_params(params, election:)
 
           UpdateQuestion.call(@form, question) do
             on(:ok) do

@@ -10,8 +10,9 @@ module Decidim
     let(:action_log) do
       create(
         :action_log,
-        action: action,
-        resource: resource
+        action:,
+        resource:,
+        extra_data: { code: resource.code }
       )
     end
 
@@ -41,6 +42,11 @@ module Decidim
 
       context "when the ballot style is deleted" do
         let(:action) { :delete }
+
+        before do
+          resource.destroy!
+          action_log.reload
+        end
 
         it "shows that the ballot style has been created" do
           expect(subject.present).to include(resource.code)

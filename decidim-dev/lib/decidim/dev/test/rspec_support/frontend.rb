@@ -4,7 +4,7 @@ module FrontendHelpers
   # Thanks to:
   # https://medium.com/@coorasse/catch-javascript-errors-in-your-system-tests-89c2fe6773b1
   def expect_no_js_errors
-    errors = page.driver.browser.manage.logs.get(:browser)
+    errors = page.driver.browser.logs.get(:browser)
     return if errors.blank?
 
     aggregate_failures "javascript errors" do

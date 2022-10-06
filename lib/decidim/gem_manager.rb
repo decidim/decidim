@@ -44,13 +44,13 @@ module Decidim
 
     def run(command, out: $stdout)
       interpolated_in_folder(command) do |cmd|
-        self.class.run(cmd, out: out)
+        self.class.run(cmd, out:)
       end
     end
 
     def capture(command, env: {}, with_stderr: true)
       interpolated_in_folder(command) do |cmd|
-        self.class.capture(cmd, env: env, with_stderr: with_stderr)
+        self.class.capture(cmd, env:, with_stderr:)
       end
     end
 
@@ -86,7 +86,7 @@ module Decidim
       end
 
       def run(cmd, out: $stdout)
-        system(cmd, out: out)
+        system(cmd, out:)
       end
 
       def test_participatory_space
@@ -111,41 +111,52 @@ module Decidim
         run_all(
           "gem build %name && mv %name-%version.gem ..",
           include_root: false,
-          out: out
+          out:
         )
 
         new(root).run(
           "gem build %name && gem install *.gem",
-          out: out
+          out:
         )
       end
 
       def uninstall_all(out: $stdout)
         run_all(
           "gem uninstall %name -v %version --executables --force",
-          out: out
+          out:
         )
 
         new(root).run(
           "rm decidim-*.gem",
-          out: out
+          out:
         )
       end
 
       def run_all(command, out: $stdout, include_root: true)
-        all_dirs(include_root: include_root) do |dir|
-          status = new(dir).run(command, out: out)
+        all_dirs(include_root:) do |dir|
+          status = run_at(dir, command, out:)
 
-          break unless status || ENV.fetch("FAIL_FAST", nil) == "false"
+          break if !status && fail_fast?
         end
       end
 
       def run_packages(command, out: $stdout)
         package_dirs do |dir|
-          status = new(dir).run(command, out: out)
+          status = run_at(dir, command, out:)
 
-          break unless status || ENV.fetch("FAIL_FAST", nil) == "false"
+          break if !status && fail_fast?
         end
+      end
+
+      def run_at(dir, command, out: $stdout)
+        attempts = 0
+        until (status = new(dir).run(command, out:))
+          attempts += 1
+
+          break if attempts > Decidim::GemManager.retry_times
+        end
+
+        status
       end
 
       def version
@@ -177,6 +188,14 @@ module Decidim
 
       def semver_friendly_version(a_version)
         a_version.gsub(/\.pre/, "-pre").gsub(/\.dev/, "-dev").gsub(/.rc(\d*)/, "-rc\\1")
+      end
+
+      def fail_fast?
+        ENV.fetch("FAIL_FAST", nil) != "false"
+      end
+
+      def retry_times
+        ENV.fetch("RETRY_TIMES", 10).to_i
       end
 
       private

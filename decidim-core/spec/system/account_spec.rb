@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Account", type: :system do
-  let(:user) { create(:user, :confirmed, password: password, password_confirmation: password) }
+  let(:user) { create(:user, :confirmed, password:, password_confirmation: password) }
   let(:password) { "dqCFgjfDbC7dPbrv" }
   let(:organization) { user.organization }
 
@@ -57,6 +57,8 @@ describe "Account", type: :system do
     end
 
     describe "updating personal data" do
+      let!(:encrypted_password) { user.encrypted_password }
+
       it "updates the user's data" do
         within "form.edit_user" do
           select "Castellano", from: :user_locale
@@ -82,6 +84,9 @@ describe "Account", type: :system do
 
         expect(page).to have_content("example.org")
         expect(page).to have_content("Serbian-American")
+
+        # The user's password should not change when they did not update it
+        expect(user.reload.encrypted_password).to eq(encrypted_password)
       end
     end
 
@@ -166,7 +171,7 @@ describe "Account", type: :system do
       it "cancels the email change" do
         expect(Decidim::User.find(user.id).unconfirmed_email).to eq(pending_email)
         within "#email-change-pending" do
-          click_link "Cancel"
+          click_link "cancel"
         end
 
         expect(page).to have_content("Email change cancelled successfully")
@@ -195,7 +200,7 @@ describe "Account", type: :system do
       end
 
       context "when the user is an admin" do
-        let!(:user) { create(:user, :confirmed, :admin, password: password, password_confirmation: password) }
+        let!(:user) { create(:user, :confirmed, :admin, password:, password_confirmation: password) }
 
         before do
           login_as user, scope: :user
@@ -222,9 +227,50 @@ describe "Account", type: :system do
       end
     end
 
+    context "when on the interests page" do
+      before do
+        visit decidim.user_interests_path
+      end
+
+      it "doesn't find any scopes" do
+        expect(page).to have_content("My interests")
+        expect(page).to have_content("This organization doesn't have any scope yet")
+      end
+
+      context "when scopes are defined" do
+        let!(:scopes) { create_list(:scope, 3, organization:) }
+        let!(:subscopes) { create_list(:subscope, 3, parent: scopes.first) }
+
+        before do
+          visit decidim.user_interests_path
+        end
+
+        it "display translated scope name" do
+          label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
+          expect(page).to have_content("My interests")
+          expect(find("#{label_field} > span.switch-label").text).to eq(translated(scopes.first.name))
+        end
+
+        it "allows to choose interests" do
+          label_field = "label[for='user_scopes_#{scopes.first.id}_checked']"
+          expect(page).to have_content("My interests")
+          find(label_field).click
+          click_button "Update my interests"
+
+          within_flash_messages do
+            expect(page).to have_content("Your interests have been successfully updated.")
+          end
+        end
+      end
+    end
+
     context "when on the delete my account page" do
       before do
         visit decidim.delete_account_path
+      end
+
+      it "does not display the authorizations message by default" do
+        expect(page).not_to have_content("Some data bound to your authorization will be saved for security.")
       end
 
       it "the user can delete their account" do
@@ -248,6 +294,76 @@ describe "Account", type: :system do
 
         expect(page).to have_no_content("Signed in successfully")
         expect(page).to have_no_content(user.name)
+      end
+
+      context "when the user has an authorization" do
+        let!(:authorization) { create(:authorization, :granted, user:) }
+
+        it "displays the authorizations message" do
+          visit decidim.delete_account_path
+
+          expect(page).to have_content("Some data bound to your authorization will be saved for security.")
+        end
+      end
+    end
+  end
+
+  context "when on the notifications page in a PWA browser" do
+    let(:organization) { create(:organization, host: "pwa.lvh.me") }
+    let(:user) { create(:user, :confirmed, password:, password_confirmation: password, organization:) }
+    let(:password) { "dqCFgjfDbC7dPbrv" }
+    let(:vapid_keys) do
+      {
+        enabled: true,
+        public_key: "BKmjw_A8tJCcZNQ72uG8QW15XHQnrGJjHjsmoUILUUFXJ1VNhOnJLc3ywR3eZKibX4HSqhB1hAzZFj__3VqzcPQ=",
+        private_key: "TF_MRbSSs_4BE1jVfOsILSJemND8cRMpiznWHgdsro0="
+      }
+    end
+
+    context "when VAPID keys are set" do
+      before do
+        allow(Rails.application.secrets).to receive("vapid").and_return(vapid_keys)
+        driven_by(:pwa_chrome)
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim.notifications_settings_path
+      end
+
+      context "when on the account page" do
+        it "enables push notifications if supported browser" do
+          sleep 2
+          within ".push-notifications" do
+            # Check allow push notifications
+            find(".switch-paddle").click
+          end
+
+          # Wait for the browser to be subscribed
+          sleep 5
+
+          within "form.edit_user" do
+            find("*[type=submit]").click
+          end
+
+          within_flash_messages do
+            expect(page).to have_content("successfully")
+          end
+
+          expect(page.find("#allow_push_notifications", visible: false)).to be_checked
+        end
+      end
+    end
+
+    context "when VAPID keys are not set" do
+      before do
+        allow(Rails.application.secrets).to receive("vapid").and_return({})
+        driven_by(:pwa_chrome)
+        switch_to_host(organization.host)
+        login_as user, scope: :user
+        visit decidim.notifications_settings_path
+      end
+
+      it "does not show the push notifications switch" do
+        expect(page).to have_no_selector(".push-notifications")
       end
     end
   end

@@ -9,9 +9,10 @@ module Decidim
       #
       # form - A form object with the params.
       # attached_to - The ActiveRecord::Base that will hold the attachment
-      def initialize(form, attached_to)
+      def initialize(form, attached_to, user)
         @form = form
         @attached_to = attached_to
+        @user = user
       end
 
       # Executes the command. Broadcasts these events:
@@ -26,9 +27,12 @@ module Decidim
         build_attachment
 
         if @attachment.valid?
-          @attachment.save!
-          notify_followers
-          broadcast(:ok)
+          Decidim.traceability.perform_action!(:create, Decidim::Attachment, @user) do
+            @attachment.save!
+            notify_followers
+            broadcast(:ok)
+            @attachment
+          end
         else
           @form.errors.add :file, @attachment.errors[:file] if @attachment.errors.has_key? :file
           broadcast(:invalid)

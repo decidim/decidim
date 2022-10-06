@@ -60,12 +60,6 @@ pl:
         email: Adres e-mail
         name: Imię
         role: Rola
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Nieprawidłowy typ dokumentu. Dopuszczalne formaty to: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Aktualny etap
       decidim/participatory_process_step_changed_event: Zmieniono etap
@@ -102,6 +96,7 @@ pl:
         new_process: Nowy proces
         new_process_group: Nowa grupa procesu
         new_process_step: Nowy etap
+        new_process_type: Nowy typ procesu
         new_process_user_role: Nowy administrator procesu
         preview: Podgląd
         publish: Publikuj
@@ -225,6 +220,10 @@ pl:
         update:
           error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
           success: Etap procesu partycypacyjnego został zaktualizowany.
+      participatory_process_types:
+        new:
+          create: Utwórz
+          title: Nowy typ procesu
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
@@ -392,6 +391,7 @@ pl:
             related_processes: Powiązane procesy
             scope_type_max_depth_help: Ogranicz głębokość filtra zakresu; Filtr pokaże typy zakresu od ogólnego do wybranego.
             select_an_area: Wybierz kategorię
+            select_participatory_process_type: Wybierz typ procesu
             select_process_group: Wybierz grupę procesów
             slug_help: 'URL slugi służą do generowania adresów URL kierujących bezpośrednio do tego procesu. Należy wpisać tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełen adres. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
             title: Informacje ogólne

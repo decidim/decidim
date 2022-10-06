@@ -34,7 +34,7 @@ module Decidim
     end
 
     def default_url_options
-      @default_url_options.reverse_merge(ActionMailer::Base.default_url_options)
+      @default_url_options.reverse_merge(configured_default_url_options)
     end
 
     def respond_to_missing?(method_name, include_private = false)
@@ -51,6 +51,12 @@ module Decidim
 
     def route_helper?(method_name)
       method_name.to_s.match?(/_(url|path)$/)
+    end
+
+    def configured_default_url_options
+      @configured_default_url_options ||=
+        ActionMailer::Base.default_url_options.presence ||
+        UrlOptionResolver.new.options
     end
   end
 end

@@ -10,9 +10,10 @@ module Decidim
         #
         # form - A form object with the params.
         # assembly - An assembly we want to duplicate
-        def initialize(form, assembly)
+        def initialize(form, assembly, user)
           @form = form
           @assembly = assembly
+          @user = user
         end
 
         # Executes the command. Broadcasts these events:
@@ -24,11 +25,13 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          Assembly.transaction do
-            copy_assembly
-            copy_assembly_attachments
-            copy_assembly_categories if @form.copy_categories?
-            copy_assembly_components if @form.copy_components?
+          Decidim.traceability.perform_action!("duplicate", @assembly, @user) do
+            Assembly.transaction do
+              copy_assembly
+              copy_assembly_attachments
+              copy_assembly_categories if @form.copy_categories?
+              copy_assembly_components if @form.copy_components?
+            end
           end
 
           broadcast(:ok, @copied_assembly)
@@ -90,7 +93,7 @@ module Decidim
               step_settings: component.step_settings,
               weight: component.weight
             )
-            component.manifest.run_hooks(:copy, new_component: new_component, old_component: component)
+            component.manifest.run_hooks(:copy, new_component:, old_component: component)
           end
         end
       end

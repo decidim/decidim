@@ -66,7 +66,7 @@ module Decidim
     end
 
     def membership
-      @membership ||= Decidim::UserGroupMembership.where(user_group: user_group).find(params[:id])
+      @membership ||= Decidim::UserGroupMembership.where(user_group:).find(params[:id])
     end
   end
 end

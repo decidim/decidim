@@ -47,7 +47,7 @@ module Decidim
               params["published_at"] = Time.current if params.has_key? "save_and_publish"
               @form = form(Admin::QuestionnaireForm).from_params(params)
 
-              Admin::UpdateQuestionnaire.call(@form, questionnaire) do
+              Admin::UpdateQuestionnaire.call(@form, questionnaire, current_user) do
                 on(:ok) do
                   # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.success")
                   flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
@@ -115,7 +115,7 @@ module Decidim
             end
 
             def questionnaire
-              @questionnaire ||= Questionnaire.find_by(questionnaire_for: questionnaire_for)
+              @questionnaire ||= Questionnaire.find_by(questionnaire_for:)
             end
 
             def blank_question

@@ -2,11 +2,11 @@
 
 RSpec.shared_context "when creating a comment" do
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, participatory_space: participatory_process) }
-  let(:user) { create(:user, organization: organization) }
-  let(:author) { create(:user, organization: organization) }
-  let(:dummy_resource) { create :dummy_resource, component: component }
+  let(:user) { create(:user, organization:) }
+  let(:author) { create(:user, organization:) }
+  let(:dummy_resource) { create :dummy_resource, component: }
   let(:commentable) { dummy_resource }
   let(:body) { ::Faker::Lorem.paragraph }
   let(:alignment) { 1 }

@@ -67,7 +67,7 @@ cs:
         participatory_process:
           attributes:
             document:
-              invalid_document_type: 'Neplatný typ dokumentu. Přijatelné formáty jsou: %{valid_mime_types}'
+              allowed_file_content_types: 'Neplatný typ dokumentu. Přijatelné formáty jsou: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Krok aktivován
       decidim/participatory_process_step_changed_event: Krok se změnil
@@ -304,6 +304,9 @@ cs:
     admin_log:
       participatory_process:
         create: "%{user_name} vytvořil %{resource_name} participační proces"
+        duplicate: "%{user_name} zkopíroval participační proces %{resource_name}"
+        export: "%{user_name} exportoval participační proces %{resource_name}"
+        import: "%{user_name} importoval participační proces %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} participační proces"
         unpublish: "%{user_name} neuveřejnil %{resource_name} participační proces"
         update: "%{user_name} aktualizoval %{resource_name} participační proces"

@@ -28,7 +28,7 @@ shared_examples "global search of participatory spaces" do
 
         it "inserts a SearchableResource after ParticipatorySpace is published" do
           organization.available_locales.each do |locale|
-            searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
+            searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale:)
             expect_searchable_resource_to_correspond_to_participatory_space(searchable, participatory_space, locale)
           end
         end
@@ -43,7 +43,7 @@ shared_examples "global search of participatory spaces" do
           searchable.reload
 
           organization.available_locales.each do |locale|
-            searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
+            searchable = ::Decidim::SearchableResource.find_by(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale:)
             expect(searchable.content_a).to eq updated_title[locale.to_s].to_s
             expect(searchable.updated_at).to be > created_at
           end
@@ -62,7 +62,7 @@ shared_examples "global search of participatory spaces" do
         if participatory_space.respond_to?(:private_space?)
           participatory_space.update(published_at: Time.current, private_space: true)
           organization.available_locales.each do |locale|
-            searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale: locale)
+            searchables = ::Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale:)
             expect(searchables).to be_empty
           end
         end
@@ -83,7 +83,7 @@ shared_examples "global search of participatory spaces" do
   describe "Search" do
     # trick to force creating participatory_space2 declared in users of this shared_examples
     let!(:spaces) { [participatory_space, participatory_space2] }
-    let(:description_2) do
+    let(:description2) do
       msg = "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
       { ca: "CA:#{msg}", en: "EN:#{msg}", es: "ES:#{msg}" }
     end

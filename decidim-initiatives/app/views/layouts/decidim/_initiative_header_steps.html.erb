@@ -2,7 +2,9 @@
   <div class="columns mediumlarge-4">
     <div class="process-header__phase">
       <div>
-        <span class="phase-title"><!-- Step name --></span>
+        <span class="phase-title">
+          <%= t("signature_interval.title", scope: "decidim.initiatives") %>
+        </span>
         <span class="phase-date">
           <%= l(initiative.signature_start_date, format: :default) %>
           -

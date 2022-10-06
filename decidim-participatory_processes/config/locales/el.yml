@@ -50,12 +50,6 @@ el:
         email: Email
         name: Όνομα
         role: Ρόλος
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Μη έγκυρος τύπος εγγράφου. Οι αποδεκτές μορφές είναι: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Η φάση ενεργοποιήθηκε
       decidim/participatory_process_step_changed_event: Η φάση άλλαξε

@@ -24,7 +24,7 @@ module Decidim
       end
 
       def questions_for(election)
-        questions.where(election: election)
+        questions.where(election:)
       end
 
       def self.log_presenter_class_for(_log)

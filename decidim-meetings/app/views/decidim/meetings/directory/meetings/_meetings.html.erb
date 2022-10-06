@@ -8,7 +8,12 @@
       <%= render partial: "decidim/shared/results_per_page" %>
     </div>
     <div class="column">
-      <%= render partial: "decidim/meetings/calendar_modal", locals: { path: calendar_url(filter: params.fetch(:filter, {}).try(:to_unsafe_hash)) } %>
+      <%= render partial: "decidim/meetings/calendar_modal", locals: {
+        path: short_url(
+          route_name: "calendar",
+          params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+        )
+      } %>
     </div>
   </div>
 

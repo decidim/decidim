@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage attachment collections examples" do
-  let!(:attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
+  let!(:attachment_collection) { create(:attachment_collection, collection_for:) }
 
   before do
     visit current_path
@@ -15,7 +15,7 @@ shared_examples "manage attachment collections examples" do
 
   it "can view an attachment collection details" do
     within "#attachment_collections table" do
-      click_link translated(attachment_collection.name, locale: :en)
+      click_link "Edit"
     end
 
     expect(page).to have_selector("input#attachment_collection_name_en[value='#{translated(attachment_collection.name, locale: :en)}']")
@@ -49,7 +49,7 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#attachment_collections table" do
-      expect(page).to have_link("Application forms")
+      expect(page).to have_text("Application forms")
     end
   end
 
@@ -75,12 +75,12 @@ shared_examples "manage attachment collections examples" do
     expect(page).to have_admin_callout("successfully")
 
     within "#attachment_collections table" do
-      expect(page).to have_link("Latest application forms")
+      expect(page).to have_text("Latest application forms")
     end
   end
 
   context "when deleting a attachment collection" do
-    let!(:attachment_collection2) { create(:attachment_collection, collection_for: collection_for) }
+    let!(:attachment_collection2) { create(:attachment_collection, collection_for:) }
 
     context "when the attachment collection has no associated content", :slow do
       before do
@@ -101,7 +101,7 @@ shared_examples "manage attachment collections examples" do
     end
 
     context "when the attachment collection has associated content" do
-      let!(:attachment) { create(:attachment, attached_to: collection_for, attachment_collection: attachment_collection) }
+      let!(:attachment) { create(:attachment, attached_to: collection_for, attachment_collection:) }
 
       before do
         visit current_path

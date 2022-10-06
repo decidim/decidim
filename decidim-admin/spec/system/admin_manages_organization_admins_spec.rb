@@ -62,11 +62,11 @@ describe "Organization admins", type: :system do
 
     context "with existing users" do
       let!(:user) do
-        user = build(:user, :confirmed, :admin, organization: organization)
+        user = build(:user, :confirmed, :admin, organization:)
         user.invite!
         user
       end
-      let!(:other_admin) { create(:user, :confirmed, :admin, organization: organization) }
+      let!(:other_admin) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         visit current_path

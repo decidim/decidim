@@ -23,7 +23,7 @@ module Decidim
           weight = (index + 1) * 10
           Decidim::ContentBlock.create(
             decidim_organization_id: organization.id,
-            weight: weight,
+            weight:,
             scope_name: :homepage,
             manifest_name: manifest.name,
             published_at: Time.current

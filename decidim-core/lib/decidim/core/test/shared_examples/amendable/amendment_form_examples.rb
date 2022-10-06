@@ -5,8 +5,8 @@ shared_examples "an amendment form" do
   let(:body) { "Everything would be better" }
   let(:emendation_params) do
     {
-      title: title,
-      body: body
+      title:,
+      body:
     }
   end
 

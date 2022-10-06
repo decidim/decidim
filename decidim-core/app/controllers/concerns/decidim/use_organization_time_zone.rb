@@ -17,8 +17,8 @@ module Decidim
       # &action - a block of code to be wrapped around the time zone
       #
       # Returns nothing.
-      def use_organization_time_zone(&action)
-        Time.use_zone(organization_time_zone, &action)
+      def use_organization_time_zone(&)
+        Time.use_zone(organization_time_zone, &)
       end
 
       # The current time zone from the organization. Available as a helper for the views.

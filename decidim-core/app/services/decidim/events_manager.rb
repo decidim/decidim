@@ -27,12 +27,12 @@ module Decidim
     def self.publish(event:, resource:, event_class: Decidim::Events::BaseEvent, affected_users: [], followers: [], extra: {}, force_send: false)
       ActiveSupport::Notifications.publish(
         event,
-        resource: resource,
+        resource:,
         event_class: event_class.name,
         affected_users: affected_users.uniq.compact,
         followers: followers.uniq.compact,
-        force_send: force_send,
-        extra: extra
+        force_send:,
+        extra:
       )
     end
     # rubocop:enable Metrics/ParameterLists
@@ -43,8 +43,8 @@ module Decidim
     # event - a String or a RegExp to match against event names.
     #
     # Returns nothing.
-    def self.subscribe(event, &block)
-      ActiveSupport::Notifications.subscribe(event, &block)
+    def self.subscribe(event, &)
+      ActiveSupport::Notifications.subscribe(event, &)
     end
   end
 end

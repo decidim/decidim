@@ -56,6 +56,8 @@ es-PY:
         short_description: Descripción breve
         start_date: Fecha de inicio
         title: Título
+      participatory_process_type:
+        title: Título
       participatory_process_user_role:
         email: Correo electrónico
         name: Nombre
@@ -65,7 +67,7 @@ es-PY:
         participatory_process:
           attributes:
             document:
-              invalid_document_type: 'Tipo de documento no válido. Los formatos aceptados son: %{valid_mime_types}'
+              allowed_file_content_types: 'Tipo de documento inválido. Los formatos que se aceptan son: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: La fase ha cambiado
@@ -96,6 +98,7 @@ es-PY:
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
+        new_process_type: Nuevo tipo de proceso
         new_process_user_role: Nuevo usuario de proceso
         preview: Previsualizar
         publish: Publicar
@@ -106,6 +109,7 @@ es-PY:
         participatory_process_groups_submenu:
           info: Información
           landing_page: Página de inicio
+        participatory_process_types: Tipo de proceso
         participatory_processes: Procesos
         participatory_processes_submenu:
           attachment_collections: Carpetas
@@ -137,6 +141,11 @@ es-PY:
             start_date: Fecha de inicio
             title: Título
           name: Fase de proceso participativo
+        participatory_process_type:
+          fields:
+            created_at: Creado el
+            title: Título
+          name: Tipo de proceso
         participatory_process_user_role:
           fields:
             email: Correo electrónico
@@ -219,6 +228,23 @@ es-PY:
         update:
           error: Se ha producido un error en la actualización de esta fase de proceso participativo.
           success: La fase de proceso participativo se ha actualizado correctamente.
+      participatory_process_types:
+        create:
+          error: Se ha producido un error al crear un nuevo tipo de proceso.
+          success: Tipo de proceso creado correctamente.
+        destroy:
+          success: Tipo de proceso eliminado correctamente.
+        edit:
+          title: Editar el tipo de proceso
+          update: Actualizar
+        form:
+          title: Título
+        new:
+          create: Crear
+          title: Nuevo tipo de proceso
+        update:
+          error: Se ha producido un error al actualizar este tipo de proceso.
+          success: Tipo de procés actualizado correctamente.
       participatory_process_user_roles:
         create:
           error: Ha habido un error al agregar un usuario a este proceso participativo.
@@ -263,6 +289,7 @@ es-PY:
           success: Grupo creado correctamente.
       titles:
         participatory_process_groups: Grupos de procesos participativos
+        participatory_process_types: Tipos de procesos participativos
         participatory_processes: Procesos participativos
       users:
         resend_invitation:
@@ -271,6 +298,9 @@ es-PY:
     admin_log:
       participatory_process:
         create: "%{user_name} creó el proceso participativo %{resource_name}"
+        duplicate: "%{user_name} ha duplicado el proceso participativo %{resource_name}"
+        export: "%{user_name} ha exportado el proceso participativo %{resource_name}"
+        import: "%{user_name} ha importado el proceso participativo %{resource_name}"
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"
         unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
@@ -282,6 +312,10 @@ es-PY:
         create: "%{user_name} creó la fase %{resource_name} en el proceso participativo %{space_name}"
         delete: "%{user_name} eliminó la fase %{resource_name} en el proceso participativo %{space_name}"
         update: "%{user_name} actualizó la fase %{resource_name} en el proceso participativo %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} ha creado el tipo de proceso participativo %{resource_name}"
+        delete: "%{user_name} ha borrado el tipo de proceso participativo %{resource_name}"
+        update: "%{user_name} ha actualizado el tipo de proceso participativo %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} invitó al usuario %{resource_name} al proceso participativo %{space_name}"
         delete: "%{user_name} eliminó al usuario %{resource_name} del proceso participativo %{space_name}"
@@ -309,6 +343,10 @@ es-PY:
           contextual: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
           page: "<p>A <strong>proceso participativo</strong> es una secuencia de actividades de participación (por ejemplo, primero llenar una encuesta, a continuación, hacer propuestas, discutirlos en reuniones cara a cara o virtuales, y, finalmente, dar prioridad a ellos) con el objetivo de definir y tomar una decisión sobre un tema específico.</p> <p>Ejemplos de procesos participativos son: un proceso de elección de los miembros del comité (donde las candidaturas se presentan primero, luego se debate y finalmente se elige una candidatura), los presupuestos participativos (donde se hacen las propuestas, se valoran económicamente y se vota con el dinero disponible) un proceso de planificación estratégica, la redacción colaborativa de un reglamento o norma, el diseño de un espacio urbano o la producción de un plan de política pública.</p>\n"
           title: '¿Qué es un proceso participativo?'
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Este tipo de proceso no se encontró en la base de datos (ID: %{id})'
     menu:
       processes: Procesos
     metrics:
@@ -384,6 +422,7 @@ es-PY:
             related_processes: Procesos relacionados
             scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
             select_an_area: Seleccione una área
+            select_participatory_process_type: Selecciona un tipo de proceso
             select_process_group: Seleccione un grupo de proceso
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             title: Información general
@@ -410,6 +449,7 @@ es-PY:
           back_to_process: Volver a la página del proceso
       participatory_processes:
         filters:
+          all_types: Todos los tipos
           counters:
             active:
               one: 1 proceso activo
@@ -427,6 +467,7 @@ es-PY:
             no_active: Sin procesos activos
             no_active_nor_upcoming: Sin procesos activos ni futuros
             no_active_nor_upcoming_callout: No hay procesos activos ni futuros. Aquí hay una lista de los pasados.
+          filter_by: Mostrar
           names:
             active: Activa
             all: Todos
@@ -435,6 +476,8 @@ es-PY:
           see: Ver
         index:
           loading: Cargando resultados...
+        show:
+          title: Acerca de este proceso
       show:
         area: Área
         belongs_to_group: Este proceso pertenece a

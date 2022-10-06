@@ -11,6 +11,8 @@ $meetingsCount.html('<%= j(render partial: "decidim/meetings/meetings/count").st
 var $dropdownMenu = $('.dropdown.menu', $meetings);
 $dropdownMenu.foundation();
 
+$("#calendarShare").foundation(); // initialize export calendar on the page
+
 var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.result).to_json.html_safe %>');
 
 var $map = $("#map");
@@ -19,5 +21,3 @@ if (controller) {
   controller.clearMarkers();
   controller.addMarkers(markerData);
 }
-
-$("#calendarShare").foundation(); // initialize export calendar on the page

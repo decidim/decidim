@@ -41,10 +41,10 @@ module Decidim
       end
 
       def similar_count
-        Sortition.where(component: component)
-                 .where(decidim_proposals_component: decidim_proposals_component)
+        Sortition.where(component:)
+                 .where(decidim_proposals_component:)
                  .with_category(category&.id)
-                 .where(target_items: target_items)
+                 .where(target_items:)
                  .count
       end
 

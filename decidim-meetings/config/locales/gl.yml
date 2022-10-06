@@ -73,7 +73,6 @@ gl:
               participants: Participante
           with_any_type:
             values:
-              hybrid: Ambos
               online: En liña
       meeting_copies:
         create:

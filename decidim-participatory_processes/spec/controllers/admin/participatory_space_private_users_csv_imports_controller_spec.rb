@@ -9,9 +9,9 @@ module Decidim
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         let!(:organization) { create :organization }
-        let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-        let!(:user) { create(:user, organization: organization) }
-        let!(:private_user) { create(:participatory_space_private_user, user: user) }
+        let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+        let!(:user) { create(:user, organization:) }
+        let!(:private_user) { create(:participatory_space_private_user, user:) }
 
         before do
           request.env["decidim.current_organization"] = organization

@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Consultation", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:consultation) { create(:consultation, :published, organization: organization) }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:consultation) { create(:consultation, :published, organization:) }
+  let!(:user) { create :user, :confirmed, organization: }
 
   before do
     switch_to_host(organization.host)
@@ -28,7 +28,7 @@ describe "Consultation", type: :system do
 
     context "when the consultation is unpublished" do
       let!(:consultation) do
-        create(:consultation, :unpublished, organization: organization)
+        create(:consultation, :unpublished, organization:)
       end
 
       before do
@@ -41,7 +41,7 @@ describe "Consultation", type: :system do
       end
 
       context "with signed in user" do
-        let!(:user) { create(:user, :confirmed, organization: organization) }
+        let!(:user) { create(:user, :confirmed, organization:) }
 
         before do
           sign_in user, scope: :user
@@ -55,7 +55,7 @@ describe "Consultation", type: :system do
     end
 
     context "when highlighted questions" do
-      let!(:question) { create(:question, :published, consultation: consultation, scope: consultation.highlighted_scope) }
+      let!(:question) { create(:question, :published, consultation:, scope: consultation.highlighted_scope) }
 
       before do
         switch_to_host(organization.host)
@@ -73,8 +73,8 @@ describe "Consultation", type: :system do
     end
 
     context "when regular questions" do
-      let!(:scope) { create(:scope, organization: organization) }
-      let!(:question) { create(:question, :published, consultation: consultation, scope: scope) }
+      let!(:scope) { create(:scope, organization:) }
+      let!(:question) { create(:question, :published, consultation:, scope:) }
 
       before do
         switch_to_host(organization.host)
@@ -96,7 +96,7 @@ describe "Consultation", type: :system do
     end
 
     context "when showing the button that links to the question" do
-      let!(:question) { create(:question, :published, consultation: consultation, scope: consultation.highlighted_scope) }
+      let!(:question) { create(:question, :published, consultation:, scope: consultation.highlighted_scope) }
 
       context "when the user is not logged in" do
         before do

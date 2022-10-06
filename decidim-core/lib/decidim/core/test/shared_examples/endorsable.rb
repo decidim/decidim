@@ -20,7 +20,7 @@ shared_examples_for "endorsable" do
 
       context "with Organization endorsement" do
         let!(:user_group) { create(:user_group, verified_at: Time.current, organization: user.organization) }
-        let!(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+        let!(:membership) { create(:user_group_membership, user:, user_group:) }
 
         before { user_group.reload }
 
@@ -29,7 +29,7 @@ shared_examples_for "endorsable" do
         end
 
         context "when there's an endorsement" do
-          let!(:endorsement) { create(:endorsement, resource: subject, author: user, user_group: user_group) }
+          let!(:endorsement) { create(:endorsement, resource: subject, author: user, user_group:) }
 
           before { user_group.reload }
 
@@ -43,7 +43,7 @@ shared_examples_for "endorsable" do
 
           context "with another user" do
             let!(:another_user) { create(:user, :confirmed, organization: user.organization) }
-            let!(:another_membership) { create(:user_group_membership, user: another_user, user_group: user_group, role: "admin") }
+            let!(:another_membership) { create(:user_group_membership, user: another_user, user_group:, role: "admin") }
 
             before { user_group.reload }
 
@@ -54,7 +54,7 @@ shared_examples_for "endorsable" do
 
           context "with another organization" do
             let!(:another_user_group) { create(:user_group, verified_at: Time.current, organization: user.organization) }
-            let!(:another_membership) { create(:user_group_membership, user: user, user_group: another_user_group) }
+            let!(:another_membership) { create(:user_group_membership, user:, user_group: another_user_group) }
 
             before { another_user_group.reload }
 

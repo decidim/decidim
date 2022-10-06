@@ -13,6 +13,7 @@ module Decidim
 
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
+      helper Decidim::ShortLinkHelper
 
       helper_method :meetings, :meeting, :registration, :search
 
@@ -25,7 +26,7 @@ module Decidim
       def create
         enforce_permission_to :create, :meeting
 
-        @form = meeting_form.from_params(params, current_component: current_component)
+        @form = meeting_form.from_params(params, current_component:)
 
         CreateMeeting.call(@form) do
           on(:ok) do |meeting|
@@ -108,7 +109,8 @@ module Decidim
       end
 
       def meetings
-        @meetings ||= paginate(search.result.order(start_time: :desc))
+        is_past_meetings = params.dig("filter", "with_any_date")&.include?("past")
+        @meetings ||= paginate(search.result.order(start_time: is_past_meetings ? :desc : :asc))
       end
 
       def registration
@@ -131,7 +133,7 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_date: %w(upcoming),
+          with_any_date: "upcoming",
           activity: "all",
           with_availability: "",
           with_any_scope: default_filter_scope_params,

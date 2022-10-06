@@ -140,13 +140,9 @@ lb:
           description: Dies sind die Projekte, die Sie für das Budget ausgewählt haben.
           title: Bestätigung der Abstimmung
         budget_excess:
-          budget_excess:
-            description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
           close: Schließen
-          description: Dieses Projekt überschreitet das maximale Budget und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
           ok: OK
           projects_excess:
-            description: Dieses Projekt überschreitet die maximale Anzahl Projekte und kann nicht hinzugefügt werden. Wenn Sie möchten können Sie ein bereits gewähltes Projekt wieder entfernen, oder gemäss Ihren Präferenzen abstimmen.
             title: Maximale Anzahl Projekte überschritten
         budget_summary:
           are_you_sure: Sind Sie sicher, dass Sie Ihre Stimme zurückziehen wollen?
@@ -248,7 +244,6 @@ lb:
             total_budget: Gesamtbudget; Gesamtetat
             vote_minimum_budget_projects_number: Mindestanzahl von Projekten, um abzustimmen
             vote_rule_minimum_budget_projects_enabled: 'Regel aktivieren: Mindestanzahl von Projekten, um abzustimmen'
-            vote_rule_selected_projects_enabled: 'Regel aktivieren: Minimale und maximale Anzahl Projekte, für die gestimmt werden soll'
             vote_rule_threshold_percent_enabled: 'Regel aktivieren: Minimaler Budgetprozentsatz'
             vote_selected_projects_maximum: Maximale Anzahl auszuwählender Projekte
             vote_selected_projects_minimum: Minimale Anzahl auszuwählender Projekte

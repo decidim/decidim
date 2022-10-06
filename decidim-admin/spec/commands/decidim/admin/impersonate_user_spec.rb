@@ -9,12 +9,12 @@ module Decidim::Admin
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, organization: organization }
+    let(:current_user) { create :user, :admin, organization: }
     let(:document_number) { "12345678X" }
     let(:form_params) do
       {
         authorization: handler,
-        user: user
+        user:
       }
     end
     let(:extra_params) do
@@ -27,13 +27,13 @@ module Decidim::Admin
         form_params.merge(extra_params)
       ).with_context(
         current_organization: organization,
-        current_user: current_user
+        current_user:
       )
     end
     let(:handler) do
       DummyAuthorizationHandler.from_params(
-        document_number: document_number,
-        user: user
+        document_number:,
+        user:
       )
     end
 
@@ -46,13 +46,13 @@ module Decidim::Admin
         it "creates a impersonation log" do
           expect do
             subject.call
-          end.to change { Decidim::ImpersonationLog.count }.by(1)
+          end.to change(Decidim::ImpersonationLog, :count).by(1)
         end
 
         it "creates a action log" do
           expect do
             subject.call
-          end.to change { Decidim::ActionLog.count }.by(1)
+          end.to change(Decidim::ActionLog, :count).by(1)
         end
 
         it "expires the impersonation session automatically" do
@@ -72,31 +72,31 @@ module Decidim::Admin
     end
 
     context "when logging action with reason" do
-      let(:user) { create :user, organization: organization }
+      let(:user) { create :user, organization: }
 
       it "creates a action log with reason" do
         expect do
           subject.call
-        end.to change { Decidim::ActionLog.count }.by(1)
+        end.to change(Decidim::ActionLog, :count).by(1)
 
         expect(Decidim::ActionLog.last.action).to eq("manage")
       end
     end
 
     context "when passed a regular user" do
-      let(:user) { create :user, organization: organization }
+      let(:user) { create :user, organization: }
 
       it_behaves_like "the impersonate user command"
     end
 
     context "when passed an existing managed user" do
-      let(:user) { create :user, :managed, organization: organization }
+      let(:user) { create :user, :managed, organization: }
 
       it_behaves_like "the impersonate user command"
     end
 
     context "when passed a new managed user" do
-      let(:user) { build :user, :managed, organization: organization }
+      let(:user) { build :user, :managed, organization: }
 
       it_behaves_like "the impersonate user command"
 

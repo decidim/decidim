@@ -29,6 +29,7 @@ module Decidim
         hash << Digest::MD5.hexdigest(model.attributes.to_s)
         hash << current_organization.cache_key_with_version
         hash << I18n.locale.to_s
+        hash << background_image
 
         hash.join(Decidim.cache_key_separator)
       end

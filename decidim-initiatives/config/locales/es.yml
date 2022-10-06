@@ -24,6 +24,7 @@ es:
         banner_image: Imagen de banner
         child_scope_threshold_enabled: Activar firmas por subámbito
         collect_user_extra_fields: Recopilar datos personales de la participante con la firma
+        comments_enabled: Habilitar comentarios
         custom_signature_end_date_enabled: Permitir a las autoras elegir el final del período de recogida de firmas
         description: Descripción
         document_number_authorization_handler: Autorización para verificar el número de documento en las firmas
@@ -84,12 +85,17 @@ es:
             label: Tipo
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
+      initiatives_settings:
+        update:
+          error: Se ha producido un error
+          success: La configuración de las iniciativas se ha actualizado correctamente
       menu:
         attachments: Adjuntos
         committee_members: Miembros de la comisión
         components: Componentes
         information: Información
         initiatives: Iniciativas
+        initiatives_settings: Configuración
         initiatives_types: Tipos de Iniciativa
         moderations: Moderaciones
       models:
@@ -238,11 +244,19 @@ es:
             edit: Editar
             new: Nueva
             photos: Fotos
-          show:
-            print: Imprimir
           update:
             error: Se ha producido un error
             success: La iniciativa ciudadana se ha actualizado correctamente
+        initiatives_settings:
+          edit:
+            update: Actualizar
+          form:
+            comments: Más comentadas
+            date: Más recientes
+            publication_date: Publicada más recientemente
+            random: Aleatorio
+            signatures: Más firmadas
+            title: Configuración de iniciativas
         initiatives_type_scopes:
           create:
             error: Se ha producido un error
@@ -274,6 +288,8 @@ es:
             update: Actualizar
           form:
             authorizations: Ajustes de autorización
+            child_scope_threshold_enabled_help: 'Este ajuste de configuración no admite las votaciones sin conexión. Habilita los subámbitos y funciona con un gestor de autorizaciones que asocia un ámbito al usuario. Asegúrate de seleccionar esa autorización, más abajo en la configuración de autorizaciones. Para que funcione, los ámbitos deben configurarse de forma jerárquica: 1 Padre - N hijos. Para más información sobre cómo funciona esta configuración, <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">ver la documentación sobre l''administraciónb de iniciativas</a>.'
+            only_global_scope_enabled_help: Marca esta casilla si habilitaste "Activar firmas por subámbito" y configuraste el ámbito global como el ámbito principal. Al habilitar esta casilla, la selección del tipo de iniciativa se omitirá en el asistente de creación de iniciativas. Para más información sobre cómo funciona esta configuración, consulta este <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">enlace</a>.
             options: Opciones
             title: Información general
           initiative_type_scopes:
@@ -290,6 +306,12 @@ es:
           send_to_technical_validation: "%{user_name} envió la iniciativa %{resource_name} a validación técnica"
           unpublish: "%{user_name} descartó la iniciativa %{resource_name}"
           update: "%{user_name} actualizó la iniciativa %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} ha actualizado la configuración de las iniciativas"
+        initiatives_type:
+          create: "%{user_name} ha creat el tipus d'iniciativa %{resource_name}"
+          delete: "%{user_name} ha eliminado el tipo de iniciativa %{resource_name}"
+          update: "%{user_name} ha actualizado el tipo de iniciativa %{resource_name}"
       admin_states:
         accepted: Ha conseguido las firmas necesarias
         created: Creada
@@ -505,6 +527,7 @@ es:
             title: 'Título:'
             type: Tipo de iniciativa
           legal_text: Los datos personales recogidos serán incorporados y tratados confidencialmente por la organización, de acuerdo con la legislación vigente.
+          members_header: Miembros del comité promotor de la iniciativa
           phone_number: Número de teléfono
           place_date: Lugar, fecha
           postal_code: Código postal
@@ -564,6 +587,8 @@ es:
           published: Publicada
           rejected: No ha conseguido las firmas
           validating: Validación técnica
+      signature_interval:
+        title: Período de recogida de firmas
       states:
         accepted: Aceptado
         expired: Caducado

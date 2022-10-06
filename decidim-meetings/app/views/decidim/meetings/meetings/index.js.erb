@@ -13,11 +13,11 @@ $dropdownMenu.foundation();
 
 var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.result.select(&:geocoded_and_valid?)).to_json.html_safe %>');
 
+$("#calendarShare").foundation(); // initialize export calendar on the page
+
 var $map = $("#map");
 var controller = $map.data("map-controller");
 if (controller) {
   controller.clearMarkers();
   controller.addMarkers(markerData);
 }
-
-$("#calendarShare").foundation(); // initialize export calendar on the page

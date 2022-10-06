@@ -29,7 +29,5 @@
             invalid: Det oppsto et problem med å lagre denne siden.
             success: Siden ble lagret.
       home:
-        hero:
-          participate_title: Delta i plattformens prosesser
         sub_hero:
           register_title: Registrer deg for å opprette en konto

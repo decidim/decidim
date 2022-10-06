@@ -23,7 +23,7 @@ module Decidim
       end
 
       def promote_amend_button_label
-        t("promote_button", scope: "decidim.amendments.amendable", model_name: model_name)
+        t("promote_button", scope: "decidim.amendments.amendable", model_name:)
       end
 
       def promote_confirm_text

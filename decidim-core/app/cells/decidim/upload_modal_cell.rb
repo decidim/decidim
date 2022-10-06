@@ -87,9 +87,9 @@ module Decidim
     end
 
     def explanation
-      return I18n.t("explanation", scope: options[:help_i18n_scope], attribute: attribute) if options[:help_i18n_scope].present?
+      return I18n.t("explanation", scope: options[:help_i18n_scope], attribute:) if options[:help_i18n_scope].present?
 
-      I18n.t("explanation", scope: "decidim.forms.upload_help", attribute: attribute)
+      I18n.t("explanation", scope: "decidim.forms.upload_help", attribute:)
     end
 
     def add_attribute
@@ -119,7 +119,7 @@ module Decidim
     def attachments
       @attachments = begin
         attachments = options[:attachments] || form.object.send(attribute)
-        attachments = Array(attachments).reject(&:blank?)
+        attachments = Array(attachments).compact_blank
         attachments.map { |attachment| attachment.is_a?(String) ? ActiveStorage::Blob.find_signed(attachment) : attachment }
       end
     end

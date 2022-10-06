@@ -11,15 +11,15 @@ describe "Action Authorization", type: :system do
     create(:organization, available_authorizations: [authorization])
   end
 
-  let!(:proposal) { create(:proposal, component: component) }
+  let!(:proposal) { create(:proposal, component:) }
 
   let!(:component) do
     create(
       :proposal_component,
       :with_creation_enabled,
-      manifest: manifest,
-      participatory_space: participatory_space,
-      permissions: permissions
+      manifest:,
+      participatory_space:,
+      permissions:
     )
   end
 
@@ -62,7 +62,7 @@ describe "Action Authorization", type: :system do
     end
 
     context "and action authorized with custom action authorizer options" do
-      let(:scope) { create :scope, organization: organization }
+      let(:scope) { create :scope, organization: }
       let(:permissions) do
         {
           create: {
@@ -101,9 +101,9 @@ describe "Action Authorization", type: :system do
       end
 
       context "when the user doesn't match the authorization criteria" do
-        let(:other_scope) { create :scope, organization: organization }
+        let(:other_scope) { create :scope, organization: }
         let!(:user_authorization) do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 1.second.ago,
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
                                  metadata: { postal_code: "1234", scope_id: other_scope.id })
         end
 
@@ -117,11 +117,11 @@ describe "Action Authorization", type: :system do
       end
 
       context "when the user doesn't match one of the authorization criteria" do
-        let(:user_scope) { create :scope, organization: organization }
+        let(:user_scope) { create :scope, organization: }
         let(:postal_code) { "1234" }
         let!(:user_authorization) do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 1.second.ago,
-                                 metadata: { postal_code: postal_code, scope_id: user_scope&.id })
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
+                                 metadata: { postal_code:, scope_id: user_scope&.id })
         end
 
         context "when the postal code is missing" do
@@ -171,7 +171,7 @@ describe "Action Authorization", type: :system do
       end
 
       before do
-        create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 1.month.ago)
+        create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.month.ago)
         visit main_component_path(component)
         click_link "New proposal"
       end
@@ -234,7 +234,7 @@ describe "Action Authorization", type: :system do
       end
 
       before do
-        create(:authorization, :pending, name: "dummy_authorization_workflow", user: user)
+        create(:authorization, :pending, name: "dummy_authorization_workflow", user:)
         visit main_component_path(component)
         click_link "New proposal"
       end
@@ -258,7 +258,7 @@ describe "Action Authorization", type: :system do
       end
 
       before do
-        create(:authorization, name: "dummy_authorization_workflow", user: user, granted_at: 1.month.ago)
+        create(:authorization, name: "dummy_authorization_workflow", user:, granted_at: 1.month.ago)
         visit main_component_path(component)
         click_link "New proposal"
       end

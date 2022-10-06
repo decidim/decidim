@@ -22,6 +22,8 @@
   <%= form_tag polling_officer_election_in_person_vote_path(polling_officer, election, in_person_vote), method: :patch, class: "update_vote_status" %>
 </div>
 
+<%= render "decidim/elections/shared/broken_promises_modal" %>
+
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_votings_in_person_vote" %>
 <% end %>

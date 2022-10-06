@@ -31,7 +31,7 @@ module Decidim
         end
 
         def states
-          super.reject(&:blank?)
+          super.compact_blank
         end
 
         def scopes

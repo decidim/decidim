@@ -3,16 +3,21 @@
     <h2 class="card-title"><%= title %></h2>
   </div>
   <div class="card-section">
-    <% if current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
+
       <div class="field">
-        <%= user_group_select_field form, :user_group_id, label: t("decidim.blogs.actions.user_group_id") %>
+        <%= post_author_select_field form, :decidim_author_id, label: t("decidim.blogs.actions.author_id") %>
       </div>
-    <% end %>
+
     <div class="row column">
       <%= form.translated :text_field, :title, autofocus: true %>
     </div>
     <div class="row column">
       <%= form.translated :editor, :body, toolbar: :full, lines: 30, label: t("models.components.body", scope: "decidim.blogs.admin") %>
+    </div>
+    <div class="row">
+      <div class="columns xlarge-6">
+        <%= form.datetime_field :published_at %>
+      </div>
     </div>
   </div>
 </div>

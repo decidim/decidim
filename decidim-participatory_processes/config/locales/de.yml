@@ -60,12 +60,6 @@ de:
         email: E-Mail
         name: Name
         role: Rolle
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              invalid_document_type: 'Ungültiger Dokumenttyp. Zulässige Formate sind: %{valid_mime_types}'
     models:
       decidim/participatory_process_step_activated_event: Phase aktiviert
       decidim/participatory_process_step_changed_event: Phase geändert

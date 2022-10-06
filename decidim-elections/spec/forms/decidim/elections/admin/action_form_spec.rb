@@ -10,7 +10,7 @@ describe Decidim::Elections::Admin::ActionForm do
     {
       current_organization: component.organization,
       current_component: component,
-      election: election
+      election:
     }
   end
   let(:election) { create :election, :created }
@@ -24,7 +24,7 @@ describe Decidim::Elections::Admin::ActionForm do
     it { is_expected.to be_nil }
 
     context "when there is a pending action" do
-      let!(:pending_action) { create(:action, election: election) }
+      let!(:pending_action) { create(:action, election:) }
 
       it { is_expected.to eq(pending_action) }
     end

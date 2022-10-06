@@ -10,7 +10,8 @@ module Decidim::Blogs
     let(:current_user) { create(:user, :confirmed, organization: current_organization) }
     let(:participatory_process) { create :participatory_process, organization: current_organization }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "blogs" }
-    let(:post) { create(:post, component: current_component, author: current_user) }
+    let(:post) { create(:post, component: current_component, author: current_user, published_at:) }
+    let(:published_at) { nil }
 
     include_examples "endorsable"
     include_examples "has component"

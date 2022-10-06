@@ -36,6 +36,7 @@ module Decidim
 
           member do
             get :authorization_sign_modal, to: "authorization_sign_modals#show"
+            get :authorization_create_modal, to: "authorization_create_modals#show"
             get :print, to: "initiatives#print", as: "print"
             get :send_to_technical_validation, to: "initiatives#send_to_technical_validation"
           end
@@ -134,6 +135,13 @@ module Decidim
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|
             require_dependency file
           end
+        end
+      end
+
+      initializer "decidim_initiatives.authorization_transfer" do
+        Decidim::AuthorizationTransfer.register(:initiatives) do |transfer|
+          transfer.move_records(Decidim::Initiative, :decidim_author_id)
+          transfer.move_records(Decidim::InitiativesVote, :decidim_author_id)
         end
       end
     end

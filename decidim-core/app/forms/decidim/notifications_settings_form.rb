@@ -6,19 +6,20 @@ module Decidim
   class NotificationsSettingsForm < Form
     mimic :user
 
-    attribute :email_on_notification, Boolean
     attribute :email_on_moderations, Boolean
     attribute :newsletter_notifications, Boolean
     attribute :notifications_from_followed, Boolean
     attribute :notifications_from_own_activity, Boolean
     attribute :allow_public_contact, Boolean
     attribute :notification_settings, Hash
+    attribute :notifications_sending_frequency, String
 
     def map_model(user)
       self.newsletter_notifications = user.newsletter_notifications_at.present?
       self.notifications_from_followed = ["all", "followed-only"].include? user.notification_types
       self.notifications_from_own_activity = ["all", "own-only"].include? user.notification_types
       self.allow_public_contact = user.direct_message_types == "all"
+      self.notifications_sending_frequency = user.notifications_sending_frequency
     end
 
     def newsletter_notifications_at
@@ -49,6 +50,10 @@ module Decidim
         return true if participatory_space_type.moderators(user.organization).exists?(id: user.id)
       end
       false
+    end
+
+    def meet_push_notifications_requirements?
+      Rails.application.secrets.vapid[:enabled]
     end
   end
 end

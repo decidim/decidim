@@ -9,7 +9,7 @@ export default function updateExternalDomainLinks($target) {
 
   $("a", $target).filter((_i, link) => {
     const $link = $(link);
-    if (!$link[0].hasAttribute("href") || $link.parents(".ql-editor").length > 0) {
+    if (!$link[0].hasAttribute("href") || $link.parents(".editor-container").length > 0) {
       return false;
     }
 

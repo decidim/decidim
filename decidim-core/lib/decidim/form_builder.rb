@@ -67,7 +67,7 @@ module Decidim
       tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
-        field_label = label_i18n(name, options[:label] || label_for(name))
+        field_label = label_i18n(name, options[:label] || label_for(name), required: options[:required])
 
         language_selector = "".html_safe
         language_selector = create_language_selector(locales, tabs_id, name) if options[:label] != false
@@ -83,7 +83,7 @@ module Decidim
             if hashtaggable
               hashtaggable_text_field(type, name, locale, options.merge(label: false))
             elsif type.to_sym == :editor
-              send(type, name_with_locale(name, locale), options.merge(label: false, hashtaggable: hashtaggable))
+              send(type, name_with_locale(name, locale), options.merge(label: false, hashtaggable:))
             else
               send(type, name_with_locale(name, locale), options.merge(label: false))
             end
@@ -92,6 +92,13 @@ module Decidim
       end
 
       safe_join [label_tabs, tabs_content]
+    end
+
+    def password_field(attribute, options = {})
+      field attribute, options do |opts|
+        opts[:autocomplete] ||= :off
+        method(__method__).super_method.super_method.call(attribute, opts)
+      end
     end
 
     def translated_one_locale(type, name, locale, options = {})
@@ -135,7 +142,7 @@ module Decidim
       tabs_id = sanitize_tabs_selector(options[:tabs_id] || "#{object_name}-#{name}-tabs")
 
       label_tabs = content_tag(:div, class: "label--tabs") do
-        field_label = label_i18n(name, options[:label] || label_for(name))
+        field_label = label_i18n(name, options[:label] || label_for(name), required: options[:required])
 
         tabs_panels = "".html_safe
         if options[:label] != false
@@ -192,7 +199,7 @@ module Decidim
         template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
-          toolbar: toolbar,
+          toolbar:,
           disabled: options[:disabled]
         }.merge(editor_images_options(options)), style: "height: #{lines}rem")
         template += error_for(name, options) if error?(name)
@@ -226,7 +233,7 @@ module Decidim
                    []
                  end
 
-      select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
+      select(name, @template.options_for_select(categories, selected:, disabled:), options, html_options)
     end
 
     # Public: Generates a select field for areas.
@@ -296,7 +303,7 @@ module Decidim
            end
 
       picker_options = {
-        id: id,
+        id:,
         class: "picker-#{options[:multiple] ? "multiple" : "single"}",
         name: "#{@object_name}[#{attribute}]"
       }
@@ -308,9 +315,9 @@ module Decidim
       template = ""
       template += "<label>#{label_for(attribute) + required_for_attribute(attribute)}</label>" unless options[:label] == false
       template += @template.render("decidim/scopes/scopes_picker_input",
-                                   picker_options: picker_options,
-                                   prompt_params: prompt_params,
-                                   scopes: scopes,
+                                   picker_options:,
+                                   prompt_params:,
+                                   scopes:,
                                    values_on_top: !options[:multiple] || options[:checkboxes_on_top])
       template += error_and_help_text(attribute, options)
       template.html_safe
@@ -343,7 +350,7 @@ module Decidim
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
-      template += @template.render("decidim/widgets/data_picker", picker_options: picker_options, prompt_params: prompt_params, items: items)
+      template += @template.render("decidim/widgets/data_picker", picker_options:, prompt_params:, items:)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
@@ -368,10 +375,10 @@ module Decidim
 
       template = text_field(
         attribute,
-        options.merge(data: data)
+        options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format: datepicker_format)
-      template += error_and_help_text(attribute, options.merge(help_text: help_text))
+      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
+      template += error_and_help_text(attribute, options.merge(help_text:))
       template.html_safe
     end
 
@@ -380,15 +387,22 @@ module Decidim
     def datetime_field(attribute, options = {})
       value = object.send(attribute)
       data = { datepicker: "", timepicker: "" }
-      data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(ActiveSupport::TimeWithZone)
+      if value.present?
+        case value
+        when ActiveSupport::TimeWithZone
+          data[:startdate] = I18n.l(value, format: :decidim_short)
+        when Time, DateTime
+          data[:startdate] = I18n.l(value.in_time_zone(Time.zone), format: :decidim_short)
+        end
+      end
       datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
 
       template = text_field(
         attribute,
-        options.merge(data: data)
+        options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format: datepicker_format)
+      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
       template += content_tag(:span, help_text, class: "help-text")
       template.html_safe
     end
@@ -410,7 +424,7 @@ module Decidim
         max_file_size: max_file_size(record, :file),
         label: I18n.t("decidim.forms.upload.labels.add_attachment"),
         button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image"),
-        extension_allowlist: Decidim.organization_settings(Decidim::Attachment).upload_allowed_file_extensions
+        extension_allowlist: Decidim.organization_settings(record).upload_allowed_file_extensions
       }.merge(options)
 
       # Upload help uses extension allowlist from the options so we need to call this AFTER setting the defaults.
@@ -447,16 +461,16 @@ module Decidim
       help_messages = options[:help] || upload_help(object, attribute, options)
 
       options = {
-        attribute: attribute,
+        attribute:,
         resource_name: @object_name,
         resource_class: options[:resource_class]&.to_s || resource_class(attribute),
         optional: true,
         titled: false,
         show_current: true,
-        max_file_size: max_file_size,
+        max_file_size:,
         help: help_messages,
         label: label_for(attribute),
-        button_label: button_label,
+        button_label:,
         button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
       }.merge(options)
 
@@ -544,16 +558,16 @@ module Decidim
     # inputs inside the label and to automatically inject validations
     # from the object.
     #
-    # attribute    - The String name of the attribute to buidl the field.
+    # attribute    - The String name of the attribute to build the field.
     # options      - A Hash with options to build the field.
     # html_options - An optional Hash with options to pass to the html element.
     #
     # Returns a String
-    def field(attribute, options, html_options = nil, &block)
+    def field(attribute, options, html_options = nil, &)
       label = options.delete(:label)
-      label_options = options.delete(:label_options)
-      custom_label(attribute, label, label_options) do
-        field_with_validations(attribute, options, html_options, &block)
+      label_options = options.delete(:label_options) || {}
+      custom_label(attribute, label, { required: options[:required] }.merge(label_options)) do
+        field_with_validations(attribute, options, html_options, &)
       end
     end
 
@@ -583,8 +597,8 @@ module Decidim
       content += abide_error_element(attribute) if class_options[:pattern] || class_options[:required]
       content = content.html_safe
 
-      html = wrap_prefix_and_postfix(content, prefix, postfix)
-      html + error_and_help_text(attribute, options.merge(help_text: help_text))
+      html = error_and_help_text(attribute, options.merge(help_text:))
+      html + wrap_prefix_and_postfix(content, prefix, postfix)
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity
@@ -683,8 +697,16 @@ module Decidim
     def custom_label(attribute, text, options, field_before_label: false, show_required: true)
       return block_given? ? yield.html_safe : "".html_safe if text == false
 
+      required = options.is_a?(Hash) && options.delete(:required)
       text = default_label_text(object, attribute) if text.nil? || text == true
-      text += required_for_attribute(attribute) if show_required
+      if show_required
+        text +=
+          if required
+            required_indicator
+          else
+            required_for_attribute(attribute)
+          end
+      end
 
       text = if field_before_label && block_given?
                safe_join([yield, text.html_safe])
@@ -766,28 +788,36 @@ module Decidim
         options[:class] ||= ""
         options[:class] += " is-invalid-label"
       end
-      text += required_for_attribute(attribute)
+      text +=
+        if options.delete(:required)
+          required_indicator
+        else
+          required_for_attribute(attribute)
+        end
 
       label(attribute, (text || "").html_safe, options)
     end
 
     def required_for_attribute(attribute)
-      if attribute_required?(attribute)
-        visible_title = content_tag(:span, "*", "aria-hidden": true)
-        screenreader_title = content_tag(
-          :span,
-          I18n.t("required", scope: "forms"),
-          class: "show-for-sr"
-        )
-        return content_tag(
-          :span,
-          visible_title + screenreader_title,
-          title: I18n.t("required", scope: "forms"),
-          data: { tooltip: true, disable_hover: false, keep_on_hover: true },
-          class: "label-required"
-        ).html_safe
-      end
+      return required_indicator if attribute_required?(attribute)
+
       "".html_safe
+    end
+
+    def required_indicator
+      visible_title = content_tag(:span, "*", "aria-hidden": true)
+      screenreader_title = content_tag(
+        :span,
+        I18n.t("required", scope: "forms"),
+        class: "sr-only"
+      )
+      content_tag(
+        :span,
+        visible_title + screenreader_title,
+        title: I18n.t("required", scope: "forms"),
+        data: { tooltip: true, disable_hover: false, keep_on_hover: true },
+        class: "label-required"
+      ).html_safe
     end
 
     # Private: Returns an array of scopes related to object attribute
@@ -821,7 +851,7 @@ module Decidim
     end
 
     def extension_allowlist_help(extension_allowlist)
-      ["#{I18n.t("extension_allowlist", scope: "decidim.forms.files")} #{extension_allowlist.map { |ext| ext }.join(", ")}"]
+      [I18n.t("extension_allowlist", scope: "decidim.forms.files", extensions: extension_allowlist.map { |ext| ext }.join(", "))]
     end
 
     def image_dimensions_help(dimensions_info)
@@ -830,7 +860,7 @@ module Decidim
         I18n.t(
           "processors.#{info[:processor]}",
           scope: "decidim.forms.images",
-          dimensions: dimensions
+          dimensions:
         ).html_safe
       end
     end

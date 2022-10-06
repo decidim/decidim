@@ -8,7 +8,7 @@ module Decidim
     describe CategoryForm do
       include_examples "category form" do
         let(:participatory_space) do
-          create :conference, organization: organization
+          create :conference, organization:
         end
       end
     end

@@ -6,7 +6,7 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 describe "Initiatives", type: :system do
   let(:organization) { create(:organization) }
   let(:base_initiative) do
-    create(:initiative, organization: organization)
+    create(:initiative, organization:)
   end
 
   before do
@@ -16,7 +16,7 @@ describe "Initiatives", type: :system do
   context "when there are some published initiatives" do
     let!(:initiative) { base_initiative }
     let!(:unpublished_initiative) do
-      create(:initiative, :created, organization: organization)
+      create(:initiative, :created, organization:)
     end
 
     it_behaves_like "shows contextual help" do
@@ -81,7 +81,7 @@ describe "Initiatives", type: :system do
 
       context "when there are only closed initiatives" do
         let!(:closed_initiative) do
-          create(:initiative, :discarded, organization: organization)
+          create(:initiative, :discarded, organization:)
         end
         let(:base_initiative) { nil }
 
@@ -102,7 +102,7 @@ describe "Initiatives", type: :system do
     end
 
     context "when requesting the initiatives path and initiatives have attachments but the file is not present" do
-      let!(:base_initiative) { create(:initiative, :with_photos, organization: organization) }
+      let!(:base_initiative) { create(:initiative, :with_photos, organization:) }
 
       before do
         initiative.attachments.each do |attachment|

@@ -7,7 +7,7 @@ describe Decidim::Elections::Votes::VoteAcceptedEvent do
 
   let(:event_name) { "decidim.events.elections.votes.accepted_votes" }
   let(:vote) { create(:vote) }
-  let(:extra) { { vote: vote, verify_url: verify_url } }
+  let(:extra) { { vote:, verify_url: } }
   let(:resource) { vote.election }
   let(:encrypted_vote_hash) { vote.encrypted_vote_hash }
   let(:resource_name) { resource.title["en"] }

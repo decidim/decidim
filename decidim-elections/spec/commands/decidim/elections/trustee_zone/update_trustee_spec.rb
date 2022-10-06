@@ -9,10 +9,10 @@ describe Decidim::Elections::TrusteeZone::UpdateTrustee do
   let(:form) do
     double(
       invalid?: invalid,
-      public_key: public_key,
-      trustee: trustee,
+      public_key:,
+      trustee:,
       name: trustee_name,
-      errors: errors
+      errors:
     )
   end
   let(:public_key) { "asadasfdafadssda" }

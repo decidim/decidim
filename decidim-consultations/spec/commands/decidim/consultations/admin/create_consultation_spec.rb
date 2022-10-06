@@ -9,7 +9,7 @@ module Decidim
         subject { described_class.new(form) }
 
         let(:organization) { create :organization }
-        let(:scope) { create :scope, organization: organization }
+        let(:scope) { create :scope, organization: }
         let(:start_voting_date) { Time.zone.today }
         let(:end_voting_date) { Time.zone.today + 1.month }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
@@ -24,12 +24,12 @@ module Decidim
             description: { en: "description" },
             banner_image: attachment,
             highlighted_scope: scope,
-            start_voting_date: start_voting_date,
-            end_voting_date: end_voting_date,
+            start_voting_date:,
+            end_voting_date:,
             introductory_video_url: nil,
             current_organization: organization,
             introductory_image: nil,
-            errors: errors
+            errors:
           )
         end
         let(:invalid) { false }
@@ -70,7 +70,7 @@ module Decidim
 
         context "when everything is ok" do
           it "creates a consultation" do
-            expect { subject.call }.to change { Decidim::Consultation.count }.by(1)
+            expect { subject.call }.to change(Decidim::Consultation, :count).by(1)
           end
 
           it "broadcasts ok" do

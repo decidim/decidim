@@ -11,34 +11,34 @@ RSpec.describe "Project search", type: :request do
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
-  let(:resource_params) { { budget: budget } }
+  let(:resource_params) { { budget: } }
 
-  let(:budget) { create(:budget, component: component) }
-  let(:budget2) { create(:budget, component: component) }
+  let(:budget) { create(:budget, component:) }
+  let(:budget2) { create(:budget, component:) }
   let!(:project1) do
     create(
       :project,
       :selected,
-      budget: budget,
-      scope: create(:scope, organization: organization),
-      category: create(:category, participatory_space: participatory_space)
+      budget:,
+      scope: create(:scope, organization:),
+      category: create(:category, participatory_space:)
     )
   end
   let!(:project2) do
     create(
       :project,
       :selected,
-      budget: budget,
-      scope: create(:scope, organization: organization),
-      category: create(:category, participatory_space: participatory_space)
+      budget:,
+      scope: create(:scope, organization:),
+      category: create(:category, participatory_space:)
     )
   end
   let!(:project3) do
     create(
       :project,
-      budget: budget,
-      scope: create(:scope, organization: organization),
-      category: create(:category, participatory_space: participatory_space)
+      budget:,
+      scope: create(:scope, organization:),
+      category: create(:category, participatory_space:)
     )
   end
   let!(:project4) { create(:project, budget: budget2) }

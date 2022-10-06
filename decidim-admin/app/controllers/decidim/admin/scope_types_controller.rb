@@ -21,7 +21,7 @@ module Decidim
         enforce_permission_to :create, :scope_type
         @form = form(ScopeTypeForm).from_params(params)
 
-        CreateScopeType.call(@form) do
+        CreateScopeType.call(@form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.create.success", scope: "decidim.admin")
             redirect_to scope_types_path
@@ -43,7 +43,7 @@ module Decidim
         enforce_permission_to :update, :scope_type, scope_type: scope_type
         @form = form(ScopeTypeForm).from_params(params)
 
-        UpdateScopeType.call(scope_type, @form) do
+        UpdateScopeType.call(scope_type, @form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("scope_types.update.success", scope: "decidim.admin")
             redirect_to scope_types_path
@@ -58,7 +58,10 @@ module Decidim
 
       def destroy
         enforce_permission_to :destroy, :scope_type, scope_type: scope_type
-        scope_type.destroy!
+
+        Decidim.traceability.perform_action!("delete", scope_type, current_user) do
+          scope_type.destroy!
+        end
 
         flash[:notice] = I18n.t("scope_types.destroy.success", scope: "decidim.admin")
 

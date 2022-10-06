@@ -238,8 +238,6 @@ eu:
             edit: Editatu
             new: Berria
             photos: Argazkiak
-          show:
-            print: Inprimatu
           update:
             error: akats bat gertatu da
             success: Herritarren ekimena ondo eguneratu da

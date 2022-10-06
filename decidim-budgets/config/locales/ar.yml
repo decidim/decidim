@@ -43,7 +43,11 @@ ar:
           edit:
             title: تعديل الميزانية
             update: تحديث الميزانية
+        exports:
+          projects: المشاريع
         models:
+          budget:
+            name: الميزانية
           project:
             name: مشروع
         projects:
@@ -56,6 +60,9 @@ ar:
             title: تحرير المشروع
             update: تحديث
           index:
+            actions: الإجراءات
+            cancel: إلغاء
+            change_category: تغيير الفئة
             finished_orders: الانتهاء من الأصوات
             pending_orders: في انتظار الأصوات
             title: مشاريع
@@ -71,6 +78,7 @@ ar:
             success: "%{number} مقترحات تم استيرادها بنجاح في المشروعات"
           new:
             create: استيراد مقترحات للمشاريع
+            default_budget: الميزانية الافتراضية
             no_components: لا توجد مكونات أخرى مقترحة في هذه المساحة التشاركية لاستيراد المقترحات إلى المشروعات.
             select_component: يرجى اختيار عنصر
       admin_log:
@@ -81,6 +89,8 @@ ar:
       budget_information_modal:
         continue: مواصلة
         more_information: المزيد من المعلومات
+      budgets_list:
+        my_budgets: ميزانياتي
       models:
         budget:
           fields:

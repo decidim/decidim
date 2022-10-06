@@ -10,7 +10,7 @@ module Decidim
     let(:form) do
       Decidim::FormBuilder.new(
         :static_page,
-        Decidim::Admin::StaticPageForm.new(slug: slug).with_context(
+        Decidim::Admin::StaticPageForm.new(slug:).with_context(
           current_organization: organization
         ),
         view,

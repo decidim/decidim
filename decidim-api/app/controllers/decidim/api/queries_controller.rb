@@ -9,7 +9,7 @@ module Decidim
         variables = prepare_variables(params[:variables])
         query = params[:query]
         operation_name = params[:operationName]
-        result = Schema.execute(query, variables: variables, context: context, operation_name: operation_name)
+        result = Schema.execute(query, variables:, context:, operation_name:)
         render json: result
       rescue StandardError => e
         logger.error e.message
@@ -28,8 +28,8 @@ module Decidim
 
       def context
         {
-          current_organization: current_organization,
-          current_user: current_user
+          current_organization:,
+          current_user:
         }
       end
 

@@ -10,10 +10,11 @@ module Decidim
       # form    - The form from which the data in this component comes from.
       # component - The component to update.
       # resource - The resource to update.
-      def initialize(form, component, resource)
+      def initialize(form, component, resource, user)
         @form = form
         @component = component
         @resource = resource
+        @user = user
       end
 
       # Public: Sets the permissions for a component.
@@ -22,9 +23,11 @@ module Decidim
       def call
         return broadcast(:invalid) unless form.valid?
 
-        transaction do
-          update_permissions
-          run_hooks
+        Decidim.traceability.perform_action!("update_permissions", @component, @user) do
+          transaction do
+            update_permissions
+            run_hooks
+          end
         end
 
         broadcast(:ok)
@@ -59,12 +62,12 @@ module Decidim
         if resource
           resource_permissions.update!(permissions: different_from_component_permissions(permissions))
         else
-          component.update!(permissions: permissions)
+          component.update!(permissions:)
         end
       end
 
       def run_hooks
-        component.manifest.run_hooks(:permission_update, component: component, resource: resource)
+        component.manifest.run_hooks(:permission_update, component:, resource:)
       end
 
       def resource_permissions

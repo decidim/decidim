@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim
   describe NewsletterMailer, type: :mailer do
-    let(:user) { create(:user, name: "Sarah Connor", organization: organization) }
+    let(:user) { create(:user, name: "Sarah Connor", organization:) }
     let(:newsletter) do
       create(:newsletter,
-             organization: organization,
+             organization:,
              subject: {
                en: "Email for %{name}",
                ca: "Email per %{name}",
@@ -50,7 +50,7 @@ module Decidim
         context "when there's no content in the user's locale" do
           let(:newsletter) do
             create(:newsletter,
-                   organization: organization,
+                   organization:,
                    subject: {
                      en: "Email for %{name}",
                      ca: "",

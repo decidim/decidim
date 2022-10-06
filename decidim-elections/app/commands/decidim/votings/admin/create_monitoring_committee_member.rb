@@ -54,8 +54,8 @@ module Decidim
             }
           ) do
             Decidim::Votings::MonitoringCommitteeMember.find_or_create_by!(
-              user: user,
-              voting: voting
+              user:,
+              voting:
             )
           end
         end
@@ -87,7 +87,7 @@ module Decidim
                          organization: voting.organization,
                          admin: false,
                          invited_by: current_user,
-                         invitation_instructions: invitation_instructions)
+                         invitation_instructions:)
         end
 
         def invitation_instructions

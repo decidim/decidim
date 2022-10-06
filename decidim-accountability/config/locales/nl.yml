@@ -157,7 +157,6 @@ nl:
             progress: Vooruitgang
         timeline_entry:
           fields:
-            description: Beschrijving
             entry_date: Datum
       result_m:
         executed: Uitgevoerd

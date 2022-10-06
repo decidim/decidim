@@ -188,35 +188,35 @@ fr:
             email_intro: |-
               Salut,
               Un nouveau débat «%{resource_title}» a été créée sur le %{space_title} espace participatif, vérifier et contribuer:
-            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
+            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Nouveau débat "%{resource_title}" sur %{space_title}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               Bonjour,
               %{author_name} %{author_nickname}, qui vous suivez, a créé un nouveau débat "%{resource_title}". Découvrez-le et contribuez:
-            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
+            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Nouveau débat "%{resource_title}" par %{author_nickname}
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> créé le débat <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'La création de débat n''est plus possible dans %{participatory_space_title}. Vous pouvez toujours participer aux débats ouverts depuis cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La création de débats est désactivée dans %{participatory_space_title}
           notification_title: La création de débats est maintenant désactivée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         creation_enabled:
           email_intro: 'Vous pouvez maintenant initier de nouveaux débats dans %{participatory_space_title}! Commencez à participer sur cette page :'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Débats maintenant disponibles sur %{participatory_space_title}
           notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Le débat « %{resource_title} » est fermé. Vous pouvez lire les conclusions sur cette page :'
-            email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Vous pouvez vous désabonner depuis le lien précédent.
+            email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Le débat "%{resource_title}" est fermé
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> est fermé.
           follower:
             email_intro: 'Le débat « %{resource_title} » est fermé. Vous pouvez lire les conclusions sur cette page :'
-            email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Vous pouvez vous désabonner depuis le lien précédent.
+            email_outro: Vous avez reçu cet avis parce que vous êtes abonné au débat « %{resource_title} ». Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Le débat "%{resource_title}" est fermé
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> est fermé.
     gamification:

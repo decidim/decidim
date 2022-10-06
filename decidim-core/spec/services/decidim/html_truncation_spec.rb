@@ -7,11 +7,11 @@ describe Decidim::HtmlTruncation do
 
   let(:options) do
     {
-      max_length: max_length,
-      tail: tail,
-      count_tags: count_tags,
-      count_tail: count_tail,
-      tail_before_final_tag: tail_before_final_tag
+      max_length:,
+      tail:,
+      count_tags:,
+      count_tail:,
+      tail_before_final_tag:
     }
   end
   let(:max_length) { 30 }

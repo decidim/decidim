@@ -18,8 +18,8 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
   include_context "when admin managing a voting"
 
   context "when processing polling stations" do
-    let!(:polling_officers) { create_list(:polling_officer, 3, voting: voting) }
-    let!(:polling_station) { create(:polling_station, voting: voting) }
+    let!(:polling_officers) { create_list(:polling_officer, 3, voting:) }
+    let!(:polling_station) { create(:polling_station, voting:) }
 
     before do
       stub_geocoding(address, [latitude, longitude])
@@ -44,7 +44,7 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
       end
 
       context "when searching by title" do
-        let(:searched_station) { create(:polling_station, voting: voting) }
+        let(:searched_station) { create(:polling_station, voting:) }
 
         it "filters the results as expected" do
           search_by_text(translated(searched_station.title))
@@ -54,8 +54,8 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
       end
 
       context "when searching by president name" do
-        let(:searched_station) { create(:polling_station, voting: voting) }
-        let(:president) { create(:polling_officer, voting: voting, presided_polling_station: searched_station) }
+        let(:searched_station) { create(:polling_station, voting:) }
+        let(:president) { create(:polling_officer, voting:, presided_polling_station: searched_station) }
 
         it "filters the results as expected" do
           search_by_text(president.name)
@@ -65,8 +65,8 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
       end
 
       context "when searching by manager email" do
-        let(:searched_station) { create(:polling_station, voting: voting) }
-        let(:manager) { create(:polling_officer, voting: voting, managed_polling_station: searched_station) }
+        let(:searched_station) { create(:polling_station, voting:) }
+        let(:manager) { create(:polling_officer, voting:, managed_polling_station: searched_station) }
 
         it "filters the results as expected" do
           search_by_text(manager.email)
@@ -76,13 +76,13 @@ describe "Admin manages polling stations", type: :system, serves_geocoding_autoc
       end
 
       context "when filtering by assigned/unussigned" do
-        let(:polling_station_with_president) { create(:polling_station, voting: voting) }
-        let(:polling_station_with_both) { create(:polling_station, voting: voting) }
-        let!(:polling_station_unassigned) { create(:polling_station, voting: voting) }
+        let(:polling_station_with_president) { create(:polling_station, voting:) }
+        let(:polling_station_with_both) { create(:polling_station, voting:) }
+        let!(:polling_station_unassigned) { create(:polling_station, voting:) }
 
-        let!(:president) { create(:polling_officer, voting: voting, presided_polling_station: polling_station_with_president) }
-        let!(:manager) { create(:polling_officer, voting: voting, managed_polling_station: polling_station_with_both) }
-        let!(:other_president) { create(:polling_officer, voting: voting, presided_polling_station: polling_station_with_both) }
+        let!(:president) { create(:polling_officer, voting:, presided_polling_station: polling_station_with_president) }
+        let!(:manager) { create(:polling_officer, voting:, managed_polling_station: polling_station_with_both) }
+        let!(:other_president) { create(:polling_officer, voting:, presided_polling_station: polling_station_with_both) }
 
         it_behaves_like "a filtered collection", options: "Officers", filter: "Assigned" do
           let(:in_filter) { translated(polling_station_with_both.title) }

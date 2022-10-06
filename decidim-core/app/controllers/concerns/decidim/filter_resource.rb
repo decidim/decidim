@@ -52,12 +52,17 @@ module Decidim
       def filter_params
         @filter_params = begin
           passed_params = params.to_unsafe_h[:filter].try(:symbolize_keys) || {}
+          passed_params.transform_values! { |value| value == all_value ? nil : value } if all_value.present?
           default_filter_params.merge(passed_params.slice(*default_filter_params.keys))
         end
       end
 
       def default_filter_params
         {}
+      end
+
+      def all_value
+        nil
       end
 
       def default_filter_category_params
@@ -85,7 +90,7 @@ module Decidim
       # utilize this context information, such as the current user.
       def context_params
         context = {
-          current_user: current_user,
+          current_user:,
           organization: current_organization
         }
         context[:component] = current_component if respond_to?(:current_component)

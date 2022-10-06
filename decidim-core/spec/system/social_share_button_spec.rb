@@ -5,12 +5,8 @@ require "spec_helper"
 describe "Social share button", type: :system do
   let!(:resource) { create(:dummy_resource) }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
-  let(:web_driver) { :headless_chrome }
 
-  before do
-    driven_by(web_driver)
-    switch_to_host(resource.organization.host)
-  end
+  before { switch_to_host(resource.organization.host) }
 
   shared_examples_for "showing the social share buttons" do
     it "shows the 'socialShare' modal" do
@@ -38,57 +34,45 @@ describe "Social share button", type: :system do
       end
     end
 
-    context "when the device is a desktop" do
-      it "shows the desktop version of 'Share to Whatsapp' button" do
-        within ".social-share-button" do
-          expect(page).to have_css('a[data-site="whatsapp_web"]')
-        end
-      end
-
-      it "hides the mobile version of 'Share to Whatsapp' button" do
-        within ".social-share-button" do
-          expect(page).not_to have_css('a[data-site="whatsapp_app"]')
-        end
-      end
-    end
-
-    context "when the device is a mobile" do
-      let(:web_driver) { :iphone }
-
-      it "shows the mobile version of 'Share to Whatsapp' button" do
-        within ".social-share-button" do
-          expect(page).to have_css('a[data-site="whatsapp_app"]')
-        end
-      end
-
-      it "hides the desktop version of 'Share to Whatsapp' button" do
-        within ".social-share-button" do
-          expect(page).not_to have_css('a[data-site="whatsapp_web"]')
-        end
+    it "shows the 'Share to Whatsapp' button" do
+      within ".social-share-button" do
+        expect(page).to have_css('a[data-site="whatsapp"]')
       end
     end
   end
 
-  context "when the user is logged in" do
+  context "without cookie dialog" do
     before do
-      sign_in resource.author
-      visit resource_path
+      page.driver.browser.execute_cdp(
+        "Network.setCookie",
+        domain: resource.organization.host,
+        name: Decidim.consent_cookie_name,
+        value: { essential: true }.to_json,
+        path: "/"
+      )
     end
 
-    context "and clicks on the Share button" do
-      before { click_button "Share" }
+    context "when the user is logged in" do
+      before do
+        sign_in resource.author
+        visit resource_path
+      end
 
-      it_behaves_like "showing the social share buttons"
+      context "and clicks on the Share button" do
+        before { click_button "Share" }
+
+        it_behaves_like "showing the social share buttons"
+      end
     end
-  end
 
-  context "when the user is NOT logged in" do
-    before { visit resource_path }
+    context "when the user is NOT logged in" do
+      before { visit resource_path }
 
-    context "and clicks on the Share button" do
-      before { click_button "Share" }
+      context "and clicks on the Share button" do
+        before { click_button "Share" }
 
-      it_behaves_like "showing the social share buttons"
+        it_behaves_like "showing the social share buttons"
+      end
     end
   end
 end

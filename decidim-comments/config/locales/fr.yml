@@ -3,6 +3,7 @@ fr:
     models:
       decidim/comments/comment_by_followed_user_event: Commentaire
       decidim/comments/comment_created_event: Commentaire
+      decidim/comments/comment_upvoted_event: Vote favorable
       decidim/comments/reply_created_event: Réponse à un commentaire
       decidim/comments/user_group_mentioned_event: Mention
       decidim/comments/user_mentioned_event: Mention
@@ -121,32 +122,32 @@ fr:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} a laissé un commentaire dans %{resource_title}. Vous pouvez le lire sur la page suivante :"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de cet utilisateur depuis sa page de profil.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de cet utilisateur depuis sa page de profil, ou bien vous rendre dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
           email_intro: '%{author_name} a laissé un commentaire dans %{resource_title}. Vous pouvez le lire sur la page suivante :'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de cet utilisateur depuis sa page de profil.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez vous désabonner de ce groupe utilisateur depuis sa page de profil, ou bien vous rendre dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Un nouveau commentaire vient d'être déposé par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
           email_intro: "%{resource_title} a été commenté. Vous pouvez lire le commentaire sur cette page :"
-          email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez vous désabonner à partir du lien précédant.
+          email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}" ou son auteur. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Un nouveau commentaire vient d'être publié par %{author_name} dans %{resource_title}
           notification_title: Un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> vient d'être publié dans <a href="%{resource_path}">%{resource_title}</a>
         comment_downvoted:
           email_intro: Votre commentaire sur "%{resource_title}" a reçu un vote défavorable. Il a maintenant un total de %{upvotes} votes positifs et %{downvotes} votes négatifs.
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de ce commentaire.
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de ce commentaire. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Votre commentaire sur "%{resource_title}" a reçu un vote défavorable.
           notification_title: Votre <a href="%{resource_path}">commentaire</a> sur "%{resource_title}" a reçu un vote défavorable. Il a maintenant un total de %{upvotes} votes positifs et de %{downvotes} votes négatifs.
         comment_upvoted:
           email_intro: Votre commentaire dans "%{resource_title}" a reçu un vote favorable. Il a maintenant un total de %{upvotes} votes positifs et %{downvotes} votes négatifs.
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de ce commentaire.
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de ce commentaire. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Votre commentaire sur "%{resource_title}" a reçu un vote favorable.
           notification_title: Votre <a href="%{resource_path}">commentaire</a> sur "%{resource_title}" a reçu un vote favorable. Il a maintenant un total de %{upvotes} votes positifs et de %{downvotes} votes négatifs.
         reply_created:
           email_intro: "%{author_name} a répondu à votre commentaire dans %{resource_title}. Vous pouvez le lire depuis la page suivante :"
-          email_outro: Vous venez de recevoir une notification à votre commentaire.
+          email_outro: Vous avez reçu cette notification parce que votre commentaire a reçu une réponse. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: "%{author_name} a répondu à votre commentaire dans %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a réagi à votre commentaire sur <a href="%{resource_path}">%{resource_title}</a>
         user_group_mentioned:
@@ -156,7 +157,7 @@ fr:
           notification_title: Vous avez été mentionné dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a> en tant que membre de <a href="%{group_path}">%{group_name} %{group_nickname}</a>
         user_mentioned:
           email_intro: Vous avez été mentionné
-          email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans %{resource_title}.
+          email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans %{resource_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous avez été mentionné dans %{resource_title}
           notification_title: Vous avez été mentionné dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>
     metrics:

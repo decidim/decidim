@@ -4,12 +4,8 @@ Decidim comes with a powerful API in read-only mode based in the GraphQL specifi
 
 Documentation for this API is auto-generated in each instance of Decidim, usually under the URL:
 
-`some_domain/api/docs`
+`https://example.org/api/docs`
 
-Accessing that URL will give a full details of all the objects that can be requested and how.
+Accessing that URL will give a full details of all the objects that can be requested and how. It includes the full field types reference.
 
-For a quick introduction about how to use the Decidim API, please refer to this document:
-
-xref:../../decidim-api/docs/usage.adoc[Using the Decidim GraphQL API]
-
-Note that this document is available under the `api/docs` URL nicely formatted as well. It also includes the full field types reference.
+As an alternative, if you can't access that URL on your instance you can read about how this work https://github.com/decidim/decidim/blob/develop/decidim-api/docs/usage.md[Using the Decidim GraphQL API].

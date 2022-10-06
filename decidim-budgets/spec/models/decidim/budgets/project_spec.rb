@@ -22,21 +22,21 @@ module Decidim::Budgets
 
     context "when the scope is from another organization" do
       let(:scope) { create :scope }
-      let(:project) { build :project, scope: scope }
+      let(:project) { build :project, scope: }
 
       it { is_expected.not_to be_valid }
     end
 
     context "when the category is from another organization" do
       let(:category) { create :category }
-      let(:project) { build :project, category: category }
+      let(:project) { build :project, category: }
 
       it { is_expected.not_to be_valid }
     end
 
     describe ".ordered_ids" do
       let(:budget) { create(:budget, total_budget: 1_000_000) }
-      let(:projects) { create_list(:project, 50, budget: budget, budget_amount: 100_000) }
+      let(:projects) { create_list(:project, 50, budget:, budget_amount: 100_000) }
 
       before do
         # Reset the project IDs to start from 1 in order to get possibly
@@ -50,8 +50,8 @@ module Decidim::Budgets
       end
 
       it "returns the correctly ordered projects" do
-        first = described_class.where(budget: budget).order(:id).pluck(:id)[0..3]
-        ids = described_class.where(budget: budget).pluck(:id).shuffle
+        first = described_class.where(budget:).order(:id).pluck(:id)[0..3]
+        ids = described_class.where(budget:).pluck(:id).shuffle
 
         # Put the first items at the end of the IDs array in order to get
         # possibly "conflicting" matches for them at earlier array positions.
@@ -67,8 +67,8 @@ module Decidim::Budgets
       let(:project) { create :project, budget_amount: 75_000_000 }
       let(:order) { create :order, budget: project.budget }
       let(:unfinished_order) { create :order, budget: project.budget }
-      let!(:line_item) { create :line_item, project: project, order: order }
-      let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
+      let!(:line_item) { create :line_item, project:, order: }
+      let!(:line_item1) { create :line_item, project:, order: unfinished_order }
 
       it "return number of finished orders for this project" do
         order.reload.update!(checked_out_at: Time.current)
@@ -85,7 +85,7 @@ module Decidim::Budgets
     end
 
     describe "#selected?" do
-      let(:project) { create :project, selected_at: selected_at }
+      let(:project) { create :project, selected_at: }
 
       context "when selected_at is blank" do
         let(:selected_at) { nil }

@@ -8,8 +8,8 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization: organization) }
-    let(:current_component) { create :proposal_component, organization: organization, participatory_space: participatory_space }
+    let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
+    let(:current_component) { create :proposal_component, organization:, participatory_space: }
     let!(:proposal) do
       create(
         :proposal,
@@ -17,7 +17,7 @@ module Decidim
         skip_injection: true,
         component: current_component,
         scope: scope1,
-        body: description_1,
+        body: description1,
         users: [author]
       )
     end
@@ -45,7 +45,7 @@ module Decidim
 
             it "does indexes a SearchableResource after Proposal creation when it is official" do
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale:)
                 expect_searchable_resource_to_correspond_to_proposal(searchable, proposal, locale)
               end
             end
@@ -67,7 +67,7 @@ module Decidim
 
             it "inserts a SearchableResource after Proposal is published" do
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale:)
                 expect_searchable_resource_to_correspond_to_proposal(searchable, proposal, locale)
               end
             end
@@ -82,7 +82,7 @@ module Decidim
               searchable.reload
 
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: locale)
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale:)
                 expect(searchable.content_a).to eq updated_title[locale.to_s].to_s
                 expect(searchable.updated_at).to be > created_at
               end
@@ -163,10 +163,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(proposal, locale)
       {
-        "content_a" => I18n.transliterate(translated(proposal.title, locale: locale)),
+        "content_a" => I18n.transliterate(translated(proposal.title, locale:)),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(translated(proposal.body, locale: locale)),
+        "content_d" => I18n.transliterate(translated(proposal.body, locale:)),
         "locale" => locale,
         "decidim_organization_id" => proposal.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,

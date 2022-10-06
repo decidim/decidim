@@ -16,6 +16,7 @@
       <%= single_comment_warning %>
       <%= blocked_comments_warning %>
       <div class="comment-threads">
+        <%= comments_loading %>
         <% comments.each do |comment| %>
           <%= cell("decidim/comments/comment_thread", comment, order: order) %>
         <% end %>

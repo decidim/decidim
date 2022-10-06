@@ -165,13 +165,10 @@ ro:
           title: Confirmă votul
         budget_excess:
           budget_excess:
-            description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
             title: Buget maxim depășit
           close: Inchide
-          description: Acest proiect depășește bugetul maxim și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
           ok: Ok
           projects_excess:
-            description: Acest proiect depășește numărul maxim de proiecte și nu poate fi adăugat. Dacă dorești, poți șterge un proiect deja selectat pentru a-l adăuga pe acesta, putând astfel vota din nou conform preferințelor tale.
             title: Numărul maxim de proiecte a fost depășit
         budget_summary:
           are_you_sure: Sigur dorești să îți anulezi votul?
@@ -282,7 +279,6 @@ ro:
             total_budget: Buget total
             vote_minimum_budget_projects_number: Numărul minim de proiecte de votat
             vote_rule_minimum_budget_projects_enabled: 'Activează regula: Numărul minim de proiecte care urmează să fie votate pentru'
-            vote_rule_selected_projects_enabled: 'Activează regula: Numărul minim și numărul maxim de proiecte ce pot fi votate pentru'
             vote_rule_threshold_percent_enabled: 'Activează regulă: Procentaj minim al bugetului'
             vote_selected_projects_maximum: Numărul maxim de proiecte ce pot fi selectate
             vote_selected_projects_minimum: Numărul minim de proiecte ce pot fi selectate

@@ -12,7 +12,7 @@ module Decidim
           "file" => file
         }
       end
-      let(:file) { File.new Decidim::Dev.asset("verify_user_groups.csv") }
+      let(:file) { upload_test_file(Decidim::Dev.test_file("verify_user_groups.csv", "text/csv"), return_blob: true) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -22,6 +22,17 @@ module Decidim
         let(:file) { nil }
 
         it { is_expected.to be_invalid }
+      end
+
+      context "when the provided file is encoded with incorrect character set" do
+        let(:file) { upload_test_file(Decidim::Dev.asset("import_participatory_space_private_users_iso8859-1.csv")) }
+
+        it { is_expected.to be_invalid }
+
+        it "adds the correct error" do
+          subject.valid?
+          expect(subject.errors[:file].join).to eq("Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.")
+        end
       end
     end
   end

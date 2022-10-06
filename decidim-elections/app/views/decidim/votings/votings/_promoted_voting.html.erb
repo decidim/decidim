@@ -13,7 +13,7 @@
     </div>
     <div class="columns mediumlarge-8 large-6 card--process__column">
       <div class="card--full__image"
-           style="background-image:url(<%= promoted_voting.attached_uploader(:banner_image).path %>)">
+           style="background-image:url('<%= promoted_voting.attached_uploader(:banner_image).path %>')">
         <div class="card__content row collapse">
           <div class="large-6 large-offset-6 columns">
             <%= link_to voting_path(promoted_voting), class: "button expanded button--sc" do %>

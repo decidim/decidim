@@ -7,13 +7,13 @@ module Decidim::Assemblies
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
+    let(:user) { create :user, :admin, :confirmed, organization: }
     let(:title) { { en: "title" } }
     let(:form) do
       instance_double(
         Admin::AssembliesTypeForm,
         invalid?: invalid,
-        title: title,
+        title:,
         current_user: user,
         current_organization: organization
       )
@@ -34,7 +34,7 @@ module Decidim::Assemblies
       end
 
       it "creates a new assembly type for the organization" do
-        expect { subject.call }.to change { Decidim::AssembliesType.count }.by(1)
+        expect { subject.call }.to change(Decidim::AssembliesType, :count).by(1)
       end
 
       it "traces the action", versioning: true do

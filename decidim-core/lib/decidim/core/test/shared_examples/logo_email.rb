@@ -15,7 +15,7 @@ shared_examples "email with logo" do
 
     it "includes organization logo with full link" do
       expect(mail.body).to include("alt=\"#{organization.name}\"")
-      expect(mail.body).to match(%r{https{0,1}://#{organization.host}#{logo_path}})
+      expect(mail.body).to match(%r{https{0,1}://#{organization.host}:#{Capybara.server_port}#{logo_path}})
     end
   end
 end

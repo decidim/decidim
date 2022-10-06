@@ -1,4 +1,4 @@
-<section class="extended hero" style="background-image:url(<%= current_participatory_space.attached_uploader(:banner_image).path %>);">
+<section class="extended hero" style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');">
   <div class="hero__container">
     <div class="row">
       <div class="columns large-10 text-left">
@@ -24,6 +24,6 @@
   </div>
 </section>
 
-<section class="section">
+<section>
   <%= extended_navigation_bar(navigation_items) %>
 </section>

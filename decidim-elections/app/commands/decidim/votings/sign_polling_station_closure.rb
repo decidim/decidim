@@ -22,7 +22,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        closure.update!(signed_at: signed_at, phase: :complete)
+        closure.update!(signed_at:, phase: :complete)
 
         broadcast(:ok)
       end

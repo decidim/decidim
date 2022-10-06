@@ -9,35 +9,35 @@ module Decidim
       def email_subject
         I18n.t(
           "decidim.initiatives.events.revoke_membership_request.email_subject",
-          author_nickname: author_nickname
+          author_nickname:
         )
       end
 
       def email_intro
         I18n.t(
           "decidim.initiatives.events.revoke_membership_request.email_intro",
-          resource_title: resource_title,
-          resource_url: resource_url,
-          author_profile_url: author_profile_url,
-          author_nickname: author_nickname
+          resource_title:,
+          resource_url:,
+          author_profile_url:,
+          author_nickname:
         )
       end
 
       def email_outro
         I18n.t(
           "decidim.initiatives.events.revoke_membership_request.email_outro",
-          resource_title: resource_title,
-          resource_url: resource_url
+          resource_title:,
+          resource_url:
         )
       end
 
       def notification_title
         I18n.t(
           "decidim.initiatives.events.revoke_membership_request.notification_title",
-          resource_title: resource_title,
-          resource_url: resource_url,
-          author_profile_url: author_profile_url,
-          author_nickname: author_nickname
+          resource_title:,
+          resource_url:,
+          author_profile_url:,
+          author_nickname:
         ).html_safe
       end
 

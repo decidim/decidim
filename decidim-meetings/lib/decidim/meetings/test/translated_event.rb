@@ -4,7 +4,7 @@ shared_examples_for "a translated meeting event" do
   describe "translated notifications" do
     let(:en_body) { "This is Sparta!" }
     let(:body) { { en: en_body, machine_translations: { ca: "C'est Sparta!" } } }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
     let(:translatable) { true }
     let(:en_version) { resource.description["en"] }

@@ -18,6 +18,12 @@
       <%= form.number_field :budget_amount %>
     </div>
 
+    <% if @form.geocoding_enabled? %>
+      <div class="row column">
+        <%= form.geocoding_field :address %>
+      </div>
+    <% end %>
+
     <% if current_component.has_subscopes? %>
       <div class="row column">
         <%= scopes_picker_field form, :decidim_scope_id, root: budget.scope %>

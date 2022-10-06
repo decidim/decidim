@@ -28,7 +28,7 @@ module Decidim
         @metrics_presenter ||= Decidim::Admin::DashboardMetricChartsPresenter.new(
           summary: true,
           organization: current_organization,
-          view_context: view_context
+          view_context:
         )
       end
 
@@ -38,10 +38,10 @@ module Decidim
         last_month = Time.zone.today.prev_month
 
         {
-          total_admins_last_24: users_count(last_day, true),
+          total_admins_last_day: users_count(last_day, true),
           total_admins_last_week: users_count(last_week, true),
           total_admins_last_month: users_count(last_month, true),
-          total_participants_last_24: users_count(last_day, false),
+          total_participants_last_day: users_count(last_day, false),
           total_participants_last_week: users_count(last_week, false),
           total_participants_last_month: users_count(last_month, false)
         }
@@ -50,8 +50,8 @@ module Decidim
       def users_count(date, admin)
         @users_count = Decidim::Admin::ActiveUsersCounter.new(
           organization: current_organization,
-          date: date,
-          admin: admin
+          date:,
+          admin:
         ).query.count
       end
     end

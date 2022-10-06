@@ -9,10 +9,10 @@ module Decidim
       let(:current_user) { create :user, organization: meeting_component.organization }
       let(:meeting_component) { create :meeting_component }
       let(:meeting) { create :meeting, component: meeting_component }
-      let(:poll) { create :poll, meeting: meeting }
+      let(:poll) { create :poll, meeting: }
       let(:questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
-      let(:question) { create :meetings_poll_question, questionnaire: questionnaire }
-      let(:answer_options) { create_list(:meetings_poll_answer_option, 5, question: question) }
+      let(:question) { create :meetings_poll_question, questionnaire: }
+      let(:answer_options) { create_list(:meetings_poll_answer_option, 5, question:) }
       let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
       let(:form_params) do
         {
@@ -30,7 +30,7 @@ module Decidim
         AnswerForm.from_params(
           form_params
         ).with_context(
-          current_organization: current_organization
+          current_organization:
         )
       end
       let(:command) { described_class.new(form, current_user, questionnaire) }

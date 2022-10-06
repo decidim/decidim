@@ -9,7 +9,7 @@ module Decidim
 
       let(:organization) { create :organization }
       let(:name) { Decidim::Faker::Localized.word }
-      let(:area_type) { create :area_type, organization: organization }
+      let(:area_type) { create :area_type, organization: }
       let(:area_type_id) { area_type.id }
       let(:attributes) do
         {
@@ -40,7 +40,7 @@ module Decidim
           let(:area_type_id) { nil }
 
           before do
-            create(:area, organization: organization, name: name)
+            create(:area, organization:, name:)
           end
 
           it "is not valid" do
@@ -51,7 +51,7 @@ module Decidim
 
         context "and area_type is the same" do
           before do
-            create(:area, organization: organization, name: name, area_type: area_type)
+            create(:area, organization:, name:, area_type:)
           end
 
           it "is not valid" do
@@ -62,7 +62,7 @@ module Decidim
 
         context "and area_type is different" do
           before do
-            create(:area, organization: organization, name: name)
+            create(:area, organization:, name:)
           end
 
           it "is valid" do
@@ -73,7 +73,7 @@ module Decidim
 
       context "when the name exists in another organization" do
         before do
-          create(:area, name: name)
+          create(:area, name:)
         end
 
         it { is_expected.to be_valid }

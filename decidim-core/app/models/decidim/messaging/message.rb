@@ -26,8 +26,7 @@ module Decidim
                foreign_key: :decidim_message_id,
                inverse_of: :message
 
-      validates :sender, :body, presence: true
-      validates :body, length: { maximum: ->(_message) { Decidim.config.maximum_conversation_message_length } }
+      validates :body, presence: true, length: { maximum: ->(_message) { Decidim.config.maximum_conversation_message_length } }
 
       default_scope { order(created_at: :asc) }
 
@@ -53,7 +52,7 @@ module Decidim
         all_recipients(recipients).each do |recipient|
           next if @already_notified.include?(recipient)
 
-          receipts.build(recipient: recipient)
+          receipts.build(recipient:)
           @already_notified.push(recipient)
         end
       end

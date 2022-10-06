@@ -22,12 +22,16 @@ edit_link(
           <p>
             <%= t("decidim.votings.votings.check_census.success.info") %>
             <button type="button" class="link" data-open="access-code-modal">
+              <% if Decidim.sms_gateway_service.to_s.safe_constantize %>
+              <%= t("decidim.votings.votings.check_census.success.access_link_with_sms") %>
+              <% else %>
               <%= t("decidim.votings.votings.check_census.success.access_link") %>
+              <% end %>
             </button>
           </p>
         </div>
         <% if datum.email.present? || datum.mobile_phone_number.present? %>
-          <%= render partial: "access_code_modal", locals: { datum: datum, email: datum.email ? datum.email.gsub!(/.{4}(?=@)/,"****") : "", sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
+          <%= render partial: "access_code_modal", locals: { datum: datum, email: datum.email ? datum.email.gsub!(/^.+@/,"****@") : "", sms: datum.mobile_phone_number ? datum.mobile_phone_number.gsub!(/.{3}\d$/,"***") : "" } %>
         <% end %>
       <% elsif not_found %>
         <div class="verify-census-error callout alert mt-s">

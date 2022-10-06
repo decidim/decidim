@@ -7,7 +7,7 @@ module Decidim
     describe CreateUserGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create :user, :confirmed, organization: organization }
+        let(:user) { create :user, :confirmed, organization: }
 
         let(:name) { "User group name" }
         let(:nickname) { "nickname" }
@@ -68,7 +68,7 @@ module Decidim
               email: form.email,
               avatar: form.avatar,
               about: form.about,
-              organization: organization,
+              organization:,
               extended_data: {
                 phone: form.phone,
                 document_number: form.document_number
@@ -94,7 +94,7 @@ module Decidim
                 event: "decidim.events.groups.user_group_created",
                 event_class: Decidim::UserGroupCreatedEvent,
                 resource: an_object_satisfying { |obj| obj.is_a?(Decidim::UserGroup) },
-                affected_users: a_collection_containing_exactly(*Decidim::User.where(organization: organization, admin: true).all)
+                affected_users: a_collection_containing_exactly(*Decidim::User.where(organization:, admin: true).all)
               )
 
             command.call

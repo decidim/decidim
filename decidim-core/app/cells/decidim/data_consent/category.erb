@@ -1,0 +1,64 @@
+<div class="category-wrapper margin-vertical-1" data-id="<%= category[:slug] %>">
+  <div class="category-row flex-center">
+    <button class="dc-title padding-left-3">
+      <span class="h5 dc-category-title">
+        <strong><%= category[:title] %></strong>
+      </span>
+    </button>
+
+    <div class="dc-switch">
+      <input
+        class="switch-input"
+        <%= %(checked="checked") if category[:mandatory] %>
+        id="dc-<%= category[:slug] %>"
+        type="checkbox"
+        name="<%= category[:slug] %>"
+        <%= "disabled" if category[:mandatory] %>>
+
+      <label class="switch-paddle" for="dc-<%= category[:slug] %>">
+        <span class="show-for-sr"><%= t("layouts.decidim.data_consent.modal.toggle", consent_category: category[:title]) %></span>
+      </label>
+    </div>
+  </div>
+  <div class="dc-description hide">
+    <div class="description-text">
+      <p><%= category[:description] %></p>
+    </div>
+
+    <% if category[:items].present? %>
+      <div class="dataconsent-details-wrapper">
+        <div class="row detail-titles">
+          <div class="columns small-2">
+            <%= t("layouts.decidim.data_consent.details.columns.type") %>
+          </div>
+          <div class="columns small-2">
+            <%= t("layouts.decidim.data_consent.details.columns.name") %>
+          </div>
+          <div class="columns small-2">
+            <%= t("layouts.decidim.data_consent.details.columns.service") %>
+          </div>
+          <div class="columns small-6">
+            <%= t("layouts.decidim.data_consent.details.columns.description") %>
+          </div>
+        </div>
+
+        <% category[:items].each do |item| %>
+          <div class="row dataconsent-detail-row">
+            <div class="columns small-2">
+              <%= t("layouts.decidim.data_consent.details.types.#{item[:type]}") %>
+            </div>
+            <div class="columns small-2">
+              <%= item[:name] %>
+            </div>
+            <div class="columns small-2">
+              <%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.service") %>
+            </div>
+            <div class="columns small-6">
+              <%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.description") %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

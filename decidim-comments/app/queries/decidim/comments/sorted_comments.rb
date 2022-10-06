@@ -49,7 +49,7 @@ module Decidim
 
       def base_scope
         id = @options[:id]
-        return Comment.where(root_commentable: commentable, id: id) if id.present?
+        return Comment.where(root_commentable: commentable, id:) if id.present?
 
         after = @options[:after]
         if after.present?
@@ -59,7 +59,7 @@ module Decidim
           )
         end
 
-        Comment.where(commentable: commentable)
+        Comment.where(commentable:)
       end
 
       def order_by_older(scope)

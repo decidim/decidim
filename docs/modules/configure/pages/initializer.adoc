@@ -66,7 +66,7 @@ this value for that specific organization.
 == Content Processors
 
 Defines a list of custom content processors. They are used to parse and
-render specific tags inside some user-provided content. Check the xref:develop:content_processor.adoc[Content Processor]
+render specific tags inside some user-provided content. Check the xref:develop:content_processors.adoc[Content Processor]
 docs for more info.
 
 [source,ruby]
@@ -101,7 +101,7 @@ Please refer to:
 
 == Geocoder configuration
 
-Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:geocoder.adoc[Geocoder service documentation].
+Allows to make geographical mapping in some components, like Proposals or Meetings. It must be configured against a OpenStreetMap provider. See xref:services:maps.adoc[Geocoder service documentation].
 
 [source,ruby]
 ....
@@ -113,7 +113,7 @@ Allows to make geographical mapping in some components, like Proposals or Meetin
 
 == Custom resource reference
 
-Custom resource reference generator method. See the See xref:admin:system_panel.adoc[System panel docs] for more information.
+Custom resource reference generator method. See the See xref:admin:system.adoc[System panel docs] for more information.
 
 [source,ruby]
 ....
@@ -261,7 +261,7 @@ If not set, it will be ignored.
 == SMS gateway configuration
 
 If you want to verify your users by sending a verification code via
-SMS you need to provide a SMS gateway service class.
+xref:services:sms.adoc[SMS] you need to provide a SMS gateway service class.
 
 An example class would be something like:
 

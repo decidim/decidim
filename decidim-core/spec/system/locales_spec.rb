@@ -63,7 +63,7 @@ describe "Locales", type: :system do
     end
 
     context "with a signed in user" do
-      let(:user) { create(:user, :confirmed, locale: "ca", organization: organization) }
+      let(:user) { create(:user, :confirmed, locale: "ca", organization:) }
 
       before do
         login_as user, scope: :user

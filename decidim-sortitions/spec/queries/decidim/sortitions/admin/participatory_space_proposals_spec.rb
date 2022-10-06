@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe ParticipatorySpaceProposals do
         let(:organization) { create(:organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
         let(:another_proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
         let(:proposals) { create_list(:proposal, 10, component: proposal_component, created_at: request_timestamp - 10.days) }
@@ -16,9 +16,9 @@ module Decidim
         let(:decidim_proposals_component) { proposal_component }
         let(:sortition) do
           double(
-            request_timestamp: request_timestamp,
-            category: category,
-            decidim_proposals_component: decidim_proposals_component
+            request_timestamp:,
+            category:,
+            decidim_proposals_component:
           )
         end
 

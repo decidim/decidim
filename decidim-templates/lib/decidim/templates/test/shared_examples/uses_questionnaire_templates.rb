@@ -9,7 +9,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
     context "when there are no templates" do
       before do
         questionnaire.update_columns(
-          created_at: Time.zone.now - 1.day,
+          created_at: 1.day.ago,
           updated_at: Time.zone.now
         )
       end
@@ -27,7 +27,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
       context "when it is an existing questionnaire" do
         before do
           questionnaire.update_columns(
-            created_at: Time.zone.now - 1.day,
+            created_at: 1.day.ago,
             updated_at: Time.zone.now
           )
         end

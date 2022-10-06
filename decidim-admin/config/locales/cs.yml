@@ -845,6 +845,12 @@ cs:
           invalid: Při čtení souboru CSV došlo k chybě.
           success: CSV soubor byl úspěšně nahrán, posíláme e-maily na účastníky. To může trvat nějakou dobu.
         new:
+          destroy:
+            button: Odstranit všechny soukromé účastníky
+            confirm: Jste si jisti, že chcete odstranit všechny soukromé účastníky? Tuto akci nelze vrátit zpět, nebudete je moci obnovit.
+            empty: Nemáte žádné soukromé účastníky.
+            explanation: Máte %{count} soukromých účastníků.
+            title: Odstranit soukromé účastníky
           explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru (e-mail, jméno) uživatelů, které chcete přidat do participačního prostoru, bez záhlaví. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
           title: Nahrajte Váš CSV soubor
           upload: Nahrát
@@ -1063,7 +1069,7 @@ cs:
             hidden_at: Skryté u
             participatory_space: Participativní prostor
             report_count: Spočítat
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: Typ
             reported_content_url: Oznámená adresa URL obsahu
             reports: Zprávy

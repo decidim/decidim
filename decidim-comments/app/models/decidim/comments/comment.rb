@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
+      include Decidim::ActsAsTree
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)
@@ -26,6 +27,8 @@ module Decidim
       MAX_DEPTH = 3
 
       translatable_fields :body
+
+      parent_item_foreign_key :decidim_commentable_id
 
       belongs_to :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", polymorphic: true
       belongs_to :root_commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", polymorphic: true, touch: true
@@ -53,8 +56,6 @@ module Decidim
       validate :body_length
       validate :commentable_can_have_comments
 
-      delegate :organization, to: :commentable
-
       scope :not_deleted, -> { where(deleted_at: nil) }
 
       translatable_fields :body
@@ -76,6 +77,10 @@ module Decidim
 
       def self.negative
         where(alignment: -1)
+      end
+
+      def organization
+        commentable&.organization || participatory_space&.organization
       end
 
       def visible?
@@ -128,6 +133,8 @@ module Decidim
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
+        return unless root_commentable
+
         url_params = { anchor: "comment_#{id}" }
 
         if root_commentable.respond_to?(:polymorphic_resource_url)

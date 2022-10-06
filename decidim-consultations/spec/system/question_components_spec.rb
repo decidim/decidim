@@ -6,14 +6,14 @@ require "decidim/proposals/test/factories"
 describe "Question", type: :system do
   let(:manifest) { Decidim.find_component_manifest("proposals") }
   let(:organization) { create(:organization) }
-  let(:consultation) { create(:consultation, :published, organization: organization) }
-  let(:question) { create(:question, consultation: consultation) }
+  let(:consultation) { create(:consultation, :published, organization:) }
+  let(:question) { create(:question, consultation:) }
   let(:component) do
     create(:component,
-           manifest: manifest,
+           manifest:,
            participatory_space: question)
   end
-  let!(:proposal) { create(:proposal, component: component) }
+  let!(:proposal) { create(:proposal, component:) }
 
   context "when there is a proposal component" do
     before do

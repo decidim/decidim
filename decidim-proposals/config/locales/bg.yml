@@ -36,10 +36,6 @@ bg:
           valuator_role_id: Име на проверяващ
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Невалиден тип документ. Допустимите формати са: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -155,33 +151,21 @@ bg:
             email_subject: Някой е направил бележка в предложението %{resource_title}.
             notification_title: Някой е направил бележка в предложението <a href="%{resource_path}">%{resource_title}</a>. Вижте я в <a href="%{admin_proposal_info_path}">администраторския панел</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} получи достъп като сътрудник в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} получи достъп като сътрудник в %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>получи достъп като сътрудник</strong> в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} е отхвърлен като сътрудник в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} е отхвърлен като сътрудник в съвместната чернова %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> <strong>е отхвърлен като сътрудник</strong> в съвместната чернова <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} заяви достъп като сътрудник. Можете да <strong>приемете или отхвърлите</strong> от сраницата на колективната чернова <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{requester_name} заяви достъп като сътрудник в %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> заяви достъп като сътрудник в колективната чернова <a href="%{resource_path}">%{resource_title}</a>. Моля, <strong>приемете или отхвърлете заявката</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Получихте достъп като сътрудник в колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Получихте известие, защото заявихте да бъдете сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Приет сте като сътрудник в %{resource_title}.
           notification_title: <strong>Получихте достъп като сътрудник</strong> в колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
-          email_intro: Отказан Ви е достъп като сътрудник в колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Получихте известие, защото заявихте да бъдете сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: Отхвърлен сте като сътрудник в %{resource_title}.
           notification_title: <strong>Отказан Ви е достъп като сътрудник</strong> в колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> оттегли колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
-          email_outro: Получихте известие, защото сте сътрудник в <a href="%{resource_path}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} оттегли колективната чернова %{resource_title}."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>оттегли</strong> колективната чернова <a href="%{resource_path}">%{resource_title}</a>.
         creation_enabled:

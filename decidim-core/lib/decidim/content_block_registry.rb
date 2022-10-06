@@ -60,7 +60,7 @@ module Decidim
         )
       end
 
-      content_block = ContentBlockManifest.new(name: name)
+      content_block = ContentBlockManifest.new(name:)
 
       yield(content_block)
 

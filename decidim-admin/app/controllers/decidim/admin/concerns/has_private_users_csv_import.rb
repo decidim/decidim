@@ -17,14 +17,14 @@ module Decidim
 
           def new
             enforce_permission_to :csv_import, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserCsvImportForm).from_params({}, privatable_to: privatable_to)
+            @form = form(ParticipatorySpacePrivateUserCsvImportForm).from_params({}, privatable_to:)
             @count = Decidim::ParticipatorySpacePrivateUser.by_participatory_space(privatable_to).count
             render template: "decidim/admin/participatory_space_private_users_csv_imports/new"
           end
 
           def create
             enforce_permission_to :csv_import, :space_private_user
-            @form = form(ParticipatorySpacePrivateUserCsvImportForm).from_params(params, privatable_to: privatable_to)
+            @form = form(ParticipatorySpacePrivateUserCsvImportForm).from_params(params, privatable_to:)
 
             ProcessParticipatorySpacePrivateUserImportCsv.call(@form, current_user, current_participatory_space) do
               on(:ok) do

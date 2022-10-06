@@ -7,7 +7,7 @@ describe "Admin manages meetings polls", type: :system do
   let(:participatory_process) { create(:participatory_process, organization: current_organization) }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
   let(:manifest_name) { "meetings" }
-  let!(:meeting) { create :meeting, scope: scope, services: [], component: current_component }
+  let!(:meeting) { create :meeting, scope:, services: [], component: current_component }
   let(:poll) { create(:poll) }
   let(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
   let(:body) do
@@ -240,8 +240,8 @@ describe "Admin manages meetings polls", type: :system do
   end
 
   context "when the questionnaire is already answered" do
-    let!(:question) { create(:meetings_poll_question, questionnaire: questionnaire, body: body, question_type: "multiple_option") }
-    let!(:answer) { create(:meetings_poll_answer, questionnaire: questionnaire, question: question) }
+    let!(:question) { create(:meetings_poll_question, questionnaire:, body:, question_type: "multiple_option") }
+    let!(:answer) { create(:meetings_poll_answer, questionnaire:, question:) }
 
     it "can modify questionnaire questions" do
       visit questionnaire_edit_path
@@ -254,19 +254,19 @@ describe "Admin manages meetings polls", type: :system do
   private
 
   def find_nested_form_field_locator(attribute, visible: :visible)
-    find_nested_form_field(attribute, visible: visible)["id"]
+    find_nested_form_field(attribute, visible:)["id"]
   end
 
   def find_nested_form_field(attribute, visible: :visible)
-    current_scope.find(nested_form_field_selector(attribute), visible: visible, match: :first)
+    current_scope.find(nested_form_field_selector(attribute), visible:, match: :first)
   end
 
   def have_nested_field(attribute, with:)
-    have_field find_nested_form_field_locator(attribute), with: with
+    have_field find_nested_form_field_locator(attribute), with:
   end
 
   def have_no_nested_field(attribute, with:)
-    have_no_field(find_nested_form_field_locator(attribute), with: with)
+    have_no_field(find_nested_form_field_locator(attribute), with:)
   end
 
   def nested_form_field_selector(attribute)

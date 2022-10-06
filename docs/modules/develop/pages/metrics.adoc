@@ -117,3 +117,7 @@ Relations around `decidim_metrics` table:
                            | [polymorphic]  |
                            +----------------+
 ----
+
+== Troubleshooting
+
+If you find problems in your metrics numbers you can follow the guide xref:develop:troubleshooting_metrics.adoc[Troubleshooting metrics].

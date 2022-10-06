@@ -25,7 +25,7 @@ module Decidim
             datum_form = DatumForm.from_params(params)
                                   .with_context(
                                     current_user: user,
-                                    dataset: dataset
+                                    dataset:
                                   )
 
             CreateDatum.call(datum_form, dataset)

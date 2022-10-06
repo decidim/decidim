@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::ParticipatoryProcesses::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, :admin, organization: organization }
+  let(:user) { create :user, :admin, organization: }
   let(:organization) { create :organization }
-  let(:process) { create :participatory_process, organization: organization }
+  let(:process) { create :participatory_process, organization: }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:process_admin) { create :process_admin, participatory_process: process }
@@ -86,7 +86,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       let(:action) do
         { scope: :public, action: :read, subject: :process }
       end
-      let(:context) { { process: process } }
+      let(:context) { { process: } }
 
       context "when the user is an admin" do
         let(:user) { create :user, :admin }
@@ -95,14 +95,14 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       end
 
       context "when the process is published" do
-        let(:user) { create :user, organization: organization }
+        let(:user) { create :user, organization: }
 
         it { is_expected.to be true }
       end
 
       context "when the process is not published" do
-        let(:user) { create :user, organization: organization }
-        let(:process) { create :participatory_process, :unpublished, organization: organization }
+        let(:user) { create :user, organization: }
+        let(:process) { create :participatory_process, :unpublished, organization: }
 
         context "when the user doesn't have access to it" do
           it { is_expected.to be false }
@@ -110,7 +110,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
 
         context "when the user has access to it" do
           before do
-            create :participatory_process_user_role, user: user, participatory_process: process
+            create :participatory_process_user_role, user:, participatory_process: process
           end
 
           it { is_expected.to be true }
@@ -259,7 +259,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
     let(:action) do
       { scope: :admin, action: :read, subject: :process }
     end
-    let(:context) { { process: process } }
+    let(:context) { { process: } }
 
     it_behaves_like(
       "access for roles",
@@ -303,7 +303,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
   end
 
   context "with a process" do
-    let(:context) { { process: process } }
+    let(:context) { { process: } }
 
     context "when moderating a resource" do
       let(:action) do

@@ -45,6 +45,15 @@
     </div>
 
     <div class="row">
+      <div class="columns xlarge-6 show_check_census">
+        <%= form.check_box :show_check_census %>
+        <p class="help-text">
+          <%== t(".show_check_census_help") %>
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="columns xlarge-6 census_contact_information">
         <%= form.text_field :census_contact_information, label: t(".census_contact_information") %>
         <p class="help-text">

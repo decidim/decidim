@@ -13,7 +13,7 @@ module Decidim
       it { is_expected.to be_valid }
 
       describe ".hashtag" do
-        let(:question) { build :question, hashtag: "#hashtag", max_votes: max_votes }
+        let(:question) { build :question, hashtag: "#hashtag", max_votes: }
 
         it "Do not includes the hash character" do
           expect(question.hashtag).to eq("hashtag")
@@ -22,7 +22,7 @@ module Decidim
 
       describe ".voted_by?" do
         let(:question) { create(:question) }
-        let!(:vote) { create(:vote, question: question) }
+        let!(:vote) { create(:vote, question:) }
 
         it "returns true when the user has voted the question" do
           expect(question).to be_voted_by(vote.author)

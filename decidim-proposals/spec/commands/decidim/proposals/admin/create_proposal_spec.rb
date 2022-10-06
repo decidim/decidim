@@ -11,7 +11,7 @@ module Decidim
         let(:organization) { component.organization }
         let(:meeting_component) { create(:meeting_component, participatory_space: component.participatory_space) }
         let(:meetings) { create_list(:meeting, 3, :published, component: meeting_component) }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
+        let(:user) { create :user, :admin, :confirmed, organization: }
         let(:form) do
           form_klass.from_params(
             form_params
@@ -37,13 +37,13 @@ module Decidim
             {
               title: { en: "A reasonable proposal title" },
               body: { en: "A reasonable proposal body" },
-              address: address,
-              has_address: has_address,
+              address:,
+              has_address:,
               attachment: attachment_params,
-              photos: photos,
+              photos:,
               add_photos: uploaded_photos,
-              created_in_meeting: created_in_meeting,
-              meeting_id: meeting_id,
+              created_in_meeting:,
+              meeting_id:,
               user_group_id: nil
             }
           end
@@ -99,7 +99,7 @@ module Decidim
               end
 
               context "when the meeting is already linked to other proposals" do
-                let(:another_proposal) { create :proposal, component: component }
+                let(:another_proposal) { create :proposal, component: }
 
                 it "keeps the old proposals linked" do
                   another_proposal.link_resources(meeting_as_author, "proposals_from_meeting")

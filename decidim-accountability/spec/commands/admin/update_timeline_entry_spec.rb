@@ -4,14 +4,15 @@ require "spec_helper"
 
 module Decidim::Accountability
   describe Admin::UpdateTimelineEntry do
-    subject { described_class.new(form, timeline_entry) }
+    subject { described_class.new(form, timeline_entry, user) }
 
     let(:organization) { create :organization, available_locales: [:en] }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:user) { create :user, organization: }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :accountability_component, participatory_space: participatory_process }
     let(:result) { create :result, component: current_component }
 
-    let(:timeline_entry) { create :timeline_entry, result: result }
+    let(:timeline_entry) { create :timeline_entry, result: }
 
     let(:date) { "2017-9-23" }
     let(:title) { "New title" }
@@ -44,6 +45,18 @@ module Decidim::Accountability
       it "sets the description" do
         subject.call
         expect(translated(timeline_entry.description)).to eq description
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:update, Decidim::Accountability::TimelineEntry, user, {})
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.action).to eq("update")
+        expect(action_log.version).to be_present
       end
     end
   end

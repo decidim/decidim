@@ -138,8 +138,8 @@ describe Decidim::Search do
     let(:term) { "black" }
 
     context "when searchables are from the future" do
-      let(:datetime1) { Time.current + 10.seconds }
-      let(:datetime2) { Time.current + 20.seconds }
+      let(:datetime1) { 10.seconds.from_now }
+      let(:datetime2) { 20.seconds.from_now }
 
       it "returns matches sorted by date descendently" do
         described_class.call(term, current_organization) do
@@ -153,8 +153,8 @@ describe Decidim::Search do
     end
 
     context "when searchables are from the past" do
-      let(:datetime1) { Time.current - 1.day }
-      let(:datetime2) { Time.current - 2.days }
+      let(:datetime1) { 1.day.ago }
+      let(:datetime2) { 2.days.ago }
 
       it "returns matches sorted by date descendently" do
         described_class.call(term, current_organization) do
@@ -168,8 +168,8 @@ describe Decidim::Search do
     end
 
     context "when searchables are from the future and the past" do
-      let(:datetime1) { Time.current + 1.day }
-      let(:datetime2) { Time.current - 1.day }
+      let(:datetime1) { 1.day.from_now }
+      let(:datetime2) { 1.day.ago }
 
       it "returns matches sorted by date descendently" do
         described_class.call(term, current_organization) do
@@ -191,7 +191,7 @@ describe Decidim::Search do
       let(:resource_type) { "Decidim::DummyResources::DummyResource" }
 
       before do
-        create_list(:searchable_resource, 5, organization: current_organization, resource_type: resource_type, content_a: "Where's your crown king nothing?")
+        create_list(:searchable_resource, 5, organization: current_organization, resource_type:, content_a: "Where's your crown king nothing?")
 
         # rubocop:disable RSpec/FactoryBot/CreateList
         3.times do
@@ -274,7 +274,7 @@ describe Decidim::Search do
 
     context "with scope" do
       let!(:scoped_resource) do
-        create(:searchable_resource, organization: current_organization, scope: scope, content_a: "Where's your crown king nothing?")
+        create(:searchable_resource, organization: current_organization, scope:, content_a: "Where's your crown king nothing?")
       end
 
       before do

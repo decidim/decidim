@@ -30,8 +30,8 @@ module Decidim::Assemblies
           designation_date: Time.current,
           position: Decidim::AssemblyMember::POSITIONS.sample,
           position_other: "other",
-          existing_user: existing_user,
-          non_user_avatar: non_user_avatar,
+          existing_user:,
+          non_user_avatar:,
           user_id: user_entity&.id
         }
       }
@@ -40,7 +40,7 @@ module Decidim::Assemblies
       form_klass.from_params(
         form_params
       ).with_context(
-        current_user: current_user,
+        current_user:,
         current_organization: assembly.organization
       )
     end
@@ -73,7 +73,7 @@ module Decidim::Assemblies
       let(:assembly_member) { Decidim::AssemblyMember.last }
 
       it "creates an assembly" do
-        expect { subject.call }.to change { Decidim::AssemblyMember.count }.by(1)
+        expect { subject.call }.to change(Decidim::AssemblyMember, :count).by(1)
       end
 
       it "broadcasts ok" do

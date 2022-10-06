@@ -228,8 +228,6 @@ tr:
             edit: Düzenle
             new: Yeni
             photos: Resimler
-          show:
-            print: baskı
           update:
             error: bir hata oluştu
             success: Vatandaş girişimi başarıyla güncellendi

@@ -6,12 +6,17 @@ module Decidim
 
     belongs_to :coauthorable, polymorphic: true, counter_cache: true
 
-    validates :coauthorable, presence: true
-
     after_commit :author_is_follower, on: [:create]
 
     def identity
       user_group || author
+    end
+
+    # Reports the mapped resource type for authorization transfers.
+    #
+    # @return [String] The resource type as string (i.e. its class name).
+    def mapped_resource_type
+      coauthorable_type
     end
 
     private

@@ -48,9 +48,9 @@ module Decidim
           initiative.votes.create!(
             author: form.signer,
             encrypted_metadata: form.encrypted_metadata,
-            timestamp: timestamp,
+            timestamp:,
             hash_id: form.hash_id,
-            scope: scope
+            scope:
           )
         end
       end
@@ -88,7 +88,7 @@ module Decidim
           affected_users: [initiative.author],
           followers: initiative.followers - [initiative.author],
           extra: {
-            percentage: percentage
+            percentage:
           }
         )
       end
@@ -101,12 +101,8 @@ module Decidim
           event: "decidim.events.initiatives.support_threshold_reached",
           event_class: Decidim::Initiatives::Admin::SupportThresholdReachedEvent,
           resource: initiative,
-          followers: organization_admins
+          followers: initiative.organization.admins
         )
-      end
-
-      def organization_admins
-        Decidim::User.where(organization: initiative.organization, admin: true)
       end
     end
   end

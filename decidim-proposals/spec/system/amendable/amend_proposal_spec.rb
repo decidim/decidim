@@ -4,10 +4,10 @@ require "spec_helper"
 
 describe "Amend Proposal", versioning: true, type: :system do
   let!(:participatory_space) { create(:participatory_process, :with_steps) }
-  let!(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let!(:proposal) { create(:proposal, title: { en: "Long enough title" }, component: component) }
-  let!(:emendation) { create(:proposal, title: { en: "Amended Long enough title" }, component: component) }
-  let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
+  let!(:component) { create(:proposal_component, participatory_space:) }
+  let!(:proposal) { create(:proposal, title: { en: "Long enough title" }, component:) }
+  let!(:emendation) { create(:proposal, title: { en: "Amended Long enough title" }, component:) }
+  let!(:amendment) { create :amendment, amendable: proposal, emendation: }
   let(:proposal_title) { translated(proposal.title) }
   let(:emendation_title) { translated(emendation.title) }
   let(:emendation_body) { translated(emendation.body) }
@@ -254,7 +254,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             end
 
             it "is shown the Success Callout" do
-              expect(page).to have_css(".callout.success")
+              expect(page).to have_css("[data-alert-box].success")
             end
           end
 
@@ -267,7 +267,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             end
 
             it "is shown the Error Callout" do
-              expect(page).to have_css(".callout.alert", text: "An error ocurred while creating the amendment")
+              expect(page).to have_css("[data-alert-box].alert", text: "An error ocurred while creating the amendment")
             end
 
             it "is shown the field error message" do
@@ -338,7 +338,7 @@ describe "Amend Proposal", versioning: true, type: :system do
             end
 
             it "is shown the Success Callout" do
-              expect(page).to have_css(".callout.success", text: "The amendment has been accepted successfully.")
+              expect(page).to have_css("[data-alert-box].success", text: "The amendment has been accepted successfully.")
             end
 
             it "is changed the state of the emendation" do
@@ -358,11 +358,11 @@ describe "Amend Proposal", versioning: true, type: :system do
           end
 
           it "is shown the Success Callout" do
-            expect(page).to have_css(".callout.success", text: "The amendment has been successfully rejected")
+            expect(page).to have_css("[data-alert-box].success", text: "The amendment has been successfully rejected")
           end
 
           it "is changed the state of the emendation" do
-            expect(page).to have_css(".callout.alert", text: "This amendment for the proposal #{proposal_title} was rejected")
+            expect(page).to have_css(".callout.alert[data-announcement]", text: "This amendment for the proposal #{proposal_title} was rejected")
           end
         end
       end

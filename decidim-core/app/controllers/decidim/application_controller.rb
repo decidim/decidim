@@ -20,13 +20,16 @@ module Decidim
     include NeedsSnippets
     include UserBlockedChecker
     include DisableRedirectionToExternalHost
+    include NeedsPasswordChange
+
+    include RedesignLayout
+    redesign active: true
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
     helper Decidim::LanguageChooserHelper
     helper Decidim::ReplaceButtonsHelper
     helper Decidim::TranslationsHelper
-    helper Decidim::CookiesHelper
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
     helper Decidim::ComponentPathHelper
@@ -34,6 +37,7 @@ module Decidim
     helper Decidim::CardHelper
     helper Decidim::SanitizeHelper
     helper Decidim::TwitterSearchHelper
+    helper Decidim::SocialShareButtonHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,

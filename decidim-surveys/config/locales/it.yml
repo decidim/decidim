@@ -30,7 +30,6 @@ it:
           step:
             allow_answers: Consenti risposte
             allow_unregistered: Consenti agli utenti non registrati di rispondere al sondaggio
-            allow_unregistered_help: Se attivo, nessun login sarà richiesto per rispondere all'indagine. Questo può portare a dati inaffidabili e sarà più vulnerabile agli attacchi automatizzati. Utilizzare con cautela!
             announcement: Annuncio
     events:
       surveys:

@@ -68,7 +68,6 @@ module Decidim
       scope :except_rejected, -> { where.not(state: "rejected").or(state_not_published) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
       scope :drafts, -> { where(published_at: nil) }
-      scope :except_drafts, -> { where.not(published_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :order_by_most_recent, -> { order(created_at: :desc) }
 
@@ -107,7 +106,7 @@ module Decidim
       scope_search_multi :with_any_state, [:accepted, :rejected, :evaluating, :state_not_published]
 
       def self.with_valuation_assigned_to(user, space)
-        valuator_roles = space.user_roles(:valuator).where(user: user)
+        valuator_roles = space.user_roles(:valuator).where(user:)
 
         includes(:valuation_assignments)
           .where(decidim_proposals_valuation_assignments: { valuator_role_id: valuator_roles })
@@ -140,7 +139,7 @@ module Decidim
       end
 
       def self.retrieve_proposals_for(component)
-        Decidim::Proposals::Proposal.where(component: component).joins(:coauthorships)
+        Decidim::Proposals::Proposal.where(component:).joins(:coauthorships)
                                     .includes(:votes, :endorsements)
                                     .where(decidim_coauthorships: { decidim_author_type: "Decidim::UserBaseEntity" })
                                     .not_hidden
@@ -256,6 +255,12 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
+      # Returns the presenter for this author, to be used in the views.
+      # Required by ResourceRenderer.
+      def presenter
+        Decidim::Proposals::ProposalPresenter.new(self)
+      end
+
       # Public: Overrides the `reported_attributes` Reportable concern method.
       def reported_attributes
         [:title, :body]
@@ -350,7 +355,7 @@ module Decidim
           )
         )
         SQL
-        where(query, value: value)
+        where(query, value:)
       end
 
       def self.ransackable_scopes(auth_object = nil)

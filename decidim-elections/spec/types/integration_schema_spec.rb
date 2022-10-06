@@ -40,7 +40,6 @@ describe "Decidim::Api::QueryType" do
               "weight" => a.weight.to_i
             }
           end,
-          "description" => { "translation" => q.description[locale] },
           "id" => q.id.to_s,
           "maxSelections" => q.max_selections,
           "minSelections" => q.min_selections,
@@ -113,9 +112,6 @@ describe "Decidim::Api::QueryType" do
                     versionsCount
                     results_total
                     weight
-                  }
-                  description {
-                    translation(locale: "en")
                   }
                   id
                   maxSelections
@@ -193,9 +189,6 @@ describe "Decidim::Api::QueryType" do
               versionsCount
               results_total
               weight
-            }
-            description {
-              translation(locale: "en")
             }
             id
             maxSelections

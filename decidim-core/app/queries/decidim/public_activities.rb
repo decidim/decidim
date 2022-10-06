@@ -34,10 +34,10 @@ module Decidim
 
     def query
       query = ActionLog
-              .where(visibility: visibility)
-              .where(organization: organization)
+              .where(visibility:)
+              .where(organization:)
 
-      query = query.where(user: user) if user
+      query = query.where(user:) if user
       query = query.where(resource_type: resource_name) if resource_name.present?
 
       query = filter_follows(query)

@@ -85,8 +85,8 @@ module Decidim
       end
       http_method = selected ? :delete : :post
       render partial: "decidim/endorsements/identity", locals:
-      { identity: presenter, selected: selected,
-        http_method: http_method,
+      { identity: presenter, selected:,
+        http_method:,
         create_url: path_to_create_endorsement(resource, user_group),
         destroy_url: path_to_destroy_endorsement(resource, user_group) }
     end

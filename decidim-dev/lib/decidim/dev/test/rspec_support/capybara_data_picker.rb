@@ -3,7 +3,7 @@
 module Capybara
   module DataPicker
     def select_data_picker(id, multiple: nil, global_value: "")
-      Struct.new(:data_picker, :global_value).new(find_data_picker(id, multiple: multiple), global_value)
+      Struct.new(:data_picker, :global_value).new(find_data_picker(id, multiple:), global_value)
     end
 
     def find_data_picker(id, multiple: nil)

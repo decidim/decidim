@@ -5,23 +5,23 @@ require "spec_helper"
 module Decidim::Messaging
   describe ReplyToConversation do
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, :confirmed, organization: organization) }
-    let(:another_user) { create(:user, :confirmed, organization: organization) }
-    let(:extra_user) { create(:user, :confirmed, organization: organization) }
-    let(:user_group) { create(:user_group, :confirmed, organization: organization, users: [user, another_user, extra_user]) }
+    let(:user) { create(:user, :confirmed, organization:) }
+    let(:another_user) { create(:user, :confirmed, organization:) }
+    let(:extra_user) { create(:user, :confirmed, organization:) }
+    let(:user_group) { create(:user_group, :confirmed, organization:, users: [user, another_user, extra_user]) }
     let(:sender) { user }
     let(:originator) { another_user }
     let(:current_user) { user }
     let(:context) do
       {
-        current_user: current_user,
-        sender: sender
+        current_user:,
+        sender:
       }
     end
 
     let(:conversation) do
       Conversation.start!(
-        originator: originator,
+        originator:,
         interlocutors: [sender],
         body: "Initial message"
       )
@@ -78,7 +78,7 @@ module Decidim::Messaging
 
       context "and the receiver already has unread messages in the conversation" do
         before do
-          conversation.add_message!(sender: sender, body: "Still thinking of you from Patagonia")
+          conversation.add_message!(sender:, body: "Still thinking of you from Patagonia")
         end
 
         it "does not send notifications" do
@@ -92,7 +92,7 @@ module Decidim::Messaging
     context "when the form is valid" do
       let(:body) { "<3 from Patagonia" }
       let(:params) do
-        { body: body }
+        { body: }
       end
 
       it_behaves_like "valid message with receipts", 2
@@ -112,7 +112,7 @@ module Decidim::Messaging
         it_behaves_like "send emails", 2
 
         context "and the group has users with direct messages disabled" do
-          let(:extra_user) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
+          let(:extra_user) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
           it_behaves_like "valid message with receipts", 3
           it_behaves_like "send emails", 1
@@ -133,7 +133,7 @@ module Decidim::Messaging
         it_behaves_like "send emails", 2
 
         context "and the group has users with direct messages disabled" do
-          let(:extra_user) { create(:user, :confirmed, organization: organization, direct_message_types: "followed-only") }
+          let(:extra_user) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
           it_behaves_like "valid message with receipts", 3
           it_behaves_like "send emails", 1

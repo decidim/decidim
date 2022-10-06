@@ -23,6 +23,12 @@ module Decidim
           order_by: order,
           after: params.fetch(:after, 0).to_i
         )
+        @comments = @comments.reject do |comment|
+          next if comment.depth < 1
+          next if !comment.deleted? && !comment.hidden?
+
+          comment.commentable.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.blank?
+        end
         @comments_count = commentable.comments_count
 
         respond_to do |format|
@@ -46,7 +52,7 @@ module Decidim
         form = Decidim::Comments::CommentForm.from_params(
           params.merge(commentable: comment.commentable)
         ).with_context(
-          current_organization: current_organization
+          current_organization:
         )
 
         Decidim::Comments::UpdateComment.call(comment, current_user, form) do
@@ -68,10 +74,10 @@ module Decidim
         enforce_permission_to :create, :comment, commentable: commentable
 
         form = Decidim::Comments::CommentForm.from_params(
-          params.merge(commentable: commentable)
+          params.merge(commentable:)
         ).with_context(
-          current_organization: current_organization,
-          current_component: current_component
+          current_organization:,
+          current_component:
         )
         Decidim::Comments::CreateComment.call(form, current_user) do
           on(:ok) do |comment|

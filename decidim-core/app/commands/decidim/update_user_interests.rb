@@ -29,7 +29,11 @@ module Decidim
     end
 
     def selected_scopes_ids
-      @form.scopes.select(&:checked).map(&:id)
+      @form.scopes.map do |scope|
+        next unless scope.checked?
+
+        scope.id.to_i
+      end.compact
     end
   end
 end

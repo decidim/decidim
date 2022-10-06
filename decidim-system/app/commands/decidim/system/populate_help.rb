@@ -27,7 +27,7 @@ module Decidim
             slug: "help",
             title: multi_translation("decidim.help.main_topic.default_page.title", organization: @organization.name),
             content: multi_translation("decidim.help.main_topic.default_page.content", organization: @organization.name),
-            topic: topic,
+            topic:,
             organization: @organization,
             weight: 0
           )
@@ -40,7 +40,7 @@ module Decidim
               title: multi_translation("#{scope}.title"),
               content: multi_translation("#{scope}.page"),
               slug: manifest.name,
-              topic: topic,
+              topic:,
               organization: @organization
             )
 

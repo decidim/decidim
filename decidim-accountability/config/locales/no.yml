@@ -158,7 +158,6 @@
             progress: Framgang
         timeline_entry:
           fields:
-            description: Beskrivelse
             entry_date: Dato
       result_m:
         executed: Utført

@@ -11,7 +11,7 @@ module Decidim
           create(:initiatives_type,
                  title: Decidim::Faker::Localized.literal(title),
                  description: Decidim::Faker::Localized.sentence(word_count: 25),
-                 organization: organization)
+                 organization:)
         end
       end
 

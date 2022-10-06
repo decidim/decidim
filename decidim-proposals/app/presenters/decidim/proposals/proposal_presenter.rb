@@ -40,11 +40,11 @@ module Decidim
       def title(links: false, extras: true, html_escape: false, all_locales: false)
         return unless proposal
 
-        super proposal.title, links, html_escape, all_locales, extras: extras
+        super proposal.title, links, html_escape, all_locales, extras:
       end
 
       def id_and_title(links: false, extras: true, html_escape: false)
-        "##{proposal.id} - #{title(links: links, extras: extras, html_escape: html_escape)}"
+        "##{proposal.id} - #{title(links:, extras:, html_escape:)}"
       end
 
       def body(links: false, extras: true, strip_tags: false, all_locales: false)

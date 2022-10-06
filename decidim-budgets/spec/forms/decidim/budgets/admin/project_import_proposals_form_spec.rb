@@ -16,8 +16,8 @@ module Decidim
         let(:params) do
           {
             origin_component_id: origin_component.try(:id),
-            default_budget: default_budget,
-            import_all_accepted_proposals: import_all_accepted_proposals
+            default_budget:,
+            import_all_accepted_proposals:
           }
         end
 

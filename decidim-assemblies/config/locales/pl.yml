@@ -61,6 +61,7 @@ pl:
         designation_date: Data wyboru
         full_name: Pełne imię i nazwisko
         gender: Płeć
+        non_user_avatar: Awatar
         position: Pozycja
         user_id: Użytkownik
       assembly_user_role:
@@ -72,7 +73,7 @@ pl:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{valid_mime_types}'
+              allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Akceptowane formaty to: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -388,7 +389,6 @@ pl:
         related_participatory_processes: Powiązane procesy partycypacyjne
         scope: Zakres
         social_networks: Portale społecznościowe
-        social_networks_title: Odwiedź zespół na
         target: Do kogo kierowane
     assembly_members:
       assembly_member:
@@ -399,7 +399,6 @@ pl:
       assemblies:
         create_assembly_member:
           email_intro: Administrator zespołu <a href="%{resource_url}">%{resource_name}</a> ustanowił Cię jego członkiem.
-          email_outro: Otrzymujesz to powiadomienie, ponieważ zaproszono Cię do zespołu. Sprawdź <a href="%{resource_path}">stronę zespołu</a>, aby dołączyć!
           email_subject: Zaproszono Cię do grona członków zespołu %{resource_name}!
           notification_title: Zarejestrowano Cię jako członka Zespołu <a href="%{resource_path}">%{resource_name}</a>. Sprawdź <a href="%{resource_path}">stronę zespołu</a>, aby wnieść swój wkład!
       assembly:

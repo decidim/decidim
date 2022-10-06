@@ -7,7 +7,7 @@ module Decidim
     subject { component }
 
     let!(:organization) { create(:organization) }
-    let(:component) { build(:component, manifest_name: "dummy", organization: organization) }
+    let(:component) { build(:component, manifest_name: "dummy", organization:) }
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
@@ -37,9 +37,9 @@ module Decidim
     describe "with no scope setting" do
       subject { component }
 
-      let(:component) { create(:component, manifest_name: "another_dummy", participatory_space: participatory_space) }
+      let(:component) { create(:component, manifest_name: "another_dummy", participatory_space:) }
       let(:participatory_space) do
-        create(:participatory_process, scopes_enabled: false, organization: organization)
+        create(:participatory_process, scopes_enabled: false, organization:)
       end
 
       it "returns falsey for component scopes_enabled" do
@@ -58,12 +58,12 @@ module Decidim
     describe "with a participatory_space with scopes" do
       subject { component }
 
-      let(:component) { create(:component, manifest_name: "another_dummy", participatory_space: participatory_space) }
+      let(:component) { create(:component, manifest_name: "another_dummy", participatory_space:) }
       let(:participatory_space) do
-        create(:participatory_process, organization: organization, scopes_enabled: true,
+        create(:participatory_process, organization:, scopes_enabled: true,
                                        scope: space_scope)
       end
-      let(:space_scope) { create(:scope, organization: organization) }
+      let(:space_scope) { create(:scope, organization:) }
       let!(:space_subscope) { create(:scope, parent: space_scope) }
 
       it "returns falsey for component scopes_enabled" do
@@ -85,7 +85,7 @@ module Decidim
       let!(:organization) { create(:organization) }
       let(:participatory_space) do
         create(:participatory_process,
-               organization: organization,
+               organization:,
                scopes_enabled: space_scopes_enabled,
                scope: space_scope)
       end
@@ -93,7 +93,7 @@ module Decidim
       let!(:component) do
         create(:component,
                manifest_name: "dummy",
-               participatory_space: participatory_space,
+               participatory_space:,
                settings: {
                  scopes_enabled: component_scopes_enabled,
                  scope_id: component_scope&.id
@@ -101,11 +101,11 @@ module Decidim
       end
 
       context "when component scopes are enabled" do
-        let(:space_scope) { create :scope, organization: organization }
+        let(:space_scope) { create :scope, organization: }
         let(:space_scopes_enabled) { true }
         let(:component_scopes_enabled) { true }
-        let(:component_scope) { create(:scope, parent: space_scope, organization: organization) }
-        let!(:component_subscope) { create(:scope, parent: component_scope, organization: organization) }
+        let(:component_scope) { create(:scope, parent: space_scope, organization:) }
+        let!(:component_subscope) { create(:scope, parent: component_scope, organization:) }
 
         it "returns true for component scopes_enabled" do
           expect(subject.scopes_enabled).to be true
@@ -122,7 +122,7 @@ module Decidim
       end
 
       context "when component scopes are disabled" do
-        let(:space_scope) { create :scope, organization: organization }
+        let(:space_scope) { create :scope, organization: }
         let(:space_scopes_enabled) { true }
         let(:component_scopes_enabled) { false }
         let(:component_scope) { nil }
@@ -158,7 +158,7 @@ module Decidim
         let(:space_scope) { nil }
         let(:space_scopes_enabled) { false }
         let(:component_scopes_enabled) { true }
-        let(:component_scope) { create(:scope, organization: organization) }
+        let(:component_scope) { create(:scope, organization:) }
         let!(:component_subscope) { create(:scope, parent: component_scope) }
 
         it "returns true for component scopes_enabled" do

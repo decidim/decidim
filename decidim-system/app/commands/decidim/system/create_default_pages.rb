@@ -19,7 +19,7 @@ module Decidim
       def call
         Decidim::StaticPage::DEFAULT_PAGES.map do |slug|
           content = slug == "terms-and-conditions" ? {} : localized_attribute(slug, :content)
-          static_page = Decidim::StaticPage.find_or_create_by!(organization: organization, slug: slug) do |page|
+          static_page = Decidim::StaticPage.find_or_create_by!(organization:, slug:) do |page|
             page.title = localized_attribute(slug, :title)
             page.content = content
             page.show_in_footer = true

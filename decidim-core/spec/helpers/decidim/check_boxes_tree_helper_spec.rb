@@ -12,8 +12,8 @@ module Decidim
     end
 
     let!(:organization) { create(:organization) }
-    let!(:participatory_space) { create(:participatory_process, organization: organization) }
-    let!(:component) { create(:component, participatory_space: participatory_space) }
+    let!(:participatory_space) { create(:participatory_process, organization:) }
+    let!(:component) { create(:component, participatory_space:) }
 
     before do
       allow(helper).to receive(:current_participatory_space).and_return(participatory_space)
@@ -35,7 +35,7 @@ module Decidim
       end
 
       context "when the participatory space has a scope with subscopes" do
-        let(:participatory_space) { create(:participatory_process, :with_scope, organization: organization) }
+        let(:participatory_space) { create(:participatory_process, :with_scope, organization:) }
         let!(:subscopes) { create_list :subscope, 5, parent: participatory_space.scope }
 
         it "returns all the subscopes" do
@@ -59,7 +59,7 @@ module Decidim
       end
 
       context "when the component has a scope with subscopes" do
-        let(:participatory_space) { create(:participatory_process, :with_scope, organization: organization) }
+        let(:participatory_space) { create(:participatory_process, :with_scope, organization:) }
         let!(:subscopes) { create_list :subscope, 5, parent: participatory_space.scope }
 
         before do

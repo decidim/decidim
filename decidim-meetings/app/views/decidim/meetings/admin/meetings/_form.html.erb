@@ -43,7 +43,7 @@
         <%= form.select :iframe_embed_type,
           @form.iframe_embed_type_select,
           { multiple: false } %>
-        <p class="help-text"><%= t(".show_embedded_iframe_help") %></p>
+        <p class="help-text"><%= t(".show_embedded_iframe_help", domains: Decidim::Meetings.embeddable_services&.join(" ")) %></p>
       </div>
 
       <div class="row column field iframe-fields--access-level" data-meeting-type="online-access-level">

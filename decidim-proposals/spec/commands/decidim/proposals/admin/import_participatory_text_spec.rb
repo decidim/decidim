@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe ImportParticipatoryText do
         describe "call" do
-          let!(:document_file) { IO.read(Decidim::Dev.asset(document_name)) }
+          let!(:document_file) { File.read(Decidim::Dev.asset(document_name)) }
           let(:current_component) do
             create(
               :proposal_component,
@@ -21,12 +21,12 @@ module Decidim
           let(:form) do
             instance_double(
               ImportParticipatoryTextForm,
-              current_component: current_component,
+              current_component:,
               title: {},
               description: {},
               document: form_doc,
               document_text: document_file,
-              document_type: document_type,
+              document_type:,
               current_user: create(:user),
               valid?: valid
             )
@@ -70,7 +70,7 @@ module Decidim
             it "doesn't create any proposal" do
               expect do
                 command.call
-              end.to change(Proposal, :count).by(0)
+              end.not_to change(Proposal, :count)
             end
           end
 

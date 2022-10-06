@@ -5,17 +5,17 @@ require "spec_helper"
 describe Decidim::Assemblies::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, :admin, organization: organization }
+  let(:user) { create :user, :admin, organization: }
   let(:organization) { create :organization }
-  let(:assembly_type) { create :assemblies_type, organization: organization }
-  let(:assemblies_setting) { create :assemblies_setting, organization: organization }
-  let(:assembly) { create :assembly, organization: organization, assembly_type: assembly_type }
+  let(:assembly_type) { create :assemblies_type, organization: }
+  let(:assemblies_setting) { create :assemblies_setting, organization: }
+  let(:assembly) { create :assembly, organization:, assembly_type: }
   let(:context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
-  let(:assembly_admin) { create :assembly_admin, assembly: assembly }
-  let(:assembly_collaborator) { create :assembly_collaborator, assembly: assembly }
-  let(:assembly_moderator) { create :assembly_moderator, assembly: assembly }
-  let(:assembly_valuator) { create :assembly_valuator, assembly: assembly }
+  let(:assembly_admin) { create :assembly_admin, assembly: }
+  let(:assembly_collaborator) { create :assembly_collaborator, assembly: }
+  let(:assembly_moderator) { create :assembly_moderator, assembly: }
+  let(:assembly_valuator) { create :assembly_valuator, assembly: }
 
   shared_examples "access for role" do |access|
     case access
@@ -78,7 +78,7 @@ describe Decidim::Assemblies::Permissions do
       let(:action) do
         { scope: :public, action: :read, subject: :assembly }
       end
-      let(:context) { { assembly: assembly } }
+      let(:context) { { assembly: } }
 
       context "when the user is an admin" do
         let(:user) { create :user, :admin }
@@ -87,14 +87,14 @@ describe Decidim::Assemblies::Permissions do
       end
 
       context "when the assembly is published" do
-        let(:user) { create :user, organization: organization }
+        let(:user) { create :user, organization: }
 
         it { is_expected.to be true }
       end
 
       context "when the assembly is not published" do
-        let(:user) { create :user, organization: organization }
-        let(:assembly) { create :assembly, :unpublished, organization: organization }
+        let(:user) { create :user, organization: }
+        let(:assembly) { create :assembly, :unpublished, organization: }
 
         context "when the user doesn't have access to it" do
           it { is_expected.to be false }
@@ -102,7 +102,7 @@ describe Decidim::Assemblies::Permissions do
 
         context "when the user has access to it" do
           before do
-            create :assembly_user_role, user: user, assembly: assembly
+            create :assembly_user_role, user:, assembly:
           end
 
           it { is_expected.to be true }
@@ -236,7 +236,7 @@ describe Decidim::Assemblies::Permissions do
     let(:action) do
       { scope: :admin, action: :read, subject: :assembly }
     end
-    let(:context) { { assembly: assembly } }
+    let(:context) { { assembly: } }
 
     it_behaves_like(
       "access for roles",
@@ -325,7 +325,7 @@ describe Decidim::Assemblies::Permissions do
   end
 
   context "with a assembly" do
-    let(:context) { { assembly: assembly } }
+    let(:context) { { assembly: } }
 
     context "when moderating a resource" do
       let(:action) do
@@ -475,19 +475,19 @@ describe Decidim::Assemblies::Permissions do
     end
 
     context "when action is :destroy" do
-      let(:context) { { assembly_type: assembly_type } }
+      let(:context) { { assembly_type: } }
       let(:action) do
         { scope: :admin, action: :destroy, subject: :assembly_type }
       end
 
       context "and assembly type has children" do
-        let!(:assembly) { create :assembly, organization: organization, assembly_type: assembly_type }
+        let!(:assembly) { create :assembly, organization:, assembly_type: }
 
         it { is_expected.to be false }
       end
 
       context "and assembly type has no children" do
-        let(:assembly) { create :assembly, organization: organization }
+        let(:assembly) { create :assembly, organization: }
 
         it { is_expected.to be true }
       end
@@ -504,12 +504,12 @@ describe Decidim::Assemblies::Permissions do
     end
 
     context "when listing assemblies list" do
-      let!(:user) { create :user, organization: organization }
-      let(:context) { { assembly: assembly } }
+      let!(:user) { create :user, organization: }
+      let(:context) { { assembly: } }
 
       context "when assembly is a root assembly" do
         before do
-          create :assembly_user_role, user: user, assembly: assembly
+          create :assembly_user_role, user:, assembly:
         end
 
         let(:action) do
@@ -521,10 +521,10 @@ describe Decidim::Assemblies::Permissions do
 
       context "when the assembly has one ancestor" do
         before do
-          create :assembly_user_role, user: user, assembly: child_assembly
+          create :assembly_user_role, user:, assembly: child_assembly
         end
 
-        let(:child_assembly) { create :assembly, parent: assembly, organization: organization }
+        let(:child_assembly) { create :assembly, parent: assembly, organization: }
         let(:action) do
           { scope: :admin, action: :list, subject: :assembly }
         end
@@ -534,11 +534,11 @@ describe Decidim::Assemblies::Permissions do
 
       context "when the assembly has more than one ancestor" do
         before do
-          create :assembly_user_role, user: user, assembly: grand_child_assembly
+          create :assembly_user_role, user:, assembly: grand_child_assembly
         end
 
-        let(:child_assembly) { create :assembly, parent: assembly, organization: organization }
-        let(:grand_child_assembly) { create :assembly, parent: child_assembly, organization: organization }
+        let(:child_assembly) { create :assembly, parent: assembly, organization: }
+        let(:grand_child_assembly) { create :assembly, parent: child_assembly, organization: }
         let(:action) do
           { scope: :admin, action: :list, subject: :assembly }
         end
@@ -548,10 +548,10 @@ describe Decidim::Assemblies::Permissions do
 
       context "when the assembly has one sucessor" do
         before do
-          create :assembly_user_role, user: user, assembly: assembly.parent
+          create :assembly_user_role, user:, assembly: assembly.parent
         end
 
-        let!(:assembly) { create :assembly, :with_parent, organization: organization }
+        let!(:assembly) { create :assembly, :with_parent, organization: }
         let(:action) do
           { scope: :admin, action: :list, subject: :assembly }
         end
@@ -563,11 +563,11 @@ describe Decidim::Assemblies::Permissions do
 
   describe "when acting with assemblies admins and children assemblies" do
     let!(:user) { create :assembly_admin, assembly: mother_assembly }
-    let(:mother_assembly) { create :assembly, parent: assembly, organization: organization, hashtag: "mother" }
-    let(:child_assembly) { create :assembly, parent: mother_assembly, organization: organization, hashtag: "child" }
+    let(:mother_assembly) { create :assembly, parent: assembly, organization:, hashtag: "mother" }
+    let(:child_assembly) { create :assembly, parent: mother_assembly, organization:, hashtag: "child" }
 
     context "when assembly is a grandmother assembly" do
-      let(:context) { { assembly: assembly } }
+      let(:context) { { assembly: } }
 
       context "and action is :list" do
         let(:action) do

@@ -61,7 +61,7 @@ fr:
         full_name: Nom complet
         personal_url: Site internet personnel
         position: Profession
-        short_bio: Courte bio
+        short_bio: Courte biographie
         twitter_handle: Gestionnaire Twitter
         user_id: Utilisateur
       conference_user_role:
@@ -541,27 +541,27 @@ fr:
           notification_title: Votre inscription à la conférence <a href="%{resource_url}">%{resource_title}</a> est en attente de confirmation.
         conference_registrations_over_percentage:
           email_intro: Les places réservées pour la conférence "%{resource_title}" dépassent %{percentage}%.
-          email_outro: Vous avez reçu cette notification car vous êtes administrateur de l'espace participatif de la conférence.
+          email_outro: Vous avez reçu cette notification car vous êtes administrateur de l'espace participatif de la conférence. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Les places réservées pour la conférence "%{resource_title}" dépassent %{percentage}%
           notification_title: Les places réservées pour la conférence <a href="%{resource_path}">%{resource_title}</a> dépassent %{percentage}%.
         conference_updated:
           email_intro: 'La conférence "%{resource_title}" a été mise à jour. Vous pouvez lire la nouvelle version depuis sa page:'
-          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La conférence "%{resource_title}" a été mise à jour
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> été mise à jour.
         registrations_enabled:
           email_intro: 'La conférence "%{resource_title}" a autorisé les inscriptions. Vous pouvez vous inscrire sur sa page:'
-          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_outro: Vous avez reçu cette notification car vous suivez la conférence "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La conférence "%{resource_title}" a permis les enregistrements.
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> a permis les enregistrements.
         role_assigned:
           email_intro: Vous avez été assigné au rôle de %{role} de la conférence "%{resource_title}".
-          email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de la conférence "%{resource_title}".
+          email_outro: Vous avez reçu cette notification parce que vous êtes %{role} de la conférence "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Vous avez été assigné au rôle de %{role} pour la conférence "%{resource_title}".
           notification_title: Vous avez été assigné au rôle de %{role} pour la conférence <a href="%{resource_url}">%{resource_title}</a>.
         upcoming_conference:
           email_intro: 'La conférence "%{resource_title}" se déroule dans 2 jours. Vous pouvez lire la description de sa page:'
-          email_outro: Vous avez reçu cette notification parce que vous suivez la conférence "%{resource_title}". Vous pouvez le désabonner du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez la conférence "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La conférence "%{resource_title}" arrive!
           notification_title: La conférence <a href="%{resource_path}">%{resource_title}</a> arrive dans 2 jours.
     help:

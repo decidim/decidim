@@ -68,8 +68,6 @@ is-IS:
             actions_title: Aðgerð
             preview: Preview
             print: Prenta
-          show:
-            print: Prenta
           update:
             error: Villa hefur komið upp
         initiatives_type_scopes:

@@ -9,12 +9,12 @@ module Decidim
   class Command
     include ::Wisper::Publisher
 
-    def self.call(*args, **kwargs, &block)
+    def self.call(*args, **kwargs, &)
       event_recorder = Decidim::EventRecorder.new
 
       command = new(*args, **kwargs)
       command.subscribe(event_recorder)
-      command.evaluate(&block) if block_given?
+      command.evaluate(&) if block_given?
       command.call
 
       event_recorder.events
@@ -25,8 +25,8 @@ module Decidim
       instance_eval(&block)
     end
 
-    def transaction(&block)
-      ActiveRecord::Base.transaction(&block) if block_given?
+    def transaction(&)
+      ActiveRecord::Base.transaction(&) if block_given?
     end
 
     def method_missing(method_name, ...)

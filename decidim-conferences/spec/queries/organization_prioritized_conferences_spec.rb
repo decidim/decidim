@@ -10,13 +10,13 @@ module Decidim::Conferences
     let!(:local_promoted_conference) do
       create(:conference,
              :promoted,
-             organization: organization)
+             organization:)
     end
 
     let!(:local_non_promoted_conference) do
       create(:conference,
              :published,
-             organization: organization)
+             organization:)
     end
 
     before { create(:conference) }

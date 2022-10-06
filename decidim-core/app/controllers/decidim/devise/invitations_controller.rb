@@ -7,6 +7,8 @@ module Decidim
       include Decidim::DeviseControllers
       include NeedsTosAccepted
 
+      helper Decidim::PasswordsHelper
+
       before_action :configure_permitted_parameters
 
       # We don't users to create invitations, so we just redirect them to the
@@ -19,7 +21,7 @@ module Decidim
       # invitation. Using the param `invite_redirect` we can redirect the user
       # to a custom path after it has accepted the invitation.
       def after_accept_path_for(resource)
-        params[:invite_redirect] || after_sign_in_path_for(resource)
+        invite_redirect_path || after_sign_in_path_for(resource)
       end
 
       # When a managed user accepts the invitation is promoted to non-managed user.
@@ -37,6 +39,14 @@ module Decidim
       end
 
       protected
+
+      def invite_redirect_path
+        path = params[:invite_redirect]
+        return unless path
+        return unless path.starts_with?(%r{^/[a-z0-9]+})
+
+        path
+      end
 
       def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:accept_invitation, keys: [:nickname, :tos_agreement, :newsletter_notifications])

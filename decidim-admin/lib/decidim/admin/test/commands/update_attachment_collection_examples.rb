@@ -7,7 +7,8 @@ module Decidim
     shared_examples_for "UpdateAttachmentCollection command" do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
+        let(:user) { create(:user, organization:) }
+        let(:attachment_collection) { create(:attachment_collection, collection_for:) }
         let(:form_params) do
           {
             "attachment_collection" => {
@@ -23,12 +24,12 @@ module Decidim
         let(:form) do
           AttachmentCollectionForm.from_params(
             form_params,
-            collection_for: collection_for
+            collection_for:
           ).with_context(
             current_organization: organization
           )
         end
-        let(:command) { described_class.new(attachment_collection, form) }
+        let(:command) { described_class.new(attachment_collection, form, user) }
 
         describe "when the form is not valid" do
           before do
@@ -57,6 +58,18 @@ module Decidim
             attachment_collection.reload
 
             expect(translated(attachment_collection.name)).to eq("New title")
+          end
+
+          it "traces the action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:perform_action!)
+              .with(:update, Decidim::AttachmentCollection, user, {})
+              .and_call_original
+
+            expect { command.call }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.action).to eq("update")
+            expect(action_log.version).to be_present
           end
         end
       end

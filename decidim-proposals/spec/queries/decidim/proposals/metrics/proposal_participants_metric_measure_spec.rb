@@ -6,16 +6,16 @@ describe Decidim::Proposals::Metrics::ProposalParticipantsMetricMeasure do
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
 
-  let(:proposals_component) { create(:proposal_component, :published, participatory_space: participatory_space) }
+  let(:proposals_component) { create(:proposal_component, :published, participatory_space:) }
   let!(:proposal) { create(:proposal, :with_endorsements, published_at: day, component: proposals_component) }
   let!(:old_proposal) { create(:proposal, :with_endorsements, published_at: day - 1.week, component: proposals_component) }
-  let!(:proposal_votes) { create_list(:proposal_vote, 10, created_at: day, proposal: proposal) }
+  let!(:proposal_votes) { create_list(:proposal_vote, 10, created_at: day, proposal:) }
   let!(:old_proposal_votes) { create_list(:proposal_vote, 5, created_at: day - 1.week, proposal: old_proposal) }
   let!(:proposal_endorsements) do
     5.times.collect do
-      create(:endorsement, created_at: day, resource: proposal, author: build(:user, organization: organization))
+      create(:endorsement, created_at: day, resource: proposal, author: build(:user, organization:))
     end
   end
   # TOTAL Participants for Proposals:

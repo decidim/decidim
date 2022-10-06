@@ -10,7 +10,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
   context "when a new user" do
     let(:organization) { create :organization, available_authorizations: authorizations }
 
-    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:user) { create(:user, :confirmed, organization:) }
 
     context "when one authorization has been configured" do
       let(:authorizations) { ["dummy_authorization_handler"] }
@@ -21,7 +21,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within "form.new_user" do
           fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456"
+          fill_in :session_user_password, with: "decidim123456789"
           find("*[type=submit]").click
         end
       end
@@ -40,6 +40,74 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         expect(page).to have_current_path decidim.account_path
         expect(page).to have_content("Participant settings")
       end
+
+      context "and a duplicate authorization exists for an existing user" do
+        let(:document_number) { "123456789X" }
+        let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: authorizations.first) }
+        let!(:other_user) { create(:user, :confirmed, organization: user.organization) }
+
+        it "transfers the authorization from the deleted user" do
+          fill_in "Document number", with: document_number
+          page.execute_script("$('#authorization_handler_birthday').focus()")
+          page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+
+          expect { click_button "Send" }.not_to change(Decidim::Authorization, :count)
+          expect(page).to have_content("There was a problem creating the authorization.")
+          expect(page).to have_content("A participant is already authorized with the same data. An administrator will contact you to verify your details.")
+
+          expect { click_button "Send" }.not_to change(Decidim::AuthorizationTransfer, :count)
+          expect(page).to have_content("There was a problem creating the authorization.")
+        end
+      end
+
+      context "and a duplicate authorization exists for a deleted user" do
+        let(:document_number) { "123456789X" }
+        let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: authorizations.first) }
+        let!(:other_user) { create(:user, :deleted, organization: user.organization) }
+
+        it "transfers the authorization from the deleted user" do
+          fill_in "Document number", with: document_number
+          page.execute_script("$('#authorization_handler_birthday').focus()")
+          page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+
+          click_button "Send"
+          expect(page).to have_content("You've been successfully authorized.")
+          expect(page).not_to have_content("We have recovered the following participation data based on your authorization:")
+        end
+
+        context "and the deleted user for the duplicate authorization had transferrable data" do
+          let(:commentable) do
+            create(
+              :dummy_resource,
+              component: create(:component, manifest_name: "dummy", organization: user.organization)
+            )
+          end
+
+          before do
+            create_list(:comment, 10, author: other_user, commentable:)
+            create_list(:proposal, 5, users: [other_user], component: create(:proposal_component, organization: user.organization))
+
+            within_user_menu do
+              click_link "My account"
+            end
+
+            click_link "Authorizations"
+            click_link "Example authorization"
+          end
+
+          it "reports the transferred participation data" do
+            fill_in "Document number", with: document_number
+            page.execute_script("$('#authorization_handler_birthday').focus()")
+            page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+
+            click_button "Send"
+            expect(page).to have_content("You've been successfully authorized.")
+            expect(page).to have_content("We have recovered the following participation data based on your authorization:")
+            expect(page).to have_content("Comments: 10")
+            expect(page).to have_content("Proposals: 5")
+          end
+        end
+      end
     end
 
     context "when multiple authorizations have been configured", with_authorization_workflows: %w(dummy_authorization_handler dummy_authorization_workflow) do
@@ -51,7 +119,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         within "form.new_user" do
           fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456"
+          fill_in :session_user_password, with: "decidim123456789"
           find("*[type=submit]").click
         end
       end
@@ -64,7 +132,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
   context "when existing user from their account" do
     let(:organization) { create :organization, available_authorizations: authorizations }
-    let(:user) { create(:user, :confirmed, organization: organization) }
+    let(:user) { create(:user, :confirmed, organization:) }
 
     before do
       login_as user, scope: :user
@@ -120,7 +188,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       let(:authorizations) { ["dummy_authorization_handler"] }
 
       let!(:authorization) do
-        create(:authorization, name: "dummy_authorization_handler", user: user)
+        create(:authorization, name: "dummy_authorization_handler", user:)
       end
 
       it "shows the authorization at their account" do
@@ -138,7 +206,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
       context "when the authorization is renewable" do
         describe "and still not over the waiting period" do
           let!(:authorization) do
-            create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 1.minute.ago)
+            create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.minute.ago)
           end
 
           it "can't be renewed yet" do
@@ -157,7 +225,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         describe "and passed the time between renewals" do
           let!(:authorization) do
-            create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 6.minutes.ago)
+            create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 6.minutes.ago)
           end
 
           it "can be renewed" do
@@ -209,7 +277,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       context "when the authorization has not expired yet" do
         let!(:authorization) do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
         end
 
         it "can't be renewed yet" do
@@ -228,7 +296,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
       context "when the authorization has expired" do
         let!(:authorization) do
-          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.months.ago)
+          create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.months.ago)
         end
 
         it "can be renewed" do
@@ -241,6 +309,10 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           within ".authorizations-list" do
             expect(page).to have_link("Example authorization")
             click_link "Example authorization"
+          end
+
+          within "#renew-modal" do
+            click_link "Continue"
           end
 
           fill_in "Document number", with: "123456789X"

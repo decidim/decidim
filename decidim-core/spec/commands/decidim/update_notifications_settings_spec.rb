@@ -9,22 +9,22 @@ module Decidim
     let(:valid) { true }
     let(:data) do
       {
-        email_on_notification: true,
         email_on_moderations: true,
         newsletter_notifications_at: Time.current,
         direct_message_types: "followed-only",
-        notification_settings: { close_meeting_reminder: "0" }
+        notification_settings: { close_meeting_reminder: "0" },
+        notifications_sending_frequency: "weekly"
       }
     end
 
     let(:form) do
       double(
         notification_types: "none",
-        email_on_notification: data[:email_on_notification],
         email_on_moderations: data[:email_on_moderations],
         newsletter_notifications_at: data[:newsletter_notifications_at],
         direct_message_types: data[:direct_message_types],
         notification_settings: data[:notification_settings],
+        notifications_sending_frequency: data[:notifications_sending_frequency],
         valid?: valid
       )
     end
@@ -43,11 +43,11 @@ module Decidim
       it "updates the users's notifications settings" do
         expect { command.call }.to broadcast(:ok)
         user.reload
-        expect(user.email_on_notification).to be_truthy
         expect(user.newsletter_notifications_at).not_to be_nil
         expect(user.notification_types).to eq "none"
         expect(user.direct_message_types).to eq "followed-only"
         expect(user.notification_settings["close_meeting_reminder"]).to eq "0"
+        expect(user.notifications_sending_frequency).to eq "weekly"
       end
     end
   end

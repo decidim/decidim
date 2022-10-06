@@ -16,7 +16,7 @@ describe Decidim::Elections::Admin::RemoveTrusteeFromParticipatorySpace do
 
   context "when trustee has elections" do
     let(:trustee) { create :trustee, :with_elections }
-    let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: trustee }
+    let(:trustee_participatory_space) { create :trustees_participatory_space, trustee: }
 
     it "is not valid" do
       expect { subject.call }.to broadcast(:invalid)

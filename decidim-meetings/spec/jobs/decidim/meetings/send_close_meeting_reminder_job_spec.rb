@@ -6,16 +6,16 @@ describe Decidim::Meetings::SendCloseMeetingReminderJob do
   subject { described_class }
 
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, :published, manifest_name: :meetings, participatory_space: participatory_process) }
-  let(:user) { create(:user, organization: organization, email: "user@example.org") }
-  let(:reminder) { create(:reminder, user: user, component: component) }
+  let(:user) { create(:user, organization:, email: "user@example.org") }
+  let(:reminder) { create(:reminder, user:, component:) }
   let(:mailer) { double :mailer }
   let(:mailer_class) { Decidim::Meetings::CloseMeetingReminderMailer }
 
   context "when everything is OK" do
-    let(:meeting) { create(:meeting, :published, component: component) }
-    let!(:reminder_record) { create(:reminder_record, reminder: reminder, remindable: meeting) }
+    let(:meeting) { create(:meeting, :published, component:) }
+    let!(:reminder_record) { create(:reminder_record, reminder:, remindable: meeting) }
 
     it "sends an email and creates reminder delivery" do
       allow(mailer_class)
@@ -28,8 +28,8 @@ describe Decidim::Meetings::SendCloseMeetingReminderJob do
   end
 
   context "when the meeting is closed" do
-    let(:meeting) { create(:meeting, :published, :closed, component: component) }
-    let!(:reminder_record) { create(:reminder_record, reminder: reminder, remindable: meeting) }
+    let(:meeting) { create(:meeting, :published, :closed, component:) }
+    let!(:reminder_record) { create(:reminder_record, reminder:, remindable: meeting) }
 
     it "doesn't send the email" do
       expect(mailer_class)

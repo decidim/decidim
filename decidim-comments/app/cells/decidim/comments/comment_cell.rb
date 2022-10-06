@@ -186,11 +186,11 @@ module Decidim
       end
 
       def has_replies?
-        model.comment_threads.includes(:moderation).collect { |c| !c.deleted? && !c.hidden? }.any?
+        model.comment_threads.not_hidden.not_deleted.exists?
       end
 
       def has_replies_in_children?
-        has_replies? || model.comment_threads.includes(:moderation).collect { |t| t.comment_threads.includes(:moderation).collect { |c| !c.deleted? && !c.hidden? }.any? }.any?
+        model.descendants.where(decidim_commentable_type: "Decidim::Comments::Comment").not_hidden.not_deleted.exists?
       end
 
       # action_authorization_button expects current_component to be available
@@ -198,13 +198,13 @@ module Decidim
         root_commentable.try(:component)
       end
 
-      def vote_button_to(path, params, &block)
+      def vote_button_to(path, params, &)
         # actions are linked to objects belonging to a component
         # In consultations, a question belong to a participatory_space but it has comments
         # To apply :comment permission, the modal authorizer should be refactored to allow participatory spaces-level comments
-        return button_to(path, params, &block) unless current_component
+        return button_to(path, params, &) unless current_component
 
-        action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &block)
+        action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &)
       end
     end
   end

@@ -17,8 +17,6 @@ module Decidim
                  foreign_key: :decidim_participant_id,
                  class_name: "Decidim::UserBaseEntity"
 
-      validates :conversation, :participant, presence: true
-
       validates :decidim_conversation_id, uniqueness: { scope: :decidim_participant_id }
     end
   end

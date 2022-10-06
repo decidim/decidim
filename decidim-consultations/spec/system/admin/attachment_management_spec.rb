@@ -5,7 +5,7 @@ require "decidim/admin/test/manage_attachments_examples"
 
 describe "question attachments", type: :system do
   include_context "when administrating a consultation"
-  let(:question) { create(:question, consultation: consultation) }
+  let(:question) { create(:question, consultation:) }
 
   let(:attached_to) { question }
   let(:attachment_collection) { create(:attachment_collection, collection_for: question) }

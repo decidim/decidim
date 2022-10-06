@@ -8,6 +8,9 @@ module Decidim
           return permission_action unless user
           return user_allowed_to_read_admin_dashboard? if read_admin_dashboard_action?
           return permission_action unless permission_action.scope == :admin
+
+          user_can_enter_space_area?
+
           return permission_action if voting && !voting.is_a?(Decidim::Votings::Voting)
 
           unless user_can_read_votings_admin_dashboard?
@@ -15,7 +18,6 @@ module Decidim
             return permission_action
           end
 
-          user_can_enter_space_area?
           allowed_read_participatory_space?
           allowed_voting_action?
 
@@ -57,7 +59,8 @@ module Decidim
             :monitoring_committee_verify_elections,
             :monitoring_committee_election_result, :monitoring_committee_election_results,
             :census,
-            :ballot_style, :ballot_styles
+            :ballot_style, :ballot_styles,
+            :component_data
           ].member? permission_action.subject
 
           case permission_action.subject
@@ -116,6 +119,8 @@ module Decidim
             when :update, :delete
               toggle_allow(user.admin? && (voting.dataset.blank? || voting.dataset.init_data?) && ballot_style.present?)
             end
+          when :component_data
+            toggle_allow(user.admin?) if permission_action.action == :import
           end
         end
 
@@ -135,11 +140,11 @@ module Decidim
         end
 
         def user_monitoring_committee?
-          Decidim::Votings::MonitoringCommitteeMember.exists?(user: user)
+          Decidim::Votings::MonitoringCommitteeMember.exists?(user:)
         end
 
         def user_monitoring_committee_for_voting?
-          Decidim::Votings::MonitoringCommitteeMember.exists?(user: user, voting: voting)
+          Decidim::Votings::MonitoringCommitteeMember.exists?(user:, voting:)
         end
 
         def voting

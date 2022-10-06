@@ -9,7 +9,7 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create :organization }
-        let(:scope) { create :scope, organization: organization }
+        let(:scope) { create :scope, organization: }
         let(:title) do
           {
             en: "Title",
@@ -123,7 +123,7 @@ module Decidim
         context "when slug is not unique" do
           context "when in the same organization" do
             before do
-              create(:consultation, slug: slug, organization: organization)
+              create(:consultation, slug:, organization:)
             end
 
             it "is not valid" do
@@ -134,7 +134,7 @@ module Decidim
 
           context "when in another organization" do
             before do
-              create(:consultation, slug: slug)
+              create(:consultation, slug:)
             end
 
             it "is valid" do

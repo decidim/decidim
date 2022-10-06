@@ -19,7 +19,7 @@ module Decidim
           @form = form(TimelineEntryForm).from_params(params)
           @form.decidim_accountability_result_id = params[:result_id]
 
-          CreateTimelineEntry.call(@form) do
+          CreateTimelineEntry.call(@form, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("timeline_entries.create.success", scope: "decidim.accountability.admin")
               redirect_to result_timeline_entries_path(params[:result_id])
@@ -43,7 +43,7 @@ module Decidim
 
           @form = form(TimelineEntryForm).from_params(params)
 
-          UpdateTimelineEntry.call(@form, timeline_entry) do
+          UpdateTimelineEntry.call(@form, timeline_entry, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("timeline_entries.update.success", scope: "decidim.accountability.admin")
               redirect_to result_timeline_entries_path(params[:result_id])
@@ -59,7 +59,9 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :timeline_entry, timeline_entry: timeline_entry
 
-          timeline_entry.destroy!
+          Decidim.traceability.perform_action!("delete", timeline_entry, current_user) do
+            timeline_entry.destroy!
+          end
 
           flash[:notice] = I18n.t("timeline_entries.destroy.success", scope: "decidim.accountability.admin")
 

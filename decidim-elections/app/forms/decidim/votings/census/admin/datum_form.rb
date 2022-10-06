@@ -17,9 +17,13 @@ module Decidim
           attribute :email, String
           attribute :ballot_style_code, String
 
+          validates :birthdate, format: { with: /\A\d{8}\z/ }
+
           validates :full_name,
                     :full_address,
+                    :birthdate,
                     presence: true
+
           def ballot_style_code
             super&.upcase
           end

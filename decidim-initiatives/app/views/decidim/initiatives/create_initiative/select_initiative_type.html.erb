@@ -39,9 +39,15 @@
                   <%= raw translated_attribute type.description %>
                 </div>
                 <br>
-                <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form select-initiative_type-form" }) do |f| %>
-                  <%= f.hidden_field :type_id, value: type.id, id: "initiative_type_id_#{ type.id }" %>
-                  <%= f.submit t(".select"), class: "button" %>
+                <% if allowed_to?(:create, :initiative, { initiative_type: type }) %>
+                  <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { id: "new_initiative_#{type.id}", class: "form select-initiative_type-form" }) do |f| %>
+                    <%= f.hidden_field :type_id, value: type.id, id: "initiative_type_id_#{ type.id }" %>
+                    <%= f.submit t(".select"), class: "button" %>
+                  <% end %>
+                <% else %>
+                  <%= authorized_create_modal_button(type, remote: true, class: "button") do %>
+                    <%= t(".verification_required") %>
+                  <% end %>
                 <% end %>
               </div>
             <% end %>
@@ -51,3 +57,4 @@
     </div>
   </div>
 </div>
+<%= render partial: "decidim/initiatives/modal" %>

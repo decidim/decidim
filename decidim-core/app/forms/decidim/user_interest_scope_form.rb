@@ -6,7 +6,7 @@ module Decidim
   class UserInterestScopeForm < Form
     mimic :scope
 
-    attribute :name, String
+    attribute :name, JsonbAttributes
     attribute :checked, Boolean
     attribute :children, Array[UserInterestScopeForm]
 
@@ -18,7 +18,7 @@ module Decidim
       self.name = scope.name
       self.checked = user.interested_scopes_ids.include?(scope.id)
       self.children = scope.children.map do |children_scope|
-        UserInterestScopeForm.from_model(scope: children_scope, user: user)
+        UserInterestScopeForm.from_model(scope: children_scope, user:)
       end
     end
   end

@@ -33,17 +33,17 @@ module Decidim
         when "not_equal"
           answer_form.choices.pluck(:answer_option_id).exclude?(answer_option.id)
         when "match"
-          condition_value.values.reject(&:blank?).any? { |value| answer_form_matches?(answer_form, value) }
+          condition_value.values.compact_blank.any? { |value| answer_form_matches?(answer_form, value) }
         end
       end
 
       def to_html_data
         {
-          id: id,
+          id:,
           type: condition_type,
           condition: decidim_condition_question_id,
           option: decidim_answer_option_id,
-          mandatory: mandatory,
+          mandatory:,
           value: condition_value&.dig(I18n.locale.to_s)
         }.compact
       end

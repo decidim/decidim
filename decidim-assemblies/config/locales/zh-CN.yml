@@ -63,12 +63,6 @@ zh-CN:
         email: 电子邮件地址
         name: 名称
         role: 作用
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: '无效的文档类型。接受的格式为： %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -366,7 +360,6 @@ zh-CN:
         related_participatory_processes: 相关的参与进程
         scope: 范围
         social_networks: 社交网络
-        social_networks_title: 分享此程序集
         target: 谁参与
     assembly_members:
       assembly_member:
@@ -377,7 +370,6 @@ zh-CN:
       assemblies:
         create_assembly_member:
           email_intro: <a href="%{resource_url}">%{resource_name}</a> 程序集的管理员已将您添加为其成员之一。
-          email_outro: 您收到此通知是因为您已被邀请参加组装。检查 <a href="%{resource_path}">组装页面</a> 来做出贡献！
           email_subject: 您已被邀请成为 %{resource_name} 个集会的成员！
           notification_title: 您已注册为程序集 <a href="%{resource_path}">%{resource_name}</a>成员。检查 <a href="%{resource_path}">程序页面</a> 以便做出贡献！
       assembly:

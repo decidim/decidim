@@ -25,7 +25,7 @@ en:
           success: Template deleted successfully
         empty: There are no templates yet.
         update:
-          error: There was a problem upadting this template.
+          error: There was a problem updating this template.
           success: Template updated successfully
       titles:
         template_types:
@@ -64,5 +64,11 @@ en:
             current_step: Step %{step}
             of_total_steps: of %{total_steps}
             tos_agreement: By participating you accept its Terms of Service
+      admin_log:
+        template:
+          create: "%{user_name} created the %{resource_name} questionnaire template"
+          delete: "%{user_name} deleted the %{resource_name} questionnaire template"
+          duplicate: "%{user_name} duplicated the %{resource_name} questionnaire template"
+          update: "%{user_name} updated the %{resource_name} questionnaire template"
       template_types:
         questionnaires: Questionnaires

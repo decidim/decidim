@@ -65,9 +65,10 @@ module Decidim
               flash.now[:notice] = update_proposals_bulk_response_successful(@response, :category)
               flash.now[:alert] = update_proposals_bulk_response_errored(@response, :category)
             end
-            respond_to do |format|
-              format.js
-            end
+          end
+
+          respond_to do |format|
+            format.js { render :update_attribute, locals: { form_selector: "#js-form-recategorize-projects", attribute_selector: "#category_id" } }
           end
         end
 
@@ -114,10 +115,9 @@ module Decidim
               flash.now[:notice] = update_proposals_bulk_response_successful(@response, :scope)
               flash.now[:alert] = update_proposals_bulk_response_errored(@response, :scope)
             end
-
-            respond_to do |format|
-              format.js
-            end
+          end
+          respond_to do |format|
+            format.js { render :update_attribute, locals: { form_selector: "#js-form-scope-change-projects", attribute_selector: "#scope_id" } }
           end
         end
 

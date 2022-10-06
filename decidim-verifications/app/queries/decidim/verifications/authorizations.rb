@@ -23,8 +23,8 @@ module Decidim
       def query
         scope = Decidim::Authorization.left_outer_joins(:organization).where(decidim_organizations: { id: organization.id })
 
-        scope = scope.where(name: name) unless name.nil?
-        scope = scope.where(user: user) unless user.nil?
+        scope = scope.where(name:) unless name.nil?
+        scope = scope.where(user:) unless user.nil?
 
         case granted
         when true

@@ -45,9 +45,6 @@ eo:
   booleans:
     'false': 'Ne'
     'true': 'Jes'
-  carrierwave:
-    errors:
-      image_too_big: La bildo estas tro granda
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -57,12 +54,12 @@ eo:
       decidim_with_month_name_short: "%d %b"
   decidim:
     account:
-      data_portability_export:
-        file_no_exists: Dosiero ne ekzistas
-        notice: La malŝarĝo de viaj datumoj nuntempe progresas. Vi ricevos retpoŝton kiam ĝi estos kompleta.
       delete:
         confirm:
           close: Fermu la fenestron
+      download_your_data_export:
+        file_no_exists: Dosiero ne ekzistas
+        notice: La malŝarĝo de viaj datumoj nuntempe progresas. Vi ricevos retpoŝton kiam ĝi estos kompleta.
     amendments:
       accepted:
         success: La amendo estis akceptita sukcese.

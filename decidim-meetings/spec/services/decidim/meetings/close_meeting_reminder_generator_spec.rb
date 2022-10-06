@@ -17,10 +17,10 @@ module Decidim::Meetings
     end
     let(:intervals) { [3.days, 7.days] }
     let(:organization) { create(:organization) }
-    let(:participatory_process) { create(:participatory_process, organization: organization) }
+    let(:participatory_process) { create(:participatory_process, organization:) }
     let!(:component) { create(:component, :published, manifest_name: "meetings", participatory_space: participatory_process) }
-    let(:user) { create(:user, :admin, organization: organization, email: "user@example.org") }
-    let!(:meeting) { create(:meeting, :published, component: component, author: user, start_time: start_time, end_time: end_time, closed_at: closed_at) }
+    let(:user) { create(:user, :admin, organization:, email: "user@example.org") }
+    let!(:meeting) { create(:meeting, :published, component:, author: user, start_time:, end_time:, closed_at:) }
     let(:closed_at) { nil }
 
     before do
@@ -38,7 +38,7 @@ module Decidim::Meetings
           it "does not send the reminder" do
             expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
 
-            expect { subject.generate }.to change(Decidim::Reminder, :count).by(0)
+            expect { subject.generate }.not_to change(Decidim::Reminder, :count)
           end
         end
 
@@ -61,7 +61,7 @@ module Decidim::Meetings
           it "does not send the reminder" do
             expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
 
-            expect { subject.generate }.to change(Decidim::Reminder, :count).by(0)
+            expect { subject.generate }.not_to change(Decidim::Reminder, :count)
             expect(Decidim::Reminder.first).to be_nil
           end
         end
@@ -83,13 +83,13 @@ module Decidim::Meetings
         it "does not send the reminder" do
           expect(Decidim::Meetings::SendCloseMeetingReminderJob).not_to receive(:perform_later)
 
-          expect { subject.generate }.to change(Decidim::Reminder, :count).by(0)
+          expect { subject.generate }.not_to change(Decidim::Reminder, :count)
           expect(Decidim::Reminder.first).to be_nil
         end
       end
 
       context "when the reminder exists" do
-        let!(:reminder) { create(:reminder, user: user, component: component) }
+        let!(:reminder) { create(:reminder, user:, component:) }
         let(:start_time) { 4.days.ago }
         let(:end_time) { 3.days.ago }
 

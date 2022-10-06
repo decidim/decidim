@@ -5,8 +5,15 @@ require "spec_helper"
 module Decidim
   describe IconHelper do
     describe "#component_icon" do
+      let(:redesign_enabled) { false }
       let(:component) do
         create(:component, manifest_name: :dummy)
+      end
+
+      before do
+        # rubocop:disable RSpec/AnyInstance
+        allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+        # rubocop:enable RSpec/AnyInstance
       end
 
       describe "when the component has no icon" do

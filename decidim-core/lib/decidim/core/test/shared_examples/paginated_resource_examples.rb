@@ -7,21 +7,21 @@ shared_examples "a paginated resource" do
     visit_component
   end
 
-  it "lists 20 resources per page by default" do
-    expect(page).to have_css(resource_selector, count: 20)
-    expect(page).to have_css(".pagination .page", count: 2)
+  it "lists 10 resources per page by default" do
+    expect(page).to have_css(resource_selector, count: 10)
+    expect(page).to have_css("[data-pages] [data-page]", count: 3)
   end
 
   it "results per page can be changed from the selector" do
-    expect(page).to have_css(".results-per-page")
+    expect(page).to have_css("[data-pagination]")
 
-    within ".results-per-page" do
-      page.find("a", text: "20").click
+    within "[data-pagination]" do
+      page.find("summary", text: "10").click
       click_link "50"
     end
 
     sleep 2
     expect(page).to have_css(resource_selector, count: collection_size)
-    expect(page).to have_no_css(".pagination")
+    expect(page).to have_no_css("[data-pagination]")
   end
 end

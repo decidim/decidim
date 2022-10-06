@@ -18,8 +18,8 @@ module Decidim
             it "returns the default params" do
               expect(
                 subject.url_params(
-                  latitude: latitude,
-                  longitude: longitude
+                  latitude:,
+                  longitude:
                 )
               ).to eq(
                 geojson: {
@@ -36,8 +36,8 @@ module Decidim
               it "returns the correct params" do
                 expect(
                   subject.url_params(
-                    latitude: latitude,
-                    longitude: longitude,
+                    latitude:,
+                    longitude:,
                     options: {
                       zoom: 10,
                       width: 200,

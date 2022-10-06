@@ -6,7 +6,7 @@ module Decidim
 
     def build_attachments
       @documents = []
-      @form.add_documents.reject(&:blank?).each do |attachment|
+      @form.add_documents.compact_blank.each do |attachment|
         if attachment.is_a?(Hash) && attachment.has_key?(:id)
           update_attachment_title_for(attachment)
           next
@@ -43,7 +43,7 @@ module Decidim
       weight = first_weight
       # Add the weights first to the old document
       @form.documents.each do |document|
-        document.update!(weight: weight)
+        document.update!(weight:)
         weight += 1
       end
       @documents.map! do |document|
@@ -88,6 +88,8 @@ module Decidim
     end
 
     def content_type_for(attachment)
+      return attachment.content_type if attachment.instance_of?(ActionDispatch::Http::UploadedFile)
+
       blob(signed_id_for(attachment)).content_type
     end
 

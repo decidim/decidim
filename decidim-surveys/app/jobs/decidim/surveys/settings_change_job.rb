@@ -19,8 +19,8 @@ module Decidim
         return unless event && event_class
 
         Decidim::EventsManager.publish(
-          event: event,
-          event_class: event_class,
+          event:,
+          event_class:,
           resource: component,
           followers: component.participatory_space.followers
         )

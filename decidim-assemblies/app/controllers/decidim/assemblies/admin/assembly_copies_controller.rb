@@ -17,7 +17,7 @@ module Decidim
           enforce_permission_to :create, :assembly
           @form = form(AssemblyCopyForm).from_params(params)
 
-          CopyAssembly.call(@form, current_assembly) do
+          CopyAssembly.call(@form, current_assembly, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("assemblies_copies.create.success", scope: "decidim.admin")
               redirect_to assemblies_path(parent_id: current_assembly.parent_id)

@@ -31,7 +31,7 @@ module Decidim
       return unless resource
       return unless recipient
 
-      notification.save!
+      notification if notification.save!
     end
 
     private
@@ -39,8 +39,8 @@ module Decidim
     def notification
       @notification ||= Notification.new(
         user: recipient,
-        event_class: event_class,
-        resource: resource,
+        event_class:,
+        resource:,
         event_name: event,
         extra: extra.merge(received_as: user_role)
       )

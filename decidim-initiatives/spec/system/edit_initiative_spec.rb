@@ -4,14 +4,14 @@ require "spec_helper"
 
 describe "Edit initiative", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:initiative_title) { translated(initiative.title) }
   let(:new_title) { "This is my initiative new title" }
 
-  let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization: organization) }
+  let!(:initiative_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
   let!(:scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
 
-  let!(:other_initiative_type) { create(:initiatives_type, organization: organization) }
+  let!(:other_initiative_type) { create(:initiatives_type, organization:) }
   let!(:other_scoped_type) { create(:initiatives_type_scope, type: initiative_type) }
 
   let(:initiative_path) { decidim_initiatives.initiative_path(initiative) }
@@ -40,7 +40,7 @@ describe "Edit initiative", type: :system do
   end
 
   describe "when user is initiative author" do
-    let(:initiative) { create(:initiative, :created, author: user, scoped_type: scoped_type, organization: organization) }
+    let(:initiative) { create(:initiative, :created, author: user, scoped_type:, organization:) }
 
     it_behaves_like "manage update"
 
@@ -53,7 +53,7 @@ describe "Edit initiative", type: :system do
     end
 
     context "when initiative is published" do
-      let(:initiative) { create(:initiative, author: user, scoped_type: scoped_type, organization: organization) }
+      let(:initiative) { create(:initiative, author: user, scoped_type:, organization:) }
 
       it "can't be updated" do
         visit decidim_initiatives.initiative_path(initiative)
@@ -68,24 +68,24 @@ describe "Edit initiative", type: :system do
   end
 
   describe "when author is a committee member" do
-    let(:initiative) { create(:initiative, :created, scoped_type: scoped_type, organization: organization) }
+    let(:initiative) { create(:initiative, :created, scoped_type:, organization:) }
 
     before do
-      create(:initiatives_committee_member, user: user, initiative: initiative)
+      create(:initiatives_committee_member, user:, initiative:)
     end
 
     it_behaves_like "manage update"
   end
 
   describe "when user is admin" do
-    let(:user) { create(:user, :confirmed, :admin, organization: organization) }
-    let(:initiative) { create(:initiative, :created, scoped_type: scoped_type, organization: organization) }
+    let(:user) { create(:user, :confirmed, :admin, organization:) }
+    let(:initiative) { create(:initiative, :created, scoped_type:, organization:) }
 
     it_behaves_like "manage update"
   end
 
   describe "when author is not a committee member" do
-    let(:initiative) { create(:initiative, :created, scoped_type: scoped_type, organization: organization) }
+    let(:initiative) { create(:initiative, :created, scoped_type:, organization:) }
 
     it "renders an error" do
       visit decidim_initiatives.initiative_path(initiative)

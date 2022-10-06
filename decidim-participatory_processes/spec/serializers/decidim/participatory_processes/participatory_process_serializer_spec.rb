@@ -151,7 +151,7 @@ module Decidim::ParticipatoryProcesses
 
       context "when process has attachments" do
         let!(:attachment_collection) { create(:attachment_collection, collection_for: resource) }
-        let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection: attachment_collection) }
+        let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection:) }
 
         it "includes the attachment" do
           serialized_participatory_process_attachment = subject.serialize[:attachments][:files].first

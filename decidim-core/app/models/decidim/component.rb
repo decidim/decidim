@@ -24,7 +24,7 @@ module Decidim
 
     # Other components with the same manifest and same participatory space as this one.
     def siblings
-      @siblings ||= participatory_space.components.where.not(id: id).where(manifest_name: manifest_name)
+      @siblings ||= participatory_space.components.where.not(id:).where(manifest_name:)
     end
 
     # Public: Finds the manifest this component is associated to.

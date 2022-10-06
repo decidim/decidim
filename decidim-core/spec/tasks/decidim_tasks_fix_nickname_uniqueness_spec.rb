@@ -5,11 +5,11 @@ require "spec_helper"
 describe "rake decidim:upgrade:fix_nickname_uniqueness", type: :task do
   context "when all users come from the same organization" do
     let(:organization) { create(:organization) }
-    let!(:user1) { create(:user, :confirmed, nickname: "toto", organization: organization) }
-    let!(:user2) { create(:user, :confirmed, nickname: "Toto", organization: organization) }
-    let!(:user3) { create(:user, :confirmed, nickname: "TOTO", organization: organization) }
-    let!(:user4) { create(:user, :confirmed, nickname: "foO", organization: organization) }
-    let!(:user5) { create(:user, :confirmed, nickname: "Foo", organization: organization) }
+    let!(:user1) { create(:user, :confirmed, nickname: "toto", organization:) }
+    let!(:user2) { create(:user, :confirmed, nickname: "Toto", organization:) }
+    let!(:user3) { create(:user, :confirmed, nickname: "TOTO", organization:) }
+    let!(:user4) { create(:user, :confirmed, nickname: "foO", organization:) }
+    let!(:user5) { create(:user, :confirmed, nickname: "Foo", organization:) }
 
     context "when executing task" do
       it "have to be executed without failures" do

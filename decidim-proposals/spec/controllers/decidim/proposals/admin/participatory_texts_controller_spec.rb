@@ -16,7 +16,7 @@ module Decidim
           {
             component_id: component.id,
             participatory_process_slug: component.participatory_space.slug,
-            title: title,
+            title:,
             description: {},
             document: document_file
           }

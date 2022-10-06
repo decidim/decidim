@@ -5,38 +5,38 @@ require "spec_helper"
 describe "User activity", type: :system do
   let(:organization) { create(:organization) }
   let(:comment) { create(:comment) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   let!(:action_log) do
-    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization: organization, user: user)
+    create(:action_log, action: "create", visibility: "public-only", resource: comment, organization:, user:)
   end
 
-  let!(:action_log_2) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource, organization: organization, participatory_space: component.participatory_space, user: user)
+  let!(:action_log2) do
+    create(:action_log, action: "publish", visibility: "all", resource:, organization:, participatory_space: component.participatory_space, user:)
   end
 
   let!(:hidden_action_log) do
-    create(:action_log, action: "publish", visibility: "all", resource: resource2, organization: organization, participatory_space: component.participatory_space)
+    create(:action_log, action: "publish", visibility: "all", resource: resource2, organization:, participatory_space: component.participatory_space)
   end
 
   let!(:private_action_log) do
-    create(:action_log, action: "update", visibility: "private-only", resource: resource3, organization: organization, participatory_space: component.participatory_space, user: user)
+    create(:action_log, action: "update", visibility: "private-only", resource: resource3, organization:, participatory_space: component.participatory_space, user:)
   end
 
   let(:component) do
-    create(:component, :published, organization: organization)
+    create(:component, :published, organization:)
   end
 
   let(:resource) do
-    create(:dummy_resource, component: component, published_at: Time.current)
+    create(:dummy_resource, component:, published_at: Time.current)
   end
 
   let(:resource2) do
-    create(:dummy_resource, component: component, published_at: Time.current)
+    create(:dummy_resource, component:, published_at: Time.current)
   end
 
   let!(:resource3) do
-    create(:coauthorable_dummy_resource, component: component)
+    create(:coauthorable_dummy_resource, component:)
   end
 
   let(:resource_types) do
@@ -74,8 +74,8 @@ describe "User activity", type: :system do
         # rubocop:enable RSpec/AnyInstance
 
         page.visit decidim.profile_activity_path(nickname: user.nickname)
-        within ".user-activity" do
-          expect(page).to have_css(".card--activity", count: 3)
+        within "#activities-container" do
+          expect(page).to have_css("[data-activity]", count: 3)
 
           expect(page).to have_content(translated(resource.title))
           expect(page).to have_content(translated(comment.commentable.title))
@@ -92,8 +92,8 @@ describe "User activity", type: :system do
     end
 
     it "displays the activities at the home page" do
-      within ".user-activity" do
-        expect(page).to have_css(".card--activity", count: 2)
+      within "#activities-container" do
+        expect(page).to have_css("[data-activity]", count: 2)
 
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
@@ -103,11 +103,17 @@ describe "User activity", type: :system do
     end
 
     it "displays activities filter with the correct options" do
-      expect(page).to have_select(
-        "filter[resource_type]",
-        selected: "All types",
-        options: resource_types.push("All types")
-      )
+      within("form.profile__activity__filter-container") do
+        resource_types.push("All types").each do |type|
+          expect(page).to have_css("label", text: type)
+        end
+      end
+    end
+
+    it "displays activities filter with the All types option checked by default" do
+      within("form.profile__activity__filter-container") do
+        expect(page.find("input[value='all']", visible: false)).to be_checked
+      end
     end
 
     context "when accessing a non existing profile" do

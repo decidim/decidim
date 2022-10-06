@@ -6,8 +6,8 @@ describe Decidim::Proposals::Metrics::ProposalFollowersMetricMeasure do
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:proposals_component) { create(:proposal_component, :published, participatory_space: participatory_space) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:proposals_component) { create(:proposal_component, :published, participatory_space:) }
   let(:proposal) { create(:proposal, :with_endorsements, published_at: day, component: proposals_component) }
   let(:draft) { create(:collaborative_draft, published_at: day, component: proposals_component) }
   let!(:follows) do

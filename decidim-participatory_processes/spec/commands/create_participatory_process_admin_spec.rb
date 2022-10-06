@@ -15,9 +15,9 @@ module Decidim::ParticipatoryProcesses
     let(:form) do
       double(
         invalid?: invalid,
-        email: email,
-        role: role,
-        name: name,
+        email:,
+        role:,
+        name:,
         current_participatory_space: my_process
       )
     end
@@ -51,14 +51,14 @@ module Decidim::ParticipatoryProcesses
       let(:role_params) do
         {
           role: role.to_sym,
-          user: user,
+          user:,
           participatory_process: my_process
         }
       end
 
       it "creates the user role" do
         subject.call
-        roles = Decidim::ParticipatoryProcessUserRole.where(user: user)
+        roles = Decidim::ParticipatoryProcessUserRole.where(user:)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
@@ -126,7 +126,7 @@ module Decidim::ParticipatoryProcesses
         it "doesn't get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          roles = Decidim::ParticipatoryProcessUserRole.where(user: user)
+          roles = Decidim::ParticipatoryProcessUserRole.where(user:)
 
           expect(roles.count).to eq 1
           expect(roles.first.role).to eq "admin"

@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Admin manages impersonatable users list", type: :system do
   let(:organization) { create(:organization) }
 
-  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -15,9 +15,9 @@ describe "Admin manages impersonatable users list", type: :system do
   end
 
   describe "listing impersonatable users" do
-    let!(:managed) { create(:user, :managed, organization: organization) }
+    let!(:managed) { create(:user, :managed, organization:) }
 
-    let!(:not_managed) { create(:user, organization: organization) }
+    let!(:not_managed) { create(:user, organization:) }
     let!(:external_not_managed) { create(:user) }
 
     let!(:another_admin) { create(:user, :admin) }

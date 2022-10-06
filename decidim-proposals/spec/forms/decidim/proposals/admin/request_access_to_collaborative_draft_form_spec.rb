@@ -12,11 +12,11 @@ module Decidim
         let(:collaborative_draft) { create(:collaborative_draft, :open) }
         let(:state) { collaborative_draft.state }
         let(:id) { collaborative_draft.id }
-        let(:current_user) { create(:user, organization: organization) }
+        let(:current_user) { create(:user, organization:) }
         let(:params) do
           {
-            state: state,
-            id: id
+            state:,
+            id:
           }
         end
 

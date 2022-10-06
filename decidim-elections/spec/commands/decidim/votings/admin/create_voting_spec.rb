@@ -9,24 +9,25 @@ module Decidim
         subject { described_class.new(form) }
 
         let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
+        let(:user) { create :user, :admin, :confirmed, organization: }
 
         let(:form) do
           double(
             invalid?: invalid,
             title: { en: "The voting space title" },
             description: { en: "The voting space description" },
-            start_time: start_time,
-            end_time: end_time,
-            slug: slug,
-            scope: scope,
+            start_time:,
+            end_time:,
+            slug:,
+            scope:,
             current_user: user,
             current_organization: organization,
             banner_image: nil,
             introductory_image: nil,
-            promoted: promoted,
-            voting_type: voting_type,
-            census_contact_information: census_contact_information
+            promoted:,
+            voting_type:,
+            census_contact_information:,
+            show_check_census:
           )
         end
 
@@ -36,15 +37,16 @@ module Decidim
         let(:start_time) { 1.day.from_now }
         let(:end_time) { start_time + 1.month }
         let(:slug) { "voting-slug" }
-        let(:scope) { create :scope, organization: organization }
+        let(:scope) { create :scope, organization: }
         let(:promoted) { true }
         let(:voting_type) { "online" }
         let(:census_contact_information) { nil }
+        let(:show_check_census) { true }
 
         let(:voting) { Decidim::Votings::Voting.last }
 
         it "creates the voting" do
-          expect { subject.call }.to change { Decidim::Votings::Voting.count }.by(1)
+          expect { subject.call }.to change(Decidim::Votings::Voting, :count).by(1)
         end
 
         it "broadcasts ok" do
@@ -62,6 +64,7 @@ module Decidim
           expect(voting.organization).to eq organization
           expect(voting.promoted).to eq promoted
           expect(voting.voting_type).to eq voting_type
+          expect(voting.show_check_census).to eq show_check_census
         end
 
         it "traces the action", versioning: true do

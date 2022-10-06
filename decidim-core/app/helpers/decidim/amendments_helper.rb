@@ -18,7 +18,7 @@ module Decidim
 
       content << cell("decidim/collapsible_list",
                       emendations,
-                      cell_options: { context: { current_user: current_user } },
+                      cell_options: { context: { current_user: } },
                       list_class: "row small-up-1 medium-up-2 card-grid amendment-list",
                       size: 4).to_s
 

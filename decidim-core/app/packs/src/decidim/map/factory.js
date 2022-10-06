@@ -33,7 +33,7 @@ import MapDragMarkerController from "src/decidim/map/controller/drag_marker"
  * @param {Object} config The map configuration object.
  * @returns {MapController} The controller for the map.
  */
-export default function createMapController(mapId, config) {
+const createMapController = function(mapId, config) {
   if (config.type === "static") {
     return new MapStaticController(mapId, config);
   } else if (config.type === "drag-marker") {
@@ -42,3 +42,5 @@ export default function createMapController(mapId, config) {
 
   return new MapMarkersController(mapId, config);
 }
+
+window.Decidim.createMapController = createMapController;

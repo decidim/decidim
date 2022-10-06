@@ -9,8 +9,8 @@ describe Decidim::Debates::Permissions do
   let(:context) do
     {
       current_component: debates_component,
-      current_settings: current_settings,
-      debate: debate,
+      current_settings:,
+      debate:,
       component_settings: nil
     }
   end

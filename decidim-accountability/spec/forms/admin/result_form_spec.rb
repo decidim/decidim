@@ -10,11 +10,11 @@ module Decidim::Accountability
     let(:context) do
       {
         current_organization: organization,
-        current_component: current_component,
+        current_component:,
         current_participatory_space: participatory_process
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :accountability_component, participatory_space: participatory_process }
     let(:title) do
       Decidim::Faker::Localized.sentence(word_count: 3)
@@ -22,12 +22,12 @@ module Decidim::Accountability
     let(:description) do
       Decidim::Faker::Localized.sentence(word_count: 3)
     end
-    let(:parent_scope) { create(:scope, organization: organization) }
+    let(:parent_scope) { create(:scope, organization:) }
     let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
-    let(:parent) { create :result, scope: scope, component: current_component }
+    let(:parent) { create :result, scope:, component: current_component }
     let(:parent_id) { parent.id }
     let(:start_date) { "12/3/2017" }
     let(:end_date) { "21/6/2017" }
@@ -39,13 +39,13 @@ module Decidim::Accountability
       {
         decidim_scope_id: scope_id,
         decidim_category_id: category_id,
-        parent_id: parent_id,
+        parent_id:,
         title_en: title[:en],
         description_en: description[:en],
-        start_date: start_date,
-        end_date: end_date,
+        start_date:,
+        end_date:,
         decidim_accountability_status_id: status_id,
-        progress: progress
+        progress:
       }
     end
 
@@ -115,8 +115,8 @@ module Decidim::Accountability
         create(
           :result,
           component: current_component,
-          scope: scope,
-          category: category
+          scope:,
+          category:
         )
       end
 
@@ -158,8 +158,8 @@ module Decidim::Accountability
           create(
             :result,
             component: current_component,
-            scope: scope,
-            category: category
+            scope:,
+            category:
           )
         end
 

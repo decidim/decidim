@@ -21,7 +21,7 @@ module Decidim
         enforce_permission_to :create, :area_type
         @form = form(AreaTypeForm).from_params(params)
 
-        CreateAreaType.call(@form) do
+        CreateAreaType.call(@form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("area_types.create.success", scope: "decidim.admin")
             redirect_to area_types_path
@@ -43,7 +43,7 @@ module Decidim
         enforce_permission_to :update, :area_type, area_type: area_type
         @form = form(AreaTypeForm).from_params(params)
 
-        UpdateAreaType.call(area_type, @form) do
+        UpdateAreaType.call(area_type, @form, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("area_types.update.success", scope: "decidim.admin")
             redirect_to area_types_path
@@ -58,7 +58,10 @@ module Decidim
 
       def destroy
         enforce_permission_to :destroy, :area_type, area_type: area_type
-        area_type.destroy!
+
+        Decidim.traceability.perform_action!("delete", area_type, current_user) do
+          area_type.destroy!
+        end
 
         flash[:notice] = I18n.t("area_types.destroy.success", scope: "decidim.admin")
 

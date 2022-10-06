@@ -6,7 +6,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessRequestedEvent do
   include_context "when a simple event"
 
   let(:event_name) { "decidim.events.proposals.collaborative_draft_access_requested" }
-  let(:resource) { create :collaborative_draft, title: "My collaborative draft" }
+  let(:resource) { create :collaborative_draft, title: "It's my collaborative draft" }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
   let(:resource_title) { resource.title }
   let(:author) { resource.authors.first }
@@ -21,7 +21,7 @@ describe Decidim::Proposals::CollaborativeDraftAccessRequestedEvent do
   let(:requester_presenter) { Decidim::UserPresenter.new(requester) }
   let(:requester_path) { requester_presenter.profile_path }
   let(:requester_nickname) { requester_presenter.nickname }
-  let(:extra) { { requester_id: requester_id } }
+  let(:extra) { { requester_id: } }
 
   context "when the notification is for coauthor users" do
     it_behaves_like "a simple event"
@@ -35,21 +35,21 @@ describe Decidim::Proposals::CollaborativeDraftAccessRequestedEvent do
     describe "email_intro" do
       it "is generated correctly" do
         expect(subject.email_intro)
-          .to eq(%(#{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="#{resource_url}">#{resource_title}</a> collaborative draft page.))
+          .to eq(%(#{requester_name} requested access as a contributor. You can <strong>accept or reject the request</strong> from the <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a> collaborative draft page.))
       end
     end
 
     describe "email_outro" do
       it "is generated correctly" do
         expect(subject.email_outro)
-          .to eq(%(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{resource_title}</a>.))
+          .to eq(%(You have received this notification because you are a collaborator of <a href="#{resource_url}">#{decidim_html_escape(resource_title)}</a>.))
       end
     end
 
     describe "notification_title" do
       it "is generated correctly" do
         expect(subject.notification_title)
-          .to include(%(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> requested access to contribute to the <a href="#{resource_path}">#{resource_title}</a> collaborative draft. Please <strong>accept or reject the request</strong>.))
+          .to include(%(<a href="#{requester_path}">#{requester_name} #{requester_nickname}</a> requested access to contribute to the <a href="#{resource_path}">#{decidim_html_escape(resource_title)}</a> collaborative draft. Please <strong>accept or reject the request</strong>.))
       end
     end
   end

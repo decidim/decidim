@@ -219,8 +219,6 @@ zh-CN:
             edit: 编辑
             new: 新的
             photos: 照片
-          show:
-            print: 打印
           update:
             error: 发生错误
             success: 该倡议已成功更新

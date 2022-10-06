@@ -33,6 +33,7 @@ module Webpacker
         expect(runtime_config["default"]["additional_paths"]).to include("#{core_path}/app/packs")
         expect(runtime_config["default"]["entrypoints"]).to include(
           "decidim_core" => "#{core_path}/app/packs/entrypoints/decidim_core.js",
+          "decidim_sw" => "#{core_path}/app/packs/entrypoints/decidim_sw.js",
           "decidim_conference_diploma" => "#{core_path}/app/packs/entrypoints/decidim_conference_diploma.js",
           "decidim_email" => "#{core_path}/app/packs/entrypoints/decidim_email.js",
           "decidim_map" => "#{core_path}/app/packs/entrypoints/decidim_map.js",
@@ -48,13 +49,17 @@ module Webpacker
           "stylesheets/decidim/accountability/accountability",
           "stylesheets/decidim/budgets/budgets",
           "stylesheets/decidim/proposals/proposals",
-          "stylesheets/decidim/surveys/surveys",
           "stylesheets/decidim/conferences/conferences",
           "stylesheets/decidim/consultations/consultations",
           "stylesheets/decidim/elections/elections",
           "stylesheets/decidim/votings/votings",
           "stylesheets/decidim/initiatives/initiatives"
         )
+      end
+
+      it "calls assets generate runtime configuration for Tailwind" do
+        expect(Decidim::Assets::Tailwind).to receive(:write_runtime_configuration)
+        create_instance
       end
     end
 

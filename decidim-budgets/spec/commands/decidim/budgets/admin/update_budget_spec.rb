@@ -7,8 +7,8 @@ describe Decidim::Budgets::Admin::UpdateBudget do
 
   let(:budget) { create :budget }
   let(:organization) { budget.component.organization }
-  let(:scope) { create :scope, organization: organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:scope) { create :scope, organization: }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
@@ -16,7 +16,7 @@ describe Decidim::Budgets::Admin::UpdateBudget do
       title: { en: "title" },
       description: { en: "description" },
       total_budget: 101_000_000,
-      scope: scope,
+      scope:,
       current_user: user
     )
   end

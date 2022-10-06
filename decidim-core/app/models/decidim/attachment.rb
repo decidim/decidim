@@ -6,6 +6,8 @@ module Decidim
   class Attachment < ApplicationRecord
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
+    include Traceable
+
     before_save :set_content_type_and_size, if: :attached?
 
     translatable_fields :title, :description
@@ -91,6 +93,10 @@ module Decidim
     def set_content_type_and_size
       self.content_type = file.content_type
       self.file_size = file.byte_size
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::AttachmentPresenter
     end
   end
 end

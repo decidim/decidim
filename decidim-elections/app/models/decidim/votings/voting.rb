@@ -138,6 +138,10 @@ module Decidim
         ballot_styles.exists?
       end
 
+      def check_census_enabled?
+        dataset.present? && show_check_census?
+      end
+
       def elections
         Decidim::Elections::Election.where(component: components)
       end

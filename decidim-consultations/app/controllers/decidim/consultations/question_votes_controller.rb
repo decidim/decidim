@@ -13,7 +13,7 @@ module Decidim
       def create
         enforce_permission_to :vote, :question, question: current_question
 
-        vote_form = form(VoteForm).from_params(params, current_question: current_question)
+        vote_form = form(VoteForm).from_params(params, current_question:)
         VoteQuestion.call(vote_form) do
           on(:ok) do
             current_question.reload

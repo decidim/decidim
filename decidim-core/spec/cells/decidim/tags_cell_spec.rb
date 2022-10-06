@@ -6,34 +6,34 @@ describe Decidim::TagsCell, type: :cell do
   controller Decidim::PagesController
 
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, organization: organization) }
-  let(:component_proposals) { create(:proposal_component, participatory_space: participatory_space, settings: component_settings) }
-  let(:component_meetings) { create(:meeting_component, participatory_space: participatory_space, settings: component_settings) }
+  let(:participatory_space) { create(:participatory_process, organization:) }
+  let(:component_proposals) { create(:proposal_component, participatory_space:, settings: component_settings) }
+  let(:component_meetings) { create(:meeting_component, participatory_space:, settings: component_settings) }
   let(:component_settings) do
     {
       scopes_enabled: true,
       scope_id: parent_scope.id
     }
   end
-  let(:parent_scope) { create(:scope, organization: organization) }
-  let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
-  let(:subscope) { create(:scope, organization: organization, parent: scope) }
-  let(:category) { create(:category, participatory_space: participatory_space) }
-  let(:subcategory) { create(:category, participatory_space: participatory_space, parent: category) }
+  let(:parent_scope) { create(:scope, organization:) }
+  let(:scope) { create(:scope, organization:, parent: parent_scope) }
+  let(:subscope) { create(:scope, organization:, parent: scope) }
+  let(:category) { create(:category, participatory_space:) }
+  let(:subcategory) { create(:category, participatory_space:, parent: category) }
 
   let(:proposal_no_tags) { create(:proposal, component: component_proposals) }
-  let(:proposal_scoped) { create(:proposal, component: component_proposals, scope: scope) }
+  let(:proposal_scoped) { create(:proposal, component: component_proposals, scope:) }
   let(:proposal_subscoped) { create(:proposal, component: component_proposals, scope: subscope) }
-  let(:proposal_categorized) { create(:proposal, component: component_proposals, category: category) }
+  let(:proposal_categorized) { create(:proposal, component: component_proposals, category:) }
   let(:proposal_subcategorized) { create(:proposal, component: component_proposals, category: subcategory) }
-  let(:proposal_scoped_categorized) { create(:proposal, component: component_proposals, scope: scope, category: category) }
+  let(:proposal_scoped_categorized) { create(:proposal, component: component_proposals, scope:, category:) }
 
   let(:meeting_no_tags) { create(:meeting, component: component_meetings) }
-  let(:meeting_scoped) { create(:meeting, component: component_meetings, scope: scope) }
+  let(:meeting_scoped) { create(:meeting, component: component_meetings, scope:) }
   let(:meeting_subscoped) { create(:meeting, component: component_meetings, scope: subscope) }
-  let(:meeting_categorized) { create(:meeting, component: component_meetings, category: category) }
+  let(:meeting_categorized) { create(:meeting, component: component_meetings, category:) }
   let(:meeting_subcategorized) { create(:meeting, component: component_meetings, category: subcategory) }
-  let(:meeting_scoped_categorized) { create(:meeting, component: component_meetings, scope: scope, category: category) }
+  let(:meeting_scoped_categorized) { create(:meeting, component: component_meetings, scope:, category:) }
 
   context "when a resource has no tags" do
     it "doesn't render the tags of a proposal" do

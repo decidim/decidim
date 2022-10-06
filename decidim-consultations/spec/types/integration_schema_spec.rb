@@ -11,7 +11,7 @@ describe "Decidim::Api::QueryType" do
   let(:locale) { "en" }
 
   let!(:consultation) { create(:consultation, :finished, organization: current_organization) }
-  let!(:question) { create(:question, consultation: consultation) }
+  let!(:question) { create(:question, consultation:) }
 
   let(:consultation_data) do
     {

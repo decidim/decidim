@@ -8,7 +8,7 @@ module Decidim::Accountability
 
     let(:result) { create :result }
     let(:organization) { result.component.organization }
-    let(:user) { create :user, organization: organization }
+    let(:user) { create :user, organization: }
 
     context "when everything is ok" do
       it "destroys the result" do

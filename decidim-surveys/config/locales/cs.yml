@@ -34,7 +34,7 @@ cs:
           step:
             allow_answers: Povolte odpovědi
             allow_unregistered: Umožnit neregistrovaným uživatelům odpovědět na průzkum
-            allow_unregistered_help: Pokud je aktivní, nebude vyžadován žádný přihlašovací postup, aby šlo odpovědět na průzkum, což může vést k slabým nebo nespolehlivým údajům a bude náchylnější k automatizovaným útokům. Používejte obezřetně!
+            allow_unregistered_help: Pokud je aktivní, nebude nutné se přihlásit k odpovědi na dotazník. To může vést ke špatným nebo nespolehlivým údajům a bude to zranitelnější vůči automatickým útokům. Používejte s opatrností! Mějte na paměti, že účastník může odpovědět na stejný průzkum několikrát, použitím různých prohlížečů nebo funkce "soukromého prohlížení" svého webového prohlížeče.
             announcement: Oznámení
     events:
       surveys:

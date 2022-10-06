@@ -21,9 +21,9 @@ module Decidim
 
         let(:params) do
           {
-            title: title,
-            description: description,
-            document: document
+            title:,
+            description:,
+            document:
           }
         end
 
@@ -53,7 +53,7 @@ module Decidim
         end
 
         context "when updating a participatory_text which has existing proposals" do
-          let!(:proposal) { create :proposal, component: component }
+          let!(:proposal) { create :proposal, component: }
 
           context "when the document is not valid" do
             let(:document) { nil }

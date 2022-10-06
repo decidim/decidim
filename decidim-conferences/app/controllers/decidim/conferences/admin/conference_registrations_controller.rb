@@ -14,7 +14,7 @@ module Decidim
         def index
           enforce_permission_to :read_conference_registrations, :conference, conference: conference
 
-          @conference_registrations = paginate(Decidim::Conferences::ConferenceRegistration.where(conference: conference))
+          @conference_registrations = paginate(Decidim::Conferences::ConferenceRegistration.where(conference:))
         end
 
         def export

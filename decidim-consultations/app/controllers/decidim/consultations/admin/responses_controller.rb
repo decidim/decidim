@@ -21,7 +21,7 @@ module Decidim
 
         def create
           enforce_permission_to :create, :response
-          @form = response_form.from_params(params, current_question: current_question)
+          @form = response_form.from_params(params, current_question:)
 
           CreateResponse.call(@form) do
             on(:ok) do
@@ -38,13 +38,13 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :response, response: current_response
-          @form = response_form.from_model(current_response, current_question: current_question)
+          @form = response_form.from_model(current_response, current_question:)
         end
 
         def update
           enforce_permission_to :update, :response, response: current_response
 
-          @form = response_form.from_params(params, current_question: current_question)
+          @form = response_form.from_params(params, current_question:)
           UpdateResponse.call(current_response, @form) do
             on(:ok) do
               flash[:notice] = I18n.t("responses.update.success", scope: "decidim.admin")

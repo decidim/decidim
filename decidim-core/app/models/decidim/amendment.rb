@@ -8,8 +8,14 @@ module Decidim
     belongs_to :amender, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     belongs_to :emendation, foreign_key: "decidim_emendation_id", foreign_type: "decidim_emendation_type", polymorphic: true
 
-    validates :amendable, :amender, :emendation, presence: true
     validates :state, presence: true, inclusion: { in: STATES }
+
+    # Reports the mapped resource type for authorization transfers.
+    #
+    # @return [String] The resource type as string (i.e. its class name).
+    def mapped_resource_type
+      decidim_amendable_type
+    end
 
     def draft?
       state == "draft"

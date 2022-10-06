@@ -9,10 +9,10 @@ describe Decidim::Elections::Admin::ElectionForm do
   let(:context) do
     {
       current_organization: organization,
-      current_component: current_component
+      current_component:
     }
   end
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :elections_component, participatory_space: participatory_process }
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
@@ -21,10 +21,10 @@ describe Decidim::Elections::Admin::ElectionForm do
   let(:attachment_params) { nil }
   let(:attributes) do
     {
-      title: title,
-      description: description,
-      start_time: start_time,
-      end_time: end_time,
+      title:,
+      description:,
+      start_time:,
+      end_time:,
       attachment: attachment_params
     }
   end

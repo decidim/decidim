@@ -3,8 +3,7 @@
 <% content_for(:subtitle) { t("profile", scope: "layouts.decidim.user_menu") } %>
 
 <div class="row">
-  <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "off" }) do |f| %>
-    <input autocomplete="off" name="hidden" type="password" style="display:none;">
+  <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "on" }) do |f| %>
     <div class="columns large-4">
       <%= f.upload :avatar %>
     </div>
@@ -25,10 +24,10 @@
 
       <%= form_required_explanation %>
 
-      <%= f.text_field :name %>
-      <%= f.text_field :nickname %>
-      <%= f.email_field :email, disabled: current_user.unconfirmed_email.present? %>
-      <%= f.url_field :personal_url %>
+      <%= f.text_field :name, autocomplete: "name" %>
+      <%= f.text_field :nickname, autocomplete: "nickname" %>
+      <%= f.email_field :email, disabled: current_user.unconfirmed_email.present?, autocomplete: "email" %>
+      <%= f.url_field :personal_url, autocomplete: "url" %>
       <%= f.text_area :about, rows: 5 %>
 
       <%= f.collection_select(

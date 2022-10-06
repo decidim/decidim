@@ -32,7 +32,7 @@ module Decidim
 
         def update_answer_selection!
           answer.update!(
-            selected: selected
+            selected:
           )
         end
       end

@@ -8,7 +8,7 @@ RSpec.describe "Meeting search", type: :request do
   subject { response.body }
 
   let(:component) { create :meeting_component }
-  let(:user) { create :user, :confirmed, organization: organization }
+  let(:user) { create :user, :confirmed, organization: }
   let(:participatory_space) { component.participatory_space }
   let(:organization) { participatory_space.organization }
   let(:filter_params) { {} }
@@ -18,7 +18,7 @@ RSpec.describe "Meeting search", type: :request do
       :meeting,
       :published,
       author: user,
-      component: component,
+      component:,
       start_time: 1.day.from_now,
       description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
     )
@@ -27,7 +27,7 @@ RSpec.describe "Meeting search", type: :request do
     create(
       :meeting,
       :published,
-      component: component,
+      component:,
       start_time: 1.day.ago,
       end_time: 2.days.from_now,
       description: Decidim::Faker::Localized.literal("Curabitur arcu erat, accumsan id imperdiet et.")
@@ -38,7 +38,7 @@ RSpec.describe "Meeting search", type: :request do
     create(
       :meeting,
       author: user,
-      component: component,
+      component:,
       start_time: 1.day.from_now,
       description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
     )
@@ -50,7 +50,7 @@ RSpec.describe "Meeting search", type: :request do
       :published,
       :withdrawn,
       author: user,
-      component: component,
+      component:,
       start_time: 1.day.ago,
       end_time: 2.days.from_now,
       description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt.")
@@ -82,7 +82,7 @@ RSpec.describe "Meeting search", type: :request do
   context "when searching by date" do
     let(:filter_params) { { with_any_date: date } }
     let!(:past_meeting) do
-      create(:meeting, :published, component: component, start_time: 10.days.ago, end_time: 1.day.ago)
+      create(:meeting, :published, component:, start_time: 10.days.ago, end_time: 1.day.ago)
     end
 
     before do
@@ -157,10 +157,10 @@ RSpec.describe "Meeting search", type: :request do
 
   context "when searching by type" do
     let!(:in_person_meeting) do
-      create(:meeting, :published, component: component)
+      create(:meeting, :published, component:)
     end
     let!(:online_meeting) do
-      create(:meeting, :published, :online, component: component)
+      create(:meeting, :published, :online, component:)
     end
     let(:filter_params) { { with_any_type: type } }
 
@@ -192,7 +192,7 @@ RSpec.describe "Meeting search", type: :request do
   end
 
   context "when searching by activity" do
-    let(:filter_params) { { activity: activity } }
+    let(:filter_params) { { activity: } }
 
     before do
       login_as user, scope: :user

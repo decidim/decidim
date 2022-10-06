@@ -6,7 +6,7 @@ describe Decidim::Votings::Admin::VotingForm do
   subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:scope) { create :scope, organization: organization }
+  let(:scope) { create :scope, organization: }
 
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
@@ -21,16 +21,16 @@ describe Decidim::Votings::Admin::VotingForm do
   let(:attributes) do
     {
       voting: {
-        title: title,
-        description: description,
-        slug: slug,
-        start_time: start_time,
-        end_time: end_time,
+        title:,
+        description:,
+        slug:,
+        start_time:,
+        end_time:,
         scope_id: scope&.id,
-        banner_image: banner_image,
-        promoted: promoted,
-        voting_type: voting_type,
-        census_contact_information: census_contact_information
+        banner_image:,
+        promoted:,
+        voting_type:,
+        census_contact_information:
       }
     }
   end
@@ -64,7 +64,7 @@ describe Decidim::Votings::Admin::VotingForm do
   context "when slug is not unique" do
     describe "when in the same organization" do
       before do
-        create(:voting, slug: slug, organization: organization)
+        create(:voting, slug:, organization:)
       end
 
       it "is not valid" do
@@ -75,7 +75,7 @@ describe Decidim::Votings::Admin::VotingForm do
 
     describe "when in another organization" do
       before do
-        create(:voting, slug: slug)
+        create(:voting, slug:)
       end
 
       it "is valid" do

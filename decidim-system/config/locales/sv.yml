@@ -62,11 +62,11 @@ sv:
           current_organizations: Nuvarande organisationer
       default_pages:
         placeholders:
-          content: Lägg till relevant innehåll på den statiska sidan %{page} på administratörspanelen.
+          content: Lägg till relevant innehåll på den statiska sidan %{page} på adminpanelen.
           title: Standardtitel för %{page}
       menu:
         admins: Administratörer
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel
         oauth_applications: OAuth appar
         organizations: Organisationer
       models:
@@ -174,4 +174,4 @@ sv:
           no_organization_warning_html: Kom igång genom att skapa en organisation. Läs %{guide} innan du fortsätter.
           our_getting_started_guide: vår startguide
       titles:
-        dashboard: Kontrollpanel
+        dashboard: Adminpanel

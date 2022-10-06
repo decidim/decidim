@@ -22,9 +22,9 @@ describe "Answer a survey", type: :system do
       "es" => "<p>Contenido de la encuesta</p>"
     }
   end
-  let!(:questionnaire) { create(:questionnaire, title: title, description: description) }
-  let!(:survey) { create(:survey, component: component, questionnaire: questionnaire) }
-  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
+  let!(:questionnaire) { create(:questionnaire, title:, description:) }
+  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
 
   include_context "with a component"
 
@@ -32,7 +32,7 @@ describe "Answer a survey", type: :system do
     it "does not allow answering the survey" do
       visit_component
 
-      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+      expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       expect(page).to have_no_i18n_content(question.body)
@@ -58,7 +58,7 @@ describe "Answer a survey", type: :system do
     it "allows answering the questionnaire" do
       visit_component
 
-      expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+      expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       fill_in question.body["en"], with: "My first answer"

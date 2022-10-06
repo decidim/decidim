@@ -3,6 +3,7 @@ ja:
     models:
       decidim/comments/comment_by_followed_user_event: コメント
       decidim/comments/comment_created_event: コメント
+      decidim/comments/comment_upvoted_event: 賛成票のあったコメント
       decidim/comments/reply_created_event: コメント返信
       decidim/comments/user_group_mentioned_event: メンション
       decidim/comments/user_mentioned_event: メンション

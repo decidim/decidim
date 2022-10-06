@@ -898,6 +898,7 @@
         gallery:
           add_images: Legg til bilder
           delete_image: Slett bilde
+          edit_images: Rediger bilder
           gallery_legend: Legg til et bildegalleri (valgfritt)
       static_page_topics:
         create:
@@ -1023,7 +1024,7 @@
         hide: Skjul
         not_hidden: Ikke skjult
         title: Handlinger
-        unhide: Ikke skjul
+        unhide: Vis
         unreport: Urapporter
       admin:
         reportable:
@@ -1043,7 +1044,6 @@
             hidden_at: Skjult på
             participatory_space: Deltakerrom
             report_count: Antall
-            reportable_id: Id
             reportable_type: Type
             reported_content_url: Rapportert innholds URL
             reports: Rapporter

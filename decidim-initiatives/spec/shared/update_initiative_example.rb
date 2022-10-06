@@ -2,7 +2,7 @@
 
 shared_examples "update an initiative" do
   let(:organization) { create(:organization) }
-  let(:initiative) { create(:initiative, organization: organization) }
+  let(:initiative) { create(:initiative, organization:) }
 
   let(:form) do
     form_klass.from_params(
@@ -10,7 +10,7 @@ shared_examples "update an initiative" do
     ).with_context(
       current_organization: organization,
       current_component: nil,
-      initiative: initiative
+      initiative:
     )
   end
 
@@ -21,7 +21,7 @@ shared_examples "update an initiative" do
       title: { en: "A reasonable initiative title" },
       description: { en: "A reasonable initiative description" },
       signature_start_date: Date.current + 10.days,
-      signature_end_date: signature_end_date,
+      signature_end_date:,
       signature_type: "any",
       type_id: initiative.type.id,
       decidim_scope_id: initiative.scope.id,
@@ -141,7 +141,7 @@ shared_examples "update an initiative" do
       end
 
       context "when administrator user" do
-        let(:administrator) { create(:user, :admin, organization: organization) }
+        let(:administrator) { create(:user, :admin, organization:) }
 
         let(:command) do
           described_class.new(initiative, form, administrator)

@@ -14,6 +14,7 @@ module Decidim
       include Decidim::Admin::LogRenderHelper
       include Decidim::Admin::UserRolesHelper
       include Decidim::Admin::ResourceScopeHelper
+      include Decidim::Admin::SearchFormHelper
 
       # Adds a link to the secondary navigation so admins can easily access the public page of the
       # element their working on.

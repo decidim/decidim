@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::AddressCell, type: :cell do
+  controller Decidim::ApplicationController
+
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/address", model) }
@@ -11,7 +13,7 @@ describe Decidim::AddressCell, type: :cell do
   let(:address) { "#{address_text}#{js_alert}" }
   let(:latitude) { 41.378481 }
   let(:longitude) { 2.1879618 }
-  let(:model) { create(:dummy_resource, address: address, latitude: latitude, longitude: longitude) }
+  let(:model) { create(:dummy_resource, address:, latitude:, longitude:) }
   let(:hint_text) { "Lorem ipsum dolor sit amet consectetur" }
   let(:location_hints) { "#{hint_text}#{js_alert}" }
   let(:location_text) { "This is my location" }

@@ -6,26 +6,26 @@ describe "Admin manages initiatives", type: :system do
   STATES = Decidim::Initiative.states.keys.map(&:to_sym)
 
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+  let(:user) { create(:user, :confirmed, :admin, organization:) }
   let(:model_name) { Decidim::Initiative.model_name }
   let(:resource_controller) { Decidim::Initiatives::Admin::InitiativesController }
-  let(:type1) { create :initiatives_type, organization: organization }
-  let(:type2) { create :initiatives_type, organization: organization }
+  let(:type1) { create :initiatives_type, organization: }
+  let(:type2) { create :initiatives_type, organization: }
   let(:scoped_type1) { create :initiatives_type_scope, type: type1 }
   let(:scoped_type2) { create :initiatives_type_scope, type: type2 }
-  let(:area1) { create :area, organization: organization }
-  let(:area2) { create :area, organization: organization }
+  let(:area1) { create :area, organization: }
+  let(:area2) { create :area, organization: }
 
   def create_initiative_with_trait(trait)
-    create(:initiative, trait, organization: organization)
+    create(:initiative, trait, organization:)
   end
 
   def initiative_with_state(state)
-    Decidim::Initiative.find_by(state: state)
+    Decidim::Initiative.find_by(state:)
   end
 
   def initiative_without_state(state)
-    Decidim::Initiative.where.not(state: state).sample
+    Decidim::Initiative.where.not(state:).sample
   end
 
   def initiative_with_type(type)
@@ -74,8 +74,8 @@ describe "Admin manages initiatives", type: :system do
 
       context "filtering collection by type: #{i18n_type}" do
         before do
-          create(:initiative, organization: organization, scoped_type: scoped_type1)
-          create(:initiative, organization: organization, scoped_type: scoped_type2)
+          create(:initiative, organization:, scoped_type: scoped_type1)
+          create(:initiative, organization:, scoped_type: scoped_type2)
         end
 
         it_behaves_like "a filtered collection", options: "Type", filter: i18n_type do
@@ -96,8 +96,8 @@ describe "Admin manages initiatives", type: :system do
 
       context "filtering collection by area: #{i18n_area}" do
         before do
-          create(:initiative, organization: organization, area: area1)
-          create(:initiative, organization: organization, area: area2)
+          create(:initiative, organization:, area: area1)
+          create(:initiative, organization:, area: area2)
         end
 
         it_behaves_like "a filtered collection", options: "Area", filter: i18n_area do

@@ -6,6 +6,7 @@ module Decidim
     include Decidim::HasResourcePermission
     include Decidim::TranslatableResource
     include Decidim::HasUploadValidations
+    include Decidim::Traceable
 
     translatable_fields :title, :description, :extra_fields_legal_information
 
@@ -47,6 +48,10 @@ module Decidim
 
     def mounted_params
       { host: organization.host }
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::Initiatives::AdminLog::InitiativesTypePresenter
     end
   end
 end

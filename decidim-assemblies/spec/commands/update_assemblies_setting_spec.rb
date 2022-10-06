@@ -7,14 +7,14 @@ module Decidim::Assemblies
     subject { described_class.new(assembly_setting, form) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
-    let(:assembly_setting) { create :assemblies_setting, organization: organization }
+    let(:user) { create :user, :admin, :confirmed, organization: }
+    let(:assembly_setting) { create :assemblies_setting, organization: }
     let(:enable_organization_chart) { true }
     let(:form) do
       double(
         invalid?: invalid,
         current_user: user,
-        enable_organization_chart: enable_organization_chart
+        enable_organization_chart:
       )
     end
     let(:invalid) { false }

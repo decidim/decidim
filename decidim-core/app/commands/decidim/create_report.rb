@@ -45,7 +45,7 @@ module Decidim
     attr_reader :form, :report
 
     def find_or_create_moderation!
-      @moderation = Moderation.find_or_create_by!(reportable: @reportable, participatory_space: participatory_space)
+      @moderation = Moderation.find_or_create_by!(reportable: @reportable, participatory_space:)
     end
 
     def update_reported_content!

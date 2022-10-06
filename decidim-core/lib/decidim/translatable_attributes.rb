@@ -35,7 +35,7 @@ module Decidim
       #
       # Returns nothing.
       def translatable_attribute(name, type, **options)
-        attribute name, Hash[String => Object], default: {}
+        attribute(name, { String => Object }, default: {})
 
         locales.each do |locale|
           attribute_name = "#{name}_#{locale}".gsub("-", "__")
@@ -43,7 +43,14 @@ module Decidim
 
           define_method attribute_name do
             field = public_send(name) || {}
-            value = field[locale.to_s] || field[locale.to_sym]
+            value =
+              if field.is_a?(Hash)
+                field[locale.to_s] || field[locale.to_sym]
+              else
+                # The value may not be a hash in case the attribute type was
+                # changed and the old value is still stored against the record.
+                field
+              end
             value_type = self.class.attribute_types[attribute_name.to_s]
             value_type ? value_type.cast(value) : value
           end
