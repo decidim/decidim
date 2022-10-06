@@ -42,6 +42,10 @@ es-MX:
           valuator_role_id: Nombre de la evaluadora
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -304,6 +308,7 @@ es-MX:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
+            email_subject: Tu propuesta ha sido rechazada
             notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
