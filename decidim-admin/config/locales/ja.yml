@@ -133,6 +133,14 @@ ja:
               allowed_file_content_types: 無効な画像ファイル
             official_img_header:
               allowed_file_content_types: 無効な画像ファイル
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: インポートファイルの形式が正しくありません。手順を見直して、ファイルがUTF-8でエンコードされていることを確認してください。
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: インポートファイルの形式が正しくありません。手順を見直して、ファイルがUTF-8でエンコードされていることを確認してください。
       new_import:
         attributes:
           file:
