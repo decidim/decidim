@@ -133,6 +133,14 @@ fi:
               allowed_file_content_types: Virheellinen kuvatiedosto
             official_img_header:
               allowed_file_content_types: Virheellinen kuvatiedosto
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
       new_import:
         attributes:
           file:
