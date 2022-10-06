@@ -7,13 +7,13 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
 
   subject { my_cell.call(:show) }
 
-  let(:my_cell) { cell("decidim/proposals/collaborative_draft", collaborative_draft, context: context) }
+  let(:my_cell) { cell("decidim/proposals/collaborative_draft", collaborative_draft, context:) }
 
   let(:component) { create(:proposal_component, :with_collaborative_drafts_enabled) }
   let(:author) { create(:user, :confirmed, organization: component.organization) }
-  let!(:collaborative_draft) { create(:collaborative_draft, component: component) }
+  let!(:collaborative_draft) { create(:collaborative_draft, component:) }
   let(:authors) { create_list(:user, 5, organization: component.organization) }
-  let(:collaborative_draft_va) { create(:collaborative_draft, component: component, users: authors) }
+  let(:collaborative_draft_va) { create(:collaborative_draft, component:, users: authors) }
   let(:context) { nil }
 
   let(:card_label) { subject.find(".card__label") }
@@ -42,13 +42,13 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
     it "renders the collaborative_draft title and link" do
       expect(card_content).to have_content(collaborative_draft.title)
       href = Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
-      expect(card_content).to have_link(class: "card__link", href: href)
+      expect(card_content).to have_link(class: "card__link", href:)
     end
 
     it "renders the footer link" do
       expect(card_footer).to have_content("View Collaborative Draft")
       href = Decidim::ResourceLocatorPresenter.new(collaborative_draft).path
-      expect(card_footer).to have_link(class: "card__button", href: href)
+      expect(card_footer).to have_link(class: "card__button", href:)
     end
 
     it "renders the card author" do
@@ -58,7 +58,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
 
     # collapsible lists uses javascript which is not available when testing cells without a real browser
     describe "with coauthors" do
-      let(:collaborative_draft) { create(:collaborative_draft, component: component, users: authors) }
+      let(:collaborative_draft) { create(:collaborative_draft, component:, users: authors) }
 
       it "renders the first three authors" do
         expect(card_content).to have_css(".author__name", count: 5)
@@ -79,7 +79,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
     end
 
     context "with open state" do
-      let(:collaborative_draft) { create(:collaborative_draft, :open, component: component) }
+      let(:collaborative_draft) { create(:collaborative_draft, :open, component:) }
 
       it "renders the card with the .success class" do
         expect(subject).to have_css(".card.success")
@@ -92,7 +92,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
     end
 
     context "with withdrawn state" do
-      let(:collaborative_draft) { create(:collaborative_draft, :withdrawn, component: component) }
+      let(:collaborative_draft) { create(:collaborative_draft, :withdrawn, component:) }
 
       it "renders the card with the .alert class" do
         expect(subject).to have_css(".card.alert")
@@ -105,7 +105,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
     end
 
     context "with published state" do
-      let(:collaborative_draft) { create(:collaborative_draft, :published, component: component) }
+      let(:collaborative_draft) { create(:collaborative_draft, :published, component:) }
 
       it "renders the card with the .secondary class" do
         expect(subject).to have_css(".card.secondary")

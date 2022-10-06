@@ -14,7 +14,7 @@ module Decidim
 
     describe "GET show" do
       context "when the newsletter is not send" do
-        let(:newsletter) { create(:newsletter, organization: organization) }
+        let(:newsletter) { create(:newsletter, organization:) }
 
         it "expect a 404 page" do
           expect { get :show, params: { id: newsletter.id } }
@@ -23,10 +23,10 @@ module Decidim
       end
 
       context "when the newsletter is send" do
-        let(:newsletter) { create(:newsletter, organization: organization, sent_at: Time.current) }
+        let(:newsletter) { create(:newsletter, organization:, sent_at: Time.current) }
 
         context "when the user is present" do
-          let(:user) { create(:user, organization: organization) }
+          let(:user) { create(:user, organization:) }
           let(:encryptor) { Decidim::NewsletterEncryptor }
           let(:encrypted_token) { encryptor.sent_at_encrypted(user.id, newsletter.sent_at) }
 
@@ -64,7 +64,7 @@ module Decidim
           let(:sent_at_time) { Time.zone.at(decrypted_string.split("-").second.to_i) }
 
           context "and newsletter notifications is true" do
-            let!(:user) { create(:user, organization: organization, id: user_id, newsletter_notifications_at: Time.current) }
+            let!(:user) { create(:user, organization:, id: user_id, newsletter_notifications_at: Time.current) }
 
             it "unsubscribe user" do
               get :unsubscribe, params: { u: encryptor.sent_at_encrypted(user_id, time) }
@@ -75,7 +75,7 @@ module Decidim
           end
 
           context "and newsletter notifications is false" do
-            let!(:user) { create(:user, organization: organization, id: user_id, newsletter_notifications_at: nil) }
+            let!(:user) { create(:user, organization:, id: user_id, newsletter_notifications_at: nil) }
 
             it "not unsubscribe user" do
               get :unsubscribe, params: { u: encryptor.sent_at_encrypted(user_id, time) }

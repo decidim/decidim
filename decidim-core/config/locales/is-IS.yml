@@ -22,9 +22,6 @@ is-IS:
   booleans:
     'false': 'Nei'
     'true': 'Já'
-  carrierwave:
-    errors:
-      image_too_big: Myndin er of stór
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -120,12 +117,12 @@ is-IS:
         settings:
           global:
             comments_enabled: Athugasemdir virkt
-            dummy_global_attribute_1: Dummy Attribute 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute1: Dummy Attribute 1
+            dummy_global_attribute2: Dummy Attribute 2
           step:
             comments_blocked: Athugasemdir læst
-            dummy_step_attribute_1: Dummy Skref Attribute 1
-            dummy_step_attribute_2: Dummy Skref Attribute 2
+            dummy_step_attribute1: Dummy Skref Attribute 1
+            dummy_step_attribute2: Dummy Skref Attribute 2
     contact: Hafa samband
     core:
       actions:
@@ -281,7 +278,6 @@ is-IS:
         unsubscribe: Afskráðu þig
     notifications_settings:
       show:
-        email_on_notification: Ég vil fá tölvupóst í hvert skipti sem ég fá tilkynningu.
         newsletter_notifications: Ég vil fá fréttabréf
         update_notifications_settings: Vista breytingar
     own_user_groups:
@@ -384,10 +380,6 @@ is-IS:
     timestamp_error_message: Því miður, það var of fljótt! Vinsamlegast sendu aftur inn.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Þessi síða notar smákökur. Með því að halda áfram að skoða síðuna samþykkirðu notkun okkar á smákökum. Finndu meira um það %{link}.
-        link_label: hér
-        ok: ég er sammála
       footer:
         made_with_open_source: Website gert með <a target="_blank" href="https://github.com/decidim/decidim">ókeypis hugbúnaði</a>.
       header:

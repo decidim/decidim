@@ -13,7 +13,7 @@ module Decidim
           available_authorizations: ["dummy_authorization_handler"]
         )
       end
-      let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+      let(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -30,11 +30,11 @@ module Decidim
 
       context "when updating a conflict" do
         let(:organization) { create :organization }
-        let(:current_user) { create :user, :confirmed, :admin, organization: organization }
-        let(:new_user) { create :user, :admin, organization: organization, email: "user@test.com" }
-        let(:managed_user) { create :user, managed: true, organization: organization }
+        let(:current_user) { create :user, :confirmed, :admin, organization: }
+        let(:new_user) { create :user, :admin, organization:, email: "user@test.com" }
+        let(:managed_user) { create :user, managed: true, organization: }
         let(:conflict) do
-          Decidim::Verifications::Conflict.create(current_user: new_user, managed_user: managed_user)
+          Decidim::Verifications::Conflict.create(current_user: new_user, managed_user:)
         end
 
         it "renders edit template" do

@@ -3,6 +3,7 @@ es-PY:
     models:
       decidim/comments/comment_by_followed_user_event: Comentario
       decidim/comments/comment_created_event: Comentario
+      decidim/comments/comment_upvoted_event: Comentario valorado positivamente
       decidim/comments/reply_created_event: Respuesta al comentario
       decidim/comments/user_group_mentioned_event: Mencionar
       decidim/comments/user_mentioned_event: Mencionar

@@ -45,8 +45,8 @@ module Decidim
       # A Hash of data that is used in both :wizard_header and :wizard_aside views.
       def common_options
         {
-          view: view,
-          current_step: current_step,
+          view:,
+          current_step:,
           total_steps: 4,
           steps: {
             "1": i18n_step(1),
@@ -60,16 +60,16 @@ module Decidim
       # A Hash of data needed for the :wizard_aside view.
       def wizard_aside_options
         {
-          wizard_aside_back_url: wizard_aside_back_url
+          wizard_aside_back_url:
         }
       end
 
       # A Hash of data needed for the :wizard_header view.
       def wizard_header_options
         {
-          wizard_header_title: wizard_header_title,
+          wizard_header_title:,
           wizard_header_similar_resources_count: options[:similar_resources_count],
-          wizard_header_help_text: wizard_header_help_text
+          wizard_header_help_text:
         }
       end
 

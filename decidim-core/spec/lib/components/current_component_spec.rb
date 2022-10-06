@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe CurrentComponent do
-    let(:request) { double(params: params, env: env) }
+    let(:request) { double(params:, env:) }
     let(:params) { {} }
     let(:manifest) { Decidim.find_component_manifest("dummy") }
 
@@ -26,7 +26,7 @@ module Decidim
       end
 
       let(:participatory_processes) do
-        create_list(:participatory_process, 2, organization: organization)
+        create_list(:participatory_process, 2, organization:)
       end
 
       let(:current_participatory_process) { participatory_processes.first }

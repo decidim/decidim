@@ -14,34 +14,34 @@ RSpec.describe "Result search", type: :request do
     create(
       :result,
       title: Decidim::Faker::Localized.literal("A doggo in the title"),
-      component: component,
+      component:,
       parent: nil,
-      category: create(:category, participatory_space: participatory_space)
+      category: create(:category, participatory_space:)
     )
   end
   let!(:result2) do
     create(
       :result,
       description: Decidim::Faker::Localized.literal("There is a doggo in the office"),
-      component: component,
+      component:,
       parent: result1,
-      category: create(:category, participatory_space: participatory_space)
+      category: create(:category, participatory_space:)
     )
   end
   let!(:result3) do
     create(
       :result,
-      component: component,
+      component:,
       parent: result2,
-      category: create(:category, participatory_space: participatory_space)
+      category: create(:category, participatory_space:)
     )
   end
   let!(:result4) do
     create(
       :result,
-      component: component,
+      component:,
       parent: nil,
-      category: create(:category, participatory_space: participatory_space)
+      category: create(:category, participatory_space:)
     )
   end
 
@@ -50,7 +50,7 @@ RSpec.describe "Result search", type: :request do
   before do
     get(
       request_path,
-      params: { parent_id: parent_id, filter: filter_params },
+      params: { parent_id:, filter: filter_params },
       headers: { "HOST" => component.organization.host }
     )
   end

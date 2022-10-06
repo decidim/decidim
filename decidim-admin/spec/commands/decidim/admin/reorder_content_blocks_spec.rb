@@ -10,16 +10,16 @@ module Decidim::Admin
     let(:organization) { create :organization }
     let(:scope) { :homepage }
     let(:resource1) do
-      create(:newsletter, organization: organization)
+      create(:newsletter, organization:)
     end
     let(:resource2) do
-      create(:newsletter, organization: organization)
+      create(:newsletter, organization:)
     end
     let(:scoped_resource_id) { resource1.id }
     let!(:resource1_published_block) do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         scope_name: scope,
         manifest_name: :hero,
         weight: 1,
@@ -29,7 +29,7 @@ module Decidim::Admin
     let!(:resource2_unpublished_block) do
       create(
         :content_block,
-        organization: organization,
+        organization:,
         scope_name: scope,
         published_at: nil,
         manifest_name: :sub_hero,
@@ -42,7 +42,7 @@ module Decidim::Admin
         :content_block,
         scope_name: scope,
         manifest_name: :hero,
-        organization: organization,
+        organization:,
         weight: 1
       )
     end
@@ -51,7 +51,7 @@ module Decidim::Admin
         :content_block,
         scope_name: scope,
         manifest_name: :sub_hero,
-        organization: organization,
+        organization:,
         weight: 2
       )
     end
@@ -61,7 +61,7 @@ module Decidim::Admin
         scope_name: scope,
         published_at: nil,
         manifest_name: :footer_sub_hero,
-        organization: organization
+        organization:
       )
     end
     let(:order) { [published_block2.manifest_name, unpublished_block.manifest_name] }
@@ -156,8 +156,8 @@ module Decidim::Admin
         expect(resource2_unpublished_block.published_at).to be_nil
 
         order.each_with_index do |manifest_name, index|
-          expect(Decidim::ContentBlock.for_scope(scope, organization: organization).where(scoped_resource_id: scoped_resource_id, manifest_name: manifest_name)).to exist
-          expect(Decidim::ContentBlock.for_scope(scope, organization: organization).find_by(scoped_resource_id: scoped_resource_id, manifest_name: manifest_name).weight).to eq index + 1
+          expect(Decidim::ContentBlock.for_scope(scope, organization:).where(scoped_resource_id:, manifest_name:)).to exist
+          expect(Decidim::ContentBlock.for_scope(scope, organization:).find_by(scoped_resource_id:, manifest_name:).weight).to eq index + 1
         end
       end
     end

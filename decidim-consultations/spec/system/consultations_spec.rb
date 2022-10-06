@@ -17,11 +17,11 @@ describe "Consultations", type: :system do
 
   context "when ordering by 'Most recent'" do
     let!(:older_consultation) do
-      create(:consultation, :published, organization: organization, created_at: 1.month.ago)
+      create(:consultation, :published, organization:, created_at: 1.month.ago)
     end
 
     let!(:recent_consultation) do
-      create(:consultation, :published, organization: organization, created_at: Time.now.utc)
+      create(:consultation, :published, organization:, created_at: Time.now.utc)
     end
 
     before do
@@ -51,7 +51,7 @@ describe "Consultations", type: :system do
   end
 
   context "when ordering by 'Random'" do
-    let!(:consultations) { create_list(:consultation, 2, :published, organization: organization) }
+    let!(:consultations) { create_list(:consultation, 2, :published, organization:) }
 
     before do
       switch_to_host(organization.host)

@@ -125,7 +125,9 @@ describe "Admin manages votings", type: :system do
     let(:elections_component) { create(:elections_component, participatory_space: voting) }
 
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a voting" do
@@ -158,7 +160,9 @@ describe "Admin manages votings", type: :system do
 
   describe "updating a voting with invalid values" do
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "does not update the voting" do
@@ -180,7 +184,9 @@ describe "Admin manages votings", type: :system do
 
   describe "updating a voting with invalid image" do
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "shows an error inside the upload modal" do
@@ -198,14 +204,16 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "updating a voting without images" do
-    let!(:voting3) { create(:voting, organization: organization) }
+    let!(:voting3) { create(:voting, organization:) }
 
     before do
       visit decidim_admin_votings.votings_path
     end
 
     it "does not delete them" do
-      click_link translated(voting3.title)
+      within find("tr", text: translated(voting3.title)) do
+        click_link "Configure"
+      end
 
       within ".edit_voting" do
         find("*[type=submit]").click
@@ -217,7 +225,7 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "previewing votings" do
-    let!(:voting) { create(:voting, :unpublished, organization: organization) }
+    let!(:voting) { create(:voting, :unpublished, organization:) }
 
     it "allows the user to preview the unpublished voting" do
       within find("tr", text: translated(voting.title)) do
@@ -240,10 +248,12 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "publishing a voting" do
-    let!(:voting) { create(:voting, :unpublished, organization: organization) }
+    let!(:voting) { create(:voting, :unpublished, organization:) }
 
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the voting" do
@@ -258,10 +268,12 @@ describe "Admin manages votings", type: :system do
   end
 
   describe "unpublishing a voting" do
-    let!(:voting) { create(:voting, :published, organization: organization) }
+    let!(:voting) { create(:voting, :published, organization:) }
 
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the voting" do
@@ -291,7 +303,9 @@ describe "Admin manages votings", type: :system do
 
   it "renders the sub nav to manage voting's settings" do
     within ".table-list" do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     within ".secondary-nav--subnav" do

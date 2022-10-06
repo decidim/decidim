@@ -86,7 +86,7 @@ module Decidim
           let(:component_settings) do
             double(
               comments_enabled?: comments_enabled,
-              default_sort_order: default_sort_order
+              default_sort_order:
             )
           end
 

@@ -2,8 +2,8 @@
 
 shared_examples "manage agenda" do
   context "when agenda is created" do
-    let!(:agenda) { create :agenda, meeting: meeting }
-    let!(:agenda_items) { create_list(:agenda_item, 2, agenda: agenda, duration: 15) }
+    let!(:agenda) { create :agenda, meeting: }
+    let!(:agenda_items) { create_list(:agenda_item, 2, agenda:, duration: 15) }
 
     it "updates the agenda" do
       visit_agenda_form
@@ -80,7 +80,7 @@ shared_examples "manage agenda" do
   private
 
   def find_nested_form_field_locator(attribute, visible: :visible)
-    current_scope.find(nested_form_field_selector(attribute), visible: visible)["id"]
+    current_scope.find(nested_form_field_selector(attribute), visible:)["id"]
   end
 
   def nested_form_field_selector(attribute)

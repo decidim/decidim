@@ -12,13 +12,21 @@ fi-pl:
         start_time: Äänestys alkaa
         title: Otsikko
       question:
-        description: Kuvaus
         max_selections: Valintojen enimmäismäärä
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
       voting:
+        banner_image: Bannerikuva
+        census_contact_information: Henkilötietorekisterin vastuutahon yhteystiedot
+        description: Kuvaus
         end_time: Äänestyksen päättymisaika
+        introductory_image: Esittelykuva
+        promoted: Korostettu
+        scope: Teema
+        show_check_census: Näytä "tarkasta henkilötietorekisterin tiedot" -sivu
         start_time: Äänestyksen alkamisaika
+        title: Otsikko
+        voting_type: Äänestystapa
     errors:
       models:
         answer:
@@ -35,6 +43,10 @@ fi-pl:
               cant_be_changed: tietoa ei voi muuttaa
             public_key:
               cant_be_changed: tietoa ei voi muuttaa
+        voting:
+          attributes:
+            voting_type:
+              inclusion: "%{value} ei ole sallittu äänestystyyppi"
   activerecord:
     errors:
       models:
@@ -58,6 +70,9 @@ fi-pl:
       decidim/elections/question:
         one: Kysymys
         other: Kysymykset
+      decidim/voting:
+        one: Äänestys
+        other: Äänestystä
       decidim/votings/census/dataset:
         one: Tietoaineisto
         other: Tietoaineistot
@@ -182,6 +197,11 @@ fi-pl:
         exports:
           elections: Vaalit
           feedback_form_answers: Palautelomakkeen vastaukset
+        mailers:
+          trustee_mailer:
+            body: "<p>Hei %{user_name},</p><p>Sinut on lisätty luottamushenkilöksi kohteeseen %{resource_name}.</p>"
+            subject: Sinut on lisätty luottamushenkilöksi kohteeseen %{resource_name}
+            trustee_zone: Siirry luottamusmiesten osioon
         menu:
           trustees: Luottamushenkilöt
         models:
@@ -204,6 +224,7 @@ fi-pl:
             title: Tuo ehdotuksia
         questions:
           create:
+            election_started: Tämä äänestys on jo aloitettu
             invalid: Kysymyksen luonti epäonnistui
             success: Kysymyksen luonti onnistui
           destroy:
@@ -227,7 +248,6 @@ fi-pl:
               minimum_answers: Kysymyksillä on oltava <strong>vähintään kaksi vastausta</strong>.
               minimum_questions: Vaalilla <strong>on oltava vähintään yksi kysymys</strong>.
               published: Vaalia <strong>ei ole julkaistu</strong>.
-              time_before: Alkamisaika on <strong>alle 3 tuntia</strong> ennen vaalin alkua.
               trustees_number: Osallistumistilassa <strong>on oltava vähintään %{number} luottamushenkilöä, joilla on julkinen avain</strong>.
             invalid: Vaalin asetusten määrittäminen epäonnistui
             no_trustees: Tähän osallistumistilaan ei ole määritetty luottamushenkilöitä
@@ -273,15 +293,6 @@ fi-pl:
             selected: Valittu
             submit: Lähetä
             title: Tulokset julkaistu
-          tally:
-            continue: Jatka
-            invalid: Poissaolevan luottamushenkilön ilmoittaminen epäonnistui
-            mark_as_missing: Merkitse poissaolevaksi
-            mark_as_missing_description: Kaikkien luottamushenkilöiden pitäisi osallistua tähän prosessiin, mutta jos luottamushenkilö ei voi osallistua prosessiin, voit merkitä kyseisen henkilön poissaolevaksi.
-            success: Poissaolevan luottamushenkilön merkitseminen sähköiselle ääniuurnalle onnistui
-            tally_completion: Prosessi valmistuu, kun kaikki luottamushenkilöt ovat aktiivisia tai merkitty poissaoleviksi. Vähintään %{quorum} luottamushenkilöä tarvitaan prosessin loppuun saattamiseksi.
-            title: Ääntenlaskun prosessi
-            undo_mark_as_missing: Poissaoleva luottamushenkilö voi osallistua prosessiin ennen sen päättymistä. He voivat jatkaa normaalisti ja heidän poissaolonsa jätetään huomioimatta.
           tally_ended:
             answer: Vastaus
             not_selected: Ei valittu
@@ -291,6 +302,15 @@ fi-pl:
             submit: Julkaise tulokset
             success: Pyyntösi julkaista äänestyksen tulokset on onnistuneesti lähetetty sähköiselle ääniuurnalle
             title: Ääntenlaskun tulokset
+          tally_started:
+            continue: Jatka
+            invalid: Poissaolevan luottamushenkilön ilmoittaminen epäonnistui
+            mark_as_missing: Merkitse poissaolevaksi
+            mark_as_missing_description: Kaikkien luottamushenkilöiden pitäisi osallistua tähän prosessiin, mutta jos luottamushenkilö ei voi osallistua prosessiin, voit merkitä kyseisen henkilön poissaolevaksi.
+            success: Poissaolevan luottamushenkilön merkitseminen sähköiselle ääniuurnalle onnistui
+            tally_completion: Prosessi valmistuu, kun kaikki luottamushenkilöt ovat aktiivisia tai merkitty poissaoleviksi. Vähintään %{quorum} luottamushenkilöä tarvitaan prosessin loppuun saattamiseksi.
+            title: Ääntenlasku
+            undo_mark_as_missing: Poissaoleva luottamushenkilö voi osallistua prosessiin ennen sen päättymistä. He voivat jatkaa normaalisti ja heidän poissaolonsa jätetään huomioimatta.
           vote:
             errors:
               time_after: Vaali on edelleen käynnissä. Sinun on odotettava päättymisaikaan saakka (%{end_time}) päättääksesi äänestyksen.
@@ -528,7 +548,7 @@ fi-pl:
             title: Palauta vaaliavaimet kohteelle %{election}
             upload_election_keys: Lataa vaaliavaimet
             upload_icon: Kuvake, joka ilmaisee lataustoiminnon
-          tally_steps:
+          tally_started_steps:
             back: Takaisin
             description: Näiden vaalien tuloksia lasketaan parhaillaan äänestystaululla. Jotta tämä prosessi voidaan saattaa loppuun, sinun tulee osallistua luottamushenkilönä.
             keys:
@@ -539,11 +559,11 @@ fi-pl:
             list:
               status: Tila
               task: Tehtävä
-            process_warning: Kun prosessi on aloitettu, sinun ei tule poistua tältä sivulta ennen kuin prosessi saatetaan päätökseen. Tämä kestää useita minuutteja, koska kaikkien luottamushenkilöiden tulee olla yhteydessä samanaikaisesti, jotta prosessi voidaan päättää.
-            start: Aloita
-            start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnille
+            process_warning: Kun prosessi on käynnistetty, sinun ei tule poistua tältä sivulta ennen kuin prosessi päättyy. Tämä kestää useita minuutteja, koska kaikkien luottamushenkilöiden tulee olla yhteydessä samanaikaisesti, jotta prosessi voidaan suorittaa.
+            start: Aloitettu
+            start_icon: Kuvake, joka ilmaisee aloituspainikkeen avainten luonnin aloittamiselle
             status:
-              completed: Suoritettu
+              completed: Valmis
               pending: Odottaa
               processing: Käsitellään
             title: Ääntenlaskenta vaaleille %{election}
@@ -597,7 +617,7 @@ fi-pl:
           audit: "( Tarkasta äänesi )"
           back: Aloita äänestysprosessi uudestaan
           ballot_hash: 'Äänestyslippusi tunniste on:'
-          cast: Lähetä äänesi
+          cast: Lähetä äänestyslippusi viimeistelläksesi äänestyksen
           description: Tässä näkymässä voit tarkastaa, että äänesi on laskettu oikein tai että äänesi salaaminen onnistui. Turvallisuussyistä äänesi tarkastaminen kumoaa aikaisemman äänesi. Tämä tarkoittaa, että jättääksesi äänesi, sinun tulee käynnistää äänestysprosessi uudestaan.
           header: 'Äänesi on salattu: lähetä tai tarkasta se'
         casting:
@@ -669,6 +689,7 @@ fi-pl:
             back: Takaisin alustalle
             submit: Tarkista
             vote_identifier: 'Äänen tunniste:'
+            vote_identifier_help: Tämä tunniste annettiin sinulle äänen jättämisen jälkeen (se ei ole koodi, jota käytit päästäksesi äänestyskoppiin).
           header:
             title: Vahvista äänesi
           success:
@@ -983,14 +1004,21 @@ fi-pl:
             assign_missing_officers: Joillekin äänestyspaikoille ei ole määrätty esimiehiä ja/tai virkailijoita. Määritä virkailijat Äänestyspaikat-osiosta
             update: Päivitä
           form:
+            banner_image: Bannerikuva
+            census_contact_information: Henkilötietorekisterin vastuutahon yhteystiedot
             census_contact_information_help: Nämä yhteystiedot ovat tarkoitettu osallistujille, jotka haluavat ilmoittaa virheistä henkilötietorekisterissä. Yhteystieto voi olla sähköpostiosoite, yhteydenottolomake toisella sivustolla, avoin verkkokysely, tms.
+            introductory_image: Esittelykuva
+            promoted: Korostettu
             select_a_voting_type: Valitse äänestystapa
+            show_check_census_help: Määrittää, näytetäänkö "Voinko äänestää?" -linkki julkisten äänestysten sivuilla
+            slug: Tunniste
             slug_help: 'URL-tunnisteita käytetään luomaan URL-osoitteita, jotka viittaavat tähän äänestykseen. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
             title: Otsikko
             voting_type:
               hybrid: Yhdistetty äänestystapa
               in_person: Fyysinen äänestys
               online: Verkkoäänestys
+            voting_type_label: Äänestystapa
           new:
             create: Luo
             title: Uusi äänestys
@@ -1034,7 +1062,7 @@ fi-pl:
               info_message: "<strong>Odota hetki</strong>, käsitelty %{processed_count} / %{raw_count} riviä tiedostosta %{file}."
             delete:
               button: Poista kaikki henkilötietorekisterin tiedot
-              confirm: Henkilötietorekisterin tietojen poistoa ei voida peruuttaa. Haluatko varmasti jatkaa?
+              confirm: Väestörekisterin tietojen poistamista ei voi peruuttaa jälkikäteen. Haluatko varmasti jatkaa?
             destroy:
               error: Henkilötietorekisterin poistaminen epäonnistui, yritä uudestaan myöhemmin.
               success: Henkilötietorekisterin tiedot poistettu
@@ -1042,7 +1070,7 @@ fi-pl:
               button: Vie äänestyksen tunnistautumiskoodit
               callout: Voit nyt viedä tunnistautumiskoodit järjestelmästä. Tämä voidaan tehdä vain kerran. Kun aloitat viennin, sinulle lähetetään tarvittavat ohjeet sähköpostiin <strong>%{email}</strong>
               confirm: Voit viedä tunnistautumiskoodit vain kerran. Varmista, että pääset käsiksi sähköpostitiliin <strong>%{email}</strong>.
-              file_not_exists: Tiedostoa ei ole olemassa
+              file_not_exist: Tiedostoa ei ole olemassa
               launch_error: Tunnistautumiskoodien viennin aloittaminen epäonnistui
               launch_success: Tunnistautumiskoodien vienti aloitettu. Saat sähköpostia hetken kuluttua sähköpostiosoitteeseen %{email}
             exporting_access_codes:
@@ -1093,8 +1121,6 @@ fi-pl:
           name: Korostetut äänestykset
         landing_page:
           description:
-            show_less: Näytä vähemmän
-            show_more: Lue lisää
             title: Tietoa tästä äänestyksestä
           metrics:
             heading: Tilastomittarit
@@ -1148,7 +1174,7 @@ fi-pl:
             modal_ballots_count_error:
               btn_validate_total: Tarkasta äänten uudelleenlaskenta
               close_modal: Sulje
-              info_explanation_text: 'Tarkasta äänten kokonaismäärä. Jos kokonaismäärä ei ole oikea, sinun on annettava selitys tarkkailukomitealle:'
+              info_explanation_text: 'Tarkasta äänten kokonaismäärä. Jos kokonaismäärä ei ole oikea, sinun on annettava selvitys tarkkailukomitealle:'
               info_text: Syötettyjen äänten (kirjeiden) kokonaismäärä ei täsmää ihmisten määrään, jotka ovat äänestäneet tässä äänestyspaikassa.
               message_for_monitoring_committee: Viesti tarkkailukomitealle
               review_recount: Tarkasta uudelleenlaskenta
@@ -1179,7 +1205,8 @@ fi-pl:
         in_person_votes:
           complete_voting:
             available_answers: 'Mahdolliset vastaukset:'
-            census_verified: Osallistuja ei ole vielä äänestänyt.
+            census_verified: Tämä osallistuja ei ole vielä äänestänyt fyysisesti.
+            census_verified_with_online_vote: Tämä osallistuja on jo äänestänyt verkossa. Jos hän äänestää fyysisesti, edelliset äänet mitätöidään ja ainoastaan fyysinen ääni lasketaan.
             complete_voting: Viimeistele äänestys
             identify_another: Tunnista toinen osallistuja
             questions_title: 'Hänellä on oikeus äänestää seuraavista kysymyksistä:'
@@ -1273,12 +1300,13 @@ fi-pl:
           check_status: Tarkista tila
           description: Täällä voit tarkastaa omat tietosi henkilötietorekisterissä selvittääksesi, onko sinulla oikeus osallistua tähän äänestykseen. Sinulla pitäisi jo olla tunnistautumiskoodi, mutta jos hävitit sen, voit pyytää sitä uudestaan, jos tietosi on syötetty oikein.
           error:
-            info: 'Yritä uudestaan. Jos epäilet, että järjestelmässä olevat tiedot eivät pidä paikkaansa, voit ilmoittaa siitä täällä: %{census_contact_information}.'
-            title: Tietosi henkilötietorekisterissä ovat virheellisiä!
+            info: 'Yritä uudestaan. Jos epäilet, että järjestelmässä olevat tiedot eivät pidä paikkaansa, voit ilmoittaa siitä täällä: %{census_contact_information}'
+            title: Syöttämäsi tiedot eivät ole tämän äänestyksen henkilötietorekisterissä
           form_title: 'Täytä seuraava lomake tarkistaaksesi tietosi henkilötietorekisterissä:'
           invalid: Henkilötietorekisterin tietojen tarkastaminen epäonnistui.
           success:
-            access_link: tekstiviestitse tai sähköpostitse.
+            access_link: sähköpostitse.
+            access_link_with_sms: tekstiviestitse tai sähköpostitse.
             info: Sinun olisi pitänyt saada tunnistautumiskoodisi paperipostissa. Jos sinulla ei ole koodia, voit pyytää sitä täältä
             title: Tietosi henkilötietorekisterissä ovat oikein!
           title: Voinko äänestää?
@@ -1288,6 +1316,7 @@ fi-pl:
           day_placeholder: PV
           document_number: Asiakirjan numero
           document_number_placeholder: Henkilöllisyystodistuksen numero
+          document_type: Asiakirjan tyyppi
           month: Kuukausi
           month_placeholder: KK
           postal_code: Postinumero

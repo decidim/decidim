@@ -25,7 +25,7 @@ module Decidim
             count: @orders.count
           )
 
-          mail(to: @user.email, subject: subject)
+          mail(to: @user.email, subject:)
         end
       end
 

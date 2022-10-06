@@ -18,7 +18,7 @@ on:
 env:
   CI: "true"
   SIMPLECOV: "true"
-  RUBY_VERSION: 3.0.2
+  RUBY_VERSION: 3.1.1
   NODE_VERSION: 16.9.1
   RAILS_ENV: development
 
@@ -45,7 +45,7 @@ jobs:
       DATABASE_HOST: localhost
       RUBYOPT: '-W:no-deprecated'
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
         if: "github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

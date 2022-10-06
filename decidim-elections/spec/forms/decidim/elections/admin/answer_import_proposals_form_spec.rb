@@ -18,8 +18,8 @@ module Decidim
         let(:params) do
           {
             origin_component_id: origin_component.try(:id),
-            weight: weight,
-            import_all_accepted_proposals: import_all_accepted_proposals
+            weight:,
+            import_all_accepted_proposals:
           }
         end
 

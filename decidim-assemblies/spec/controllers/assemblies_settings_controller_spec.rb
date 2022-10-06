@@ -9,8 +9,8 @@ module Decidim
         routes { Decidim::Assemblies::AdminEngine.routes }
 
         let(:organization) { create(:organization) }
-        let(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
-        let!(:assemblies_setting) { create(:assemblies_setting, organization: organization) }
+        let(:current_user) { create(:user, :confirmed, :admin, organization:) }
+        let!(:assemblies_setting) { create(:assemblies_setting, organization:) }
 
         before do
           request.env["decidim.current_organization"] = organization

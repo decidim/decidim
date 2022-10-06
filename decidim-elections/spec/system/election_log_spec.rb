@@ -14,7 +14,7 @@ describe "Election log", :slow, type: :system do
   end
 
   context "when election is not set up" do
-    let(:election) { create(:election, :complete, :published, :ready_for_setup, component: component) }
+    let(:election) { create(:election, :complete, :published, :ready_for_setup, component:) }
 
     it "shows not started entries" do
       expect(page).to have_content("Election created")
@@ -30,7 +30,7 @@ describe "Election log", :slow, type: :system do
   context "when election is created" do
     include_context "with test bulletin board"
 
-    let(:election) { create(:election, :bb_test, :created, component: component) }
+    let(:election) { create(:election, :bb_test, :created, component:) }
 
     it "shows that election is created" do
       expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
@@ -45,7 +45,7 @@ describe "Election log", :slow, type: :system do
   context "when the key ceremony started but is not ended" do
     include_context "with test bulletin board"
 
-    let(:election) { create(:election, :bb_test, :key_ceremony, component: component) }
+    let(:election) { create(:election, :bb_test, :key_ceremony, component:) }
 
     it "shows that key ceremony has started" do
       expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
@@ -60,7 +60,7 @@ describe "Election log", :slow, type: :system do
   context "when the key ceremony is finished" do
     include_context "with test bulletin board"
 
-    let(:election) { create(:election, :bb_test, :key_ceremony_ended, component: component) }
+    let(:election) { create(:election, :bb_test, :key_ceremony_ended, component:) }
 
     it "shows that key ceremony is ended" do
       expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
@@ -75,7 +75,7 @@ describe "Election log", :slow, type: :system do
   context "when voting has started" do
     include_context "with test bulletin board"
 
-    let(:election) { create(:election, :bb_test, :vote, component: component) }
+    let(:election) { create(:election, :bb_test, :vote, component:) }
 
     it "shows that vote has started" do
       expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
@@ -90,7 +90,7 @@ describe "Election log", :slow, type: :system do
   context "when voting has ended" do
     include_context "with test bulletin board"
 
-    let(:election) { create(:election, :bb_test, :vote_ended, component: component) }
+    let(:election) { create(:election, :bb_test, :vote_ended, component:) }
 
     it "shows that voting process has ended" do
       expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
@@ -105,7 +105,7 @@ describe "Election log", :slow, type: :system do
   context "when tally has started" do
     include_context "with test bulletin board"
 
-    let(:election) { create(:election, :bb_test, :tally_started, component: component) }
+    let(:election) { create(:election, :bb_test, :tally_started, component:) }
 
     it "shows that tally has started" do
       expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
@@ -120,7 +120,7 @@ describe "Election log", :slow, type: :system do
   context "when tally is completed" do
     include_context "with test bulletin board"
 
-    let(:election) { create(:election, :bb_test, :tally_ended, component: component) }
+    let(:election) { create(:election, :bb_test, :tally_ended, component:) }
 
     it "shows that tally has finished" do
       expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
@@ -135,7 +135,7 @@ describe "Election log", :slow, type: :system do
   context "when results are published" do
     include_context "with test bulletin board"
 
-    let(:election) { create(:election, :bb_test, :results_published, component: component) }
+    let(:election) { create(:election, :bb_test, :results_published, component:) }
 
     it "shows that results are published" do
       expect(page).to have_content("The election got created and is successfully set up on the Bulletin Board.")
@@ -151,7 +151,7 @@ describe "Election log", :slow, type: :system do
     include_context "with test bulletin board"
 
     context "when election doesn't have correct bb_status" do
-      let(:election) { create(:election, :bb_test, :tally_ended, component: component) }
+      let(:election) { create(:election, :bb_test, :tally_ended, component:) }
 
       it "does not show instructions to verify election" do
         expect(page).to have_content("Verify Election results")
@@ -161,7 +161,7 @@ describe "Election log", :slow, type: :system do
     end
 
     context "when election has correct bb_status but no verifiable file nor checksum" do
-      let(:election) { create(:election, :bb_test, :results_published, component: component, verifiable_results_file_hash: nil, verifiable_results_file_url: nil) }
+      let(:election) { create(:election, :bb_test, :results_published, component:, verifiable_results_file_hash: nil, verifiable_results_file_url: nil) }
 
       it "shows instructions to verify election" do
         expect(page).to have_content("VERIFY")
@@ -178,7 +178,7 @@ describe "Election log", :slow, type: :system do
     end
 
     context "when election has correct bb_status and verifiable file and checksum" do
-      let(:election) { create(:election, :bb_test, :results_published, component: component) }
+      let(:election) { create(:election, :bb_test, :results_published, component:) }
 
       it "shows instructions to verify election" do
         expect(page).to have_content("VERIFY")

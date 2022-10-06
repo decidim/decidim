@@ -6,7 +6,7 @@ require "decidim/proposals/test/capybara_proposals_picker"
 describe "Admin manages projects", type: :system do
   let(:manifest_name) { "budgets" }
   let(:budget) { create :budget, component: current_component }
-  let!(:project) { create :project, budget: budget }
+  let!(:project) { create :project, budget: }
 
   include_context "when managing a component as an admin"
 
@@ -25,7 +25,7 @@ describe "Admin manages projects", type: :system do
   it_behaves_like "import proposals to projects"
 
   describe "bulk actions" do
-    let!(:project2) { create(:project, budget: budget) }
+    let!(:project2) { create(:project, budget:) }
     let!(:category) { create(:category, participatory_space: current_component.participatory_space) }
     let!(:scope) { create(:scope, organization: current_component.organization) }
 

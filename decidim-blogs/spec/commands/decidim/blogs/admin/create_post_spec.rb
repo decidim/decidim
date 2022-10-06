@@ -9,11 +9,12 @@ module Decidim
         subject { described_class.new(form, current_user) }
 
         let(:organization) { create :organization }
-        let(:participatory_process) { create :participatory_process, organization: organization }
+        let(:participatory_process) { create :participatory_process, organization: }
         let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "blogs" }
-        let(:current_user) { create :user, organization: organization }
+        let(:current_user) { create :user, organization: }
         let(:title) { "Post title" }
         let(:body) { "Lorem Ipsum dolor sit amet" }
+        let(:publish_time) { nil }
 
         let(:invalid) { false }
         let(:form) do
@@ -21,7 +22,8 @@ module Decidim
             invalid?: invalid,
             title: { en: title },
             body: { en: body },
-            current_component: current_component,
+            published_at: publish_time,
+            current_component:,
             author: current_user
           )
         end
@@ -39,6 +41,7 @@ module Decidim
 
           it "creates the post" do
             expect { subject.call }.to change(Post, :count).by(1)
+            expect(post.published_at).to eq(post.created_at)
           end
 
           it "creates a searchable resource" do
@@ -69,8 +72,17 @@ module Decidim
             expect { subject.call }.to broadcast(:ok)
           end
 
+          context "when publish time is provided" do
+            let!(:publish_time) { Time.new(2022, 11, 12, 8, 37, 48, "-06:00") }
+
+            it "sets the publish time" do
+              subject.call
+              expect(post.published_at).to eq(publish_time)
+            end
+          end
+
           it "sends a notification to the participatory space followers" do
-            follower = create(:user, organization: organization)
+            follower = create(:user, organization:)
             create(:follow, followable: participatory_process, user: follower)
 
             expect(Decidim::EventsManager)
@@ -99,13 +111,14 @@ module Decidim
           end
 
           context "with a group author" do
-            let(:group) { create(:user_group, :verified, organization: organization) }
+            let(:group) { create(:user_group, :verified, organization:) }
             let(:form) do
               double(
                 invalid?: invalid,
                 title: { en: title },
+                published_at: publish_time,
                 body: { en: body },
-                current_component: current_component,
+                current_component:,
                 author: group
               )
             end

@@ -8,7 +8,7 @@ shared_examples "manage assemblies" do
     let(:assembly_parent_id_options) { page.find("#assembly_parent_id").find_all("option").map(&:value) }
 
     before do
-      click_link translated(assembly.title)
+      click_link "Configure"
     end
 
     it "updates an assembly" do
@@ -45,7 +45,9 @@ shared_examples "manage assemblies" do
 
   describe "updating an assembly without images" do
     before do
-      click_link translated(assembly.title)
+      within find("tr", text: translated(assembly.title)) do
+        click_link "Configure"
+      end
     end
 
     it "update an assembly without images does not delete them" do
@@ -61,7 +63,7 @@ shared_examples "manage assemblies" do
 
   describe "previewing assemblies" do
     context "when the assembly is unpublished" do
-      let!(:assembly) { create(:assembly, :unpublished, organization: organization, parent: parent_assembly) }
+      let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
@@ -74,7 +76,7 @@ shared_examples "manage assemblies" do
     end
 
     context "when the assembly is published" do
-      let!(:assembly) { create(:assembly, organization: organization, parent: parent_assembly) }
+      let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
@@ -94,10 +96,12 @@ shared_examples "manage assemblies" do
   end
 
   describe "publishing an assembly" do
-    let!(:assembly) { create(:assembly, :unpublished, organization: organization, parent: parent_assembly) }
+    let!(:assembly) { create(:assembly, :unpublished, organization:, parent: parent_assembly) }
 
     before do
-      click_link translated(assembly.title)
+      within find("tr", text: translated(assembly.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the assembly" do
@@ -112,10 +116,12 @@ shared_examples "manage assemblies" do
   end
 
   describe "unpublishing an assembly" do
-    let!(:assembly) { create(:assembly, organization: organization, parent: parent_assembly) }
+    let!(:assembly) { create(:assembly, organization:, parent: parent_assembly) }
 
     before do
-      click_link translated(assembly.title)
+      within find("tr", text: translated(assembly.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the assembly" do
@@ -140,14 +146,14 @@ shared_examples "manage assemblies" do
   end
 
   context "when the assembly has a scope" do
-    let(:scope) { create(:scope, organization: organization) }
+    let(:scope) { create(:scope, organization:) }
 
     before do
-      assembly.update!(scopes_enabled: true, scope: scope)
+      assembly.update!(scopes_enabled: true, scope:)
     end
 
     it "disables the scope for the assembly" do
-      click_link translated(assembly.title)
+      click_link "Configure"
 
       uncheck :assembly_scopes_enabled
 

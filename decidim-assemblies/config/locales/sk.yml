@@ -140,8 +140,6 @@ sk:
         home:
           highlighted_assemblies:
             assemblies_button_title: Odkaz na stránku Zhromaždenia, zobrazujúcu všetky zhromaždenia
-      show:
-        social_networks_title: Zdieľať toto zhromaždenie na
     events:
       assemblies:
         create_assembly_member:

@@ -19,6 +19,14 @@ shared_examples "Endorse resource system specs" do
     expect(page).to have_no_css("#resource-#{resource.id}-endorsements-count")
   end
 
+  def expect_endorsements_count(count)
+    return if Decidim.redesign_active
+
+    within "#resource-#{resource.id}-endorsements-count" do
+      expect(page).to have_content(count.to_s)
+    end
+  end
+
   def visit_resource
     visit_component
     click_link resource_name
@@ -48,10 +56,11 @@ shared_examples "Endorse resource system specs" do
 
   context "when endorsements are enabled but blocked" do
     let(:component_traits) { [:with_endorsements_enabled, :with_endorsements_blocked] }
+    let(:disabled_button_selector) { Decidim.redesign_active ? "a.button[disabled='true']" : ".buttons__row span[disabled]" }
 
     it "shows the endorsements count and the endorse button is disabled" do
       visit_resource
-      expect(page).to have_css(".buttons__row span[disabled]")
+      expect(page).to have_css(disabled_button_selector)
     end
   end
 
@@ -82,14 +91,12 @@ shared_examples "Endorse resource system specs" do
             expect(page).to have_button("Endorsed")
           end
 
-          within "#resource-#{resource.id}-endorsements-count" do
-            expect(page).to have_content("1")
-          end
+          expect_endorsements_count(1)
         end
       end
 
       context "when the resource is already endorsed" do
-        let!(:endorsement) { create(:endorsement, resource: resource, author: user) }
+        let!(:endorsement) { create(:endorsement, resource:, author: user) }
 
         it "is not able to endorse it again" do
           visit_resource
@@ -98,9 +105,7 @@ shared_examples "Endorse resource system specs" do
             expect(page).to have_no_button("Endorse ")
           end
 
-          within "#resource-#{resource.id}-endorsements-count" do
-            expect(page).to have_content("1")
-          end
+          expect_endorsements_count(1)
         end
 
         it "is able to undo the endorsement" do
@@ -110,9 +115,7 @@ shared_examples "Endorse resource system specs" do
             expect(page).to have_button("Endorse")
           end
 
-          within "#resource-#{resource.id}-endorsements-count" do
-            expect(page).to have_content("0")
-          end
+          expect_endorsements_count(0)
         end
       end
 
@@ -130,7 +133,7 @@ shared_examples "Endorse resource system specs" do
         before do
           organization.available_authorizations = ["dummy_authorization_handler"]
           organization.save!
-          component.update(permissions: permissions)
+          component.update(permissions:)
         end
 
         context "when user is NOT verified" do
@@ -145,7 +148,7 @@ shared_examples "Endorse resource system specs" do
 
         context "when user IS verified" do
           before do
-            handler_params = { user: user }
+            handler_params = { user: }
             handler_name = "dummy_authorization_handler"
             handler = Decidim::AuthorizationHandler.handler_for(handler_name, handler_params)
 

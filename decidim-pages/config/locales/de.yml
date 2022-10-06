@@ -29,7 +29,5 @@ de:
             invalid: Beim Speichern der Seite sind Fehler aufgetreten.
             success: Seite erfolgreich gespeichert
       home:
-        hero:
-          participate_title: An den Prozessen der Plattform teilnehmen
         sub_hero:
           register_title: Registrieren

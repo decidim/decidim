@@ -38,10 +38,6 @@ zh-CN:
           valuator_role_id: 值名称
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: '无效的文档类型。接受的格式为： %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -178,30 +174,19 @@ zh-CN:
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
             notification_title: 有人在提议 <a href="%{resource_path}">%{resource_title}</a>留下了一条笔记。请在 <a href="%{admin_proposal_info_path}">管理面板</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} 已被接受作为贡献者访问 <a href="%{resource_path}">%{resource_title}</a> 协作草案。'
-          email_outro: 您收到此通知是因为您是 <a href="%{resource_path}">%{resource_title}的合作者</a>
           email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} 已被拒绝以贡献者身份访问 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。'
-          email_outro: 您收到此通知是因为您是 <a href="%{resource_path}">%{resource_title}的合作者</a>
           email_subject: "%{requester_name} 在 %{resource_title} 协作草稿中的贡献者被拒绝访问。"
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 已被 <strong>拒绝以贡献者身份访问</strong> <a href="%{resource_path}">%{resource_title}</a> 合作草稿。
         collaborative_draft_access_requested:
-          email_outro: 您收到此通知是因为您是 <a href="%{resource_path}">%{resource_title}的合作者</a>
           email_subject: "%{requester_name} 请求访问权限为 %{resource_title} 捐款。"
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> 请求访问权限以便为 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。请 <strong>接受或拒绝请求</strong>
         collaborative_draft_access_requester_accepted:
-          email_intro: 您已被接受作为 <a href="%{resource_path}">%{resource_title}</a> 协作草稿的贡献者访问权限。
-          email_outro: 您收到此通知是因为您请求成为 <a href="%{resource_path}">%{resource_title}</a> 的合作者。
           email_subject: 您已被接受为 %{resource_title} 的贡献者。
         collaborative_draft_access_requester_rejected:
-          email_intro: 您已被拒绝以贡献者身份访问 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。
-          email_outro: 您收到此通知是因为您请求成为 <a href="%{resource_path}">%{resource_title}</a> 的合作者。
           email_subject: 您已被拒绝为 %{resource_title} 的贡献者。
           notification_title: 您在 <a href="%{resource_path}">%{resource_title}</a> 协作草稿中的 <strong>被拒绝作为贡献者</strong> 访问。
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> 撤回了 <a href="%{resource_path}">%{resource_title}</a> 协作草稿。
-          email_outro: 您收到此通知是因为您是 <a href="%{resource_path}">%{resource_title}的合作者</a>
           email_subject: "%{author_name} %{author_nickname} 撤销了 %{resource_title} 协作草稿。"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>撤回</strong> <a href="%{resource_path}">%{resource_title}</a> 协作草稿。
         creation_enabled:
@@ -713,7 +698,6 @@ zh-CN:
             other: 支持
         new:
           send: 继续
-          title: 创建您的提议
         orders:
           label: '排序提议：'
           most_commented: 最多评论

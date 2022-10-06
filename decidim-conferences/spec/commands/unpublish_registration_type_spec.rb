@@ -7,7 +7,7 @@ module Decidim::Conferences
     subject { described_class.new(registration_type, user) }
 
     let(:conference) { create :conference }
-    let!(:registration_type) { create :registration_type, :published, conference: conference }
+    let!(:registration_type) { create :registration_type, :published, conference: }
     let(:user) { create :user, organization: conference.organization }
 
     context "when the registration type is nil" do
@@ -19,7 +19,7 @@ module Decidim::Conferences
     end
 
     context "when the registration type is not published" do
-      let(:registration_type) { create :registration_type, :unpublished, conference: conference }
+      let(:registration_type) { create :registration_type, :unpublished, conference: }
 
       it "is not valid" do
         expect { subject.call }.to broadcast(:invalid)

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "digest"
+require "fileutils"
 
 describe "Webpacker sanity" do
   shared_examples_for "a folder with a secondary Webpacker configuration" do |folder|

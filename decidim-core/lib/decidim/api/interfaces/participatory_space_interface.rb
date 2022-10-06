@@ -13,8 +13,14 @@ module Decidim
 
       field :type, String, description: "The participatory space class name. i.e. Decidim::ParticipatoryProcess", null: false
 
+      field :manifest, Decidim::Core::ParticipatorySpaceManifestType, description: "The manifest information for the participatory space.", null: false
+
       def type
         object.class.name
+      end
+
+      def manifest
+        ParticipatorySpaceManifestPresenter.new(object.manifest, object.organization)
       end
 
       field :components, [ComponentInterface], null: true, description: "Lists the components this space contains." do
@@ -23,7 +29,7 @@ module Decidim
       end
 
       def components(filter: {}, order: {})
-        ComponentList.new.call(object, { filter: filter, order: order }, context)
+        ComponentList.new.call(object, { filter:, order: }, context)
       end
 
       field :stats, [Decidim::Core::StatisticType, { null: true }], null: true

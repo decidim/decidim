@@ -156,5 +156,17 @@ module.exports = { // eslint-disable-line
     "value-list-comma-space-after": "always-single-line",
     "value-list-comma-space-before": "never",
     "value-list-max-empty-lines": 0
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.scss"],
+      "customSyntax": "postcss-scss"
+    },
+    {
+      "files": ["**/_redesigned*.scss"],
+      "rules": {
+        "number-leading-zero": "always"
+      }
+    }
+  ]
 }

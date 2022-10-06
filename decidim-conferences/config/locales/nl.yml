@@ -59,9 +59,7 @@ nl:
         avatar: Profielfoto
         conference_meeting_ids: Gerelateerde vergaderingen
         full_name: Voor-en achternaam
-        personal_url: Persoonlijke URL
         position: Positie
-        short_bio: Korte bio
         twitter_handle: Twitter-account
         user_id: Gebruiker
       conference_user_role:

@@ -32,15 +32,15 @@ module Decidim
     attr_reader :user, :user_group
 
     def leave_user_group
-      Decidim::UserGroupMembership.find_by!(user: user, user_group: user_group).destroy!
+      Decidim::UserGroupMembership.find_by!(user:, user_group:).destroy!
     end
 
     def can_leave?
-      Decidim::UserGroupMembership.where(user: user, user_group: user_group).any?
+      Decidim::UserGroupMembership.where(user:, user_group:).any?
     end
 
     def last_admin?
-      admin_memberships = Decidim::UserGroupMembership.where(user_group: user_group, role: [:creator, :admin])
+      admin_memberships = Decidim::UserGroupMembership.where(user_group:, role: [:creator, :admin])
       admin_memberships.length == 1 && admin_memberships.pluck(:decidim_user_id).include?(user.id)
     end
   end

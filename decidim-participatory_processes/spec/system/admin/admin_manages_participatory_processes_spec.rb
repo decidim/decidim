@@ -6,7 +6,7 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
   include_context "when admin administrating a participatory process"
 
   let!(:participatory_process_groups) do
-    create_list(:participatory_process_group, 3, organization: organization)
+    create_list(:participatory_process_group, 3, organization:)
   end
 
   before do
@@ -86,14 +86,16 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
   end
 
   context "when updating a participatory process" do
-    let!(:participatory_process3) { create(:participatory_process, organization: organization) }
+    let!(:participatory_process3) { create(:participatory_process, organization:) }
 
     before do
       visit decidim_admin_participatory_processes.participatory_processes_path
     end
 
     it "update a participatory process without images does not delete them" do
-      click_link translated(participatory_process3.title)
+      within find("tr", text: translated(participatory_process3.title)) do
+        click_link "Configure"
+      end
       click_submenu_link "Info"
       click_button "Update"
 

@@ -11,7 +11,7 @@ module Decidim
     describe "has an association for areas" do
       subject(:area_type_areas) { area_type.areas }
 
-      let(:areas) { create_list(:area, 2, area_type: area_type) }
+      let(:areas) { create_list(:area, 2, area_type:) }
 
       it { is_expected.to contain_exactly(*areas) }
     end

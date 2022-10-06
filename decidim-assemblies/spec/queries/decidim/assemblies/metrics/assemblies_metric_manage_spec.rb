@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Assemblies::Metrics::AssembliesMetricManage do
   let(:organization) { create(:organization) }
   let(:day) { Time.zone.yesterday }
-  let!(:assemblies) { create_list(:assembly, 5, organization: organization, published_at: day) }
+  let!(:assemblies) { create_list(:assembly, 5, organization:, published_at: day) }
 
   include_context "when managing metrics"
 
@@ -26,7 +26,7 @@ describe Decidim::Assemblies::Metrics::AssembliesMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "assemblies", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil)
+      create(:metric, metric_type: "assemblies", day:, cumulative: 1, quantity: 1, organization:, category: nil)
       registry = generate_metric_registry.first
 
       expect(Decidim::Metric.count).to eq(1)

@@ -53,19 +53,19 @@ This will also create some default data so you can start testing the app:
 
 |Decidim::System::Admin
 |system@example.org
-|decidim123456
+|decidim123456789
 |/system
 |Administrator for the multitenant
 
 |Decidim::User
 |admin@example.org
-|decidim123456
+|decidim123456789
 |/admin
 |Administrator for the organization
 
 |Decidim::User
 |user@example.org
-|decidim123456
+|decidim123456789
 |/user/sign_in
 |User for the organization
 
@@ -116,6 +116,9 @@ You can configure it with `crontab -e`, for instance if you've created your Deci
 
 # Send notification mail digest weekly on saturdays
 5 0 * * 6 cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:mailers:notifications_digest_weekly
+
+# Change active step in participatory processes
+*/15 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim_participatory_processes:change_active_step
 ----
 
 === Further configuration

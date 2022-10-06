@@ -871,7 +871,6 @@ tr:
             hidden_at: Gizli
             participatory_space: Katılımcı alanı
             report_count: saymak
-            reportable_id: Id
             reportable_type: Türü
             reported_content_url: Raporlanan içerik URL'si
             reports: Raporlar

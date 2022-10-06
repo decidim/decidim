@@ -7,8 +7,8 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let(:component) { create(:component, organization: organization) }
-    let(:resource) { create(:dummy_resource, component: component) }
+    let(:component) { create(:component, organization:) }
+    let(:resource) { create(:dummy_resource, component:) }
 
     before do
       request.env["decidim.current_organization"] = organization
@@ -20,13 +20,13 @@ module Decidim
         let!(:results) do
           now = Time.current
           [
-            create(:searchable_resource, organization: organization, content_a: "Great proposal of mine", datetime: now + 1.second),
-            create(:searchable_resource, organization: organization, content_a: "The greatest place of the world", datetime: now)
+            create(:searchable_resource, organization:, content_a: "Great proposal of mine", datetime: now + 1.second),
+            create(:searchable_resource, organization:, content_a: "The greatest place of the world", datetime: now)
           ]
         end
 
         before do
-          create(:searchable_resource, organization: organization, content_a: "I don't like groomming my dog.")
+          create(:searchable_resource, organization:, content_a: "I don't like groomming my dog.")
         end
 
         it "returns results with 'Great' in their content" do

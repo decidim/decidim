@@ -16,7 +16,7 @@ module Decidim
 
       def show
         @form = form(HelpSectionsForm).from_model(
-          OpenStruct.new(sections: sections)
+          OpenStruct.new(sections:)
         )
       end
 

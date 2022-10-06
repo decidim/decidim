@@ -36,10 +36,6 @@ lv:
           valuator_role_id: Vērtētāja vārds
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Nederīgs dokumenta tips. Pieņemtie formāti ir: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -159,33 +155,21 @@ lv:
             email_subject: Kāds atstāja piezīmi par priekšlikumu %{resource_title}.
             notification_title: Kāds ir atstājis piezīmi par priekšlikumu <a href="%{resource_path}">%{resource_title}</a>. Pārbaudiet to <a href="%{admin_proposal_info_path}">administratora panelī</a>
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} ir pieņemts, lai piekļūtu kā līdzautors <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo līdzdarbojaties <a href="%{resource_path}">%{resource_title}</a>
           email_subject: "%{requester_name} ir pieņemts, lai piekļūtu kā līdzautors %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ir <strong> pieņemts, lai piekļūtu kā līdzautors</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} ir atteikta piekļuve kā līdzautoram <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo līdzdarbojaties <a href="%{resource_path}">%{resource_title}</a>
           email_subject: "%{requester_name} ir atteikta piekļuve kā līdzautoram %{resource_title} sadarbības projektā."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ir <strong> atteikta piekļuve, kā līdzautoram</strong><a href= "%{resource_path}">%{resource_title}</a> sadarbības projektā.
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} pieprasīja piekļuvi kā līdzautors. Varat <strong> pieņemt vai noraidīt pieprasījumu </strong> no <a href="%{resource_path}">%{resource_title}</a> sadarbības projekta lapas.'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo līdzdarbojaties <a href="%{resource_path}">%{resource_title}</a>
           email_subject: "%{requester_name} pieprasīja piekļuvi, lai līdzdarbotos %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> pieprasīja piekļuvi, lai līdzdarbotos <a href="%{resource_path}"> %{resource_title}</a> sadarbības projektā. Lūdzu, <strong>pieņemiet vai noraidiet pieprasījumu</strong>.
         collaborative_draft_access_requester_accepted:
-          email_intro: Jums piešķirta piekļuve un iespēja kā līdzautoram <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo vēlējāties līdzdarboties <a href="%{resource_path}">%{resource_title}</a>
           email_subject: Jūs pieņēma par %{resource_title} līdzautoru.
           notification_title: Jums <strong>piešķirta piekļuve kā līdzautoram</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
         collaborative_draft_access_requester_rejected:
-          email_intro: Jums atteikta iespēja piekļūt kā līdzautoram <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo vēlējāties līdzdarboties <a href="%{resource_path}">%{resource_title}</a>
           email_subject: Jūsu pieteikums kļūt par %{resource_title} līdzautoru ir atteikts.
           notification_title: Jums <strong>atteikta iespēja piekļūt kā līdzautoram</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> atsauca <a href="%{resource_path}">%{resource_title}</a> sadarbības projektu.
-          email_outro: Jūs saņēmāt šo paziņojumu, jo līdzdarbojaties <a href="%{resource_path}">%{resource_title}</a>
           email_subject: "%{author_name} %{author_nickname} atsauca %{resource_title} sadarbības projektu."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a><strong> atsauca </strong><a href="%{resource_path}">%{resource_title}</a> sadarbības projektu.
         creation_enabled:
@@ -705,7 +689,6 @@ lv:
             other: atbalsta
         new:
           send: Turpināt
-          title: Izveidojiet savu priekšlikumu
         orders:
           label: 'Kārtot priekšlikumus pēc:'
           most_commented: Visvairāk komentētie

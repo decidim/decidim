@@ -6,21 +6,21 @@ describe Decidim::Debates::CreateDebate do
   subject { described_class.new(form) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
-  let(:scope) { create :scope, organization: organization }
+  let(:scope) { create :scope, organization: }
   let(:category) { create :category, participatory_space: participatory_process }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:form) do
     double(
       invalid?: invalid,
       title: "title",
       description: "description",
       user_group_id: nil,
-      scope: scope,
-      category: category,
+      scope:,
+      category:,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_organization: organization
     )
   end
@@ -38,7 +38,7 @@ describe Decidim::Debates::CreateDebate do
     let(:debate) { Decidim::Debates::Debate.last }
 
     it "creates the debate" do
-      expect { subject.call }.to change { Decidim::Debates::Debate.count }.by(1)
+      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1)
     end
 
     it "sets the scope" do
@@ -90,14 +90,14 @@ describe Decidim::Debates::CreateDebate do
 
     it "makes the author follow the debate" do
       subject.call
-      expect(Decidim::Follow.where(user: user, followable: debate).count).to eq(1)
+      expect(Decidim::Follow.where(user:, followable: debate).count).to eq(1)
     end
   end
 
   describe "events" do
-    let(:author_follower) { create(:user, organization: organization) }
+    let(:author_follower) { create(:user, organization:) }
     let!(:author_follow) { create :follow, followable: user, user: author_follower }
-    let(:space_follower) { create(:user, organization: organization) }
+    let(:space_follower) { create(:user, organization:) }
     let!(:space_follow) { create :follow, followable: participatory_process, user: space_follower }
 
     it "notifies the change to the author followers" do

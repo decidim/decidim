@@ -16,7 +16,7 @@ RSpec.describe "Debate search", type: :request do
     create(
       :debate,
       :official,
-      component: component,
+      component:,
       start_time: 1.day.from_now
     )
   end
@@ -24,7 +24,7 @@ RSpec.describe "Debate search", type: :request do
     create(
       :debate,
       :official,
-      component: component,
+      component:,
       start_time: 2.days.from_now
     )
   end
@@ -33,14 +33,14 @@ RSpec.describe "Debate search", type: :request do
       :debate,
       :official,
       :closed,
-      component: component
+      component:
     )
   end
   let!(:debate4) do
     create(
       :debate,
       :user_group_author,
-      component: component
+      component:
     )
   end
 
@@ -60,10 +60,10 @@ RSpec.describe "Debate search", type: :request do
   it_behaves_like "a resource search with origin", :debate
 
   it "displays all debates without any filters" do
-    expect(subject).to include(translated(debate1.title))
-    expect(subject).to include(translated(debate2.title))
-    expect(subject).to include(translated(debate3.title))
-    expect(subject).to include(translated(debate4.title))
+    expect(subject).to have_escaped_html(translated(debate1.title))
+    expect(subject).to have_escaped_html(translated(debate2.title))
+    expect(subject).to have_escaped_html(translated(debate3.title))
+    expect(subject).to have_escaped_html(translated(debate4.title))
   end
 
   context "when searching by text" do
@@ -75,16 +75,16 @@ RSpec.describe "Debate search", type: :request do
         :debate,
         :official,
         title: { en: "Do you like my doggo?" },
-        component: component,
+        component:,
         start_time: 1.day.from_now
       )
     end
 
     it "displays all debates without any filters" do
-      expect(subject).to include(translated(debate1.title))
-      expect(subject).not_to include(translated(debate2.title))
-      expect(subject).not_to include(translated(debate3.title))
-      expect(subject).not_to include(translated(debate4.title))
+      expect(subject).to have_escaped_html(translated(debate1.title))
+      expect(subject).not_to have_escaped_html(translated(debate2.title))
+      expect(subject).not_to have_escaped_html(translated(debate3.title))
+      expect(subject).not_to have_escaped_html(translated(debate4.title))
     end
   end
 
@@ -95,10 +95,10 @@ RSpec.describe "Debate search", type: :request do
       let(:state) { %w(open) }
 
       it "returns the open debates" do
-        expect(subject).to include(translated(debate1.title))
-        expect(subject).to include(translated(debate2.title))
-        expect(subject).not_to include(translated(debate3.title))
-        expect(subject).to include(translated(debate4.title))
+        expect(subject).to have_escaped_html(translated(debate1.title))
+        expect(subject).to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate3.title))
+        expect(subject).to have_escaped_html(translated(debate4.title))
       end
     end
 
@@ -106,16 +106,16 @@ RSpec.describe "Debate search", type: :request do
       let(:state) { %w(closed) }
 
       it "returns the closed debates" do
-        expect(subject).not_to include(translated(debate1.title))
-        expect(subject).not_to include(translated(debate2.title))
-        expect(subject).to include(translated(debate3.title))
-        expect(subject).not_to include(translated(debate4.title))
+        expect(subject).not_to have_escaped_html(translated(debate1.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
+        expect(subject).to have_escaped_html(translated(debate3.title))
+        expect(subject).not_to have_escaped_html(translated(debate4.title))
       end
     end
   end
 
   context "when searching by activity" do
-    let(:current_user) { create(:user, :confirmed, organization: organization) }
+    let(:current_user) { create(:user, :confirmed, organization:) }
 
     before do
       login_as current_user, scope: :user
@@ -135,21 +135,21 @@ RSpec.describe "Debate search", type: :request do
       end
 
       it "returns the debates commented by the current user" do
-        expect(subject).not_to include(translated(debate1.title))
-        expect(subject).not_to include(translated(debate2.title))
-        expect(subject).not_to include(translated(debate3.title))
-        expect(subject).to include(translated(debate4.title))
+        expect(subject).not_to have_escaped_html(translated(debate1.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate3.title))
+        expect(subject).to have_escaped_html(translated(debate4.title))
       end
     end
 
     context "and the activity is my_debates" do
       let(:filter_params) { { activity: "my_debates" } }
-      let(:current_user) { create(:user, :confirmed, organization: organization) }
+      let(:current_user) { create(:user, :confirmed, organization:) }
 
       let!(:debate5) do
         create(
           :debate,
-          component: component,
+          component:,
           author: current_user
         )
       end
@@ -163,11 +163,11 @@ RSpec.describe "Debate search", type: :request do
       end
 
       it "returns the debates commented by the current user" do
-        expect(subject).not_to include(translated(debate1.title))
-        expect(subject).not_to include(translated(debate2.title))
-        expect(subject).not_to include(translated(debate3.title))
-        expect(subject).not_to include(translated(debate4.title))
-        expect(subject).to include(translated(debate5.title))
+        expect(subject).not_to have_escaped_html(translated(debate1.title))
+        expect(subject).not_to have_escaped_html(translated(debate2.title))
+        expect(subject).not_to have_escaped_html(translated(debate3.title))
+        expect(subject).not_to have_escaped_html(translated(debate4.title))
+        expect(subject).to have_escaped_html(translated(debate5.title))
       end
     end
   end

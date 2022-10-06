@@ -48,7 +48,10 @@ module Decidim
             description: original_proposal.body,
             budget_amount: budget_for(original_proposal),
             category: original_proposal.category,
-            scope: original_proposal.scope
+            scope: original_proposal.scope,
+            address: original_proposal.address,
+            latitude: original_proposal.latitude,
+            longitude: original_proposal.longitude
           }
 
           @project = Decidim.traceability.create!(
@@ -81,7 +84,10 @@ module Decidim
         end
 
         def proposal_already_copied?(original_proposal)
-          original_proposal.linked_resources(:projects, "included_proposals").any? do |project|
+          # Note: we are including also projects from unpublished components
+          # because otherwise duplicates could be created until the component is
+          # published.
+          original_proposal.linked_resources(:projects, "included_proposals", component_published: false).any? do |project|
             project.budget == form.budget
           end
         end

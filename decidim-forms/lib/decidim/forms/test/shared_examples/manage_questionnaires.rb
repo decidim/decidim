@@ -57,8 +57,8 @@ shared_examples_for "manage questionnaires" do
   end
 
   context "when the questionnaire is already answered" do
-    let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, body: body, question_type: "multiple_option") }
-    let!(:answer) { create(:answer, questionnaire: questionnaire, question: question) }
+    let!(:question) { create(:questionnaire_question, questionnaire:, body:, question_type: "multiple_option") }
+    let!(:answer) { create(:answer, questionnaire:, question:) }
 
     it "cannot modify questionnaire questions" do
       visit questionnaire_edit_path
@@ -79,19 +79,19 @@ shared_examples_for "manage questionnaires" do
   private
 
   def find_nested_form_field_locator(attribute, visible: :visible)
-    find_nested_form_field(attribute, visible: visible)["id"]
+    find_nested_form_field(attribute, visible:)["id"]
   end
 
   def find_nested_form_field(attribute, visible: :visible)
-    current_scope.find(nested_form_field_selector(attribute), visible: visible)
+    current_scope.find(nested_form_field_selector(attribute), visible:)
   end
 
   def have_nested_field(attribute, with:)
-    have_field find_nested_form_field_locator(attribute), with: with
+    have_field find_nested_form_field_locator(attribute), with:
   end
 
   def have_no_nested_field(attribute, with:)
-    have_no_field(find_nested_form_field_locator(attribute), with: with)
+    have_no_field(find_nested_form_field_locator(attribute), with:)
   end
 
   def nested_form_field_selector(attribute)

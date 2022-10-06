@@ -9,8 +9,8 @@ describe Decidim::Elections::Admin::VotePeriodForm do
     {
       current_organization: component.organization,
       current_component: component,
-      election: election,
-      current_step: current_step
+      election:,
+      current_step:
     }
   end
   let(:component) { election.component }
@@ -18,7 +18,7 @@ describe Decidim::Elections::Admin::VotePeriodForm do
   let(:attributes) { {} }
 
   describe "for an election ready to start" do
-    let(:election) { create :election, :key_ceremony_ended, start_time: start_time }
+    let(:election) { create :election, :key_ceremony_ended, start_time: }
     let(:start_time) { 1.hour.from_now }
     let(:formatted_start_time) { I18n.l(start_time, format: :long) }
 
@@ -45,7 +45,7 @@ describe Decidim::Elections::Admin::VotePeriodForm do
   end
 
   describe "for an election recently finished" do
-    let(:election) { create :election, :vote, end_time: end_time }
+    let(:election) { create :election, :vote, end_time: }
     let(:end_time) { 1.minute.ago }
     let(:formatted_end_time) { I18n.l(end_time, format: :long) }
 

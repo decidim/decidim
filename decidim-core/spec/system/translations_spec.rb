@@ -13,7 +13,7 @@ describe "Translations", type: :system do
         machine_translation_display_priority: translations_priority
       )
     end
-    let!(:component) { create(:component, manifest_name: :dummy, organization: organization) }
+    let!(:component) { create(:component, manifest_name: :dummy, organization:) }
 
     let(:english_title) { "English title" }
     let(:spanish_title) { "Spanish title autotranslated" }
@@ -27,7 +27,7 @@ describe "Translations", type: :system do
     let!(:resource) do
       create(
         :dummy_resource,
-        component: component,
+        component:,
         title: {
           en: english_title,
           machine_translations: {

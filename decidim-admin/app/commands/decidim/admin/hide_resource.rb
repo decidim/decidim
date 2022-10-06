@@ -55,7 +55,7 @@ module Decidim
           event_class: Decidim::ResourceHiddenEvent,
           resource: @reportable,
           extra: {
-            report_reasons: report_reasons
+            report_reasons:
           },
           affected_users: @reportable.try(:authors) || [@reportable.try(:normalized_author)]
         }

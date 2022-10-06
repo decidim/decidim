@@ -6,18 +6,18 @@ module Decidim::Admin
   describe ProcessParticipatorySpacePrivateUserImportCsv do
     subject { described_class.new(form, current_user, private_users_to) }
 
-    let(:current_user) { create(:user, :admin, organization: organization) }
+    let(:current_user) { create(:user, :admin, organization:) }
     let(:organization) { create(:organization) }
-    let(:private_users_to) { create :participatory_process, organization: organization }
+    let(:private_users_to) { create :participatory_process, organization: }
     let(:file) { upload_test_file(Decidim::Dev.test_file("import_participatory_space_private_users.csv", "text/csv"), return_blob: true) }
     let(:validity) { true }
 
     let(:form) do
       double(
-        current_user: current_user,
-        private_users_to: private_users_to,
+        current_user:,
+        private_users_to:,
         current_organization: organization,
-        file: file,
+        file:,
         valid?: validity
       )
     end

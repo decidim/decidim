@@ -146,7 +146,6 @@ bg:
             progress: Напредък
         timeline_entry:
           fields:
-            description: Описание
             entry_date: Дата
       results:
         count:

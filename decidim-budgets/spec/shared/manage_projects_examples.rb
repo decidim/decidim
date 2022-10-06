@@ -14,6 +14,56 @@ shared_examples "manage projects" do
       expect(page).to have_content("Choose proposals")
     end
 
+    context "when geocoding is enabled", :serves_geocoding_autocomplete do
+      let(:address) { "Some address" }
+      let(:latitude) { 40.1234 }
+      let(:longitude) { 2.1234 }
+
+      before do
+        stub_geocoding(address, [latitude, longitude])
+        current_component.update!(settings: { geocoding_enabled: true })
+        visit current_path
+      end
+
+      it "creates a new project" do
+        within ".new_project" do
+          fill_in_i18n :project_title, "#project-title-tabs", en: "Make decidim great again"
+          fill_in_i18n_editor :project_description, "#project-description-tabs", en: "Decidim is great but it can be better"
+          fill_in :project_address, with: address
+          fill_in :project_budget_amount, with: 1234
+          find("*[type=submit]").click
+        end
+
+        expect(page).to have_admin_callout("successfully")
+
+        within "table" do
+          project = Decidim::Budgets::Project.last
+
+          expect(page).to have_content("Make decidim great again")
+          expect(translated(project.description)).to eq("<p>Decidim is great but it can be better</p>")
+        end
+      end
+
+      it_behaves_like(
+        "a record with front-end geocoding address field",
+        Decidim::Budgets::Project,
+        within_selector: ".new_project",
+        address_field: :project_address
+      ) do
+        let(:geocoded_address_value) { address }
+        let(:geocoded_address_coordinates) { [latitude, longitude] }
+
+        before do
+          stub_geocoding(address, [latitude, longitude])
+          within ".new_project" do
+            fill_in_i18n :project_title, "#project-title-tabs", en: "Make decidim great again"
+            fill_in_i18n_editor :project_description, "#project-description-tabs", en: "Decidim is great but it can be better"
+            fill_in :project_budget_amount, with: 1234
+          end
+        end
+      end
+    end
+
     context "when proposal linking is disabled" do
       before do
         allow(Decidim::Budgets).to receive(:enable_proposal_linking).and_return(false)
@@ -68,19 +118,19 @@ shared_examples "manage projects" do
   end
 
   context "when seeing finished and pending votes" do
-    let!(:project) { create(:project, budget_amount: 70_000_000, budget: budget) }
+    let!(:project) { create(:project, budget_amount: 70_000_000, budget:) }
 
     let!(:finished_orders) do
-      orders = create_list(:order, 10, budget: budget)
+      orders = create_list(:order, 10, budget:)
       orders.each do |order|
-        order.update!(line_items: [create(:line_item, project: project, order: order)])
+        order.update!(line_items: [create(:line_item, project:, order:)])
         order.reload
         order.update!(checked_out_at: Time.zone.today)
       end
     end
 
     let!(:pending_orders) do
-      create_list(:order, 5, budget: budget, checked_out_at: nil)
+      create_list(:order, 5, budget:, checked_out_at: nil)
     end
 
     it "shows the order count" do
@@ -124,7 +174,7 @@ shared_examples "manage projects" do
   end
 
   context "when deleting a project" do
-    let!(:project2) { create(:project, budget: budget) }
+    let!(:project2) { create(:project, budget:) }
 
     before do
       visit current_path
@@ -144,7 +194,7 @@ shared_examples "manage projects" do
   end
 
   context "when having existing proposals" do
-    let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
+    let!(:proposal_component) { create(:proposal_component, participatory_space:) }
     let!(:proposals) { create_list :proposal, 5, component: proposal_component, skip_injection: true }
 
     it "updates a project" do

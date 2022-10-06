@@ -12,15 +12,15 @@ describe "Admin filters proposals", type: :system do
   let(:resource_controller) { Decidim::Proposals::Admin::ProposalsController }
 
   def create_proposal_with_trait(trait)
-    create(:proposal, trait, component: component, skip_injection: true)
+    create(:proposal, trait, component:, skip_injection: true)
   end
 
   def proposal_with_state(state)
-    Decidim::Proposals::Proposal.where(component: component).find_by(state: state)
+    Decidim::Proposals::Proposal.where(component:).find_by(state:)
   end
 
   def proposal_without_state(state)
-    Decidim::Proposals::Proposal.where(component: component).where.not(state: state).sample
+    Decidim::Proposals::Proposal.where(component:).where.not(state:).sample
   end
 
   context "when filtering by state" do
@@ -48,11 +48,11 @@ describe "Admin filters proposals", type: :system do
   end
 
   context "when filtering by type" do
-    let!(:emendation) { create(:proposal, component: component, skip_injection: true) }
+    let!(:emendation) { create(:proposal, component:, skip_injection: true) }
     let(:emendation_title) { translated(emendation.title) }
-    let!(:amendable) { create(:proposal, component: component, skip_injection: true) }
+    let!(:amendable) { create(:proposal, component:, skip_injection: true) }
     let(:amendable_title) { translated(amendable.title) }
-    let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation) }
+    let!(:amendment) { create(:amendment, amendable:, emendation:) }
 
     before { visit_component_admin }
 
@@ -68,11 +68,11 @@ describe "Admin filters proposals", type: :system do
   end
 
   context "when filtering by scope" do
-    let!(:scope1) { create(:scope, organization: organization, name: { "en" => "Scope1" }) }
-    let!(:scope2) { create(:scope, organization: organization, name: { "en" => "Scope2" }) }
-    let!(:proposal_with_scope1) { create(:proposal, component: component, skip_injection: true, scope: scope1) }
+    let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
+    let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
+    let!(:proposal_with_scope1) { create(:proposal, component:, skip_injection: true, scope: scope1) }
     let(:proposal_with_scope1_title) { translated(proposal_with_scope1.title) }
-    let!(:proposal_with_scope2) { create(:proposal, component: component, skip_injection: true, scope: scope2) }
+    let!(:proposal_with_scope2) { create(:proposal, component:, skip_injection: true, scope: scope2) }
     let(:proposal_with_scope2_title) { translated(proposal_with_scope2.title) }
 
     before { visit_component_admin }
@@ -89,8 +89,8 @@ describe "Admin filters proposals", type: :system do
   end
 
   context "when searching by ID or title" do
-    let!(:proposal1) { create(:proposal, component: component, skip_injection: true) }
-    let!(:proposal2) { create(:proposal, component: component, skip_injection: true) }
+    let!(:proposal1) { create(:proposal, component:, skip_injection: true) }
+    let!(:proposal2) { create(:proposal, component:, skip_injection: true) }
     let!(:proposal1_title) { translated(proposal1.title) }
     let!(:proposal2_title) { translated(proposal2.title) }
 
@@ -110,6 +110,6 @@ describe "Admin filters proposals", type: :system do
   end
 
   it_behaves_like "paginating a collection" do
-    let!(:collection) { create_list(:proposal, 50, component: component, skip_injection: true) }
+    let!(:collection) { create_list(:proposal, 50, component:, skip_injection: true) }
   end
 end

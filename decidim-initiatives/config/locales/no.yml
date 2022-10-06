@@ -238,8 +238,6 @@
             edit: Rediger
             new: Ny
             photos: Bilder
-          show:
-            print: Skriv ut
           update:
             error: Det oppstod en feil
             success: Initiativet er oppdatert

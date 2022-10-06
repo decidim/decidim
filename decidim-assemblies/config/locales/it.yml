@@ -68,12 +68,6 @@ it:
         email: E-mail
         name: Nome
         role: Ruolo
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo di documento non valido. I formati accettati sono: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -386,9 +380,8 @@ it:
         read_less: Leggi di meno
         read_more: Leggi di più
         related_participatory_processes: Processi partecipativi correlati
-        scope: Obiettivi
+        scope: Ambito
         social_networks: Social Networks
-        social_networks_title: Condividi questa assemblea su
         target: Chi partecipa
     assembly_members:
       assembly_member:
@@ -399,7 +392,6 @@ it:
       assemblies:
         create_assembly_member:
           email_intro: Un amministratore dell'assemblea <a href="%{resource_url}">%{resource_name}</a> ti ha aggiunto come membro.
-          email_outro: Hai ricevuto questa notifica perché sei stato invitato ad una Assemblea. Controlla la pagina <a href="%{resource_path}"></a> per contribuire!
           email_subject: Ti invitano a far parte dell'Assemblea %{resource_name}!
           notification_title: Sei stato registrato come membro dell'Assemblea <a href="%{resource_path}">%{resource_name}</a>. Controlla la <a href="%{resource_path}">pagina dell'assemblea</a> per contribuire!
       assembly:

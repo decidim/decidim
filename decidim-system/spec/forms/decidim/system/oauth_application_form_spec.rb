@@ -69,7 +69,7 @@ module Decidim
         let(:organization_logo) { nil }
 
         context "when the application is persisted" do
-          let(:oauth_application) { create(:oauth_application, organization: organization) }
+          let(:oauth_application) { create(:oauth_application, organization:) }
           let(:attributes) do
             {
               "oauth_application" => oauth_application.attributes.slice(

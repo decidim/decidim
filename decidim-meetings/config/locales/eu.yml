@@ -173,9 +173,6 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
-    forms:
-      meetings:
-        attendees_count_help_text: Ez ahaztu zure topaketara joandako guztien kopurua sartzea, bai aurrez aurre, bai linean edo hibridoan.
     gamification:
       badges:
         attended_meetings:
@@ -378,6 +375,10 @@ eu:
       calendar_modal:
         calendar_url: Egutegiaren URLa
         close_window: Itxi leihoa
+        copy_calendar_url: Kopiatu
+        copy_calendar_url_copied: Kopiatuta!
+        copy_calendar_url_description: Argitaratutako batzar guztiak zure egutegi-aplikazioan edo hornitzailean ikus ditzakezu. Kopiatu eta itsatsi URL hau "Egutegi berria gehitu URL batetik" aukera erabiliz
+        copy_calendar_url_explanation: Kontuan izan aukeratutako batzar multzo bat esportatzen ari zarela, eta iragazkiak aktibatuta daudela. Denak esportatu nahi badituzu kendu irakazkiak lehenengo.
         export_calendar: Esportatu egutegia
       conference_venues: Hitzaldi aretoak
       content_blocks:
@@ -449,7 +450,6 @@ eu:
           type: Mota
           type_values:
             all: Denak
-            hybrid: Biok
             in_person: Aurrez aurre
             online: Lineakoa
         filters_small_view:
@@ -536,7 +536,6 @@ eu:
           fields:
             closed: Itxita
             end_time: Bukaera-data
-            id: Id
             map: Mapa
             official_meeting: Topaketa ofiziala
             start_time: Hasiera-data
@@ -549,7 +548,6 @@ eu:
             empty_questions: Topaketa honetan zehar, galdera batzuk bidaliko dira eta erantzun ahal izango dituzu. Hemen erakutsiko dira.
           index_admin:
             admin_dashboard: Administrazio-panela
-            edit: Editatu administrazio-panelean
             question: Galdera
             received_answer: jasotako erantzuna
             received_answers: jasotako erantzunak
@@ -584,7 +582,6 @@ eu:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.
       type_of_meeting:
-        hybrid: Biok
         in_person: Aurrez aurre
         online: Lineakoa
       types:

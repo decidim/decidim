@@ -30,7 +30,7 @@ module Decidim
       subject { handler.user }
 
       let(:user) { instance_double(Decidim::User) }
-      let(:params) { { user: user } }
+      let(:params) { { user: } }
 
       it { is_expected.to eq(user) }
     end

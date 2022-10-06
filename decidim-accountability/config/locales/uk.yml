@@ -128,7 +128,6 @@ uk:
             progress: Перебіг
         timeline_entry:
           fields:
-            description: Опис
             entry_date: Дата
       results:
         count:

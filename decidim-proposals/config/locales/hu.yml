@@ -36,10 +36,6 @@ hu:
           valuator_role_id: Értékelő neve
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              invalid_document_type: 'Érvénytelen dokumentumtípus. Az elfogadott formátumok: %{valid_mime_types}'
         proposal:
           attributes:
             add_documents:
@@ -172,33 +168,21 @@ hu:
     events:
       proposals:
         collaborative_draft_access_accepted:
-          email_intro: '%{requester_name} jóváhagyva, mint közreműködő ebben a közösen szerkesztett vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vagy ebben: <a href="%{resource_path}">%{resource_title}</a>.'
           email_subject: "%{requester_name} jóváhagyva, mint közreműködő ebben: %{resource_title}."
           notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> jóváhagyva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_rejected:
-          email_intro: '%{requester_name} elutasítva, mint közreműködő ebben a közösen szerkesztett vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vagy ebben: <a href="%{resource_path}">%{resource_title}</a>.'
           email_subject: "%{requester_name} elutasítva, mint közreműködő ebben a közösen szerkesztett vázlatban: %{resource_title}."
           notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> elutasítva, <strong>mint a közreműködő</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requested:
-          email_intro: '%{requester_name} hozzáférést kért, mint közreműködő. <strong>Fogadd el vagy utasítsd el a kérést</strong> ennek a közös vázlatnak az oldaláról: <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vagy ebben: <a href="%{resource_path}">%{resource_title}</a>.'
           email_subject: "%{requester_name} közreműködési hozzáférést kért ehhez: %{resource_title}."
           notification_title: '<a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> közreműködése hozzáférést kért a következő közös vázlathoz: <a href="%{resource_path}">%{resource_title}</a>. Kérlek, <strong>fogadd el vagy utasítsd el a kérelmet</strong>.'
         collaborative_draft_access_requester_accepted:
-          email_intro: 'Jóváhagyták a közreműködési kérelmedet ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: 'Ezt az értesítést kaptad, mert közreműködőként szeretnél részt venni ebben: <a href="%{resource_path}">%{resource_title}</a>.'
           email_subject: 'Jóváhagyták közreműködési kérelmedet itt: %{resource_title}.'
           notification_title: 'Közreműködési kérelmedet <strong>jóváhagyták</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_access_requester_rejected:
-          email_intro: 'Közreműködési kérelmedet elutasították ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
-          email_outro: 'Ezt az értesítést kaptad, mert közreműködőként szeretnél részt venni ebben: <a href="%{resource_path}">%{resource_title}</a>.'
           email_subject: 'Közreműködési kérelmedet elutasították itt: %{resource_title}.'
           notification_title: 'Közreműködési kérelmedet <strong>elutasították</strong> ebben a közös vázlatban: <a href="%{resource_path}">%{resource_title}</a>.'
         collaborative_draft_withdrawn:
-          email_intro: <a href="%{author_path}">%{author_name} %{author_nickname}</a> visszavonta a(z) <a href="%{resource_path}">%{resource_title}</a> közös vázlatot.
-          email_outro: 'Ezt az értesítést kaptad, mert közreműködő vagy ebben: <a href="%{resource_path}">%{resource_title}</a>.'
           email_subject: "%{author_name} %{author_nickname} visszavonta a(z) %{resource_title} közös vázlatot."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>visszavonta</strong> a(z) <a href="%{resource_path}">%{resource_title}</a> közös vázlatot.
         creation_enabled:
@@ -381,6 +365,7 @@ hu:
             accepted: Elfogadva
             answer_proposal: Válasz
             evaluating: Értékelés
+            not_answered: Megválaszolatlan
             rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
@@ -726,7 +711,6 @@ hu:
             other: szavazatok
         new:
           send: Tovább
-          title: Hozz létre javaslatot
         orders:
           label: 'Javaslatok rendezése:'
           most_commented: Legtöbb hozzászólással

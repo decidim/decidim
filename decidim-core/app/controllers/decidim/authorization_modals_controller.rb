@@ -29,7 +29,7 @@ module Decidim
     end
 
     def authorizations
-      @authorizations ||= action_authorized_to(authorization_action, resource: resource)
+      @authorizations ||= action_authorized_to(authorization_action, resource:)
     end
   end
 end

@@ -82,9 +82,12 @@ module Decidim
       scope :visible_for, lambda { |user|
         (all.distinct if user&.admin?) ||
           if user.present?
-            spaces = Decidim.participatory_space_registry.manifests.map do |manifest|
+            spaces = Decidim.participatory_space_registry.manifests.filter_map do |manifest|
+              table_name = manifest.model_class_name.constantize.try(:table_name)
+              next if table_name.blank?
+
               {
-                name: manifest.model_class_name.constantize.table_name.singularize,
+                name: table_name.singularize,
                 class_name: manifest.model_class_name
               }
             end
@@ -201,7 +204,7 @@ module Decidim
       end
 
       def has_registration_for?(user)
-        registrations.where(user: user).any?
+        registrations.where(user:).any?
       end
 
       def maps_enabled?
@@ -238,7 +241,7 @@ module Decidim
       end
 
       def current_user_can_visit_meeting?(user)
-        Decidim::Meetings::Meeting.visible_for(user).exists?(id: id)
+        Decidim::Meetings::Meeting.visible_for(user).exists?(id:)
       end
 
       def iframe_access_level_allowed_for_user?(user)

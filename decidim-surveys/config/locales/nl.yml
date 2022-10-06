@@ -30,7 +30,6 @@ nl:
           step:
             allow_answers: Antwoorden toestaan
             allow_unregistered: Sta niet-geregistreerde gebruikers toe om de enquête te beantwoorden
-            allow_unregistered_help: Een login zal dan niet nodig zijn om de vragen te beantwoorden. De bevraging zal daardoor kwetsbaarder zijn voor geautomatiseerde aanvallen wat kan leiden tot onbetrouwbare resultaten. Wees voorzichtig ! 
             announcement: Aankondiging
     events:
       surveys:

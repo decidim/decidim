@@ -5,10 +5,10 @@ require "spec_helper"
 describe Decidim::Metrics::ParticipantsMetricManage do
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
-  let!(:participatory_space) { create(:participatory_process, organization: organization) }
-  let(:component) { create(:proposal_component, participatory_space: participatory_space) }
-  let(:proposal) { create(:proposal, published_at: day, component: component) }
-  let(:old_proposal) { create(:proposal, published_at: day - 1.week, component: component) }
+  let!(:participatory_space) { create(:participatory_process, organization:) }
+  let(:component) { create(:proposal_component, participatory_space:) }
+  let(:proposal) { create(:proposal, published_at: day, component:) }
+  let(:old_proposal) { create(:proposal, published_at: day - 1.week, component:) }
   let(:key) { [participatory_space.class.name, participatory_space.id] }
   let(:query) do
     q = {}
@@ -58,7 +58,7 @@ describe Decidim::Metrics::ParticipantsMetricManage do
       end
 
       it "updates metric records" do
-        create(:metric, metric_type: "participants", day: day, cumulative: 1, quantity: 1, organization: organization, category: nil, participatory_space: participatory_space)
+        create(:metric, metric_type: "participants", day:, cumulative: 1, quantity: 1, organization:, category: nil, participatory_space:)
         registry = generate_metric_registry
 
         expect(Decidim::Metric.count).to eq(1)

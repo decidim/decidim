@@ -370,7 +370,6 @@ fr:
         start_voting_date: Le vote commence le
       question_components:
         question_menu_item: La question
-        unfold: Voir la suite
       question_header:
         back_to_consultation: Voir toutes les votations
         back_to_question: Retour à la question

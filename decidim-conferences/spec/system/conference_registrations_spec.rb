@@ -6,10 +6,10 @@ describe "Conference registrations", type: :system do
   let(:organization) { create :organization }
   let(:conferences_count) { 5 }
   let!(:conferences) do
-    create_list(:conference, conferences_count, organization: organization)
+    create_list(:conference, conferences_count, organization:)
   end
   let(:conference) { conferences.first }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: }
 
   let(:registrations_enabled) { true }
   let(:available_slots) { 20 }
@@ -22,7 +22,7 @@ describe "Conference registrations", type: :system do
   end
   let(:registration_types_count) { 5 }
   let!(:registration_types) do
-    create_list(:registration_type, registration_types_count, conference: conference)
+    create_list(:registration_type, registration_types_count, conference:)
   end
   let(:registration_type) { registration_types.first }
 
@@ -38,9 +38,9 @@ describe "Conference registrations", type: :system do
     switch_to_host(organization.host)
 
     conference.update!(
-      registrations_enabled: registrations_enabled,
-      available_slots: available_slots,
-      registration_terms: registration_terms
+      registrations_enabled:,
+      available_slots:,
+      registration_terms:
     )
   end
 
@@ -61,7 +61,7 @@ describe "Conference registrations", type: :system do
       let(:available_slots) { 1 }
 
       before do
-        create(:conference_registration, conference: conference, user: user, registration_type: registration_type)
+        create(:conference_registration, conference:, user:, registration_type:)
       end
 
       it "the registration button is disabled" do
@@ -118,7 +118,7 @@ describe "Conference registrations", type: :system do
 
   context "and the user is going to the conference" do
     before do
-      create(:conference_registration, conference: conference, user: user, registration_type: registration_type)
+      create(:conference_registration, conference:, user:, registration_type:)
       login_as user, scope: :user
     end
 

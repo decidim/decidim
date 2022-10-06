@@ -13,8 +13,13 @@ module Decidim
           )
         end
 
+        let(:redesign_enabled) { false }
+
         before do
           allow(helper).to receive(:current_or_new_conversation_path_with).and_return("/conversations/1")
+          # rubocop:disable RSpec/AnyInstance
+          allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+          # rubocop:enable RSpec/AnyInstance
         end
 
         context "with different reportable authors types" do

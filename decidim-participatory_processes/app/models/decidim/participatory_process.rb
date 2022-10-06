@@ -93,7 +93,7 @@ module Decidim
             sanitize_sql_array(
               [
                 "ABS(start_date - (CURRENT_DATE at time zone :timezone)::date)",
-                { timezone: timezone }
+                { timezone: }
               ]
             )
           )

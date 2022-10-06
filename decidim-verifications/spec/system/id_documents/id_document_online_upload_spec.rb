@@ -7,7 +7,7 @@ describe "Identity document online upload", type: :system do
     create(:organization, available_authorizations: ["id_documents"])
   end
 
-  let!(:user) { create(:user, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

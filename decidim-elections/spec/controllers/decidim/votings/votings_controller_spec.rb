@@ -6,7 +6,7 @@ describe Decidim::Votings::VotingsController, type: :controller do
   routes { Decidim::Votings::Engine.routes }
 
   let(:organization) { create(:organization) }
-  let(:voting) { create(:voting, organization: organization) }
+  let(:voting) { create(:voting, organization:) }
 
   before do
     request.env["decidim.current_organization"] = organization

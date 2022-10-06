@@ -13,8 +13,8 @@ module Decidim
           {
             question: {
               id: question.id,
-              min_votes: min_votes,
-              max_votes: max_votes,
+              min_votes:,
+              max_votes:,
               instructions_en: "Foo instructions",
               instructions_ca: "Foo instructions",
               instructions_es: "Foo instructions"

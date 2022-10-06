@@ -57,7 +57,7 @@ module Decidim
             description: form.description,
             hashtag: form.hashtag,
             group_url: form.group_url,
-            participatory_processes: participatory_processes,
+            participatory_processes:,
             developer_group: form.developer_group,
             local_area: form.local_area,
             meta_scope: form.meta_scope,

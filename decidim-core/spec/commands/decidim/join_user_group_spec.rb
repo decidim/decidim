@@ -7,14 +7,14 @@ module Decidim
     describe JoinUserGroup do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create :user, :confirmed, organization: organization }
-        let(:user_group) { create :user_group, users: [], organization: organization }
+        let(:user) { create :user, :confirmed, organization: }
+        let(:user_group) { create :user_group, users: [], organization: }
 
         let(:command) { described_class.new(user, user_group) }
 
         context "when the user already has a membership with the group" do
           before do
-            create :user_group_membership, user: user, user_group: user_group, role: "requested"
+            create :user_group_membership, user:, user_group:, role: "requested"
           end
 
           it "broadcasts invalid" do
@@ -44,9 +44,9 @@ module Decidim
           end
 
           it "sends a notification" do
-            creator = create(:user_group_membership, user_group: user_group, role: "creator").user
-            admin = create(:user_group_membership, user_group: user_group, role: "admin").user
-            create(:user_group_membership, user_group: user_group, role: "member")
+            creator = create(:user_group_membership, user_group:, role: "creator").user
+            admin = create(:user_group_membership, user_group:, role: "admin").user
+            create(:user_group_membership, user_group:, role: "member")
 
             affected_users = [creator, admin]
 
@@ -55,7 +55,7 @@ module Decidim
                 event: "decidim.events.groups.join_request_created",
                 event_class: JoinRequestCreatedEvent,
                 resource: user_group,
-                affected_users: affected_users,
+                affected_users:,
                 extra: {
                   user_group_name: user_group.name,
                   user_group_nickname: user_group.nickname

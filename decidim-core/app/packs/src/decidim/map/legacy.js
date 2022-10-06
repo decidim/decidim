@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 
 import * as L from "leaflet";
-import createMapController from "src/decidim/map/factory"
+import "src/decidim/map/factory"
 
 /**
  * @deprecated
@@ -60,7 +60,7 @@ const loadMap = (mapId, markersData) => {
   legacyMapSupport($map);
 
   const mapData = $map.data("decidim-map");
-  const ctrl = createMapController(mapId, mapData);
+  const ctrl = window.Decidim.createMapController(mapId, mapData);
   const map = ctrl.load();
 
   L.tileLayer.here(mapData.tileLayer).addTo(map);

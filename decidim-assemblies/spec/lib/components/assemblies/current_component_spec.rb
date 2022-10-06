@@ -5,14 +5,14 @@ require "spec_helper"
 module Decidim
   module Assemblies
     describe CurrentComponent do
-      let(:request) { double(params: params, env: env) }
+      let(:request) { double(params:, env:) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
       let(:organization) do
         create(:organization)
       end
-      let(:current_assembly) { create(:assembly, organization: organization) }
-      let(:other_assembly) { create(:assembly, organization: organization) }
+      let(:current_assembly) { create(:assembly, organization:) }
+      let(:other_assembly) { create(:assembly, organization:) }
       let(:env) do
         { "decidim.current_organization" => organization }
       end

@@ -6,12 +6,12 @@ describe Decidim::Elections::Admin::DestroyQuestion do
   subject { described_class.new(question, user) }
 
   let(:election) { create :election }
-  let!(:question) { create :question, election: election }
+  let!(:question) { create :question, election: }
   let(:organization) { election.component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
 
   it "destroys the question" do
-    expect { subject.call }.to change { Decidim::Elections::Question.count }.by(-1)
+    expect { subject.call }.to change(Decidim::Elections::Question, :count).by(-1)
   end
 
   it "traces the action", versioning: true do

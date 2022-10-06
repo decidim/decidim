@@ -54,7 +54,7 @@ module Decidim
         let(:query) { "{ startDate }" }
 
         it "returns the step's start date" do
-          expect(response["startDate"]).to eq(model.start_date.to_date.iso8601)
+          expect(response["startDate"]).to eq(model.start_date.to_time.iso8601)
         end
       end
 
@@ -62,7 +62,7 @@ module Decidim
         let(:query) { "{ endDate }" }
 
         it "returns the step's end date" do
-          expect(response["endDate"]).to eq(model.end_date.to_date.iso8601)
+          expect(response["endDate"]).to eq(model.end_date.to_time.iso8601)
         end
       end
 

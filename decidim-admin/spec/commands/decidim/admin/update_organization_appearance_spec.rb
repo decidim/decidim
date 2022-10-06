@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UpdateOrganizationAppearance do
     describe "call" do
       let(:organization) { create(:organization, enable_omnipresent_banner: true) }
-      let(:user) { create(:user, organization: organization) }
+      let(:user) { create(:user, organization:) }
       let(:params) do
         {
           organization: {

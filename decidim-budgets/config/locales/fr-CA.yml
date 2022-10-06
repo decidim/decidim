@@ -13,8 +13,11 @@ fr-CA:
         decidim_scope_id: Périmètre d'application
         description: Description
         proposal_ids: Propositions liées
+        proposals: Propositions
         selected: Sélectionné pour l'implémentation
         title: Titre
+      proposals_import:
+        scope_id: Périmètre d'application
   activerecord:
     models:
       decidim/budgets/project:
@@ -85,23 +88,50 @@ fr-CA:
             title: Éditer un projet
             update: Mettre à jour
           index:
+            actions: Actions
+            cancel: Annuler
+            change_category: Modifier la catégorie
+            change_scope: Changer le secteur
+            change_selected: Changer l'état "sélectionné"
+            deselect_implementation: Annuler la sélection
             finished_orders: Votes terminés
             pending_orders: Votes en cours
+            select_for_implementation: Sélectionné pour implémentation
             selected: Sélectionné
             title: Projets
+            update: Mettre à jour
+            update_scope_button: Mettre à jour le secteur
           new:
             create: Créer
             title: Nouveau projet
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet
             success: Projet mis à jour avec succès
+          update_category:
+            invalid: 'Ces projets avaient déjà la catégorie %{subject_name} : %{projects}.'
+            select_a_category: Veuillez sélectionner une catégorie
+            select_a_project: Veuillez selectionner un projet
+            success: 'Les projets ont été mis à jour avec succès avec la catégorie %{subject_name} : %{projects}.'
+          update_scope:
+            invalid: 'Ces projets avaient déjà le secteur %{subject_name} : %{projects}.'
+            select_a_project: Veuillez selectionner un projet
+            select_a_scope: Veuillez sélectionner un secteur
+            success: 'Les projets ont été mis à jour avec succès avec le secteur %{subject_name} : %{projects}.'
+          update_selected:
+            invalid: 'Ces projets étaient déjà sélectionnés pour l''implémentation : %{projects}.'
+            select_a_project: Veuillez selectionner un projet
+            select_a_selection: Veuillez sélectionner un état de sélection pour implémentation
+            success: 'La sélection des projets a été modifiée avec succès : %{projects}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions dans des projets
             success: "%{number} propositions importées avec succès dans des projets"
           new:
             create: Importer des propositions dans des projets
+            default_budget: Budget par défaut
+            import_all_accepted_proposals: Importer toutes les propositions acceptées
             no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions dans des projets.
+            origin_component_id: Composant d'origine
             select_component: Veuillez sélectionner un module
             title: Importer des propositions
         reminders:
@@ -141,6 +171,8 @@ fr-CA:
         show: Voir les projets
         vote: Voter
         voted_on: Vous avez voté sur %{links}
+      last_activity:
+        new_vote_at_html: "<span>Nouveau vote du budget sur ce lien %{link}</span>"
       limit_announcement:
         cant_vote: Vous ne pouvez pas voter sur ce budget. <a href="%{landing_path}">Essayez sur un autre budget</a>.
         limit_reached: Vous avez des votes actifs dans %{links}. Pour voter sur ce budget, vous devez <a href="%{landing_path}">supprimer votre vote et recommencer</a>.
@@ -154,6 +186,7 @@ fr-CA:
           fields:
             category: Catégorie
             id: ID
+            scope: Secteur
             title: Titre
       order_summary_mailer:
         order_summary:
@@ -176,7 +209,7 @@ fr-CA:
           description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
           ok: D'accord
           projects_excess:
-            description: Vous avez dépassé le nombre maximum de projets à sélectionner, ce projet ne peut donc être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
+            description: Ce projet dépasse le nombre maximum de projets et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
             title: Nombre maximum de projets dépassé
         budget_summary:
           are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?

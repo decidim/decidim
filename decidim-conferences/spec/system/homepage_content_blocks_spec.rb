@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Homepage conferences content blocks", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
-  let!(:promoted_conference) { create(:conference, :promoted, organization: organization) }
-  let!(:unpromoted_conference) { create(:conference, organization: organization) }
+  let!(:promoted_conference) { create(:conference, :promoted, organization:) }
+  let!(:unpromoted_conference) { create(:conference, organization:) }
   let!(:promoted_external_conference) { create(:conference, :promoted) }
 
   before do

@@ -9,7 +9,7 @@ module Decidim::Budgets
     let(:project) { create :project }
     let!(:image) { create(:attachment, :with_image, attached_to: project) }
     let(:organization) { project.component.organization }
-    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
+    let(:current_user) { create :user, :admin, :confirmed, organization: }
 
     context "when everything is ok" do
       it_behaves_like "admin destroys resource gallery" do

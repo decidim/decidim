@@ -11,6 +11,7 @@ module Decidim
   module Admin
     autoload :Components, "decidim/admin/components"
     autoload :FormBuilder, "decidim/admin/form_builder"
+    autoload :SearchFormBuilder, "decidim/admin/search_form_builder"
     autoload :Import, "decidim/admin/import"
 
     include ActiveSupport::Configurable

@@ -9,7 +9,7 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create :organization }
-        let(:assembly_type) { create :assemblies_type, organization: organization }
+        let(:assembly_type) { create :assemblies_type, organization: }
         let(:assembly_type_id) { assembly_type.id }
         let(:title) do
           {
@@ -251,7 +251,7 @@ module Decidim
         context "when slug is not unique" do
           context "when in the same organization" do
             before do
-              create(:assembly, slug: slug, organization: organization)
+              create(:assembly, slug:, organization:)
             end
 
             it "is not valid" do
@@ -262,7 +262,7 @@ module Decidim
 
           context "when in another organization" do
             before do
-              create(:assembly, slug: slug)
+              create(:assembly, slug:)
             end
 
             it "is valid" do
@@ -272,13 +272,13 @@ module Decidim
         end
 
         context "when assembly has a parent_id" do
-          let(:parent_id) { create(:assembly, organization: organization) }
+          let(:parent_id) { create(:assembly, organization:) }
 
           it { is_expected.to be_valid }
         end
 
         context "when the parent is also a child" do
-          let(:assembly) { create(:assembly, organization: organization) }
+          let(:assembly) { create(:assembly, organization:) }
           let(:attributes) do
             {
               assembly: {
@@ -332,13 +332,13 @@ module Decidim
               }
             }
           end
-          let(:child_assembly) { create(:assembly, :with_parent, parent: assembly, organization: organization) }
+          let(:child_assembly) { create(:assembly, :with_parent, parent: assembly, organization:) }
 
           it { is_expected.not_to be_valid }
         end
 
         context "when the parent is also a grandchild" do
-          let(:assembly) { create(:assembly, organization: organization) }
+          let(:assembly) { create(:assembly, organization:) }
           let(:attributes) do
             {
               assembly: {
@@ -392,8 +392,8 @@ module Decidim
               }
             }
           end
-          let(:child_assembly) { create(:assembly, :with_parent, parent: assembly, organization: organization) }
-          let(:grandchild_assembly) { create(:assembly, :with_parent, parent: child_assembly, organization: organization) }
+          let(:child_assembly) { create(:assembly, :with_parent, parent: assembly, organization:) }
+          let(:grandchild_assembly) { create(:assembly, :with_parent, parent: child_assembly, organization:) }
 
           it { is_expected.not_to be_valid }
         end

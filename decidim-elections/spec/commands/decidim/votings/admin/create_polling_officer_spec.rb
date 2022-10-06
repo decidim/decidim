@@ -18,10 +18,10 @@ module Decidim
         let(:form) do
           double(
             invalid?: invalid,
-            email: email,
-            name: name,
+            email:,
+            name:,
             current_participatory_space: voting,
-            user: user
+            user:
           )
         end
         let(:invalid) { false }

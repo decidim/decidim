@@ -370,7 +370,6 @@ sv:
         start_voting_date: Omröstningen börjar
       question_components:
         question_menu_item: Frågan
-        unfold: Veckla ut
       question_header:
         back_to_consultation: Visa alla samråd
         back_to_question: Tillbaka till frågan

@@ -7,7 +7,7 @@ describe "Monitoring committee member manages voting results", type: :system do
 
   let(:elections_component) { create(:elections_component, participatory_space: voting) }
   let!(:election) { create(:election, :bb_test, :tally_ended, component: elections_component, number_of_votes: 10) }
-  let!(:ps_closure) { create_list(:ps_closure, 4, :with_results, election: election, number_of_votes: 5) }
+  let!(:ps_closure) { create_list(:ps_closure, 4, :with_results, election:, number_of_votes: 5) }
 
   before do
     switch_to_host(organization.host)

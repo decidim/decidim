@@ -122,7 +122,7 @@ module Decidim
               step_settings: copied_step_settings,
               weight: component.weight
             )
-            component.manifest.run_hooks(:copy, new_component: new_component, old_component: component)
+            component.manifest.run_hooks(:copy, new_component:, old_component: component)
           end
         end
 

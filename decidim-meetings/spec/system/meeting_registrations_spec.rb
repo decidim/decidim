@@ -7,9 +7,9 @@ describe "Meeting registrations", type: :system do
   let(:manifest_name) { "meetings" }
 
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:question) { create(:questionnaire_question, questionnaire: questionnaire, position: 0) }
-  let!(:meeting) { create :meeting, :published, component: component, questionnaire: questionnaire }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
+  let!(:meeting) { create :meeting, :published, component:, questionnaire: }
+  let!(:user) { create :user, :confirmed, organization: }
 
   let(:registrations_enabled) { true }
   let(:registration_form_enabled) { false }
@@ -32,11 +32,14 @@ describe "Meeting registrations", type: :system do
 
   before do
     meeting.update!(
-      registrations_enabled: registrations_enabled,
-      registration_form_enabled: registration_form_enabled,
-      available_slots: available_slots,
-      registration_terms: registration_terms
+      registrations_enabled:,
+      registration_form_enabled:,
+      available_slots:,
+      registration_terms:
     )
+
+    # Make static map requests not to fail with HTTP 500 (causes JS error)
+    stub_request(:get, Regexp.new(Decidim.maps.fetch(:static).fetch(:url))).to_return(body: "")
   end
 
   context "when meeting registrations are not enabled" do
@@ -57,7 +60,7 @@ describe "Meeting registrations", type: :system do
       it "can't answer the registration form" do
         visit questionnaire_public_path
 
-        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
         expect(page).to have_no_i18n_content(question.body)
@@ -72,7 +75,7 @@ describe "Meeting registrations", type: :system do
       let(:available_slots) { 1 }
 
       before do
-        create(:registration, meeting: meeting, user: user)
+        create(:registration, meeting:, user:)
       end
 
       it "the registration button is disabled" do
@@ -94,7 +97,7 @@ describe "Meeting registrations", type: :system do
         it "can't answer the registration form" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)
@@ -134,7 +137,7 @@ describe "Meeting registrations", type: :system do
             end
 
             within ".card.extra" do
-              click_button "Inscriu-te a la trobada"
+              click_button "Unir-se a la trobada"
             end
 
             within "#loginModal" do
@@ -149,16 +152,14 @@ describe "Meeting registrations", type: :system do
           it "they have the option to sign in" do
             visit questionnaire_public_path
 
-            expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+            expect(page).to have_i18n_content(questionnaire.title)
             expect(page).to have_i18n_content(questionnaire.description)
 
             expect(page).not_to have_css(".form.answer-questionnaire")
 
-            within ".questionnaire-question_readonly" do
+            within "[data-question-readonly]" do
               expect(page).to have_i18n_content(question.body)
             end
-
-            expect(page).to have_content("Sign in with your account or sign up to answer the form")
           end
         end
       end
@@ -221,7 +222,7 @@ describe "Meeting registrations", type: :system do
           end
 
           it "they can join the meeting if they are already following it" do
-            create(:follow, followable: meeting, user: user)
+            create(:follow, followable: meeting, user:)
 
             visit_meeting
 
@@ -248,7 +249,7 @@ describe "Meeting registrations", type: :system do
         end
 
         context "and they ARE part of a verified user group" do
-          let!(:user_group) { create :user_group, :verified, users: [user], organization: organization }
+          let!(:user_group) { create :user_group, :verified, users: [user], organization: }
 
           it "they can join the meeting representing a group and appear in the attending organizations list" do
             visit_meeting
@@ -291,7 +292,7 @@ describe "Meeting registrations", type: :system do
       it_behaves_like "has questionnaire"
 
       context "when the user is following the meeting" do
-        let!(:follow) { create(:follow, followable: meeting, user: user) }
+        let!(:follow) { create(:follow, followable: meeting, user:) }
 
         it_behaves_like "has questionnaire"
       end
@@ -305,7 +306,7 @@ describe "Meeting registrations", type: :system do
         it "shows the registration form without questions" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
           expect(page).to have_content "Show my attendance publicly"
           expect(page).to have_field("public_participation", checked: false)
@@ -315,11 +316,56 @@ describe "Meeting registrations", type: :system do
           expect(page).to have_button("Submit")
         end
       end
+
+      context "when the registration form has file question and file is invalid" do
+        let!(:question) { create(:questionnaire_question, questionnaire:, position: 0, question_type: :files) }
+
+        before do
+          login_as user, scope: :user
+        end
+
+        it "shows errors for invalid file" do
+          visit questionnaire_public_path
+
+          input_element = find("input[type='file']", visible: :all)
+          input_element.attach_file(Decidim::Dev.asset("verify_user_groups.csv"))
+
+          expect(page).to have_field("public_participation", checked: false)
+          find("#questionnaire_tos_agreement").set(true)
+          click_button "Submit"
+
+          within ".confirm-modal-footer" do
+            find("a.button[data-confirm-ok]").click
+          end
+
+          expect(page).to have_content("Needs to be reattached")
+        end
+
+        context "and the announcement for the meeting is configured" do
+          before do
+            component.update!(
+              settings: {
+                announcement: {
+                  en: "An important announcement",
+                  es: "Un aviso muy importante",
+                  ca: "Un avís molt important"
+                }
+              }
+            )
+          end
+
+          it "the user should not see it" do
+            visit questionnaire_public_path
+
+            expect(page).not_to have_content("An important announcement")
+          end
+        end
+      end
     end
 
     context "and the user is going to the meeting" do
-      let!(:answer) { create(:answer, questionnaire: questionnaire, question: question, user: user) }
-      let!(:registration) { create(:registration, meeting: meeting, user: user) }
+      let!(:answer) { create(:answer, questionnaire:, question:, user:) }
+      let!(:registration) { create(:registration, meeting:, user:) }
 
       before do
         login_as user, scope: :user
@@ -434,7 +480,7 @@ describe "Meeting registrations", type: :system do
         it "can't answer the registration again" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)

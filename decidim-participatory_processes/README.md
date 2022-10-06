@@ -33,10 +33,6 @@ This is on the default Decidim installation so you shouldn't change anything to 
 
 ![Admin View](docs/screenshot02.png)
 
-## Documentation
-
-Read more about this Space on [Admin Manual](https://docs.decidim.org/admin-manual/en/processess/).
-
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).

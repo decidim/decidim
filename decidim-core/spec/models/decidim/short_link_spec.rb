@@ -9,10 +9,10 @@ module Decidim
     let(:short_link) do
       create(
         :short_link,
-        target: target,
+        target:,
         mounted_engine_name: engine_name,
-        route_name: route_name,
-        params: params
+        route_name:,
+        params:
       )
     end
     let(:target) { create(:dummy_resource) }
@@ -21,7 +21,7 @@ module Decidim
     let(:params) { {} }
 
     describe ".to" do
-      subject { described_class.to(target, engine_name, route_name: route_name, params: params) }
+      subject { described_class.to(target, engine_name, route_name:, params:) }
 
       it "creates a unique short link within the target organization" do
         expect(subject).to be_a(described_class)
@@ -99,7 +99,7 @@ module Decidim
 
     describe "#short_url" do
       it "returns the short URL" do
-        expect(subject.short_url).to eq("http://#{target.organization.host}/s/#{subject.identifier}")
+        expect(subject.short_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/s/#{subject.identifier}")
       end
     end
 
@@ -126,7 +126,7 @@ module Decidim
         let(:route_name) { "participatory_process" }
 
         it "returns the target URL" do
-          expect(subject.target_url).to eq("http://#{target.organization.host}/processes/#{target.slug}")
+          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/processes/#{target.slug}")
         end
       end
 
@@ -136,7 +136,7 @@ module Decidim
         let(:route_name) { "pages" }
 
         it "returns the target URL" do
-          expect(subject.target_url).to eq("http://#{target.host}/pages")
+          expect(subject.target_url).to eq("http://#{target.host}:#{Capybara.server_port}/pages")
         end
       end
 
@@ -146,7 +146,7 @@ module Decidim
         let(:route_name) { "page" }
 
         it "returns the target URL" do
-          expect(subject.target_url).to eq("http://#{target.organization.host}/pages/#{target.slug}")
+          expect(subject.target_url).to eq("http://#{target.organization.host}:#{Capybara.server_port}/pages/#{target.slug}")
         end
       end
     end

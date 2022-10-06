@@ -54,7 +54,9 @@ module Decidim
   autoload :MenuItem, "decidim/menu_item"
   autoload :MenuRegistry, "decidim/menu_registry"
   autoload :ManifestRegistry, "decidim/manifest_registry"
+  autoload :AssetRouter, "decidim/asset_router"
   autoload :EngineRouter, "decidim/engine_router"
+  autoload :UrlOptionResolver, "decidim/url_option_resolver"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
@@ -108,8 +110,13 @@ module Decidim
   autoload :AttributeObject, "decidim/attribute_object"
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
+  autoload :SocialShareServiceManifest, "decidim/social_share_service_manifest"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
+  autoload :ProcessesFileLocally, "decidim/processes_file_locally"
+  autoload :RedesignLayout, "decidim/redesign_layout"
+  autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
+  autoload :DependencyResolver, "decidim/dependency_resolver"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
@@ -143,7 +150,7 @@ module Decidim
       puts "Setting random values for the \"#{badge.name}\" badge..."
       User.all.find_each do |user|
         Gamification::BadgeScore.find_or_create_by!(
-          user: user,
+          user:,
           badge_name: badge.name,
           value: Random.rand(0...20)
         )
@@ -359,6 +366,17 @@ module Decidim
     # "MyTranslationService"
   end
 
+  # Social Networking services used for social sharing
+  config_accessor :social_share_services do
+    %w(Twitter Facebook WhatsApp Telegram)
+  end
+
+  # If set to true redesigned versions of layouts and cells will be used by
+  # default
+  config_accessor :redesign_active do
+    false
+  end
+
   # The Decidim::Exporters::CSV's default column separator
   config_accessor :default_csv_col_sep do
     ";"
@@ -393,23 +411,24 @@ module Decidim
     1_000
   end
 
-  # Defines the name of the cookie used to check if the user allows Decidim to
-  # set cookies.
+  # Defines the name of the cookie used to check if the user has given consent
+  # to store local data in their browser.
   config_accessor :consent_cookie_name do
     "decidim-consent"
   end
 
-  # Defines cookie categories. Note that when adding a cookie you need to
-  # add following i18n entries also (change 'foo' with the name of the cookie).
+  # Defines data consent categories. Note that when adding an item you need to
+  # add following i18n entries also (change 'foo' with the name of the data
+  # which can be a cookie for instance).
   #
-  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.service
-  # layouts.decidim.cookie_consent.cookie_details.cookies.foo.description
+  # layouts.decidim.data_consent.details.items.foo.service
+  # layouts.decidim.data_consent.details.items.foo.description
   config_accessor :consent_categories do
     [
       {
         slug: "essential",
         mandatory: true,
-        cookies: [
+        items: [
           {
             type: "cookie",
             name: "_session_id"
@@ -417,6 +436,10 @@ module Decidim
           {
             type: "cookie",
             name: Decidim.consent_cookie_name
+          },
+          {
+            type: "local_storage",
+            name: "pwaInstallPromptSeen"
           }
         ]
       },
@@ -440,11 +463,33 @@ module Decidim
     []
   end
 
+  # Defines if admins are required to have stronger passwords than other users
+  config_accessor :admin_password_strong do
+    true
+  end
+
+  config_accessor :admin_password_expiration_days do
+    90
+  end
+
+  config_accessor :admin_password_min_length do
+    15
+  end
+
+  config_accessor :admin_password_repetition_times do
+    5
+  end
+
   # This is an internal key that allow us to properly configure the caching key separator. This is useful for redis cache store
   # as it creates some namespaces within the cached data.
   # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
   config_accessor :cache_key_separator do
     "/"
+  end
+
+  # Enable/Disable the service worker
+  config_accessor :service_worker_enabled do
+    Rails.env.exclude?("development")
   end
 
   # Public: Registers a global engine. This method is intended to be used
@@ -463,7 +508,7 @@ module Decidim
 
     global_engines[name.to_sym] = {
       at: options[:at],
-      engine: engine
+      engine:
     }
   end
 
@@ -494,8 +539,8 @@ module Decidim
   # name - A Symbol with the component's unique name.
   #
   # Returns nothing.
-  def self.register_component(name, &block)
-    component_registry.register(name, &block)
+  def self.register_component(name, &)
+    component_registry.register(name, &)
   end
 
   # Public: Registers a participatory space, usually held in an external library
@@ -509,19 +554,29 @@ module Decidim
   # name - A Symbol with the participatory space's unique name.
   #
   # Returns nothing.
-  def self.register_participatory_space(name, &block)
-    participatory_space_registry.register(name, &block)
+  def self.register_participatory_space(name, &)
+    participatory_space_registry.register(name, &)
   end
 
   # Public: Registers a resource.
   #
   # Returns nothing.
-  def self.register_resource(name, &block)
-    resource_registry.register(name, &block)
+  def self.register_resource(name, &)
+    resource_registry.register(name, &)
   end
 
-  def self.notification_settings(name, &block)
-    notification_settings_registry.register(name, &block)
+  # Public: Registers a social share service.
+  #
+  # Returns nothing.
+  def self.register_social_share_service(name, &)
+    social_share_services_registry.register(name, &)
+  end
+
+  # Public: Registers a notification setting.
+  #
+  # Returns nothing.
+  def self.notification_settings(name, &)
+    notification_settings_registry.register(name, &)
   end
 
   # Public: Finds all registered resource manifests via the `register_component`
@@ -587,6 +642,7 @@ module Decidim
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
   end
 
+  # Public: Stores the registry of reminders
   def self.reminders_registry
     @reminders_registry ||= ReminderRegistry.new
   end
@@ -596,6 +652,12 @@ module Decidim
     @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
+  # Public: Stores the registry of social shares services
+  def self.social_share_services_registry
+    @social_share_services_registry ||= ManifestRegistry.new(:social_share_services)
+  end
+
+  # Public: Stores the registry of notifications settings
   def self.notification_settings_registry
     @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
   end
@@ -615,8 +677,8 @@ module Decidim
   # name   - A string or symbol with the name of the menu
   # &block - A block using the DSL defined in `Decidim::MenuItem`
   #
-  def self.menu(name, &block)
-    MenuRegistry.register(name.to_sym, &block)
+  def self.menu(name, &)
+    MenuRegistry.register(name.to_sym, &)
   end
 
   # Public: Stores an instance of ViewHooks
@@ -686,12 +748,45 @@ module Decidim
     Rails.autoloaders.main.ignore(path) if Rails.configuration.autoloader == :zeitwerk
   end
 
-  # Checks if a particular decidim gem is installed
-  # Note that defined(Decidim::Something) does not work all the times, specially when the
-  # Gemfile uses the "path" parameter to find the module.
-  # This is because the module can be defined by some files searched by Rails automatically
-  # (ie: decidim-initiatives/lib/decidim/initiatives/version.rb automatically defines Decidim::Intiatives even if not required)
+  # Checks if a particular decidim gem is installed and needed by this
+  # particular instance. Preferrably this happens through bundler by inspecting
+  # the Gemfile of the instance but when Decidim is used without bundler, this
+  # will check:
+  # 1. If the gem is globally available or not in the loaded specs, i.e. the
+  #    gems available in the gem install directory/directories.
+  # 2. If the gem has been required through `require "decidim/foo"`.
+  #
+  # Using bundler is suggested as it will provide more accurate results
+  # regarding what is actually needed. It will resolve all the gems listed in
+  # the Gemfile and also their dependencies which provides us accurate
+  # information whether a gem is needed by the instance or not.
+  #
+  # Note that using something like defined?(Decidim::Foo) will not work because
+  # the way the Decidim handles version definitions for each gem. After the gems
+  # are loaded, this would always return true because the version definition
+  # files of each module define that module which means it is available at
+  # runtime if the gem is installed in the gem load path. In some situations it
+  # can be installed there through other projects or through the command line
+  # even if the instance does not require that module or even through
+  # installing gems from git sources or from file paths.
+  #
+  # When a gem is reported as "needed" by the dependency resolver, this will
+  # also require that module ensuring its availability for the initialization
+  # code.
+  #
+  # @param mod [Symbol, String] The module name to check, e.g. `:proposals`.
+  # @return [Boolean] A boolean indicating whether the module is installed.
   def self.module_installed?(mod)
-    Gem.loaded_specs.has_key?("decidim-#{mod}")
+    return false unless Decidim::DependencyResolver.instance.needed?("decidim-#{mod}")
+
+    # The dependency may not be automatically loaded through the Gemfile if the
+    # user lists e.g. "decidim-core" and "decidim-budgets" in it. In this
+    # situation, "decidim-comments" is also needed because it is a dependency
+    # for "decidim-budgets".
+    require "decidim/#{mod}"
+
+    true
+  rescue LoadError
+    false
   end
 end

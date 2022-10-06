@@ -15,8 +15,9 @@ module Decidim
     describe MeetingType, type: :graphql do
       include_context "with a graphql class type"
       let(:component) { create(:meeting_component) }
-      let(:model) { create(:meeting, component: component) }
+      let(:model) { create(:meeting, component:) }
 
+      include_examples "authorable interface"
       include_examples "categorizable interface"
       include_examples "timestamps interface"
       include_examples "scopable interface"
@@ -76,7 +77,7 @@ module Decidim
         let(:query) { "{ isWithdrawn }" }
 
         context "when meetings is withdrawn" do
-          let(:model) { create(:meeting, :withdrawn, component: component) }
+          let(:model) { create(:meeting, :withdrawn, component:) }
 
           it "returns true" do
             expect(response["isWithdrawn"]).to be true
@@ -84,7 +85,7 @@ module Decidim
         end
 
         context "when meetings is not withdrawn" do
-          let(:model) { create(:meeting, component: component) }
+          let(:model) { create(:meeting, component:) }
 
           it "returns false" do
             expect(response["isWithdrawn"]).to be false
@@ -96,7 +97,7 @@ module Decidim
         let(:query) { "{ closed closingReport { translation(locale: \"ca\") } }" }
 
         context "when closed" do
-          let(:model) { create(:meeting, :closed, component: component) }
+          let(:model) { create(:meeting, :closed, component:) }
 
           it "returns true" do
             expect(response["closed"]).to be true
@@ -109,7 +110,7 @@ module Decidim
         end
 
         context "when closed with minutes" do
-          let(:model) { create(:meeting, :closed_with_minutes, closing_visible: closing_visible, component: component) }
+          let(:model) { create(:meeting, :closed_with_minutes, closing_visible:, component:) }
           let(:query) { "{ closed closingReport { translation(locale: \"ca\") } }" }
 
           context "and closing_visible is true" do
@@ -139,7 +140,7 @@ module Decidim
         end
 
         context "when open" do
-          let(:model) { create(:meeting, component: component) }
+          let(:model) { create(:meeting, component:) }
 
           it "returns false" do
             expect(response["closed"]).to be false
@@ -156,7 +157,7 @@ module Decidim
         let(:agenda) { create(:agenda, :with_agenda_items) }
 
         before do
-          model.update(agenda: agenda)
+          model.update(agenda:)
         end
 
         it "returns the agenda's items" do
@@ -167,7 +168,7 @@ module Decidim
       end
 
       context "with registrations open" do
-        let(:model) { create(:meeting, :with_registrations_enabled, component: component) }
+        let(:model) { create(:meeting, :with_registrations_enabled, component:) }
 
         describe "registrationsEnabled" do
           let(:query) { "{ registrationsEnabled }" }
@@ -286,16 +287,6 @@ module Decidim
 
         it "returns true" do
           expect(response["transparent"]).to be true
-        end
-      end
-
-      describe "author" do
-        let(:model) { create(:meeting, :not_official, author: author, component: component) }
-        let(:author) { create(:user, organization: component.participatory_space.organization) }
-        let(:query) { "{ author { name } }" }
-
-        it "includes the user's name" do
-          expect(response["author"]["name"]).to eq(author.name)
         end
       end
     end

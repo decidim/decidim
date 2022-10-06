@@ -76,6 +76,13 @@ ar:
         meetings:
           category_id_eq:
             label: الفئة
+          with_any_origin:
+            values:
+              user_group: مجموعات المستخدمين
+          with_any_type:
+            label: نوع الاجتماع
+            values:
+              in_person: وجهًا لوجه
       meeting_copies:
         create:
           error: كانت هناك مشكلة في تكرار هذا الاجتماع.
@@ -272,6 +279,7 @@ ar:
           form:
             available_slots_help: اتركه إلى 0 إذا كان لديك فتحات غير محدودة المتاحة.
             invites: دعوات
+            registration_email_help: سيظهر هذا النص في منتصف البريد الإلكتروني الخاص بتأكيد التسجيل مباشرة بعد رمز التسجيل.
             registration_form: إستمارة تسجيل
             registrations_count:
               zero: كان هناك %{count} التسجيلات.

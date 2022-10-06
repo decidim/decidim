@@ -16,7 +16,7 @@ module Decidim
       end
 
       def update
-        @permissions_form = PermissionsForm.from_params(params).with_context(current_organization: current_organization)
+        @permissions_form = PermissionsForm.from_params(params).with_context(current_organization:)
 
         UpdateResourcePermissions.call(@permissions_form, resource) do
           on(:ok) do
@@ -83,7 +83,7 @@ module Decidim
       end
 
       def manifest_name
-        @manifest_name ||= resource.manifest.name
+        @manifest_name ||= resource.resource_manifest.name
       end
 
       def permissions

@@ -10,14 +10,14 @@ describe "sortitions", type: :system do
 
   context "when listing sortitions in a participatory process" do
     it "lists all the sortitions" do
-      create_list(:sortition, 3, component: component)
+      create_list(:sortition, 3, component:)
       visit_component
       expect(page).to have_css(".card--sortition", count: 3)
     end
 
     context "when order by 'random'" do
-      let!(:lucky_sortition) { create(:sortition, component: component) }
-      let!(:unlucky_sortition) { create(:sortition, component: component) }
+      let!(:lucky_sortition) { create(:sortition, component:) }
+      let!(:unlucky_sortition) { create(:sortition, component:) }
 
       it "lists the sortitions ordered randomly" do
         page.visit "#{main_component_path(component)}?order=random"
@@ -30,8 +30,8 @@ describe "sortitions", type: :system do
 
     context "when ordering by 'recent'" do
       it "lists the sortitions ordered by created at" do
-        older = create(:sortition, component: component, created_at: 1.month.ago)
-        recent = create(:sortition, component: component)
+        older = create(:sortition, component:, created_at: 1.month.ago)
+        recent = create(:sortition, component:)
 
         visit_component
 
@@ -41,7 +41,7 @@ describe "sortitions", type: :system do
     end
 
     context "when paginating" do
-      let!(:collection) { create_list :sortition, collection_size, component: component }
+      let!(:collection) { create_list :sortition, collection_size, component: }
       let!(:resource_selector) { ".card--sortition" }
 
       it_behaves_like "a paginated resource"

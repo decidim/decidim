@@ -7,6 +7,8 @@ module Decidim
       include Decidim::DeviseControllers
       include NeedsTosAccepted
 
+      helper Decidim::PasswordsHelper
+
       before_action :configure_permitted_parameters
 
       # We don't users to create invitations, so we just redirect them to the

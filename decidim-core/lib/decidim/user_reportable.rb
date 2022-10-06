@@ -19,7 +19,7 @@ module Decidim
       #
       # Returns Boolean.
       def reported_by?(user)
-        user_reports.where(user: user).any?
+        user_reports.where(user:).any?
       end
 
       # Public: Checks if the reportable has been reported or not.

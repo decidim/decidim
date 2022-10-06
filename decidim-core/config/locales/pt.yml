@@ -21,7 +21,7 @@ pt:
         details: Comentários adicionais
       user:
         about: Sobre
-        email: O seu email
+        email: O seu e-mail
         name: O seu nome
         nickname: Alcunha
         password: Palavra-passe
@@ -44,7 +44,7 @@ pt:
     attributes:
       decidim/user:
         current_password: Senha atual
-        email: Email
+        email: E-mail
         name: Alcunha
         password: Senha
         password_confirmation: Confirmação da senha
@@ -67,7 +67,6 @@ pt:
     'true': 'Sim'
   carrierwave:
     errors:
-      image_too_big: A imagem é demasiado grande
       not_inside_organization: O ficheiro não está anexado a nenhuma organização
   date:
     formats:
@@ -83,9 +82,6 @@ pt:
       skip_button: Avançar para o conteúdo principal
     account:
       blocked: Esta conta foi bloqueada por violação dos Termos e Condições
-      data_portability_export:
-        file_no_exists: Ficheiro não existente
-        notice: A transferência dos seus dados está atualmente em progresso. Receberá um e-mail quando estiver concluído.
       delete:
         alert: Esta acção não pode ser revertida. Se apagar a sua conta não poderá mais ligar-se com as suas credenciais. Apagar a sua conta resultará no anonimizar de todas as suas contribuições. Conseguirá criar uma nova conta, mas essas contribuições não serão associadas a ela.
         confirm:
@@ -97,6 +93,9 @@ pt:
       destroy:
         error: Ocorreu um problema ao eliminar a sua conta.
         success: A sua conta foi eliminada corretamente.
+      download_your_data_export:
+        file_no_exists: Ficheiro não existente
+        notice: A transferência dos seus dados está atualmente em progresso. Receberá um e-mail quando estiver concluído.
       show:
         change_password: Mudar senha
         update_account: Atualizar conta
@@ -373,8 +372,8 @@ pt:
             amendments_enabled: Modificações ativadas
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários
-            dummy_global_attribute_1: Atributo Fictício 1
-            dummy_global_attribute_2: Atributo Fictício 2
+            dummy_global_attribute1: Atributo Fictício 1
+            dummy_global_attribute2: Atributo Fictício 2
             dummy_global_translatable_text: Texto Traduzível Fictício
             enable_pads_creation: Ativar criação de blocos
             resources_permissions_enabled: Permissões de recursos ativadas
@@ -386,8 +385,8 @@ pt:
             amendment_reaction_enabled: Reação a modificação ativada
             amendments_visibility: Visibilidade da modificação
             comments_blocked: Comentários bloqueados
-            dummy_step_attribute_1: Passo de Atributo Fictício 1
-            dummy_step_attribute_2: Passo de Atributo Fictício 2
+            dummy_step_attribute1: Passo de Atributo Fictício 1
+            dummy_step_attribute2: Passo de Atributo Fictício 2
             dummy_step_translatable_text: Passo de Texto Traduzível Fictício
     contact: Contacto
     content_blocks:
@@ -431,13 +430,6 @@ pt:
       actions:
         login_before_access: Por favor, inicie sessão na sua conta antes de aceder
         unauthorized: Não está autorizado a realizar esta ação
-    data_portability:
-      export:
-        ready: Pronto
-      show:
-        download_data: Transferir os dados
-        download_data_description: Um ficheiro contendo toda a informação associada com a sua conta será enviado a <strong>%{user_email}</strong>. Este e-mail irá conter um ficheiro .zip e uma password para o abrir. <Br/><br/>Para abrir o ficheiro zip irá precisar do <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se utiliza Linux, provavelmente terá a ferramenta instalada por defeito. Se não, pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Solicitar dados
     datepicker:
       help_text: 'Formato esperado: %{datepicker_format}'
     devise:
@@ -456,7 +448,6 @@ pt:
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
           nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
-          password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
           sign_in: Entrar
           sign_up: Inscreva-se
           sign_up_as:
@@ -505,6 +496,13 @@ pt:
           this_application_will_not_be_able_to: 'Esta aplicação não poderá:'
           update_profile: Atualizar o seu perfil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> quer usar a sua conta"
+    download_your_data:
+      export:
+        ready: Pronto
+      show:
+        download_data: Transferir os dados
+        download_data_description: Um ficheiro contendo toda a informação associada com a sua conta será enviado a <strong>%{user_email}</strong>. Este e-mail irá conter um ficheiro .zip e uma password para o abrir. <Br/><br/>Para abrir o ficheiro zip irá precisar do <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se utiliza Linux, provavelmente terá a ferramenta instalada por defeito. Se não, pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Solicitar dados
     endorsable:
       endorsements: Endossos
       endorsements_count: Contagem de apoios
@@ -665,7 +663,7 @@ pt:
           email_subject: "%{nickname} atualizaram seu perfil"
           notification_title: A <a href="%{resource_path}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Clique na ligação seguinta para descarregar os seus dados. <Br/> Irá precisar  de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS), ou <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrir o ficheiro. Palavra-chave: %{password}'
         download: Transferir
       export:
@@ -715,7 +713,6 @@ pt:
         file:
           explanation: 'Orientação para o ficheiro:'
           message_1: Tem que ser uma imagem ou um documento.
-          message_2: Para imagens, use de preferência imagens em paisagem, o serviço corta a imagem. Para ficheiros CSV, o separador entre colunas deve ser uma vírgula (“,”)
         image:
           explanation: 'Orientação para a imagem:'
           message_1: Preferencialmente, uma imagem de paisagem que não tem nenhum texto.
@@ -835,7 +832,6 @@ pt:
       no_user_groups: Ainda não pertence a nenhum grupo.
       roles:
         admin: Administrador
-        creator: Criador
         member: Membro
       update:
         error: Ocorreu um problema ao atualizar o grupo
@@ -1039,14 +1035,11 @@ pt:
         administrators: Administradores
         allow_public_contact: Permitir que qualquer pessoa me envie uma mensagem direta, mesmo que não a siga.
         direct_messages: Receber mensagens diretas de qualquer pessoa
-        email_on_moderations: Quero receber um e-mail sempre que alguma coisa for denunciada para moderação
-        email_on_notification: Quero receber um e-mail sempre que recebo uma notificação.
         everything_followed: Tudo o que eu sigo
         newsletter_notifications: Quero receber boletins informativos
         newsletters: Boletins informativos
         own_activity: A minha atividade, como quando alguém comenta a minha proposta ou me menciona
         receive_notifications_about: Quero receber notificações sobre
-        send_notifications_by_email: Enviar notificações por e-mail
         update_notifications_settings: Guardar alterações
       update:
         error: Ocorreu um problema ao atualizar as suas configurações de notificações.
@@ -1104,7 +1097,6 @@ pt:
           agreement: Concordo com estes termos
           legend: Concordo com os termos e condições de uso
         refuse:
-          modal_body: Se recusar, não será capaz de utilizar a plataforma, pode <a href="%{data_portability_path}">transferir os seus dados</a> e / ou <a href="%{delete_path}">eliminar a sua conta</a>.
           modal_btn_continue: Aceitar os termos e continuar
           modal_btn_exit: Irei revê-los mais tarde
           modal_button: Recusar os termos
@@ -1406,7 +1398,6 @@ pt:
     invitations:
       edit:
         header: Termine a criação da sua conta
-        nickname_help: A sua alcunha em %{organization}.
         submit_button: Salvar
         subtitle: Se aceitar o convite, por favor defina a sua alcunha e palavra-passe.
       invitation_removed: O seu convite foi removido.
@@ -1473,7 +1464,6 @@ pt:
     passwords:
       edit:
         change_my_password: Modificar a minha palavra-passe
-        change_your_password: Modificar a sua palavra-passe
         confirm_new_password: Confirme a nova palavra-passe
         new_password: Nova palavra-passe
         password_help: "%{minimun_characters} de caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
@@ -1564,10 +1554,6 @@ pt:
     timestamp_error_message: Desculpe, isso foi muito rápido! Por favor reenvie.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Este sítio usa cookies. Ao continuar a navegar no sítio, está a concordar com o uso desses cookies. Saiba mais sobre isso %{link}.
-        link_label: aqui
-        ok: Concordo
       edit_link:
         edit: Editar
       footer:

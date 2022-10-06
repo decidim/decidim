@@ -1,6 +1,9 @@
 /* eslint-disable require-jsdoc */
 
 import "entrypoints/decidim_api_graphiql.scss";
+// Styles from node_modules/graphiql/graphiql.css
+// It needs to be done in JS because postcss-import doesn't find files in node_modules/
+import "graphiql/graphiql.css"
 
 import React from "react";
 import ReactDOM from "react-dom";

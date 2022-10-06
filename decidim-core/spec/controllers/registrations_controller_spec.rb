@@ -21,7 +21,7 @@ module Decidim
             sign_up_as: "user",
             name: "User",
             nickname: "nickname",
-            email: email,
+            email:,
             password: "rPYWYKQJrXm97b4ytswc",
             password_confirmation: "rPYWYKQJrXm97b4ytswc",
             tos_agreement: "1",
@@ -56,10 +56,48 @@ module Decidim
         it "renders the new template" do
           send_form_and_expect_rendering_the_new_template_again
         end
+
+        it "adds the flash message" do
+          post :create, params: params
+          expect(controller.flash.now[:alert]).to have_content("Your email can't be blank")
+        end
+
+        context "when all params are invalid" do
+          let(:params) do
+            {
+              user: {
+                sign_up_as: "",
+                name: "",
+                nickname: "",
+                email:,
+                password: "123",
+                password_confirmation: "456",
+                tos_agreement: "0",
+                newsletter: "0"
+              }
+            }
+          end
+
+          it "adds the flash message" do
+            post :create, params: params
+            expect(controller.flash.now[:alert]).to have_content(
+              [
+                "Your name can't be blank",
+                "Nickname can't be blank",
+                "Nickname is invalid",
+                "Your email can't be blank",
+                "Confirm your password doesn't match Password",
+                "Password is too short",
+                "Password does not have enough unique characters",
+                "Tos agreement must be accepted"
+              ].join(", ")
+            )
+          end
+        end
       end
 
       context "when the registering user has pending invitations" do
-        let(:user) { create(:user, organization: organization, email: email) }
+        let(:user) { create(:user, organization:, email:) }
 
         before do
           user.invite!

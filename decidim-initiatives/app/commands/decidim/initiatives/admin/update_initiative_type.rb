@@ -49,6 +49,7 @@ module Decidim
             description: form.description,
             signature_type: form.signature_type,
             attachments_enabled: form.attachments_enabled,
+            comments_enabled: form.comments_enabled,
             undo_online_signatures_enabled: form.undo_online_signatures_enabled,
             custom_signature_end_date_enabled: form.custom_signature_end_date_enabled,
             area_enabled: form.area_enabled,

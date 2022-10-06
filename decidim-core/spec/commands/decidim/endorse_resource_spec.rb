@@ -32,7 +32,7 @@ module Decidim
             .with(
               event: "decidim.events.resource_endorsed",
               event_class: Decidim::ResourceEndorsedEvent,
-              resource: resource,
+              resource:,
               followers: [follower],
               extra: {
                 endorser_id: current_user.id

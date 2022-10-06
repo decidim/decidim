@@ -13,9 +13,9 @@ describe Decidim::UserActivityCell, type: :cell do
       "decidim/user_activity",
       model,
       context: {
-        activities: activities,
-        filter: filter,
-        resource_types: resource_types,
+        activities:,
+        filter:,
+        resource_types:,
         user: model
       }
     )
@@ -36,13 +36,13 @@ describe Decidim::UserActivityCell, type: :cell do
   let(:filter) { Decidim::FilterResource::Filter.new({ resource_type: resource_types }) }
   let(:current_user) { nil }
   let(:component) { create(:component, :published) }
-  let(:commentable) { create(:dummy_resource, component: component, published_at: Time.current) }
-  let(:comments) { create_list(:comment, 15, author: model, commentable: commentable) }
+  let(:commentable) { create(:dummy_resource, component:, published_at: Time.current) }
+  let(:comments) { create_list(:comment, 15, author: model, commentable:) }
   let(:activities) do
     Decidim::PublicActivities.new(
       component.organization,
       user: model,
-      current_user: current_user,
+      current_user:,
       resource_type: "all",
       resource_name: filter.resource_type
     ).query.page(current_page).per(10)
@@ -63,11 +63,16 @@ describe Decidim::UserActivityCell, type: :cell do
   end
   let(:controller) { double }
 
+  def redesigned_layout(name)
+    name
+  end
+
   before do
     allow(controller).to receive(:current_organization).and_return(component.organization)
+    allow(controller).to receive(:redesign_enabled?).and_return(true)
 
     allow(my_cell).to receive(:url_for).and_return("/")
-    allow(my_cell).to receive(:params).and_return({})
+    allow(my_cell).to receive(:params).and_return(ActionController::Parameters.new({}))
     allow(my_cell).to receive(:controller).and_return(controller)
   end
 
@@ -80,7 +85,7 @@ describe Decidim::UserActivityCell, type: :cell do
       expect(subject).to have_link(title, href: comment_link)
     end
 
-    within "#decidim-paginate-container .pagination" do
+    within ".pagination" do
       expect(page).to have_selector("li.page.current", text: "1")
       expect(page).to have_selector("li.page a", text: "2")
       expect(page).not_to have_selector("li.page a", text: "3")
@@ -99,7 +104,7 @@ describe Decidim::UserActivityCell, type: :cell do
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      within "#decidim-paginate-container .pagination" do
+      within ".pagination" do
         expect(page).to have_selector("li.page a", text: "1")
         expect(page).to have_selector("li.page.current", text: "2")
       end
@@ -135,7 +140,7 @@ describe Decidim::UserActivityCell, type: :cell do
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      expect(subject).not_to have_selector("#decidim-paginate-container .pagination")
+      expect(subject).not_to have_selector(".pagination")
     end
   end
 end

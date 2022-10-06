@@ -4,13 +4,13 @@ require "spec_helper"
 
 describe Decidim::Comments::Metrics::CommentsMetricManage do
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, participatory_space: participatory_process) }
-  let(:commentable) { create(:dummy_resource, component: component) }
-  let(:author) { create(:user, organization: organization) }
+  let(:commentable) { create(:dummy_resource, component:) }
+  let(:author) { create(:user, organization:) }
   let(:day) { Time.zone.yesterday }
-  let!(:comments) { create_list(:comment, 5, created_at: day, author: author, commentable: commentable) }
-  let!(:old_comments) { create_list(:comment, 5, created_at: day - 1.week, author: author, commentable: commentable) }
+  let!(:comments) { create_list(:comment, 5, created_at: day, author:, commentable:) }
+  let!(:old_comments) { create_list(:comment, 5, created_at: day - 1.week, author:, commentable:) }
 
   include_context "when managing metrics"
 
@@ -31,7 +31,7 @@ describe Decidim::Comments::Metrics::CommentsMetricManage do
     end
 
     it "updates metric records" do
-      create(:metric, metric_type: "comments", day: day, cumulative: 1, quantity: 1, organization: organization, related_object: commentable, category: nil, participatory_space: participatory_process)
+      create(:metric, metric_type: "comments", day:, cumulative: 1, quantity: 1, organization:, related_object: commentable, category: nil, participatory_space: participatory_process)
       registry = generate_metric_registry
 
       expect(Decidim::Metric.count).to eq(1)

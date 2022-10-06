@@ -8,19 +8,19 @@ module Decidim
       routes { Decidim::Initiatives::Engine.routes }
 
       let(:organization) { create(:organization) }
-      let!(:initiative) { create(:initiative, :created, organization: organization) }
-      let(:admin_user) { create(:user, :admin, :confirmed, organization: organization) }
-      let(:user) { create(:user, :confirmed, organization: organization) }
+      let!(:initiative) { create(:initiative, :created, organization:) }
+      let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
+      let(:user) { create(:user, :confirmed, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
       end
 
       context "when GET spawn" do
-        let(:user) { create(:user, :confirmed, organization: organization) }
+        let(:user) { create(:user, :confirmed, organization:) }
 
         before do
-          create(:authorization, user: user)
+          create(:authorization, user:)
           sign_in user, scope: :user
         end
 
@@ -38,23 +38,23 @@ module Decidim
 
             expect do
               get :spawn, params: { initiative_slug: initiative.slug }
-            end.to change(InitiativesCommitteeMember, :count).by(0)
+            end.not_to change(InitiativesCommitteeMember, :count)
           end
         end
 
         context "and published initiative" do
-          let!(:published_initiative) { create(:initiative, :published, organization: organization) }
+          let!(:published_initiative) { create(:initiative, :published, organization:) }
 
           it "Membership request is not created" do
             expect do
               get :spawn, params: { initiative_slug: published_initiative.slug }
-            end.to change(InitiativesCommitteeMember, :count).by(0)
+            end.not_to change(InitiativesCommitteeMember, :count)
           end
         end
       end
 
       context "when GET approve" do
-        let(:membership_request) { create(:initiatives_committee_member, initiative: initiative, state: "requested") }
+        let(:membership_request) { create(:initiatives_committee_member, initiative:, state: "requested") }
 
         context "and Owner" do
           before do
@@ -69,10 +69,10 @@ module Decidim
         end
 
         context "and other users" do
-          let(:user) { create(:user, :confirmed, organization: organization) }
+          let(:user) { create(:user, :confirmed, organization:) }
 
           before do
-            create(:authorization, user: user)
+            create(:authorization, user:)
             sign_in user, scope: :user
           end
 
@@ -97,7 +97,7 @@ module Decidim
       end
 
       context "when DELETE revoke" do
-        let(:membership_request) { create(:initiatives_committee_member, initiative: initiative, state: "requested") }
+        let(:membership_request) { create(:initiatives_committee_member, initiative:, state: "requested") }
 
         context "and Owner" do
           before do
@@ -112,10 +112,10 @@ module Decidim
         end
 
         context "and Other users" do
-          let(:user) { create(:user, :confirmed, organization: organization) }
+          let(:user) { create(:user, :confirmed, organization:) }
 
           before do
-            create(:authorization, user: user)
+            create(:authorization, user:)
             sign_in user, scope: :user
           end
 

@@ -6,8 +6,8 @@ module Decidim
   describe MetricManifest do
     subject do
       described_class.new(
-        metric_name: metric_name,
-        manager_class: manager_class
+        metric_name:,
+        manager_class:
       )
     end
 
@@ -32,7 +32,7 @@ module Decidim
     end
 
     describe "when adding settings" do
-      let(:attributes) { { name: name } }
+      let(:attributes) { { name: } }
 
       it "is valid" do
         setup = proc do |metric_registry|

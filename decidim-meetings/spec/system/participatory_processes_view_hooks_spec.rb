@@ -8,9 +8,9 @@ describe "Meetings in process home", type: :system do
   let(:meetings_count) { 5 }
 
   context "when there are only past meetings" do
-    let!(:moderated_meeting) { create(:meeting, :moderated, :published, :past, component: component, end_time: 5.hours.ago) }
+    let!(:moderated_meeting) { create(:meeting, :moderated, :published, :past, component:, end_time: 5.hours.ago) }
     let!(:past_meetings) do
-      create_list(:meeting, meetings_count, :published, :past, component: component)
+      create_list(:meeting, meetings_count, :published, :past, component:)
     end
 
     it "shows the last three past meetings" do
@@ -27,9 +27,9 @@ describe "Meetings in process home", type: :system do
 
   context "when there are only upcoming meetings" do
     let!(:upcoming_meetings) do
-      create_list(:meeting, meetings_count, :published, :upcoming, component: component)
+      create_list(:meeting, meetings_count, :published, :upcoming, component:)
     end
-    let!(:moderated_meeting) { create(:meeting, :moderated, :published, :upcoming, component: component) }
+    let!(:moderated_meeting) { create(:meeting, :moderated, :published, :upcoming, component:) }
 
     it "shows the first three upcoming meetings" do
       visit resource_locator(participatory_process).path
@@ -45,11 +45,11 @@ describe "Meetings in process home", type: :system do
 
   context "when there are past and upcoming meetings" do
     let!(:past_meetings) do
-      create_list(:meeting, meetings_count, :published, :past, component: component)
+      create_list(:meeting, meetings_count, :published, :past, component:)
     end
 
     let!(:upcoming_meetings) do
-      create_list(:meeting, meetings_count, :published, :upcoming, component: component)
+      create_list(:meeting, meetings_count, :published, :upcoming, component:)
     end
 
     it "only shows the first three upcoming meetings" do

@@ -6,7 +6,7 @@ describe Decidim::Debates::Admin::CloseDebateForm do
   subject(:form) { described_class.from_params(attributes).with_context(context) }
 
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
   let(:context) do
     {
@@ -18,7 +18,7 @@ describe Decidim::Debates::Admin::CloseDebateForm do
   let(:attributes) do
     {
       id: debate.id,
-      conclusions: conclusions
+      conclusions:
     }
   end
 

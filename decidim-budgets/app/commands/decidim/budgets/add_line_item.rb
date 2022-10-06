@@ -27,9 +27,9 @@ module Decidim
 
           add_line_item
           broadcast(:ok, order)
-        rescue ActiveRecord::RecordInvalid
-          return broadcast(:invalid)
         end
+      rescue ActiveRecord::RecordInvalid
+        broadcast(:invalid)
       end
 
       private

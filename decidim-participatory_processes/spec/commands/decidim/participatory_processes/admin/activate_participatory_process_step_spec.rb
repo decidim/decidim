@@ -28,7 +28,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when the step is not active" do
       let!(:active_step) do
-        create :participatory_process_step, :active, participatory_process: participatory_process
+        create :participatory_process_step, :active, participatory_process:
       end
 
       it "is valid" do

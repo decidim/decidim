@@ -2,7 +2,7 @@
 
 shared_context "when admin managing a voting" do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let(:image1_filename) { "city.jpeg" }
   let(:image1_path) { Decidim::Dev.asset(image1_filename) }
@@ -13,5 +13,5 @@ shared_context "when admin managing a voting" do
   let(:image_invalid_filename) { "Exampledocument.pdf" }
   let(:image_invalid_path) { Decidim::Dev.asset(image_invalid_filename) }
 
-  let!(:voting) { create(:voting, organization: organization) }
+  let!(:voting) { create(:voting, organization:) }
 end

@@ -14,6 +14,7 @@ ar:
   decidim:
     blogs:
       actions:
+        author_id: إنشاء مشاركة كـ
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذه المشاركة؟
         destroy: حذف
         edit: تعديل
@@ -33,6 +34,7 @@ ar:
             success: تم حذف المشاركة بنجاح
           edit:
             save: تحديث
+            title: تعديل المنشور
           index:
             title: المشاركات
           new:
@@ -52,6 +54,7 @@ ar:
             title: عنوان
       posts:
         show:
+          back: العودة إلى القائمة
           comments: التعليقات
           view: رأي
         sidebar_blog:
@@ -69,9 +72,12 @@ ar:
           global:
             announcement: إعلان
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 للقيمة الافتراضية)
           step:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
+            endorsements_blocked: التأييدات مغلقةٌ
+            endorsements_enabled: التأييدات مُتاحه
     events:
       blogs:
         post_created:

@@ -37,15 +37,27 @@ hu:
             title: Projekt szerkesztése
             update: Frissítés
           index:
+            actions: Műveletek
+            cancel: Mégsem
+            change_category: Kategória módosítása
+            change_scope: Hatáskör megváltoztatása
+            change_selected: Kijelölés módosítása
+            deselect_implementation: Kiválasztás törlése
             finished_orders: Befejezett szavazások
             pending_orders: Függőben lévő szavazások
+            select_for_implementation: Kijelölés
             title: Projektek
+            update: Frissítés
+            update_scope_button: Hatáskör frissítése
           new:
             create: Létrehozás
             title: Új projekt
           update:
             invalid: Probléma történt a projekt frissítése során
             success: Projekt frissítése sikeres
+          update_category:
+            select_a_category: Kérjük, válasszon egy kategóriát
+            select_a_project: Kérem, válasszon projektet
         proposals_imports:
           create:
             invalid: Probléma merült fel a javaslatok projektekbe történő importálásakor

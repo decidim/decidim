@@ -184,8 +184,6 @@ ar:
             actions_title: عمل
             preview: معاينة
             print: طباعة
-          show:
-            print: طباعة
           update:
             error: حدث خطأ
             success: تم تحديث المبادرة بنجاح

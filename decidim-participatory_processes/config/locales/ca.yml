@@ -56,6 +56,8 @@ ca:
         short_description: Breu descripció
         start_date: Data d'inici
         title: Títol
+      participatory_process_type:
+        title: Títol
       participatory_process_user_role:
         email: Correu electrònic
         name: Nom
@@ -65,7 +67,7 @@ ca:
         participatory_process:
           attributes:
             document:
-              invalid_document_type: 'Tipus de document no vàlid. Els formats acceptats són: %{valid_mime_types}'
+              allowed_file_content_types: 'Tipus de document invàlid. Els formats que s''accepten són: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: Fase modificada
@@ -96,6 +98,7 @@ ca:
         new_process: Nou procés
         new_process_group: Nou grup de processos
         new_process_step: Nova fase
+        new_process_type: Nou tipus de procés
         new_process_user_role: Nova administradora del procés
         preview: Previsualitzar
         publish: Publicar
@@ -106,6 +109,7 @@ ca:
         participatory_process_groups_submenu:
           info: Informació
           landing_page: Pàgina d'inici
+        participatory_process_types: Tipus de procés
         participatory_processes: Processos
         participatory_processes_submenu:
           attachment_collections: Carpetes
@@ -137,6 +141,11 @@ ca:
             start_date: Data d'inici
             title: Títol
           name: Fase del procés participatiu
+        participatory_process_type:
+          fields:
+            created_at: Creat el
+            title: Títol
+          name: Tipus de procés
         participatory_process_user_role:
           fields:
             email: Correu electrònic
@@ -219,6 +228,23 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquesta fase de procés participatiu.
           success: La fase de procés participatiu s'ha actualitzat correctament.
+      participatory_process_types:
+        create:
+          error: S'ha produït un error en crear un nou tipus de procés.
+          success: Tipus de procés creat correctament.
+        destroy:
+          success: Tipus de procés eliminat correctament.
+        edit:
+          title: Editar el tipus de procés
+          update: Actualitzar
+        form:
+          title: Títol
+        new:
+          create: Crear
+          title: Nou tipus de procés
+        update:
+          error: S'ha produït un error en actualitzar aquest tipus de procés.
+          success: Tipus de procés actualitzat correctament.
       participatory_process_user_roles:
         create:
           error: S'ha produït un error en afegir una participant en aquest procés participatiu.
@@ -263,6 +289,7 @@ ca:
           success: Grup de processos participatius creat correctament.
       titles:
         participatory_process_groups: Grups de processos participatius
+        participatory_process_types: Tipus de processos participatius
         participatory_processes: Processos participatius
       users:
         resend_invitation:
@@ -271,6 +298,9 @@ ca:
     admin_log:
       participatory_process:
         create: "%{user_name} ha creat el procés participatiu %{resource_name}"
+        duplicate: "%{user_name} ha duplicat el procés participatiu %{resource_name}"
+        export: "%{user_name} ha exportat el procés participatiu %{resource_name}"
+        import: "%{user_name} ha importat el procés participatiu %{resource_name}"
         publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
         unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
@@ -282,6 +312,10 @@ ca:
         create: "%{user_name} ha creat la fase %{resource_name} en el procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la fase %{resource_name} en el procés participatiu %{space_name}"
         update: "%{user_name} ha actualitzat la fase %{resource_name} en el procés participatiu %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} ha creat el tipus de procés participatiu %{resource_name}"
+        delete: "%{user_name} ha esborrat el tipus de procés participatiu %{resource_name}"
+        update: "%{user_name} ha actualitzat el tipus de procés participatiu %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
@@ -309,6 +343,10 @@ ca:
           contextual: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           page: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           title: Què és un procés participatiu?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Aquest tipus de procés no s''ha trobat a la base de dades (ID: %{id})'
     menu:
       processes: Processos
     metrics:
@@ -384,6 +422,7 @@ ca:
             related_processes: Processos relacionats
             scope_type_max_depth_help: Restringeix la profunditat del filtre d'àmbit. Es mostrarà des del filtre general fins al filtre seleccionat.
             select_an_area: Selecciona una àrea
+            select_participatory_process_type: Selecciona un tipus de procés
             select_process_group: Selecciona un grup de processos
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             title: Informació general
@@ -410,6 +449,7 @@ ca:
           back_to_process: Torna a la pàgina de procés
       participatory_processes:
         filters:
+          all_types: Tots els tipus
           counters:
             active:
               one: Un procés actiu
@@ -427,6 +467,7 @@ ca:
             no_active: Sense processos actius
             no_active_nor_upcoming: No hi ha processos actius ni futurs
             no_active_nor_upcoming_callout: No hi ha processos actius ni futurs. Aquí hi ha una llista dels anteriors.
+          filter_by: Mostrar
           names:
             active: Actius
             all: Tots
@@ -435,6 +476,8 @@ ca:
           see: Veure
         index:
           loading: Carregant resultats...
+        show:
+          title: Quant a aquest procés
       show:
         area: Àrea
         belongs_to_group: Aquest procés pertany a

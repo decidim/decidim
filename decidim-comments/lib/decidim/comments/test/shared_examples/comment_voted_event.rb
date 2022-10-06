@@ -8,10 +8,10 @@ shared_examples_for "a comment voted event" do
   let(:resource) { comment.commentable }
 
   let(:comment) { create :comment }
-  let(:comment_vote) { create :comment_vote, comment: comment }
+  let(:comment_vote) { create :comment_vote, comment: }
   let(:comment_vote_author) { comment_vote.author }
 
-  let(:extra) { { comment_id: comment.id, author_id: comment_vote_author.id, weight: weight, downvotes: 100, upvotes: 999 } }
+  let(:extra) { { comment_id: comment.id, author_id: comment_vote_author.id, weight:, downvotes: 100, upvotes: 999 } }
   let(:resource_title) { decidim_html_escape(translated(resource.title)) }
   let(:resource_text) { subject.resource_text }
 

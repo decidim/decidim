@@ -27,7 +27,7 @@ module Decidim
           describe "with a scope and proposals" do
             context "when the scope is the same as the proposal's scope" do
               before do
-                proposal.update!(scope: scope)
+                proposal.update!(scope:)
               end
 
               it "doesn't update the proposal" do

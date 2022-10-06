@@ -62,7 +62,7 @@ module Decidim
       def user_votes
         @user_votes ||= ProposalVote.where(
           author: @current_user,
-          proposal: Proposal.where(component: component)
+          proposal: Proposal.where(component:)
         )
       end
 

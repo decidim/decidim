@@ -29,7 +29,7 @@ module Decidim
         translations = object.stringify_keys
         translations = translations.slice(*locales) unless locales.empty?
 
-        translations.map { |locale, text| OpenStruct.new(locale: locale, text: text) }
+        translations.map { |locale, text| OpenStruct.new(locale:, text:) }
       end
     end
   end

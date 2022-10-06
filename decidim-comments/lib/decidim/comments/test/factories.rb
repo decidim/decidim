@@ -29,8 +29,8 @@ FactoryBot.define do
       commentable do
         build(
           :comment,
-          author: author,
-          root_commentable: root_commentable,
+          author:,
+          root_commentable:,
           commentable: root_commentable
         )
       end

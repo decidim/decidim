@@ -6,8 +6,8 @@ describe "Monitoring committee member manages voting polling station closures", 
   include_context "when monitoring committee member manages voting"
   let(:elections_component) { create(:elections_component, participatory_space: voting) }
   let!(:election) { create(:election, :complete, :published, component: elections_component) }
-  let!(:polling_station) { create(:polling_station, voting: voting) }
-  let!(:closure) { create(:ps_closure, phase: :complete, signed_at: Time.current, polling_station: polling_station, election: election) }
+  let!(:polling_station) { create(:polling_station, voting:) }
+  let!(:closure) { create(:ps_closure, phase: :complete, signed_at: Time.current, polling_station:, election:) }
 
   before do
     switch_to_host(organization.host)
@@ -34,7 +34,7 @@ describe "Monitoring committee member manages voting polling station closures", 
     end
 
     context "when searching by title" do
-      let(:searched_station) { create(:polling_station, voting: voting) }
+      let(:searched_station) { create(:polling_station, voting:) }
 
       it "filters the results as expected" do
         search_by_text(translated(searched_station.title))
@@ -44,8 +44,8 @@ describe "Monitoring committee member manages voting polling station closures", 
     end
 
     context "when searching by president name" do
-      let(:searched_station) { create(:polling_station, voting: voting) }
-      let(:president) { create(:polling_officer, voting: voting, presided_polling_station: searched_station) }
+      let(:searched_station) { create(:polling_station, voting:) }
+      let(:president) { create(:polling_officer, voting:, presided_polling_station: searched_station) }
 
       it "filters the results as expected" do
         search_by_text(president.name)
@@ -55,8 +55,8 @@ describe "Monitoring committee member manages voting polling station closures", 
     end
 
     context "when searching by manager email" do
-      let(:searched_station) { create(:polling_station, voting: voting) }
-      let(:manager) { create(:polling_officer, voting: voting, managed_polling_station: searched_station) }
+      let(:searched_station) { create(:polling_station, voting:) }
+      let(:manager) { create(:polling_officer, voting:, managed_polling_station: searched_station) }
 
       it "filters the results as expected" do
         search_by_text(manager.email)

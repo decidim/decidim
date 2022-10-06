@@ -17,7 +17,7 @@ describe "Admin manages ballot styles", type: :system do
   include_context "when admin managing a voting"
 
   context "when processing the ballot styles" do
-    let!(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, voting: voting) }
+    let!(:ballot_style) { create(:ballot_style, :with_ballot_style_questions, voting:) }
 
     before do
       visit current_path

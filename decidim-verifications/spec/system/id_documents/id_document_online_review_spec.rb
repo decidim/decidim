@@ -7,7 +7,7 @@ describe "Identity document online review", type: :system do
     create(:organization, available_authorizations: ["id_documents"])
   end
 
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
 
   let!(:authorization) do
     create(
@@ -15,7 +15,7 @@ describe "Identity document online review", type: :system do
       :pending,
       id: 1,
       name: "id_documents",
-      user: user,
+      user:,
       verification_metadata: {
         "verification_type" => "online",
         "document_type" => "DNI",
@@ -25,7 +25,7 @@ describe "Identity document online review", type: :system do
     )
   end
 
-  let(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:admin) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

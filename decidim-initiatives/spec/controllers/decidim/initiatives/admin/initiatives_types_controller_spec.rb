@@ -9,18 +9,18 @@ module Decidim
         routes { Decidim::Initiatives::AdminEngine.routes }
 
         let(:organization) { create(:organization) }
-        let(:admin_user) { create(:user, :confirmed, :admin, organization: organization) }
-        let(:user) { create(:user, :confirmed, organization: organization) }
+        let(:admin_user) { create(:user, :confirmed, :admin, organization:) }
+        let(:user) { create(:user, :confirmed, organization:) }
         let(:initiative_type) do
-          create(:initiatives_type, organization: organization)
+          create(:initiatives_type, organization:)
         end
 
         let(:valid_attributes) do
-          attributes_for(:initiatives_type, organization: organization)
+          attributes_for(:initiatives_type, organization:)
         end
 
         let(:invalid_attributes) do
-          attributes_for(:initiatives_type, organization: organization, title: { "en" => "" })
+          attributes_for(:initiatives_type, organization:, title: { "en" => "" })
         end
 
         before do
@@ -94,7 +94,7 @@ module Decidim
             it "fails creation" do
               expect do
                 post :create, params: { initiatives_type: invalid_attributes }
-              end.to change(InitiativesType, :count).by(0)
+              end.not_to change(InitiativesType, :count)
             end
           end
 
@@ -197,11 +197,11 @@ module Decidim
 
             it "fails if the initiative type is being used" do
               scoped_type = create(:initiatives_type_scope, type: initiative_type)
-              create(:initiative, organization: organization, scoped_type: scoped_type)
+              create(:initiative, organization:, scoped_type:)
 
               expect do
                 delete :destroy, params: { id: initiative_type.id }
-              end.to change(InitiativesType, :count).by(0)
+              end.not_to change(InitiativesType, :count)
             end
 
             it "traces the action", versioning: true do

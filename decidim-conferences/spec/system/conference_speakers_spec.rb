@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Conference speakers", type: :system do
   let(:organization) { create(:organization) }
-  let(:conference) { create(:conference, organization: organization) }
+  let(:conference) { create(:conference, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -31,7 +31,7 @@ describe "Conference speakers", type: :system do
   end
 
   context "when there are some published conference speakers" do
-    let!(:conference_speakers) { create_list(:conference_speaker, 2, conference: conference) }
+    let!(:conference_speakers) { create_list(:conference_speaker, 2, conference:) }
 
     before do
       visit decidim_conferences.conference_conference_speakers_path(conference)

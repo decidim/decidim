@@ -6,8 +6,8 @@ describe Decidim::Assemblies::ContentBlocks::HighlightedAssembliesCell, type: :c
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_assemblies, scope_name: :homepage, settings: settings }
-  let!(:assemblies) { create_list :assembly, 5, organization: organization }
+  let(:content_block) { create :content_block, organization:, manifest_name: :highlighted_assemblies, scope_name: :homepage, settings: }
+  let!(:assemblies) { create_list :assembly, 5, organization: }
   let(:settings) { {} }
 
   let(:highlighted_assemblies) { subject.find("#highlighted-assemblies") }

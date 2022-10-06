@@ -7,8 +7,8 @@ describe "Process moderator manages process moderations", type: :system do
     create(
       :process_moderator,
       :confirmed,
-      organization: organization,
-      participatory_process: participatory_process
+      organization:,
+      participatory_process:
     )
   end
   let(:current_component) { create :component, participatory_space: participatory_process }

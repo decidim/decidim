@@ -9,14 +9,14 @@ module Decidim
         subject(:form) { described_class.from_params(attributes).with_context(context) }
 
         let(:voting) { create(:voting) }
-        let(:context) { { voting: voting } }
+        let(:context) { { voting: } }
         let(:code) { ::Faker::Lorem.word }
         let(:question_ids) { [1, 2, 4, 5] }
 
         let(:attributes) do
           {
-            code: code,
-            question_ids: question_ids
+            code:,
+            question_ids:
           }
         end
 

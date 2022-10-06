@@ -7,17 +7,17 @@ module Decidim
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let(:user) { create :user, :confirmed, organization: organization }
-    let(:user1) { create(:user, organization: organization) }
-    let(:user2) { create(:user, organization: organization) }
-    let(:user3) { create(:user, organization: organization) }
-    let(:user4) { create(:user, organization: organization) }
-    let(:user5) { create(:user, organization: organization) }
-    let(:user6) { create(:user, organization: organization) }
-    let(:user7) { create(:user, organization: organization) }
-    let(:user8) { create(:user, organization: organization) }
-    let(:user9) { create(:user, organization: organization) }
-    let(:user10) { create(:user, organization: organization) }
+    let(:user) { create :user, :confirmed, organization: }
+    let(:user1) { create(:user, organization:) }
+    let(:user2) { create(:user, organization:) }
+    let(:user3) { create(:user, organization:) }
+    let(:user4) { create(:user, organization:) }
+    let(:user5) { create(:user, organization:) }
+    let(:user6) { create(:user, organization:) }
+    let(:user7) { create(:user, organization:) }
+    let(:user8) { create(:user, organization:) }
+    let(:user9) { create(:user, organization:) }
+    let(:user10) { create(:user, organization:) }
 
     let!(:conversation) do
       Messaging::Conversation.start!(

@@ -15,7 +15,7 @@ describe "User group manage admins", type: :system do
 
   context "when trying to access by a basic member" do
     before do
-      member = create(:user_group_membership, user_group: user_group, role: :member).user
+      member = create(:user_group_membership, user_group:, role: :member).user
       login_as member, scope: :user
       visit decidim.profile_path(user_group.nickname)
     end

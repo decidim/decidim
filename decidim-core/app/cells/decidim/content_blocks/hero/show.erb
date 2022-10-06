@@ -1,4 +1,4 @@
-<section id="hero" class="extended hero home-section" style="background-image:url(<%= background_image %>);">
+<section id="hero" class="extended hero home-section" style="background-image:url('<%= background_image %>');">
   <div class="hero__container">
     <div class="row">
       <div class="columns small-centered large-10">
@@ -6,7 +6,7 @@
           <% if translated_welcome_text.blank? %>
             <%= t("decidim.pages.home.hero.welcome", organization: current_organization.name) %>
           <% else %>
-            <%= decidim_sanitize translated_welcome_text %>
+            <%= decidim_sanitize_admin translated_welcome_text %>
           <% end %>
         </h1>
       </div>

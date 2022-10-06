@@ -7,8 +7,8 @@ module Decidim::Admin
     subject { described_class.new(user, current_user) }
 
     let(:organization) { create :organization }
-    let(:user) { create(:user, :officialized, organization: organization) }
-    let(:current_user) { create(:user, organization: organization) }
+    let(:user) { create(:user, :officialized, organization:) }
+    let(:current_user) { create(:user, organization:) }
     let(:log_info) do
       hash_including(
         extra: {

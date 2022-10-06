@@ -9,7 +9,7 @@ inputs:
     required: true
   ruby_version:
     description: 'Ruby Version'
-    default: "3.0.2"
+    default: "3.1.1"
     required: false
   node_version:
     description: 'Node version'
@@ -23,7 +23,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+    - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
       if: "github.ref != 'refs/heads/develop'"
       env:
         GITHUB_TOKEN: " ${{ inputs.github_token }}"

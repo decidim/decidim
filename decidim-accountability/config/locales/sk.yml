@@ -152,7 +152,6 @@ sk:
             progress: Postup
         timeline_entry:
           fields:
-            description: Popis
             entry_date: Dátum
       result_m:
         view: Zobraziť

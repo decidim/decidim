@@ -33,8 +33,8 @@ module Decidim
       end
 
       before do
-        proposal.update!(category: category)
-        proposal.update!(scope: scope)
+        proposal.update!(category:)
+        proposal.update!(scope:)
         proposal.link_resources(meetings, "proposals_from_meeting")
         proposal.link_resources(other_proposals, "copied_from_component")
       end

@@ -12,11 +12,12 @@ module Decidim
       end
 
       def author
-        if object.respond_to?(:normalized_author)
-          object&.normalized_author
-        elsif object.respond_to?(:creator_identity)
-          object&.creator_identity
-        end
+        author = if object.respond_to?(:normalized_author)
+                   object&.normalized_author
+                 elsif object.respond_to?(:creator_identity)
+                   object&.creator_identity
+                 end
+        author if author.is_a?(Decidim::UserBaseEntity)
       end
     end
   end

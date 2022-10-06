@@ -6,20 +6,19 @@ describe Decidim::Elections::Admin::UpdateQuestion do
   subject { described_class.new(form, question) }
 
   let(:election) { create :election }
-  let(:question) { create :question, election: election, random_answers_order: false }
+  let(:question) { create :question, election:, random_answers_order: false }
   let(:organization) { election.component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
       current_user: user,
       title: { en: "title" },
-      description: { en: "description" },
       max_selections: 3,
       min_selections: 1,
       weight: 10,
       random_answers_order: true,
-      election: election
+      election:
     )
   end
   let(:invalid) { false }
@@ -27,7 +26,6 @@ describe Decidim::Elections::Admin::UpdateQuestion do
   it "updates the question" do
     subject.call
     expect(translated(question.title)).to eq "title"
-    expect(translated(question.description)).to eq "description"
     expect(question.max_selections).to eq(3)
     expect(question.weight).to eq(10)
     expect(question.random_answers_order).to be_truthy
@@ -36,7 +34,7 @@ describe Decidim::Elections::Admin::UpdateQuestion do
   it "traces the action", versioning: true do
     expect(Decidim.traceability)
       .to receive(:update!)
-      .with(question, user, hash_including(:title, :description, :max_selections, :weight, :random_answers_order), visibility: "all")
+      .with(question, user, hash_including(:title, :max_selections, :weight, :random_answers_order), visibility: "all")
       .and_call_original
 
     expect { subject.call }.to change(Decidim::ActionLog, :count)

@@ -837,6 +837,12 @@ fr-CA:
           invalid: Il y a eu un problème de lecture du fichier CSV.
           success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
+          destroy:
+            button: Supprimer tous les utilisateurs privés
+            confirm: Êtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action ne peut pas être annulée, vous ne pourrez pas les récupérer.
+            empty: Vous n'avez aucun utilisateur privé.
+            explanation: Vous avez %{count} utilisateurs privés.
+            title: Supprimer les utilisateurs privés
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
           title: Téléchargez votre fichier CSV
           upload: Télécharger

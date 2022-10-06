@@ -7,7 +7,7 @@ describe "show", type: :system do
   let(:manifest_name) { "sortitions" }
 
   context "when shows the sortition component" do
-    let!(:sortition) { create(:sortition, component: component) }
+    let!(:sortition) { create(:sortition, component:) }
 
     before do
       visit_component
@@ -26,7 +26,7 @@ describe "show", type: :system do
   end
 
   context "when sortition result" do
-    let(:sortition) { create(:sortition, component: component) }
+    let(:sortition) { create(:sortition, component:) }
     let!(:proposals) do
       create_list(:proposal, 10,
                   component: sortition.decidim_proposals_component,
@@ -51,7 +51,7 @@ describe "show", type: :system do
   end
 
   context "when cancelled sortition" do
-    let!(:sortition) { create(:sortition, :cancelled, component: component) }
+    let!(:sortition) { create(:sortition, :cancelled, component:) }
 
     before do
       page.visit "#{main_component_path(component)}?filter[with_any_state]=cancelled"

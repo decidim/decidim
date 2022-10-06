@@ -68,12 +68,6 @@ gl:
         email: Correo electrónico
         name: Nome
         role: Rol
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              invalid_document_type: 'Tipo de documento non válido. Formatos aceptados: %{valid_mime_types}'
   activerecord:
     models:
       decidim/assembly:
@@ -388,7 +382,6 @@ gl:
         related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         social_networks: Redes Sociais
-        social_networks_title: Compartir esta xuntanza en
         target: Quen participa
     assembly_members:
       assembly_member:
@@ -399,7 +392,6 @@ gl:
       assemblies:
         create_assembly_member:
           email_intro: Un administrador da xuntanza <a href="%{resource_url}">%{resource_name}</a> engadiute coma un dos seus membros.
-          email_outro: Recibiches esta notificación porque fuches convidado a unha xuntanza. Entra na <a href="%{resource_path}">páxina da xuntaza</a> para contribuír!
     help:
       participatory_spaces:
         assemblies:

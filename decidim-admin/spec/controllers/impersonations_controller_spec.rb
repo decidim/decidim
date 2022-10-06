@@ -13,7 +13,7 @@ module Decidim
           available_authorizations: ["dummy_authorization_handler"]
         )
       end
-      let(:current_user) { create(:user, :admin, :confirmed, organization: organization) }
+      let(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
       before do
         request.env["decidim.current_organization"] = organization
@@ -75,7 +75,7 @@ module Decidim
           before do
             create(
               :user,
-              organization: organization,
+              organization:,
               name: managed_user_name
             )
           end
@@ -100,7 +100,7 @@ module Decidim
             create(
               :user,
               :managed,
-              organization: organization,
+              organization:,
               name: managed_user_name
             )
           end
@@ -124,11 +124,11 @@ module Decidim
             user = create(
               :user,
               :managed,
-              organization: organization,
+              organization:,
               name: managed_user_name
             )
             Decidim::Authorization.create!(
-              user: user,
+              user:,
               name: authorization_params[:handler_name],
               unique_id: authorization_params[:document_number],
               metadata: {
@@ -162,11 +162,11 @@ module Decidim
           before do
             user = create(
               :user,
-              organization: organization,
+              organization:,
               name: managed_user_name
             )
             Decidim::Authorization.create!(
-              user: user,
+              user:,
               name: authorization_params[:handler_name],
               unique_id: authorization_params[:document_number],
               metadata: {

@@ -4,17 +4,17 @@ require "spec_helper"
 
 describe "Private Assemblies", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:assembly) { create :assembly, :published, organization: organization }
-  let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let!(:other_user) { create :user, :confirmed, organization: organization }
-  let!(:other_user2) { create :user, :confirmed, organization: organization }
+  let!(:assembly) { create :assembly, :published, organization: }
+  let!(:admin) { create(:user, :admin, :confirmed, organization:) }
+  let!(:user) { create :user, :confirmed, organization: }
+  let!(:other_user) { create :user, :confirmed, organization: }
+  let!(:other_user2) { create :user, :confirmed, organization: }
   let!(:assembly_private_user) { create :assembly_private_user, user: other_user, privatable_to: private_assembly }
   let!(:assembly_private_user2) { create :assembly_private_user, user: other_user2, privatable_to: private_assembly }
 
   context "when there are private assemblies" do
     context "and the assembly is transparent" do
-      let!(:private_assembly) { create :assembly, :published, organization: organization, private_space: true, is_transparent: true }
+      let!(:private_assembly) { create :assembly, :published, organization:, private_space: true, is_transparent: true }
 
       context "and no user is logged in" do
         before do
@@ -76,7 +76,7 @@ describe "Private Assemblies", type: :system do
     end
 
     context "when the assembly is not transparent" do
-      let!(:private_assembly) { create :assembly, :published, organization: organization, private_space: true, is_transparent: false }
+      let!(:private_assembly) { create :assembly, :published, organization:, private_space: true, is_transparent: false }
 
       context "and no user is logged in" do
         before do

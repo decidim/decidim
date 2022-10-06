@@ -13,6 +13,10 @@ window.$.ajax = jest.fn().mockImplementation((...args) => $.ajax(...args));
 import Quill from "quill"
 window.Quill = Quill
 
+// Rails.ajax is used by the fetching/polling of the comments
+import Rails from "@rails/ujs";
+jest.mock("@rails/ujs");
+
 // Fake timers for testing polling
 jest.useFakeTimers();
 
@@ -376,24 +380,42 @@ describe("CommentsComponent", () => {
     expect(subject.$element).toEqual($(selector));
   });
 
-  it("starts polling for new comments", () => {
+  it("loads the comments through AJAX", () => {
     subject.mountComponent();
 
-    expect(window.setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
-
-    jest.advanceTimersByTime(1000);
-
-    expect(window.$.ajax).toHaveBeenCalledWith({
+    expect(Rails.ajax).toHaveBeenCalledWith({
       url: "/comments",
-      method: "GET",
-      contentType: "application/javascript",
-      data: {
+      type: "GET",
+      data: new URLSearchParams({
         "commentable_gid": "commentable-gid",
         "root_depth": 0,
         order: "older",
         after: 456
-      }
+      }),
+      success: expect.any(Function)
     });
+  });
+
+  it("disables the comment textarea", () => {
+    subject.mountComponent();
+
+    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeTruthy();
+  });
+
+  it("re-enables the comment textarea after a successful fetch", () => {
+    Rails.ajax.mockImplementationOnce((options) => options.success());
+
+    subject.mountComponent();
+
+    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeFalsy();
+  });
+
+  it("starts polling for new comments", () => {
+    Rails.ajax.mockImplementationOnce((options) => options.success());
+
+    subject.mountComponent();
+
+    expect(window.setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
   });
 
   describe("when mounted", () => {
@@ -450,6 +472,7 @@ describe("CommentsComponent", () => {
   describe("when interacting", () => {
     beforeEach(() => {
       spyOnAddComment();
+      Rails.ajax.mockImplementationOnce((options) => options.success());
       subject.mountComponent();
     });
 

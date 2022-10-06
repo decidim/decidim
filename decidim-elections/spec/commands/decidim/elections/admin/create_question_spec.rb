@@ -9,20 +9,19 @@ describe Decidim::Elections::Admin::CreateQuestion do
   let(:participatory_process) { current_component.participatory_space }
   let(:current_component) { election.component }
   let(:election) { create :election }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
       title: { en: "title" },
-      description: { en: "description" },
       max_selections: 3,
       weight: 10,
       random_answers_order: true,
       min_selections: 1,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_organization: organization,
-      election: election
+      election:
     )
   end
   let(:invalid) { false }
@@ -30,13 +29,12 @@ describe Decidim::Elections::Admin::CreateQuestion do
   let(:question) { Decidim::Elections::Question.last }
 
   it "creates the question" do
-    expect { subject.call }.to change { Decidim::Elections::Question.count }.by(1)
+    expect { subject.call }.to change(Decidim::Elections::Question, :count).by(1)
   end
 
   it "stores the given data" do
     subject.call
     expect(translated(question.title)).to eq "title"
-    expect(translated(question.description)).to eq "description"
     expect(question.max_selections).to eq(3)
     expect(question.weight).to eq(10)
     expect(question.random_answers_order).to be_truthy
@@ -48,7 +46,7 @@ describe Decidim::Elections::Admin::CreateQuestion do
       .with(
         Decidim::Elections::Question,
         user,
-        hash_including(:title, :description, :max_selections, :weight, :random_answers_order),
+        hash_including(:title, :max_selections, :weight, :random_answers_order),
         visibility: "all"
       )
       .and_call_original

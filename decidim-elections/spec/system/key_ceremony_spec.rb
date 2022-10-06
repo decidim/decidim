@@ -19,4 +19,30 @@ describe "Key ceremony", type: :system do
       check_key_ceremony_completed(2)
     end
   end
+
+  context "when the comunication with bulletin board fails" do
+    include_context "when performing the whole process"
+    before do
+      allow(Decidim::Elections.bulletin_board).to receive(:bulletin_board_server).and_return("http://idontexist.tld/api")
+    end
+
+    it "alerts the user about the error" do
+      election
+
+      login_as user, scope: :user
+      visit_component_admin
+
+      within find("tr", text: translated(election.title)) do
+        page.find(".action-icon--manage-steps").click
+      end
+
+      click_button "Setup election"
+
+      click_button "Start the key ceremony"
+
+      within "#server-failure" do
+        expect(page).to have_content("Something went wrong")
+      end
+    end
+  end
 end

@@ -8,9 +8,9 @@ module Decidim
       subject { described_class.new(organization, order) }
 
       let(:organization) { create(:organization) }
-      let!(:user) { create(:user, :confirmed, organization: organization) }
-      let!(:initiatives) { create_list :initiative, 5, organization: organization }
-      let!(:most_recent_initiative) { create :initiative, published_at: 1.day.from_now, organization: organization }
+      let!(:user) { create(:user, :confirmed, organization:) }
+      let!(:initiatives) { create_list :initiative, 5, organization: }
+      let!(:most_recent_initiative) { create :initiative, published_at: 1.day.from_now, organization: }
 
       context "when querying by default order" do
         let(:order) { "default" }

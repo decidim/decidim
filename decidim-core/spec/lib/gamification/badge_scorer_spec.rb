@@ -29,7 +29,7 @@ module Decidim
 
         context "when there's a previous score" do
           before do
-            BadgeScore.create(user: user, badge_name: badge.name, value: 10)
+            BadgeScore.create(user:, badge_name: badge.name, value: 10)
           end
 
           it "increments the score by 1 by default" do
@@ -65,7 +65,7 @@ module Decidim
 
         context "when there's a previous score" do
           before do
-            BadgeScore.create(user: user, badge_name: badge.name, value: 10)
+            BadgeScore.create(user:, badge_name: badge.name, value: 10)
           end
 
           it "decrements the score by 1 by default" do
@@ -99,7 +99,7 @@ module Decidim
 
         context "when there's a previous score" do
           before do
-            BadgeScore.create(user: user, badge_name: badge.name, value: 10)
+            BadgeScore.create(user:, badge_name: badge.name, value: 10)
           end
 
           it "sets the score to the provided value" do
@@ -173,7 +173,7 @@ module Decidim
                 }
               )
             )
-            BadgeScore.create(user: user, badge_name: badge.name, value: 2)
+            BadgeScore.create(user:, badge_name: badge.name, value: 2)
             subject.increment
           end
         end

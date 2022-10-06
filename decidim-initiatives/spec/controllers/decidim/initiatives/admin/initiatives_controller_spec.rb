@@ -5,11 +5,11 @@ require "spec_helper"
 describe Decidim::Initiatives::Admin::InitiativesController, type: :controller do
   routes { Decidim::Initiatives::AdminEngine.routes }
 
-  let(:user) { create(:user, :confirmed, organization: organization) }
-  let(:admin_user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
+  let(:admin_user) { create(:user, :admin, :confirmed, organization:) }
   let(:organization) { create(:organization) }
-  let!(:initiative) { create(:initiative, organization: organization) }
-  let!(:created_initiative) { create(:initiative, :created, organization: organization) }
+  let!(:initiative) { create(:initiative, organization:) }
+  let!(:created_initiative) { create(:initiative, :created, organization:) }
 
   before do
     request.env["decidim.current_organization"] = organization
@@ -133,7 +133,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
 
   context "when update" do
     let(:valid_attributes) do
-      attrs = attributes_for(:initiative, organization: organization)
+      attrs = attributes_for(:initiative, organization:)
       attrs[:signature_end_date] = I18n.l(attrs[:signature_end_date], format: :decidim_short)
       attrs[:signature_start_date] = I18n.l(attrs[:signature_start_date], format: :decidim_short)
       attrs
@@ -201,7 +201,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
       end
 
       context "and initiative created" do
-        let(:initiative) { create(:initiative, :created, organization: organization) }
+        let(:initiative) { create(:initiative, :created, organization:) }
 
         before do
           sign_in initiative.author, scope: :user
@@ -237,7 +237,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
       end
 
       context "and initiative created" do
-        let(:initiative) { create(:initiative, :created, organization: organization) }
+        let(:initiative) { create(:initiative, :created, organization:) }
 
         before do
           sign_in initiative.committee_members.approved.first.user, scope: :user
@@ -282,7 +282,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
       end
 
       context "and User is not the owner of the initiative" do
-        let(:other_user) { create(:user, organization: organization) }
+        let(:other_user) { create(:user, organization:) }
 
         before do
           sign_in other_user, scope: :user
@@ -311,7 +311,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
     end
 
     context "and Initiative in discarded state" do
-      let!(:discarded_initiative) { create(:initiative, :discarded, organization: organization) }
+      let!(:discarded_initiative) { create(:initiative, :discarded, organization:) }
 
       before do
         sign_in discarded_initiative.author, scope: :user
@@ -339,7 +339,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
   end
 
   context "when POST publish" do
-    let!(:initiative) { create(:initiative, :validating, organization: organization) }
+    let!(:initiative) { create(:initiative, :validating, organization:) }
 
     context "and Initiative owner" do
       before do
@@ -354,7 +354,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
     end
 
     context "and Administrator" do
-      let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+      let!(:admin) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         sign_in admin, scope: :user
@@ -387,7 +387,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
     end
 
     context "and Administrator" do
-      let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+      let(:admin) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         sign_in admin, scope: :user
@@ -406,7 +406,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
   end
 
   context "when DELETE discard" do
-    let(:initiative) { create(:initiative, :validating, organization: organization) }
+    let(:initiative) { create(:initiative, :validating, organization:) }
 
     context "and Initiative owner" do
       before do
@@ -421,7 +421,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
     end
 
     context "and Administrator" do
-      let(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+      let(:admin) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         sign_in admin, scope: :user
@@ -439,7 +439,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
   end
 
   context "when POST accept" do
-    let!(:initiative) { create(:initiative, :acceptable, signature_type: "any", organization: organization) }
+    let!(:initiative) { create(:initiative, :acceptable, signature_type: "any", organization:) }
 
     context "and Initiative owner" do
       before do
@@ -454,7 +454,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
     end
 
     context "when Administrator" do
-      let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+      let!(:admin) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         sign_in admin, scope: :user
@@ -471,7 +471,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
   end
 
   context "when DELETE reject" do
-    let!(:initiative) { create(:initiative, :rejectable, signature_type: "any", organization: organization) }
+    let!(:initiative) { create(:initiative, :rejectable, signature_type: "any", organization:) }
 
     context "and Initiative owner" do
       before do
@@ -486,7 +486,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
     end
 
     context "when Administrator" do
-      let!(:admin) { create(:user, :confirmed, :admin, organization: organization) }
+      let!(:admin) { create(:user, :confirmed, :admin, organization:) }
 
       before do
         sign_in admin, scope: :user
@@ -504,7 +504,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
   end
 
   context "when GET export_votes" do
-    let(:initiative) { create(:initiative, organization: organization, signature_type: "any") }
+    let(:initiative) { create(:initiative, organization:, signature_type: "any") }
 
     context "and author" do
       before do
@@ -531,7 +531,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
     end
 
     context "and admin user" do
-      let!(:vote) { create(:initiative_user_vote, initiative: initiative) }
+      let!(:vote) { create(:initiative_user_vote, initiative:) }
 
       before do
         sign_in admin_user, scope: :user
@@ -546,7 +546,7 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
   end
 
   context "when GET export_pdf_signatures" do
-    let(:initiative) { create(:initiative, :with_user_extra_fields_collection, organization: organization) }
+    let(:initiative) { create(:initiative, :with_user_extra_fields_collection, organization:) }
 
     context "and author" do
       before do
@@ -602,13 +602,13 @@ describe Decidim::Initiatives::Admin::InitiativesController, type: :controller d
       end
 
       context "when a collection of ids is passed as a parameter" do
-        let!(:initiatives) { create_list(:initiative, 3, organization: organization) }
+        let!(:initiatives) { create_list(:initiative, 3, organization:) }
         let(:collection_ids) { initiatives.map(&:id) }
 
         it "enqueues the job" do
           expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids)
 
-          get :export, params: { format: :csv, collection_ids: collection_ids }
+          get :export, params: { format: :csv, collection_ids: }
           expect(flash[:alert]).to be_nil
           expect(response).to have_http_status(:found)
         end

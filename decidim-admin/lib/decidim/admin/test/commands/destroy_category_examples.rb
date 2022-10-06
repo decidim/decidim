@@ -7,8 +7,8 @@ module Decidim
     shared_examples_for "DestroyCategory command" do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create(:user, organization: organization) }
-        let(:category) { create(:category, participatory_space: participatory_space) }
+        let(:user) { create(:user, organization:) }
+        let(:category) { create(:category, participatory_space:) }
         let(:command) { described_class.new(category, user) }
 
         describe "when the category is not present" do
@@ -30,7 +30,7 @@ module Decidim
         end
 
         context "when the category is a subcategory" do
-          let!(:parent_category) { create :category, participatory_space: participatory_space }
+          let!(:parent_category) { create :category, participatory_space: }
 
           before do
             category.parent = parent_category

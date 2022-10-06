@@ -639,6 +639,13 @@ Separate each item of the array with a comma AND a space, for instance:
 |
 |No
 
+|DECIDIM_SOCIAL_SHARE_SERVICES
+|The social networking services that will be available when using the "Share" feature on some resources.
+
+See xref:customize:social_shares.adoc[Social shares services documentation]
+|Twitter, Facebook, WhatsApp, Telegram
+|No
+
 |DECIDIM_ALLOW_OPEN_REDIRECTS
 |Disable the redirection to the external host when performing redirect back.
 
@@ -650,6 +657,32 @@ Additional context: This has been revealed as an issue during a security audit o
 
 |false
 |No
+
+|DECIDIM_ADMIN_PASSWORD_STRONG
+|Enable strong password rules for admin users.
+|true
+|No
+
+|DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS
+|Defines how many days admin passwords are valid before they need to be reset.
+|90
+|No
+
+|DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES
+|Defines how many previous passwords are compared against new admin user passwords.
+|5
+|No
+
+|DECIDIM_ADMIN_PASSWORD_MIN_LENGTH
+|The minimum character length for admin user passwords.
+|15
+|No
+
+|*DECIDIM_SERVICE_WORKER_ENABLED*
+|Enable/Disable the service worker. This is used to enable offline support and to deliver push notifications. In development it's recommended to be disabled because its aggresive cache configuration might cause some issues when submitting forms.
+|false
+|No
+
 
 |===
 

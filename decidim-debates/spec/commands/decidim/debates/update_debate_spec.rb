@@ -6,13 +6,13 @@ describe Decidim::Debates::UpdateDebate do
   subject { described_class.new(form) }
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
-  let(:scope) { create :scope, organization: organization }
+  let(:scope) { create :scope, organization: }
   let(:category) { create :category, participatory_space: participatory_process }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:author) { user }
-  let!(:debate) { create :debate, author: author, component: current_component }
+  let!(:debate) { create :debate, author:, component: current_component }
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
       title: "title",
@@ -23,7 +23,7 @@ describe Decidim::Debates::UpdateDebate do
     ).with_context(
       current_organization: organization,
       current_participatory_space: current_component.participatory_space,
-      current_component: current_component,
+      current_component:,
       current_user: user
     )
   end
@@ -46,7 +46,7 @@ describe Decidim::Debates::UpdateDebate do
   end
 
   describe "when the debate is not editable by the user" do
-    let(:author) { create :user, organization: organization }
+    let(:author) { create :user, organization: }
 
     it "broadcasts invalid" do
       expect { subject.call }.to broadcast(:invalid)

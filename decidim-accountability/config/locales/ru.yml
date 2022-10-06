@@ -131,7 +131,6 @@ ru:
             progress: Продвижение
         timeline_entry:
           fields:
-            description: Описание
             entry_date: Дата
       results:
         count:

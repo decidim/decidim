@@ -37,6 +37,11 @@ ar:
       response:
         decidim_consultations_response_group_id: الفريق
     errors:
+      models:
+        question:
+          attributes:
+            max_votes:
+              lower_than_min: يجب أن يكون الحد الأقصى لعدد الأصوات أعلى أو يساوي الحد الأدنى.
       vote:
         decidim_consultations_response_id:
           not_found: الرد غير موجود.
@@ -85,6 +90,7 @@ ar:
         new_response: استجابة جديدة
         new_response_group: فريق جديد
         publish_results: نشر النتائج
+        response_groups: إدارة مجموعات الاستجابة
         unpublish_results: نتائج غير منشورة
       consultation_publications:
         create:
@@ -248,6 +254,8 @@ ar:
           label: 'ترتيب المشاورات حسب:'
           random: عشوائية
           recent: الأحدث
+        show:
+          dates: التواريخ
       content_blocks:
         highlighted_consultations:
           name: مشاورات أبرزت
@@ -262,6 +270,7 @@ ar:
       filters:
         active: نشيط
         all: الكل
+        date: التاريخ
         finished: تم الانتهاء من
         search: بحث
         upcoming: القادمة
@@ -358,24 +367,28 @@ ar:
         verification_required: تحقق من حسابك قبل التصويت
         vote: تصويت
       vote_modal:
+        close_modal: اغلاق النموذج
         contextual_help: من فضلك ، حدد خيار.
         title: 'التشاور: التصويت السؤال'
       vote_modal_confirm:
         change: يتغيرون
+        close_modal: اغلاق النموذج
         confirm: تؤكد
         contextual_help: يرجى تأكيد الخيار المحدد.
         title: 'التشاور: تأكيد التصويت'
     resources:
       consultations:
         actions:
+          comment: تعليق
           vote: صوِّت
+    statistics:
+      votes_count: الأصوات
   layouts:
     decidim:
       consultation_voting_data:
         start_voting_date: يبدأ التصويت
       question_components:
         question_menu_item: السؤال
-        unfold: كشف
       question_header:
         back_to_consultation: انظر جميع المشاورات
         back_to_question: العودة إلى السؤال

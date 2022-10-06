@@ -22,7 +22,7 @@ module Decidim
       let!(:unmanageable_process) { create :participatory_process, organization: user.organization }
 
       before do
-        create :participatory_process_user_role, user: user, participatory_process: organization_process
+        create :participatory_process_user_role, user:, participatory_process: organization_process
       end
 
       it "returns the processes the user can admin" do

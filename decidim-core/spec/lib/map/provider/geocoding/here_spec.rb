@@ -29,24 +29,24 @@ module Decidim
             end
 
             describe "#coordinates" do
-              let(:request_url) { "https://geocoder.ls.hereapi.com/6.2/geocode.json?apikey=key1234&gen=9&language=en&searchtext=#{CGI.escape(query)}" }
-              let(:query) { "Madison Square Garden, 4 Penn Plaza, New York, NY" }
+              let(:request_url) { "https://geocode.search.hereapi.com/v1/geocode?apiKey=key1234&lang=en&q=5%20Rue%20Daunou,%2075000%20Paris,%20France" }
+              let(:query) { "5 Rue Daunou, 75000 Paris, France" }
 
               it "requests the nominatim API with correct parameters" do
                 expect(
                   subject.coordinates(query)
-                ).to eq([40.7504692, -73.9933777])
+                ).to eq([48.86926, 2.3321])
               end
             end
 
             describe "#address" do
-              let(:request_url) { "https://reverse.geocoder.ls.hereapi.com/6.2/reversegeocode.json?apikey=key1234&gen=9&language=en&maxresults=5&mode=retrieveAddresses&prox=#{query[0]},#{query[1]},50&sortby=distance" }
-              let(:query) { [40.7504692, -73.9933777] }
+              let(:request_url) { "https://revgeocode.search.hereapi.com/v1/revgeocode?apiKey=key1234&at=48.86926,2.3321,50&lang=en&maxresults=5&sortby=distance" }
+              let(:query) { [48.86926, 2.3321] }
 
               it "requests the nominatim API with correct parameters" do
                 expect(
                   subject.address(query)
-                ).to eq("4 Penn Plz, New York, NY 10001, United States")
+                ).to eq("5 Rue Daunou, 75002 Paris, France")
               end
             end
           end

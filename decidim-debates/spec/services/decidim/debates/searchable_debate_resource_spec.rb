@@ -8,7 +8,7 @@ module Decidim
 
     let(:current_component) { create :debates_component, manifest_name: "debates" }
     let(:organization) { current_component.organization }
-    let(:author) { create(:user, organization: organization) }
+    let(:author) { create(:user, organization:) }
     let!(:debate) do
       desc = "Nulla TestCheck accumsan tincidunt description Ow!"
       create(
@@ -17,7 +17,7 @@ module Decidim
         component: current_component,
         title: Decidim::Faker::Localized.name,
         description: { ca: "CA:#{desc}", en: "EN:#{desc}", es: "ES:#{desc}" },
-        author: author
+        author:
       )
     end
 
@@ -54,7 +54,7 @@ module Decidim
             searchable.reload
 
             organization.available_locales.each do |locale|
-              searchable = SearchableResource.find_by(resource_type: debate.class.name, resource_id: debate.id, locale: locale)
+              searchable = SearchableResource.find_by(resource_type: debate.class.name, resource_id: debate.id, locale:)
               expect(searchable.content_a).to eq updated_title[locale.to_s].to_s
               expect(searchable.updated_at).to be > created_at
             end
@@ -115,7 +115,7 @@ module Decidim
 
     def expect_resource_to_be_indexed_for_global_search(resource)
       organization.available_locales.each do |locale|
-        searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale: locale)
+        searchable = SearchableResource.find_by(resource_type: resource.class.name, resource_id: resource.id, locale:)
         expect_searchable_resource_to_correspond_to_debate(searchable, resource, locale)
       end
     end
@@ -131,10 +131,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(debate, locale)
       {
-        "content_a" => I18n.transliterate(translated(debate.title, locale: locale)),
+        "content_a" => I18n.transliterate(translated(debate.title, locale:)),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(translated(debate.description, locale: locale)),
+        "content_d" => I18n.transliterate(translated(debate.description, locale:)),
         "locale" => locale,
         "decidim_organization_id" => debate.component.organization.id,
         "decidim_participatory_space_id" => current_component.participatory_space_id,

@@ -1,0 +1,18 @@
+<div class="bg-primary relative">
+  <div class="container flex justify-between items-center py-4 lg:relative">
+
+    <%# secondary dropdown only desktop %>
+    <div class="hidden lg:flex justify-between items-center gap-2.5 text-lg text-white">
+      <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_desktop" %>
+    </div>
+    <div class="hidden lg:flex justify-between items-center gap-6">
+      <%= render partial: "layouts/decidim/header/redesigned_menu_buttons" %>
+    </div>
+
+    <%# secondary dropdown mobile-tablet %>
+    <div class="block lg:hidden w-full">
+      <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_mobile_tablet" %>
+    </div>
+
+  </div>
+</div>

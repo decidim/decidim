@@ -6,14 +6,14 @@ describe Decidim::Elections::Voter::UpdateVoteStatus do
   subject { described_class.new(vote) }
 
   let(:election) { create :election }
-  let(:vote) { create :vote, user: user, email: email, election: election }
-  let(:user) { create :user, organization: organization }
+  let(:vote) { create :vote, user:, email:, election: }
+  let(:user) { create :user, organization: }
   let(:component) { election.component }
   let(:organization) { component.organization }
   let(:email) { "an_email@example.org" }
   let(:method_name) { :get_pending_message_status }
   let(:response) { :accepted }
-  let(:verify_url) { "http://#{organization.host}/processes/#{component.participatory_space.slug}/f/#{component.id}/elections/#{election.id}/votes/#{vote.encrypted_vote_hash}/verify" }
+  let(:verify_url) { "http://#{organization.host}:#{Capybara.server_port}/processes/#{component.participatory_space.slug}/f/#{component.id}/elections/#{election.id}/votes/#{vote.encrypted_vote_hash}/verify" }
 
   before do
     allow(Decidim::Elections.bulletin_board).to receive(method_name).and_return(response)
@@ -37,8 +37,8 @@ describe Decidim::Elections::Voter::UpdateVoteStatus do
         resource: vote.election,
         affected_users: [vote.user],
         extra: {
-          vote: vote,
-          verify_url: verify_url
+          vote:,
+          verify_url:
         }
       )
     subject.call

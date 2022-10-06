@@ -7,7 +7,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
 
   let(:component) { create(:proposal_component) }
   let(:organization) { component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     form_klass.from_params(
       form_params
@@ -19,7 +19,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
     )
   end
 
-  let!(:proposal) { create :proposal, :official, component: component }
+  let!(:proposal) { create :proposal, :official, component: }
 
   let(:has_address) { false }
   let(:address) { nil }
@@ -34,8 +34,8 @@ describe Decidim::Proposals::Admin::UpdateProposal do
       {
         title: { en: "A reasonable proposal title" },
         body: { en: "A reasonable proposal body" },
-        address: address,
-        has_address: has_address,
+        address:,
+        has_address:,
         attachment: attachment_params,
         photos: current_photos,
         add_photos: uploaded_photos

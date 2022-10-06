@@ -14,7 +14,7 @@ module Decidim
     attribute :email
     attribute :password
     attribute :password_confirmation
-    attribute :avatar
+    attribute :avatar, Decidim::Attributes::Blob
     attribute :remove_avatar, Boolean, default: false
     attribute :personal_url
     attribute :about
@@ -50,9 +50,9 @@ module Decidim
     end
 
     def unique_email
-      return true if Decidim::User.where(
+      return true if Decidim::UserBaseEntity.where(
         organization: context.current_organization,
-        email: email
+        email:
       ).where.not(id: context.current_user.id).empty?
 
       errors.add :email, :taken
@@ -60,7 +60,7 @@ module Decidim
     end
 
     def unique_nickname
-      return true if Decidim::User.where(
+      return true if Decidim::UserBaseEntity.where(
         "decidim_organization_id = ? AND LOWER(nickname) = ? ",
         context.current_organization.id,
         nickname.downcase

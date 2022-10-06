@@ -5,6 +5,8 @@ module Decidim
   class AccountController < Decidim::ApplicationController
     include Decidim::UserProfile
 
+    helper Decidim::PasswordsHelper
+
     def show
       enforce_permission_to :show, :user, current_user: current_user
       @account = form(AccountForm).from_model(current_user)

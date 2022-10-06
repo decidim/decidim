@@ -67,7 +67,6 @@ lb:
     'true': 'Jo'
   carrierwave:
     errors:
-      image_too_big: Bild ass ze grouss
       not_inside_organization: D'Datei ass net mat enger Organisatioun verbonnen
   date:
     formats:
@@ -83,9 +82,6 @@ lb:
       skip_button: Zum Haapt-Inhalt eriwwergoen
     account:
       blocked: Dësen Kont gouf gespaart wéinst dem Net-Respekt vun den allgemengen Bestëmmungen
-      data_portability_export:
-        file_no_exists: Datei existéiert net
-        notice: D'Eroflueden ass am Gaang. Du kriss en Email wann et vollstänneg ass.
       delete:
         alert: Dës Aktioun kann net réckgängeg gemaach ginn. Wann däin Kont geläscht ass, kanns du dech net méi mat de selwechten Donnéeën aloggen. Zukünfteg Beiträg sinn dann anonymiséiert. Du kanns nach ëmmer en neien Kont erstellen, mee anonym Beiträg sinn net mat engem Kont verknäppt.
         confirm:
@@ -97,6 +93,9 @@ lb:
       destroy:
         error: Et gouf e Problem beim Läschen vum Kont.
         success: De Kont gouf geläscht.
+      download_your_data_export:
+        file_no_exists: Datei existéiert net
+        notice: D'Eroflueden ass am Gaang. Du kriss en Email wann et vollstänneg ass.
       show:
         change_password: Passwuert änneren
         update_account: Kont aktualiséieren
@@ -374,8 +373,8 @@ lb:
             amendments_enabled: Ännerungen aktivéiert
             comments_enabled: Kommentarer aktiv
             comments_max_length: Maximal Längt vun de Kommentären
-            dummy_global_attribute_1: Dummy Attribut 1
-            dummy_global_attribute_2: Dummy Attribut 2
+            dummy_global_attribute1: Dummy Attribut 1
+            dummy_global_attribute2: Dummy Attribut 2
             dummy_global_translatable_text: Dummy Text ze iwwersetzen
             enable_pads_creation: Erstellen vun Pads erméiglechen
             resources_permissions_enabled: Ressourcen-Berechtegung aktivéiert
@@ -387,8 +386,8 @@ lb:
             amendment_reaction_enabled: Reaktioun op Ännerungen aktivéiert
             amendments_visibility: Siichtbarkeet vun Ännerungen
             comments_blocked: Kommentare blockéiert
-            dummy_step_attribute_1: Dummy Schrëtt Attributer 1
-            dummy_step_attribute_2: Dummy Schrëtt Attributer 2
+            dummy_step_attribute1: Dummy Schrëtt Attributer 1
+            dummy_step_attribute2: Dummy Schrëtt Attributer 2
             dummy_step_translatable_text: Dummy Schrëtt ze iwwersetzenden Text
     contact: Kontakt
     content_blocks:
@@ -432,13 +431,6 @@ lb:
       actions:
         login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
         unauthorized: Du hues keng Berechtegung fir dës Aktioun
-    data_portability:
-      export:
-        ready: Fäerdeg
-      show:
-        download_data: Daten eroflueden
-        download_data_description: Eng Datei, déi all Informatiounen enthält, déi mat dengem Konto verknäppt sinn, gëtt an den <strong>%{user_email}</strong> geschéckt. Dës Mail enthält eng .zip-Datei an e Passwuert fir se opzemaachen .<br/><br/>Fir d'Datei auszepaken, brauchs du <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows) oder <a href="https://www.keka.io/">Keka</a> (fir MacOS). Wann s'du mat Linux schaffs, gëtt ass et meeschtens als Standard mat installéiert. Wann net, kanns du <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> benotzen.
-        request_data: Daten ufroen
     datepicker:
       help_text: 'Format: %{datepicker_format}'
     devise:
@@ -457,7 +449,6 @@ lb:
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
-          password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal (z.B. 123456) an et dierf net däin Benotzernumm oder deng Email-Adress enthalen."
           sign_in: Umelden
           sign_up: Registréieren
           sign_up_as:
@@ -506,6 +497,13 @@ lb:
           this_application_will_not_be_able_to: 'Diese Applikatioun kann net:'
           update_profile: Profil aktualiséieren
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> well däin Kont benotzen"
+    download_your_data:
+      export:
+        ready: Fäerdeg
+      show:
+        download_data: Daten eroflueden
+        download_data_description: Eng Datei, déi all Informatiounen enthält, déi mat dengem Konto verknäppt sinn, gëtt an den <strong>%{user_email}</strong> geschéckt. Dës Mail enthält eng .zip-Datei an e Passwuert fir se opzemaachen .<br/><br/>Fir d'Datei auszepaken, brauchs du <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows) oder <a href="https://www.keka.io/">Keka</a> (fir MacOS). Wann s'du mat Linux schaffs, gëtt ass et meeschtens als Standard mat installéiert. Wann net, kanns du <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> benotzen.
+        request_data: Daten ufroen
     endorsable:
       endorsements: Ennerstëtzungen
       endorsements_count: Zuel vun den Ënnerstëtzer
@@ -665,7 +663,7 @@ lb:
           email_subject: "%{nickname} huet säin Profil aktualiséiert"
           notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Klick op den Link, fir den Daten erofzelueden.<br/>D''Datei steet bis den %{date} zur Verfügung.<br/>du brauchs <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows), <a href="https://www.keka.io/en/">Keka</a> (fir MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (fir Linux) fir d''Datei opzemaachen. Passwuert: %{password}'
         download: Eroflueden
       export:
@@ -712,7 +710,6 @@ lb:
         file:
           explanation: 'Uleedung fir dës Datei:'
           message_1: Soll eBild oder en Dokument sinn.
-          message_2: Biller sollen am beschten Landschaftsbiller sinn, den Programm passt d'Bild vum selwen un. Fir CSV-Dateien muss d'Trennung tëscht de Spalten e Komma (",") sinn
         image:
           explanation: 'Uleedung fir d''Bild:'
           message_1: Am beschten queesch Format ouni Text.
@@ -832,7 +829,6 @@ lb:
       no_user_groups: Gehéiert nach kengem Grupp un.
       roles:
         admin: Administrateur
-        creator: Ersteller
         member: Member
       update:
         error: Et gouf e Problem beim Aktualiséieren vum Grupp
@@ -1036,14 +1032,11 @@ lb:
         administrators: Administrateuren
         allow_public_contact: Allen erlaben, mir Direkt-Noriichten ze schécken, och vun deenen, deenen ech net nofollegen.
         direct_messages: Direkt-Noriichten vun jidderengem zougeschéckt kréien
-        email_on_moderations: Ech well en Email zougeschéckt kréien wann eppes gemellt gouf wat moderéiert soll ginn.
-        email_on_notification: Ech well all Kéiers enEmail zougeschéckt kréien, wann ech eng Noriicht kritt hunn.
         everything_followed: Vun jidderengem dem ech nofollegen
         newsletter_notifications: Ech well den Newsletter
         newsletters: Newsletter
         own_activity: Meng eegen Aktivitéit, sou wann een mäin Virschlag kommentéiert oder mech ernimmt
         receive_notifications_about: Ech well Noriichten zu
-        send_notifications_by_email: Noriichten via Email schécken
         update_notifications_settings: Ännerungen späicheren
       update:
         error: Et gouf e Problem beim Aktualiséieren vun Astellungen fir Noriichten.
@@ -1101,7 +1094,6 @@ lb:
           agreement: Ech sinn mat dësen Konditiounen averstane
           legend: Akzeptéier d'Konditiounen vum Benotzen
         refuse:
-          modal_body: Wann s'du refuséiers, wàert et dir net méiglech sinn dës Plattform ze benotzen, du kanns <a href="%{data_portability_path}">lDaten eroflueden</a> an / oder <a href="%{delete_path}">Konto läschen</a>.
           modal_btn_continue: Konditiounen akzeptéieren an weiderfueren
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
           modal_button: Konditiounen net unhuelen
@@ -1403,7 +1395,6 @@ lb:
     invitations:
       edit:
         header: D'Erstellen vun dengem Kont ass fäerdeg
-        nickname_help: Däin Pseudonym %{organization}.
         submit_button: Späicheren
         subtitle: Gëff w. e. g. däin Pseudonym an däin Passwuert an, fir dës Invitatioun unzehuelen.
       invitation_removed: Deng Invitatioun gouf geläscht.
@@ -1470,7 +1461,6 @@ lb:
     passwords:
       edit:
         change_my_password: Mäin Passwuert änneren
-        change_your_password: Ännert Äert Passwuert
         confirm_new_password: Neit Passwuert bestätegen
         new_password: Neit Passwuert
         password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal Zeechen (z.B. 123456) an et dierf weder däin Pseudonym nach deng Email-Adress enthalen."
@@ -1561,10 +1551,6 @@ lb:
     timestamp_error_message: Pardon dat wo ze séier! W. e. g. op en Neits areechen.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Dës Säit benotzt Cookies. Wann s'du hei weider sichs, stëmms du dem Benotzen vun Cookies zou. Méi heiriwwer %{link}.
-        link_label: Gëff méi gewuer iwwer Cookies
-        ok: Ech sinn averstanen
       edit_link:
         edit: Editéieren
       footer:

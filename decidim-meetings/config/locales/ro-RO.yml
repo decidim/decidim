@@ -99,7 +99,6 @@ ro:
           with_any_type:
             label: Tip de întâlnire
             values:
-              hybrid: Ambele
               in_person: În persoană
               online: Online
       meeting_copies:
@@ -181,9 +180,6 @@ ro:
           email_outro: Ai primit această notificare deoarece te-ai înregistrate pentru întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
           notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> va începe în mai puțin de 48 de ore.
-    forms:
-      meetings:
-        attendees_count_help_text: Nu uita să incluzi numărul total de participanți la evenimentul tău. Indiferent dacă întâlnirea este în persoană, hibridă sau online, este important să ştim câţi oameni sunt implicaţi.
     gamification:
       badges:
         attended_meetings:
@@ -474,7 +470,6 @@ ro:
           type: Tip
           type_values:
             all: Toate
-            hybrid: Ambele
             in_person: În persoană
             online: Online
         filters_small_view:
@@ -564,7 +559,6 @@ ro:
           fields:
             closed: Închis
             end_time: Data de încheiere
-            id: Id
             map: Hartă
             official_meeting: Întâlnire publică
             start_time: Data de început
@@ -577,7 +571,6 @@ ro:
             empty_questions: Pe parcursul acestei întâlniri, vor fi trimise câteva întrebări și vei putea răspunde la acestea. Acestea vor fi afișate aici.
           index_admin:
             admin_dashboard: Panou de administrare
-            edit: Editează în admin
             question: Întrebare
             received_answer: răspuns primit
             received_answers: răspunsuri primite
@@ -616,7 +609,6 @@ ro:
           invalid: A existat o problemă la părăsirea acestei reuniuni.
           success: Ai părăsit şedinţa cu succes.
       type_of_meeting:
-        hybrid: Ambele
         in_person: În persoană
         online: Online
       types:

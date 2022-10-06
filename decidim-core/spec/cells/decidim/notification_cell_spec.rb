@@ -7,11 +7,11 @@ describe Decidim::NotificationCell, type: :cell do
 
   controller Decidim::PagesController
   let!(:organization) { create :organization }
-  let(:user) { create :user, :confirmed, organization: organization }
+  let(:user) { create :user, :confirmed, organization: }
   let(:my_cell) { cell("decidim/notification", notification) }
-  let(:notification) { create :notification, user: user, resource: resource }
-  let(:component) { create(:component, manifest_name: "dummy", organization: organization) }
-  let(:resource) { create(:dummy_resource, component: component) }
+  let(:notification) { create :notification, user:, resource: }
+  let(:component) { create(:component, manifest_name: "dummy", organization:) }
+  let(:resource) { create(:dummy_resource, component:) }
 
   context "when resource exists" do
     it "Resource title is present" do

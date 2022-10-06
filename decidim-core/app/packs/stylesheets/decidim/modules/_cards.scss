@@ -30,6 +30,8 @@ $datetime-bg: var(--primary);
   border-radius: $card-border-radius;
   // Keep visible for accessibility (active/focused card as a link)
   overflow: visible;
+  overflow-wrap: break-word;
+  hyphens: auto;
 
   @include modifiers(
     border-top-color,

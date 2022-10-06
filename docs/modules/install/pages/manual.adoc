@@ -125,7 +125,7 @@ bin/rails db:seed
 Please refer to xref:install:empty-database.adoc[Empty database installation] section if you want to setup your instance on an empty database (without any seeds)
 ====
 
-This will also create some default data so you can start testing the app, with an administrator account with email admin@example.org and password `decidim123456`
+This will also create some default data so you can start testing the app, with an administrator account with email admin@example.org and password `decidim123456789`
 
 == 7. Start your web server
 
@@ -147,8 +147,8 @@ With these steps you would only have an initial installation for trying Decidim,
 
 Other user accounts that you'll have in the seeds are:
 
-* To participate as a regular user, with email `user@example.org` and password `decidim123456`.
-* To manage the Multitenant and being able to log in at `/system`, with email `system@example.org` and password `decidim123456`.
+* To participate as a regular user, with email `user@example.org` and password `decidim123456789`.
+* To manage the Multitenant and being able to log in at `/system`, with email `system@example.org` and password `decidim123456789`.
 
 The seed data won't be created in production environments, if you still want to do it (for instance, for a Demo or Staging server), run:
 

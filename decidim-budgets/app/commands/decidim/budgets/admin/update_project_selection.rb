@@ -47,7 +47,7 @@ module Decidim
         def update_project_selection(project)
           selected_at = selection ? Time.current : nil
           project.update!(
-            selected_at: selected_at
+            selected_at:
           )
         end
       end

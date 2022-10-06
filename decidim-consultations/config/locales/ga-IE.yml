@@ -130,7 +130,3 @@ ga:
           vote: Vótáil
     statistics:
       votes_count: Vótaí
-  layouts:
-    decidim:
-      question_components:
-        unfold: Oscail

@@ -6,12 +6,12 @@ describe "Admin reminds users with pending orders", type: :system do
   include_context "when managing a component as an admin"
 
   let(:organization) { create(:organization) }
-  let(:component) { create(:component, organization: organization, manifest_name: "budgets") }
-  let(:budget) { create(:budget, component: component) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization, locale: "en") }
-  let(:user2) { create(:user, :admin, :confirmed, organization: organization, locale: "en") }
-  let!(:order) { create(:order, budget: budget, user: user, created_at: 3.days.ago) }
-  let!(:order2) { create(:order, budget: budget, user: user2, created_at: 3.days.ago) }
+  let(:component) { create(:component, organization:, manifest_name: "budgets") }
+  let(:budget) { create(:budget, component:) }
+  let(:user) { create(:user, :admin, :confirmed, organization:, locale: "en") }
+  let(:user2) { create(:user, :admin, :confirmed, organization:, locale: "en") }
+  let!(:order) { create(:order, budget:, user:, created_at: 3.days.ago) }
+  let!(:order2) { create(:order, budget:, user: user2, created_at: 3.days.ago) }
 
   before do
     switch_to_host(organization.host)
@@ -41,8 +41,8 @@ describe "Admin reminds users with pending orders", type: :system do
       emails.each do |email|
         expect(email.subject).to eq("You have an unfinished vote in the participatory budgeting vote")
       end
-      expect(last_email_first_link).to eq("http://#{organization.host}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets/#{budget.id}")
-      expect(last_email_link).to eq("http://#{organization.host}/processes/#{component.participatory_space.slug}/f/#{component.id}/")
+      expect(last_email_first_link).to eq("http://#{organization.host}:#{Capybara.server_port}/processes/#{component.participatory_space.slug}/f/#{component.id}/budgets/#{budget.id}")
+      expect(last_email_link).to eq("http://#{organization.host}:#{Capybara.server_port}/processes/#{component.participatory_space.slug}/f/#{component.id}/")
     end
 
     it "doesnt send reminders twice" do

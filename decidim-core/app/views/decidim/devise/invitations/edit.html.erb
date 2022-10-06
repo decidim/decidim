@@ -27,11 +27,10 @@
 
             <% if f.object.class.require_password_on_accepting %>
               <div class="field">
-                <p><%= f.password_field :password, required: "required", autocomplete: "new-password", minlength: ::PasswordValidator::MINIMUM_LENGTH, maxlength: ::PasswordValidator::MAX_LENGTH %></p>
+                <p><%= f.password_field :password, password_field_options_for(:user).except(:help_text) %></p>
               </div>
-
               <div class="field">
-                <p><%= f.password_field :password_confirmation, required: "required", autocomplete: "new-password", minlength: ::PasswordValidator::MINIMUM_LENGTH, maxlength: ::PasswordValidator::MAX_LENGTH %></p>
+                <p><%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %></p>
               </div>
             <% end %>
           </div>

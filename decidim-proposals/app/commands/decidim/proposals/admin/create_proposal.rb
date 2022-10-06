@@ -52,7 +52,7 @@ module Decidim
 
         def create_proposal
           @proposal = Decidim::Proposals::ProposalBuilder.create(
-            attributes: attributes,
+            attributes:,
             author: form.author,
             action_user: form.current_user
           )

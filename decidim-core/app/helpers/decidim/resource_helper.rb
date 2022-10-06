@@ -22,7 +22,7 @@ module Decidim
         content_tag(:div, class: "section") do
           i18n_name = "#{resource.class.name.demodulize.underscore}_#{resource_manifest.name}"
           content_tag(:h3, I18n.t(i18n_name, scope: "decidim.resource_links.#{link_name}"), class: "section-heading") +
-            render(partial: resource_manifest.template, locals: { resources: resources })
+            render(partial: resource_manifest.template, locals: { resources: })
         end
       end)
     end

@@ -21,7 +21,7 @@ module Decidim
           @registration_type = registration_type
 
           subject = I18n.t("pending_validation.subject", scope: "decidim.conferences.mailer.conference_registration_mailer")
-          mail(to: user.email, subject: subject)
+          mail(to: user.email, subject:)
         end
       end
 
@@ -36,7 +36,7 @@ module Decidim
           add_calendar_attachment
 
           subject = I18n.t("confirmation.subject", scope: "decidim.conferences.mailer.conference_registration_mailer")
-          mail(to: user.email, subject: subject)
+          mail(to: user.email, subject:)
         end
       end
 

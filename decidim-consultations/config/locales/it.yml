@@ -369,7 +369,6 @@ it:
         start_voting_date: Inizia la votazione
       question_components:
         question_menu_item: Il quesito
-        unfold: spiegare
       question_header:
         back_to_consultation: Vedi tutte le consultazioni
         back_to_question: Torna al quesito

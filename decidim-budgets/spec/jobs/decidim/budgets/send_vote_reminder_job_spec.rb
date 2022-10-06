@@ -7,15 +7,15 @@ describe Decidim::Budgets::SendVoteReminderJob do
 
   let(:organization) { user.organization }
   let(:user) { create(:user, :confirmed) }
-  let(:component) { create(:budgets_component, organization: organization) }
-  let(:budget) { create(:budget, component: component) }
-  let(:reminder) { create(:reminder, user: user, component: component) }
+  let(:component) { create(:budgets_component, organization:) }
+  let(:budget) { create(:budget, component:) }
+  let(:reminder) { create(:reminder, user:, component:) }
   let(:mailer) { double :mailer }
   let(:mailer_class) { Decidim::Budgets::VoteReminderMailer }
 
   context "when everything is OK" do
-    let(:order) { create(:order, user: user, budget: budget) }
-    let!(:reminder_record) { create(:reminder_record, reminder: reminder, remindable: order) }
+    let(:order) { create(:order, user:, budget:) }
+    let!(:reminder_record) { create(:reminder_record, reminder:, remindable: order) }
 
     it "sends an email and creates reminder delivery" do
       allow(mailer_class)

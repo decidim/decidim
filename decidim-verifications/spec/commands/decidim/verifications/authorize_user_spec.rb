@@ -11,12 +11,12 @@ module Decidim::Verifications
     let(:document_number) { "12345678X" }
     let(:handler) do
       DummyAuthorizationHandler.new(
-        document_number: document_number,
-        user: user
+        document_number:,
+        user:
       )
     end
 
-    let(:authorizations) { Authorizations.new(organization: user.organization, user: user, granted: true) }
+    let(:authorizations) { Authorizations.new(organization: user.organization, user:, granted: true) }
 
     context "when the form is not authorized" do
       before do
@@ -66,7 +66,7 @@ module Decidim::Verifications
         end
 
         it "is invalid if there's another authorization with the same id" do
-          expect { subject.call }.to change(authorizations, :count).by(0)
+          expect { subject.call }.not_to change(authorizations, :count)
         end
       end
     end
@@ -108,7 +108,7 @@ module Decidim::Verifications
             event: "decidim.events.verifications.managed_user_error_event",
             event_class: Decidim::Verifications::ManagedUserErrorEvent,
             resource: conflict,
-            affected_users: Decidim::User.where(admin: true, organization: organization)
+            affected_users: Decidim::User.where(admin: true, organization:)
           )
         end
       end

@@ -61,6 +61,7 @@ de:
         designation_date: Datum der Benennung
         full_name: Vollständiger Name
         gender: Geschlecht
+        non_user_avatar: Profilbild
         position: Position
         user_id: User
       assembly_user_role:
@@ -72,7 +73,7 @@ de:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Ungültiger Dokumenttyp. Zulässige Formate sind: %{valid_mime_types}'
+              allowed_file_content_types: 'Ungültiger Dokumenttyp Zulässige Formate sind: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -181,6 +182,9 @@ de:
         update:
           error: Bei einem Fehler ist ein Benutzer für diese Assembly aktualisiert worden.
           success: Der Benutzer wurde für diese Assembly erfolgreich aktualisiert.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Versammlungstyp
       menu:
         assemblies: Gremien
         assemblies_settings: Einstellungen
@@ -238,6 +242,9 @@ de:
     admin_log:
       assembly:
         create: "%{user_name} hat das Gremium %{resource_name} erstellt"
+        duplicate: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
+        export: "%{user_name} hat das Gremium %{resource_name} exportiert"
+        import: "%{user_name} hat das Gremium %{resource_name} importiert"
         publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
         unpublish: "%{user_name} hat das Gremium %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
@@ -266,6 +273,7 @@ de:
             duration_help: Wenn die Dauer dieser Assembly begrenzt ist, wählen Sie das Enddatum aus. Andernfalls wird es als unbestimmt angezeigt.
             filters: Filter
             images: Bilder
+            included_at_help: Wählen Sie das Datum aus, an dem dieses Gremium zu Decidim hinzugefügt wurde. Es muss nicht unbedingt mit dem Erstellungsdatum identisch sein.
             metadata: Metadaten
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
@@ -294,7 +302,10 @@ de:
         assembly_members:
           form:
             existing_user: Existierender Benutzer
+            explanation: 'Hinweise für das Bild:'
+            image_guide: Vorzugsweise ein Bild im Querformat, das keinen Text enthält.
             non_user: Nichtbenutzer
+            non_user_avatar_help: Sie sollten die Zustimmung der Personen einholen, bevor Sie sie als Mitglied veröffentlichen.
             select_a_position: Wählen Sie eine Position
             select_user: Wählen Sie einen Benutzer aus
             user_type: Benutzertyp
@@ -311,6 +322,9 @@ de:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Über dieses Gremium
       assembly_members:
         index:
           members: Mitglieder
@@ -378,7 +392,7 @@ de:
         related_participatory_processes: Ähnliche Beteiligungsprozesse
         scope: Umfang
         social_networks: Soziale Netzwerke
-        social_networks_title: Diese Versammlung auf teilen
+        social_networks_title: Gremium besuchen unter
         target: Wer nimmt teil?
     assembly_members:
       assembly_member:
@@ -389,7 +403,7 @@ de:
       assemblies:
         create_assembly_member:
           email_intro: Ein Administrator des Gremiums <a href="%{resource_url}">%{resource_name}</a> hat Sie als Mitglied eingeladen.
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einer Versammlung eingeladen wurden. Gehen Sie zur <a href="%{resource_path}">Versammlungsseite</a>, um daran teilzunehmen!
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie zu einem Gremium eingeladen wurden. Gehen Sie zur <a href="%{resource_url}">Gremiumsseite</a>, um mitzumachen!
           email_subject: Sie wurden als Mitglied des Gremiums %{resource_name} eingeladen!
           notification_title: Sie wurden als Mitglied des Gremiums <a href="%{resource_path}">%{resource_name}</a> registriert. Gehen Sie zur <a href="%{resource_path}">Gremiumsseite</a>, um mitzuwirken!
       assembly:

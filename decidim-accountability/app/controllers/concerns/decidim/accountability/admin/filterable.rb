@@ -50,7 +50,7 @@ module Decidim
           end
 
           def translated_status_id_eq(id)
-            translated_attribute(statuses.find_by(id: id).name)
+            translated_attribute(statuses.find_by(id:).name)
           end
         end
       end

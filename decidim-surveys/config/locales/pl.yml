@@ -34,7 +34,6 @@ pl:
           step:
             allow_answers: Pozwól na wypełnianie
             allow_unregistered: Pozwól niezarejestrowanym użytkownikom wypełnić ankietę
-            allow_unregistered_help: Jeśli jest aktywna, do wypełnienia ankiety nie będzie wymagane logowanie. Może to doprowadzić do słabej jakości lub niewiarygodnych danych i ankieta będzie bardziej podatna na automatyczne ataki. Zalecamy ostrożność!
             announcement: Ogłoszenie
     events:
       surveys:

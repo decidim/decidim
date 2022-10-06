@@ -5,17 +5,17 @@ require "spec_helper"
 describe "Homepage processes content blocks", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
-  let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }
+  let!(:promoted_process) { create(:participatory_process, :promoted, organization:) }
   let!(:promoted_past_process) do
     create(
       :participatory_process,
       :promoted,
-      organization: organization,
+      organization:,
       start_date: 1.month.ago,
       end_date: 1.week.ago
     )
   end
-  let!(:unpromoted_process) { create(:participatory_process, organization: organization) }
+  let!(:unpromoted_process) { create(:participatory_process, organization:) }
   let!(:promoted_external_process) { create(:participatory_process, :promoted) }
 
   before do
@@ -35,8 +35,8 @@ describe "Homepage processes content blocks", type: :system do
   end
 
   context "when there are promoted process groups" do
-    let!(:normal_group) { create(:participatory_process_group, organization: organization) }
-    let!(:promoted_group) { create(:participatory_process_group, :promoted, organization: organization) }
+    let!(:normal_group) { create(:participatory_process_group, organization:) }
+    let!(:promoted_group) { create(:participatory_process_group, :promoted, organization:) }
     let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
 
     it "includes promoted group in first place in the same homepage block" do

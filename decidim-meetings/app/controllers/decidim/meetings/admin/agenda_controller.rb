@@ -17,7 +17,7 @@ module Decidim
         def create
           enforce_permission_to :create, :agenda, meeting: meeting
 
-          @form = form(MeetingAgendaForm).from_params(params, meeting: meeting)
+          @form = form(MeetingAgendaForm).from_params(params, meeting:)
 
           CreateAgenda.call(@form, meeting) do
             on(:ok) do
@@ -41,7 +41,7 @@ module Decidim
         def update
           enforce_permission_to :update, :agenda, agenda: agenda, meeting: meeting
 
-          @form = form(MeetingAgendaForm).from_params(params, meeting: meeting)
+          @form = form(MeetingAgendaForm).from_params(params, meeting:)
 
           UpdateAgenda.call(@form, agenda) do
             on(:ok) do

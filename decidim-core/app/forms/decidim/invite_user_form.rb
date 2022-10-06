@@ -43,7 +43,7 @@ module Decidim
     private
 
     def admin_uniqueness
-      errors.add(:email, :taken) if organization.admins.exists?(email: email)
+      errors.add(:email, :taken) if organization.admins.exists?(email:)
     end
   end
 end

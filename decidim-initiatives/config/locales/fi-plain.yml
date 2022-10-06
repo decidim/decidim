@@ -238,8 +238,6 @@ fi-pl:
             edit: Muokkaa
             new: Uusi
             photos: Kuvat
-          show:
-            print: Tulosta
           update:
             error: Tapahtui virhe
             success: Kansalaisaloite on onnistuneesti päivitetty
@@ -292,6 +290,10 @@ fi-pl:
           send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen validointiin"
           unpublish: "%{user_name} hylkäsi aloitteen %{resource_name}"
           update: "%{user_name} päivitti aloitetta %{resource_name}"
+        initiatives_type:
+          create: "%{user_name} loi aloitetyypin %{resource_name}"
+          delete: "%{user_name} poisti aloitetyypin %{resource_name}"
+          update: "%{user_name} päivitti aloitetyyppiä %{resource_name}"
       admin_states:
         accepted: Tarpeeksi allekirjoituksia
         created: Luotu
@@ -507,6 +509,7 @@ fi-pl:
             title: 'Otsikko:'
             type: Aloitteen tyyppi
           legal_text: Kerätyt henkilötiedot liitetään aloitteeseesi ja käsitellään luottamuksellisesti ajantasaisen lainsäädännön mukaisesti.
+          members_header: Aloitteen kannatuskomitean jäsenet
           phone_number: Puhelinnumero
           place_date: Paikka, Päivämäärä
           postal_code: Postinumero
@@ -566,6 +569,8 @@ fi-pl:
           published: Julkaistu
           rejected: Liian vähän allekirjoituksia
           validating: Teknisessä tarkastuksessa
+      signature_interval:
+        title: Allekirjoituksen keräysaika
       states:
         accepted: Hyväksytyt
         expired: Vanhentuneet

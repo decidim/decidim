@@ -109,9 +109,6 @@ ga:
           random: Randamach
       last_activity:
         view_all: Amharc ar uile
-    data_portability:
-      export:
-        ready: Réidh
     devise:
       registrations:
         new:
@@ -124,6 +121,9 @@ ga:
       authorizations:
         new:
           cancel: Cealaigh
+    download_your_data:
+      export:
+        ready: Réidh
     endorsable:
       endorsements: Formhuinithe
     endorsement_buttons_cell:
@@ -133,7 +133,7 @@ ga:
       identities:
         done: Críochnaithe
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         download: Íoslódáil
     filters:
       linked_classes:
@@ -165,7 +165,6 @@ ga:
         reject_request: Diúltaigh
       roles:
         admin: Riarthóir
-        creator: Cruthaitheoir
         member: Ball
     last_activities:
       index:
@@ -337,8 +336,6 @@ ga:
         sign_up: Cláraigh
   layouts:
     decidim:
-      cookie_warning:
-        ok: Aontaím
       edit_link:
         edit: Eagar
       header:

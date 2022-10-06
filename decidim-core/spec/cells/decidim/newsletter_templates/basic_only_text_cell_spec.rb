@@ -4,18 +4,18 @@ require "spec_helper"
 
 describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
   subject do
-    cell(content_block.cell, content_block, organization: organization,
-                                            newsletter: newsletter,
+    cell(content_block.cell, content_block, organization:,
+                                            newsletter:,
                                             recipient_user: user,
                                             context: {
-                                              controller: controller
+                                              controller:
                                             }).call
   end
 
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, organization: organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :basic_only_text, scope_name: :newsletter_template, settings: settings }
-  let(:newsletter) { create :newsletter, organization: organization }
+  let(:user) { create(:user, organization:) }
+  let(:content_block) { create :content_block, organization:, manifest_name: :basic_only_text, scope_name: :newsletter_template, settings: }
+  let(:newsletter) { create :newsletter, organization: }
   let(:body) { ::Faker::Lorem.sentences.join("\n") }
   let(:settings) { { body_en: body } }
   let(:logo_url) { Rails.application.routes.url_helpers.rails_representation_path(organization.logo.variant(resize_to_fit: [600, 160]), host: organization.host) }

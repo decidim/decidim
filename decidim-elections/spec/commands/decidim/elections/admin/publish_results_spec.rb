@@ -7,21 +7,21 @@ describe Decidim::Elections::Admin::PublishResults do
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
   let(:invalid) { false }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "elections" }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let!(:election) { create :election, :complete }
   let(:trustees) { create_list :trustee, 5, :with_public_key }
   let(:trustee_ids) { trustees.pluck(:id) }
   let(:form) do
     double(
       invalid?: invalid,
-      election: election,
+      election:,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_organization: organization,
-      trustee_ids: trustee_ids,
-      bulletin_board: bulletin_board
+      trustee_ids:,
+      bulletin_board:
     )
   end
   let(:scheme) do
@@ -66,7 +66,7 @@ describe Decidim::Elections::Admin::PublishResults do
     end
 
     it "creates an action" do
-      expect { subject.call }.to change { Decidim::Elections::Action.count }.by(1)
+      expect { subject.call }.to change(Decidim::Elections::Action, :count).by(1)
 
       expect(action.election).to eq(election)
       expect(action.message_id).to eq "a.message+id"

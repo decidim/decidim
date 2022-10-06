@@ -8,8 +8,8 @@ module Decidim::Accountability
 
     let(:result) { create :result, progress: 10 }
     let(:organization) { result.component.organization }
-    let(:user) { create :user, organization: organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:user) { create :user, organization: }
+    let(:scope) { create :scope, organization: }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:participatory_process) { result.component.participatory_space }
     let(:meeting_component) do
@@ -56,16 +56,16 @@ module Decidim::Accountability
         description: { en: "description" },
         proposal_ids: proposals.map(&:id),
         project_ids: projects.map(&:id),
-        scope: scope,
-        category: category,
-        start_date: start_date,
-        end_date: end_date,
+        scope:,
+        category:,
+        start_date:,
+        end_date:,
         decidim_accountability_status_id: status.id,
-        progress: progress,
+        progress:,
         current_user: user,
         parent_id: nil,
-        external_id: external_id,
-        weight: weight
+        external_id:,
+        weight:
       )
     end
     let(:invalid) { false }
@@ -146,7 +146,7 @@ module Decidim::Accountability
       end
 
       it "notifies the linked proposals followers" do
-        follower = create(:user, organization: organization)
+        follower = create(:user, organization:)
         create(:follow, followable: proposals.first, user: follower)
 
         expect(Decidim::EventsManager)
@@ -158,7 +158,7 @@ module Decidim::Accountability
             affected_users: [proposals.first.creator_author],
             followers: [follower],
             extra: {
-              progress: progress,
+              progress:,
               proposal_id: proposals.first.id
             }
           )
@@ -172,7 +172,7 @@ module Decidim::Accountability
             affected_users: [proposals.second.creator_author],
             followers: [],
             extra: {
-              progress: progress,
+              progress:,
               proposal_id: proposals.second.id
             }
           )
@@ -186,7 +186,7 @@ module Decidim::Accountability
             affected_users: [proposals.third.creator_author],
             followers: [],
             extra: {
-              progress: progress,
+              progress:,
               proposal_id: proposals.third.id
             }
           )

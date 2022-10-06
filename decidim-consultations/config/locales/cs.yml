@@ -390,7 +390,6 @@ cs:
         start_voting_date: Hlasování začíná
       question_components:
         question_menu_item: Otázka
-        unfold: Rozvinout
       question_header:
         back_to_consultation: Podívejte se na všechny konzultace
         back_to_question: Zpět k otázce

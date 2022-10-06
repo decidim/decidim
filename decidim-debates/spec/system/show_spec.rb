@@ -6,7 +6,7 @@ describe "show", type: :system do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
-  let!(:debate) { create(:debate, component: component, skip_injection: true) }
+  let!(:debate) { create(:debate, component:, skip_injection: true) }
 
   before do
     visit_component

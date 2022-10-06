@@ -6,7 +6,7 @@ describe "Homepage", type: :system do
   include_context "with a component"
   let(:manifest_name) { "debates" }
 
-  let!(:debates) { create_list(:debate, 3, component: component) }
+  let!(:debates) { create_list(:debate, 3, component:) }
   let!(:moderation) { create :moderation, reportable: debates.first, hidden_at: 1.day.ago }
 
   before do

@@ -8,7 +8,7 @@ module Decidim
 
     include_context "when a resource is ready for global search"
 
-    let(:current_component) { create :accountability_component, organization: organization }
+    let(:current_component) { create :accountability_component, organization: }
 
     let!(:result) do
       create(
@@ -38,7 +38,7 @@ module Decidim
         context "when on create" do
           it "does indexes a SearchableResource after Result creation" do
             organization.available_locales.each do |locale|
-              searchable = SearchableResource.find_by(resource_type: result.class.name, resource_id: result.id, locale: locale)
+              searchable = SearchableResource.find_by(resource_type: result.class.name, resource_id: result.id, locale:)
               expect_searchable_resource_to_correspond_to_result(searchable, result, locale)
             end
           end
@@ -60,8 +60,8 @@ module Decidim
               searchable.reload
 
               organization.available_locales.each do |locale|
-                searchable = SearchableResource.find_by(resource_type: result.class.name, resource_id: result.id, locale: locale)
-                expect(searchable.content_a).to eq I18n.transliterate(translated(updated_title, locale: locale))
+                searchable = SearchableResource.find_by(resource_type: result.class.name, resource_id: result.id, locale:)
+                expect(searchable.content_a).to eq I18n.transliterate(translated(updated_title, locale:))
                 expect(searchable.updated_at).to be > created_at
               end
             end
@@ -127,10 +127,10 @@ module Decidim
 
     def expected_searchable_resource_attrs(resource, locale)
       {
-        "content_a" => I18n.transliterate(translated(resource.title, locale: locale)),
+        "content_a" => I18n.transliterate(translated(resource.title, locale:)),
         "content_b" => "",
         "content_c" => "",
-        "content_d" => I18n.transliterate(translated(resource.description, locale: locale)),
+        "content_d" => I18n.transliterate(translated(resource.description, locale:)),
         "locale" => locale,
 
         "decidim_organization_id" => resource.component.organization.id,

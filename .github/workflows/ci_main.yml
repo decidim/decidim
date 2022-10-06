@@ -11,7 +11,7 @@ on:
 
 env:
   CI: "true"
-  RUBY_VERSION: 3.0.2
+  RUBY_VERSION: 3.1.1
   NODE_VERSION: 16.9.1
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.3.0
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
         if: "github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

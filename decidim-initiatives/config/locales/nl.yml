@@ -214,8 +214,6 @@ nl:
             edit: Bewerken
             new: Nieuw
             photos: Foto's
-          show:
-            print: Afdrukken
           update:
             error: er is een fout opgetreden
             success: Het burgerinitiatief is met succes bijgewerkt

@@ -367,7 +367,6 @@ nl:
         start_voting_date: Stemmen begint
       question_components:
         question_menu_item: De vraag
-        unfold: Uitklappen
       question_header:
         back_to_consultation: Bekijk alle burgerinspraken
         back_to_question: Terug naar de vraag

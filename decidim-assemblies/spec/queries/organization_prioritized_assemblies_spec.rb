@@ -10,13 +10,13 @@ module Decidim::Assemblies
     let!(:local_promoted_assembly) do
       create(:assembly,
              :promoted,
-             organization: organization)
+             organization:)
     end
 
     let!(:local_non_promoted_assembly) do
       create(:assembly,
              :published,
-             organization: organization)
+             organization:)
     end
 
     before { create(:assembly) }

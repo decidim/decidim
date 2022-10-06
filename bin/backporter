@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "thor"
+
+require "./lib/decidim/github_manager/querier"
+require "./lib/decidim/github_manager/poster"
+require "./lib/decidim/git_backport_manager"
+require "./lib/decidim/backporter"
+
+class BackporterCLI < Thor
+  desc "", "Backport a pull request to another branch"
+  option :github_token, required: true, desc: <<~HELP
+    Required. Github Personal Access Token (PAT). It can be obtained from https://github.com/settings/tokens/new. You'll need to create one with `public_repo` access.
+  HELP
+  option :version_number, required: true, desc: "Required. The version number that you want to do the backport to. It must have the format MAJOR.MINOR."
+  option :pull_request_id, required: true, desc: "Required. The ID of the pull request that you want to make the backport from. It should have the \"type: fix\" label."
+  option :exit_with_unstaged_changes, type: :boolean, default: true, desc: <<~HELP
+    Optional. Whether the script should exit with an error if there are unstaged changes in the current project.
+  HELP
+  default_task :backport
+
+  def backport
+    Decidim::Backporter.new(
+      token: options[:github_token],
+      pull_request_id: options[:pull_request_id],
+      version_number: options[:version_number],
+      exit_with_unstaged_changes: options[:exit_with_unstaged_changes]
+    ).call
+  rescue Decidim::Backporter::InvalidMetadataError
+    puts "Metadata was not returned from the server. Please check that the provided pull request ID and GitHub token are correct."
+  end
+
+  def help
+    super("backport")
+  end
+
+  def self.exit_on_failure?
+    true
+  end
+end
+
+BackporterCLI.start(ARGV)

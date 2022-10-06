@@ -7,7 +7,7 @@ module Decidim
     describe NewsletterDeliveryJob do
       let(:user) { create(:user) }
       let(:organization) { create(:organization) }
-      let(:newsletter) { create(:newsletter, organization: organization, total_deliveries: 0) }
+      let(:newsletter) { create(:newsletter, organization:, total_deliveries: 0) }
 
       it "delivers the email" do
         expect(ActionMailer::Base.deliveries).to be_empty

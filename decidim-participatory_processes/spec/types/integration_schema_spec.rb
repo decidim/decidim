@@ -156,7 +156,7 @@ describe "Decidim::Api::QueryType" do
         "translation" => participatory_process.announcement[locale]
       },
       "attachments" => [],
-      "bannerImage" => participatory_process.attached_uploader(:banner_image).path.sub(Rails.root.join("public").to_s, ""),
+      "bannerImage" => participatory_process.attached_uploader(:banner_image).path.sub(Rails.public_path.to_s, ""),
       "categories" => [],
       "components" => components,
       "createdAt" => participatory_process.created_at.iso8601.to_s.gsub("Z", "+00:00"),
@@ -164,7 +164,7 @@ describe "Decidim::Api::QueryType" do
       "developerGroup" => { "translation" => participatory_process.developer_group[locale] },
       "endDate" => participatory_process.end_date.to_s,
       "hashtag" => "",
-      "heroImage" => participatory_process.attached_uploader(:hero_image).path.sub(Rails.root.join("public").to_s, ""),
+      "heroImage" => participatory_process.attached_uploader(:hero_image).path.sub(Rails.public_path.to_s, ""),
       "id" => participatory_process.id.to_s,
       "linkedParticipatorySpaces" => [],
       "localArea" => { "translation" => participatory_process.local_area[locale] },
@@ -217,6 +217,66 @@ describe "Decidim::Api::QueryType" do
         )
       end
       let(:stats_response) { response["participatoryProcess"]["stats"] }
+    end
+
+    context "with private spaces" do
+      let!(:participatory_process2) { create(:participatory_process, organization: current_organization) }
+      let!(:participatory_process3) { create(:participatory_process, organization: current_organization) }
+      let!(:private_process) { create(:participatory_process, :private, organization: current_organization) }
+
+      let(:participatory_process_query) { "participatoryProcesses { id }" }
+
+      it "returns only the public spaces for normal participants" do
+        expect(response["participatoryProcesses"]).to include(
+          { "id" => participatory_process.id.to_s },
+          { "id" => participatory_process2.id.to_s },
+          { "id" => participatory_process3.id.to_s }
+        )
+        expect(response["participatoryProcesses"]).not_to include(
+          { "id" => private_process.id.to_s }
+        )
+      end
+
+      context "when the user is not logged in" do
+        let!(:current_user) { nil }
+
+        it "returns only the public spaces by default" do
+          expect(response["participatoryProcesses"]).to include(
+            { "id" => participatory_process.id.to_s },
+            { "id" => participatory_process2.id.to_s },
+            { "id" => participatory_process3.id.to_s }
+          )
+          expect(response["participatoryProcesses"]).not_to include(
+            { "id" => private_process.id.to_s }
+          )
+        end
+      end
+
+      context "when the current user is an admin" do
+        let!(:current_user) { create(:user, :admin, organization: current_organization) }
+
+        it "returns all spaces" do
+          expect(response["participatoryProcesses"]).to include(
+            { "id" => participatory_process.id.to_s },
+            { "id" => participatory_process2.id.to_s },
+            { "id" => participatory_process3.id.to_s },
+            { "id" => private_process.id.to_s }
+          )
+        end
+      end
+
+      context "when the current user is a private participant" do
+        let!(:private_user) { create(:participatory_space_private_user, privatable_to: private_process, user: current_user) }
+
+        it "returns all spaces" do
+          expect(response["participatoryProcesses"]).to include(
+            { "id" => participatory_process.id.to_s },
+            { "id" => participatory_process2.id.to_s },
+            { "id" => participatory_process3.id.to_s },
+            { "id" => private_process.id.to_s }
+          )
+        end
+      end
     end
   end
 end

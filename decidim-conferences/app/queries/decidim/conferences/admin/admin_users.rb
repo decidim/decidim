@@ -50,7 +50,7 @@ module Decidim
           if conference
             [conference]
           else
-            Decidim::Conference.where(organization: organization)
+            Decidim::Conference.where(organization:)
           end
         end
       end

@@ -5,9 +5,9 @@ require "spec_helper"
 describe Decidim::Votings::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, :admin, organization: organization }
+  let(:user) { create :user, :admin, organization: }
   let(:organization) { create :organization }
-  let(:voting) { create :voting, organization: organization }
+  let(:voting) { create :voting, organization: }
   let(:context) { { participatory_space: voting }.merge(extra_context) }
   let(:extra_context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
@@ -24,7 +24,7 @@ describe Decidim::Votings::Admin::Permissions do
   end
 
   context "when the user is not an admin" do
-    let(:user) { create :user, organization: organization }
+    let(:user) { create :user, organization: }
     let(:action) do
       { scope: :admin, action: :foo, subject: :bar }
     end
@@ -93,8 +93,8 @@ describe Decidim::Votings::Admin::Permissions do
     end
 
     context "when the user is a Monitoring Committee Member" do
-      let(:user) { create :user, organization: organization }
-      let!(:monitoring_committee_member) { create(:monitoring_committee_member, user: user, voting: voting) }
+      let(:user) { create :user, organization: }
+      let!(:monitoring_committee_member) { create(:monitoring_committee_member, user:, voting:) }
 
       context "when accessing the admin panel" do
         let(:action_subject) { :admin_dashboard }
@@ -118,8 +118,8 @@ describe Decidim::Votings::Admin::Permissions do
       end
 
       context "when listing another voting" do
-        let(:other_voting) { create(:voting, organization: organization) }
-        let!(:monitoring_committee_member) { create(:monitoring_committee_member, user: user, voting: other_voting) }
+        let(:other_voting) { create(:voting, organization:) }
+        let!(:monitoring_committee_member) { create(:monitoring_committee_member, user:, voting: other_voting) }
         let(:action_subject) { :voting }
         let(:action_name) { :list }
 
@@ -154,8 +154,8 @@ describe Decidim::Votings::Admin::Permissions do
 
     context "when updating a ballot style" do
       let(:action_name) { :update }
-      let(:extra_context) { { ballot_style: ballot_style } }
-      let(:ballot_style) { create(:ballot_style, voting: voting) }
+      let(:extra_context) { { ballot_style: } }
+      let(:ballot_style) { create(:ballot_style, voting:) }
 
       context "when census ballot style is not present" do
         let(:ballot_style) { nil }
@@ -168,13 +168,13 @@ describe Decidim::Votings::Admin::Permissions do
       end
 
       context "when census dataset is in init_data status" do
-        let!(:dataset) { create(:dataset, voting: voting, status: :init_data) }
+        let!(:dataset) { create(:dataset, voting:, status: :init_data) }
 
         it { is_expected.to be true }
       end
 
       context "when census dataset is in another status" do
-        let!(:dataset) { create(:dataset, voting: voting, status: :data_created) }
+        let!(:dataset) { create(:dataset, voting:, status: :data_created) }
 
         it { is_expected.to be false }
       end

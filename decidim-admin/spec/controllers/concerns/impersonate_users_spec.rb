@@ -16,7 +16,7 @@ module Decidim
       end
 
       let(:organization) { create(:organization) }
-      let(:user) { create(:user, :confirmed, :admin, organization: organization) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
       let(:impersonation_log) { create(:impersonation_log, expired_at: nil, ended_at: Time.current, reason: "Test") }
       let(:redirect_url) { "http://localhost:3000/admin/impersonatable_users" }
 

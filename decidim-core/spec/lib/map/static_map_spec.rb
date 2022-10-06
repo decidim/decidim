@@ -14,7 +14,7 @@ module Decidim
 
       describe "#link" do
         it "returns the default link" do
-          expect(subject.link(latitude: latitude, longitude: longitude)).to eq(
+          expect(subject.link(latitude:, longitude:)).to eq(
             "https://www.openstreetmap.org/?mlat=#{latitude}&mlon=#{longitude}#map=17/#{latitude}/#{longitude}"
           )
         end
@@ -23,8 +23,8 @@ module Decidim
           it "returns the correct link" do
             expect(
               subject.link(
-                latitude: latitude,
-                longitude: longitude,
+                latitude:,
+                longitude:,
                 options: { zoom: 15 }
               )
             ).to eq(
@@ -39,8 +39,8 @@ module Decidim
           it "returns the correct link" do
             expect(
               subject.link(
-                latitude: latitude,
-                longitude: longitude
+                latitude:,
+                longitude:
               )
             ).to eq(
               "https://customstreetmap.org/?mlat=#{latitude}&mlon=#{longitude}#map=17/#{latitude}/#{longitude}"
@@ -51,14 +51,14 @@ module Decidim
 
       describe "#url" do
         it "returns nil when the url has not been configured" do
-          expect(subject.url(latitude: latitude, longitude: longitude)).to be_nil
+          expect(subject.url(latitude:, longitude:)).to be_nil
         end
 
         context "with configured url" do
           let(:config) { { url: "https://staticmaps.example.org/" } }
 
           it "returns the correct URL" do
-            expect(subject.url(latitude: latitude, longitude: longitude)).to eq(
+            expect(subject.url(latitude:, longitude:)).to eq(
               "https://staticmaps.example.org/?latitude=#{latitude}&longitude=#{longitude}&zoom=15&width=120&height=120"
             )
           end
@@ -67,7 +67,7 @@ module Decidim
             let(:config) { { url: "https://staticmaps.example.org/?key=123&msg=foo" } }
 
             it "returns the correct URL" do
-              expect(subject.url(latitude: latitude, longitude: longitude)).to eq(
+              expect(subject.url(latitude:, longitude:)).to eq(
                 "https://staticmaps.example.org/?key=123&msg=foo&latitude=#{latitude}&longitude=#{longitude}&zoom=15&width=120&height=120"
               )
             end
@@ -77,8 +77,8 @@ module Decidim
             it "returns the correct URL" do
               expect(
                 subject.url(
-                  latitude: latitude,
-                  longitude: longitude,
+                  latitude:,
+                  longitude:,
                   options: { zoom: 10, width: 200, height: 200 }
                 )
               ).to eq(
@@ -105,15 +105,15 @@ module Decidim
             end
 
             util = utility_class.new(
-              organization: organization,
-              config: config.merge(url: url),
-              locale: locale
+              organization:,
+              config: config.merge(url:),
+              locale:
             )
             expect(
               util.url(
-                latitude: latitude,
-                longitude: longitude,
-                options: options
+                latitude:,
+                longitude:,
+                options:
               )
             ).to be(final_url)
           end
@@ -124,12 +124,12 @@ module Decidim
         it "returns the default params" do
           expect(
             subject.url_params(
-              latitude: latitude,
-              longitude: longitude
+              latitude:,
+              longitude:
             )
           ).to eq(
-            latitude: latitude,
-            longitude: longitude,
+            latitude:,
+            longitude:,
             zoom: 15,
             width: 120,
             height: 120
@@ -140,8 +140,8 @@ module Decidim
           it "returns the correct params" do
             expect(
               subject.url_params(
-                latitude: latitude,
-                longitude: longitude,
+                latitude:,
+                longitude:,
                 options: {
                   zoom: 10,
                   width: 200,
@@ -150,8 +150,8 @@ module Decidim
                 }
               )
             ).to eq(
-              latitude: latitude,
-              longitude: longitude,
+              latitude:,
+              longitude:,
               zoom: 10,
               width: 200,
               height: 200
@@ -167,8 +167,8 @@ module Decidim
             # it does not need to be tested separately.
             expect(
               subject.image_data(
-                latitude: latitude,
-                longitude: longitude
+                latitude:,
+                longitude:
               )
             ).to eq("")
           end
@@ -180,14 +180,14 @@ module Decidim
           let(:body) { "imagedata" }
 
           before do
-            stub_request(:get, image_url).to_return(body: body)
+            stub_request(:get, image_url).to_return(body:)
           end
 
           it "does a request and returns an the data returned by the URL" do
             expect(
               subject.image_data(
-                latitude: latitude,
-                longitude: longitude
+                latitude:,
+                longitude:
               )
             ).to eq(body)
 

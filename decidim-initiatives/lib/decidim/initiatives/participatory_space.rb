@@ -15,7 +15,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
   end
 
   participatory_space.participatory_spaces do |organization|
-    Decidim::Initiative.where(organization: organization)
+    Decidim::Initiative.where(organization:)
   end
 
   participatory_space.query_type = "Decidim::Initiatives::InitiativeType"
@@ -30,7 +30,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
 
   participatory_space.register_resource(:initiatives_type) do |resource|
     resource.model_class_name = "Decidim::InitiativesType"
-    resource.actions = %w(vote)
+    resource.actions = %w(vote create)
   end
 
   participatory_space.model_class_name = "Decidim::Initiative"
@@ -49,7 +49,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     organization = Decidim::Organization.first
 
     Decidim::ContentBlock.create(
-      organization: organization,
+      organization:,
       weight: 33,
       scope_name: :homepage,
       manifest_name: :highlighted_initiatives,
@@ -60,7 +60,7 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
       type = Decidim::InitiativesType.create!(
         title: Decidim::Faker::Localized.sentence(word_count: 5),
         description: Decidim::Faker::Localized.sentence(word_count: 25),
-        organization: organization,
+        organization:,
         banner_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city2.jpeg")),
           filename: "banner_image.jpeg",
@@ -71,8 +71,8 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
 
       organization.top_scopes.each do |scope|
         Decidim::InitiativesTypeScope.create(
-          type: type,
-          scope: scope,
+          type:,
+          scope:,
           supports_required: (n + 1) * 1000
         )
       end
@@ -86,13 +86,13 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
         title: Decidim::Faker::Localized.sentence(word_count: 3),
         description: Decidim::Faker::Localized.sentence(word_count: 25),
         scoped_type: Decidim::InitiativesTypeScope.reorder(Arel.sql("RANDOM()")).first,
-        state: state,
+        state:,
         signature_type: "online",
         signature_start_date: Date.current - 7.days,
         signature_end_date: Date.current + 7.days,
         published_at: 7.days.ago,
         author: Decidim::User.reorder(Arel.sql("RANDOM()")).first,
-        organization: organization
+        organization:
       }
 
       initiative = Decidim.traceability.perform_action!(

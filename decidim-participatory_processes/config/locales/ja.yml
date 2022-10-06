@@ -67,7 +67,7 @@ ja:
         participatory_process:
           attributes:
             document:
-              invalid_document_type: '無効なドキュメントの種類です。承認されたフォーマットは次のとおりです: %{valid_mime_types}'
+              allowed_file_content_types: '無効なドキュメントタイプです。使用できるフォーマット: %{types}'
     models:
       decidim/participatory_process_step_activated_event: フェーズ有効化
       decidim/participatory_process_step_changed_event: フェーズ変更
@@ -295,6 +295,9 @@ ja:
     admin_log:
       participatory_process:
         create: "%{user_name} が %{resource_name} の参加型プロセスを作成しました"
+        duplicate: "%{user_name} が %{resource_name} の参加プロセスを複製しました"
+        export: "%{user_name} が %{resource_name} の参加プロセスをエクスポートしました"
+        import: "%{user_name} が %{resource_name} の参加プロセスをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加型プロセスを公開しました"
         unpublish: "%{user_name} が %{resource_name} 参加型プロセスを非公開にしました"
         update: "%{user_name} が %{resource_name} の参加型プロセスを更新しました"

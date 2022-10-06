@@ -7,7 +7,7 @@ module Decidim
         value = value.values if value.is_a?(Hash)
         return unless Array(value).reject { |r| valid_object?(r) }.any?
 
-        record.errors.add(attribute, :invalid, **options.merge(value: value))
+        record.errors.add(attribute, :invalid, **options.merge(value:))
       end
 
       private

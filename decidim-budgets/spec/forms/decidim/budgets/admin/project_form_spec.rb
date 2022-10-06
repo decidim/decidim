@@ -10,11 +10,11 @@ module Decidim::Budgets
     let(:context) do
       {
         current_organization: organization,
-        current_component: current_component,
+        current_component:,
         current_participatory_space: participatory_process
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :budgets_component, participatory_space: participatory_process }
     let(:budget) { create :budget, component: current_component }
     let(:title) do
@@ -24,26 +24,57 @@ module Decidim::Budgets
       Decidim::Faker::Localized.sentence(word_count: 3)
     end
     let(:budget_amount) { Faker::Number.number(digits: 8) }
-    let(:parent_scope) { create(:scope, organization: organization) }
+    let(:parent_scope) { create(:scope, organization:) }
     let(:scope) { create(:subscope, parent: parent_scope) }
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
     let(:selected) { nil }
+    let(:latitude) { 40.1234 }
+    let(:longitude) { 2.1234 }
+    let(:address) { nil }
     let(:attributes) do
       {
         decidim_scope_id: scope_id,
         decidim_category_id: category_id,
         title_en: title[:en],
         description_en: description[:en],
-        budget_amount: budget_amount,
-        selected: selected
+        budget_amount:,
+        selected:,
+        address:
       }
     end
 
     it_behaves_like "a scopable resource"
 
     it { is_expected.to be_valid }
+
+    context "when geocoding is enabled" do
+      let(:current_component) { create :budgets_component, :with_geocoding_enabled, participatory_space: participatory_process }
+
+      context "when the address is not present" do
+        it "does not store the coordinates" do
+          expect(subject).to be_valid
+          expect(subject.address).to be_nil
+          expect(subject.latitude).to be_nil
+          expect(subject.longitude).to be_nil
+        end
+      end
+
+      context "when the address is present" do
+        let(:address) { "Some address" }
+
+        before do
+          stub_geocoding(address, [latitude, longitude])
+        end
+
+        it "validates the address and store its coordinates" do
+          expect(subject).to be_valid
+          expect(subject.latitude).to eq(latitude)
+          expect(subject.longitude).to eq(longitude)
+        end
+      end
+    end
 
     describe "when title is missing" do
       let(:title) { { en: nil } }
@@ -82,7 +113,7 @@ module Decidim::Budgets
     end
 
     it "properly maps category id from model" do
-      project = create(:project, component: current_component, category: category)
+      project = create(:project, component: current_component, category:)
 
       expect(described_class.from_model(project).decidim_category_id).to eq(category_id)
     end
@@ -96,9 +127,9 @@ module Decidim::Budgets
       let(:project) do
         create(
           :project,
-          budget: budget,
-          scope: scope,
-          category: category
+          budget:,
+          scope:,
+          category:
         )
       end
 
@@ -124,7 +155,7 @@ module Decidim::Budgets
 
     describe "#selected" do
       context "and properly maps selected? from model" do
-        let(:project) { create :project, selected_at: selected_at }
+        let(:project) { create :project, selected_at: }
 
         context "when is not selected" do
           let(:selected_at) { nil }
@@ -170,16 +201,16 @@ module Decidim::Budgets
       end
 
       context "when the participatory space has a scope" do
-        let(:parent_scope) { create(:scope, organization: organization) }
-        let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: parent_scope) }
-        let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
+        let(:parent_scope) { create(:scope, organization:) }
+        let(:participatory_process) { create(:participatory_process, :with_steps, organization:, scope: parent_scope) }
+        let(:scope) { create(:scope, organization:, parent: parent_scope) }
 
         context "when the scope is descendant from participatory space scope" do
           it { is_expected.to eq(scope) }
         end
 
         context "when the scope is not descendant from participatory space scope" do
-          let(:scope) { create(:scope, organization: organization) }
+          let(:scope) { create(:scope, organization:) }
 
           it { is_expected.to be_valid }
 

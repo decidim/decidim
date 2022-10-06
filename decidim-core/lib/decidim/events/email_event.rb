@@ -19,7 +19,7 @@ module Decidim
         type :email
 
         def email_subject
-          I18n.t("decidim.events.email_event.email_subject", resource_title: resource_title)
+          I18n.t("decidim.events.email_event.email_subject", resource_title:)
         end
 
         def email_greeting
@@ -27,11 +27,11 @@ module Decidim
         end
 
         def email_intro
-          I18n.t("decidim.events.email_event.email_intro", resource_title: resource_title)
+          I18n.t("decidim.events.email_event.email_intro", resource_title:)
         end
 
         def email_outro
-          I18n.t("decidim.events.email_event.email_outro", resource_title: resource_title)
+          I18n.t("decidim.events.email_event.email_outro", resource_title:)
         end
 
         def has_button?

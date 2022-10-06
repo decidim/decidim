@@ -30,7 +30,6 @@ module Decidim
           attributes = {
             election: form.election,
             title: form.title,
-            description: form.description,
             max_selections: form.max_selections,
             weight: form.weight,
             random_answers_order: form.random_answers_order,

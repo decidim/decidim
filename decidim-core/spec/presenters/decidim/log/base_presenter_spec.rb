@@ -9,9 +9,9 @@ describe Decidim::Log::BasePresenter, type: :helper do
   let(:action_log) do
     create(
       :action_log,
-      user: user,
-      action: action,
-      resource: resource,
+      user:,
+      action:,
+      resource:,
       created_at: Date.new(2018, 1, 2).at_midnight
     )
   end

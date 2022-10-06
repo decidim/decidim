@@ -67,7 +67,6 @@ it:
     'true': 'Si'
   carrierwave:
     errors:
-      image_too_big: L'immagine è troppo grande
       not_inside_organization: Il file non è collegato a nessuna organizzazione
   date:
     formats:
@@ -83,9 +82,6 @@ it:
       skip_button: Vai al contenuto principale
     account:
       blocked: Questo account è stato bloccato a causa della violazione di Termini e Condizioni
-      data_portability_export:
-        file_no_exists: Il file non esiste
-        notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       delete:
         alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai accedere con le tue credenziali. La cancellazione del tuo account comporterà l'anonimizzazione dei tuoi contributi. Sarai ancora in grado di creare un nuovo account, ma questi contributi non saranno associati ad esso.
         confirm:
@@ -97,6 +93,9 @@ it:
       destroy:
         error: Si è verificato un errore durante l'eliminazione del tuo account.
         success: Il tuo account è stato eliminato correttamente.
+      download_your_data_export:
+        file_no_exists: Il file non esiste
+        notice: Il download dei tuoi dati è in corso. Riceverai un'email non appena completato.
       show:
         change_password: Cambia password
         update_account: Aggiorna l'account
@@ -374,8 +373,8 @@ it:
             amendments_enabled: Emendamenti abilitati
             comments_enabled: Commenti abilitati
             comments_max_length: Lunghezza massima dei commenti
-            dummy_global_attribute_1: Attributo fittizio 1
-            dummy_global_attribute_2: Attributo fittizio 2
+            dummy_global_attribute1: Attributo fittizio 1
+            dummy_global_attribute2: Attributo fittizio 2
             dummy_global_translatable_text: Testo traducibile Dummy
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
@@ -387,8 +386,8 @@ it:
             amendment_reaction_enabled: Risposta all'emendamento abilitata
             amendments_visibility: Visibilità dell'emendamento
             comments_blocked: Commenti bloccati
-            dummy_step_attribute_1: Attributo Dummy Step 1
-            dummy_step_attribute_2: Attributo Dummy Step 2
+            dummy_step_attribute1: Attributo Dummy Step 1
+            dummy_step_attribute2: Attributo Dummy Step 2
             dummy_step_translatable_text: Testo traducibile Dummy
     contact: Contatto
     content_blocks:
@@ -432,13 +431,6 @@ it:
       actions:
         login_before_access: Per favore, fai login con il tuo account prima di accedere
         unauthorized: Non sei autorizzato a eseguire questa azione
-    data_portability:
-      export:
-        ready: Pronto
-      show:
-        download_data: Scarica i dati
-        download_data_description: Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Richiedi dati
     datepicker:
       help_text: 'Formato previsto: %{datepicker_format}'
     devise:
@@ -457,7 +449,6 @@ it:
           newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           newsletter_title: Autorizzazione di contatto
           nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
-          password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
           sign_in: Accedi
           sign_up: Registrati
           sign_up_as:
@@ -506,6 +497,13 @@ it:
           this_application_will_not_be_able_to: 'Questa applicazione non sarà in grado di:'
           update_profile: Aggiorna il tuo profilo
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
+    download_your_data:
+      export:
+        ready: Pronto
+      show:
+        download_data: Scarica i dati
+        download_data_description: Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
+        request_data: Richiedi dati
     editor_images:
       create:
         error: Errore nel caricamento dell'immagine
@@ -671,7 +669,7 @@ it:
           email_subject: "%{nickname} ha aggiornato il proprio profilo"
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Clicca sul link per scaricare i tuoi dati.<br/>Il file sarà disponibile fino a %{date}.<br/>Avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows), <a href="https://www.keka.io/en/">Keka</a> (per MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per Linux) per aprirlo. Password: %{password}'
         download: Scaricare
       export:
@@ -721,7 +719,6 @@ it:
         file:
           explanation: 'Orientamenti per il file:'
           message_1: Deve essere un'immagine o un documento.
-          message_2: Per le immagini, usare preferibilmente immagini orizzontali, il servizio ritaglia l'immagine. Per i file CSV, il separatore tra colonne deve essere una virgola (",")
         image:
           explanation: 'Orientamenti per il file:'
           message_1: Preferibilmente un'immagine orizzontale che non ha alcun testo.
@@ -841,7 +838,6 @@ it:
       no_user_groups: Non appartiene ancora a nessun gruppo.
       roles:
         admin: Amministratore
-        creator: Creatore
         member: Membro
       update:
         error: Si è verificato un problema durante l'aggiornamento del gruppo
@@ -1049,14 +1045,11 @@ it:
         administrators: Amministratori
         allow_public_contact: Permetti a chiunque di inviarmi un messaggio diretto, anche se non lo seguo.
         direct_messages: Ricevi messaggi diretti da chiunque
-        email_on_moderations: Voglio ricevere un'email ogni volta che qualcosa viene segnalato per la moderazione.
-        email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
         everything_followed: Tutto ciò che seguo
         newsletter_notifications: Voglio ricevere le newsletter
         newsletters: Le Newsletter
         own_activity: La mia attività personale, come quando qualcuno commenta la mia proposta o mi menziona
         receive_notifications_about: Voglio ricevere le notifiche
-        send_notifications_by_email: Invia notifiche via email
         update_notifications_settings: Salva le modifiche
       update:
         error: Si è verificato un errore durante l'aggiornamento delle impostazioni di notifica.
@@ -1118,7 +1111,6 @@ it:
           agreement: Accetto le condizioni
           legend: Accetta i termini e le condizioni d'uso
         refuse:
-          modal_body: Se rifiuti, non sarai in grado di utilizzare la piattaforma, puoi <a href="%{data_portability_path}">scaricare i tuoi dati</a> e / o <a href="%{delete_path}">cancellare il tuo account</a>.
           modal_btn_continue: Accetta i termini e continua
           modal_btn_exit: Lo esaminerò più tardi
           modal_button: Rifiuta i termini
@@ -1420,7 +1412,6 @@ it:
     invitations:
       edit:
         header: Completa la creazione del tuo account
-        nickname_help: Il tuo identificativo univoco in %{organization}.
         submit_button: Salva
         subtitle: Se accetti l'invito, imposta il tuo nickname e password.
       invitation_removed: Il tuo invito è stato rimosso
@@ -1487,7 +1478,6 @@ it:
     passwords:
       edit:
         change_my_password: Cambia la mia password
-        change_your_password: Cambia la tua password
         confirm_new_password: Conferma la nuova password
         new_password: Nuova password
         password_help: "%{minimun_characters} caratteri minimi, non deve essere troppo comune (ad esempio 123456) e deve essere diverso dal tuo nickname e dalla tua email."
@@ -1578,10 +1568,6 @@ it:
     timestamp_error_message: Mi dispiace, troppo veloce! Per favore, invia di nuovo.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: Questo sito utilizza cookies. Se continui la navigazione significa che approvi i nostri termini di utilizzo di cookies. Per saperne di più, leggi %{link}.
-        link_label: qui
-        ok: OK, accetto
       edit_link:
         edit: Modifica
       footer:
@@ -1682,6 +1668,8 @@ it:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a %d %b %Y, %H:%M:%S %z"

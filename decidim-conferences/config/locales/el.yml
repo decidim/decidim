@@ -58,9 +58,7 @@ el:
         avatar: Εικόνα Χρήστη
         conference_meeting_ids: Σχετικές συναντήσεις
         full_name: Ονοματεπώνυμο
-        personal_url: Προσωπικό url
         position: Θέση
-        short_bio: Σύντομο Βιογραφικό
         twitter_handle: Ψευδώνυμο Twitter
         user_id: Χρήστης
       conference_user_role:

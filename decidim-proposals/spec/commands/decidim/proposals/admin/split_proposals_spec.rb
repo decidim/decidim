@@ -13,10 +13,10 @@ module Decidim
           let(:form) do
             instance_double(
               ProposalsSplitForm,
-              current_component: current_component,
+              current_component:,
               current_organization: current_component.organization,
-              target_component: target_component,
-              proposals: proposals,
+              target_component:,
+              proposals:,
               valid?: valid,
               same_component?: same_component,
               current_user: create(:user, :admin, organization: current_component.organization)
@@ -35,7 +35,7 @@ module Decidim
             it "doesn't create the proposal" do
               expect do
                 command.call
-              end.to change(Proposal, :count).by(0)
+              end.not_to change(Proposal, :count)
             end
           end
 

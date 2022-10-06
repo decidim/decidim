@@ -6,11 +6,11 @@ describe Decidim::Meetings::Admin::MeetingsController, type: :controller do
   routes { Decidim::Meetings::AdminEngine.routes }
 
   let(:meeting) { create :meeting, component: meeting_component }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
 
   let(:time_zone) { "UTC" }
-  let(:organization) { create(:organization, time_zone: time_zone) }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:organization) { create(:organization, time_zone:) }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:meeting_component) { create(:meeting_component, participatory_space: participatory_process) }
   let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
   let(:proposal) { create(:proposal, component: proposal_component) }

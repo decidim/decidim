@@ -11,7 +11,7 @@ module Decidim::Exporters
 
       let!(:component1) { create(:component) }
       let!(:participatory_space) { component1.participatory_space }
-      let!(:component2) { create(:component, participatory_space: participatory_space) }
+      let!(:component2) { create(:component, participatory_space:) }
       let(:components) do
         { component1.id => component1, component2.id => component2 }
       end

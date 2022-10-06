@@ -7,20 +7,20 @@ module Decidim::Admin
     subject { described_class.new(scope, form) }
 
     let(:organization) { create :organization }
-    let(:parent_scope) { create :scope, organization: organization }
-    let(:scope) { create :scope, parent: parent_scope, organization: organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
+    let(:parent_scope) { create :scope, organization: }
+    let(:scope) { create :scope, parent: parent_scope, organization: }
+    let(:user) { create :user, :admin, :confirmed, organization: }
     let(:name) { Decidim::Faker::Localized.literal("New name") }
     let(:code) { "NEWCODE" }
-    let(:scope_type) { create :scope_type, organization: organization }
+    let(:scope_type) { create :scope_type, organization: }
 
     let(:form) do
       double(
         invalid?: invalid,
         current_user: user,
-        name: name,
-        code: code,
-        scope_type: scope_type
+        name:,
+        code:,
+        scope_type:
       )
     end
     let(:invalid) { false }

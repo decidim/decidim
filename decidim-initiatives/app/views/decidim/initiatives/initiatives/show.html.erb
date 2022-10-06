@@ -40,7 +40,9 @@ edit_link(
               <%= render partial: "vote_cabin", locals: { initiative: current_initiative } %>
             </div>
           <% end %>
-          <%= render partial: "interactions" %>
+          <% if current_initiative.commentable? %>
+            <%= render partial: "interactions" %>
+          <% end %>
         <% else %>
           <%= link_to t(".edit"),
               edit_initiative_path(current_initiative),
@@ -90,4 +92,4 @@ edit_link(
   </div>
 </div>
 
-<%= comments_for current_initiative if current_initiative.published? %>
+<%= comments_for current_initiative if current_initiative.commentable? && current_initiative.published? %>

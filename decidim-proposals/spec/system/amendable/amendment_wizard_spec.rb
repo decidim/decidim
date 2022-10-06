@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Amendment Wizard", type: :system do
   let!(:component) { create(:proposal_component, :with_amendments_enabled) }
-  let!(:proposal) { create(:proposal, title: { en: "More roads and less sidewalks" }, component: component) }
+  let!(:proposal) { create(:proposal, title: { en: "More roads and less sidewalks" }, component:) }
   let!(:user) { create :user, :confirmed, organization: component.organization }
   let(:proposal_path) { Decidim::ResourceLocatorPresenter.new(proposal).path }
 
@@ -58,8 +58,8 @@ describe "Amendment Wizard", type: :system do
 
     context "and in step_2: Compare your amendment" do
       context "with similar results" do
-        let!(:emendation) { create(:proposal, title: { en: title }, body: { en: body }, component: component) }
-        let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
+        let!(:emendation) { create(:proposal, title: { en: title }, body: { en: body }, component:) }
+        let!(:amendment) { create :amendment, amendable: proposal, emendation: }
 
         before do
           within ".new_amendment" do
@@ -87,7 +87,7 @@ describe "Amendment Wizard", type: :system do
             expect(page).to have_css(".card--proposal", count: 1)
           end
 
-          within ".flash.callout.success" do
+          within "[data-alert-box].success" do
             expect(page).to have_content("Amendment draft has been created successfully.")
           end
         end
@@ -117,7 +117,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "shows no similar proposal found callout" do
-          within ".flash.callout.success" do
+          within "[data-alert-box].success" do
             expect(page).to have_content("No similar emendations found.")
           end
         end
@@ -159,7 +159,7 @@ describe "Amendment Wizard", type: :system do
           find("*[type=submit]").click
         end
 
-        within ".flash.callout.success" do
+        within "[data-alert-box].success" do
           expect(page).to have_content("Amendment draft successfully updated.")
         end
       end
@@ -173,7 +173,7 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "redirects to step_1: Create your amendment" do
-          within ".flash.callout.success" do
+          within "[data-alert-box].success" do
             expect(page).to have_content("Amendment draft was successfully deleted.")
           end
 
@@ -185,8 +185,8 @@ describe "Amendment Wizard", type: :system do
 
       context "when the back button is clicked" do
         context "with similar results" do
-          let!(:emendation) { create(:proposal, title: { en: title }, body: { en: body }, component: component) }
-          let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
+          let!(:emendation) { create(:proposal, title: { en: title }, body: { en: body }, component:) }
+          let!(:amendment) { create :amendment, amendable: proposal, emendation: }
 
           before do
             click_link "Back"
@@ -209,7 +209,7 @@ describe "Amendment Wizard", type: :system do
               expect(page).to have_content("EDIT AMENDMENT DRAFT")
             end
 
-            within ".flash.callout.success" do
+            within "[data-alert-box].success" do
               expect(page).to have_content("No similar emendations found.")
             end
           end
@@ -263,9 +263,9 @@ describe "Amendment Wizard", type: :system do
         end
 
         it "publishes the amendment" do
-          expect(page).to have_css(".callout.warning", text: "This amendment for the proposal #{translated(proposal.title)} is being evaluated.")
+          expect(page).to have_css(".callout.warning[data-announcement]", text: "This amendment for the proposal #{translated(proposal.title)} is being evaluated.")
 
-          within ".flash.callout.success" do
+          within "[data-alert-box].success" do
             expect(page).to have_content("Amendment successfully published.")
           end
         end
@@ -294,9 +294,9 @@ describe "Amendment Wizard", type: :system do
   end
 
   context "with existing amendment drafts" do
-    let!(:emendation) { create(:proposal, component: component) }
-    let!(:amendment) { create :amendment, amendable: proposal, emendation: emendation }
-    let!(:emendation_draft) { create(:proposal, :unpublished, component: component) }
+    let!(:emendation) { create(:proposal, component:) }
+    let!(:amendment) { create :amendment, amendable: proposal, emendation: }
+    let!(:emendation_draft) { create(:proposal, :unpublished, component:) }
     let!(:amendment_draft) { create :amendment, :draft, amendable: proposal, emendation: emendation_draft }
 
     context "and visiting an amended proposal" do

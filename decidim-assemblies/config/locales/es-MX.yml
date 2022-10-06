@@ -73,7 +73,7 @@ es-MX:
         assembly:
           attributes:
             document:
-              invalid_document_type: 'Tipo de documento invalido. Los formatos que se aceptan son: %{valid_mime_types}'
+              allowed_file_content_types: 'Tipo de documento inválido. Los formatos aceptados son: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -242,6 +242,9 @@ es-MX:
     admin_log:
       assembly:
         create: "%{user_name} creó la asamblea %{resource_name}"
+        duplicate: "%{user_name} duplicó la asamblea %{resource_name}"
+        export: "%{user_name} exportó la asamblea %{resource_name}"
+        import: "%{user_name} importó la asamblea %{resource_name}"
         publish: "%{user_name} publicó la asamblea %{resource_name}"
         unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
         update: "%{user_name} actualizó la asamblea %{resource_name}"
@@ -270,7 +273,7 @@ es-MX:
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
             filters: Filtros
             images: Imágenes
-            included_at_help: Selecciona la fecha en la que se añadió esta asamblea a la plataforma. No necesariamente tiene que ser la misma que la fecha de creación.
+            included_at_help: Selecciona la fecha en la que se añadió esta asamblea a la plataforma. No es necesario que sea la misma que la fecha de creación.
             metadata: Metadatos
             other: Otro
             select_a_created_by: Selecciona creada por
@@ -300,9 +303,9 @@ es-MX:
           form:
             existing_user: Usuario existente
             explanation: 'Instrucciones para la imagen:'
-            image_guide: Preferiblemente una imagen apaisada que no tenga ningún texto.
+            image_guide: Preferiblemente una imagen en formato horizontal que no contenga texto.
             non_user: No usuario
-            non_user_avatar_help: Debes obtener el consentimiento de las personas antes de publicarlas como miembros.
+            non_user_avatar_help: Debes obtener el consentimiento de las personas antes de publicarles como miembros.
             select_a_position: Selecciona una posición
             select_user: Selecciona un usuario
             user_type: Tipo de usuario
@@ -319,6 +322,9 @@ es-MX:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Acerca de esta asamblea
       assembly_members:
         index:
           members: Miembros
@@ -386,7 +392,7 @@ es-MX:
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         social_networks: Redes sociales
-        social_networks_title: Compartir esta asamblea en
+        social_networks_title: Visita la asamblea en
         target: Quién participa
     assembly_members:
       assembly_member:
@@ -397,7 +403,7 @@ es-MX:
       assemblies:
         create_assembly_member:
           email_intro: Una administradora de la asamblea <a href="%{resource_url}">%{resource_name}</a> te ha añadido como uno de sus miembros.
-          email_outro: Recibes esta notificación porque te han invitado a una asamblea. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
+          email_outro: Recibiste esta notificación porque has sido invitado a una asamblea. ¡Entra a <a href="%{resource_url}">la página de la asamblea</a> para contribuir!
           email_subject: '¡Te han invitado a ser miembro de la asamblea %{resource_name}!'
           notification_title: Te han registrado como miembro de la asamblea<a href="%{resource_path}">%{resource_name}</a>. ¡Entra en <a href="%{resource_path}">assembly page</a> para contribuir!
       assembly:

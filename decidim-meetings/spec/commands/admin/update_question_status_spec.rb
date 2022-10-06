@@ -10,9 +10,9 @@ module Decidim
         let(:current_user) { create :user, organization: meeting_component.organization }
         let(:meeting_component) { create :meeting_component }
         let(:meeting) { create :meeting, component: meeting_component }
-        let(:poll) { create :poll, meeting: meeting }
+        let(:poll) { create :poll, meeting: }
         let(:questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
-        let(:question) { create :meetings_poll_question, questionnaire: questionnaire }
+        let(:question) { create :meetings_poll_question, questionnaire: }
         let(:command) { described_class.new(question, current_user) }
 
         context "with a persisted poll and questionnaire" do
@@ -29,7 +29,7 @@ module Decidim
           end
 
           describe "when the status is published" do
-            let(:question) { create :meetings_poll_question, :published, questionnaire: questionnaire }
+            let(:question) { create :meetings_poll_question, :published, questionnaire: }
 
             it "broadcasts ok" do
               expect { command.call }.to broadcast(:ok)
@@ -43,7 +43,7 @@ module Decidim
           end
 
           describe "when the status is closed" do
-            let(:question) { create :meetings_poll_question, :closed, questionnaire: questionnaire }
+            let(:question) { create :meetings_poll_question, :closed, questionnaire: }
 
             it "broadcasts invalid" do
               expect { command.call }.to broadcast(:invalid)

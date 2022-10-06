@@ -9,7 +9,7 @@ describe Decidim::Messaging::Message do
   context "when sender is not a participant" do
     subject do
       conversation = Decidim::Messaging::Conversation.start(
-        originator: originator,
+        originator:,
         interlocutors: [recipient],
         body: "Hei!"
       )
@@ -23,7 +23,7 @@ describe Decidim::Messaging::Message do
   context "when the body contains urls" do
     subject(:conversation) do
       Decidim::Messaging::Conversation.start(
-        originator: originator,
+        originator:,
         interlocutors: [recipient],
         body: "Hei!"
       )
@@ -40,7 +40,7 @@ describe Decidim::Messaging::Message do
     end
 
     it "converts all URLs to links" do
-      conversation.add_message(sender: create(:user), body: body)
+      conversation.add_message(sender: create(:user), body:)
       expect(conversation.messages.last.body_with_links).to eq(result)
     end
   end

@@ -393,7 +393,6 @@ ga:
         moderation:
           fields:
             report_count: Líon
-            reportable_id: Id
             reportable_type: Cineál
             reports: Tuairiscí
         report:

@@ -164,13 +164,10 @@ nl:
           title: Bevestig de stem
         budget_excess:
           budget_excess:
-            description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, of je stem uitbrengen volgens je voorkeuren.
             title: Maximum budget overschreden
           close: Sluit
-          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, of je stem uitbrengen volgens je eigen voorkeuren.
           ok: OK
           projects_excess:
-            description: Dit project overschrijdt het maximum aantal projecten en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, of je stem uitbrengen volgens je eigen voorkeuren.
             title: Maximum aantal projecten overschreden
         budget_summary:
           are_you_sure: Weet u zeker dat u uw stem wilt annuleren?
@@ -272,7 +269,6 @@ nl:
             total_budget: Totale budget
             vote_minimum_budget_projects_number: Minimaal aantal projecten om te stemmen
             vote_rule_minimum_budget_projects_enabled: 'Inschakelen van regel: minimum aantal projecten waarover gestemd moet worden'
-            vote_rule_selected_projects_enabled: 'Activeer regel: er moet over een minimum en een maximum aantal projecten gestemd worden'
             vote_rule_threshold_percent_enabled: 'Regel inschakelen: Minimaal budget percentage'
             vote_selected_projects_maximum: Maximum aantal te selecteren projecten
             vote_selected_projects_minimum: Minimaal aantal te selecteren projecten

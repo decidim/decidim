@@ -7,7 +7,7 @@
         <% highlighted_consultations.each do |consultation| %>
           <div class="column">
             <%= link_to decidim_consultations.consultation_path(consultation), class: "card card--consultation card--mini" do %>
-              <div class="card__image-top" style="background-image:url(<%= consultation.attached_uploader(:banner_image).path %>)"></div>
+              <div class="card__image-top" style="background-image:url('<%= consultation.attached_uploader(:banner_image).path %>')"></div>
               <div class="card__content">
                 <span class="card__title card__link"><%= translated_attribute consultation.title %></span>
                 <span class="card--process__small"><%= voting_ends_text_for(consultation) %></span>

@@ -64,7 +64,6 @@ eu:
     'true': 'Bai'
   carrierwave:
     errors:
-      image_too_big: Irudia pisuegia da
       not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
     formats:
@@ -80,9 +79,6 @@ eu:
       skip_button: Joan eduki nagusira
     account:
       blocked: Kontu hau blokeatu da erabilera-irizpideak eta baldintzak urratzeagatik
-      data_portability_export:
-        file_no_exists: Fitxategia ez dago
-        notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       delete:
         alert: Ekintza hori ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi zure kredentzialekin. Zure kontua ezabatzeak zure ekarpenen anonimotasuna ekarriko du. Oraindik kontu berri bat sortu ahal izango duzu, baina ekarpen horiek ez dira kontu horrekin lotuko.
         confirm:
@@ -94,6 +90,9 @@ eu:
       destroy:
         error: Errore bat gertatu da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
+      download_your_data_export:
+        file_no_exists: Fitxategia ez dago
+        notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       show:
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
@@ -371,8 +370,8 @@ eu:
             amendments_enabled: Emendakinak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera
-            dummy_global_attribute_1: Dummy Atributua 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute1: Dummy Atributua 1
+            dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Itzul daitekeen adibidearen testua
             enable_pads_creation: Gaitu pads sortzea
             resources_permissions_enabled: Baliabideen baimenak gaituta
@@ -384,8 +383,8 @@ eu:
             amendment_reaction_enabled: Zuzenketaren erreakzioa aktibatuta
             amendments_visibility: Zuzenketaren ikusgarritasuna
             comments_blocked: Iruzkinak blokeatuta
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute1: Dummy Step Attribute 1
+            dummy_step_attribute2: Dummy Step Attribute 2
             dummy_step_translatable_text: Itzul daitekeen adibidearen fasea
     contact: Harremanetarako
     content_blocks:
@@ -429,12 +428,6 @@ eu:
       actions:
         login_before_access: Mesedez, sartu baino lehen hasi saioa zure kontuarekin
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
-    data_portability:
-      export:
-        ready: prest
-      show:
-        download_data: Deskargatu datuak
-        request_data: Eskaera datuak
     datepicker:
       help_text: 'Espero den formatua: %{datepicker_format}'
     devise:
@@ -497,6 +490,12 @@ eu:
           this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
           update_profile: Eguneratu profila
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> zure kontua erabili nahi du"
+    download_your_data:
+      export:
+        ready: prest
+      show:
+        download_data: Deskargatu datuak
+        request_data: Eskaera datuak
     editor_images:
       create:
         error: Arazoa irudia eguneratzean
@@ -662,7 +661,7 @@ eu:
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
-      data_portability_export:
+      download_your_data_export:
         click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
         download: Deskarga
       export:
@@ -709,7 +708,6 @@ eu:
         file:
           explanation: 'Jarraibideak artxiborako:'
           message_1: Irudi bat edo dokumentu bat izan behar da.
-          message_2: Irudietarako, ahal izanez gero, erabili irudi etzanak, zerbitzuak irudia moztu egiten baitu. CSV artxiboetarako zutabeen arteko banatzailea koma bat izan behar da (",")
         image:
           explanation: 'Jarraibideak irudirako:'
           message_1: Ahal izanez gero, irudi etzana eta testurik gabekoa.
@@ -829,7 +827,6 @@ eu:
       no_user_groups: Oraindik ez da talde batekoa.
       roles:
         admin: Administrator
-        creator: Sortzailea
         member: kidea
       update:
         error: Arazo bat izan da taldea eguneratzean
@@ -1033,14 +1030,11 @@ eu:
         administrators: Administratzaileak
         allow_public_contact: Baimentzea edonork bidali diezadala mezu zuzena, nahiz eta nik jarraitu ez.
         direct_messages: Edonoren mezu zuzenak jasotzea
-        email_on_moderations: Mezu elektroniko bat jaso nahi dut zerbait neurriz erreportatzen den bakoitzean.
-        email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
         everything_followed: Jarraitzen dudan guztia
         newsletter_notifications: Buletinak jaso nahi ditut
         newsletters: Buletinak
         own_activity: Nire jarduera, norbaiti nire proposamena iruzkindu edo aipatzen dudanean
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
-        send_notifications_by_email: Bidali jakinarazpenak posta elektronikoz
         update_notifications_settings: Gorde aldaketak
       update:
         error: Errore bat gertatu da jakinarazpenen konfigurazioa eguneratzean.
@@ -1098,7 +1092,6 @@ eu:
           agreement: Ados nago irizpide hauekin
           legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
         refuse:
-          modal_body: Uko egiten baduzu, ezin izango duzu plataforman erabiltzeko gai, ezin duzu <a href="%{data_portability_path}">deskargatu zure datu</a> edo / <a href="%{delete_path}">zure kontua ezabatu</a>.
           modal_btn_continue: Baldintzak onartu eta jarraitu
           modal_btn_exit: Berriro berrikusiko dut geroago
           modal_button: Ezetsi terminoak
@@ -1400,7 +1393,6 @@ eu:
     invitations:
       edit:
         header: Amaitu zure kontua sortzea
-        nickname_help: Zure identifikadore bakarra %{organization} zenbakian.
         submit_button: Gorde
         subtitle: Gonbidapena onartzen baduzu, ezarri zure ezizena eta pasahitza.
       invitation_removed: Zure gonbidapena kendu egin da.
@@ -1467,7 +1459,6 @@ eu:
     passwords:
       edit:
         change_my_password: Aldatu nire pasahitza
-        change_your_password: Aldatu zure pasahitza
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
       new:
@@ -1553,10 +1544,6 @@ eu:
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
   layouts:
     decidim:
-      cookie_warning:
-        description_html: 'Webgune honek bere cookieak eta hirugarrenenak erabiltzen ditu, nabigazioa hobetu eta intereseko edukiak eta zerbitzuak eskaintze aldera. Nabigatzen jarraituz gero, gure cookie-politika onartzen delakoan gaude. Argibide gehiago jasotzeko, kontsultatu hemen: %{link}.'
-        link_label: hemen
-        ok: Ados nago
       edit_link:
         edit: Editatu
       footer:

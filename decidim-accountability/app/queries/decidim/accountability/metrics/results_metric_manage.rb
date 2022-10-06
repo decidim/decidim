@@ -21,7 +21,7 @@ module Decidim
                                                            participatory_space_type: space_type,
                                                            participatory_space_id: space_id,
                                                            related_object_type: "Decidim::Component",
-                                                           related_object_id: related_object_id)
+                                                           related_object_id:)
             record.assign_attributes(cumulative: cumulative_value, quantity: quantity_value)
             record.save!
           end

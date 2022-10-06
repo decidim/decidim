@@ -71,7 +71,7 @@ module Decidim
 
         html_options["data-open"] = "loginModal"
         url = "#"
-      elsif action && !action_authorized_to(action, resource: resource, permissions_holder: permissions_holder).ok?
+      elsif action && !action_authorized_to(action, resource:, permissions_holder:).ok?
         html_options = clean_authorized_to_data_open(html_options)
 
         html_options["data-open"] = "authorizationModal"

@@ -7,7 +7,7 @@ module Decidim::Assemblies
     subject { described_class.new(role, current_user) }
 
     let(:my_assembly) { create :assembly }
-    let(:role) { create :assembly_user_role, user: user, assembly: my_assembly, role: :admin }
+    let(:role) { create :assembly_user_role, user:, assembly: my_assembly, role: :admin }
     let!(:current_user) { create :user, email: "some_email@example.org", organization: my_assembly.organization }
     let!(:user) { create :user, :confirmed, organization: my_assembly.organization }
 

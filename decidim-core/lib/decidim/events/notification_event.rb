@@ -22,8 +22,8 @@ module Decidim
         def notification_title
           I18n.t(
             "decidim.events.notification_event.notification_title",
-            resource_title: resource_title,
-            resource_path: resource_path
+            resource_title:,
+            resource_path:
           ).html_safe
         end
       end

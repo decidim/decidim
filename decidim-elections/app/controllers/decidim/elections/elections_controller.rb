@@ -16,7 +16,7 @@ module Decidim
       end
 
       def show
-        enforce_permission_to :view, :election, election: election
+        enforce_permission_to :view, :election, election:
       end
 
       def election_log; end

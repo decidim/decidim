@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "English"
 require "csv"
 
 module Decidim
@@ -9,6 +10,8 @@ module Decidim
         # A command with the business logic to create census dataset for a
         # voting space.
         class CreateDataset < Decidim::Command
+          include Decidim::ProcessesFileLocally
+
           def initialize(form, current_user)
             @form = form
             @current_user = current_user
@@ -23,23 +26,28 @@ module Decidim
           def call
             return broadcast(:invalid) unless form.valid?
 
-            dataset = create_census_dataset!
+            process_file_locally(form.file) do |file_path|
+              @file_path = file_path
+              dataset = create_census_dataset!
 
-            if csv_header_invalid?
-              dataset.destroy!
-              return broadcast(:invalid_csv_header)
-            end
+              if csv_header_invalid?
+                dataset.destroy!
+                return broadcast(:invalid_csv_header)
+              end
 
-            if dataset
-              CSV.foreach(file_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
-                CreateDatumJob.perform_later(current_user, dataset, row.fields)
+              if dataset
+                CSV.foreach(file_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
+                  CreateDatumJob.perform_later(current_user, dataset, row.fields)
+                end
               end
             end
 
             broadcast(:ok)
           end
 
-          attr_reader :form, :current_user
+          private
+
+          attr_reader :form, :current_user, :file_path
           attr_accessor :dataset
 
           def create_census_dataset!
@@ -48,7 +56,7 @@ module Decidim
               current_user,
               {
                 voting: form.current_participatory_space,
-                file: form.file,
+                filename: form.file.filename.to_s,
                 csv_row_raw_count: csv_row_count,
                 status: :creating_data
               },
@@ -57,35 +65,34 @@ module Decidim
           end
 
           def csv_header_invalid?
-            CSV.parse_line(File.open(file_path), col_sep: ";", headers: true, header_converters: :symbol).headers != expected_headers
+            headers.blank? || headers != expected_headers
           end
 
           def headers
+            @headers ||= CSV.parse_line(File.open(file_path), col_sep: ";", headers: true, header_converters: :symbol)&.headers
+          end
+
+          def no_ballot_headers
             [:document_id, :document_type, :date_of_birth, :full_name, :full_address, :postal_code, :mobile_phone_number, :email_address]
           end
 
           def ballot_style_headers
-            headers.push(:ballot_style_code)
+            no_ballot_headers.push(:ballot_style_code)
           end
 
           def expected_headers
-            @expected_headers ||= form.current_participatory_space.has_ballot_styles? ? ballot_style_headers : headers
-          end
-
-          def csv_rows
-            @csv_rows ||= CSV.read(file_path)
+            @expected_headers ||= form.current_participatory_space.has_ballot_styles? ? ballot_style_headers : no_ballot_headers
           end
 
           def csv_row_count
             @csv_row_count ||= file_lines_count - 1
           end
 
+          # count lines in the most resource-efficient way using ruby, handles milions of lines with minimal memory footprint
           def file_lines_count
-            `wc -l "#{file_path.shellescape}"`.strip.split.first.to_i
-          end
-
-          def file_path
-            ActiveStorage::Blob.service.path_for(form.file.key)
+            lines = 0
+            File.foreach(file_path) { lines += 1 }
+            lines
           end
         end
       end

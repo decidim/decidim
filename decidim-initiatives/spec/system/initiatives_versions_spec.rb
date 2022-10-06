@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Explore versions", versioning: true, type: :system do
   let(:organization) { create(:organization) }
-  let(:initiative) { create(:initiative, organization: organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:initiative) { create(:initiative, organization:) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let(:form) do
     Decidim::Initiatives::Admin::InitiativeForm.from_params(
@@ -16,7 +16,7 @@ describe "Explore versions", versioning: true, type: :system do
     ).with_context(
       current_organization: organization,
       current_component: nil,
-      initiative: initiative
+      initiative:
     )
   end
   let(:command) { Decidim::Initiatives::Admin::UpdateInitiative.new(initiative, form, user) }

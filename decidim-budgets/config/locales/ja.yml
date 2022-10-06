@@ -13,8 +13,11 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         proposal_ids: 関連する提案
+        proposals: 提案
         selected: 実装の選択
         title: タイトル
+      proposals_import:
+        scope_id: スコープ
   activerecord:
     models:
       decidim/budgets/project:
@@ -84,23 +87,50 @@ ja:
             title: プロジェクトを編集
             update: 更新
           index:
+            actions: アクション
+            cancel: キャンセル
+            change_category: カテゴリの変更
+            change_scope: スコープの変更
+            change_selected: 選択した項目を変更
+            deselect_implementation: 選択解除
             finished_orders: 完了した投票
             pending_orders: 保留中の投票
+            select_for_implementation: 選択
             selected: 選択済
             title: プロジェクト
+            update: 更新
+            update_scope_button: スコープを更新
           new:
             create: 作成
             title: 新規プロジェクト
           update:
             invalid: このプロジェクトの更新中に問題が発生しました
             success: プロジェクトを更新しました
+          update_category:
+            invalid: 'これらのプロジェクトは既に %{subject_name} カテゴリを持っています: %{projects}'
+            select_a_category: カテゴリを選択してください
+            select_a_project: プロジェクトを選択してください
+            success: 'プロジェクトは %{subject_name} カテゴリに更新されました: %{projects}'
+          update_scope:
+            invalid: 'これらのプロジェクトは既に %{subject_name} スコープを持っています: %{projects}'
+            select_a_project: プロジェクトを選択してください
+            select_a_scope: スコープを選択してください
+            success: 'プロジェクトは %{subject_name} スコープに正常に更新されました: %{projects}'
+          update_selected:
+            invalid: 'これらのプロジェクトは既に選択されています: %{projects}'
+            select_a_project: プロジェクトを選択してください
+            select_a_selection: 選択してください
+            success: 'プロジェクトの選択が変更されました: %{projects}.'
         proposals_imports:
           create:
             invalid: 提案をプロジェクトにインポートする際に問題が発生しました
             success: "%{number} 件の提案がプロジェクトにインポートされました"
           new:
             create: プロジェクトへの提案をインポート
+            default_budget: 既定の予算
+            import_all_accepted_proposals: すべての承認済みの提案をインポート
             no_components: この参加型スペースには、プロジェクトにインポートするための他の提案コンポーネントはありません。
+            origin_component_id: 元のコンポーネント
             select_component: コンポーネントを選択してください
             title: 提案のインポート
         reminders:
@@ -139,6 +169,8 @@ ja:
         show: プロジェクトを表示
         vote: 投票
         voted_on: '%{links} に投票しました'
+      last_activity:
+        new_vote_at_html: "<span> %{link} での新しい予算投票</span>"
       limit_announcement:
         cant_vote: この予算に投票することはできません。 <a href="%{landing_path}">別の予算を試してみてください</a>。
         limit_reached: '%{links} に有効な投票があります。この予算に投票するには、 <a href="%{landing_path}">投票を削除し、</a> やり直す必要があります。'
@@ -152,6 +184,7 @@ ja:
           fields:
             category: カテゴリ
             id: ID
+            scope: スコープ
             title: タイトル
       order_summary_mailer:
         order_summary:
@@ -168,13 +201,13 @@ ja:
           title: 投票の確認
         budget_excess:
           budget_excess:
-            description: 予算上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
+            description: 予算上限を超えているため、このプロジェクトは追加できません。 追加したい場合、選択済みのプロジェクトを削除すると、再び投票できるようにすることができます。
             title: 最大予算を超えました
           close: 閉じる
-          description: 予算上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
+          description: 予算上限を超えているため、このプロジェクトは追加できません。 追加したい場合、選択済みのプロジェクトを削除すると、再び投票できるようにすることができます。
           ok: OK
           projects_excess:
-            description: プロジェクト数の上限を超えてしまうため、このプロジェクトは追加できません。 追加したい場合、すでに選択済みのプロジェクトを削除すると、改めて選択できるようになります。
+            description: プロジェクトの最大数を超えているため、このプロジェクトは追加できません。 追加したい場合、選択済みのプロジェクトを削除すると、再び投票できるようになります。
             title: プロジェクト数の上限を超えました
         budget_summary:
           are_you_sure: 投票をキャンセルしてもよろしいですか？
@@ -287,7 +320,7 @@ ja:
             total_budget: 予算の合計
             vote_minimum_budget_projects_number: 投票するプロジェクトの最小数
             vote_rule_minimum_budget_projects_enabled: 'ルールを有効にします: 投票するプロジェクトの最小数'
-            vote_rule_selected_projects_enabled: 'ルールの有効化: 投票するプロジェクトの最小数と最大数'
+            vote_rule_selected_projects_enabled: 'ルールを有効にします: 投票するプロジェクトの最小数と最大数'
             vote_rule_threshold_percent_enabled: 'ルールを有効にします：予算の最小割合'
             vote_selected_projects_maximum: 選択するプロジェクトの上限
             vote_selected_projects_minimum: 選択するプロジェクトの下限

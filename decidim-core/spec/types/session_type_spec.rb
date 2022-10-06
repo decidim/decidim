@@ -22,13 +22,13 @@ module Decidim
         let(:query) { "{ verifiedUserGroups { id } }" }
         let(:organization) { current_user.organization }
 
-        let!(:creator_user_group) { create :user_group, organization: organization, users: [] }
-        let!(:admin_user_group) { create :user_group, organization: organization, users: [] }
-        let!(:member_user_group) { create :user_group, organization: organization, users: [] }
-        let!(:verified_creator_user_group) { create :user_group, :verified, organization: organization, users: [] }
-        let!(:verified_admin_user_group) { create :user_group, :verified, organization: organization, users: [] }
-        let!(:verified_member_user_group) { create :user_group, :verified, organization: organization, users: [] }
-        let!(:requested_user_group) { create :user_group, organization: organization, users: [] }
+        let!(:creator_user_group) { create :user_group, organization:, users: [] }
+        let!(:admin_user_group) { create :user_group, organization:, users: [] }
+        let!(:member_user_group) { create :user_group, organization:, users: [] }
+        let!(:verified_creator_user_group) { create :user_group, :verified, organization:, users: [] }
+        let!(:verified_admin_user_group) { create :user_group, :verified, organization:, users: [] }
+        let!(:verified_member_user_group) { create :user_group, :verified, organization:, users: [] }
+        let!(:requested_user_group) { create :user_group, organization:, users: [] }
 
         before do
           create :user_group_membership, user: current_user, user_group: creator_user_group, role: :creator

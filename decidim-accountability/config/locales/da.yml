@@ -146,7 +146,6 @@ da:
             progress: Fremskridt
         timeline_entry:
           fields:
-            description: Beskrivelse
             entry_date: Dato
       results:
         count:

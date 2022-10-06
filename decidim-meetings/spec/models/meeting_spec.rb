@@ -7,7 +7,7 @@ module Decidim::Meetings
     subject { meeting }
 
     let(:address) { Faker::Lorem.sentence(word_count: 3) }
-    let(:meeting) { build :meeting, address: address }
+    let(:meeting) { build :meeting, address: }
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
@@ -66,6 +66,34 @@ module Decidim::Meetings
       end
     end
 
+    describe "#visible_for" do
+      subject { Decidim::Meetings::Meeting.visible_for(user) }
+      let(:meeting) { create :meeting, :published }
+      let(:user) { create :user, organization: meeting.component.organization }
+
+      it "returns published meetings" do
+        expect(subject).to include(meeting)
+      end
+
+      context "when the meeting is not published" do
+        let(:meeting) { create :meeting }
+
+        it "does not returns the meeting" do
+          expect(subject).not_to include(meeting)
+        end
+      end
+
+      context "when some participatory space does not have a model" do
+        before do
+          allow(Decidim::Assembly).to receive(:table_name).and_return(nil)
+        end
+
+        it "does not return an exception" do
+          expect(subject).to include(meeting)
+        end
+      end
+    end
+
     describe "#can_be_joined_by?" do
       subject { meeting.can_be_joined_by?(user) }
 
@@ -116,32 +144,32 @@ module Decidim::Meetings
 
     describe "#withdrawable_by" do
       let(:organization) { create :organization, available_locales: [:en] }
-      let(:participatory_process) { create :participatory_process, organization: organization }
+      let(:participatory_process) { create :participatory_process, organization: }
       let(:component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
-      let(:author) { create(:user, organization: organization) }
+      let(:author) { create(:user, organization:) }
 
       context "when user is author" do
-        let(:meeting) { create :meeting, component: component, author: author, created_at: Time.current }
+        let(:meeting) { create :meeting, component:, author:, created_at: Time.current }
 
         it { is_expected.to be_withdrawable_by(author) }
       end
 
       context "when user is admin" do
-        let(:admin) { build(:user, :admin, organization: organization) }
-        let(:meeting) { build :meeting, author: author, created_at: Time.current }
+        let(:admin) { build(:user, :admin, organization:) }
+        let(:meeting) { build :meeting, author:, created_at: Time.current }
 
         it { is_expected.not_to be_withdrawable_by(admin) }
       end
 
       context "when user is not the author" do
-        let(:someone_else) { build(:user, organization: organization) }
-        let(:meeting) { build :meeting, author: author, created_at: Time.current }
+        let(:someone_else) { build(:user, organization:) }
+        let(:meeting) { build :meeting, author:, created_at: Time.current }
 
         it { is_expected.not_to be_withdrawable_by(someone_else) }
       end
 
       context "when meeting is already withdrawn" do
-        let(:meeting) { build :meeting, :withdrawn, author: author, created_at: Time.current }
+        let(:meeting) { build :meeting, :withdrawn, author:, created_at: Time.current }
 
         it { is_expected.not_to be_withdrawable_by(author) }
       end
@@ -189,7 +217,7 @@ module Decidim::Meetings
 
       context "when user has invitation to register" do
         let(:meeting) { create :meeting, registrations_enabled: true, private_meeting: true, transparent: false }
-        let(:invite) { create(:invite, accepted_at: Time.current, rejected_at: nil, user: user, meeting: meeting) }
+        let(:invite) { create(:invite, accepted_at: Time.current, rejected_at: nil, user:, meeting:) }
 
         it "allows the user to join the meeting" do
           meeting.invites << invite
@@ -206,7 +234,7 @@ module Decidim::Meetings
 
     describe "#meeting_duration" do
       let(:start_time) { 1.day.from_now }
-      let!(:meeting) { build(:meeting, start_time: start_time, end_time: start_time.advance(hours: 2)) }
+      let!(:meeting) { build(:meeting, start_time:, end_time: start_time.advance(hours: 2)) }
 
       it "return the duration of the meeting in minutes" do
         expect(subject.meeting_duration).to eq(120)
@@ -417,7 +445,7 @@ module Decidim::Meetings
     end
 
     describe "#authored_proposals" do
-      let(:meeting) { create(:meeting, address: address, component: meeting_component) }
+      let(:meeting) { create(:meeting, address:, component: meeting_component) }
       let(:meeting_component) { create(:meeting_component) }
       let(:proposal_component) { create(:proposal_component, participatory_space: meeting_component.participatory_space) }
       let!(:proposals) do

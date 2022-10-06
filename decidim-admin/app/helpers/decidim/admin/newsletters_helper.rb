@@ -141,7 +141,7 @@ module Decidim
         spinner = "<span id='recipients_count_spinner' class='loading-spinner hide'></span>"
         body = "#{t("recipients_count", scope: "decidim.admin.newsletters.select_recipients_to_deliver", count: recipients_count_query)} #{spinner}"
         {
-          body: body
+          body:
         }
       end
     end

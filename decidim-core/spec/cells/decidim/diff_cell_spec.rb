@@ -20,7 +20,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
 
   context "when diffing a translatable attribute that has empty strings" do
     let(:title) { { en: "English title", ca: "Catalan title", es: "" } }
-    let(:item) { create(:result, title: title) }
+    let(:item) { create(:result, title:) }
 
     it "renders an empty diff for the empty attributes" do
       expect(subject).to have_css(".diff-for-title-english .diff-data .ins")

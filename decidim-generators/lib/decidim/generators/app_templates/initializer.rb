@@ -37,6 +37,9 @@ Decidim.configure do |config|
   # or set it up manually and prevent any ENV manipulation:
   # config.force_ssl = true
 
+  # Enable the service worker. By default is disabled in development and enabled in the rest of environments
+  config.service_worker_enabled = Rails.application.secrets.decidim[:service_worker_enabled].present?
+
   # Map and Geocoder configuration
   #
   # == HERE Maps ==
@@ -330,16 +333,21 @@ Decidim.configure do |config|
   #
   # config.machine_translation_service = "MyTranslationService"
 
+  # Defines the social networking services used for social sharing
+  config.social_share_services = Rails.application.secrets.decidim[:social_share_services]
+
+  config.redesign_active = Rails.application.secrets.decidim[:redesign_active] if Rails.application.secrets.decidim[:redesign_active].present?
+
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
   config.consent_cookie_name = Rails.application.secrets.decidim[:consent_cookie_name] if Rails.application.secrets.decidim[:consent_cookie_name].present?
 
-  # Defines cookie consent categories and cookies.
+  # Defines data consent categories and the data stored in each category.
   # config.consent_categories = [
   #   {
   #     slug: "essential",
   #     mandatory: true,
-  #     cookies: [
+  #     items: [
   #       {
   #         type: "cookie",
   #         name: "_session_id"
@@ -363,6 +371,15 @@ Decidim.configure do |config|
   #     mandatory: false
   #   }
   # ]
+
+  # Admin admin password configurations
+  Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|
+    # When the strong password is not configured, default to true
+    config.admin_password_strong = strong_pw.nil? ? true : strong_pw.present?
+  end
+  config.admin_password_expiration_days = Rails.application.secrets.dig(:decidim, :admin_password, :expiration_days).presence || 90
+  config.admin_password_min_length = Rails.application.secrets.dig(:decidim, :admin_password, :min_length).presence || 15
+  config.admin_password_repetition_times = Rails.application.secrets.dig(:decidim, :admin_password, :repetition_times).presence || 5
 
   # Additional optional configurations (see decidim-core/lib/decidim/core.rb)
   config.cache_key_separator = Rails.application.secrets.decidim[:cache_key_separator] if Rails.application.secrets.decidim[:cache_key_separator].present?

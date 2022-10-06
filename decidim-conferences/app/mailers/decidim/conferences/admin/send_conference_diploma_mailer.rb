@@ -26,7 +26,7 @@ module Decidim
             add_diploma_attachment
 
             subject = I18n.t("diploma.subject", scope: "decidim.conferences.mailer.send_conference_diploma_mailer")
-            mail(to: user.email, subject: subject)
+            mail(to: user.email, subject:)
           end
         end
 

@@ -2,8 +2,8 @@
 
 shared_examples "create an initiative type scope" do
   let(:organization) { create(:organization) }
-  let(:scope) { create(:scope, organization: organization) }
-  let(:initiative_type) { create(:initiatives_type, organization: organization) }
+  let(:scope) { create(:scope, organization:) }
+  let(:initiative_type) { create(:initiatives_type, organization:) }
 
   let(:form) do
     form_klass.from_params(
@@ -47,7 +47,7 @@ shared_examples "create an initiative type scope" do
       it "creates a new initiative type scope" do
         expect do
           command.call
-        end.to change { Decidim::InitiativesTypeScope.count }.by(1)
+        end.to change(Decidim::InitiativesTypeScope, :count).by(1)
       end
     end
   end

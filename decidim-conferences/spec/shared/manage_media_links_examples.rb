@@ -40,7 +40,7 @@ shared_examples "manage media links examples" do
   end
 
   describe "when managing other conference media links" do
-    let!(:media_link) { create(:media_link, conference: conference) }
+    let!(:media_link) { create(:media_link, conference:) }
 
     before do
       visit current_path
@@ -95,19 +95,19 @@ shared_examples "manage media links examples" do
   end
 
   context "when paginating" do
-    let!(:collection_size) { 25 }
-    let!(:collection) { create_list(:media_link, collection_size, conference: conference) }
+    let!(:collection_size) { 15 }
+    let!(:collection) { create_list(:media_link, collection_size, conference:) }
     let!(:resource_selector) { "#media_links tbody tr" }
 
     before do
       visit current_path
     end
 
-    it "lists 15 media links per page by default" do
-      expect(page).to have_css(resource_selector, count: 20)
-      expect(page).to have_css(".pagination .page", count: 2)
+    it "lists 10 media links per page by default" do
+      expect(page).to have_css(resource_selector, count: 10)
+      expect(page).to have_css("[data-pages] [data-page]", count: 2)
       click_link "Next"
-      expect(page).to have_selector(".pagination .current", text: "2")
+      expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
       expect(page).to have_css(resource_selector, count: 5)
     end
   end

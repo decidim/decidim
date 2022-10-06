@@ -37,8 +37,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   end
 
   participatory_space.register_on_destroy_account do |user|
-    Decidim::AssemblyUserRole.where(user: user).destroy_all
-    Decidim::AssemblyMember.where(user: user).destroy_all
+    Decidim::AssemblyUserRole.where(user:).destroy_all
+    Decidim::AssemblyMember.where(user:).destroy_all
   end
 
   participatory_space.seeds do
@@ -46,7 +46,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
     Decidim::ContentBlock.create(
-      organization: organization,
+      organization:,
       weight: 32,
       scope_name: :homepage,
       manifest_name: :highlighted_assemblies,
@@ -65,7 +65,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        organization: organization,
+        organization:,
         hero_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "hero_image.jpeg",
@@ -93,7 +93,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         composition: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        assembly_type: Decidim::AssembliesType.create!(organization: organization, title: Decidim::Faker::Localized.word),
+        assembly_type: Decidim::AssembliesType.create!(organization:, title: Decidim::Faker::Localized.word),
         creation_date: 1.day.from_now,
         created_by: "others",
         created_by_other: Decidim::Faker::Localized.word,
@@ -128,22 +128,22 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
       Decidim::AssemblyUserRole::ROLES.each do |role|
         email = "assembly_#{assembly.id}_#{role}@example.org"
 
-        user = Decidim::User.find_or_initialize_by(email: email)
+        user = Decidim::User.find_or_initialize_by(email:)
         user.update!(
           name: Faker::Name.name,
           nickname: Faker::Twitter.unique.screen_name,
-          password: "decidim123456",
-          password_confirmation: "decidim123456",
-          organization: organization,
+          password: "decidim123456789",
+          password_confirmation: "decidim123456789",
+          organization:,
           confirmed_at: Time.current,
           locale: I18n.default_locale,
           tos_agreement: true
         )
 
         Decidim::AssemblyUserRole.find_or_create_by!(
-          user: user,
-          assembly: assembly,
-          role: role
+          user:,
+          assembly:,
+          role:
         )
       end
 
@@ -158,7 +158,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        organization: organization,
+        organization:,
         hero_image: ActiveStorage::Blob.create_and_upload!(
           io: File.open(File.join(seeds_root, "city.jpeg")),
           filename: "hero_image.jpeg",
@@ -194,7 +194,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         Decidim::Attachment.create!(
           title: Decidim::Faker::Localized.sentence(word_count: 2),
           description: Decidim::Faker::Localized.sentence(word_count: 5),
-          attachment_collection: attachment_collection,
+          attachment_collection:,
           attached_to: current_assembly,
           content_type: "application/pdf",
           file: ActiveStorage::Blob.create_and_upload!(
@@ -248,7 +248,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
             birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
             birthplace: Faker::Demographic.demonym,
             designation_date: Faker::Date.between(from: 1.year.ago, to: 1.month.ago),
-            position: position,
+            position:,
             position_other: position == "other" ? Faker::Job.position : nil,
             assembly: current_assembly
           )

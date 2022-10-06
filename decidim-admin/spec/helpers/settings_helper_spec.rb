@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Admin
     describe SettingsHelper do
-      let(:options) { { label: "A test", readonly: readonly } }
+      let(:options) { { label: "A test", readonly: } }
       let(:readonly) { false }
       let(:type) { :boolean }
       let(:name) { :test }
@@ -15,10 +15,10 @@ module Decidim
       let(:choices) { [] }
       let(:attribute) do
         Decidim::SettingsManifest::Attribute.new(
-          type: type,
+          type:,
           translated?: false,
           editor?: false,
-          choices: choices
+          choices:
         )
       end
 
@@ -159,6 +159,69 @@ module Decidim
         it "is supported" do
           expect(form).to receive(:datetime_field).with(:test, options)
           render_input
+        end
+      end
+
+      describe "help texts" do
+        let(:form) { Decidim::Admin::FormBuilder.new(:foo, double(name => value), template, {}) }
+        let(:template) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
+        let(:type) { :boolean }
+        let(:name) { :guided }
+
+        it "renders the help text" do
+          expect(render_input).to include(%(<span class="help-text">Help text</span>))
+        end
+
+        context "with HTML enriched help text" do
+          let(:name) { :guided_rich }
+
+          it "renders the HTML formatted help text" do
+            expect(render_input).to include(%(<span class="help-text">HTML <strong>help</strong> text</span>))
+          end
+        end
+      end
+
+      describe "#text_for_setting" do
+        let(:name) { :guided }
+
+        context "with inexistent suffix" do
+          let(:suffix) { :inexistent }
+
+          it "doesn't render anything" do
+            expect(helper.send(:text_for_setting, name, suffix, i18n_scope)).to be_nil
+          end
+        end
+
+        context "with readonly" do
+          let(:suffix) { "readonly" }
+
+          it "renders the text" do
+            expect(helper.send(:text_for_setting, name, suffix, i18n_scope)).to eq("Disabled input")
+          end
+
+          context "with HTML enriched text" do
+            let(:name) { :guided_rich }
+
+            it "renders the HTML formatted text" do
+              expect(helper.send(:text_for_setting, name, suffix, i18n_scope)).to eq("HTML <strong>help</strong> text for disabled input")
+            end
+          end
+        end
+
+        context "with help" do
+          let(:suffix) { "help" }
+
+          it "renders the text" do
+            expect(helper.send(:text_for_setting, name, suffix, i18n_scope)).to eq("Help text")
+          end
+
+          context "with HTML enriched text" do
+            let(:name) { :guided_rich }
+
+            it "renders the HTML formatted text" do
+              expect(helper.send(:text_for_setting, name, suffix, i18n_scope)).to eq("HTML <strong>help</strong> text")
+            end
+          end
         end
       end
     end

@@ -7,13 +7,13 @@ module Decidim
     describe UpdateInitiative do
       let(:form_klass) { Decidim::Initiatives::InitiativeForm }
       let(:organization) { create(:organization) }
-      let!(:initiative) { create(:initiative, organization: organization) }
+      let!(:initiative) { create(:initiative, organization:) }
       let!(:form) do
         form_klass.from_params(
           form_params
         ).with_context(
           current_organization: organization,
-          initiative: initiative,
+          initiative:,
           initiative_type: initiative.type
         )
       end
@@ -29,11 +29,11 @@ module Decidim
         let(:type_id) { initiative.type.id }
         let(:form_params) do
           {
-            title: title,
-            description: description,
-            signature_type: signature_type,
-            type_id: type_id,
-            attachment: attachment,
+            title:,
+            description:,
+            signature_type:,
+            type_id:,
+            attachment:,
             add_documents: uploaded_files,
             documents: current_files
           }
@@ -119,7 +119,7 @@ module Decidim
             end
 
             it "does not create atachments for the initiative" do
-              expect { command.call }.to change(Decidim::Attachment, :count).by(0)
+              expect { command.call }.not_to change(Decidim::Attachment, :count)
             end
 
             it "broadcasts invalid" do

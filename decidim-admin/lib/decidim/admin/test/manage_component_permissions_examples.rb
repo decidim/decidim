@@ -11,7 +11,7 @@ shared_examples "Managing component permissions" do
   end
 
   let!(:component) do
-    create(:component, participatory_space: participatory_space)
+    create(:component, participatory_space:)
   end
 
   before do
@@ -177,7 +177,7 @@ shared_examples "Managing component permissions" do
 
   context "when managing resource permissions" do
     let!(:resource) do
-      create(:dummy_resource, component: component)
+      create(:dummy_resource, component:)
     end
 
     let(:edit_resource_permissions_path) do

@@ -16,7 +16,7 @@ describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
 
   describe "PATCH update" do
     let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
-    let(:proposal) { create(:proposal, :official, component: component) }
+    let(:proposal) { create(:proposal, :official, component:) }
     let(:proposal_params) do
       {
         title: { en: "Lorem ipsum dolor sit amet, consectetur adipiscing elit" },
@@ -54,7 +54,7 @@ describe Decidim::Proposals::Admin::ProposalsController, type: :controller do
             attachment: { title: "", file: nil }
           }
         end
-        let(:proposal) { create(:proposal, :official, :with_photo, component: component) }
+        let(:proposal) { create(:proposal, :official, :with_photo, component:) }
 
         it "displays the editing form with errors" do
           patch :update, params: params
