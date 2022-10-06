@@ -23,6 +23,12 @@ ja:
       postal_letter_postage:
         full_address: フルアドレス
         verification_code: 確認コード
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: インポートファイルの形式が正しくありません。手順を見直して、ファイルがUTF-8でエンコードされていることを確認してください。
   decidim:
     admin:
       menu:
@@ -90,6 +96,7 @@ ja:
         create:
           error: 認証の作成に問題がありました。
           success: 正常に承認されました。
+          transferred: '認証に基づき、以下の参加データを復元しました。'
           unconfirmed: 自分自身を承認するには、メールアドレスを確認する必要があります。
         destroy:
           error: 承認の削除中に問題が発生しました。
