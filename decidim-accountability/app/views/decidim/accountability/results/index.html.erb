@@ -49,7 +49,6 @@
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <% if category.present? %>
     <h2 class="h4"><%= translated_attribute category.name %></h2>
-    <div class="editor-content mt-4"><%= translated_attribute(category.description).html_safe %></div>
   <% else %>
     <h2 class="h4"><%= t("decidim.accountability.results.home_header.global_status") %></h2>
   <% end %>
