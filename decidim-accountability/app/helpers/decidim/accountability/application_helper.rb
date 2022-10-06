@@ -22,6 +22,10 @@ module Decidim
         "class=active" if scope.to_s == current_scope.to_s
       end
 
+      def component_name
+        translated_attribute(current_component.name).presence || t("decidim.components.accountability.name")
+      end
+
       def categories_label
         translated_attribute(component_settings.categories_label).presence || t("results.home.categories_label", scope: "decidim.accountability")
       end
