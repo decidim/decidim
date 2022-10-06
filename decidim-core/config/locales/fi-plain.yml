@@ -129,6 +129,7 @@ fi-pl:
           question: Oletko varma, että haluat poistaa tilisi?
           title: Poista tilini
         explanation: Syy tilisi poistoon (valinnainen).
+        leaving_authorizations_behind: Tunnistautumiseesi liittyviä tietoja tallennetaan turvallisuussyistä. Jos luot uuden tilin ja tunnistaudut uudestaan samoilla tiedoilla, nämä tiedot palautetaan uudelle tilillesi.
       destroy:
         error: Tilin poistossa tapahtui virhe.
         success: Tilisi poistaminen onnistui.
@@ -614,6 +615,7 @@ fi-pl:
         copied: Teksti kopioitu!
         copy_error_message_clarification: Kopioi virheviesti leikepöydälle
         copy_to_clipboard: Kopioi leikepöydälle
+        date_and_time: Päivämäärä ja aika
         reference: Viite
         request_method: Pyynnön metodi
         title: Palvelimellamme tapahtui virhe
@@ -841,6 +843,8 @@ fi-pl:
         allowed_file_extensions: 'Sallitut tiedostopäätteet: %{extensions}'
         max_file_dimension: 'Tiedoston enimmäismitat: %{resolution} pikseliä'
         max_file_size: 'Tiedoston koon rajoitus: %{megabytes}Mt'
+      files:
+        extension_allowlist: 'Hyväksytyt tiedostomuodot: %{extensions}'
       upload:
         labels:
           add_attachment: Lisää liite
@@ -1463,6 +1467,7 @@ fi-pl:
         copy_share_link_message: Linkin kopiointi leikepöydälle onnistui.
         share: Jaa
         share_link: Jaa linkki
+        share_to: Jaa palvelussa %{service}
     statistics:
       comments_count: Kommenttia
       endorsements_count: Suositusta
@@ -1708,6 +1713,7 @@ fi-pl:
       public: Julkiset tietosi.
   errors:
     messages:
+      allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään
       confirmation_period_expired: on vahvistettava %{period} kuluessa, pyydä uutta
       content_type_allowlist_error: tiedostotyyppi ei kelpaa
@@ -1725,6 +1731,7 @@ fi-pl:
         other: 'Virheitä käsiteltäessä pyyntöä:'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
+      too_short: liian lyhyt (alle %{count} merkkiä)
   forms:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:
