@@ -335,10 +335,6 @@ en:
           '4': Publish your amendment
     anonymous_user: Anonymous
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documents
       document:
         download: Download file
       documents:

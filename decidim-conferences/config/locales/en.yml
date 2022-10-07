@@ -503,7 +503,6 @@ en:
           attributes:
             alt: Media picture
         show:
-          close_modal: Close modal
           photo: Image
       photos_list:
         show:
