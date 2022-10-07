@@ -1,9 +1,7 @@
-<li>
-  <%= icon "external-link", role: "img", "aria-hidden": true %>
-  <div>
-    <%= link_to model.link, target: "_blank" do %>
-      <strong><%= decidim_html_escape  translated_attribute(model.title) %> </strong>
-    <% end %>
-    <div class="text-small"><%= l(model.date, format: :decidim_short_with_month_name_short) %> · <%= model.link %></div>
+<li class="conference__media-link">
+  <%= link_to decidim_html_escape(translated_attribute(model.title)), model.link, target: "_blank" %>
+  <div class="item-list__metadata">
+    <span><%= icon "calendar-line" %><%= l(model.date, format: :decidim_short_with_month_name_short) %></span>
+    <span><%= icon "link-m" %><%= model.link %></span>
   </div>
 </li>

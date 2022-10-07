@@ -9,23 +9,32 @@ edit_link(
 )
 %>
 
-<div class="row">
-  <div class="columns mediumlarge-12 conference-media">
-    <% if @media_links.any? %>
-      <section>
-        <h3 class="section-heading"><%= t("media.index.title", scope: "decidim") %></h3>
-        <p><%= t("media.index.description", scope: "decidim") %></p>
-      </section>
-      <hr class="reset mt-none mb-s">
-      <div class="media-links">
-        <ul class="list-reset">
-          <% @media_links.each do |media_link| %>
-            <%= cell "decidim/conferences/media_link", media_link %>
-          <% end %>
-        </ul>
-      </div>
-      <hr class="reset mt-none mb-s">
-    <% end %>
-    <%= attachments_for_conference current_participatory_space %>
-  </div>
+<%# NOTE: this page does not use a regular layout %>
+<div class="container">
+  <h1 class="h3 md:h1 decorator my-12">
+    <span class="not-sr-only"><%= t("media", scope: "layouts.decidim.conferences_nav") %></span>
+    <span class="sr-only"><%= t("media", scope: "layouts.decidim.conferences_nav") %> (<%= translated_attribute current_participatory_space.title %>)</span>
+  </h1>
+
+  <% if @media_links.any? %>
+    <section class="conference__media-section">
+      <h2 class="h4 md:h3 decorator"><%= t("media.index.title", scope: "decidim") %></h2>
+      <p><%= t("media.index.description", scope: "decidim") %></p>
+
+      <ul class="conference__media-link-container" data-conference-media-links>
+        <% @media_links.each do |media_link| %>
+          <%= cell "decidim/conferences/media_link", media_link %>
+        <% end %>
+      </ul>
+    </section>
+  <% end %>
+
+  <% if current_participatory_space.attachments.any? %>
+    <%= cell("decidim/conferences/photos_list", current_participatory_space.photos) %>
+
+    <section class="conference__media-section">
+      <%# REDESIGN_PENDING: maybe this partial would fit better in a cell %>
+      <%= render partial: "decidim/application/documents", locals: { documents: current_participatory_space.documents } %>
+    </section>
+  <% end %>
 </div>

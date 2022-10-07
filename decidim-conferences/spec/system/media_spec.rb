@@ -49,7 +49,7 @@ describe "Conferences", type: :system do
       within "div.wrapper .conference-media" do
         expect(page).to have_content("MEDIA AND LINKS")
         expect(page).to have_content(/#{translated(media_link.title, locale: :en)}/i)
-        expect(page).to have_css(".media-links a")
+        expect(page).to have_css("[data-conference-media-links] a")
       end
     end
   end
@@ -68,8 +68,8 @@ describe "Conferences", type: :system do
         expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
       end
 
-      within "div.wrapper .images" do
-        expect(page).to have_css(".picture__content img")
+      within "[data-conference-media-photo]", match: :first do
+        expect(page).to have_css("img")
       end
     end
   end
@@ -89,7 +89,7 @@ describe "Conferences", type: :system do
         expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
       end
 
-      within "div.wrapper .images" do
+      within "[data-conference-media-photo]", match: :first do
         expect(strip_tags(translated(fist_image.description, locale: :en))).to appear_before(strip_tags(translated(last_image.description, locale: :en)))
       end
     end

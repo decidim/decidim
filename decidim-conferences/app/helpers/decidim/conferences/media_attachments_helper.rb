@@ -4,16 +4,6 @@ module Decidim
   # A Helper to render and link to resources.
   module Conferences
     module MediaAttachmentsHelper
-      # Renders the attachments of a Conference that includes the
-      # HasAttachments concern.
-      #
-      # attached_to - The model to render the attachments from.
-      #
-      # Returns nothing.
-      def attachments_for_conference(attached_to)
-        render partial: "attachments", locals: { attached_to: }
-      end
-
       # Renders the attachment's title.
       # Checks if the attachment's title is translated or not and use
       # the correct render method.
