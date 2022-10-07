@@ -1,24 +1,18 @@
 .conference__media{
   &-section{
-    @apply mt-16;
+    @apply mt-16 last:mb-16 md:last:mb-36;
 
     p{
       @apply mt-4 text-gray-2 text-md;
     }
   }
 
-  &-link{
-    &-container{
-      @apply mt-8 space-y-8;
-    }
-
-    a{
-      @apply text-lg text-secondary font-semibold;
-    }
+  &-links{
+    @apply mt-10 space-y-8;
   }
 
   &-grid{
-    @apply mt-8 grid grid-cols-2 md:grid-cols-5 gap-12;
+    @apply mt-10 grid grid-cols-2 md:grid-cols-5 gap-12;
   }
 
   &-photo{
