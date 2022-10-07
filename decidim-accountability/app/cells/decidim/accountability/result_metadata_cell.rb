@@ -32,7 +32,7 @@ module Decidim
         return [dates_item, status_item, status_description] if template == :project_aside
         return [reference, versions] if template == :show_footer
 
-        [dates_item_compact, category_item]
+        [dates_item_compact, status_item_compact, category_item]
       end
 
       def template
@@ -68,6 +68,15 @@ module Decidim
         {
           text: translated_attribute(inherited_category.name),
           icon: "price-tag-3-line"
+        }
+      end
+
+      def status_item_compact
+        return if status.blank?
+
+        {
+          text: translated_attribute(status.name),
+          icon: "focus-2-line"
         }
       end
 
