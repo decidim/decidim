@@ -1,4 +1,4 @@
-import icon from "src/decidim/icon"
+import icon from "src/decidim/redesigned_icon"
 
 /**
  * Appends an icon to distinguish those links pointing out of decidim.
@@ -30,7 +30,7 @@ export default class ExternalLink {
   }
 
   generateIcon() {
-    return icon("external-link", { class: "w-2 h-2 fill-current" });
+    return icon("external-link-line", { class: "fill-current" });
   }
 
   generateScreenReaderLabel() {
