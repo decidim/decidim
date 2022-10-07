@@ -49,7 +49,8 @@
     "@decidim/browserslist-config": "file:packages/browserslist-config",
     "@decidim/core": "file:packages/core",
     "@decidim/elections": "file:packages/elections",
-    "@decidim/webpacker": "file:packages/webpacker"
+    "@decidim/webpacker": "file:packages/webpacker",
+    "@hotwired/turbo-rails": "^7.2.0"
   },
   "devDependencies": {
     "@decidim/dev": "file:packages/dev",
