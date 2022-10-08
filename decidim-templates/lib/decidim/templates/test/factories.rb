@@ -9,6 +9,12 @@ FactoryBot.define do
     templatable { build(:dummy_resource) }
     name { Decidim::Faker::Localized.sentence }
 
+    trait :proposal_answer do
+      templatable { organization }
+      target { :proposal_answer }
+      field_values { { internal_state: :answered } }
+    end
+
     ## Questionnaire templates
     factory :questionnaire_template do
       trait :with_questions do

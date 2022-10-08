@@ -40,7 +40,7 @@ module Decidim
             organization: @template.organization,
             name: @template.name,
             description: @template.description,
-            target: :questionnaire,
+            target: :questionnaire
           )
           @resource = Decidim::Forms::Questionnaire.create!(
             @template.templatable.dup.attributes.merge(

@@ -29,7 +29,6 @@ module Decidim
             templatable: @template.templatable
           )
         end
-
       end
     end
   end

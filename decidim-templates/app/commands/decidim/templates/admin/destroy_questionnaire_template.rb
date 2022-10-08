@@ -4,8 +4,8 @@ module Decidim
   module Templates
     module Admin
       class DestroyQuestionnaireTemplate < DestroyTemplate
-
         protected
+
         def destroy_template
           Decidim.traceability.perform_action!(
             :delete,

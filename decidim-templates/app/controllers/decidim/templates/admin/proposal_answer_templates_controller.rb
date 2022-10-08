@@ -59,9 +59,9 @@ module Decidim
           }
 
           respond_to do |format|
-            format.json {
+            format.json do
               render json: response_object.to_json
-            }
+            end
           end
         end
 
@@ -117,11 +117,14 @@ module Decidim
         private
 
         def populate_template_interpolations(proposal)
-          template.description.each do |row|
-            row.last.gsub!('%{organization}', proposal.organization.name)
-            row.last.gsub!('%{name}', proposal.creator_author.name)
-            row.last.gsub!('%{admin}', current_user.name)
-            [row.first, row.last]
+          template.description.map do |row|
+            language = row.first
+            value = row.last
+            value.gsub!("%{organization}", proposal.organization.name)
+            value.gsub!("%{name}", proposal.creator_author.name)
+            value.gsub!("%{admin}", current_user.name)
+
+            [language, value]
           end.to_h
         end
 
@@ -130,25 +133,25 @@ module Decidim
         end
 
         def availability_option_as_text(template)
-          key = "%s-%d" % [template.templatable_type.demodulize.tableize,template.templatable_id]
+          key = "#{template.templatable_type.demodulize.tableize}-#{template.templatable_id}"
           avaliablity_options.fetch(key)
         end
 
         def availability_options_for_select
-          avaliablity_options.collect {|key, value| [value, key] }.to_a
+          avaliablity_options.collect { |key, value| [value, key] }.to_a
         end
 
         def avaliablity_options
-          @avaliablity_options = { "organizations-%d" % [current_organization.id] => t('global_scope', scope: 'decidim.templates.admin.proposal_answer_templates.index')}
+          @avaliablity_options = { "organizations-#{current_organization.id}" => t("global_scope", scope: "decidim.templates.admin.proposal_answer_templates.index") }
           Decidim::Component.includes(:participatory_space).where(manifest_name: :proposals)
-            .select{|a| a.participatory_space.decidim_organization_id == current_organization.id }.each do |component|
-            @avaliablity_options["components-%d" % component.id] = formated_name(component)
+                            .select { |a| a.participatory_space.decidim_organization_id == current_organization.id }.each do |component|
+            @avaliablity_options["components-#{component.id}"] = formated_name(component)
           end
           @avaliablity_options
         end
 
         def formated_name(component)
-          "%s ( %s )" % [translated_attribute(component.name), translated_attribute(component.participatory_space.title)]
+          "#{translated_attribute(component.name)} ( #{translated_attribute(component.participatory_space.title)} )"
         end
 
         def template

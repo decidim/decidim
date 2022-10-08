@@ -24,7 +24,7 @@ module Decidim
             @user,
             name: @form.name,
             description: @form.description,
-            field_values: { internal_state: @form.internal_state},
+            field_values: { internal_state: @form.internal_state },
             target: :proposal_answer
           )
 
@@ -35,6 +35,7 @@ module Decidim
         end
 
         private
+
         def identify_templateable_resource
           resource = @form.scope_for_availability.split("-")
           case resource.first

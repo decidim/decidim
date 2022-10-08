@@ -13,9 +13,7 @@ module Decidim
           included do
             helper_method :proposal_answers_template_options
 
-            def proposal_answers_template_options
-
-            end
+            def proposal_answers_template_options; end
           end
         end
       end

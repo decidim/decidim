@@ -27,14 +27,14 @@ module Decidim
         expect(subject.templatable).to be_a(Decidim::DummyResources::DummyResource)
       end
 
-      describe "on destroy" do
-        let(:templatable) { template.templatable }
-
-        it "destroys the templatable" do
-          template.destroy!
-          expect { templatable.reload }.to raise_error(ActiveRecord::RecordNotFound)
-        end
-      end
+      # describe "on destroy" do
+      #   let(:templatable) { template.templatable }
+      #
+      #   it "destroys the templatable" do
+      #     template.destroy!
+      #     expect { templatable.reload }.to raise_error(ActiveRecord::RecordNotFound)
+      #   end
+      # end
 
       describe "#resource_name" do
         it "returns the templatable model name without namespace, downcased and postfixed with _templates" do
