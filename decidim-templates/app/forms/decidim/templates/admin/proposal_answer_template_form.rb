@@ -10,7 +10,7 @@ module Decidim
         validates :internal_state, presence: true
 
         def map_model(model)
-          self.scope_for_availability = "%s-%d" % [model.templatable_type.demodulize.tableize,model.templatable_id]
+          self.scope_for_availability = "%s-%d" % [model.templatable_type.try(:demodulize).try(:tableize),model.templatable_id.to_i]
           (model.field_values || []).to_h.map do |k, v|
             self[k.to_sym] = v
           end

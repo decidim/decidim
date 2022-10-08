@@ -49,6 +49,22 @@ module Decidim
           end
         end
 
+        def fetch
+          enforce_permission_to :read, :template, template: template
+          # enforce_permission_to :create, :proposal_answer, proposal: proposal
+
+          response_object = {
+            state: template.field_values["internal_state"],
+            template: populate_template_interpolations(proposal)
+          }
+
+          respond_to do |format|
+            format.json {
+              render json: response_object.to_json
+            }
+          end
+        end
+
         def update
           enforce_permission_to :update, :template, template: template
           @form = form(ProposalAnswerTemplateForm).from_params(params)
@@ -100,6 +116,19 @@ module Decidim
 
         private
 
+        def populate_template_interpolations(proposal)
+          template.description.each do |row|
+            row.last.gsub!('%{organization}', proposal.organization.name)
+            row.last.gsub!('%{name}', proposal.creator_author.name)
+            row.last.gsub!('%{admin}', current_user.name)
+            [row.first, row.last]
+          end.to_h
+        end
+
+        def proposal
+          @proposal ||= Decidim::Proposals::Proposal.find(params[:proposal_id])
+        end
+
         def availability_option_as_text(template)
           key = "%s-%d" % [template.templatable_type.demodulize.tableize,template.templatable_id]
           avaliablity_options.fetch(key)
@@ -110,7 +139,7 @@ module Decidim
         end
 
         def avaliablity_options
-          @avaliablity_options = { "organizations-%d" % [current_organization.id] => 'Global scope'}
+          @avaliablity_options = { "organizations-%d" % [current_organization.id] => t('global_scope', scope: 'decidim.templates.admin.proposal_answer_templates.index')}
           Decidim::Component.includes(:participatory_space).where(manifest_name: :proposals)
             .select{|a| a.participatory_space.decidim_organization_id == current_organization.id }.each do |component|
             @avaliablity_options["components-%d" % component.id] = formated_name(component)
@@ -127,7 +156,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= paginate(current_organization.templates.where(target: :proposal_answer))
+          @collection ||= paginate(current_organization.templates.where(target: :proposal_answer).order(:id))
         end
       end
     end

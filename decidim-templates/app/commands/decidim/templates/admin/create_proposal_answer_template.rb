@@ -34,7 +34,7 @@ module Decidim
         def identify_templateable_resource
           resource = @form.scope_for_availability.split("-")
           case resource.first
-          when "organization"
+          when "organizations"
             @form.current_organization
           when "components"
             component = Decidim::Component.where(manifest_name: :proposals).find(resource.last)

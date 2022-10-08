@@ -15,6 +15,9 @@ module Decidim
           member do
             post :copy
           end
+          collection do
+            get :fetch
+          end
         end
         resources :questionnaire_templates do
           member do
