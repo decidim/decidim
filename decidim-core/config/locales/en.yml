@@ -1019,6 +1019,7 @@ en:
         create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
         delete: "%{user_name} deleted %{resource_name}"
         delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        publish_with_space: "%{user_name} published %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} performed some action on %{resource_name}"
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
         update: "%{user_name} updated %{resource_name}"
