@@ -410,7 +410,14 @@ en:
               <li><b>state:</b> One of "accepted", "evaluating", or "rejected"</li>
               <li><b>answer/I18N:</b> Answer on X language</li>
               </ul>
-            proposals: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
+            proposals: |
+              The file must have the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              <ul>
+              <li><b>title/I18N:</b> Title on X language</li>
+              <li><b>body/I18N:</b> Body on X language</li>
+              <li><b>scope/id:</b> ID for the Scope</li>
+              <li><b>category/id:</b> ID for the Category</li>
+              </ul>
           label:
             answers: Import answers from a file
             proposals: Import proposals from a file
