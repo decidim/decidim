@@ -1,35 +1,22 @@
-<% if online_meeting_url? %>
-  <% if live? || future? %>
-    <div class="card card--secondary">
-      <div class="card__content text-center">
-        <% if live? %>
-          <div class="heading1 text-primary">
-            <%= icon "audio", class: "heading4" %>
-          </div>
-          <div>
-            <strong class="heading5"><%= t("live_event", scope: "decidim.meetings.meetings.show") %></strong>
-            <% unless show_embed? %>
-              <p><small><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></small></p>
-            <% end %>
-          </div>
-        <% end %>
+<%# REDESIGN_PENDING: try to move logic to cell %>
+<% if online_meeting_url? && (live? || future?) %>
+  <div class="meeting__online">
+    <%= icon "broadcast-line", class: "w-14 h-14 fill-current #{live? ? 'text-tertiary' : 'text-gray' }" %>
 
-        <% if show_embed? && live? %>
-          <div class="<%= "margin-top-3" if live? %> absolutes aspect-ratio-16-9">
-            <%== embed_code(request.host) %>
-          </div>
-        <% elsif live? || future? %>
-          <div class="absolutes">
-            <% if live? %>
-              <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button--sc" %>
-            <% elsif future? %>
-              <span><%= t("link_closed", scope: "decidim.meetings.meetings.show") %></span>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+    <% if live? %>
+      <p><%= t("live_event", scope: "decidim.meetings.meetings.show") %></p>
+
+      <% unless show_embed? %>
+        <p><%= t("micro_camera_permissions_warning", scope: "decidim.meetings.meetings.show") %></p>
+      <% end %>
+
+      <%== embed_code(request.host) if show_embed? %>
+
+      <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button__xl button__secondary" %>
+    <% else %>
+      <span><%= t("link_closed", scope: "decidim.meetings.meetings.show") %></span>
+    <% end %>
+  </div>
 <% else %>
   <div class="card card--secondary">
     <div class="card__content address">

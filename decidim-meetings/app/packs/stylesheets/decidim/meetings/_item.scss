@@ -68,6 +68,10 @@
     @apply grid grid-cols-4 gap-x-12 gap-y-4;
   }
 
+  &__online{
+    @apply bg-background grid place-items-center p-8 space-y-4 [&>p]:font-semibold [&>p]:text-lg [&>p]:text-gray-2 [&>p]:text-center;
+  }
+
   &__agenda{
     &-title{
       @apply flex gap-1 items-center;
