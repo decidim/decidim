@@ -43,7 +43,7 @@ edit_link(
 
   <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
 
-  <%# REDESIGN_PENDING: perhaps all these blocks could be refactor, avoiding so much logic in the view %>
+  <%# REDESIGN_PENDING: perhaps all these "blocks" could be refactor, avoiding so much logic in the view %>
   <% if meeting.closed? && meeting.closing_visible? %>
     <% if meeting.has_contributions? %>
       <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "add-box-line" } do %>
@@ -92,7 +92,8 @@ edit_link(
     <% end %>
   <% end %>
 
-  <%= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
+  <%# REDESIGN_PENDING: deprecated? %>
+  <%#= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
 
 <% end %>
 
@@ -104,19 +105,19 @@ edit_link(
 
   <div class="meeting__calendar-container mt-8">
     <%
-      same_month = meeting.start_time.month == meeting.end_time.month;
-      same_day = meeting.start_time.day == meeting.end_time.day;
+      is_same_month = meeting.start_time.month == meeting.end_time.month;
+      is_same_day = meeting.start_time.day == meeting.end_time.day;
     %>
     <div class="meeting__calendar meeting__calendar__lg">
       <div class="meeting__calendar-month">
-        <span><%= l(meeting.start_time, format: !same_month ? "%b" : "%B") %></span>
-        <span class="meeting__calendar-separator"><%= "-" if !same_month %></span>
-        <span><%= l(meeting.end_time, format: "%b") if !same_month %></span>
+        <span><%= l(meeting.start_time, format: !is_same_month ? "%b" : "%B") %></span>
+        <span class="meeting__calendar-separator"><%= "-" if !is_same_month %></span>
+        <span><%= l(meeting.end_time, format: "%b") if !is_same_month %></span>
       </div>
       <div class="meeting__calendar-day">
         <span><%= l(meeting.start_time, format: "%d") %></span>
-        <span class="meeting__calendar-separator"><%= "-" if !same_day || !same_month %></span>
-        <span><%= l(meeting.end_time, format: "%d") if !same_day || !same_month %></span>
+        <span class="meeting__calendar-separator"><%= "-" if !is_same_day || !is_same_month %></span>
+        <span><%= l(meeting.end_time, format: "%d") if !is_same_day || !is_same_month %></span>
       </div>
       <div class="meeting__calendar-time">
         <span><%= l(meeting.start_time, format: "%H:%m") %></span>
