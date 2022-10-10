@@ -85,7 +85,7 @@ module Decidim
       def display_duration_agenda_items(agenda_item_id, index, agenda_items_times)
         html = ""
         if agenda_item_id == agenda_items_times[index][:agenda_item_id]
-          html += "[ #{agenda_items_times[index][:start_time].strftime("%H:%M")} - #{agenda_items_times[index][:end_time].strftime("%H:%M")}]"
+          html += "[#{agenda_items_times[index][:start_time].strftime("%H:%M")} - #{agenda_items_times[index][:end_time].strftime("%H:%M")}]"
         end
         html.html_safe
       end

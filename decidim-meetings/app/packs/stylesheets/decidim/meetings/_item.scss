@@ -1,6 +1,6 @@
 .meeting{
   &__container{
-    @apply space-y-8
+    @apply space-y-8;
   }
 
   &__filter{
@@ -13,7 +13,7 @@
     @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center;
 
     &-container{
-      @apply border-4 border-background flex gap-5 items-stretch rounded overflow-hidden last:[&>*:not(:only-child)]:grow;
+      @apply border-4 border-background inline-flex gap-5 items-stretch rounded overflow-hidden last:[&>*:not(:only-child)]:grow;
     }
 
     &-month{
@@ -66,6 +66,32 @@
 
   &__grid{
     @apply grid grid-cols-4 gap-x-12 gap-y-4;
+  }
+
+  &__agenda{
+    &-title{
+      @apply flex gap-1 items-center;
+    }
+
+    &-item{
+      @apply mt-6 bg-background rounded p-4 text-gray-2;
+
+      &__title{
+        @apply text-lg inline-flex gap-1 first:[&>*]:font-bold;
+      }
+
+      &__description{
+        @apply mt-2 text-md;
+      }
+    }
+
+    &-subitem{
+      @apply ml-4 mt-4;
+    }
+
+    &-subitem &-item__title{
+      @apply text-md;
+    }
   }
 
   &__aside{
