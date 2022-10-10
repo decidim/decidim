@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Templates
     module Admin
-      describe CopyProposalAnswerTemplateSpec do
+      describe CopyProposalAnswerTemplate do
         let(:template) { create(:template, :proposal_answer) }
 
         describe "when the template is invalid" do
