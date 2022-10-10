@@ -36,9 +36,9 @@ module Decidim
 
         let(:attributes) do
           {
-              "name" => name,
-              "description" => description,
-              "internal_state" => internal_state
+            "name" => name,
+            "description" => description,
+            "internal_state" => internal_state
           }
         end
 
