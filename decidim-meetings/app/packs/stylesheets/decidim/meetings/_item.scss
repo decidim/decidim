@@ -70,20 +70,26 @@
 
   &__aside{
     &-block{
-      @apply bg-background rounded p-2 [&>*]:flex [&>*]:gap-1 first:[&>*>*]:flex-none;
+      @apply bg-background rounded p-2 [&>*]:flex [&>*]:gap-1 first:[&>*>*]:flex-none last:[&>*>*]:space-y-1;
 
       & + &{
         @apply mt-4;
       }
-    }
 
-    &-service{
       &__title{
         @apply text-gray-2 text-sm font-semibold;
       }
 
-      &__description{
-        @apply mt-1 text-gray-2 text-sm;
+      &__text{
+        @apply text-gray-2 text-sm;
+      }
+
+      &__large{
+        @apply text-gray-2 text-xl font-bold;
+      }
+
+      &__list{
+        @apply ml-4 list-disc text-gray-2 text-sm;
       }
     }
   }
