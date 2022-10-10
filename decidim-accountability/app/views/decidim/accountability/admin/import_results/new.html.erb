@@ -11,7 +11,7 @@
         <p><%= t(".info",
                  link_new_status: new_status_path,
                  link_new_result: new_result_path,
-                 link_export_csv: link_to(t(".link"),exports_path(current_component, id: "results", format: "CSV"), method: :post)
+                 link_export_csv: link_to(t(".download_export"),exports_path(current_component, id: "results", format: "CSV"), method: :post)
                 ).try("html_safe") %></p>
       </div>
       <div class="row column">
