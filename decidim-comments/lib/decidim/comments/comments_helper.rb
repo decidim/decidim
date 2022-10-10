@@ -10,9 +10,15 @@ module Decidim
       def comments_for(resource, options = {})
         return unless resource.commentable?
 
-        content_for :expanded do
-          inline_comments_for(resource, options)
+        content_for :css_content do
+          stylesheet_pack_tag "decidim_comments"
         end
+
+        content_for :js_content do
+          javascript_pack_tag "decidim_comments"
+        end
+
+        inline_comments_for(resource, options)
       end
 
       # Creates a Comments component through the comments cell.

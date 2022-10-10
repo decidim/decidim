@@ -1,7 +1,7 @@
 <%= javascript_pack_tag "redesigned_decidim_core", defer: false %>
 <%= render partial: "layouts/decidim/redesigned_js_configuration" %>
 
-<%= yield :js_content %>
+<%= content_for :js_content %>
 
 <%= snippets.display(:foot) %>
 <%= content_for :header_snippets %>
