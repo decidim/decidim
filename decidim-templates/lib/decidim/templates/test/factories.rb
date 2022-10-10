@@ -12,7 +12,7 @@ FactoryBot.define do
     trait :proposal_answer do
       templatable { organization }
       target { :proposal_answer }
-      field_values { { internal_state: :answered } }
+      field_values { { internal_state: :accepted } }
     end
 
     ## Questionnaire templates
