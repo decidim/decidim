@@ -403,7 +403,13 @@ en:
           proposals: Proposals
         imports:
           help:
-            answers: 'The import document should contain the following columns: id, state (accepted, evaluating, rejected), answer/en (and other languages enabled for the organization).'
+            answers: |
+              The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files:
+              <ul>
+              <li><b>id:</b> ID of the proposal to answer</li>
+              <li><b>state:</b> One of "accepted", "evaluating", or "rejected"</li>
+              <li><b>answer/I18N:</b> Answer on X language</li>
+              </ul>
             proposals: The file must have column names title/en and body/en (or another locale which you prefer eg. title/ca and body/ca). Also scope/id and category/id columns are supported.
           label:
             answers: Import answers from a file
