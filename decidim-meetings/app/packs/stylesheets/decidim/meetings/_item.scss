@@ -156,6 +156,11 @@
     &__terms{
       @apply text-xs text-gray-2;
     }
+  }
 
+  &__cancelation-modal{
+    &__description{
+      @apply mt-8 mb-16 text-lg text-gray-2;
+    }
   }
 }
