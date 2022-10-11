@@ -1,7 +1,7 @@
 .comment{
   @apply rounded-lg border-2 border-background p-4 pl-6 mb-6;
   &__header{
-    @apply flex items-center gap-x-2 mb-2 -ml-[34px];
+    @apply flex items-center gap-x-2 mb-2 -ml-[34px] relative z-10;
   }
 
   &__footer{
@@ -13,8 +13,12 @@
   }
 
   &-reply{
-    @apply rounded-lg border-2 border-background bg-background-2 p-4 pl-6;
+    @apply rounded-lg border-2 border-background bg-background-2 p-4 pl-6 relative;
+  }
 
+  &-reply::after{
+    @apply bg-gray inline-block absolute top-8 h-5/6 w-px;
+    content: "";
   }
 
   &-reply .comment,
@@ -22,7 +26,7 @@
     @apply border-0;
   }
 
-  .comment__votes {
+  .comment__votes{
     @apply justify-self-end;
     .comment__votes--up {
       @apply mr-2;
