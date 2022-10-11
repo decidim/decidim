@@ -10,10 +10,14 @@
   }
 
   &__calendar{
-    @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center;
+    @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center border-4 border-r-0 border-background only:border-r-4;
 
     &-container{
-      @apply border-4 border-background inline-flex gap-5 items-stretch rounded overflow-hidden last:[&>*:not(:only-child)]:grow;
+      @apply flex items-stretch rounded overflow-hidden;
+
+      > *:last-child:not(:only-child){
+        @apply grow pl-5 border-4 border-l-0 border-background;
+      }
     }
 
     &-month{
@@ -146,5 +150,12 @@
         @apply ml-4 list-disc text-gray-2 text-sm;
       }
     }
+  }
+
+  &__registration-modal{
+    &__terms{
+      @apply text-xs text-gray-2;
+    }
+
   }
 }

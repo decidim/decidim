@@ -50,7 +50,7 @@ import "src/decidim/floating_help"
 import "src/decidim/confirm"
 import "src/decidim/comments/comments"
 import "src/decidim/results_listing"
-import "src/decidim/represent_user_group"
+// import "src/decidim/represent_user_group" -- deprecated
 import "src/decidim/impersonation"
 // import "src/decidim/start_conversation_dialog" -- deprecated
 import "src/decidim/notifications"
