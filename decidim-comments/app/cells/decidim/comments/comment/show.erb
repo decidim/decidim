@@ -1,37 +1,33 @@
-<%= content_tag :div, id: "comment_#{model.id}", class: comment_classes, data: { comment_id: model.id } do %>
+<%= content_tag :div, id: "comment_#{model.id}", data: { comment_id: model.id } do %>
   <% if model.hidden? %>
     <%= render :moderation_data %>
   <% elsif model.deleted? %>
     <%= render :deletion_data %>
   <% else %>
-    <div class="comment__header">
-      <div class="author-data">
-        <div class="author-data__main">
-          <%= render :author %>
+    <div class="comment">
+      <div class="comment__header">
+        <%== cell("decidim/redesigned_author", author_presenter).profile %>
+        <span>
+          <%= time_tag created_at, l(created_at, format: :decidim_short) %>
+        </span>
+        <% if edited? %>
           <span>
-            <%= time_tag created_at, l(created_at, format: :decidim_short) %>
+            <%= t("decidim.components.comment.edited") %>
           </span>
-          <% if edited? %>
-            <div class="author-data__extra">
-              <span class="comment__edited">
-                <%= t("decidim.components.comment.edited") %>
-              </span>
-            </div>
-          <% end %>
-        </div>
+        <% end %>
+        <%#= render :utilities %>
       </div>
-      <%= render :utilities %>
-    </div>
-    <div class="comment__content">
-      <%= alignment_badge %>
-      <%= comment_body %>
-    </div>
-    <div class="comment__footer">
-      <%= render :actions %>
-      <%= votes %>
+      <div class="comment__content">
+        <%= alignment_badge %>
+        <%= comment_body %>
+      </div>
+      <div class="comment__footer">
+        <%= render :actions %>
+        <%= votes %>
+      </div>
     </div>
   <% end %>
-  <div id="comment-<%= model.id %>-replies">
+  <div class="comment-reply" id="comment-<%= model.id %>-replies">
     <% if has_replies_in_children? %>
       <% replies.each do |reply| %>
         <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>

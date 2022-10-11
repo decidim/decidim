@@ -1,7 +1,8 @@
 <div class="comment__actions">
   <% if can_reply? %>
     <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
-      <%= icon "pencil", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t("decidim.components.comment.reply") %>
+      <%= icon "chat-1-line", class: "fill-current inline-block align-middle" %>
+      <span class="inline-block align-middle text-sm"><%= t("decidim.components.comment.reply") %></span>
     </button>
   <% end %>
 </div>

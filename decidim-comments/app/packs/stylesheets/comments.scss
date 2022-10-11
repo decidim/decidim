@@ -1,7 +1,40 @@
-.comments-container{
-  background: tomato;
-  height: 100vh;
+.comment{
+  @apply rounded-lg border-2 border-background p-4 pl-6 mb-6;
+  &__header{
+    @apply flex items-center gap-x-2 mb-2 -ml-[34px];
+  }
+
+  &__footer{
+    @apply grid grid-cols-2 items-center;
+  }
+
+  &__reply {
+    @apply text-secondary mt-2;
+  }
+
+  &-reply{
+    @apply rounded-lg border-2 border-background bg-background-2 p-4 pl-6;
+
+  }
+
+  &-reply .comment,
+  &-reply .comment-reply{
+    @apply border-0;
+  }
+
+  .comment__votes {
+    @apply justify-self-end;
+    .comment__votes--up {
+      @apply mr-2;
+    }
+
+    .comment__votes--count{
+      @apply text-gray-2 text-sm;
+    }
+
+    .button_to{
+      @apply inline-block;
+    }
+  }
+
 }
-
-
-
