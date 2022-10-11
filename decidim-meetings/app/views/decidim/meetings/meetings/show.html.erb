@@ -41,9 +41,9 @@ edit_link(
   <%# REDESIGN_PENDING: deprecated %>
   <%#= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
 
-  <%= cell "decidim/meetings/join_meeting_button", meeting, big_button: true, show_remaining_slots: true %>
+  <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
 
-  <%# REDESIGN_PENDING: perhaps all these "blocks" could be refactor, avoiding so much logic in the view %>
+  <%# REDESIGN_PENDING: perhaps all these "blocks" could be refactored, avoiding so much logic in the view %>
   <% if meeting.closed? && meeting.closing_visible? %>
     <% if meeting.has_contributions? %>
       <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "add-box-line" } do %>
@@ -156,8 +156,15 @@ edit_link(
     <%= cell "decidim/meetings/online_meeting_link", meeting %>
   <% end %>
 
+  <%= cell "decidim/meetings/redesigned_meeting", meeting %>
+
+  <% if meeting.agenda.present? && meeting.agenda.visible? %>
+    <%= render "meeting_agenda" %>
+  <% end %>
+
   <div class="meeting__actions">
     <div>
+      <%# REDESING_PENDING: Usually this action block comes together, maybe a wrapper cell? %>
       <%# REDESING_PENDING: Uncomment when available: https://github.com/decidim/decidim/pull/9852 %>
       <%#= cell "decidim/endorsers_list_button", meeting %>
       <%#= endorsement_buttons_cell(post) %>
@@ -165,12 +172,6 @@ edit_link(
     </div>
     <%= cell "decidim/tags", meeting %>
   </div>
-
-  <%= cell "decidim/meetings/redesigned_meeting", meeting %>
-
-  <% if meeting.agenda.present? && meeting.agenda.visible? %>
-    <%= render "meeting_agenda" %>
-  <% end %>
 
   <div class="mt-8">
     <%# REDESIGN_PENDING: this value for the reference %>

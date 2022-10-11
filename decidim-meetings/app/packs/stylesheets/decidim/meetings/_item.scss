@@ -99,6 +99,30 @@
   }
 
   &__aside{
+    &-button{
+      @apply space-y-4 mb-14;
+    }
+
+    &-progress{
+      @apply text-sm text-gray-2 text-center space-y-1;
+
+      progress{
+        @apply block w-full h-1 appearance-none rounded-full overflow-hidden bg-gray;
+
+        &::-webkit-progress-value{
+          @apply bg-success;
+        }
+
+        &::-webkit-progress-bar{
+          @apply bg-white;
+        }
+
+        &::-moz-progress-bar{
+          @apply bg-success;
+        }
+      }
+    }
+
     &-block{
       @apply bg-background rounded p-2 [&>*]:flex [&>*]:gap-1 first:[&>*>*]:flex-none last:[&>*>*]:space-y-1;
 
