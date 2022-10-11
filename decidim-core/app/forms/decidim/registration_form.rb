@@ -14,7 +14,7 @@ module Decidim
     attribute :tos_agreement, Boolean
     attribute :current_locale, String
 
-    validates :name, presence: true
+    validates :name, presence: true, format: { with: Decidim::User::REGEXP_NAME }
     validates :nickname, presence: true, format: Decidim::User::REGEXP_NICKNAME, length: { maximum: Decidim::User.nickname_max_length }
     validates :email, presence: true, "valid_email_2/email": { disposable: true }
     validates :password, confirmation: true
