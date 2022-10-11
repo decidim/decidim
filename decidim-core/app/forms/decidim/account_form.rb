@@ -19,7 +19,7 @@ module Decidim
     attribute :personal_url
     attribute :about
 
-    validates :name, presence: true
+    validates :name, presence: true, format: { with: Decidim::User::REGEXP_NAME }
     validates :email, presence: true, "valid_email_2/email": { disposable: true }
     validates :nickname, presence: true, format: Decidim::User::REGEXP_NICKNAME
 
