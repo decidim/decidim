@@ -23,9 +23,9 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
     let(:item) { create(:result, title:) }
 
     it "renders an empty diff for the empty attributes" do
-      expect(subject).to have_css(".diff-for-title-english .diff-data .ins")
-      expect(subject).to have_css(".diff-for-title-catala .diff-data .ins")
-      expect(subject).to have_css(".diff-for-title-castellano .diff-data .unchanged")
+      expect(subject).to have_css(".diff-for-title-english .diff .ins")
+      expect(subject).to have_css(".diff-for-title-catala .diff .ins")
+      expect(subject).to have_css(".diff-for-title-castellano .diff .unchanged")
     end
   end
 
@@ -33,7 +33,7 @@ describe Decidim::DiffCell, versioning: true, type: :cell do
     let(:item) { create(:dummy_resource) }
 
     it "renders a diff with a string" do
-      expect(subject).to have_css(".diff-for-scope .diff-data .ins", text: item.scope.name[:en])
+      expect(subject).to have_css(".diff-for-scope .diff .ins", text: item.scope.name[:en])
     end
   end
 

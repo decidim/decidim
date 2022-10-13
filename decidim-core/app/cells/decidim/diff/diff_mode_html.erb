@@ -1,36 +1,21 @@
 <% if show_html_view_dropdown? %>
-  <div class="diff-view-by diff-view-html" style="margin-left: 0;">
-    <div class="diff-view-by__dropdown">
-      <span class="diff-view-by__text">
-        <%= t("versions.dropdown.choose_diff_view_html") %>
-      </span>
+  <div class="version__selector">
+    <label for="diff-html">
+      <%= t("versions.dropdown.choose_diff_view_html") %>
+    </label>
 
-      <ul class="dropdown menu" data-dropdown-menu
-        data-autoclose="false"
-        data-disable-hover="true"
-        data-click-open="true"
-        data-close-on-click="true"
-        role="menubar">
-        <li class="is-dropdown-submenu-parent" role="presentation">
-          <a href="#htmlmode-chooser-menu" id="diff-view-html-selected" aria-controls="htmlmode-chooser-menu" aria-haspopup="true" aria-label="<%= t("versions.dropdown.choose_diff_view_mode_menu") %>" role="menuitem">
-            <%= t("versions.dropdown.option_unescaped") %>
-          </a>
-
-          <ul class="menu is-dropdown-submenu" id="htmlmode-chooser-menu" role="menu" aria-labelledby="diff-view-html-selected">
-            <li role="presentation">
-              <%= link_to "#diff-view-unescaped-html", class: "diff-view-html", id: "diff-view-unescaped-html", role: "menuitem" do %>
-                <%= t("versions.dropdown.option_unescaped") %>
-              <% end %>
-            </li>
-
-            <li role="presentation">
-              <%= link_to "#diff-view-escaped-html", class: "diff-view-html", id: "diff-view-escaped-html", role: "menuitem" do %>
-                <%= t("versions.dropdown.option_escaped") %>
-              <% end %>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    <!-- REDESIGN_PENDING: This links should be trigger a turbo-frame -->
+    <select name="diff-html" id="diff-html">
+      <option value="unescaped" selected>
+        <%= link_to "#diff-view-unescaped-html" do %>
+          <%= t("versions.dropdown.option_unescaped") %>
+        <% end %>
+      </option>
+      <option value="escaped">
+        <%= link_to "#diff-view-escaped-html" do %>
+          <%= t("versions.dropdown.option_escaped") %>
+        <% end %>
+      </option>
+    </select>
   </div>
 <% end %>

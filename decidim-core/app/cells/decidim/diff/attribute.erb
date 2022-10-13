@@ -1,27 +1,31 @@
-<div class="diff-for-<%= data[:label].parameterize %>">
-  <div class="row">
-    <h3 class="section-heading mediumlarge-12 columns">
-      <%= data[:label] %>
-    </h3>
-  </div>
+<div id="diff-for-<%= data[:label].parameterize %>" class="version__diff">
+  <h3 class="h4">
+    <%= data[:label] %>
+  </h3>
 
-  <div class="row diff_view diff_view_unified_unescaped<%= " hide" unless show_html_view_dropdown? %>" id="<%= attribute_diff_id("diff_view_unified_unescaped") %>">
+  <%# REDESIGN_PENDING: Provide the respective url params in order to display the right view %>
+
+  <% if params[:mode] == "unified" && params[:html] == "unescaped" %>
     <%= diff_unified(data, :unescaped_html) %>
-  </div>
-
-  <div class="row diff_view diff_view_unified_escaped<%= " hide" if show_html_view_dropdown? %>" id="<%= attribute_diff_id("diff_view_unified_escaped") %>">
+  <% elsif params[:mode] == "unified" && params[:html] == "escaped" %>
     <%= diff_unified(data, :html) %>
-  </div>
-
-  <div class="row diff_view diff_view_split_unescaped hide" id="<%= attribute_diff_id("diff_view_split_unescaped") %>">
-    <%= diff_split(data, "left", :unescaped_html) %>
-
-    <%= diff_split(data, "right", :unescaped_html) %>
-  </div>
-
-  <div class="row diff_view diff_view_split_escaped hide" id="<%= attribute_diff_id("diff_view_split_escaped") %>">
-    <%= diff_split(data, "left", :html) %>
-
-    <%= diff_split(data, "right", :html) %>
-  </div>
+  <% elsif params[:mode] == "split" && params[:html] == "unescaped" %>
+    <div class="version__diff-split">
+      <div>
+        <%= diff_split(data, "left", :unescaped_html) %>
+      </div>
+      <div>
+        <%= diff_split(data, "right", :unescaped_html) %>
+      </div>
+    </div>
+  <% elsif params[:mode] == "split" && params[:html] == "escaped" %>
+    <div class="version__diff-split">
+      <div>
+        <%= diff_split(data, "left", :html) %>
+      </div>
+      <div>
+        <%= diff_split(data, "right", :html) %>
+      </div>
+    </div>
+  <% end %>
 </div>

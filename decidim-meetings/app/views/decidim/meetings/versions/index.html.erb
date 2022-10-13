@@ -1,8 +1,24 @@
-<div class="row">
+<!-- MOCK CONTENT -->
+<button class="button button__secondary button__lg" data-drawer-open>open versions</button>
+<!-- END MOCK CONTENT -->
+
+<% content_for :aside do %>
   <%= cell(
     "decidim/versions_list",
     versioned_resource,
     version_path: proc { |version_index| url_for(action: :show, id: version_index) },
     i18n_scope: "decidim.meetings.versions"
   ) %>
-</div>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/drawer" do %>
+  <%= cell(
+    "decidim/version",
+    # REDESIGN_PENDING: current_version mocked with the first value always
+    current_version || versioned_resource.versions[params[:id] || 0],
+    index: params[:id],
+    versioned_resource: versioned_resource,
+    versions_path: proc { url_for(action: :index) },
+    i18n_scope: "decidim.meetings.versions"
+  ) %>
+<% end %>

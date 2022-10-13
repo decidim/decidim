@@ -17,12 +17,16 @@ module Decidim
       options[:index] + 1
     end
 
+    def total
+      options[:total]
+    end
+
     def version_path
       options[:version_path].call(index)
     end
 
     def i18n_version_index
-      i18n("version_index", index:)
+      i18n("version_index", index:, total: )
     end
 
     def i18n(string, **params)

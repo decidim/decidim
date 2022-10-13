@@ -38,7 +38,7 @@ import "src/decidim/form_remote"
 import "src/decidim/ajax_modals"
 import "src/decidim/conferences"
 import "src/decidim/tooltip_keep_on_hover"
-import "src/decidim/diff_mode_dropdown"
+// import "src/decidim/diff_mode_dropdown" -- deprecated
 import "src/decidim/delayed"
 // import "src/decidim/icon" -- imported in submodules
 import "src/decidim/vizzs"
