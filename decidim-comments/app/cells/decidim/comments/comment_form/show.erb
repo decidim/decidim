@@ -3,14 +3,14 @@
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as_for(form) %>
   <div class="field">
-    <label class="show-for-sr" for="<%= add_comment_id %>">
+    <label class="show-for-sr mb-2 text-gray-2 text-lg  font-semibold block" for="<%= add_comment_id %>">
       <%= t("decidim.components.add_comment_form.form.body.label") %>
     </label>
     <div class="hashtags__container">
       <%= form.text_area(
         :body,
         id: add_comment_id,
-        rows: 4,
+        class: "w-full rounded border",
         maxlength: comments_max_length,
         required: true,
         placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
@@ -18,7 +18,13 @@
         data: { remaining_characters: "##{add_comment_id}-remaining-characters", input_emoji: true }
       ) %>
     </div>
-    <button type="submit" class="button button--sc" disabled="disabled"><%= t("decidim.components.add_comment_form.form.submit") %></button>
-    <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
+    <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count show-erb-comment"></span>
+    <div class="w-full text-right">
+      <button type="submit" class="button button__sm button__secondary" disabled="disabled">
+        <span class="inline-block align-middle">
+          <%= t("decidim.components.add_comment_form.form.submit") %>
+        </span>
+    </button>
+    </div>
   </div>
 <% end %>

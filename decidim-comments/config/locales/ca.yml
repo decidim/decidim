@@ -43,10 +43,10 @@ ca:
         account_message: <a href="%{sign_in_url}">Inicia la sessió amb el teu compte</a> o <a href="%{sign_up_url}">registra't</a> per afegir el teu comentari.
         form:
           body:
-            label: Comentari
-            placeholder: Què en penses d'això?
+            label: Deixa el teu comentari
+            placeholder: Què opines?
           form_error: El text és necessari i no pot ser més llarg de %{length}
-          submit: Enviar
+          submit: Publicar comentari
           user_group_id:
             label: Comentar com a
         opinion:
@@ -71,6 +71,7 @@ ca:
         edit: Editar
         edited: Editat
         hide_replies: Oculta les respostes
+        cancel_reply: Cancel resposta
         moderated_at: Comentari moderat el %{date}
         reply: Respondre
         report:

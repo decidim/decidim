@@ -43,10 +43,10 @@ es:
         account_message: <a href="%{sign_in_url}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_url}">regístrate</a> para añadir tu comentario.
         form:
           body:
-            label: Comentario
-            placeholder: '¿Qué piensas sobre ésto?'
+            label: Deja tu comentario
+            placeholder: '¿Qué opinas?'
           form_error: El texto es necesario y no puede ser más largo de %{length}.
-          submit: Enviar
+          submit: Publicar comentario
           user_group_id:
             label: Comentar como
         opinion:
@@ -71,6 +71,7 @@ es:
         edit: Editar
         edited: Editado
         hide_replies: Ocultar respuestas
+        cancel_reply: Cancelar respuesta
         moderated_at: Comentario moderado el %{date}
         reply: Respuesta
         report:

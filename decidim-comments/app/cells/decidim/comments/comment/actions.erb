@@ -3,6 +3,9 @@
     <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
       <%= icon "chat-1-line", class: "fill-current inline-block align-middle" %>
       <span class="inline-block align-middle text-sm"><%= t("decidim.components.comment.reply") %></span>
+      <%# REDESIGN_PENDING: only show the block when a user click on "respondre/responder" %>
+        <%= icon "close-circle-line", class: "fill-current inline-block align-middle" %>
+        <span class="inline-block align-middle text-sm"><%= t("decidim.components.comment.cancel_reply") %></span>
     </button>
   <% end %>
 </div>
