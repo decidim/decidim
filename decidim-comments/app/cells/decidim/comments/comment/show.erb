@@ -22,26 +22,23 @@
         <%= comment_body %>
       </div>
       <div class="comment__footer">
-        <%= render :actions %>
-        <%= votes %>
+        <div class="comment__footer-grid">
+          <%= render :actions %>
+          <%= votes %>
+        </div>
+        <% if can_reply? %>
+          <div class="add-comment hidden" id="<%= reply_id %>" data-toggler=".hidden">
+            <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% end %>
-  <div class="comment-reply" id="comment-<%= model.id %>-replies">
-    <% if has_replies_in_children? %>
-      <% replies.each do |reply| %>
-        <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
+    <div class="comment-reply empty:hidden" id="comment-<%= model.id %>-replies">
+      <% if has_replies_in_children? %>
+        <% replies.each do |reply| %>
+          <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <% if can_reply? %>
-    <div class="comment__additionalreply<%= " hide" unless commentable? %>">
-      <button class="comment__reply muted-link" aria-controls="<%= reply_id %>" data-toggle="<%= reply_id %>">
-        <%= icon "pencil", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t("decidim.components.comment.reply") %>
-      </button>
-    </div>
-    <div class="add-comment hide" id="<%= reply_id %>" data-toggler=".hide">
-      <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
     </div>
   <% end %>
 <% end %>
