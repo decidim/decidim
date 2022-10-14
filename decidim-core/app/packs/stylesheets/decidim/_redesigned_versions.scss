@@ -39,7 +39,7 @@
     }
 
     li{
-      @apply p-3 rounded flex items-start justify-start gap-2 bg-background first:[&>*]:flex-none;
+      @apply p-3 rounded bg-background [&_span]:mr-2;
 
       &.ins{
         @apply bg-success/20 text-success [&_span]:text-success;
@@ -47,6 +47,12 @@
 
       &.del{
         @apply bg-alert/20 text-alert [&_span]:text-alert;
+      }
+
+      > ins,
+      > del,
+      > *{
+        @apply no-underline;
       }
     }
 

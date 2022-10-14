@@ -14,7 +14,7 @@ module Decidim
     end
 
     def index
-      options[:index] + 1
+      total - options[:index]
     end
 
     def total
@@ -26,7 +26,7 @@ module Decidim
     end
 
     def i18n_version_index
-      i18n("version_index", index:, total: )
+      i18n("version_index", index:, total:)
     end
 
     def i18n(string, **params)

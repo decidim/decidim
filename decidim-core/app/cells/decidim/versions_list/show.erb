@@ -1,4 +1,4 @@
-<% versions.each_with_index do |version, index| %>
+<% versions.sort_by(&:created_at).reverse.each_with_index do |version, index| %>
   <%= cell(
     "decidim/versions_list_item",
     version,
@@ -8,10 +8,4 @@
     i18n_scope: i18n_scope,
     total: versions.count
   ) %>
-<% end %>
-
-<%# REDESIGN_PENDING: Move to version cell %>
-<%= link_to resource_path, class: "button button__sm button__text-secondary" do %>
-  <%= icon "arrow-left-line", class: "fill-current" %>
-  <span><%= i18n_back_to_resource %></span>
 <% end %>

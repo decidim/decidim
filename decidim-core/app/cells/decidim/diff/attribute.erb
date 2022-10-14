@@ -4,6 +4,10 @@
   </h3>
 
   <%# REDESIGN_PENDING: Provide the respective url params in order to display the right view %>
+  <%# http://localhost:3000/assemblies/enim-blanditiis/f/42/meetings/33/versions?locale=en&id=1&mode=split&html=unescaped %>
+  <%# http://localhost:3000/assemblies/enim-blanditiis/f/42/meetings/33/versions?locale=en&id=1&mode=split&html=escaped %>
+  <%# http://localhost:3000/assemblies/enim-blanditiis/f/42/meetings/33/versions?locale=en&id=1&mode=unified&html=unescaped %>
+  <%# http://localhost:3000/assemblies/enim-blanditiis/f/42/meetings/33/versions?locale=en&id=1&mode=unified&html=escaped %>
 
   <% if params[:mode] == "unified" && params[:html] == "unescaped" %>
     <%= diff_unified(data, :unescaped_html) %>

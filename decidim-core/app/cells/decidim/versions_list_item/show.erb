@@ -1,5 +1,4 @@
-<%# REDESIGN_PENDING: Check out whether the active state is working or not %>
-<%= link_to version_path, class: "version__list #{params[:id] == model.id ? 'is-active' : ''}" do %>
+<%= link_to version_path, class: "version__list #{params[:id] == index.to_s ? 'is-active' : ''}" do %>
   <%= i18n_version_index %>
   <%= icon "checkbox-circle-line" %>
 <% end %>
