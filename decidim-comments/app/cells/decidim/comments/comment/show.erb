@@ -21,13 +21,13 @@
         <%= alignment_badge %>
         <%= comment_body %>
       </div>
-      <div class="comment__footer">
+      <div class="comment__footer" data-component="accordion">
         <div class="comment__footer-grid">
           <%= render :actions %>
           <%= votes %>
         </div>
         <% if can_reply? %>
-          <div id="dropdown-menu-<%= reply_id %>">
+          <div id="panel-<%= reply_id %>">
             <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
           </div>
         <% end %>
