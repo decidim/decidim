@@ -3,31 +3,35 @@
   <h2 class="h3 text-secondary"><%= present(meeting).title %></h2>
 <% end %>
 
-<% conference_meeting = meeting.becomes(Decidim::ConferenceMeeting) %>
-<% speakers = conference_meeting.conference_speakers %>
-<% if speakers.any? %>
-  <div class="conference__program-attribute">
-    <%= icon "user-voice-line", class: "w-3.5 h-3.5 text-gray fill-current" %>
-    <div>
-      <% speakers.each do |speaker| %>
-        <%= cell("decidim/author", present(speaker)) %>
-      <% end %>
+<div class="conference__program-attribute-container">
+  <% conference_meeting = meeting.becomes(Decidim::ConferenceMeeting) %>
+  <% speakers = conference_meeting.conference_speakers %>
+  <% if speakers.any? %>
+    <div class="conference__program-attribute">
+      <div>
+        <% speakers.each do |speaker| %>
+          <%= cell("decidim/author", present(speaker)) %>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<%= cell("decidim/address", meeting) if translated_attribute(meeting.location).present? %>
+  <%= cell("decidim/address", meeting) if translated_attribute(meeting.location).present? %>
 
-<% if meeting.closing_visible? && (meeting.video_url.presence || meeting.audio_url.presence) %>
-  <div class="conference__program-attribute">
-    <%= icon "link", class: "w-3.5 h-3.5 text-gray fill-current" %>
-    <div class="conference__program-attribute-url">
-      <% if meeting.video_url.presence %>
-        <%= link_to meeting.video_url, meeting.video_url, target: "_blank" %>
-      <% end %>
-      <% if meeting.audio_url.presence %>
-        <%= link_to meeting.audio_url, meeting.audio_url, target: "_blank" %>
-      <% end %>
+  <% meeting.closing_visible = true %>
+  <% meeting.video_url = "meeting.video_url" %>
+
+  <% if meeting.closing_visible? && (meeting.video_url.presence || meeting.audio_url.presence) %>
+    <div class="conference__program-attribute">
+      <%= icon "link", class: "w-3.5 h-3.5 text-gray fill-current" %>
+      <div class="conference__program-attribute-url">
+        <% if meeting.video_url.presence %>
+          <%= link_to meeting.video_url, meeting.video_url, target: "_blank" %>
+        <% end %>
+        <% if meeting.audio_url.presence %>
+          <%= link_to meeting.audio_url, meeting.audio_url, target: "_blank" %>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
