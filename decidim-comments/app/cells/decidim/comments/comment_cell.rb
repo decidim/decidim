@@ -120,14 +120,14 @@ module Decidim
       end
 
       def votes_up_classes
-        classes = ["comment__votes--up"]
+        classes = ["button button__sm button__text-secondary"]
         classes << "is-vote-selected" if voted_up?
         classes << "is-vote-notselected" if voted_down?
         classes.join(" ")
       end
 
       def votes_down_classes
-        classes = ["comment__votes--down"]
+        classes = ["button button__sm button__text-secondary"]
         classes << "is-vote-selected" if voted_down?
         classes << "is-vote-notselected" if voted_up?
         classes.join(" ")

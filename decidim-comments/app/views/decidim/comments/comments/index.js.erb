@@ -22,4 +22,6 @@
 
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+  Decidim.Accordions.init();
+  Decidim.Dropdowns.init();
 }());

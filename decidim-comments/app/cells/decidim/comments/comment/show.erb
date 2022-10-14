@@ -27,18 +27,18 @@
           <%= votes %>
         </div>
         <% if can_reply? %>
-          <div class="add-comment hidden" id="<%= reply_id %>" data-toggler=".hidden">
+          <div id="dropdown-menu-<%= reply_id %>">
             <%== cell("decidim/comments/comment_form", model, root_depth: root_depth, order: order) %>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="comment-reply empty:hidden" id="comment-<%= model.id %>-replies">
-      <% if has_replies_in_children? %>
+    <% if has_replies_in_children? %>
+      <div class="comment-reply empty:hidden" id="comment-<%= model.id %>-replies">
         <% replies.each do |reply| %>
           <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 <% end %>

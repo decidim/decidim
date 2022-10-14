@@ -31,6 +31,9 @@ window.Decidim.DataPicker = DataPicker;
 window.Decidim.CommentsComponent = CommentsComponent;
 window.Decidim.addInputEmoji = addInputEmoji;
 window.Decidim.EmojiButton = EmojiButton;
+/*REDESING_PENDING it's not necessary when turbo is loaded */
+window.Decidim.Accordions = Accordions;
+window.Decidim.Dropdowns = Dropdowns;
 
 /**
  * Initializer event for those script who require to be triggered

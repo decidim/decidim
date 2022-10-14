@@ -53,10 +53,6 @@
     }
   }
 
-  .remaining-character-count-sr{
-    @apply block text-[13px] text-gray-2;
-  }
-
   &-order-by{
     @apply grid grid-cols-4;
   }

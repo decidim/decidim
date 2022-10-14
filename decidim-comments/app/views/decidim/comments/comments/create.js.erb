@@ -15,4 +15,5 @@
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
 
   Decidim.addInputEmoji();
+  Decidim.Accordions.init();
 }());
