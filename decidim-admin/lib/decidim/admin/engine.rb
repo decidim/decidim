@@ -208,10 +208,15 @@ module Decidim
                           decidim/admin/user_groups_csv_verifications
                           decidim/admin/officializations
                           decidim/admin/impersonatable_users
+                          decidim/admin/conflicts
                           decidim/admin/moderated_users
                           decidim/admin/managed_users/impersonation_logs
                           decidim/admin/managed_users/promotions
                           decidim/admin/authorization_workflows
+                          decidim/verifications/id_documents/admin/pending_authorizations
+                          decidim/verifications/id_documents/admin/config
+                          decidim/verifications/postal_letter/admin/pending_authorizations
+                          decidim/verifications/csv_census/admin/census
                         ), []],
                         if: allowed_to?(:read, :admin_user) || allowed_to?(:read, :managed_user)
 
