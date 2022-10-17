@@ -1,4 +1,9 @@
+<%# REDESIGN_PENDING: add dropdown %>
 <div class="comment__header__context-menu">
+  <button class="button button__sm button__transparent-secondary ml-auto">
+    <%= icon "more-line" %>
+  </button>
+<div class="hidden comment__header__context-menu">
   <label for="<%= context_menu_id %>" data-toggle="<%= context_menu_id %>">
     <%= icon "ellipses" %>
   </label>
