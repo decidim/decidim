@@ -32,14 +32,20 @@ window.Decidim.CommentsComponent = CommentsComponent;
 window.Decidim.addInputEmoji = addInputEmoji;
 window.Decidim.EmojiButton = EmojiButton;
 
-/**
- * Initializer event for those script who require to be triggered
- * when the page is loaded
- */
-// If no jQuery is used the Tribute feature used in comments to autocomplete
-// mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
-$(() => {
+const basic_initializer = () => {
+  // initialize character counter
+  $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
+    const $input = $(elem);
+
+    if (!$input.is("[minlength]") && !$input.is("[maxlength]")) {
+      return;
+    }
+
+    createCharacterCounter($input);
+  });
+}
+
+const initializer = () => {
   window.theDataPicker = new DataPicker($(".data-picker"));
   window.focusGuard = new FocusGuard(document.querySelector("body"));
 
@@ -122,4 +128,21 @@ $(() => {
   markAsReadNotifications()
 
   scrollToLastChild()
-});
+}
+
+/**
+ * Initializer event for those script who require to be triggered
+ * when the page is loaded
+ */
+// If no jQuery is used the Tribute feature used in comments to autocomplete
+// mentions stops working
+// document.addEventListener("DOMContentLoaded", () => {
+$(() => initializer());
+
+document.addEventListener("turbo:frame-render", (_frame) => {
+  initializer()
+})
+
+document.addEventListener("turbo:load", (_frame) => {
+  basic_initializer();
+})
