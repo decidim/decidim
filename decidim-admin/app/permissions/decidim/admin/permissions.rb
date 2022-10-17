@@ -33,6 +33,7 @@ module Decidim
 
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
+          allow! if read_user_statistics_action?
           allow! if read_metrics_action?
           allow! if static_page_action?
           allow! if organization_action?
@@ -100,6 +101,11 @@ module Decidim
             space.admins.exists?(id: user.id)
           end
         end
+      end
+
+      def read_user_statistics_action?
+        permission_action.subject == :users_statistics &&
+          permission_action.action == :read
       end
 
       def read_metrics_action?

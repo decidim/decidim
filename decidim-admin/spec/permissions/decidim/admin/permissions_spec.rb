@@ -88,6 +88,18 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "user statistics" do
+    let(:action_subject) { :users_statistics }
+
+    it_behaves_like "permission is not set"
+
+    context "when reading" do
+      let(:action_name) { :read }
+
+      it { is_expected.to be true }
+    end
+  end
+
   describe "metrics" do
     let(:action_subject) { :metrics }
 
