@@ -1,5 +1,5 @@
 .comment{
-  @apply rounded-lg border-2 border-background p-4 pl-6 mb-6;
+  @apply rounded-lg border-2 border-background p-4 pl-6;
   &__header{
     @apply flex items-center gap-x-2 mb-2 -ml-[34px] relative z-10;
   }
@@ -105,7 +105,7 @@
   }
 
   &-order-by{
-    @apply grid grid-cols-4;
+    @apply grid grid-cols-4 mt-4 md:mt-0;
   }
 
   &-order-by__item{
