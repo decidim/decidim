@@ -47,7 +47,7 @@ module Decidim
     # rubocop:enable Metrics/ParameterLists
 
     def create_language_selector(locales, tabs_id, name)
-      if Decidim.available_locales.count > 4
+      if locales.count > 4
         language_selector_select(locales, tabs_id, name)
       else
         language_tabs(locales, tabs_id, name)
