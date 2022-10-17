@@ -133,6 +133,14 @@ fr-CA:
               allowed_file_content_types: Fichier image invalide
             official_img_header:
               allowed_file_content_types: Fichier image invalide
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
       new_import:
         attributes:
           file:
