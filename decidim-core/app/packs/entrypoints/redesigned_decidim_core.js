@@ -1,6 +1,9 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 import $ from "jquery"
 import Quill from "quill"
 import Rails from "@rails/ujs"
@@ -8,8 +11,6 @@ import Rails from "@rails/ujs"
 // Turbo
 import "@hotwired/turbo-rails"
 
-import "core-js/stable";
-import "regenerator-runtime/runtime";
 import morphdom from "morphdom"
 // Export variable to make it available in .js.erb templates
 window.morphdom = morphdom
