@@ -62,7 +62,9 @@ module Decidim
             questionnaire: form.questionnaire,
             registrations_enabled: meeting.registrations_enabled,
             available_slots: meeting.available_slots,
-            registration_terms: meeting.registration_terms
+            registration_terms: meeting.registration_terms,
+            online_meeting_url: meeting.online_meeting_url,
+            type_of_meeting: meeting.type_of_meeting
           )
         end
 
