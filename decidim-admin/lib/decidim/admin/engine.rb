@@ -243,6 +243,8 @@ module Decidim
                             decidim/admin/scopes
                             decidim/admin/scope_types
                             decidim/admin/areas decidim/admin/area_types
+                            decidim/admin/help_sections
+                            decidim/admin/organization_external_domain_whitelist
                           ),
                           []
                         ],
