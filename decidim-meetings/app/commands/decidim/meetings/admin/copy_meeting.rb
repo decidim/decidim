@@ -62,7 +62,21 @@ module Decidim
             questionnaire: form.questionnaire,
             registrations_enabled: meeting.registrations_enabled,
             available_slots: meeting.available_slots,
-            registration_terms: meeting.registration_terms
+            registration_terms: meeting.registration_terms,
+            online_meeting_url: meeting.online_meeting_url,
+            type_of_meeting: meeting.type_of_meeting,
+            iframe_embed_type: meeting.iframe_embed_type,
+            iframe_access_level: meeting.iframe_access_level,
+            comments_enabled: meeting.comments_enabled,
+            comments_start_time: meeting.comments_start_time,
+            comments_end_time: meeting.comments_end_time,
+            registration_type: meeting.registration_type,
+            registration_url: meeting.registration_url,
+            attending_organizations: meeting.attending_organizations,
+            reserved_slots: meeting.reserved_slots,
+            customize_registration_email: meeting.customize_registration_email,
+            registration_form_enabled: meeting.registration_form_enabled,
+            registration_email_custom_content: meeting.registration_email_custom_content
           )
         end
 
