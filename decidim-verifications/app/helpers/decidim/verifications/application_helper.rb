@@ -69,7 +69,7 @@ module Decidim
 
         authorization_display_data(authorization).merge(
           url: authorization_method(authorization).resume_authorization_path(**url_params),
-          auth_icon: "loader-2-line",
+          auth_icon: "time-line",
           explanation: t("started_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.updated_at, format: :long_with_particles)),
           button_text: t("authorizations.index.introduce_code", scope: "decidim.verifications")
         )

@@ -39,7 +39,7 @@ export default class UploadModal {
     this.dropZone = this.modal.querySelector(".dropzone");
     this.input = this.dropZone.querySelector("input");
     this.uploadContainer = document.querySelector(`.upload-container-for-${this.name}`);
-    this.activeAttachments = this.uploadContainer.querySelector(".active-uploads");
+    this.activeAttachments = this.uploadContainer.querySelector("[data-active-uploads]");
     this.trashCan = this.createTrashCan();
   }
 

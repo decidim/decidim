@@ -13,14 +13,14 @@
           <%= icon "arrow-left-line", class: "fill-current" %>
           <%= t("decidim.wizard_step_form.wizard_aside.back") %>
         <% end %>
+        <% if available_methods.count > 1 %>
+          <%= link_to t("decidim.verifications.id_documents.authorizations.edit.offline"), { action: :edit, using: :offline }, class: "button button__lg button__transparent-secondary" if using_online? %>
+          <%= link_to t("decidim.verifications.id_documents.authorizations.edit.online"), { action: :edit, using: :online }, class: "button button__lg button__transparent-secondary" if using_offline? %>
+        <% end %>
         <button type="submit" class="button button__lg button__secondary">
           <%= t("decidim.verifications.id_documents.authorizations.edit.send") %>
           <%= icon "arrow-right-line", class: "fill-current" %>
         </button>
-        <% if available_methods.count > 1 %>
-        <%= link_to t("decidim.verifications.id_documents.authorizations.edit.offline"), { action: :edit, using: :offline }, class: "button expanded hollow" if using_online? %>
-        <%= link_to t("decidim.verifications.id_documents.authorizations.edit.online"), { action: :edit, using: :online }, class: "button expanded hollow" if using_offline? %>
-      <% end %>
       </div>
     <% end %>
   </div>
