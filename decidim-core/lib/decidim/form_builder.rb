@@ -590,8 +590,8 @@ module Decidim
       content += abide_error_element(attribute) if class_options[:pattern] || class_options[:required]
       content = content.html_safe
 
-      html = wrap_prefix_and_postfix(content, prefix, postfix)
-      html + error_and_help_text(attribute, options.merge(help_text: help_text))
+      html = error_and_help_text(attribute, options.merge(help_text: help_text))
+      wrap_prefix_and_postfix(content, prefix, postfix) + html
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity
