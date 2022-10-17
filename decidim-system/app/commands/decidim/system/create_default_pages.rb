@@ -46,7 +46,7 @@ module Decidim
 
       def create_default_content_blocks_for(page)
         content_block_summary = Decidim::ContentBlock.create(
-          organization: organization,
+          organization:,
           scope_name: :static_page,
           manifest_name: :summary,
           weight: 1,

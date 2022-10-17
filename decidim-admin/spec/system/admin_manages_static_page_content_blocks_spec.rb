@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Admin manages static page content blocks", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -29,7 +29,7 @@ describe "Admin manages static page content blocks", type: :system do
   end
 
   context "when editing a persisted content block" do
-    let!(:content_block) { create :content_block, organization: organization, manifest_name: :summary, scope_name: :static_page, scoped_resource_id: tos_page.id }
+    let!(:content_block) { create :content_block, organization:, manifest_name: :summary, scope_name: :static_page, scoped_resource_id: tos_page.id }
 
     it "updates the settings of the content block" do
       visit decidim_admin.edit_static_page_content_block_path(:summary, static_page_id: tos_page.id)
