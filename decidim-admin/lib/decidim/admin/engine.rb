@@ -173,7 +173,10 @@ module Decidim
                         decidim_admin.root_path,
                         icon_name: "dashboard",
                         position: 1,
-                        active: ["decidim/admin/dashboard" => :show]
+                        active: [%w(
+                          decidim/admin/dashboard
+                          decidim/admin/metrics
+                        ), []]
 
           menu.add_item :moderations,
                         I18n.t("menu.moderation", scope: "decidim.admin"),
