@@ -154,6 +154,23 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "global moderation" do
+    let(:action_subject) { :global_moderation }
+    let(:action_name) { :read }
+
+    context "when admin has accepted Terms of Use" do
+      let(:user) { build :user, :admin, admin_terms_accepted_at: Time.current, organization: }
+
+      it { is_expected.to be true }
+    end
+
+    context "when admin hasn't accepted Terms of Use" do
+      let(:user) { build :user, :admin, admin_terms_accepted_at: nil, organization: }
+
+      it_behaves_like "permission is not set"
+    end
+  end
+
   describe "share tokens" do
     let(:action_subject) { :share_token }
 
