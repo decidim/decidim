@@ -146,6 +146,7 @@ module Decidim
         return unless permission_action.subject == :managed_user
         return user_manager_permissions if user_manager?
         return unless user&.admin?
+        return unless admin_terms_accepted?
 
         case permission_action.action
         when :create

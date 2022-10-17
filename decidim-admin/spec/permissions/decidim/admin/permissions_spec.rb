@@ -228,6 +228,8 @@ describe Decidim::Admin::Permissions do
       context "when organization available authorizations are not empty" do
         let(:authorizations) { [:foo] }
 
+        it_behaves_like "needs to accept Terms of Use for", :managed_user, :create
+
         it { is_expected.to be true }
       end
     end
