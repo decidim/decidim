@@ -16,6 +16,23 @@ describe Decidim::Admin::Permissions do
   let(:action_name) { :foo }
   let(:action_subject) { :bar }
 
+  shared_examples "needs to accept Terms of Use for" do |action_subject_name, action_name|
+    let(:action_subject) { action_subject_name }
+    let(:action_name) { action_name }
+
+    context "when admin has accepted Terms of Use" do
+      let(:user) { build :user, :admin, admin_terms_accepted_at: Time.current, organization: }
+
+      it { is_expected.to be true }
+    end
+
+    context "when admin hasn't accepted Terms of Use" do
+      let(:user) { build :user, :admin, admin_terms_accepted_at: nil, organization: }
+
+      it_behaves_like "permission is not set"
+    end
+  end
+
   context "when scope is not admin" do
     let(:action) do
       { scope: :public, action: :foo, subject: :bar }
@@ -155,20 +172,7 @@ describe Decidim::Admin::Permissions do
   end
 
   describe "global moderation" do
-    let(:action_subject) { :global_moderation }
-    let(:action_name) { :read }
-
-    context "when admin has accepted Terms of Use" do
-      let(:user) { build :user, :admin, admin_terms_accepted_at: Time.current, organization: }
-
-      it { is_expected.to be true }
-    end
-
-    context "when admin hasn't accepted Terms of Use" do
-      let(:user) { build :user, :admin, admin_terms_accepted_at: nil, organization: }
-
-      it_behaves_like "permission is not set"
-    end
+    it_behaves_like "needs to accept Terms of Use for", :global_moderation, :read
   end
 
   describe "share tokens" do
