@@ -1,18 +1,18 @@
-<div data-component="accordion" data-floating-help="floating-help-<%= id %>">
-  <div id="floating-helper-tip" class="absolute right-0">
-    <button class="button button__xs button__text-secondary bg-background" data-controls="floating-helper-block">
-      <%= icon "question-line", class: "text-gray fill-current" %>
-      <%= t("help", scope: "decidim.shared.floating_help") %>
+<div class="is-block" data-floating-help="floating-help-<%= id %>">
+  <div id="floating-helper-tip">
+    <button class="button button__xs button__text-secondary">
+      <%= icon "question-line" %>
+      <span><%= t("help", scope: "decidim.shared.floating_help") %></span>
     </button>
   </div>
 
-  <div id="floating-helper-block" class="border-4 border-background p-6 flex items-start gap-4">
-    <%= icon "question-line", class: "text-gray fill-current" %>
+  <div id="floating-helper-block">
+    <%= icon "question-line" %>
     <div class="editor-content">
       <%= content %>
     </div>
-    <button class="ml-auto" data-controls="floating-helper-tip" title="<%= t("close", scope: "decidim.shared.floating_help") %>">
-      <%= icon "close-line", class: "text-secondary fill-current" %>
+    <button aria-label="<%= t("close", scope: "decidim.shared.floating_help") %>">
+      <%= icon "close-line" %>
     </button>
   </div>
 </div>

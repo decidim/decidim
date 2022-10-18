@@ -45,7 +45,7 @@ import "src/decidim/responsive_horizontal_tabs"
 import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
 import "src/decidim/configuration"
-import "src/decidim/floating_help"
+// import "src/decidim/floating_help" -- imported in submodules
 import "src/decidim/confirm"
 import "src/decidim/comments/comments"
 import "src/decidim/results_listing"

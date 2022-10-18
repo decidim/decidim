@@ -21,6 +21,7 @@ import Accordions from "a11y-accordion-component";
 import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
 import markAsReadNotifications from "src/decidim/notifications"
+import addFloatingHelp from "./redesigned_floating_help"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -122,4 +123,7 @@ $(() => {
   markAsReadNotifications()
 
   scrollToLastChild()
+
+  // Initialize the floating help blocks for the participatory processes
+  document.querySelectorAll("[data-floating-help]").forEach((elem) => addFloatingHelp(elem))
 });
