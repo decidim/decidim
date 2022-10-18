@@ -35,6 +35,7 @@ module Decidim
       end
     end
 
+    # deprecated
     def participatory_space_wrapper(&)
       content_tag :div, class: "wrapper" do
         concat(participatory_space_floating_help)

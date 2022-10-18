@@ -6,7 +6,7 @@ module Decidim
     # public layout.
     class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::ApplicationController
       include ParticipatorySpaceContext
-      participatory_space_layout only: [:show, :all_metrics]
+      redesign_participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
 
       helper_method :collection,
