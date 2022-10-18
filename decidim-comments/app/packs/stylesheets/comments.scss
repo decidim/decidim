@@ -45,6 +45,8 @@
     }
 
     .button_to:first-child,
+    button:first-child,
+    button:nth-child(2),
     .button_to:nth-child(2) {
       svg:first-child {
         @apply block;

@@ -12,13 +12,13 @@
     <% end %>
   <% else %>
     <button class="<%= votes_up_classes %> " title="<%= t("decidim.components.up_vote_button.text") %>" data-open="loginModal">
-      <%= icon "thumb-up-line" %>
-      <%= icon "thumb-up-fill" %>
+      <%= icon "thumb-up-line", class: "fill-secondary" %>
+      <%= icon "thumb-up-fill", class: "fill-secondary" %>
       <span><%= up_votes_count %></span>
     </button>
     <button class="<%= votes_down_classes %> " title="<%= t("decidim.components.down_vote_button.text") %>" data-open="loginModal">
-      <%= icon "thumb-down-line" %>
-      <%= icon "thumb-down-fill" %>
+      <%= icon "thumb-down-line", class: "fill-secondary" %>
+      <%= icon "thumb-down-fill", class: "fill-secondary" %>
       <span><%= down_votes_count %></span>
     </button>
   <% end %>
