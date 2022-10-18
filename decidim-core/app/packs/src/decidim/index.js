@@ -32,6 +32,12 @@ window.Decidim.CommentsComponent = CommentsComponent;
 window.Decidim.addInputEmoji = addInputEmoji;
 window.Decidim.EmojiButton = EmojiButton;
 
+/**
+ * Initializer event for those script who require to be triggered
+ * when the page is loaded
+ *
+ * @returns {void}
+ */
 const initializer = () => {
   window.theDataPicker = new DataPicker($(".data-picker"));
   window.focusGuard = new FocusGuard(document.querySelector("body"));
@@ -117,19 +123,12 @@ const initializer = () => {
   scrollToLastChild()
 }
 
-/**
- * Initializer event for those script who require to be triggered
- * when the page is loaded
- */
-// If no jQuery is used the Tribute feature used in comments to autocomplete
-// mentions stops working
-// document.addEventListener("DOMContentLoaded", () => {
-// $(() => initializer());
-
-document.addEventListener("turbo:frame-render", () => {
-  initializer()
-})
-
-document.addEventListener("turbo:load", () => {
-  initializer()
-})
+if ("Turbo" in window) {
+  document.addEventListener("turbo:frame-render", () => initializer());
+  document.addEventListener("turbo:load", () => initializer());
+} else {
+  // If no jQuery is used the Tribute feature used in comments to autocomplete
+  // mentions stops working
+  // document.addEventListener("DOMContentLoaded", () => {
+  $(() => initializer());
+}
