@@ -25,7 +25,7 @@ en:
           success: Template deleted successfully
         empty: There are no templates yet.
         update:
-          error: There was a problem upadting this template.
+          error: There was a problem updating this template.
           success: Template updated successfully
       titles:
         template_types:
