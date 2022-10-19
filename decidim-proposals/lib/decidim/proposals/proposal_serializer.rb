@@ -32,7 +32,7 @@ module Decidim
           },
           component: { id: component.id },
           title: proposal.title,
-          body: proposal.body,
+          body: plain_text_body,
           address: proposal.address,
           latitude: proposal.latitude,
           longitude: proposal.longitude,
@@ -92,6 +92,16 @@ module Decidim
         return unless proposal.emendation? && proposal.amendable.present?
 
         Decidim::ResourceLocatorPresenter.new(proposal.amendable).url
+      end
+
+      def plain_text_body
+        proposal.body.transform_values do |v|
+          if v.is_a? Hash
+            v
+          else
+            Nokogiri::HTML(v).text
+          end
+        end
       end
     end
   end

@@ -9,7 +9,7 @@ module Decidim
         described_class.new(proposal)
       end
 
-      let!(:proposal) { create(:proposal, :accepted) }
+      let!(:proposal) { create(:proposal, :accepted, body:) }
       let!(:category) { create(:category, participatory_space: component.participatory_space) }
       let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
       let(:participatory_process) { component.participatory_space }
@@ -20,6 +20,7 @@ module Decidim
 
       let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
+      let(:body) { Decidim::Faker::Localized.localized { ::Faker::Lorem.sentences(number: 3).join("\n") } }
 
       let(:expected_answer) do
         answer = proposal.answer
@@ -61,7 +62,7 @@ module Decidim
         end
 
         it "serializes the body" do
-          expect(serialized).to include(body: proposal.body)
+          expect(serialized[:body]).to eq(proposal.body)
         end
 
         it "serializes the address" do
@@ -146,6 +147,14 @@ module Decidim
 
           it "serializes the answer" do
             expect(serialized).to include(answer: expected_answer)
+          end
+        end
+
+        context "with rich text proposal body" do
+          let(:body) { { "en" => "<h3>Proposal body</h3><p><strong>This is the body</strong> of the proposal</p>" } }
+
+          it "serializes the body without HTML tags" do
+            expect(serialized[:body]).to eq({ "en" => "Proposal bodyThis is the body of the proposal" })
           end
         end
       end
