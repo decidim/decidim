@@ -19,12 +19,14 @@
     <% unless reloaded? %>
       <% if model.authored_by?(current_user) %>
         <%# REDESIGN_PENDING: implement the new design when a comment is edited %>
+        <%# REDESIGN_PENDING: add Turbo %>
         <li class="dropdown__item">
           <%= cell("decidim/comments/edit_comment_modal_form", model, modal_id: "editCommentModal#{model.id}") %>
         </li>
       <% end %>
     <% end %>
       <li>
+        <%# REDESIGN_PENDING: add Turbo %>
         <%= link_to comment_path, remote: true, method: :delete, class: "dropdown__item", data: { confirm: t("decidim.components.comment.confirm_destroy") } do %>
           <%= icon "delete-bin-line" %>
           <span><%= t("decidim.components.comment.delete") %></span>
