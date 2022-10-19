@@ -39,7 +39,7 @@ module Decidim
         activity.participatory_space_lazy
         activity.component_lazy
         activity
-      end
+      end.compact
     end
   end
 end
