@@ -62,7 +62,7 @@ module Decidim
         end
 
         it "serializes the body" do
-          expect(serialized[:body]).to eq(proposal.body)
+          expect(serialized).to include(body: proposal.body)
         end
 
         it "serializes the address" do
@@ -154,7 +154,7 @@ module Decidim
           let(:body) { { "en" => "<h3>Proposal body</h3><p><strong>This is the body</strong> of the proposal</p>" } }
 
           it "serializes the body without HTML tags" do
-            expect(serialized[:body]).to eq({ "en" => "Proposal bodyThis is the body of the proposal" })
+            expect(serialized).to include(body: { "en" => "Proposal bodyThis is the body of the proposal" })
           end
         end
       end
