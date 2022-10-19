@@ -94,10 +94,10 @@ export default class InputCharacterCounter {
       // In WYSIWYG editors (Quill) we need to find the active editor from the
       // DOM node. Quill has the experimental "find" method that should work
       // fine in this case
-      if (Quill && this.$input.parent().is(".editor")) {
+      if (window.Quill && this.$input.parent().is(".editor")) {
         // Wait until the next javascript loop so Quill editors are created
         setTimeout(() => {
-          this.editor = Quill.find(this.$input.siblings(".editor-container")[0]);
+          this.editor = window.Quill.find(this.$input.siblings(".editor-container")[0]);
           this.$userInput = $(this.editor.root);
           this.initialize();
         });

@@ -1,13 +1,98 @@
-@import "quill/dist/quill.snow";
-@import "stylesheets/decidim/variables";
-@import "stylesheets/decidim/utils/settings";
-
+// TODO: Write in Tailwind
 .editor-container{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
   margin-bottom: 1.5rem;
 
-  p{
-    line-height: $paragraph-lineheight;
-    margin-bottom: $paragraph-margin-bottom;
-    text-rendering: $paragraph-text-rendering;
+  &.editor-disabled{
+    .editor-input .ProseMirror{
+      background: #eee;
+    }
+  }
+
+  .editor-toolbar{
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+
+    .editor-toolbar-control{
+      margin-left: .5rem;
+
+      &:first-child{
+        margin-left: 0;
+      }
+
+      &:hover,
+      &:focus{
+        svg{
+          fill: #00f;
+        }
+      }
+    }
+
+    select{
+      display: inline-block;
+      width: auto;
+      margin-bottom: 0;
+      height: 2rem;
+    }
+
+    button{
+      position: relative;
+      top: .2rem;
+    }
+
+    .editor-toolbar-icon{
+      width: 1.2em;
+      height: 1.2em;
+    }
+  }
+
+  .editor-input{
+    position: relative;
+    flex: 1 1 auto;
+    overflow-y: auto;
+
+    .ProseMirror{
+      position: relative;
+      padding: 10px;
+      min-height: 100%;
+      outline: 0;
+
+      // Tiptap adds an extra <p> inside list items to support multiple
+      // sub-elements within the content model.
+      li p{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.rich-text-display{
+  // Tiptap adds an extra <p> inside list items to support multiple sub-elements
+  // within the content model.
+  li p{
+    margin-bottom: 0;
+  }
+
+  // vv Legacy vv
+  .ql-video{
+    max-width: 600px;
+    width: 100%;
+    height: 450px;
+    max-height: 70vh;
+    margin: 40px auto;
+    display: block;
+  }
+
+  .ql-toolbar .ql-video{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .ql-reset-decidim{
+    display: inline;
+    padding: 0;
+    white-space: inherit;
   }
 }

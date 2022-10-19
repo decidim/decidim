@@ -72,7 +72,7 @@ shared_examples_for "manage questionnaires" do
       expect(page).to have_selector("select[id$=question_type][disabled]")
       expect(page).to have_selector("select[id$=max_choices][disabled]")
       expect(page).to have_selector("input[id$=max_characters][disabled]")
-      expect(page).to have_selector(".ql-editor[contenteditable=false]")
+      expect(page).to have_selector(".ProseMirror[contenteditable=false]")
     end
   end
 

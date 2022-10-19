@@ -103,6 +103,7 @@ $(() => {
 
           return ""
         }
+        // FIX: Check ProseMirror / Tiptap
         return `<span contenteditable="false">${item.original.nickname}</span>`;
       }
       return item.original.nickname;
@@ -174,6 +175,8 @@ $(() => {
   // https://github.com/quilljs/quill/issues/1816
   //
   // For this reason we need to wait a bit for quill to initialize itself.
+  //
+  // FIX: Check ProseMirror / Tiptap
   setTimeout(function() {
     $mentionContainer.each((index, item) => {
       let $qlEditor = $(".ql-editor", item);

@@ -3,7 +3,7 @@
 import svg4everybody from "svg4everybody"
 import formDatePicker from "src/decidim/form_datepicker"
 import fixDropdownMenus from "src/decidim/dropdowns_menus"
-import createQuillEditor from "src/decidim/editor"
+import createEditor from "src/decidim/editor"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/redesigned_external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
@@ -70,9 +70,9 @@ $(() => {
 
   formDatePicker();
 
-  $(".editor-container").each((_idx, container) => {
-    createQuillEditor(container);
-  });
+  document.querySelectorAll(".editor-container").forEach((container) => {
+    createEditor(container);
+  })
 
   document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
 

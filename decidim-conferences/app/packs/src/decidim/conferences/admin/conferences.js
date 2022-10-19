@@ -16,10 +16,10 @@ $(() => {
       const enabled = $registrationsEnabled.prop("checked");
       $availableSlots.attr("disabled", !enabled);
 
-      $form.find("#conference_registrations_terms .editor-container").each((idx, node) => {
-        const quill = Quill.find(node);
-        quill.enable(enabled);
-      })
+      // $form.find("#conference_registrations_terms .editor-container").each((idx, node) => {
+      //   const quill = Quill.find(node);
+      //   quill.enable(enabled);
+      // })
     };
     $registrationsEnabled.on("change", toggleDisabledFields);
     toggleDisabledFields();
