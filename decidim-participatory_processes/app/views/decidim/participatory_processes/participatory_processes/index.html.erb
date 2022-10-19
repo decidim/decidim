@@ -25,22 +25,23 @@ edit_link(
   <%= redesigned_participatory_space_floating_help %>
 
   <% if promoted_collection.any? %>
-    <section id="highlighted-processes">
-      <h2 class="section-heading"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h1>
+    <section id="highlighted-processes" class="card__highlight-container">
+      <h2 class="h3 decorator"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h2>
+
       <% promoted_collection.each do |promoted_item| %>
         <%= render_highlighted_partial_for promoted_item %>
       <% end %>
     </section>
   <% end %>
 
-  <section id="processes-grid">
-    <div class="processes-grid-order-by">
-      <%= render partial: "order_by_processes" %>
-    </div>
-    <%= render partial: "decidim/shared/participatory_space_filters/show" %>
-    <p class="loading"><%= t("loading", scope: "decidim.participatory_processes.participatory_processes.index") %></p>
-    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+  <section id="processes-grid" class="card__grid-container">
+    <h2 class="h3 decorator"><%= t("active", scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: collection.length) %></h2>
+    <!-- <p class="loading"><%= t("loading", scope: "decidim.participatory_processes.participatory_processes.index") %></p> -->
+
+    <div class="card__grid-grid">
       <%= render(collection) %>
     </div>
+
+    <%#= decidim_paginate collection %>
   </section>
 <% end %>
