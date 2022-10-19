@@ -34,7 +34,11 @@
     @apply mb-8;
   }
 
-  .add-comment {
+  &__as{
+    @apply my-4;
+  }
+
+  .add-comment{
     @apply w-full;
   }
 
