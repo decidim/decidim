@@ -42,6 +42,9 @@
   @import "stylesheets/decidim/redesigned_statistics.scss";
   @import "stylesheets/decidim/redesigned_content_blocks.scss";
   @import "stylesheets/decidim/redesigned_documents.scss";
+
+  // REDESIGNED_PENDING: Merge into this redesigned_item_list when available (https://github.com/decidim/decidim/pull/9772)
+  @import "stylesheets/decidim/redesigned_cards.scss";
 }
 
 // On the other hand, the following styles match with specific routes

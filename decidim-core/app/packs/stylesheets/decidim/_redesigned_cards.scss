@@ -1,6 +1,6 @@
-.conference__list{
-  &__highlighted{
-    @apply ring ring-4 ring-background hover:ring-tertiary rounded flex flex-col md:flex-row hover:cursor-pointer;
+.card{
+  &__highlight{
+    @apply ring-4 ring-background hover:ring-tertiary rounded flex flex-col md:flex-row hover:cursor-pointer;
 
     &-container{
       @apply space-y-12 mb-16 md:mb-28;
@@ -23,8 +23,8 @@
     }
   }
 
-  &__item{
-    @apply ring ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer;
+  &__grid{
+    @apply ring-4 ring-background hover:ring-tertiary rounded hover:cursor-pointer;
 
     &-container{
       @apply space-y-12 mb-16;
