@@ -197,7 +197,7 @@ module Decidim
 
       def space_allows_admin_access_to_current_action?(require_admin_terms_accepted: false)
         Decidim.participatory_space_manifests.any? do |manifest|
-          next if manifest.name != :initiatives && require_admin_terms_accepted && !admin_terms_accepted?
+          next if require_admin_terms_accepted && !admin_terms_accepted?
 
           new_permission_action = Decidim::PermissionAction.new(
             action: permission_action.action,
