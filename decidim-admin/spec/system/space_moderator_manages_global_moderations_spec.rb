@@ -8,6 +8,7 @@ describe "Space moderator manages global moderations", type: :system do
       :process_moderator,
       :confirmed,
       organization:,
+      admin_terms_accepted_at: Time.current,
       participatory_process: participatory_space
     )
   end
