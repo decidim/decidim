@@ -417,7 +417,9 @@ describe "Homepage", type: :system do
             expect(page).to have_selector("a[target='_blank'][href='https://github.com/decidim/decidim']")
 
             within "a[target='_blank'][href='https://github.com/decidim/decidim']" do
-              expect(page).to have_selector("svg.icon use[href='#{webpacker_helper.asset_pack_path("media/images/icons.svg")}#icon-external-link']")
+              # REDESIGN_PENDING: Uncomment the next line once merged turbo-rails https://github.com/decidim/decidim/pull/9881
+              # It contains a javascript rearrangement among redesigned and the legacy version
+              # expect(page).to have_selector("svg use[href*='external-link']")
             end
           end
         end
