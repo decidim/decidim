@@ -6,21 +6,19 @@
     <h3 class="h3 text-secondary"><%= decidim_html_escape(translated_attribute(promoted_process.title)).html_safe %></h3>
     <%= decidim_sanitize_editor html_truncate(translated_attribute(promoted_process.short_description), length: 630, separator: "...") %>
 
-    <%# REDESIGN_PENDING: search for this texts %>
-    <span class="show-for-sr"><%= decidim_html_escape(translated_attribute(promoted_process.title)) %></span>
-    <%= t("participatory_processes.promoted_process.more_info", scope: "layouts.decidim") %>
-
-    <% if translated_in_current_locale?(promoted_process.active_step&.cta_text) %>
-      <span class="show-for-sr"><%= translated_attribute(promoted_process.active_step.cta_text) %></span>
-      <span aria-hidden="true"><%= translated_attribute(promoted_process.active_step.cta_text) %></span>
-    <% else %>
-      <span class="show-for-sr"><%= t(promoted_process.cta_button_text_key_accessible, resource_name: translated_attribute(promoted_process.title), scope: "layouts.decidim.participatory_processes.promoted_process") %></span>
-      <span aria-hidden="true"><%= t(promoted_process.cta_button_text_key, scope: "layouts.decidim.participatory_processes.promoted_process") %></span>
-    <% end %>
-    <% if promoted_process.active_step %>
-      <span class="button__info">
-        <%= t("participatory_processes.promoted_process.active_step", scope: "layouts.decidim") %> <%= translated_attribute promoted_process.active_step.title %>
-      </span>
-    <% end %>
+    <%# REDESIGN_PENDING: replace static fields %>
+    <div class="card__highlight-metadata">
+      <div>
+        <%
+          # REDESIGN_PENDING: Decimal number between 0-1. Higher when closer to date
+          value = rand(1..100).to_f / 100 %>
+        <div class="card__highlight-loader" style="--value:<%= value %>;"></div>
+        queda un mes
+      </div>
+      <div>
+        <%= icon "bubble-chart-line" %>
+        2345 interacciones
+      </div>
+    </div>
   </div>
 <% end %>
