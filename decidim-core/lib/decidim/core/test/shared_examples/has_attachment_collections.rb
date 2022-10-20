@@ -13,13 +13,13 @@ shared_examples_for "has attachment collections" do
     end
 
     it "shows them" do
-      within ".attachments .documents" do
+      within ".attachments", match: :first do
         expect(page).to have_content(/#{translated(attachment_collection.name, locale: :en)}/i)
       end
     end
 
     it "show their documents" do
-      within ".attachments .documents #docs-collection-#{attachment_collection.id}", visible: false do
+      within ".attachments [id*=documents-#{attachment_collection.id}]", visible: false do
         expect(page).to have_content(:all, /#{translated(document.title, locale: :en)}/i)
         expect(page).not_to have_content(:all, /#{translated(other_document.title, locale: :en)}/i)
       end
@@ -38,7 +38,7 @@ shared_examples_for "has attachment collections" do
     end
 
     it "shows them ordered" do
-      within ".attachments .documents" do
+      within ".attachments", match: :first do
         expect(translated(first_attachment_collection.name, locale: :en)).to appear_before(translated(last_attachment_collection.name, locale: :en))
       end
     end
@@ -54,7 +54,7 @@ shared_examples_for "has attachment collections" do
     end
 
     it "is not present" do
-      within ".attachments .documents" do
+      within ".attachments", match: :first do
         expect(page).to have_content(/#{translated(attachment_collection.name, locale: :en)}/i)
         expect(page).not_to have_content(/#{translated(empty_attachment_collection.name, locale: :en)}/i)
       end

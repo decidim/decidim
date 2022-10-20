@@ -64,7 +64,7 @@ describe "Edit proposals", type: :system do
 
         it "can delete attachments" do
           visit current_path
-          expect(page).to have_content("RELATED DOCUMENTS")
+          expect(page).to have_content("Related documents")
           expect(page).to have_content("RELATED IMAGES")
           click_link "Edit proposal"
 

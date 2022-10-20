@@ -24,7 +24,7 @@ describe Decidim::Votings::ContentBlocks::LandingPage::AttachmentsAndFoldersCell
     end
 
     it "shows pdf attachment" do
-      expect(subject).to have_selector(".documents .card__link", count: 1)
+      expect(subject).to have_selector("[id^=attachment] [target=_blank]", count: 1)
     end
   end
 end

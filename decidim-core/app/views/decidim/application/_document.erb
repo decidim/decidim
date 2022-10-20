@@ -1,5 +1,5 @@
 <%# REDESIGN_PENDING: use the card list (small one) once verifications merged (https://github.com/decidim/decidim/pull/9759) %>
-<div class="item-list__content">
+<div id="<%= dom_id(document) %>" class="item-list__content">
   <%= link_to document.url, target: "_blank", rel: "noopener noreferrer", class: "item-list__title", title: t("decidim.application.document.download") do %>
     <%= icon "download-cloud-2-line", class: "inline-block w-4 h-4 mr-2 text-gray fill-current" %>
     <%= attachment_title(document) %>
