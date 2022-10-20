@@ -36,6 +36,7 @@ module Decidim
           allow! if read_user_statistics_action?
           allow! if read_metrics_action?
           allow! if static_page_action?
+          allow! if templates_action?
           allow! if organization_action?
           allow! if user_action?
 
@@ -133,6 +134,11 @@ module Decidim
         else
           true
         end
+      end
+
+      def templates_action?
+        permission_action.subject == :templates &&
+          permission_action.action == :read
       end
 
       def organization_action?
