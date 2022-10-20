@@ -15,7 +15,7 @@ module Decidim::Conferences
       let(:show_space) { false }
 
       it "renders the card" do
-        expect(subject).to have_css(".card__grid")
+        expect(subject).to have_css("[id^='conference']")
       end
 
       # REDESIGN_PENDING: The footer link dissapears with the redesign. Remove

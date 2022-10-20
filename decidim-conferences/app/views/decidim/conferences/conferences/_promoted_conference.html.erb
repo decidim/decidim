@@ -1,4 +1,4 @@
-<%= link_to conference_path(promoted_conference), class: "card__highlight" do %>
+<%= link_to conference_path(promoted_conference), id: "promoted-#{dom_id(promoted_conference)}", class: "card__highlight" do %>
   <div class="card__highlight-img">
     <%= image_tag promoted_conference.attached_uploader(:hero_image).path, alt: t(promoted_conference.cta_button_text_key, scope: "layouts.decidim.conferences.promoted_conference") %>
   </div>
