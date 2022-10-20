@@ -25,6 +25,28 @@ describe "Space moderator manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
+  context "when the user hasn't accepted the Terms of Use" do
+    before do
+      user.update(admin_terms_accepted_at: nil)
+    end
+
+    it "doesn't have the menu item in the main navigation" do
+      visit participatory_space_path
+
+      within ".main-nav" do
+        expect(page).not_to have_text("Global moderations")
+      end
+    end
+
+    it "can't access to the Global moderations page" do
+      visit decidim_admin.moderations_path
+
+      within ".callout.alert" do
+        expect(page).to have_text("You are not authorized to perform this action")
+      end
+    end
+  end
+
   context "when the user can manage a space that has moderations" do
     it_behaves_like "manage moderations" do
       let(:moderations_link_text) { "Global moderations" }
