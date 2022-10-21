@@ -31,7 +31,7 @@
     }
 
     &-grid{
-      @apply grid gap-4 md:gap-x-12 md:gap-y-16 grid-cols-2;
+      @apply grid gap-4 md:gap-x-12 md:gap-y-16 md:grid-cols-2;
     }
 
     &-img{
@@ -43,7 +43,7 @@
     }
 
     &-text{
-      @apply p-2 md:p-4 block text-secondary;
+      @apply px-4 py-3 block text-secondary;
 
       >*:first-child{
         /* min-height: line-height * num_lines */
@@ -64,7 +64,7 @@
   /* shared styles */
   &__highlight-metadata,
   &__grid-metadata{
-    @apply mt-auto flex items-center justify-between text-sm text-gray-2 [&>*]:flex [&>*]:items-center [&>*]:gap-1;
+    @apply mt-auto flex items-center justify-between text-sm text-gray-2 [&>*]:flex [&>*]:items-center [&>*]:gap-1 first:[&>*]:flex-none;
 
     svg{
       @apply text-gray fill-current;
