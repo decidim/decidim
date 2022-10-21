@@ -3,6 +3,8 @@
 module Decidim
   # Helper that provides a single method to create filter resource forms
   module FiltersHelper
+    include IconHelper
+
     # This method wraps everything in a div with class filters and calls
     # the form_for helper with a custom builder
     #
@@ -46,6 +48,13 @@ module Decidim
       ) do |form|
         yield form
       end
+    end
+
+    def filter_text_for(name, translation)
+      text = ""
+      text += resource_type_icon name
+      text += content_tag :span, translation
+      text.html_safe
     end
 
     private
