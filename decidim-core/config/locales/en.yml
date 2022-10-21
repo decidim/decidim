@@ -1455,6 +1455,9 @@ en:
         filters:
           areas: Areas
           select_an_area: Select an area
+          status: Status
+          scopes: Scope
+          types: Type
       public_participation:
         public_participation: Show my attendance publicly
       reference:
