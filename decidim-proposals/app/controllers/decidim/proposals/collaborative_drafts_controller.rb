@@ -30,8 +30,8 @@ module Decidim
                                 .includes(:category)
                                 .includes(:scope)
 
-        @collaborative_drafts = paginate(@collaborative_drafts)
         @collaborative_drafts = reorder(@collaborative_drafts)
+        @collaborative_drafts = paginate(@collaborative_drafts)
       end
 
       def show
