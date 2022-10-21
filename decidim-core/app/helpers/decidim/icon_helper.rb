@@ -70,7 +70,7 @@ module Decidim
     end
 
     def resource_type_icon(resource_type, options = {})
-      icon DEFAULT_RESOURCE_TYPE_ICONS[resource_type_icon_key(resource_type)], options
+      icon resource_type_icon_key(resource_type), options
     end
 
     def resource_type_icon_key(resource_type)
