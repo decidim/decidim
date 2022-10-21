@@ -44,7 +44,7 @@
             :first,
             :last
         ) do |builder|
-              builder.label { builder.send(f[1] == "radio" ? "radio_button" : "check_box", class: "reset-defaults" , hidden: true ) + content_tag(:div, builder.text, class: "filter" ) }
+            builder.label { builder.send(f[1] == "radio" ? "radio_button" : "check_box", class: "reset-defaults" , hidden: true ) + content_tag(:div, builder.text, class: "filter" ) }
           end %>
       </div>
     </div>

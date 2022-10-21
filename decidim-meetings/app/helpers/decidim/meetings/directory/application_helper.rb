@@ -14,14 +14,15 @@ module Decidim
         include Decidim::SanitizeHelper
         include Decidim::CheckBoxesTreeHelper
         include Decidim::IconHelper
+        include Decidim::FiltersHelper
 
         def filter_type_values
-          type_values = Decidim::Meetings::Meeting::TYPE_OF_MEETING.map { |type| [type, text_for(type, t(type, scope: "decidim.meetings.meetings.filters.type_values"))] }
-          type_values.prepend(["all", text_for("all", t("decidim.meetings.meetings.filters.type_values.all"))])
+          type_values = Decidim::Meetings::Meeting::TYPE_OF_MEETING.map { |type| [type, filter_text_for(type, t(type, scope: "decidim.meetings.meetings.filters.type_values"))] }
+          type_values.prepend(["all", filter_text_for("all", t("decidim.meetings.meetings.filters.type_values.all"))])
         end
 
         def filter_date_values
-          ["all", "upcoming", "past"].map { |k| [k, text_for(k, t(k, scope: "decidim.meetings.meetings.filters.date_values"))] }
+          ["all", "upcoming", "past"].map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters.date_values"))] }
         end
 
         def directory_filter_scopes_values
@@ -56,9 +57,9 @@ module Decidim
         def directory_meeting_spaces_values
           participatory_spaces = current_organization.public_participatory_spaces
 
-          spaces = participatory_spaces.collect(&:model_name).uniq.map { |participatory_space| [participatory_space.name.underscore, text_for(participatory_space.name, participatory_space.human(count: 2))] }
+          spaces = participatory_spaces.collect(&:model_name).uniq.map { |participatory_space| [participatory_space.name.underscore, filter_text_for(participatory_space.name, participatory_space.human(count: 2))] }
 
-          spaces.prepend(["all", text_for("all", t("decidim.meetings.application_helper.filter_meeting_space_values.all"))])
+          spaces.prepend(["all", filter_text_for("all", t("decidim.meetings.application_helper.filter_meeting_space_values.all"))])
         end
 
         def directory_filter_categories_values
@@ -92,20 +93,20 @@ module Decidim
         def directory_filter_origin_values
           origin_values = ["all", "official", "participants"]
           origin_values << "user_groups" if current_organization.user_groups_enabled?
-          origin_values.map { |k| [k, text_for(k, t(k, scope: "decidim.meetings.meetings.filters.origin_values"))] }
+          origin_values.map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters.origin_values"))] }
         end
 
         # Options to filter meetings by activity.
         def activity_filter_values
-          ["all", "my_meetings"].map { |k| [k, text_for(k, t(k, scope: "decidim.meetings.meetings.filters"))] }
+          ["all", "my_meetings"].map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters"))] }
         end
 
-        def text_for(name, translation)
-          text = ""
-          text += resource_type_icon name
-          text += content_tag :span, translation
-          text.html_safe
-        end
+        # def filter_text_for(name, translation)
+        #   text = ""
+        #   text += resource_type_icon name
+        #   text += content_tag :span, translation
+        #   text.html_safe
+        # end
 
         protected
 
