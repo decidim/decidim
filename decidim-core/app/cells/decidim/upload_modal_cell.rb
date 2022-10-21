@@ -5,6 +5,7 @@ module Decidim
   class UploadModalCell < Decidim::ViewModel
     include Cell::ViewModel::Partial
     include ERB::Util
+    include Decidim::RedesignHelper
 
     alias form model
 
@@ -16,6 +17,15 @@ module Decidim
 
     private
 
+    # REDESIGN_PENDING: Remove once redesign is done. This cell is called from
+    # a form builder method and from there the context of controller is not
+    # available
+    def redesign_enabled?
+      return super if context.present? && context[:controller].present?
+
+      options[:redesigned]
+    end
+
     def button_id
       prefix = form.object_name.present? ? "#{form.object_name}_" : ""
 
@@ -23,7 +33,13 @@ module Decidim
     end
 
     def button_class
-      "#{options[:button_class]} add-file"
+      if redesign_enabled?
+        options[:button_class] || ""
+      else
+        "button small hollow add-field add-file" if has_title?
+
+        "button small add-file"
+      end
     end
 
     def label
