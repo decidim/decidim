@@ -29,6 +29,7 @@ module Decidim
         [:authentication, String],
         [:enable_starttls_auto, Boolean]
       ]
+      attribute :password, String
       attribute :file_upload_settings, FileUploadSettingsForm
 
       OMNIATH_PROVIDERS_ATTRIBUTES = Decidim::OmniauthProvider.available.keys.map do |provider|
