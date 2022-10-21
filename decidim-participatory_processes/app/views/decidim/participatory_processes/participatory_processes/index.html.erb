@@ -17,7 +17,7 @@ edit_link(
 <% end %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= t("decidim.menu.processes") %></h1>
+  <h1 class="h3 md:h1 decorator"><%= t("decidim.menu.processes") %></h1>
 <% end %>
 
 <%= render layout:"layouts/decidim/shared/layout_two_col" do %>
@@ -26,7 +26,7 @@ edit_link(
 
   <% if promoted_collection.any? %>
     <section id="highlighted-processes" class="card__highlight-container">
-      <h2 class="h3 decorator"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h2>
+      <h2 class="h5 md:h3 decorator"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h2>
 
       <% promoted_collection.each do |promoted_item| %>
         <%= render_highlighted_partial_for promoted_item %>
@@ -35,7 +35,7 @@ edit_link(
   <% end %>
 
   <section id="processes-grid" class="card__grid-container">
-    <h2 class="h3 decorator"><%= t("active", scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: collection.length) %></h2>
+    <h2 class="h5 md:h3 decorator"><%= t("active", scope: "decidim.participatory_processes.participatory_processes.filters.counters", count: collection.length) %></h2>
     <!-- <p class="loading"><%= t("loading", scope: "decidim.participatory_processes.participatory_processes.index") %></p> -->
 
     <div class="card__grid-grid">
