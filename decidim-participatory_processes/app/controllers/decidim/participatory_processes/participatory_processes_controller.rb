@@ -83,8 +83,7 @@ module Decidim
       end
 
       def collection
-        grupo = participatory_process_groups.to_a * 100
-        @collection ||= paginate(Kaminari.paginate_array(participatory_processes + grupo))
+        @collection ||= paginate(Kaminari.paginate_array(participatory_processes + participatory_process_groups))
       end
 
       def filtered_processes
