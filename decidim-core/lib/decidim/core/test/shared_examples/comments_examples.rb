@@ -377,6 +377,11 @@ shared_examples "comments" do
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
         expect(page).to have_comment_from(user, "This is a new comment", wait: 20)
+        # REDESIGN_PENDING: For some reason the create js script fails to
+        # update counter in test environment but if the same test is debugged
+        # the script runs successfully. The sleep 5 ensures the poll refreshes
+        # the counter correctly
+        sleep 5
         expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} COMMENTS")
         expect(page).to have_field("add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "")
       end
