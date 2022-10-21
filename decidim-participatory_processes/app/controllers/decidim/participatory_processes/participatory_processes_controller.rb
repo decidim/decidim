@@ -8,6 +8,7 @@ module Decidim
       include ParticipatorySpaceContext
       redesign_participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
+      include Paginable
 
       helper_method :collection,
                     :promoted_collection,
@@ -82,7 +83,8 @@ module Decidim
       end
 
       def collection
-        @collection ||= participatory_processes + participatory_process_groups
+        grupo = participatory_process_groups.to_a * 100
+        @collection ||= paginate(Kaminari.paginate_array(participatory_processes + grupo))
       end
 
       def filtered_processes
