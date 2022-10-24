@@ -1,7 +1,7 @@
-<div class="dynamic-uploads <%= with_title %> upload-container-for-<%= attribute %>">
-  <%= tag.strong label unless has_title? %>
-  <div class="<%= actions_wrapper_class %>">
-    <div class="active-uploads upload-modal__files" data-active-uploads>
+<div class="upload-modal__files-container upload-container-for-<%= attribute %> <%= with_title %>">
+  <div>
+    <%= tag.label label %>
+    <div class="upload-modal__files" data-active-uploads>
       <% attachments.each do |attachment| %>
         <% next if attachment.is_a? Array %>
 

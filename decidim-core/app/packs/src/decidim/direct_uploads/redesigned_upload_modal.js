@@ -188,7 +188,7 @@ export default class UploadModal {
 
     // remove item from array of File(s), if exists (it could be non-validated)
     const ix = this.items.findIndex(({ name }) => name === filename)
-    if (ix) {
+    if (ix > -1) {
       this.items.splice(ix, 1)
     }
 
