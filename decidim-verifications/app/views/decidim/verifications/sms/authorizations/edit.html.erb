@@ -13,11 +13,11 @@
       </div>
 
       <div class="form__wrapper-block flex-row justify-between">
-        <%= link_to decidim_verifications.authorizations_path, class: "button button__lg button__text-secondary" do %>
+        <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
           <%= icon "arrow-left-line", class: "fill-current" %>
           <span><%= t("decidim.wizard_step_form.wizard_aside.back") %></span>
         <% end %>
-        <button type="submit" class="button button__lg button__secondary">
+        <button type="submit" class="button button__sm md:button__lg button__secondary">
           <span><%= t("decidim.verifications.sms.authorizations.edit.send") %></span>
           <%= icon "arrow-right-line", class: "fill-current" %>
         </button>

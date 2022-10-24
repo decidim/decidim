@@ -21,11 +21,11 @@
 </div>
 
 <div data-dialog-actions>
-  <button class="button button__lg button__transparent-secondary" data-dialog-close="renew-modal">
+  <button class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="renew-modal">
     <%= t("renew_modal.cancel", scope: "decidim.verifications.authorizations") %>
   </button>
 
-  <%= link_to authorization_method(authorization).renew_path, class: "button button__lg button__secondary" do %>
+  <%= link_to authorization_method(authorization).renew_path, class: "button button__sm md:button__lg button__secondary" do %>
     <span><%= t("renew_modal.continue", scope: "decidim.verifications.authorizations") %></span>
     <%= icon "arrow-right-line", class: "fill-current" %>
   <% end %>
