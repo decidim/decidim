@@ -29,4 +29,10 @@
     <div class="mt-12 mb-24">
       <%= cell("decidim/announcement", t("decidim.verifications.postal_letter.authorizations.edit.waiting_for_letter")) %>
     </div>
+    <div>
+      <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= icon "arrow-left-line", class: "fill-current" %>
+        <%= t("decidim.wizard_step_form.wizard_aside.back") %>
+      <% end %>
+    </div>
   <% end %>
