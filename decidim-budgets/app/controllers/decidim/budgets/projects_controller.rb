@@ -41,7 +41,7 @@ module Decidim
       end
 
       def search_collection
-        Project.where(budget: budget).includes([:scope, :component, :attachments, :category])
+        Project.where(budget:).includes([:scope, :component, :attachments, :category])
       end
 
       def default_filter_params

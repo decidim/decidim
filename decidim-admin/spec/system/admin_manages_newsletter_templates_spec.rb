@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin manages newsletter templates", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, name: "Sarah Kerrigan", organization:) }
 
   before do
     switch_to_host(organization.host)

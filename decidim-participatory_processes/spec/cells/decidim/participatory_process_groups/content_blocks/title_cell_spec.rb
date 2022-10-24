@@ -12,16 +12,16 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::TitleCell, type: :c
   let(:participatory_process_group) do
     create(
       :participatory_process_group,
-      organization: organization,
-      hashtag: hashtag,
-      group_url: group_url,
-      meta_scope: meta_scope
+      organization:,
+      hashtag:,
+      group_url:,
+      meta_scope:
     )
   end
   let(:content_block) do
     create(
       :content_block,
-      organization: organization,
+      organization:,
       manifest_name: :title,
       scope_name: :participatory_process_group_homepage,
       scoped_resource_id: participatory_process_group.id
@@ -67,6 +67,15 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::TitleCell, type: :c
         expect(subject).to have_no_selector("svg.icon--twitter")
         expect(subject).to have_no_selector("svg.icon--external-link")
         expect(subject).to have_no_selector("svg.icon--globe")
+      end
+    end
+
+    context "when there are unpublished processes in the group" do
+      let!(:published_processes) { create_list(:participatory_process, 2, :published, organization:, participatory_process_group:) }
+      let!(:unpublished_processes) { create_list(:participatory_process, 2, :unpublished, organization:, participatory_process_group:) }
+
+      it "shows correct participatory processes count" do
+        expect(subject).to have_content("2 processes")
       end
     end
   end

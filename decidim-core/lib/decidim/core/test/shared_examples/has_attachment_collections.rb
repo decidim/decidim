@@ -4,9 +4,9 @@ require "spec_helper"
 
 shared_examples_for "has attachment collections" do
   context "when it has attachment collections" do
-    let(:attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
-    let!(:document) { create(:attachment, :with_pdf, attached_to: attached_to, attachment_collection: attachment_collection) }
-    let!(:other_document) { create(:attachment, :with_pdf, attached_to: attached_to, attachment_collection: nil) }
+    let(:attachment_collection) { create(:attachment_collection, collection_for:) }
+    let!(:document) { create(:attachment, :with_pdf, attached_to:, attachment_collection:) }
+    let!(:other_document) { create(:attachment, :with_pdf, attached_to:, attachment_collection: nil) }
 
     before do
       visit current_path
@@ -27,11 +27,11 @@ shared_examples_for "has attachment collections" do
   end
 
   context "when are ordered by weight" do
-    let!(:last_attachment_collection) { create(:attachment_collection, collection_for: collection_for, weight: 2) }
-    let!(:document_one) { create(:attachment, :with_pdf, attached_to: attached_to, attachment_collection: last_attachment_collection) }
+    let!(:last_attachment_collection) { create(:attachment_collection, collection_for:, weight: 2) }
+    let!(:document_one) { create(:attachment, :with_pdf, attached_to:, attachment_collection: last_attachment_collection) }
 
-    let!(:first_attachment_collection) { create(:attachment_collection, collection_for: collection_for, weight: 1) }
-    let!(:document_two) { create(:attachment, :with_pdf, attached_to: attached_to, attachment_collection: first_attachment_collection) }
+    let!(:first_attachment_collection) { create(:attachment_collection, collection_for:, weight: 1) }
+    let!(:document_two) { create(:attachment, :with_pdf, attached_to:, attachment_collection: first_attachment_collection) }
 
     before do
       visit current_path
@@ -45,9 +45,9 @@ shared_examples_for "has attachment collections" do
   end
 
   context "when collection is empty" do
-    let(:attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
-    let!(:document) { create(:attachment, :with_pdf, attached_to: attached_to, attachment_collection: attachment_collection) }
-    let(:empty_attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
+    let(:attachment_collection) { create(:attachment_collection, collection_for:) }
+    let!(:document) { create(:attachment, :with_pdf, attached_to:, attachment_collection:) }
+    let(:empty_attachment_collection) { create(:attachment_collection, collection_for:) }
 
     before do
       visit current_path

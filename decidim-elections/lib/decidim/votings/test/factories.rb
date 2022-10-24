@@ -24,7 +24,7 @@ FactoryBot.define do
     published_at { Time.current }
     start_time { 1.day.from_now }
     end_time { 3.days.from_now }
-    decidim_scope_id { create(:scope, organization: organization).id }
+    decidim_scope_id { create(:scope, organization:).id }
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
     introductory_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     voting_type { "hybrid" }
@@ -77,7 +77,7 @@ FactoryBot.define do
       base_id { 20_000 }
     end
 
-    component { create(:elections_component, organization: organization, participatory_space: voting) }
+    component { create(:elections_component, organization:, participatory_space: voting) }
   end
 
   factory :polling_station, class: "Decidim::Votings::PollingStation" do
@@ -95,7 +95,7 @@ FactoryBot.define do
     voting { create :voting }
 
     trait :president do
-      presided_polling_station { create :polling_station, voting: voting }
+      presided_polling_station { create :polling_station, voting: }
     end
   end
 
@@ -113,13 +113,13 @@ FactoryBot.define do
 
     trait :with_data do
       after(:create) do |dataset|
-        create_list(:datum, 5, dataset: dataset)
+        create_list(:datum, 5, dataset:)
       end
     end
 
     trait :with_access_code_data do
       after(:create) do |dataset|
-        create_list(:datum, 5, :with_access_code, dataset: dataset)
+        create_list(:datum, 5, :with_access_code, dataset:)
       end
     end
 
@@ -175,7 +175,7 @@ FactoryBot.define do
       with_questions
 
       after(:create) do |ballot_style, evaluator|
-        evaluator.election.reload.questions.first(2).map { |question| create(:ballot_style_question, question: question, ballot_style: ballot_style) }
+        evaluator.election.reload.questions.first(2).map { |question| create(:ballot_style_question, question:, ballot_style:) }
       end
     end
   end
@@ -191,12 +191,12 @@ FactoryBot.define do
       component { create(:elections_component, participatory_space: voting) }
     end
 
-    election { create(:election, component: component) }
+    election { create(:election, component:) }
     sequence(:voter_id) { |n| "voter_#{n}" }
     status { "pending" }
     message_id { "decidim-test-authority.2.vote.in_person+v.5826de088371d1b15b38f00c8203871caec07041ed0c8fb0c6fb875f0df763b6" }
     polling_station { polling_officer.polling_station }
-    polling_officer { create(:polling_officer, :president, voting: voting) }
+    polling_officer { create(:polling_officer, :president, voting:) }
 
     trait :accepted do
       status { "accepted" }
@@ -232,13 +232,13 @@ FactoryBot.define do
           max = total_votes
           question.answers.each do |answer|
             value = Faker::Number.between(from: 0, to: max)
-            closure.results << create(:election_result, closurable: closure, election: closure.election, question: question, answer: answer, value: value)
+            closure.results << create(:election_result, closurable: closure, election: closure.election, question:, answer:, value:)
             max -= value
           end
           value = Faker::Number.between(from: 0, to: max)
-          closure.results << create(:election_result, :null_ballots, election: closure.election, question: question, value: value)
+          closure.results << create(:election_result, :null_ballots, election: closure.election, question:, value:)
           max -= value
-          closure.results << create(:election_result, :blank_ballots, election: closure.election, question: question, value: max)
+          closure.results << create(:election_result, :blank_ballots, election: closure.election, question:, value: max)
         end
         closure.results << create(:election_result, :total_ballots, closurable: closure, election: closure.election, value: total_votes)
       end

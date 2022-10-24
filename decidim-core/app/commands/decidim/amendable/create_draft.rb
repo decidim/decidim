@@ -62,7 +62,7 @@ module Decidim
       def create_amendment!
         @amendment = Decidim::Amendment.create!(
           amender: current_user,
-          amendable: amendable,
+          amendable:,
           emendation: @emendation,
           state: "draft"
         )

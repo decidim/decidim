@@ -9,7 +9,7 @@ shared_examples_for "resource endorsed event" do
   let(:author) { create :user, organization: resource.organization }
 
   let(:extra) { { endorser_id: author.id } }
-  let(:endorsement) { create :endorsement, resource: resource, author: author }
+  let(:endorsement) { create :endorsement, resource:, author: }
   let(:resource_path) { resource_locator(resource).path }
   let(:follower) { create(:user, organization: resource.organization) }
   let(:follow) { create(:follow, followable: author, user: follower) }

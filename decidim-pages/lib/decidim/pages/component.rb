@@ -6,6 +6,9 @@ Decidim.register_component(:pages) do |component|
   component.engine = Decidim::Pages::Engine
   component.admin_engine = Decidim::Pages::AdminEngine
   component.icon = "media/images/decidim_pages.svg"
+  component.serializes_specific_data = true
+  component.specific_data_serializer_class_name = "Decidim::Pages::DataSerializer"
+  component.specific_data_importer_class_name = "Decidim::Pages::DataImporter"
   component.permissions_class_name = "Decidim::Pages::Permissions"
 
   component.query_type = "Decidim::Pages::PagesType"
@@ -52,11 +55,11 @@ Decidim.register_component(:pages) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :pages).i18n_name,
       manifest_name: :pages,
       published_at: Time.current,
-      participatory_space: participatory_space
+      participatory_space:
     )
 
     Decidim::Pages::Page.create!(
-      component: component,
+      component:,
       body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(sentence_count: 3)
       end

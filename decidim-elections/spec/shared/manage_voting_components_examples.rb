@@ -164,7 +164,7 @@ shared_examples "manage voting components" do
 
   describe "publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: voting, published_at: published_at)
+      create(:component, participatory_space: voting, published_at:)
     end
 
     let(:published_at) { nil }

@@ -6,12 +6,12 @@ describe "Homepage", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:meetings) { create_list(:meeting, 3, :published, component: component, author: component.organization) }
+  let!(:meetings) { create_list(:meeting, 3, :published, component:, author: component.organization) }
   let!(:moderation) { create :moderation, reportable: meetings.first, hidden_at: 1.day.ago }
 
   let(:day) { Time.zone.yesterday }
   let(:author) { create(:user, organization: component.organization) }
-  let!(:comments) { create_list(:comment, 5, created_at: day, author: author, commentable: meetings.last) }
+  let!(:comments) { create_list(:comment, 5, created_at: day, author:, commentable: meetings.last) }
   let!(:comment_moderation) { create :moderation, reportable: comments.last, hidden_at: 1.day.ago }
 
   before do

@@ -28,7 +28,7 @@ module Decidim
           def answer
             enforce_permission_to_answer_questionnaire
 
-            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token: session_token, ip_hash: ip_hash)
+            @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:, ip_hash:)
 
             Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire) do
               on(:ok) do
@@ -103,7 +103,7 @@ module Decidim
           end
 
           def questionnaire
-            @questionnaire ||= Questionnaire.includes(questions: :answer_options).find_by(questionnaire_for: questionnaire_for)
+            @questionnaire ||= Questionnaire.includes(questions: :answer_options).find_by(questionnaire_for:)
           end
 
           def spam_detected
@@ -138,7 +138,7 @@ module Decidim
           end
 
           def tokenize(id, length: 10)
-            tokenizer = Decidim::Tokenizer.new(salt: questionnaire.salt || questionnaire.id, length: length)
+            tokenizer = Decidim::Tokenizer.new(salt: questionnaire.salt || questionnaire.id, length:)
             tokenizer.int_digest(id).to_s
           end
         end

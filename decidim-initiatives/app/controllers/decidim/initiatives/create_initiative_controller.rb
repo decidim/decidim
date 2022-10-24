@@ -57,7 +57,7 @@ module Decidim
       def previous_form_step(parameters)
         @form = build_form(Decidim::Initiatives::PreviousForm, parameters)
 
-        enforce_permission_to :create, :initiative, { initiative_type: initiative_type }
+        enforce_permission_to :create, :initiative, { initiative_type: }
 
         render_wizard
       end
@@ -142,7 +142,7 @@ module Decidim
       def extra_context
         return {} unless initiative_type_id
 
-        { initiative_type: initiative_type }
+        { initiative_type: }
       end
 
       def scopes

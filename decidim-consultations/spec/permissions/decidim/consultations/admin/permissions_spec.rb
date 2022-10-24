@@ -5,11 +5,11 @@ require "spec_helper"
 describe Decidim::Consultations::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create :user, :admin, organization: organization }
+  let(:user) { create :user, :admin, organization: }
   let(:organization) { create :organization }
-  let(:consultation) { create :consultation, organization: organization }
-  let(:question) { create :question, consultation: consultation }
-  let(:context) { { consultation: consultation, question: question }.merge(extra_context) }
+  let(:consultation) { create :consultation, organization: }
+  let(:question) { create :question, consultation: }
+  let(:context) { { consultation:, question: }.merge(extra_context) }
   let(:extra_context) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(**action) }
   let(:action) do
@@ -25,7 +25,7 @@ describe Decidim::Consultations::Admin::Permissions do
   end
 
   context "when the user is not an admin" do
-    let(:user) { create :user, organization: organization }
+    let(:user) { create :user, organization: }
     let(:action) do
       { scope: :admin, action: :foo, subject: :bar }
     end
@@ -82,19 +82,19 @@ describe Decidim::Consultations::Admin::Permissions do
       let(:action_name) { :publish_results }
 
       context "when consultation is not finished" do
-        let(:consultation) { create :consultation, :active, organization: organization }
+        let(:consultation) { create :consultation, :active, organization: }
 
         it { is_expected.to be false }
       end
 
       context "when consultation is finished and results not published" do
-        let(:consultation) { create :consultation, :finished, :unpublished_results, organization: organization }
+        let(:consultation) { create :consultation, :finished, :unpublished_results, organization: }
 
         it { is_expected.to be true }
       end
 
       context "when consultation is finished and results published" do
-        let(:consultation) { create :consultation, :finished, :published_results, organization: organization }
+        let(:consultation) { create :consultation, :finished, :published_results, organization: }
 
         it { is_expected.to be false }
       end
@@ -104,13 +104,13 @@ describe Decidim::Consultations::Admin::Permissions do
       let(:action_name) { :unpublish_results }
 
       context "when results are not published" do
-        let(:consultation) { create :consultation, :unpublished_results, organization: organization }
+        let(:consultation) { create :consultation, :unpublished_results, organization: }
 
         it { is_expected.to be false }
       end
 
       context "when results are published" do
-        let(:consultation) { create :consultation, :published_results, organization: organization }
+        let(:consultation) { create :consultation, :published_results, organization: }
 
         it { is_expected.to be true }
       end
@@ -178,13 +178,13 @@ describe Decidim::Consultations::Admin::Permissions do
       let(:action_name) { :publish }
 
       context "when question has external voting" do
-        let(:question) { create :question, :external_voting, consultation: consultation }
+        let(:question) { create :question, :external_voting, consultation: }
 
         it { is_expected.to be true }
       end
 
       context "when question has some responses" do
-        let!(:response) { create :response, question: question }
+        let!(:response) { create :response, question: }
 
         it { is_expected.to be true }
       end
@@ -197,8 +197,8 @@ describe Decidim::Consultations::Admin::Permissions do
 
   describe "responses" do
     let(:action_subject) { :response }
-    let!(:response) { create :response, question: question }
-    let(:extra_context) { { response: response } }
+    let!(:response) { create :response, question: }
+    let(:extra_context) { { response: } }
 
     context "when creating a response" do
       let(:action_name) { :create }
@@ -243,9 +243,9 @@ describe Decidim::Consultations::Admin::Permissions do
 
   describe "response_groups" do
     let(:action_subject) { :response_group }
-    let(:question) { create :question, :multiple, consultation: consultation }
-    let!(:response_group) { create :response_group, question: question }
-    let(:extra_context) { { response_group: response_group } }
+    let(:question) { create :question, :multiple, consultation: }
+    let!(:response_group) { create :response_group, question: }
+    let(:extra_context) { { response_group: } }
 
     context "when creating a response_group" do
       let(:action_name) { :create }
@@ -288,7 +288,7 @@ describe Decidim::Consultations::Admin::Permissions do
     end
 
     context "when question is not multiple" do
-      let(:question) { create :question, consultation: consultation }
+      let(:question) { create :question, consultation: }
       let(:action_name) { :create }
 
       it { is_expected.to be false }

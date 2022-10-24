@@ -58,16 +58,16 @@ describe Decidim::Meetings::CreateMeetingEvent do
 
   context "when in a participatory space and the registration is enabled" do
     let(:organization) { create :organization }
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
     let(:registrations_enabled) { true }
     let(:resource) do
       create(:meeting,
-             component: component,
-             registrations_enabled: registrations_enabled,
-             registration_form_enabled: registration_form_enabled,
-             available_slots: available_slots,
-             questionnaire: questionnaire)
+             component:,
+             registrations_enabled:,
+             registration_form_enabled:,
+             available_slots:,
+             questionnaire:)
     end
 
     context "when registration form is enabled" do

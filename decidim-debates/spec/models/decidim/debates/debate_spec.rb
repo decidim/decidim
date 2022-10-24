@@ -20,7 +20,7 @@ describe Decidim::Debates::Debate do
   describe "newsletter participants" do
     subject { Decidim::Debates::Debate.newsletter_participant_ids(debate.component) }
 
-    let!(:component_out_of_newsletter) { create(:debates_component, organization: organization) }
+    let!(:component_out_of_newsletter) { create(:debates_component, organization:) }
     let!(:resource_out_of_newsletter) { create(:debate, component: component_out_of_newsletter) }
     let!(:resource_in_newsletter) { create(:debate, component: debate.component) }
     let(:author_ids) { [] }

@@ -1,0 +1,7 @@
+<div class="flex items-center [&>*:not(:first-child)]:pl-6 [&>*:not(:last-child)]:pr-6 divide-gray-3 divide-x text-sm text-gray-2">
+  <%= render :profile %>
+
+  <% context_actions.each do |action| %>
+    <%= render action %>
+  <% end %>
+</div>

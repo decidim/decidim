@@ -30,8 +30,8 @@ module Decidim::Assemblies
           designation_date: Time.current,
           position: Decidim::AssemblyMember::POSITIONS.sample,
           position_other: "other",
-          existing_user: existing_user,
-          non_user_avatar: non_user_avatar,
+          existing_user:,
+          non_user_avatar:,
           user_id: user_entity&.id
         }
       }
@@ -40,7 +40,7 @@ module Decidim::Assemblies
       form_klass.from_params(
         form_params
       ).with_context(
-        current_user: current_user,
+        current_user:,
         current_organization: assembly.organization
       )
     end

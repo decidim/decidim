@@ -7,11 +7,11 @@ module Decidim
     subject { described_class.new(resource) }
 
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, organization: organization) }
-    let(:component) { create(:component, organization: organization) }
-    let(:reportable) { create(:dummy_resource, component: component) }
-    let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
-    let(:resource) { create(:report, moderation: moderation) }
+    let(:user) { create(:user, organization:) }
+    let(:component) { create(:component, organization:) }
+    let(:reportable) { create(:dummy_resource, component:) }
+    let(:moderation) { create(:moderation, reportable:, participatory_space: component.participatory_space, report_count: 1) }
+    let(:resource) { create(:report, moderation:) }
 
     let(:serialized) { subject.serialize }
 

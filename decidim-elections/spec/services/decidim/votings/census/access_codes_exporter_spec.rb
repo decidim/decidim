@@ -37,7 +37,7 @@ module Decidim
           files = []
           data = nil
           File.open(file_path, "rb") do |file|
-            SevenZipRuby::Reader.open_file(file, password: password) do |szr|
+            SevenZipRuby::Reader.open_file(file, password:) do |szr|
               files = szr.entries.map(&:path)
               data = szr.extract_data(:all).join
             end

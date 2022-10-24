@@ -8,11 +8,11 @@ shared_context "when a simple event" do
 
   let(:event_instance) do
     described_class.new(
-      resource: resource,
-      event_name: event_name,
-      user: user,
-      user_role: user_role,
-      extra: extra
+      resource:,
+      event_name:,
+      user:,
+      user_role:,
+      extra:
     )
   end
 
@@ -23,7 +23,7 @@ shared_context "when a simple event" do
       create :organization
     end
   end
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:user_role) { :follower }
   let(:extra) { {} }
   let(:resource_path) { resource_locator(resource).path }

@@ -9,7 +9,7 @@ describe Decidim::Debates::Admin::Permissions do
   let(:context) do
     {
       current_component: debates_component,
-      debate: debate
+      debate:
     }
   end
   let(:debates_component) { create :debates_component }

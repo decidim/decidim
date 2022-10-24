@@ -6,7 +6,7 @@ module Decidim
   describe AssemblyUserRole do
     subject { assembly_user_role }
 
-    let(:assembly_user_role) { build(:assembly_user_role, role: role) }
+    let(:assembly_user_role) { build(:assembly_user_role, role:) }
     let(:role) { "admin" }
 
     it { is_expected.to be_valid }
@@ -58,8 +58,8 @@ module Decidim
       let(:assembly_user_role) do
         build(
           :assembly_user_role,
-          user: user,
-          assembly: assembly,
+          user:,
+          assembly:,
           role: "admin"
         )
       end
@@ -78,7 +78,7 @@ module Decidim
       end
 
       let!(:existing_role) do
-        create(:assembly_user_role, role: role)
+        create(:assembly_user_role, role:)
       end
 
       it { is_expected.not_to be_valid }

@@ -8,7 +8,7 @@ module Decidim::Meetings
 
     let(:meeting) { create(:meeting, :published) }
     let(:organization) { meeting.component.organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:scope) { create :scope, organization: }
     let(:category) { create :category, participatory_space: meeting.component.participatory_space }
     let(:address) { meeting.address }
     let(:invalid) { false }
@@ -21,7 +21,7 @@ module Decidim::Meetings
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
     end
-    let(:user) { create :user, :admin, organization: organization }
+    let(:user) { create :user, :admin, organization: }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:type_of_meeting) { "online" }
@@ -40,25 +40,25 @@ module Decidim::Meetings
         location_hints: { en: "location_hints" },
         start_time: 1.day.from_now,
         end_time: 1.day.from_now + 1.hour,
-        scope: scope,
-        category: category,
-        address: address,
-        latitude: latitude,
-        longitude: longitude,
-        private_meeting: private_meeting,
-        transparent: transparent,
-        services_to_persist: services_to_persist,
+        scope:,
+        category:,
+        address:,
+        latitude:,
+        longitude:,
+        private_meeting:,
+        transparent:,
+        services_to_persist:,
         current_user: user,
         current_organization: organization,
-        registration_type: registration_type,
-        registration_url: registration_url,
+        registration_type:,
+        registration_url:,
         clean_type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url,
-        iframe_embed_type: iframe_embed_type,
+        online_meeting_url:,
+        iframe_embed_type:,
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
-        iframe_access_level: iframe_access_level
+        iframe_access_level:
       )
     end
 
@@ -123,7 +123,7 @@ module Decidim::Meetings
       end
 
       describe "events" do
-        let!(:follow) { create :follow, followable: meeting, user: user }
+        let!(:follow) { create :follow, followable: meeting, user: }
         let(:title) { meeting.title }
         let(:start_time) { meeting.start_time }
         let(:end_time) { meeting.end_time }
@@ -131,31 +131,31 @@ module Decidim::Meetings
         let(:form) do
           double(
             invalid?: false,
-            title: title,
+            title:,
             description: meeting.description,
             location: meeting.location,
             location_hints: meeting.location_hints,
-            start_time: start_time,
-            end_time: end_time,
+            start_time:,
+            end_time:,
             scope: meeting.scope,
             category: meeting.category,
-            address: address,
+            address:,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
-            private_meeting: private_meeting,
-            transparent: transparent,
-            services_to_persist: services_to_persist,
+            private_meeting:,
+            transparent:,
+            services_to_persist:,
             current_user: user,
             current_organization: organization,
-            registration_type: registration_type,
-            registration_url: registration_url,
+            registration_type:,
+            registration_url:,
             clean_type_of_meeting: type_of_meeting,
-            online_meeting_url: online_meeting_url,
-            iframe_embed_type: iframe_embed_type,
+            online_meeting_url:,
+            iframe_embed_type:,
             comments_enabled: true,
             comments_start_time: nil,
             comments_end_time: nil,
-            iframe_access_level: iframe_access_level
+            iframe_access_level:
           )
         end
 

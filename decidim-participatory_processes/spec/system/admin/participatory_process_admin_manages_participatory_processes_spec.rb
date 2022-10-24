@@ -19,7 +19,7 @@ describe "Participatory process admin manages participatory processes", type: :s
   end
 
   context "when deleting a participatory process" do
-    let!(:participatory_process2) { create(:participatory_process, organization: organization) }
+    let!(:participatory_process2) { create(:participatory_process, organization:) }
 
     before do
       visit decidim_admin_participatory_processes.participatory_processes_path

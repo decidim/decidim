@@ -83,6 +83,7 @@ module Decidim
       def user_authorized_scope
         return scope if handler_name.blank?
         return unless authorized?
+        return if authorization.metadata.blank?
 
         @user_authorized_scope ||= authorized_scope_candidates.find do |scope|
           scope&.id == authorization.metadata.symbolize_keys[:scope_id]
@@ -108,10 +109,10 @@ module Decidim
 
       def metadata
         {
-          name_and_surname: name_and_surname,
-          document_number: document_number,
-          date_of_birth: date_of_birth,
-          postal_code: postal_code
+          name_and_surname:,
+          document_number:,
+          date_of_birth:,
+          postal_code:
         }
       end
 
@@ -138,7 +139,7 @@ module Decidim
 
       # Private: Checks if there's any existing vote that matches the user's data.
       def already_voted?
-        errors.add(:document_number, :taken) if initiative.votes.exists?(hash_id: hash_id, scope: scope)
+        errors.add(:document_number, :taken) if initiative.votes.exists?(hash_id:, scope:)
       end
 
       def author
@@ -179,10 +180,10 @@ module Decidim
         return unless document_number && handler_name
 
         @authorization_handler ||= Decidim::AuthorizationHandler.handler_for(handler_name,
-                                                                             document_number: document_number,
-                                                                             name_and_surname: name_and_surname,
-                                                                             date_of_birth: date_of_birth,
-                                                                             postal_code: postal_code)
+                                                                             document_number:,
+                                                                             name_and_surname:,
+                                                                             date_of_birth:,
+                                                                             postal_code:)
       end
 
       # Private: The AuthorizationHandler name used to verify the user's

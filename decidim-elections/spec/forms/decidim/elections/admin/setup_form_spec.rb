@@ -9,7 +9,7 @@ describe Decidim::Elections::Admin::SetupForm do
     {
       current_organization: component.organization,
       current_component: component,
-      election: election,
+      election:,
       current_step: "create_election"
     }
   end
@@ -18,11 +18,11 @@ describe Decidim::Elections::Admin::SetupForm do
   let(:attributes) do
     {
       setup: {
-        trustee_ids: trustee_ids
+        trustee_ids:
       }
     }
   end
-  let!(:trustees) { create_list :trustee, 5, :with_public_key, election: election }
+  let!(:trustees) { create_list :trustee, 5, :with_public_key, election: }
   let(:trustee_ids) { trustees.pluck(:id) }
 
   it { is_expected.to be_valid }
@@ -63,7 +63,7 @@ describe Decidim::Elections::Admin::SetupForm do
 
   context "when there are no answers created" do
     let(:election) { create :election, :published }
-    let!(:question) { create :question, election: election, weight: 1 }
+    let!(:question) { create :question, election:, weight: 1 }
 
     it { is_expected.to be_invalid }
 
@@ -108,7 +108,7 @@ describe Decidim::Elections::Admin::SetupForm do
   end
 
   context "when census is required" do
-    let(:election) { create :election, :ready_for_setup, trustee_keys: [], component: component }
+    let(:election) { create :election, :ready_for_setup, trustee_keys: [], component: }
 
     let(:voting) { create :voting }
     let(:component) { create :elections_component, participatory_space: voting }
@@ -121,7 +121,7 @@ describe Decidim::Elections::Admin::SetupForm do
     end
 
     context "and census is valid" do
-      let!(:dataset) { create :dataset, :with_data, :frozen, voting: voting }
+      let!(:dataset) { create :dataset, :with_data, :frozen, voting: }
 
       it { is_expected.to be_valid }
 
@@ -129,15 +129,15 @@ describe Decidim::Elections::Admin::SetupForm do
         expect(subject.census_messages).to match(
           hash_including({
                            census_uploaded: "Census is uploaded.",
-                           census_codes_generated: "Census codes are generated.",
-                           census_frozen: "Codes are exported and census is frozen."
+                           census_codes_generated: "Access codes for the census are generated.",
+                           census_frozen: "Access codes for the census are exported and census is frozen."
                          })
         )
       end
     end
 
     context "and census is empty" do
-      let!(:dataset) { create :dataset, voting: voting }
+      let!(:dataset) { create :dataset, voting: }
 
       it { is_expected.to be_invalid }
 
@@ -145,35 +145,35 @@ describe Decidim::Elections::Admin::SetupForm do
         subject.valid?
         expect(subject.errors.messages).to eq({
                                                 census_uploaded: ["There is no census uploaded for this election."],
-                                                census_codes_generated: ["Election codes for the census are not generated."],
-                                                census_frozen: ["Election codes are not exported."]
+                                                census_codes_generated: ["Access codes for the census are not generated."],
+                                                census_frozen: ["Access codes for the census are not exported."]
                                               })
       end
     end
 
     context "and census has no codes generated" do
-      let!(:dataset) { create :dataset, :with_data, voting: voting }
+      let!(:dataset) { create :dataset, :with_data, voting: }
 
       it { is_expected.to be_invalid }
 
       it "shows errors" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-                                                census_codes_generated: ["Election codes for the census are not generated."],
-                                                census_frozen: ["Election codes are not exported."]
+                                                census_codes_generated: ["Access codes for the census are not generated."],
+                                                census_frozen: ["Access codes for the census are not exported."]
                                               })
       end
     end
 
     context "and census is not frozen" do
-      let!(:dataset) { create :dataset, :codes_generated, voting: voting }
+      let!(:dataset) { create :dataset, :codes_generated, voting: }
 
       it { is_expected.to be_invalid }
 
       it "shows errors" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-                                                census_frozen: ["Election codes are not exported."]
+                                                census_frozen: ["Access codes for the census are not exported."]
                                               })
       end
     end

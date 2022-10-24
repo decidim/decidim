@@ -6,7 +6,7 @@ module Decidim
   describe InviteUserToGroupForm do
     subject do
       described_class.new(
-        nickname: nickname
+        nickname:
       ).with_context(
         current_organization: organization
       )
@@ -16,7 +16,7 @@ module Decidim
     let(:nickname) { "@does_not_exist" }
 
     context "with correct data" do
-      let!(:user) { create :user, organization: organization, nickname: "my_nickname" }
+      let!(:user) { create :user, organization:, nickname: "my_nickname" }
       let(:nickname) { "@my_nickname" }
 
       it { is_expected.to be_valid }

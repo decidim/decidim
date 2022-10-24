@@ -7,8 +7,8 @@ describe "followers badge" do
 
   describe "reset" do
     it "resets the score to the amount of followers of a user" do
-      user = create(:user, organization: organization)
-      users = create_list(:user, 5, organization: organization)
+      user = create(:user, organization:)
+      users = create_list(:user, 5, organization:)
 
       users.each do |follower|
         create(:follow, user: follower, followable: user)

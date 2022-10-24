@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe EtiquetteValidator do
-  subject { validatable.new(body: body) }
+  subject { validatable.new(body:) }
 
   let(:validatable) do
     Class.new do

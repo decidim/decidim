@@ -9,7 +9,7 @@ module Decidim::ParticipatoryProcesses
     let!(:organization) { create(:organization) }
 
     let!(:local_participatory_process_groups) do
-      create_list(:participatory_process_group, 3, organization: organization)
+      create_list(:participatory_process_group, 3, organization:)
     end
 
     let!(:foreign_participatory_process_groups) do

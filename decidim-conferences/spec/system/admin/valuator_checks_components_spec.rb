@@ -5,13 +5,13 @@ require "spec_helper"
 describe "Valuator checks components", type: :system do
   let(:current_component) { create :component, manifest_name: "proposals", participatory_space: conference }
   let!(:assigned_proposal) { create :proposal, component: current_component }
-  let(:conference) { create(:conference, organization: organization) }
+  let(:conference) { create(:conference, organization:) }
   let(:participatory_space_path) do
     decidim_admin_conferences.components_path(conference)
   end
   let(:components_path) { participatory_space_path }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let!(:valuator_role) { create :conference_user_role, role: :valuator, user: user, conference: conference }
+  let!(:user) { create :user, :confirmed, organization: }
+  let!(:valuator_role) { create :conference_user_role, role: :valuator, user:, conference: }
   let(:another_component) { create :component, participatory_space: conference }
 
   include Decidim::ComponentPathHelper

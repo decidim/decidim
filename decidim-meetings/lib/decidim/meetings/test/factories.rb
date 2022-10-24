@@ -8,7 +8,7 @@ FactoryBot.define do
   factory :meeting_component, parent: :component do
     name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name }
     manifest_name { :meetings }
-    participatory_space { create(:participatory_process, :with_steps, organization: organization) }
+    participatory_space { create(:participatory_process, :with_steps, organization:) }
 
     trait :with_creation_enabled do
       settings do
@@ -82,7 +82,7 @@ FactoryBot.define do
       end
 
       after(:build) do |meeting, evaluator|
-        meeting.services = evaluator.services || build_list(:service, 2, meeting: meeting)
+        meeting.services = evaluator.services || build_list(:service, 2, meeting:)
       end
     end
 
@@ -181,7 +181,7 @@ FactoryBot.define do
 
     trait :with_agenda_items do
       after(:create) do |agenda, _evaluator|
-        create_list(:agenda_item, 2, :with_children, agenda: agenda)
+        create_list(:agenda_item, 2, :with_children, agenda:)
       end
     end
   end
@@ -194,7 +194,7 @@ FactoryBot.define do
     position { 0 }
 
     trait :with_parent do
-      parent { create(:agenda_item, agenda: agenda) }
+      parent { create(:agenda_item, agenda:) }
     end
 
     trait :with_children do
@@ -263,7 +263,7 @@ FactoryBot.define do
 
   factory :meetings_poll_answer, class: "Decidim::Meetings::Answer" do
     questionnaire factory: :meetings_poll_questionnaire
-    question { create(:meetings_poll_question, questionnaire: questionnaire) }
+    question { create(:meetings_poll_question, questionnaire:) }
     user { create(:user, organization: questionnaire.questionnaire_for.organization) }
   end
 

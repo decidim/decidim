@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Tokenizer do
-  subject { described_class.new(salt: secret, length: length) }
+  subject { described_class.new(salt: secret, length:) }
 
   let(:secret) { "secret" }
   let(:length) { 10 }

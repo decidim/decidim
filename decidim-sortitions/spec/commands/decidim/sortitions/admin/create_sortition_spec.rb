@@ -7,8 +7,8 @@ module Decidim
     module Admin
       describe CreateSortition do
         let(:organization) { create(:organization) }
-        let(:author) { create(:user, :admin, organization: organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
+        let(:author) { create(:user, :admin, organization:) }
+        let(:participatory_process) { create(:participatory_process, organization:) }
         let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
         let(:dice) { ::Faker::Number.between(from: 1, to: 6) }
         let(:target_items) { ::Faker::Number.number(digits: 2) }
@@ -21,11 +21,11 @@ module Decidim
           {
             decidim_proposals_component_id: proposal_component.id,
             decidim_category_id: category_id,
-            dice: dice,
-            title: title,
-            target_items: target_items,
-            witnesses: witnesses,
-            additional_info: additional_info
+            dice:,
+            title:,
+            target_items:,
+            witnesses:,
+            additional_info:
           }
         end
 
@@ -185,7 +185,7 @@ module Decidim
 
           context "when restricted to a category with proposals" do
             let(:category_id) { category.id }
-            let!(:proposal) { create(:proposal, component: proposal_component, category: category) }
+            let!(:proposal) { create(:proposal, component: proposal_component, category:) }
 
             it "the created sortition contains proposals" do
               command.call
@@ -198,7 +198,7 @@ module Decidim
               let!(:proposals) do
                 create_list(:proposal, target_items.to_i,
                             :hidden,
-                            category: category,
+                            category:,
                             component: proposal_component,
                             created_at: Time.now.utc - 1.day)
               end
@@ -214,7 +214,7 @@ module Decidim
               let!(:proposals) do
                 create_list(:proposal, target_items.to_i,
                             :rejected,
-                            category: category,
+                            category:,
                             component: proposal_component,
                             created_at: Time.now.utc - 1.day)
               end
@@ -230,7 +230,7 @@ module Decidim
               let!(:proposals) do
                 create_list(:proposal, target_items.to_i,
                             :withdrawn,
-                            category: category,
+                            category:,
                             component: proposal_component,
                             created_at: Time.now.utc - 1.day)
               end
@@ -246,7 +246,7 @@ module Decidim
               let!(:proposals) do
                 create_list(:proposal, target_items.to_i,
                             :draft,
-                            category: category,
+                            category:,
                             component: proposal_component,
                             created_at: Time.now.utc - 1.day)
               end
@@ -266,7 +266,7 @@ module Decidim
           end
 
           it "sends a notification to the participatory space followers" do
-            follower = create(:user, organization: organization)
+            follower = create(:user, organization:)
             create(:follow, followable: participatory_process, user: follower)
 
             expect(Decidim::EventsManager)

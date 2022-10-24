@@ -12,7 +12,7 @@ module Decidim
         let(:body) { Decidim::Faker::Localized.sentence(word_count: 3) }
         let(:params) do
           {
-            body: body
+            body:
           }
         end
 

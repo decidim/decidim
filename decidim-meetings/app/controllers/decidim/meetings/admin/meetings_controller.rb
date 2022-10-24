@@ -18,7 +18,7 @@ module Decidim
         def create
           enforce_permission_to :create, :meeting
 
-          @form = meeting_form.from_params(params, current_component: current_component)
+          @form = meeting_form.from_params(params, current_component:)
 
           Decidim::Meetings::Admin::CreateMeeting.call(@form) do
             on(:ok) do
@@ -42,7 +42,7 @@ module Decidim
         def update
           enforce_permission_to :update, :meeting, meeting: meeting
 
-          @form = meeting_form.from_params(params, current_component: current_component)
+          @form = meeting_form.from_params(params, current_component:)
 
           Decidim::Meetings::Admin::UpdateMeeting.call(@form, meeting) do
             on(:ok) do

@@ -23,7 +23,7 @@ module Decidim
       end
 
       def create
-        @form = form(RegistrationForm).from_params(params[:user].merge(current_locale: current_locale))
+        @form = form(RegistrationForm).from_params(params[:user].merge(current_locale:))
 
         CreateRegistration.call(@form) do
           on(:ok) do |user|
@@ -39,7 +39,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = @form.errors[:base].join(", ") if @form.errors[:base].any?
+            flash.now[:alert] = @form.errors.full_messages.join(", ") if @form.errors.full_messages.any?
             render :new
           end
         end
@@ -59,6 +59,10 @@ module Decidim
       def build_resource(hash = nil)
         super(hash)
         resource.organization = current_organization
+      end
+
+      def devise_mapping
+        ::Devise.mappings[:user]
       end
     end
   end

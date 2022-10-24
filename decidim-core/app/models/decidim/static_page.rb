@@ -31,7 +31,7 @@ module Decidim
     default_scope { order(arel_table[:weight].asc) }
 
     scope :accessible_for, lambda { |organization, user|
-      collection = where(organization: organization)
+      collection = where(organization:)
 
       if user.blank? && organization.force_users_to_authenticate_before_access_organization
         collection.where(allow_public_access: true)

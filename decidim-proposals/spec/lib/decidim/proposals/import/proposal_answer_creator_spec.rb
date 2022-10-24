@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Proposals::Import::ProposalAnswerCreator do
   subject { described_class.new(data, context) }
 
-  let(:proposal) { create(:proposal, state: state, component: component) }
+  let(:proposal) { create(:proposal, state:, component:) }
   let!(:moment) { Time.current }
   # rubocop:disable Style/HashSyntax
   let(:data) do

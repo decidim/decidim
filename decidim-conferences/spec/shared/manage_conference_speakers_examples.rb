@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage conference speakers examples" do
-  let!(:conference_speaker) { create(:conference_speaker, conference: conference) }
+  let!(:conference_speaker) { create(:conference_speaker, conference:) }
 
   before do
     switch_to_host(organization.host)

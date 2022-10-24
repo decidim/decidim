@@ -5,13 +5,13 @@ require "spec_helper"
 describe "Admin checks pagination on participatory space private users", type: :system do
   let(:organization) { create(:organization) }
 
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let(:assembly) { create(:assembly, organization: organization) }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:assembly) { create(:assembly, organization:) }
 
   before do
     (0..20).each do |_i|
       user = create :user, organization: organization
-      create :assembly_private_user, user: user, privatable_to: assembly
+      create :assembly_private_user, user:, privatable_to: assembly
     end
     switch_to_host(organization.host)
     login_as user, scope: :user

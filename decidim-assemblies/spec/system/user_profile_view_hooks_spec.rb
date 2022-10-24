@@ -4,14 +4,16 @@ require "spec_helper"
 
 describe "Member of assemblies", type: :system do
   let(:organization) { create(:organization) }
-  let!(:assembly) { create(:assembly, organization: organization) }
-  let!(:assembly_member) { create(:assembly_member, :with_user, assembly: assembly) }
+  let!(:assembly) { create(:assembly, organization:) }
+  let!(:assembly_member) { create(:assembly_member, :with_user, assembly:) }
 
   before do
     switch_to_host(organization.host)
   end
 
   it "includes active assemblies to the homepage" do
+    # REDESIGN_PENDING: The assemblies a user belongs to will not appear in the
+    # profile. Remove when redesign is finished
     visit decidim.profile_path(assembly_member.user.nickname)
 
     within ".card__text--separated-mid-dot" do

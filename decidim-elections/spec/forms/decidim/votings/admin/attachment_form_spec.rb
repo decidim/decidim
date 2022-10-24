@@ -8,7 +8,7 @@ module Decidim
     describe Decidim::Admin::AttachmentForm do
       include_examples "attachment form" do
         let(:attached_to) do
-          create :voting, organization: organization
+          create :voting, organization:
         end
       end
     end

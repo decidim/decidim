@@ -10,8 +10,8 @@ module Decidim
 
         let(:initiative) { create :initiative }
         let(:organization) { initiative.organization }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
-        let!(:another_admin) { create(:user, :admin, organization: organization) }
+        let(:user) { create :user, :admin, :confirmed, organization: }
+        let!(:another_admin) { create(:user, :admin, organization:) }
 
         context "when everything is ok" do
           it "sends the initiative to technical validation" do

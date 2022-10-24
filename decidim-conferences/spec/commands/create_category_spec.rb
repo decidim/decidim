@@ -6,7 +6,7 @@ require "decidim/admin/test/commands/create_category_examples"
 module Decidim::Admin
   describe CreateCategory do
     include_examples "CreateCategory command" do
-      let(:participatory_space) { create(:conference, organization: organization) }
+      let(:participatory_space) { create(:conference, organization:) }
     end
   end
 end

@@ -16,7 +16,7 @@ describe Decidim::Proposals::CollaborativeDraftWithdrawnEvent do
   let(:author_url) { author_presenter.profile_url }
   let(:author_name) { author_presenter.name }
   let(:author_nickname) { author_presenter.nickname }
-  let(:extra) { { author_id: author_id } }
+  let(:extra) { { author_id: } }
 
   context "when the notification is for coauthor users" do
     it_behaves_like "a simple event"

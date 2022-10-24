@@ -22,13 +22,13 @@ module Decidim
         remote_path = options.delete(:remote_path) || false
         multiple = options.delete(:multiple) || false
         html_options = {
-          multiple: multiple,
+          multiple:,
           class: "select2",
           "data-remote-path" => remote_path,
           "data-placeholder" => prompt
         }
 
-        select(name, @template.options_for_select(types, selected: selected), options, html_options)
+        select(name, @template.options_for_select(types, selected:), options, html_options)
       end
 
       private

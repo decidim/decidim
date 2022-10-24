@@ -7,8 +7,8 @@ module Decidim::Admin
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, organization: organization }
-    let(:user_to_block) { create :user, :managed, name: "Testingname", organization: organization }
+    let(:current_user) { create :user, :admin, organization: }
+    let(:user_to_block) { create :user, :managed, name: "Testingname", organization: }
     let(:justification) { "justification for blocking the user" }
     let(:user_block) { create :justification, :user, :current_user }
 
@@ -16,7 +16,7 @@ module Decidim::Admin
       let(:form) do
         double(
           user: user_to_block,
-          current_user: current_user,
+          current_user:,
           justification: :justification,
           valid?: true
         )

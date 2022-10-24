@@ -15,7 +15,7 @@ module Decidim
       def unique_email
         return true if Decidim::User.where(
           organization: context.current_organization,
-          email: email
+          email:
         ).where.not(id: context.current_user.id).empty?
 
         errors.add :email, :taken

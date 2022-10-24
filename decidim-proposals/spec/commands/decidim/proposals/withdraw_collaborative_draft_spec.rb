@@ -8,11 +8,11 @@ module Decidim
       describe "call" do
         let(:component) { create(:proposal_component) }
         let(:organization) { component.organization }
-        let!(:current_user) { create(:user, organization: organization) }
-        let(:follower) { create(:user, organization: organization) }
-        let(:other_author) { create(:user, organization: organization) }
+        let!(:current_user) { create(:user, organization:) }
+        let(:follower) { create(:user, organization:) }
+        let(:other_author) { create(:user, organization:) }
         let(:state) { :open }
-        let(:collaborative_draft) { create(:collaborative_draft, component: component, state: state, users: [current_user, other_author]) }
+        let(:collaborative_draft) { create(:collaborative_draft, component:, state:, users: [current_user, other_author]) }
         let!(:follow) { create :follow, followable: current_user, user: follower }
         let(:event) { "decidim.events.proposals.collaborative_draft_withdrawn" }
         let(:event_class) { Decidim::Proposals::CollaborativeDraftWithdrawnEvent }
@@ -51,8 +51,8 @@ module Decidim
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
-                event: event,
-                event_class: event_class,
+                event:,
+                event_class:,
                 resource: collaborative_draft,
                 affected_users: affected_users.uniq,
                 extra: {

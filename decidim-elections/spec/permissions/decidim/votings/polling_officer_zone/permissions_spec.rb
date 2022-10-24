@@ -11,19 +11,19 @@ module Decidim
         let(:user) { create :user, organization: voting.organization }
         let(:context) do
           {
-            polling_officer: polling_officer,
-            polling_officers: polling_officers
+            polling_officer:,
+            polling_officers:
           }
         end
         let(:voting) { create(:voting) }
         let(:other_voting) { create(:voting, organization: voting.organization) }
-        let(:polling_officer) { create(:polling_officer, user: user, voting: voting) }
-        let(:polling_officers) { [polling_officer, create(:polling_officer, user: user, voting: other_voting)] }
+        let(:polling_officer) { create(:polling_officer, user:, voting:) }
+        let(:polling_officers) { [polling_officer, create(:polling_officer, user:, voting: other_voting)] }
         let(:permission_action) { Decidim::PermissionAction.new(**action) }
 
         shared_examples "not allowed when a polling officer is not attached to the current user" do
           context "when a polling officer is not attached to a user" do
-            let!(:polling_officer) { create(:polling_officer, voting: voting) }
+            let!(:polling_officer) { create(:polling_officer, voting:) }
 
             it { is_expected.to be_falsey }
           end

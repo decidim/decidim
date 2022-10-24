@@ -10,12 +10,12 @@ module Decidim::Conferences
     let!(:new_role) { "collaborator" }
     let!(:user_role) do
       user = create :conference_admin
-      Decidim::ConferenceUserRole.where(user: user).last
+      Decidim::ConferenceUserRole.where(user:).last
     end
     let(:form) do
       double(
         invalid?: invalid,
-        current_user: current_user,
+        current_user:,
         role: new_role,
         current_participatory_space: my_conference
       )

@@ -8,11 +8,11 @@ module Decidim::Elections
 
     subject { cell_html }
 
-    let(:my_cell) { cell("decidim/elections/election_m", election, context: { show_space: show_space }) }
+    let(:my_cell) { cell("decidim/elections/election_m", election, context: { show_space: }) }
     let(:cell_html) { my_cell.call }
     let(:start_time) { 2.days.ago }
     let(:end_time) { 1.day.from_now }
-    let!(:election) { create(:election, :complete, :published, start_time: start_time, end_time: end_time) }
+    let!(:election) { create(:election, :complete, :published, start_time:, end_time:) }
     let(:model) { election }
     let(:user) { create :user, organization: election.participatory_space.organization }
 

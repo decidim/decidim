@@ -9,19 +9,19 @@ RSpec.describe "Assembly search", type: :request do
   let!(:assembly1) do
     create(
       :assembly,
-      organization: organization,
-      assembly_type: create(:assemblies_type, organization: organization),
-      area: create(:area, organization: organization),
-      scope: create(:scope, organization: organization)
+      organization:,
+      assembly_type: create(:assemblies_type, organization:),
+      area: create(:area, organization:),
+      scope: create(:scope, organization:)
     )
   end
   let!(:assembly2) do
     create(
       :assembly,
-      organization: organization,
-      assembly_type: create(:assemblies_type, organization: organization),
-      area: create(:area, organization: organization),
-      scope: create(:scope, organization: organization)
+      organization:,
+      assembly_type: create(:assemblies_type, organization:),
+      area: create(:area, organization:),
+      scope: create(:scope, organization:)
     )
   end
 

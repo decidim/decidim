@@ -20,7 +20,7 @@ module Decidim
 
         def query
           Component
-            .where(participatory_space: participatory_space, manifest_name: "proposals")
+            .where(participatory_space:, manifest_name: "proposals")
             .published
         end
       end

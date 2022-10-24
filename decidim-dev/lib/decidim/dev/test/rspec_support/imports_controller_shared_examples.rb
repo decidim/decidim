@@ -2,8 +2,8 @@
 
 shared_examples "admin imports controller" do
   let!(:organization) { create(:organization) }
-  let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
-  let!(:component) { create(:component, participatory_space: participatory_space, manifest_name: "dummy") }
+  let!(:user) { create(:user, :admin, :confirmed, organization:) }
+  let!(:component) { create(:component, participatory_space:, manifest_name: "dummy") }
 
   let(:default_params) do
     {
@@ -23,11 +23,11 @@ shared_examples "admin imports controller" do
     # will always create a record for each data row regardless of the data.
     let(:file) { upload_test_file(Decidim::Dev.test_file("import_proposals.csv", "text/csv")) }
     let(:params) do
-      default_params.merge(extra_params).merge(file: file)
+      default_params.merge(extra_params).merge(file:)
     end
 
     it "imports dummies" do
-      post(:create, params: params)
+      post(:create, params:)
       expect(response).to have_http_status(:found)
       expect(flash[:notice]).not_to be_empty
 
@@ -42,14 +42,14 @@ shared_examples "admin imports controller" do
 
   describe "GET example" do
     let(:params) do
-      default_params.merge(extra_params).merge(format: format)
+      default_params.merge(extra_params).merge(format:)
     end
 
     context "with CSV format" do
       let(:format) { "csv" }
 
       it "creates a correct CSV example file" do
-        get(:example, params: params)
+        get(:example, params:)
 
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq("text/csv")
@@ -66,7 +66,7 @@ shared_examples "admin imports controller" do
       let(:format) { "json" }
 
       it "creates a correct JSON example file" do
-        get(:example, params: params)
+        get(:example, params:)
 
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq("application/json")
@@ -83,7 +83,7 @@ shared_examples "admin imports controller" do
       let(:format) { "xlsx" }
 
       it "creates a correct XLSX example file" do
-        get(:example, params: params)
+        get(:example, params:)
 
         expect(response).to have_http_status(:ok)
         expect(response.content_type).to eq(
@@ -109,7 +109,7 @@ shared_examples "admin imports controller" do
       let(:format) { "foo" }
 
       it "raises ActionController::UnknownFormat" do
-        expect { get(:example, params: params) }.to raise_error(
+        expect { get(:example, params:) }.to raise_error(
           ActionController::UnknownFormat
         )
       end
@@ -124,7 +124,7 @@ shared_examples "admin imports controller" do
 
     describe "POST create" do
       it "raises ActionController::RoutingError" do
-        expect { post(:create, params: params) }.to raise_error(
+        expect { post(:create, params:) }.to raise_error(
           ActionController::RoutingError
         )
       end
@@ -132,7 +132,7 @@ shared_examples "admin imports controller" do
 
     describe "GET example" do
       it "raises ActionController::RoutingError" do
-        expect { get(:example, params: params) }.to raise_error(
+        expect { get(:example, params:) }.to raise_error(
           ActionController::RoutingError
         )
       end

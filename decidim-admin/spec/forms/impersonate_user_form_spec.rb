@@ -13,7 +13,7 @@ module Decidim
         )
       end
 
-      let(:user) { create(:user, managed: managed, organization: organization) }
+      let(:user) { create(:user, managed:, organization:) }
       let(:organization) { create :organization }
       let(:reason) { nil }
       let(:managed) { true }
@@ -22,17 +22,17 @@ module Decidim
       let(:authorization) do
         AuthorizationHandler.handler_for(
           "dummy_authorization_handler",
-          document_number: document_number,
-          user: user
+          document_number:,
+          user:
         )
       end
       let(:attributes) do
         {
-          authorization: authorization
+          authorization:
         }
       end
       let(:extra_attributes) do
-        { user: user }
+        { user: }
       end
 
       it { is_expected.to be_valid }
@@ -54,7 +54,7 @@ module Decidim
 
         context "and a reason is provided" do
           let(:extra_attributes) do
-            { user: user, reason: "Because we really need to" }
+            { user:, reason: "Because we really need to" }
           end
 
           it { is_expected.to be_valid }
@@ -65,7 +65,7 @@ module Decidim
         before do
           create(
             :authorization,
-            user: create(:user, organization: organization),
+            user: create(:user, organization:),
             name: "dummy_authorization_handler",
             unique_id: document_number
           )

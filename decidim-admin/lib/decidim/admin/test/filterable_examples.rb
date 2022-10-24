@@ -31,7 +31,7 @@ shared_context "with filterable context" do
   shared_examples "paginating a collection" do
     unless block_given?
       let!(:collection) do
-        create_list(factory_name, 50, organization: organization)
+        create_list(factory_name, 50, organization:)
       end
     end
 
@@ -74,11 +74,11 @@ shared_examples "filtering collection by published/unpublished" do
 
   unless block_given?
     let!(:published_space) do
-      create(factory_name, published_at: Time.current, organization: organization)
+      create(factory_name, published_at: Time.current, organization:)
     end
 
     let!(:unpublished_space) do
-      create(factory_name, published_at: nil, organization: organization)
+      create(factory_name, published_at: nil, organization:)
     end
   end
 
@@ -100,11 +100,11 @@ shared_examples "filtering collection by private/public" do
 
   unless block_given?
     let!(:public_space) do
-      create(factory_name, private_space: false, organization: organization)
+      create(factory_name, private_space: false, organization:)
     end
 
     let!(:private_space) do
-      create(factory_name, private_space: true, organization: organization)
+      create(factory_name, private_space: true, organization:)
     end
   end
 

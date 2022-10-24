@@ -9,7 +9,7 @@ module Decidim
         routes { Decidim::Conferences::AdminEngine.routes }
 
         it_behaves_like "admin imports controller" do
-          let!(:participatory_space) { create :conference, organization: organization }
+          let!(:participatory_space) { create :conference, organization: }
           let(:extra_params) { { conference_slug: participatory_space.slug } }
 
           let(:file) do

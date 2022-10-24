@@ -7,10 +7,10 @@ module Decidim::Assemblies
     subject { described_class.for(organization, assembly) }
 
     let(:organization) { create(:organization) }
-    let!(:assembly) { create(:assembly, organization: organization) }
-    let!(:assemblies) { create_list(:assembly, 3, organization: organization) }
-    let!(:child_assembly) { create(:assembly, :with_parent, parent: assembly, organization: organization) }
-    let!(:grand_child_assembly) { create(:assembly, :with_parent, parent: child_assembly, organization: organization) }
+    let!(:assembly) { create(:assembly, organization:) }
+    let!(:assemblies) { create_list(:assembly, 3, organization:) }
+    let!(:child_assembly) { create(:assembly, :with_parent, parent: assembly, organization:) }
+    let!(:grand_child_assembly) { create(:assembly, :with_parent, parent: child_assembly, organization:) }
 
     describe "query" do
       it "returns assemblies that can be parent" do

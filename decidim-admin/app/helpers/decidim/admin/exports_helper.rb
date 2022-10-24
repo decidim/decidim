@@ -11,7 +11,7 @@ module Decidim
       #
       # Returns a rendered dropdown.
       def export_dropdown(component = current_component, resource_id = nil)
-        render partial: "decidim/admin/exports/dropdown", locals: { component: component, resource_id: resource_id }
+        render partial: "decidim/admin/exports/dropdown", locals: { component:, resource_id: }
       end
 
       # Routes to the correct exporter for a component.

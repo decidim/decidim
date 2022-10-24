@@ -56,11 +56,11 @@ Decidim.register_component(:blogs) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :blogs).i18n_name,
       manifest_name: :blogs,
       published_at: Time.current,
-      participatory_space: participatory_space,
+      participatory_space:,
       settings: {
         vote_limit: 0
       },
-      step_settings: step_settings
+      step_settings:
     }
 
     component = Decidim.traceability.perform_action!(
@@ -82,12 +82,12 @@ Decidim.register_component(:blogs) do |component|
                end
 
       params = {
-        component: component,
+        component:,
         title: Decidim::Faker::Localized.sentence(word_count: 5),
         body: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 20)
         end,
-        author: author
+        author:
       }
 
       post = Decidim.traceability.create!(

@@ -7,7 +7,7 @@ describe "Space admin manages global moderations", type: :system do
     create(
       :process_admin,
       :confirmed,
-      organization: organization,
+      organization:,
       participatory_process: participatory_space
     )
   end
@@ -26,7 +26,7 @@ describe "Space admin manages global moderations", type: :system do
 
   context "when the user can visualize the components" do
     let!(:reportable) { create(:dummy_resource, component: current_component, title: { "en" => "<p>Dummy<br> Title</p>" }) }
-    let!(:moderation) { create(:moderation, reportable: reportable) }
+    let!(:moderation) { create(:moderation, reportable:) }
 
     it "can see links to components" do
       visit decidim_admin.moderations_path
@@ -61,7 +61,7 @@ describe "Space admin manages global moderations", type: :system do
 
   context "when the user can manage a space without moderations" do
     let(:participatory_space) do
-      create :participatory_process, organization: organization
+      create :participatory_process, organization:
     end
 
     it "can't see any moderation" do

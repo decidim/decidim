@@ -39,11 +39,11 @@ module Decidim
 
       def to_html_data
         {
-          id: id,
+          id:,
           type: condition_type,
           condition: decidim_condition_question_id,
           option: decidim_answer_option_id,
-          mandatory: mandatory,
+          mandatory:,
           value: condition_value&.dig(I18n.locale.to_s)
         }.compact
       end

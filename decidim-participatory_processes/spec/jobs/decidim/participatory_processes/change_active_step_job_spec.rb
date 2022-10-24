@@ -16,7 +16,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
     let!(:participatory_process) do
       create(
         :participatory_process,
-        organization: organization,
+        organization:,
         description: { en: "Description", ca: "Descripció", es: "Descripción" },
         short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
         published_at: Date.new(2022, 3, 1),
@@ -31,7 +31,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
 
     context "with one step" do
       context "when not activated but enters period" do
-        let!(:step) { create(:participatory_process_step, participatory_process: participatory_process) }
+        let!(:step) { create(:participatory_process_step, participatory_process:) }
 
         before { subject.perform_now }
 
@@ -42,7 +42,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
 
       context "and one step is activated but finishes now" do
         let!(:step) do
-          create(:participatory_process_step, participatory_process: participatory_process, active: true,
+          create(:participatory_process_step, participatory_process:, active: true,
                                               end_date: Time.zone.local(2022, 3, 15, 10, 59, 59))
         end
 
@@ -58,7 +58,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
       let!(:step_one) do
         create(
           :participatory_process_step,
-          participatory_process: participatory_process,
+          participatory_process:,
           active: true,
           start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
           end_date: Time.zone.local(2022, 3, 15, 22, 0, 0)
@@ -67,7 +67,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
       let!(:step_two) do
         create(
           :participatory_process_step,
-          participatory_process: participatory_process,
+          participatory_process:,
           start_date: Time.zone.local(2022, 3, 15, 10, 30, 0),
           end_date: Time.zone.local(2022, 3, 15, 20, 0, 0)
         )
@@ -83,17 +83,17 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
 
     context "with three steps all with dates" do
       let!(:step_one) do
-        create(:participatory_process_step, participatory_process: participatory_process,
+        create(:participatory_process_step, participatory_process:,
                                             active: true, start_date: Time.zone.local(2022, 3, 15, 10, 0, 0), end_date: Time.zone.local(2022, 3, 15, 10, 59, 59))
       end
       let!(:step_two) do
-        create(:participatory_process_step, participatory_process: participatory_process,
+        create(:participatory_process_step, participatory_process:,
                                             start_date: Time.zone.local(2022, 3, 15, 11, 0, 0), end_date: Time.zone.local(2022, 3, 15, 20, 0, 0))
       end
 
       context "and have the third step with different datetime" do
         let!(:step_three) do
-          create(:participatory_process_step, participatory_process: participatory_process,
+          create(:participatory_process_step, participatory_process:,
                                               start_date: Time.zone.local(2022, 3, 16, 8, 0, 0), end_date: Time.zone.local(2022, 3, 16, 20, 0, 0))
         end
 
@@ -108,7 +108,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
 
       context "and have the third step with same date but different time" do
         let!(:step_three) do
-          create(:participatory_process_step, participatory_process: participatory_process,
+          create(:participatory_process_step, participatory_process:,
                                               start_date: Time.zone.local(2022, 3, 15, 11, 30, 0), end_date: Time.zone.local(2022, 3, 15, 20, 0, 0))
         end
 
@@ -123,7 +123,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
 
       context "and have the third step with same date and time as step two" do
         let!(:step_three) do
-          create(:participatory_process_step, participatory_process: participatory_process,
+          create(:participatory_process_step, participatory_process:,
                                               start_date: Time.zone.local(2022, 3, 15, 11, 0, 0), end_date: Time.zone.local(2022, 3, 15, 20, 0, 0))
         end
 
@@ -140,7 +140,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_one) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
             end_date: Time.zone.local(2022, 3, 15, 10, 59, 59)
           )
@@ -148,7 +148,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_two) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             active: true,
             start_date: Time.zone.local(2022, 3, 15, 8, 0, 0),
             end_date: Time.zone.local(2022, 3, 15, 10, 0, 0)
@@ -157,7 +157,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_three) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             start_date: Time.zone.local(2022, 3, 14, 11, 0, 0),
             end_date: Time.zone.local(2022, 3, 15, 20, 0, 0)
           )
@@ -176,7 +176,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_one) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             start_date: Time.zone.local(2022, 3, 15, 10, 0, 0),
             end_date: Time.zone.local(2022, 3, 15, 10, 59, 59)
           )
@@ -184,7 +184,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_two) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             active: true,
             start_date: Time.zone.local(2022, 3, 15, 8, 0, 0),
             end_date: Time.zone.local(2022, 3, 15, 10, 0, 0)
@@ -193,7 +193,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_three) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             start_date: Time.zone.local(2022, 3, 14, 10, 0, 0),
             end_date: Time.zone.local(2022, 3, 15, 10, 59, 59)
           )
@@ -212,7 +212,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_three) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             start_date: Time.zone.local(2022, 3, 16, 10, 0, 0),
             end_date: Time.zone.local(2022, 3, 17, 10, 59, 59)
           )
@@ -233,7 +233,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_one) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             active: true,
             start_date: nil,
             end_date: nil
@@ -242,7 +242,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_two) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             start_date: Time.zone.local(2022, 3, 15, 11, 0, 0),
             end_date: Time.zone.local(2022, 3, 15, 20, 0, 0)
           )
@@ -260,7 +260,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_one) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             active: true,
             start_date: Time.zone.local(2022, 3, 14, 11, 0, 0),
             end_date: Time.zone.local(2022, 3, 15, 10, 59, 0)
@@ -269,7 +269,7 @@ describe Decidim::ParticipatoryProcesses::ChangeActiveStepJob do
         let!(:step_two) do
           create(
             :participatory_process_step,
-            participatory_process: participatory_process,
+            participatory_process:,
             start_date: nil,
             end_date: nil
           )

@@ -6,7 +6,7 @@ module Decidim
   describe Attributes::Array do
     subject { type }
 
-    let(:type) { described_class.new(value_type: value_type, default: default) }
+    let(:type) { described_class.new(value_type:, default:) }
     let(:value_type) { ::Object }
     let(:default) { [] }
 

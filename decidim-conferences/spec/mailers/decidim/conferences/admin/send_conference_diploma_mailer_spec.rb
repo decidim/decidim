@@ -7,10 +7,10 @@ module Decidim::Conferences
     include ActionView::Helpers::SanitizeHelper
 
     let(:organization) { create(:organization) }
-    let(:conference) { create(:conference, :diploma, organization: organization) }
-    let(:user) { create(:user, organization: organization) }
-    let(:registration_type) { create(:registration_type, conference: conference) }
-    let(:conference_registration) { create(:conference_registration, conference: conference, registration_type: registration_type, user: user) }
+    let(:conference) { create(:conference, :diploma, organization:) }
+    let(:user) { create(:user, organization:) }
+    let(:registration_type) { create(:registration_type, conference:) }
+    let(:conference_registration) { create(:conference_registration, conference:, registration_type:, user:) }
     let(:mail) { described_class.diploma(conference, user) }
 
     describe "diploma" do

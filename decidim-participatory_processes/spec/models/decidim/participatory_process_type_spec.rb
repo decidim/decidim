@@ -29,7 +29,7 @@ module Decidim
     describe "has an association for children processes" do
       subject(:children) { participatory_process_type.processes }
 
-      let(:processes) { create_list(:participatory_process, 2, participatory_process_type: participatory_process_type) }
+      let(:processes) { create_list(:participatory_process, 2, participatory_process_type:) }
 
       it { is_expected.to contain_exactly(*processes) }
     end

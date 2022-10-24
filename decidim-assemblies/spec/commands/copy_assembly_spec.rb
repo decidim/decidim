@@ -7,8 +7,8 @@ module Decidim::Assemblies
     subject { described_class.new(form, assembly, user) }
 
     let(:organization) { create :organization }
-    let(:user) { create :user, organization: organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:user) { create :user, organization: }
+    let(:scope) { create :scope, organization: }
     let(:errors) { double.as_null_object }
     let!(:assembly) { create :assembly }
     let!(:component) { create :component, manifest_name: :dummy, participatory_space: assembly }
@@ -130,8 +130,8 @@ module Decidim::Assemblies
       end
 
       context "when everything is ok" do
-        let!(:assembly_parent) { create :assembly, organization: organization }
-        let!(:assembly) { create :assembly, parent: assembly_parent, organization: organization }
+        let!(:assembly_parent) { create :assembly, organization: }
+        let!(:assembly) { create :assembly, parent: assembly_parent, organization: }
 
         it "duplicates an assembly" do
           expect { subject.call }.to change(Decidim::Assembly, :count).by(1)

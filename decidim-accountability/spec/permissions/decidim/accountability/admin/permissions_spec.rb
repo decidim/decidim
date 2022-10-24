@@ -104,7 +104,7 @@ describe Decidim::Accountability::Admin::Permissions do
 
   describe "timeline_entry" do
     let(:result) { create :result, component: accountability_component }
-    let(:resource) { create :timeline_entry, result: result }
+    let(:resource) { create :timeline_entry, result: }
     let(:action_subject) { :timeline_entry }
     let(:extra_context) { { timeline_entry: resource } }
 
@@ -117,5 +117,23 @@ describe Decidim::Accountability::Admin::Permissions do
     end
 
     it_behaves_like "permission is not set"
+  end
+
+  describe "import_projects" do
+    let(:action_subject) { :import_projects }
+
+    let(:action) do
+      { scope: :admin, action: :create, subject: action_subject }
+    end
+
+    it { is_expected.to be true }
+
+    context "when any other action" do
+      let(:action) do
+        { scope: :admin, action: :foo, subject: action_subject }
+      end
+
+      it_behaves_like "permission is not set"
+    end
   end
 end

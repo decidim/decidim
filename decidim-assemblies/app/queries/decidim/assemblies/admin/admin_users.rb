@@ -50,7 +50,7 @@ module Decidim
           if assembly
             [assembly]
           else
-            Decidim::Assembly.where(organization: organization)
+            Decidim::Assembly.where(organization:)
           end
         end
       end

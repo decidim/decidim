@@ -5,13 +5,13 @@ require "spec_helper"
 describe "Valuator checks components", type: :system do
   let(:current_component) { create :component, manifest_name: "proposals", participatory_space: assembly }
   let!(:assigned_proposal) { create :proposal, component: current_component }
-  let(:assembly) { create(:assembly, organization: organization) }
+  let(:assembly) { create(:assembly, organization:) }
   let(:participatory_space_path) do
     decidim_admin_assemblies.components_path(assembly)
   end
   let(:components_path) { participatory_space_path }
-  let!(:user) { create :user, :confirmed, organization: organization }
-  let!(:valuator_role) { create :assembly_user_role, role: :valuator, user: user, assembly: assembly }
+  let!(:user) { create :user, :confirmed, organization: }
+  let!(:valuator_role) { create :assembly_user_role, role: :valuator, user:, assembly: }
   let(:another_component) { create :component, participatory_space: assembly }
 
   include Decidim::ComponentPathHelper

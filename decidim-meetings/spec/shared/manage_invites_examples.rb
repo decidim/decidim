@@ -64,7 +64,7 @@ shared_examples "manage invites" do
     end
 
     context "when registrations are enabled" do
-      let!(:meeting) { create :meeting, :published, scope: scope, component: current_component, registrations_enabled: true }
+      let!(:meeting) { create :meeting, :published, scope:, component: current_component, registrations_enabled: true }
 
       context "when inviting a unregistered user" do
         it "the invited user sign up into the application and joins the meeting" do
@@ -107,7 +107,7 @@ shared_examples "manage invites" do
       end
 
       context "when inviting a registered user" do
-        let!(:registered_user) { create(:user, :confirmed, organization: organization) }
+        let!(:registered_user) { create(:user, :confirmed, organization:) }
 
         it "the invited user joins the meeting" do
           invite_existing_user registered_user
@@ -131,7 +131,7 @@ shared_examples "manage invites" do
       end
 
       context "when inviting a registered user as if not registered" do
-        let!(:registered_user) { create(:user, :confirmed, organization: organization) }
+        let!(:registered_user) { create(:user, :confirmed, organization:) }
 
         it "the invited user joins the meeting" do
           invite_unregistered_user name: registered_user.name, email: registered_user.email
@@ -157,7 +157,7 @@ shared_examples "manage invites" do
   end
 
   describe "listing the invites" do
-    let!(:invites) { create_list(:invite, 2, meeting: meeting) }
+    let!(:invites) { create_list(:invite, 2, meeting:) }
 
     it "shows all invites" do
       visit_meeting_invites_page
@@ -184,8 +184,8 @@ shared_examples "manage invites" do
       end
 
       it "allows filtering by status" do
-        accepted_invite = create(:invite, :accepted, meeting: meeting)
-        rejected_invite = create(:invite, :rejected, meeting: meeting)
+        accepted_invite = create(:invite, :accepted, meeting:)
+        rejected_invite = create(:invite, :rejected, meeting:)
         visit_meeting_invites_page
 
         within ".filters" do

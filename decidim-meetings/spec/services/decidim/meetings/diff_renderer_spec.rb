@@ -25,8 +25,8 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
       address: "Decidim Street",
       location: { ca: "Biblioteca", en: "Library" },
       location_hints: { ca: "Indicacions", en: "Hints" },
-      start_time: start_time,
-      end_time: end_time,
+      start_time:,
+      end_time:,
       decidim_user_group_id: user_group,
       decidim_scope_id: scope.id
     )

@@ -38,7 +38,9 @@ describe "Invite process administrator", type: :system do
 
       within "#processes" do
         expect(page).to have_i18n_content(participatory_process.title)
-        click_link translated(participatory_process.title)
+        within find("tr", text: translated(participatory_process.title)) do
+          click_link "Configure"
+        end
       end
 
       within ".secondary-nav" do
@@ -51,7 +53,7 @@ describe "Invite process administrator", type: :system do
     let(:email) { "administrator@example.org" }
 
     let!(:administrator) do
-      create :user, :confirmed, :admin_terms_accepted, email: email, organization: organization
+      create :user, :confirmed, :admin_terms_accepted, email:, organization:
     end
 
     before do
@@ -68,7 +70,9 @@ describe "Invite process administrator", type: :system do
 
       within "#processes" do
         expect(page).to have_i18n_content(participatory_process.title)
-        click_link translated(participatory_process.title)
+        within find("tr", text: translated(participatory_process.title)) do
+          click_link "Configure"
+        end
       end
 
       within ".secondary-nav" do

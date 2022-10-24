@@ -16,7 +16,7 @@ module Decidim
         let(:type) { :foo }
 
         it "returns the same exact type with the provided options" do
-          expect(subject).to eq(type: type, options: options)
+          expect(subject).to eq(type:, options:)
         end
       end
 
@@ -24,7 +24,7 @@ module Decidim
         let(:type) { ActiveModel::Type::Value.new }
 
         it "returns the same exact type with the provided options" do
-          expect(subject).to eq(type: type, options: options)
+          expect(subject).to eq(type:, options:)
         end
       end
 

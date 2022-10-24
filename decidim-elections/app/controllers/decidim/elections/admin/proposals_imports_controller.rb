@@ -15,7 +15,7 @@ module Decidim
         def create
           enforce_permission_to :import_proposals, :answer, election: election, question: question
 
-          @form = form(Admin::AnswerImportProposalsForm).from_params(params, election: election, question: question)
+          @form = form(Admin::AnswerImportProposalsForm).from_params(params, election:, question:)
 
           Admin::ImportProposalsToElections.call(@form) do
             on(:ok) do |answers|

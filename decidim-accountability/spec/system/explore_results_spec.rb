@@ -7,12 +7,12 @@ describe "Explore results", versioning: true, type: :system do
 
   let(:manifest_name) { "accountability" }
   let(:results_count) { 5 }
-  let!(:scope) { create :scope, organization: organization }
+  let!(:scope) { create :scope, organization: }
   let!(:results) do
     create_list(
       :result,
       results_count,
-      component: component
+      component:
     )
   end
 
@@ -23,8 +23,8 @@ describe "Explore results", versioning: true, type: :system do
   end
 
   describe "home" do
-    let!(:other_category) { create :category, participatory_space: participatory_space }
-    let!(:other_scope) { create :scope, organization: organization }
+    let!(:other_category) { create :category, participatory_space: }
+    let!(:other_scope) { create :scope, organization: }
 
     let(:subcategory) { create :subcategory, parent: category }
     let(:other_subcategory) { create :subcategory, parent: other_category }
@@ -33,7 +33,7 @@ describe "Explore results", versioning: true, type: :system do
 
     before do
       # Add scopes and categories for the results to test they work correctly
-      results[0..2].each { |r| r.update!(category: subcategory, scope: scope) }
+      results[0..2].each { |r| r.update!(category: subcategory, scope:) }
       results[3..-1].each { |r| r.update!(category: other_subcategory, scope: other_scope) }
 
       # Revisit the path to load updated results
@@ -95,7 +95,7 @@ describe "Explore results", versioning: true, type: :system do
         create(
           :result,
           title: Decidim::Faker::Localized.literal("A doggo in the title"),
-          component: component
+          component:
         )
       end
       let!(:matching_result2) do
@@ -103,7 +103,7 @@ describe "Explore results", versioning: true, type: :system do
           :result,
           title: Decidim::Faker::Localized.literal("Other matching result"),
           description: Decidim::Faker::Localized.literal("There is a doggo in the office"),
-          component: component
+          component:
         )
       end
 
@@ -137,7 +137,7 @@ describe "Explore results", versioning: true, type: :system do
 
     context "with a category and a scope" do
       let!(:category) { create :category, participatory_space: participatory_process }
-      let!(:scope) { create :scope, organization: organization }
+      let!(:scope) { create :scope, organization: }
       let!(:result) do
         result = results.first
         result.category = category
@@ -286,7 +286,7 @@ describe "Explore results", versioning: true, type: :system do
         create(:component, manifest_name: :budgets, participatory_space: result.component.participatory_space)
       end
       let(:budget) { create(:budget, component: budgets_component) }
-      let(:projects) { create_list(:project, 3, budget: budget) }
+      let(:projects) { create_list(:project, 3, budget:) }
       let(:project) { projects.first }
 
       before do
@@ -333,13 +333,13 @@ describe "Explore results", versioning: true, type: :system do
 
     context "when filtering" do
       before do
-        create(:result, component: component, scope: scope)
+        create(:result, component:, scope:)
         visit_component
       end
 
       context "when the process has a linked scope and the component has scopes disabled" do
         before do
-          participatory_process.update(scope: scope)
+          participatory_process.update(scope:)
           component.update(settings: { scopes_enabled: false })
           visit current_path
         end

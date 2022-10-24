@@ -44,7 +44,7 @@ describe Decidim::Elections::Election do
   end
 
   describe "start time checks" do
-    subject(:election) { build(:election, start_time: start_time) }
+    subject(:election) { build(:election, start_time:) }
 
     let(:start_time) { 4.hours.from_now }
 

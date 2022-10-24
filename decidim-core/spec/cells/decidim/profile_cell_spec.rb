@@ -7,9 +7,9 @@ describe Decidim::ProfileCell, type: :cell do
   subject { my_cell.call }
 
   let(:organization) { create :organization, user_groups_enabled: true }
-  let(:user) { create :user, :managed, organization: organization, blocked: false }
+  let(:user) { create :user, :managed, organization:, blocked: false }
   let(:context) { { content_cell: "decidim/user_conversations", conversations: [] } }
-  let(:my_cell) { cell("decidim/profile", user, context: context) }
+  let(:my_cell) { cell("decidim/profile", user, context:) }
 
   context "when show is rendered" do
     it "does not show the inaccessible profile alert" do
@@ -19,7 +19,7 @@ describe Decidim::ProfileCell, type: :cell do
 
   context "when the user displayed is blocked" do
     context "and is an admin" do
-      let(:user) { create :user, :managed, organization: organization, blocked: true, admin: true }
+      let(:user) { create :user, :managed, organization:, blocked: true, admin: true }
 
       it "shows the user profile" do
         expect(subject).not_to have_text("This profile is inaccessible due to Terms and Conditions violation!")
@@ -27,7 +27,7 @@ describe Decidim::ProfileCell, type: :cell do
     end
 
     context "and is not an admin" do
-      let(:user) { create :user, :managed, organization: organization, blocked: true, admin: false }
+      let(:user) { create :user, :managed, organization:, blocked: true, admin: false }
 
       it "shows the inaccessible profile alert" do
         expect(subject).to have_text("This profile is inaccessible due to Terms and Conditions violation!")

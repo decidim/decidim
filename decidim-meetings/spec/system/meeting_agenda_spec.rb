@@ -6,8 +6,8 @@ describe "Meeting agenda", type: :system do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let!(:meeting) { create(:meeting, :published, component: component) }
-  let!(:agenda) { create(:agenda, :with_agenda_items, meeting: meeting, visible: visible) }
+  let!(:meeting) { create(:meeting, :published, component:) }
+  let!(:agenda) { create(:agenda, :with_agenda_items, meeting:, visible:) }
   let(:visible) { true }
 
   def visit_meeting

@@ -11,6 +11,7 @@ module Decidim
         translatable_attribute :body, String
 
         attribute :decidim_author_id, Integer
+        attribute :published_at, Decidim::Attributes::TimeWithZone
 
         validates :title, translatable_presence: true
         validates :body, translatable_presence: true
@@ -43,7 +44,7 @@ module Decidim
         end
 
         def post
-          @post ||= Post.find_by(id: id)
+          @post ||= Post.find_by(id:)
         end
 
         def user_groups

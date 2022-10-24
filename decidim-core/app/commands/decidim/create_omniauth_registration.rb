@@ -50,7 +50,7 @@ module Decidim
 
       @user = User.find_or_initialize_by(
         email: verified_email,
-        organization: organization
+        organization:
       )
 
       if @user.persisted?
@@ -69,7 +69,7 @@ module Decidim
           url = URI.parse(form.avatar_url)
           filename = File.basename(url.path)
           file = url.open
-          @user.avatar.attach(io: file, filename: filename)
+          @user.avatar.attach(io: file, filename:)
         end
         @user.skip_confirmation! if verified_email
       end
@@ -82,7 +82,7 @@ module Decidim
       @user.identities.create!(
         provider: form.provider,
         uid: form.uid,
-        organization: organization
+        organization:
       )
     end
 

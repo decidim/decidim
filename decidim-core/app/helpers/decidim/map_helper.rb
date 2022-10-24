@@ -9,19 +9,19 @@ module Decidim
     # resource - A geolocalizable resource
     # options - An optional hash of options (default: { zoom: 17 })
     #           * zoom: A number to represent the zoom value of the map
-    def static_map_link(resource, options = {}, map_html_options = {}, &block)
+    def static_map_link(resource, options = {}, map_html_options = {}, &)
       return unless resource.geocoded_and_valid?
       return unless map_utility_static || map_utility_dynamic
 
       address_text = resource.try(:address)
-      address_text ||= t("latlng_text", latitude: latitude, longitude: longitude, scope: "decidim.map.static")
+      address_text ||= t("latlng_text", latitude:, longitude:, scope: "decidim.map.static")
       map_service_brand = t("map_service_brand", scope: "decidim.map.static")
 
       if map_utility_static
         map_url = map_utility_static.link(
           latitude: resource.latitude,
           longitude: resource.longitude,
-          options: options
+          options:
         )
 
         # Check that the static map utility actually returns a URL before
@@ -57,11 +57,11 @@ module Decidim
 
       builder.map_element(
         { class: "static-map", tabindex: "0" }.merge(map_html_options),
-        &block
+        &
       )
     end
 
-    def dynamic_map_for(options_or_markers = {}, html_options = {}, &block)
+    def dynamic_map_for(options_or_markers = {}, html_options = {}, &)
       return unless map_utility_dynamic
 
       options = {
@@ -106,7 +106,7 @@ module Decidim
         sr_content + link
       end
       content_tag :div, class: "row column" do
-        map = builder.map_element(map_html_options, &block)
+        map = builder.map_element(map_html_options, &)
         bottom = content_tag(:div, "", id: bottom_id)
 
         help + map + bottom

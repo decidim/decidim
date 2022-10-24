@@ -7,22 +7,22 @@ module Decidim::Assemblies
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-    let(:assembly_type) { create :assemblies_type, organization: organization }
-    let(:scope) { create :scope, organization: organization }
-    let(:area) { create :area, organization: organization }
+    let(:current_user) { create :user, :admin, :confirmed, organization: }
+    let(:assembly_type) { create :assemblies_type, organization: }
+    let(:scope) { create :scope, organization: }
+    let(:area) { create :area, organization: }
     let(:errors) { double.as_null_object }
     let(:participatory_processes) do
       create_list(
         :participatory_process,
         3,
-        organization: organization
+        organization:
       )
     end
     let(:form) do
       instance_double(
         Admin::AssemblyForm,
-        current_user: current_user,
+        current_user:,
         invalid?: invalid,
         title: { en: "title" },
         subtitle: { en: "subtitle" },
@@ -42,16 +42,16 @@ module Decidim::Assemblies
         short_description: { en: "short_description" },
         current_organization: organization,
         scopes_enabled: true,
-        scope: scope,
-        area: area,
+        scope:,
+        area:,
         parent: nil,
         private_space: false,
-        errors: errors,
+        errors:,
         participatory_processes_ids: participatory_processes.map(&:id),
         show_statistics: false,
         purpose_of_action: { en: "purpose of action" },
         composition: { en: "composition of internal working groups" },
-        assembly_type: assembly_type,
+        assembly_type:,
         creation_date: 1.day.from_now,
         created_by: "others",
         created_by_other: { en: "other created by" },
@@ -123,15 +123,15 @@ module Decidim::Assemblies
           title: { en: "title" },
           subtitle: { en: "subtitle" },
           slug: "slug",
-          hero_image: hero_image,
-          banner_image: banner_image,
+          hero_image:,
+          banner_image:,
           description: { en: "description" },
           short_description: { en: "short_description" },
-          organization: organization,
+          organization:,
           scopes_enabled: false
         ).with_context(
           current_organization: organization,
-          current_user: current_user
+          current_user:
         )
       end
 

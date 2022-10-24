@@ -9,7 +9,7 @@ module Decidim::Votings::Census::Admin
     let(:voting) { create(:voting) }
     let(:user) { create(:user, :admin, organization: voting.organization) }
     let(:file) { upload_test_file(Decidim::Dev.test_file("import_voting_census.csv", "text/csv")) }
-    let(:params) { { file: file } }
+    let(:params) { { file: } }
     let(:context) { { current_participatory_space: voting } }
 
     let(:form) { DatasetForm.from_params(params).with_context(context) }

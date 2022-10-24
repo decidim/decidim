@@ -8,7 +8,7 @@ module Decidim
       describe "call" do
         let(:proposal) { create(:proposal) }
         let(:current_user) { create(:user, organization: proposal.component.organization) }
-        let!(:proposal_vote) { create(:proposal_vote, author: current_user, proposal: proposal) }
+        let!(:proposal_vote) { create(:proposal_vote, author: current_user, proposal:) }
         let(:command) { described_class.new(proposal, current_user) }
 
         it "broadcasts ok" do

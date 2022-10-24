@@ -33,11 +33,11 @@ module Decidim
         end
 
         def questionnaire_participant_answers_url(session_token)
-          answer_feedback_form_path(id: election.id, session_token: session_token)
+          answer_feedback_form_path(id: election.id, session_token:)
         end
 
         def questionnaire_export_response_url(session_token)
-          answer_export_feedback_form_path(id: election.id, session_token: session_token, format: "pdf")
+          answer_export_feedback_form_path(id: election.id, session_token:, format: "pdf")
         end
 
         def questionnaire_url

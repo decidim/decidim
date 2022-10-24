@@ -10,11 +10,11 @@ module Decidim::Meetings
     let(:context) do
       {
         current_organization: organization,
-        current_component: current_component,
+        current_component:,
         current_participatory_space: participatory_process
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:title) do
       Decidim::Faker::Localized.sentence(word_count: 3)
@@ -49,14 +49,14 @@ module Decidim::Meetings
         description_en: description[:en],
         location_en: location[:en],
         location_hints_en: location_hints[:en],
-        address: address,
-        start_time: start_time,
-        end_time: end_time,
-        private_meeting: private_meeting,
-        transparent: transparent,
-        services: services,
-        type_of_meeting: type_of_meeting,
-        online_meeting_url: online_meeting_url
+        address:,
+        start_time:,
+        end_time:,
+        private_meeting:,
+        transparent:,
+        services:,
+        type_of_meeting:,
+        online_meeting_url:
       }
     end
 

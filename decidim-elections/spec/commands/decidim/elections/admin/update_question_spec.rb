@@ -6,9 +6,9 @@ describe Decidim::Elections::Admin::UpdateQuestion do
   subject { described_class.new(form, question) }
 
   let(:election) { create :election }
-  let(:question) { create :question, election: election, random_answers_order: false }
+  let(:question) { create :question, election:, random_answers_order: false }
   let(:organization) { election.component.organization }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
@@ -18,7 +18,7 @@ describe Decidim::Elections::Admin::UpdateQuestion do
       min_selections: 1,
       weight: 10,
       random_answers_order: true,
-      election: election
+      election:
     )
   end
   let(:invalid) { false }

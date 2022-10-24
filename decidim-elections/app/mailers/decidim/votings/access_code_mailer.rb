@@ -26,7 +26,7 @@ module Decidim
             voting: @voting
           )
 
-          mail(to: datum.email, subject: subject)
+          mail(to: datum.email, subject:)
         end
       end
     end

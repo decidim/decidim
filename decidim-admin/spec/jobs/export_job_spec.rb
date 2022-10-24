@@ -7,7 +7,7 @@ module Decidim
     describe ExportJob do
       let!(:component) { create(:component, manifest_name: "dummy") }
       let(:organization) { component.organization }
-      let!(:user) { create(:user, organization: organization) }
+      let!(:user) { create(:user, organization:) }
 
       it "sends an email with the result of the export" do
         ExportJob.perform_now(user, component, "dummies", "CSV")

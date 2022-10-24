@@ -6,7 +6,7 @@ module Decidim
   describe Attributes::Hash do
     subject { type }
 
-    let(:type) { described_class.new(key_type: key_type, value_type: value_type, default: default) }
+    let(:type) { described_class.new(key_type:, value_type:, default:) }
     let(:key_type) { ::Symbol }
     let(:value_type) { ::Object }
     let(:default) { {} }

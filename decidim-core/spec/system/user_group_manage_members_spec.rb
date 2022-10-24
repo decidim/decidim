@@ -31,7 +31,7 @@ describe "User group manage members", type: :system do
 
   context "when trying to edit by a manager" do
     let(:requested_user) { create :user, :confirmed, organization: creator.organization }
-    let!(:membership) { create :user_group_membership, user: requested_user, user_group: user_group, role: :requested }
+    let!(:membership) { create :user_group_membership, user: requested_user, user_group:, role: :requested }
 
     before do
       login_as creator, scope: :user

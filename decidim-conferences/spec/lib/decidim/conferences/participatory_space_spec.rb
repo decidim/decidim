@@ -25,7 +25,7 @@ module Decidim
 
     context "when an account is removed" do
       it "deletes conference user role" do
-        create(:conference_user_role, user: user)
+        create(:conference_user_role, user:)
 
         expect do
           command.call
@@ -33,7 +33,7 @@ module Decidim
       end
 
       it "deletes conference speaker" do
-        create(:conference_speaker, user: user)
+        create(:conference_speaker, user:)
 
         expect do
           command.call

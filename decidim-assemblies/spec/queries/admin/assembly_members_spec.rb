@@ -76,7 +76,7 @@ module Decidim::Assemblies::Admin
 
         before do
           %w(Eloit Vivamus Doctum).map do |name|
-            create(:user_group, name: name)
+            create(:user_group, name:)
           end
         end
 

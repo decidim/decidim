@@ -12,7 +12,7 @@ describe "Identity document offline request", type: :system do
     )
   end
 
-  let!(:user) { create(:user, :confirmed, organization: organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)

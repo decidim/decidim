@@ -6,17 +6,17 @@ describe "Explore posts", type: :system do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
 
-  let!(:old_post) { create(:post, component: component, created_at: 2.days.ago) }
-  let!(:new_post) { create(:post, component: component, created_at: Time.current) }
+  let!(:old_post) { create(:post, component:, created_at: 2.days.ago) }
+  let!(:new_post) { create(:post, component:, created_at: Time.current) }
 
   let!(:image) { create(:attachment, attached_to: old_post) }
 
   describe "index" do
     it "shows all posts for the given process" do
       visit_component
-      expect(page).to have_selector(".card", count: 2)
-      expect(page).to have_selector(".card--post", text: translated(new_post.title))
-      expect(page).to have_selector(".card--post", text: translated(old_post.title))
+      expect(page).to have_selector("div[data-post]", count: 2)
+      expect(page).to have_selector("div[data-post]", text: translated(new_post.title))
+      expect(page).to have_selector("div[data-post]", text: translated(old_post.title))
     end
 
     it "shows comment counts" do
@@ -33,21 +33,33 @@ describe "Explore posts", type: :system do
 
     it "shows images" do
       visit_component
-      expect(page).to have_selector(".card--post img.card__image")
+      expect(page).to have_selector("div[data-post] img")
     end
 
     context "when paginating" do
-      let(:collection_size) { 10 }
-      let!(:collection) { create_list :post, collection_size, component: component }
-      let!(:resource_selector) { ".card--post" }
+      let(:collection_size) { 15 }
+      let!(:collection) { create_list :post, collection_size, component: }
+      let!(:resource_selector) { "div[data-post]" }
 
       before do
         visit_component
       end
 
-      it "lists 4 resources per page by default" do
-        expect(page).to have_css(resource_selector, count: 4)
-        expect(page).to have_css("[data-pages] [data-page]", count: 3)
+      it "lists 10 resources per page by default" do
+        expect(page).to have_css(resource_selector, count: 10)
+        expect(page).to have_css("[data-pages] [data-page]", count: 2)
+      end
+    end
+
+    context "with some unpublished posts" do
+      let!(:unpublished) { create(:post, component:, published_at: 2.days.from_now) }
+      let!(:resource_selector) { "div[data-post]" }
+
+      before { visit_component }
+
+      it "shows only published blogs" do
+        expect(Decidim::Blogs::Post.count).to eq(3)
+        expect(page).to have_css(resource_selector, count: 2)
       end
     end
   end
@@ -55,7 +67,7 @@ describe "Explore posts", type: :system do
   describe "show" do
     let(:posts_count) { 1 }
     let(:author) { organization }
-    let!(:post) { create(:post, component: component, author: author) }
+    let!(:post) { create(:post, component:, author:) }
 
     before do
       visit resource_locator(post).path
@@ -70,7 +82,7 @@ describe "Explore posts", type: :system do
     end
 
     context "when author is a user_group" do
-      let(:author) { create(:user_group, :verified, organization: organization) }
+      let(:author) { create(:user_group, :verified, organization:) }
 
       it "shows user group as the author" do
         within ".author__name" do
@@ -94,40 +106,6 @@ describe "Explore posts", type: :system do
       expect(page).to have_i18n_content(post.body)
       expect(page).to have_content(post.author.name)
       expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M "))
-    end
-
-    it "shows the back button" do
-      expect(page).to have_link(href: "#{main_component_path(component)}posts")
-    end
-
-    context "when clicking the back button" do
-      before do
-        click_link(href: "#{main_component_path(component)}posts")
-      end
-
-      it "redirect the user to component index" do
-        expect(page).to have_current_path("#{main_component_path(component)}posts")
-      end
-    end
-  end
-
-  describe "most commented" do
-    context "when ordering by 'most_commented'" do
-      let!(:post_more_comments) { create(:post, component: component) }
-      let!(:post_less_comments) { create(:post, component: component) }
-      let!(:more_comments) { create_list(:comment, 7, commentable: post_more_comments) }
-      let!(:less_comments) { create_list(:comment, 3, commentable: post_less_comments) }
-
-      before do
-        visit_component
-      end
-
-      it "lists the posts ordered by comments count" do
-        within "#most-commented" do
-          expect(page).to have_content(translated(post_more_comments.title))
-          expect(page).to have_content(translated(post_less_comments.title))
-        end
-      end
     end
   end
 end

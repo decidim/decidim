@@ -51,7 +51,7 @@ module Decidim
             resource: voting,
             affected_users: [polling_officer_for(polling_officer_id).user],
             followers: [],
-            extra: { polling_officer_id: polling_officer_id }
+            extra: { polling_officer_id: }
           )
         end
 

@@ -11,7 +11,7 @@ describe "Filter Assemblies", type: :system do
 
   context "when filtering parent assemblies by assembly_type" do
     # let!(:assembly_types) { create_list(:assemblies_type, 3, organization: organization) }
-    let!(:assemblies) { create_list(:assembly, 3, :with_type, organization: organization) }
+    let!(:assemblies) { create_list(:assembly, 3, :with_type, organization:) }
 
     before do
       visit decidim_assemblies.assemblies_path
@@ -34,7 +34,7 @@ describe "Filter Assemblies", type: :system do
   end
 
   context "when no assemblies types present" do
-    let!(:assemblies) { create_list(:assembly, 3, organization: organization) }
+    let!(:assemblies) { create_list(:assembly, 3, organization:) }
 
     before do
       visit decidim_assemblies.assemblies_path
@@ -48,9 +48,9 @@ describe "Filter Assemblies", type: :system do
   end
 
   context "when filtering parent assemblies by scope" do
-    let!(:scope) { create :scope, organization: organization }
-    let!(:assembly_with_scope) { create(:assembly, scope: scope, organization: organization) }
-    let!(:assembly_without_scope) { create(:assembly, organization: organization) }
+    let!(:scope) { create :scope, organization: }
+    let!(:assembly_with_scope) { create(:assembly, scope:, organization:) }
+    let!(:assembly_without_scope) { create(:assembly, organization:) }
 
     context "and choosing a scope" do
       before do
@@ -67,9 +67,9 @@ describe "Filter Assemblies", type: :system do
   end
 
   context "when filtering parent assemblies by area" do
-    let!(:area) { create :area, organization: organization }
-    let!(:assembly_with_area) { create(:assembly, area: area, organization: organization) }
-    let!(:assembly_without_area) { create(:assembly, organization: organization) }
+    let!(:area) { create :area, organization: }
+    let!(:assembly_with_area) { create(:assembly, area:, organization:) }
+    let!(:assembly_without_area) { create(:assembly, organization:) }
 
     before do
       visit decidim_assemblies.assemblies_path

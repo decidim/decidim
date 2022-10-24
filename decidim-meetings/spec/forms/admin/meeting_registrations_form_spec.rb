@@ -9,10 +9,10 @@ module Decidim::Meetings
     let(:meeting) { create(:meeting) }
     let(:attributes) do
       {
-        registrations_enabled: registrations_enabled,
-        available_slots: available_slots,
-        reserved_slots: reserved_slots,
-        registration_terms: registration_terms
+        registrations_enabled:,
+        available_slots:,
+        reserved_slots:,
+        registration_terms:
       }
     end
     let(:registrations_enabled) { true }
@@ -25,7 +25,7 @@ module Decidim::Meetings
         ca: "Un text legal"
       }
     end
-    let(:context) { { current_organization: meeting.organization, meeting: meeting } }
+    let(:context) { { current_organization: meeting.organization, meeting: } }
 
     it { is_expected.to be_valid }
 
@@ -85,7 +85,7 @@ module Decidim::Meetings
 
     context "when a few registrations have been created" do
       before do
-        create_list :registration, 10, meeting: meeting
+        create_list :registration, 10, meeting:
       end
 
       context "and available slots is less than the number of registrations" do

@@ -40,7 +40,7 @@ module Decidim
     # @return [Faraday::Response] An instance that represents an HTTP response from making an HTTP request
     def pull_request_metadata
       Decidim::GithubManager::Querier.new(
-        token: token,
+        token:,
         issue_id: pull_request_id
       ).call
     end
@@ -50,10 +50,10 @@ module Decidim
     # @return [void]
     def make_cherrypick_and_branch(metadata)
       Decidim::GitBackportManager.new(
-        pull_request_id: pull_request_id,
-        release_branch: release_branch,
+        pull_request_id:,
+        release_branch:,
         backport_branch: backport_branch(metadata[:title]),
-        exit_with_unstaged_changes: exit_with_unstaged_changes
+        exit_with_unstaged_changes:
       ).call
     end
 
@@ -70,8 +70,8 @@ module Decidim
       }
 
       Decidim::GithubManager::Poster.new(
-        token: token,
-        params: params
+        token:,
+        params:
       ).call
     end
 

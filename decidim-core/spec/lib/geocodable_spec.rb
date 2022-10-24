@@ -10,8 +10,8 @@ module Decidim
   describe Geocodable do
     subject do
       record_class.new(
-        organization: organization,
-        address: address
+        organization:,
+        address:
       )
     end
 

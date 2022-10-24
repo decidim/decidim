@@ -15,7 +15,7 @@ module Decidim
                    resource
                  end
 
-      resource.model_name.human(count: count)
+      resource.model_name.human(count:)
     end
 
     # Generates a link to filter the current search by the given type. If no
@@ -44,7 +44,7 @@ module Decidim
 
     # Generates the path to filter by resource type, considering the other filters.
     def search_path_by_resource_type(resource_type)
-      search_path_by(space_state: params.dig(:filter, :with_space_state), resource_type: resource_type)
+      search_path_by(space_state: params.dig(:filter, :with_space_state), resource_type:)
     end
 
     # Generates the path and link to filter by space state, taking into account

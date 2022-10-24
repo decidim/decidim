@@ -13,7 +13,7 @@ module Decidim
     let(:initiatives_type) do
       create(
         :initiatives_type,
-        organization: organization,
+        organization:,
         minimum_committee_members: initiatives_type_minimum_committee_members
       )
     end
@@ -25,7 +25,7 @@ module Decidim
       let(:initiative) { create(:initiative, :created) }
       let(:administrator) { create(:user, :admin, organization: initiative.organization) }
       let(:message_delivery) { instance_double(ActionMailer::MessageDelivery) }
-      let(:offline_type) { create(:initiatives_type, :online_signature_disabled, organization: organization) }
+      let(:offline_type) { create(:initiatives_type, :online_signature_disabled, organization:) }
       let(:offline_scope) { create(:initiatives_type_scope, type: offline_type) }
 
       before do
@@ -37,8 +37,8 @@ module Decidim
       end
 
       it "enforces signature types specified in the type" do
-        online_initiative = build(:initiative, :created, organization: organization, scoped_type: offline_scope, signature_type: "online")
-        offline_initiative = build(:initiative, :created, organization: organization, scoped_type: offline_scope, signature_type: "offline")
+        online_initiative = build(:initiative, :created, organization:, scoped_type: offline_scope, signature_type: "online")
+        offline_initiative = build(:initiative, :created, organization:, scoped_type: offline_scope, signature_type: "offline")
 
         expect(online_initiative).to be_invalid
         expect(offline_initiative).to be_valid
@@ -56,7 +56,7 @@ module Decidim
 
     context "when published initiative" do
       let(:published_initiative) { build :initiative }
-      let(:online_allowed_type) { create(:initiatives_type, :online_signature_enabled, organization: organization) }
+      let(:online_allowed_type) { create(:initiatives_type, :online_signature_enabled, organization:) }
       let(:online_allowed_scope) { create(:initiatives_type_scope, type: online_allowed_type) }
 
       it "is valid" do
@@ -64,7 +64,7 @@ module Decidim
       end
 
       it "does not enforce signature type if the type was updated" do
-        initiative = build(:initiative, :published, organization: organization, scoped_type: online_allowed_scope, signature_type: "online")
+        initiative = build(:initiative, :published, organization:, scoped_type: online_allowed_scope, signature_type: "online")
 
         expect(initiative.save).to be_truthy
 
@@ -152,8 +152,8 @@ module Decidim
     context "when has_authorship?" do
       let(:initiative) { create(:initiative) }
       let(:user) { create(:user) }
-      let(:pending_committee_member) { create(:initiatives_committee_member, :requested, initiative: initiative) }
-      let(:rejected_committee_member) { create(:initiatives_committee_member, :rejected, initiative: initiative) }
+      let(:pending_committee_member) { create(:initiatives_committee_member, :requested, initiative:) }
+      let(:rejected_committee_member) { create(:initiatives_committee_member, :rejected, initiative:) }
 
       it "returns true for the initiative author" do
         expect(initiative).to have_authorship(initiative.author)
@@ -176,7 +176,7 @@ module Decidim
     end
 
     describe "signatures calculations" do
-      let!(:initiative) { create(:initiative, signature_type: signature_type) }
+      let!(:initiative) { create(:initiative, signature_type:) }
       let(:scope_id) { initiative.scope.id.to_s }
       let!(:other_scope_for_type) { create(:initiatives_type_scope, type: initiative.type) }
 
@@ -224,7 +224,7 @@ module Decidim
       subject { initiative.minimum_committee_members }
 
       let(:committee_members_fallback_setting) { 1 }
-      let(:initiative) { create(:initiative, organization: organization, scoped_type: scoped_type) }
+      let(:initiative) { create(:initiative, organization:, scoped_type:) }
 
       before do
         allow(Decidim::Initiatives).to(
@@ -247,18 +247,18 @@ module Decidim
       subject { initiative.enough_committee_members? }
 
       let(:initiatives_type_minimum_committee_members) { 2 }
-      let(:initiative) { create(:initiative, organization: organization, scoped_type: scoped_type) }
+      let(:initiative) { create(:initiative, organization:, scoped_type:) }
 
       before { initiative.committee_members.destroy_all }
 
       context "when enough members" do
-        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members, initiative: initiative) }
+        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members, initiative:) }
 
         it { is_expected.to be true }
       end
 
       context "when not enough members" do
-        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members - 1, initiative: initiative) }
+        before { create_list(:initiatives_committee_member, initiatives_type_minimum_committee_members - 1, initiative:) }
 
         it { is_expected.to be false }
       end
@@ -268,12 +268,12 @@ module Decidim
       subject(:sorter) { described_class.ransack("s" => "supports_count desc") }
 
       before do
-        create(:initiative, organization: organization, signature_type: "offline")
-        create(:initiative, organization: organization, signature_type: "offline", offline_votes: { "total" => 4 })
-        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total" => 5 })
-        create(:initiative, organization: organization, signature_type: "online", online_votes: { "total" => 3 })
-        create(:initiative, organization: organization, signature_type: "any", online_votes: { "total" => 1 })
-        create(:initiative, organization: organization, signature_type: "any", online_votes: { "total" => 5 }, offline_votes: { "total" => 3 })
+        create(:initiative, organization:, signature_type: "offline")
+        create(:initiative, organization:, signature_type: "offline", offline_votes: { "total" => 4 })
+        create(:initiative, organization:, signature_type: "online", online_votes: { "total" => 5 })
+        create(:initiative, organization:, signature_type: "online", online_votes: { "total" => 3 })
+        create(:initiative, organization:, signature_type: "any", online_votes: { "total" => 1 })
+        create(:initiative, organization:, signature_type: "any", online_votes: { "total" => 5 }, offline_votes: { "total" => 3 })
       end
 
       it "sorts initiatives by supports count" do

@@ -49,10 +49,10 @@ module Decidim
       #
       def self.start!(originator:, interlocutors:, body:, user: nil)
         conversation = start(
-          originator: originator,
-          interlocutors: interlocutors,
-          body: body,
-          user: user
+          originator:,
+          interlocutors:,
+          body:,
+          user:
         )
 
         conversation.save!
@@ -75,7 +75,7 @@ module Decidim
       def self.start(originator:, interlocutors:, body:, user: nil)
         conversation = new(participants: [originator] + interlocutors)
 
-        conversation.add_message(sender: originator, body: body, user: user)
+        conversation.add_message(sender: originator, body:, user:)
 
         conversation
       end
@@ -87,7 +87,7 @@ module Decidim
       # @return (see #add_message)
       #
       def add_message!(sender:, body:, user: nil)
-        add_message(sender: sender, body: body, user: user)
+        add_message(sender:, body:, user:)
 
         save!
       end
@@ -102,7 +102,7 @@ module Decidim
       # @return [Decidim::Messaging::Message] The newly created message
       #
       def add_message(sender:, body:, user: nil)
-        message = messages.build(sender: sender, body: body)
+        message = messages.build(sender:, body:)
 
         message.envelope_for(recipients: interlocutors(sender), from: user)
 

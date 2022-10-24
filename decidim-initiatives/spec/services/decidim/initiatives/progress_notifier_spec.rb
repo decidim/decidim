@@ -7,19 +7,19 @@ module Decidim
     describe ProgressNotifier do
       let(:message_delivery) { instance_double(ActionMailer::MessageDelivery) }
       let(:organization) { create(:organization) }
-      let(:author) { create(:user, organization: organization) }
+      let(:author) { create(:user, organization:) }
       let(:followers) { [] }
       let(:approved_committee_members) { [] }
       let(:initiative) do
         double(
           "initiative",
-          author: author,
-          followers: followers,
+          author:,
+          followers:,
           committee_members: double("committee_members", approved: approved_committee_members)
         )
       end
 
-      subject { described_class.new(initiative: initiative) }
+      subject { described_class.new(initiative:) }
 
       before do
         allow(message_delivery).to receive(:deliver_later)
@@ -40,7 +40,7 @@ module Decidim
           committee_members_count.times do
             members << double(
               "committe_member",
-              user: create(:user, organization: organization)
+              user: create(:user, organization:)
             )
           end
           members
@@ -59,7 +59,7 @@ module Decidim
       context "and followers are notified" do
         let(:followers_count) { 10 }
         let(:followers) do
-          create_list(:user, followers_count, organization: organization)
+          create_list(:user, followers_count, organization:)
         end
 
         it "one message per follower is sent" do

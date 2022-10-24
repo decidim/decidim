@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "UserTosAcceptance", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:user) { create(:user, :confirmed, organization: organization) }
-  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization) }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:tos_page) { Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization:) }
   let(:btn_accept) { "I agree with these terms" }
   let(:btn_refuse) { "Refuse the terms" }
 
@@ -24,7 +24,7 @@ describe "UserTosAcceptance", type: :system do
       it "redirects to the TOS page" do
         expect(page).to have_current_path(decidim.page_path(tos_page))
         expect(page).to have_content translated(tos_page.title)
-        expect(page.find(".card__content p", obscured: false)).to have_content strip_tags(translated(tos_page.content))
+        expect(page.find("div.editor-content", obscured: false)).to have_content strip_tags(translated(tos_page.content))
       end
 
       it "renders an announcement requiring to review the TOS" do

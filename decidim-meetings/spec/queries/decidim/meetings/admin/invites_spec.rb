@@ -22,7 +22,7 @@ module Decidim::Meetings::Admin
       context "and receives a search param" do
         let(:invites) do
           %w(Walter Fargo Phargo).map do |name|
-            create(:invite, user: create(:user, name: name))
+            create(:invite, user: create(:user, name:))
           end
         end
 
@@ -76,7 +76,7 @@ module Decidim::Meetings::Admin
       context "and receives search and filter params at a time" do
         let(:accepted_invites) do
           %w(Lorem Ipsum Dolor).map do |name|
-            create(:invite, :accepted, user: create(:user, name: name))
+            create(:invite, :accepted, user: create(:user, name:))
           end
         end
 

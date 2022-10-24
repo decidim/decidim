@@ -10,10 +10,10 @@ module Decidim::Accountability
     let(:context) do
       {
         current_organization: organization,
-        current_component: current_component
+        current_component:
       }
     end
-    let(:participatory_process) { create :participatory_process, organization: organization }
+    let(:participatory_process) { create :participatory_process, organization: }
     let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "accountability" }
     let(:name) do
       Decidim::Faker::Localized.word
@@ -26,10 +26,10 @@ module Decidim::Accountability
 
     let(:attributes) do
       {
-        key: key,
+        key:,
         name_en: name[:en],
         description_en: description[:en],
-        progress: progress
+        progress:
       }
     end
 

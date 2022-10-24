@@ -5,14 +5,14 @@ require "spec_helper"
 module Decidim
   module Votings
     describe CurrentComponent do
-      let(:request) { double(params: params, env: env) }
+      let(:request) { double(params:, env:) }
       let(:params) { {} }
       let(:manifest) { Decidim.find_component_manifest("dummy") }
       let(:organization) do
         create(:organization)
       end
-      let(:current_voting) { create(:voting, organization: organization) }
-      let(:other_voting) { create(:voting, organization: organization) }
+      let(:current_voting) { create(:voting, organization:) }
+      let(:other_voting) { create(:voting, organization:) }
       let(:env) do
         { "decidim.current_organization" => organization }
       end

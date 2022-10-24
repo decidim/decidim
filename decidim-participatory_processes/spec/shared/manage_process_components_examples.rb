@@ -2,7 +2,7 @@
 
 shared_examples "manage process components" do
   let!(:participatory_process) do
-    create(:participatory_process, :with_steps, organization: organization)
+    create(:participatory_process, :with_steps, organization:)
   end
   let(:step_id) { participatory_process.steps.first.id }
 
@@ -89,7 +89,7 @@ shared_examples "manage process components" do
 
     context "when the process doesn't have active steps" do
       let!(:participatory_process) do
-        create(:participatory_process, organization: organization)
+        create(:participatory_process, organization:)
       end
 
       before do
@@ -283,7 +283,7 @@ shared_examples "manage process components" do
 
   describe "publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: participatory_process, published_at: published_at)
+      create(:component, participatory_space: participatory_process, published_at:)
     end
 
     let(:published_at) { nil }

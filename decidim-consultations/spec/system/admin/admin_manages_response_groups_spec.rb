@@ -18,7 +18,7 @@ describe "Admin manages response groups", type: :system do
   end
 
   context "when question is multiple" do
-    let!(:question) { create :question, :multiple, consultation: consultation }
+    let!(:question) { create :question, :multiple, consultation: }
 
     it "have groups link" do
       expect(page).to have_link("Manage response groups", href: decidim_admin_consultations.response_groups_path(question))
@@ -26,8 +26,8 @@ describe "Admin manages response groups", type: :system do
   end
 
   context "when in groups admin page" do
-    let!(:question) { create :question, :multiple, consultation: consultation }
-    let!(:response_group) { create :response_group, question: question }
+    let!(:question) { create :question, :multiple, consultation: }
+    let!(:response_group) { create :response_group, question: }
     # let(:extra_context) { { current_response_group: response_group } }
 
     before do
@@ -133,8 +133,8 @@ describe "Admin manages response groups", type: :system do
   end
 
   describe "deleting a response group" do
-    let!(:question) { create :question, :multiple, consultation: consultation }
-    let!(:response_group) { create :response_group, question: question }
+    let!(:question) { create :question, :multiple, consultation: }
+    let!(:response_group) { create :response_group, question: }
 
     before do
       visit decidim_admin_consultations.edit_response_group_path(question, response_group)
@@ -153,7 +153,7 @@ describe "Admin manages response groups", type: :system do
     end
 
     context "when has responses" do
-      let!(:response) { create :response, response_group: response_group }
+      let!(:response) { create :response, response_group: }
 
       it "deletes group" do
         accept_confirm { click_link "Delete" }

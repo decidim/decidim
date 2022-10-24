@@ -15,7 +15,7 @@ module Decidim
         def update
           enforce_permission_to :update, :meeting, meeting: meeting
 
-          @form = MeetingRegistrationsForm.from_params(params).with_context(current_organization: meeting.organization, meeting: meeting)
+          @form = MeetingRegistrationsForm.from_params(params).with_context(current_organization: meeting.organization, meeting:)
           @validation_form = ValidateRegistrationCodeForm.new
 
           UpdateRegistrations.call(@form, meeting) do
@@ -45,7 +45,7 @@ module Decidim
           enforce_permission_to :update, :meeting, meeting: meeting
 
           @form = MeetingRegistrationsForm.from_model(meeting)
-          @validation_form = ValidateRegistrationCodeForm.from_params(params).with_context(current_organization: meeting.organization, meeting: meeting)
+          @validation_form = ValidateRegistrationCodeForm.from_params(params).with_context(current_organization: meeting.organization, meeting:)
 
           ValidateRegistrationCode.call(@validation_form, meeting) do
             on(:ok) do

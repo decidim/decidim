@@ -12,15 +12,15 @@ module Decidim
         routes { Decidim::Accountability::AdminEngine.routes }
 
         let(:organization) { create(:organization) }
-        let(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
-        let(:participatory_space) { create(:participatory_process, organization: organization) }
+        let(:current_user) { create(:user, :confirmed, :admin, organization:) }
+        let(:participatory_space) { create(:participatory_process, organization:) }
         let!(:component) do
           create(
             :accountability_component,
-            participatory_space: participatory_space
+            participatory_space:
           )
         end
-        let(:result) { create(:result, component: component) }
+        let(:result) { create(:result, component:) }
         let(:params) { { id: result.id } }
 
         before do
@@ -43,7 +43,7 @@ module Decidim
 
         describe "GET the proposals picker" do
           before do
-            get :proposals_picker, params: params
+            get :proposals_picker, params:
           end
 
           it "renders the proposals picker" do

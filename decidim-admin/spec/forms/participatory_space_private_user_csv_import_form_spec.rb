@@ -9,8 +9,8 @@ module Decidim
         described_class.from_params(
           attributes
         ).with_context(
-          current_user: current_user,
-          current_organization: current_organization
+          current_user:,
+          current_organization:
         )
       end
 
@@ -38,6 +38,17 @@ module Decidim
         let(:file) { upload_test_file(Decidim::Dev.asset("import_participatory_space_private_users_nok.csv")) }
 
         it { is_expected.to be_invalid }
+      end
+
+      context "when the provided file is encoded with incorrect character set" do
+        let(:file) { upload_test_file(Decidim::Dev.asset("import_participatory_space_private_users_iso8859-1.csv")) }
+
+        it { is_expected.to be_invalid }
+
+        it "adds the correct error" do
+          subject.valid?
+          expect(subject.errors[:file].join).to eq("Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.")
+        end
       end
     end
   end

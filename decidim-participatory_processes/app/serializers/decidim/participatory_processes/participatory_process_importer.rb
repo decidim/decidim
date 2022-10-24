@@ -24,8 +24,8 @@ module Decidim
         Decidim.traceability.perform_action!(:create, ParticipatoryProcess, @user, visibility: "all") do
           @imported_process = ParticipatoryProcess.new(
             organization: @organization,
-            title: title,
-            slug: slug,
+            title:,
+            slug:,
             subtitle: attributes["subtitle"],
             hashtag: attributes["hashtag"],
             description: attributes["description"],
@@ -44,8 +44,9 @@ module Decidim
             scopes_enabled: attributes["scopes_enabled"],
             participatory_process_group: import_process_group(attributes["participatory_process_group"])
           )
-          @imported_process.remote_hero_image_url = attributes["remote_hero_image_url"] if remote_file_exists?(attributes["remote_hero_image_url"])
-          @imported_process.remote_banner_image_url = attributes["remote_banner_image_url"] if remote_file_exists?(attributes["remote_banner_image_url"])
+          @imported_process.attached_uploader(:hero_image).remote_url = attributes["remote_hero_image_url"] if attributes["remote_hero_image_url"].present?
+          @imported_process.attached_uploader(:banner_image).remote_url = attributes["remote_banner_image_url"] if attributes["remote_banner_image_url"].present?
+
           @imported_process.save!
           @imported_process
         end
@@ -54,7 +55,7 @@ module Decidim
       def import_process_group(attributes)
         Decidim.traceability.perform_action!("create", ParticipatoryProcessGroup, @user) do
           group = ParticipatoryProcessGroup.find_or_initialize_by(
-            title: attributes["title"],
+            title: attributes["title"] || attributes["name"],
             description: attributes["description"],
             organization: @organization
           )

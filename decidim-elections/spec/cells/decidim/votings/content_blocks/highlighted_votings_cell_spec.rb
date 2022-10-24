@@ -6,8 +6,8 @@ describe Decidim::Votings::ContentBlocks::HighlightedVotingsCell, type: :cell do
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create(:organization) }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_votings, scope_name: :homepage, settings: settings }
-  let!(:votings) { create_list :voting, 5, :ongoing, organization: organization }
+  let(:content_block) { create :content_block, organization:, manifest_name: :highlighted_votings, scope_name: :homepage, settings: }
+  let!(:votings) { create_list :voting, 5, :ongoing, organization: }
   let(:settings) { {} }
 
   let(:highlighted_votings) { subject.find("#highlighted-votings") }

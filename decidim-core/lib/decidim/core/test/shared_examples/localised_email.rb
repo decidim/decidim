@@ -3,7 +3,7 @@
 require "spec_helper"
 
 shared_examples "localised email" do
-  let(:user) { build(:user, locale: locale) }
+  let(:user) { build(:user, locale:) }
 
   context "when the user has a custom locale" do
     let(:locale) { "ca" }

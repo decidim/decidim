@@ -6,16 +6,16 @@ module Decidim
   describe UserInterestScopeForm do
     subject do
       described_class.new(
-        name: name,
-        checked: checked,
-        children: children
+        name:,
+        checked:,
+        children:
       )
     end
 
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, organization: organization, extended_data: extended_data) }
+    let(:user) { create(:user, organization:, extended_data:) }
 
-    let!(:scope) { create(:scope, organization: organization) }
+    let!(:scope) { create(:scope, organization:) }
     let(:name) { scope.name }
     let(:checked) { true }
     let(:children) { [] }
@@ -32,7 +32,7 @@ module Decidim
         described_class.from_model(model_hash)
       end
 
-      let(:model_hash) { { scope: scope, user: user } }
+      let(:model_hash) { { scope:, user: } }
 
       it "creates form" do
         expect(subject.id).to eq(scope.id)

@@ -9,7 +9,7 @@ describe Decidim::Elections::Admin::CreateQuestion do
   let(:participatory_process) { current_component.participatory_space }
   let(:current_component) { election.component }
   let(:election) { create :election }
-  let(:user) { create :user, :admin, :confirmed, organization: organization }
+  let(:user) { create :user, :admin, :confirmed, organization: }
   let(:form) do
     double(
       invalid?: invalid,
@@ -19,9 +19,9 @@ describe Decidim::Elections::Admin::CreateQuestion do
       random_answers_order: true,
       min_selections: 1,
       current_user: user,
-      current_component: current_component,
+      current_component:,
       current_organization: organization,
-      election: election
+      election:
     )
   end
   let(:invalid) { false }

@@ -22,7 +22,7 @@ module Decidim
 
       # Retrieves authorizations for the given user.
       def query
-        Authorization.where(user: user).where.not(granted_at: nil)
+        Authorization.where(user:).where.not(granted_at: nil)
       end
     end
   end

@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Admin passwords", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :confirmed, :admin, password: password, password_updated_at: password_updated_at, organization: organization) }
+  let(:user) { create(:user, :confirmed, :admin, password:, password_updated_at:, organization:) }
   let(:password) { "decidim123456789" }
   let(:new_password) { "decidim987654321" }
   let(:password_updated_at) { nil }
@@ -24,7 +24,7 @@ describe "Admin passwords", type: :system do
       fill_in :password_user_password, with: new_password
       fill_in :password_user_password_confirmation, with: new_password
       click_button "Change my password"
-      expect(page).to have_css(".callout.success")
+      expect(page).to have_css("[data-alert-box].success")
       expect(page).to have_content("Password successfully updated")
       expect(user.reload.password_updated_at).to be_between(2.seconds.ago, Time.current)
     end
@@ -43,7 +43,7 @@ describe "Admin passwords", type: :system do
       fill_in :password_user_password, with: new_password
       fill_in :password_user_password_confirmation, with: "decidim12345678"
       click_button "Change my password"
-      expect(page).to have_css(".callout.alert")
+      expect(page).to have_css("[data-alert-box].alert")
       expect(page).to have_content("There was a problem updating the password")
       expect(page).to have_content("doesn't match Password")
     end
@@ -57,14 +57,14 @@ describe "Admin passwords", type: :system do
         fill_in :password_user_password, with: new_password
         fill_in :password_user_password_confirmation, with: new_password
         click_button "Change my password"
-        expect(page).to have_css(".callout.alert")
+        expect(page).to have_css("[data-alert-box].alert")
         expect(page).to have_content("There was a problem updating the password")
         expect(page).to have_content("cannot reuse old password")
       end
     end
 
     context "when user is in different path" do
-      let(:static_page) { create(:static_page, organization: organization) }
+      let(:static_page) { create(:static_page, organization:) }
 
       before do
         visit decidim.page_path(static_page)
@@ -76,7 +76,7 @@ describe "Admin passwords", type: :system do
         fill_in :password_user_password, with: new_password
         fill_in :password_user_password_confirmation, with: new_password
         click_button "Change my password"
-        expect(page).to have_css(".callout.success")
+        expect(page).to have_css("[data-alert-box].success")
         expect(page).to have_current_path(decidim.page_path(static_page))
       end
     end

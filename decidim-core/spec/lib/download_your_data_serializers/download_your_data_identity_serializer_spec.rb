@@ -9,7 +9,7 @@ module Decidim
     let(:organization) { user&.organization }
     let(:provider) { "facebook" }
     let(:uid) { "123456" }
-    let(:resource) { build(:identity, user: user, provider: provider, uid: uid, organization: organization) }
+    let(:resource) { build(:identity, user:, provider:, uid:, organization:) }
 
     let(:serialized) { subject.serialize }
 

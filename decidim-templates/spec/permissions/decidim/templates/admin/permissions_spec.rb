@@ -6,7 +6,7 @@ describe Decidim::Templates::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:organization) { create :organization }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:context) do
     {
       current_organization: create(:organization)
@@ -40,7 +40,7 @@ describe Decidim::Templates::Admin::Permissions do
 
   shared_examples_for "action is allowed" do |scope, action, subject|
     let(:action) do
-      { scope: scope, action: action, subject: subject }
+      { scope:, action:, subject: }
     end
 
     it { is_expected.to be true }

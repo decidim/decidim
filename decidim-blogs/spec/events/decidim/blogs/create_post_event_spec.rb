@@ -10,7 +10,7 @@ describe Decidim::Blogs::CreatePostEvent do
   it_behaves_like "a simple event"
 
   describe "email_subject" do
-    let(:assembly) { create(:assembly, organization: organization, title: { en: "It's a test" }) }
+    let(:assembly) { create(:assembly, organization:, title: { en: "It's a test" }) }
     let(:blogs_component) { create :component, :published, name: { en: "Blogs" }, participatory_space: assembly, manifest_name: :blogs }
 
     before do

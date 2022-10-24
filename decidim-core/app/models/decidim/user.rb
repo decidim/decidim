@@ -108,7 +108,7 @@ module Decidim
     # Returns the user corresponding to the given +email+ if it exists and has pending invitations,
     #   otherwise returns nil.
     def self.has_pending_invitations?(organization_id, email)
-      invitation_not_accepted.find_by(decidim_organization_id: organization_id, email: email)
+      invitation_not_accepted.find_by(decidim_organization_id: organization_id, email:)
     end
 
     # Returns the presenter for this author, to be used in the views.
@@ -152,7 +152,7 @@ module Decidim
     end
 
     def follows?(followable)
-      Decidim::Follow.where(user: self, followable: followable).any?
+      Decidim::Follow.where(user: self, followable:).any?
     end
 
     # Public: whether the user accepts direct messages from another

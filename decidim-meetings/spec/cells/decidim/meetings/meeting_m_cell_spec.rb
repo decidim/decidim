@@ -8,7 +8,7 @@ module Decidim::Meetings
 
     let!(:meeting) { create(:meeting, :published, created_at: "2001-01-01") }
     let(:model) { meeting }
-    let(:the_cell) { cell("decidim/meetings/meeting_m", meeting, context: { show_space: show_space }) }
+    let(:the_cell) { cell("decidim/meetings/meeting_m", meeting, context: { show_space: }) }
     let(:cell_html) { the_cell.call }
 
     it_behaves_like "has space in m-cell"

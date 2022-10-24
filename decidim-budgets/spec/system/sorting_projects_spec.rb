@@ -7,19 +7,19 @@ describe "Sorting projects", type: :system do
   let(:manifest_name) { "budgets" }
 
   let(:organization) { create :organization }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: }
   let(:project) { projects.first }
 
   let!(:component) do
     create(:budgets_component,
            :with_vote_threshold_percent,
-           manifest: manifest,
+           manifest:,
            participatory_space: participatory_process)
   end
 
-  let(:budget) { create :budget, component: component }
-  let!(:project1) { create(:project, budget: budget, budget_amount: 25_000_000) }
-  let!(:project2) { create(:project, budget: budget, budget_amount: 50_000_000) }
+  let(:budget) { create :budget, component: }
+  let!(:project1) { create(:project, budget:, budget_amount: 25_000_000) }
+  let!(:project2) { create(:project, budget:, budget_amount: 50_000_000) }
 
   before do
     login_as user, scope: :user
@@ -67,12 +67,12 @@ describe "Sorting projects", type: :system do
       create(
         :budgets_component,
         :with_voting_finished,
-        manifest: manifest,
+        manifest:,
         participatory_space: participatory_process
       )
     end
-    let!(:project1) { create(:project, :selected, budget: budget, budget_amount: 25_000_000) }
-    let!(:project2) { create(:project, :selected, budget: budget, budget_amount: 77_000_000) }
+    let!(:project1) { create(:project, :selected, budget:, budget_amount: 25_000_000) }
+    let!(:project2) { create(:project, :selected, budget:, budget_amount: 77_000_000) }
 
     context "when ordering by most votes" do
       before do

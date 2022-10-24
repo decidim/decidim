@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = ">= 3.0"
+  s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-initiatives"
   s.summary = "Decidim initiatives module"
@@ -36,4 +36,5 @@ Gem::Specification.new do |s|
   s.add_dependency "wkhtmltopdf-binary", "~> 0.12"
 
   s.add_development_dependency "decidim-dev", Decidim::Initiatives.version
+  s.add_development_dependency "decidim-meetings", Decidim::Initiatives.version
 end

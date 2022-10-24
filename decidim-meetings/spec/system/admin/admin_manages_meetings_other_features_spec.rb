@@ -5,7 +5,7 @@ require "decidim/proposals/test/capybara_proposals_picker"
 
 describe "Admin manages meetings other features", type: :system, serves_map: true, serves_geocoding_autocomplete: true do
   let(:manifest_name) { "meetings" }
-  let!(:meeting) { create :meeting, :published, scope: scope, services: [], component: current_component }
+  let!(:meeting) { create :meeting, :published, scope:, services: [], component: current_component }
 
   include_context "when managing a component as an admin"
 

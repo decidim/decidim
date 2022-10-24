@@ -9,8 +9,8 @@ module Decidim
         routes { Decidim::ParticipatoryProcesses::AdminEngine.routes }
 
         let!(:organization) { create(:organization) }
-        let!(:participatory_process) { create :participatory_process, organization: organization }
-        let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
+        let!(:participatory_process) { create :participatory_process, organization: }
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
 
         let(:params) do
           {
@@ -29,7 +29,7 @@ module Decidim
             expect(ExportParticipatorySpaceJob).to receive(:perform_later)
               .with(user, participatory_process, "participatory_processes", "JSON")
 
-            post(:create, params: params)
+            post(:create, params:)
           end
 
           it "traces the action", versioning: true do
@@ -38,7 +38,7 @@ module Decidim
               .with("export", Decidim::ParticipatoryProcess, user)
               .and_call_original
 
-            expect { post(:create, params: params) }.to change(Decidim::ActionLog, :count)
+            expect { post(:create, params:) }.to change(Decidim::ActionLog, :count)
             action_log = Decidim::ActionLog.last
             expect(action_log.action).to eq("export")
             expect(action_log.version).to be_present

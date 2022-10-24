@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Voting", type: :system do
   let!(:organization) { create(:organization) }
-  let!(:voting) { create(:voting, :published, organization: organization) }
-  let!(:user) { create :user, :confirmed, organization: organization }
+  let!(:voting) { create(:voting, :published, organization:) }
+  let!(:user) { create :user, :confirmed, organization: }
 
   before do
     switch_to_host(organization.host)
@@ -27,7 +27,7 @@ describe "Voting", type: :system do
 
     context "when the voting is unpublished" do
       let!(:voting) do
-        create(:voting, :unpublished, organization: organization)
+        create(:voting, :unpublished, organization:)
       end
 
       before do
@@ -40,7 +40,7 @@ describe "Voting", type: :system do
       end
 
       context "with signed in user" do
-        let!(:user) { create(:user, :confirmed, organization: organization) }
+        let!(:user) { create(:user, :confirmed, organization:) }
 
         before do
           sign_in user, scope: :user
@@ -54,7 +54,7 @@ describe "Voting", type: :system do
     end
 
     context "when the voting has census" do
-      let!(:census) { create(:dataset, voting: voting) }
+      let!(:census) { create(:dataset, voting:) }
 
       before do
         switch_to_host(organization.host)

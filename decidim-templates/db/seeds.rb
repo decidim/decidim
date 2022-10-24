@@ -17,7 +17,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
   organization = Decidim::Organization.first
 
   questionnaire_template = Decidim::Templates::Template.create!(
-    organization: organization,
+    organization:,
     name: Decidim::Faker::Localized.sentence(word_count: 2),
     description: Decidim::Faker::Localized.paragraph
   )
@@ -35,7 +35,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
 
   %w(short_answer long_answer).each_with_index do |text_question_type, index|
     Decidim::Forms::Question.create!(
-      questionnaire: questionnaire,
+      questionnaire:,
       body: Decidim::Faker::Localized.paragraph,
       question_type: text_question_type,
       position: index
@@ -44,7 +44,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
 
   %w(single_option multiple_option).each_with_index do |multiple_choice_question_type, index|
     question = Decidim::Forms::Question.create!(
-      questionnaire: questionnaire,
+      questionnaire:,
       body: Decidim::Faker::Localized.paragraph,
       question_type: multiple_choice_question_type,
       position: index + 2
@@ -56,7 +56,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
 
     question.display_conditions.create!(
       condition_question: questionnaire.questions.find_by(position: question.position - 2),
-      question: question,
+      question:,
       condition_type: :answered,
       mandatory: true
     )
@@ -64,7 +64,7 @@ if !Rails.env.production? || ENV.fetch("SEED", nil)
 
   %w(matrix_single matrix_multiple).each do |matrix_question_type|
     question = Decidim::Forms::Question.create!(
-      questionnaire: questionnaire,
+      questionnaire:,
       body: Decidim::Faker::Localized.paragraph,
       question_type: matrix_question_type
     )

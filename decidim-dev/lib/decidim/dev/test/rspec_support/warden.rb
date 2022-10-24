@@ -11,7 +11,7 @@ module Decidim
     def relogin_as(user, scope: :user)
       logout scope
 
-      login_as user, scope: scope
+      login_as user, scope:
     end
   end
 end

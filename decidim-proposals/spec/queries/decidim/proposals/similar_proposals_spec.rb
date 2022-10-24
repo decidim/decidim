@@ -4,12 +4,12 @@ require "spec_helper"
 
 describe Decidim::Proposals::SimilarProposals do
   let(:organization) { create(:organization, enable_machine_translations: enabled) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:proposal_component, participatory_space: participatory_process) }
 
-  let!(:proposal) { create(:proposal, component: component, body: proposal_body, title: proposal_title) }
-  let!(:matching_proposal) { create(:proposal, component: component, body: matching_body, title: matching_title) }
-  let!(:missed_proposal) { create(:proposal, component: component, body: missing_body, title: missing_title) }
+  let!(:proposal) { create(:proposal, component:, body: proposal_body, title: proposal_title) }
+  let!(:matching_proposal) { create(:proposal, component:, body: matching_body, title: matching_title) }
+  let!(:missed_proposal) { create(:proposal, component:, body: missing_body, title: missing_title) }
 
   context "when machine_translations is disabled" do
     let(:enabled) { false }

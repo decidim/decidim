@@ -9,7 +9,7 @@ shared_examples "manage assembly members examples" do
   end
 
   context "without existing user" do
-    let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
+    let!(:assembly_member) { create(:assembly_member, assembly:) }
 
     it "creates a new assembly member" do
       find(".card-title a.new").click
@@ -98,7 +98,7 @@ shared_examples "manage assembly members examples" do
   end
 
   describe "when managing other assembly members" do
-    let!(:assembly_member) { create(:assembly_member, assembly: assembly) }
+    let!(:assembly_member) { create(:assembly_member, assembly:) }
 
     before do
       visit current_path
@@ -147,7 +147,7 @@ shared_examples "manage assembly members examples" do
 
   context "when paginating" do
     let!(:collection_size) { 20 }
-    let!(:collection) { create_list(:assembly_member, collection_size, assembly: assembly) }
+    let!(:collection) { create_list(:assembly_member, collection_size, assembly:) }
     let!(:resource_selector) { "#assembly_members tbody tr" }
 
     before do

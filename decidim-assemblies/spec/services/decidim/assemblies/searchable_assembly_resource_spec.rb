@@ -9,7 +9,7 @@ module Decidim
         create(
           :assembly,
           :unpublished,
-          organization: organization,
+          organization:,
           scope: scope1,
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
@@ -22,7 +22,7 @@ module Decidim
       let(:assembly2) do
         create(
           :assembly,
-          organization: organization,
+          organization:,
           scope: scope1,
           title: Decidim::Faker::Localized.name,
           subtitle: Decidim::Faker::Localized.name,
@@ -35,10 +35,10 @@ module Decidim
       let(:searchable_resource_attrs_mapper) do
         lambda { |space, locale|
           {
-            "content_a" => I18n.transliterate(translated(space.title, locale: locale)),
-            "content_b" => I18n.transliterate(translated(space.subtitle, locale: locale)),
-            "content_c" => I18n.transliterate(translated(space.short_description, locale: locale)),
-            "content_d" => I18n.transliterate(translated(space.description, locale: locale))
+            "content_a" => I18n.transliterate(translated(space.title, locale:)),
+            "content_b" => I18n.transliterate(translated(space.subtitle, locale:)),
+            "content_c" => I18n.transliterate(translated(space.short_description, locale:)),
+            "content_d" => I18n.transliterate(translated(space.description, locale:))
           }
         }
       end

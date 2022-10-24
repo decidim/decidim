@@ -13,18 +13,18 @@ describe "Meeting live event poll administration", type: :system do
     create :user,
            :admin,
            :confirmed,
-           organization: organization
+           organization:
   end
   let(:user2) do
     create :user,
            :admin,
            :confirmed,
-           organization: organization
+           organization:
   end
 
   let(:manifest_name) { "meetings" }
 
-  let(:meeting) { create :meeting, :published, :online, :live, component: component }
+  let(:meeting) { create :meeting, :published, :online, :live, component: }
   let(:meeting_path) do
     decidim_participatory_process_meetings.meeting_path(
       participatory_process_slug: participatory_process.slug,
@@ -53,7 +53,7 @@ describe "Meeting live event poll administration", type: :system do
       es: "Esta es la segunda pregunta"
     }
   end
-  let!(:poll) { create(:poll, meeting: meeting) }
+  let!(:poll) { create(:poll, meeting:) }
   let!(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
   before do
@@ -62,8 +62,8 @@ describe "Meeting live event poll administration", type: :system do
   end
 
   context "when all questions are unpublished" do
-    let!(:question_multiple_option) { create(:meetings_poll_question, :unpublished, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
-    let!(:question_single_option) { create(:meetings_poll_question, :unpublished, questionnaire: questionnaire, body: body_single_option_question, question_type: "single_option") }
+    let!(:question_multiple_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
+    let!(:question_single_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_single_option_question, question_type: "single_option") }
 
     it "list the questions in the Administrate section" do
       expect(page.all(".meeting-polls__question--admin").size).to eq(2)
@@ -92,10 +92,10 @@ describe "Meeting live event poll administration", type: :system do
   end
 
   context "when there's a published question with answers" do
-    let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire: questionnaire, body: body_multiple_option_question, question_type: "multiple_option") }
+    let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
 
-    let!(:answer_user1) { create(:meetings_poll_answer, question: question_multiple_option, user: user, questionnaire: questionnaire) }
-    let!(:answer_user2) { create(:meetings_poll_answer, question: question_multiple_option, user: user2, questionnaire: questionnaire) }
+    let!(:answer_user1) { create(:meetings_poll_answer, question: question_multiple_option, user:, questionnaire:) }
+    let!(:answer_user2) { create(:meetings_poll_answer, question: question_multiple_option, user: user2, questionnaire:) }
 
     let!(:answer_choice_user1) { create(:meetings_poll_answer_choice, answer: answer_user1, answer_option: question_multiple_option.answer_options.first) }
     let!(:answer_choice_user2) { create(:meetings_poll_answer_choice, answer: answer_user2, answer_option: question_multiple_option.answer_options.first) }

@@ -12,19 +12,19 @@ module Decidim
         def index; end
 
         def show
-          enforce_permission_to :read, :sortition, sortition: sortition
+          enforce_permission_to :read, :sortition, sortition:
         end
 
         def edit
           enforce_permission_to :update, :sortition, sortition: sortition
 
-          @form = edit_sortition_form.from_model(sortition, current_participatory_space: current_participatory_space)
+          @form = edit_sortition_form.from_model(sortition, current_participatory_space:)
         end
 
         def update
           enforce_permission_to :update, :sortition, sortition: sortition
 
-          @form = edit_sortition_form.from_params(params, current_participatory_space: current_participatory_space)
+          @form = edit_sortition_form.from_params(params, current_participatory_space:)
           UpdateSortition.call(@form) do
             on(:ok) do |_sortition|
               flash[:notice] = I18n.t("sortitions.update.success", scope: "decidim.sortitions.admin")
@@ -41,13 +41,13 @@ module Decidim
         def new
           enforce_permission_to :create, :sortition
 
-          @form = sortition_form.instance(current_participatory_space: current_participatory_space)
+          @form = sortition_form.instance(current_participatory_space:)
         end
 
         def create
           enforce_permission_to :create, :sortition
 
-          @form = sortition_form.from_params(params, current_participatory_space: current_participatory_space)
+          @form = sortition_form.from_params(params, current_participatory_space:)
           CreateSortition.call(@form) do
             on(:ok) do |sortition|
               flash[:notice] = I18n.t("sortitions.create.success", scope: "decidim.sortitions.admin")
@@ -64,13 +64,13 @@ module Decidim
         def confirm_destroy
           enforce_permission_to :destroy, :sortition, sortition: sortition
 
-          @form = destroy_sortition_form.from_model(sortition, current_participatory_space: current_participatory_space)
+          @form = destroy_sortition_form.from_model(sortition, current_participatory_space:)
         end
 
         def destroy
           enforce_permission_to :destroy, :sortition, sortition: sortition
 
-          @form = destroy_sortition_form.from_params(params, current_participatory_space: current_participatory_space)
+          @form = destroy_sortition_form.from_params(params, current_participatory_space:)
           DestroySortition.call(@form) do
             on(:ok) do |_sortition|
               flash[:notice] = I18n.t("sortitions.destroy.success", scope: "decidim.sortitions.admin")

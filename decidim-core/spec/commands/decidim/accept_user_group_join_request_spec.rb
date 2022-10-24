@@ -7,7 +7,7 @@ module Decidim
     describe AcceptUserGroupJoinRequest do
       describe "call" do
         let(:role) { "requested" }
-        let(:membership) { create :user_group_membership, role: role }
+        let(:membership) { create :user_group_membership, role: }
 
         let(:command) { described_class.new(membership) }
 

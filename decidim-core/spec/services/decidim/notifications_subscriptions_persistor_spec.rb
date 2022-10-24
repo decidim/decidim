@@ -11,7 +11,7 @@ module Decidim
 
     describe "#add_subscription" do
       context "when no subscriptions" do
-        let(:user) { create(:user, organization: organization) }
+        let(:user) { create(:user, organization:) }
 
         it "persist subscription params" do
           expect(subject.add_subscription(params)).to be_truthy
@@ -24,7 +24,7 @@ module Decidim
 
       context "when user has subscriptions" do
         let(:user) do
-          create(:user, organization: organization, "notification_settings" => {
+          create(:user, organization:, "notification_settings" => {
                    "subscriptions" => {
                      "auth_code_100" => { p256dh: "value", endpoint: "value" }
                    }
@@ -43,7 +43,7 @@ module Decidim
 
     describe "#delete_subscription" do
       let(:user) do
-        create(:user, organization: organization, "notification_settings" => {
+        create(:user, organization:, "notification_settings" => {
                  "subscriptions" => {
                    "auth_code_121" => { p256dh: "value", endpoint: "value" },
                    "auth_code_100" => { p256dh: "value", endpoint: "value" }

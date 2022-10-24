@@ -7,8 +7,8 @@ module Decidim::Assemblies
     subject { described_class.new(assembly_type, user) }
 
     let(:organization) { create :organization }
-    let(:assembly_type) { create :assemblies_type, organization: organization }
-    let(:user) { create :user, :admin, :confirmed, organization: organization }
+    let(:assembly_type) { create :assemblies_type, organization: }
+    let(:user) { create :user, :admin, :confirmed, organization: }
 
     context "when everything is ok" do
       it "destroys the assembly type" do

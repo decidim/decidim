@@ -5,8 +5,8 @@ require "spec_helper"
 describe Decidim::PasswordForm do
   subject do
     described_class.new(
-      password: password,
-      password_confirmation: password_confirmation
+      password:,
+      password_confirmation:
     )
   end
 

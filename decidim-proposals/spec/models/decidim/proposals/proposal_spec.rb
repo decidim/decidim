@@ -9,7 +9,7 @@ module Decidim
 
       let(:component) { build :proposal_component }
       let(:organization) { component.participatory_space.organization }
-      let(:proposal) { create(:proposal, component: component) }
+      let(:proposal) { create(:proposal, component:) }
       let(:coauthorable) { proposal }
 
       include_examples "coauthorable"
@@ -27,7 +27,7 @@ module Decidim
       describe "newsletter participants" do
         subject { Decidim::Proposals::Proposal.newsletter_participant_ids(proposal.component) }
 
-        let!(:component_out_of_newsletter) { create(:proposal_component, organization: organization) }
+        let!(:component_out_of_newsletter) { create(:proposal_component, organization:) }
         let!(:resource_out_of_newsletter) { create(:proposal, component: component_out_of_newsletter) }
         let!(:resource_in_newsletter) { create(:proposal, component: proposal.component) }
         let(:author_ids) { proposal.notifiable_identities.pluck(:id) + resource_in_newsletter.notifiable_identities.pluck(:id) }
@@ -119,17 +119,17 @@ module Decidim
       end
 
       describe "#editable_by?" do
-        let(:author) { create(:user, organization: organization) }
+        let(:author) { create(:user, organization:) }
 
         context "when user is author" do
-          let(:proposal) { create :proposal, component: component, users: [author], updated_at: Time.current }
+          let(:proposal) { create :proposal, component:, users: [author], updated_at: Time.current }
 
           it { is_expected.to be_editable_by(author) }
 
           context "when the proposal has been linked to another one" do
-            let(:proposal) { create :proposal, component: component, users: [author], updated_at: Time.current }
+            let(:proposal) { create :proposal, component:, users: [author], updated_at: Time.current }
             let(:original_proposal) do
-              original_component = create(:proposal_component, organization: organization, participatory_space: component.participatory_space)
+              original_component = create(:proposal_component, organization:, participatory_space: component.participatory_space)
               create(:proposal, component: original_component)
             end
 
@@ -143,25 +143,25 @@ module Decidim
 
         context "when proposal is from user group and user is admin" do
           let(:user_group) { create :user_group, :verified, users: [author], organization: author.organization }
-          let(:proposal) { create :proposal, component: component, updated_at: Time.current, users: [author], user_groups: [user_group] }
+          let(:proposal) { create :proposal, component:, updated_at: Time.current, users: [author], user_groups: [user_group] }
 
           it { is_expected.to be_editable_by(author) }
         end
 
         context "when user is not the author" do
-          let(:proposal) { create :proposal, component: component, updated_at: Time.current }
+          let(:proposal) { create :proposal, component:, updated_at: Time.current }
 
           it { is_expected.not_to be_editable_by(author) }
         end
 
         context "when proposal is answered" do
-          let(:proposal) { build :proposal, :with_answer, component: component, updated_at: Time.current, users: [author] }
+          let(:proposal) { build :proposal, :with_answer, component:, updated_at: Time.current, users: [author] }
 
           it { is_expected.not_to be_editable_by(author) }
         end
 
         context "when proposal editing time has run out" do
-          let(:proposal) { build :proposal, updated_at: 10.minutes.ago, component: component, users: [author] }
+          let(:proposal) { build :proposal, updated_at: 10.minutes.ago, component:, users: [author] }
 
           it { is_expected.not_to be_editable_by(author) }
         end
@@ -172,7 +172,7 @@ module Decidim
             component.save!
           end
 
-          let(:proposal) { build :proposal, updated_at: 10.years.ago, component: component, users: [author] }
+          let(:proposal) { build :proposal, updated_at: 10.years.ago, component:, users: [author] }
 
           it do
             proposal.add_coauthor(author)
@@ -197,38 +197,38 @@ module Decidim
       end
 
       describe "#withdrawable_by" do
-        let(:author) { create(:user, organization: organization) }
+        let(:author) { create(:user, organization:) }
 
         context "when user is author" do
-          let(:proposal) { create :proposal, component: component, users: [author], created_at: Time.current }
+          let(:proposal) { create :proposal, component:, users: [author], created_at: Time.current }
 
           it { is_expected.to be_withdrawable_by(author) }
         end
 
         context "when user is admin" do
-          let(:admin) { build(:user, :admin, organization: organization) }
-          let(:proposal) { build :proposal, component: component, users: [author], created_at: Time.current }
+          let(:admin) { build(:user, :admin, organization:) }
+          let(:proposal) { build :proposal, component:, users: [author], created_at: Time.current }
 
           it { is_expected.not_to be_withdrawable_by(admin) }
         end
 
         context "when user is not the author" do
-          let(:someone_else) { build(:user, organization: organization) }
-          let(:proposal) { build :proposal, component: component, users: [author], created_at: Time.current }
+          let(:someone_else) { build(:user, organization:) }
+          let(:proposal) { build :proposal, component:, users: [author], created_at: Time.current }
 
           it { is_expected.not_to be_withdrawable_by(someone_else) }
         end
 
         context "when proposal is already withdrawn" do
-          let(:proposal) { build :proposal, :withdrawn, component: component, users: [author], created_at: Time.current }
+          let(:proposal) { build :proposal, :withdrawn, component:, users: [author], created_at: Time.current }
 
           it { is_expected.not_to be_withdrawable_by(author) }
         end
 
         context "when the proposal has been linked to another one" do
-          let(:proposal) { create :proposal, component: component, users: [author], created_at: Time.current }
+          let(:proposal) { create :proposal, component:, users: [author], created_at: Time.current }
           let(:original_proposal) do
-            original_component = create(:proposal_component, organization: organization, participatory_space: component.participatory_space)
+            original_component = create(:proposal_component, organization:, participatory_space: component.participatory_space)
             create(:proposal, component: original_component)
           end
 
@@ -241,7 +241,7 @@ module Decidim
       end
 
       context "when answer is not published" do
-        let(:proposal) { create(:proposal, :accepted_not_published, component: component) }
+        let(:proposal) { create(:proposal, :accepted_not_published, component:) }
 
         it "has accepted as the internal state" do
           expect(proposal.internal_state).to eq("accepted")
@@ -257,11 +257,11 @@ module Decidim
       end
 
       describe "#with_valuation_assigned_to" do
-        let(:user) { create :user, organization: organization }
+        let(:user) { create :user, organization: }
         let(:space) { component.participatory_space }
-        let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user: user, participatory_process: space }
-        let(:assigned_proposal) { create :proposal, component: component }
-        let!(:assignment) { create :valuation_assignment, proposal: assigned_proposal, valuator_role: valuator_role }
+        let!(:valuator_role) { create :participatory_process_user_role, role: :valuator, user:, participatory_process: space }
+        let(:assigned_proposal) { create :proposal, component: }
+        let!(:assignment) { create :valuation_assignment, proposal: assigned_proposal, valuator_role: }
 
         it "only returns the assigned proposals for the given space" do
           results = described_class.with_valuation_assigned_to(user, space)

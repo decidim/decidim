@@ -9,14 +9,14 @@ module Decidim
         subject { described_class.new(initiatives_settings, form) }
 
         let(:organization) { create :organization }
-        let(:user) { create :user, :admin, :confirmed, organization: organization }
-        let(:initiatives_settings) { create :initiatives_settings, organization: organization }
+        let(:user) { create :user, :admin, :confirmed, organization: }
+        let(:initiatives_settings) { create :initiatives_settings, organization: }
         let(:initiatives_order) { "date" }
         let(:form) do
           double(
             invalid?: invalid,
             current_user: user,
-            initiatives_order: initiatives_order
+            initiatives_order:
           )
         end
         let(:invalid) { false }

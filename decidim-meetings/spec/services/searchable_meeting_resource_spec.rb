@@ -8,7 +8,7 @@ module Decidim
 
     let(:current_component) { create :component, manifest_name: "meetings" }
     let(:organization) { current_component.organization }
-    let(:scope1) { create :scope, organization: organization }
+    let(:scope1) { create :scope, organization: }
     let!(:meeting) do
       create(
         :meeting,
@@ -25,7 +25,7 @@ module Decidim
       context "when implementing Searchable" do
         it "inserts a SearchableResource after Meeting creation" do
           organization.available_locales.each do |locale|
-            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: locale)
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale:)
             expect_searchable_resource_to_correspond_to_meeting(searchable, meeting, locale)
           end
         end
@@ -41,7 +41,7 @@ module Decidim
           meeting.save!
 
           organization.available_locales.each do |locale|
-            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: locale)
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale:)
             expect(searchable.content_a).to eq updated_title[locale]
             expect(searchable.updated_at).to be > created_at
           end

@@ -7,16 +7,16 @@ module Decidim::Admin
     subject { described_class.new(form, user) }
 
     let(:organization) { create :organization }
-    let(:user) { create(:user, organization: organization) }
+    let(:user) { create(:user, organization:) }
     let(:name) { Decidim::Faker::Localized.literal("territorial") }
     let(:plural) { Decidim::Faker::Localized.literal("territorials") }
 
     let(:form) do
       double(
         invalid?: invalid,
-        name: name,
-        organization: organization,
-        plural: plural
+        name:,
+        organization:,
+        plural:
       )
     end
     let(:invalid) { false }

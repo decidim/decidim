@@ -7,7 +7,7 @@ module Decidim
     shared_examples_for "CreateCategory command" do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:user) { create(:user, organization: organization) }
+        let(:user) { create(:user, organization:) }
         let(:form_params) do
           {
             "category" => {

@@ -9,7 +9,7 @@ describe "Admin views proposal details from admin", type: :system do
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: participatory_process_scope) }
+  let(:participatory_process) { create(:participatory_process, :with_steps, organization:, scope: participatory_process_scope) }
   let(:participatory_process_scope) { nil }
 
   before do
@@ -92,7 +92,7 @@ describe "Admin views proposal details from admin", type: :system do
 
   describe "with supports" do
     before do
-      create_list :proposal_vote, 2, proposal: proposal
+      create_list :proposal_vote, 2, proposal:
     end
 
     it "shows the number of supports" do
@@ -113,7 +113,7 @@ describe "Admin views proposal details from admin", type: :system do
   describe "with endorsements" do
     let!(:endorsements) do
       2.times.collect do
-        create(:endorsement, resource: proposal, author: build(:user, organization: organization))
+        create(:endorsement, resource: proposal, author: build(:user, organization:))
       end
     end
 
@@ -125,7 +125,7 @@ describe "Admin views proposal details from admin", type: :system do
 
     it "shows the ranking by endorsements" do
       another_proposal = create :proposal, component: component
-      create(:endorsement, resource: another_proposal, author: build(:user, organization: organization))
+      create(:endorsement, resource: another_proposal, author: build(:user, organization:))
       go_to_admin_proposal_page(proposal)
 
       expect(page).to have_content("Ranking by endorsements: 1 of")
@@ -145,7 +145,7 @@ describe "Admin views proposal details from admin", type: :system do
     context "with more than 5 endorsements" do
       let!(:endorsements) do
         6.times.collect do
-          create(:endorsement, resource: proposal, author: build(:user, organization: organization))
+          create(:endorsement, resource: proposal, author: build(:user, organization:))
         end
       end
 

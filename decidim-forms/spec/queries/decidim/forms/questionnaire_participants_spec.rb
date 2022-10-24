@@ -8,9 +8,9 @@ describe Decidim::Forms::QuestionnaireParticipants do
   let!(:questionnaire) { create(:questionnaire) }
   let!(:user1) { create(:user, organization: questionnaire.questionnaire_for.organization) }
   let!(:user2) { create(:user, organization: questionnaire.questionnaire_for.organization) }
-  let!(:questions) { 3.downto(1).map { |n| create :questionnaire_question, questionnaire: questionnaire, position: n } }
-  let!(:answers_user1) { questions.map { |question| create :answer, user: user1, questionnaire: questionnaire, question: question } }
-  let!(:answers_user2) { questions.map { |question| create :answer, user: user2, questionnaire: questionnaire, question: question } }
+  let!(:questions) { 3.downto(1).map { |n| create :questionnaire_question, questionnaire:, position: n } }
+  let!(:answers_user1) { questions.map { |question| create :answer, user: user1, questionnaire:, question: } }
+  let!(:answers_user2) { questions.map { |question| create :answer, user: user2, questionnaire:, question: } }
 
   it "returns the user info for each participant" do
     result = subject.query.order(:session_token)

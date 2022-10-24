@@ -42,7 +42,7 @@ describe "Organization Areas", type: :system do
     end
 
     context "with existing areas" do
-      let!(:area) { create(:area, organization: organization, area_type: area_type) }
+      let!(:area) { create(:area, organization:, area_type:) }
 
       before do
         visit current_path
@@ -85,7 +85,7 @@ describe "Organization Areas", type: :system do
       end
 
       context "when a participatory space associated to a given area exist" do
-        let!(:process) { create(:participatory_process, organization: area.organization, area: area) }
+        let!(:process) { create(:participatory_process, organization: area.organization, area:) }
 
         it "can not be deleted" do
           click_delete_area

@@ -6,8 +6,8 @@ describe Decidim::Debates::Metrics::DebateParticipantsMetricMeasure do
   let(:day) { Time.zone.yesterday }
   let(:organization) { create(:organization) }
   let(:not_valid_resource) { create(:dummy_resource) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:debates_component) { create(:debates_component, :published, participatory_space: participatory_space) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+  let(:debates_component) { create(:debates_component, :published, participatory_space:) }
   let!(:debates) { create_list(:debate, 5, :participant_author, component: debates_component, created_at: day) }
   let!(:old_debates) { create_list(:debate, 5, :participant_author, component: debates_component, created_at: day - 1.week) }
   # TOTAL Participants for Debates:

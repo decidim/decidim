@@ -6,7 +6,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
   routes { Decidim::Meetings::Engine.routes }
 
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create :participatory_process, organization: organization }
+  let(:participatory_process) { create :participatory_process, organization: }
   let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
   let(:meeting) { create :meeting, :published, component: meeting_component }
 
@@ -115,28 +115,28 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
       before { sign_in user }
 
       context "when user is admin" do
-        let!(:user) { create :user, :admin, :confirmed, organization: organization }
+        let!(:user) { create :user, :admin, :confirmed, organization: }
 
         it_behaves_like "having meeting access visibility applied"
       end
 
       context "when user is process admin" do
-        let!(:user) { create :user, :confirmed, organization: organization }
-        let!(:participatory_process_user_role) { create :participatory_process_user_role, user: user, participatory_process: participatory_process }
+        let!(:user) { create :user, :confirmed, organization: }
+        let!(:participatory_process_user_role) { create :participatory_process_user_role, user:, participatory_process: }
 
         it_behaves_like "having meeting access visibility applied"
       end
 
       context "when user is private user" do
-        let!(:user) { create :user, :confirmed, organization: organization }
-        let!(:participatory_space_private_user) { create :participatory_space_private_user, user: user, privatable_to: participatory_process }
+        let!(:user) { create :user, :confirmed, organization: }
+        let!(:participatory_space_private_user) { create :participatory_space_private_user, user:, privatable_to: participatory_process }
 
         it_behaves_like "having meeting access visibility applied"
       end
 
       context "when user has registered to the meeting" do
-        let!(:user) { create :user, :confirmed, organization: organization }
-        let!(:registration) { create :registration, user: user, meeting: meeting }
+        let!(:user) { create :user, :confirmed, organization: }
+        let!(:registration) { create :registration, user:, meeting: }
 
         it_behaves_like "having meeting access visibility applied"
       end

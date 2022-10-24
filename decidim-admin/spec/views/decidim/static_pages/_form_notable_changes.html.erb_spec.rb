@@ -9,7 +9,7 @@ module Decidim
     let(:form) do
       Decidim::FormBuilder.new(
         :static_page,
-        Decidim::Admin::StaticPageForm.new(slug: slug),
+        Decidim::Admin::StaticPageForm.new(slug:),
         view,
         {}
       )

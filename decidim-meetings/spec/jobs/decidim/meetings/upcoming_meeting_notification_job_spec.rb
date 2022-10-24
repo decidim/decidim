@@ -6,13 +6,13 @@ describe Decidim::Meetings::UpcomingMeetingNotificationJob do
   subject { described_class }
 
   let(:organization) { create :organization }
-  let(:user) { create :user, organization: organization }
+  let(:user) { create :user, organization: }
   let(:start_time) { 1.day.from_now }
-  let(:participatory_space) { create :participatory_process, organization: organization }
-  let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_space }
-  let(:meeting) { create :meeting, start_time: start_time }
+  let(:participatory_space) { create :participatory_process, organization: }
+  let(:component) { create :component, manifest_name: :meetings, participatory_space: }
+  let(:meeting) { create :meeting, start_time: }
   let!(:checksum) { subject.generate_checksum(meeting) }
-  let!(:follow) { create :follow, followable: meeting, user: user }
+  let!(:follow) { create :follow, followable: meeting, user: }
 
   context "when the checksum is correct" do
     it "notifies the upcoming meeting" do
@@ -52,7 +52,7 @@ describe Decidim::Meetings::UpcomingMeetingNotificationJob do
   end
 
   context "when the meeting is withdrawn" do
-    let(:meeting) { create :meeting, :withdrawn, start_time: start_time }
+    let(:meeting) { create :meeting, :withdrawn, start_time: }
 
     it "doesn't notify the upcoming meeting" do
       expect(Decidim::EventsManager)

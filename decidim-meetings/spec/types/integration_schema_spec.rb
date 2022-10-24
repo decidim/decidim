@@ -9,9 +9,9 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Meetings" }
 
   let!(:current_component) { create :meeting_component, participatory_space: participatory_process }
-  let!(:meeting) { create(:meeting, :published, :withdrawn, :not_official, :with_services, :closed_with_minutes, closing_visible: closing_visible, component: current_component, category: category) }
-  let!(:agenda) { create(:agenda, :with_agenda_items, meeting: meeting) }
-  let!(:invite) { create(:invite, :accepted, meeting: meeting) }
+  let!(:meeting) { create(:meeting, :published, :withdrawn, :not_official, :with_services, :closed_with_minutes, closing_visible:, component: current_component, category:) }
+  let!(:agenda) { create(:agenda, :with_agenda_items, meeting:) }
+  let!(:invite) { create(:invite, :accepted, meeting:) }
   let(:closing_visible) { true }
 
   let(:meeting_single_result) do

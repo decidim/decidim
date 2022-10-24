@@ -7,9 +7,9 @@ module Decidim
     describe ImportParticipatorySpacePrivateUserCsvJob do
       let!(:email) { "my_user@example.org" }
       let!(:user_name) { "My User Name" }
-      let(:user) { create(:user, :admin, organization: organization) }
+      let(:user) { create(:user, :admin, organization:) }
       let(:organization) { create(:organization) }
-      let(:privatable_to) { create(:participatory_process, organization: organization) }
+      let(:privatable_to) { create(:participatory_process, organization:) }
 
       context "when the participatory space private user not exists" do
         it "delegates the work to a command" do

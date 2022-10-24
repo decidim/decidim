@@ -82,7 +82,7 @@ Decidim.register_component(:debates) do |component|
       name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :debates).i18n_name,
       manifest_name: :debates,
       published_at: Time.current,
-      participatory_space: participatory_space
+      participatory_space:
     }
 
     component = Decidim.traceability.perform_action!(
@@ -104,7 +104,7 @@ Decidim.register_component(:debates) do |component|
         end_time = nil
       end
       params = {
-        component: component,
+        component:,
         category: participatory_space.categories.sample,
         title: Decidim::Faker::Localized.sentence(word_count: 2),
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -113,8 +113,8 @@ Decidim.register_component(:debates) do |component|
         instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
-        start_time: start_time,
-        end_time: end_time,
+        start_time:,
+        end_time:,
         author: component.organization
       }
 
@@ -136,7 +136,7 @@ Decidim.register_component(:debates) do |component|
     closed_debate.save!
 
     params = {
-      component: component,
+      component:,
       category: participatory_space.categories.sample,
       title: Decidim::Faker::Localized.sentence(word_count: 2),
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do

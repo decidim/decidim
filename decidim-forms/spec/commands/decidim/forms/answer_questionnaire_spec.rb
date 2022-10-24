@@ -17,16 +17,16 @@ module Decidim
       let(:ip_hash) { tokenize(remote_ip) }
       let(:request) do
         double(
-          session: { session_id: session_id },
-          remote_ip: remote_ip
+          session: { session_id: },
+          remote_ip:
         )
       end
 
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
-      let(:question1) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:question2) { create(:questionnaire_question, questionnaire: questionnaire) }
-      let(:question3) { create(:questionnaire_question, questionnaire: questionnaire) }
+      let(:question1) { create(:questionnaire_question, questionnaire:) }
+      let(:question2) { create(:questionnaire_question, questionnaire:) }
+      let(:question3) { create(:questionnaire_question, questionnaire:) }
       let(:answer_options) { create_list(:answer_option, 5, question: question2) }
       let(:answer_option_ids) { answer_options.pluck(:id).map(&:to_s) }
       let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question2) }
@@ -61,9 +61,9 @@ module Decidim
         QuestionnaireForm.from_params(
           form_params
         ).with_context(
-          current_organization: current_organization,
-          session_token: session_token,
-          ip_hash: ip_hash
+          current_organization:,
+          session_token:,
+          ip_hash:
         )
       end
       let(:command) { described_class.new(form, current_user, questionnaire) }
@@ -125,7 +125,7 @@ module Decidim
         end
 
         context "with attachments" do
-          let(:question1) { create(:questionnaire_question, questionnaire: questionnaire, question_type: :files) }
+          let(:question1) { create(:questionnaire_question, questionnaire:, question_type: :files) }
           let(:uploaded_files) do
             [
               {
@@ -182,7 +182,7 @@ module Decidim
           end
 
           context "when the user has answered the survey" do
-            let!(:answer) { create(:answer, questionnaire: questionnaire, question: question1, user: current_user) }
+            let!(:answer) { create(:answer, questionnaire:, question: question1, user: current_user) }
 
             it "doesn't create questionnaire answers" do
               expect { command.call }.not_to change(Answer, :count)
@@ -216,7 +216,7 @@ module Decidim
         end
 
         context "and visitor has answered the survey" do
-          let!(:answer) { create(:answer, questionnaire: questionnaire, question: question1, session_token: tokenize(session_id)) }
+          let!(:answer) { create(:answer, questionnaire:, question: question1, session_token: tokenize(session_id)) }
 
           it "doesn't create questionnaire answers" do
             expect { command.call }.not_to change(Answer, :count)

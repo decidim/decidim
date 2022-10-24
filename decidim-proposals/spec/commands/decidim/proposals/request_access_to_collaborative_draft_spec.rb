@@ -8,13 +8,13 @@ module Decidim
       let(:component) { create(:proposal_component) }
       let(:state) { :open }
 
-      let(:collaborative_draft) { create(:collaborative_draft, state, component: component, users: [author1, author2]) }
+      let(:collaborative_draft) { create(:collaborative_draft, state, component:, users: [author1, author2]) }
       let(:id) { collaborative_draft.id }
-      let(:form) { RequestAccessToCollaborativeDraftForm.from_params(form_params).with_context(current_user: current_user) }
+      let(:form) { RequestAccessToCollaborativeDraftForm.from_params(form_params).with_context(current_user:) }
       let(:form_params) do
         {
-          state: state,
-          id: id
+          state:,
+          id:
         }
       end
       let(:current_user) { create(:user, :confirmed, organization: component.organization) }

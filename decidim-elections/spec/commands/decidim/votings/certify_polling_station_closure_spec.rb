@@ -9,7 +9,7 @@ module Decidim::Votings
     let(:closure) { create :ps_closure, :with_results, phase: :certificate }
     let(:add_photos) { [upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg"))] }
 
-    let(:form) { ClosureCertifyForm.from_params(add_photos: add_photos).with_context(closure: closure) }
+    let(:form) { ClosureCertifyForm.from_params(add_photos:).with_context(closure:) }
 
     it "saves the attachment" do
       expect { subject.call }.to change(Decidim::Attachment, :count).by(1)

@@ -9,7 +9,7 @@ describe Decidim::Elections::Admin::QuestionForm do
     {
       current_organization: component.organization,
       current_component: component,
-      election: election
+      election:
     }
   end
   let(:election) { create :election }
@@ -21,11 +21,11 @@ describe Decidim::Elections::Admin::QuestionForm do
   let(:min_selections) { 1 }
   let(:attributes) do
     {
-      title: title,
-      max_selections: max_selections,
-      min_selections: min_selections,
-      weight: weight,
-      random_answers_order: random_answers_order
+      title:,
+      max_selections:,
+      min_selections:,
+      weight:,
+      random_answers_order:
     }
   end
 

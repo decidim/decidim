@@ -6,15 +6,15 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   subject { described_class.new(comment, mentioned_users) }
 
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization: organization) }
+  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:component) { create(:component, participatory_space: participatory_process) }
-  let(:dummy_resource) { create :dummy_resource, component: component, author: commentable_author }
+  let(:dummy_resource) { create :dummy_resource, component:, author: commentable_author }
   let(:commentable) { dummy_resource }
-  let(:mentioned_user) { create(:user, organization: organization) }
-  let(:another_mentioned_user) { create(:user, organization: organization) }
-  let(:user_following_comment_author) { create(:user, organization: organization) }
-  let(:commentable_author) { create(:user, organization: organization) }
-  let(:commentable_recipient) { create(:user, organization: organization) }
+  let(:mentioned_user) { create(:user, organization:) }
+  let(:another_mentioned_user) { create(:user, organization:) }
+  let(:user_following_comment_author) { create(:user, organization:) }
+  let(:commentable_author) { create(:user, organization:) }
+  let(:commentable_recipient) { create(:user, organization:) }
 
   let(:mentioned_users) do
     Decidim::User.where(
@@ -40,8 +40,8 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   end
 
   describe "when the author is a user" do
-    let(:comment_author) { create(:user, organization: organization) }
-    let(:comment) { create :comment, author: comment_author, commentable: commentable, root_commentable: dummy_resource }
+    let(:comment_author) { create(:user, organization:) }
+    let(:comment) { create :comment, author: comment_author, commentable:, root_commentable: dummy_resource }
 
     before do
       create :follow, user: user_following_comment_author, followable: comment_author
@@ -114,7 +114,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
     context "when the author mentions a group" do
       subject { described_class.new(comment, mentioned_users, mentioned_groups) }
 
-      let(:group) { create :user_group, organization: organization, users: [another_mentioned_user] }
+      let(:group) { create :user_group, organization:, users: [another_mentioned_user] }
       let(:mentioned_users) { [] }
       let(:mentioned_groups) do
         Decidim::UserGroup.where(
@@ -132,7 +132,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
         )
       end
       let(:role) { :member }
-      let!(:pending_membership) { create(:user_group_membership, user: mentioned_user, user_group: group, role: role) }
+      let!(:pending_membership) { create(:user_group_membership, user: mentioned_user, user_group: group, role:) }
 
       it "notifies the group members" do
         expect(Decidim::EventsManager)
@@ -355,7 +355,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
       end
 
       context "when comment author is not replying to herself" do
-        let(:top_level_comment_author) { create(:user, organization: organization) }
+        let(:top_level_comment_author) { create(:user, organization:) }
         let(:top_level_comment) { create :comment, commentable: dummy_resource, author: top_level_comment_author }
 
         it "notifies the parent comment author" do
@@ -390,9 +390,9 @@ describe Decidim::Comments::NewCommentNotificationCreator do
   end
 
   describe "when the author is a user_group with followers" do
-    let(:user_following_user_group) { create(:user, organization: organization) }
-    let(:user_group_author) { create(:user_group, :verified, organization: organization, users: [user_following_user_group, commentable_author]) }
-    let(:user_group_comment) { create :comment, author: commentable_author, commentable: commentable, root_commentable: dummy_resource, decidim_user_group_id: user_group_author.id }
+    let(:user_following_user_group) { create(:user, organization:) }
+    let(:user_group_author) { create(:user_group, :verified, organization:, users: [user_following_user_group, commentable_author]) }
+    let(:user_group_comment) { create :comment, author: commentable_author, commentable:, root_commentable: dummy_resource, decidim_user_group_id: user_group_author.id }
 
     before do
       create :follow, user: user_following_user_group, followable: user_group_author
@@ -425,7 +425,7 @@ describe Decidim::Comments::NewCommentNotificationCreator do
     let(:extra) { { comment_id: create(:comment).id } }
     let(:user) { create(:user) }
 
-    let(:notification) { create(:notification, user: user, event_class: event_class, event_name: event_name, extra: extra) }
+    let(:notification) { create(:notification, user:, event_class:, event_name:, extra:) }
 
     it "includes the conversation link" do
       comment_id = notification.extra["comment_id"]

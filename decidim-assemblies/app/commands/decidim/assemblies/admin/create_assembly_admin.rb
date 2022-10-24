@@ -26,7 +26,7 @@ module Decidim
         def existing_role
           Decidim::AssemblyUserRole.exists?(
             role: form.role.to_sym,
-            user: user,
+            user:,
             assembly: @participatory_process
           )
         end
@@ -42,7 +42,7 @@ module Decidim
           ) do
             Decidim::AssemblyUserRole.find_or_create_by!(
               role: form.role.to_sym,
-              user: user,
+              user:,
               assembly: participatory_space
             )
           end

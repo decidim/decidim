@@ -125,7 +125,9 @@ describe "Admin manages consultations", type: :system do
 
   describe "updating a consultation" do
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a consultation" do
@@ -154,7 +156,9 @@ describe "Admin manages consultations", type: :system do
 
   describe "updating a consultation with invalid values" do
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "do not updates the consultation" do
@@ -175,14 +179,16 @@ describe "Admin manages consultations", type: :system do
   end
 
   describe "updating a consultation without images" do
-    let!(:consultation3) { create(:consultation, organization: organization) }
+    let!(:consultation3) { create(:consultation, organization:) }
 
     before do
       visit decidim_admin_consultations.consultations_path
     end
 
     it "update a consultation without images does not delete them" do
-      click_link translated(consultation3.title)
+      within find("tr", text: translated(consultation3.title)) do
+        click_link "Configure"
+      end
 
       within ".edit_consultation" do
         find("*[type=submit]").click
@@ -194,7 +200,7 @@ describe "Admin manages consultations", type: :system do
   end
 
   describe "previewing consultations" do
-    let!(:consultation) { create(:consultation, :unpublished, organization: organization) }
+    let!(:consultation) { create(:consultation, :unpublished, organization:) }
 
     it "allows the user to preview the unpublished consultation" do
       within find("tr", text: translated(consultation.title)) do
@@ -217,10 +223,12 @@ describe "Admin manages consultations", type: :system do
   end
 
   describe "publishing a consultation" do
-    let!(:consultation) { create(:consultation, :unpublished, organization: organization) }
+    let!(:consultation) { create(:consultation, :unpublished, organization:) }
 
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the consultation" do
@@ -235,10 +243,12 @@ describe "Admin manages consultations", type: :system do
   end
 
   describe "unpublishing a consultation" do
-    let!(:consultation) { create(:consultation, :published, organization: organization) }
+    let!(:consultation) { create(:consultation, :published, organization:) }
 
     before do
-      click_link translated(consultation.title)
+      within find("tr", text: translated(consultation.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the consultation" do

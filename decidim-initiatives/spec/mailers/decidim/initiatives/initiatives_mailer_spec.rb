@@ -6,7 +6,7 @@ module Decidim
   module Initiatives
     describe InitiativesMailer, type: :mailer do
       let(:organization) { create(:organization, host: "1.lvh.me") }
-      let(:initiative) { create(:initiative, organization: organization) }
+      let(:initiative) { create(:initiative, organization:) }
       let(:router) { Decidim::Initiatives::Engine.routes.url_helpers }
       let(:admin_router) { Decidim::Initiatives::AdminEngine.routes.url_helpers }
 
@@ -30,9 +30,9 @@ module Decidim
 
         context "when the promoting committee is disabled" do
           let(:organization) { create(:organization) }
-          let(:initiatives_type) { create(:initiatives_type, organization: organization, promoting_committee_enabled: false) }
+          let(:initiatives_type) { create(:initiatives_type, organization:, promoting_committee_enabled: false) }
           let(:scoped_type) { create(:initiatives_type_scope, type: initiatives_type) }
-          let(:initiative) { create(:initiative, organization: organization, scoped_type: scoped_type) }
+          let(:initiative) { create(:initiative, organization:, scoped_type:) }
 
           it "renders the headers" do
             expect(mail.subject).to eq("Your initiative '#{initiative.title["en"]}' has been created")

@@ -11,9 +11,9 @@ module Decidim
       let(:current_user) { create :user, organization: meeting_component.organization }
       let(:meeting_component) { create :meeting_component }
       let(:meeting) { create :meeting, component: meeting_component }
-      let(:poll) { create :poll, meeting: meeting }
+      let(:poll) { create :poll, meeting: }
       let(:questionnaire) { create :meetings_poll_questionnaire, questionnaire_for: poll }
-      let(:question) { create :meetings_poll_question, questionnaire: questionnaire }
+      let(:question) { create :meetings_poll_question, questionnaire: }
 
       it { is_expected.to be_valid }
 
@@ -27,7 +27,7 @@ module Decidim
         end
 
         it "returns true if user has answered the question" do
-          create(:meetings_poll_answer, question: question, user: current_user, questionnaire: questionnaire)
+          create(:meetings_poll_answer, question:, user: current_user, questionnaire:)
           expect(subject.answered_by?(current_user)).to be(true)
         end
       end
@@ -38,13 +38,13 @@ module Decidim
         end
 
         it "returns the number of answers" do
-          create(:meetings_poll_answer, question: question, user: current_user, questionnaire: questionnaire)
+          create(:meetings_poll_answer, question:, user: current_user, questionnaire:)
           expect(subject.answers_count).to be(1)
         end
       end
 
       context "when question type doesn't exists in allowed types" do
-        let(:question) { build :meetings_poll_question, questionnaire: questionnaire, question_type: "foo" }
+        let(:question) { build :meetings_poll_question, questionnaire:, question_type: "foo" }
 
         it { is_expected.not_to be_valid }
       end
