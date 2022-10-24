@@ -26,7 +26,7 @@
   </button>
 
   <%= link_to authorization_method(authorization).renew_path, class: "button button__lg button__secondary" do %>
-    <%= t("renew_modal.continue", scope: "decidim.verifications.authorizations") %>
+    <span><%= t("renew_modal.continue", scope: "decidim.verifications.authorizations") %></span>
     <%= icon "arrow-right-line", class: "fill-current" %>
   <% end %>
 </div>

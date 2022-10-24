@@ -17,10 +17,10 @@
       <div class="form__wrapper-block flex-row justify-between">
         <%= link_to authorizations_path, class: "button button__lg button__text-secondary" do %>
           <%= icon "arrow-left-line", class: "fill-current" %>
-          <%= t("decidim.wizard_step_form.wizard_aside.back") %>
+          <span><%= t("decidim.wizard_step_form.wizard_aside.back") %></span>
         <% end %>
         <button type="submit" class="button button__lg button__secondary">
-          <%= t("decidim.verifications.authorizations.new.authorize") %>
+          <span><%= t("decidim.verifications.authorizations.new.authorize") %></span>
           <%= icon "arrow-right-line", class: "fill-current" %>
         </button>
       </div>
