@@ -43,7 +43,10 @@ export default class CommentsComponent {
       this.mounted = true;
       this._initializeComments(this.$element);
       if (!this.singleComment) {
-        this._fetchComments();
+        $(".add-comment textarea", this.$element).prop("disabled", true);
+        this._fetchComments(() => {
+          $(".add-comment textarea", this.$element).prop("disabled", false);
+        });
       }
 
       $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments", () => this._onInitOrder());
@@ -212,10 +215,11 @@ export default class CommentsComponent {
    * Sends an ajax request based on current
    * params to get comments for the component
    * @private
+   * @param {Function} successCallback A callback that is called after a
+   *   successful fetch
    * @returns {Void} - Returns nothing
    */
-  _fetchComments() {
-    $(".add-comment textarea", this.$element).prop("disabled", true);
+  _fetchComments(successCallback = null) {
     Rails.ajax({
       url: this.commentsUrl,
       type: "GET",
@@ -228,7 +232,9 @@ export default class CommentsComponent {
         ...(this.lastCommentId && { "after": this.lastCommentId })
       }),
       success: () => {
-        $(".add-comment textarea", this.$element).prop("disabled", false);
+        if (successCallback) {
+          successCallback();
+        }
         this._pollComments();
       }
     });
