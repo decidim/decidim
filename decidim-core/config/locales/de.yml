@@ -859,18 +859,6 @@ de:
           how: Wie kannst du es verdienen?
           page_description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen. Hier ist die Liste der Abzeichen und einige Möglichkeiten, wie Sie sie verdienen können.
           title: Abzeichen
-        invitations:
-          conditions:
-            - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
-            - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
-            - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
-          description: Dieses Abzeichen wird gewährt, wenn Sie einige Personen eingeladen haben und sie sich ein wenig Zeit genommen haben, um sich in %{organization_name} zu registrieren und Teilnehmer zu werden. Vielen Dank für die Herstellung von %{organization_name} anderen bekannt und helfen , die Gemeinschaft zu erweitern!
-          description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
-          description_own: Sie haben %{score} Benutzer*innen eingeladen.
-          name: Einladungen
-          next_level_in: Laden Sie %{score} weitere Benutzer*innen ein, um das nächste Level zu erreichen!
-          unearned_another: Diese*r Benutzer*in hat noch niemanden eingeladen.
-          unearned_own: Sie haben noch keine Benutzer*innen eingeladen.
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
       reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
@@ -1668,6 +1656,31 @@ de:
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
+  emojis:
+    button: Emoji hinzufügen
+    categories:
+      activities: Aktivitäten
+      animals-nature: Tiere & Natur
+      custom: Benutzerdefiniert
+      flags: Flaggen
+      food-drink: Essen & Trinken
+      objects: Objekte
+      people-body: Personen & Körper
+      recents: Kürzlich verwendet
+      smileys-emotion: Smileys & Emotion
+      symbols: Symbole
+      travel-places: Reisen & Orte
+    error:
+      load: Fehler beim Laden von Emojis
+    recents:
+      clear: Zuletzt benutzte Emoji entfernen
+      none: Sie haben noch keine Emojis ausgewählt.
+    retry: Erneut versuchen
+    search:
+      _: Emojis suchen...
+      clear: Suche löschen
+      error: Fehler beim Suchen von Emojis
+      not_found: Keine Ergebnisse gefunden
   errors:
     messages:
       already_confirmed: wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
