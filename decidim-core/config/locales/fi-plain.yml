@@ -1698,6 +1698,31 @@ fi-pl:
   doorkeeper:
     scopes:
       public: Julkiset tietosi.
+  emojis:
+    button: Lisää emoji
+    categories:
+      activities: Toiminta
+      animals-nature: Eläimet ja luonto
+      custom: Mukautettu
+      flags: Liput
+      food-drink: Ruoka ja juoma
+      objects: Esineet
+      people-body: Ihmiset ja keho
+      recents: Viimeksi käytetyt
+      smileys-emotion: Hymiöt ja tunneilmaisut
+      symbols: Symbolit
+      travel-places: Matkailu ja paikat
+    error:
+      load: Emojien lataus epäonnistui
+    recents:
+      clear: Tyhjennä viimeksi käytetyt emojit
+      none: Et ole vielä valinnut yhtään emojia.
+    retry: Yritä uudestaan
+    search:
+      _: Etsi emojia...
+      clear: Tyhjennä haku
+      error: Emojien haku epäonnistui
+      not_found: Tuloksia ei löytynyt
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
