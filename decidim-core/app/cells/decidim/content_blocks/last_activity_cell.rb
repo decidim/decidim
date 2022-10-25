@@ -56,10 +56,7 @@ module Decidim
       end
 
       def activities
-        @activities ||= HomeActivitySearch.new(
-          organization: current_organization,
-          resource_type: "all"
-        ).results.limit(activities_to_show * 6)
+        @activities ||= LastActivity.new(current_organization).query.limit(activities_to_show * 6)
       end
 
       def activities_to_show

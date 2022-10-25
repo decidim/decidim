@@ -31,12 +31,8 @@ module Decidim
       @activities ||= paginate(search.results)
     end
 
-    def search_klass
-      HomeActivitySearch
-    end
-
-    def context_params
-      { organization: current_organization }
+    def search_collection
+      LastActivity.new(current_organization).query
     end
 
     def default_filter_params
