@@ -43,7 +43,7 @@ module Decidim
         return if start_date.blank?
 
         {
-          text: date_values(format: :decidim_with_month_name_short).join(" -> "),
+          text: date_values(format: :decidim_with_month_name_short).join(" - "),
           icon: "calendar-todo-line"
         }
       end
