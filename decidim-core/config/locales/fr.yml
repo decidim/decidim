@@ -1694,6 +1694,31 @@ fr:
   doorkeeper:
     scopes:
       public: Votre information publique
+  emojis:
+    button: Ajouter un émoji
+    categories:
+      activities: Activités
+      animals-nature: Animaux & nature
+      custom: Personnalisé
+      flags: Drapeaux
+      food-drink: Nourriture et boissons
+      objects: Objets
+      people-body: Personnes & Corps
+      recents: Utilisés récemment
+      smileys-emotion: Smileys & Émotion
+      symbols: Symboles
+      travel-places: Lieux et voyages
+    error:
+      load: Impossible de charger la liste des émojis
+    recents:
+      clear: Effacer les émojis récents
+      none: Vous n'avez pas encore sélectionné d'émoji.
+    retry: Réessayez
+    search:
+      _: Rechercher des émojis...
+      clear: Effacer la recherche
+      error: La recherche d'émojis a échoué
+      not_found: Aucun résultat trouvé
   errors:
     messages:
       allowed_file_content_types: 'seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
