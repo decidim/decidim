@@ -227,10 +227,7 @@ That way they don't synchronize with Github.
 At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty sections.
 After that, the header with the current version.
 Add the `Unreleased` section or create the new current version section.
-. Update the version in the documentation system that we use, Antora. As its multi repository you'll need to do it on both places:
-.. in the https://github.com/decidim/decidim[decidim repository]. This is done in https://github.com/decidim/documentation/blob/master/antora-playbook.yml[docs/antora.yml], by changing the version key, from `version: develop` to `version: v0.XX` (for instance `version: v0.27`).
-Commit and push that change: `git add docs/antora.yml && git commit -m "Bump version for Antora" && git push origin release/x.y-stable`
-.. in the https://github.com/decidim/documentation[documentation repository]:
+. Update the version in the documentation system that we use, Antora. For the https://github.com/decidim/decididm[decidim repository] this is done automatically when bumping the versions. For the https://github.com/decidim/documentation[documentation repository]:
 ... Create and push the branch in that repository: `git checkout release/0.XX-stable && git push origin release/x.y-stable`
 ... Add the new version on the https://github.com/decidim/documentation/blob/develop/antora-playbook.yml[antora-playbook.yml] `branches` key, for the both sources (decidim and documentation repository). Don't forget to also remove the oldest and change the new default in the `start_page` key. For instance for v0.28 this is how it'd look like:
 [source,diff]
