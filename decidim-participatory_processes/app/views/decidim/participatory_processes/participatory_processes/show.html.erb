@@ -14,15 +14,7 @@
   )
 %>
 
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_participatory_processes", media: "all" %>
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_participatory_processes" %>
-<% end %>
-
-<div class="container">
+<div class="container mt-6">
 
   <%= redesigned_participatory_space_floating_help %>
 
@@ -46,32 +38,37 @@
     <div class="content-block__description">
       <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
     </div>
-
-    <%= attachments_for current_participatory_space %>
-    <%= render_hook(:participatory_space_highlighted_elements) %>
-
-    <% if related_processes.any? %>
-      <div class="section row collapse related_processes">
-        <h4 class="section-heading"><%= t "related_processes", scope: "decidim.participatory_processes.show" %></h4>
-        <div class="collapsible-list row small-up-1 medium-up-2 card-grid">
-          <% related_processes.each do |related_process| %>
-            <%= card_for(related_process) %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-
-    <% if linked_assemblies.any? %>
-      <div class="section">
-        <h4 class="section-heading"><%= t("participatory_process.show.related_assemblies", scope: "decidim") %></h4>
-        <div class="row small-up-1 medium-up-2 card-grid">
-          <% linked_assemblies.each do |linked_assembly| %>
-            <%= card_for(linked_assembly) %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
   </section>
+
+  <section class="content-block">
+    <%= attachments_for current_participatory_space %>
+  </section>
+
+  <section class="content-block">
+    <%= render_hook(:participatory_space_highlighted_elements) %>
+  </section>
+
+  <% if related_processes.any? %>
+    <section class="content-block">
+      <h2 class="h2 decorator"><%= t "related_processes", scope: "decidim.participatory_processes.show" %></h2>
+      <div class="collapsible-list row small-up-1 medium-up-2 card-grid">
+        <% related_processes.each do |related_process| %>
+          <%= card_for(related_process) %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if linked_assemblies.any? %>
+    <section class="content-block">
+      <h2 class="h2 decorator"><%= t("participatory_process.show.related_assemblies", scope: "decidim") %></h2>
+      <div class="row small-up-1 medium-up-2 card-grid">
+        <% linked_assemblies.each do |linked_assembly| %>
+          <%= card_for(linked_assembly) %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
 
   <% if current_participatory_space.show_statistics? %>
     <%= cell "decidim/statistics", stats.collection %>
@@ -83,6 +80,7 @@
 
 </div>
 
+<% if false %>
 <div class="row column">
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
@@ -171,3 +169,4 @@
     </div>
   </div>
 </div>
+<% end %>
