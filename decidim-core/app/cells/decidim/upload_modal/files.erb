@@ -6,6 +6,7 @@
         <% next if attachment.is_a? Array %>
 
         <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
+          <div><%= image_tag(file_attachment_path(attachments.first), alt: attribute) %></div>
           <% if has_title? %>
             <span><%= title_for(attachment) %> (<%= truncated_file_name_for(attachment) %>)</span>
             <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
