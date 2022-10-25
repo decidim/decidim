@@ -19,6 +19,8 @@ module Decidim
         end
       end
 
+      let!(:initiative_type_scope) { create(:initiatives_type_scope, type: initiative_types[0]) }
+
       let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:query) { "" }
       let(:params) { { term: query } }
