@@ -438,6 +438,7 @@ en:
         delete_attachment: Delete
       index:
         title: Initiatives
+        uninitialized: Initiatives are not yet configured by an administrator
       initiative_signatures:
         fill_personal_data:
           continue: Continue
