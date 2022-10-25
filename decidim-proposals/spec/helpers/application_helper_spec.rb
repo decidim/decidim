@@ -46,7 +46,7 @@ module Decidim
         let(:proposal_trait) { :participant_author }
         let(:proposal) { create(:proposal, proposal_trait, body: { "en" => body }) }
 
-        it "renders a sanizized body" do
+        it "renders a sanitized body" do
           expect(subject).to eq(
             <<~HTML.strip
               <div>• First
@@ -60,7 +60,7 @@ module Decidim
         context "with official meeting" do
           let(:proposal_trait) { :official }
 
-          it "renders a sanizized body" do
+          it "renders a sanitized body" do
             expect(subject).to eq(
               <<~HTML.strip
                 <div class="ql-editor-display"><ul>

@@ -18,7 +18,7 @@ module Decidim
         let(:meeting_trait) { :not_official }
         let(:meeting) { create(:meeting, meeting_trait, description: { "en" => description }) }
 
-        it "renders a sanizized body" do
+        it "renders a sanitized body" do
           expect(subject).to eq(
             <<~HTML.strip
               <div>• First
@@ -32,7 +32,7 @@ module Decidim
         context "with official meeting" do
           let(:meeting_trait) { :official }
 
-          it "renders a sanizized body" do
+          it "renders a sanitized body" do
             expect(subject).to eq(
               <<~HTML.strip
                 <div class="ql-editor-display"><ul>
