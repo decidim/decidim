@@ -90,6 +90,7 @@ de:
             cancel: Abbrechen
             change_category: Kategorie ändern
             change_scope: Themenbereich ändern
+            change_selected: Ausgewählten Status ändern
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
             selected: Ausgewählt
