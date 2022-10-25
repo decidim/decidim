@@ -29,6 +29,7 @@ fi-pl:
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
+        tos_agreement: Käyttöehdot
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
