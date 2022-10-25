@@ -2,13 +2,11 @@
 js_configs = {
   icons_path: Decidim.cors_enabled ? "" : asset_pack_path("media/images/icons.svg"),
   messages: {
-    "selfxssWarning": {
-      title: t("decidim.security.selfxss_warning.title"),
-      description: t("decidim.security.selfxss_warning.description")
-    },
+    "selfxssWarning": I18n.t("decidim.security.selfxss_warning"),
     "mentionsModal": {
       "removeRecipient": t("decidim.shared.mentions_modal.remove_recipient", name: "%name%")
-    }
+    },
+    emojis: I18n.t("emojis").deep_transform_keys { |k| k.to_s.camelize(:lower) }
   },
   external_domain_whitelist: [current_organization.host] + current_organization.external_domain_whitelist,
   consent_cookie_name: Decidim.consent_cookie_name
