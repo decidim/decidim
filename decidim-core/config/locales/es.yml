@@ -818,7 +818,6 @@ es:
     forms:
       current_image: Imagen actual
       default_image: Imagen predeterminada
-      emoji_chooser: Elige un emoji
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -881,18 +880,6 @@ es:
           how: Como puedes conseguirla
           page_description: Las insignias son reconocimientos a las acciones de las participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirás diferentes insignias. Aquí está la lista de insignias y algunas formas en que puedes conseguirlas.
           title: Insignias
-        invitations:
-          conditions:
-            - Usa el enlace "invitar amigas" en tu página de usuaria para invitar a tus amistades
-            - Personaliza, si quieres, el mensaje que estás enviando
-            - Subirás de nivel enviando invitaciones y consiguiendo nuevas participantes.
-          description: Esta insignia se consigue cuando has invitado a algunas personas a la plataforma %{organization_name}, y se han registrado como participantes. ¡Gracias por dar a conocer %{organization_name} a otras y ayudar a ampliar la comunidad!
-          description_another: Esta participante ha invitado a %{score} personas.
-          description_own: Has invitado a %{score} personas.
-          name: Invitaciones
-          next_level_in: '¡Invita a %{score} personas más para alcanzar el siguiente nivel!'
-          unearned_another: Esta participante aún no ha invitado a nadie.
-          unearned_own: Aún no has invitado a nadie.
       description: Las insignias son reconocimientos de las acciones de las participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
