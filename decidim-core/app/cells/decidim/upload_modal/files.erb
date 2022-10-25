@@ -1,9 +1,12 @@
 <div class="upload-modal__files-container upload-container-for-<%= attribute %> <%= with_title %>">
-  <% if !has_title? && ((file_attachment_path(attachments.first) && blob(attachments.first).image?) || uploader_default_image_path(attribute).present?) %>
-    <div>
-      <label><%= attachment_label || t("default_image", scope: "decidim.forms") %></label>
-      <div class="upload-modal__files">
-        <div>
+  <div>
+    <%= tag.label label %>
+
+    <div class="active-uploads upload-modal__files" data-active-uploads>
+      <% attachments.each do |attachment| %>
+        <% next if attachment.is_a? Array %>
+
+        <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
           <div>
             <% if file_attachment_path(attachments.first) && blob(attachments.first).image? %>
               <%= image_tag(file_attachment_path(attachments.first), alt: attribute) %>
@@ -11,18 +14,6 @@
               <%= image_tag uploader_default_image_path(attribute) %>
             <% end %>
           </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
-  <div>
-    <%= tag.label label unless has_title? %>
-    <div class="upload-modal__files" data-active-uploads>
-      <% attachments.each do |attachment| %>
-        <% next if attachment.is_a? Array %>
-
-        <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
           <% if has_title? %>
             <span><%= title_for(attachment) %> (<%= truncated_file_name_for(attachment) %>)</span>
             <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>
