@@ -212,8 +212,7 @@ module Decidim
 
       def replace_antora_version
         antora_conf = File.join(root, "docs/antora.yml")
-        docs_version = version
-        docs_version = docs_version.match?(/\.dev$/) ? "develop" : "v#{version.match(/(\d*).(\d*)/)[0]}"
+        docs_version = version.match?(/\.dev$/) ? "develop" : "v#{version.match(/(\d*).(\d*)/)[0]}"
         File.write(antora_conf, File.read(antora_conf).sub(/^version: .+/, "version: #{docs_version}"))
       end
     end
