@@ -835,7 +835,7 @@ es-MX:
           title: Nuevo usuario privado en el espacio participativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Se ha producido un error al leer el archivo CSV.
+          invalid: Se produjo un error al leer el archivo CSV.
           success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
         new:
           destroy:
