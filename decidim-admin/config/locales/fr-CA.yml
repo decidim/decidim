@@ -847,6 +847,7 @@ fr-CA:
           title: Nouvel utilisateur privé de l'espace participatif.
       participatory_space_private_users_csv_imports:
         create:
+          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
           success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           destroy:
@@ -855,6 +856,11 @@ fr-CA:
             empty: Vous n'avez aucun utilisateur privé.
             explanation: Vous avez %{count} utilisateurs privés.
             title: Supprimer les utilisateurs privés
+          example_file: 'Fichier d''exemple :'
+          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec les emails dans la première colonne, et dans la seconde colonne les noms des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
+          explanation_example: |
+            john.doe@exemple.org%{csv_col_sep}John D'oe
+            jane.doe@exemple.org%{csv_col_sep}Jane D'oe
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       reminders:
@@ -1003,7 +1009,11 @@ fr-CA:
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Fichier d''exemple :'
           explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
+          explanation_example: |
+            acme@exemple.org
+            bubba.gump@exemple.org
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       users:
