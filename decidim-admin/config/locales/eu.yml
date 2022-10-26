@@ -812,8 +812,14 @@ eu:
           title: Erabiltzaile pribatuaren parte hartzailea.
       participatory_space_private_users_csv_imports:
         create:
+          invalid: Arazo bat sortu da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
           success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Horrek denbora behar du.
         new:
+          example_file: 'Fitxategi eredua:'
+          explanation: 'Igo zure CSV fitxategia. Bizutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dutuzun erabiltzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Igo zure CSV artxiboa
           upload: Igo
       resource_permissions:
@@ -952,7 +958,11 @@ eu:
           verify_via_csv: Egiaztatu CSV bidez
       user_groups_csv_verifications:
         new:
+          example_file: 'Fitxategi eredua:'
           explanation: Igo zure CSV fitxategia. Zure erakundeko erabiltzaile taldeen mezu elektronikoak fitxategian lehen zutabean izan behar du, goibururik gabe. Zure posta elektronikoa baieztatu duten erabiltzaile taldeek eta CSV fitxategian agertzen diren mezu elektronikoak baliozkotu egingo dira.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Igo zure CSV fitxategia
           upload: Igo
       users:
