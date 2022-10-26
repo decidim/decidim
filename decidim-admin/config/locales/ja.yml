@@ -843,6 +843,7 @@ ja:
           title: 新しい参加型スペースのプライベート参加者。
       participatory_space_private_users_csv_imports:
         create:
+          invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
           success: CSVファイルが正常にアップロードされました。出席者に招待メールを送信します。時間がかかる場合があります。
         new:
           destroy:
@@ -851,6 +852,11 @@ ja:
             empty: プライベートの参加者はいません。
             explanation: '%{count} 人のプライベート参加者がいます。'
             title: プライベート参加者を削除
+          example_file: 'サンプルファイル:'
+          explanation: 'CSV ファイルをアップロードします。 CSVにはヘッダをつけず、最初のカラムにはメールアドレスを、次のカラムにはユーザー名を入れた2カラムのCSVとして、参加スペースに追加したいユーザーの情報を並べてください。 ユーザー名には `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: CSVファイルをアップロード
           upload: アップロード
       reminders:
@@ -998,7 +1004,11 @@ ja:
           verify_via_csv: CSVで確認する
       user_groups_csv_verifications:
         new:
+          example_file: 'サンプルファイル:'
           explanation: CSVファイルをアップロードします。ファイルの最初のカラムにある組織内のグループの公式メールをヘッダーなしで送信する必要があります。 メールが確認され、CSVファイルにメールが表示されているグループのみが検証されます。
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: CSVファイルをアップロード
           upload: アップロード
       users:
