@@ -12,29 +12,31 @@ end
 <% add_decidim_meta_tags(title: t("conference_program.index.title", scope: "decidim")) %>
 
 <%# NOTE: this page does not use a regular layout %>
-<main class="container" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+<main class="container">
   <h1 class="h3 md:h1 decorator my-12">
     <span class="not-sr-only"><%= t(".program") %></span>
     <span class="sr-only"><%= t(".program") %> (<%= translated_attribute current_participatory_space.title %>)</span>
   </h1>
 
-  <% if meeting_days.any? %>
-    <ul class="conference__program-selector">
-      <% meeting_days.each_with_index do |day, i| %>
-        <li>
-          <button class="button button__sm md:button__lg button__transparent-secondary" data-controls="conference-panel<%= i %>" data-open="<%= "true" if i == 0 %>">
-            <%= l day, format: :decidim_with_day_and_month_name %>
-          </button>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+  <div data-component="accordion" data-multiselectable="false" data-collapsible="false">
+    <% if meeting_days.any? %>
+      <ul class="conference__program-selector">
+        <% meeting_days.each_with_index do |day, i| %>
+          <li>
+            <button id="conference-trigger<%= i %>" class="button button__sm md:button__lg button__transparent-secondary" data-controls="conference-panel<%= i %>" data-open="<%= "true" if i == 0 %>">
+              <%= l day, format: :decidim_with_day_and_month_name %>
+            </button>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
 
-  <% meeting_days.each_with_index do |day, i| %>
-    <div id="conference-panel<%= i %>" class="conference__program" data-conference-program-day>
-      <% meetings_for_day(meeting_component, day, current_user).each do |meeting_days, meetings| %>
-        <%= render partial: "program_item", locals: { start_time: meeting_days[:start_time], end_time: meeting_days[:end_time], meetings: meetings.pluck(:meeting) } %>
-      <% end %>
-    </div>
-  <% end %>
+    <% meeting_days.each_with_index do |day, i| %>
+      <div id="conference-panel<%= i %>" class="conference__program" data-conference-program-day>
+        <% meetings_for_day(meeting_component, day, current_user).each do |meeting_days, meetings| %>
+          <%= render partial: "program_item", locals: { start_time: meeting_days[:start_time], end_time: meeting_days[:end_time], meetings: meetings.pluck(:meeting) } %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </main>

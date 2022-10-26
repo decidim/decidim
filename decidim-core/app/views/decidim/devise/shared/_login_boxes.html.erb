@@ -1,5 +1,5 @@
 <div class="login__box-container">
-  <div class="login__box" data-dialog-open="loginModal">
+  <button type="button" class="login__box" data-dialog-open="loginModal">
     <%= icon "login-box-line", class: "login__box-icon" %>
     <p class="login__box-title">
       <%= t("decidim.forms.questionnaires.show.answer_questionnaire.already_have_an_account?") %>
@@ -11,7 +11,7 @@
       <%= t("decidim.devise.registrations.new.sign_in") %>
       <%= icon "arrow-right-line", class: "fill-current" %>
     </div>
-  </div>
+  </button>
   <%= link_to(decidim.new_user_registration_path, class: "login__box") do %>
     <%= icon "user-add-line", class: "login__box-icon" %>
     <p class="login__box-title">

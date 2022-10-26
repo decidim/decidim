@@ -10,7 +10,7 @@
         <ul class="conference__program-category-container">
           <% categories.each_with_index do |category, i| %>
             <li>
-              <button class="conference__program-category" data-controls="conference-item-panel-<%= seed %>-tab<%= i %>" data-open="<%= "true" if i == 0 %>">
+              <button id="conference-item-trigger-<%= seed %>-tab<%= i %>" class="conference__program-category" data-controls="conference-item-panel-<%= seed %>-tab<%= i %>" data-open="<%= "true" if i == 0 %>">
                 <%= category.present? ? translated_attribute(category.name) : "other" %>
               </button>
             </li>

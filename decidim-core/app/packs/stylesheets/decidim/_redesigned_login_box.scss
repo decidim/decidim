@@ -1,5 +1,5 @@
 .login__box{
-  @apply w-full md:w-1/2 flex flex-col gap-4 border-2 border-background rounded p-6 cursor-pointer;
+  @apply w-full md:w-1/2 flex flex-col items-start gap-4 border-2 border-background rounded p-6 cursor-pointer;
 
   &-container{
     @apply flex flex-col md:flex-row gap-4 md:gap-12;
