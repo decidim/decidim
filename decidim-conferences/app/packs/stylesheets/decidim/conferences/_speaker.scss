@@ -32,14 +32,14 @@
   }
 
   &__modal{
-    @apply md:pr-12 md:pb-12;
+    @apply md:pr-12 md:pb-12 cursor-auto;
 
     &-title{
       @apply flex gap-2 items-center text-2xl text-black font-semibold;
     }
 
     &-img{
-      @apply w-1/4 flex-none rounded ring-4 ring-tertiary overflow-hidden aspect-square;
+      @apply w-1/4 flex-none rounded overflow-hidden aspect-square;
 
       img{
         @apply w-full h-full object-cover;
@@ -66,11 +66,11 @@
       }
 
       &-description{
-        @apply text-gray-2 text-md;
+        @apply overflow-y-auto max-h-[50vh] text-gray-2 text-md;
       }
 
       &-meetings{
-        @apply text-secondary text-md flex flex-col gap-2;
+        @apply overflow-y-auto max-h-[20vh] text-secondary text-md flex flex-col gap-2;
 
         &-title{
           @apply text-gray-2 font-bold mb-4;
