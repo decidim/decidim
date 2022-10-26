@@ -829,10 +829,8 @@ ro:
           title: Participant privat nou pentru spațiul participativ.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: A apărut o problemă la citirea fișierului CSV.
           success: Fișier-ul CSV a fost încărcat cu succes, trimitem un e-mail de invitație participanților. Acest lucru ar putea dura puțin timp.
         new:
-          explanation: 'Încărcă fişierul tău CSV. Trebuie să aibă două coloane cu e-mail în prima coloană a fișierului și numele în ultima coloană (e-mail, numele) pentru utilizatorii pe care doriţi să îi adăugaţi în spaţiul participativ, fără antet. Evită folosirea caracterelor invalide, cum ar fi `<>?%&^*#@()[]=+:;"{}\<unk> ` în numele utilizatorului.'
           title: Încarcă fișierul tău CSV
           upload: Încarcă
       reminders:
