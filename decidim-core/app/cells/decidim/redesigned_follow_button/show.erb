@@ -1,0 +1,25 @@
+<% if current_user.present? %>
+  <%= link_to(
+        path,
+        class: button_classes,
+        title: text,
+        method: method,
+        remote: remote,
+        id: dom_id(model, :follow)
+      ) do %>
+    <%= render :content %>
+  <% end %>
+<% else %>
+  <%= action_authorized_link_to(
+        :follow,
+        path,
+        resource: model,
+        class: button_classes,
+        title: t("decidim.shared.follow_button.sign_in_before_follow"),
+        :'aria-haspopup' => true,
+        remote: remote,
+        id: dom_id(model, :follow)
+      ) do %>
+    <%= render :content %>
+  <% end %>
+<% end %>

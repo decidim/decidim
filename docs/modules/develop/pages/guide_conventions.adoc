@@ -67,7 +67,7 @@ After the prefix we recommend to add some words that describe what the change is
 . feature/add-pagination-to-moderated-users
 . fix/free-text-choice-answer
 
-The rationale behind this is that we don't like to have the issue number (`fix/9123` or just `9123`) as that difficults working with `git`. 
+The rationale behind this is that we don't like to have the issue number (`fix/9123` or just `9123`) as that difficults working with `git`.
 
 == Git commit messages and Pull Request titles
 
@@ -97,3 +97,8 @@ For releases we follow https://semver.org/[Semantic Versioning recommendations].
 * Until v1 there could be changes in the API. We'll let you know on the Release Notes for a given version
 * Upgrading on patch versions should be safe (for instance from 0.20.0 to 0.20.1). The only things that we add are bug fixes and new languages.
 
+== Accessibility
+
+Most Decidim websites are under different regulations that require these services to follow accessibility guidelines to make them available to as wide audiences as possible. All user interface changes need to follow the accessibility guidelines.
+
+For more information, refer to the xref:develop:guide_accessibility.adoc[Decidim accessibility guide].

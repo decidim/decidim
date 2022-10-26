@@ -41,6 +41,12 @@ module Decidim
 
       # Block-level calls ######################
 
+      # Recarpet callback to preprocess the document.
+      # Removes the HTML comment from the markdown file
+      def preprocess(document)
+        document.gsub(/<!--.*-->/, "")
+      end
+
       # Recarpet callback to process headers.
       # Creates Paricipatory Text Proposals at Section and Subsection levels.
       def header(title, level)
