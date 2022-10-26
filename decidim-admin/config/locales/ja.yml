@@ -843,7 +843,6 @@ ja:
           title: 新しい参加型スペースのプライベート参加者。
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSVファイルの読み込みに問題が発生しました。
           success: CSVファイルが正常にアップロードされました。出席者に招待メールを送信します。時間がかかる場合があります。
         new:
           destroy:
@@ -852,7 +851,6 @@ ja:
             empty: プライベートの参加者はいません。
             explanation: '%{count} 人のプライベート参加者がいます。'
             title: プライベート参加者を削除
-          explanation: 'CSV ファイルをアップロードします。ファイルは 1列目に電子メール、2列目に名前を持つ形式である必要があります(email, name)。 ユーザー名に `<>?%&^*#@()[]=+:;"{}\|`のような無効な文字を使用しないでください。'
           title: CSVファイルをアップロード
           upload: アップロード
       reminders:
