@@ -832,7 +832,7 @@ hu:
           title: Új részvételi tér privát felhasználója.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Hiba történt a CSV fájl olvasásakor.
+          invalid: Hiba történt a CSV fájl olvasásában.
           success: A CSV-fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
           destroy:
