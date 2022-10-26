@@ -377,7 +377,7 @@ sv:
         invite_join_conference_mailer:
           invite:
             decline: Avböj inbjudan till '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller godkänna den via länkarna nedan."
+            invited_existing_user_to_join_a_conference: "%{invited_by} har bjudit in dig till en konferens på %{application}. Du kan avböja eller godkänna den via länkarna nedan."
             registration: Registrering till '%{conference_title}'
         partners:
           index:
