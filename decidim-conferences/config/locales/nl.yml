@@ -377,7 +377,7 @@ nl:
         invite_join_conference_mailer:
           invite:
             decline: Uitnodiging '%{conference_title}' weigeren
-            invited_you_to_join_a_conference: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een conferentie op %{application}. U kunt het weigeren of accepteren via de onderstaande links."
+            invited_existing_user_to_join_a_conference: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een conferentie op %{application}. U kunt het weigeren of accepteren via de onderstaande links."
             registration: Registratie voor '%{conference_title}'
         partners:
           index:
