@@ -147,6 +147,9 @@ fi:
             body: Käyttääksesi tätä toimintoa sinun on kirjauduttava järjestelmähallintaosioon ja lisättävä csv_census-vahvistustapa organisaatiolle
             title: Sinun on aktivoitava CSV-rekisteritiedot tälle organisaatiolle
           new:
+            example: |
+              matti.meikalainen@esimerkki.fi
+              minna.meikalainen@esimerkki.fi
             file: "sähköpostiosoitteet sisältävä .csv-tiedosto"
             info: 'On oltava CSV-tiedosto, jossa on vain yksi sarake sähköpostiosoitteille:'
             submit: Lataa tiedosto
