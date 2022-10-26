@@ -572,7 +572,6 @@ lv:
           title: Jauns līdzdalības telpas privāts dalībnieks
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSV faila lasīšanas laikā radās problēma.
           success: CSV fails ir veiksmīgi augšupielādēts, nosūtām dalībniekiem uzaicinājuma e-pastu. Tas var aizņemt kādu laiku.
         new:
           title: Augšupielādējiet savu CSV failu
