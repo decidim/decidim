@@ -19,6 +19,8 @@ cs:
         title: Titul
       initiatives_committee_member:
         user: Člen výboru
+      initiatives_settings:
+        initiatives_order: Pořadí
       initiatives_type:
         area_enabled: Povolit autorům vybrat tematickou oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
