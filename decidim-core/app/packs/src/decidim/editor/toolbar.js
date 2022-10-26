@@ -117,7 +117,7 @@ export default function createEditorToolbar(editor) {
   }));
   toolbar.appendChild(createEditorToolbarToggle(editor, {
     label: "Line break",
-    icon: () => createIcon("arrow-go-back-line", { verticalFlip: true }),
+    icon: "text-wrap",
     action: () => editor.commands.setHardBreak()
   }));
   toolbar.appendChild(createEditorToolbarToggle(editor, {
