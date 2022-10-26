@@ -297,7 +297,7 @@ lb:
         invite_join_conference_mailer:
           invite:
             decline: Einladung '%{conference_title}' ablehnen
-            invited_you_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
+            invited_existing_user_to_join_a_conference: "%{invited_by} hat Sie eingeladen, an einer Konferenz um %{application}teilzunehmen. Sie können dies über die unten stehenden Links ablehnen oder akzeptieren."
             registration: Registrierung für '%{conference_title}'
         partners:
           index:
