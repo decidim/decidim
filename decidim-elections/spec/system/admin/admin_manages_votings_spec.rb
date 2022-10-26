@@ -125,7 +125,9 @@ describe "Admin manages votings", type: :system do
     let(:elections_component) { create(:elections_component, participatory_space: voting) }
 
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "updates a voting" do
@@ -158,7 +160,9 @@ describe "Admin manages votings", type: :system do
 
   describe "updating a voting with invalid values" do
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "does not update the voting" do
@@ -180,7 +184,9 @@ describe "Admin manages votings", type: :system do
 
   describe "updating a voting with invalid image" do
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "shows an error inside the upload modal" do
@@ -191,7 +197,7 @@ describe "Admin manages votings", type: :system do
         input_element = find("input[type='file']", visible: :all)
         input_element.attach_file(image_invalid_path)
 
-        expect(page).to have_content("file should be one of image/jpeg, image/png", count: 1)
+        expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, png", count: 1)
         expect(page).to have_css(".upload-errors .form-error", count: 1)
       end
     end
@@ -205,7 +211,9 @@ describe "Admin manages votings", type: :system do
     end
 
     it "does not delete them" do
-      click_link translated(voting3.title)
+      within find("tr", text: translated(voting3.title)) do
+        click_link "Configure"
+      end
 
       within ".edit_voting" do
         find("*[type=submit]").click
@@ -243,7 +251,9 @@ describe "Admin manages votings", type: :system do
     let!(:voting) { create(:voting, :unpublished, organization:) }
 
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "publishes the voting" do
@@ -261,7 +271,9 @@ describe "Admin manages votings", type: :system do
     let!(:voting) { create(:voting, :published, organization:) }
 
     before do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     it "unpublishes the voting" do
@@ -291,7 +303,9 @@ describe "Admin manages votings", type: :system do
 
   it "renders the sub nav to manage voting's settings" do
     within ".table-list" do
-      click_link translated(voting.title)
+      within find("tr", text: translated(voting.title)) do
+        click_link "Configure"
+      end
     end
 
     within ".secondary-nav--subnav" do

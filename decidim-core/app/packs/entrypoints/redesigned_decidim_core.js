@@ -13,13 +13,13 @@ window.morphdom = morphdom
 import "src/decidim/vendor/foundation-datepicker"
 import "src/decidim/foundation_datepicker_locales"
 import "src/decidim/vendor/modernizr"
-import "src/decidim/vendor/social-share-button"
 
 import "src/decidim/input_tags"
 import "src/decidim/input_hashtags"
 import "src/decidim/input_mentions"
 import "src/decidim/input_multiple_mentions"
-import "src/decidim/input_character_counter"
+// import "src/decidim/redesigned_input_character_counter" -- imported in submodules
+// import "src/decidim/input_character_counter" --deprecated
 import "src/decidim/input_autojump"
 import "src/decidim/index"
 import "src/decidim/history"
@@ -38,7 +38,6 @@ import "src/decidim/ajax_modals"
 import "src/decidim/conferences"
 import "src/decidim/tooltip_keep_on_hover"
 import "src/decidim/diff_mode_dropdown"
-import "src/decidim/conversations"
 import "src/decidim/delayed"
 // import "src/decidim/icon" -- imported in submodules
 import "src/decidim/vizzs"
@@ -52,14 +51,13 @@ import "src/decidim/comments/comments"
 import "src/decidim/results_listing"
 import "src/decidim/represent_user_group"
 import "src/decidim/impersonation"
-import "src/decidim/start_conversation_dialog"
+// import "src/decidim/start_conversation_dialog" -- deprecated
 import "src/decidim/notifications"
 import "src/decidim/identity_selector_dialog"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/sw"
 import "src/decidim/back_to_list"
-import "src/decidim/dropdowns_handler"
 
 // CSS
 import "entrypoints/redesigned_decidim_core.scss"
