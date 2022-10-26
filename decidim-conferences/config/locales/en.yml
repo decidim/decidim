@@ -455,7 +455,7 @@ en:
           main_promotors: Organizers
         show:
           login_as: You are logged in as %{name} <%{email}>
-          make_conference_registration: 'Make your registration in the conference:'
+          make_conference_registration: Make your registration in the conference
           register: Register
       content_blocks:
         highlighted_conferences:
