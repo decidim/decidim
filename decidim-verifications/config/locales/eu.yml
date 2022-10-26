@@ -147,6 +147,9 @@ eu:
             body: Horretarako, sistemaren administrazioa sartu behar duzu eta gehitu csv_census baimenak erakundeari
             title: CSVa aktibatu behar duzu antolaketa honetarako
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: ".csv fitxategia helbide elektronikoen datuekin"
             info: 'CSV formatudun artxiboa izan behar da eta zutabe batean posta elektronikoaren helbidea:'
             submit: Kargatu fitxategia
