@@ -66,7 +66,7 @@ module Decidim
               [{
                 url: url_for(filter: { with_scope: participatory_space.scope.id, with_category: category.try(:id) }),
                 text: translated_attribute(participatory_space.scope.name),
-                icon: "price-tag-3-line",
+                icon: resource_type_icon_key(participatory_space.scope.class),
                 active: participatory_space.scope.id.to_s == current_scope.to_s,
                 sr_text: Decidim::Scope.model_name.human(count: 1)
               }]
@@ -76,7 +76,7 @@ module Decidim
             {
               url: url_for(filter: { with_scope: scope.id, with_category: category.try(:id) }),
               text: translated_attribute(scope.name),
-              icon: "price-tag-3-line",
+              icon: resource_type_icon_key(scope.class),
               active: scope.id.to_s == current_scope.to_s,
               sr_text: Decidim::Scope.model_name.human(count: 1)
             }

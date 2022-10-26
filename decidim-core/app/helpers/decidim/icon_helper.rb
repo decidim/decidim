@@ -18,6 +18,8 @@ module Decidim
       "Decidim::Budgets::Order" => "check-double-line",
       "Decidim::Assembly" => "government-line",
       "Decidim::ParticipatoryProcess" => "treasure-map-line",
+      "Decidim::Category" => "price-tag-3-line",
+      "Decidim::Scope" => "scan-line",
       "other" => "question-line"
     }.freeze
 

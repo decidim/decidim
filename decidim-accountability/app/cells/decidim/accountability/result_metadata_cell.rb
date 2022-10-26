@@ -67,7 +67,7 @@ module Decidim
 
         {
           text: translated_attribute(inherited_category.name),
-          icon: "price-tag-3-line"
+          icon: resource_type_icon_key(category.class)
         }
       end
 
