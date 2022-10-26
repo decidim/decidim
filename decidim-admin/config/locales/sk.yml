@@ -579,7 +579,6 @@ sk:
           title: Nový súkromný účastník participatívneho priestoru.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Vyskytol sa problém s čítaním súboru CSV.
           success: Súbor CSV nahraný úspešne, posielame pozvánku e-mailom pre používateľov. Môže to chvíľu trvať.
         new:
           title: Nahrať súbor CSV
