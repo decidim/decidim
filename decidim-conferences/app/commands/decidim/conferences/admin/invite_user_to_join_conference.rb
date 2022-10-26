@@ -98,7 +98,7 @@ module Decidim
 
         def invite_user_to_sign_up
           user.skip_reconfirmation!
-          user.invite!(invited_by, invitation_instructions: "join_conference", conference:)
+          user.invite!(invited_by, invitation_instructions: "join_conference", conference:, registration_type: form.registration_type)
         end
       end
     end
