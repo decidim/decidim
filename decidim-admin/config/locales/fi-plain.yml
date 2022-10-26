@@ -835,7 +835,7 @@ fi-pl:
           title: Uusi osallisuustilan yksityinen käyttäjä.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSV-tiedostossa on ongelma.
+          invalid: CSV-tiedoston käsittelyssä tapahtui virhe.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
           destroy:
