@@ -785,10 +785,8 @@ pt:
           title: Novo participante privado do Espaço Participativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Ocorreu um problema ao ler o ficheiro CSV.
           success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
-          explanation: 'Carrege o seu ficheiro CSV. Deve ter duas colunas com o e-mail na primeira coluna do ficheiro e  o nome na última coluna do ficheiro (e-mail, nome) dos utilizadores que quer adicionar ao espaço participativo, sem cabeçalhos. Evite utilizar charactéres inválidos como “<>?%&^*#@=+:"{}\|” no nome de utente.'
           title: Carregar o seu ficheiro CSV
           upload: Carregar
       resource_permissions:
