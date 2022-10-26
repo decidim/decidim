@@ -720,7 +720,10 @@ module Decidim
           let(:file) { nil }
           let(:uploader) { Decidim::AvatarUploader }
 
+          # REDESIGN_PENDING: Merge this with upload-modal in another branch
+          # and remove if necessary
           it "renders the 'Default image' label" do
+            skip "This example will be deprecated once merged the feature/redesign-upload-modal branch"
             expect(output).to include("Default image")
           end
         end
@@ -728,7 +731,10 @@ module Decidim
         context "and it is present" do
           let(:present?) { true }
 
+          # REDESIGN_PENDING: Merge this with upload-modal in another branch
+          # and remove if necessary
           it "renders the 'Current image' label" do
+            skip "This example will be deprecated once merged the feature/redesign-upload-modal branch"
             expect(output).to include("Current image")
           end
 
