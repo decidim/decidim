@@ -381,7 +381,7 @@ ro:
         invite_join_conference_mailer:
           invite:
             decline: Refuzați invitația '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} te-a invitat să participi la o conferință la %{application}. Puteți să o refuzați sau să o acceptați prin intermediul linkurilor de mai jos."
+            invited_existing_user_to_join_a_conference: "%{invited_by} te-a invitat să participi la o conferință la %{application}. Puteți să o refuzați sau să o acceptați prin intermediul linkurilor de mai jos."
             registration: Înregistrare pentru '%{conference_title}'
         partners:
           index:
