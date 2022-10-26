@@ -37,7 +37,7 @@ module Decidim
             next unless Decidim::Meetings::Meeting.where(component:).published.not_hidden.visible_for(current_user).exists?
 
             items << {
-              name: translated_attribute(component.name),
+              name: "#{t("title", scope: "decidim.conference_program.index")}: #{translated_attribute(component.name)}",
               path: decidim_conferences.conference_conference_program_path(current_participatory_space, id: component.id)
             }
           end
