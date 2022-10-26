@@ -10,6 +10,7 @@ ja:
         end_time: 終了時刻
         information_updates: 情報の更新
         instructions: 参加方法
+        scope_id: スコープ
         start_time: 開始
         title: タイトル
         user_group_id: ディベートを作成
