@@ -89,7 +89,7 @@ describe EtiquetteValidator do
 
       <<~HTML
         <p>Text before the image.</p>
-        <p><img src="data:image/png;base64,#{encoded.strip}"></p>
+        <p><img src="data:image/jpeg;base64,#{encoded.strip}"></p>
         <p>Some other text after the image.</p>
       HTML
     end
