@@ -809,10 +809,8 @@ gl:
           title: Novo usuario privado do espazo participativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Produciuse un erro ao ler o ficheiro CSV.
           success: Ficheiro CSV subido con éxito, estamos a enviar un correo de invitación aos participantes. Isto pode levar un pouco de tempo.
         new:
-          explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
           title: Sube o teu ficheiro CSV
           upload: Subir
       reminders:
