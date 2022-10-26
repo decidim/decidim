@@ -58,7 +58,7 @@ module Decidim
     # link_options[:class]  - An optional String to add as a css class to the link wrapper.
     #
     # Returns nothing.
-    def edit_link(link_url, action, subject, extra_context = {}, link_options = { class: "topbar__edit__link" })
+    def edit_link(link_url, action, subject, extra_context = {}, link_options = {})
       return unless current_user
       return unless admin_allowed_to?(action, subject, extra_context)
       return if content_for?(:edit_link)

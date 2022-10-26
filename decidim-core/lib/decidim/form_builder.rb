@@ -47,7 +47,7 @@ module Decidim
     # rubocop:enable Metrics/ParameterLists
 
     def create_language_selector(locales, tabs_id, name)
-      if Decidim.available_locales.count > 4
+      if locales.count > 4
         language_selector_select(locales, tabs_id, name)
       else
         language_tabs(locales, tabs_id, name)
@@ -422,7 +422,7 @@ module Decidim
         max_file_size: max_file_size(record, :file),
         label: I18n.t("decidim.forms.upload.labels.add_attachment"),
         button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image"),
-        extension_allowlist: Decidim.organization_settings(Decidim::Attachment).upload_allowed_file_extensions
+        extension_allowlist: Decidim.organization_settings(record).upload_allowed_file_extensions
       }.merge(options)
 
       # Upload help uses extension allowlist from the options so we need to call this AFTER setting the defaults.
@@ -596,7 +596,7 @@ module Decidim
       content = content.html_safe
 
       html = error_and_help_text(attribute, options.merge(help_text:))
-      html + wrap_prefix_and_postfix(content, prefix, postfix)
+      wrap_prefix_and_postfix(content, prefix, postfix) + html
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity
@@ -849,7 +849,7 @@ module Decidim
     end
 
     def extension_allowlist_help(extension_allowlist)
-      ["#{I18n.t("extension_allowlist", scope: "decidim.forms.files")} #{extension_allowlist.map { |ext| ext }.join(", ")}"]
+      [I18n.t("extension_allowlist", scope: "decidim.forms.files", extensions: extension_allowlist.map { |ext| ext }.join(", "))]
     end
 
     def image_dimensions_help(dimensions_info)
