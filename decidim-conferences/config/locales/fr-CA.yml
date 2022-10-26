@@ -379,7 +379,7 @@ fr-CA:
         invite_join_conference_mailer:
           invite:
             decline: Refuser l'invitation '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} a invité à participer à une conférence à %{application}. Vous pouvez refuser ou l'accepter via les liens ci-dessous."
+            invited_existing_user_to_join_a_conference: "%{invited_by} a invité à participer à une conférence à %{application}. Vous pouvez refuser ou l'accepter via les liens ci-dessous."
             registration: Inscription pour '%{conference_title}'
         partners:
           index:
