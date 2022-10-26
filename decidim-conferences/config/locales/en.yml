@@ -380,8 +380,8 @@ en:
         invite_join_conference_mailer:
           invite:
             decline: Decline invitation '%{conference_title}'
+            invited_existing_user_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
             invited_user_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can accept it through the link below."
-            invited_you_to_join_a_conference: "%{invited_by} has invited you to join a conference at %{application}. You can decline or accept it through the links below."
             registration: Registration for '%{conference_title}'
         partners:
           index:
