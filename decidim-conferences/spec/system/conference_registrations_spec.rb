@@ -34,6 +34,10 @@ describe "Conference registrations", type: :system do
     visit decidim_conferences.conference_registration_types_path(conference)
   end
 
+  def visit_conference_registration_type
+    visit decidim_conferences.conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type)
+  end
+
   before do
     switch_to_host(organization.host)
 
@@ -133,6 +137,24 @@ describe "Conference registrations", type: :system do
 
       within ".wrapper" do
         expect(page).to have_css(".button", text: "REGISTRATION", count: registration_types_count)
+      end
+    end
+  end
+
+  context "and the user has been invited to the conference" do
+    let!(:invite) { create(:conference_invite, user:, registration_type:) }
+
+    it "requires the user to sign in" do
+      visit_conference_registration_type
+      expect(page).to have_current_path("/users/sign_in")
+    end
+
+    context "when the user is signed in" do
+      before { login_as user, scope: :user }
+
+      it "accepts the invitation successfully" do
+        visit_conference_registration_type
+        expect(page).to have_content("successfully")
       end
     end
   end
