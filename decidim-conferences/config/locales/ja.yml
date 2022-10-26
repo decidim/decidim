@@ -375,7 +375,7 @@ ja:
         invite_join_conference_mailer:
           invite:
             decline: 招待を拒否する '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} が %{application}であなたをカンファレンスに招待しました。以下のリンクから拒否または承認できます。"
+            invited_existing_user_to_join_a_conference: "%{invited_by} が %{application}であなたをカンファレンスに招待しました。以下のリンクから拒否または承認できます。"
             registration: '''%{conference_title} '' の登録'
         partners:
           index:
