@@ -831,6 +831,7 @@ de:
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
         create:
+          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
           destroy:
@@ -839,6 +840,7 @@ de:
             empty: Sie haben keine private Teilnehmende.
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
+          example_file: 'Beispieldatei:'
           title: CSV-Datei hochladen
           upload: Hochladen
       reminders:
