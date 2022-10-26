@@ -336,7 +336,7 @@ zh-CN:
         invite_join_conference_mailer:
           invite:
             decline: 拒绝邀请 '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} 邀请您在 %{application}加入会议。您可以拒绝或接受以下链接。"
+            invited_existing_user_to_join_a_conference: "%{invited_by} 邀请您在 %{application}加入会议。您可以拒绝或接受以下链接。"
             registration: 注册%{conference_title}'
         partners:
           index:
