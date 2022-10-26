@@ -783,10 +783,8 @@ lb:
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
-          explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
           title: CSV-Datei hochladen
           upload: Hochladen
       resource_permissions:
