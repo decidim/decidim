@@ -832,7 +832,7 @@ fi:
           title: Uusi osallistumistilan yksityinen käyttäjä.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSV-tiedostossa on ongelma.
+          invalid: CSV-tiedoston käsittely epäonnistui.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
           explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
