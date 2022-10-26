@@ -836,13 +836,11 @@ pl:
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Wystąpił błąd podczas odczytu pliku CSV.
           success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
           destroy:
             button: Usuń wszystkich prywatnych uczestników
             title: Usuń prywatnych uczestników
-          explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, w drugiej kolumnie imiona (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków. Unikaj używania niepoprawnych znaków takich jak `<>?%&^*#@()[]=+:;"{}\|` w imieniu użytkownika.'
           title: Prześlij swój plik CSV
           upload: Prześlij
       reminders:
