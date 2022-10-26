@@ -387,7 +387,7 @@ cs:
         invite_join_conference_mailer:
           invite:
             decline: Odmítnout pozvánku '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} vás zve na konferenci na %{application}. Můžete jej odmítnout nebo přijmout prostřednictvím níže uvedených odkazů."
+            invited_existing_user_to_join_a_conference: "%{invited_by} vás zve na konferenci na %{application}. Můžete jej odmítnout nebo přijmout prostřednictvím níže uvedených odkazů."
             registration: Registrace pro "%{conference_title}"
         partners:
           index:
