@@ -826,8 +826,6 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_image: Current image
-      default_image: Default image
       errors:
         decidim/user:
           password: The password is too short.
