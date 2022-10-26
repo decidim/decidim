@@ -344,7 +344,7 @@ lv:
         invite_join_conference_mailer:
           invite:
             decline: Noraidīt ielūgumu '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} jūs aicina piedalīties konferencē %{application}. Jūs varat pieņemt vai noraidīt ielūgumu, izmantojot vienu no turpmāk esošajām saitēm."
+            invited_existing_user_to_join_a_conference: "%{invited_by} jūs aicina piedalīties konferencē %{application}. Jūs varat pieņemt vai noraidīt ielūgumu, izmantojot vienu no turpmāk esošajām saitēm."
             registration: Reģistrācija dalībai '%{conference_title}'
         partners:
           index:
