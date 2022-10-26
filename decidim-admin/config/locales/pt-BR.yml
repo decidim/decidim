@@ -770,10 +770,8 @@ pt-BR:
           title: Novo usuário particular do Espaço Participativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Ocorreu um erro ao ler o arquivo CSV.
           success: Arquivo CSV enviado com sucesso, estamos enviando um e-mail de convite para os participantes. Isso pode demorar um pouco.
         new:
-          explanation: 'Envie seu arquivo CSV. Deve ter duas colunas com e-mail na primeira coluna do arquivo e nome na última coluna do arquivo (email, nome) dos usuários que você deseja adicionar ao espaço participativo, sem cabeçalhos. Evite usar caracteres inválidos como `<>?%&^*#@()[]=+:;"{}\├` no nome de usuário.'
           title: Envie seu arquivo CSV
           upload: Upload
       resource_permissions:
