@@ -29,6 +29,7 @@ ja:
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
         remove_avatar: アバターを削除
+        tos_agreement: ユーザー利用規約
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -1679,6 +1680,31 @@ ja:
   doorkeeper:
     scopes:
       public: 公開情報
+  emojis:
+    button: 絵文字を追加
+    categories:
+      activities: アクティビティ
+      animals-nature: 動物・自然
+      custom: ユーザー定義
+      flags: 国旗
+      food-drink: フード・ドリンク
+      objects: 物
+      people-body: 人・体
+      recents: 最近使用したもの
+      smileys-emotion: スマイリー・エモティコン
+      symbols: シンボル
+      travel-places: 旅行・場所
+    error:
+      load: 絵文字の読み込みに失敗しました
+    recents:
+      clear: 最近の絵文字を消去
+      none: 絵文字がまだ選択されていません。
+    retry: やり直す
+    search:
+      _: 絵文字を検索...
+      clear: 検索をクリア
+      error: 絵文字の検索に失敗しました
+      not_found: 検索結果がありません
   errors:
     messages:
       allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'
