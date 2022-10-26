@@ -13,61 +13,61 @@
       <% end %>
     </div>
   </div>
-
-  <%= decidim_modal id: model.id, class: "conference__speaker__modal" do %>
-    <div class="conference__speaker__modal-title">
-      <%= icon "user-voice-line", class: "w-6 h-6 text-gray fill-current" %>
-      <span><%= t("decidim.conferences.conference_speakers.index.speakers", count: 1) %></span>
-    </div>
-    <div class="conference__speaker__modal-bio-container">
-      <div class="conference__speaker__modal-img">
-        <%= image_tag avatar_path, alt: "speaker-image" %>
-      </div>
-      <div class="conference__speaker__modal-bio">
-        <div>
-          <div class="conference__speaker__modal-bio-name" id="dialog-title-<%= model.id %>"><%= name %></div>
-          <div class="conference__speaker__modal-bio-roles">
-            <% if position.presence %>
-              <span><%= position %></span>
-            <% end %>
-            <% if affiliation.presence %>
-              <span><%= affiliation %></span>
-            <% end %>
-          </div>
-          <div class="conference__speaker__modal-bio-networks">
-            <% if nickname.present? %>
-              <%= link_to nickname, profile_path, class: "card-link" %>
-            <% end %>
-            <% if personal_url.presence %>
-              <div>
-                <%= icon "link", class: "w-3.5 h-3.5 text-gray fill-current" %>
-                <%= personal_url %>
-              </div>
-            <% end %>
-            <% if twitter_handle.presence %>
-              <div>
-                <%= icon "twitter-line", class: "w-3.5 h-3.5 text-gray fill-current" %>
-                <%= twitter_handle %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-        <% if short_bio.presence %>
-          <div class="conference__speaker__modal-bio-description" id="dialog-desc-<%= model.id %>">
-            <%= short_bio %>
-          </div>
-        <% end %>
-        <% if meetings.present? %>
-          <div>
-            <div class="conference__speaker__modal-bio-meetings-title"><%= t("conferences.conference_speaker.show.speaking_at", scope: "decidim") %></div>
-            <ul class="conference__speaker__modal-bio-meetings">
-              <% meetings.each do |meeting| %>
-                <%= meeting_title meeting %>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
 </div>
+
+<%= decidim_modal id: model.id, class: "conference__speaker__modal" do %>
+  <div class="conference__speaker__modal-title">
+    <%= icon "user-voice-line", class: "w-6 h-6 text-gray fill-current" %>
+    <span><%= t("decidim.conferences.conference_speakers.index.speakers", count: 1) %></span>
+  </div>
+  <div class="conference__speaker__modal-bio-container">
+    <div class="conference__speaker__modal-img">
+      <%= image_tag avatar_path, alt: "speaker-image" %>
+    </div>
+    <div class="conference__speaker__modal-bio">
+      <div>
+        <div class="conference__speaker__modal-bio-name" id="dialog-title-<%= model.id %>"><%= name %></div>
+        <div class="conference__speaker__modal-bio-roles">
+          <% if position.presence %>
+            <span><%= position %></span>
+          <% end %>
+          <% if affiliation.presence %>
+            <span><%= affiliation %></span>
+          <% end %>
+        </div>
+        <div class="conference__speaker__modal-bio-networks">
+          <% if nickname.present? %>
+            <%= link_to nickname, profile_path, class: "card-link" %>
+          <% end %>
+          <% if personal_url.presence %>
+            <div>
+              <%= icon "link", class: "w-3.5 h-3.5 text-gray fill-current" %>
+              <%= personal_url %>
+            </div>
+          <% end %>
+          <% if twitter_handle.presence %>
+            <div>
+              <%= icon "twitter-line", class: "w-3.5 h-3.5 text-gray fill-current" %>
+              <%= twitter_handle %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <% if short_bio.presence %>
+        <div class="conference__speaker__modal-bio-description" id="dialog-desc-<%= model.id %>">
+          <%= short_bio %>
+        </div>
+      <% end %>
+      <% if meetings.present? %>
+        <div>
+          <div class="conference__speaker__modal-bio-meetings-title"><%= t("conferences.conference_speaker.show.speaking_at", scope: "decidim") %></div>
+          <ul class="conference__speaker__modal-bio-meetings">
+            <% meetings.each do |meeting| %>
+              <%= meeting_title meeting %>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
