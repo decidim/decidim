@@ -743,7 +743,7 @@ ar:
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: حدثت مشكلة أثناء قراءة ملف CSV.
+          invalid: حدثت مشكلة في قراءة ملف CSV.
         new:
           destroy:
             button: حذف جميع المشاركين الخاصين
