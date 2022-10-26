@@ -831,7 +831,6 @@
           title: Ny deltaker område privat deltaker.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Det oppstod et problem med å lese CSV-filen.
           success: CSV fil lastet opp. Vi sender en invitasjons email til deltakerne. Dette kan ta en stund.
         new:
           destroy:
@@ -840,7 +839,6 @@
             empty: Du har ingen private deltakere.
             explanation: Du har %{count} private deltakere.
             title: Slett private deltakere
-          explanation: 'Last opp din CSV-fil. Det må være to kolonner uten overskrifter, e-post i den første kolonnen og navn i den siste kolonnen (e-post, navn) til brukerne du vil legge til i det deltakende rommet. Unngå å bruke ugyldige tegn som `<>?%&^*#@()[]=+:;"{}\″` med brukernavn.'
           title: Last opp din CSV fil
           upload: Last opp
       reminders:
