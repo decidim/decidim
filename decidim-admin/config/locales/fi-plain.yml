@@ -847,6 +847,7 @@ fi-pl:
           title: Uusi osallisuustilan yksityinen käyttäjä.
       participatory_space_private_users_csv_imports:
         create:
+          invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
           destroy:
@@ -855,6 +856,11 @@ fi-pl:
             empty: Tässä osallistumistilassa ei ole yksityisiä osallistujia.
             explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
             title: Poista kaikki yksityiset osallistujat
+          example_file: 'Esimerkkitiedosto:'
+          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen asetetaan käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation_example: |
+            matti.meikalainen@esimerkki.fi%{csv_col_sep}Matti Meikäläinen
+            minna.meikalainen@esimerkki.fi%{csv_col_sep}Minna Meikäläinen
           title: Lataa CSV-tiedosto
           upload: Lataa
       reminders:
@@ -1003,7 +1009,11 @@ fi-pl:
           verify_via_csv: Vahvista CSV-tiedoston avulla
       user_groups_csv_verifications:
         new:
+          example_file: 'Esimerkkitiedosto:'
           explanation: Lataa CSV-tiedosto. Siinä on oltava organisaatiosi käyttäjäryhmien viralliset sähköpostit tiedoston ensimmäisessä sarakkeessa ilman otsikkoriviä. Ainoastaan käyttäjäryhmät, jotka ovat vahvistaneet sähköpostiosoitteensa ja joiden sähköpostiosoitteesi näkyvät CSV-tiedostossa, vahvistetaan.
+          explanation_example: |
+            acme@esimerkki.fi
+            bubba.gump@esimerkki.fi
           title: Lataa CSV-tiedosto
           upload: Lähetä
       users:
