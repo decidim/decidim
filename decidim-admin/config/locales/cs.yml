@@ -855,6 +855,7 @@ cs:
           title: Nový participační prostor soukromého účastníka.
       participatory_space_private_users_csv_imports:
         create:
+          invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
           success: CSV soubor byl úspěšně nahrán, posíláme e-maily na účastníky. To může trvat nějakou dobu.
         new:
           destroy:
@@ -863,6 +864,11 @@ cs:
             empty: Nemáte žádné soukromé účastníky.
             explanation: Máte %{count} soukromých účastníků.
             title: Odstranit soukromé účastníky
+          example_file: 'Příklad souboru:'
+          explanation: 'Nahrajte soubor CSV. Musí mít dva sloupce s e-mailem v prvním sloupci souboru a jméno v posledním sloupci souboru uživatelů, které chcete přidat do participačního prostoru, bez hlaviček. Vyhněte se používání neplatných znaků jako `<>?%&^*#@()[]=+:;"{}\|` v uživatelském jméně.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Nahrajte Váš CSV soubor
           upload: Nahrát
       reminders:
@@ -1013,7 +1019,11 @@ cs:
           verify_via_csv: Ověřit pomocí CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Příklad souboru:'
           explanation: Nahrajte soubor CSV. Musí mít oficiální e-maily skupin ve vaší organizaci v prvním sloupci souboru bez záhlaví. Pouze skupiny, které potvrdily svůj e-mail a které mají e-mailovou adresu v souboru CSV, budou ověřeny.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Nahrát soubor CSV
           upload: nahrát
       users:
