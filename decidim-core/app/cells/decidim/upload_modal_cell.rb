@@ -174,7 +174,7 @@ module Decidim
       return Rails.application.routes.url_helpers.rails_blob_url(attachment, only_path: true) if attachment.is_a? ActiveStorage::Blob
 
       if attachment.try(:attached?)
-        attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(attachment.blob, only_path: true)
+        attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(blob(attachment), only_path: true)
         return attachment_path if attachment_path.present?
       end
 
