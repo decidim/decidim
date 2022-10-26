@@ -674,10 +674,8 @@ tr:
           title: Yeni Katılımcı Uzay özel kullanıcısı.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSV dosyasını okurken bir hata oluştu.
           success: CSV dosyası başarıyla yüklendi, katılımcılara bir davetiye e-postası gönderiyoruz. Bu biraz zaman alabilir.
         new:
-          explanation: 'CSV dosyanızı yükleyin. Başlıksız, katılımcı alanına eklemek istediğiniz kullanıcıların dosyanın ilk sütununda e-posta ve dosyanın son sütununda (e-posta, ad) bulunan iki sütunu olmalıdır. Kullanıcı adında "<>?% & ^ * # @ () [] = +:;" {} \ | "gibi geçersiz karakterler kullanmaktan kaçının.'
           title: CSV dosyası yükle
           upload: Yükle
       resource_permissions:
