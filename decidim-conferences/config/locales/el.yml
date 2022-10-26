@@ -376,7 +376,7 @@ el:
         invite_join_conference_mailer:
           invite:
             decline: Απόρριψη πρόσκλησης «%{conference_title}»
-            invited_you_to_join_a_conference: "Ο χρήστης %{invited_by} σάς προσκάλεσε να συμμετάσχετε σε μια διάσκεψη στην εφαρμογή %{application}. Μπορείτε να την απορρίψετε ή να την αποδεχτείτε μέσω των παρακάτω συνδέσμων."
+            invited_existing_user_to_join_a_conference: "Ο χρήστης %{invited_by} σάς προσκάλεσε να συμμετάσχετε σε μια διάσκεψη στην εφαρμογή %{application}. Μπορείτε να την απορρίψετε ή να την αποδεχτείτε μέσω των παρακάτω συνδέσμων."
             registration: Εγγραφή για τη διάσκεψη «%{conference_title}»
         partners:
           index:
