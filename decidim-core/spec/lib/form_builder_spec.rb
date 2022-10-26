@@ -720,17 +720,13 @@ module Decidim
           let(:file) { nil }
           let(:uploader) { Decidim::AvatarUploader }
 
-          it "renders the 'Default image' label" do
-            expect(output).to include("Default image")
+          it "renders an image with the default url" do
+            expect(parsed.css("img[src=\"#{resource.attached_uploader.default_url}\"]")).not_to be_empty
           end
         end
 
         context "and it is present" do
           let(:present?) { true }
-
-          it "renders the 'Current image' label" do
-            expect(output).to include("Current image")
-          end
 
           it "renders an image with the current file url" do
             expect(parsed.css("img[src=\"#{url}\"]")).not_to be_empty
