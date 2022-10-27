@@ -37,7 +37,7 @@ export default class ClipboardOverride extends Clipboard {
     this.matchers[3][1] = matchNewline;
 
     // Remove `matchSpacing` as that is also removed in the newer versions.
-    this.matchers.splice(5, 1);
+    this.removeMatcher(Node.ELEMENT_NODE, "matchSpacing");
   }
 
   overrideMatcher(originalSelector, newSelector, newMatcher = null) {
@@ -47,6 +47,13 @@ export default class ClipboardOverride extends Clipboard {
       if (newMatcher) {
         this.matchers[idx][1] = newMatcher;
       }
+    }
+  }
+
+  removeMatcher(selector, matcherName) {
+    const idx = this.matchers.findIndex((item) => item[0] === selector && item[1].name === matcherName);
+    if (idx >= 0) {
+      this.matchers.splice(idx, 1);
     }
   }
 
