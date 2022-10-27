@@ -15,7 +15,7 @@ module Decidim::Conferences::Admin
         existing_user: true,
         current_organization: conference.organization,
         user: invited_user,
-        registration_type:
+        registration_type: registration_type
       )
     end
     let(:invalid) { false }
@@ -42,7 +42,7 @@ module Decidim::Conferences::Admin
             current_organization: conference.organization,
             email: "jdoe@example.org",
             name: "John Doe",
-            registration_type:
+            registration_type: registration_type
           )
         end
 
