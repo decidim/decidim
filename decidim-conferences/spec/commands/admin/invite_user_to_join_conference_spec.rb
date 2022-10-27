@@ -19,7 +19,7 @@ module Decidim::Conferences::Admin
       )
     end
     let(:invalid) { false }
-    let(:registration_type) { create(:registration_type, conference:) }
+    let(:registration_type) { create(:registration_type, conference: conference) }
 
     describe "call" do
       it "broadcasts ok" do
