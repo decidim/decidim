@@ -1,62 +1,73 @@
-<%= render partial: "decidim/shared/component_announcement_with_truncate" %>
-<%= render partial: "exit_modal" %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_budgets" %>
+<% end %>
 
-<%= cell("decidim/budgets/limit_announcement", budget) %>
+<% content_for :aside do %>
+  <span>Soy el aside lateral</span>
 
-<div class="voting-wrapper">
-  <div class="row columns">
-    <% if component_settings.geocoding_enabled? %>
-      <%= dynamic_map_for projects_data_for_map(all_geocoded_projects) do %>
-        <template id="marker-popup">
-          <div class="map-info__content">
-            <h3>${title}</h3>
-            <div id="bodyContent">
-              <p>{{html body}}</p>
-              <div class="map__date-address">
-                <div class="address card__extra">
-                  <div class="address__icon">{{html icon}}</div>
-                  <div class="address__details">
-                    <span>${address}</span><br>
+<% end %>
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <%= render partial: "decidim/shared/component_announcement_with_truncate" %>
+  <%= render partial: "exit_modal" %>
+
+  <%= cell("decidim/budgets/limit_announcement", budget) %>
+
+  <div class="voting-wrapper">
+    <div class="row columns">
+      <% if component_settings.geocoding_enabled? %>
+        <%= dynamic_map_for projects_data_for_map(all_geocoded_projects) do %>
+          <template id="marker-popup">
+            <div class="map-info__content">
+              <h3>${title}</h3>
+              <div id="bodyContent">
+                <p>{{html body}}</p>
+                <div class="map__date-address">
+                  <div class="address card__extra">
+                    <div class="address__icon">{{html icon}}</div>
+                    <div class="address__details">
+                      <span>${address}</span><br>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="map-info__button">
-                <a href="${link}" class="button button--sc">
-                  <%= t(".view_project") %>
-                </a>
+                <div class="map-info__button">
+                  <a href="${link}" class="button button--sc">
+                    <%= t(".view_project") %>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        </template>
+          </template>
+        <% end %>
       <% end %>
-    <% end %>
-    <% if voting_finished? %>
-      <h2 class="heading2">
-        <%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %>
+      <% if voting_finished? %>
+        <h2 class="heading2">
+          <%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %>
+        </h2>
+      <% else %>
+        <%= render partial: "budget_summary", locals: { include_heading: true } %>
+      <% end %>
+    </div>
+
+    <div class="row columns">
+      <h2 class="section-heading">
+        <%= render partial: "count" %>
       </h2>
-    <% else %>
-      <%= render partial: "budget_summary", locals: { include_heading: true } %>
-    <% end %>
-  </div>
+    </div>
 
-  <div class="row columns">
-    <h2 class="section-heading">
-      <%= render partial: "count" %>
-    </h2>
-  </div>
-
-  <div class="row">
-    <div class="columns mediumlarge-4 large-3">
-      <%= render partial: "filters_small_view" %>
-      <div class="card card--secondary show-for-mediumlarge">
-        <%= render partial: "filters" %>
+    <div class="row">
+      <div class="columns mediumlarge-4 large-3">
+        <%= render partial: "filters_small_view" %>
+        <div class="card card--secondary show-for-mediumlarge">
+          <%= render partial: "filters" %>
+        </div>
+      </div>
+      <div id="projects" class="columns mediumlarge-8 large-9" aria-live="polite">
+        <%= render partial: "projects" %>
       </div>
     </div>
-    <div id="projects" class="columns mediumlarge-8 large-9" aria-live="polite">
-      <%= render partial: "projects" %>
-    </div>
   </div>
-</div>
+
+<% end %>
 
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_budgets" %>

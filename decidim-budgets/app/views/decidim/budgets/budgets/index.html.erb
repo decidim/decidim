@@ -1,23 +1,9 @@
+<%= render partial: "decidim/shared/component_announcement_with_truncate" %>
+
+<%= cell("decidim/budgets/budgets_header", current_workflow) %>
+
+<%= cell("decidim/budgets/budgets_list", current_workflow) %>
+
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_budgets" %>
-<% end %>
-
-<% content_for :aside do %>
-  <h1 class="h1 decorator"><%= component_name %></h1>
-
-  <span>Soy el aside lateral</span>
-
-<% end %>
-<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <% if category.present? %>
-    <h2 class="h4"><%= translated_attribute category.name %></h2>
-  <% else %>
-    <h2 class="h4"><%= t("decidim.accountability.results.home_header.global_status") %></h2>
-  <% end %>
-
-  <%= render partial: "decidim/shared/component_announcement_with_truncate" %>
-
-  <%= cell("decidim/budgets/budgets_header", current_workflow) %>
-
-  <%= cell("decidim/budgets/budgets_list", current_workflow) %>
 <% end %>

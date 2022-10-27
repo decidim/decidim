@@ -8,6 +8,7 @@ module Decidim
     # Note that it inherits from `Decidim::Components::BaseController`, which
     # override its layout and provide all kinds of useful methods.
     class ApplicationController < Decidim::Components::BaseController
+      redesign_participatory_space_layout
       helper_method :current_workflow, :voting_finished?, :voting_open?
 
       def current_workflow
