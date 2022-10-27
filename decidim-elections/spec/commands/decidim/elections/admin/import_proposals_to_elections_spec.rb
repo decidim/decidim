@@ -88,9 +88,9 @@ module Decidim
                 it "doesn't import it again" do
                   expect do
                     command.call
-                  end.not_to(change { Decidim::Elections::Answer.where(question:).count })
+                  end.not_to(change { Decidim::Elections::Answer.where(question: question).count })
 
-                  answers = Decidim::Elections::Answer.where(question:)
+                  answers = Decidim::Elections::Answer.where(question: question)
                   first_answer = answers.first
                   last_answer = answers.last
                   expect(first_answer.title).to eq(proposal.title)
