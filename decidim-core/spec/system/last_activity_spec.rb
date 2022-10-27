@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Last activity", type: :system do
   let(:organization) { create(:organization) }
-  let(:commentable) { create(:dummy_resource, component:) }
-  let(:comment) { create(:comment, commentable:) }
+  let(:commentable) { create(:dummy_resource, component: component) }
+  let(:comment) { create(:comment, commentable: commentable) }
   let!(:action_log) do
     create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization: organization)
   end
@@ -97,18 +97,18 @@ describe "Last activity", type: :system do
       end
 
       context "when there are recently update old activities" do
-        let(:commentables) { create_list(:dummy_resource, 20, component:) }
-        let(:comments) { commentables.map { |commentable| create(:comment, commentable:) } }
+        let(:commentables) { create_list(:dummy_resource, 20, component: component) }
+        let(:comments) { commentables.map { |commentable| create(:comment, commentable: commentable) } }
         let!(:action_logs) do
           comments.map do |comment|
-            create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization:)
+            create(:action_log, created_at: 1.day.ago, action: "create", visibility: "public-only", resource: comment, organization: organization)
           end
         end
 
-        let(:old_commentable) { create(:dummy_resource, component:) }
+        let(:old_commentable) { create(:dummy_resource, component: component) }
         let(:old_comment) { create(:comment, commentable: old_commentable, created_at: 2.years.ago) }
-        let!(:create_action_log) { create(:action_log, created_at: 2.years.ago, action: "create", visibility: "public-only", resource: old_comment, organization:) }
-        let!(:update_action_log) { create(:action_log, created_at: 1.minute.ago, action: "update", visibility: "public-only", resource: old_comment, organization:) }
+        let!(:create_action_log) { create(:action_log, created_at: 2.years.ago, action: "create", visibility: "public-only", resource: old_comment, organization: organization) }
+        let!(:update_action_log) { create(:action_log, created_at: 1.minute.ago, action: "update", visibility: "public-only", resource: old_comment, organization: organization) }
 
         before do
           visit current_path
