@@ -1,3 +1,6 @@
+/**
+ * @deprecated since feature/redesign
+ */
 $(() => {
   const $checkbox = $("#user_group");
 
