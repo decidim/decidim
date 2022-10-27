@@ -1,5 +1,5 @@
 /**
- * @deprecated
+ * @deprecated since feature/redesign
  */
 $(() => {
   let addUsersConversationDialog = $("#user-conversations-add-modal"),
