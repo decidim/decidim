@@ -44,8 +44,6 @@ module Decidim
 
       jsonb_attribute :omniauth_settings, OMNIATH_PROVIDERS_ATTRIBUTES
 
-      attr_writer :password
-
       validates :name, :host, :users_registration_mode, presence: true
       validate :validate_organization_uniqueness
       validates :users_registration_mode, inclusion: { in: Decidim::Organization.users_registration_modes }
@@ -71,13 +69,13 @@ module Decidim
       end
 
       def password
-        Decidim::AttributeEncryptor.decrypt(encrypted_password) unless encrypted_password.nil?
+        encrypted_password.nil? ? super : Decidim::AttributeEncryptor.decrypt(encrypted_password)
       end
 
       def encrypted_smtp_settings
         smtp_settings["from"] = set_from
 
-        smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(@password))
+        smtp_settings.merge(encrypted_password: Decidim::AttributeEncryptor.encrypt(password))
       end
 
       def set_from
