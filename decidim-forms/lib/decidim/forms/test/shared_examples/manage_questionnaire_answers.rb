@@ -11,7 +11,7 @@ shared_examples_for "manage questionnaire answers" do
     create :questionnaire_question, questionnaire: questionnaire, position: 2, question_type: "single_option"
   end
   let!(:third) do
-    create :questionnaire_question, questionnaire:, position: 3, question_type: "files"
+    create :questionnaire_question, questionnaire: questionnaire, position: 3, question_type: "files"
   end
   let(:questions) do
     [first, second, third]
@@ -133,7 +133,7 @@ shared_examples_for "manage questionnaire answers" do
       end
 
       context "when the file answer does not have a title for the attachment" do
-        let!(:file_answer) { create :answer, questionnaire:, question: third, body: nil, user: answer3.user, session_token: answer3.session_token }
+        let!(:file_answer) { create :answer, questionnaire: questionnaire, question: third, body: nil, user: answer3.user, session_token: answer3.session_token }
 
         before do
           create :attachment, :with_image, attached_to: file_answer, title: {}, description: {}
