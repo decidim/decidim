@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Initiatives
-    describe CreateInitiativeHelper do
+    describe SignatureTypeOptionsHelper do
       let(:online) { %w(Online online) }
       let(:offline) { ["In-person", "offline"] }
       let(:mixed) { %w(Mixed any) }

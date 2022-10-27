@@ -14,7 +14,7 @@ module Decidim
 
         helper ::Decidim::Admin::ResourcePermissionsHelper
         helper Decidim::Initiatives::InitiativeHelper
-        helper Decidim::Initiatives::CreateInitiativeHelper
+        helper Decidim::Initiatives::SignatureTypeOptionsHelper
 
         # GET /admin/initiatives
         def index

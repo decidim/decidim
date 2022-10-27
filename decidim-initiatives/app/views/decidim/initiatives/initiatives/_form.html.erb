@@ -60,9 +60,13 @@
   </div>
 <% end %>
 
-<div class="field">
-  <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
-</div>
+<% signature_type_options = signature_type_options(form.object) %>
+<% if signature_type_options.length > 1 %>
+  <div class="field">
+    <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
+  </div>
+<% end %>
+
 <% if current_initiative.type.attachments_enabled? %>
   <fieldset class="attachments_container">
     <legend><%= t("attachment_legend", scope: "decidim.initiatives.form") %></legend>

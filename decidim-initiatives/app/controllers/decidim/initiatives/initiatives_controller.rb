@@ -18,6 +18,8 @@ module Decidim
       helper Decidim::ResourceReferenceHelper
       helper PaginateHelper
       helper InitiativeHelper
+      helper SignatureTypeOptionsHelper
+
       include InitiativeSlug
       include FilterResource
       include Paginable

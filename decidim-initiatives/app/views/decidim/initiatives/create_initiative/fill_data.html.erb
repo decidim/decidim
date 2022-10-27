@@ -37,6 +37,10 @@
               <%= f.editor :description, lines: 8, toolbar: :full %>
             </div>
 
+            <div class="field">
+              <%= f.text_field :hashtag %>
+            </div>
+
             <% signature_type_options = signature_type_options(f.object) %>
             <% if signature_type_options.length == 1 %>
               <%= f.hidden_field :signature_type, value: signature_type_options.first.last %>
