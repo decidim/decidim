@@ -6,7 +6,7 @@ module Decidim::Verifications::CsvCensus::Admin
   describe CreateCensusData do
     subject { described_class.new(form, organization) }
 
-    let(:form) { CensusDataForm.new(file:) }
+    let(:form) { CensusDataForm.new(file: file) }
     let(:organization) { create(:organization) }
 
     context "when the file is in invalid format" do
