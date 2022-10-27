@@ -71,8 +71,8 @@ describe Decidim::ParticipatoryProcessGroups::ContentBlocks::TitleCell, type: :c
     end
 
     context "when there are unpublished processes in the group" do
-      let!(:published_processes) { create_list(:participatory_process, 2, :published, organization:, participatory_process_group:) }
-      let!(:unpublished_processes) { create_list(:participatory_process, 2, :unpublished, organization:, participatory_process_group:) }
+      let!(:published_processes) { create_list(:participatory_process, 2, :published, organization: organization, participatory_process_group: participatory_process_group) }
+      let!(:unpublished_processes) { create_list(:participatory_process, 2, :unpublished, organization: organization, participatory_process_group: participatory_process_group) }
 
       it "shows correct participatory processes count" do
         expect(subject).to have_content("2 processes")
