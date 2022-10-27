@@ -142,7 +142,7 @@ describe "Conference registrations", type: :system do
   end
 
   context "and the user has been invited to the conference" do
-    let!(:invite) { create(:conference_invite, user:, registration_type:) }
+    let!(:invite) { create(:conference_invite, user: user, registration_type: registration_type) }
 
     it "requires the user to sign in" do
       visit_conference_registration_type

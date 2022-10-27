@@ -62,7 +62,7 @@ module Decidim
       end
 
       def already_joined_conference?
-        conference.conference_registrations.where(user:).any?
+        conference.conference_registrations.where(user: user).any?
       end
 
       def send_email_pending_validation
