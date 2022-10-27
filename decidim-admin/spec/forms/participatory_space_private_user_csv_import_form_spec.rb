@@ -40,6 +40,12 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when the CSV separator is incorrect" do
+        let(:file) { upload_test_file(Decidim::Dev.asset("import_participatory_space_private_users_invalid_col_sep.csv")) }
+
+        it { is_expected.to be_invalid }
+      end
+
       context "when the provided file is encoded with incorrect character set" do
         let(:file) { upload_test_file(Decidim::Dev.asset("import_participatory_space_private_users_iso8859-1.csv")) }
 

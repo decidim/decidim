@@ -43,7 +43,7 @@ describe "Proposals", type: :system do
 
       it "has helper character counter" do
         within "form.new_proposal" do
-          expect(find(".editor").sibling(".input-character-counter__text")).to have_content("At least 15 characters", count: 1)
+          expect(find(".editor").sibling("[id$=_characters]")).to have_content("At least 15 characters", count: 1)
         end
       end
     end
