@@ -14,6 +14,10 @@ edit_link(
 )
 %>
 
+<%# NOTE: This page is wrapped within a main tag, in order to
+    include the hero inside the two-column layout.
+    Therefore is mandatory to pass the "main_enabled: false" flag
+    to the layout_two_col for disabling the original main. %>
 <main>
 
   <%= content_for :aside do %>
@@ -33,8 +37,9 @@ edit_link(
 
   <%= render layout:"layouts/decidim/shared/layout_two_col", locals: { reverse: true, main_enabled: false } do %>
 
-    <%# REDESIGN_PENDING: Uncomment after https://github.com/decidim/decidim/pull/10005 %>
+    <%# REDESIGN_PENDING: Uncomment after https://github.com/decidim/decidim/pull/10005 and remove the old one %>
     <%#= redesigned_participatory_space_floating_help %>
+    <%= participatory_space_floating_help %>
 
     <section class="content-block">
       <h2 class="h2 decorator"><%= t("conferences.show.introduction", scope: "decidim") %></h2>
