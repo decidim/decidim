@@ -26,7 +26,7 @@ module Decidim
       #
       # Returns an ActiveRecord::Relation.
       def linked_resources(resource_name, link_name, component_published: true)
-        scope = sibling_scope(resource_name, component_published:)
+        scope = sibling_scope(resource_name, component_published: component_published)
 
         from = scope
                .joins(:resource_links_from)

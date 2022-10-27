@@ -103,9 +103,9 @@ module Decidim
                 it "doesn't import it again" do
                   expect do
                     command.call
-                  end.to change { Project.where(budget:).count }.by(1)
+                  end.to change { Project.where(budget: budget).count }.by(1)
 
-                  projects = Project.where(budget:)
+                  projects = Project.where(budget: budget)
                   first_project = projects.first
                   last_project = projects.last
                   expect(first_project.title).to eq(proposal.title)
