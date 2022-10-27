@@ -7,20 +7,11 @@
 
   &__map{
     /* negative main padding values */
-    @apply md:-ml-16 -mt-6 md:-mt-12 aspect-[21/9];
+    @apply md:-ml-16 -mt-6 md:-mt-12 aspect-[21/9] [&>*]:h-full;
   }
 
   &__link{
     @apply py-6 flex items-center justify-end gap-1 text-secondary;
-  }
-
-  &__text{
-    @apply flex flex-col;
-
-    &-details{
-      /* REDESIGN_PENDING: enable when available. Current in https://github.com/decidim/decidim/pull/9772 */
-      // @apply item-list__metadata;
-    }
   }
 
   &__modal{

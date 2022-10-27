@@ -5,15 +5,16 @@
 <% else %>
   <div id="meetings" class="meeting-list__container">
     <% meetings.each do |meeting| %>
+      <%# REDESIGN_PENDING: This should be the meetings_m card %>
       <a href="<%= resource_locator(meeting).path %>" class="meeting-list">
         <div class="meeting__calendar">
           <div class="meeting__calendar-month"><%= l(meeting.start_time, format: "%b") %></div>
           <div class="meeting__calendar-day"><%= l(meeting.start_time, format: "%d") %></div>
           <div class="meeting__calendar-time"><%= l(meeting.start_time, format: "%H:%m") %></div>
         </div>
-        <div class="meeting-list__text">
+        <div class="item-list__content">
           <h2 class="h4 text-secondary"><%= translated_attribute meeting.title %></h2>
-          <div class="meeting__text-details">
+          <div class="item-list__metadata">
             <%
               # REDESIGN_PENDING: Complete all possible details
 
