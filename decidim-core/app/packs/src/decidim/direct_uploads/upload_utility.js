@@ -1,4 +1,8 @@
-// REDESIGNED_PENDING: deprecated on redesign
+// eslint-disable-next-line valid-jsdoc
+/**
+ * @deprecated since feature/redesign
+ */
+// REDESIGN_PENDING: deprecated on redesign
 export const checkTitles = (parentElement, saveButton) => {
   let everyItemHasTitle = true;
 
@@ -30,7 +34,11 @@ export const truncateFilename = (filename, maxLength = 31) => {
   return `${filename.slice(0, charactersFromBegin)}...${filename.slice(-charactersFromEnd)}`;
 }
 
-// REDESIGNED_PENDING: deprecated on redesign
+// eslint-disable-next-line valid-jsdoc
+/**
+ * @deprecated since feature/redesign
+ */
+// REDESIGN_PENDING: deprecated on redesign
 export const createHiddenInput = (elClasses, elName, elValue) => {
   const el = document.createElement("input");
   el.type = "hidden";
