@@ -7,10 +7,10 @@ module Decidim::Devise
     routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
-    let(:inviter) { create(:user, :admin, organization:) }
+    let(:inviter) { create(:user, :admin, organization: organization) }
     let(:invitation_params) do
       {
-        organization:,
+        organization: organization,
         name: "Invited User",
         email: "inviteduser@example.org"
       }
@@ -28,7 +28,7 @@ module Decidim::Devise
         {
           invitation_token: user.raw_invitation_token,
           nickname: "invited_user",
-          password:,
+          password: password,
           password_confirmation: password
         }
       end
