@@ -512,13 +512,13 @@ en:
         index:
           promoted_processes: Highlighted processes
         participatory_process:
-          active_step: 'Current phase:'
+          active_step: Current phase
           more_info: More info
           more_info_about: More info about process %{resource_name}
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
         promoted_process:
-          active_step: 'Current phase:'
+          active_step: Current phase
           more_info: More info
           more_info_about: More info about process %{resource_name}
           take_part: Take part

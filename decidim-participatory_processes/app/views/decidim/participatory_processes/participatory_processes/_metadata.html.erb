@@ -1,0 +1,23 @@
+<%
+  # REDESIGN_PENDING: Integrate this
+
+  start_date_text = t("start_date", scope: "activemodel.attributes.participatory_process_step")
+  end_date_text = t("end_date", scope: "activemodel.attributes.participatory_process_step")
+
+  items = []
+  items << { icon: "direction-line", title: t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process"), method: :render, args: ["active_step"] }
+  items << { icon: "calendar-todo-line", title: "#{start_date_text} / #{end_date_text}", method: :content_tag, args: [:span, "20 dic 2022 / 20 dic 2045"] }
+
+  items << { icon: "archive-line", title: t("belongs_to_group", scope: "decidim.participatory_processes.show"), method: :link_to, args: [translated_attribute(participatory_process_group.title), participatory_process_group_path(participatory_process_group)] } if participatory_process_group.present?
+%>
+<div class="process__metadata">
+  <% items.each_with_object({}) do |item| %>
+    <div class="process__metadata-item">
+      <div class="process__metadata-item-title">
+        <%= icon item[:icon] %>
+        <span><%= item[:title] %></span>
+      </div>
+      <%= send(item[:method], *item[:args]).to_s.html_safe %>
+    </div>
+  <% end %>
+</div>

@@ -14,7 +14,15 @@
   )
 %>
 
-<div class="container mt-6">
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_participatory_processes", media: "all" %>
+<% end %>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_participatory_processes" %>
+<% end %>
+
+<div class="process__container">
 
   <%= redesigned_participatory_space_floating_help %>
 
@@ -27,21 +35,15 @@
   <section class="content-block">
     <h2 class="h2 decorator"><%= t(".title") %></h2>
 
-    <% if participatory_process_group.present? %>
-      <%= render partial: "participatory_process_group" %>
-    <% end %>
-
     <div class="content-block__description">
       <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
     </div>
 
-    <div class="content-block__description">
-      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
-    </div>
-  </section>
+    <%#= REDESIGN_PENDING: Move this to new web %>
+    <%#= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
 
-  <section class="content-block">
-    <%= attachments_for current_participatory_space %>
+    <%= render partial: "metadata" %>
+
   </section>
 
   <section class="content-block">
@@ -78,15 +80,16 @@
     <%= render partial: "metrics" %>
   <% end %>
 
+  <section class="content-block">
+    <%= attachments_for current_participatory_space %>
+  </section>
+
 </div>
 
 <% if false %>
 <div class="row column">
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
-
-
-
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra">

@@ -10,4 +10,25 @@
       @apply text-lg font-semibold;
     }
   }
+
+  &__container{
+    @apply container mt-6;
+  }
+
+  &__metadata{
+    @apply border-t border-background py-6 flex;
+
+    &-item{
+      @apply px-10 first:pl-0 last:pr-0 border-l-2 border-background-3 first:border-l-0 font-semibold text-md text-gray-2;
+
+      &-title{
+        @apply flex gap-1 items-center mb-1 uppercase font-normal text-sm text-gray-2 [&>svg]:text-gray [&>svg]:fill-current;
+      }
+
+      > a,
+      > button{
+        @apply text-secondary underline;
+      }
+    }
+  }
 }
