@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 module AxeMatchers
+  def self.axe_version
+    @axe_version ||= begin
+      package = JSON.load_file(Rails.root.join("node_modules/axe-core/package.json"))
+      package["version"]
+    end
+  end
+
+  def self.axe_mainline_version
+    @axe_mainline_version ||= axe_version.split(".")[0..1].join(".")
+  end
+
   class ResultFormatter
     def initialize(result)
       @result = result

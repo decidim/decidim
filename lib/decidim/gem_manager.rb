@@ -105,6 +105,8 @@ module Decidim
         package_dirs do |dir|
           new(dir).replace_package_version
         end
+
+        replace_antora_version
       end
 
       def install_all(out: $stdout)
@@ -206,6 +208,12 @@ module Decidim
 
       def version_file
         File.join(root, ".decidim-version")
+      end
+
+      def replace_antora_version
+        antora_conf = File.join(root, "docs/antora.yml")
+        docs_version = version.match?(/\.dev$/) ? "develop" : "v#{version.match(/(\d*).(\d*)/)[0]}"
+        File.write(antora_conf, File.read(antora_conf).sub(/^version: .+/, "version: #{docs_version}"))
       end
     end
 

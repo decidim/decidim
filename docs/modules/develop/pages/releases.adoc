@@ -227,6 +227,42 @@ That way they don't synchronize with Github.
 At the top you should have an `Unreleased` header with the `Added`, `Changed`, `Fixed` and `Removed` empty sections.
 After that, the header with the current version.
 Add the `Unreleased` section or create the new current version section.
+. Update the version in the documentation system that we use, Antora. For the https://github.com/decidim/decididm[decidim repository] this is done automatically when bumping the versions. For the https://github.com/decidim/documentation[documentation repository]:
+... Create and push the branch in that repository: `git checkout release/0.XX-stable && git push origin release/x.y-stable`
+... Add the new version on the https://github.com/decidim/documentation/blob/develop/antora-playbook.yml[antora-playbook.yml] `branches` key, for the both sources (decidim and documentation repository). Don't forget to also remove the oldest and change the new default in the `start_page` key. For instance for v0.28 this is how it'd look like:
+[source,diff]
+----
+diff --git a/antora-playbook.yml b/antora-playbook.yml
+index 31be47c..75c7d5e 100644
+--- a/antora-playbook.yml
++++ b/antora-playbook.yml
+@@ -1,21 +1,21 @@
+ site:
+   title: Decidim Docs
+   url: https://docs.decidim.org
+-  start_page: v0.27@en:ROOT:index.adoc
++  start_page: v0.28@en:ROOT:index.adoc
+ content:
+   sources:
+     - url:
+       start_path: en
+       branches:
++        - release/0.28-stable
+         - release/0.27-stable
+-        - release/0.26-stable
+         - develop
+       edit_url: "https://github.com/decidim/documentation/edit/{refname}/{path}"
+     - url: https://github.com/decidim/decidim
+       start_path: docs
+       branches:
++        - release/0.28-stable
+         - release/0.27-stable
+-        - release/0.26-stable
+         - develop
+     - url: https://github.com/decidim/decidim-bulletin-board
+       start_path: docs
+----
+After you commit this change in `develop` branch you'll have to wait a couple minutes for the automatic deployment to see it live at https://docs.decidim.org.
 
 == Releasing patch versions
 

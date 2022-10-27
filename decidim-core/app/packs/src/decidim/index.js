@@ -10,7 +10,6 @@ import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 import scrollToLastChild from "src/decidim/scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormValidator from "src/decidim/form_validator"
-import CommentsComponent from "src/decidim/comments/comments.component"
 import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
 import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
@@ -28,7 +27,6 @@ window.Decidim.ExternalLink = ExternalLink;
 window.Decidim.InputCharacterCounter = InputCharacterCounter;
 window.Decidim.FormValidator = FormValidator;
 window.Decidim.DataPicker = DataPicker;
-window.Decidim.CommentsComponent = CommentsComponent;
 window.Decidim.addInputEmoji = addInputEmoji;
 window.Decidim.EmojiButton = EmojiButton;
 
@@ -85,14 +83,6 @@ $(() => {
     }
 
     createCharacterCounter($input);
-  });
-
-  // Mount comments component
-  $("[data-decidim-comments]").each((_i, el) => {
-    const $el = $(el);
-    const comments = new CommentsComponent($el, $el.data("decidim-comments"));
-    comments.mountComponent();
-    $(el).data("comments", comments);
   });
 
   $("form.new_filter").each(function () {
