@@ -89,12 +89,7 @@ module Decidim
                         icon_name: "chat",
                         position: 2.4,
                         active: is_active_link?(decidim_admin_initiatives.initiatives_path) ||
-                                is_active_link?(decidim_admin_initiatives.initiatives_types_path) ||
-                                is_active_link?(
-                                  decidim_admin_initiatives.edit_initiatives_setting_path(
-                                    Decidim::InitiativesSettings.find_or_create_by!(organization: current_organization)
-                                  )
-                                ),
+                                is_active_link?(decidim_admin_initiatives.initiatives_types_path),
                         if: allowed_to?(:enter, :space_area, space_name: :initiatives)
         end
       end
