@@ -161,8 +161,8 @@ shared_examples "manage moderations" do
     let!(:moderations) do
       comments.map do |reportable|
         space = reportable.is_a?(Decidim::Participable) ? reportable : reportable.participatory_space
-        moderation = create(:moderation, reportable:, report_count: 1, participatory_space: space, reported_content: reportable.reported_searchable_content_text)
-        create(:report, moderation:)
+        moderation = create(:moderation, reportable: reportable, report_count: 1, participatory_space: space, reported_content: reportable.reported_searchable_content_text)
+        create(:report, moderation: moderation)
 
         reportable.root_commentable.destroy!
         reportable.reload
