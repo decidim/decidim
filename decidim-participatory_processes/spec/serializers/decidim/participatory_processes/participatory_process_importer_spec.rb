@@ -7,7 +7,7 @@ module Decidim::ParticipatoryProcesses
     subject { importer }
 
     let(:organization) { create(:organization) }
-    let(:user) { create(:user, :confirmed, :admin, organization:) }
+    let(:user) { create(:user, :confirmed, :admin, organization: organization) }
     let(:importer) { described_class.new(organization, user) }
 
     describe "#import" do
