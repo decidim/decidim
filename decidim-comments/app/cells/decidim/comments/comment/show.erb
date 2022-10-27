@@ -38,7 +38,7 @@
       <% if replies.length >= 1 %>
         <div data-component="accordion">
           <div class="block text-center relative top-4 z-[1] -mt-10">
-            <button class="button button__sm button__text-secondary bg-background-2" data-controls="panel-<%= model.id %>-replies">
+            <button id="panel-trigger-<%= model.id %>-replies" class="button button__sm button__text-secondary bg-background-2" data-controls="panel-<%= model.id %>-replies">
               <span><%= replies.length %> respostes</span>
               <%= icon "arrow-down-s-line" %>
             </button>
