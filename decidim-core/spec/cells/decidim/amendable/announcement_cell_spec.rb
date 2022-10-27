@@ -8,12 +8,12 @@ describe Decidim::Amendable::AnnouncementCell, type: :cell do
   controller Decidim::PagesController
 
   let(:my_cell) { cell("decidim/amendable/announcement", emendation) }
-  let!(:amendment) { create(:amendment, amendable:, emendation:) }
+  let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation) }
   let(:component) { create(:proposal_component) }
-  let(:amendable) { create(:proposal, component:, title: %(Testing <a href="https://example.org">proposal</a>)) }
-  let(:emendation) { create(:proposal, component:) }
+  let(:amendable) { create(:proposal, component: component, title: %(Testing <a href="https://example.org">proposal</a>)) }
+  let(:emendation) { create(:proposal, component: component) }
   let!(:linked_proposal) do
-    pr = create(:proposal, component:)
+    pr = create(:proposal, component: component)
     emendation.link_resources(pr, "created_from_rejected_emendation")
     pr
   end
