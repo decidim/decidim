@@ -5,11 +5,11 @@ require "spec_helper"
 module Decidim
   describe NotificationsDigestMailer, type: :mailer do
     let(:organization) { create(:organization, name: "O'Connor") }
-    let(:user) { create(:user, name: "Sarah Connor", organization:) }
+    let(:user) { create(:user, name: "Sarah Connor", organization: organization) }
     let(:notification_ids) { [notification.id] }
-    let(:notification) { create :notification, user:, resource: }
-    let(:component) { create(:component, manifest_name: "dummy", organization:) }
-    let(:resource) { create(:dummy_resource, title: { en: %(Testing <a href="/resource">resource</a>) }, component:) }
+    let(:notification) { create :notification, user: user, resource: }
+    let(:component) { create(:component, manifest_name: "dummy", organization: organization) }
+    let(:resource) { create(:dummy_resource, title: { en: %(Testing <a href="/resource">resource</a>) }, component: component) }
 
     describe "digest_mail" do
       subject { described_class.digest_mail(user, notification_ids) }

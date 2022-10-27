@@ -77,10 +77,10 @@ module Decidim
 
       context "when the event has a linked resource" do
         shared_examples "amendment notification mails" do
-          let!(:amendment) { create(:amendment, amendable:, emendation:) }
+          let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation) }
           let(:component) { create(:proposal_component) }
-          let(:amendable) { create(:proposal, component:) }
-          let(:emendation) { create(:proposal, component:, title: %(Testing <a href="https://example.org">proposal</a>)) }
+          let(:amendable) { create(:proposal, component: component) }
+          let(:emendation) { create(:proposal, component: component, title: %(Testing <a href="https://example.org">proposal</a>)) }
           let(:link_to_emendation) { ::Decidim::ResourceLocatorPresenter.new(emendation).url }
           let(:resource) { emendation }
 
