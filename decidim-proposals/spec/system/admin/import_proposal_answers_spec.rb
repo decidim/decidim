@@ -42,8 +42,8 @@ describe "Import proposal answers", type: :system do
   it_behaves_like "admin manages proposal answer imports"
 
   context "with the votings space" do
-    let(:participatory_space) { create(:voting, organization:) }
-    let(:component) { create(:proposal_component, participatory_space:, organization:) }
+    let(:participatory_space) { create(:voting, organization: organization) }
+    let(:component) { create(:proposal_component, participatory_space: participatory_space, organization: organization) }
 
     it_behaves_like "admin manages proposal answer imports"
   end
