@@ -408,13 +408,13 @@ en:
               <ul>
               <li><b>id:</b> ID of the proposal to answer</li>
               <li><b>state:</b> One of "accepted", "evaluating", or "rejected"</li>
-              <li><b>answer/I18N:</b> Answer on X language</li>
+              <li><b>answer/en:</b> Answer on English language. This will depend on your platform language configuration.</li>
               </ul>
             proposals: |
               The file must have the following column names in case of CSV or Excel files, or key names in case of JSON files:
               <ul>
-              <li><b>title/I18N:</b> Title on X language</li>
-              <li><b>body/I18N:</b> Body on X language</li>
+              <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
+              <li><b>body/en:</b> Body on English language. This will depend on your platform language configuration.</li>
               <li><b>scope/id:</b> ID for the Scope</li>
               <li><b>category/id:</b> ID for the Category</li>
               </ul>

@@ -64,8 +64,8 @@ en:
                 <li><b>category/id:</b> ID for the Category</li>
                 <li><b>scope/id:</b> ID for the Scope</li>
                 <li><b>parent/id:</b> ID of the parent (for related Results). Optional</li>
-                <li><b>title/I18N:</b> Title on X language</li>
-                <li><b>description/I18N:</b> Description on X language</li>
+                <li><b>title/en:</b> Title on English language. This will depend on your platform language configuration.</li>
+                <li><b>description/en:</b> Description on English language. This will depend on your platform language configuration.</li>
                 <li><b>start_date:</b> date when the result starts execution (format YYYY-MM-DD)</li>
                 <li><b>end_date:</b> date when the result ends execution (format YYYY-MM-DD)</li>
                 <li><b>status/id:</b> ID of the Status for this result</li>
