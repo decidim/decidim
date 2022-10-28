@@ -101,15 +101,6 @@ module Decidim
       redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
 
-    # REDESIGN_PENDING: remove this helper
-    def arrow_link(text, url, args = {})
-      content_tag :a, href: url, class: "arrow-link #{args.with_indifferent_access[:class]}" do
-        inner = text
-        inner += redesigned_icon("arrow-right-line", class: "fill-current")
-        inner.html_safe
-      end
-    end
-
     # Outputs a SVG icon from an external file. It apparently renders an image
     # tag, but then a JS script kicks in and replaces it with an inlined SVG
     # version.
