@@ -105,7 +105,7 @@ describe "User edit meeting", type: :system do
 
         within "textarea#meeting_description" do
           expect(page).to have_content translated(meeting.description)
-          expect(page).to have_no_content '<div class="ql-editor ql-reset-decidim">'
+          expect(page).to have_no_content '<div class="ql-editor">'
         end
       end
     end

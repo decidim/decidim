@@ -47,7 +47,7 @@ module Decidim
     # rubocop:enable Metrics/ParameterLists
 
     def create_language_selector(locales, tabs_id, name)
-      if Decidim.available_locales.count > 4
+      if locales.count > 4
         language_selector_select(locales, tabs_id, name)
       else
         language_tabs(locales, tabs_id, name)
@@ -598,7 +598,7 @@ module Decidim
       content = content.html_safe
 
       html = error_and_help_text(attribute, options.merge(help_text:))
-      html + wrap_prefix_and_postfix(content, prefix, postfix)
+      wrap_prefix_and_postfix(content, prefix, postfix) + html
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity

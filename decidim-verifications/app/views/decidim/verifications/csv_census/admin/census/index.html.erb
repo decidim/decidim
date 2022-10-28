@@ -28,12 +28,7 @@
   </div>
   <div class="card-section">
     <p><%= t("decidim.verifications.csv_census.admin.new.info") %></p>
-    <pre class="code-block">
-    user@example.org
-    user2@example.org
-    ...
-    ...
-    </pre>
+    <pre class="code-block"><%= t("decidim.verifications.csv_census.admin.new.example") %></pre>
     <%= decidim_form_for @form, url: census_path, multipart: true do |form| %>
       <%= label_tag :file, t("admin.new.file", scope: "decidim.verifications.csv_census") %>
       <%= form.file_field :file %>
