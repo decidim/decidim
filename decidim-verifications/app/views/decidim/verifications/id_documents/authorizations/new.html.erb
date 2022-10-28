@@ -1,5 +1,5 @@
   <div class="text-center py-10">
-    <h1 class="h1 decorator inline-block text-left">
+    <h1 class="h3 md:h1 decorator inline-block text-left">
       <%= t("decidim.verifications.id_documents.authorizations.new.title") %>
     </h1>
   </div>
@@ -10,7 +10,7 @@
     <%= decidim_form_for(@form, url: authorization_path) do |form| %>
       <%= render partial: "form", locals: { form: form } %>
 
-      <div class="form__wrapper-block flex-row justify-between">
+      <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
         <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
           <%= icon "arrow-left-line", class: "fill-current" %>
           <%= t("decidim.wizard_step_form.wizard_aside.back") %>
