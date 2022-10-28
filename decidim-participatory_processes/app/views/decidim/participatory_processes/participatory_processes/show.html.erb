@@ -39,7 +39,11 @@
       <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
     </div>
 
-    <%#= REDESIGN_PENDING: Move this to new web %>
+    <%= link_to "#", class: "button button__lg button__text-secondary" do %>
+      <span><%= t("more_info", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+    <%#= REDESIGN_PENDING: Move this where the link points to (new view) %>
     <%#= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
 
     <%= render partial: "metadata" %>

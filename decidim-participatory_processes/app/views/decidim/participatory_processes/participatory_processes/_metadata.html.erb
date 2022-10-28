@@ -7,7 +7,6 @@
   items = []
   items << { icon: "direction-line", title: t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process"), method: :render, args: ["active_step"] }
   items << { icon: "calendar-todo-line", title: "#{start_date_text} / #{end_date_text}", method: :content_tag, args: [:span, "20 dic 2022 / 20 dic 2045"] }
-
   items << { icon: "archive-line", title: t("belongs_to_group", scope: "decidim.participatory_processes.show"), method: :link_to, args: [translated_attribute(participatory_process_group.title), participatory_process_group_path(participatory_process_group)] } if participatory_process_group.present?
 %>
 <div class="process__metadata">
@@ -20,4 +19,14 @@
       <%= send(item[:method], *item[:args]).to_s.html_safe %>
     </div>
   <% end %>
+  <a href="#activity" class="process__metadata-link">
+    <div class="process__metadata-link-endorsers">
+      <% Decidim::User.take(6).each do |user| %>
+        <span class="endorsers-list__avatar">
+          <%= cell "decidim/author", present(user), layout: :avatar, skip_profile_link: true %>
+        </span>
+      <% end %>
+    </div>
+    <span><%= t("see_all_activity", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
+  </a>
 </div>
