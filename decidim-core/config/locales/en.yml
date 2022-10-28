@@ -394,6 +394,7 @@ en:
       started_at: Started at %{timestamp}
     authorization_modals:
       content:
+        close_modal: Close modal
         expired:
           authorize: Reauthorize with "%{authorization}"
           explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
@@ -424,8 +425,6 @@ en:
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
-      show:
-        close_modal: Close modal
     block_user_mailer:
       notify:
         body_1: Your account was blocked.

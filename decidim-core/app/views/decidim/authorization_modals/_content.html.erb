@@ -1,3 +1,7 @@
+<button class="close-button" data-close aria-label="<%= t ".close_modal" %>" type="button">
+  <span aria-hidden="true">&times;</span>
+</button>
+
 <% if current_user && !current_user.verifiable? %>
   <div class="reveal__header missing-confirmation">
     <h3 class="reveal__title"><%= t ".unconfirmed.title" %></h3>
