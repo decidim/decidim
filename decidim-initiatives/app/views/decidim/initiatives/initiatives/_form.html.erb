@@ -61,7 +61,9 @@
 <% end %>
 
 <% signature_type_options = signature_type_options(form.object) %>
-<% if signature_type_options.length > 1 %>
+<% if signature_type_options.length == 1 %>
+  <%= form.hidden_field :signature_type %>
+<% else %>
   <div class="field">
     <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
   </div>
