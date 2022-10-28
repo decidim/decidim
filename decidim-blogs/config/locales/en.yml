@@ -65,13 +65,13 @@ en:
     components:
       blogs:
         actions:
-          create: Create
-          destroy: Delete
-          update: Update
-          endorse: Endorse
-          vote: Vote
           amend: Amend
           comment: Comment
+          create: Create
+          destroy: Delete
+          endorse: Endorse
+          update: Update
+          vote: Vote
         name: Blog
         settings:
           global:
