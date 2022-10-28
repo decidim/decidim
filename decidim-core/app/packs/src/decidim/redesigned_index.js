@@ -78,6 +78,7 @@ import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
+import RemoteModal from "src/decidim/redesigned_ajax_modals"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -173,6 +174,9 @@ const initializer = () => {
         describedby: `dialog-desc-${dialog}`
       })
   );
+
+  // Initialize available remote modals (ajax-fetched contents)
+  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
 
   markAsReadNotifications()
 
