@@ -26,6 +26,10 @@
     border-color: $medium-gray;
     border-left: 8px solid var(--alert);
   }
+
+  a{
+    text-decoration: underline;
+  }
 }
 
 .callout.flash{
