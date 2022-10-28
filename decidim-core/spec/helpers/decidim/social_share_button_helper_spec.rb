@@ -6,6 +6,13 @@ module Decidim
   describe SocialShareButtonHelper do
     let(:args) { { url: "http://example.org" } }
     let(:result) { helper.social_share_button_tag("Hello", **args) }
+    let(:redesign_enabled) { false }
+
+    before do
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+      # rubocop:enable RSpec/AnyInstance
+    end
 
     describe "social_share_button_tag" do
       it "renders the class" do
