@@ -2,19 +2,19 @@
   @apply inline-flex items-center justify-center font-semibold border border-transparent rounded whitespace-nowrap transition cursor-pointer;
 
   &__xs{
-    @apply text-sm [&:not(.ignore-px)]:px-3 py-1 gap-1;
+    @apply text-sm px-3 py-1 gap-1;
   }
 
   &__sm{
-    @apply text-sm [&:not(.ignore-px)]:px-4 py-1.5 gap-1.5;
+    @apply text-sm px-4 py-1.5 gap-1.5;
   }
 
   &__lg{
-    @apply text-lg [&:not(.ignore-px)]:px-6 py-3 gap-2;
+    @apply text-lg px-6 py-3 gap-2;
   }
 
   &__xl{
-    @apply text-xl [&:not(.ignore-px)]:px-8 py-4 gap-4;
+    @apply text-xl px-8 py-4 gap-4;
   }
 
   &__primary{
@@ -46,7 +46,7 @@
   }
 
   &__text{
-    @apply bg-transparent text-black border-0;
+    @apply bg-transparent text-black border-0 px-0 hover:underline;
 
     &-primary{
       @apply button__text text-primary;
@@ -66,10 +66,9 @@
   }
 
   &__transparent:hover,
-  &:not(.ignore-hover):hover{
+  &:not([class*="button__text"]):hover{
     @apply text-white;
 
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), theme('colors.secondary');
   }
-
 }
