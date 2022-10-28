@@ -6,6 +6,7 @@
 <h1 class="h1 decorator"><%= t("decidim.components.budgets.name") %></h1>
 
 <% end %>
+
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <%= render partial: "decidim/shared/component_announcement_with_truncate" %>
   <%= render partial: "exit_modal" %>
@@ -67,8 +68,4 @@
     </div>
   </div>
 
-<% end %>
-
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_budgets" %>
 <% end %>
