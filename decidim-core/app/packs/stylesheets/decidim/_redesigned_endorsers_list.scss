@@ -24,7 +24,7 @@
   }
 
   &__trigger{
-    @apply flex -space-x-4;
+    @apply flex justify-start -space-x-4;
   }
 
   &__trigger:hover &__counter,
@@ -33,7 +33,7 @@
   }
 
   &__trigger[data-target*="dropdown"]{
-    @apply p-0;
+    @apply p-0 w-auto;
 
     > span{
       @apply inline-grid;
