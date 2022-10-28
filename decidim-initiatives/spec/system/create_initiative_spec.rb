@@ -507,12 +507,12 @@ describe "Initiative", type: :system do
 
           it "shows input for signature collection type" do
             expect(page).to have_content("Signature collection type")
-            expect(find(:xpath, "//select[@id='initiative_signature_type']", visible: :all).value).to eq('')
+            expect(find(:xpath, "//select[@id='initiative_signature_type']", visible: :all).value).to eq("")
           end
 
           it "shows input for hashtag" do
             expect(page).to have_content("Hashtag")
-            expect(find(:xpath, "//input[@id='initiative_hashtag']", visible: :all).value).to eq('')
+            expect(find(:xpath, "//input[@id='initiative_hashtag']", visible: :all).value).to eq("")
           end
 
           context "when only one signature collection and scope are available" do
