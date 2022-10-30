@@ -18,7 +18,7 @@ In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim,
 
 == 1. Installing rbenv
 
-First, we're going to install https://github.com/rbenv/rbenv[rbenv], for managing various ruby versions. You could also use https://rvm.io/[rvm] or https://github.com/asdf-vm/asdf[asdf] as alternatives on this step. Mind that at the moment, Decidim isn't compatible with Ruby 3.0.
+First, we're going to install https://github.com/rbenv/rbenv[rbenv], for managing various ruby versions. You could also use https://rvm.io/[rvm] or https://github.com/asdf-vm/asdf[asdf] as alternatives on this step. Decidim is compatible with Ruby >= 3.0.
 
 [source,bash]
 ----
@@ -29,8 +29,8 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.7.5
-rbenv global 2.7.5
+rbenv install 3.1.1
+rbenv global 3.1.1
 ----
 
 == 2. Installing PostgreSQL
