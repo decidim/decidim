@@ -177,6 +177,13 @@ const initializer = () => {
   markAsReadNotifications()
 
   scrollToLastChild()
+
+  document.querySelectorAll("[data-drawer]").forEach(
+    ({ dataset: { drawer } }) =>
+    new Dialogs(`[data-drawer="${drawer}"]`, {
+      closingSelector: `[data-drawer-close="${drawer}"]`
+    }).open()
+  )
 }
 
 if ("Turbo" in window) {
