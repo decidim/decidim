@@ -33,7 +33,7 @@ module Decidim
     end
 
     def turbo_frame_options
-      return {} unless options[:turbo_frame].present?
+      return {} if options[:turbo_frame].blank?
 
       { data: { turbo_frame: options[:turbo_frame], turbo_action: "replace" } }
     end
