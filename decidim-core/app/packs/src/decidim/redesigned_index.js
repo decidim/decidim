@@ -198,7 +198,13 @@ if ("Turbo" in window) {
 }
 
 StreamActions.open_drawer = function() {
-  const frameId = this.getAttribute("frame_id")
+  const frameId = this.getAttribute("frame_id");
+  const drawerItem = document.getElementById(frameId);
+  const filteredPath = drawerItem.dataset.filteredPath;
+
+  if (filteredPath) {
+    drawerItem.querySelector("a[data-drawer-close]").setAttribute("href", filteredPath);
+  }
 
   document.querySelectorAll(`#${frameId} [data-drawer]`).forEach(
     ({ dataset: { drawer } }) =>
