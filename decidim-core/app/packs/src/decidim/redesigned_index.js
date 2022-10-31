@@ -205,11 +205,4 @@ StreamActions.open_drawer = function() {
   if (filteredPath) {
     drawerItem.querySelector("a[data-drawer-close]").setAttribute("href", filteredPath);
   }
-
-  document.querySelectorAll(`#${frameId} [data-drawer]`).forEach(
-    ({ dataset: { drawer } }) =>
-      new Dialogs(`[data-drawer="${drawer}"]`, {
-        closingSelector: `[data-drawer-close="${drawer}"]`
-      }).open()
-  )
 }
