@@ -7,7 +7,9 @@ module Decidim
       return unless enabled_services.length.positive?
 
       if redesign_enabled?
-        render_social_share_buttons(enabled_services, title, args)
+        content_tag :div, class: "share-modal__list", data: { social_share: "" } do
+          render_social_share_buttons(enabled_services, title, args)
+        end
       else
         content_tag :div, class: "social-share-button" do
           render_social_share_buttons(enabled_services, title, args)

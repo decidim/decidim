@@ -16,7 +16,7 @@ module Decidim
 
     describe "social_share_button_tag" do
       it "renders the class" do
-        expect(result).to include("[data-social-share]")
+        expect(result).to include(redesign_enabled ? "data-social-share" : "social-share-button")
       end
     end
 
@@ -90,7 +90,7 @@ module Decidim
           let(:args) { { hashtags: "Hello" } }
 
           it "renders the correct HTML" do
-            expect(result).to eq(%(<div data-social-share=""></div>))
+            expect(result).to eq(redesign_enabled ? %(<div class="share-modal__list" data-social-share=""></div>) : %(<div class="social-share-button"></div>))
           end
         end
       end
