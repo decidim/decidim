@@ -10,10 +10,9 @@ import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 import scrollToLastChild from "src/decidim/scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "src/decidim/redesigned_input_character_counter"
 import FormValidator from "src/decidim/form_validator"
-import CommentsComponent from "src/decidim/comments/comments.component"
 import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
-import addInputEmoji, { CreateEmojiButton } from "src/decidim/input_emoji"
+import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
 import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
@@ -28,9 +27,8 @@ window.Decidim.ExternalLink = ExternalLink;
 window.Decidim.InputCharacterCounter = InputCharacterCounter;
 window.Decidim.FormValidator = FormValidator;
 window.Decidim.DataPicker = DataPicker;
-window.Decidim.CommentsComponent = CommentsComponent;
 window.Decidim.addInputEmoji = addInputEmoji;
-window.Decidim.CreateEmojiButton = CreateEmojiButton;
+window.Decidim.EmojiButton = EmojiButton;
 
 /**
  * Initializer event for those script who require to be triggered
@@ -86,14 +84,6 @@ $(() => {
     }
 
     createCharacterCounter($input);
-  });
-
-  // Mount comments component
-  $("[data-decidim-comments]").each((_i, el) => {
-    const $el = $(el);
-    const comments = new CommentsComponent($el, $el.data("decidim-comments"));
-    comments.mountComponent();
-    $(el).data("comments", comments);
   });
 
   $("form.new_filter").each(function () {
