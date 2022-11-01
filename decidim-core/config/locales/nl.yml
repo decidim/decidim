@@ -1486,15 +1486,6 @@ nl:
       updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
       destroyed: Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
-      edit:
-        are_you_sure: Weet je het zeker?
-        cancel_my_account: Annuleer mijn account
-        currently_waiting_confirmation_for_email: 'Momenteel wachtende bevestiging voor: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laat leeg als je het niet wilt wijzigen
-        title: Bewerk %{resource}
-        unhappy: Ongelukkig?
-        update: Bijwerken
-        we_need_your_current_password_to_confirm_your_changes: we hebben je huidige wachtwoord nodig om je wijzigingen te bevestigen
       new:
         sign_up: Aanmelden
       signed_up: Welkom! Je hebt je succesvol aangemeld.
