@@ -24,7 +24,6 @@ de:
           success: Vorlage erfolgreich gelöscht
         empty: Es gibt noch keine Vorlagen.
         update:
-          error: Bei der Aktualisierung dieser Vorlage ist ein Problem aufgetreten.
           success: Vorlage erfolgreich aktualisiert
       titles:
         template_types:
