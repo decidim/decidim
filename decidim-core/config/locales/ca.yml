@@ -1598,7 +1598,7 @@ ca:
         other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
-      too_short: És massa curt (menys de 15 caràcters)
+      too_short: És massa curt (menys %{count} caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:
