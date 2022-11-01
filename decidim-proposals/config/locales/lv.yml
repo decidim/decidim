@@ -226,7 +226,6 @@ lv:
           affected_user:
             email_intro: 'Jūsu priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo esat "%{resource_title}" autors.
-            email_subject: Jūsu priekšlikums tika noraidīts
             notification_title: Jūsu priekšlikums <a href="%{resource_path}">%{resource_title}</a> tika noraidīts.
           follower:
             email_intro: 'Priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
@@ -526,7 +525,6 @@ lv:
             one: "%{count} sadarbības projekts"
             other: "%{count} sadarbības projekti"
         create:
-          error: Šo sadarbības projektu izveides laikā radās problēma
           success: Sadarbības projekts ir veiksmīgi izveidots.
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
