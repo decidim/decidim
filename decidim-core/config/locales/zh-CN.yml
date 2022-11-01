@@ -1402,7 +1402,6 @@ zh-CN:
         other: '处理您的请求时发生多个错误：'
       too_many_marks: 正在使用太多连续标点符号(例如! 和 ?)
       too_much_caps: 正在使用太多大写字母(超过25%文本)
-      too_short: 太短(低于15个字符)
   forms:
     correct_errors: 表单上有错误，请更正以继续。
     required: 必填字段
