@@ -24,7 +24,6 @@ hu:
           success: Sablon törlése sikeres
         empty: Nincsenek még sablonok.
         update:
-          error: Probléma merült fel a sablon frissítése során.
           success: A sablon sikeresen frissült
       titles:
         template_types:
