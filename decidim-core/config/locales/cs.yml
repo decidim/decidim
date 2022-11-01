@@ -1644,7 +1644,7 @@ cs:
         other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
-      too_short: je příliš krátká (pod 15 znaků)
+      too_short: je příliš krátká (pod %{count} znaků)
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
     length_validator:
