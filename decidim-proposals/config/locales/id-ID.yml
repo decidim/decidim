@@ -179,7 +179,6 @@ id:
           affected_user:
             email_intro: 'Proposal Anda "%{resource_title}" telah ditolak. Anda dapat membaca jawabannya di halaman ini:'
             email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah pengarang "%{resource_title}".
-            email_subject: Proposal Anda ditolak
             notification_title: Proposal Anda <a href="%{resource_path}">%{resource_title}</a> telah ditolak.
           follower:
             email_intro: 'Proposal "%{resource_title}" telah ditolak. Anda dapat membaca jawabannya di halaman ini:'
@@ -430,7 +429,6 @@ id:
           drafts_count:
             other: "%{count} draf kolaboratif"
         create:
-          error: Ada masalah saat membuat draf kolaboratif ini
           success: Draf kolaboratif berhasil dibuat.
         edit:
           attachment_legend: "(Opsional) Tambahkan lampiran"
