@@ -51,7 +51,7 @@ module Decidim
       end
     end
 
-    describe "comments count stat" do
+    describe "count stats from multiple components" do
       let(:manifest_proposals) do
         Decidim::ComponentManifest.new.tap do |manifest|
           manifest.name = "proposals"
@@ -66,14 +66,17 @@ module Decidim
 
       before do
         manifest_meetings.stats.register :comments_count, tag: :comments, &proc { 10 }
+        manifest_meetings.stats.register :endorsements_count, tag: :endorsements, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 5 }
         manifest_proposals.stats.register :comments_count, tag: :comments, &proc { 5 }
+        manifest_proposals.stats.register :endorsements_count, tag: :endorsements, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY, &proc { 3 }
 
         I18n.backend.store_translations(
           :en,
           decidim: {
             participatory_processes: {
               statistics: {
-                comments_count: "Comments"
+                comments_count: "Comments",
+                endorsements_count: "Endorsements"
               }
             }
           }
@@ -82,16 +85,20 @@ module Decidim
         allow(Decidim).to receive(:component_manifests).and_return([manifest_meetings, manifest_proposals])
       end
 
-      it "return the sum of all the comments from proposals and meetings" do
-        data = subject.collection.first
+      it "returns the sum of all the comments from proposals and meetings" do
+        data = subject.collection.find { |stat| stat[:stat_title] == :comments_count }
         expect(data).not_to be_nil
-        expect(data[:stat_title]).to eq :comments_count
         expect(data[:stat_number]).to eq 15
       end
 
-      it "contains only one stat" do
-        data = subject.collection.second
-        expect(data).to be_nil
+      it "returns the sum of all the endorsements from proposals and meetings" do
+        data = subject.collection.find { |stat| stat[:stat_title] == :endorsements_count }
+        expect(data).not_to be_nil
+        expect(data[:stat_number]).to eq 8
+      end
+
+      it "contains only two stats" do
+        expect(subject.collection.count).to be(2)
       end
     end
   end
