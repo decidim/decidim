@@ -3,6 +3,8 @@
 module Decidim
   # A heper to expose an easy way to add authorization forms in a view.
   module DecidimFormHelper
+    include Decidim::TagHelper
+
     # A custom form for that injects client side validations with Abide.
     #
     # record - The object to build the form for.

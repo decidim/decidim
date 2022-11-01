@@ -693,6 +693,8 @@ module Decidim
 
       config.to_prepare do
         FoundationRailsHelper::FlashHelper.include Decidim::FlashHelperExtensions
+        ActionView::Helpers.include Decidim::TagHelper
+        ActionView::Helpers::Tags::HiddenField.include Decidim::Tags::HiddenFieldExtensions
       end
     end
   end
