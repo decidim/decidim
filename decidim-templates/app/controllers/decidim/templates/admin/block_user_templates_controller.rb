@@ -14,6 +14,8 @@ module Decidim
             template: translated_attribute(template.description)
           }
 
+          Rails.logger.debug response_object.inspect
+
           respond_to do |format|
             format.json do
               render json: response_object.to_json

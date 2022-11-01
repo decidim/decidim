@@ -7,6 +7,7 @@ FactoryBot.define do
   factory :template, class: "Decidim::Templates::Template" do
     organization
     name { Decidim::Faker::Localized.sentence }
+    description { Decidim::Faker::Localized.sentence }
     target { "generic-template" }
     templatable { build(:dummy_resource) }
 

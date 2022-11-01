@@ -1,0 +1,16 @@
+<% templates = Decidim::Templates::Template .where(
+  target: :user_block,
+  templatable: [current_organization]
+).order(:templatable_id) %>
+<% if templates.any? %>
+  <div class="row column">
+    <%= javascript_pack_tag "decidim_templates_admin" %>
+
+    <select id="block_template_chooser" data-locale="en" data-url="<%= decidim_admin_templates.fetch_block_user_templates_url %>">
+      <option value=""><%= t(".select_template") %></option>
+      <% templates.each do |template| %>
+        <option value="<%= template.id %>"><%= translated_attribute(template.name) %></option>
+      <% end %>
+    </select>
+  </div>
+<% end %>
