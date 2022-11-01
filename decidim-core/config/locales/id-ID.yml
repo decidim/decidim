@@ -1116,7 +1116,6 @@ id:
       not_locked: tidak terkunci
       too_many_marks: menggunakan terlalu banyak tanda baca (misalnya! dan?)
       too_much_caps: menggunakan terlalu banyak huruf besar (lebih dari 25% dari teks)
-      too_short: terlalu pendek (kurang dari 15 karakter)
   forms:
     required: Wajib
   invisible_captcha:
