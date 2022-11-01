@@ -1544,7 +1544,6 @@ pt:
         other: 'Ocorreram diversos erros ao processar o seu pedido:'
       too_many_marks: está a usar muitos sinais de pontuação consecutivos (por exemplo, ! e ?)
       too_much_caps: está a usar muitas letras maiúsculas (acima de 25% do texto)
-      too_short: é muito curto (abaixo de 15 caracteres)
   forms:
     correct_errors: Existem erros no formulário, por favor corrija-os para continuar.
     length_validator:
