@@ -266,7 +266,6 @@ pl:
           affected_user:
             email_intro: 'Twoja propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem "%{resource_title}".
-            email_subject: Twoja propozycja została odrzucona
             notification_title: Twoja propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
           follower:
             email_intro: 'Propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
@@ -578,7 +577,6 @@ pl:
             many: "%{count} wspólne szkice"
             other: "%{count} wspólne szkice"
         create:
-          error: Podczas tworzenia wspólnych szkiców wystąpił błąd
           success: Utworzono wspólny szkic.
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
