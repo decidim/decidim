@@ -24,7 +24,6 @@ gl:
           success: Padrón eliminado con éxito
         empty: Aínda non hai padróns.
         update:
-          error: Produciuse un problema ao actualizar o padrón.
           success: Padrón actualizado con éxito
       titles:
         template_types:
