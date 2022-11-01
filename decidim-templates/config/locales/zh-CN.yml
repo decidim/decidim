@@ -17,7 +17,6 @@ zh-CN:
           success: 模板删除成功
         empty: 尚无模板。
         update:
-          error: 在更新此模板时出现问题。
           success: 模板更新成功
       titles:
         template_types:
