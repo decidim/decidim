@@ -1636,7 +1636,6 @@ lt:
         other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
-      too_short: per trumpas (mažiau nei 15 ženklų)
   forms:
     correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
     length_validator:
