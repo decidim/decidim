@@ -5,15 +5,21 @@ require "spec_helper"
 module Decidim
   module Templates
     module Admin
-      describe DestroyTemplate do
+      describe DestroyQuestionnaireTemplate do
         subject { described_class.new(template, user) }
 
         let(:organization) { create :organization }
         let(:user) { create :user, :admin, :confirmed, organization: }
         let(:template) { create :questionnaire_template, organization: }
+        let!(:templatable) { template.templatable }
 
         it "broadcasts ok" do
           expect { subject.call }.to broadcast(:ok)
+        end
+
+        it "destroy the templatable" do
+          described_class.call(template, user)
+          expect { templatable.reload }.to raise_error(ActiveRecord::RecordNotFound)
         end
 
         it "destroy the template" do
