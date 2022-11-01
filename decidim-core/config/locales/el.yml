@@ -1350,15 +1350,6 @@ el:
       updated_not_active: Ο κωδικός πρόσβασής σας άλλαξε με επιτυχία.
     registrations:
       destroyed: Ο λογαριασμός σας ακυρώθηκε με επιτυχία. Ελπίζουμε να σας ξαναδούμε σύντομα.
-      edit:
-        are_you_sure: Είστε βέβαιοι;
-        cancel_my_account: Ακύρωση του λογαριασμού μου
-        currently_waiting_confirmation_for_email: 'Αυτήν τη στιγμή αναμένεται επιβεβαίωση για τη διεύθυνση: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: αφήστε το κενό εάν δεν θέλετε να το αλλάξετε
-        title: Επεξεργασία του στοιχείου %{resource}
-        unhappy: Δεν είστε ικανοποιημένοι;
-        update: Ενημέρωση
-        we_need_your_current_password_to_confirm_your_changes: χρειαζόμαστε τον τρέχοντα κωδικό πρόσβασής σας για να επιβεβαιώσουμε τις αλλαγές σας
       new:
         sign_up: Εγγραφή
       signed_up: Καλώς ορίσατε! Έχετε εγγραφεί με επιτυχία.
