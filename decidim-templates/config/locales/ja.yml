@@ -24,7 +24,7 @@ ja:
           success: テンプレートが正常に削除されました
         empty: テンプレートはまだありません。
         update:
-          error: テンプレートのアップデート中に問題が発生しました。
+          error: テンプレートの更新中に問題が発生しました。
           success: テンプレートが正常に更新されました
       titles:
         template_types:
