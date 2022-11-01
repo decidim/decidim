@@ -308,7 +308,7 @@ es-PY:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
-            email_subject: Su propuesta ha sido rechazada
+            email_subject: Tu propuesta ha sido rechazada
             notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
@@ -636,7 +636,7 @@ es-PY:
             one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
-          error: Ha habido un problema al crear este borradores colaborativo
+          error: Hubo un problema al crear este borrador colaborativo.
           success: Borrador colaborativo creado con éxito.
         edit:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
