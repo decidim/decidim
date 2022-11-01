@@ -1512,7 +1512,6 @@ hu:
         other: 'Több hiba történt a művelet végrehajtása során:'
       too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
       too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
-      too_short: túl rövid (15 karakterig)
   forms:
     correct_errors: Az űrlap hibákat tartalmaz, kérjük, javítsa ezeket a folytatáshoz.
     length_validator:
