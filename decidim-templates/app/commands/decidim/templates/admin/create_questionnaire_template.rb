@@ -6,6 +6,7 @@ module Decidim
       # Creates a QuestionnaireTemplate.
       class CreateQuestionnaireTemplate < CreateTemplate
         protected
+
         def assign_template!
           @questionnaire = Decidim::Forms::Questionnaire.create!(questionnaire_for: @template)
           @template.update!(templatable: @questionnaire)

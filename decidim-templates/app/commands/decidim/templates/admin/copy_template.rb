@@ -20,7 +20,7 @@ module Decidim
 
           broadcast(:ok, @copied_template)
         end
-        
+
         def copy_template
           @copied_template = Template.create!(
             organization: @template.organization,

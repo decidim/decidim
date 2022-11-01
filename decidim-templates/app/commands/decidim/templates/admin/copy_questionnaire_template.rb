@@ -7,7 +7,6 @@ module Decidim
       class CopyQuestionnaireTemplate < CopyTemplate
         include Decidim::Templates::Admin::QuestionnaireCopier
 
-
         private
 
         attr_reader :form
