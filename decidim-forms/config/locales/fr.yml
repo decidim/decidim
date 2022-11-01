@@ -142,6 +142,8 @@ fr:
         single_option: Option unique
         sorting: Tri
         title_and_description: Titre et description
+      questionnaire_answer_presenter:
+        download_attachment: Télécharger la pièce jointe
       questionnaires:
         answer:
           invalid: Il y a eu des erreurs en répondant au questionnaire.
