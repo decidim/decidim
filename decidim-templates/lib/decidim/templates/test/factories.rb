@@ -10,6 +10,11 @@ FactoryBot.define do
     target { "generic-template" }
     templatable { build(:dummy_resource) }
 
+    trait :user_block do
+      templatable { organization }
+      target { :user_block }
+    end
+
     ## Questionnaire templates
     factory :questionnaire_template do
       target { "questionnaire" }

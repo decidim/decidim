@@ -24,6 +24,14 @@ module Decidim
             get :preview # To provide a preview for the template in the object creation view
           end
         end
+        resources :block_user_templates do
+          member do
+            post :copy
+          end
+          collection do
+            get :fetch
+          end
+        end
 
         get "/questionnaire_template/questionnaire/answer_options", to: "questionnaires#answer_options", as: "answer_options_template"
 
