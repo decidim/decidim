@@ -636,7 +636,7 @@ fr:
             one: "%{count} brouillon collaboratif"
             other: "%{count} brouillons collaboratifs"
         create:
-          error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
+          error: Il y a eu un problème lors de la création de ce brouillon collaboratif.
           success: Brouillon collaboratif créé avec succès.
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
