@@ -2,6 +2,7 @@ fi-pl:
   activemodel:
     attributes:
       initiative:
+        area_id: Alue
         decidim_user_group_id: Laatija
         description: Kuvaus
         offline_votes: Palvelun ulkopuolella kerätyt kannatukset
@@ -32,6 +33,7 @@ fi-pl:
         online_signature_enabled: Online-allekirjoitus on käytössä
         only_global_scope_enabled: Salli aloitteiden luonti ainoastaan pääteemalle
         promoting_committee_enabled: Ota käyttöön kannatuskomitea
+        signature_type: Allekirjoitustapa
         title: Otsikko
         undo_online_signatures_enabled: Salli käyttäjien peruuttaa verkossa tehdyt allekirjoitukset
         validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
