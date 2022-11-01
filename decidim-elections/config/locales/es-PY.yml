@@ -232,8 +232,8 @@ es-PY:
           create_election:
             census: Censo
             errors:
-              census_codes_generated: Los códigos de acceso no se han podido generar.
-              census_frozen: Los códigos de acceso no se han exportado.
+              census_codes_generated: Los códigos de acceso al censo no se han podido generar.
+              census_frozen: Los códigos de acceso al censo no se han podido exportar.
               census_uploaded: No se ha subido ningún censo para esta elección.
               component_published: La elección <strong>no está publicada</strong>.
               max_selections: Las preguntas no tienen un valor <strong>correcto para la cantidad de respuestas</strong>
@@ -249,8 +249,8 @@ es-PY:
               'false': no tiene una <strong>clave pública</strong>
               'true': tiene una <strong> clave pública</strong>
             requirements:
-              census_codes_generated: Los códigos de acceso se han generado.
-              census_frozen: Los códigos se exportan y el censo se congela.
+              census_codes_generated: Se han generador los códigos de acceso al censo.
+              census_frozen: Se han exportado los códgos para el censo y el censo ha quedado congelado.
               census_uploaded: El censo está subido.
               component_published: La elección está <strong>publicada</strong>.
               max_selections: Todas las preguntas tienen un valor correcto para <strong>máximo de respuestas</strong>.
