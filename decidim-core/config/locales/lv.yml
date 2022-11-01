@@ -1345,7 +1345,6 @@ lv:
         other: 'Apstrādājot jūsu pieprasījumu, radās vairākas kļūdas:'
       too_many_marks: izmanto pārāk daudz secīgu pieturzīmju (piemēram,! un ?)
       too_much_caps: izmanto pārāk daudz lielo burtu (vairāk nekā 25 % no teksta)
-      too_short: ir pārāk īsa (līdz 15 rakstzīmēm)
   invisible_captcha:
     sentence_for_humans: Ja esat cilvēks, ignorējiet šo lauku
     timestamp_error_message: Diemžēl tas bija par ātru! Lūdzu, iesniedziet atkārtoti.
