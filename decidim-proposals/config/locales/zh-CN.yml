@@ -239,7 +239,6 @@ zh-CN:
           affected_user:
             email_intro: '您的提议 "%{resource_title}" 已被拒绝。您可以在此页中读取答案：'
             email_outro: 您收到此通知是因为您是"%{resource_title} "的作者。
-            email_subject: 您的建议已被拒绝
             notification_title: 您的提议 <a href="%{resource_path}">%{resource_title}</a> 已被拒绝
           follower:
             email_intro: '提议 "%{resource_title}" 已被拒绝。您可以在此页中读取答案：'
@@ -538,7 +537,6 @@ zh-CN:
           drafts_count:
             other: "%{count} 协作草稿"
         create:
-          error: 创建这个合作草稿时出现问题
           success: 协作草稿成功创建。
         edit:
           attachment_legend: "(可选) 添加附件"
