@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe ProposalLengthValidator do
-  subject { validatable.new(body:) }
+  subject { validatable.new(body: body) }
 
   let(:validatable) do
     Class.new do
