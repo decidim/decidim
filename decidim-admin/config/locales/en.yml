@@ -552,6 +552,7 @@ en:
         area_types: Area types
         areas: Areas
         configuration: Configuration
+        content: Content
         dashboard: Dashboard
         external_domain_whitelist: Allowed external domains
         help_sections: Help sections
