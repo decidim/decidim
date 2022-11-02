@@ -50,7 +50,7 @@ module Decidim
       private
 
       def user
-        @user ||= Decidim::User.find_by(
+        @user ||= Decidim::UserBaseEntity.find_by(
           id: params[:user_id],
           organization: current_organization
         )
