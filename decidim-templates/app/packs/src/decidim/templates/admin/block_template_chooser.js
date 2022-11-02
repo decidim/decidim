@@ -5,6 +5,6 @@ $(() => {
       id: dropDown.val()
     }).done(function(data) {
       $("#block_user_justification").val(data.template);
-     });
+    });
   });
 });
