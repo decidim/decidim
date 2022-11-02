@@ -33,7 +33,7 @@ export default class InputCharacterCounter {
     this.$target = $(this.$input.data("remaining-characters"));
     this.minCharacters = parseInt(this.$input.attr("minlength"), 10);
     this.maxCharacters = parseInt(this.$input.attr("maxlength"), 10);
-    this.describeByCounter = typeof this.$input.attr("aria-describedby") === "undefined";
+    this.describeByCounter = this.$input.attr("type") !== "hidden" && typeof this.$input.attr("aria-describedby") === "undefined";
 
     // Define the closest length for the input "gaps" defined by the threshold.
     if (this.maxCharacters > 10) {
