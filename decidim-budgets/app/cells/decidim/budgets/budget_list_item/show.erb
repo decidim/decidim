@@ -1,21 +1,17 @@
-<div class="<%= card_class %> item-list">
-  <div class="budget-list__text flex-horizontal">
+<div class="<%= card_class %> card__highlight">
+  <div class="card__highlight-text">
     <%= link_to budget_path(budget), class: link_class do %>
-      <h3 class="h4 item-list__title">
+      <h3 class="h3 text-secondary">
         <%= translated_attribute(title) %>
       </h3>
     <% end %>
 
-
     <%= decidim_sanitize html_truncate(translated_attribute(description), length: 140) %>
-    <%= render :projects_count %>
 
-    <div>
-      <%= render :vote_action %>
-    </div>
+    <%= render :projects_count %>
   </div>
 
-  <%# if !voting_finished? %>
+  <% if !voting_finished? %>
     <div class="budget-list__icon mr-s">
       <% if voted? %>
         <span class="button tiny success card--list__check card--list__check--disabled card--list__check--inline">
@@ -29,7 +25,7 @@
     </div>
   <% end %>
 
-  <div class="item-list__metadata">
+  <div class="card__highlight-text">
     <div class="heading5">
       <strong>
         <%= budget_to_currency(total_budget) %>
@@ -37,7 +33,7 @@
     </div>
     <%= link_to budget_path(budget), class: "button button--sc expanded #{button_class} mb-none" do %>
       <span><%= button_text %></span>
-      <%= icon "chevron-right", class: "icon--small", role: "img" %>
+      <%= render :vote_action %>
     <% end %>
   </div>
 </div>

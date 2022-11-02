@@ -10,7 +10,7 @@
 <% non_highlighted = (budgets - highlighted - voted) %>
 
 <% if non_highlighted.any? %>
-  <div id="budgets">
+  <div id="budgets" class="card__highlight-container">
     <% non_highlighted.each do |budget| %>
       <%= cell("decidim/budgets/budget_list_item", budget) %>
     <% end %>
