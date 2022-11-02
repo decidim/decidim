@@ -4,7 +4,7 @@
 # Decidim HTML validation process.
 #
 # See: https://github.com/decidim/decidim/pull/10014
-# Related: 
+# Related:
 # - https://github.com/rails/rails/issues/46405
 # - https://github.com/foundation/foundation-sites/pull/12496
 module W3CValidators
