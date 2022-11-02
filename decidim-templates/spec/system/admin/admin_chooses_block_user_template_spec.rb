@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 require "spec_helper"
 
 describe "Admin chooses user block templates when blocking user", type: :system do
@@ -21,7 +20,6 @@ describe "Admin chooses user block templates when blocking user", type: :system 
   end
 
   context "when on reported users path" do
-
     before do
       visit decidim_admin.moderated_users_path
       click_link "Block User"
@@ -38,7 +36,7 @@ describe "Admin chooses user block templates when blocking user", type: :system 
       find("*[type=submit]").click
       expect(page).to have_admin_callout("successfully")
 
-      expect(first_user.reload.blocked?).to be_truthy
+      expect(first_user.reload).to be_blocked
       expect(first_user.reload.blocking.justification).to eq(template.description["en"])
     end
   end

@@ -13,6 +13,7 @@ module FrontendHelpers
       end
     end
   end
+
   # Thanks to:
   # https://thoughtbot.com/blog/automatically-wait-for-ajax-with-capybara
   def wait_for_ajax
@@ -22,7 +23,7 @@ module FrontendHelpers
   end
 
   def finished_all_ajax_requests?
-    page.evaluate_script('jQuery.active').zero?
+    page.evaluate_script("jQuery.active").zero?
   end
 end
 
