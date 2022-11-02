@@ -34,7 +34,7 @@ module Decidim
       @page_content_blocks ||= Decidim::ContentBlock.published
                                                     .for_scope(:static_page, organization: current_organization)
                                                     .where(scoped_resource_id: @page.id)
-                                                    .reject { |content_block| content_block.manifest.nil? }
+                                                    .reject { |content_block| content_block.manifest.nil? || content_block.manifest.name == :summary }
     end
   end
 end
