@@ -185,10 +185,25 @@ const initializer = () => {
       closingSelector: `[data-drawer-close="${drawer}"]`
     }).open()
   )
+
 }
 
 if ("Turbo" in window) {
-  document.addEventListener("turbo:frame-render", () => initializer());
+  document.addEventListener("turbo:frame-render", (frame) => {
+    initializer()
+
+    // This ensures the aside heading tag is transformed to h2 or h1 if the drawer is shown or hidden
+    const element = document.querySelector("aside [data-heading-tag]")
+    if (element) {
+      const tagName = frame.target.querySelector("[data-drawer]") ? "H2" : "H1"
+
+      const newItem = document.createElement(tagName);
+      newItem.className = element.className;
+      newItem.dataset.headingTag = element.dataset.headingTag;
+      newItem.innerHTML = element.innerHTML;
+      element.parentNode.replaceChild(newItem, element);
+    }
+  });
   document.addEventListener("turbo:load", () => initializer());
 } else {
   // If no jQuery is used the Tribute feature used in comments to autocomplete

@@ -7,7 +7,7 @@
 <% end %>
 
 <% content_for :aside do %>
-  <%= render partial: "projects_aside" %>
+  <%= render partial: "projects_aside", locals: { main_action: true } %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
