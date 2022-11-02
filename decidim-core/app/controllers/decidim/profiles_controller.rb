@@ -13,7 +13,7 @@ module Decidim
     before_action :ensure_profile_holder
     before_action :ensure_profile_holder_is_a_group, only: [:members]
     before_action :ensure_profile_holder_is_a_user, only: [:groups, :following]
-    before_action :ensure_user_not_blocked, only: [:following, :followers, :badges]
+    before_action :ensure_user_not_blocked
 
     redesign active: true
 
