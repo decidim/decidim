@@ -115,8 +115,6 @@ pl:
       errors:
         answer:
           body: Treść nie może być pusta
-      files:
-        extension_allowlist: 'Dozwolone formaty:'
       images:
         dimensions: "%{width} × %{height} px"
       question_types:
