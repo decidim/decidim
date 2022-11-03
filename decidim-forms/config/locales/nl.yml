@@ -119,8 +119,6 @@ nl:
       errors:
         answer:
           body: Lichaam mag niet leeg zijn
-      files:
-        extension_allowlist: 'Geaccepteerde formaten:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
