@@ -625,7 +625,6 @@ ro:
             few: "%{count} ciorne colaborative"
             other: "%{count} ciorne colaborative"
         create:
-          error: A apărut o problemă la crearea acestor ciorne colaborative
           success: Ciorna colaborativă a fost creată cu succes.
         edit:
           attachment_legend: "(Opțional) Adaugă un atașament"
