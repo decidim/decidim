@@ -221,7 +221,6 @@ el:
           affected_user:
             email_intro: 'Η πρότασή σας «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
-            email_subject: Η πρότασή σας απορρίφθηκε
             notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> απορρίφθηκε.
           follower:
             email_intro: 'Η πρόταση «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
