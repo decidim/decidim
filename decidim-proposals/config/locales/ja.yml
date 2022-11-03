@@ -629,7 +629,7 @@ ja:
           drafts_count:
             other: "%{count} 件の共同草案"
         create:
-          error: 共同草案の作成中に問題が発生しました
+          error: 共同草案の作成中に問題が発生しました.
           success: 共同草案を作成しました。
         edit:
           attachment_legend: "(オプション) 添付ファイルを追加"
