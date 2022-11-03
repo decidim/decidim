@@ -424,7 +424,7 @@ module Decidim
         max_file_size: max_file_size(record, :file),
         label: I18n.t("decidim.forms.upload.labels.add_attachment"),
         button_edit_label: I18n.t("decidim.forms.upload.labels.edit_image"),
-        extension_allowlist: Decidim.organization_settings(Decidim::Attachment).upload_allowed_file_extensions
+        extension_allowlist: Decidim.organization_settings(record).upload_allowed_file_extensions
       }.merge(options)
 
       # Upload help uses extension allowlist from the options so we need to call this AFTER setting the defaults.
@@ -851,7 +851,7 @@ module Decidim
     end
 
     def extension_allowlist_help(extension_allowlist)
-      ["#{I18n.t("extension_allowlist", scope: "decidim.forms.files")} #{extension_allowlist.map { |ext| ext }.join(", ")}"]
+      [I18n.t("extension_allowlist", scope: "decidim.forms.files", extensions: extension_allowlist.map { |ext| ext }.join(", "))]
     end
 
     def image_dimensions_help(dimensions_info)
