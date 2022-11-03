@@ -597,7 +597,6 @@ pt:
             one: "%{count} rascunho colaborativo"
             other: "%{count} rascunhos colaborativos"
         create:
-          error: Ocorreu um problema ao criar estes rascunhos colaborativos
           success: Rascunho colaborativo criado corretamente.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
