@@ -380,7 +380,7 @@ ca:
         invite_join_conference_mailer:
           invite:
             decline: Rebutjar la invitació a '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} t'ha convidat a unir-te a una conferència a l'%{application}. Pots rebutjar o acceptar a través dels enllaços a continuació."
+            invited_existing_user_to_join_a_conference: "%{invited_by} t'ha convidat a unir-te a una conferència a l'%{application}. Pots rebutjar o acceptar a través dels enllaços a continuació."
             registration: Inscripció a '%{conference_title}'
         partners:
           index:
