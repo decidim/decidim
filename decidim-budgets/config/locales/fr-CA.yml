@@ -93,11 +93,11 @@ fr-CA:
             cancel: Annuler
             change_category: Modifier la catégorie
             change_scope: Changer le secteur
-            change_selected: Changer l'état "sélectionné"
-            deselect_implementation: Annuler la sélection
+            change_selected: Changer l'état sélectionné
+            deselect_implementation: Retirer de la sélection pour une implémentation
             finished_orders: Votes terminés
             pending_orders: Votes en cours
-            select_for_implementation: Sélectionné pour implémentation
+            select_for_implementation: Sélectionner pour une implémentation
             selected: Sélectionné
             title: Projets
             update: Mettre à jour
@@ -119,10 +119,14 @@ fr-CA:
             select_a_scope: Veuillez sélectionner un secteur
             success: 'Les projets ont été mis à jour avec succès avec le secteur %{subject_name} : %{projects}.'
           update_selected:
-            invalid: 'Ces projets étaient déjà sélectionnés pour l''implémentation : %{projects}.'
+            invalid:
+              selected: 'Ces projets ont déjà été sélectionnés pour une implémentation : %{projects}.'
+              unselected: 'Ces projets ont déjà été retirés de la sélection pour une implémentation : %{projects}.'
             select_a_project: Veuillez selectionner un projet
-            select_a_selection: Veuillez sélectionner un état de sélection pour implémentation
-            success: 'La sélection des projets a été modifiée avec succès : %{projects}.'
+            select_a_selection: Veuillez sélectionner un état d'implémentation
+            success:
+              selected: 'Ces projets ont été bien été sélectionnés pour une implémentation : %{projects}.'
+              unselected: 'Ces projets ont été retirés de la sélection pour une implémentation : %{projects}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions dans des projets
