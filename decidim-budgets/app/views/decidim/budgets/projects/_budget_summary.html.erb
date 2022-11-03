@@ -2,7 +2,7 @@
   <div class="card__content">
     <% if include_heading %>
       <% if current_order_checked_out? %>
-        <h2 class="heading3">
+        <h2 class="heading3 block">
           <%= t(".checked_out.title") %>
           <% unless current_workflow.single? %>
             <small><%= translated_attribute(budget.title) %></small>

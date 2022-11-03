@@ -2,6 +2,10 @@
   <%= javascript_pack_tag "decidim_budgets" %>
 <% end %>
 
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_budgets", media: "all" %>
+<% end %>
+
 <% content_for :aside do %>
 <h1 class="h1 decorator"><%= t("decidim.components.budgets.name") %></h1>
 
@@ -55,6 +59,7 @@
       </h2>
     </div>
 
+<<<<<<< Updated upstream
     <div class="row">
       <div class="columns mediumlarge-4 large-3">
         <%= render partial: "filters_small_view" %>
@@ -64,6 +69,18 @@
       </div>
       <div id="projects" class="columns mediumlarge-8 large-9" aria-live="polite">
         <%= render partial: "projects" %>
+=======
+    <div class="text-right mb-8">
+      <div class="inline-flex items-center">
+        <label for="filter-1" class="text-sm text-secondary px-2 py-1 cursor-pointer">
+          <input type="radio" name="filter" id="filter-1" class="appearance-none peer" checked>
+          <span class="border-b-2 border-transparent peer-checked:border-secondary peer-checked:font-semibold hover:border-secondary transition">Aleatori</span>
+        </label>
+        <label for="filter-2" class="text-sm text-secondary px-2 py-1 cursor-pointer">
+          <input type="radio" name="filter" id="filter-2" class="appearance-none peer">
+          <span class="border-b-2 border-transparent peer-checked:border-secondary peer-checked:font-semibold hover:border-secondary transition">Coste</span>
+        </label>
+>>>>>>> Stashed changes
       </div>
     </div>
   </div>

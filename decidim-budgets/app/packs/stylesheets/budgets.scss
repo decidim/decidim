@@ -1,3 +1,7 @@
 .budgets{
   background-color: tomato;
 }
+
+.budget-summary {
+  @apply bg-tertiary p-10;
+}

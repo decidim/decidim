@@ -2,6 +2,10 @@
   <%= javascript_pack_tag "decidim_budgets" %>
 <% end %>
 
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_budgets", media: "all" %>
+<% end %>
+
 <% content_for :aside do %>
   <h1 class="h1 decorator"><%= t("decidim.components.budgets.name") %></h1>
 <% end %>
