@@ -891,18 +891,6 @@ lt:
           how: Kaip jį užsitarnauti
           page_description: Ženkleliai – tai dalyvių veiklumo platformoje pripažinimas. Susipažindami su platforma, joje dalyvaudami ir bendraudami, pelnysite įvairių ženklelių. Štai ženklelių sąrašas ir keletas būdų, kaip juos pelnyti.
           title: Ženkleliai
-        invitations:
-          conditions:
-            - Norėdami pakviesti savo draugus prisijugti pasinaudokite "pakviesti draugus" nuoroda savo naudotojo puslapyje
-            - Jeigu norite, siunčiamą žinutę galite patinkinti
-            - Savo lygį pakelsite siųsdami kvietimus ir juos registruodami.
-          description: Šis ženklelis suteikiamas, kai pakviečiate žmonių, jie užsiregistruoja %{organization_name} ir tampa dalyviais. Dėkojame, kad supažindinate kitus su %{organization_name} ir padedate plėsti bendruomenę!
-          description_another: Šis dalyvis pakvietė %{score} žmones (-ių).
-          description_own: Jūs pakvietėte %{score} žmones (-ių).
-          name: Pakvietimai
-          next_level_in: Pakvieskite dar %{score} sekėjų ir pasieksite kitą lygį!
-          unearned_another: Šis dalyvis dar nieko nepakvietė.
-          unearned_own: Jūs dar nieko nepakvietėte.
       description: Ženkleliai – tai dalyvių veiksmų ir veiklos platformoje pripažinimas. Susipažindami su platforma, joje dalyvaudami ir bendraudami, pelnysite įvairių ženklelių.
       level: '%{level} lygis'
       reached_top: Pasiekėte aukščiausią šio ženklelio lygį.
@@ -1742,7 +1730,6 @@ lt:
         other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
-      too_short: per trumpas (mažiau nei 15 ženklų)
   forms:
     correct_errors: Formoje yra klaidų, ištaisykite jas ir tęskite.
     length_validator:
