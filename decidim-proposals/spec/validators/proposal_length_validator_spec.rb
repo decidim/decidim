@@ -11,7 +11,7 @@ describe ProposalLengthValidator do
         ActiveModel::Name.new(self, nil, "Validatable")
       end
 
-      include Decidim::AttributeObject::Model
+      include Virtus.model
       include ActiveModel::Validations
 
       attribute :body
