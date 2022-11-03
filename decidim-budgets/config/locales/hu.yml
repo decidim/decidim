@@ -42,11 +42,8 @@ hu:
             cancel: Mégsem
             change_category: Kategória módosítása
             change_scope: Hatáskör megváltoztatása
-            change_selected: Kijelölés módosítása
-            deselect_implementation: Kiválasztás törlése
             finished_orders: Befejezett szavazások
             pending_orders: Függőben lévő szavazások
-            select_for_implementation: Kijelölés
             title: Projektek
             update: Frissítés
             update_scope_button: Hatáskör frissítése
