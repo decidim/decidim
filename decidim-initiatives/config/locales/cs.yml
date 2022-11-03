@@ -3,6 +3,7 @@ cs:
   activemodel:
     attributes:
       initiative:
+        area_id: Oblast
         decidim_user_group_id: Autor
         description: Popis
         offline_votes: Osobní fyzické podpisy
@@ -19,6 +20,8 @@ cs:
         title: Titul
       initiatives_committee_member:
         user: Člen výboru
+      initiatives_settings:
+        initiatives_order: Pořadí
       initiatives_type:
         area_enabled: Povolit autorům vybrat tematickou oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
@@ -34,6 +37,7 @@ cs:
         online_signature_enabled: Online podpis povolen
         only_global_scope_enabled: Umožnit pouze vytvoření iniciativ globálního rozsahu
         promoting_committee_enabled: Povolit podporu výboru
+        signature_type: Typ podpisu
         title: Titul
         undo_online_signatures_enabled: Povolit účastníkům vrátit zpět své online podpisy
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
