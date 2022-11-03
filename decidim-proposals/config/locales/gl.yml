@@ -545,7 +545,6 @@ gl:
             one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
-          error: Produciuse un problema creando estes borradores colaborativos
           success: Creouse un borrador colaborativo.
         edit:
           attachment_legend: "(Opcional) Engada un anexo"
