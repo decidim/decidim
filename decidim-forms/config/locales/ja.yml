@@ -128,8 +128,6 @@ ja:
       errors:
         answer:
           body: 本文は空白にできません
-      files:
-        extension_allowlist: '承認されたフォーマット:'
       images:
         dimensions: "%{width} x %{height} px"
         processors:
