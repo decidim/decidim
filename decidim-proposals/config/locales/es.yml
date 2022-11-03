@@ -637,7 +637,7 @@ es:
             one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
-          error: Se ha producido un error al crear este borrador colaborativo
+          error: Se ha producido un error al crear este borrador colaborativo.
           success: Borrador colaborativo creado correctamente.
         edit:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
