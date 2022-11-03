@@ -242,12 +242,12 @@ FactoryBot.define do
     end
 
     after(:build) do |user_group, evaluator|
-      user_group.extended_data = {
-        document_number: evaluator.document_number,
-        phone: evaluator.phone,
-        rejected_at: evaluator.rejected_at,
-        verified_at: evaluator.verified_at
-      }
+      user_group.extended_data = user_group.extended_data.merge({
+                                                                  document_number: evaluator.document_number,
+                                                                  phone: evaluator.phone,
+                                                                  rejected_at: evaluator.rejected_at,
+                                                                  verified_at: evaluator.verified_at
+                                                                })
     end
 
     after(:create) do |user_group, evaluator|
