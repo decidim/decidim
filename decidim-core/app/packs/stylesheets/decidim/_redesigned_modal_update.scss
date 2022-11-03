@@ -109,7 +109,7 @@
   }
 
   &__files{
-    @apply mt-1;
+    @apply mt-1 space-y-4;
 
     > *{
       @apply flex flex-col gap-2;

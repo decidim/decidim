@@ -34,7 +34,6 @@ export default class UploadModal {
 
     this.options = Object.assign(providedOptions, options)
 
-    this.name = this.button.name;
     this.modal = document.querySelector(`#${button.dataset.dialogOpen}`);
     this.saveButton = this.modal.querySelector("button[data-dropzone-save]");
     this.cancelButton = this.modal.querySelector("button[data-dropzone-cancel]");
@@ -89,13 +88,7 @@ export default class UploadModal {
             } else {
               // add only the validated files to the array of File(s)
               this.items.push(file)
-              // autoload the image
-              const reader = new FileReader();
-              reader.readAsDataURL(file);
-              reader.onload = ({ target: { result }}) => {
-                const img = item.querySelector("img")
-                img.src = result
-              }
+              this.autoloadImage(item, file)
             }
 
             this.updateDropZone();
@@ -103,6 +96,30 @@ export default class UploadModal {
         }
       });
     }
+  }
+
+  autoloadImage(container, file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = ({ target: { result }}) => {
+      const img = container.querySelector("img")
+      img.src = result
+    }
+  }
+
+  preloadFiles(element) {
+    // Get a File object from img.src, more info: https://stackoverflow.com/a/38935544/5020256
+    const { src } = element.querySelector("img")
+    return fetch(src).
+      then((res) => res.arrayBuffer()).
+      then((buffer) => {
+        const file = new File([buffer], element.dataset.filename)
+        const item = this.createUploadItem(file, [], { value: 100 })
+
+        this.items.push(file)
+        this.uploadItems.appendChild(item);
+        this.autoloadImage(item, file)
+      })
   }
 
   getOrdinalNumber() {
@@ -202,12 +219,11 @@ export default class UploadModal {
     // remove item from DOM
     item.remove();
 
-    // remove item from array of File(s), if exists (it could be non-validated)
+    // mark item as removable from the array of File(s), if exists (it could be non-validated)
     const ix = this.items.findIndex(({ name }) => name === filename)
-    this.items[ix].removable = true
-    // if (ix > -1) {
-    //   this.items.splice(ix, 1)
-    // }
+    if (ix > -1) {
+      this.items[ix].removable = true
+    }
 
     this.updateDropZone();
   }

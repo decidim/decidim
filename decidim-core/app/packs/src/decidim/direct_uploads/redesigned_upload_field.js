@@ -16,23 +16,22 @@ const updateActiveUploads = (modal) => {
   // fastest way to clean children nodes
   files.textContent = ""
 
-  modal.items.forEach((item) => {
-    let title = truncateFilename(item.name, 19)
+  // divide the items between those'll gonna be removed, and added
+  const [removeFiles, addFiles] = [modal.items.filter(({ removable }) => removable), modal.items.filter(({ removable }) => !removable)]
 
-    let hidden = `<input type="hidden" name="${item.hiddenField.name}" value="${item.hiddenField.value}" />`
+  addFiles.forEach((file) => {
+    let title = truncateFilename(file.name, 19)
+
+    let hidden = `<input type="hidden" name="${file.hiddenField.name}" value="${file.hiddenField.value}" />`
     if (modal.options.titled) {
       const value = modal.modal.querySelector('input[type="text"]').value
-      title = `${value} (${truncateFilename(item.name)})`
-      hidden += `<input type="hidden" name="${item.hiddenTitle.name}" value="${value}" />`
-    }
-
-    if (item.removable) {
-      hidden = `<input name='${modal.options.resourceName}[remove_${modal.name}]' type="hidden" value="true">`
+      title = `${value} (${truncateFilename(file.name)})`
+      hidden += `<input type="hidden" name="${file.hiddenTitle.name}" value="${value}" />`
     }
 
     const template = `
-      <div data-filename="${item.name}" data-title="${title}">
-        <div><img src="" alt="${item.name}" /></div>
+      <div data-filename="${file.name}" data-title="${title}">
+        <div><img src="" alt="${file.name}" /></div>
         <span>${title}</span>
         ${hidden}
       </div>
@@ -43,16 +42,16 @@ const updateActiveUploads = (modal) => {
 
     const container = div.firstChild
 
-    // autoload the image
-    const reader = new FileReader();
-    reader.readAsDataURL(item);
-    reader.onload = ({ target: { result }}) => {
-      const img = container.querySelector("img")
-      img.src = result
-    }
+    modal.autoloadImage(container, file)
 
     files.appendChild(container)
   });
+
+  removeFiles.forEach(() => {
+    const div = document.createElement("div")
+    div.innerHTML = `<input name='${modal.options.resourceName}[remove_${modal.button.name}]' type="hidden" value="true">`
+    files.appendChild(div.firstChild)
+  })
 
   modal.updateAddAttachmentsButton();
 }
@@ -75,8 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
   attachmentButtons.forEach((attachmentButton) => {
     const modal = new UploadModal(attachmentButton);
 
-    // mark as validated the files already test it
-    modal.items.forEach((child) => modal.createUploadItem(child, []));
+    // append to the modal items array those files already validated (only in first pageload)
+    const files = document.querySelector("[data-active-uploads]");
+    [...files.children].forEach((child) => modal.preloadFiles(child));
 
     // whenever the input fields changes, process the files
     modal.input.addEventListener("change", (event) => Array.from(event.target.files).forEach((file) => modal.uploadFile(file)));
