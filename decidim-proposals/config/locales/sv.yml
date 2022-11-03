@@ -43,10 +43,6 @@ sv:
           valuator_role_id: Värderarens namn
     errors:
       models:
-        participatory_text:
-          attributes:
-            document:
-              allowed_file_content_types: 'Ogiltig dokumenttyp. Godkända format är: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -294,7 +290,6 @@ sv:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
-            email_subject: Ditt förslag har avslagits
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avslagits.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
