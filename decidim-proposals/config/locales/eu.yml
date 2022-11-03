@@ -595,7 +595,6 @@ eu:
             one: "%{count} lankidetza zirriborroa"
             other: "%{count} lankidetza zirriborroa"
         create:
-          error: Arazo bat izan da lankidetza-zirriborroak sortzea
           success: Kolaborazio zirriborroa sortu da.
         edit:
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
