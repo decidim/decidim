@@ -418,6 +418,21 @@ describe("CommentsComponent", () => {
     expect(window.setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
   });
 
+  it("does not disable the textarea when polling comments normally", () => {
+    Rails.ajax.mockImplementationOnce((options) => options.success());
+
+    subject.mountComponent();
+
+    // Delay the success call 2s after the polling has happened to test that
+    // the textarea is still enabled when the polling is happening.
+    Rails.ajax.mockImplementationOnce((options) => {
+      setTimeout(options.success(), 2000);
+    });
+    jest.advanceTimersByTime(1500);
+
+    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeFalsy();
+  });
+
   describe("when mounted", () => {
     beforeEach(() => {
       spyOnAddComment("on");
