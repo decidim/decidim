@@ -28,8 +28,8 @@ module Decidim
       def projects
         return @projects if @projects
 
-        @projects = search.result.page(params[:page]).per(current_component.settings.projects_per_page)
-        @projects = reorder(@projects)
+        @projects = reorder(search.result)
+        @projects = @projects.page(params[:page]).per(current_component.settings.projects_per_page)
       end
 
       def all_geocoded_projects
