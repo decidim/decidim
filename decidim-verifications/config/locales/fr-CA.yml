@@ -24,6 +24,12 @@ fr-CA:
       postal_letter_postage:
         full_address: Adresse complète
         verification_code: Code de vérification
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
   decidim:
     admin:
       menu:
