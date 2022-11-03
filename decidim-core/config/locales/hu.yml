@@ -823,18 +823,6 @@ hu:
           how: Így lehet megszerezni
           page_description: A jelvények megmutatják, milyen tevékenységeket végzünk a platformon. Amint a résztvevők elkezdik felfedezni mi minden módon tudnak részt venni a platformon, úgy különböző jelvényekhez juthatnak hozzá. Itt van a jelvények listája, és néhány mód, amellyel megszerezhetők.
           title: Jelvények
-        invitations:
-          conditions:
-            - Használja a "meghívni barátok" linket a felhasználói oldalon, hogy meghívja barátait
-            - Testreszabása, ha szeretné, az elküldött üzenetet
-            - A hívások meghívása és regisztrálása érdekében szintre emelkedik.
-          description: Ezt a jelvényt akkor kapja meg, ha meghívott valakit, és az illető rövid idő alatt regisztrál a %{organization_name} terébe. Köszönjük, hogy a %{organization_name} -t megismerteti másokkal, és segít bővíteni a közösséget!
-          description_another: Felhasználó meghívott %{score} felhasználókat.
-          description_own: '%{score} embert hívott meg.'
-          name: Meghívók
-          next_level_in: Hívjon meg %{score} felhasználót a következő szint eléréséhez!
-          unearned_another: Ez a felhasználó még nem hívott meg senkit.
-          unearned_own: Még nem hívtál meg felhasználókat.
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
       level: '%{level} szint'
       reached_top: Elérted a jelvény legmagasabb szintjét.
@@ -1600,7 +1588,6 @@ hu:
         other: 'Több hiba történt a művelet végrehajtása során:'
       too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
       too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
-      too_short: túl rövid (15 karakterig)
   forms:
     correct_errors: Az űrlap hibákat tartalmaz, kérjük, javítsa ezeket a folytatáshoz.
     length_validator:
