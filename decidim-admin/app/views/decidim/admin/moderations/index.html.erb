@@ -37,7 +37,7 @@
             <tr data-id="<%= moderation.id %>">
               <td><%= moderation.reportable.id %></td>
               <td>
-                <%= moderation.reportable.class.name.demodulize %>
+                <%= moderation.reportable.class.model_name.human %>
               </td>
               <% if !respond_to?(:current_participatory_space) %>
                 <td>
