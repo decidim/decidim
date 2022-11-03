@@ -294,7 +294,6 @@ ro:
           affected_user:
             email_intro: 'Propunerea ta "%{resource_title}" a fost respinsă. Poți citi răspunsul în această pagină:'
             email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
-            email_subject: Propunerea ta a fost respinsă
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
           follower:
             email_intro: 'Propunerea "%{resource_title}" a fost respinsă. Poţi citi răspunsul în această pagină:'
