@@ -74,7 +74,7 @@ de:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Ungültiger Dokumenttyp Zulässige Formate sind: %{types}'
+              allowed_file_content_types: 'Ungültiger Dokumententyp. Nur Dateien mit folgenden Erweiterungen sind erlaubt: %{types}'
   activerecord:
     models:
       decidim/assembly:
