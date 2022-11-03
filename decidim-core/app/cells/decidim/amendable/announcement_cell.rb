@@ -36,7 +36,7 @@ module Decidim::Amendable
     end
 
     def proposal_link(resource = model.amendable, text = nil)
-      text ||= %(<strong>#{present(model.amendable).title}</strong>)
+      text ||= %(<strong>#{decidim_sanitize(present(model.amendable).title, strip_tags: true)}</strong>)
       link_to resource_locator(resource).path do
         text
       end
