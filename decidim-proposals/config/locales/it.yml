@@ -577,7 +577,6 @@ it:
             one: "%{count} bozza collaborativa"
             other: "%{count} bozza collaborativa"
         create:
-          error: Si è verificato un problema durante la creazione di queste bozze collaborative
           success: Bozza collaborativa creata con successo.
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
