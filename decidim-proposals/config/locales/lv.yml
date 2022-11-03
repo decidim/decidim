@@ -522,7 +522,6 @@ lv:
             one: "%{count} sadarbības projekts"
             other: "%{count} sadarbības projekti"
         create:
-          error: Šo sadarbības projektu izveides laikā radās problēma
           success: Sadarbības projekts ir veiksmīgi izveidots.
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
