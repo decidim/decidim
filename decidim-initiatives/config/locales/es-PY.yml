@@ -3,6 +3,7 @@ es-PY:
   activemodel:
     attributes:
       initiative:
+        area_id: Área
         decidim_user_group_id: Autor
         description: Descripción
         offline_votes: Apoyo cara a cara
@@ -34,6 +35,7 @@ es-PY:
         online_signature_enabled: Firma en línea habilitada
         only_global_scope_enabled: Permitir sólo la creación de iniciativas de ámbito global
         promoting_committee_enabled: Habilitar el comité promotor
+        signature_type: Tipo de firma
         title: Título
         undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
         validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma
