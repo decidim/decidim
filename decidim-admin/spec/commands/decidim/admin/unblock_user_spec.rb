@@ -6,6 +6,7 @@ module Decidim::Admin
   describe UnblockUser do
     subject { described_class.new(user_to_unblock, current_user) }
 
+    let(:extended_data) { { user_name: } }
     let(:current_user) { create :user, :admin }
 
     shared_examples "unblocking a user or group" do
@@ -45,14 +46,14 @@ module Decidim::Admin
     end
 
     context "with a user" do
-      let(:user_to_unblock) { create :user, blocked: true, name: user_name }
+      let(:user_to_unblock) { create :user, :blocked, extended_data: }
       let(:user_name) { "Testing user" }
 
       it_behaves_like "unblocking a user or group"
     end
 
     context "with a user group" do
-      let(:user_to_unblock) { create :user_group, blocked: true, name: user_name }
+      let(:user_to_unblock) { create :user_group, :blocked, extended_data: }
       let(:user_name) { "Testing user group" }
 
       it_behaves_like "unblocking a user or group"
