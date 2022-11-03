@@ -128,8 +128,6 @@ lt:
       errors:
         answer:
           body: Pagrindinė dalis negali būti tuščia
-      files:
-        extension_allowlist: 'Priimtini formatai:'
       images:
         dimensions: "%{width} x %{height} px"
         processors:
