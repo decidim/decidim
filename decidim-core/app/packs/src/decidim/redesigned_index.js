@@ -181,11 +181,10 @@ const initializer = () => {
 
   document.querySelectorAll("[data-drawer]").forEach(
     ({ dataset: { drawer } }) =>
-    new Dialogs(`[data-drawer="${drawer}"]`, {
-      closingSelector: `[data-drawer-close="${drawer}"]`
-    }).open()
+      new Dialogs(`[data-drawer="${drawer}"]`, {
+        closingSelector: `[data-drawer-close="${drawer}"]`
+      }).open()
   )
-
 }
 
 if ("Turbo" in window) {
@@ -195,7 +194,10 @@ if ("Turbo" in window) {
     // This ensures the aside heading tag is transformed to h2 or h1 if the drawer is shown or hidden
     const element = document.querySelector("aside [data-heading-tag]")
     if (element) {
-      const tagName = frame.target.querySelector("[data-drawer]") ? "H2" : "H1"
+      let tagName = "H1";
+      if (frame.target.querySelector("[data-drawer]")) {
+        tagName = "H2";
+      }
 
       const newItem = document.createElement(tagName);
       newItem.className = element.className;
@@ -212,6 +214,7 @@ if ("Turbo" in window) {
   $(() => initializer());
 }
 
+// eslint-disable-next-line camelcase
 StreamActions.open_drawer = function() {
   const frameId = this.getAttribute("frame_id");
   const drawerItem = document.getElementById(frameId);
