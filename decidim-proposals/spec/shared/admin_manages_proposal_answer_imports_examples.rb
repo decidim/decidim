@@ -13,7 +13,7 @@ shared_examples "admin manages proposal answer imports" do
 
     it "returns error without a file" do
       click_button "Import"
-      expect(page).to have_content("There's an error in this field")
+      expect(page).to have_content("There was a problem during the import")
     end
 
     it "adds proposal answers after succesfully import" do
