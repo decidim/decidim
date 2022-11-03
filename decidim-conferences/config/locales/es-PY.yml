@@ -380,7 +380,7 @@ es-PY:
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} ha invitado a unirse a una conferencia en %{application}. Puede rechazarlo o aceptarlo a través de los enlaces a continuación."
+            invited_existing_user_to_join_a_conference: "%{invited_by} ha invitado a unirse a una conferencia en %{application}. Puede rechazarlo o aceptarlo a través de los enlaces a continuación."
             registration: Registro para '%{conference_title}'
         partners:
           index:
