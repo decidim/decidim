@@ -24,6 +24,12 @@ cs:
       postal_letter_postage:
         full_address: Celá poštovní adresa
         verification_code: Ověřovací kód
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
   decidim:
     admin:
       menu:
