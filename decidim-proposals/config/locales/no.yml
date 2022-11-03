@@ -573,7 +573,6 @@
             one: "%{count} samarbeids utkast"
             other: "%{count} samarbeids utkaster"
         create:
-          error: Det oppsto et problem med å lage disse samarbeidsutkastene
           success: Samarbeids utkast opprettet.
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
