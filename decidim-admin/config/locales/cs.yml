@@ -134,6 +134,14 @@ cs:
               allowed_file_content_types: Neplatný soubor s obrázkem
             official_img_header:
               allowed_file_content_types: Neplatný soubor s obrázkem
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
       new_import:
         attributes:
           file:
