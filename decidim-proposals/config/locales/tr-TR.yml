@@ -555,7 +555,6 @@ tr:
             one: "%{count} ortak taslak"
             other: "%{count} ortak taslak"
         create:
-          error: Bu ortak çalışma taslakları oluşturulurken bir sorunla karşılaşıldı
           success: Ortak taslak başarıyla oluşturuldu.
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
