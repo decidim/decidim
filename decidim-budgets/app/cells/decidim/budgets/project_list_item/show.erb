@@ -1,5 +1,9 @@
-<div id="project-<%= model.id %>-item" class="budget-list__item">
-  <%= render :project_image %>
-  <%= render :project_text %>
-  <%= render :project_data %>
+<div id="project-<%= model.id %>-item" class="item-list">
+  <div class="item-list__content">
+    <%= render :project_image %>
+    <%= render :project_text %>
+  </div>
+  <div class="accountability__progress">
+    <%= render :project_data %>
+  </div>
 </div>
