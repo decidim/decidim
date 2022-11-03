@@ -74,7 +74,7 @@ fi-pl:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
+              allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
   activerecord:
     models:
       decidim/assembly:
