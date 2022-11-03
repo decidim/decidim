@@ -236,7 +236,6 @@ hu:
           affected_user:
             email_intro: 'Javaslata "%{resource_title}" elutasításra került. A válasz ezen az oldalon olvasható:'
             email_outro: Ezt az értesítést megkapta, mert a "%{resource_title}" szerzője.
-            email_subject: Javaslata elutasításra került
             notification_title: Javaslata <a href="%{resource_path}">%{resource_title}</a> elutasításra került.
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslat elutasítva. További részletek a következő oldalon:'
