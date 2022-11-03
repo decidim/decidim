@@ -7,7 +7,7 @@ module Decidim
       # Presenter for questionnaire answer
       #
       class QuestionnaireAnswerPresenter < SimpleDelegator
-        delegate :content_tag, :safe_join, to: :view_context
+        delegate :content_tag, :safe_join, :link_to, :number_to_human_size, to: :view_context
 
         include Decidim::TranslatableAttributes
 
@@ -54,11 +54,14 @@ module Decidim
           # rubocop:disable Style/StringConcatenation
           # Interpolating strings that are `html_safe` is problematic with Rails.
           content_tag :li do
-            link_to(translated_attribute(attachment.title), attachment.url) +
-              " " +
-              content_tag(:small) do
+            link_to(attachment.url, target: "_blank", rel: "noopener noreferrer") do
+              content_tag(:span) do
+                translated_attribute(attachment.title).presence ||
+                  I18n.t("download_attachment", scope: "decidim.forms.questionnaire_answer_presenter")
+              end + " " + content_tag(:small) do
                 "#{attachment.file_type} #{number_to_human_size(attachment.file_size)}"
               end
+            end
           end
           # rubocop:enable Style/StringConcatenation
         end
