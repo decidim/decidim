@@ -594,7 +594,6 @@ nl:
             one: "%{count} gezamenlijk ontwerp"
             other: "%{count} gezamenlijke ontwerpen"
         create:
-          error: Er is een probleem opgetreden bij het maken van dit gezamenlijk ontwerp
           success: Gezamenlijk ontwerp met succes gemaakt.
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
