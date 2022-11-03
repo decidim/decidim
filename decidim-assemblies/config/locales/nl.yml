@@ -69,12 +69,6 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              allowed_file_content_types: 'Ongeldig documenttype. Aanvaarde formaten zijn: %{types}'
   activerecord:
     models:
       decidim/assembly:
