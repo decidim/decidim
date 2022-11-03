@@ -18,7 +18,7 @@
   <%= cell("decidim/budgets/limit_announcement", budget) %>
 
   <div class="voting-wrapper">
-    <div class="row columns">
+    <div class="budget-summary__container">
       <% if component_settings.geocoding_enabled? %>
         <%= dynamic_map_for projects_data_for_map(all_geocoded_projects) do %>
           <template id="marker-popup">
