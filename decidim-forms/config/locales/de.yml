@@ -128,8 +128,6 @@ de:
       errors:
         answer:
           body: Körper kann nicht leer sein
-      files:
-        extension_allowlist: 'Gültige Formate:'
       images:
         dimensions: "%{width} x %{height} px"
         processors:
