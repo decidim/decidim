@@ -26,6 +26,10 @@ const updateActiveUploads = (modal) => {
       hidden += `<input type="hidden" name="${item.hiddenTitle.name}" value="${value}" />`
     }
 
+    if (item.removable) {
+      hidden = `<input name='${modal.options.resourceName}[remove_${modal.name}]' type="hidden" value="true">`
+    }
+
     const template = `
       <div data-filename="${item.name}" data-title="${title}">
         <div><img src="" alt="${item.name}" /></div>

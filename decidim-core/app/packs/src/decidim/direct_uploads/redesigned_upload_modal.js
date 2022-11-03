@@ -118,9 +118,8 @@ export default class UploadModal {
     const inputHasFiles = files.length > 0
     this.uploadItems.hidden = !inputHasFiles;
 
-    // Disabled save button when no children has been validated or any of them has data-state="error"
-    const errorFiles = Array.from(files).filter(({ dataset: { state } }) => state === STATUS.ERROR);
-    this.saveButton.disabled = !inputHasFiles || errorFiles.length > 0;
+    // Disabled save button when any children have data-state="error"
+    this.saveButton.disabled = Array.from(files).filter(({ dataset: { state } }) => state === STATUS.ERROR).length > 0;
 
     // Only allow to continue the upload when the multiple option is true (default: false)
     const continueUpload = !files.length || this.options.multiple
@@ -205,9 +204,10 @@ export default class UploadModal {
 
     // remove item from array of File(s), if exists (it could be non-validated)
     const ix = this.items.findIndex(({ name }) => name === filename)
-    if (ix > -1) {
-      this.items.splice(ix, 1)
-    }
+    this.items[ix].removable = true
+    // if (ix > -1) {
+    //   this.items.splice(ix, 1)
+    // }
 
     this.updateDropZone();
   }
