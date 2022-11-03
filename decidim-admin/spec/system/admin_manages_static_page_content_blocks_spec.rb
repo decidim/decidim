@@ -39,7 +39,9 @@ describe "Admin manages static page content blocks", type: :system do
                           en: "<p>Custom privacy policy summary text!</p>"
 
       click_button "Update"
-      visit decidim.page_path(tos_page)
+
+      logout
+      visit decidim.new_user_registration_path
       expect(page).to have_content("Custom privacy policy summary text!")
     end
   end
