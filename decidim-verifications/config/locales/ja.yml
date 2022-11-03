@@ -24,6 +24,12 @@ ja:
       postal_letter_postage:
         full_address: フルアドレス
         verification_code: 確認コード
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: インポートファイルの形式が正しくありません。手順を見直して、ファイルがUTF-8でエンコードされていることを確認してください。
   decidim:
     admin:
       menu:
