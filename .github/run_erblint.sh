@@ -3,7 +3,7 @@
 shopt -s globstar
 
 CURRENT_BRANCH=$(git branch --show-current)
-DEFAULT_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD --short)
+DEFAULT_BRANCH=$(basename $(git symbolic-ref refs/remotes/origin/HEAD --short))
 
 ALL_VIEWS=decidim**/app/{cells,views}/**/*.erb
 MODIFIED_VIEWS=$(git diff --name-only "${DEFAULT_BRANCH}" | grep -E '(views|cells).erb$')
