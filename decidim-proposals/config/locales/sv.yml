@@ -381,9 +381,6 @@ sv:
           proposal_comments: Kommentarer
           proposals: Förslag
         imports:
-          help:
-            answers: 'Importdokumentet ska innehålla följande kolumner: id, state (accepterat, utvärderat, avvisat), answer/sv, answer/en (och andra språk aktiverade för organisationen).'
-            proposals: Filen måste ha kolumnnamn title/sv och body/sv (eller ett annat språk som du föredrar t. ex.. title/en och body/en). Även scope/id och category/id kolumner stöds.
           label:
             answers: Importera svar från en fil
             proposals: Importerar förslag från en fil
