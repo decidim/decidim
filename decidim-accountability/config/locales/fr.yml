@@ -51,8 +51,6 @@ fr:
         import_results:
           new:
             import: Importer
-            info: "<p>Nous vous recommandons de suivre les étapes suivantes :</p><ol><li>Créez les statuts pour les résultats que vous souhaitez ajouter (<a href='%{link_new_status}' target='_blank'>lien</a>)</li><li>Créez au moins un résultat manuellement via ce panneau administrateur (<a href='%{link_new_result}' target='_blank'>lien</a>) avant d'utiliser l'import, pour comprendre ce que vous aurez besoin de remplir.</li><li>Téléchargez l'export en format CSV (%{link_export_csv})</li><li>Faites les modifications nécessaires. Vous pouvez uniquement changer les colonnes suivantes du fichier CSV : </li></ol><ul><li><b>category/id:</b> Identifiant de la catégorie</li><li><b>scope/id :</b> Identifiant du secteur</li><li><b>parent/id :</b> Identifiant du parent (pour les résultats liés). Optional</li><li><b>title/I18N:</b> Titre en langue X</li><li><b>description/I18N:</b> Description en langue X</li><li><b>start_date:</b> date à laquelle le résultat commence (format AAAA-MM-JJ)</li><li><b>end_date:</b> date à laquelle le résultat finit (format AAAA-MM-JJ)</li><li><b>status/id:</b> Identifiant du statut du résultat</li><li><b>progress:</b> Pourcentage (de 0 à 100) de l'exécution du résultat</li><li><b>proposals_ids:</b> Identifiant interne des propositions liées (séparées avec une virgule). La conversion en <span class='attribute-name'>URL de la proposition</span> se fait automatiquement.</li></ul>"
-            link: lien
             title: Importer les résultats depuis un fichier CSV
         imports:
           create:
