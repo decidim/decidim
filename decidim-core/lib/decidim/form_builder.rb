@@ -198,12 +198,12 @@ module Decidim
         template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options)
         template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
-          toolbar:,
-          disabled: options[:disabled],
-          editor_images: true,
-          upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
-          drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
-        }, style: "height: #{lines}rem")
+                                  toolbar:,
+                                  disabled: options[:disabled],
+                                  editor_images: true,
+                                  upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
+                                  drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images")
+                                }, style: "height: #{lines}rem")
         template += error_for(name, options) if error?(name)
         template.html_safe
       end
