@@ -42,5 +42,57 @@
         }
       }
     }
+
+    &-modal{
+      @apply font-normal pb-16;
+
+      &__list{
+        @apply space-y-6;
+
+        &-container{
+          @apply mt-8 flex divide-background-3 divide-x [&>*]:px-10 first:[&>*]:pl-0 last:[&>*]:pr-0;
+        }
+      }
+
+      &__step{
+        @apply flex items-baseline gap-2;
+
+        > :first-child{
+          @apply w-9 h-9 rounded-full inline-grid place-items-center text-secondary bg-background-2;
+        }
+
+        > :last-child{
+          @apply flex flex-col gap-1.5 relative;
+        }
+
+        &-title{
+          @apply text-secondary text-lg;
+        }
+
+        &-dates{
+          @apply text-gray-2 text-sm whitespace-nowrap;
+        }
+
+        &-current{
+          @apply absolute -translate-y-full italic text-sm invisible;
+        }
+
+        &.is-active > :first-child{
+          @apply text-white bg-secondary;
+        }
+
+        &.is-active &-title{
+          @apply font-semibold;
+        }
+
+        &.is-active &-current{
+          @apply visible;
+        }
+      }
+
+      &__content{
+        @apply text-gray-2 text-lg;
+      }
+    }
   }
 }
