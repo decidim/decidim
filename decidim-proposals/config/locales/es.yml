@@ -401,9 +401,6 @@ es:
           proposal_comments: Comentarios
           proposals: Propuestas
         imports:
-          help:
-            answers: 'El documento de importación debe contener las siguientes columnas: id, estado (aceptado, evaluación, rechazado), respuesta/es (y otros idiomas habilitados por la organización).'
-            proposals: El archivo debe incluir los nombres de columna title/en y body/en (u otro idioma de tu preferencia, por ejemplo title/es y body/es). También se admiten las columnas scope/id y category/id.
           label:
             answers: Importar respuestas desde un archivo
             proposals: Importar propuestas desde un archivo
