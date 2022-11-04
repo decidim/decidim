@@ -52,6 +52,7 @@ cs:
           results: Výsledky
         import_results:
           new:
+            download_export: Stáhnout export s CSV formátem
             import: Importovat
             title: Importovat výsledky z CSV
         imports:
