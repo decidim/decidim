@@ -41,7 +41,6 @@ sl:
         import_results:
           new:
             import: Uvozi
-            link: povezava
             title: Uvozi postavke iz CSV datoteke
         models:
           result:
