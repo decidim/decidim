@@ -12,6 +12,10 @@
   &__calendar{
     @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center border-4 border-r-0 border-background only:border-r-4;
 
+    &:only-child &-month{
+      @apply rounded-t;
+    }
+
     &-container{
       @apply flex items-stretch rounded overflow-hidden;
 
@@ -21,11 +25,11 @@
     }
 
     &-month{
-      @apply bg-primary uppercase text-white text-xs;
+      @apply bg-primary uppercase text-white text-xs rounded-tl;
     }
 
     &-day{
-      @apply text-black text-2xl font-semibold;
+      @apply text-black text-2xl font-bold;
     }
 
     &-time{
@@ -39,7 +43,7 @@
     }
 
     &-separator{
-      @apply text-sm;
+      @apply mx-2 font-normal text-sm;
     }
 
     &__lg{
@@ -51,8 +55,7 @@
     }
 
     &__lg &-day{
-      // REDESIGN_PENDING: Replace [48px] with 5xl when available
-      @apply text-[48px] leading-[60px];
+      @apply text-5xl;
     }
 
     &__lg &-time{
