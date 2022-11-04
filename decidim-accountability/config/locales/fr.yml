@@ -50,6 +50,7 @@ fr:
           results: Réalisations
         import_results:
           new:
+            download_export: Télécharger l'export au format CSV
             import: Importer
             title: Importer les résultats depuis un fichier CSV
         imports:
