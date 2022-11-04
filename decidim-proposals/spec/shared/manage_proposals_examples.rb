@@ -337,8 +337,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
       end
 
       it "can accept a proposal" do
@@ -356,8 +356,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as evaluating" do
@@ -375,8 +375,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as 'not answered'" do
@@ -435,7 +435,7 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
       end
     end
 
