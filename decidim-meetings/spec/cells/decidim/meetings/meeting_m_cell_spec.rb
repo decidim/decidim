@@ -16,6 +16,8 @@ module Decidim::Meetings
     context "when rendering" do
       let(:show_space) { false }
 
+      it_behaves_like "m-cell", :meeting
+
       it "renders the card" do
         expect(cell_html).to have_css(".card--meeting")
       end
