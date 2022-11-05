@@ -12,4 +12,4 @@
 
 ## Previous versions
 
-Please check [0.XX-stable](https://github.com/decidim/decidim/blob/release/0.XX-stable/CHANGELOG.md) for previous changes.
+Please check [0.27-stable](https://github.com/decidim/decidim/blob/release/0.27-stable/CHANGELOG.md) for previous changes.
