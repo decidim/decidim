@@ -26,7 +26,7 @@ After that, the header with the current version and link with the same beforemen
 
 [source,markdown]
 ----
-# Change Log
+# Changelog
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 

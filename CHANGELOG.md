@@ -1,4 +1,4 @@
-# Change Log
+# Changelog
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
