@@ -1,21 +1,19 @@
 # Release Notes
 
-## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
-
-### 1. Upgrade notes
+## 1. Upgrade notes
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
 To update, follow these steps:
 
-#### 1.1. Update your Gemfile
+### 1.1. Update your Gemfile
 
 ```ruby
 gem "decidim", github: "decidim/decidim"
 gem "decidim-dev", github: "decidim/decidim"
 ```
 
-#### 1.2. Run these commands
+### 1.2. Run these commands
 
 ```console
 bundle update decidim
@@ -23,15 +21,15 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 ```
 
-#### 1.3. Follow the steps and commands detailed in these notes
+### 1.3. Follow the steps and commands detailed in these notes
 
-### 2. General notes
+## 2. General notes
 
-### 3. One time actions
+## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-#### 3.1. Tailwind CSS introduction
+### 3.1. Tailwind CSS introduction
 
 Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integrates with Webpacker, which generates Tailwind configuration dynamically when Webpacker is invoked.
 
@@ -39,12 +37,12 @@ You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generat
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
-### 4. Scheduled tasks
+## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
  with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-#### 4.1. Automatically change active step in participatory processes
+### 4.1. Automatically change active step in participatory processes
 
 We have added the ability to automatically change the active step of participatory processess. This is an optional behavior that system admins can enable by configuring a cron job. The frequency of the cron task should be decided by the system admin and depends on each platform's use cases. A precision of 15min is enough for most cases. An example of a crontab job may be:
 
@@ -60,7 +58,7 @@ This feature also changes the step `start_date` and `end_date`  fields to timest
 
 You can read more about this change on PR [\#9026](https://github.com/decidim/decidim/pull/9026).
 
-#### 4.2. Social Share Button change
+### 4.2. Social Share Button change
 
 As the gem that we were using for sharing to Social Network don't support Webpacker, we have implemented the same functionality in `decidim-core`.
 
@@ -95,9 +93,9 @@ And define your own services in the environment variable `DECIDIM_SOCIAL_SHARE_S
 
 With this change you can also define your own services. See [documentation for social share services customization](https://docs.decidim.org/en/customize/social_shares/).
 
-### 5. Changes in APIs
+## 5. Changes in APIs
 
-#### 5.1. Tailwind CSS instead of Foundation
+### 5.1. Tailwind CSS instead of Foundation
 
 In this version we are introducing Tailwind CSS as the underlying layer to build the user interface on. In the previous versions, we used Foundation but its development stagnated which led to changing the whole layer that we are using to build user interfaces on.
 
@@ -109,7 +107,7 @@ You can read more about this change on PR [\#9480](https://github.com/decidim/de
 
 You can read more about Tailwind from the [Tailwind documentation](https://tailwindcss.com/docs/utility-first).
 
-#### 5.2. Automated authorization conflict handling for deleted users
+### 5.2. Automated authorization conflict handling for deleted users
 
 In previous Decidim versions authorization conflicts (i.e. authorizing the user with the same unique data as a previous user) needed to be always handled manually. Now these are automatically handled for cases where the original user had authorized their account, then deleted their account and finally authorized the new account with the same details as the previous account.
 
@@ -230,7 +228,3 @@ end
 Note that when unregistering an authorization transfer handler, the transfers will still work normally for the other transfer handlers and no conflicts are reported for the admin users in case of conflict situation between a new authorization and a previous authorization for a deleted user. In this case, the authorization is transferred to the new user normally but the unregistered transfer handlers are not called which means those records will not be transferred between the user accounts. For conflicts between normal registered users or managed users, the conflicts are still reported as before. The automated authorization transfers only happen in case the previously authorized conflicting user account was deleted.
 
 You can read more about this change at PR [\#9463](https://github.com/decidim/decidim/pull/9463).
-
-## Previous versions
-
-Please check [release/0.xx-stable](https://github.com/decidim/decidim/blob/release/0.xx-stable/RELEASE_NOTES.md) for previous notes.
