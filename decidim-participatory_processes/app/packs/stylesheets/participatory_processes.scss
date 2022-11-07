@@ -55,7 +55,7 @@
       }
 
       &__step{
-        @apply flex items-baseline gap-2;
+        @apply flex items-baseline gap-2 relative before:absolute before:w-px before:-z-10 before:left-[18px] before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-[36px] before:-top-[18px] first:before:top-[18px];
 
         > :first-child{
           @apply w-9 h-9 rounded-full inline-grid place-items-center text-secondary bg-background-2;
