@@ -26,6 +26,13 @@ module Decidim
           # rubocop:enable RSpec/AnyInstance
         end
       end
+
+      describe "#url" do
+        it "returns the url to the comment" do
+          # comment urls are anchors from the resource page to the comment
+          expect(subject.url).to include("#comment_#{extra[:comment_id]}")
+        end
+      end
     end
   end
 end
