@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Explore versions", versioning: true, type: :system do
   include_context "with a component"
   let(:component) { create(:proposal_component, organization:) }
-  let!(:proposal) { create(:proposal, body: { en: "One liner body" }, component:, skip_injection: true) }
-  let!(:emendation) { create(:proposal, body: { en: "Amended One liner body" }, component:, skip_injection: true) }
+  let!(:proposal) { create(:proposal, body: { en: "One liner body" }, component:) }
+  let!(:emendation) { create(:proposal, body: { en: "Amended One liner body" }, component:) }
   let!(:amendment) { create :amendment, amendable: proposal, emendation: }
 
   let(:form) do

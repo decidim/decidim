@@ -14,7 +14,6 @@ module Decidim
       create(
         :proposal,
         :draft,
-        skip_injection: true,
         component: current_component,
         scope: scope1,
         body: description1,
@@ -27,7 +26,7 @@ module Decidim
         context "when on create" do
           context "when proposals are NOT official" do
             let(:proposal2) do
-              create(:proposal, skip_injection: true, component: current_component)
+              create(:proposal, component: current_component)
             end
 
             it "does not index a SearchableResource after Proposal creation when it is not official" do

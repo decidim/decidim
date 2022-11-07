@@ -504,7 +504,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
     end
-    let!(:proposals) { create_list(:proposal, 3, component: proposal_component, skip_injection: true) }
+    let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
     it "closes a meeting with a report" do
       within find("tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title) do

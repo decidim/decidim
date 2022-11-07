@@ -20,7 +20,17 @@ FactoryBot.define do
   end
 
   factory :meeting, class: "Decidim::Meetings::Meeting" do
-    title { generate_localized_title }
+    transient do
+      skip_injection { false }
+    end
+
+    title do
+      if skip_injection
+        Decidim::Faker::Localized.localized { generate(:title) }
+      else
+        Decidim::Faker::Localized.localized { "<script>alert(\"TITLE\");</script> #{generate(:title)}" }
+      end
+    end
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     location_hints { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
