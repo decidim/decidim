@@ -21,10 +21,6 @@ module Decidim
         resource_locator(model.component.participatory_space).path
       end
 
-      def presenter
-        @presenter ||= Decidim::Meetings::MeetingPresenter.new(model)
-      end
-
       private
 
       def cache_hash
