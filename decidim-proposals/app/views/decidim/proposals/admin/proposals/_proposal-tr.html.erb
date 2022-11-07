@@ -6,10 +6,11 @@
     <%= proposal.id %><br>
   </td>
   <td>
-    <%= link_to(
-     decidim_html_escape(present(proposal).title).html_safe,
-     proposal_path(proposal)
-    ) %><br>
+    <% if allowed_to? :edit, :proposal, proposal: proposal %>
+      <%= link_to present(proposal).title(html_escape: true), edit_proposal_path(proposal) %><br>
+    <% else %>
+      <%= present(proposal).title(html_escape: true) %><br>
+    <% end %>
   </td>
   <td>
     <% if proposal.category %>
