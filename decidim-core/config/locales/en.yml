@@ -1550,12 +1550,6 @@ en:
         of_versions: "(of %{number})"
         see_other_versions: see other versions
         version: Version number %{number}
-    versions_list:
-      show:
-        back_to_resource: Go back
-        changes_at_title: Changes at "%{title}"
-        number_of_versions: Versions
-        title: Versions
     versions_list_item:
       back: Show all versions
       show:

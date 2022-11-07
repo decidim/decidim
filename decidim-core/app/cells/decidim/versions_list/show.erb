@@ -1,11 +1,3 @@
-<% versions.sort_by(&:created_at).reverse.each_with_index do |version, index| %>
-  <%= cell(
-    "decidim/versions_list_item",
-    version,
-    index: index,
-    versioned_resource: versioned_resource,
-    version_path: version_path,
-    i18n_scope: i18n_scope,
-    total: versions.count
-  ) %>
+<% versions.reverse_order.each_with_index do |version, index| %>
+  <%= cell("decidim/versions_list_item", version, index:, versioned_resource:, version_path:, i18n_scope:, total:) %>
 <% end %>

@@ -2,7 +2,6 @@
 
 module Decidim
   class VersionsListItemCell < Decidim::ViewModel
-    include Decidim::TraceabilityHelper
     include Decidim::LayoutHelper
 
     def version
