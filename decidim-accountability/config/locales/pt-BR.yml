@@ -21,6 +21,7 @@ pt-BR:
       timeline_entry:
         description: Descrição
         entry_date: Encontro
+        title: Título
     models:
       decidim/accountability/proposal_linked_event: Proposta incluída em um resultado
       decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
@@ -37,6 +38,7 @@ pt-BR:
         confirm_destroy: Deseja mesmo excluir %{name}?
         destroy: Excluir
         edit: Editar
+        import: Importar projetos para resultados
         import_csv: Importar CSV
         new: Novo %{name}
         preview: Pré-visualização
@@ -48,6 +50,7 @@ pt-BR:
           results: Resultados
         import_results:
           new:
+            download_export: Baixe a Exportação com formato CSV
             import: Importar
             title: Importar resultados de CSV
         imports:
@@ -60,6 +63,15 @@ pt-BR:
             name: Status
           timeline_entry:
             name: Entrada da linha de tempo
+        projects_import:
+          create:
+            invalid: Houve um problema ao importar os projetos para os resultados, por favor, siga as instruções cuidadosamente e verifique se você selecionou projetos para implementação.
+          new:
+            create: Importar
+            import_all_selected_projects: Importar todos os projetos selecionados para implementação
+            origin_component_id: Componente de origem
+            select_component: Selecionar componente
+            title: Importar Projetos para Responsabilidade
         results:
           create:
             invalid: Houve um problema ao criar esse resultado
@@ -134,6 +146,12 @@ pt-BR:
           row_number: Linha
           subject: Importação bem sucedida de resultados
           success: Importação bem sucedida de resultados. Você pode revisar os resultados na interface de administração.
+      import_projects_mailer:
+        import:
+          subject: Importação de projetos bem sucedida
+          success: Projetos importados com sucesso para resultados no componente %{component_name}. Você pode rever os resultados na “interface” de administração.
+      last_activity:
+        new_result: 'Novo resultado:'
       models:
         result:
           fields:
@@ -155,6 +173,7 @@ pt-BR:
         timeline_entry:
           fields:
             entry_date: Data
+            title: Título
       result_m:
         executed: Executado
         view: Visualizar
@@ -199,6 +218,8 @@ pt-BR:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Comentário
         name: Prestação de contas
         settings:
           global:
