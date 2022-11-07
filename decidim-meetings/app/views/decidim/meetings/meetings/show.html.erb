@@ -23,6 +23,7 @@ edit_link(
   <%= javascript_pack_tag "decidim_meetings" %>
 <% end %>
 
+<%# REDESIGN_PENDING: Use the drawer feature to implement this %>
 <!-- MOCK CONTENT -->
 <button class="button button__secondary button__lg" data-drawer-open>open</button>
 <!-- END MOCK CONTENT -->
@@ -176,8 +177,7 @@ edit_link(
   <div class="mt-8">
     <%# REDESIGN_PENDING: this value for the reference %>
     <%= resource_reference(meeting) %>
-    <%# REDESIGN_PENDING: this value for the version %>
-    <%= resource_version(meeting, versions_path: meeting_versions_path(meeting)) %>
+    <%= resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count)) %>
     <%# REDESIGN_PENDING: same cell as acountability, use the previous values %>
     <%#= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
   </div>

@@ -1,4 +1,18 @@
-<div class="row">
+<%# REDESIGN_PENDING: Use the drawer feature to implement this %>
+<!-- MOCK CONTENT -->
+<button class="button button__secondary button__lg" data-drawer-open>open version</button>
+<!-- END MOCK CONTENT -->
+
+<% content_for :aside do %>
+  <%= cell(
+    "decidim/versions_list",
+    versioned_resource,
+    version_path: proc { |version_index| url_for(action: :show, id: version_index) },
+    i18n_scope: "decidim.meetings.versions"
+  ) %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/drawer" do %>
   <%= cell(
     "decidim/version",
     current_version,
@@ -7,4 +21,4 @@
     versions_path: proc { url_for(action: :index) },
     i18n_scope: "decidim.meetings.versions"
   ) %>
-</div>
+<% end %>
