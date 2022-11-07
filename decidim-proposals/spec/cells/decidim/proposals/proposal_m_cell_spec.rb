@@ -28,6 +28,8 @@ module Decidim::Proposals
     context "when rendering" do
       let(:show_space) { false }
 
+      it_behaves_like "m-cell", :proposal
+
       it "renders the card" do
         expect(subject).to have_css(".card--proposal")
       end
