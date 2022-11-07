@@ -204,6 +204,8 @@ pt-BR:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Comentário
         name: Prestação de contas
         settings:
           global:
