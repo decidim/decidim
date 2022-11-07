@@ -22,10 +22,7 @@ module Decidim
     #
     # Returns an HTML-safe String representing the HTML to render the author.
     def render_resource_editor(version)
-      # REDESIGN_PENDING: Allow to pass the date as an input variable.
-      # Currently the "context_actions: [:date]"-param autocalculates the value dispayed.
-      # Once done, pass "current_version.created_at" to the cell
-      cell "decidim/author", present(Decidim.traceability.version_editor(version)), context_actions: [:date], layout: :compact
+      cell "decidim/author", present(Decidim.traceability.version_editor(version)), context_actions: [:date], layout: :compact, has_actions: true, from: version
     end
   end
 end
