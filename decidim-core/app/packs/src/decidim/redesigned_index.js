@@ -77,6 +77,7 @@ import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
+import RemoteModal from "./ajax_modals"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -135,6 +136,7 @@ const initializer = () => {
     createQuillEditor(container);
   });
 
+  // initialize external-link feature only to the matching elements
   document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
 
   // initialize character counter
@@ -163,13 +165,31 @@ const initializer = () => {
 
   Accordions.init();
   Dropdowns.init();
-  document.querySelectorAll("[data-dialog]").forEach(
-    ({ dataset: { dialog } }) =>
-      new Dialogs(`[data-dialog="${dialog}"]`, {
-        openingSelector: `[data-dialog-open="${dialog}"]`,
-        closingSelector: `[data-dialog-close="${dialog}"]`,
-        labelledby: `dialog-title-${dialog}`,
+  document.querySelectorAll("[data-dialog]").forEach((elem) => {
+    const {
+      dataset: { dialog }
+    } = elem;
+    return new Dialogs(`[data-dialog="${dialog}"]`, {
+      openingSelector: `[data-dialog-open="${dialog}"]`,
+      closingSelector: `[data-dialog-close="${dialog}"]`,
+      // optional parameters (whenever exists the id, it'll add the tagging)
+      ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && {
+        labelledby: `dialog-title-${dialog}`
+      }),
+      ...(Boolean(elem.querySelector(`#dialog-desc-${dialog}`)) && {
         describedby: `dialog-desc-${dialog}`
+      })
+    });
+  });
+
+  // Initialize available remote modals (ajax-fetched contents)
+  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
+
+  document.querySelectorAll("[data-drawer]").forEach(
+    ({ dataset: { drawer } }) =>
+      new Dialogs(`[data-drawer="${drawer}"]`, {
+        openingSelector: `[data-drawer-open="${drawer}"]`,
+        closingSelector: `[data-drawer-close="${drawer}"]`
       })
   );
 
