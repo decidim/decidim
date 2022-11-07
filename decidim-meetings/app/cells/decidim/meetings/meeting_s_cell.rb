@@ -5,8 +5,6 @@ module Decidim
     # This cell renders the Small (:s) meeting card
     # for an given instance of a Meeting
     class MeetingSCell < MeetingMCell
-      delegate :title, to: :presenter
-
       def meeting_path
         resource_locator(model).path
       end
