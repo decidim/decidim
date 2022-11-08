@@ -163,7 +163,6 @@ tr:
             other: "%{count} sonuç"
         filters:
           all: Herşey
-          scopes: kapsamları
         home:
           categories_label: Kategoriler
           subcategories_label: Alt Kategoriler
