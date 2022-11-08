@@ -161,7 +161,6 @@ sk:
             other: "%{count} výsledkov"
         filters:
           all: Všetko
-          scopes: Rozsahy
         home:
           categories_label: Kategórie
           subcategories_label: Podkategórie
