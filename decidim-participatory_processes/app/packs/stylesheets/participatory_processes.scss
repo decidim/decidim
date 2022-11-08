@@ -16,10 +16,10 @@
   }
 
   &__metadata{
-    @apply border-t border-background py-6 flex;
+    @apply border-t-0 md:border-t border-background py-6 flex flex-col md:flex-row items-start gap-8 md:gap-0;
 
     &-item{
-      @apply px-10 first:pl-0 last:pr-0 border-l-2 border-background-3 first:border-l-0 font-semibold text-md text-gray-2;
+      @apply md:px-10 first:pt-0 md:first:pl-0 last:pb-0 md:last:pr-0 border-0 md:border-l-2 md:first:border-l-0 border-background-3 font-semibold text-md text-gray-2;
 
       &-title{
         @apply flex gap-1 items-center mb-1 uppercase font-normal text-sm text-gray-2 [&>svg]:text-gray [&>svg]:fill-current;
@@ -32,7 +32,7 @@
     }
 
     &-link{
-      @apply ml-auto flex flex-col items-center gap-1 font-semibold text-secondary hover:underline;
+      @apply md:ml-auto flex flex-col items-center gap-1 font-semibold text-secondary hover:underline;
 
       &-endorsers{
         @apply flex items-center justify-start -space-x-2;
