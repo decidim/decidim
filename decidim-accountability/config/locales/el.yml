@@ -165,7 +165,6 @@ el:
             other: "%{count} αποτελέσματα"
         filters:
           all: Όλα
-          scopes: Πεδία εφαρμογής
         home:
           categories_label: Κατηγορίες
           subcategories_label: Υποκατηγορίες
