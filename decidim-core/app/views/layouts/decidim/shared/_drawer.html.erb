@@ -1,7 +1,7 @@
-<div data-drawer>
+<% close_url = local_assigns[:close_url] %>
+<% turbo_frame = local_assigns[:turbo_frame] || "main_frame" %>
+<div data-drawer="<%= close_url %>">
   <div>
-    <% close_url = local_assigns[:close_url] %>
-    <% turbo_frame = local_assigns[:turbo_frame] || "main_frame" %>
     <% if close_url.present? %>
       <%= link_to close_url, data: { drawer_close: "", turbo_frame:, turbo_action: "replace" } do %>
        <%= icon "close-line", class: "w-5 h-5 text-secondary fill-current" %>
