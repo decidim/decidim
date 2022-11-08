@@ -175,7 +175,6 @@ de:
             other: "%{count} Ergebnisse"
         filters:
           all: Alle
-          scopes: Bereiche
         home:
           categories_label: Kategorien
           subcategories_label: Unterkategorien
