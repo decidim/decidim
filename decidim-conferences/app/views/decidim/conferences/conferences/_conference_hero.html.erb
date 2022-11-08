@@ -22,7 +22,7 @@
 
       <% component_meeting = current_participatory_space.components.where(manifest_name: "meetings").published.first || self.try(:current_component) %>
       <% if component_meeting.present? %>
-        <%= link_to t("title", scope: "decidim.conference_program.index"), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__transparent" %>
+        <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__transparent" %>
       <% end %>
     </div>
   </div>
