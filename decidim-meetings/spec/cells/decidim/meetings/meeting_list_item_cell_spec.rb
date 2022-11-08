@@ -19,13 +19,12 @@ module Decidim::Meetings
       let!(:original_title) { meeting.title["en"] }
 
       before do
-        meeting.update!(title: { en: "#{original_title} &'<" })
+        meeting.update!(title: { en: "<strong>#{original_title}</strong> &'<" })
         meeting.reload
       end
 
       it "escapes them correctly" do
-        expect(subject).to have_content("#{original_title} &'<")
-        expect(subject.to_s).to include("#{original_title} &amp;'&lt;")
+        expect(subject.to_s).to include("&lt;strong&gt;#{original_title}&lt;/strong&gt; &amp;'&lt;")
       end
     end
   end
