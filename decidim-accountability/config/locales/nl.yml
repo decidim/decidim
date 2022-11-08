@@ -175,7 +175,6 @@ nl:
             other: "%{count} resultaten"
         filters:
           all: Alle
-          scopes: scopes
         home:
           categories_label: Categorieën
           subcategories_label: subcategorieën
