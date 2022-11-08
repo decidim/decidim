@@ -175,7 +175,6 @@ hu:
             other: "%{count} találat"
         filters:
           all: Összes
-          scopes: Hatókörök
         home:
           categories_label: Kategóriák
           subcategories_label: Alkategóriák
