@@ -1047,6 +1047,7 @@ cs:
         moderation:
           fields:
             created_at: Datum vytvoření
+            deleted_resource: Smazaný dokument
             hidden_at: Skryté u
             participatory_space: Participativní prostor
             report_count: Spočítat
