@@ -133,7 +133,6 @@ id:
             other: "%{count} hasil"
         filters:
           all: Semua
-          scopes: Lingkup
         home:
           categories_label: Kategori
           subcategories_label: Subkategori
