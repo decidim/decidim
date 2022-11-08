@@ -309,7 +309,7 @@ en:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
             email_outro: You have received this notification because you are an author of "%{resource_title}".
-            email_subject: Your proposal been rejected
+            email_subject: Your proposal has been rejected
             notification_title: Your proposal <a href="%{resource_path}">%{resource_title}</a> has been rejected.
           follower:
             email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
@@ -637,7 +637,7 @@ en:
             one: "%{count} collaborative draft"
             other: "%{count} collaborative drafts"
         create:
-          error: There was a problem creating this collaborative drafts
+          error: There was a problem creating this collaborative draft.
           success: Collaborative draft successfully created.
         edit:
           attachment_legend: "(Optional) Add an attachment"
