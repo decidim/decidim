@@ -148,7 +148,6 @@ zh-CN:
             other: "%{count} 个结果"
         filters:
           all: 所有的
-          scopes: 范围
         home:
           categories_label: 类别管理
           subcategories_label: 子类别
