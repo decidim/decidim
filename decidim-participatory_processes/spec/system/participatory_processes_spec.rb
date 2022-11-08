@@ -8,13 +8,13 @@ describe "Participatory Processes", type: :system do
   let(:show_metrics) { true }
   let(:show_statistics) { true }
   let(:hashtag) { true }
-  let(:base_process_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+  let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:base_process) do
     create(
       :participatory_process,
       :active,
       organization:,
-      description: base_process_description,
+      description: base_description,
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
       show_metrics:,
       show_statistics:
@@ -484,20 +484,7 @@ describe "Participatory Processes", type: :system do
           end
         end
 
-        context "and it has the embedded video in description" do
-          let(:base_process_description) { { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) } }
-          let(:iframe_src) { "http://www.example.org" }
-
-          before do
-            click_link "Cookie settings"
-            click_button "Accept all"
-          end
-
-          it "shows iframe" do
-            expect(page).not_to have_content("You need to enable all cookies in order to see this content")
-            expect(page).to have_selector("iframe", count: 1)
-          end
-        end
+        it_behaves_like "has embedded video in description", :base_description
       end
     end
   end

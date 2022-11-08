@@ -98,19 +98,10 @@ describe "Participatory Process Groups", type: :system do
         expect(page).to have_link("www.example.org/external", href: "https://www.example.org/external")
       end
 
-      context "when description has embedded video" do
-        let(:iframe_src) { "http://www.example.org" }
-
+      it_behaves_like "has embedded video in description", :description do
         before do
-          participatory_process_group.update!(description: { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) })
+          participatory_process_group.update!(description:)
           visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
-          click_link "Cookie settings"
-          click_button "Accept all"
-        end
-
-        it "shows the iframe" do
-          expect(page).not_to have_content("You need to enable all cookies in order to see this content")
-          expect(page).to have_selector("iframe", count: 1)
         end
       end
     end
