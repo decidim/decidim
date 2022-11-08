@@ -1039,6 +1039,7 @@ fr-CA:
         moderation:
           fields:
             created_at: Date de création
+            deleted_resource: Ressource supprimée
             hidden_at: Masqué le
             participatory_space: Espace participatif
             report_count: Compteur
