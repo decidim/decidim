@@ -175,7 +175,6 @@ ar:
             other: "%{count} النتائج"
         filters:
           all: الكل
-          scopes: نطاقات
         home:
           categories_label: الاقسام
           subcategories_label: الفئات الفرعية
