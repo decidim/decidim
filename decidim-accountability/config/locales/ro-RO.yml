@@ -167,7 +167,6 @@ ro:
             other: "%{count} rezultate"
         filters:
           all: Toate
-          scopes: Domenii de interes
         home:
           categories_label: Categorii
           subcategories_label: Subcategorii
