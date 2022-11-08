@@ -211,7 +211,6 @@ lt:
             other: "%{count} rezultatai"
         filters:
           all: Visi
-          scopes: Apimtys
         home:
           categories_label: Kategorijos
           subcategories_label: Subkategorijos
