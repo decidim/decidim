@@ -4,7 +4,7 @@ pkg/
 .DS_Store
 node_modules/
 .vscode
-development_app/
+development_app*/
 .projectile
 npm-debug.log
 karma-*

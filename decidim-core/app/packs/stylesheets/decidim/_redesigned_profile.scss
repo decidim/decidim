@@ -50,39 +50,10 @@
   }
 
   &__activity{
-    @apply grid md:grid-cols-8 items-start gap-4 md:gap-12;
-
-    &__filter{
-      @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
-
-      &-container{
-        @apply md:col-span-2 flex flex-row overflow-x-auto md:flex-col gap-4 sticky top-0 md:top-2 py-2 md:py-0 bg-white;
-      }
-
-      svg{
-        @apply w-4 h-4 flex-none text-gray fill-current;
-      }
-
-      span{
-        @apply text-sm text-gray-2 whitespace-nowrap first-letter:uppercase;
-      }
-
-      &-container [type="radio"]:checked + &,
-      &:hover{
-        @apply bg-background-4;
-
-        svg{
-          @apply text-secondary;
-        }
-
-        span{
-          @apply text-secondary font-semibold;
-        }
-      }
-    }
+    @apply grid md:grid-cols-8 items-start gap-4 md:gap-12 md:first:[&>*]:col-span-2 md:last:[&>*]:col-span-6;
 
     &__container{
-      @apply md:col-span-6 divide-y divide-gray-3;
+      @apply divide-y divide-gray-3;
     }
 
     &__item{

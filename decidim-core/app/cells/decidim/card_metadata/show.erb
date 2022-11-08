@@ -1,0 +1,6 @@
+<% items.each do |item| %>
+  <span>
+    <%= icon item[:icon] %>
+    <%= link_to_if enable_links? && item.has_key?(:url), item[:text], item[:url] %>
+  </span>
+<% end %>
