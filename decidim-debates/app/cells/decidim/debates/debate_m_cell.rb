@@ -32,7 +32,7 @@ module Decidim
       private
 
       def title
-        decidim_html_escape presenter.title
+        presenter.title(html_escape: true)
       end
 
       def body

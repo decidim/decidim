@@ -21,6 +21,7 @@ module Decidim
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
         return broadcast(:invalid) unless can_join_conference?
+        return broadcast(:ok) if already_joined_conference?
 
         conference.with_lock do
           create_registration
@@ -56,6 +57,10 @@ module Decidim
 
       def can_join_conference?
         conference.registrations_enabled? && conference.has_available_slots?
+      end
+
+      def already_joined_conference?
+        conference.conference_registrations.where(user:).any?
       end
 
       def send_email_pending_validation

@@ -39,6 +39,7 @@ require "diffy"
 require "ransack"
 require "wisper"
 require "webpacker"
+require "turbo-rails"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
@@ -557,11 +558,6 @@ module Decidim
       end
 
       initializer "decidim.core.add_badges" do
-        Decidim::Gamification.register_badge(:invitations) do |badge|
-          badge.levels = [1, 5, 10, 30, 50]
-          badge.reset = ->(user) { Decidim::User.where(invited_by: user.id).count }
-        end
-
         Decidim::Gamification.register_badge(:followers) do |badge|
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }

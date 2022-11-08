@@ -20,6 +20,8 @@ en:
         title: Title
       initiatives_committee_member:
         user: Committee member
+      initiatives_settings:
+        initiatives_order: Order
       initiatives_type:
         area_enabled: Enable authors to choose the area for their initiative
         attachments_enabled: Enable attachments
