@@ -200,7 +200,6 @@ pl:
             other: "%{count} wyników"
         filters:
           all: Wszystkie
-          scopes: Zakresy
         home:
           categories_label: Kategorie
           subcategories_label: Podkategorie
