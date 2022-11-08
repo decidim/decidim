@@ -18,6 +18,8 @@ module Decidim
       "Decidim::Budgets::Order" => "check-double-line",
       "Decidim::Assembly" => "government-line",
       "Decidim::ParticipatoryProcess" => "treasure-map-line",
+      "Decidim::Category" => "price-tag-3-line",
+      "Decidim::Scope" => "scan-line",
       "other" => "question-line"
     }.freeze
 
@@ -70,8 +72,11 @@ module Decidim
     end
 
     def resource_type_icon(resource_type, options = {})
-      key = DEFAULT_RESOURCE_TYPE_ICONS.has_key?(resource_type.to_s) ? resource_type.to_s : "other"
-      icon DEFAULT_RESOURCE_TYPE_ICONS[key], options
+      icon resource_type_icon_key(resource_type), options
+    end
+
+    def resource_type_icon_key(resource_type)
+      DEFAULT_RESOURCE_TYPE_ICONS[resource_type.to_s] || DEFAULT_RESOURCE_TYPE_ICONS["other"]
     end
   end
 end

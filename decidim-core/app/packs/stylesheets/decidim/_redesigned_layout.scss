@@ -32,7 +32,7 @@
   }
 
   &__reverse &__aside{
-    @apply order-last;
+    @apply order-last pr-0;
   }
 
   &__reverse &__main{
