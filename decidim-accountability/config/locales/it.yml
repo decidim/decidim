@@ -165,7 +165,6 @@ it:
             other: "%{count} risultati"
         filters:
           all: Tutti
-          scopes: Ambiti
         home:
           categories_label: Categorie
           subcategories_label: Sottocategorie
