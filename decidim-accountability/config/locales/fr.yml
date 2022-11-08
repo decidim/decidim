@@ -223,7 +223,6 @@ fr:
             other: "%{count} réalisations"
         filters:
           all: Tous
-          scopes: Secteurs
         home:
           categories_label: Catégories
           subcategories_label: Sous-catégories
