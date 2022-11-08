@@ -148,7 +148,6 @@ lv:
             other: "%{count} rezultāti"
         filters:
           all: Visi
-          scopes: Darbības tvērums
         home:
           categories_label: Kategorijas
           subcategories_label: Apakškategorijas
