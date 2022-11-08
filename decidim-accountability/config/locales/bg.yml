@@ -150,7 +150,6 @@ bg:
             other: "%{count} резултата"
         filters:
           all: Всички
-          scopes: Сфери
         home:
           categories_label: Категории
           subcategories_label: Подкатегории
