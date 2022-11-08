@@ -513,6 +513,9 @@ pl:
           file_legend: Zaimportuj plik, który zostanie przetworzony.
           import: Importuj
         notice: "Zaimportowano %{resource_name} %{number}"
+      logs:
+        filters:
+          user: Użytkownik
       managed_users:
         promotion:
           error: Podczas awansowania zarządzanego użytkownika wystąpił błąd.
@@ -841,6 +844,7 @@ pl:
           destroy:
             button: Usuń wszystkich prywatnych uczestników
             title: Usuń prywatnych uczestników
+          example_file: 'Przykładowy plik:'
           title: Prześlij swój plik CSV
           upload: Prześlij
       reminders:
@@ -991,6 +995,7 @@ pl:
           verify_via_csv: Zweryfikuj za pomocą CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Przykładowy plik:'
           explanation: 'Prześlij swój plik CSV. Plik musi zawierać: w pierwszej kolumnie oficjalne adresy e-mail grup w organizacji, bez nagłówków. Tylko grupy, które potwierdziły swój adres e-mail i których adres e-mail znajduje się w pliku CSV, zostaną zweryfikowane.'
           title: Prześlij swój plik CSV
           upload: Prześlij
@@ -1055,6 +1060,7 @@ pl:
         moderation:
           fields:
             created_at: Data utworzenia
+            deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba
