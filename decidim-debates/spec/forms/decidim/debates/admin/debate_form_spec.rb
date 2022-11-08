@@ -118,5 +118,17 @@ describe Decidim::Debates::Admin::DebateForm do
     it "sets the form category id correctly" do
       expect(subject.decidim_category_id).to eq category.id
     end
+
+    it "sets the finite value correctly" do
+      expect(subject.finite).to be(false)
+    end
+
+    context "when the debate has start and end dates" do
+      let(:debate) { create :debate, :open_ama }
+
+      it "sets the finite value correctly" do
+        expect(subject.finite).to be(true)
+      end
+    end
   end
 end
