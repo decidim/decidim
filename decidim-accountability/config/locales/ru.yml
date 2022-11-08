@@ -139,7 +139,6 @@ ru:
             other: "%{count} итога"
         filters:
           all: Все
-          scopes: Охваты
         home:
           categories_label: Категории
           subcategories_label: Подкатегории
