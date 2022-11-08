@@ -1046,6 +1046,7 @@ pl:
         moderation:
           fields:
             created_at: Data utworzenia
+            deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba
