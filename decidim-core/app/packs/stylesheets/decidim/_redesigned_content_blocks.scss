@@ -1,5 +1,5 @@
 .content-block{
-  @apply space-y-8 py-16 first:pt-0 last:pb-0;
+  @apply flex flex-col gap-8 items-stretch py-8 md:py-16 first:pt-0 last:pb-0;
 
   &__description{
     @apply text-lg prose max-w-2xl;
