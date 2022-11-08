@@ -196,7 +196,6 @@ ja:
             other: "%{count} 件の結果"
         filters:
           all: すべて
-          scopes: スコープ
         home:
           categories_label: カテゴリ
           subcategories_label: サブカテゴリ
