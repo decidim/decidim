@@ -175,7 +175,6 @@
             other: "%{count} resultater"
         filters:
           all: Alle
-          scopes: Tema
         home:
           categories_label: Kategorier
           subcategories_label: Underkategorier
