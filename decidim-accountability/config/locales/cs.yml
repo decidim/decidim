@@ -212,7 +212,6 @@ cs:
             other: "%{count} výsledků"
         filters:
           all: Vše
-          scopes: Oblasti působnosti
         home:
           categories_label: Kategorie
           subcategories_label: Podkategorie
