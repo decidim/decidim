@@ -201,7 +201,6 @@ es-MX:
             other: "%{count} resultados"
         filters:
           all: Todos
-          scopes: Ámbitos
         home:
           categories_label: Categorías
           subcategories_label: Subcategorías
