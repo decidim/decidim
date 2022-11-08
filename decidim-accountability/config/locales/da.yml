@@ -150,7 +150,6 @@ da:
             other: "%{count} resultater"
         filters:
           all: Alle
-          scopes: Områder
         home:
           categories_label: Kategorier
           subcategories_label: Underkategorier
