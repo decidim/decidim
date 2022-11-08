@@ -1036,6 +1036,7 @@ hu:
         moderation:
           fields:
             created_at: Létrehozás dátuma
+            deleted_resource: Törölt erőforrás
             hidden_at: 'Rejtett itt:'
             participatory_space: Részvételi tér
             report_count: Számol
