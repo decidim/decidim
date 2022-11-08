@@ -546,6 +546,7 @@ pl:
           invalid: Wystąpił błąd podczas próby opuszczenia tego spotkania.
           success: Opuściłeś spotkanie.
       type_of_meeting:
+        hybrid: Hybrydowe
         in_person: Osobiście
         online: Online
       types:
