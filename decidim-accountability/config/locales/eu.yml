@@ -165,7 +165,6 @@ eu:
             other: "%{count} emaitza"
         filters:
           all: Guztiak
-          scopes: Esparruak
         home:
           categories_label: Kategoriak
           subcategories_label: Azpikategoriak
