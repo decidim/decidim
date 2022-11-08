@@ -171,7 +171,6 @@ sv:
             other: "%{count} resultat"
         filters:
           all: Alla
-          scopes: Omfattningar
         home:
           categories_label: Kategorier
           subcategories_label: Underkategorier
