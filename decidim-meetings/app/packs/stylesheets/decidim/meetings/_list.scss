@@ -43,8 +43,26 @@
   }
 
   &__block{
+    @apply space-y-10;
+
     &-title{
       @apply flex justify-start items-center gap-4 last:[&>*]:ml-auto;
+    }
+
+    &-map{
+      @apply aspect-[2/1] md:aspect-[4/1] rounded overflow-hidden [&>*]:h-full;
+    }
+
+    &-list{
+      @apply flex flex-col md:flex-row justify-start gap-16 last:[&>*]:grow;
+
+      &-aside{
+        @apply flex flex-col gap-4 items-stretch;
+      }
+
+      &-title{
+        @apply text-gray-2 font-semibold uppercase;
+      }
     }
   }
 }
