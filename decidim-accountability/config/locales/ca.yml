@@ -201,7 +201,6 @@ ca:
             other: "%{count} resultats"
         filters:
           all: Tots
-          scopes: Àmbits
         home:
           categories_label: Categories
           subcategories_label: Subcategories
