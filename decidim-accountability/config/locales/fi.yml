@@ -201,7 +201,6 @@ fi:
             other: "%{count} tulosta"
         filters:
           all: Kaikki
-          scopes: Teemat
         home:
           categories_label: Aihepiirit
           subcategories_label: Ala-aihepiiri
