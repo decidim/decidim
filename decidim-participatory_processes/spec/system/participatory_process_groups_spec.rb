@@ -211,15 +211,15 @@ describe "Participatory Process Groups", type: :system do
 
       it "shows cards of results from both processes" do
         within("#participatory-process-group-homepage-highlighted-results") do
-          expect(page).to have_selector("#result_#{result1.id}")
-          expect(page).to have_selector("#result_#{result2.id}")
+          expect(page).to have_selector("#accountability__result_#{result1.id}")
+          expect(page).to have_selector("#accountability__result_#{result2.id}")
 
-          within("#result_#{result1.id}") do
+          within("#accountability__result_#{result1.id}") do
             expect(page).to have_content "First awesome result!"
             expect(page).to have_i18n_content process.title
           end
 
-          within("#result_#{result2.id}") do
+          within("#accountability__result_#{result2.id}") do
             expect(page).to have_content "Second fabulous result!"
             expect(page).to have_i18n_content other_process.title
           end

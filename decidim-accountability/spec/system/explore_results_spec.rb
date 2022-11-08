@@ -49,7 +49,9 @@ describe "Explore results", versioning: true, type: :system do
 
     it "shows progress" do
       expect(page).to have_content("Global execution status")
-      expect(page).to have_selector(".progress-figure")
+      within("aside") do
+        expect(page).to have_selector(".accountability__status-value")
+      end
     end
 
     context "with progress disabled" do
@@ -61,19 +63,21 @@ describe "Explore results", versioning: true, type: :system do
         visit path
 
         expect(page).to have_no_content("Global execution status")
-        expect(page).to have_no_selector(".progress-figure")
+        within("aside") do
+          expect(page).to have_no_selector(".accountability__status-value")
+        end
       end
     end
 
     context "with a scope" do
       before do
-        within "ul.tags.tags--action" do
+        within "div.filter-container" do
           click_link translated(scope.name)
         end
       end
 
       it "shows current scope active" do
-        within "ul.tags.tags--action li.active" do
+        within "div.filter-container a.is-active" do
           expect(page).to have_content(translated(scope.name))
         end
       end
@@ -109,16 +113,17 @@ describe "Explore results", versioning: true, type: :system do
 
       it "displays the correct search results" do
         fill_in :filter_search_text_cont, with: "doggo"
-        within "form .filters__search" do
+        within "form .filter-search" do
           find("*[type=submit]").click
         end
 
-        expect(page).to have_content("2 RESULTS")
-        expect(page).to have_content(translated(matching_result1.title))
-        expect(page).to have_content(translated(matching_result2.title))
+        within("div#results") do
+          expect(page).to have_content(translated(matching_result1.title))
+          expect(page).to have_content(translated(matching_result2.title))
 
-        results.each do |result|
-          expect(page).not_to have_content(translated(result.title))
+          results.each do |result|
+            expect(page).not_to have_content(translated(result.title))
+          end
         end
       end
     end
@@ -128,10 +133,12 @@ describe "Explore results", versioning: true, type: :system do
     let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
 
     it "shows all results for the given process and category" do
-      expect(page).to have_selector(".card--list__item", count: results_count)
+      within("#results") do
+        expect(page).to have_selector(".item-list", count: results_count)
 
-      results.each do |result|
-        expect(page).to have_content(translated(result.title))
+        results.each do |result|
+          expect(page).to have_content(translated(result.title))
+        end
       end
     end
 
@@ -153,7 +160,7 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows current scope active" do
-        within "ul.tags.tags--action li.active" do
+        within "div.filter-container a.is-active" do
           expect(page).to have_content(translated(scope.name))
         end
       end
@@ -161,7 +168,7 @@ describe "Explore results", versioning: true, type: :system do
       it "maintains scope filter" do
         click_link translated(category.name)
 
-        within "ul.tags.tags--action li.active" do
+        within "div.filter-container a.is-active" do
           expect(page).to have_content(translated(scope.name))
         end
       end
@@ -199,7 +206,7 @@ describe "Explore results", versioning: true, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("ul.tags.tags--result")
+        expect(page).to have_no_selector("ul.tags.tag-container")
       end
     end
 
@@ -212,8 +219,8 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tags--result")
-        within "ul.tags.tags--result" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(result.category.name))
         end
       end
@@ -232,8 +239,8 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tags--result")
-        within "ul.tags.tags--result" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(result.scope.name))
         end
       end
@@ -249,6 +256,8 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows the comments" do
+        skip "REDESIGN_PENDING - Comments integration pending"
+
         comments.each do |comment|
           expect(page).to have_content(comment.body.values.first)
         end
@@ -265,6 +274,7 @@ describe "Explore results", versioning: true, type: :system do
       before do
         result.link_resources(proposals, "included_proposals")
         visit current_path
+        select_tab("Included proposals")
       end
 
       it "shows related proposals" do
@@ -292,6 +302,7 @@ describe "Explore results", versioning: true, type: :system do
       before do
         result.link_resources(projects, "included_projects")
         visit current_path
+        select_tab("Included projects")
       end
 
       it "shows related projects" do
@@ -316,6 +327,7 @@ describe "Explore results", versioning: true, type: :system do
       before do
         result.link_resources(meetings, "meetings_through_proposals")
         visit current_path
+        select_tab("Included meetings")
       end
 
       it "shows related meetings" do
@@ -345,9 +357,7 @@ describe "Explore results", versioning: true, type: :system do
         end
 
         it "disables filtering by scope" do
-          within ".scope-filters" do
-            expect(page).not_to have_content(/Scopes/i)
-          end
+          expect(page).to have_no_selector("[data-scope-filters]")
         end
       end
 
@@ -358,8 +368,9 @@ describe "Explore results", versioning: true, type: :system do
         end
 
         it "enables filtering by scope" do
-          within ".scope-filters" do
-            expect(page).to have_content(/Scopes/i)
+          within "[data-scope-filters]" do
+            expect(page).to have_content(/All/i)
+            expect(page).to have_content(translated(scope.name))
           end
         end
       end
@@ -369,4 +380,8 @@ describe "Explore results", versioning: true, type: :system do
       let(:attached_to) { result }
     end
   end
+end
+
+def select_tab(text)
+  find("li.tab-x", text:).click
 end
