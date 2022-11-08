@@ -1039,6 +1039,7 @@ es-MX:
         moderation:
           fields:
             created_at: Fecha de creación
+            deleted_resource: Eliminar recurso
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Recuento
