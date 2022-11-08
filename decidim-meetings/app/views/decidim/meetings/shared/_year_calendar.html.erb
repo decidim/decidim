@@ -66,7 +66,8 @@
     %>
 
     <% current_year.group_by { |e| e.month }.each do |month| %>
-      <%= render partial: "decidim/meetings/shared/month", locals: { month: month, events: events } %>
+      <%# REDESING_PENDING: check out the model %>
+      <%= cell "decidim/meetings/meeting_month", meetings, month:, events: %>
     <% end %>
   </div>
 <% end %>

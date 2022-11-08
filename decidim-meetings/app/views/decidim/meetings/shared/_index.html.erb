@@ -27,7 +27,7 @@
   %>
 
   <% current_year.group_by {|e| e.month}.take(2).take(2).each do |month| %>
-    <%= render partial: "decidim/meetings/shared/month", locals: { month: month, events: events } %>
+    <%= cell "decidim/meetings/meeting_month", search.result, month:, events: %>
   <% end %>
 
   <%= render partial: "decidim/meetings/shared/filters", locals: {
