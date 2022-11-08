@@ -8,6 +8,7 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
+        meetings_ids: Included meetings
         progress: Progress
         project_ids: Included projects
         proposals: Included proposals
@@ -225,7 +226,6 @@ en:
             other: "%{count} results"
         filters:
           all: All
-          scopes: Scopes
         home:
           categories_label: Categories
           subcategories_label: Subcategories

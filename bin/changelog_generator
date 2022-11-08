@@ -81,7 +81,7 @@ class ChangeLogGenerator
         data[:type].include?(type_data[:label])
       end
 
-      output "#### #{type_title}"
+      output "### #{type_title}"
       output ""
 
       if type_prs.any?
