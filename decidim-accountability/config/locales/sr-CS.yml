@@ -137,7 +137,6 @@ sr:
             other: "%{count} rezultata"
         filters:
           all: Sve
-          scopes: Opsezi
         home:
           categories_label: Kategorije
           subcategories_label: Podkategorije
