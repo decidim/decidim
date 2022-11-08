@@ -270,7 +270,7 @@ describe "Explore debates", type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("ul.tags.tags--debate")
+        expect(page).not_to have_selector("ul.tags.tag-container")
       end
     end
 
@@ -283,9 +283,9 @@ describe "Explore debates", type: :system do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tags--debate")
+        expect(page).to have_selector("ul.tags.tag-container")
 
-        within "ul.tags.tags--debate" do
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(debate.category.name))
         end
       end
@@ -300,14 +300,14 @@ describe "Explore debates", type: :system do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tags--debate")
-        within "ul.tags.tags--debate" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(debate.scope.name))
         end
       end
 
       it "links to the filter for this scope" do
-        within "ul.tags.tags--debate" do
+        within "ul.tags.tag-container" do
           click_link translated(debate.scope.name)
         end
 

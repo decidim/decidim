@@ -49,10 +49,10 @@
               </td>
               <td>
                 <% if allowed_to? :update, :meeting, meeting: meeting %>
-                  <%= link_to present(meeting).title, edit_meeting_path(meeting) %>
+                  <%= link_to present(meeting).title(html_escape: true), edit_meeting_path(meeting) %>
                   <br>
                 <% else %>
-                  <%= present(meeting).title %><br>
+                  <%= present(meeting).title(html_escape: true) %><br>
                 <% end %>
               </td>
               <td>
