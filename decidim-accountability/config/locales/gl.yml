@@ -165,7 +165,6 @@ gl:
             other: "%{count} resultados"
         filters:
           all: Todo
-          scopes: Ámbitos
         home:
           categories_label: Categorías
           subcategories_label: Subcategorías
