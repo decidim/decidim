@@ -78,6 +78,7 @@ import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
+import RemoteModal from "./redesigned_ajax_modals"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -162,6 +163,10 @@ const initializer = () => {
 
   backToListLink(document.querySelectorAll(".js-back-to-list"));
 
+  markAsReadNotifications()
+
+  scrollToLastChild()
+
   Accordions.init();
   Dropdowns.init();
   document.querySelectorAll("[data-dialog]").forEach(
@@ -174,9 +179,16 @@ const initializer = () => {
       })
   );
 
-  markAsReadNotifications()
+  document.querySelectorAll("[data-drawer]").forEach(
+    ({ dataset: { drawer } }) =>
+      new Dialogs(`[data-drawer="${drawer}"]`, {
+        openingSelector: `[data-drawer-open="${drawer}"]`,
+        closingSelector: `[data-drawer-close="${drawer}"]`
+      })
+  );
 
-  scrollToLastChild()
+  // Initialize available remote modals (ajax-fetched contents)
+  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
 }
 
 if ("Turbo" in window) {

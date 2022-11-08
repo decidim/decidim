@@ -16,11 +16,7 @@ import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
 import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
-import Accordions from "a11y-accordion-component";
-import Dropdowns from "a11y-dropdown-component";
-import Dialogs from "a11y-dialog-component";
 import markAsReadNotifications from "src/decidim/notifications"
-import RemoteModal from "src/decidim/redesigned_ajax_modals"
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -98,29 +94,6 @@ $(() => {
   addInputEmoji()
 
   backToListLink(document.querySelectorAll(".js-back-to-list"));
-
-  Accordions.init();
-  Dropdowns.init();
-  document.querySelectorAll("[data-dialog]").forEach(
-    ({ dataset: { dialog } }) =>
-      new Dialogs(`[data-dialog="${dialog}"]`, {
-        openingSelector: `[data-dialog-open="${dialog}"]`,
-        closingSelector: `[data-dialog-close="${dialog}"]`,
-        labelledby: `dialog-title-${dialog}`,
-        describedby: `dialog-desc-${dialog}`
-      })
-  );
-
-  // Initialize available remote modals (ajax-fetched contents)
-  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
-
-  document.querySelectorAll("[data-drawer]").forEach(
-    ({ dataset: { drawer } }) =>
-      new Dialogs(`[data-drawer="${drawer}"]`, {
-        openingSelector: `[data-drawer-open="${drawer}"]`,
-        closingSelector: `[data-drawer-close="${drawer}"]`
-      })
-  );
 
   markAsReadNotifications()
 
