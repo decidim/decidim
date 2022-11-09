@@ -133,12 +133,11 @@ module Decidim
       let(:private_comment) { create(:comment, author: user, commentable: build(:dummy_resource, component: private_component)) }
       let!(:private_log) { create(:action_log, action: "create", visibility: "public-only", resource: private_comment, participatory_space: private_process, user: user) }
 
-
       before do
         # Note that it is possible to add private users also to public processes
         # and assemblies, there is no programming logic forbidding that to happen.
         [process, assembly, private_process, private_assembly].each do |space|
-          10.times { create(:participatory_space_private_user, user: build(:user, :confirmed, organization: organization), privatable_to: space) } # rubocop:disable RSpec/FactoryBot/CreateList
+          10.times { create(:participatory_space_private_user, user: build(:user, :confirmed, organization: organization), privatable_to: space) } # rubocop:disable FactoryBot/CreateList
         end
 
         # Add the user to both private spaces
