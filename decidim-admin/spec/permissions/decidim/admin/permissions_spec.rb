@@ -21,13 +21,13 @@ describe Decidim::Admin::Permissions do
     let(:action_name) { action_name }
 
     context "when admin has accepted Terms of Use" do
-      let(:user) { build :user, :admin, admin_terms_accepted_at: Time.current, organization: }
+      let(:user) { build :user, :admin, admin_terms_accepted_at: Time.current, organization: organization }
 
       it { is_expected.to be true }
     end
 
     context "when admin hasn't accepted Terms of Use" do
-      let(:user) { build :user, :admin, admin_terms_accepted_at: nil, organization: }
+      let(:user) { build :user, :admin, admin_terms_accepted_at: nil, organization: organization }
 
       it_behaves_like "permission is not set"
     end
