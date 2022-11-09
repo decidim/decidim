@@ -57,6 +57,8 @@ ro:
         short_description: Descriere scurtă
         start_date: Data de început
         title: Titlu
+      participatory_process_type:
+        title: Titlu
       participatory_process_user_role:
         email: E-mail
         name: Nume
