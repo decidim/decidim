@@ -100,7 +100,7 @@ describe "Participatory Process Groups", type: :system do
 
       it_behaves_like "has embedded video in description", :description do
         before do
-          participatory_process_group.update!(description:)
+          participatory_process_group.update!(description: description)
           visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
         end
       end
