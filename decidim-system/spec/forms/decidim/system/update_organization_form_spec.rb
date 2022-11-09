@@ -27,12 +27,12 @@ module Decidim::System
 
     let(:smtp_settings) do
       {
-        "address" => "mail.gotham.gov",
-        "port" => 25,
-        "user_name" => "f.laguardia",
-        "password" => password,
-        "from_email" => "decide@gotham.gov",
-        "from_label" => from_label
+        address: "mail.gotham.gov",
+        port: 25,
+        user_name: "f.laguardia",
+        password: password,
+        from_email: "decide@gotham.gov",
+        from_label: from_label
       }
     end
     let(:password) { "secret_password" }
@@ -85,7 +85,7 @@ module Decidim::System
 
       describe "smtp_settings" do
         it "handles SMTP password properly" do
-          expect(subject.smtp_settings).to eq(smtp_settings.except("password"))
+          expect(subject.smtp_settings).to eq(smtp_settings.except(:password))
           expect(Decidim::AttributeEncryptor.decrypt(subject.encrypted_smtp_settings[:encrypted_password])).to eq(password)
         end
       end
