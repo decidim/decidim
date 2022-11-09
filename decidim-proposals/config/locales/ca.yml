@@ -401,9 +401,6 @@ ca:
           proposal_comments: Comentaris
           proposals: Propostes
         imports:
-          help:
-            answers: 'El document d''importació ha tenir les columnes següents: id, estat (acceptada, en avaluació, rebutjada) resposta/es (en els diferents idiomes habilitats a la plataforma).'
-            proposals: L'arxiu ha d'incloure els noms de columna title/ca i body/ca (o un altre idioma de preferència per exemple, title/es i body/es). També s'admeten les columnes scope/id i category/id.
           label:
             answers: Importar respostes des d'un fitxer
             proposals: Importar propostes des d'un fitxer
