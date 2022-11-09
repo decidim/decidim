@@ -381,7 +381,7 @@ module Decidim
           resource.start_time = Time.parse("2017-02-01T15:00:00.000Z")
         end
 
-        it { expect(resource.start_time).to be_a(Time) }
+        it { expect(resource.start_time).to be_a(DateTime) }
 
         it "formats the start date correctly" do
           expect(parsed.css("input").first.attr("data-startdate")).to eq("01/02/2017 15:00")
