@@ -93,6 +93,29 @@ describe "Sorting projects", type: :system do
         expect(page).to have_selector("#projects .budget-list .budget-list__item:first-child", text: translated(project2.title))
         expect(page).to have_selector("#projects .budget-list .budget-list__item:last-child", text: translated(project1.title))
       end
+
+      it "automatically sorts by votes and respect the pagination" do
+        component.update!(settings: { projects_per_page: 1 })
+
+        visit_budget
+
+        within "#projects li.is-dropdown-submenu-parent a" do
+          expect(page).to have_content("Most voted")
+        end
+
+        # project2 on first page
+        expect(page).to have_content(translated(project2.title))
+        expect(page).not_to have_content(translated(project1.title))
+
+        within "#projects .pagination" do
+          expect(page).to have_content("2")
+          page.find("a", text: "2").click
+        end
+
+        # project1 on second page
+        expect(page).not_to have_content(translated(project2.title))
+        expect(page).to have_content(translated(project1.title))
+      end
     end
   end
 

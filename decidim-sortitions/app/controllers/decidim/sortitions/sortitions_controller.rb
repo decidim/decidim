@@ -19,8 +19,8 @@ module Decidim
                       .includes(:author)
                       .includes(:category)
 
-        @sortitions = paginate(@sortitions)
         @sortitions = reorder(@sortitions)
+        @sortitions = paginate(@sortitions)
       end
 
       private
