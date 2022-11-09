@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "AdminTosAcceptance", type: :system do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
+  let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization: organization) }
 
   before do
     switch_to_host(organization.host)
