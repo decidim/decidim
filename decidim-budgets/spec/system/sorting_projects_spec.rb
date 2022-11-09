@@ -107,7 +107,7 @@ describe "Sorting projects", type: :system do
         expect(page).to have_content(translated(project2.title))
         expect(page).not_to have_content(translated(project1.title))
 
-        within "#projects [data-pagination]" do
+        within "#projects .pagination" do
           expect(page).to have_content("2")
           page.find("a", text: "2").click
         end
