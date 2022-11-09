@@ -16,6 +16,23 @@ describe Decidim::Admin::Permissions do
   let(:action_name) { :foo }
   let(:action_subject) { :bar }
 
+  shared_examples "needs to accept Terms of Use for" do |action_subject_name, action_name|
+    let(:action_subject) { action_subject_name }
+    let(:action_name) { action_name }
+
+    context "when admin has accepted Terms of Use" do
+      let(:user) { build :user, :admin, admin_terms_accepted_at: Time.current, organization: organization }
+
+      it { is_expected.to be true }
+    end
+
+    context "when admin hasn't accepted Terms of Use" do
+      let(:user) { build :user, :admin, admin_terms_accepted_at: nil, organization: organization }
+
+      it_behaves_like "permission is not set"
+    end
+  end
+
   context "when scope is not admin" do
     let(:action) do
       { scope: :public, action: :foo, subject: :bar }
@@ -88,6 +105,18 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "user statistics" do
+    let(:action_subject) { :users_statistics }
+
+    it_behaves_like "permission is not set"
+
+    context "when reading" do
+      let(:action_name) { :read }
+
+      it { is_expected.to be true }
+    end
+  end
+
   describe "metrics" do
     let(:action_subject) { :metrics }
 
@@ -140,6 +169,10 @@ describe Decidim::Admin::Permissions do
     context "when any other action" do
       it { is_expected.to eq true }
     end
+  end
+
+  describe "global moderation" do
+    it_behaves_like "needs to accept Terms of Use for", :global_moderation, :read
   end
 
   describe "share tokens" do
@@ -195,7 +228,9 @@ describe Decidim::Admin::Permissions do
       context "when organization available authorizations are not empty" do
         let(:authorizations) { [:foo] }
 
-        it { is_expected.to eq true }
+        it_behaves_like "needs to accept Terms of Use for", :managed_user, :create
+
+        it { is_expected.to be true }
       end
     end
 
