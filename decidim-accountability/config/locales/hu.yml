@@ -49,8 +49,6 @@ hu:
         import_results:
           new:
             import: Importál
-            info: "<p>Javasoljuk, hogy kövesse az alábbi lépéseket:</p><ol><li>Hozza létre a hozzáadni kívánt Eredmények állapotait (<a href='%{link_new_status}' target='_blank'>link</a>).</li><li>Az Importálás lehetőség használata előtt hozzon létre legalább egy eredményt manuálisan ezen az Adminisztrációs panelen keresztül (<a href='%{link_new_result}' target='_blank'>link</a>), hogy jobban megismerje a használni kívánt formátumot, valamint az adatokat, amelyeket meg kell adnia.</li><li>Töltse le az Exportált elemet CSV-formátumban (%{link_export_csv})</li><li>A módosításokat helyileg végezze el. A CSV-fájlban kizárólag a következő oszlopokat módosíthatja:</li></ol><ul><li><b>category/id:</b> a Kategória azonosítója</li><li><b>scope/id:</b> az Alkalmazási kör azonosítója</li><li><b>parent/id:</b> a Fölérendelt objektum azonosítója (a kapcsolódó Eredmények esetében). Opcionális</li><li><b>title/I18N:</b> Cím X nyelven</li><li><b>description/I18N:</b> Leírás X nyelven</li><li><b>start_date:</b> az eredmény végrehajtásának kezdő dátuma (formátum: ÉÉÉÉ-HH-NN)</li><li><b>end_date:</b> az eredmény végrehajtásának záró dátuma (formátum: ÉÉÉÉ-HH-NN)</li><li><b>status/id:</b> az eredmény Állapotának azonosítója</li><li><b>progress:</b> a végrehajtás mértéke százalékban kifejezve (0 és 100 közötti érték)</li><li><b>proposals_ids:</b> a kapcsolódó javaslatok belső azonosítói (vesszővel elválasztva). Automatikusan a következőre konvertálva: <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: link
             title: Eredmények betöltése CSV-ből
         imports:
           create:
