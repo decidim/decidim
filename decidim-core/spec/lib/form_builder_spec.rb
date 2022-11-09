@@ -378,7 +378,9 @@ module Decidim
 
       context "when the start_time is set as Time" do
         before do
+          # rubocop:disable Rails/TimeZone
           resource.start_time = Time.parse("2017-02-01T15:00:00.000Z")
+          # rubocop:enable Rails/TimeZone
         end
 
         it { expect(resource.start_time).to be_a(DateTime) }
