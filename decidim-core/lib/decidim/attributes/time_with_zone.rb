@@ -10,19 +10,23 @@ module Decidim
 
         Time.zone.strptime(value, I18n.t("time.formats.decidim_short"))
       rescue ArgumentError
-        begin
-          fallback = coercer.coercers[Time].public_send(type.coercion_method, value)
-          return Time.zone.strptime(value.split(".").first, "%FT%R:%S") if fallback.is_a?(String)
-          return nil unless fallback.is_a?(Time)
-
-          ActiveSupport::TimeWithZone.new(fallback, Time.zone)
-        rescue ArgumentError
-          nil
-        end
+        coerce_fallback(value)
       end
 
       def type
         Axiom::Types::Time
+      end
+
+      private
+
+      def coerce_fallback(value)
+        fallback = coercer.coercers[Time].public_send(type.coercion_method, value)
+        return Time.zone.strptime(value.split(".").first, "%FT%R:%S") if fallback.is_a?(String)
+        return nil unless fallback.is_a?(Time)
+
+        ActiveSupport::TimeWithZone.new(fallback, Time.zone)
+      rescue ArgumentError
+        nil
       end
     end
   end

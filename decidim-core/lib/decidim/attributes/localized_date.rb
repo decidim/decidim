@@ -10,15 +10,19 @@ module Decidim
 
         Date.strptime(value, I18n.t("date.formats.decidim_short"))
       rescue ArgumentError
-        begin
-          coercer.coercers[DateTime].public_send(type.coercion_method, value)
-        rescue Date::Error
-          nil
-        end
+        coerce_fallback(value)
       end
 
       def type
         Axiom::Types::Date
+      end
+
+      private
+
+      def coerce_fallback(value)
+        coercer.coercers[DateTime].public_send(type.coercion_method, value)
+      rescue Date::Error
+        nil
       end
     end
   end
