@@ -37,10 +37,17 @@
   @import "stylesheets/decidim/redesigned_tos.scss";
   @import "stylesheets/decidim/redesigned_vertical_tabs.scss";
   @import "stylesheets/decidim/redesigned_flash.scss";
+  @import "stylesheets/decidim/redesigned_filters.scss";
+  @import "stylesheets/decidim/redesigned_tags.scss";
+  @import "stylesheets/decidim/redesigned_tabs_x.scss";
+  @import "stylesheets/decidim/redesigned_item_list.scss";
+  @import "stylesheets/decidim/redesigned_drawer.scss";
+  @import "stylesheets/decidim/redesigned_drawer_metadata.scss";
   @import "stylesheets/decidim/redesigned_modal.scss";
 }
 
 // On the other hand, the following styles match with specific routes
+@import "stylesheets/decidim/redesigned_header.scss";
 @import "stylesheets/decidim/redesigned_login.scss";
 @import "stylesheets/decidim/redesigned_pages.scss";
 @import "stylesheets/decidim/redesigned_notifications.scss";

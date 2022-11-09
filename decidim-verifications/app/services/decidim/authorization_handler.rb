@@ -29,6 +29,39 @@ module Decidim
       nil
     end
 
+    # Defines whether the authorization is unique or if there is a duplicate for
+    # this particular authorization that matches the same unique_id.
+    #
+    # @return [Boolean] A boolean indicating if the authorization has a
+    #   duplicate.
+    def unique?
+      unique_id.nil? || duplicate.blank?
+    end
+
+    # Defines whether the duplicate authorizations can be transferred to a new
+    # user.
+    #
+    # @return [Boolean] A boolean indicating whether the authorization can be
+    #   transferred.
+    def transferrable?
+      duplicate.present? && duplicate.user.deleted?
+    end
+
+    # Fetches the duplicate record of the same authorization currently belonging
+    # to other user than the user being authorized.
+    #
+    # @return [Decidim::Authorization, nil] The duplicate authorization record
+    #   based on the unique ID or nil if there is no duplicate.
+    def duplicate
+      return unless user
+
+      Authorization.find_by(
+        user: User.where.not(id: user.id).where(organization: user.organization),
+        name: handler_name,
+        unique_id:
+      )
+    end
+
     # The attributes of the handler that should be exposed as form input when
     # rendering the handler in a form.
     #
@@ -117,16 +150,8 @@ module Decidim
 
     private
 
-    def duplicates
-      Authorization.where(
-        user: User.where.not(id: user.id).where(organization: user.organization),
-        name: handler_name,
-        unique_id:
-      )
-    end
-
     def uniqueness
-      return true if unique_id.nil? || duplicates.none?
+      return true if unique?
 
       errors.add(:base, I18n.t("decidim.authorization_handlers.errors.duplicate_authorization"))
 

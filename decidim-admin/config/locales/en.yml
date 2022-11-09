@@ -134,6 +134,14 @@ en:
               allowed_file_content_types: Invalid image file
             official_img_header:
               allowed_file_content_types: Invalid image file
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
       new_import:
         attributes:
           file:
@@ -185,7 +193,7 @@ en:
           error: There's been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
-          accept: I agree with the following terms
+          accept: I agree with the terms
           are_you_sure: Are you sure you want to refuse the admin terms of use?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
@@ -840,7 +848,7 @@ en:
           title: New Participatory Space private participant.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: There was a problem reading the CSV file.
+          invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
           success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
         new:
           destroy:
@@ -849,7 +857,11 @@ en:
             empty: You have no private participants.
             explanation: You have %{count} private participants.
             title: Delete private participants
-          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
+          example_file: 'Example file:'
+          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Upload your CSV file
           upload: Upload
       reminders:
@@ -998,7 +1010,11 @@ en:
           verify_via_csv: Verify via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Example file:'
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Upload your CSV file
           upload: Upload
       users:
@@ -1062,6 +1078,7 @@ en:
         moderation:
           fields:
             created_at: Creation date
+            deleted_resource: Deleted resource
             hidden_at: Hidden at
             participatory_space: Participatory space
             report_count: Count

@@ -59,6 +59,12 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_budgets.authorization_transfer" do
+        Decidim::AuthorizationTransfer.register(:budgets) do |transfer|
+          transfer.move_records(Decidim::Budgets::Order, :decidim_user_id)
+        end
+      end
     end
   end
 end
