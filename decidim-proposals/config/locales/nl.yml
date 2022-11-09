@@ -363,9 +363,6 @@ nl:
           proposal_comments: Reacties
           proposals: Voorstellen
         imports:
-          help:
-            answers: 'Het importdocument moet de volgende kolommen bevatten: id, status (geaccepteerd, evalueren, afgewezen), antwoord/nl (en andere talen ingeschakeld voor de organisatie).'
-            proposals: Het bestand moet kolomnamen title/nl en body/nl bevatten (of een andere locale die jij verkiest, bijv. title/fr en body/fr). Ook scope/id en category/id kolommen worden ondersteund.
           label:
             answers: Importeer antwoorden vanuit een bestand
             proposals: Importeer voorstellen vanuit een bestand
