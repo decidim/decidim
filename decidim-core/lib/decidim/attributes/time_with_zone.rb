@@ -21,11 +21,11 @@ module Decidim
 
       def coerce_fallback(value)
         fallback = coercer.coercers[Time].public_send(type.coercion_method, value)
-        return Time.zone.strptime(value.split(".").first, "%FT%R:%S") if fallback.is_a?(String)
+        return Time.zone.strptime(fallback.split(".").first, "%FT%R:%S") if fallback.is_a?(String)
         return nil unless fallback.is_a?(Time)
 
         ActiveSupport::TimeWithZone.new(fallback, Time.zone)
-      rescue ArgumentError
+      rescue ArgumentError, TypeError
         nil
       end
     end
