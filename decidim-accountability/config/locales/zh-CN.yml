@@ -45,7 +45,6 @@ zh-CN:
         import_results:
           new:
             import: 导入
-            link: 链接
             title: 从 CSV 导入结果
         imports:
           create:
