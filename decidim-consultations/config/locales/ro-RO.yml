@@ -272,6 +272,9 @@ ro:
         title: Întrebări de la %{scope_name}
       index:
         title: Consultări
+      last_activity:
+        new_consultation: 'Consultare nouă:'
+        new_question: 'Întrebare nouă:'
       pages:
         home:
           highlighted_consultations:
