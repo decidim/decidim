@@ -180,7 +180,6 @@ ro:
           error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
-          accept: Sunt de acord cu următorii termeni
           are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
           refuse: Refuz termenii
           title: Acceptă termenii și condițiile de utilizare
