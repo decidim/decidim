@@ -184,7 +184,6 @@ lt:
           error: Sutinkant su administratoriaus naudojimosi sąlygomis įvyko klaida.
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
-          accept: Sutinku su šiomis nuostatomis
           are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
           refuse: Nesutikti su administratoriaus nustatytomis sąlygomis
           title: Sutikti su naudojimosi sąlygomis
