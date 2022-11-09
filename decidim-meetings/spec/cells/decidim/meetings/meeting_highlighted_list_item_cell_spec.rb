@@ -3,15 +3,17 @@
 require "spec_helper"
 
 module Decidim::Meetings
-  describe MeetingListItemCell, type: :cell do
+  describe MeetingHighlightedListItemCell, type: :cell do
+    controller Decidim::Meetings::MeetingsController
+
     subject { my_cell.call }
 
     let!(:meeting) { create(:meeting, :published) }
-    let(:my_cell) { cell("decidim/meetings/meeting_list_item", meeting) }
+    let(:my_cell) { cell("decidim/meetings/meeting_highlighted_list_item", meeting) }
 
     context "when rendering" do
       it "renders the card" do
-        expect(subject).to have_css(".card--list__item")
+        expect(subject).to have_css(".card")
       end
     end
 
