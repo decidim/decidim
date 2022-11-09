@@ -54,8 +54,8 @@ describe "Admin manages election steps", :slow, type: :system do
           expect(page).to have_content("The participatory space has at least 3 trustees with public key.")
           expect(page).to have_content("has a public key", minimum: 2)
           expect(page).to have_content("There is no census uploaded for this election.")
-          expect(page).to have_content("Election codes for the census are not generated.")
-          expect(page).to have_content("Election codes are not exported.")
+          expect(page).to have_content("Access codes for the census are not generated.")
+          expect(page).to have_content("Access codes for the census are not exported.")
         end
       end
 
@@ -67,8 +67,8 @@ describe "Admin manages election steps", :slow, type: :system do
 
           within "form.create_election" do
             expect(page).to have_content("Census is uploaded.")
-            expect(page).to have_content("Census codes are generated.")
-            expect(page).to have_content("Codes are exported and census is frozen.")
+            expect(page).to have_content("Access codes for the census are generated.")
+            expect(page).to have_content("Access codes for the census are exported and census is frozen.")
           end
         end
       end

@@ -1,17 +1,60 @@
-<div class="row accountability">
-  <div class="small-12 columns">
-    <%= render partial: "scope_filters", locals: { url_method: :results_path } %>
-  </div>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_accountability" %>
+<% end %>
 
-  <div class="small-12 columns">
-    <%= render partial: "nav_breadcrumb", locals: { category: category, result: nil } %>
-  </div>
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
+<% end %>
 
-  <div class="small-12 columns end">
-    <% if results.any?{|r| r.children_count > 0 } %>
-      <%= render partial: "results_parent", locals: { results: results, total_count: results.total_count } %>
-    <% else %>
-      <%= render partial: "results_leaf", locals: { results: results, total_count: results.total_count } %>
+<% content_for :aside do %>
+  <h1 class="h1 decorator"><%= component_name %></h1>
+
+  <div class="accountability__status-container">
+    <%= cell(
+          "decidim/accountability/status",
+          nil,
+          url: root_path,
+          title: t("decidim.accountability.results.home_header.global_status"),
+          extra_classes: "accountability__status__parent",
+          render_blank: true
+        ) %>
+    <% categories_hierarchy.each do |category| %>
+      <%= cell(
+            "decidim/accountability/status",
+            category,
+            url: results_path(filter: { with_category: category, with_scope: current_scope }),
+            extra_classes: "accountability__status__parent",
+            render_count: false,
+            render_blank: true
+          ) %>
+    <% end %>
+    <% if category.present? %>
+      <div>
+        <%= external_icon "media/images/breadcrumb_arrow.svg" %>
+        <%= cell(
+              "decidim/accountability/status",
+              category,
+              extra_classes: "accountability__status__child",
+              url: results_path(filter: { with_category: category, with_scope: current_scope }),
+              render_blank: true
+            ) %>
+      </div>
     <% end %>
   </div>
-</div>
+
+  <%= render partial: "scope_filters" if current_component.has_subscopes? %>
+
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <% if category.present? %>
+    <h2 class="h4"><%= translated_attribute category.name %></h2>
+  <% else %>
+    <h2 class="h4"><%= t("decidim.accountability.results.home_header.global_status") %></h2>
+  <% end %>
+
+  <div id="results" class="my-20">
+    <%= cell "decidim/accountability/results", results %>
+    <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
+  </div>
+<% end %>

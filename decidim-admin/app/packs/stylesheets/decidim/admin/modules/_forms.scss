@@ -111,9 +111,10 @@ label,
   }
 }
 
-.form-error{
-  margin-top: -$input-margin;
-  margin-bottom: $input-margin;
+.form-input-extra-before{
+  margin-bottom: $form-spacing * 1.5;
+  display: block;
+  margin-top: $form-spacing * -1;
 }
 
 .custom-error{
