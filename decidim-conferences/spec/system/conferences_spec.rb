@@ -6,12 +6,14 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 describe "Conferences", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
+  let(:description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
+  let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
   let(:base_conference) do
     create(
       :conference,
       organization: organization,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
+      description: description,
+      short_description: short_description,
       show_statistics: show_statistics
     )
   end
@@ -144,6 +146,9 @@ describe "Conferences", type: :system do
         expect(page).to have_content(translated(conference.short_description, locale: :en))
       end
     end
+
+    it_behaves_like "has embedded video in description", :description
+    it_behaves_like "has embedded video in description", :short_description
 
     context "when the conference has some components" do
       it "shows the components" do
