@@ -32,7 +32,7 @@ describe "Invite process administrator", type: :system do
 
       visit decidim_admin.admin_terms_show_path
 
-      find_button("I agree with the following terms").click
+      find_button("I agree with the terms").click
 
       click_link "Processes"
 
