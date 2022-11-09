@@ -10,10 +10,15 @@ module Decidim
 
         Time.zone.strptime(value, I18n.t("time.formats.decidim_short"))
       rescue ArgumentError
-        fallback = super
-        return fallback unless fallback.is_a?(Time)
+        begin
+          fallback = coercer.coercers[Time].public_send(type.coercion_method, value)
+          return Time.zone.strptime(value.split(".").first, "%FT%R:%S") if fallback.is_a?(String)
+          return nil unless fallback.is_a?(Time)
 
-        ActiveSupport::TimeWithZone.new(fallback, Time.zone)
+          ActiveSupport::TimeWithZone.new(fallback, Time.zone)
+        rescue ArgumentError
+          nil
+        end
       end
 
       def type

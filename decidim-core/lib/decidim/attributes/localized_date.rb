@@ -10,7 +10,11 @@ module Decidim
 
         Date.strptime(value, I18n.t("date.formats.decidim_short"))
       rescue ArgumentError
-        super
+        begin
+          coercer.coercers[DateTime].public_send(type.coercion_method, value)
+        rescue Date::Error
+          nil
+        end
       end
 
       def type
