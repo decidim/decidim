@@ -179,7 +179,6 @@ gl:
           error: Produciuse un erro ao aceptar os termos de uso do panel de administración.
           success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
-          accept: Concordo con seguintes termos
           refuse: Rexeitar os termos de uso
           title: Concordo cos termos e condicións de uso
         required_review:
