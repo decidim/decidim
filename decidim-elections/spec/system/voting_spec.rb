@@ -27,7 +27,7 @@ describe "Voting", type: :system do
 
     it_behaves_like "has embedded video in description", :description do
       before do
-        voting.update!(description:)
+        voting.update!(description: description)
         visit decidim_votings.voting_path(voting)
       end
     end
