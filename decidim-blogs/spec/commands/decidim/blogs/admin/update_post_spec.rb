@@ -16,11 +16,13 @@ module Decidim
         let(:body) { "Lorem Ipsum dolor sit amet" }
         let(:post) { create(:post, component: current_component, author: current_user) }
         let(:invalid) { false }
+        let(:publish_time) { 2.days.ago }
         let(:form) do
           double(
             invalid?: invalid,
             title: { en: title },
             body: { en: body },
+            published_at: publish_time,
             current_component:,
             author: current_user
           )
@@ -53,6 +55,15 @@ module Decidim
             expect(translated(post.body)).to eq body
           end
 
+          context "when updating publish time" do
+            let!(:publish_time) { Time.new(2022, 11, 19, 8, 37, 48, "-06:00") }
+
+            it "updates the published_at" do
+              subject.call
+              expect(post.published_at).to eq(publish_time)
+            end
+          end
+
           it "broadcasts ok" do
             expect { subject.call }.to broadcast(:ok)
           end
@@ -67,6 +78,7 @@ module Decidim
               .with(post, current_user, {
                       title: { en: title },
                       body: { en: body },
+                      published_at: publish_time,
                       author: current_user
                     })
               .and_call_original
@@ -85,6 +97,7 @@ module Decidim
                 invalid?: invalid,
                 title: { en: title },
                 body: { en: body },
+                published_at: publish_time,
                 current_component:,
                 author: group
               )

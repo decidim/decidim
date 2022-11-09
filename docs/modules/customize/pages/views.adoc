@@ -27,6 +27,34 @@ As an example, if you want to change the footer, you can do so by creating the f
 hello world
 ----
 
+=== View Models (a.k.a. Cells)
+
+Decidim uses the xref:develop:view_models_aka_cells.adoc[View Models (a.k.a. Cells)] to define parts of the user interface. Cells allow you to reduce complexity within the controllers and helpers, to separate relevant functionality only related to a specific part of a UI into its own encapsulated entity.
+
+Cells consists of two parts:
+
+. The cell class which controls the rendering logic and can define helper methods for the views
+. The view written in ERB as you are used to when writing normal Rails views
+
+If you want to customize any cells within your application, you can use the "filename method" described above to find the relevant cell in charge of rendering the content you want to modify and copying this file to the exact same path within your own `app` folder as where you found the view.
+
+If you want to customize the cell class logic, you can either copy that file to the same path where you found it and customize it there or implement concerns to keep better track of what you have changed in different parts of Decidim. See the xref:customize:logic.adoc[Logic customization guide] to learn more about this approach.
+
+If you want to customize cells within your modules, you need to add the following initializer to your module's engine to make them aware of the potential lookup path:
+
+[source,ruby]
+----
+module Decidim
+  module YourModule
+    class Engine < ::Rails::Engine
+      initializer "decidim_your_module.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::YourModule::Engine.root}/app/cells")
+      end
+    end
+  end
+end
+----
+
 == New pages
 
 If you want to add a new HTML page, you can do this by working as a regular Rails application (ie, you can scaffold a new view and work with the HTML as usual).

@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="grid-x grid-margin-x">
-    <% if current_user.admin? && current_user.organization&.id == current_organization.id %>
+    <% if allowed_to? :read, :users_statistics %>
       <div class="cell small-12 medium-6 large-4">
         <%= render(
           partial: "decidim/admin/users_statistics/users_count",

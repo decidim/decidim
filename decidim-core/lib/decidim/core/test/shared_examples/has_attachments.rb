@@ -13,11 +13,11 @@ shared_examples_for "has attachments" do
     end
 
     it "shows them" do
-      within "div.wrapper .documents" do
+      within "div.attachments .documents" do
         expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
       end
 
-      within "div.wrapper .images" do
+      within "div.attachments .images" do
         expect(page).to have_css("img.thumbnail")
       end
     end
@@ -34,11 +34,11 @@ shared_examples_for "has attachments" do
     end
 
     it "shows them ordered" do
-      within "div.wrapper .documents" do
+      within "div.attachments .documents" do
         expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
       end
 
-      within "div.wrapper .images" do
+      within "div.attachments .images" do
         expect(strip_tags(translated(fist_image.title, locale: :en))).to appear_before(strip_tags(translated(last_image.title, locale: :en)))
       end
     end
