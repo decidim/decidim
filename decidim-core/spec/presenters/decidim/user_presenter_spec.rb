@@ -22,6 +22,18 @@ module Decidim
       end
     end
 
+    describe "#profile_url" do
+      subject { described_class.new(user).profile_url }
+
+      it { is_expected.to eq("http://#{user.organization.host}/profiles/#{user.nickname}") }
+    end
+
+    describe "#default_avatar_url" do
+      subject { described_class.new(user).default_avatar_url }
+
+      it { is_expected.to eq(ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")) }
+    end
+
     context "when user is not officialized" do
       describe "#badge" do
         subject { described_class.new(user).badge }

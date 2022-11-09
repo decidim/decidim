@@ -63,7 +63,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.collaborative_drafts.create.error", scope: "decidim")
-            render :complete
+            render :new
           end
         end
       end

@@ -3,6 +3,7 @@ en:
   activemodel:
     attributes:
       initiative:
+        area_id: Area
         decidim_user_group_id: Author
         description: Description
         offline_votes: In-person signatures
@@ -19,6 +20,8 @@ en:
         title: Title
       initiatives_committee_member:
         user: Committee member
+      initiatives_settings:
+        initiatives_order: Order
       initiatives_type:
         area_enabled: Enable authors to choose the area for their initiative
         attachments_enabled: Enable attachments
@@ -33,6 +36,7 @@ en:
         online_signature_enabled: Online signature enabled
         only_global_scope_enabled: Only allow global scope initiatives creation
         promoting_committee_enabled: Enable promoting committee
+        signature_type: Signature type
         title: Title
         undo_online_signatures_enabled: Enable participants to undo their online signatures
         validate_sms_code_on_votes: Add SMS code validation step to signature process

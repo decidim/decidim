@@ -59,7 +59,8 @@ module Decidim
             :monitoring_committee_verify_elections,
             :monitoring_committee_election_result, :monitoring_committee_election_results,
             :census,
-            :ballot_style, :ballot_styles
+            :ballot_style, :ballot_styles,
+            :component_data
           ].member? permission_action.subject
 
           case permission_action.subject
@@ -130,6 +131,8 @@ module Decidim
             end
           when :ballot_styles
             toggle_allow(user.admin?) if permission_action.action == :read
+          when :component_data
+            toggle_allow(user.admin?) if permission_action.action == :import
           end
         end
 
