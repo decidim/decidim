@@ -408,9 +408,6 @@ lt:
           proposal_comments: Komentarai
           proposals: Pasiūlymai
         imports:
-          help:
-            answers: 'Importavimo dokumente turi būti šie stulpeliai: Id, būsena (priimta, vertinama, atmesta), atsakymas/lt (ir kitos organizacijos įjungtos kalbos).'
-            proposals: Failas turi turėti stulpelių pavadinimus title/lt ir body/lt (arba kitą pageidaujamą lokalę, pvz., title/en ir body/en). Taip pat palaikomi scope/id ir category/id stulpeliai.
           label:
             answers: Importuoti atsakymus iš failo
             proposals: Importuoti pasiūlymus iš failo
