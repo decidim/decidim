@@ -186,7 +186,6 @@ eu:
           error: Errorea gertatu da Administrazioaren Gaiak eta Baldintzak onartzean.
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
-          accept: Ados nago ondoko gai hauekin
           are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
           refuse: Ez onartu Administrazio-irizpideak eta baldintzak
           title: Onartzen ditut Administrazio-irizpideak eta baldintzak
