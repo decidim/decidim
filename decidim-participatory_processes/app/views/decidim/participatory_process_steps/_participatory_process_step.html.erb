@@ -10,7 +10,7 @@
       <h3 class="timeline__title heading4"><%= translated_attribute(participatory_process_step.title) %></h3>
     </div>
     <div class="timeline__content">
-      <%= translated_attribute(participatory_process_step.description).html_safe %>
+      <%= decidim_sanitize_editor_admin translated_attribute(participatory_process_step.description) %>
     </div>
   </div>
 </li>
