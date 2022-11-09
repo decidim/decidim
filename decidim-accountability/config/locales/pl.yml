@@ -50,9 +50,8 @@ pl:
           results: Wyniki
         import_results:
           new:
+            download_export: Pobierz Eksport w formacie CSV
             import: Importuj
-            info: "<p> Zalecamy wykonanie następujących kroków:</p><ol><li>Utwórz Statusy dla Wyników, które chcesz dodać (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Utwórz co najmniej jeden wynik ręcznie z poziomu tego Panelu administracyjnego (<a href='%{link_new_result}' target='_blank'>link</a>) przed wybraniem opcji Importuj, aby lepiej zrozumieć format oraz jakie informacje należy załączyć.</li><li>Pobierz plik Eksport w formacie CSV (%{link_export_csv})</li><li>Wprowadź zmiany lokalnie. Możesz zmienić tylko następujące kolumny pliku CSV:</li></ol><ul><li><b>kategoria/id:</b> ID kategorii</li><li><b>zakres/id:</b> ID zakresu</li><li><b>element nadrzędny/id:</b> ID elementu nadrzędnego (dla powiązanych wyników). Opcjonalnie</li><li><b>tytuł/I18N:</b> Tytuł w języku X</li><li><b>opis/I18N:</b> Opis w języku X</li><li><b>start_date:</b> data rozpoczęcia pracy nad utworzeniem wyniku (format RRRR-MM-DD)</li><li><b>end_date:</b> data zakończenia pracy nad utworzeniem wyniku (format RRRR-MM-DD)</li><li><b>status/id:</b> ID statusu dla tego wyniku</li><li><b>postęp:</b> Postęp prac nad wynikiem wyrażony procentowo (od 0 do 100)</li><li><b>proposals_ids:</b> wewnętrzne ID powiązanych propozycji (oddzielone przecinkiem). Jest ono automatycznie konwertowane na <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: link
             title: Importuj wyniki z CSV
         imports:
           create:
