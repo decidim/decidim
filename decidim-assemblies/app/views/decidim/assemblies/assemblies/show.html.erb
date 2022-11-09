@@ -38,7 +38,7 @@ edit_link(
         <div class="lead">
           <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
         </div>
-        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
+        <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description) %>
 
         <% if current_participatory_space.private_space? %>
           <%= assembly_features(current_participatory_space) %>
