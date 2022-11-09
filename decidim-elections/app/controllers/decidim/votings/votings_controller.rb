@@ -129,7 +129,7 @@ module Decidim
       end
 
       def paginated_votings
-        @paginated_votings ||= reorder(search.result.published)
+        @paginated_votings ||= reorder(search.results.published)
         @paginated_votings = paginate(@paginated_votings)
       end
 

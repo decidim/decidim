@@ -28,7 +28,7 @@ module Decidim
       def projects
         return @projects if @projects
 
-        @projects = reorder(search.result)
+        @projects = reorder(search.results)
         @projects = @projects.page(params[:page]).per(current_component.settings.projects_per_page)
       end
 
