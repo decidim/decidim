@@ -178,7 +178,6 @@ pt-BR:
           error: Ocorreu um erro ao aceitar os termos de uso do administrador.
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
-          accept: Concordo com os seguintes termos
           refuse: Recusar os termos do admin
           title: Concorde com os termos e condições de uso
         required_review:
