@@ -24,6 +24,37 @@ describe "Space admin manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
+  context "when the user didn't accepted the admin ToS" do
+    before do
+      user.update(admin_terms_accepted_at: nil)
+      visit decidim_admin.moderations_path
+    end
+
+    it "has a message that they need to accept the admin TOS" do
+      expect(page).to have_content("You are not authorized")
+      expect(page).to have_content("Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform")
+    end
+
+    it "has only the Dashboard menu item in the main navigation" do
+      within ".main-nav" do
+        expect(page).to have_text("Dashboard")
+        expect(page).to have_selector("li a", count: 1)
+      end
+    end
+
+    context "when they visit other admin pages" do
+      before do
+        visit decidim_admin.newsletters_path
+      end
+
+      it "says that you're not authorized" do
+        within ".callout.alert" do
+          expect(page).to have_text("You are not authorized to perform this action")
+        end
+      end
+    end
+  end
+
   context "when the user can visualize the components" do
     let!(:reportable) { create(:dummy_resource, component: current_component, title: { "en" => "<p>Dummy<br> Title</p>" }) }
     let!(:moderation) { create(:moderation, reportable: reportable) }
