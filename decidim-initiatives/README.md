@@ -49,18 +49,22 @@ Some of the settings of the module need to be set in the code of your app, for e
 This is the case if you want to enable the creation of initiatives even when no authorization method is set.
 
 Just use the following line:
-```
+
+```ruby
 Decidim::Initiatives.do_not_require_authorization = true
 ```
 
 All the settings and their default values which can be overriden can be found in the file [`lib/decidim/initiatives.rb`](https://github.com/decidim/decidim/blob/develop/decidim-initiatives/lib/decidim/initiatives.rb).
 
 For example, you can also change the minimum number of required committee members to 1 (default is 2) by adding this line:
-```
+
+```ruby
 Decidim::Initiatives.minimum_committee_members = 1
 ```
+
 Or change the number of days given to gather signatures to 365 (default is 120) with:
-```
+
+```ruby
 Decidim::Initiatives.default_signature_time_period_length = 365
 ```
 

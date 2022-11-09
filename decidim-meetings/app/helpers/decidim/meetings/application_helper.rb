@@ -41,13 +41,11 @@ module Decidim
       end
 
       def filter_date_values
-        TreeNode.new(
-          TreePoint.new("", t("decidim.meetings.meetings.filters.date_values.all")),
-          [
-            TreePoint.new("upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")),
-            TreePoint.new("past", t("decidim.meetings.meetings.filters.date_values.past"))
-          ]
-        )
+        [
+          ["all", t("decidim.meetings.meetings.filters.date_values.all")],
+          ["upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming")],
+          ["past", t("decidim.meetings.meetings.filters.date_values.past")]
+        ]
       end
 
       # Options to filter meetings by activity.
@@ -67,7 +65,12 @@ module Decidim
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_meeting_body(meeting)
-        Decidim::ContentProcessor.render(render_sanitized_content(meeting, :description), "div")
+        sanitized = render_sanitized_content(meeting, :description)
+        if safe_content?
+          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+        else
+          Decidim::ContentProcessor.render(sanitized, "div")
+        end
       end
 
       def prevent_timeout_seconds

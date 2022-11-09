@@ -111,6 +111,18 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    context "when the name is an email" do
+      let(:name) { "test@example.org" }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when the nickname has spaces" do
+      let(:nickname) { "test example" }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when the password is not present" do
       let(:password) { nil }
 

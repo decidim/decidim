@@ -380,12 +380,8 @@ describe("CommentsComponent", () => {
     expect(subject.$element).toEqual($(selector));
   });
 
-  it("starts polling for new comments", () => {
+  it("loads the comments through AJAX", () => {
     subject.mountComponent();
-
-    expect(window.setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
-
-    jest.advanceTimersByTime(1000);
 
     expect(Rails.ajax).toHaveBeenCalledWith({
       url: "/comments",
@@ -396,8 +392,45 @@ describe("CommentsComponent", () => {
         order: "older",
         after: 456
       }),
-      success: window.undefined
+      success: expect.any(Function)
     });
+  });
+
+  it("disables the comment textarea", () => {
+    subject.mountComponent();
+
+    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeTruthy();
+  });
+
+  it("re-enables the comment textarea after a successful fetch", () => {
+    Rails.ajax.mockImplementationOnce((options) => options.success());
+
+    subject.mountComponent();
+
+    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeFalsy();
+  });
+
+  it("starts polling for new comments", () => {
+    Rails.ajax.mockImplementationOnce((options) => options.success());
+
+    subject.mountComponent();
+
+    expect(window.setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000);
+  });
+
+  it("does not disable the textarea when polling comments normally", () => {
+    Rails.ajax.mockImplementationOnce((options) => options.success());
+
+    subject.mountComponent();
+
+    // Delay the success call 2s after the polling has happened to test that
+    // the textarea is still enabled when the polling is happening.
+    Rails.ajax.mockImplementationOnce((options) => {
+      setTimeout(options.success(), 2000);
+    });
+    jest.advanceTimersByTime(1500);
+
+    expect($(`${selector} .add-comment textarea`).prop("disabled")).toBeFalsy();
   });
 
   describe("when mounted", () => {
@@ -454,6 +487,7 @@ describe("CommentsComponent", () => {
   describe("when interacting", () => {
     beforeEach(() => {
       spyOnAddComment();
+      Rails.ajax.mockImplementationOnce((options) => options.success());
       subject.mountComponent();
     });
 

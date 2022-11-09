@@ -57,6 +57,8 @@ describe "Account", type: :system do
     end
 
     describe "updating personal data" do
+      let!(:encrypted_password) { user.encrypted_password }
+
       it "updates the user's data" do
         within "form.edit_user" do
           select "Castellano", from: :user_locale
@@ -82,6 +84,9 @@ describe "Account", type: :system do
 
         expect(page).to have_content("example.org")
         expect(page).to have_content("Serbian-American")
+
+        # The user's password should not change when they did not update it
+        expect(user.reload.encrypted_password).to eq(encrypted_password)
       end
     end
 
@@ -264,6 +269,10 @@ describe "Account", type: :system do
         visit decidim.delete_account_path
       end
 
+      it "does not display the authorizations message by default" do
+        expect(page).not_to have_content("Some data bound to your authorization will be saved for security.")
+      end
+
       it "the user can delete their account" do
         fill_in :delete_user_delete_account_delete_reason, with: "I just want to delete my account"
 
@@ -285,6 +294,16 @@ describe "Account", type: :system do
 
         expect(page).to have_no_content("Signed in successfully")
         expect(page).to have_no_content(user.name)
+      end
+
+      context "when the user has an authorization" do
+        let!(:authorization) { create(:authorization, :granted, user:) }
+
+        it "displays the authorizations message" do
+          visit decidim.delete_account_path
+
+          expect(page).to have_content("Some data bound to your authorization will be saved for security.")
+        end
       end
     end
   end

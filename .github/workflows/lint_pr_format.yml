@@ -10,7 +10,7 @@ jobs:
     name: Check PR title
     runs-on: ubuntu-latest
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.3.2
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
         if: "github.ref != 'refs/heads/develop'"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"

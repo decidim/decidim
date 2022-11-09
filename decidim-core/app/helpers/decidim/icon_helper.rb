@@ -5,6 +5,24 @@ module Decidim
   module IconHelper
     include Decidim::LayoutHelper
 
+    DEFAULT_RESOURCE_TYPE_ICONS = {
+      "all" => "apps-2-line",
+      "Decidim::Proposals::CollaborativeDraft" => "draft-line",
+      "Decidim::Comments::Comment" => "chat-1-line",
+      "Decidim::Debates::Debate" => "discuss-line",
+      "Decidim::Initiative" => "lightbulb-flash-line",
+      "Decidim::Meetings::Meeting" => "map-pin-line",
+      "Decidim::Blogs::Post" => "pen-nib-line",
+      "Decidim::Proposals::Proposal" => "chat-new-line",
+      "Decidim::Consultations::Question" => "question-mark",
+      "Decidim::Budgets::Order" => "check-double-line",
+      "Decidim::Assembly" => "government-line",
+      "Decidim::ParticipatoryProcess" => "treasure-map-line",
+      "Decidim::Category" => "price-tag-3-line",
+      "Decidim::Scope" => "scan-line",
+      "other" => "question-line"
+    }.freeze
+
     # Public: Returns an icon given an instance of a Component. It defaults to
     # a question mark when no icon is found.
     #
@@ -51,6 +69,14 @@ module Decidim
       else
         icon "bell", options
       end
+    end
+
+    def resource_type_icon(resource_type, options = {})
+      icon resource_type_icon_key(resource_type), options
+    end
+
+    def resource_type_icon_key(resource_type)
+      DEFAULT_RESOURCE_TYPE_ICONS[resource_type.to_s] || DEFAULT_RESOURCE_TYPE_ICONS["other"]
     end
   end
 end
