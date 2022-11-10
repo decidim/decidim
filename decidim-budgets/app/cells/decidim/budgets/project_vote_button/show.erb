@@ -2,7 +2,7 @@
       budget_order_line_item_path(model.budget, project_id: model),
       method: vote_button_method,
       remote: true,
-      class: "button tiny budget-list__action #{vote_button_class}",
+      class: "button button__sm button__transparent-secondary budget-list__action #{vote_button_class}",
       id: "project-vote-button-#{model.id}",
       data: {
         add: !resource_added?,
@@ -13,5 +13,7 @@
       },
       disabled: vote_button_disabled?,
       title: vote_button_label do %>
-  <%= icon(resource_added? ? "x" : "check", class: "icon--small", aria_label: vote_button_label, role: "img") %>
+  <%#REDESIGN_PENDING add locale %>
+  <span>Añadir</span>
+  <%= icon "add-fill", class: "inline-block" %>
 <% end %>

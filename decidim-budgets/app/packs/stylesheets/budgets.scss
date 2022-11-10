@@ -1,5 +1,26 @@
 .budgets{
   background-color: tomato;
+
+  &__item-list__project{
+    margin-left: auto;
+    width: 40%;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-width: 120px;
+    place-items: center;
+    border-radius: 0.25rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 244 247 / var(--tw-bg-opacity));
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 700;
+    --tw-text-opacity: 1;
+    color: rgb(62 76 92 / var(--tw-text-opacity));
+  }
 }
 
 .budget-summary {
@@ -40,26 +61,4 @@
   &__progressbar-legend-strong{
     @apply font-bold block;
   }
-}
-
-
-.accountability__progress{
-  margin-left: auto;
-  width: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  display: grid;
-  width: 100%;
-  min-width: 120px;
-  place-items: center;
-  border-radius: 0.25rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 247 / var(--tw-bg-opacity));
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  font-size: 20px;
-  line-height: 25px;
-  font-weight: 700;
-  --tw-text-opacity: 1;
-  color: rgb(62 76 92 / var(--tw-text-opacity));
 }
