@@ -856,6 +856,11 @@ ca:
             empty: No hi ha participants privades.
             explanation: Hi ha %{count} participant/s privada/ades.
             title: Esborrar les participants privades
+          example_file: 'Fitxer d''exemple:'
+          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona de les participants que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcters invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuària.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Puja el fitxer CSV
           upload: Carrega
       reminders:
@@ -1004,7 +1009,11 @@ ca:
           verify_via_csv: Verifica mitjançant CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Fitxer d''exemple:'
           explanation: Puja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Puja el fitxer CSV
           upload: Pujar
       users:
