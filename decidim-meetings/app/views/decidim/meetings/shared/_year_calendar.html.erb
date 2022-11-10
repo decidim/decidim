@@ -8,6 +8,7 @@
   <%= javascript_pack_tag "decidim_meetings" %>
 <% end %>
 
+<% year = local_assigns[:year] || Date.current.year %>
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
 
@@ -57,17 +58,12 @@
 
   <div class="meeting-calendar">
     <%
-      # REDESING_PENDING: integrate the actual current year
       # REDESING_PENDING: allow start week both Sunday or Monday
       # REDESING_PENDING: create a function to generate a month (~ html table). It reused in home
-
-      current_year = Date.new(2022,1,1).all_year;
-      events = Date.new(2022,1,1).all_year.to_a.sample(15);
     %>
 
-    <% current_year.group_by { |e| e.month }.each do |month| %>
-      <%# REDESING_PENDING: check out the model %>
-      <%= cell "decidim/meetings/meeting_month", meetings, month:, events: %>
+    <% (1..12).each do |month| %>
+      <%= cell "decidim/meetings/meeting_month", meetings, start_date: Date.new(year, month) %>
     <% end %>
   </div>
 <% end %>

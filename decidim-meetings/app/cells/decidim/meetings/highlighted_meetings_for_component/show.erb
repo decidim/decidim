@@ -22,16 +22,9 @@
       <%= link_to component_routes.year_calendar_meetings_path, class: "button button__sm button__transparent-secondary" do %>
         <%= t "decidim.meetings.directory.meetings.index.go_to_calendar" %>
         <%= icon "calendar-2-line" %>
-      </a>
-      <%
-      # REDESING_PENDING: activate once created a cell
-
-        current_year = Date.new(2022,1,1).all_year;
-        events = Date.new(2022,1,1).all_year.to_a.sample(15);
-
-      %>
-      <% current_year.group_by {|e| e.month}.take(2).take(2).each do |month| %>
-        <%= cell "decidim/meetings/meeting_month", upcoming_meetings, month: %>
+      <% end %>
+      <% [Date.current, Date.current.next_month].each do |start_date| %>
+        <%= cell "decidim/meetings/meeting_month", upcoming_meetings, start_date: %>
       <% end %>
     </div>
     <div class="meeting-list__container">

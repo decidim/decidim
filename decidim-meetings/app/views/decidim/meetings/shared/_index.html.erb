@@ -18,16 +18,8 @@
     <% end %>
   <% end %>
 
-  <%
-    # REDESING_PENDING: same partial as in calendar
-    # REDESING_PENDING: display only the current and the next month
-
-    current_year = Date.new(2022,1,1).all_year;
-    events = Date.new(2022,1,1).all_year.to_a.sample(15);
-  %>
-
-  <% current_year.group_by {|e| e.month}.take(2).take(2).each do |month| %>
-    <%= cell "decidim/meetings/meeting_month", search.result, month:, events: %>
+  <% [Date.current, Date.current.next_month].each do |start_date| %>
+    <%= cell "decidim/meetings/meeting_month", search.result, start_date: %>
   <% end %>
 
   <%= render partial: "decidim/meetings/shared/filters", locals: {
