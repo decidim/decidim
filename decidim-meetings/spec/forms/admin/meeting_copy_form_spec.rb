@@ -43,6 +43,7 @@ module Decidim::Meetings
     let(:transparent) { true }
     let(:type_of_meeting) { :in_person }
     let(:online_meeting_url) { nil }
+    let(:registration_type) { :registration_disabled }
     let(:attributes) do
       {
         title_en: title[:en],
@@ -56,7 +57,8 @@ module Decidim::Meetings
         transparent:,
         services:,
         type_of_meeting:,
-        online_meeting_url:
+        online_meeting_url:,
+        registration_type:
       }
     end
 

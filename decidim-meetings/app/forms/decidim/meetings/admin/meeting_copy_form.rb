@@ -7,7 +7,6 @@ module Decidim
       # dashboard.
       #
       class MeetingCopyForm < ::Decidim::Meetings::Admin::MeetingForm
-
         attribute :show_embedded_iframe, Boolean, default: false
 
         mimic :meeting
