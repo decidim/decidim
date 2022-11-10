@@ -2,18 +2,5 @@
   <label for="diff-mode">
     <%= t("versions.dropdown.choose_diff_view_mode") %>
   </label>
-
-  <!-- REDESIGN_PENDING: This links should be trigger a turbo-frame -->
-  <select name="diff-mode" id="diff-mode">
-    <option value="unified" selected>
-      <%= link_to "#diff-view-unified" do %>
-        <%= t("versions.dropdown.option_unified") %>
-      <% end %>
-    </option>
-    <option value="split">
-      <%= link_to "#diff-view-split" do %>
-        <%= t("versions.dropdown.option_split") %>
-      <% end %>
-    </option>
-  </select>
+  <%= select_tag "diff-mode", mode_options, id: "diff-mode", onchange: "this.form.elements.commit.click();" %>
 </div>

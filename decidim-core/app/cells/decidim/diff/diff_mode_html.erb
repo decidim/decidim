@@ -3,19 +3,6 @@
     <label for="diff-html">
       <%= t("versions.dropdown.choose_diff_view_html") %>
     </label>
-
-    <!-- REDESIGN_PENDING: This links should be trigger a turbo-frame -->
-    <select name="diff-html" id="diff-html">
-      <option value="unescaped" selected>
-        <%= link_to "#diff-view-unescaped-html" do %>
-          <%= t("versions.dropdown.option_unescaped") %>
-        <% end %>
-      </option>
-      <option value="escaped">
-        <%= link_to "#diff-view-escaped-html" do %>
-          <%= t("versions.dropdown.option_escaped") %>
-        <% end %>
-      </option>
-    </select>
+    <%= select_tag "diff-html", html_options, id: "diff-html", onchange: "this.form.elements.commit.click();" %>
   </div>
 <% end %>

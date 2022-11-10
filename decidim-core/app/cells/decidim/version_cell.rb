@@ -5,6 +5,7 @@ module Decidim
     include Decidim::TraceabilityHelper
     include Decidim::LayoutHelper
     include Decidim::SanitizeHelper
+    include Turbo::FramesHelper
 
     def resource_title
       decidim_html_escape(translated_attribute(versioned_resource.title))

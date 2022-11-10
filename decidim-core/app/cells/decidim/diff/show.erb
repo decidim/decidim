@@ -1,7 +1,11 @@
-<div class="version__selector-container">
-  <%= render :diff_mode_dropdown %>
-  <%= render :diff_mode_html %>
-</div>
+<%= form_tag(path({}), method: :get, data: { turbo_frame: "version_diff_frame" }) do %>
+  <div class="version__selector-container">
+    <%= render :diff_mode_dropdown %>
+    <%= render :diff_mode_html %>
+
+    <%= submit_tag nil, hidden: true %>
+  </div>
+<% end %>
 
 <div class="version__diff-container" aria-live="polite">
   <% diff_data.each do |data| %>

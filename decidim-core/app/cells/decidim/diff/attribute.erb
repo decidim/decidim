@@ -3,33 +3,5 @@
     <%= data[:label] %>
   </h3>
 
-  <%# REDESIGN_PENDING: Provide the respective url params in order to display the right view %>
-  <%# http://localhost:3000/assemblies/enim-blanditiis/f/42/meetings/33/versions?locale=en&id=1&mode=split&html=unescaped %>
-  <%# http://localhost:3000/assemblies/enim-blanditiis/f/42/meetings/33/versions?locale=en&id=1&mode=split&html=escaped %>
-  <%# http://localhost:3000/assemblies/enim-blanditiis/f/42/meetings/33/versions?locale=en&id=1&mode=unified&html=unescaped %>
-  <%# http://localhost:3000/assemblies/enim-blanditiis/f/42/meetings/33/versions?locale=en&id=1&mode=unified&html=escaped %>
-
-  <% if params[:mode] == "unified" && params[:html] == "unescaped" %>
-    <%= diff_unified(data, :unescaped_html) %>
-  <% elsif params[:mode] == "unified" && params[:html] == "escaped" %>
-    <%= diff_unified(data, :html) %>
-  <% elsif params[:mode] == "split" && params[:html] == "unescaped" %>
-    <div class="version__diff-split">
-      <div>
-        <%= diff_split(data, "left", :unescaped_html) %>
-      </div>
-      <div>
-        <%= diff_split(data, "right", :unescaped_html) %>
-      </div>
-    </div>
-  <% elsif params[:mode] == "split" && params[:html] == "escaped" %>
-    <div class="version__diff-split">
-      <div>
-        <%= diff_split(data, "left", :html) %>
-      </div>
-      <div>
-        <%= diff_split(data, "right", :html) %>
-      </div>
-    </div>
-  <% end %>
+  <%= unified_mode? ? diff_unified(data, display_html_config) : diff_split_full(data, display_html_config) %>
 </div>
