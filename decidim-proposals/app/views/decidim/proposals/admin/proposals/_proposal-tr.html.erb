@@ -7,8 +7,8 @@
   </td>
   <td>
     <%= link_to(
-     decidim_html_escape(present(proposal).title).html_safe,
-     proposal_path(proposal)
+      present(proposal).title(html_escape: true),
+      proposal_path(proposal)
     ) %><br>
   </td>
   <td>

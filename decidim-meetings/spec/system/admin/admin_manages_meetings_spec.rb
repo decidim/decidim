@@ -51,6 +51,17 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
         expect(page).to have_css(".action-icon--unpublish")
       end
     end
+
+    context "with enriched content" do
+      before do
+        meeting.update!(title: { en: "Meeting <strong>title</strong>" })
+        visit current_path
+      end
+
+      it "displays the correct title" do
+        expect(page.html).to include("Meeting &lt;strong&gt;title&lt;/strong&gt;")
+      end
+    end
   end
 
   describe "admin form" do

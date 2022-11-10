@@ -48,7 +48,7 @@
                 <%= meeting.id %><br>
               </td>
               <td>
-                <%= present(meeting).title %><br>
+                <%= present(meeting).title(html_escape: true) %><br>
               </td>
               <td>
                 <% if meeting.start_time %>
