@@ -38,13 +38,13 @@ ca:
         date: Data
         link: Enllaç
         title: Títol
-        weight: Pes
+        weight: Ordre de posició
       conference_partner:
         link: Enllaç
         logo: Logo
         name: Nom
         partner_type: Tipus de col·laboració
-        weight: Pes
+        weight: Ordre de posició
       conference_registration_invite:
         email: Correu electrònic
         name: Nom
@@ -54,7 +54,7 @@ ca:
         description: Descripció
         price: Cost
         title: Títol
-        weight: Pes
+        weight: Odre de posició
       conference_speaker:
         affiliation: Afiliació
         avatar: Imatge de perfil
@@ -381,6 +381,7 @@ ca:
           invite:
             decline: Rebutjar la invitació a '%{conference_title}'
             invited_existing_user_to_join_a_conference: "%{invited_by} t'ha convidat a unir-te a una conferència a l'%{application}. Pots rebutjar o acceptar a través dels enllaços a continuació."
+            invited_user_to_join_a_conference: "%{invited_by} t'ha convidat a unir-te a una conferència a %{application}. Pots acceptar-la a través del següent enllaç."
             registration: Inscripció a '%{conference_title}'
         partners:
           index:
@@ -431,9 +432,11 @@ ca:
         create:
           invalid: S'ha produït un error en inscriure't a aquesta jornada.
           success: T'has inscrit a la jornada correctament.
+          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la conferència.
         decline_invitation:
           invalid: S'ha produït un error en rebutjar la invitació.
           success: Has rebutjat la invitació correctament.
+          unauthorized: Cal que iniciïs la teva sessió abans de rebutjar la invitació.
         destroy:
           invalid: S'ha produït un error en abandonar aquesta jornada.
           success: Has abandonat la jornada correctament.
