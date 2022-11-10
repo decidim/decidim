@@ -88,14 +88,6 @@
   }
 
   &__modal{
-    &-container{
-      @apply flex items-start gap-2 last:[&>*]:grow last:[&>*]:pr-6;
-    }
-
-    &-title{
-      @apply text-2xl text-black font-semibold;
-    }
-
     &-results{
       @apply mb-20 flex flex-wrap gap-x-8 gap-y-4;
     }
