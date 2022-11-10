@@ -10,6 +10,7 @@ ca:
         end_time: Data de finalització
         information_updates: Actualitzacions d'informació
         instructions: Instruccions per participar
+        scope_id: Àmbit
         start_time: Data d'inici
         title: Títol
         user_group_id: Crea un debat com
