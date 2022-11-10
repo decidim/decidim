@@ -23,6 +23,12 @@ ca:
       postal_letter_postage:
         full_address: Adreça completa
         verification_code: Codi de verificació
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
   decidim:
     admin:
       menu:
@@ -141,6 +147,9 @@ ca:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
             title: Necessites activar el cens csv d'aquesta organització
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: "fitxer .csv amb dades de correus electrònics"
             info: 'Ha de ser un document en format CSV amb una única columna indicant les adreces electròniques:'
             submit: Puja un document
