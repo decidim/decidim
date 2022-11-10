@@ -33,27 +33,3 @@
     @apply flex justify-between items-center only:[&>*]:ml-auto;
   }
 }
-
-/* specifics: upload modal */
-.upload-modal{
-  &__dropzone{
-    @apply mt-12 bg-background px-5 py-10 rounded flex items-center justify-between cursor-pointer;
-
-    &-placeholder{
-      @apply inline-flex items-center gap-4 font-semibold text-gray-2 text-md;
-    }
-
-    input[type="file"]{
-      @apply hidden;
-    }
-  }
-
-  &__text{
-    @apply text-sm text-gray-2 mt-2 mb-20 space-y-8;
-
-    ul,
-    ol{
-      @apply list-disc pl-4;
-    }
-  }
-}
