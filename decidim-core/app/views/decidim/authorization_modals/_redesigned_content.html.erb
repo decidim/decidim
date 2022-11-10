@@ -21,9 +21,8 @@
 %>
 <div data-dialog-container>
   <%= icon "lock-line" %>
+  <h3 id="dialog-title-authorizationModal" data-dialog-title><%= title %></h3>
   <div>
-    <h3 id="dialog-title-authorizationModal" data-dialog-title><%= title %></h3>
-
     <div class="authorization-modal__verification-container">
       <% verifications.each do |(messages, cta, fields)| %>
         <div class="authorization-modal__verification">

@@ -4,9 +4,8 @@
   <%= redesigned_filter_form_for "report_form", url: "/", method: :post do |f| %>
     <div data-dialog-container>
       <%= icon "flag-line" %>
+      <h3 id="dialog-title-flagModal" data-dialog-title><%= t("decidim.shared.flag_modal.title") %></h3>
       <div>
-        <h3 id="dialog-title-flagModal" data-dialog-title><%= t("decidim.shared.flag_modal.title") %></h3>
-
         <div class="form__wrapper flag-modal__form">
           <p id="dialog-desc-flagModal" class="flag-modal__form-description"><%= t("decidim.shared.flag_modal.description") %></p>
           <p class="flag-modal__form-reason"><%= t("decidim.shared.flag_modal.reason") %>:</p>
