@@ -2,7 +2,7 @@
   @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
 
   &-container{
-    @apply rounded border-4 border-background md:border-0;
+    @apply sticky top-0 md:top-2 rounded border-4 border-background md:border-0;
 
     [id*="dropdown-menu"]{
       @apply gap-2;

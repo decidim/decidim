@@ -59,8 +59,8 @@ describe "Explore meeting directory", type: :system do
       it "shows tags for category" do
         visit directory
 
-        expect(page).to have_selector("ul.tags.tags--meeting")
-        within "ul.tags.tags--meeting" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end

@@ -1,0 +1,9 @@
+<% if url %>
+  <a href="<%= url %>" class="accountability__status <%= extra_classes %>">
+    <%= render :status %>
+  </a>
+<% else %>
+  <div class="accountability__status <%= extra_classes %>">
+    <%= render :status %>
+  </div>
+<% end %>

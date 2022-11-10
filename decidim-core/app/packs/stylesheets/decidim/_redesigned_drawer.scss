@@ -18,7 +18,7 @@
   }
 
   [data-drawer-content]{
-    @apply w-full h-full relative z-10 grid grid-cols-12 gap-4 bg-white overflow-y-auto py-8 px-20 first:[&>*]:col-span-9 last:[&>*]:col-span-3 last:[&>*]:mx-12;
+    @apply w-full h-full relative z-10 grid grid-cols-12 gap-4 bg-white overflow-y-auto py-8 px-20 first:[&>*]:col-span-9 last:[&>*]:col-span-3;// first:[&>*]:col-span-8 first:[&>*]:col-start-2 last:[&>*]:col-span-2;
   }
 
   [data-drawer-next],
