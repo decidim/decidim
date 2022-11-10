@@ -37,13 +37,13 @@ es:
         date: Fecha
         link: Enlace
         title: Título
-        weight: Peso
+        weight: Orden de posición
       conference_partner:
         link: Enlace
         logo: Logo
         name: Nombre
         partner_type: Tipo de colaboración
-        weight: Peso
+        weight: Orden de posición
       conference_registration_invite:
         email: Correo electrónico
         name: Nombre
@@ -53,7 +53,7 @@ es:
         description: Descripción
         price: Coste
         title: Título
-        weight: Peso
+        weight: Orden de posición
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
