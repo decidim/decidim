@@ -20,6 +20,10 @@ module Decidim
       render locals: { data:, direction:, format: }
     end
 
+    def path(extra_params)
+      options[:path].call(extra_params)
+    end
+
     private
 
     # Adds a unique ID prefix for the attribute div IDs to avoid duplicate IDs

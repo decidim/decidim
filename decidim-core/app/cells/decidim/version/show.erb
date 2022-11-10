@@ -3,7 +3,7 @@
   <%= render_resource_editor(current_version) %>
 </div>
 
-<%= cell("decidim/diff", current_version) %>
+  <%= cell("decidim/diff", current_version, path:) %>
 
 <%= link_to resource_path, class: "button button__sm button__text-secondary" do %>
   <%= icon "arrow-left-line", class: "fill-current" %>

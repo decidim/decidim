@@ -18,6 +18,10 @@ module Decidim
       options[:versioned_resource]
     end
 
+    def path
+      options[:path]
+    end
+
     def versions_path
       options[:versions_path].call
     end
