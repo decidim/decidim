@@ -10,6 +10,7 @@ module Decidim
     class HighlightedMeetingsForComponentCell < Decidim::ViewModel
       include Decidim::ComponentPathHelper
       include Decidim::CardHelper
+      include Decidim::LayoutHelper
 
       def show
         render unless meetings_count.zero?
