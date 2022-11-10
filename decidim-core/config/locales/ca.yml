@@ -30,6 +30,7 @@ ca:
         password_confirmation: Confirma la teva contrasenya
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
+        tos_agreement: Acord de termes i condicions d'ús
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
