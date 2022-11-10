@@ -54,6 +54,10 @@ module Decidim
         hash << I18n.locale.to_s
         hash.join(Decidim.cache_key_separator)
       end
+
+      def component_routes
+        Decidim::EngineRouter.main_proxy(model)
+      end
     end
   end
 end

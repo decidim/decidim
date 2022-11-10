@@ -19,8 +19,7 @@
   </div>
   <div class="meeting-list__block-list">
     <div class="meeting-list__block-list-aside">
-      <%# REDESIGN_PENDING: add url to /year_calendar %>
-      <a href="#" class="button button__sm button__transparent-secondary">
+      <%= link_to component_routes.year_calendar_meetings_path, class: "button button__sm button__transparent-secondary" do %>
         <%= t "decidim.meetings.directory.meetings.index.go_to_calendar" %>
         <%= icon "calendar-2-line" %>
       </a>
