@@ -72,11 +72,11 @@
     }
 
     &-links{
-      @apply flex justify-between items-center [&>a]:text-secondary;
+      @apply flex flex-col md:flex-row justify-between items-start md:items-center [&>a]:text-secondary;
     }
 
     &-form{
-      @apply w-3/4 mx-auto;
+      @apply w-full md:w-3/4 mx-auto [&>*]:justify-center;
     }
   }
 }

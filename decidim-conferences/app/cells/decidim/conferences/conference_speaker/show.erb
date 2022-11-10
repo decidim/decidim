@@ -16,17 +16,17 @@
 </div>
 
 <%= decidim_modal id: model.id, class: "conference__speaker__modal" do %>
-  <div class="conference__speaker__modal-title">
+  <h3 class="conference__speaker__modal-title">
     <%= icon "user-voice-line", class: "w-6 h-6 text-gray fill-current" %>
     <span><%= t("decidim.conferences.conference_speakers.index.speakers", count: 1) %></span>
-  </div>
+  </h3>
   <div class="conference__speaker__modal-bio-container">
     <div class="conference__speaker__modal-img">
       <%= image_tag avatar_path, alt: "speaker-image" %>
     </div>
     <div class="conference__speaker__modal-bio">
       <div>
-        <div class="conference__speaker__modal-bio-name" id="dialog-title-<%= model.id %>"><%= name %></div>
+        <h4 class="conference__speaker__modal-bio-name" id="dialog-title-<%= model.id %>"><%= name %></h4>
         <div class="conference__speaker__modal-bio-roles">
           <% if position.presence %>
             <span><%= position %></span>

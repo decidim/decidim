@@ -56,7 +56,7 @@
   }
 
   &__map{
-    @apply flex items-start gap-4 only:[&>*]:grow first:[&>*]:min-w-[40%];
+    @apply flex flex-col-reverse md:flex-row items-start gap-4 only:[&>*]:grow first:[&>*]:min-w-[40%];
 
     & > :last-child:not(:only-child){
       @apply aspect-[4/3] w-full rounded overflow-hidden;

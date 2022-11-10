@@ -7,13 +7,11 @@
 <%= decidim_modal id: "media-picture-#{index}", class: "conference__media-modal" do %>
 <div data-dialog-container>
   <%= icon "image-line" %>
+  <h3 id="dialog-title-media-picture-<%= index %>" data-dialog-title><%= t("conferences.photo.show.photo", scope: "decidim") %></h3>
   <div>
-    <h3 id="dialog-title-media-picture-<%= index %>" data-dialog-title><%= t("conferences.photo.show.photo", scope: "decidim") %></h3>
-
     <div class="conference__media-modal__img">
       <%= image_big %>
     </div>
-
     <div class="conference__media-modal__title"><%= title %></div>
     <div class="conference__media-modal__description"><%= decidim_sanitize_editor description %></div>
   </div>
