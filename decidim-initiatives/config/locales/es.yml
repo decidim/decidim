@@ -20,6 +20,8 @@ es:
         title: Título
       initiatives_committee_member:
         user: Miembro del Comité
+      initiatives_settings:
+        initiatives_order: Orden
       initiatives_type:
         area_enabled: Permitir a las autoras elegir el área para su iniciativa
         attachments_enabled: Habilitar archivos adjuntos
