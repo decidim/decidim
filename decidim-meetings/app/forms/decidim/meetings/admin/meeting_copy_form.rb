@@ -11,11 +11,6 @@ module Decidim
         attribute :show_embedded_iframe, Boolean, default: false
 
         mimic :meeting
-        def map_model(model)
-          self.services = model.services.map do |service|
-            MeetingServiceForm.new(service.attributes)
-          end
-        end
 
         def questionnaire
           Decidim::Forms::Questionnaire.new
