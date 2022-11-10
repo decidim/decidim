@@ -1,64 +1,45 @@
-.budgets{
-  background-color: tomato;
+.budget{
+  &-summary{
+    @apply bg-tertiary py-10 px-16;
 
-  &__item-list__project{
-    margin-left: auto;
-    width: 40%;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-width: 120px;
-    place-items: center;
-    border-radius: 0.25rem;
-    --tw-bg-opacity: 1;
-    background-color: rgb(243 244 247 / var(--tw-bg-opacity));
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    font-size: 20px;
-    line-height: 25px;
-    font-weight: 700;
-    --tw-text-opacity: 1;
-    color: rgb(62 76 92 / var(--tw-text-opacity));
-  }
-}
+    &__container{
+      @apply -mt-12 -my-16 mb-8;
+    }
 
-.budget-summary {
-  @apply bg-tertiary py-10 px-16;
+    &__content{
+      @apply grid grid-cols-[70%_30%];
+    }
 
-  &__container{
-    @apply -mt-12 -my-16 mb-8;
-  }
+    &__progressbar{
+      @apply my-4;
 
-  &__content{
-    @apply grid grid-cols-[70%_30%];
-  }
+      .budget-progress{
+        @apply bg-white rounded;
+      }
+    }
 
-  &__progressbar{
-    @apply my-4;
+    &__progressbar-marks{
+      @apply grid grid-cols-3 mt-2;
+    }
 
-    .budget-progress{
-      @apply bg-white rounded;
+    &__progressbar-marks_center{
+      @apply justify-self-center;
+    }
+
+    &__progressbar-marks_right{
+      @apply justify-self-end text-right;
+    }
+
+    &__progressbar-legend{
+      @apply text-sm block;
+    }
+
+    &__progressbar-legend-strong{
+      @apply font-bold block;
     }
   }
 
-  &__progressbar-marks{
-    @apply grid grid-cols-3 mt-2;
-  }
-
-  &__progressbar-marks_center{
-    @apply justify-self-center;
-  }
-
-  &__progressbar-marks_right{
-    @apply justify-self-end text-right;
-  }
-
-  &__progressbar-legend{
-    @apply text-sm block;
-  }
-
-  &__progressbar-legend-strong{
-    @apply font-bold block;
+  &__item-list__project{
+    @apply ml-auto rounded px-3 md:px-6 py-4 bg-background font-bold text-gray-2 text-xl w-[40%] md:w-auto min-w-[120px] grid grid-cols-2 place-items-center;
   }
 }
