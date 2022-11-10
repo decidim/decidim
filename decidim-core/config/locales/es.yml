@@ -29,6 +29,7 @@ es:
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
+        tos_agreement: Acuerdo de términos y condiciones de uso
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -1695,6 +1696,31 @@ es:
   doorkeeper:
     scopes:
       public: Tu información pública
+  emojis:
+    button: Añadir emoji
+    categories:
+      activities: Actividades
+      animals-nature: Animales y naturaleza
+      custom: Personalizado
+      flags: Banderas
+      food-drink: Alimentos y bebidas
+      objects: Objetos
+      people-body: Personas y cuerpo
+      recents: Usados recientemente
+      smileys-emotion: Sonrisas y emociones
+      symbols: Símbolos
+      travel-places: Viajes y lugares
+    error:
+      load: No se ha producido un error al cargar la lista de emojis
+    recents:
+      clear: Borra los emojis recientes
+      none: Aún no has seleccionado ningún emoji.
+    retry: Inténtalo de nuevo
+    search:
+      _: Buscar emojis...
+      clear: Limpiar búsqueda
+      error: Error al buscar emojis
+      not_found: No se han encontrado resultados
   errors:
     messages:
       allowed_file_content_types: 'Sólo se permiten archivos con las siguientes extensiones: %{types}'
