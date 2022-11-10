@@ -42,13 +42,13 @@
   <%# REDESIGN_PENDING: include links %>
   <div class="meeting-calendar__selector-container">
     <div class="meeting-calendar__selector">
-      <a href="" class="meeting-calendar__selector-arrow">
+      <%= link_to year_calendar_path(year: year - 1), class: "meeting-calendar__selector-arrow" do %>
         <%= icon "arrow-left-s-line", class: "w-6 h-6 text-secondary fill-current" %>
-      </a>
-      <h2 class="h2">2020</h2>
-      <a href="" class="meeting-calendar__selector-arrow">
+      <% end %>
+      <h2 class="h2"><%= year %></h2>
+      <%= link_to year_calendar_path(year: year + 1), class: "meeting-calendar__selector-arrow" do %>
         <%= icon "arrow-right-s-line", class: "w-6 h-6 text-secondary fill-current" %>
-      </a>
+      <% end %>
     </div>
     <a href="<%= meetings_path %>" class="meeting-calendar__link">
       <%= t "decidim.meetings.directory.meetings.index.go_to_list" %>

@@ -1,4 +1,5 @@
 <%= render partial: "decidim/meetings/shared/year_calendar", locals: {
+  year: @year,
   search_variable: :title_or_description_cont,
   display_filter_date: !@forced_past_meetings,
   display_filter_type: true,
