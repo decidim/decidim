@@ -133,6 +133,14 @@ ca:
               allowed_file_content_types: Fitxer d'imatge no vàlid
             official_img_header:
               allowed_file_content_types: Fitxer d'imatge no vàlid
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
       new_import:
         attributes:
           file:
@@ -184,6 +192,7 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
+          accept: Estic d'acord amb els termes
           are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
@@ -838,6 +847,7 @@ ca:
           title: Nova participant de l'espai de participació privat.
       participatory_space_private_users_csv_imports:
         create:
+          invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
           success: Arxiu CSV carregat correctament, s'està enviant un missatge de correu electrònic d'invitació als participants. Pot tardar una mica.
         new:
           destroy:
