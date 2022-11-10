@@ -50,9 +50,10 @@
   <% end %>
 
   <a href="<%= calendar_url %>" class="meeting-list__link">
+  <%= link_to calendar_url, class: "meeting-list__link" do %>
     <%= t "decidim.meetings.directory.meetings.index.go_to_calendar" %>
     <%= icon "calendar-2-line", class: "fill-current" %>
-  </a>
+  <% end %>
 
   <%= render partial: "decidim/meetings/shared/meetings" %>
 
