@@ -5,6 +5,19 @@ RSpec.shared_examples "manage debates" do
 
   before { visit_component_admin }
 
+  describe "listing" do
+    context "with enriched content" do
+      before do
+        debate.update!(title: { en: "Debate <strong>title</strong>" })
+        visit current_path
+      end
+
+      it "displays the correct title" do
+        expect(page.html).to include("Debate &lt;strong&gt;title&lt;/strong&gt;")
+      end
+    end
+  end
+
   describe "admin form" do
     before { click_on "New Debate" }
 
