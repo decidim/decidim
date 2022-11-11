@@ -24,6 +24,12 @@ module Decidim
       "#{class_base_name}_#{resource.id}"
     end
 
+    def item_list_class
+      return "item-list" if extra_class.blank?
+
+      "item-list #{extra_class}"
+    end
+
     def extra_class
       ""
     end
