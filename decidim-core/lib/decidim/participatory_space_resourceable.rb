@@ -47,7 +47,7 @@ module Decidim
              .joins(:participatory_space_resource_links_to)
              .where(decidim_participatory_space_links: { name: link_name, from_id: id, from_type: self.class.name })
 
-        klass.where(id: from).or(klass.where(id: to))
+        klass.where(id: from).or(klass.where(id: to)).order(:weight)
       end
 
       def participatory_space_sibling_scope(participatory_space_name)
