@@ -30,7 +30,7 @@ module Decidim
       social_icon = if service.icon.include? ".svg"
                       image_tag service.icon_path, alt: t("decidim.shared.share_modal.share_to", service: service.name)
                     else
-                      icon(service.icon, style: "color: #{service.color};")
+                      icon(service.icon_color, style: "color: #{service.icon_color};")
                     end
 
       link_to(
