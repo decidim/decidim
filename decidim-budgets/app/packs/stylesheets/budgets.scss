@@ -1,6 +1,6 @@
 .budget{
   &-summary{
-    @apply bg-tertiary py-10 px-16;
+    @apply bg-tertiary py-10 px-16 -ml-16 -mt-12 -mr-[8.5rem];
 
     &__container{
       @apply -mt-12 -my-16 mb-8;
@@ -16,6 +16,9 @@
       .budget-progress{
         @apply bg-white rounded;
       }
+      &--meter{
+        background-color: var(--success);
+       }
     }
 
     &__progressbar-marks{
@@ -40,6 +43,12 @@
   }
 
   &__item-list__project{
-    @apply ml-auto rounded px-3 md:px-6 py-4 bg-background font-bold text-gray-2 text-xl w-[40%] md:w-auto min-w-[120px] grid grid-cols-2 place-items-center;
+    @apply ml-auto rounded px-3 md:px-6 py-4 bg-background font-bold text-gray-2 text-xl w-[50%] min-w-[120px] grid grid-cols-2 place-items-center;
+  }
+}
+
+[data-drawer]{
+  .budget-summary{
+    @apply mx-0 mt-0;
   }
 }
