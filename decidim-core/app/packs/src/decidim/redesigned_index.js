@@ -79,6 +79,7 @@ import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
+import setHeadingTag from "./redesigned_heading_tag"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -179,34 +180,22 @@ const initializer = () => {
 
   scrollToLastChild()
 
-  document.querySelectorAll("[data-drawer]").forEach(
-    ({ dataset: { drawer } }) =>
+  document.
+    querySelectorAll("[data-drawer]").
+    forEach(({ dataset: { drawer } }) =>
       new Dialogs(`[data-drawer="${drawer}"]`, {
         closingSelector: `[data-drawer-close="${drawer}"]`,
-        onClose: () => { Turbo.navigator.history.replace({ href: drawer }) }
+        onOpen: (node) => setHeadingTag(node),
+        onClose: (node) => {
+          setHeadingTag(node);
+          Turbo.navigator.history.replace({ href: drawer });
+        }
       }).open()
-  )
+    );
 }
 
 if ("Turbo" in window) {
-  document.addEventListener("turbo:frame-render", (frame) => {
-    initializer()
-
-    // This ensures the aside heading tag is transformed to h2 or h1 if the drawer is shown or hidden
-    const element = document.querySelector("aside [data-heading-tag]")
-    if (element) {
-      let tagName = "H1";
-      if (frame.target.querySelector("[data-drawer]")) {
-        tagName = "H2";
-      }
-
-      const newItem = document.createElement(tagName);
-      newItem.className = element.className;
-      newItem.dataset.headingTag = element.dataset.headingTag;
-      newItem.innerHTML = element.innerHTML;
-      element.parentNode.replaceChild(newItem, element);
-    }
-  });
+  document.addEventListener("turbo:frame-render", () => initializer());
   document.addEventListener("turbo:load", () => initializer());
 } else {
   // If no jQuery is used the Tribute feature used in comments to autocomplete
