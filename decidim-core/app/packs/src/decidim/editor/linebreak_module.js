@@ -129,7 +129,6 @@ class ScrollOvderride extends Scroll {
 Quill.register("blots/scroll", ScrollOvderride, true);
 Parchment.register(ScrollOvderride);
 
-
 export default function lineBreakButtonHandler(quill) {
   let range = quill.selection.getRange()[0];
   let currentLeaf = quill.getLeaf(range.index)[0];
@@ -165,13 +164,6 @@ Quill.register("modules/linebreak", (quill) => {
     if (text === "\n\n") {
       quill.deleteText(quill.getLength() - 2, 2);
     }
-  });
-
-  quill.clipboard.addMatcher("BR", (node) => {
-    if (node?.parentNode?.tagName === "A") {
-      return new Delta().insert("\n");
-    }
-    return new Delta().insert({"break": ""});
   });
 
   addEnterBindings(quill);

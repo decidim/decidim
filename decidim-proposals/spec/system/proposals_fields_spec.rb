@@ -421,7 +421,7 @@ describe "Proposals", type: :system do
           end
 
           expect(page).to have_no_content("successfully")
-          expect(page).to have_css(".callout.alert", text: "limit")
+          expect(page).to have_css("[data-alert-box].alert", text: "limit")
         end
       end
     end

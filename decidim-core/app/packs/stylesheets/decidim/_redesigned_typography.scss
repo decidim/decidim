@@ -23,10 +23,10 @@
 }
 
 .decorator{
-  @apply relative after:absolute after:content-[''] after:h-1 after:w-24 after:top-[calc(100%+0.25rem)] after:left-0 after:bg-tertiary after:rounded-b;
+  @apply relative after:absolute after:content-[''] after:h-1 after:w-10 after:top-[calc(100%+0.25rem)] after:left-0 after:bg-tertiary after:rounded-b;
 }
 
 /* default styles for those dynamic text blocks */
 .editor-content{
-  @apply prose max-w-full text-black text-lg;
+  @apply prose max-w-prose text-black text-lg;
 }

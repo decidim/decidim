@@ -118,4 +118,22 @@ describe Decidim::Accountability::Admin::Permissions do
 
     it_behaves_like "permission is not set"
   end
+
+  describe "import_projects" do
+    let(:action_subject) { :import_projects }
+
+    let(:action) do
+      { scope: :admin, action: :create, subject: action_subject }
+    end
+
+    it { is_expected.to be true }
+
+    context "when any other action" do
+      let(:action) do
+        { scope: :admin, action: :foo, subject: action_subject }
+      end
+
+      it_behaves_like "permission is not set"
+    end
+  end
 end

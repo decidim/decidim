@@ -40,6 +40,74 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         expect(page).to have_current_path decidim.account_path
         expect(page).to have_content("Participant settings")
       end
+
+      context "and a duplicate authorization exists for an existing user" do
+        let(:document_number) { "123456789X" }
+        let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: authorizations.first) }
+        let!(:other_user) { create(:user, :confirmed, organization: user.organization) }
+
+        it "transfers the authorization from the deleted user" do
+          fill_in "Document number", with: document_number
+          page.execute_script("$('#authorization_handler_birthday').focus()")
+          page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+
+          expect { click_button "Send" }.not_to change(Decidim::Authorization, :count)
+          expect(page).to have_content("There was a problem creating the authorization.")
+          expect(page).to have_content("A participant is already authorized with the same data. An administrator will contact you to verify your details.")
+
+          expect { click_button "Send" }.not_to change(Decidim::AuthorizationTransfer, :count)
+          expect(page).to have_content("There was a problem creating the authorization.")
+        end
+      end
+
+      context "and a duplicate authorization exists for a deleted user" do
+        let(:document_number) { "123456789X" }
+        let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: authorizations.first) }
+        let!(:other_user) { create(:user, :deleted, organization: user.organization) }
+
+        it "transfers the authorization from the deleted user" do
+          fill_in "Document number", with: document_number
+          page.execute_script("$('#authorization_handler_birthday').focus()")
+          page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+
+          click_button "Send"
+          expect(page).to have_content("You've been successfully authorized.")
+          expect(page).not_to have_content("We have recovered the following participation data based on your authorization:")
+        end
+
+        context "and the deleted user for the duplicate authorization had transferrable data" do
+          let(:commentable) do
+            create(
+              :dummy_resource,
+              component: create(:component, manifest_name: "dummy", organization: user.organization)
+            )
+          end
+
+          before do
+            create_list(:comment, 10, author: other_user, commentable:)
+            create_list(:proposal, 5, users: [other_user], component: create(:proposal_component, organization: user.organization))
+
+            within_user_menu do
+              click_link "My account"
+            end
+
+            click_link "Authorizations"
+            click_link "Example authorization"
+          end
+
+          it "reports the transferred participation data" do
+            fill_in "Document number", with: document_number
+            page.execute_script("$('#authorization_handler_birthday').focus()")
+            page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
+
+            click_button "Send"
+            expect(page).to have_content("You've been successfully authorized.")
+            expect(page).to have_content("We have recovered the following participation data based on your authorization:")
+            expect(page).to have_content("Comments: 10")
+            expect(page).to have_content("Proposals: 5")
+          end
+        end
+      end
     end
 
     context "when multiple authorizations have been configured", with_authorization_workflows: %w(dummy_authorization_handler dummy_authorization_workflow) do

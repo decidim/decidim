@@ -129,8 +129,8 @@ describe Decidim::Elections::Admin::SetupForm do
         expect(subject.census_messages).to match(
           hash_including({
                            census_uploaded: "Census is uploaded.",
-                           census_codes_generated: "Census codes are generated.",
-                           census_frozen: "Codes are exported and census is frozen."
+                           census_codes_generated: "Access codes for the census are generated.",
+                           census_frozen: "Access codes for the census are exported and census is frozen."
                          })
         )
       end
@@ -145,8 +145,8 @@ describe Decidim::Elections::Admin::SetupForm do
         subject.valid?
         expect(subject.errors.messages).to eq({
                                                 census_uploaded: ["There is no census uploaded for this election."],
-                                                census_codes_generated: ["Election codes for the census are not generated."],
-                                                census_frozen: ["Election codes are not exported."]
+                                                census_codes_generated: ["Access codes for the census are not generated."],
+                                                census_frozen: ["Access codes for the census are not exported."]
                                               })
       end
     end
@@ -159,8 +159,8 @@ describe Decidim::Elections::Admin::SetupForm do
       it "shows errors" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-                                                census_codes_generated: ["Election codes for the census are not generated."],
-                                                census_frozen: ["Election codes are not exported."]
+                                                census_codes_generated: ["Access codes for the census are not generated."],
+                                                census_frozen: ["Access codes for the census are not exported."]
                                               })
       end
     end
@@ -173,7 +173,7 @@ describe Decidim::Elections::Admin::SetupForm do
       it "shows errors" do
         subject.valid?
         expect(subject.errors.messages).to eq({
-                                                census_frozen: ["Election codes are not exported."]
+                                                census_frozen: ["Access codes for the census are not exported."]
                                               })
       end
     end

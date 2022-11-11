@@ -14,7 +14,7 @@
   input[type="week"],
   textarea{
     &:not(.reset-defaults){
-      @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary invalid:border-0 invalid:outline-2 invalid:outline-alert disabled:bg-background-3 disabled:text-gray-2;
+      @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary invalid:outline-2 invalid:outline-alert disabled:bg-background-3 disabled:text-gray-2 disabled:cursor-not-allowed;
 
       &.sm{
         /* stylelint-disable-next-line number-leading-zero */
@@ -39,4 +39,48 @@
 
 .help-text{
   @apply block text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline;
+}
+
+.form-error{
+  @apply mt-2 hidden font-normal text-sm text-primary;
+}
+
+*:invalid ~ .form-error{
+  @apply block;
+}
+
+.input-character-counter{
+  @apply relative mt-4;
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    @apply mt-0;
+  }
+
+  &__container{
+    @apply absolute top-0 right-0 -translate-y-full;
+  }
+
+  &__text{
+    @apply font-normal inline-block text-xs text-gray-2;
+  }
+}
+
+.emoji{
+  &__container{
+    @apply relative;
+  }
+
+  &__trigger{
+    @apply relative;
+  }
+
+  &__button{
+    @apply absolute right-4 bottom-4 cursor-pointer text-gray-2;
+  }
+
+  &__button svg{
+    width: 1em;
+  }
 }

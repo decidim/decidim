@@ -16,15 +16,19 @@
 <% else %>
   <details class="relative px-8 cursor-pointer">
     <summary id="dropdown-summary-account" class="flex flex-col items-center text-secondary relative" aria-controls="dropdown-account">
-      <% if current_user.notifications.any? %>
-        <span class="w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary"></span>
+      <% if current_user.notifications.any? || current_user.unread_conversations.any? %>
+        <span class="w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary" data-unread-items></span>
       <% end %>
       <% if current_user.avatar.attached? %>
-        <div class="w-8 h-8 rounded-full border border-secondary">
-          <div class="w-full h-full rounded-full overflow-hidden">
-            <%= image_tag "https://www.fillmurray.com/640/360", class: "object-cover w-full h-full", alt: "avatar #{current_user.avatar.name}" %>
-          </div>
-        </div>
+        <span class="w-8 h-8 rounded-full border border-secondary">
+          <span class="w-full h-full rounded-full overflow-hidden">
+            <%= image_tag(
+                  current_user.attached_uploader(:avatar).path(variant: :thumb),
+                  class: "object-cover w-full h-full",
+                  alt: t("decidim.author.avatar", name: decidim_sanitize(current_user.avatar.name))
+                ) %>
+          </span>
+        </span>
       <% else %>
         <%= icon "user-smile-line", class: "w-5 h-5 fill-current" %>
         <span class="text-sm first-letter:uppercase"><%= t("layouts.decidim.user_profile.account") %></span>

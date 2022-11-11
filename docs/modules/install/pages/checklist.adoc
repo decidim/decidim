@@ -35,5 +35,5 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 . Comply with your current *legal requirements*, like to registrate your privacy policy with the autorities (eg LOPD on Spain).
 . Fill the *Participatory Processes Configuration Form* to prepare your Participatory Process for Decidim.
 . Read the *xref:admin:index.adoc[Administration manual]*.
-. Participate on *http://meta.decidim.org[MetaDecidim]*.
+. Participate on *http://meta.decidim.org[Metadecidim]*.
 . Read the Decidim *https://decidim.org/contract/[Social Contract]*.

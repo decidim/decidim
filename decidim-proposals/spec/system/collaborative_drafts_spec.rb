@@ -249,14 +249,14 @@ describe "Explore Collaborative Drafts", versioning: true, type: :system do
           end
 
           it "renders an flash informing about the request" do
-            expect(page).to have_css(".flash.callout.success")
-            within ".flash.callout.success" do
+            expect(page).to have_css("[data-alert-box].success")
+            within "[data-alert-box].success" do
               expect(page).to have_content("Your request to collaborate has been successfully sent")
             end
           end
 
           it "removes the announcement to collaborate" do
-            expect(page).not_to have_css("callout.secondary")
+            expect(page).not_to have_css("[data-alert-box].secondary")
           end
 
           it "shows that acces has been requested" do

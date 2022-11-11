@@ -85,7 +85,7 @@ describe Decidim::UserActivityCell, type: :cell do
       expect(subject).to have_link(title, href: comment_link)
     end
 
-    within "#decidim-paginate-container .pagination" do
+    within ".pagination" do
       expect(page).to have_selector("li.page.current", text: "1")
       expect(page).to have_selector("li.page a", text: "2")
       expect(page).not_to have_selector("li.page a", text: "3")
@@ -104,7 +104,7 @@ describe Decidim::UserActivityCell, type: :cell do
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      within "#decidim-paginate-container .pagination" do
+      within ".pagination" do
         expect(page).to have_selector("li.page a", text: "1")
         expect(page).to have_selector("li.page.current", text: "2")
       end
@@ -140,7 +140,7 @@ describe Decidim::UserActivityCell, type: :cell do
         expect(subject).to have_link(title, href: comment_link)
       end
 
-      expect(subject).not_to have_selector("#decidim-paginate-container .pagination")
+      expect(subject).not_to have_selector(".pagination")
     end
   end
 end

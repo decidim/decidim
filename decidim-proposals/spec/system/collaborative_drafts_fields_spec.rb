@@ -90,6 +90,31 @@ describe "Collaborative drafts", type: :system do
           expect(page).to have_author(user.name)
         end
 
+        context "when there are errors on the form", :slow do
+          before do
+            visit new_collaborative_draft_path
+
+            within ".new_collaborative_draft" do
+              fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
+              fill_in :collaborative_draft_body, with: "Cities"
+
+              find("*[type=submit]").click
+            end
+          end
+
+          it "shows the form with the error message" do
+            expect(page).to have_content("There was a problem creating this collaborative draft.")
+            expect(page).to have_field(:collaborative_draft_title, with: "More sidewalks and less roads")
+            expect(page).to have_field(:collaborative_draft_body, with: "Cities")
+          end
+
+          it "allows returning to the index" do
+            click_link "Back to collaborative drafts"
+
+            expect(page).to have_content("0 COLLABORATIVE DRAFTS")
+          end
+        end
+
         context "when geocoding is enabled", :serves_map, :serves_geocoding_autocomplete do
           let!(:component) do
             create(:proposal_component,

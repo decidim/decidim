@@ -96,6 +96,22 @@ module Decidim
                 expect(first_project.title).to eq(proposal.title)
                 expect(last_project.title).to eq(second_proposal.title)
               end
+
+              context "and the current component was not published" do
+                before { current_component.unpublish! }
+
+                it "doesn't import it again" do
+                  expect do
+                    command.call
+                  end.to change { Project.where(budget:).count }.by(1)
+
+                  projects = Project.where(budget:)
+                  first_project = projects.first
+                  last_project = projects.last
+                  expect(first_project.title).to eq(proposal.title)
+                  expect(last_project.title).to eq(second_proposal.title)
+                end
+              end
             end
 
             it "links the proposals" do

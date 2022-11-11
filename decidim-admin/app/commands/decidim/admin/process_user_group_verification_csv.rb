@@ -7,7 +7,7 @@ module Decidim
     # A command with all the business logic when processing the CSV to verify
     # user groups.
     class ProcessUserGroupVerificationCsv < Decidim::Command
-      include Decidim::ProcessesFileLocally
+      include Decidim::Admin::CustomImport
 
       # Public: Initializes the command.
       #
@@ -35,11 +35,8 @@ module Decidim
         verifier = @form.current_user
         organization = @form.current_organization
 
-        process_file_locally(@form.file) do |file_path|
-          CSV.foreach(file_path) do |row|
-            email = row[0]
-            VerifyUserGroupFromCsvJob.perform_later(email, verifier, organization) if email.present?
-          end
+        process_import_file(@form.file) do |(email)|
+          VerifyUserGroupFromCsvJob.perform_later(email, verifier, organization) if email.present?
         end
       end
     end

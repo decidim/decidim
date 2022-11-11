@@ -78,7 +78,7 @@ describe "Vote online in an election inside a Voting", type: :system do
 
         click_link "Give us some feedback"
 
-        expect(page).to have_i18n_content(election.questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(election.questionnaire.title)
         expect(page).to have_i18n_content(election.questionnaire.description)
 
         fill_in election.questionnaire.questions.first.body["en"], with: "My first answer"

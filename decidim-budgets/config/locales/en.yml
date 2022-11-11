@@ -93,11 +93,11 @@ en:
             cancel: Cancel
             change_category: Change category
             change_scope: Change scope
-            change_selected: Change selected
-            deselect_implementation: Unselect
+            change_selected: Change selected state
+            deselect_implementation: Unselect from implementation
             finished_orders: Finished votes
             pending_orders: Pending votes
-            select_for_implementation: Select
+            select_for_implementation: Select for implementation
             selected: Selected
             title: Projects
             update: Update
@@ -119,10 +119,14 @@ en:
             select_a_scope: Please select a scope
             success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
           update_selected:
-            invalid: 'These projects already had the same selected: %{projects}.'
+            invalid:
+              selected: 'These projects were already selected for implementation: %{projects}.'
+              unselected: 'These projects were already unselected from implementation: %{projects}.'
             select_a_project: Please select a project
-            select_a_selection: Please select a selection
-            success: 'Projects selection successfully changed: %{projects}.'
+            select_a_selection: Please select an implementation state
+            success:
+              selected: 'These projects were successfully selected for implementation: %{projects}.'
+              unselected: 'These projects were successfully unselected from implementation: %{projects}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects
@@ -173,7 +177,7 @@ en:
         vote: Vote
         voted_on: You've voted on %{links}
       last_activity:
-        new_vote_at_html: "<span>New budgeting vote at %{link}</span>"
+        new_vote_at: New budgeting vote at
       limit_announcement:
         cant_vote: You can't vote on this budget. <a href="%{landing_path}">Try on another budget</a>.
         limit_reached: You have active votes in %{links}. To vote on this budget you must <a href="%{landing_path}">delete your vote and start over</a>.

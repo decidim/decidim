@@ -1,3 +1,9 @@
+<% add_decidim_meta_tags({
+  description: translated_attribute(@commentable.body),
+  title: translated_attribute(@commentable.title),
+  url: dummy_resource_url(@commentable)
+}) %>
+
 <div id="resource" class="row">
   <h2><%= translated_attribute(@commentable.title) %></h2>
 </div>

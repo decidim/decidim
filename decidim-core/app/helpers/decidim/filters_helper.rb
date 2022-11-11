@@ -33,6 +33,23 @@ module Decidim
       end
     end
 
+    def redesigned_filter_form_for(filter, url = url_for, html_options = {})
+      form_for(
+        filter,
+        namespace: filter_form_namespace,
+        builder: FormBuilder,
+        url:,
+        as: :filter,
+        method: :get,
+        # REDESIGN_PENDING: it must ne false in order to refresh the current selection
+        # Look further using Turbo
+        remote: false,
+        html: { id: nil }.merge(html_options)
+      ) do |form|
+        yield form
+      end
+    end
+
     private
 
     # Creates a unique namespace for a filter form to prevent dupliacte IDs in

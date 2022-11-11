@@ -50,6 +50,18 @@ module Decidim
 
         "<p>#{text}</p>"
       end
+
+      # Prevents underscores to be replaced with <em> tags in comments, such as
+      # https://github.com/org/module_with_underscores or within words such as
+      # "Look for comment_maximum_length in the code". The `no_intra_emphasis`
+      # option for Redcarpet does not apparently work for this renderer.
+      #
+      # Related issues:
+      # https://github.com/vmg/redcarpet/issues/402
+      # https://github.com/vmg/redcarpet/issues/427
+      def emphasis(text)
+        "_#{text}_"
+      end
     end
   end
 end

@@ -60,7 +60,9 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy assembly"
+      within find("tr", text: "Copy assembly") do
+        click_link "Configure"
+      end
       click_link "Categories"
 
       within ".table-list" do
@@ -76,7 +78,9 @@ shared_examples "copy assemblies" do
 
       expect(page).to have_content("successfully")
 
-      click_link "Copy assembly"
+      within find("tr", text: "Copy assembly") do
+        click_link "Configure"
+      end
       click_link "Components"
 
       within ".table-list" do

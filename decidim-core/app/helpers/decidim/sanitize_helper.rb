@@ -16,11 +16,16 @@ module Decidim
     #
     # Returns an HTML-safe String.
     def decidim_sanitize(html, options = {})
+      scrubber = options[:scrubber] || Decidim::UserInputScrubber.new
       if options[:strip_tags]
-        strip_tags sanitize(html, scrubber: Decidim::UserInputScrubber.new)
+        strip_tags sanitize(html, scrubber:)
       else
-        sanitize(html, scrubber: Decidim::UserInputScrubber.new)
+        sanitize(html, scrubber:)
       end
+    end
+
+    def decidim_sanitize_admin(html, options = {})
+      decidim_sanitize(html, { scrubber: Decidim::AdminInputScrubber.new }.merge(options))
     end
 
     def decidim_sanitize_newsletter(html, options = {})
@@ -32,8 +37,12 @@ module Decidim
     end
 
     def decidim_sanitize_editor(html, options = {})
+      content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor-display))
+    end
+
+    def decidim_sanitize_editor_admin(html, options = {})
       html = Decidim::IframeDisabler.new(html, options).perform
-      content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor ql-reset-decidim))
+      decidim_sanitize_editor(html, { scrubber: Decidim::AdminInputScrubber.new }.merge(options))
     end
 
     def decidim_html_escape(text)

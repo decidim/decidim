@@ -266,8 +266,8 @@ en:
       index:
         title: Consultations
       last_activity:
-        new_consultation: New consultation
-        new_question_at_html: "<span>New question at %{link}</span>"
+        new_consultation: 'New consultation:'
+        new_question: 'New question:'
       pages:
         home:
           highlighted_consultations:

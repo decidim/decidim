@@ -110,16 +110,24 @@ module Decidim
   autoload :AttributeObject, "decidim/attribute_object"
   autoload :Query, "decidim/query"
   autoload :Command, "decidim/command"
+  autoload :SocialShareServiceManifest, "decidim/social_share_service_manifest"
   autoload :EventRecorder, "decidim/event_recorder"
   autoload :ControllerHelpers, "decidim/controller_helpers"
   autoload :ProcessesFileLocally, "decidim/processes_file_locally"
   autoload :RedesignLayout, "decidim/redesign_layout"
   autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
+  autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.
   def self.seed!
+    # After running the migrations, some records may have loaded their column
+    # caches at different stages of the migration process, so in order to
+    # prevent any "undefined method" errors if these tasks are run
+    # consecutively, reset the column cache before the migrations.
+    reset_all_column_information
+
     # Faker needs to have the `:en` locale in order to work properly, so we
     # must enforce it during the seeds.
     original_locale = I18n.available_locales
@@ -157,6 +165,17 @@ module Decidim
     end
 
     I18n.available_locales = original_locale
+  end
+
+  # Finds all currently loaded Decidim ActiveRecord classes and resets their
+  # column information.
+  def self.reset_all_column_information
+    ActiveRecord::Base.descendants.each do |cls|
+      next if cls.name.nil? # abstract classes registered during tests
+      next if cls.abstract_class? || !cls.name.match?(/^Decidim::/)
+
+      cls.reset_column_information
+    end
   end
 
   # Exposes a configuration option: The application name String.
@@ -365,6 +384,11 @@ module Decidim
     # "MyTranslationService"
   end
 
+  # Social Networking services used for social sharing
+  config_accessor :social_share_services do
+    %w(Twitter Facebook WhatsApp Telegram)
+  end
+
   # If set to true redesigned versions of layouts and cells will be used by
   # default
   config_accessor :redesign_active do
@@ -559,6 +583,16 @@ module Decidim
     resource_registry.register(name, &)
   end
 
+  # Public: Registers a social share service.
+  #
+  # Returns nothing.
+  def self.register_social_share_service(name, &)
+    social_share_services_registry.register(name, &)
+  end
+
+  # Public: Registers a notification setting.
+  #
+  # Returns nothing.
   def self.notification_settings(name, &)
     notification_settings_registry.register(name, &)
   end
@@ -626,6 +660,7 @@ module Decidim
     @participatory_space_registry ||= ManifestRegistry.new(:participatory_spaces)
   end
 
+  # Public: Stores the registry of reminders
   def self.reminders_registry
     @reminders_registry ||= ReminderRegistry.new
   end
@@ -635,6 +670,12 @@ module Decidim
     @resource_registry ||= ManifestRegistry.new(:resources)
   end
 
+  # Public: Stores the registry of social shares services
+  def self.social_share_services_registry
+    @social_share_services_registry ||= ManifestRegistry.new(:social_share_services)
+  end
+
+  # Public: Stores the registry of notifications settings
   def self.notification_settings_registry
     @notification_settings_registry ||= ManifestRegistry.new(:notification_settings)
   end
@@ -642,6 +683,11 @@ module Decidim
   # Public: Stores the registry for user permissions
   def self.permissions_registry
     @permissions_registry ||= PermissionsRegistry.new
+  end
+
+  # Public: Stores the registry for authorization transfer handlers
+  def self.authorization_transfer_registry
+    @authorization_transfer_registry ||= BlockRegistry.new
   end
 
   # Public: Stores an instance of StatsRegistry

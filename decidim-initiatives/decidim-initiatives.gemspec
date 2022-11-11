@@ -36,4 +36,5 @@ Gem::Specification.new do |s|
   s.add_dependency "wkhtmltopdf-binary", "~> 0.12"
 
   s.add_development_dependency "decidim-dev", Decidim::Initiatives.version
+  s.add_development_dependency "decidim-meetings", Decidim::Initiatives.version
 end

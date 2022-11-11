@@ -24,6 +24,15 @@ module Decidim
         statistics(grouped_highlighted_stats)
       end
 
+      def card_collection
+        card_stats = Decidim.stats.only([:followers_count, :votings_count])
+                            .filter(priority: StatsRegistry::HIGH_PRIORITY)
+                            .with_context(participatory_process)
+                            .map { |stat_title, stat_number| [participatory_process.manifest.name, stat_title, stat_number] }
+
+        statistics(card_stats.group_by(&:first))
+      end
+
       private
 
       def process_participants_stats

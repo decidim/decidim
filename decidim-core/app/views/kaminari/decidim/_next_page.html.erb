@@ -10,7 +10,7 @@
     class="flex items-center gap-2 border border-secondary rounded font-semibold px-4 py-1.5 hover:bg-secondary hover:text-white"
     title="<%= t("views.pagination.next_title") %>"
     rel="next">
-    <%= t("views.pagination.next").html_safe %>
+    <span class="hidden md:block"><%= t("views.pagination.next").html_safe %></span>
     <%= icon "arrow-right-line", class: "fill-current" %>
   </a>
 </li>

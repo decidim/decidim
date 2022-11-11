@@ -34,6 +34,12 @@ module Decidim
       initializer "decidim_elections.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
+
+      initializer "decidim_elections.authorization_transfer" do
+        Decidim::AuthorizationTransfer.register(:elections) do |transfer|
+          transfer.move_records(Decidim::Elections::Vote, :decidim_user_id)
+        end
+      end
     end
   end
 end

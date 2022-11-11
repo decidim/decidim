@@ -1,0 +1,26 @@
+# frozen_string_literal: true
+
+module Decidim
+  # This helper includes methods to generate modal windows on the layout.
+  # The trigger element must contain a "data-dialog-open" attribute,
+  # you may specify data-dialog-open="<seed>" also, where seed must match with
+  # the provided id option: <%= decidim_modal id: seed %>. In a very similar way,
+  # you also can add your custom close button through data-dialog-close="<seed>"
+  #
+  # Options available:
+  #  - id: String. Unique identificator for the dialog, if the page has distinct modal windows (default: "")
+  #  - class: String. CSS classes for the modal content.
+  #  - closable: Boolean. Whether the modal can be closed or not (default: true)
+  module ModalHelper
+    def decidim_modal(opts = {}, &)
+      opts[:closable] = true unless opts.has_key?(:closable)
+      button = opts[:closable] == false ? "" : content_tag(:button, "&times".html_safe, type: :button, data: { dialog_close: opts[:id] || "", dialog_closable: "" })
+      content_tag(:div, data: { dialog: opts[:id] || "" }) do
+        content_tag(:div, class: opts[:class]) do
+          button +
+            yield.html_safe
+        end
+      end
+    end
+  end
+end

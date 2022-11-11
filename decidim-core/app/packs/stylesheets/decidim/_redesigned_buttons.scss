@@ -1,52 +1,71 @@
 .button{
-  @apply inline-flex items-center font-semibold rounded transition cursor-pointer;
+  @apply inline-flex items-center justify-center font-semibold border border-transparent rounded whitespace-nowrap transition cursor-pointer;
 
-  &.sm{
+  &__xs{
+    @apply text-sm px-3 py-1 gap-1;
+  }
+
+  &__sm{
     @apply text-sm px-4 py-1.5 gap-1.5;
   }
 
-  &.lg{
+  &__lg{
     @apply text-lg px-6 py-3 gap-2;
   }
 
-  &.xl{
+  &__xl{
     @apply text-xl px-8 py-4 gap-4;
   }
 
-  &.primary{
+  &__primary{
     @apply bg-primary text-white;
   }
 
-  &.secondary{
+  &__secondary{
     @apply bg-secondary text-white;
   }
 
-  &.tertiary{
+  &__tertiary{
     @apply bg-tertiary text-white;
   }
 
-  &.white{
-    @apply bg-white;
-  }
-
-  &.transparent{
+  &__transparent{
     @apply bg-transparent text-white border border-white;
 
-    &.primary{
-      @apply border-primary text-primary;
+    &-primary{
+      @apply button__transparent bg-white border-primary text-primary;
     }
 
-    &.secondary{
-      @apply border-secondary text-secondary;
+    &-secondary{
+      @apply button__transparent bg-white border-secondary text-secondary;
     }
 
-    &.tertiary{
-      @apply border-tertiary text-tertiary;
+    &-tertiary{
+      @apply button__transparent bg-white border-tertiary text-tertiary;
     }
   }
 
-  &.white:hover,
-  &.transparent:hover,
+  &__text{
+    @apply bg-transparent text-black border-0;
+
+    &-primary{
+      @apply button__text text-primary;
+    }
+
+    &-secondary{
+      @apply button__text text-secondary;
+    }
+
+    &-tertiary{
+      @apply button__text text-tertiary;
+    }
+  }
+
+  &[disabled]{
+    @apply text-gray bg-background-3 border border-gray;
+  }
+
+  &__transparent:hover,
   &:hover{
     @apply text-white;
 

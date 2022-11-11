@@ -3,6 +3,7 @@
 module Decidim
   module Messaging
     module ConversationHelper
+      # deprecated
       def conversation_name_for(users)
         return content_tag(:span, t("decidim.profile.deleted"), class: "label label--small label--basic") if users.first.deleted?
 
@@ -30,15 +31,14 @@ module Decidim
       def username_list(users, shorten: false)
         content_tags = []
         first_users = shorten ? users.first(3) : users
-        deleted_user_tag = content_tag(:span, t("decidim.profile.deleted"), class: "label label--small label--basic")
         first_users.each do |u|
-          content_tags.push(u.deleted? ? deleted_user_tag : content_tag(:strong, u.name))
+          content_tags.push(u.deleted? ? t("decidim.profile.deleted") : u.name)
         end
 
         return content_tags.join(", ") unless shorten
         return content_tags.join(", ") unless users.count > 3
 
-        content_tags.push(content_tag(:strong, " + #{users.count - 3}"))
+        content_tags.push(" + #{users.count - 3}")
         content_tags.join(", ")
       end
 

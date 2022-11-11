@@ -343,10 +343,12 @@ shared_examples "comments" do
 
             within ".add-comment form" do
               find(:css, "textarea:enabled").set("toto")
-              expect(page).not_to have_selector(".emoji-picker__wrapper")
-              find("svg").click
             end
-            expect(page).to have_selector(".emoji-picker__wrapper")
+            expect(page).not_to have_selector(".picmo-picker.picker")
+            within ".add-comment form" do
+              find(".emoji__button").click
+            end
+            expect(page).to have_selector(".picmo-picker.picker")
           end
         end
 
@@ -357,9 +359,9 @@ shared_examples "comments" do
 
             within ".add-comment form" do
               find(:css, "textarea:enabled").set("0123456789012345678901234567")
-              find("svg").click
-              expect(page).not_to have_selector(".emoji-picker__wrapper")
+              find(".emoji__button").click
             end
+            expect(page).not_to have_selector(".picmo-picker.picker")
           end
         end
       end
@@ -764,7 +766,7 @@ shared_examples "comments" do
 
         it "replaces the mention with a link to the user's profile" do
           expect(page).to have_comment_from(user, "A valid user mention: @#{mentioned_user.nickname}", wait: 20)
-          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}/profiles/#{mentioned_user.nickname}"
+          expect(page).to have_link "@#{mentioned_user.nickname}", href: "http://#{mentioned_user.organization.host}:#{Capybara.server_port}/profiles/#{mentioned_user.nickname}"
         end
       end
 

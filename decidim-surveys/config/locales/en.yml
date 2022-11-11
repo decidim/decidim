@@ -61,7 +61,7 @@ en:
             invalid: There was a problem saving the survey.
             success: Survey successfully saved.
       last_activity:
-        new_survey_at_html: "<span>New survey at %{link}</span>"
+        new_survey: 'New survey:'
       surveys:
         answer:
           invalid: There was a problem answering the survey.

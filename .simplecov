@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 if ENV["SIMPLECOV"]
+  test_env = ENV.fetch("TEST_ENV_NUMBER", "")
+  test_env = "1" if test_env.empty?
+
   SimpleCov.start do
     # `ENGINE_ROOT` holds the name of the engine we're testing.
     # This brings us to the main Decidim folder.
@@ -24,6 +27,7 @@ if ENV["SIMPLECOV"]
   end
 
   SimpleCov.merge_timeout 1800
+  SimpleCov.coverage_dir "coverage/#{test_env}/"
 
   if ENV["CI"]
     require "simplecov-cobertura"

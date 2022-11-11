@@ -185,7 +185,7 @@ describe "Admin manages answers", type: :system do
       end
 
       within find("tr", text: translated(answer.title)) do
-        first(".action-icon").click
+        first(".icon--check").click
       end
 
       within find("tr", text: translated(answer.title)) do

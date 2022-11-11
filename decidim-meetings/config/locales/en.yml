@@ -429,8 +429,8 @@ en:
         open_in_live_event_page: Open in live event page (with optional polls)
         open_in_new_tab: Open URL in a new tab
       last_activity:
-        meeting_updated_at_html: "<span>Meeting updated at %{link}</span>"
-        new_meeting_at_html: "<span>New meeting at %{link}</span>"
+        meeting_updated: 'Meeting updated:'
+        new_meeting: 'New meeting:'
       layouts:
         live_event:
           administrate: Administrate

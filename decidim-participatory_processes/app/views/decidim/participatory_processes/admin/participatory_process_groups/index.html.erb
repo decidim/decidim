@@ -34,7 +34,7 @@
                   </span>
                 <% end %>
                 <% if allowed_to? :update, :process_group, process_group: group %>
-                  <%= link_to translated_attribute(group.title), [:edit, group] %><br>
+                  <%= link_to translated_attribute(group.title), [:edit, group] %>
                 <% else %>
                   <%= translated_attribute(group.title) %>
                 <% end %>

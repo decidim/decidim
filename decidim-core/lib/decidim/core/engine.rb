@@ -36,10 +36,10 @@ require "doorkeeper-i18n"
 require "batch-loader"
 require "mime-types"
 require "diffy"
-require "social-share-button"
 require "ransack"
 require "wisper"
 require "webpacker"
+require "turbo-rails"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
@@ -262,6 +262,13 @@ module Decidim
         end
       end
 
+      initializer "decidim.validators" do
+        config.to_prepare do
+          # Decidim overrides to the file content type validator
+          require "file_content_type_validator"
+        end
+      end
+
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:user, :user_group, :hashtag, :link]
@@ -274,7 +281,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
       end
 
-      initializer "doorkeeper" do
+      initializer "doorkeeper", before: "doorkeeper.params.filter" do
         Doorkeeper.configure do
           orm :active_record
 
@@ -551,14 +558,82 @@ module Decidim
       end
 
       initializer "decidim.core.add_badges" do
-        Decidim::Gamification.register_badge(:invitations) do |badge|
-          badge.levels = [1, 5, 10, 30, 50]
-          badge.reset = ->(user) { Decidim::User.where(invited_by: user.id).count }
-        end
-
         Decidim::Gamification.register_badge(:followers) do |badge|
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }
+        end
+      end
+
+      initializer "decidim.core.add_social_share_services" do
+        Decidim.register_social_share_service("Douban") do |service|
+          service.icon = "douban.svg"
+          service.share_uri = "http://shuo.douban.com/!service/share?href=%{url}&name=%{title}&image=%{image}&sel=%{desc}"
+        end
+
+        Decidim.register_social_share_service("Email") do |service|
+          service.icon = "email.svg"
+          service.share_uri = "mailto:?subject=%{title}&body=%{url}"
+        end
+
+        Decidim.register_social_share_service("Facebook") do |service|
+          service.icon = "facebook.svg"
+          service.share_uri = "http://www.facebook.com/sharer/sharer.php?u=%{url}"
+        end
+
+        Decidim.register_social_share_service("Google Bookmark") do |service|
+          service.icon = "google_bookmark.svg"
+          service.share_uri = "https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=%{url}&title=%{title}"
+        end
+
+        Decidim.register_social_share_service("Hacker News") do |service|
+          service.icon = "hacker_news.svg"
+          service.share_uri = "http://news.ycombinator.com/submitlink?u=%{url}&t=%{title}"
+        end
+
+        Decidim.register_social_share_service("LinkedIn") do |service|
+          service.icon = "linkedin.svg"
+          service.share_uri = "https://www.linkedin.com/shareArticle?mini=true&url=%{url}&title=%{title}&summary=%{desc}"
+        end
+
+        Decidim.register_social_share_service("Odnoklassniki") do |service|
+          service.icon = "odnoklassniki.svg"
+          service.share_uri = "https://connect.ok.ru/offer?url=%{url}&title=%{title}&description=%{desc}&imageUrl=%{image}"
+        end
+
+        Decidim.register_social_share_service("Pinterest") do |service|
+          service.icon = "pinterest.svg"
+          service.share_uri = "http://www.pinterest.com/pin/create/button/?url=%{url}&media=%{image}&description=%{title}"
+        end
+
+        Decidim.register_social_share_service("Reddit") do |service|
+          service.icon = "reddit.svg"
+          service.share_uri = "http://www.reddit.com/submit?url=%{url}&newwindow=1"
+        end
+
+        Decidim.register_social_share_service("Telegram") do |service|
+          service.icon = "telegram.svg"
+          service.share_uri = "https://telegram.me/share/url?text=%{title}&url=%{url}"
+        end
+
+        Decidim.register_social_share_service("Twitter") do |service|
+          service.icon = "twitter.svg"
+          service.share_uri = "https://twitter.com/intent/tweet?url=%{url}&text=%{title}"
+          service.optional_params = %w(hashtags via)
+        end
+
+        Decidim.register_social_share_service("Vkontakte") do |service|
+          service.icon = "vkontakte.svg"
+          service.share_uri = "http://vk.com/share.php?url=%{url}&title=%{title}&image=%{image}"
+        end
+
+        Decidim.register_social_share_service("WhatsApp") do |service|
+          service.icon = "whatsapp.svg"
+          service.share_uri = "https://api.whatsapp.com/send?text=%{title}%%0A%{url}"
+        end
+
+        Decidim.register_social_share_service("Xing") do |service|
+          service.icon = "xing.svg"
+          service.share_uri = "https://www.xing.com/spi/shares/new?url=%{url}"
         end
       end
 
@@ -605,6 +680,14 @@ module Decidim
           # The time you want to timeout the user session without activity. After this
           # time the user will be asked for credentials again. Default is 30 minutes.
           config.timeout_in = Decidim.config.expire_session_after
+        end
+      end
+
+      initializer "decidim.authorization_transfer" do
+        Decidim::AuthorizationTransfer.register(:core) do |transfer|
+          transfer.move_records(Decidim::Coauthorship, :decidim_author_id)
+          transfer.move_records(Decidim::Endorsement, :decidim_author_id)
+          transfer.move_records(Decidim::Amendment, :decidim_user_id)
         end
       end
 

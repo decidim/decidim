@@ -61,7 +61,8 @@ Decidim uses Webpacker to compile assets. There are two ways to customize CSS:
 
 We use http://sass-lang.com/guide[SASS, with SCSS syntax] as CSS preprocessor.
 
-== Accesibility
+== Accessibility
 
 To maintain accesibility level, if you add new colors use a http://webaim.org/resources/contrastchecker/[Color contrast checker] (WCAG AA is mandatory, WCAG AAA is recommended)
 
+For more information about accessibility, see the xref:develop:guide_accessibility.adoc[accessibility guide].

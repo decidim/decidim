@@ -10,7 +10,7 @@ module Decidim
     attribute :name
     attribute :nickname
     attribute :email
-    attribute :avatar
+    attribute :avatar, Decidim::Attributes::Blob
     attribute :about
     attribute :document_number
     attribute :phone

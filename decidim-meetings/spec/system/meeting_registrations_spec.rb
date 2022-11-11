@@ -60,7 +60,7 @@ describe "Meeting registrations", type: :system do
       it "can't answer the registration form" do
         visit questionnaire_public_path
 
-        expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+        expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
 
         expect(page).to have_no_i18n_content(question.body)
@@ -97,7 +97,7 @@ describe "Meeting registrations", type: :system do
         it "can't answer the registration form" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)
@@ -152,16 +152,14 @@ describe "Meeting registrations", type: :system do
           it "they have the option to sign in" do
             visit questionnaire_public_path
 
-            expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+            expect(page).to have_i18n_content(questionnaire.title)
             expect(page).to have_i18n_content(questionnaire.description)
 
             expect(page).not_to have_css(".form.answer-questionnaire")
 
-            within ".questionnaire-question_readonly" do
+            within "[data-question-readonly]" do
               expect(page).to have_i18n_content(question.body)
             end
-
-            expect(page).to have_content("Sign in with your account or sign up to answer the form")
           end
         end
       end
@@ -308,7 +306,7 @@ describe "Meeting registrations", type: :system do
         it "shows the registration form without questions" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
           expect(page).to have_content "Show my attendance publicly"
           expect(page).to have_field("public_participation", checked: false)
@@ -333,7 +331,7 @@ describe "Meeting registrations", type: :system do
           input_element.attach_file(Decidim::Dev.asset("verify_user_groups.csv"))
 
           expect(page).to have_field("public_participation", checked: false)
-          find(".tos-agreement").set(true)
+          find("#questionnaire_tos_agreement").set(true)
           click_button "Submit"
 
           within ".confirm-modal-footer" do
@@ -482,7 +480,7 @@ describe "Meeting registrations", type: :system do
         it "can't answer the registration again" do
           visit questionnaire_public_path
 
-          expect(page).to have_i18n_content(questionnaire.title, upcase: true)
+          expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
 
           expect(page).to have_no_i18n_content(question.body)

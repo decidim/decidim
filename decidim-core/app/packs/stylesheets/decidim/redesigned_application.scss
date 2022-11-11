@@ -3,8 +3,8 @@
 @import "tailwindcss/utilities";
 
 :root{
-  --primary: #f30;
-  --primary-rgb: 255 51 0;
+  --primary: #e02d2d;
+  --primary-rgb: 224 45 45;
   --secondary: #155abf;
   --secondary-rgb: 21 90 191;
   --tertiary: #ebc34b;
@@ -22,6 +22,8 @@
   @import "stylesheets/decidim/redesigned_typography.scss";
 }
 
+// The CSS components must work identically all along the application,
+// no matter which view are being displayed in.
 @layer components{
   @import "stylesheets/decidim/redesigned_layout.scss";
   @import "stylesheets/decidim/redesigned_buttons.scss";
@@ -29,14 +31,28 @@
   @import "stylesheets/decidim/redesigned_forms.scss";
   @import "stylesheets/decidim/redesigned_arrow_link.scss";
   @import "stylesheets/decidim/redesigned_dropdown.scss";
+  @import "stylesheets/decidim/redesigned_login_box.scss";
   @import "stylesheets/decidim/redesigned_callout.scss";
   @import "stylesheets/decidim/redesigned_accordion.scss";
   @import "stylesheets/decidim/redesigned_tos.scss";
   @import "stylesheets/decidim/redesigned_vertical_tabs.scss";
+  @import "stylesheets/decidim/redesigned_flash.scss";
+  @import "stylesheets/decidim/redesigned_filters.scss";
+  @import "stylesheets/decidim/redesigned_tags.scss";
+  @import "stylesheets/decidim/redesigned_tabs_x.scss";
+  @import "stylesheets/decidim/redesigned_item_list.scss";
+  @import "stylesheets/decidim/redesigned_drawer.scss";
+  @import "stylesheets/decidim/redesigned_drawer_metadata.scss";
+  @import "stylesheets/decidim/redesigned_modal.scss";
 }
 
+// On the other hand, the following styles match with specific routes
+@import "stylesheets/decidim/redesigned_header.scss";
 @import "stylesheets/decidim/redesigned_login.scss";
 @import "stylesheets/decidim/redesigned_pages.scss";
+@import "stylesheets/decidim/redesigned_notifications.scss";
+@import "stylesheets/decidim/redesigned_profile.scss";
+@import "stylesheets/decidim/redesigned_conversations.scss";
 
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.

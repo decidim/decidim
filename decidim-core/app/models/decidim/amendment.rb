@@ -10,6 +10,13 @@ module Decidim
 
     validates :state, presence: true, inclusion: { in: STATES }
 
+    # Reports the mapped resource type for authorization transfers.
+    #
+    # @return [String] The resource type as string (i.e. its class name).
+    def mapped_resource_type
+      decidim_amendable_type
+    end
+
     def draft?
       state == "draft"
     end

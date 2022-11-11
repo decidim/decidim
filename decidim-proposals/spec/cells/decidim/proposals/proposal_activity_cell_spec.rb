@@ -24,7 +24,7 @@ module Decidim
       context "when rendering" do
         it "renders the card" do
           html = cell("decidim/proposals/proposal_activity", action_log).call
-          expect(html).to have_css("#action-#{action_log.id} .card__content")
+          expect(html).to have_css("#action-#{action_log.id}[data-activity]")
         end
 
         context "when action is update" do
@@ -32,7 +32,7 @@ module Decidim
 
           it "renders the correct title" do
             html = cell("decidim/proposals/proposal_activity", action_log).call
-            expect(html).to have_css("#action-#{action_log.id} .card__content")
+            expect(html).to have_css("#action-#{action_log.id}[data-activity]")
             expect(html).to have_content("Proposal updated")
           end
         end
@@ -42,7 +42,7 @@ module Decidim
 
           it "renders the correct title" do
             html = cell("decidim/proposals/proposal_activity", action_log).call
-            expect(html).to have_css("#action-#{action_log.id} .card__content")
+            expect(html).to have_css("#action-#{action_log.id}[data-activity]")
             expect(html).to have_content("New proposal")
           end
         end
@@ -50,7 +50,7 @@ module Decidim
         context "when action is publish" do
           it "renders the correct title" do
             html = cell("decidim/proposals/proposal_activity", action_log).call
-            expect(html).to have_css("#action-#{action_log.id} .card__content")
+            expect(html).to have_css("#action-#{action_log.id}[data-activity]")
             expect(html).to have_content("New proposal")
           end
         end
@@ -66,7 +66,9 @@ module Decidim
           it "correctly renders proposals with mentions" do
             html = cell("decidim/proposals/proposal_activity", action_log).call
             expect(html).to have_no_content("gid://")
-            expect(html).to have_content("#myhashtag")
+            # REDESIGN_PENDING: The body is not displayed. Remove when redesign
+            # is finished
+            expect(html).to have_no_content("#myhashtag")
           end
         end
       end

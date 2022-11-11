@@ -13,7 +13,7 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
 
   context "when rendering with the defaults" do
     it "renders the link wrapper" do
-      expect(subject).to have_css(".topbar__admin__link")
+      expect(subject).to have_css(".admin-bar__button")
     end
 
     it "renders the link url" do
@@ -24,8 +24,8 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
       expect(subject).to have_css("span", text: "Edit")
     end
 
-    it "renders the icon: pencil" do
-      expect(subject).to have_css("svg.icon--pencil")
+    it "renders the icon: pencil-line" do
+      expect(subject).to have_css("svg.icon--pencil-line")
     end
   end
 
@@ -34,17 +34,12 @@ describe Decidim::NavbarAdminLinkCell, type: :cell do
     let(:link_options) do
       {
         name: "Answer",
-        icon: "comment-square",
-        class: "my-class"
+        icon: "comment-square"
       }
     end
 
     it "renders the link url" do
       expect(subject).to have_link(href: "https://another.link.url")
-    end
-
-    it "renders the link wrapper with the custom class" do
-      expect(subject).to have_css(".topbar__admin__link.my-class")
     end
 
     it "renders the custom link name: Edit" do

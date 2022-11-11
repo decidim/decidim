@@ -114,6 +114,11 @@ module Decidim::Conferences
         expect(action_log.version).to be_present
       end
 
+      it "sets the avatar" do
+        subject.call
+        expect(conference_speaker.avatar.blob).to be_a(ActiveStorage::Blob)
+      end
+
       context "with an existing user in the platform" do
         let!(:user) { create(:user, organization: conference.organization) }
         let!(:user_id) { user.id }

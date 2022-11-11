@@ -37,10 +37,19 @@ module Decidim
           Decidim.traceability.update!(
             post,
             @user,
+            attributes
+          )
+        end
+
+        def attributes
+          {
             title: form.title,
             body: form.body,
+            published_at: form.published_at,
             author: form.author
-          )
+          }.reject do |attribute, value|
+            value.blank? && attribute == :published_at
+          end
         end
       end
     end

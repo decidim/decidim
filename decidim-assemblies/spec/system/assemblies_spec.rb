@@ -6,12 +6,13 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 describe "Assemblies", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
+  let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:base_assembly) do
     create(
       :assembly,
       :with_type,
       organization:,
-      description: { en: "Description", ca: "Descripció", es: "Descripción" },
+      description: base_description,
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
       show_statistics:
     )
@@ -162,7 +163,7 @@ describe "Assemblies", type: :system do
       end
 
       it "shows the details of the given assembly" do
-        within "main" do
+        within "[data-content]" do
           expect(page).to have_content(translated(assembly.title, locale: :en))
           expect(page).to have_content(translated(assembly.subtitle, locale: :en))
           expect(page).to have_content(translated(assembly.description, locale: :en))
@@ -180,6 +181,8 @@ describe "Assemblies", type: :system do
       it_behaves_like "has attachments" do
         let(:attached_to) { assembly }
       end
+
+      it_behaves_like "has embedded video in description", :base_description
 
       context "when the assembly has some components" do
         it "shows the components" do

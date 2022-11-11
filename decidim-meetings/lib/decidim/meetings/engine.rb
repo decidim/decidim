@@ -133,6 +133,14 @@ module Decidim
           end
         end
       end
+
+      initializer "decidim_meetings.authorization_transfer" do
+        Decidim::AuthorizationTransfer.register(:meetings) do |transfer|
+          transfer.move_records(Decidim::Meetings::Meeting, :decidim_author_id)
+          transfer.move_records(Decidim::Meetings::Registration, :decidim_user_id)
+          transfer.move_records(Decidim::Meetings::Answer, :decidim_user_id)
+        end
+      end
     end
   end
 end

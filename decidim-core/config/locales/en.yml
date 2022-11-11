@@ -30,6 +30,7 @@ en:
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
+        tos_agreement: Terms and conditions of use agreement
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -131,6 +132,7 @@ en:
           question: Are you sure you want to delete your account?
           title: Delete my account
         explanation: Please, fill in the reason you want to delete your account (optional).
+        leaving_authorizations_behind: Some data bound to your authorization will be saved for security. If you create another account and authorize again, this data will be recovered to your new account.
       destroy:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
@@ -155,6 +157,8 @@ en:
         error: There was a problem updating your account.
         success: Your account was successfully updated.
         success_with_email_confirmation: Your account was successfully updated. You'll receive an email to confirm your new email address.
+    activity:
+      time_ago: "%{time} ago"
     admin:
       actions:
         cancel: Cancel
@@ -615,8 +619,17 @@ en:
       endorsed_by: Liked by…
     errors:
       internal_server_error:
+        copied: Text copied!
+        copy_error_message_clarification: Copy error message to clipboard
+        copy_to_clipboard: Copy to clipboard
+        date_and_time: Date and time
+        reference: Reference
+        request_method: Request method
         title: There was a problem with our server
-        try_later: Please try again later.
+        try_later: Please try again later. If the error persists, please copy the following info and send it to platform maintainers with any other information you may want to share.
+        unknown: Unknown
+        url: URL
+        user: User ID
       not_found:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.
@@ -799,6 +812,9 @@ en:
         other: "%{count} followers"
       no_followers: No followers yet.
     following:
+      following_count:
+        one: "%{count} follow"
+        other: "%{count} follows"
       no_followings: Doesn't follow anyone or anything yet.
       non_public_followings: Some of the resources followed are not public.
     follows:
@@ -834,6 +850,8 @@ en:
         allowed_file_extensions: 'Allowed file extensions: %{extensions}'
         max_file_dimension: 'Maximum file dimensions: %{resolution} pixels'
         max_file_size: 'Maximum file size: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Accepted formats: %{extensions}'
       upload:
         labels:
           add_attachment: Add attachment
@@ -872,21 +890,10 @@ en:
           how: How can you earn it
           page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
           title: Badges
-        invitations:
-          conditions:
-          - Use the “invite friends” link on your user page to invite your friends
-          - Customize, if you want, the message you are sending
-          - You’ll level up by sending invitations and getting them registered.
-          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
-          description_another: This participant has invited %{score} people.
-          description_own: You have invited %{score} people.
-          name: Invitations
-          next_level_in: Invite %{score} more people to reach the next level!
-          unearned_another: This participant has not yet invited anyone.
-          unearned_own: You haven't invited anyone yet.
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
+      title: What are the badges?
     group_admins:
       actions:
         are_you_sure: Are you sure? This won't remove the participant from the group.
@@ -1072,8 +1079,6 @@ en:
           modal_title: New conversation
           no_results: No results
           participant_with_disabled_message_reception: This participant has disabled message reception
-        conversation:
-          show: Show conversation with %{sender}
         create:
           error: Conversation not started. Try again later
         error_modal:
@@ -1083,19 +1088,13 @@ en:
           ok: OK
         index:
           ago: ago
-          close: Close modal
-          from: From
-          groups: My groups
-          last_message: Last message
           new_conversation: New conversation
           next: Next
           no_conversations: You have no conversations yet
           title: Conversations
-          to: To
-        reply:
+        reply_form:
           placeholder: Your reply...
           send: Send
-          title: Reply
         show:
           back: Back to all conversations
           chat_with: Conversation with
@@ -1103,8 +1102,8 @@ en:
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
+          placeholder: Your message...
           send: Send
-          title: Start a conversation
         update:
           error: Message was not sent due to an error
     metrics:
@@ -1304,13 +1303,21 @@ en:
         members: Members
         officialized: Official participant
         send_private_message: Send private message
-        timeline: Timeline
         view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
           title: Badges
       user:
+        actions:
+          create_user_group: Create group
+          edit_profile: Edit profile
+          edit_user_group: Edit group profile
+          invite_user: Invite participant
+          join_user_group: Request to join group
+          manage_user_group_admins: Manage admins
+          manage_user_group_users: Manage members
+          message: Message
         confirmation_instructions_sent: Email confirmation instructions sent
         create_user_group: Create group
         edit_profile: Edit profile
@@ -1455,6 +1462,7 @@ en:
         copy_share_link_message: The link was successfully copied to clipboard.
         share: Share
         share_link: Share link
+        share_to: Share to %{service}
     statistics:
       comments_count: Comments
       endorsements_count: Endorsements
@@ -1663,15 +1671,6 @@ en:
       updated_not_active: Your password has been successfully changed.
     registrations:
       destroyed: Your account has been successfully cancelled. We hope to see you again soon.
-      edit:
-        are_you_sure: Are you sure?
-        cancel_my_account: Cancel my account
-        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
-        title: Edit %{resource}
-        unhappy: Unhappy?
-        update: Update
-        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
       new:
         sign_up: Sign up
       signed_up: Welcome! You have signed up successfully.
@@ -1707,8 +1706,34 @@ en:
   doorkeeper:
     scopes:
       public: Your public information.
+  emojis:
+    button: Add emoji
+    categories:
+      activities: Activities
+      animals-nature: Animals & Nature
+      custom: Custom
+      flags: Flags
+      food-drink: Food & Drink
+      objects: Objects
+      people-body: People & Body
+      recents: Recently Used
+      smileys-emotion: Smileys & Emotion
+      symbols: Symbols
+      travel-places: Travel & Places
+    error:
+      load: Failed to load emojis
+    recents:
+      clear: Clear recent emojis
+      none: You haven't selected any emojis yet.
+    retry: Try again
+    search:
+      _: Search emojis...
+      clear: Clear search
+      error: Failed to search emojis
+      not_found: No results found
   errors:
     messages:
+      allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
       already_confirmed: was already confirmed, please try signing in
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
       content_type_allowlist_error: the file type is not valid
@@ -1726,7 +1751,7 @@ en:
         other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
-      too_short: is too short (under 15 characters)
+      too_short: is too short (under %{count} characters)
   forms:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:

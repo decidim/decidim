@@ -102,6 +102,7 @@ plugins:
       - "**/*/locales/*.yml"
       - "**/*/*.svg"
       - "decidim-dev/lib/decidim/dev/assets/iso-8859-15.md"
+      - "decidim-dev/lib/decidim/dev/assets/import_participatory_space_private_users_iso8859-1.csv"
 
   stylelint:
     # FIXME: after the webpacker packages changes, this is broken with this error:

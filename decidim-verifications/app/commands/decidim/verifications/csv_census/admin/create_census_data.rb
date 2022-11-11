@@ -20,8 +20,11 @@ module Decidim
           def call
             return broadcast(:invalid) unless @form.file
 
+            data = @form.data
+            return broadcast(:invalid) unless data
+
             # rubocop:disable Rails/SkipsModelValidations
-            CsvDatum.insert_all(@organization, @form.data.values)
+            CsvDatum.insert_all(@organization, data.values)
             # rubocop:enable Rails/SkipsModelValidations
             RemoveDuplicatesJob.perform_later(@organization)
 

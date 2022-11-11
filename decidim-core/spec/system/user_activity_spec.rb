@@ -74,8 +74,8 @@ describe "User activity", type: :system do
         # rubocop:enable RSpec/AnyInstance
 
         page.visit decidim.profile_activity_path(nickname: user.nickname)
-        within ".user-activity" do
-          expect(page).to have_css(".card--activity", count: 3)
+        within "#activities-container" do
+          expect(page).to have_css("[data-activity]", count: 3)
 
           expect(page).to have_content(translated(resource.title))
           expect(page).to have_content(translated(comment.commentable.title))
@@ -92,8 +92,8 @@ describe "User activity", type: :system do
     end
 
     it "displays the activities at the home page" do
-      within ".user-activity" do
-        expect(page).to have_css(".card--activity", count: 2)
+      within "#activities-container" do
+        expect(page).to have_css("[data-activity]", count: 2)
 
         expect(page).to have_content(translated(resource.title))
         expect(page).to have_content(translated(comment.commentable.title))
@@ -103,11 +103,17 @@ describe "User activity", type: :system do
     end
 
     it "displays activities filter with the correct options" do
-      expect(page).to have_select(
-        "filter[resource_type]",
-        selected: "All types",
-        options: resource_types.push("All types")
-      )
+      within(".filter-container #dropdown-menu") do
+        resource_types.push("All types").each do |type|
+          expect(page).to have_css("label", text: type)
+        end
+      end
+    end
+
+    it "displays activities filter with the All types option checked by default" do
+      within(".filter-container #dropdown-menu") do
+        expect(page.find("input[value='all']", visible: false)).to be_checked
+      end
     end
 
     context "when accessing a non existing profile" do

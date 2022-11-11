@@ -3,6 +3,8 @@
 module Decidim
   # View helpers related to the layout.
   module LayoutHelper
+    include Decidim::ModalHelper
+
     # Public: Generates a set of meta tags that generate the different favicon
     # versions for an organization.
     #
@@ -29,6 +31,19 @@ module Decidim
       favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
     end
 
+    # Outputs an SVG-based icon.
+    #
+    # name    - The String with the icon name.
+    # options - The Hash options used to customize the icon (default {}):
+    #             :width  - The Number of width in pixels (optional).
+    #             :height - The Number of height in pixels (optional).
+    #             :title - The title for the SVG element (optional, similar to alt for img)
+    #             :aria_label - The String to set as aria label (optional).
+    #             :aria_hidden - The Truthy value to enable aria_hidden (optional).
+    #             :role - The String to set as the role (optional).
+    #             :class - The String to add as a CSS class (optional).
+    #
+    # Returns a String.
     def redesigned_icon(name, options = {})
       default_html_properties = {
         "width" => "1em",
@@ -47,19 +62,6 @@ module Decidim
       end
     end
 
-    # Outputs an SVG-based icon.
-    #
-    # name    - The String with the icon name.
-    # options - The Hash options used to customize the icon (default {}):
-    #             :width  - The Number of width in pixels (optional).
-    #             :height - The Number of height in pixels (optional).
-    #             :title - The title for the SVG element (optional, similar to alt for img)
-    #             :aria_label - The String to set as aria label (optional).
-    #             :aria_hidden - The Truthy value to enable aria_hidden (optional).
-    #             :role - The String to set as the role (optional).
-    #             :class - The String to add as a CSS class (optional).
-    #
-    # Returns a String.
     def legacy_icon(name, options = {})
       options = options.with_indifferent_access
       html_properties = {}
@@ -99,6 +101,7 @@ module Decidim
       redesign_enabled? ? redesigned_icon(*args) : legacy_icon(*args)
     end
 
+    # REDESIGN_PENDING: remove this helper
     def arrow_link(text, url, args = {})
       content_tag :a, href: url, class: "arrow-link #{args.with_indifferent_access[:class]}" do
         inner = text
@@ -118,8 +121,11 @@ module Decidim
       classes = _icon_classes(options) + ["external-icon"]
 
       if path.split(".").last == "svg"
+        icon_path = application_path(path)
+        return unless icon_path
+
         attributes = { class: classes.join(" ") }.merge(options)
-        asset = File.read(application_path(path))
+        asset = File.read(icon_path)
         asset.gsub("<svg ", "<svg#{tag_builder.tag_options(attributes)} ").html_safe
       else
         image_pack_tag(path, class: classes.join(" "), style: "display: none")
@@ -127,9 +133,14 @@ module Decidim
     end
 
     def application_path(path)
-      img_path = asset_pack_path(path)
-      img_path = URI(img_path).path if Decidim.cors_enabled
-      Rails.root.join("public/#{img_path}")
+      # Force the path to be returned without the protocol and host even when a
+      # custom asset host has been defined. The host parameter needs to be a
+      # non-nil because otherwise it will be set to the asset host at
+      # ActionView::Helpers::AssetUrlHelper#compute_asset_host.
+      img_path = asset_pack_path(path, host: "", protocol: :relative)
+      Rails.public_path.join(img_path.sub(%r{^/}, ""))
+    rescue ::Webpacker::Manifest::MissingEntryError
+      nil
     end
 
     # Allows to create role attribute according to accessibility rules
@@ -161,12 +172,12 @@ module Decidim
 
     # Renders a view with the customizable CSS variables in two flavours:
     # 1. as a hexadecimal valid CSS color (ie: #ff0000)
-    # 2. as a disassembled RGB components (ie: 255,0,0)
+    # 2. as a disassembled RGB components (ie: 255 0 0)
     #
     # Example:
     #
     # --primary: #ff0000;
-    # --primary-rgb: 255,0,0
+    # --primary-rgb: 255 0 0
     #
     # Hexadecimal variables can be used as a normal CSS color:
     #
@@ -177,7 +188,7 @@ module Decidim
     #
     # background-color: rgba(var(--primary-rgb), 0.5)
     def organization_colors
-      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex},#{v[3..4].hex},#{v[5..6].hex};" }.join
+      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex} #{v[3..4].hex} #{v[5..6].hex};" }.join
       render partial: "layouts/decidim/organization_colors", locals: { css: }
     end
 

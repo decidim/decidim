@@ -55,7 +55,7 @@ describe "Edit proposals", type: :system do
         dynamically_attach_file(:proposal_photos, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
-        expect(page).to have_content("file should be one of (?-mix:image\\/.*?), (?-mix:application\\/pdf), (?-mix:application\\/rtf), (?-mix:text\\/plain)")
+        expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, pdf, png, rtf, txt")
       end
 
       context "with a file and photo" do
@@ -104,7 +104,7 @@ describe "Edit proposals", type: :system do
               click_button "Save"
             end
             click_button "Send"
-            expect(page).to have_selector("div.flash.callout.success")
+            expect(page).to have_selector("[data-alert-box].success")
             expect(Decidim::Attachment.count).to eq(2)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "image/jpeg").title)).to eq(attachment_image_title)
             expect(translated(Decidim::Attachment.find_by(attached_to_id: proposal.id, content_type: "application/pdf").title)).to eq(attachment_file_title)
@@ -130,7 +130,7 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           click_button "Send"
-          expect(page).to have_selector("div.flash.callout.success")
+          expect(page).to have_selector("[data-alert-box].success")
           expect(page).to have_selector(".thumbnail[alt='city']")
           expect(page).to have_selector(".thumbnail[alt='icon']")
           expect(page).to have_selector(".thumbnail[alt='avatar']")

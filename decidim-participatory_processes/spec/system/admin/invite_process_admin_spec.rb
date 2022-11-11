@@ -32,13 +32,15 @@ describe "Invite process administrator", type: :system do
 
       visit decidim_admin.admin_terms_show_path
 
-      find_button("I agree with the following terms").click
+      find_button("I agree with the terms").click
 
       click_link "Processes"
 
       within "#processes" do
         expect(page).to have_i18n_content(participatory_process.title)
-        click_link translated(participatory_process.title)
+        within find("tr", text: translated(participatory_process.title)) do
+          click_link "Configure"
+        end
       end
 
       within ".secondary-nav" do
@@ -68,7 +70,9 @@ describe "Invite process administrator", type: :system do
 
       within "#processes" do
         expect(page).to have_i18n_content(participatory_process.title)
-        click_link translated(participatory_process.title)
+        within find("tr", text: translated(participatory_process.title)) do
+          click_link "Configure"
+        end
       end
 
       within ".secondary-nav" do

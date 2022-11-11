@@ -12,6 +12,7 @@ module Decidim
       def cache_hash
         hash = []
         hash.push(I18n.locale)
+        hash.push(current_organization.cache_key)
         hash.join(Decidim.cache_key_separator)
       end
 

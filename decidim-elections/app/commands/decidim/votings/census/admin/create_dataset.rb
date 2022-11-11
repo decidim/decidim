@@ -36,7 +36,7 @@ module Decidim
               end
 
               if dataset
-                CSV.foreach(file_path, col_sep: ";", headers: true, converters: ->(f) { f&.strip }) do |row|
+                CSV.foreach(file_path, col_sep: Decidim.default_csv_col_sep, headers: true, converters: ->(f) { f&.strip }) do |row|
                   CreateDatumJob.perform_later(current_user, dataset, row.fields)
                 end
               end

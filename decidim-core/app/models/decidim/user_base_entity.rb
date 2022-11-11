@@ -30,6 +30,7 @@ module Decidim
 
     scope :blocked, -> { where(blocked: true) }
     scope :not_blocked, -> { where(blocked: false) }
+    scope :available, -> { where(deleted_at: nil, blocked: false, managed: false) }
 
     # Public: Returns a collection with all the public entities this user is following.
     #
@@ -46,6 +47,10 @@ module Decidim
                                               .flat_map do |type, ids|
         only_public(type.constantize, ids)
       end
+    end
+
+    def public_users_followings
+      @public_users_followings ||= self.class.joins(:follows).where(decidim_follows: { user: self }).not_blocked
     end
 
     private

@@ -8,6 +8,7 @@ module Decidim
     include Decidim::ContextualHelpHelper
     include Decidim::AmendmentsHelper
     include Decidim::CacheHelper
+    include Decidim::RedesignHelper
 
     # Truncates a given text respecting its HTML tags.
     #
@@ -57,7 +58,7 @@ module Decidim
     # link_options[:class]  - An optional String to add as a css class to the link wrapper.
     #
     # Returns nothing.
-    def edit_link(link_url, action, subject, extra_context = {}, link_options = { class: "topbar__edit__link" })
+    def edit_link(link_url, action, subject, extra_context = {}, link_options = {})
       return unless current_user
       return unless admin_allowed_to?(action, subject, extra_context)
       return if content_for?(:edit_link)
@@ -100,9 +101,7 @@ module Decidim
     def cell(name, model, options = {}, &)
       options = { context: { current_user: } }.deep_merge(options)
 
-      redesigned_name = redesigned_layout(name)
-      name = redesigned_name if Object.const_defined?("#{redesigned_name}_cell".camelize)
-      super(name, model, options, &)
+      super(redesigned_cell_name(name), model, options, &)
     end
 
     # Public: Builds the URL for the step Call To Action. Takes URL params

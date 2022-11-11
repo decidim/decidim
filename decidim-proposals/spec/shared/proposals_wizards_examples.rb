@@ -113,7 +113,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "shows no similar proposal found callout" do
-          within ".flash.callout.success" do
+          within "[data-alert-box].success" do
             expect(page).to have_content("Well done! No similar proposals found")
           end
         end

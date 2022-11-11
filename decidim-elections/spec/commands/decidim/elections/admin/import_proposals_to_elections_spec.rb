@@ -81,6 +81,22 @@ module Decidim
                 expect(first_answer.title).to eq(proposal.title)
                 expect(last_answer.title).to eq(proposal.title)
               end
+
+              context "and the current component was not published" do
+                before { component.unpublish! }
+
+                it "doesn't import it again" do
+                  expect do
+                    command.call
+                  end.not_to(change { Decidim::Elections::Answer.where(question:).count })
+
+                  answers = Decidim::Elections::Answer.where(question:)
+                  first_answer = answers.first
+                  last_answer = answers.last
+                  expect(first_answer.title).to eq(proposal.title)
+                  expect(last_answer.title).to eq(proposal.title)
+                end
+              end
             end
 
             it "links the proposals" do

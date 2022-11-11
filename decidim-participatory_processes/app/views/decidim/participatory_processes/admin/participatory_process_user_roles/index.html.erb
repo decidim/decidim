@@ -46,14 +46,14 @@
                 <%= t("#{role.role}", scope: "decidim.admin.models.participatory_process_user_role.roles") %><br>
               </td>
               <td class="table-list__actions">
-                <% if allowed_to?(:invite, :process_user_role, user_role: role) && role.user.invited_to_sign_up? %>
-                  <%= icon_link_to "reload", resend_invitation_participatory_process_user_role_path(current_participatory_process, role), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
+                <% if allowed_to? :update, :process_user_role, user_role: role %>
+                  <%= icon_link_to "pencil", edit_participatory_process_user_role_path(current_participatory_process, role), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
                 <% else %>
                   <span class="action-space icon"></span>
                 <% end %>
 
-                <% if allowed_to? :update, :process_user_role, user_role: role %>
-                  <%= icon_link_to "pencil", edit_participatory_process_user_role_path(current_participatory_process, role), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <% if allowed_to?(:invite, :process_user_role, user_role: role) && role.user.invited_to_sign_up? %>
+                  <%= icon_link_to "reload", resend_invitation_participatory_process_user_role_path(current_participatory_process, role), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
                 <% else %>
                   <span class="action-space icon"></span>
                 <% end %>
