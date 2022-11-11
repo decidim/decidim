@@ -15,8 +15,7 @@
               :favicon,
               dimensions_info: current_organization.attached_uploader(:favicon).dimensions_info,
               extension_allowlist: current_organization.attached_uploader(:favicon).extension_allowlist,
-              help_i18n_scope: "decidim.forms.file_help.icon",
-              redesigned: redesign_enabled?
+              help_i18n_scope: "decidim.forms.file_help.icon"
             ) %>
       </div>
 
@@ -24,8 +23,7 @@
         <%= form.upload(
               :logo,
               dimensions_info: current_organization.attached_uploader(:logo).dimensions_info,
-              extension_allowlist: current_organization.attached_uploader(:logo).extension_allowlist,
-              redesigned: redesign_enabled?
+              extension_allowlist: current_organization.attached_uploader(:logo).extension_allowlist
             ) %>
       </div>
 
@@ -33,8 +31,7 @@
         <%= form.upload(
               :official_img_header,
               dimensions_info: current_organization.attached_uploader(:official_img_header).dimensions_info,
-              extension_allowlist: current_organization.attached_uploader(:official_img_header).extension_allowlist,
-              redesigned: redesign_enabled?
+              extension_allowlist: current_organization.attached_uploader(:official_img_header).extension_allowlist
             ) %>
       </div>
 
@@ -42,8 +39,7 @@
         <%= form.upload(
               :official_img_footer,
               dimensions_info: current_organization.attached_uploader(:official_img_footer).dimensions_info,
-              extension_allowlist: current_organization.attached_uploader(:official_img_footer).extension_allowlist,
-              redesigned: redesign_enabled?
+              extension_allowlist: current_organization.attached_uploader(:official_img_footer).extension_allowlist
             ) %>
       </div>
     </div>

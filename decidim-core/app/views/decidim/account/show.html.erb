@@ -5,7 +5,7 @@
 <div class="row">
   <%= decidim_form_for(@account, url: account_path, method: :put, html: { autocomplete: "on" }) do |f| %>
     <div class="columns large-4">
-      <%= f.upload :avatar, redesigned: redesign_enabled? %>
+      <%= f.upload :avatar %>
     </div>
 
     <div class="columns large-8 end">
