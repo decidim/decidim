@@ -5,37 +5,8 @@
 <% else %>
   <div id="meetings" class="meeting-list__container">
     <% meetings.each do |meeting| %>
-      <%# REDESIGN_PENDING: This should be the meetings_m card %>
-      <a href="<%= resource_locator(meeting).path %>" class="meeting-list">
-        <div>
-          <div class="meeting__calendar">
-            <div class="meeting__calendar-month"><%= l(meeting.start_time, format: "%b") %></div>
-            <div class="meeting__calendar-day"><%= l(meeting.start_time, format: "%d") %></div>
-            <div class="meeting__calendar-time"><%= l(meeting.start_time, format: "%H:%m") %></div>
-          </div>
-        </div>
-        <div class="item-list__content">
-          <h2 class="h4 text-secondary"><%= translated_attribute meeting.title %></h2>
-          <div class="item-list__metadata">
-            <%
-              # REDESIGN_PENDING: Complete all possible details
-
-              details = []
-
-              details << ["community-line", t("decidim.meetings.meetings.filters.type_values.in_person")] if meeting.type_of_meeting == "in_person"
-              details << ["webcam-line", t("decidim.meetings.meetings.filters.type_values.online")] if meeting.type_of_meeting == "online"
-              details << ["time-line", "2h"]
-              details << ["information-line", t("decidim.meetings.models.meeting.fields.official_meeting")]
-
-            %>
-            <% details.each do |item| %>
-              <span><%= icon item[0] %><%= item[1] %></span>
-            <% end %>
-          </div>
-        </div>
-      </a>
+      <%= cell "decidim/meetings/meeting_l", meeting, link_whole_card: true, title_tag: :h2 %>
     <% end %>
   </div>
-
   <%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
 <% end %>
