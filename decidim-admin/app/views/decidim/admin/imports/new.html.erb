@@ -34,7 +34,7 @@
             <legend>
               <%= t(".file_legend", valid_mime_types: mime_types.values.join(", ")).html_safe %>
               <div class="guidance">
-                <%= import_manifest.message(:help, self) %>
+                <%= import_manifest.message(:help, self).html_safe %>
               </div>
             </legend>
             <div class="row column">

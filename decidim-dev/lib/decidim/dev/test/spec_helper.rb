@@ -24,6 +24,9 @@ RSpec.configure do |config|
   config.order = :random
   config.raise_errors_for_deprecations!
   config.example_status_persistence_file_path = ".rspec-failures"
+  config.filter_run_when_matching :focus
+  config.profile_examples = 10
+  config.default_formatter = "doc" if config.files_to_run.one?
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false

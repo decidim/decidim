@@ -20,12 +20,12 @@ edit_link(
   <div class="columns mediumlarge-12">
     <section class="section">
       <h3 class="section-heading"><%= t("conferences.show.introduction", scope: "decidim") %></h3>
-      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
+      <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.short_description) %>
     </section>
     <hr class="reset mt-none mb-m">
     <section class="section">
       <h3 class="section-heading"><%= t("conferences.show.details", scope: "decidim") %></h3>
-      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
+      <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description) %>
       <div class="row mt-l mb-l">
         <div class="column medium-9 medium-centered">
           <% if current_participatory_space.registrations_enabled? %>

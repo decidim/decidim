@@ -38,6 +38,7 @@ window.Decidim.EmojiButton = EmojiButton;
 // mentions stops working
 // document.addEventListener("DOMContentLoaded", () => {
 $(() => {
+
   window.theDataPicker = new DataPicker($(".data-picker"));
   window.focusGuard = new FocusGuard(document.querySelector("body"));
 
@@ -109,6 +110,14 @@ $(() => {
         closingSelector: `[data-dialog-close="${dialog}"]`,
         labelledby: `dialog-title-${dialog}`,
         describedby: `dialog-desc-${dialog}`
+      })
+  );
+
+  document.querySelectorAll("[data-drawer]").forEach(
+    ({ dataset: { drawer } }) =>
+      new Dialogs(`[data-drawer="${drawer}"]`, {
+        openingSelector: `[data-drawer-open="${drawer}"]`,
+        closingSelector: `[data-drawer-close="${drawer}"]`
       })
   );
 
