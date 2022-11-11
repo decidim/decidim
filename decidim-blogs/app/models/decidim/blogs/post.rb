@@ -5,6 +5,7 @@ module Decidim
     # The data store for a Blog in the Decidim::Blogs component. It stores a
     # title, description and any other useful information to render a blog.
     class Post < Blogs::ApplicationRecord
+      include Decidim::Reportable
       include Decidim::Resourceable
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
@@ -83,6 +84,21 @@ module Decidim
 
       def attachment_context
         :admin
+      end
+
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(self).url
+      end
+
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:title, :body]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        []
       end
     end
   end
