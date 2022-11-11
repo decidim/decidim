@@ -163,7 +163,7 @@ module.exports = { // eslint-disable-line
       "customSyntax": "postcss-scss"
     },
     {
-      "files": ["**/_redesigned*.scss"],
+      "files": ["**/*redesigned*.scss"],
       "rules": {
         "number-leading-zero": "always"
       }
