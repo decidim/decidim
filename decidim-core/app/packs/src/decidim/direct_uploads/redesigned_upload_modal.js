@@ -51,6 +51,14 @@ export default class UploadModal {
     this.updateDropZone();
   }
 
+  uploadFiles(files) {
+    if (this.options.multiple) {
+      Array.from(files).forEach((file) => this.uploadFile(file))
+    } else if (!this.uploadItems.children.length) {
+      this.uploadFile(files[0])
+    }
+  }
+
   uploadFile(file) {
     const uploader = new Uploader(this, {
       file: file,
@@ -142,8 +150,10 @@ export default class UploadModal {
     const continueUpload = !files.length || this.options.multiple
     this.input.disabled = !continueUpload
     if (continueUpload) {
+      this.emptyItems.classList.remove("is-disabled");
       this.emptyItems.querySelector("label").removeAttribute("disabled");
     } else {
+      this.emptyItems.classList.add("is-disabled");
       this.emptyItems.querySelector("label").setAttribute("disabled", true);
     }
   }

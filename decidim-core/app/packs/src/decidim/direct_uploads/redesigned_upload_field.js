@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     [...files.children].forEach((child) => modal.preloadFiles(child));
 
     // whenever the input fields changes, process the files
-    modal.input.addEventListener("change", (event) => Array.from(event.target.files).forEach((file) => modal.uploadFile(file)));
+    modal.input.addEventListener("change", (event) => modal.uploadFiles(event.target.files));
 
     // update the modal title if there are files uploaded
     modal.button.addEventListener("click", (event) => event.preventDefault() || updateModalTitle(modal));
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.dropZone.addEventListener("dragover", (event) => event.preventDefault() || highlightDropzone(modal));
     modal.dropZone.addEventListener("dragleave", () => resetDropzone(modal));
     // avoid browser to open the file and then, process the files
-    modal.dropZone.addEventListener("drop", (event) => event.preventDefault() || resetDropzone(modal) || Array.from(event.dataTransfer.files).forEach((file) => modal.uploadFile(file)));
+    modal.dropZone.addEventListener("drop", (event) => event.preventDefault() || resetDropzone(modal) || modal.uploadFiles(event.dataTransfer.files));
 
     // update the DOM with the validated items from the modal
     modal.saveButton.addEventListener("click", (event) => event.preventDefault() || updateActiveUploads(modal));
