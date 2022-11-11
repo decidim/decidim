@@ -7,11 +7,11 @@
 
       &.is-selected,
       &:hover{
-        @apply border-primary/10;
+        @apply border-primary/10 [&_svg]:visible;
       }
 
       svg{
-        @apply w-6 h-6 text-success fill-current;
+        @apply w-6 h-6 text-success fill-current invisible;
       }
     }
   }

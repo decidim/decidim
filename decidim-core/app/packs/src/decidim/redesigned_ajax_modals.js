@@ -24,10 +24,14 @@ export default class RemoteModal {
   }
 
   handleSuccess(response) {
-    document.getElementById(`${this.modalTarget}-content`).innerHTML = response
+    const node = document.getElementById(`${this.modalTarget}-content`)
+    node.innerHTML = response
+    document.dispatchEvent(new CustomEvent("remote-modal:loaded", { detail: node }));
   }
 
   handleError(err) {
-    document.getElementById(`${this.modalTarget}-content`).innerHTML = `<h3>${err.status}</h3><p>${err.statusText}</p>`
+    const node = document.getElementById(`${this.modalTarget}-content`)
+    node.innerHTML = `<h3>${err.status}</h3><p>${err.statusText}</p>`
+    document.dispatchEvent(new CustomEvent("remote-modal:failed", { detail: node }));
   }
 }
