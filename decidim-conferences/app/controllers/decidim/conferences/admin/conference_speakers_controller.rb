@@ -64,7 +64,6 @@ module Decidim
         end
 
         def destroy
-
           enforce_permission_to :destroy, :conference_speaker, speaker: conference_speaker
 
           DestroyConferenceSpeaker.call(conference_speaker, current_user) do
