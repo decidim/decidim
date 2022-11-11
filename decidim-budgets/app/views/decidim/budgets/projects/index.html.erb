@@ -7,7 +7,10 @@
 <% end %>
 
 <% content_for :aside do %>
-<h1 class="h1 decorator"><%= t("decidim.components.budgets.name") %></h1>
+  <h1 class="h1 decorator"><%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %></h1>
+
+  <%= render partial: "filters_small_view" %>
+  <%= render partial: "filters" %>
 
 <% end %>
 

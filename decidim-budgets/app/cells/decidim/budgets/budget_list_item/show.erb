@@ -25,14 +25,16 @@
     </div>
   <% end %>
 
-  <div class="item-list__metadata">
-    <div class="heading5">
+  <div class="budget__card__highlight-vote">
+    <div class="h3 text-gray-2">
+    <span><%= t("decidim.budgets.admin.models.budget.name") %></span>
       <strong>
         <%= budget_to_currency(total_budget) %>
       </strong>
     </div>
-    <%= link_to budget_path(budget), class: "button button--sc expanded #{button_class} mb-none" do %>
+    <%= link_to budget_path(budget), class: "button button__sm button__secondary text-left mt-2 #{button_class}" do %>
       <span><%= button_text %></span>
+      <%= icon "arrow-right-line" %>
       <%= render :vote_action %>
     <% end %>
   </div>

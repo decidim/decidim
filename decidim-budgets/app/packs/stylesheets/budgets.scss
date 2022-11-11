@@ -18,6 +18,7 @@
       }
       &--meter{
         background-color: var(--success);
+        @apply h-[20px] rounded;
        }
     }
 
@@ -44,6 +45,10 @@
 
   &__item-list__project{
     @apply ml-auto rounded px-3 md:px-6 py-4 bg-background font-bold text-gray-2 text-xl w-[50%] min-w-[120px] grid grid-cols-2 place-items-center;
+  }
+
+  &__card__highlight-vote{
+    @apply justify-center flex flex-col w-1/4 bg-background p-8 bg-background font-bold text-gray-2 ml-auto;
   }
 }
 
