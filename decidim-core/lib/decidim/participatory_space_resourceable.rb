@@ -47,7 +47,13 @@ module Decidim
              .joins(:participatory_space_resource_links_to)
              .where(decidim_participatory_space_links: { name: link_name, from_id: id, from_type: self.class.name })
 
-        klass.where(id: from).or(klass.where(id: to)).order(:weight)
+        linked_participatory_space_query = klass.where(id: from).or(klass.where(id: to))
+
+        # this is a special case of Conferences that do not have a weight column.
+        # Adding the column is not in the scope of #9784.
+        # please refer to #10064 for additional details.
+        has_weight = klass.column_names.collect(&:to_sym).include?(:weight)
+        has_weight ? linked_participatory_space_query.order(:weight) : linked_participatory_space_query
       end
 
       def participatory_space_sibling_scope(participatory_space_name)
