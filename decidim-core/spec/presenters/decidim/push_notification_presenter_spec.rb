@@ -34,5 +34,24 @@ module Decidim
         end
       end
     end
+
+    context "when it's a blog post" do
+      let(:event_class) { Decidim::Blogs::CreatePostEvent }
+      let(:event_name) { "decidim.events.blogs.post_created" }
+      let(:resource) { create(:post) }
+      let(:notification) { create(:notification, event_class:, event_name:, resource:) }
+
+      describe "#body" do
+        it "returns text without links and with HTML entities unescaped" do
+          expect(subject.body).to eq("The post #{translated(resource.title)} has been published in #{translated(resource.component.participatory_space.title)}")
+        end
+      end
+
+      describe "#url" do
+        it "returns the url to the post" do
+          expect(subject.url).to eq(resource_locator(resource).url)
+        end
+      end
+    end
   end
 end
