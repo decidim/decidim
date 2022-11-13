@@ -60,7 +60,6 @@ module Decidim
             transparent: form.transparent,
             author: form.current_organization,
             questionnaire: form.questionnaire,
-            registrations_enabled: form.registrations_enabled,
             online_meeting_url: form.online_meeting_url,
             type_of_meeting: form.type_of_meeting,
             iframe_embed_type: form.iframe_embed_type,
@@ -76,6 +75,7 @@ module Decidim
 
         def fields_from_meeting
           {
+            registrations_enabled: meeting.registrations_enabled,
             available_slots: meeting.available_slots,
             registration_terms: meeting.registration_terms,
             reserved_slots: meeting.reserved_slots,
