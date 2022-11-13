@@ -43,7 +43,16 @@ module Decidim::Meetings
         private_meeting: meeting.private_meeting,
         transparent: meeting.transparent,
         current_organization: current_user.organization,
-        current_component: meeting.component
+        current_component: meeting.component,
+        online_meeting_url: meeting.online_meeting_url,
+        iframe_embed_type: meeting.iframe_embed_type,
+        iframe_access_level: meeting.iframe_access_level,
+        comments_enabled: meeting.comments_enabled,
+        comments_start_time: meeting.comments_start_time,
+        comments_end_time: meeting.comments_end_time,
+        registration_type: :on_this_platform,
+        registration_url: meeting.registration_url,
+        type_of_meeting: meeting.type_of_meeting
       )
     end
 
