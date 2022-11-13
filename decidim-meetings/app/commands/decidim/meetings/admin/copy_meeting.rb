@@ -44,8 +44,8 @@ module Decidim
           @copied_meeting = Decidim.traceability.create!(
             Meeting,
             form.current_user,
-            scope: meeting.scope,
-            category: meeting.category,
+            scope: form.scope,
+            category: form.category,
             title: parsed_title,
             description: parsed_description,
             end_time: form.end_time,
@@ -60,24 +60,29 @@ module Decidim
             transparent: form.transparent,
             author: form.current_organization,
             questionnaire: form.questionnaire,
-            registrations_enabled: meeting.registrations_enabled,
+            registrations_enabled: form.registrations_enabled,
+            online_meeting_url: form.online_meeting_url,
+            type_of_meeting: form.type_of_meeting,
+            iframe_embed_type: form.iframe_embed_type,
+            iframe_access_level: form.iframe_access_level,
+            comments_enabled: form.comments_enabled,
+            comments_start_time: form.comments_start_time,
+            comments_end_time: form.comments_end_time,
+            registration_type: form.registration_type,
+            registration_url: form.registration_url,
+            **fields_from_meeting
+          )
+        end
+
+        def fields_from_meeting
+          {
             available_slots: meeting.available_slots,
             registration_terms: meeting.registration_terms,
-            online_meeting_url: meeting.online_meeting_url,
-            type_of_meeting: meeting.type_of_meeting,
-            iframe_embed_type: meeting.iframe_embed_type,
-            iframe_access_level: meeting.iframe_access_level,
-            comments_enabled: meeting.comments_enabled,
-            comments_start_time: meeting.comments_start_time,
-            comments_end_time: meeting.comments_end_time,
-            registration_type: meeting.registration_type,
-            registration_url: meeting.registration_url,
-            attending_organizations: meeting.attending_organizations,
             reserved_slots: meeting.reserved_slots,
             customize_registration_email: meeting.customize_registration_email,
             registration_form_enabled: meeting.registration_form_enabled,
             registration_email_custom_content: meeting.registration_email_custom_content
-          )
+          }
         end
 
         def copy_services!

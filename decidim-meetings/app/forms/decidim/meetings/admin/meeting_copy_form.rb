@@ -7,13 +7,9 @@ module Decidim
       # dashboard.
       #
       class MeetingCopyForm < ::Decidim::Meetings::Admin::MeetingForm
-        attribute :show_embedded_iframe, Boolean, default: false
+        # attribute :show_embedded_iframe, Boolean, default: false
 
         mimic :meeting
-
-        def questionnaire
-          Decidim::Forms::Questionnaire.new
-        end
       end
     end
   end
