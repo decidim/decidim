@@ -2,12 +2,9 @@
 
 class MigrateTemplateable < ActiveRecord::Migration[6.0]
   def self.up
-    Decidim::Templates::Template.find_each do |template|
-      next if template.templatable_type.blank?
-
-      template.update(target: template.templatable_type.demodulize.tableize.singularize)
-    end
+    # rubocop:disable Rails/SkipsModelValidations
+    Decidim::Templates::Template.where(templatable_type: "Decidim::Forms::Questionnaire").update_all(target: "questionnaire")
+    Decidim::Templates::Template.where(templatable_type: "Decidim::Organization").update_all(target: "user_block")
+    # rubocop:enable Rails/SkipsModelValidations
   end
-
-  def self.down; end
 end
