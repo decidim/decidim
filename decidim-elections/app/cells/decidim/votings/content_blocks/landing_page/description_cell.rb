@@ -16,7 +16,7 @@ module Decidim
           end
 
           def description_text
-            decidim_sanitize_editor(translated_attribute(current_participatory_space.description))
+            decidim_sanitize_editor_admin(translated_attribute(current_participatory_space.description))
           end
         end
       end

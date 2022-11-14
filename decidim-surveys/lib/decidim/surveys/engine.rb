@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/core"
+require "decidim/templates"
 
 module Decidim
   module Surveys
