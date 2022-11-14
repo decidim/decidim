@@ -110,7 +110,7 @@ module Decidim
           end
         end
 
-        # SUpport for copy meeting
+        # Support for copy meeting
         def questionnaire
           Decidim::Forms::Questionnaire.new
         end
