@@ -39,12 +39,8 @@ edit_link(
     <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
   <% end %>
 
-  <%# REDESIGN_PENDING: deprecated %>
-  <%#= cell("decidim/date_range", { start: meeting.start_time, end: meeting.end_time }) %>
-
   <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
 
-  <%# REDESIGN_PENDING: perhaps all these "blocks" could be refactored, avoiding so much logic in the view %>
   <% if meeting.closed? && meeting.closing_visible? %>
     <% if meeting.has_contributions? %>
       <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "add-box-line" } do %>
@@ -92,10 +88,6 @@ edit_link(
       <% end %>
     <% end %>
   <% end %>
-
-  <%# REDESIGN_PENDING: deprecated? %>
-  <%#= render partial: "calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting) } %>
-
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/drawer" do %>
@@ -162,7 +154,6 @@ edit_link(
 
   <%# REDESIGN_PENDING: deprecated, now it's always in the layout %>
   <%#= cell("decidim/flag_modal", meeting) %>
-
 </div>
 
 <% end %>
