@@ -10,6 +10,7 @@ es-MX:
         end_time: Fecha de fin
         information_updates: Actualizaciones de información
         instructions: Instrucciones para participar
+        scope_id: Ámbito
         start_time: Fecha de inicio
         title: Título
         user_group_id: Crear debate como
