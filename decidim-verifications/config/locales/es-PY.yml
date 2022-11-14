@@ -23,6 +23,12 @@ es-PY:
       postal_letter_postage:
         full_address: Dirección completa
         verification_code: Código de verificación
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
   decidim:
     admin:
       menu:
@@ -141,6 +147,9 @@ es-PY:
             body: Para ello, debe ingresar a la administración del sistema y agregar las autorizaciones csv_census a la organización
             title: Necesitas activar el CSV para esta organización
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: "archivo .csv con datos de correos electrónicos"
             info: 'Debe ser un archivo en formato CSV con sólo una columna con la dirección de correo electrónico:'
             submit: Subir archivo
