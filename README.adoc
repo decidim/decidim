@@ -1,3 +1,26 @@
+:uri-blog: https://decidim.org/blog
+:uri-chat: http://chat.decidim.org
+:uri-contributing: xref:CONTRIBUTING.adoc
+:uri-demo: https://try.decidim.org
+:uri-docs-authorizations: https://docs.decidim.org/en/customize/authorizations/
+:uri-docs-example-applications: https://docs.decidim.org/en/develop/guide_example_apps/
+:uri-docs-getting-started: https://docs.decidim.org/en/install/
+:uri-docs: https://docs.decidim.org/
+:uri-github-dependents: https://github.com/decidim/decidim/network/dependents?type=application
+:uri-metadecidim: https://meta.decidim.org
+:uri-modules: https://decidim.org/modules
+:uri-opencollective-members: https://opencollective.com/decidim/contribute/member-39953
+:uri-opencollective-partners: https://opencollective.com/decidim/contribute/partner-33556
+:uri-opencollective: https://opencollective.com/decidim
+:uri-producing-oss-license: http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs
+:uri-propose-new-features: https://meta.decidim.org/processes/roadmap
+:uri-releases: https://github.com/decidim/decidim/releases
+:uri-roadmap: https://github.com/decidim/decidim/projects/16
+:uri-security: xref:SECURITY.adoc
+:uri-social-contract: http://www.decidim.org/contract/
+:uri-website: https://decidim.org
+:uri-yard-docs: http://rubydoc.info/github/decidim/decidim/master
+
 ++++
 <p align="center">
   <img width="400" src="https://cdn.rawgit.com/decidim/decidim/develop/logo.svg">
