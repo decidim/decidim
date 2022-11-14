@@ -309,8 +309,6 @@ sk:
           index:
             meetings: Stretnutie
             space_type: Zúčastňujú priestor
-      last_activity:
-        new_meeting_at_html: "<span> Nové stretnutie v %{link} </ span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

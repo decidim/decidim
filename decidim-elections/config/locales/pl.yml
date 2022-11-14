@@ -997,8 +997,6 @@ pl:
           census:
             create:
               invalid: Wystąpił błąd przy przesyłaniu listy wyborców. Spróbuj ponownie później.
-            creating_data:
-              info_message: "<strong>Poczekaj</strong>, przetworzono %{processed_count} z %{raw_count} wierszy z pliku %{file}."
             delete:
               button: Usuń wszystkie dane listy wyborców
             destroy:
@@ -1010,8 +1008,6 @@ pl:
               confirm: Możesz wyeksportować kody dostępu tylko raz. Upewnij się, że masz dostęp do konta e-mail <strong>%{email}</strong>.
               launch_error: Wystąpił problem z uruchomieniem eksportu kodów dostępu
               launch_success: Eksport kodów dostępu został uruchomiony. Wkrótce otrzymasz e-mail na adres %{email}
-            exporting_access_codes:
-              info_message: "<strong>Poczekaj</strong>, eksport jest przygotowywany, wkrótce otrzymasz go na adres %{email}"
             freeze:
               callout: Lista wyborców została zamknięta i nie może być już zmieniania.
             generate_access_codes:
@@ -1022,8 +1018,6 @@ pl:
               info_message_warn: Sprawdź, czy nie brakuje żadnych danych, ponieważ utworzono %{data_count} rekordów, a przesłany plik %{file} miał %{raw_count} wierszy.
               launch_error: Wystąpił błąd przy uruchomieniu tworzenia kodów dostępu
               launch_success: Uruchomiono tworzenie kodów.
-            generating_access_codes:
-              info_message: "<strong>Poczekaj</strong>, kody dostępu do głosowania są tworzone..."
             new:
               file_help:
                 explanation: 'Wytyczne dotyczące pliku:'

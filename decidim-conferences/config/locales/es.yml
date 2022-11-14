@@ -37,13 +37,13 @@ es:
         date: Fecha
         link: Enlace
         title: Título
-        weight: Peso
+        weight: Orden de posición
       conference_partner:
         link: Enlace
         logo: Logo
         name: Nombre
         partner_type: Tipo de colaboración
-        weight: Peso
+        weight: Orden de posición
       conference_registration_invite:
         email: Correo electrónico
         name: Nombre
@@ -53,7 +53,7 @@ es:
         description: Descripción
         price: Coste
         title: Título
-        weight: Peso
+        weight: Orden de posición
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
@@ -379,7 +379,8 @@ es:
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinar o aceptar a través de los siguientes enlaces."
+            invited_existing_user_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinar o aceptar a través de los siguientes enlaces."
+            invited_user_to_join_a_conference: "%{invited_by} te ha invitado a unirte a un encuentro en %{application}. Puedes aceptarla a través del siguiente enlace."
             registration: Inscripción para '%{conference_title}'
         partners:
           index:
@@ -430,9 +431,11 @@ es:
         create:
           invalid: Se ha producido un error al inscribirte a esta jornada.
           success: Te has inscrito a la jornada correctamente.
+          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la conferencia.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has declinado la invitación correctamente.
+          unauthorized: Necesitas iniciar tu sesión antes de rechazar la invitación.
         destroy:
           invalid: Se ha producido un error al abandonar esta jornada.
           success: Has abandonado la jornada correctamente.

@@ -23,6 +23,12 @@ cs:
       postal_letter_postage:
         full_address: Celá poštovní adresa
         verification_code: Ověřovací kód
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
   decidim:
     admin:
       menu:
@@ -78,10 +84,10 @@ cs:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: Účastník <a href="%{resource_path}">%{resource_title}</a> se pokusil ověřit se údaji spravovaného účastníka <a href="%{managed_user_path}">%{managed_user_name}</a>.
-          email_outro: Zkontrolujte seznam konfliktů <a href="%{conflicts_path}">ověření</a> a kontaktujte uživatele pro ověření jejich údajů a vyřešení problému.
-          email_subject: Neúspěšný pokus o ověření proti spravovanému uživateli
-          notification_title: Účastník <a href="%{resource_path}">%{resource_title}</a> se pokusil ověřit se údaji spravovaného účastníka <a href="%{managed_user_path}">%{managed_user_name}</a>.
+          email_intro: Účastník <a href="%{resource_url}">%{resource_title}</a> se pokusil ověřit se s údaji jiného účastníka (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Zkontrolujte seznam konfliktů <a href="%{conflicts_url}">ověření</a> a kontaktujte uživatele pro ověření jejich údajů a vyřešení problému.
+          email_subject: Neúspěšný pokus o ověření proti jinému uživateli
+          notification_title: Účastník <a href="%{resource_path}">%{resource_title}</a> se pokusil ověřit se s údaji jiného účastníka (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -90,6 +96,7 @@ cs:
         create:
           error: Při vytváření oprávnění došlo k chybě.
           success: Byl jste úspěšně autorizován.
+          transferred: 'Na základě Vašeho povolení jsme získali následující údaje o účasti:'
           unconfirmed: Potřebujete potvrdit svůj e-mail, abyste se autorizovali.
         destroy:
           error: Při odstraňování autorizace došlo k chybě.
@@ -114,7 +121,7 @@ cs:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
         renew_modal:
-          cancel: zrušení
+          cancel: Zrušit
           close: zavřít
           continue: Pokračovat
           info_renew: Pokud chcete aktualizovat data, pokračujte obnovením
@@ -140,6 +147,9 @@ cs:
             body: Chcete-li to provést, musíte vstoupit do správy systému a přidat oprávnění prostřednictvím souboru csv s e-maily členů organizace
             title: Musíte aktivovat CSV s kontakty členů organizace
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: ".csv soubor s daty e-mailů"
             info: 'Musí být soubor ve formátu CSV obsahující pouze jeden sloupec s e-mailovou adresou:'
             submit: Nahrát soubor
@@ -184,7 +194,7 @@ cs:
               error: Ověření neodpovídá vloženým údajům. Zkuste to znovu, nebo řekněte uživateli, ať si je změní
               success: Uživatel úspěšně ověřen
             new:
-              cancel: zrušení
+              cancel: Zrušit
               introduce_user_data: Zadejte e-mail uživatele a data dokumentu
               verify: Ověřte
           pending_authorizations:

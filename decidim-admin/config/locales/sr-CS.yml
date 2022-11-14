@@ -330,9 +330,6 @@ sr:
           impersonate_existing_managed_user: Upravljaj učesnikom "%{name}"
           impersonate_existing_user: Upravljaj učesnikom "%{name}"
           impersonate_new_managed_user: Upravljanje novim učesnikom
-      logs:
-        logs_list:
-          no_logs_yet: Nema zapisa u evidenciji
       managed_users:
         promotion:
           error: Pojavio se problem pri unapređivanju učesnika.

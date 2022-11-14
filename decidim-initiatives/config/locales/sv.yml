@@ -29,6 +29,7 @@ sv:
         minimum_committee_members: Minsta antal kommittémedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
         promoting_committee_enabled: Tillåt kampanjutskott
+        signature_type: Signaturtyp
         title: Titel
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
@@ -433,11 +434,6 @@ sv:
           unfold: Veckla ut
         index_header:
           new_initiative: Nytt initiativ
-          not_authorized:
-            authorizations_page: Visa behörigheter
-            close: Stäng
-            explanation: Du måste verifieras för att skapa ett nytt initiativ.
-            title: Auktorisering krävs
         initiatives:
           closed_initiatives_warning: För närvarande finns det inga öppna initiativ, men här hittar du alla stängda initiativ listade.
           no_initiatives_warning: Inga initiativ matchar dina sökkriterier.
@@ -506,8 +502,12 @@ sv:
         promotal_committee_help: Kom ihåg att du måste bjuda in minst %{member_count} personer till kampanjutskottet. Bjud in till kampanjutskottet genom att vidarebefordra följande länk
         status_change_body_for: 'Initiativet %{title} har ändrat status till: %{state}'
         status_change_for: Initiativet %{title} har ändrat status
-      last_activity:
-        new_initiative: Nytt initiativ
+      modal:
+        not_authorized:
+          authorizations_page: Visa behörigheter
+          close: Stäng
+          explanation: Du måste verifieras för att skapa ett nytt initiativ.
+          title: Auktorisering krävs
       pages:
         home:
           highlighted_initiatives:

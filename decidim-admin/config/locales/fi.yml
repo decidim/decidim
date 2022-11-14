@@ -133,6 +133,14 @@ fi:
               allowed_file_content_types: Virheellinen kuvatiedosto
             official_img_header:
               allowed_file_content_types: Virheellinen kuvatiedosto
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
       new_import:
         attributes:
           file:
@@ -184,7 +192,7 @@ fi:
           error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
-          accept: Hyväksyn seuraavat ehdot
+          accept: Hyväksyn ehdot
           are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
@@ -509,8 +517,13 @@ fi:
           import: Tuo
         notice: "%{count} %{resource_name} tuotu onnistuneesti"
       logs:
+        filters:
+          participatory_space: Etsi osallistumistila
+          text: Etsi käyttäjän sähköpostin, nimen tai nimimerkin perusteella.
+          user: Käyttäjä
         logs_list:
-          no_logs_yet: Ei vielä lokitietoja
+          no_logs_yet: Ei vielä lokitietoja.
+          no_matching_logs: Lokitietoja ei löytynyt annetuilla hakukriteereillä. Yritä muuttaa hakua ja kokeile uudestaan.
       managed_users:
         promotion:
           error: Hallitun käyttäjän oikeuksien korotus epäonnistui.
@@ -834,7 +847,7 @@ fi:
           title: Uusi osallistumistilan yksityinen käyttäjä.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSV-tiedostossa on ongelma.
+          invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
           destroy:
@@ -843,7 +856,11 @@ fi:
             empty: Tässä osallistumistilassa ei ole yksityisiä osallistujia.
             explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
             title: Poista kaikki yksityiset osallistujat
-          explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
+          example_file: 'Esimerkkitiedosto:'
+          explanation: 'Lataa CSV-tiedosto. Tiedostossa on oltava kaksi saraketta ilman otsikkoriviä. Ensimmäiseen sarakkeeseen asetetaan käyttäjän sähköpostiosoite ja toiseen sarakkeeseen käyttäjän nimi, alkaen ensimmäiseltä riviltä. Jokaisesta rivistä luodaan uusi osallistumistilan käyttäjä. Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation_example: |
+            matti.meikalainen@esimerkki.fi%{csv_col_sep}Matti Meikäläinen
+            minna.meikalainen@esimerkki.fi%{csv_col_sep}Minna Meikäläinen
           title: Lataa CSV-tiedosto
           upload: Lataa
       reminders:
@@ -992,7 +1009,11 @@ fi:
           verify_via_csv: Vahvista CSV-tiedoston avulla
       user_groups_csv_verifications:
         new:
+          example_file: 'Esimerkkitiedosto:'
           explanation: Lataa CSV-tiedosto. Siinä on oltava organisaatiosi käyttäjäryhmien viralliset sähköpostit tiedoston ensimmäisessä sarakkeessa ilman otsikkoriviä. Ainoastaan käyttäjäryhmät, jotka ovat vahvistaneet sähköpostiosoitteensa ja joiden sähköpostiosoitteesi näkyvät CSV-tiedostossa, vahvistetaan.
+          explanation_example: |
+            acme@esimerkki.fi
+            bubba.gump@esimerkki.fi
           title: Lataa CSV-tiedosto
           upload: Lähetä
       users:
@@ -1056,6 +1077,7 @@ fi:
         moderation:
           fields:
             created_at: Luonnin ajankohta
+            deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
             report_count: Määrä

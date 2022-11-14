@@ -92,8 +92,6 @@ id:
           back: Kembali
           create: Membuat
           title: Debat baru
-      last_activity:
-        new_debate_at_html: "<span>Debat baru di %{link}</span>"
       models:
         debate:
           fields:

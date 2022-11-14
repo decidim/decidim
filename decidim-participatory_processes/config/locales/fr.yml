@@ -25,7 +25,7 @@ fr:
         related_process_ids: Concertations liées
         scope_id: Périmètre d'application
         scope_type_max_depth_id: Profondeur du filtre de portée
-        scopes_enabled: Périmètres d'application activés
+        scopes_enabled: Secteurs activés
         short_description: Résumé
         show_metrics: Afficher les métriques
         show_statistics: Montrer les statistiques
@@ -67,7 +67,7 @@ fr:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
+              allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
@@ -95,6 +95,7 @@ fr:
           all_processes: Afficher tous les processus
           process_groups: Groupes de processus
         import_process: Importer
+        moderate: Modérer
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape

@@ -29,6 +29,7 @@ ja:
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
         remove_avatar: アバターを削除
+        tos_agreement: ユーザー利用規約
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -48,6 +49,9 @@ ja:
       decidim/welcome_notification_event: ウェルカムメッセージ
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: 時刻
+        with_participatory_space: 参加型スペース
       decidim/user:
         current_password: 現在のパスワード
         email: メールアドレス
@@ -114,6 +118,7 @@ ja:
           question: アカウントを削除してもよろしいですか？
           title: アカウントを削除する
         explanation: アカウントを削除する理由を入力してください (オプション)。
+        leaving_authorizations_behind: 認証に紐付けられたデータがセキュリティのために保存されます。 別のアカウントを作成して再度認証すると、このデータは新しいアカウントで復元されます。
       destroy:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
@@ -138,9 +143,14 @@ ja:
         error: アカウントの更新に問題が発生しました。
         success: アカウントが正常に更新されました。
         success_with_email_confirmation: アカウントが正常に更新されました。新しいメールアドレスを確認するためのメールが届きます。
+    activity:
+      time_ago: "%{time} 前"
     admin:
       actions:
         cancel: キャンセル
+      password_change:
+        alert: 先に進むにはパスワードを変更する必要があります
+        notification: 管理者ユーザーは、 %{days} 日ごとにパスワードを変更する必要があります。
     admin_log:
       area:
         create: "%{user_name} が %{resource_name} 領域を作成しました"
@@ -331,6 +341,7 @@ ja:
         other: コメント
       endorsements:
         other: オススメ
+      official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: '「A」で始まるパスポート番号を入力して確認する'
@@ -581,10 +592,22 @@ ja:
       identities:
         done: 完了
         select_identity: IDを選択
+    endorsers_list:
+      close: 閉じる
+      endorsed_by: オススメ
     errors:
       internal_server_error:
+        copied: テキストをコピーしました
+        copy_error_message_clarification: エラーメッセージをクリップボードにコピー
+        copy_to_clipboard: クリップボードにコピー
+        date_and_time: 日付と時刻
+        reference: 参照
+        request_method: リクエストメソッド
         title: サーバーに問題が発生しました
-        try_later: 後でもう一度お試しください。
+        try_later: 後ほどもう一度お試しください。 エラーが解決しない場合は、以下の情報をコピーし、共有したい情報と合わせてプラットフォームのメンテナに送信してください。
+        unknown: 不明
+        url: URL
+        user: ユーザー ID
       not_found:
         back_home: ホームに戻る
         content_doesnt_exist: このアドレスは正しくないか削除されています。
@@ -747,7 +770,7 @@ ja:
     filters:
       linked_classes:
         all: すべて
-        collaborative_draft: 共同ドラフト（下書き）
+        collaborative_draft: 共同草案
         dummy_resource: ダミーリソース
         meeting: ミーティング
         project: プロジェクト
@@ -766,6 +789,8 @@ ja:
         other: "%{count} 人のフォロワー"
       no_followers: フォロワーはまだいません。
     following:
+      following_count:
+        other: "{{count}} フォロワー"
       no_followings: フォローしている人やコンテンツはありません
       non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:
@@ -801,6 +826,8 @@ ja:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
         max_file_dimension: '最大ファイルサイズ: %{resolution} ピクセル'
         max_file_size: '最大ファイルサイズ: %{megabytes}MB'
+      files:
+        extension_allowlist: '対応しているフォーマット: %{extensions}'
       upload:
         labels:
           add_attachment: 添付ファイルを追加
@@ -839,21 +866,10 @@ ja:
           how: どうやって稼ぐことができますか？
           page_description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。 ここにバッジのリストといくつかの方法があります。
           title: バッジ
-        invitations:
-          conditions:
-            - 友達を招待するには、ユーザーページの「友達招待」リンクを使用してください
-            - 必要に応じて、送信するメッセージをカスタマイズします
-            - 招待状を送信して登録することでレベルアップします。
-          description: このバッジは、あなたが何人かの人を招待し、その人たちが少し時間をかけて%{organization_name} に登録し、参加者になったときに与えられます。%{organization_name} を他の人に知らしめ、コミュニティの拡大に貢献してくれたことに感謝します！
-          description_another: この参加者は %{score} 人を招待しました。
-          description_own: '%{score} 人を招待しました。'
-          name: 招待
-          next_level_in: '%{score} 人を招待して次のレベルに到達しましょう！'
-          unearned_another: この参加者はまだ誰も招待していません。
-          unearned_own: まだ誰も招待していません。
       description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。
       level: レベル %{level}
       reached_top: このバッジの最高レベルに達しました。
+      title: バッジとは？
     group_admins:
       actions:
         are_you_sure: 本当によろしいですか？グループから参加者を削除しません。
@@ -1039,8 +1055,6 @@ ja:
           modal_title: 新しい会話
           no_results: 結果がありません
           participant_with_disabled_message_reception: この参加者はメッセージの受信を無効にしています
-        conversation:
-          show: '%{sender} との会話を表示'
         create:
           error: 会話が開始されませんでした。後でもう一度お試しください。
         error_modal:
@@ -1050,19 +1064,13 @@ ja:
           ok: OK
         index:
           ago: 前
-          close: モーダルを閉じる
-          from: '差出人:'
-          groups: 自分のグループ
-          last_message: 最後のメッセージ
           new_conversation: 新しい会話
           next: 次へ
           no_conversations: 会話がまだありません
           title: 会話
-          to: 宛先
-        reply:
+        reply_form:
           placeholder: あなたの返信...
           send: 送信
-          title: 返信
         show:
           back: すべての会話に戻る
           chat_with: 会話
@@ -1070,8 +1078,8 @@ ja:
           not_allowed: この参加者はダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
+          placeholder: あなたのメッセージ...
           send: 送信
-          title: 会話を開始
         update:
           error: エラーのためメッセージは送信されませんでした
     metrics:
@@ -1091,6 +1099,7 @@ ja:
         title: 参加者
     newsletter_mailer:
       newsletter:
+        no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
         note: '%{organization_name}でニュースレターを購読しているため、このメールを受信しました。 <a href="%{link}">通知ページ</a> で設定を変更できます。'
         see_on_website: このメールは正しく表示されませんか？ <a href="%{link}" target="_blank">ウェブサイト</a> で確認してください。
         unsubscribe: この種類のメールの受信を拒否するには、 <a href="%{link}" target="_blank" class="unsubscribe">購読解除</a>.
@@ -1221,7 +1230,6 @@ ja:
         sub_hero:
           register: 登録
       index:
-        read_more: もっと読む
         standalone_pages: ページ
         subheading: '%{name} のヘルプページをナビゲートします'
         title: ヘルプ
@@ -1250,6 +1258,10 @@ ja:
           title: '必須：サービス利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
+    passwords:
+      update:
+        error: パスワードの更新中に問題が発生しました
+        success: パスワードが正常に更新されました
     profile:
       deleted: 参加者が削除されました
       inaccessible_message: このプロファイルは利用規約違反によりアクセスできません
@@ -1267,13 +1279,21 @@ ja:
         members: メンバー
         officialized: 正規参加者
         send_private_message: プライベートメッセージを送信
-        timeline: タイムライン
         view_full_profile: 全プロファイルを表示
       sidebar:
         badges:
           info: バッジはプラットフォームで特定のアクティビティを実行することで獲得できます。
           title: バッジ
       user:
+        actions:
+          create_user_group: グループを作成
+          edit_profile: プロフィールを編集
+          edit_user_group: グループプロフィールを編集
+          invite_user: 参加者を招待
+          join_user_group: グループへの参加リクエスト
+          manage_user_group_admins: 管理者の管理
+          manage_user_group_users: メンバーの管理
+          message: メッセージ
         confirmation_instructions_sent: メール確認の手順が送信されました
         create_user_group: グループを作成
         edit_profile: プロフィールを編集
@@ -1417,6 +1437,7 @@ ja:
         copy_share_link_message: リンクをクリップボードにコピーしました。
         share: 共有
         share_link: リンクを共有
+        share_to: '%{service} に共有'
     statistics:
       comments_count: コメント
       endorsements_count: オススメ
@@ -1613,6 +1634,8 @@ ja:
         confirm_new_password: 新しいパスワードを確認
         new_password: 新しいパスワード
         password_help: "半角英数字%{minimun_characters}文字以上で入力してください。単純すぎてはいけません（例：123456）。アカウントIDやメールアドレスと異なる必要があります。"
+        password_help_admin: "%{minimun_characters} 文字以上であり、過度に一般的ではない文字列 (例: 123456)ではなく, あなたのニックネームやあなたの電子メール、そしてあなたの古いパスワードと異なる文字列を指定してください。"
+        title: パスワードの変更
       new:
         forgot_your_password: パスワードをお忘れですか？
         send_me_reset_password_instructions: パスワードリセット手順を送信してください
@@ -1623,15 +1646,6 @@ ja:
       updated_not_active: パスワードが正常に変更されました。
     registrations:
       destroyed: お客様のアカウントは正常にキャンセルされました。しばらくお待ちください。
-      edit:
-        are_you_sure: よろしいですか？
-        cancel_my_account: アカウントをキャンセルする
-        currently_waiting_confirmation_for_email: '現在確認待ち: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 変更したくない場合は空白のままにしてください
-        title: '%{resource} を編集'
-        unhappy: 不満？
-        update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 変更を確認するには現在のパスワードが必要です
       new:
         sign_up: 新規登録
       signed_up: ようこそ！正常に登録完了しました。
@@ -1666,8 +1680,34 @@ ja:
   doorkeeper:
     scopes:
       public: 公開情報
+  emojis:
+    button: 絵文字を追加
+    categories:
+      activities: アクティビティ
+      animals-nature: 動物・自然
+      custom: ユーザー定義
+      flags: 国旗
+      food-drink: フード・ドリンク
+      objects: 物
+      people-body: 人・体
+      recents: 最近使用したもの
+      smileys-emotion: スマイリー・エモティコン
+      symbols: シンボル
+      travel-places: 旅行・場所
+    error:
+      load: 絵文字の読み込みに失敗しました
+    recents:
+      clear: 最近の絵文字を消去
+      none: 絵文字がまだ選択されていません。
+    retry: やり直す
+    search:
+      _: 絵文字を検索...
+      clear: 検索をクリア
+      error: 絵文字の検索に失敗しました
+      not_found: 検索結果がありません
   errors:
     messages:
+      allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'
       already_confirmed: が確認されました。ログインしてみてください
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
       content_type_allowlist_error: ファイルの種類が無効です
@@ -1684,7 +1724,7 @@ ja:
         other: 'リクエストの処理中に複数のエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
-      too_short: 短すぎます（15文字未満）
+      too_short: は短すぎます( %{count} 文字以下)
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
     length_validator:
@@ -1697,56 +1737,60 @@ ja:
     timestamp_error_message: 申し訳ありませんが、早すぎます！再提出してください。
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: 説明
             name: 名前
             service: サービス
-            type: タイプ
-          cookies:
+            type: 種別
+          items:
             _session_id:
               description: ウェブページ間を移動したときにウェブサイト内のユーザーをウェブサイトが記憶できるようにします。
               service: このウェブサイト
             decidim-consent:
               description: このウェブサイトでユーザーが許可するクッキーに関する情報を保存します。
               service: このウェブサイト
+            pwaInstallPromptSeen:
+              description: プログレッシブウェブアプリケーション(PWA) のインストール通知がユーザーによって既に表示されている場合、ステータスを保存します。
+              service: このウェブサイト
           types:
             cookie: クッキー
+            local_storage: ローカルストレージ
         dialog:
           accept_all: すべて受け入れる
           accept_only_essential: 必須のみを受け入れる
-          cookie_settings: 設定
           description: 本サイトは、サイトのパフォーマンスとコンテンツを向上させるために、ウェブサイト上でクッキーを使用しています。 クッキーは、より多くの個々のユーザーエクスペリエンスとソーシャルメディアチャネルを提供することができます。
+          settings: 設定
           title: ウェブサイトで使用されるクッキーに関する情報
         modal:
           accept_all: すべて受け入れる
           accept_only_essential: 必須のみを受け入れる
           analytics:
-            description: 分析クッキーは、ユーザーがウェブサイトをどのようにナビゲートして操作するかを追跡するクッキーです。 収集された情報は、ウェブサイトの所有者がウェブサイトを改善するために使用されます。
+            description: これらのクッキーは、ウェブサイトの改善に役立つウェブサイトの視聴者を測定および分析するために使用されます。
             title: 分析と統計
-          description: 本サイトはウェブサイトの基本的な機能を確保し、お客様のオンライン体験を向上させるためにクッキーを使用しています。 いつでもオプトイン/オプトアウトするカテゴリを選択できます。
+          description: このサイトは、ウェブサイトの基本的な機能を確保し、ユーザーのオンライン体験を向上させるためにクッキーを使用しています。 Cookieの使用を設定および承認したり、同意オプションを変更することはいつでもできます。
           essential:
-            description: これらのクッキーは、本ウェブサイトの基本的な機能に不可欠です。これらのクッキーがなければ、ウェブサイトが正しく機能しません。
+            description: これらのクッキーは、ウェブサイトの主要な機能を可能にし、ユーザーの安全を保つために使われます。 自動的にブラウザに保存され、無効にすることはできません。
             title: 必須
           marketing:
-            description: これらのクッキーは、ユーザーがウェブサイトをどのように使用するか、ユーザーが訪問したページ、およびユーザーがクリックしたリンクに関する情報を収集します。
+            description: これらのクッキーは、お客様がウェブサイトをどのように使用するかに関する情報を収集し、お客様が使用するさまざまなウェブサイトでよりパーソナライズされたマーケティングを提供するために利用することができます。
             title: マーケティング
           preferences:
-            description: これらのクッキーは、過去に行った選択をウェブサイトが記憶することを可能にします
+            description: これらのクッキーは、ウェブサイト上で過去に行った選択をウェブサイトが記憶し、ユーザーによりパーソナライズされた体験を提供することを可能にします。
             title: 設定
           save_settings: 設定を保存
           title: Cookieの設定
           toggle: '%{consent_category} の切り替え'
         warning:
-          all_cookies: すべてのクッキー
-          change_cookie_settings: Cookie の設定を変更する
-          need_cookies: このコンテンツを表示するには %{cookies} を有効にする必要があります。
+          all_categories: すべてのクッキー
+          change_settings: Cookie の設定を変更する
+          consent_required: このコンテンツを表示するには %{categories} を有効にする必要があります。
       edit_link:
         edit: 編集
       footer:
         cc_by_license: クリエイティブコモンズライセンス
-        cookie_settings: Cookieの設定
+        data_consent_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
         download_open_data: オープンデータファイルをダウンロード
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
@@ -1803,7 +1847,7 @@ ja:
         see_more: もっと見る
   locale:
     name: 日本語
-    name_with_error: 英語 (エラー!)
+    name_with_error: 日本語 (エラー!)
   password_validator:
     blacklisted: ブラックリストに登録済み
     domain_included_in_password: このドメイン名に似ています
@@ -1813,9 +1857,16 @@ ja:
     nickname_included_in_password: ニックネームに類似しすぎています
     not_enough_unique_characters: ユニークな文字が十分ではありません
     password_not_allowed: は許可されていません
+    password_repeated: 古いパスワードは再利用できません
     password_too_common: あまりにも一般的です
     password_too_long: 長すぎます
     password_too_short: 短すぎます
+  ransack:
+    predicates:
+      dtgt: 後
+      dtgteq: 後または同時刻
+      dtlt: 前
+      dtlteq: 前または同時刻
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1872,14 +1923,10 @@ ja:
       option_unified: 統合された
   views:
     pagination:
-      first: "&laquo; 最初"
-      first_title: 最初のページへのリンク
-      last: 最終 &raquo;
-      last_title: 最後のページへのリンク
-      next: 次へ &rsaquo;
+      next: 次
       next_title: 次のページへのリンク
       pagination: 改ページ
-      previous: "&lsaquo; 前"
+      previous: 前
       previous_title: 前のページへのリンク
       title: 'ページ番号: '
       truncate: "&hellip;"

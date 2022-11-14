@@ -268,7 +268,6 @@ it:
           affected_user:
             email_intro: 'La tua proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
-            email_subject: La tua proposta è stata respinta
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
@@ -576,7 +575,6 @@ it:
             one: "%{count} bozza collaborativa"
             other: "%{count} bozza collaborativa"
         create:
-          error: Si è verificato un problema durante la creazione di queste bozze collaborative
           success: Bozza collaborativa creata con successo.
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
@@ -660,9 +658,6 @@ it:
       destroy_draft:
         error: Si sono verificati errori durante l'eliminazione della bozza della proposta.
         success: La bozza della proposta è stata cancellata con successo.
-      last_activity:
-        new_proposal_at_html: "<span>Nuova proposta al %{link}</span>"
-        proposal_updated_at_html: "<span>Proposta aggiornata a%{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -789,7 +784,6 @@ it:
           changes_at_title: Modifica a "%{title}"
           comments: Commenti
           edit_proposal: Modifica la proposta
-          endorsements_list: Elenco dei sostenitori
           estimated_cost: Costo stimato
           hidden_endorsers_count:
             one: e %{count} altra persona

@@ -58,8 +58,6 @@ eu:
           update:
             invalid: Inkesta gordetzean erroreak gertatu dira.
             success: Inkesta ondo gorde da.
-      last_activity:
-        new_survey_at_html: "<span>Inkesta berrian %{link}</span>"
       surveys:
         answer:
           invalid: Inkesta erantzutean erroreak gertatu dira.
