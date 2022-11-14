@@ -7,13 +7,5 @@
     </button>
   </div>
 <% else %>
-  <div id="project-<%= project.id %>-budget-button"
-       class="<%= "added" if voted_for?(project) %> button expanded primary button--sc budget-vote-button budget-list__data"
-       aria-label="<%= t(".#{voted_for?(project) ? ".added" : ".add"}_descriptive", resource_name: translated_attribute(project.title)) %>">
-    <span>
-      <%= t(voted_for?(project) ? ".added" : ".add") %>
-    </span>
-
-    <%= cell("decidim/budgets/project_vote_button", project) %>
-  </div>
+  <%= cell("decidim/budgets/project_vote_button", project) %>
 <% end %>

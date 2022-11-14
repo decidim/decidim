@@ -50,6 +50,14 @@
   &__card__highlight-vote{
     @apply justify-center flex flex-col w-1/4 bg-background p-8 bg-background font-bold text-gray-2 ml-auto;
   }
+
+  &__definition-data__title{
+    @apply text-sm text-gray-2 mt-4 block;
+  }
+
+  &__definition-data__number{
+    @apply text-gray-2 font-bold text-3xl bg-background text-center py-2;
+  }
 }
 
 [data-drawer]{

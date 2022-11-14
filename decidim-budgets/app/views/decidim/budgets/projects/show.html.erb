@@ -34,29 +34,26 @@ edit_link(
 <%= render layout: "layouts/decidim/shared/drawer" do %>
   <%= cell("decidim/budgets/limit_announcement", budget) %>
   <div class="voting-wrapper">
-    <div class="row column view-header">
-
-      <div class="m-bottom">
-        <%= link_to budget_projects_path(budget), class: "muted-link js-back-to-list" do %>
-          <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-          <%= t("view_all_projects", scope: "decidim.budgets.projects.show") %>
-        <% end %>
-      </div>
-      <h2 class="heading2"><%= translated_attribute project.title %></h2>
+    <div class="section">
+      <% if component_settings.geocoding_enabled? && project.geocoded? %>
+        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
+      <% end %>
+      <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
+      <%= decidim_sanitize_editor translated_attribute project.description %>
+      <%= cell "decidim/budgets/project_tags", project, context: { extra_classes: ["tags--project"] } %>
     </div>
-    <div class="row">
-      <div id="project" class="columns section view-side mediumlarge-4 mediumlarge-push-8
-        large-3 large-push-9">
+    <%= attachments_for project %>
+    <%= linked_resources_for project, :proposals, "included_proposals" %>
+    <%= linked_resources_for project, :results, "included_projects" %>
+
+    <%= comments_for project, polymorphic: [project.budget] %>
+    <%= resource_reference(project) %>
+  </div>
+  <% content_for :drawer_aside do %>
+    <div class="view-header">
+      <div id="project">
         <div class="card extra">
           <div class="card__content">
-            <div class="m-bottom">
-
-              <span class="definition-data__title">
-                <%= t("budget", scope: "decidim.budgets.projects.show") %>
-              </span>
-              <span class="definition-data__number"><%= budget_to_currency project.budget_amount %></span>
-            </div>
-
             <%= cell("decidim/budgets/project_votes_count", project, layout: :one_line, class: "display-block") %>
 
             <% if voting_finished? %>
@@ -65,27 +62,20 @@ edit_link(
               <%= render partial: "project_budget_button", locals: { project: project } %>
             <% end %>
 
-            <%= render partial: "decidim/shared/follow_button", locals: { followable: project, large: false  } %>
+            <span class="budget__definition-data__title">
+              <%= t("budget", scope: "decidim.budgets.projects.show") %>
+            </span>
+            <div class="budget__definition-data__number"><%= budget_to_currency project.budget_amount %></div>
+            <div class="blog__actions-right">
+              <%= render partial: "decidim/shared/follow_button", locals: { followable: project, large: false  } %>
+
+              <%= cell "decidim/share_button", nil %>
+
+              <%= cell "decidim/report_button", nil %>
+            </div>
           </div>
         </div>
-        <%= resource_reference(project) %>
-        <%= render partial: "decidim/shared/share_modal" %>
-      </div>
-      <div class="columns mediumlarge-8 mediumlarge-pull-4">
-        <div class="section">
-          <% if component_settings.geocoding_enabled? && project.geocoded? %>
-            <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
-          <% end %>
-          <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
-          <%= decidim_sanitize_editor translated_attribute project.description %>
-          <%= cell "decidim/budgets/project_tags", project, context: { extra_classes: ["tags--project"] } %>
-        </div>
-        <%= attachments_for project %>
-        <%= linked_resources_for project, :proposals, "included_proposals" %>
-        <%= linked_resources_for project, :results, "included_projects" %>
       </div>
     </div>
-  </div>
-
-  <%= comments_for project, polymorphic: [project.budget] %>
+  <% end %>
 <% end %>
