@@ -10,7 +10,12 @@ MODIFIED_VIEWS=$(git diff --name-only "${DEFAULT_BRANCH}" | grep -E '(views|cell
 
 # Scan only the modified ERB files, except for the default branch
 FILES=$([[ "${CURRENT_BRANCH}" == "${DEFAULT_BRANCH}" ]] && echo ${ALL_VIEWS} || echo ${MODIFIED_VIEWS})
-[[ -n "$FILES" ]] && bundle exec erblint ${FILES} || echo "No ERB files changed"
+
+if [[ -n "$FILES" ]] ; then 
+  bundle exec erblint ${FILES} 
+else 
+  echo "No ERB files changed"
+fi
 
 # Store the return code of the erblint execution
 EXIT_CODE=$?
