@@ -1,15 +1,25 @@
-image::https://cdn.rawgit.com/decidim/decidim/develop/logo.svg[Decidim Logo,400]
+++++
+<p align="center">
+  <img width="400" src="https://cdn.rawgit.com/decidim/decidim/develop/logo.svg">
+  <h3 align="center">The participatory democracy framework</h3>
+  <p align="center">Free Open-Source participatory democracy, citizen participation and open government for cities and organizations. <a href="https://docs.decidim.org/"><br>Explore the docs »</a></p>
+  <p align="center">Join our <a href="http://chat.decidim.org">Matrix.org chat rooms</a>.</p>
+  <p align="center">
+    <a href="https://decidim.org/features">Features</a> ·
+    <a href="https://github.com/decidim/decidim/projects/16">Roadmap</a> ·
+    <a href="https://github.com/decidim/decidim/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22type%3A+bug%22">Report Bug</a> ·
+    <a href="https://meta.decidim.org/processes/roadmap">Propose New Features</a> ·
+    <a href="https://decidim.org/blog">Read Blog</a></p>
+</p>
 
-The participatory democracy framework.
+++++
 
-____
-Free Open-Source participatory democracy, citizen participation and open government for cities and organizations
-____
+= 💡 What is Decidim?
 
-https://decidim.org[Decidim] is a participatory democracy framework, written in Ruby on Rails, originally developed for the Barcelona City government online and offline participation website.
-Installing these libraries will provide you a generator and gems to help you develop web applications like the ones found on <<example-applications,example applications>> or like https://try.decidim.org[our demo application].
+{uri-website}[Decidim] is a participatory democracy framework, written in Ruby on Rails, originally developed for the Barcelona City government online and offline participation website.
+Installing these libraries will provide you a generator and gems to help you develop web applications like the ones found on <<example-applications,example applications>> or like {uri-demo}[our demo application].
 
-All members of the Decidim community agree with http://www.decidim.org/contract/[Decidim Social Contract or Code of Democratic Guarantees].
+All members of the Decidim community agree with {uri-social-contract}[Decidim Social Contract or Code of Democratic Guarantees].
 
 '''
 
