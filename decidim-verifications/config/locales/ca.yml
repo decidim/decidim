@@ -23,6 +23,12 @@ ca:
       postal_letter_postage:
         full_address: Adreça completa
         verification_code: Codi de verificació
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
   decidim:
     admin:
       menu:
@@ -78,10 +84,10 @@ ca:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: La participant <a href="%{resource_path}">%{resource_title}</a> ha intentat verificar-se amb les dades de la participant gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>.
-          email_outro: Comprova la <a href="%{conflicts_path}">llista de conflictes de verificacions</a> i posa't en contacte amb la participant per a verificar els seus detalls i resoldre el problema.
-          email_subject: Error a l'intentar verificar-se contra una participant gestionada
-          notification_title: La participant <a href="%{resource_path}">%{resource_title}</a> ha intentat verificar-se amb les dades de la participant gestionada <a href="%{managed_user_path}">%{managed_user_name}</a>.
+          email_intro: La participant <a href="%{resource_url}">%{resource_title}</a> ha intentat verificar-se amb les dades d'una altra participant (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Comprova la <a href="%{conflicts_url}">llista de conflictes de verificacions</a> i posa't en contacte amb la participant per a verificar els seus detalls i resoldre el problema.
+          email_subject: Error en intentar verificar-se contra una altra participant
+          notification_title: La participant <a href="%{resource_path}">%{resource_title}</a> ha intentat verificar-se amb les dades d'una altra participant (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -90,6 +96,7 @@ ca:
         create:
           error: S'ha produït un error en crear l'autorització.
           success: Has estat autoritzada amb correctament.
+          transferred: 'S''han recuperat les següents dades de participació a partir de la teva autorització:'
           unconfirmed: Cal que confirmis el teu correu electrònic per a poder autoritzar-te.
         destroy:
           error: S'ha produït un error en esborrar la verificació.
@@ -140,6 +147,9 @@ ca:
             body: Per fer-ho, has d'entrar al panell d'administració i afegir les autoritzacions de csv_census a l'organització
             title: Necessites activar el cens csv d'aquesta organització
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: "fitxer .csv amb dades de correus electrònics"
             info: 'Ha de ser un document en format CSV amb una única columna indicant les adreces electròniques:'
             submit: Puja un document

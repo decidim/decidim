@@ -45,7 +45,7 @@ fi:
         participatory_text:
           attributes:
             document:
-              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
+              allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -213,6 +213,7 @@ fi:
             endorsements_enabled: Suositukset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
+            publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
             suggested_hashtags: Käyttäjille ehdotettavat aihetunnisteet (hashtag) uusille ehdotuksille
             votes_blocked: Kannatukset estetty
             votes_enabled: Kannatukset käytössä
@@ -302,6 +303,7 @@ fi:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Uusi ehdotus "%{resource_title}" lisätty kohteeseen %{participatory_space_title}
           notification_title: '%{author} on lisännyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> kohteeseen %{participatory_space_title}'
+          notification_title_official: Virallinen ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty kohteeseen %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Ehdotuksesi "%{resource_title}" on hylätty. Voit lukea vastauksen täältä:'
@@ -400,8 +402,20 @@ fi:
           proposals: Ehdotukset
         imports:
           help:
-            answers: 'Tuontitiedostossa on oltava sarakenimet id, state tilalle (accepted, evaluating, rejected), answer/fi vastaukselle (sekä muihin kieliin viittaavat sarakenimet, kuten answer/en).'
-            proposals: Tuontitiedostossa on oltava sarakenimet title/fi otsikolle ja body/fi kuvaustekstille (sekä muihin kieliin viittaavat sarakenimet, kuten title/en ja body/en). Tuettuja sarakkeita ovat myös scope/id (teemalle) ja category/id (aihepiirille).
+            answers: |
+              CSV- tai Excel-tuontitiedostossa on oltava seuraavat sarakenimet ja JSON-tuontitiedostossa vastaavat avainten nimet:
+              <ul>
+              <li><b>id:</b> Vastattavan ehdotuksen ID-tunniste</li>
+              <li><b>state:</b> Jokin vaihtoehdoista "accepted", "evaluating", tai "rejected"</li>
+              <li><b>answer/fi:</b> Vastaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              </ul>
+            proposals: |
+              CSV- tai Excel-tiedostossa on oltava seuraavat sarakenimet ja JSON-tiedostossa vastaavat avainten nimet:
+              <ul><li><b>title/fi:</b> Otsikko suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              <li><b>body/fi:</b> Kuvaus suomeksi. Tämän sarakkeen nimi riippuu alustalle määritetyistä kielistä.</li>
+              <li><b>scope/id:</b> Teeman ID-tunniste</li>
+              <li><b>category/id:</b> Aihepiirin ID-tunniste</li>
+              </ul>
           label:
             answers: Tuo vastaukset tiedostosta
             proposals: Tuo ehdotuksia tiedostosta
@@ -634,7 +648,7 @@ fi:
             one: "%{count} yhteistyöluonnos"
             other: "%{count} yhteistyöluonnosta"
         create:
-          error: Yhteistyöluonnoksen luonti epäonnistui
+          error: Yhteistyöluonnoksen luominen epäonnistui.
           success: Yhteistyöluonnoksen luonti onnistui.
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
@@ -721,8 +735,8 @@ fi:
         error: Ehdotusluonnoksen poistaminen epäonnistui.
         success: Ehdotusluonnoksen poistaminen onnistui.
       last_activity:
-        new_proposal_at_html: "<span>Uusi ehdotus osoitteessa %{link}</span>"
-        proposal_updated_at_html: "<span>Ehdotus päivitetty osoitteessa %{link}</span>"
+        new_proposal: 'Uusi ehdotus:'
+        proposal_updated: 'Ehdotusta on päivitetty:'
       models:
         collaborative_draft:
           fields:
@@ -857,7 +871,6 @@ fi:
           changes_at_title: Muokkaus kohteelle "%{title}"
           comments: Kommentit
           edit_proposal: Muokkaa ehdotusta
-          endorsements_list: Luettelo suositteluista
           estimated_cost: Arvioitu kustannus
           hidden_endorsers_count:
             one: ja %{count} muu henkilö

@@ -168,9 +168,6 @@ eu:
             title: Bertsioak
         versions_list:
           back_to_resource: Itzuli eztabaidara
-      last_activity:
-        debate_updated_at_html: "<span>eztabaida ordu honetan %{link}</span> eguneratuta"
-        new_debate_at_html: "<span> %{link}</span>eztabaida berria"
       models:
         debate:
           fields:

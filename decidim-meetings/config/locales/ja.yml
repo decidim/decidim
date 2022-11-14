@@ -422,8 +422,8 @@ ja:
         open_in_live_event_page: ライブイベントページで開く (オプションの投票付き)
         open_in_new_tab: URLを新しいタブで開く
       last_activity:
-        meeting_updated_at_html: "<span>ミーティングが %{link} に更新されました</span>"
-        new_meeting_at_html: "<span> %{link}に新しいミーティング</span>"
+        meeting_updated: '更新されたミーティング:'
+        new_meeting: '新しいミーティング:'
       layouts:
         live_event:
           administrate: 管理
