@@ -50,6 +50,7 @@ fi:
           results: Tulokset
         import_results:
           new:
+            download_export: Lataa vientitiedosto CSV-muodossa
             import: Tuo
             title: Tuo tulokset CSV-tiedostosta
         imports:
