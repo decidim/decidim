@@ -175,11 +175,10 @@ edit_link(
   </div>
 
   <div class="mt-8">
-    <%# REDESIGN_PENDING: this value for the reference %>
-    <%= resource_reference(meeting) %>
-    <%= resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count)) %>
-    <%# REDESIGN_PENDING: same cell as acountability, use the previous values %>
-    <%#= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
+    <ul class="drawer-metadata__container" data-metadata-footer>
+      <%= content_tag :li, resource_reference(meeting), class: "drawer-metadata__item" %>
+      <%= content_tag :li, resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count)), class: "drawer-metadata__item" %>
+    </ul>
   </div>
 
   <%= attachments_for meeting %>
