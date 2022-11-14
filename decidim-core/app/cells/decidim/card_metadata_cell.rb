@@ -52,5 +52,9 @@ module Decidim
         url: Decidim::ResourceLocatorPresenter.new(participatory_space).path
       }
     end
+
+    def official?
+      model.respond_to?(:official?) && model.official?
+    end
   end
 end

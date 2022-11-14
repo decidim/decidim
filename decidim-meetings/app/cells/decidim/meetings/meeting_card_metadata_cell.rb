@@ -40,6 +40,8 @@ module Decidim
       end
 
       def official
+        return unless official?
+
         {
           text: t("decidim.meetings.models.meeting.fields.official_meeting"),
           icon: "information-line"
