@@ -1,19 +1,17 @@
 <% if voted? %>
   <div id="voted-budgets">
-    <p class="lead">
+    <p class="lead mb-4">
       <%= t(:voted_on, scope: i18n_scope, links: budgets_link_list(voted)) %>
     </p>
 
-    <div class="columns mediumlarge-12">
-      <div id="voted-budgets-list" class="card card--list budget-list">
-        <% voted.each do |budget| %>
-          <%= cell("decidim/budgets/budget_list_item", budget) %>
-        <% end %>
-      </div>
+    <div id="voted-budgets-list" class="card card--list budget-list">
+      <% voted.each do |budget| %>
+        <%= cell("decidim/budgets/budget_list_item", budget) %>
+      <% end %>
     </div>
 
     <% if finished? %>
-      <p class="lead">
+      <p class="lead mt-4">
         <%= t(:finished_message, scope: i18n_scope) %>
       </p>
     <% end %>

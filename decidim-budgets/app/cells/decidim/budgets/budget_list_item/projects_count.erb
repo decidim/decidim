@@ -1,5 +1,5 @@
-<div>
-  <%= icon "git-pull-request-line", class: "fill-secondary inline-block" , aria_label: Decidim::Budgets::Project.model_name.human(count: 1) %>
+<div class="inline-block pr-4">
+  <%= icon "git-pull-request-line", class: "text-gray fill-current inline-block" , aria_label: Decidim::Budgets::Project.model_name.human(count: 1) %>
   <span>
     <%= t(:projects_count, scope: i18n_scope, count: Decidim::Budgets::Project.where(budget: budget).count) %>
   </span>

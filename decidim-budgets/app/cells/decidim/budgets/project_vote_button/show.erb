@@ -2,7 +2,7 @@
       budget_order_line_item_path(model.budget, project_id: model),
       method: vote_button_method,
       remote: true,
-      class: "button button__sm button__transparent-secondary budget-list__action #{vote_button_class}",
+      class: "button button__sm button__secondary budget-list__action #{vote_button_class} #{'button__transparent-secondary' if !resource_added?}",
       id: "project-vote-button-#{model.id}",
       data: {
         add: !resource_added?,
@@ -14,6 +14,12 @@
       disabled: vote_button_disabled?,
       title: vote_button_label do %>
   <%#REDESIGN_PENDING add locale %>
-  <span>Añadir</span>
-  <%= icon "add-fill", class: "inline-block" %>
+  <% if !resource_added? %>
+    <span>Añadir</span>
+    <%= icon "add-fill", class: "inline-block" %>
+
+  <% else %>
+    <span>Añadido</span>
+    <%= icon "checkbox-circle-line", class: "inline-block" %>
+  <% end %>
 <% end %>
