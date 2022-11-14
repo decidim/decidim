@@ -56,20 +56,23 @@ All members of the Decidim community agree with {uri-social-contract}[Decidim So
 
 '''
 
+= Table of Contents
 
-- https://docs.decidim.org/[Official Documentation]
-- <<getting-started-with-decidim,Getting started with Decidim>>
-- <<how-to-contribute,Contribute to the project>>
-- <<modules,Modules>>
-- <<authorizations-strategies,Authorizations Strategies>>
-- <<following-our-license,Following our license>>
-- <<example-applications,Example applications>>
-- <<security,Security>>
-- <<donations,Donations>>
+* <<getting-started, 🚀 Getting started>>
+* <<contribute,🙌 Contribute>>
+* <<modules,🧩 Modules>>
+** <<permissions,🪪Permissions>>
+* <<license,📘 License>>
+* <<example-applications,🔎 Example applications>>
+* <<security,🔒 Security>>
+* <<financial-contributions,🫶 Financial contributions>>
+** <<members,🧑 Members>>
+** <<partners,💻 Partners>>
+* <<learn-more,📖 Learn More>>
 
 '''
 
-== Getting started with Decidim
+== 🚀 Getting started
 
 TLDR: install gem, generate a Ruby on Rails app, enjoy.
 
@@ -80,9 +83,9 @@ decidim decidim_application
 ----
 
 We've set up a guide on how to install, set up and upgrade Decidim.
-See the https://docs.decidim.org/en/install/[Getting started guide].
+See the {uri-docs-getting-started}[Getting started guide].
 
-== How to contribute
+== 🙌 Contribute
 
 Anyone can participate in {uri-metadecidim}[Metadecidim], our own distance of Decidim for improving Decidim. The community is formed by people with different profiles and backgrounds.
 
@@ -92,7 +95,7 @@ Having a lively community is crucial to this project, so we encourage you to fin
 
 Read more about contributions in our {uri-contributing}[contribution guidelines].
 
-== Modules
+== 🧩 Modules
 
 If you need to have some features that we don't have yet, we recommend that you make a module.
 This is a Ruby on Rails engine with some APIs specific to Decidim (for registering with the menus, integration with spaces like Participatory Processes or Assemblies, with /admin or /api, etc).
@@ -102,33 +105,93 @@ Also, you should know that until v1.0.0 We're under development, and these inter
 
 We recommend that you extensively test your module.
 
-See https://decidim.org/modules[Modules page on Decidim.org].
+See {uri-modules}[Modules page on Decidim.org].
 
-=== Authorizations Strategies
+=== 🪪 Permissions
 
 One specific thing regarding these kind of applications is how you manage the permissions that the participants will have in the platform (aka the authorization or verification logic). This tries to solve the problem of how to verify that the user is who they say they are and that they have the right to participate in this city or organization. Read more about {uri-docs-authorizations}[Authorizations] in our documentation.
 
-== Following our license
+== 📘 License
 
 If you plan to put your application in production, you'll need to publish it using the same license: GPL Affero 3.
 
 We recommend doing that on GitHub (or any other code hosting platform) before publishing.
 
-You can read more on "http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs[Being Open Source From Day One is Especially Important for Government Projects]".
+You can read more on "{uri-producing-oss-license}[Being Open Source From Day One is Especially Important for Government Projects]".
 
-If you have any trouble you can contact us on https://app.element.io/#/room/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
+If you have any trouble you can contact us on {uri-chat}[our Matrix.org chat room for developers].
 
-== Example applications
+== 🔎 Example applications
 
-Since Decidim is a ruby gem, you can check out the https://github.com/decidim/decidim/network/dependents?type=application[dependent repositories] to see how many applications are on the wild or tests that other developers have made. You can see a highlight of https://docs.decidim.org/en/develop/guide_example_apps/[example applications] in our documentation.
+Since Decidim is a ruby gem, you can check out the {uri-github-dependents}[dependent repositories] to see how many applications are on the wild or tests that other developers have made. You can see a highlight of {uri-docs-example-applications}[example applications] in our documentation.
 
-== Security
+== 🔒 Security
 
 Security is very important to us.
 If you have any issue regarding security, please disclose the information responsibly by sending an email to security [at] decidim [dot] org and not by creating a github/metadecidim issue.
 We appreciate your effort to make Decidim more secure.
-See xref:SECURITY.adoc[full security policy].
+See {uri-security}[full security policy].
 
-== Donations
+== 🫶 Financial contributions
 
-If you want to support the project, consider making a donation through our https://opencollective.com/decidim[OpenCollective profile].
+Decidim helps citizens, organizations and public institutions to democratically self-organize at every scale. Thanks to Decidim, any organization is able to configure spaces for participation (initiatives, assemblies, processes, or votings) and enrich them through the multiple available components (meetings, surveys, proposals, participatory budgets, accountability for results, comments, and many other).
+
+You can contribute financial to the sustainability of this project through {uri-opencollective}[OpenCollective].
+
+The funds will enable the maintainers to:
+
+* review community contributions
+* triage issues
+* fix bugs related to performance
+* improve the design of the platform
+* write better documentation
+* improve performance of the platform security
+
+=== 🧑 Members
+
+Members have the right to participate in all the participation spaces of the {uri-metadecidim}[Metadecidim] platform with voice and vote, exercise their vote in strategic and internal decisions, elect or be elected in representative bodies, request and obtain explanations about the management of the positions of the Association, receive information about the activities and make common uses that are established. Read more about becoming a {uri-opencollective-members}[Decidim association member].
+
+image::https://opencollective.com/decidim/tiers/member.svg?avatarHeight=36&width=600[Members]
+
+=== 💻 Partners
+
+Any organization offering services on Decidim can contribute back to the commons by becoming a Partner. Each Partner commits to include a clause in each new service contract around Decidim, explicitly stating that a small percentage is allocated to the maintenance of the source code. For a company, the percentage is 3%, and for a nonprofit organization, it is 1.5%.  Read more about becoming a {uri-opencollective-partners}[Decidim association partner].
+
+image::https://opencollective.com/decidim/tiers/partner.svg?avatarHeight=36&width=600[Partners]
+
+== 📖 Learn More
+
+|===
+| Decidim Resource | Description
+
+| 🚀 **{uri-releases}[Our latest release]**
+| New features and bug fixes.
+
+| 🧩 **{uri-modules}[Modules]**
+| Find out new ways of enhancing Decidim.
+
+| 🗳 **{uri-propose-new-features}[Propose new Features]**
+| Is there any missing feature? Propose a new one!
+
+| 📓 **{uri-docs}[Docs]**
+| Full documentation for creating and customizing your own Decidim application.
+
+| 📒 **{uri-yard-docs}[API Reference]**
+| Detailed reference on Decidim's API.
+
+| 🔎 **{uri-docs-example-applications}[Examples]**
+| See some ways where Decidim is used, with code examples.
+
+| 📬 **{uri-blog}[Blog]**
+| All the latest news and releases from Decidim.
+
+| 💬 **{uri-chat}[Join Matrix.org]**
+| Need help with your specific use case? Say hi on Matrix!
+
+| 🗺 **{uri-roadmap}[Roadmap]**
+| See where Decidim is working to build new features.
+
+| 🙌 **{uri-contributing}[Contribute]**
+| How to contribute to the Decidim project and code base.
+
+|===
