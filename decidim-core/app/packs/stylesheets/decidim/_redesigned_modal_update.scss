@@ -15,7 +15,7 @@
     }
 
     &.is-dragover:not(.is-disabled):last-child{
-      @apply border-2 border-secondary border-dashed bg-background-4;
+      @apply border-2 border-secondary border-dashed bg-background-4 [&_*]:pointer-events-none;
     }
 
     [data-filename]{
