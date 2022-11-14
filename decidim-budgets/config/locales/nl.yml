@@ -93,11 +93,8 @@ nl:
             cancel: Annuleren
             change_category: Categorie wijzigen
             change_scope: Scope wijzigen
-            change_selected: Selectie wijzigen
-            deselect_implementation: Selectie ongedaan maken
             finished_orders: Voltooide stemmen
             pending_orders: Afwachtende stemmen
-            select_for_implementation: Selecteer
             selected: Geselecteerd
             title: Projecten
             update: Bijwerken
@@ -119,10 +116,7 @@ nl:
             select_a_scope: Selecteer een scope
             success: 'Voorstellen succesvol bijgewerkt naar categorie %{subject_name}: %{projects}.'
           update_selected:
-            invalid: 'Deze projecten zijn al geselecteerd voor implementatie: %{projects}.'
             select_a_project: Selecteer een project
-            select_a_selection: Selecteer een implementatie status
-            success: 'Projectselectie succesvol gewijzigd: %{projects}.'
         proposals_imports:
           create:
             invalid: Er is een probleem opgetreden bij het importeren van de voorstellen in projecten

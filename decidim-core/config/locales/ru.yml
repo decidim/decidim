@@ -427,8 +427,6 @@ ru:
         index:
           how: Как вы можете его получить
           title: Значки
-        invitations:
-          name: Приглашения
       level: Уровень %{level}
     group_admins:
       actions:

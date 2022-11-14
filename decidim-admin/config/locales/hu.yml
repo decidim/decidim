@@ -185,7 +185,6 @@ hu:
           error: Hiba történt az adminra vonatkozó általános szerződési feltételek elfogadása során.
           success: Nagyszerű! Elfogadtad az admin felhasználási feltételeket.
         actions:
-          accept: Elfogadom a következő feltételeket
           are_you_sure: Biztosan visszautasítod az adminokra vonatkozó feltételek elfogadását?
           refuse: Admin feltételek elutasítása
           title: Elfogadom a felhasználási feltételeket
@@ -832,7 +831,7 @@ hu:
           title: Új részvételi tér privát felhasználója.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Hiba történt a CSV fájl olvasásakor.
+          invalid: Hiba történt a CSV fájl olvasásában.
           success: A CSV-fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
           destroy:
@@ -1054,6 +1053,7 @@ hu:
         moderation:
           fields:
             created_at: Létrehozás dátuma
+            deleted_resource: Törölt erőforrás
             hidden_at: 'Rejtett itt:'
             participatory_space: Részvételi tér
             report_count: Számol

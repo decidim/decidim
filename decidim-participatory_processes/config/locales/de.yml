@@ -63,12 +63,6 @@ de:
         email: E-Mail
         name: Name
         role: Rolle
-    errors:
-      models:
-        participatory_process:
-          attributes:
-            document:
-              allowed_file_content_types: 'Ungültiger Dokumenttyp. Zulässige Formate sind: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Phase aktiviert
       decidim/participatory_process_step_changed_event: Phase geändert

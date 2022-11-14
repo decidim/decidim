@@ -850,18 +850,6 @@ de:
           how: Wie kannst du es verdienen?
           page_description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen. Hier ist die Liste der Abzeichen und einige Möglichkeiten, wie Sie sie verdienen können.
           title: Abzeichen
-        invitations:
-          conditions:
-            - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
-            - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
-            - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
-          description: Dieses Abzeichen wird gewährt, wenn Sie einige Personen eingeladen haben und sie sich ein wenig Zeit genommen haben, um sich in %{organization_name} zu registrieren und Teilnehmer zu werden. Vielen Dank für die Herstellung von %{organization_name} anderen bekannt und helfen , die Gemeinschaft zu erweitern!
-          description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
-          description_own: Sie haben %{score} Benutzer*innen eingeladen.
-          name: Einladungen
-          next_level_in: Laden Sie %{score} weitere Benutzer*innen ein, um das nächste Level zu erreichen!
-          unearned_another: Diese*r Benutzer*in hat noch niemanden eingeladen.
-          unearned_own: Sie haben noch keine Benutzer*innen eingeladen.
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
       reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
@@ -1685,7 +1673,6 @@ de:
         other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
-      too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
     length_validator:

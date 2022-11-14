@@ -30,6 +30,7 @@ ja:
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
         remove_avatar: アバターを削除
+        tos_agreement: ユーザー利用規約
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -806,6 +807,8 @@ ja:
         allowed_file_extensions: 'アップロード可能なファイル形式: %{extensions}'
         max_file_dimension: '最大ファイルサイズ: %{resolution} ピクセル'
         max_file_size: '最大ファイルサイズ: %{megabytes}MB'
+      files:
+        extension_allowlist: '対応しているフォーマット: %{extensions}'
       upload:
         labels:
           add_attachment: 添付ファイルを追加
@@ -844,18 +847,6 @@ ja:
           how: どうやって稼ぐことができますか？
           page_description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。 ここにバッジのリストといくつかの方法があります。
           title: バッジ
-        invitations:
-          conditions:
-            - 友達を招待するには、ユーザーページの「友達招待」リンクを使用してください
-            - 必要に応じて、送信するメッセージをカスタマイズします
-            - 招待状を送信して登録することでレベルアップします。
-          description: このバッジは、あなたが何人かの人を招待し、その人たちが少し時間をかけて%{organization_name} に登録し、参加者になったときに与えられます。%{organization_name} を他の人に知らしめ、コミュニティの拡大に貢献してくれたことに感謝します！
-          description_another: この参加者は %{score} 人を招待しました。
-          description_own: '%{score} 人を招待しました。'
-          name: 招待
-          next_level_in: '%{score} 人を招待して次のレベルに到達しましょう！'
-          unearned_another: この参加者はまだ誰も招待していません。
-          unearned_own: まだ誰も招待していません。
       description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。
       level: レベル %{level}
       reached_top: このバッジの最高レベルに達しました。
@@ -1670,6 +1661,7 @@ ja:
       public: 公開情報
   errors:
     messages:
+      allowed_file_content_types: '次の拡張子を持つファイルのみが許可されています: %{types}'
       already_confirmed: が確認されました。ログインしてみてください
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
       content_type_allowlist_error: ファイルの種類が無効です
@@ -1686,7 +1678,7 @@ ja:
         other: 'リクエストの処理中に複数のエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
-      too_short: 短すぎます（15文字未満）
+      too_short: は短すぎます( %{count} 文字以下)
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
     length_validator:

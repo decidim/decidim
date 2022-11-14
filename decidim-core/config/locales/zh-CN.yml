@@ -653,18 +653,6 @@ zh-CN:
           how: 你如何赚钱
           page_description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。 这里是徽章列表和您可以赚取它们的某些方式。
           title: 徽章
-        invitations:
-          conditions:
-            - 使用您用户页面上的“邀请好友”链接来邀请您的朋友
-            - 自定义，如果您想要，您正在发送的消息
-            - 您将通过发送邀请和注册来提高等级。
-          description: 当您已经邀请了一些人并且他们花了一些时间在 %{organization_name} 注册并成为参与者时，这个徽章将被授予。 感谢您向其他人宣传了 %{organization_name} 并帮助扩展社区！
-          description_another: 此参与者已邀请了 %{score} 人。
-          description_own: 您已邀请了 %{score} 人。
-          name: 邀请
-          next_level_in: 邀请更多 %{score} 人到达下一个关卡！
-          unearned_another: 此参与者尚未邀请任何人。
-          unearned_own: 你还没有邀请任何人。
       description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。
       level: 等级 %{level}
       reached_top: 你已经达到了这个徽章的顶级了。
@@ -1393,7 +1381,6 @@ zh-CN:
         other: '处理您的请求时发生多个错误：'
       too_many_marks: 正在使用太多连续标点符号(例如! 和 ?)
       too_much_caps: 正在使用太多大写字母(超过25%文本)
-      too_short: 太短(低于15个字符)
   forms:
     correct_errors: 表单上有错误，请更正以继续。
     required: 必填字段

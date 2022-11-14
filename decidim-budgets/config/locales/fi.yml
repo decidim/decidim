@@ -93,8 +93,8 @@ fi:
             cancel: Peruuta
             change_category: Vaihda aihepiiri
             change_scope: Vaihda teema
-            change_selected: Vaihda valittu-tilaa
-            deselect_implementation: Ei toteutukseen
+            change_selected: Muuta tilaa
+            deselect_implementation: Ei valittu toteutukseen
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
             select_for_implementation: Valittu toteutukseen
@@ -119,10 +119,14 @@ fi:
             select_a_scope: Valitse teema
             success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
           update_selected:
-            invalid: 'Nämä projektit oli jo merkitty toteutettaviksi: %{projects}.'
+            invalid:
+              selected: 'Nämä projektit oli jo valittu toteutukseen: %{projects}.'
+              unselected: 'Näitä projekteja ei oltu valittu toteutukseen: %{projects}.'
             select_a_project: Valitse projekti
-            select_a_selection: Valitse toteutuksen tila
-            success: 'Toteutuksen tilan päivitys onnistui projekteille: %{projects}.'
+            select_a_selection: Valitse tila
+            success:
+              selected: 'Näiden projektien valinta toteutukseen onnistui: %{projects}.'
+              unselected: 'Näiden projektien toteutukseen valinnan poistaminen onnistui: %{projects}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti suunnitelmiksi epäonnistui

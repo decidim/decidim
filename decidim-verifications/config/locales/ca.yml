@@ -24,6 +24,12 @@ ca:
       postal_letter_postage:
         full_address: Adreça completa
         verification_code: Codi de verificació
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
   decidim:
     admin:
       menu:

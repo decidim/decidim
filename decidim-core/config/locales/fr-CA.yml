@@ -30,6 +30,7 @@ fr-CA:
         password_confirmation: Confirmez votre mot de passe
         personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
+        tos_agreement: Conditions générales d'utilisation
     models:
       decidim/attachment_created_event: Document lié
       decidim/component_published_event: Fonctionnalité active
@@ -818,6 +819,8 @@ fr-CA:
         allowed_file_extensions: 'Extensions de fichier autorisées : %{extensions}'
         max_file_dimension: 'Dimensions de fichier maximales : %{resolution} pixels'
         max_file_size: 'Taille maximale du fichier : %{megabytes}Mo'
+      files:
+        extension_allowlist: 'Formats acceptés : %{extensions}'
       upload:
         labels:
           add_attachment: Ajouter une pièce jointe
@@ -856,18 +859,6 @@ fr-CA:
           how: Comment l'obtenir
           page_description: Les badges sont une reconnaissance des actions des participants et des progrès de la plate-forme. Lorsque vous commencerez à découvrir, à participer et à interagir avec la plateforme, vous obtiendrez différents badges. Voici la liste des badges et des moyens de les gagner.
           title: Insignes
-        invitations:
-          conditions:
-            - Utilisez le lien "inviter des amis" sur votre page utilisateur pour inviter vos amis.
-            - Personnalisez, si vous le souhaitez, le message que vous envoyez
-            - Vous augmenterez votre niveau en envoyant des invitations et en les faisant enregistrer.
-          description: Ce badge est attribué lorsque vous avez invité des personnes qui ont passé un peu de temps à s’inscrire à %{organization_name} et devenir des participants. Merci de faire connaître %{organization_name} aux autres et d’aider à élargir la communauté!
-          description_another: Cet utilisateur a invité %{score} utilisateurs.
-          description_own: Vous avez invité %{score} utilisateurs.
-          name: Invitations
-          next_level_in: Invitez %{score} utilisateurs supplémentaires à atteindre le niveau suivant !
-          unearned_another: Cet utilisateur n'a encore invité aucun utilisateur.
-          unearned_own: Vous n'avez encore invité aucun utilisateur.
       description: Les badges sont une reconnaissance des actions des participants et des progrès dans la plateforme. Au fur et à mesure que vous commencez à découvrir, à participer et à interagir sur la plateforme, vous gagnez différents badges.
       level: Niveau %{level}
       reached_top: Vous avez atteint le plus haut niveau pour ce badge.
@@ -1684,6 +1675,7 @@ fr-CA:
       public: Votre information publique
   errors:
     messages:
+      allowed_file_content_types: 'seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_allowlist_error: le type de fichier n'est pas valide
@@ -1701,7 +1693,7 @@ fr-CA:
         other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)
-      too_short: est trop court (moins de 15 caractères)
+      too_short: est trop court (le minimum est de %{count} caractères)
   forms:
     correct_errors: Il y a des erreurs dans le formulaire, veuillez les corriger pour continuer.
     length_validator:

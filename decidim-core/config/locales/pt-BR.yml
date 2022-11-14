@@ -740,18 +740,6 @@ pt-BR:
           how: Como você pode ganhar
           page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
           title: Distintivos
-        invitations:
-          conditions:
-            - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
-            - Personalize, se quiser, a mensagem que você está enviando
-            - Você vai subir de nível enviando convites e recebendo-os registrados.
-          description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
-          description_another: Este usuário convidou %{score} usuários.
-          description_own: Você convidou %{score} usuários.
-          name: Convites
-          next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não convidou nenhum usuário.
-          unearned_own: Você não convidou nenhum usuário ainda.
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
@@ -1533,7 +1521,6 @@ pt-BR:
         other: 'Houve erros múltiplos ao processar sua solicitação:'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
-      too_short: é muito curto (menos de 15 caracteres)
   forms:
     correct_errors: Há erros no formulário, por favor corrija-os para continuar.
     length_validator:

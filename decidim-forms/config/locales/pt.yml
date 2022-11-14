@@ -115,8 +115,6 @@ pt:
       errors:
         answer:
           body: O corpo não pode ficar em branco
-      files:
-        extension_allowlist: 'Formatos aceites:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

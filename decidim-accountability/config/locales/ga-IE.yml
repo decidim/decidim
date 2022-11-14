@@ -31,7 +31,6 @@ ga:
         import_results:
           new:
             import: Iompórtáil
-            link: nasc
         models:
           result:
             name: Toradh

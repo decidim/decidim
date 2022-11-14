@@ -380,7 +380,7 @@ es-MX:
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinarla o aceptarla a través de los siguientes enlaces."
+            invited_existing_user_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinarla o aceptarla a través de los siguientes enlaces."
             registration: Inscripción para '%{conference_title}'
         partners:
           index:

@@ -185,7 +185,6 @@ es-PY:
           error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
-          accept: Estoy de acuerdo con los siguientes términos
           are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
@@ -835,7 +834,7 @@ es-PY:
           title: Nuevo usuario privado en el espacio participativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Se ha producido un error al leer el archivo CSV.
+          invalid: Se produjo un error al leer el archivo CSV.
           success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
         new:
           destroy:
@@ -1057,6 +1056,7 @@ es-PY:
         moderation:
           fields:
             created_at: Fecha de creación
+            deleted_resource: Eliminar recurso
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Recuento

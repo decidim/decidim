@@ -91,11 +91,9 @@ de:
             cancel: Abbrechen
             change_category: Kategorie ändern
             change_scope: Themenbereich ändern
-            change_selected: Auswahl ändern
-            deselect_implementation: Auswahl aufheben
+            change_selected: Ausgewählten Status ändern
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
-            select_for_implementation: Auswählen
             selected: Ausgewählt
             title: Projekte
             update: Aktualisieren
@@ -117,10 +115,7 @@ de:
             select_a_scope: Bitte wählen Sie einen Themenbereich
             success: 'Die folgenden Projekte wurden erfolgreich zum Themenbereich %{subject_name} hinzugefügt: %{projects}.'
           update_selected:
-            invalid: 'Diese Projekte wurden bereits zur Umsetzung ausgewählt: %{projects}.'
             select_a_project: Bitte wählen Sie ein Projekt
-            select_a_selection: Bitte wähle einen Umsetzungsstatus
-            success: 'Ausgewählte Projekte erfolgreich geändert: %{projects}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten

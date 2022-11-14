@@ -128,8 +128,6 @@ ca:
       errors:
         answer:
           body: El camp no pot estar en blanc
-      files:
-        extension_allowlist: 'Formats d''arxiu acceptats:'
       images:
         dimensions: "%{width} x %{height} px"
         processors:
@@ -145,6 +143,8 @@ ca:
         single_option: Opció única
         sorting: Ordenació
         title_and_description: Títol i descripció
+      questionnaire_answer_presenter:
+        download_attachment: Descarregar l'arxiu adjunt
       questionnaires:
         answer:
           invalid: S'han produït un error en respondre el formulari.

@@ -24,6 +24,12 @@ fi:
       postal_letter_postage:
         full_address: Koko osoite
         verification_code: Vahvistuskoodi
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Virheellinen tuontitiedosto, lue ohjeet huolellisesti ja varmista, että tiedosto on UTF-8 muodossa.
   decidim:
     admin:
       menu:

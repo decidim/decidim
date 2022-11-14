@@ -30,6 +30,7 @@ ca:
         password_confirmation: Confirma la teva contrasenya
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
+        tos_agreement: Acord de termes i condicions d'ús
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -820,6 +821,8 @@ ca:
         allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
         max_file_dimension: 'Mides máximes de l''arxiu: %{resolution} pixels'
         max_file_size: 'Mida màxima del fitxer:%{megabytes}MB'
+      files:
+        extension_allowlist: 'Formats acceptats: %{extensions}'
       upload:
         labels:
           add_attachment: Afegir adjunt
@@ -858,18 +861,6 @@ ca:
           how: Com pots aconseguir-la
           page_description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus. Aquí tens la llista d'insígnies i algunes formes d'aconseguir-les.
           title: Insígnies
-        invitations:
-          conditions:
-            - Utilitza l'enllaç "convidar amigues" a la teva pàgina d'usuària per convidar a les teves amistats
-            - Personalitza, si vols, el missatge que estàs enviant
-            - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
-          description: Aquesta insígna s'aconsegueix quan has convidat a algunes persones a la plataforma %{organization_name}, i s'hi han registrat com a participants. Gràcies per donar a conèixer %{organization_name} a d'altres i ajudar a ampliar la comunitat!
-          description_another: Aquesta participant ha convidat a %{score} persones.
-          description_own: Has convidat %{score} persones.
-          name: Invitacions
-          next_level_in: Convida a %{score} persones més per arribar al següent nivell!
-          unearned_another: Aquesta participant encara no ha convidat ningú.
-          unearned_own: Encara no has convidat a ningú.
       description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus.
       level: Nivell %{level}
       reached_top: Has arribat al màxim nivell d'aquesta insígnia.
@@ -1685,6 +1676,7 @@ ca:
       public: La teva informació pública.
   errors:
     messages:
+      allowed_file_content_types: 'Només s''accepten arxius amb les següents extensions: %{types}'
       already_confirmed: ja s'ha confirmat, si us plau intenta iniciar la sessió
       confirmation_period_expired: s'ha de confirmar dins de %{period}, si us plau sol·licita'n un de nou
       content_type_allowlist_error: el tipus de fitxer no és vàlid
@@ -1702,7 +1694,7 @@ ca:
         other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
-      too_short: És massa curt (menys de 15 caràcters)
+      too_short: És massa curt (menys %{count} caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:

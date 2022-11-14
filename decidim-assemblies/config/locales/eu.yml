@@ -69,6 +69,12 @@ eu:
         email: Emaila
         name: izena
         role: Role
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
   activerecord:
     models:
       decidim/assembly:

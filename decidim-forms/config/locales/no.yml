@@ -125,8 +125,6 @@
       errors:
         answer:
           body: Teksten kan ikke være blank
-      files:
-        extension_allowlist: 'Aksepterte formater:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

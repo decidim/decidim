@@ -51,8 +51,6 @@ fi-pl:
         import_results:
           new:
             import: Tuo
-            info: "<p>Suosittelemme, että teet seuraavat toimenpiteet tässä järjestyksessä:</p><ol><li>Luo tulosten tilat (<a href='%{link_new_status}' target='_blank'>linkki</a>)</li><li>Luo vähintään yksi tulos manuaalisesti hallintapaneelin kautta (<a href='%{link_new_result}' target='_blank'>linkki</a>) ennen tuontia, ymmärtääksesi millaisessa muodossa tulosten tiedot tulee määrittää.</li><li>Vie tulokset CSV-tiedostoon (%{link_export_csv})</li><li>Tee muutokset tietokoneellasi. Voit ainoastaan muuttaa seuraavia asioita CSV-tiedoston kautta:</li></ol><ul><li><b>category/id:</b> Aihepiirin ID-numero</li><li><b>scope/id:</b> Teeman ID-numero</li><li><b>parent/id:</b> Isäntätuloksen ID-numero (toisiinsa liitetyille tuloksille, muille tyhjä). Valinnainen</li><li><b>title/I18N</b> Otsikko kielelle X</li><li><b>description/I18N:</b> Kuvaus kielelle X</li><li><b>start_date:</b> Päivämäärä, jolloin tuloksen toteuttaminen aloitetaan (muodossa YYYY-MM-DD)</li><li><b>end_date:</b> Päivämäärä, jolloin tuloksen toteuttaminen lopetetaan (muodossa YYYY-MM-DD)</li><li><b>status/id:</b> Tuloksen tilan ID-numero</li><li><b>progress:</b> Tuloksen toteutuksen tilan prosentuaalinen kuvaus (0-100)</li><li><b>proposal_ids:</b> Tulokseen liitettyjen ehdotusten ID-numerot (eroteltuna pilkulla). Muutetaan automaattisesti <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: linkki
             title: Tuo tulokset CSV-tiedostosta
         imports:
           create:

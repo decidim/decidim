@@ -11,6 +11,7 @@ fi:
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset
         instructions: Osallistumisohjeet
+        scope_id: Teema
         start_time: Alkamisaika
         title: Otsikko
         user_group_id: Luo keskustelu käyttäjänä

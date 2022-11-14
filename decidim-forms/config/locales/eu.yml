@@ -115,8 +115,6 @@ eu:
       errors:
         answer:
           body: Gorputza ezin da hutsik egon
-      files:
-        extension_allowlist: 'Onartutako formatuak:'
       images:
         dimensions: "%{width} x %{height} px"
       question_types:

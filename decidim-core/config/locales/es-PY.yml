@@ -823,6 +823,8 @@ es-PY:
         allowed_file_extensions: 'Formatos de archivo permitidos: %{extensions}'
         max_file_dimension: 'Medidas máximas de archivo: %{resolution} píxeles'
         max_file_size: 'Tamaño máximo del archivo: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Formatos aceptados: %{extensions}'
       upload:
         labels:
           add_attachment: Añadir adjunto
@@ -861,18 +863,6 @@ es-PY:
           how: Como puedes conseguirlo
           page_description: Los distintivos son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirlo diferentes distintivo. Aquí está la lista de distintivos y algunas formas en que puedes conseguirlas.
           title: Distintivos
-        invitations:
-          conditions:
-            - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
-            - Personaliza, si quieres, el mensaje que estás enviando.
-            - Supera este nivel enviando invitaciones y registrándolas.
-          description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
-          description_another: Este usuario ha invitado a %{score} usuarios.
-          description_own: Has invitado a %{score} usuarios.
-          name: Invitaciones
-          next_level_in: '¡Invita %{score} usuarios más a alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha invitado a ningún usuario.
-          unearned_own: No has invitado aún a ningún usuario.
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
@@ -1689,6 +1679,7 @@ es-PY:
       public: Tu información pública
   errors:
     messages:
+      allowed_file_content_types: 'Sólo se permiten archivos con las siguientes extensiones: %{types}'
       already_confirmed: ya fue confirmado, intente iniciar sesión
       confirmation_period_expired: necesita ser confirmado dentro de %{period}, por favor solicite uno nuevo
       content_type_allowlist_error: el tipo de archivo no es válido
@@ -1706,7 +1697,7 @@ es-PY:
         other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: está usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: es demasiado corto (menos de 15 caracteres)
+      too_short: Es demasiado corto (menos %{count} caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:

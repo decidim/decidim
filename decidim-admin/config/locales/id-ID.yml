@@ -502,6 +502,9 @@ id:
         new:
           create: Membuat
           title: Pengguna Pribadi Ruang Partisipatif Baru.
+      participatory_space_private_users_csv_imports:
+        create:
+          invalid: Ada kesalahan saat membaca file CSV.
       resource_permissions:
         edit:
           submit: Menyerahkan

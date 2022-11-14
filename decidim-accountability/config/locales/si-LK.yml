@@ -34,7 +34,6 @@ si:
         import_results:
           new:
             import: ආයාත කරන්න
-            link: සබැඳිය
         models:
           result:
             name: ප්‍රතිඵලය

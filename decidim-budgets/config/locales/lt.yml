@@ -95,11 +95,8 @@ lt:
             cancel: Atšaukti
             change_category: Keisti kategoriją
             change_scope: Keisti sritį
-            change_selected: Pakeisti pasirinkimą
-            deselect_implementation: Atžymėti
             finished_orders: Baigti balsavimai
             pending_orders: Balsai laukiantys patvirtinimo
-            select_for_implementation: Pasirinkti
             selected: Pasirinkta
             title: Projektai
             update: Atnaujinimas
@@ -121,10 +118,7 @@ lt:
             select_a_scope: Pasirinkite sritį
             success: 'Projektai sėkmingai atnaujinti %{subject_name} srityje: %{projects}.'
           update_selected:
-            invalid: 'Šie projektai jau buvo pasirinkti įgyvendinimui: %{projects}.'
             select_a_project: Pasirinkite projektą
-            select_a_selection: Prašau pasirinkite įgyvendinimo būseną
-            success: 'Projektų pasirinkimas sėkmingai pakeistas: %{projects}.'
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus į projektus kilo problema
