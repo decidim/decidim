@@ -19,7 +19,7 @@
 :uri-security: xref:SECURITY.adoc
 :uri-social-contract: http://www.decidim.org/contract/
 :uri-website: https://decidim.org
-:uri-yard-docs: http://rubydoc.info/github/decidim/decidim/master
+:uri-yard-docs: http://rubydoc.info/github/decidim/decidim/develop
 
 image:https://img.shields.io/gem/v/decidim.svg[Gem,link=https://rubygems.org/gems/decidim]
 image:https://img.shields.io/gem/dt/decidim.svg[Gem,link=https://rubygems.org/gems/decidim]
@@ -29,7 +29,7 @@ image:https://codecov.io/gh/decidim/decidim/branch/develop/graph/badge.svg[codec
 image:https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability[Maintainability,link=https://codeclimate.com/github/decidim/decidim/maintainability]
 image:https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg[Crowdin,link=https://crowdin.com/project/decidim]
 image:https://opencollective.com/decidim/tiers/badge.svg[https://opencollective.com/decidim]
-image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/master]
+image:http://img.shields.io/badge/yard-docs-blue.svg[Yard Docs,link=http://rubydoc.info/github/decidim/decidim/develop]
 
 ++++
 <p align="center">
