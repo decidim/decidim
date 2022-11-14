@@ -106,7 +106,7 @@ See https://decidim.org/modules[Modules page on Decidim.org].
 
 === Authorizations Strategies
 
-One specific thing regarding these kind of applications is the authorization or verification logic. This tries to solve the problem of how to verify that the user is who they say they are and that they have the right to participate in this city or organization. Read more about https://docs.decidim.org/en/customize/authorizations/[Authorizations] in our documentation.
+One specific thing regarding these kind of applications is how you manage the permissions that the participants will have in the platform (aka the authorization or verification logic). This tries to solve the problem of how to verify that the user is who they say they are and that they have the right to participate in this city or organization. Read more about {uri-docs-authorizations}[Authorizations] in our documentation.
 
 == Following our license
 
