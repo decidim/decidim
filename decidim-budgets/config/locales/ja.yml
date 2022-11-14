@@ -91,11 +91,11 @@ ja:
             cancel: キャンセル
             change_category: カテゴリの変更
             change_scope: スコープの変更
-            change_selected: 選択した項目を変更
-            deselect_implementation: 選択解除
+            change_selected: 選択した状態を変更
+            deselect_implementation: 実装から選択解除
             finished_orders: 完了した投票
             pending_orders: 保留中の投票
-            select_for_implementation: 選択
+            select_for_implementation: 実装のために選択
             selected: 選択済
             title: プロジェクト
             update: 更新
@@ -117,10 +117,14 @@ ja:
             select_a_scope: スコープを選択してください
             success: 'プロジェクトは %{subject_name} スコープに正常に更新されました: %{projects}'
           update_selected:
-            invalid: 'これらのプロジェクトは既に選択されています: %{projects}'
+            invalid:
+              selected: 'これらのプロジェクトはすでに実装のために選択されています: %{projects}。'
+              unselected: 'これらのプロジェクトは既に実装から選択解除されています: %{projects}。'
             select_a_project: プロジェクトを選択してください
-            select_a_selection: 選択してください
-            success: 'プロジェクトの選択が変更されました: %{projects}.'
+            select_a_selection: 実装の状態を選択してください
+            success:
+              selected: 'これらのプロジェクトは、実装のために正常に選択されました: %{projects}。'
+              unselected: 'これらのプロジェクトは、実装から正常に選択解除されました: %{projects}。'
         proposals_imports:
           create:
             invalid: 提案をプロジェクトにインポートする際に問題が発生しました
@@ -170,7 +174,7 @@ ja:
         vote: 投票
         voted_on: '%{links} に投票しました'
       last_activity:
-        new_vote_at_html: "<span> %{link} での新しい予算投票</span>"
+        new_vote_at: 新しい予算投票日時
       limit_announcement:
         cant_vote: この予算に投票することはできません。 <a href="%{landing_path}">別の予算を試してみてください</a>。
         limit_reached: '%{links} に有効な投票があります。この予算に投票するには、 <a href="%{landing_path}">投票を削除し、</a> やり直す必要があります。'
@@ -256,6 +260,8 @@ ja:
           filter: フィルター
           filter_by: フィルター
           unfold: 展開する
+        index:
+          view_project: プロジェクトを表示
         order_progress:
           vote: 投票
         order_selected_projects:
@@ -310,6 +316,7 @@ ja:
               errors:
                 budget_voting_rule_only_one: 1つの投票ルールを有効にする必要があります
                 budget_voting_rule_required: 1つの投票ルールが必要です
+            geocoding_enabled: ジオコーディングを有効にする
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
             projects_per_page: ページあたりのプロジェクト数

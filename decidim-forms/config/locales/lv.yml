@@ -65,8 +65,6 @@ lv:
       errors:
         answer:
           body: Pamatteksts nevar būt tukšs
-      files:
-        extension_allowlist: 'Pieņemtie formāti:'
       images:
         dimensions: "%{width} x %{height} pikseļi"
       question_types:

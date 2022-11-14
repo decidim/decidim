@@ -383,7 +383,7 @@ pl:
         invite_join_conference_mailer:
           invite:
             decline: Odrzuć zaproszenie "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} zaprosił(a) Cię do udziału w konferencji %{application}. Możesz odrzucić lub zaakceptować zaproszenie korzystając z poniższych linków."
+            invited_existing_user_to_join_a_conference: "%{invited_by} zaprosił(a) Cię do udziału w konferencji %{application}. Możesz odrzucić lub zaakceptować zaproszenie korzystając z poniższych linków."
             registration: Rejestracja na "%{conference_title}"
         partners:
           index:

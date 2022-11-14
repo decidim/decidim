@@ -243,13 +243,17 @@ es:
             success: La pregunta se ha actualizado correctamente
         steps:
           create_election:
+            census: Censo
             errors:
+              census_codes_generated: Los códigos de acceso al censo no se han podido generar.
+              census_frozen: Los códigos de acceso al censo no se han podido exportar.
+              census_uploaded: No se ha subido ningún censo para esta elección.
               component_published: La elección <strong>no está publicada</strong>.
               max_selections: Las preguntas no tienen un valor <strong>correcto para la cantidad de respuestas</strong>
               minimum_answers: Las preguntas deben tener <strong>al menos dos respuestas</strong>.
               minimum_questions: La elección <strong>debe tener al menos una pregunta</strong>.
               published: La elección <strong>no está publicada</strong>.
-              time_before: La hora de inicio está en <strong>menos de %{hours} horas</strong> antes de que comience la elección.
+              time_before: Se ha configurado la hora de inicio en <strong>menos de %{hours} horas</strong> antes de que comience la elección.
               trustees_number: El espacio participativo <strong>debe tener al menos %{number} garantes con clave pública</strong>.
             invalid: Hubo un problema al configurar esta elección
             no_trustees: No hay garantes configurados para este espacio participativo
@@ -258,6 +262,9 @@ es:
               'false': no tiene una <strong>clave pública</strong>
               'true': tiene una <strong> clave pública</strong>
             requirements:
+              census_codes_generated: Se han generador los códigos de acceso al censo.
+              census_frozen: Se han exportado los códgos para el censo y el censo ha quedado congelado.
+              census_uploaded: El censo está subido.
               component_published: La elección está <strong>publicada</strong>.
               max_selections: Todas las preguntas tienen un valor correcto para <strong>máximo de respuestas</strong>.
               minimum_answers: Cada pregunta tiene <strong>al menos 2 respuestas</strong>.
@@ -371,6 +378,13 @@ es:
           update: "%{user_name} actualizó la elección %{resource_name} de %{space_name}"
         trustee:
           create: "%{user_name} asignó al usuario %{trustee_user} como garante"
+      connection:
+        failed:
+          modal:
+            close: Cerrar
+            communication_lost: Desafortunadamente, parece que la comunicación con el servidor de votación (Bulletin Board) se ha perdido.<br>Puede ser que la conexión a Internet esté averiada o que el servidor de destino esté demasiado ocupado.<br>Puedes intentarlo más tarde o ponerte en contacto con el servicio de asistencia si este problema persiste.
+            generic_error: Desafortunadamente, se ha producido un error desconocido. Es probable que tu navegador no esté soportado o que estés usando el modo "incógnito" o "privado" que no es compatible.
+            title: Algo salió mal
       election_m:
         badge_name:
           finished: Finalizada
@@ -651,10 +665,6 @@ es:
         failed:
           header: Voto fallido
           lead: '¡Tu voto no ha sido emitido!'
-          modal:
-            close: Cerrar
-            communication_lost: Desafortunadamente, parece que la comunicación con el servidor de votación (Bulletin Board) se ha perdido.<br>Puede ser que la conexión a Internet esté averiada o que el servidor de destino esté demasiado ocupado.<br>Puedes intentarlo más tarde o ponerte en contacto con el servicio de asistencia si este problema persiste.
-            title: Algo salió mal
           text: Algo salió mal, por favor inténtalo de nuevo.
           try_again: Inténtalo de nuevo
         header:
@@ -1066,7 +1076,7 @@ es:
               invalid: Se ha producido un error al subir el censo, por favor inténtalo de nuevo más tarde.
               invalid_csv_header: Los encabezados CSV faltan o no son correctos - por favor lee las instrucciones cuidadosamente
             creating_data:
-              info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file}."
+              info_message: "<strong>Por favor espera</strong>, procesadas %{processed_count} de %{raw_count} filas del fichero %{file} (esto puede tardar algunos minutos)."
             delete:
               button: Borrar todos los datos del censo
               confirm: Eliminar todo el censo no se puede deshacer. ¿Seguro que quieres continuar?
@@ -1081,9 +1091,12 @@ es:
               launch_error: Problema al iniciar la exportación de códigos de acceso
               launch_success: Se ha iniciado la exportación de los códigos de acceso. En breve recibirás un correo en %{email}
             exporting_access_codes:
-              info_message: "<strong>Por favor, espera</strong>, se está preparando la exportación. La recibirás en breve en %{email}"
+              info_message: "<strong>Por favor, espera</strong>, se está preparando la exportación, la recibirás en breve en %{email} (esto puede tardar unos minutos)."
             freeze:
               callout: El censo está cerrado y no se puede modificar.
+              help_html: |
+                Los datos del censo Se han subido correctamente, los códigos se han generado y exportado con éxito.<br><strong>Ahora estás lista para comenzar la elección.</strong><br>
+                Utiliza el CSV exportado, que incluye los códigos individuales para distribuirlo al censo utilizando tus propios medios, o active la pestaña "¿Puedo votar?", para permitir que cualquiera recupere este código usando sus propios datos de censales.
             generate_access_codes:
               button: Generar códigos de acceso de la votación
               callout: Ahora puedes generar los códigos de acceso. Ten en cuenta que después de generarlos ya no podrás modificar más el censo.
@@ -1092,8 +1105,9 @@ es:
               info_message_warn: Por favor, comprueba que no falten datos, ya que se han creado %{data_count} registros, pero el fichero que se ha subido (%{file}) tenía %{raw_count} filas.
               launch_error: Ha habido un problema al generar los códigos de acceso
               launch_success: Se ha iniciado la generación de códigos.
+              start_over: Por favor, elimine el censo actual y vuelva a empezar con un archivo CSV apropiado con filas válidas.
             generating_access_codes:
-              info_message: "<strong>Por favor espera</strong>, se están generando los códigos de acceso a la votación..."
+              info_message: "<strong>Por favor<</strong>, los códigos de acceso a la votación se están generando (esto puede tardar unos minutos)..."
             new:
               file_help:
                 explanation: 'Instrucciones para el archivo:'
