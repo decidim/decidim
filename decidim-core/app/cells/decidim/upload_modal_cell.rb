@@ -164,6 +164,7 @@ module Decidim
     def determine_filename(attachment)
       return attachment.filename.to_s if attachment.is_a? ActiveStorage::Blob
       return blob(attachment).filename.to_s if blob(attachment).present?
+      return attachment.original_filename.to_s.presence || attachhment.path.split("/").last if attachment.is_a? ActionDispatch::Http::UploadedFile
 
       attachment.url.split("/").last
     end
