@@ -15,6 +15,38 @@
     @apply container mt-6;
   }
 
+  &__content-block{
+    @apply grid grid-cols-1 md:grid-cols-4 [&>*]:col-span-1;
+
+    & > :first-child{
+      @apply md:col-span-2 lg:col-span-3 md:[&+*]:col-span-2 lg:[&+*]:col-span-1;
+    }
+
+    & > :last-child{
+      @apply md:col-span-4;
+    }
+  }
+
+  &__nav{
+    @apply divide-y divide-white [&>li]:py-3.5 first:[&>li]:pt-0 last:[&>li]:pb-0;
+
+    &-container{
+      @apply ml-0 md:ml-6 bg-primary p-3 md:p-6 rounded w-full md:w-auto self-stretch;
+
+      [id*="dropdown-menu"]{
+        @apply mx-0;
+      }
+
+      [data-target*="dropdown"]{
+        @apply p-0 [&>span]:text-white [&>svg]:text-white;
+      }
+    }
+
+    &-item{
+      @apply flex items-center gap-1 text-white font-semibold hover:underline [&>svg]:fill-current;
+    }
+  }
+
   &__metadata{
     @apply border-t-0 md:border-t border-background py-6 flex flex-col md:flex-row items-start gap-8 md:gap-0;
 

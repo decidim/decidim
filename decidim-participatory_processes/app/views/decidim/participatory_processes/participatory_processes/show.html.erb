@@ -24,22 +24,34 @@
 
   <%= cell("decidim/announcement", current_participatory_space.announcement) %>
 
-  <section class="content-block">
-    <h2 class="h2 decorator"><%= t(".title") %></h2>
+  <section class="content-block process__content-block">
+    <div>
+      <h2 class="h2 decorator"><%= t(".title") %></h2>
 
-    <div class="content-block__description">
-      <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
+      <div class="content-block__description">
+        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
+      </div>
+
+      <%= link_to "#", class: "button button__lg button__text-secondary" do %>
+        <span><%= t("more_info", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
+        <%= icon "arrow-right-line" %>
+      <% end %>
+      <%#= REDESIGN_PENDING: Move this where the link points to (new view) %>
+      <%#= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
     </div>
 
-    <%= link_to "#", class: "button button__lg button__text-secondary" do %>
-      <span><%= t("more_info", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-      <%= icon "arrow-right-line" %>
-    <% end %>
-    <%#= REDESIGN_PENDING: Move this where the link points to (new view) %>
-    <%#= decidim_sanitize_editor translated_attribute(current_participatory_space.description) %>
+    <div class="process__nav-container">
+      <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+        <span><%= t("decidim.searches.filters.jump_to") %></span>
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+      </button>
+      <ul id="dropdown-menu" class="process__nav">
+        <%= render partial: "layouts/decidim/process_nav_item", collection: process_nav_items, as: :item %>
+      </ul>
+    </div>
 
     <%= render partial: "metadata" %>
-
   </section>
 
   <section class="content-block">

@@ -67,6 +67,27 @@ module Decidim
 
         render partial: name, locals: { name => promoted_item }.symbolize_keys
       end
+
+            # Items to display in the navigation of a process
+      #
+      def process_nav_items
+        components = current_participatory_space.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
+
+        [
+          {
+            name: t("process_menu_item", scope: "layouts.decidim.process_navigation"),
+            url: decidim_participatory_processes.participatory_process_path(current_participatory_space),
+            active: is_active_link?(decidim_participatory_processes.participatory_process_path(current_participatory_space), :exclusive) ||
+                    is_active_link?(decidim_participatory_processes.all_metrics_participatory_process_path(current_participatory_space), :exclusive)
+          }
+        ] + components.map do |component|
+          {
+            name: translated_attribute(component.name),
+            url: main_component_path(component),
+            active: is_active_link?(main_component_path(component), :inclusive)
+          }
+        end
+      end
     end
   end
 end
