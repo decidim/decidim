@@ -5,23 +5,6 @@
     @apply text-lg prose max-w-2xl;
   }
 
-  &__2col{
-    @apply grid grid-cols-9 gap-x-4 place-items-start space-y-0;
-
-    > :nth-child(3n + 1),
-    > :nth-child(3n + 2){
-      @apply col-span-9 md:col-span-6;
-    }
-
-    > :nth-child(3n){
-      @apply col-span-9 md:col-span-3 row-span-2 md:order-2 justify-self-center flex flex-col gap-2 max-w-full overflow-x-auto;
-    }
-
-    > :nth-child(3n + 2){
-      @apply md:order-3;
-    }
-  }
-
   & + &{
     @apply border-t-2 border-background;
   }
