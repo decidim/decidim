@@ -5,8 +5,11 @@ module Decidim
     # This cell renders metadata for an instance of a Meeting
     class MeetingCardMetadataCell < Decidim::CardMetadataCell
       include Decidim::LayoutHelper
+      include ActionView::Helpers::DateHelper
 
       alias meeting model
+
+      delegate :type_of_meeting, :start_time, :end_time, to: :meeting
 
       def initialize(*)
         super
@@ -21,16 +24,17 @@ module Decidim
       end
 
       def type
-        type = meeting.type_of_meeting
         {
-          text: t(type, scope: "decidim.meetings.meetings.filters.type_values"),
-          icon: resource_type_icon_key(type)
+          text: t(type_of_meeting, scope: "decidim.meetings.meetings.filters.type_values"),
+          icon: resource_type_icon_key(type_of_meeting)
         }
       end
 
       def duration
+        return if [start_time, end_time].any?(&:blank?)
+
         {
-          text: "2h",
+          text: distance_of_time_in_words(start_time, end_time, scope: "datetime.distance_in_words.short"),
           icon: "time-line"
         }
       end

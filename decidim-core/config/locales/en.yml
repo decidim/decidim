@@ -103,6 +103,19 @@ en:
       less_than_x_seconds:
         one: right now
         other: less than %{count} sec.
+      short:
+        about_x_hours: "%{count}h"
+        about_x_months: "%{count} mon."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count}m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count}m"
+        x_seconds: "%{count}s"
       x_days:
         one: 1 day ago
         other: "%{count} days ago"
