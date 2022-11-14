@@ -1531,15 +1531,6 @@ ja:
       updated_not_active: パスワードが正常に変更されました。
     registrations:
       destroyed: お客様のアカウントは正常にキャンセルされました。しばらくお待ちください。
-      edit:
-        are_you_sure: よろしいですか？
-        cancel_my_account: アカウントをキャンセルする
-        currently_waiting_confirmation_for_email: '現在確認待ち: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 変更したくない場合は空白のままにしてください
-        title: '%{resource} を編集'
-        unhappy: 不満？
-        update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 変更を確認するには現在のパスワードが必要です
       new:
         sign_up: 新規登録
       signed_up: ようこそ！正常に登録完了しました。
@@ -1592,7 +1583,7 @@ ja:
         other: 'リクエストの処理中に複数のエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
-      too_short: 短すぎます（15文字未満）
+      too_short: は短すぎます( %{count} 文字以下)
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
     length_validator:

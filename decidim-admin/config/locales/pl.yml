@@ -184,7 +184,6 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
-          accept: Zgadzam się z warunkami użytkowania
           are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
@@ -1046,6 +1045,7 @@ pl:
         moderation:
           fields:
             created_at: Data utworzenia
+            deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba

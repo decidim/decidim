@@ -402,8 +402,21 @@ es:
           proposals: Propuestas
         imports:
           help:
-            answers: 'El documento de importación debe contener las siguientes columnas: id, estado (aceptado, evaluación, rechazado), respuesta/es (y otros idiomas habilitados por la organización).'
-            proposals: El archivo debe incluir los nombres de columna title/en y body/en (u otro idioma de tu preferencia, por ejemplo title/es y body/es). También se admiten las columnas scope/id y category/id.
+            answers: |
+              El documento de importación debe contener los siguientes nombres de columna en caso de archivos CSV o Excel. o nombres de claves en caso de archivos JSON:
+              <ul>
+              <li><b>id:</b> ID de la propuesta a responder</li>
+              <li>estado<b>:</b> Uno de estos "aceptada", "en evaluación" o "rechazada"</li>
+              <li><b>respuesta/en:</b> Respuesta en idioma inglés. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
+              </ul>
+            proposals: |
+              El documento de importación debe contener los siguientes nombres de columna en caso de archivos CSV o Excel. o nombres de claves en caso de archivos JSON:
+              <ul>
+              <li><b>title/es:</b> Título en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
+              <li><b>body/en:</b> Descripció en castellano. Esto dependerá de la configuración de idioma predeterminado de tu plataforma.</li>
+              <li><b>scope/id:</b> ID de l'Ámbito</li>
+              <li><b>category/id:</b> ID de la Categoria</li>
+              </ul>
           label:
             answers: Importar respuestas desde un archivo
             proposals: Importar propuestas desde un archivo
@@ -636,7 +649,7 @@ es:
             one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
-          error: Se ha producido un error al crear este borrador colaborativo
+          error: Se ha producido un error al crear este borrador colaborativo.
           success: Borrador colaborativo creado correctamente.
         edit:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"

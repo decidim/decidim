@@ -45,8 +45,6 @@ lv:
         import_results:
           new:
             import: Importēt
-            info: "<p>Mēs iesakām veikt šādas darbības:</p><ol><li>izveidojiet statusu rezultātiem, ko vēlaties pievienot (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Pirms importēšanas manuāli izveidojiet vismaz vienu rezultātu, izmantojot šo administratora paneli, (<a href='%{link_new_result}' target='_blank'>link</a>) lai labāk izprastu formātu un to, kas būs jāaizpilda.</li><li>Lejupielādējiet formātā Eksportēt ar CSV (%{link_export_csv})</li><li>Veiciet lokālas izmaiņas. Jūs varat mainīt tikai šādas CSV kolonnas:</li></ol><ul><li><b>category/id:</b> Kategorijas ID</li><li><b>scope/id:</b> Tvēruma ID</li><li><b>parent/id:</b> Saistītais ID (saistītajiem rezultātiem). Pēc izvēles:</li><li><b>title/I18N:</b> Virsraksts X valodā</li><li><b>description/I18N:</b> Apraksts X valodā</li><li><b>start_date:</b> datums, kurā uzsākta rezultāta izpilde (formāts GGGG-MM-DD)</li><li><b>end_date:</b> datums, kurā beidzas rezultāta izpilde (formāts GGGG-MM-DD)</li><li><b>status/id:</b> šī rezultāta statusa ID</li><li><b>progress:</b> Izpildes līmenis procentos (no 0 līdz 100)</li><li><b>proposals_ids:</b> saistīto priekšlikumu iekšējais ID (atdalīts ar komatu). Tas tiek automātiski konvertēts uz <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: saite
             title: Importēt rezultātus no CSV
         imports:
           create:

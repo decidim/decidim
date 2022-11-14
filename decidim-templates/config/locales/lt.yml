@@ -24,7 +24,6 @@ lt:
           success: Šablonas ištrintas sėkmingai
         empty: Dar nėra šablonų.
         update:
-          error: Atnaujinant šį šabloną kilo problema.
           success: Šablonas atnaujintas sėkmingai
       titles:
         template_types:

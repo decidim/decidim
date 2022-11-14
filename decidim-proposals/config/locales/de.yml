@@ -288,7 +288,6 @@ de:
           affected_user:
             email_intro: 'Ihr Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Autor von "%{resource_title}" sind.
-            email_subject: Ihr Vorschlag wurde abgelehnt
             notification_title: Ihr Vorschlag <a href="%{resource_path}">%{resource_title}</a> wurde abgelehnt.
           follower:
             email_intro: 'Der Vorschlag "%{resource_title}" wurde abgelehnt. Sie können die Antwort auf dieser Seite lesen:'
@@ -607,7 +606,6 @@ de:
             one: "%{count} kollaborativer Entwurf"
             other: "%{count} kollaborativer Entwurf"
         create:
-          error: Beim Erstellen dieser kollaborativen Entwürfe ist ein Problem aufgetreten
           success: Collaborative Draft wurde erfolgreich erstellt.
         edit:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"

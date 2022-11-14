@@ -179,7 +179,6 @@ lb:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
-          accept: Ich stimme den folgenden Bedingungen zu
           are_you_sure: Sidd Dir sécher datt Dir d'Admin Benotzungsconditioune wëllt refuséieren? Sidd Dir sécher datt Dir d'Admin Notzungsbedéngunge refuséiere wëllt?
           refuse: Die Admin-Nutzungsbedingungen ablehnen
           title: Den Admin-Nutzungsbedingungen zustimmen

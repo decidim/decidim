@@ -1526,15 +1526,6 @@ ro:
       updated_not_active: Parola dvs. a fost schimbată cu succes.
     registrations:
       destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
-      edit:
-        are_you_sure: Sigur dorești asta?
-        cancel_my_account: Anulează contul meu
-        currently_waiting_confirmation_for_email: 'În prezent se așteaptă confirmarea pentru: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lasă necompletat dacă nu vrei să-l schimbi
-        title: Editează %{resource}
-        unhappy: Nefericit?
-        update: Actualizare
-        we_need_your_current_password_to_confirm_your_changes: avem nevoie de parola curentă pentru a confirma modificările
       new:
         sign_up: Înscrie-te
       signed_up: Bine ați venit! V-ați înregistrat cu succes.
@@ -1591,7 +1582,6 @@ ro:
         other: 'Au existat mai multe erori la procesarea cererii dvs.:'
       too_many_marks: folosește prea multe semne consecutive de punctuație (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
-      too_short: este prea scurt (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
     length_validator:

@@ -222,6 +222,8 @@ eu:
         steps:
           create_election:
             errors:
+              census_codes_generated: Erroldarako sarbide kodeak ez dira sortu.
+              census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
               max_selections: Galderek ez dute <strong>balio zuzenik </strong> galdera kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
@@ -234,6 +236,8 @@ eu:
               'false': ez du <strong>gako publikorik</strong>
               'true': badu <strong> gako publiko bat </strong>
             requirements:
+              census_codes_generated: Sortu dira erroldarako sarbide kodeak.
+              census_frozen: Erroldarako sarbide kodeak esportatu dira eta errolda izoztu da.
               max_selections: Erantzun guztiek balio zuzena dute honetarako <strong>erantzun gehien</strong>.
               minimum_answers: Galdera bakoitzak badu <strong>gutxienez 2 erantzun</strong>.
               minimum_questions: Aukerak badu <strong>gutxienez galdera 1</strong>.

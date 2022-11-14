@@ -1487,15 +1487,6 @@ lb:
       updated_not_active: Däin Passwuert ass geännert.
     registrations:
       destroyed: Däin Kont gouf zou gemaach. Mir hoffen dech geschwënn erëm ze gesinn.
-      edit:
-        are_you_sure: Bass du sécher?
-        cancel_my_account: Kont erstellen ofbriechen
-        currently_waiting_confirmation_for_email: 'Op Bestätegung waarden fir: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: net ausfëllen wann s'de keng Ännerung wëlls
-        title: Änneren %{resource}
-        unhappy: Net zefridden?
-        update: Aktualiséierung
-        we_need_your_current_password_to_confirm_your_changes: mir brauchen en aktuellt Passwuert fir deng Ännerungen ze bestätegen
       new:
         sign_up: Registréieren
       signed_up: Wëllkomm, du bass elo registréiert.
@@ -1550,7 +1541,6 @@ lb:
         other: 'Bei denger Ufro sin e puer Feeler opgetrueden:'
       too_many_marks: benotzt ze vill Sazzeechen (zB! und?)
       too_much_caps: benotzt ze vill Groussbuschtawen (über 25% des Textes)
-      too_short: ze kuerz (ënner 15 Zeechen)
   forms:
     correct_errors: Et sinn Feeler um Formular, w. e. g. virum weiderfueren verbesseren.
     length_validator:

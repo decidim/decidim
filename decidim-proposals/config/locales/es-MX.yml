@@ -308,7 +308,7 @@ es-MX:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
             email_outro: Has recibido esta notificación porque eres autor de "%{resource_title}".
-            email_subject: Su propuesta ha sido rechazada
+            email_subject: Tu propuesta ha sido rechazada
             notification_title: Su propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
           follower:
             email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
@@ -401,9 +401,6 @@ es-MX:
           proposal_comments: Comentarios
           proposals: Propuestas
         imports:
-          help:
-            answers: 'El documento de importación debe contener las siguientes columnas: id, estado (aceptado, evaluación, rechazado), respuesta/es (y otros idiomas habilitados por la organización).'
-            proposals: El archivo debe incluir los nombres de columna title/en y body/en (u otro idioma de tu preferencia, por ejemplo title/es y body/es). También se admiten las columnas scope/id y category/id.
           label:
             answers: Importar respuestas desde un archivo
             proposals: Importar propuestas desde un archivo
@@ -636,7 +633,7 @@ es-MX:
             one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
-          error: Ha habido un problema al crear este borradores colaborativo
+          error: Se ha producido un error al crear este borrador colaborativo.
           success: Borrador colaborativo creado con éxito.
         edit:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"

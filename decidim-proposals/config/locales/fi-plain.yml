@@ -401,9 +401,6 @@ fi-pl:
           proposal_comments: Kommentit
           proposals: Ehdotukset
         imports:
-          help:
-            answers: 'Tuontitiedostossa on oltava sarakenimet id, state tilalle (accepted, evaluating, rejected), answer/fi vastaukselle (sekä muihin kieliin viittaavat sarakenimet, kuten answer/en).'
-            proposals: Tuontitiedostossa on oltava sarakenimet title/fi otsikolle ja body/fi kuvaustekstille (sekä muihin kieliin viittaavat sarakenimet, kuten title/en ja body/en). Tuettuja sarakkeita ovat myös scope/id (teemalle) ja category/id (aihepiirille).
           label:
             answers: Tuo vastaukset tiedostosta
             proposals: Tuo ehdotuksia tiedostosta
@@ -636,7 +633,7 @@ fi-pl:
             one: "%{count} yhteistyöluonnos"
             other: "%{count} yhteistyöluonnosta"
         create:
-          error: Tämän yhteistyöluonnoksen luomisessa on esiintynyt ongelma
+          error: Yhteistyöluonnoksen luominen epäonnistui.
           success: Yhteistyöluonnos luotu onnistuneesti.
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"

@@ -180,7 +180,7 @@ eu:
           error: Errorea gertatu da Administrazioaren Gaiak eta Baldintzak onartzean.
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
-          accept: Ados nago ondoko gai hauekin
+          accept: Ados nago
           are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
           refuse: Ez onartu Administrazio-irizpideak eta baldintzak
           title: Onartzen ditut Administrazio-irizpideak eta baldintzak
@@ -810,7 +810,7 @@ eu:
           title: Erabiltzaile pribatuaren parte hartzailea.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Errorea gertatu da CSV artxiboa irakurtzean.
+          invalid: Errore bat gertatu da CSV fitxategia irakurtzean.
           success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Horrek denbora behar du.
         new:
           explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu, artxiboaren lehen zutabean eremu parte-hartzailera gehitu nahi dituzun erabiltzaileen posta elektronikoa, eta izena azken zutabean (posta elektronikoa, izena), goibururik gabe. Ez erabili balio ez duten karaktererik erabiltzaile-izenean, hala nola: `<>?%&^*#@()[]=+:;"{}\|`.'

@@ -2,6 +2,7 @@ fr:
   activemodel:
     attributes:
       initiative:
+        area_id: Périmètre d'assemblée
         decidim_user_group_id: Auteur
         description: Description
         offline_votes: Votes en présentiel
@@ -32,6 +33,7 @@ fr:
         online_signature_enabled: Signature en ligne activée
         only_global_scope_enabled: Autoriser uniquement la création de pétitions de portée globale
         promoting_committee_enabled: Activer les comités de promotion sur ce type de pétition (témoin.s dont l'invitation par l'auteur est obligatoire pour la validation de la pétition si cette fonctionnalité est activée)
+        signature_type: Type de signature
         title: Titre
         undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
         validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature

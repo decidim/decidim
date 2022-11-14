@@ -1446,15 +1446,6 @@ tr:
       updated_not_active: Şifreniz başarıyla değiştirildi.
     registrations:
       destroyed: Hoşçakal! Hesabınız başarıyla iptal edildi. Kısa süre sonra tekrar görmeyi umuyoruz.
-      edit:
-        are_you_sure: Emin misiniz?
-        cancel_my_account: Hesabımı iptal et
-        currently_waiting_confirmation_for_email: 'Şu an için bekleme onayı: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: değiştirmek istemiyorsanız boş bırakın
-        title: '%{resource}düzenle'
-        unhappy: Mutsuz?
-        update: Güncelleştirme
-        we_need_your_current_password_to_confirm_your_changes: değişikliklerinizi onaylamak için mevcut şifrenize ihtiyacımız var
       new:
         sign_up: kaydol
       signed_up: Hoşgeldiniz! Başarıyla kaydoldunuz.
@@ -1509,7 +1500,6 @@ tr:
         other: 'İsteğinizi işlerken birden çok hata oluştu:'
       too_many_marks: çok fazla ardışık noktalama işareti kullanıyor (örneğin! ve?)
       too_much_caps: çok fazla büyük harf kullanıyor (metnin% 25'inden fazlası)
-      too_short: çok kısa (15 karakterin altında)
   forms:
     correct_errors: Aşağıdaki formda hatalar oluştu, Devam etmek için lütfen bunları düzeltin.
     required: gereklidir

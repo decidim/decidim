@@ -1548,15 +1548,6 @@ es-PY:
       updated_not_active: Tu contraseña ha sido cambiada exitosamente.
     registrations:
       destroyed: '¡Adiós! Su cuenta ha sido cancelada exitosamente. Esperamos volver a verte pronto.'
-      edit:
-        are_you_sure: '¿Estás seguro?'
-        cancel_my_account: Cancelar mi cuenta
-        currently_waiting_confirmation_for_email: 'En espera de confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: déjelo en blanco si no quiere cambiarlo
-        title: Editar %{resource}
-        unhappy: '¿Infeliz?'
-        update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: necesitamos su contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
       signed_up: '¡Bienvenido! Usted se ha registrado exitosamente.'
@@ -1611,7 +1602,7 @@ es-PY:
         other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: está usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: es demasiado corto (menos de 15 caracteres)
+      too_short: Es demasiado corto (menos %{count} caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:

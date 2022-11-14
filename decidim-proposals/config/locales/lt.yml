@@ -316,7 +316,6 @@ lt:
           affected_user:
             email_intro: 'Jūsų pasiūlymas „%{resource_title}“ atmestas. Atsakymą galite perskaityti šiame puslapyje:'
             email_outro: Šį pranešimą gavote dėl to, kad esate „%{resource_title}“ autorius.
-            email_subject: Jūsų pasiūlymas atmestas
             notification_title: Jūsų pasiūlymas <a href="%{resource_path}">%{resource_title}</a> atmestas.
           follower:
             email_intro: 'Pasiūlymas „%{resource_title}“ atmestas. Atsakymą galite perskaityti šiame puslapyje:'
@@ -409,9 +408,6 @@ lt:
           proposal_comments: Komentarai
           proposals: Pasiūlymai
         imports:
-          help:
-            answers: 'Importavimo dokumente turi būti šie stulpeliai: Id, būsena (priimta, vertinama, atmesta), atsakymas/lt (ir kitos organizacijos įjungtos kalbos).'
-            proposals: Failas turi turėti stulpelių pavadinimus title/lt ir body/lt (arba kitą pageidaujamą lokalę, pvz., title/en ir body/en). Taip pat palaikomi scope/id ir category/id stulpeliai.
           label:
             answers: Importuoti atsakymus iš failo
             proposals: Importuoti pasiūlymus iš failo
@@ -652,7 +648,6 @@ lt:
             many: "%{count} bendri projektai"
             other: "%{count} bendri projektai"
         create:
-          error: Kuriant šį bendrąjį juodraštį iškilo problema
           success: Bendrasis juodraštis sukurtas.
         edit:
           attachment_legend: "(Neprivaloma) Pridėti priedą"

@@ -1216,15 +1216,6 @@ sk:
       updated_not_active: Vaše heslo bolo úspešne zmenené.
     registrations:
       destroyed: Zbohom! Váš účet bol úspešne zrušený. Dúfame, že vás čoskoro uvidíme.
-      edit:
-        are_you_sure: Ste si istí?
-        cancel_my_account: Zrušiť môj účet
-        currently_waiting_confirmation_for_email: 'Aktuálne čaká potvrdenie o:%{email}'
-        leave_blank_if_you_don_t_want_to_change_it: ponechajte prázdne, ak nechcete zmeniť
-        title: Upraviť%{resource}
-        unhappy: Nespokojný?
-        update: Aktualizácia
-        we_need_your_current_password_to_confirm_your_changes: pre potvrdenie zmien potrebujeme vaše aktuálne heslo
       new:
         sign_up: Prihlásiť sa
       signed_up: Vitajte! Úspešne ste sa zaregistrovali.
@@ -1283,7 +1274,6 @@ sk:
         other: 'Pri spracovaní vašej požiadavky došlo k nejakým chybám:'
       too_many_marks: používa príliš veľa po sebe idúcich interpunkčných znamienok (napr.! a?)
       too_much_caps: používa príliš veľa veľkých písmen (viac ako 25% textu)
-      too_short: je príliš krátka (pod 15 znakov)
   forms:
     required: Povinný
   invisible_captcha:

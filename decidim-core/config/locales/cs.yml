@@ -27,7 +27,7 @@ cs:
         nickname: Přezdívka
         password: Heslo
         password_confirmation: Potvrzení hesla
-        personal_url: Osobní adresa URL
+        personal_url: Osobní URL
         remove_avatar: Odstranit avatara
     models:
       decidim/attachment_created_event: Příloha
@@ -1586,15 +1586,6 @@ cs:
       updated_not_active: Vaše heslo bylo úspěšně změněno.
     registrations:
       destroyed: Sbohem! Váš účet byl úspěšně zrušen. Doufáme, že vás brzy uvidíme.
-      edit:
-        are_you_sure: Jste si jisti?
-        cancel_my_account: Zrušit můj účet
-        currently_waiting_confirmation_for_email: 'Aktuálně čeká potvrzení o: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: ponechte prázdné, pokud nechcete změnit
-        title: Upravit %{resource}
-        unhappy: Nešťastný?
-        update: Aktualizace
-        we_need_your_current_password_to_confirm_your_changes: pro potvrzení změn potřebujeme vaše aktuální heslo
       new:
         sign_up: Přihlásit se
       signed_up: Vítejte! Úspěšně jste se zaregistrovali.
@@ -1653,7 +1644,7 @@ cs:
         other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
-      too_short: je příliš krátká (pod 15 znaků)
+      too_short: je příliš krátká (pod %{count} znaků)
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
     length_validator:

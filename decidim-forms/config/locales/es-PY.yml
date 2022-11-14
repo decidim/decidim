@@ -142,6 +142,8 @@ es-PY:
         single_option: Opción única
         sorting: Ordenación
         title_and_description: Titulo y descripción
+      questionnaire_answer_presenter:
+        download_attachment: Descargar el archivo adjunto
       questionnaires:
         answer:
           invalid: Ha habido errores al responder al cuestionario.

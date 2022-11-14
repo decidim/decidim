@@ -142,6 +142,8 @@ fi-pl:
         single_option: Yksi vaihtoehto
         sorting: Järjestäminen
         title_and_description: Otsikko ja kuvaus
+      questionnaire_answer_presenter:
+        download_attachment: Lataa liite
       questionnaires:
         answer:
           invalid: Kyselylomakkeeseen vastatessa tapahtui virheitä.

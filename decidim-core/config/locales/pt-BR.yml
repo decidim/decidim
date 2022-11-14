@@ -1490,15 +1490,6 @@ pt-BR:
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
-      edit:
-        are_you_sure: Você tem certeza?
-        cancel_my_account: Cancelar minha conta
-        currently_waiting_confirmation_for_email: 'Atualmente aguardando confirmação para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se você não quiser mudá-lo
-        title: Editar %{resource}
-        unhappy: Infeliz?
-        update: Atualizar
-        we_need_your_current_password_to_confirm_your_changes: Precisamos da sua senha atual para confirmar suas alterações
       new:
         sign_up: inscrever-se
       signed_up: Bem vinda! Você se inscreveu com sucesso.
@@ -1553,7 +1544,6 @@ pt-BR:
         other: 'Houve erros múltiplos ao processar sua solicitação:'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
-      too_short: é muito curto (menos de 15 caracteres)
   forms:
     correct_errors: Há erros no formulário, por favor corrija-os para continuar.
     length_validator:

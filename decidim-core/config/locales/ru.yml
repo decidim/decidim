@@ -760,8 +760,6 @@ ru:
       edit:
         new_password: Пароль
     registrations:
-      edit:
-        are_you_sure: Вы уверены?
       new:
         sign_up: Зарегистрироваться
       signed_up: Добро пожаловать! Вы успешно зарегистрировались.

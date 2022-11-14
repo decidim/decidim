@@ -250,8 +250,6 @@ lt:
           create_election:
             census: Surašymas
             errors:
-              census_codes_generated: Rinkimų kodai surašymui nėra sugeneruoti.
-              census_frozen: Rinkimų kodai nėra eksportuoti.
               census_uploaded: Šiems rinkimams nėra surašymo.
               component_published: Rinkimų komponentas <strong>nėra publikuotas</strong>.
               max_selections: Klausimai neturi <strong>teisingos vertės atsakymų kiekiui</strong>
@@ -267,8 +265,6 @@ lt:
               'false': neturi <strong>viešo rakto</strong>
               'true': turi <strong>viešą raktą</strong>
             requirements:
-              census_codes_generated: Surašymo kodai sugeneruoti.
-              census_frozen: Kodai eksportuoti ir surašymas užšaldytas.
               census_uploaded: Surašymas įkeliamas.
               component_published: Rinkimų komponentas <strong>paskelbtas</strong>.
               max_selections: Visi klausimai turi teisingą kiekį <strong>maksimalių klausimų</strong>.

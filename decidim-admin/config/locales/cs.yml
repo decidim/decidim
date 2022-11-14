@@ -184,7 +184,6 @@ cs:
           error: Při přijímání správcovských podmínek použití došlo k chybě.
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
-          accept: Souhlasím s následujícími podmínkami
           are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
           refuse: Odmítnout administrátorské podmínky
           title: Souhlasit s podmínkami používání
@@ -1047,6 +1046,7 @@ cs:
         moderation:
           fields:
             created_at: Datum vytvoření
+            deleted_resource: Smazaný dokument
             hidden_at: Skryté u
             participatory_space: Participativní prostor
             report_count: Spočítat

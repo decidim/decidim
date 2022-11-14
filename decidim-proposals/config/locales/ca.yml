@@ -402,8 +402,21 @@ ca:
           proposals: Propostes
         imports:
           help:
-            answers: 'El document d''importació ha tenir les columnes següents: id, estat (acceptada, en avaluació, rebutjada) resposta/es (en els diferents idiomes habilitats a la plataforma).'
-            proposals: L'arxiu ha d'incloure els noms de columna title/ca i body/ca (o un altre idioma de preferència per exemple, title/es i body/es). També s'admeten les columnes scope/id i category/id.
+            answers: |
+              El document d'importació ha de contindre els següents noms de columna i en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
+              <ul>
+              <li><b>id:</b> ID de la proposta a responder</li>
+              <li>state<b>:</b> Un d'aquests "acceptada", "en avaluació" o "rebutjada"</li>
+              <li><b>answer/en</b> Resposta en idioma inglés. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
+              </ul>
+            proposals: |
+              El document ha de contindre els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
+              <ul>
+              <li><b>title/ca:</b> Títol en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
+              <li><b>body/ca:</b> Descripció en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
+              <li><b>scope/id:</b> ID de l'Àmbit</li>
+              <li><b>category/id:</b> ID de la Categoria</li>
+              </ul>
           label:
             answers: Importar respostes des d'un fitxer
             proposals: Importar propostes des d'un fitxer
@@ -636,7 +649,7 @@ ca:
             one: "%{count} esborrany de col·laboració"
             other: "%{count} esborrany de col·laboració"
         create:
-          error: S'ha produït un error en crear aquest esborrany col·laboratiu
+          error: S'ha produït un error en crear aquest esborrany col·laboratiu.
           success: Esborrany col·laboratiu creat correctament.
         edit:
           attachment_legend: "(Opcional) Afegeix un fitxer adjunt"

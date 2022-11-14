@@ -206,7 +206,6 @@ ar:
           affected_user:
             email_intro: 'تم رفض اقتراحك "%{resource_title}". يمكنك قراءة الإجابة في هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
-            email_subject: تم رفض اقتراحك
             notification_title: تم رفض اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
         proposal_update_category:
           email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
@@ -476,7 +475,6 @@ ar:
             many: "%{count} مسودات تعاونية"
             other: "%{count} مسودات تعاونية"
         create:
-          error: كانت هناك مشكلة في إنشاء هذه المسودات التعاونية
           success: تم إنشاء مشروع تعاوني بنجاح.
         edit:
           attachment_legend: "(اختياري) إضافة مرفق"

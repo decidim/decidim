@@ -1547,15 +1547,6 @@ pl:
       updated_not_active: Twoje hasło zostało zmienione.
     registrations:
       destroyed: Twoje konto zostało pomyślnie zawieszone. Mamy nadzieję zobaczyć Cię ponownie wkrótce.
-      edit:
-        are_you_sure: Jesteś pewny?
-        cancel_my_account: Zawieś moje konto
-        currently_waiting_confirmation_for_email: 'Obecnie oczekujące potwierdzenie dla: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: pozostaw puste, jeśli nie chcesz tego zmieniać
-        title: Edytuj %{resource}
-        unhappy: Niezadowolony?
-        update: Aktualizuj
-        we_need_your_current_password_to_confirm_your_changes: potrzebujemy Twojego obecnego hasła, aby potwierdzić Twoje zmiany
       new:
         sign_up: Zarejestruj się
       signed_up: Witamy! Zarejestrowałeś się pomyślnie.
@@ -1614,7 +1605,6 @@ pl:
         other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
-      too_short: jest za krótkie
   forms:
     correct_errors: Wystąpiły błędy w formularzu, popraw je, aby kontynuować.
     length_validator:

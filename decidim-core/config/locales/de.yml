@@ -1544,15 +1544,6 @@ de:
       updated_not_active: Ihr Passwort wurde erfolgreich geändert.
     registrations:
       destroyed: Tschüss! Ihr Konto wurde erfolgreich storniert. Wir hoffen, Sie bald wieder zu sehen.
-      edit:
-        are_you_sure: Bist du sicher?
-        cancel_my_account: Brechen Sie mein Konto ab
-        currently_waiting_confirmation_for_email: 'Momentan wartende Bestätigung für: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lassen Sie das Feld leer, wenn Sie es nicht ändern möchten
-        title: Bearbeite %{resource}
-        unhappy: Unzufrieden?
-        update: Aktualisieren
-        we_need_your_current_password_to_confirm_your_changes: Wir benötigen Ihr aktuelles Passwort, um Ihre Änderungen zu bestätigen
       new:
         sign_up: Registrieren
       signed_up: Herzlich willkommen! Sie haben sich erfolgreich angemeldet.
@@ -1607,7 +1598,6 @@ de:
         other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
-      too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
     length_validator:

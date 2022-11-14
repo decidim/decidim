@@ -569,12 +569,12 @@ es:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verla desde esta página:'
@@ -602,12 +602,12 @@ es:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque eres autora de %{amendable_title}.
             email_subject: Enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -1544,15 +1544,6 @@ es:
       updated_not_active: Tu contraseña se ha modificado correctamente.
     registrations:
       destroyed: Tu cuenta se ha cancelado correctamente. Esperamos volver a verte pronto.
-      edit:
-        are_you_sure: '¿Estás seguro?'
-        cancel_my_account: Cancelar mi cuenta
-        currently_waiting_confirmation_for_email: 'Estamos esperando la confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: Déjalo en blanco si no quieres cambiarlo
-        title: Editar %{resource}
-        unhappy: '¿Infeliz?'
-        update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: Necesitamos tu contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
       signed_up: '¡Bienvenida! Te has registrado con éxito.'
@@ -1607,7 +1598,7 @@ es:
         other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: Es demasiado corto (menos de 15 caracteres)
+      too_short: Es demasiado corto (menos %{count} caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:

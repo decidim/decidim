@@ -47,8 +47,6 @@ tr:
         import_results:
           new:
             import: İçe aktar
-            info: "<p>Bu adımları izlemenizi tavsiye ederiz:</p><ol><li>Eklemek istediğiniz Sonuçlar için Statüleri oluşturun (<a href='%{link_new_status}' target='_blank'>bağlantı</a>)</li><li>Biçimi ve neleri doldurmanız gerektiğini daha iyi anlamak için İçe Aktar'ı kullanmadan önce bu Yönetici paneli (<a href='%{link_new_result}' target='_blank'>bağlantı</a>) aracılığıyla yeniden en az bir Sonuç oluşturun. </li><li>Dışa aktarımı CSV formatında indirin (%{link_export_csv})</li><li>Değişiklikleri yerel olarak yapın. CSV'nin yalnızca aşağıdaki sütunlarını değiştirebilirsiniz:</li></ol><ul><li><b>category/id:</b> Kategori ID</li><li><b>scope/id:</b> Kapsam ID </li><li><b>parent/id:</b> Üst ID (ilgili Sonuçlar için). İsteğe bağlı</li><li><b>title/I18N:</b> X dilinde başlık</li><li><b>description/I18N:</b> X dilinde açıklama</li><li><b>start_date:</b> sonucun uygulamaya başladığı tarih (biçim YYYY-AA-GG)</li><li><b>end_date:</b> sonucun yürütmeyi bitirdiği tarih (biçim YYYY-AA-GG)</li><li><b>status/id:</b> Durum ID</li><li><b>progress:</b> Yürütme yüzdesi (0'dan 100'e)</li><li><b>proposals_ids:</b> İlgili tekliflerin ID'leri (virgülle ayrılmış). Otomatik olarak <span class='attribute-name'>proposal_url</span>'e dönüştürülür</li></ul>"
-            link: bağlantı
             title: Sonuçları CSV'den içe aktar
         imports:
           create:

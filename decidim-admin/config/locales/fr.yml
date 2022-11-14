@@ -184,7 +184,7 @@ fr:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte les conditions d'utilisation suivantes
+          accept: J'accepte les conditions d'utilisation
           are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur ?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
@@ -832,7 +832,7 @@ fr:
           title: Nouvel utilisateur privé de l'espace participatif.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Il y a eu un problème de lecture du fichier CSV.
+          invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
           success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
@@ -1039,6 +1039,7 @@ fr:
         moderation:
           fields:
             created_at: Date de création
+            deleted_resource: Ressource supprimée
             hidden_at: Masqué le
             participatory_space: Espace participatif
             report_count: Compteur

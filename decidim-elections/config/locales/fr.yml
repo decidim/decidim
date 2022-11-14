@@ -232,8 +232,8 @@ fr:
           create_election:
             census: Recensement
             errors:
-              census_codes_generated: Les codes électoraux pour le recensement ne sont pas générés.
-              census_frozen: Les codes électoraux ne sont pas exportés.
+              census_codes_generated: Les codes d'accès pour le recensement ne sont pas générés.
+              census_frozen: Les codes d'accès pour le recensement ne sont pas exportés.
               census_uploaded: Il n'y a pas de recensement téléchargé pour cette élection.
               component_published: La fonctionnalité élection n'est <strong>pas publiée</strong>.
               max_selections: Les questions n'ont pas de <strong>valeur correcte pour le nombre de réponses</strong>
@@ -249,8 +249,8 @@ fr:
               'false': n'a pas de <strong>clé publique</strong>
               'true': a une <strong>clé publique</strong>
             requirements:
-              census_codes_generated: Les codes de recensement sont générés.
-              census_frozen: Les codes sont exportés et le recensement est gelé.
+              census_codes_generated: Les codes d'accès pour le recensement sont générés.
+              census_frozen: Les codes d'accès pour le recensement sont exportés et le recensement est gelé.
               census_uploaded: Le recensement a été téléchargé.
               component_published: La fonctionnalité élection est <strong>publiée</strong>.
               max_selections: Toutes les questions ont une valeur correcte pour <strong>le maximum de réponses</strong>.

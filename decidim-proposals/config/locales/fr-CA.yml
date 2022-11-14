@@ -402,8 +402,21 @@ fr-CA:
           proposals: Propositions
         imports:
           help:
-            answers: 'Le document d''importation doit contenir les colonnes suivantes : Id, État (accepté, évaluation, rejeté), réponse/fr (et d''autres langues activées pour l''organisme).'
-            proposals: Le fichier doit comprendre les colonnes title/fr et corps/fr (ou une autre locale de votre choix, par ex. titre/de et corps/de). Les colonnes scope/id et category/id sont également pris en charge.
+            answers: |
+              Le document d'importation doit contenir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants dans le cas de fichiers JSON :
+              <ul>
+              <li><b>id:</b> ID de la proposition auquel on répond</li>
+              <li><b>state:</b>"accepted", "evaluating", ou "rejected"</li>
+              <li><b>answer/en:</b> Réponse en langue anglaise. Cela dépendra de la configuration de langue de votre plateforme.</li>
+              </ul>
+            proposals: |
+              Le fichier doit avoir les noms de colonnes suivants en cas de fichiers CSV ou Excel ou noms de clés suivants en cas de fichiers JSON :
+              <ul>
+              <li><b>title/en:</b> Titre en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
+              <li><b>corps/en:</b> Corps en langue anglaise. Cela dépendra de la configuration de la langue de votre plateforme.</li>
+              <li><b>scope/id :</b> ID du périmêtre d'application</li>
+              <li><b>category/id :</b> ID de la catégorie</li>
+              </ul>
           label:
             answers: Importer des valeurs depuis un fichier
             proposals: Importer des propositions depuis un fichier
@@ -636,7 +649,7 @@ fr-CA:
             one: "%{count} brouillon collaboratif"
             other: "%{count} brouillons collaboratifs"
         create:
-          error: Il y a eu un problème lors de la création de ces brouillons collaboratifs
+          error: Il y a eu un problème lors de la création de ce brouillon collaboratif.
           success: Brouillon collaboratif créé avec succès.
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"

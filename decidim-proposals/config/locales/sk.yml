@@ -224,7 +224,6 @@ sk:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
             email_outro: Toto oznámenie ste dostali, pretože ste autorom položky "%{resource_title}".
-            email_subject: Váš návrh bol zamietnutý
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title} </a> bol zamietnutý.
           follower:
             email_intro: 'Návrh "%{resource_title}" bol zamietnutý. Odpoveď môžete čítať na tejto stránke: '
@@ -531,7 +530,6 @@ sk:
             many: "%{count} návrh spolupráce"
             other: "%{count} návrh spolupráce"
         create:
-          error: Pri vytváraní tohto konceptu spolupráce vyskytol problém
           success: Projekt spolupráce bol úspešne vytvorený.
         edit:
           attachment_legend: "(Voliteľné) Pridanie prílohy"

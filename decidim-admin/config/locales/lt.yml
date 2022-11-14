@@ -184,7 +184,6 @@ lt:
           error: Sutinkant su administratoriaus naudojimosi sąlygomis įvyko klaida.
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
-          accept: Sutinku su šiomis nuostatomis
           are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
           refuse: Nesutikti su administratoriaus nustatytomis sąlygomis
           title: Sutikti su naudojimosi sąlygomis
@@ -840,7 +839,7 @@ lt:
           title: Naujas dalyvaujamosios erdvės privatus dalyvis.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Skaitant CSV dokumentą iškilo problema.
+          invalid: Skaitant CSV rinkmeną iškilo problema.
           success: CSV dokumentas įkeltas sėkmingai, dalyviai kviečiami e. laišku - tai gali užtrukti.
         new:
           explanation: 'Įkelkite CSV dokumentą. Jis turi turėti du stulpelius su naudotojų el. paštu pirmajame ir vardu paskutiniąjame. Dokumente neturėtų būti laukų pavadinimų ir šių simbolių naudotojų varduose "<>?%&^*#@()[]=+:;"{}\|".'

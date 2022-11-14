@@ -271,7 +271,6 @@ nl:
           affected_user:
             email_intro: 'Uw voorstel "%{resource_title}" is afgewezen. U kunt het antwoord op deze pagina lezen:'
             email_outro: U hebt deze melding ontvangen omdat u een auteur bent van "%{resource_title}".
-            email_subject: Uw voorstel is afgewezen
             notification_title: Uw voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
           follower:
             email_intro: 'Het voorstel "%{resource_title}" is afgewezen. Je kan de reden hier lezen:'
@@ -364,9 +363,6 @@ nl:
           proposal_comments: Reacties
           proposals: Voorstellen
         imports:
-          help:
-            answers: 'Het importdocument moet de volgende kolommen bevatten: id, status (geaccepteerd, evalueren, afgewezen), antwoord/nl (en andere talen ingeschakeld voor de organisatie).'
-            proposals: Het bestand moet kolomnamen title/nl en body/nl bevatten (of een andere locale die jij verkiest, bijv. title/fr en body/fr). Ook scope/id en category/id kolommen worden ondersteund.
           label:
             answers: Importeer antwoorden vanuit een bestand
             proposals: Importeer voorstellen vanuit een bestand
@@ -597,7 +593,6 @@ nl:
             one: "%{count} gezamenlijk ontwerp"
             other: "%{count} gezamenlijke ontwerpen"
         create:
-          error: Er is een probleem opgetreden bij het maken van dit gezamenlijk ontwerp
           success: Gezamenlijk ontwerp met succes gemaakt.
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"

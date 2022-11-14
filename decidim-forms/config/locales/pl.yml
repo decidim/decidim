@@ -7,10 +7,10 @@ pl:
         selected_choices: Wybrane opcje
       question:
         max_choices: Maksymalna liczba opcji do wyboru
-        question_type: Typ
+        question_type: Typ odpowiedzi
       questionnaire_question:
-        mandatory: Obowiązkowy
-        max_characters: Limit znaków (zostaw 0 jeśli nie chcesz ustawiać limitu)
+        mandatory: Odpowiedź wymagana
+        max_characters: Limit znaków (zostaw 0, jeśli nie chcesz ustawiać limitu)
     errors:
       models:
         answer:
@@ -37,7 +37,7 @@ pl:
             show: Pokaż odpowiedzi
           answer_option:
             answer_option: Opcja odpowiedzi
-            free_text: Dowolny tekst
+            free_text: Możliwość wpisania dowolnego tekstu
             remove: Usuń
             statement: Komunikat
           answers:
@@ -131,6 +131,7 @@ pl:
         short_answer: Krótka odpowiedź
         single_option: Jedna opcja
         sorting: Sortowanie
+        title_and_description: Tytuł i opis
       questionnaires:
         answer:
           invalid: Podczas wypełniania formularza wystąpiły błędy.

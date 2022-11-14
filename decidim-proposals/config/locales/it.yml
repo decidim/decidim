@@ -272,7 +272,6 @@ it:
           affected_user:
             email_intro: 'La tua proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché sei un autore di "%{resource_title}".
-            email_subject: La tua proposta è stata respinta
             notification_title: La tua proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
           follower:
             email_intro: 'La proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
@@ -580,7 +579,6 @@ it:
             one: "%{count} bozza collaborativa"
             other: "%{count} bozza collaborativa"
         create:
-          error: Si è verificato un problema durante la creazione di queste bozze collaborative
           success: Bozza collaborativa creata con successo.
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"

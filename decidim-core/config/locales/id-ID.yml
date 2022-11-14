@@ -1068,15 +1068,6 @@ id:
       updated_not_active: Kata sandi Anda telah berhasil diubah.
     registrations:
       destroyed: Bye! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi segera.
-      edit:
-        are_you_sure: Apakah kamu yakin?
-        cancel_my_account: Batalkan akun saya
-        currently_waiting_confirmation_for_email: 'Sedang menunggu konfirmasi untuk: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: biarkan kosong jika Anda tidak ingin mengubahnya
-        title: Edit %{resource}
-        unhappy: Tidak bahagia?
-        update: Memperbarui
-        we_need_your_current_password_to_confirm_your_changes: kami memerlukan kata sandi Anda saat ini untuk mengonfirmasi perubahan Anda
       new:
         sign_up: Daftar
       signed_up: Selamat datang! Anda telah berhasil mendaftar.
@@ -1125,7 +1116,6 @@ id:
       not_locked: tidak terkunci
       too_many_marks: menggunakan terlalu banyak tanda baca (misalnya! dan?)
       too_much_caps: menggunakan terlalu banyak huruf besar (lebih dari 25% dari teks)
-      too_short: terlalu pendek (kurang dari 15 karakter)
   forms:
     required: Wajib
   invisible_captcha:

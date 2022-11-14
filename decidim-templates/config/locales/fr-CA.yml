@@ -24,7 +24,7 @@ fr-CA:
           success: Modèle supprimé avec succès
         empty: Il n'y a pas de modèle pour l'instant.
         update:
-          error: Une erreur est survenue pendant la mise à jour du modèle.
+          error: Un problème est survenu lors de la mise à jour de ce modèle.
           success: Modèle mis à jour avec succès
       titles:
         template_types:

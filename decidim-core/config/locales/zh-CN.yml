@@ -1350,15 +1350,6 @@ zh-CN:
       updated_not_active: 您的密码已成功更改。
     registrations:
       destroyed: 您的帐户已成功取消。我们希望很快再见到您。
-      edit:
-        are_you_sure: 您确定吗？
-        cancel_my_account: 取消我的帐户
-        currently_waiting_confirmation_for_email: '正在等待确认: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 如果您不想更改它，请留空
-        title: 编辑 %{resource}
-        unhappy: 不愉快？
-        update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 我们需要您当前的密码来确认您的更改
       new:
         sign_up: 注册
       signed_up: 欢迎！您已成功注册。
@@ -1411,7 +1402,6 @@ zh-CN:
         other: '处理您的请求时发生多个错误：'
       too_many_marks: 正在使用太多连续标点符号(例如! 和 ?)
       too_much_caps: 正在使用太多大写字母(超过25%文本)
-      too_short: 太短(低于15个字符)
   forms:
     correct_errors: 表单上有错误，请更正以继续。
     required: 必填字段

@@ -48,7 +48,6 @@ sk:
         import_results:
           new:
             import: Importovať
-            link: odkaz
             title: Importovať výsledky zo súboru CSV
         imports:
           create:

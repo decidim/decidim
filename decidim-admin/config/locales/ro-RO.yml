@@ -123,6 +123,10 @@ ro:
         file: Fişier
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selectează cel puțin un spațiu participativ
         organization:
           attributes:
             official_img_footer:
@@ -180,7 +184,7 @@ ro:
           error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
-          accept: Sunt de acord cu următorii termeni
+          accept: Sunt de acord cu acești termeni și condiţii
           are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
           refuse: Refuz termenii
           title: Acceptă termenii și condițiile de utilizare
@@ -1039,6 +1043,7 @@ ro:
         moderation:
           fields:
             created_at: Data creării
+            deleted_resource: Resursă ștersă
             hidden_at: Ascuns la
             participatory_space: Spațiu participativ
             report_count: Număr

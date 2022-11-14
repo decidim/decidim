@@ -1506,15 +1506,6 @@ it:
       updated_not_active: La tua password è stata cambiata con successo.
     registrations:
       destroyed: Ciao! Il tuo account è stato cancellato con successo. Speriamo di rivederti presto.
-      edit:
-        are_you_sure: Sei sicuro?
-        cancel_my_account: Cancellare il mio account
-        currently_waiting_confirmation_for_email: 'Conferma in attesa per: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lasciare vuoto se non si desidera modificarlo
-        title: Modifica %{resource}
-        unhappy: Infelice?
-        update: Aggiornare
-        we_need_your_current_password_to_confirm_your_changes: abbiamo bisogno della tua password corrente per confermare le tue modifiche
       new:
         sign_up: Iscriviti
       signed_up: Benvenuto! Ti sei registrato con successo.
@@ -1569,7 +1560,6 @@ it:
         other: 'Ci sono stati molteplici errori durante l''elaborazione della tua richiesta:'
       too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
       too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
-      too_short: è troppo corto (meno di 15 caratteri)
   forms:
     correct_errors: Ci sono errori nel modulo, correggerli per continuare.
     length_validator:

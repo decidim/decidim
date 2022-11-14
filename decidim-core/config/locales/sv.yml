@@ -1537,15 +1537,6 @@ sv:
       updated_not_active: Ditt lösenord har ändrats.
     registrations:
       destroyed: Ditt konto har avregistrerats. Vi hoppas att vi ses snart igen.
-      edit:
-        are_you_sure: Är du säker?
-        cancel_my_account: Avregistrera mitt konto
-        currently_waiting_confirmation_for_email: 'Väntar för närvarande på bekräftelse från: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lämna tomt om du inte vill ändra det
-        title: Redigera %{resource}
-        unhappy: Olycklig?
-        update: Uppdatera
-        we_need_your_current_password_to_confirm_your_changes: Vi behöver ditt nuvarande lösenord för att bekräfta ändringarna
       new:
         sign_up: Registrera
       signed_up: Välkommen! Din registrering är klar.
@@ -1600,7 +1591,6 @@ sv:
         other: 'Det finns flera fel i din begäran:'
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex. ! och ?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
-      too_short: är för kort (under 15 tecken)
   forms:
     correct_errors: Det finns fel på formuläret, vänligen korrigera dem för att fortsätta.
     length_validator:

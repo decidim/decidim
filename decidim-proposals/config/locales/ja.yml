@@ -397,9 +397,6 @@ ja:
           proposal_comments: コメント
           proposals: 提案
         imports:
-          help:
-            answers: 'インポートドキュメントは、id、状態 (受け入れられた、評価、拒否された)、answer/en (および組織で使える他の言語) の列を含む必要があります。'
-            proposals: 'ファイルには、カラム名「title/en」と「body/en」(または、あなたが好む別のロケール、例: 「title/ja」と「body/ja」) が必要です。また、カラム名「scope/id」と「category/id」にも対応しています。'
           label:
             answers: ファイルから回答をインポート
             proposals: ファイルから提案をインポート
@@ -628,7 +625,7 @@ ja:
           drafts_count:
             other: "%{count} 件の共同草案"
         create:
-          error: 共同草案の作成中に問題が発生しました
+          error: 共同草案の作成中に問題が発生しました.
           success: 共同草案を作成しました。
         edit:
           attachment_legend: "(オプション) 添付ファイルを追加"

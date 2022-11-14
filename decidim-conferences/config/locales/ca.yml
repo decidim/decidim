@@ -37,13 +37,13 @@ ca:
         date: Data
         link: Enllaç
         title: Títol
-        weight: Pes
+        weight: Ordre de posició
       conference_partner:
         link: Enllaç
         logo: Logo
         name: Nom
         partner_type: Tipus de col·laboració
-        weight: Pes
+        weight: Ordre de posició
       conference_registration_invite:
         email: Correu electrònic
         name: Nom
@@ -53,7 +53,7 @@ ca:
         description: Descripció
         price: Cost
         title: Títol
-        weight: Pes
+        weight: Odre de posició
       conference_speaker:
         affiliation: Afiliació
         avatar: Imatge de perfil

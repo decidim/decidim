@@ -1458,15 +1458,6 @@ hu:
       updated_not_active: A jelszó sikeresen megváltozott.
     registrations:
       destroyed: Viszlát! Fiókját sikeresen töröltük. Reméljük, hamarosan újra találkozunk.
-      edit:
-        are_you_sure: biztos vagy ebben?
-        cancel_my_account: A fiókom visszavonása
-        currently_waiting_confirmation_for_email: 'Jelenleg várakozó visszaigazolás: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: hagyja üresen, ha nem akarja megváltoztatni
-        title: Edit %{resource}
-        unhappy: Boldogtalan?
-        update: frissítés
-        we_need_your_current_password_to_confirm_your_changes: a változtatások megerősítéséhez a jelenlegi jelszóra van szükségünk
       new:
         sign_up: Regisztrálj
       signed_up: Üdvözöljük! Sikeresen regisztráltál.
@@ -1521,7 +1512,6 @@ hu:
         other: 'Több hiba történt a művelet végrehajtása során:'
       too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
       too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
-      too_short: túl rövid (15 karakterig)
   forms:
     correct_errors: Az űrlap hibákat tartalmaz, kérjük, javítsa ezeket a folytatáshoz.
     length_validator:

@@ -322,6 +322,9 @@ ro:
         new_import:
           accepted_types:
             json: JSON
+      assemblies:
+        show:
+          title: Despre această adunare
       assembly_members:
         index:
           members: Membri
@@ -389,6 +392,7 @@ ro:
         related_participatory_processes: Procese participative asociate
         scope: Domeniu de interes
         social_networks: Rețele sociale
+        social_networks_title: Vizitează adunarea pe
         target: Cine participă
     assembly_members:
       assembly_member:

@@ -1198,15 +1198,6 @@ ar:
       updated_not_active: كلمة السر الخاصة بك تم تغييرها بنجاح.
     registrations:
       destroyed: تم إلغاء حسابك بنجاح. نحن نأمل ان نراك قريبا مره اخرى.
-      edit:
-        are_you_sure: هل أنت واثق؟
-        cancel_my_account: الغاء حسابي
-        currently_waiting_confirmation_for_email: 'حاليا في انتظار تأكيد ل: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: اتركه فارغا إذا كنت لا تريد تغييره
-        title: تحرير %{resource}
-        unhappy: تعيس؟
-        update: تحديث
-        we_need_your_current_password_to_confirm_your_changes: نحتاج كلمة المرور الحالية لتأكيد تغييراتك
       new:
         sign_up: انشئ حسابًا
       signed_up: أهلا بك! لقد اشتركت بنجاح
@@ -1261,7 +1252,6 @@ ar:
       not_locked: لم يكن مغلقا
       too_many_marks: يستخدم الكثير من علامات الترقيم المتتالية (مثل! و؟)
       too_much_caps: يستخدم عددًا كبيرًا جدًا من الأحرف الكبيرة (أكثر من 25٪ من النص)
-      too_short: قصير جدًا (أقل من 15 حرفًا)
   forms:
     required: مطلوب
   invisible_captcha:

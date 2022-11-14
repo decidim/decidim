@@ -316,7 +316,7 @@ cs:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
             email_outro: Toto oznámení jste obdrželi, protože jste autorem položky "%{resource_title}".
-            email_subject: Váš návrh byl zamítnut
+            email_subject: Váš návrh byl odmítnut
             notification_title: Váš návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
           follower:
             email_intro: 'Návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
@@ -409,9 +409,6 @@ cs:
           proposal_comments: Komentáře
           proposals: Návrhy
         imports:
-          help:
-            answers: 'Importní dokument by měl obsahovat následující sloupce: id, state (accepted, evaluating, rejected), answer/cs (a další jazyky povolené pro organizaci).'
-            proposals: Soubor musí mít názvy sloupců title/en a body/en (nebo jiné lokalizace, které dáváte. title/cs a body/cs). Podporovány jsou také sloupce pro scope/id a category/id.
           label:
             answers: Importovat odpovědi ze souboru
             proposals: Importovat návrhy ze souboru
@@ -652,7 +649,7 @@ cs:
             many: "%{count} návrh spolupráce"
             other: "%{count} návrh spolupráce"
         create:
-          error: Při vytváření tohoto konceptu spolupráce došlo k potížím
+          error: Při vytváření tohoto konceptu spolupráce došlo k chybě.
           success: Projekt spolupráce byl úspěšně vytvořen.
         edit:
           attachment_legend: "(Volitelné) Přidání přílohy"

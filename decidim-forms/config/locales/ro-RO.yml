@@ -142,6 +142,8 @@ ro:
         single_option: Opțiune unică
         sorting: Sortare
         title_and_description: Titlu și descriere
+      questionnaire_answer_presenter:
+        download_attachment: Descărcare atașament
       questionnaires:
         answer:
           invalid: A apărut o problemă la completarea chestionarului.

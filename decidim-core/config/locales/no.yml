@@ -1535,15 +1535,6 @@
       updated_not_active: Passordet ditt er blitt endret.
     registrations:
       destroyed: Din konto er lukket. Vi håper å se deg igjen snart.
-      edit:
-        are_you_sure: Er du sikker?
-        cancel_my_account: Avbryt kontoen min
-        currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: la stå tom hvis du ikke vil endre det
-        title: Endre %{resource}
-        unhappy: Ikke fornøyd?
-        update: Oppdater
-        we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
       new:
         sign_up: Registrer deg
       signed_up: Velkommen! Din registrering er fullført. Husk å bekrefte epostadressen din via mailen vi har sendt deg.
@@ -1598,7 +1589,6 @@
         other: 'Det oppsto flere feil med å behandle forespørselen din:'
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
-      too_short: er for kort (under 15 tegn)
   forms:
     correct_errors: Det er feil i skjemaet, korriger dem for å fortsette.
     length_validator:

@@ -159,7 +159,6 @@ ar:
         accept:
           success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
-          accept: أوافق على شروط الإستخدام التالية
           refuse: ارفض شروط المدير
           title: وافق على شروط وأحكام الإستخدام
         required_review:
@@ -742,7 +741,7 @@ ar:
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: حدثت مشكلة أثناء قراءة ملف CSV.
+          invalid: حدثت مشكلة في قراءة ملف CSV.
         new:
           title: حمّل ملف CSV الخاص بك
           upload: حمّل

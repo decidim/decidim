@@ -42,6 +42,10 @@ ro:
         type_of_meeting: Tip
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Această adresă URL nu poate fi încorporată în ședință sau în pagina de evenimente live
         meeting_agenda:
           attributes:
             base:
@@ -99,6 +103,7 @@ ro:
           type_eq:
             label: Tip de întâlnire
             values:
+              hybrid: Hibrid
               in_person: În persoană
               online: Online
       meeting_copies:
@@ -180,6 +185,9 @@ ro:
           email_outro: Ai primit această notificare deoarece te-ai înregistrate pentru întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
           notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> va începe în mai puțin de 48 de ore.
+    forms:
+      meetings:
+        attendees_count_help_text: Nu uitați să includeți numărul total de participanți la întâlnire, fie că este vorba de persoane fizice, online sau hibride.
     gamification:
       badges:
         attended_meetings:
@@ -309,6 +317,7 @@ ro:
             registration_url_help: 'Link: permite participanților să acceseze serviciul extern pe care îl utilizezi pentru înregistrare'
             select_a_meeting_type: Te rugăm să selectezi un tip de ședință
             select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
+            select_an_iframe_access_level: Vă rugăm să selectați un nivel de acces iframe
           index:
             title: Întâlniri
           new:
@@ -406,6 +415,7 @@ ro:
         registered: Participanții înregistrați la acest eveniment
       iframe_embed_type:
         embed_in_meeting_page: Incorporează în pagina de şedinţe
+        none: Niciunul
         open_in_live_event_page: Deschide în pagina de evenimente live (cu sondaje opționale)
         open_in_new_tab: Deschideți în filă nouă
       last_activity:
@@ -471,6 +481,7 @@ ro:
           type: Tip
           type_values:
             all: Toate
+            hybrid: Hibrid
             in_person: În persoană
             online: Online
         filters_small_view:
@@ -572,6 +583,7 @@ ro:
             empty_questions: Pe parcursul acestei întâlniri, vor fi trimise câteva întrebări și vei putea răspunde la acestea. Acestea vor fi afișate aici.
           index_admin:
             admin_dashboard: Panou de administrare
+            edit: Editează în panoul de administrare
             question: Întrebare
             received_answer: răspuns primit
             received_answers: răspunsuri primite
@@ -610,6 +622,7 @@ ro:
           invalid: A existat o problemă la părăsirea acestei reuniuni.
           success: Ai părăsit şedinţa cu succes.
       type_of_meeting:
+        hybrid: Hibrid
         in_person: În persoană
         online: Online
       types:

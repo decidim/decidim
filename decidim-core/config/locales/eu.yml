@@ -1489,15 +1489,6 @@ eu:
       updated_not_active: Pasahitza ondo aldatu da.
     registrations:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
-      edit:
-        are_you_sure: Ziur zaude?
-        cancel_my_account: Utzi nire kontua
-        currently_waiting_confirmation_for_email: 'Une honetan espero da baieztapena: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: utzi hutsik egin nahi ez baduzu
-        title: Editatu %{resource}
-        unhappy: Konforme?
-        update: eguneratzearen
-        we_need_your_current_password_to_confirm_your_changes: Zure pasahitza behar dugu zure aldaketak berresteko
       new:
         sign_up: Izena eman
       signed_up: Ongi etorri! Eginda sinatu duzu.
@@ -1552,7 +1543,7 @@ eu:
         other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
-      too_short: laburra da (15 karaktere baino gutxiago)
+      too_short: laburregia da (gutxienez %{count} karaktere behar dira)
   forms:
     correct_errors: Akatsak daude galdetegian, mesedez, zuzendu jarraitu ahal izateko.
     required: Nahitaezkoa da

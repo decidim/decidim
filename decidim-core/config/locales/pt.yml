@@ -1490,15 +1490,6 @@ pt:
       updated_not_active: A sua palavra-passe foi modificada corretamente.
     registrations:
       destroyed: A sua conta foi cancelada corretamente. Esperamos vê-lo(a) novamente em breve.
-      edit:
-        are_you_sure: Tem a certeza?
-        cancel_my_account: Cancelar a minha conta
-        currently_waiting_confirmation_for_email: 'Atualmente à espera de confirmação para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se não quiser modificá-lo
-        title: Editar %{resource}
-        unhappy: Infeliz?
-        update: Atualizar
-        we_need_your_current_password_to_confirm_your_changes: precisamos da sua palavra-passe atual para confirmar as suas alterações
       new:
         sign_up: Inscrever-se
       signed_up: Bem-vindo(a)! Inscreveu-se corretamente.
@@ -1553,7 +1544,6 @@ pt:
         other: 'Ocorreram diversos erros ao processar o seu pedido:'
       too_many_marks: está a usar muitos sinais de pontuação consecutivos (por exemplo, ! e ?)
       too_much_caps: está a usar muitas letras maiúsculas (acima de 25% do texto)
-      too_short: é muito curto (abaixo de 15 caracteres)
   forms:
     correct_errors: Existem erros no formulário, por favor corrija-os para continuar.
     length_validator:

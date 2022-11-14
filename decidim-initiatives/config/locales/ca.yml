@@ -2,6 +2,7 @@ ca:
   activemodel:
     attributes:
       initiative:
+        area_id: Àrea
         decidim_user_group_id: Autoria
         description: Descripció
         offline_votes: Signatures presencials
@@ -32,6 +33,7 @@ ca:
         online_signature_enabled: S'ha activat la signatura digital
         only_global_scope_enabled: Permetre només la creació d'iniciatives d'àmbit global
         promoting_committee_enabled: Habilita el comitè promotor
+        signature_type: Tipus de signatura
         title: Títol
         undo_online_signatures_enabled: Permetre a les participants desfer les seves signatures digitals
         validate_sms_code_on_votes: Afegeix el pas de validació mitjançant SMS al procés de signatura

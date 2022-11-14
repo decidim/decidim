@@ -297,7 +297,6 @@ ro:
           affected_user:
             email_intro: 'Propunerea ta "%{resource_title}" a fost respinsă. Poți citi răspunsul în această pagină:'
             email_outro: Ai primit această notificare deoarece ești autor al propunerii "%{resource_title}".
-            email_subject: Propunerea ta a fost respinsă
             notification_title: Propunerea ta <a href="%{resource_path}">%{resource_title}</a> a fost respinsă.
           follower:
             email_intro: 'Propunerea "%{resource_title}" a fost respinsă. Poţi citi răspunsul în această pagină:'
@@ -390,9 +389,6 @@ ro:
           proposal_comments: Comentarii
           proposals: Propuneri
         imports:
-          help:
-            answers: 'Documentul importat trebuie să conțină următoarele coloane: id, stadiu (acceptat, în evaluare, respins), răspuns/ro (și alte limbi activate pentru organizație).'
-            proposals: Fişierul trebuie să aibă titlu/ro şi conținut/ro (sau o altă configurație pe care o preferi, de exemplu titlu/en și conținut/en). De asemenea, sunt acceptate coloane de domeniu de interes/id și categorie/id.
           label:
             answers: Importă răspunsuri dintr-un fişier
             proposals: Importă propuneri dintr-un fişier
@@ -628,7 +624,6 @@ ro:
             few: "%{count} ciorne colaborative"
             other: "%{count} ciorne colaborative"
         create:
-          error: A apărut o problemă la crearea acestor ciorne colaborative
           success: Ciorna colaborativă a fost creată cu succes.
         edit:
           attachment_legend: "(Opțional) Adaugă un atașament"

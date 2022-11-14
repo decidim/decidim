@@ -179,7 +179,6 @@ it:
           error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
           success: Ottimo! Hai accettato i termini d'uso dell'amministratrice/tore.
         actions:
-          accept: Sono d'accordo con i seguenti termini
           are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo dell'amministratore?
           refuse: Rifiuta i termini di amministrazione
           title: Accetta i termini e le condizioni di utilizzo

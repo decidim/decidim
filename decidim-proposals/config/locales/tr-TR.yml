@@ -252,7 +252,6 @@ tr:
           affected_user:
             email_intro: 'Teklifiniz "%{resource_title}" reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
             email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
-            email_subject: Teklifiniz reddedildi
             notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> reddedildi.
           follower:
             email_intro: '"%{resource_title}" teklifi reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
@@ -559,7 +558,6 @@ tr:
             one: "%{count} ortak taslak"
             other: "%{count} ortak taslak"
         create:
-          error: Bu ortak çalışma taslakları oluşturulurken bir sorunla karşılaşıldı
           success: Ortak taslak başarıyla oluşturuldu.
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
