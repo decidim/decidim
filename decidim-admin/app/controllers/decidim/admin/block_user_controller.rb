@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     class BlockUserController < Decidim::Admin::ApplicationController
-      layout "decidim/admin/users"
+      layout "decidim/admin/global_moderations"
 
       helper_method :user
 
