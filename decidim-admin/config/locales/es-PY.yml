@@ -184,6 +184,7 @@ es-PY:
           error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
+          accept: Estoy de acuerdo con los términos
           are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración
