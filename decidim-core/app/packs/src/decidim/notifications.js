@@ -3,8 +3,8 @@
  * The topbar__notifications element has changes after redesign
  * @returns {void}
  */
-export default function() {
-  const noNotificationsText = document.querySelector(".empty-notifications")
+export default function(node = document) {
+  const noNotificationsText = node.querySelector(".empty-notifications")
   const handleRemove = ({ currentTarget }) => currentTarget.remove()
   const handleFadeOut = (element) => {
     if (element) {
@@ -15,21 +15,21 @@ export default function() {
   const emptyNotifications = () => {
     noNotificationsText.classList.remove("hidden")
     noNotificationsText.classList.remove("hide")
-    document.querySelector(".topbar__notifications")?.classList?.remove("is-active")
+    node.querySelector(".topbar__notifications")?.classList?.remove("is-active")
   }
   const handleClick = ({ currentTarget }) => {
     handleFadeOut(currentTarget.closest("[data-notification]"))
-    if (!document.querySelector("[data-notification]:not([style])")) {
+    if (!node.querySelector("[data-notification]:not([style])")) {
       emptyNotifications()
     }
   }
 
-  const notifications = document.querySelectorAll("[data-notification]")
+  const notifications = node.querySelectorAll("[data-notification]")
 
   if (notifications.length) {
     notifications.forEach((btn) => btn.querySelector("[data-notification-read]").addEventListener("click", handleClick))
 
-    document.querySelector("[data-notification-read-all]").
+    node.querySelector("[data-notification-read-all]").
       addEventListener(
         "click", () => {
           notifications.forEach((notification) => handleFadeOut(notification))

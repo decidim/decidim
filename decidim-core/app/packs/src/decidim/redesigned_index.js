@@ -162,7 +162,7 @@ const initializer = (element = document) => {
 
   addInputEmoji(element)
 
-  backToListLink(document.querySelectorAll(".js-back-to-list"));
+  backToListLink(element.querySelectorAll(".js-back-to-list"));
 
   // https://github.com/jonathanlevaillant/a11y-accordion-component
   Accordions.init();

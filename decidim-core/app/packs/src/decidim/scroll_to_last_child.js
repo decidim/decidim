@@ -5,7 +5,7 @@
  * @param {DOMNode} node target node
  * @returns {void}
  */
-export default function(node) {
+export default function(node = document) {
   const element = node.querySelector("[data-scroll-last-child]")
   if (element && element.children.length) {
     const lastChild = [...element.children].pop()
