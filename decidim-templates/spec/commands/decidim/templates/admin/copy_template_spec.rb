@@ -24,7 +24,6 @@ module Decidim
         describe "when the template is valid" do
           let(:destination_questionnaire) do
             events = described_class.call(template, user)
-            # events => { :ok => copied_template }
             expect(events).to have_key(:ok)
             events[:ok].templatable
           end
