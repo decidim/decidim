@@ -104,32 +104,7 @@ edit_link(
 
   <h2 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h2>
 
-  <div class="meeting__calendar-container mt-8">
-    <%
-      is_same_month = meeting.start_time.month == meeting.end_time.month;
-      is_same_day = meeting.start_time.day == meeting.end_time.day;
-    %>
-    <div class="meeting__calendar meeting__calendar__lg">
-      <div class="meeting__calendar-month">
-        <span><%= l(meeting.start_time, format: !is_same_month ? "%b" : "%B") %></span>
-        <span class="meeting__calendar-separator"><%= "-" if !is_same_month %></span>
-        <span><%= l(meeting.end_time, format: "%b") if !is_same_month %></span>
-      </div>
-      <div class="meeting__calendar-day">
-        <span><%= l(meeting.start_time, format: "%d") %></span>
-        <span class="meeting__calendar-separator"><%= "-" if !is_same_day || !is_same_month %></span>
-        <span><%= l(meeting.end_time, format: "%d") if !is_same_day || !is_same_month %></span>
-      </div>
-      <div class="meeting__calendar-time">
-        <span><%= l(meeting.start_time, format: "%H:%m") %></span>
-        <span class="meeting__calendar-separator"><%= "-" %></span>
-        <span><%= l(meeting.end_time, format: "%H:%m") %></span>
-      </div>
-    </div>
-    <% if meeting.maps_enabled? && !meeting.online_meeting? %>
-      <%= render partial: "decidim/shared/static_map", locals: { geolocalizable: meeting } %>
-    <% end %>
-  </div>
+  <%= cell "decidim/meetings/dates_and_map", meeting %>
 
   <div class="meeting__author">
     <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: [:date], layout: :compact %>
