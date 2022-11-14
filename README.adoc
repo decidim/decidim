@@ -84,7 +84,13 @@ See the https://docs.decidim.org/en/install/[Getting started guide].
 
 == How to contribute
 
-See xref:CONTRIBUTING.adoc[Contributing].
+Anyone can participate in {uri-metadecidim}[Metadecidim], our own distance of Decidim for improving Decidim. The community is formed by people with different profiles and backgrounds.
+
+How can you contribute? There are many ways to do it, some more specific to the software -improving documentation or translations, reporting bugs or proposing improvements-, but you can also participate in discussions about the governance of the community (find out how we organize ourselves).
+
+Having a lively community is crucial to this project, so we encourage you to find out what is the best way for you to contribute to the commons! 🌱
+
+Read more about contributions in our {uri-contributing}[contribution guidelines].
 
 == Modules
 
