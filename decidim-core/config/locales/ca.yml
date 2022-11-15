@@ -29,6 +29,7 @@ ca:
         password_confirmation: Confirma la teva contrasenya
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
+        tos_agreement: Acord de termes i condicions d'ús
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -788,18 +789,6 @@ ca:
           how: Com pots aconseguir-la
           page_description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus. Aquí tens la llista d'insígnies i algunes formes d'aconseguir-les.
           title: Insígnies
-        invitations:
-          conditions:
-            - Utilitza l'enllaç "convidar amigues" a la teva pàgina d'usuària per convidar a les teves amistats
-            - Personalitza, si vols, el missatge que estàs enviant
-            - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
-          description: Aquesta insígna s'aconsegueix quan has convidat a algunes persones a la plataforma %{organization_name}, i s'hi han registrat com a participants. Gràcies per donar a conèixer %{organization_name} a d'altres i ajudar a ampliar la comunitat!
-          description_another: Aquesta participant ha convidat a %{score} persones.
-          description_own: Has convidat %{score} persones.
-          name: Invitacions
-          next_level_in: Convida a %{score} persones més per arribar al següent nivell!
-          unearned_another: Aquesta participant encara no ha convidat ningú.
-          unearned_own: Encara no has convidat a ningú.
       description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus.
       level: Nivell %{level}
       reached_top: Has arribat al màxim nivell d'aquesta insígnia.
