@@ -707,8 +707,6 @@ it:
         button: Smetti di seguire
         error: Si è verificato un errore ad smettere questa risorsa.
     forms:
-      current_image: Immagine attuale
-      default_image: Immagine predefinita
       errors:
         decidim/user:
           password: La password è troppo breve.
