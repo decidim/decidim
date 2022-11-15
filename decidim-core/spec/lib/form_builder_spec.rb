@@ -9,6 +9,7 @@ module Decidim
     let(:available_locales) { %w(ca en de-CH) }
     let(:uploader) { Decidim::ApplicationUploader }
     let(:organization) { create(:organization) }
+    let(:redesign_enabled?) { false }
 
     let(:resource) do
       klass = Class.new do
@@ -77,6 +78,7 @@ module Decidim
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
+      allow(helper).to receive(:redesign_enabled?).and_return(redesign_enabled?)
     end
 
     describe "#editor" do
@@ -720,17 +722,13 @@ module Decidim
           let(:file) { nil }
           let(:uploader) { Decidim::AvatarUploader }
 
-          it "renders the 'Default image' label" do
-            expect(output).to include("Default image")
+          it "renders an image with the default url" do
+            expect(parsed.css("img[src=\"#{resource.attached_uploader.default_url}\"]")).not_to be_empty
           end
         end
 
         context "and it is present" do
           let(:present?) { true }
-
-          it "renders the 'Current image' label" do
-            expect(output).to include("Current image")
-          end
 
           it "renders an image with the current file url" do
             expect(parsed.css("img[src=\"#{url}\"]")).not_to be_empty
@@ -768,7 +766,7 @@ module Decidim
         let(:present?) { true }
 
         it "renders the add file button" do
-          expect(parsed.css("button.add-file")).not_to be_empty
+          expect(parsed.css("button[data-upload]")).not_to be_empty
         end
       end
 
