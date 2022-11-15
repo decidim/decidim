@@ -701,8 +701,6 @@ pt:
         button: Parar de seguir
         error: Ocorreu um problema ao seguir este recurso.
     forms:
-      current_image: Imagem actual
-      default_image: Imagem por defeito
       errors:
         decidim/user:
           password: A palavra-passe é demasiado curta.
