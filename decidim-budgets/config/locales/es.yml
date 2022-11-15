@@ -92,6 +92,7 @@ es:
             cancel: Cancelar
             change_category: Cambiar categoría
             change_scope: Cambiar ámbito
+            change_selected: Cambiar estado seleccionado
             deselect_implementation: No seleccionado para implementar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
