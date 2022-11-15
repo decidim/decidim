@@ -736,8 +736,6 @@
         button: Stopp å følge
         error: Det oppstod et problem med å slutte å følge denne ressursen.
     forms:
-      current_image: Nåværende bilde
-      default_image: Standard bilde
       errors:
         decidim/user:
           password: Dette passordet er for kort.
