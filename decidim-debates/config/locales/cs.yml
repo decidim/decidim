@@ -10,6 +10,7 @@ cs:
         end_time: Končí v
         information_updates: Aktualizace informací
         instructions: Pokyny k účasti
+        scope_id: Oblast působnosti
         start_time: Začíná v
         title: Titul
         user_group_id: Vytvořte debatu jako
