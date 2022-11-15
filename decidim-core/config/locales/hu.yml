@@ -781,8 +781,6 @@ hu:
         button: Követés törlése
         error: Hiba történt az erőforrás követésének visszavonásakor.
     forms:
-      current_image: Jelenlegi kép
-      default_image: Alapértelmezett kép
       errors:
         decidim/user:
           password: A jelszó túl rövid.
@@ -812,8 +810,6 @@ hu:
           uploaded: Feltöltve
           validating: Ellenőrzés...
           validation_error: Hitelesítési hiba!
-      upload_help:
-        dropzone: Húzza ide fájlokat vagy kattintson a feltöltéshez
     gamification:
       all_badges_link: Az összes elérhető jelvény megtekintése.
       badges:
