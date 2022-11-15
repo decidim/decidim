@@ -754,18 +754,6 @@ nl:
           how: Hoe kun je het verdienen?
           page_description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges. Hier is de lijst met badges en enkele manieren waarop u ze kunt verdienen.
           title: Badges
-        invitations:
-          conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas het bericht aan dat u stuurt, als u wilt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
-          description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om in %{organization_name} te registreren en deelnemers te worden. Dank u om %{organization_name} bekend te maken bij anderen en om de community te helpen uit te breiden!
-          description_another: Deze deelnemer heeft %{score} personen uitgenodigd.
-          description_own: Je hebt %{score} mensen uitgenodigd.
-          name: Uitnodigingen
-          next_level_in: Nodig nog %{score} mensen uit om het volgende niveau te bereiken!
-          unearned_another: Deze deelnemer heeft nog niemand uitgenodigd.
-          unearned_own: Je hebt nog niemand uitgenodigd.
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
