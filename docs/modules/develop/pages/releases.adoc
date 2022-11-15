@@ -195,6 +195,7 @@ They should be ready to go to production, but publicly released just before in o
 
 If this is a *Release Candidate version* release, the steps to follow are:
 
+. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that's going to be marged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Checkout the release stable branch `git checkout release/x.y-stable`.
 . Update `.decidim-version` to the new version `x.y.z.rc1`
 . Run `bin/rake update_versions`, this will update all references to the new version.
@@ -215,6 +216,7 @@ Usually, at this point, the release branch is deployed to Metadecidim during, at
 
 Release Candidates will be tested in a production server (usually Metadecidim) during some period of time (a week at least). When they are considered ready, it is time for them to be released:
 
+. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that's going to be marged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Checkout the release stable branch `git checkout release/x.y-stable`.
 . Update `.decidim-version` by removing the `.rcN` suffix, leaving a clean version number like `x.y.z`
 . Run `bin/rake update_versions`, this will update all references to the new version.
@@ -279,6 +281,7 @@ After you commit this change in `develop` branch you'll have to wait a couple mi
 Releasing new versions from a *_release/x.y-stable_* branch is quite easy.
 The process is very similar from releasing a new Decidim version:
 
+. Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that's going to be marged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Checkout the branch you want to release: `git checkout -b release/x.y-stable`
 . Update `.decidim-version` to the new version number.
 . Run `bin/rake update_versions`, this will update all references to the new version.
