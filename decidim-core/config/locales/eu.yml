@@ -698,8 +698,6 @@ eu:
         button: Jarraitzeari utzi
         error: Errorea gertatu da baliabide hau jarraitzeari uztean.
     forms:
-      current_image: Oraingo irudia
-      default_image: Irudi lehenetsia
       errors:
         decidim/user:
           password: Pasahitza laburregia da.
