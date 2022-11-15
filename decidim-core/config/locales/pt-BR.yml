@@ -702,8 +702,6 @@ pt-BR:
         button: Parar de seguir
         error: Ocorreu um erro ao seguir esse recurso.
     forms:
-      current_image: Imagem actual
-      default_image: Imagem por defeito
       errors:
         decidim/user:
           password: Senha muito curta.
