@@ -802,8 +802,6 @@ ja:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
     forms:
-      current_image: 現在の画像
-      default_image: デフォルトの画像
       errors:
         decidim/user:
           password: パスワードが短すぎます。
@@ -846,7 +844,6 @@ ja:
           validating: 検証中...
           validation_error: 検証エラー
       upload_help:
-        dropzone: ここにファイルをドロップするか、クリックしてアップロードします
         explanation: '%{attribute} のガイド'
     gamification:
       all_badges_link: 利用可能なバッジをすべて表示
