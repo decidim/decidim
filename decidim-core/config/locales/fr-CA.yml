@@ -815,8 +815,6 @@ fr-CA:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
-      current_image: Image actuelle
-      default_image: Image par défaut
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -859,7 +857,6 @@ fr-CA:
           validating: Validation en cours...
           validation_error: Erreur de validation !
       upload_help:
-        dropzone: Déposez les fichiers ici ou cliquez pour télécharger
         explanation: Explication pour %{attribute}
     gamification:
       all_badges_link: Voir tous les badges disponibles.
