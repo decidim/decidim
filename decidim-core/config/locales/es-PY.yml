@@ -30,6 +30,7 @@ es-PY:
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
+        tos_agreement: Acuerdo de términos y condiciones de uso
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo

@@ -134,6 +134,14 @@ es-PY:
               allowed_file_content_types: Archivo de imagen no válido
             official_img_header:
               allowed_file_content_types: Archivo de imagen no válido
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
       new_import:
         attributes:
           file:
@@ -185,6 +193,7 @@ es-PY:
           error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
+          accept: Estoy de acuerdo con los términos
           are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
           title: Acepto los Términos y Condiciones de Administración

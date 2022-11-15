@@ -24,6 +24,12 @@ es-PY:
       postal_letter_postage:
         full_address: Dirección completa
         verification_code: Código de verificación
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
   decidim:
     admin:
       menu:
