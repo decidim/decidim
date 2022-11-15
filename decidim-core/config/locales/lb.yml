@@ -741,18 +741,6 @@ lb:
           how: Wéi kanns de der et verdéngen
           page_description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen. Hei ass eng Lëscht vun den Ofzeechen an e puer Méiglechkeeten, wéi een sech déi verdéngen kann.
           title: Ofzeechen
-        invitations:
-          conditions:
-            - Benotz den "Frënn alueden" -Link op denger Profil-Säit, fir Frënn anzelueden
-            - Du kanns, wann s'de dat wëlls, d'Noriicht déi s'de schécke wëlls upassen
-            - Du verbessers dech andeem s'de Aluedungen erausschécks an registréieren léiss.
-          description: Dëst Ofzeechen kritt een, wann een e puer Persounen agelueden huet déi sech d'Zäit geholl hunn sech bei %{organization_name} ze registréieren. Merci, dass du hëllefs d'%{organization_name} bekannt ze maachen an dozou bäidréis d'Communautéit ze vergréisseren!
-          description_another: Dësen Teilnehmer huet %{score} Teilnehmer agelueden.
-          description_own: Du hues %{score} Teilnehmer agelueden.
-          name: Aluedungen
-          next_level_in: Lued %{score} méi Teilnehmer an, fir op den nächsten Level ze kommen!
-          unearned_another: Dësen Teilnehmer huet nach keen agelueden.
-          unearned_own: Du hues nach keen Teilnehmer agelueden.
       description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen.
       level: Level %{level}
       reached_top: Du hues den héchsten Level bei dësem Ofzeechen erreecht.
