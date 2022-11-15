@@ -398,11 +398,6 @@ zh-CN:
           unfold: 展开...
         index_header:
           new_initiative: 新举措
-          not_authorized:
-            authorizations_page: 查看授权
-            close: 关闭
-            explanation: 您需要验证才能创建一个新的倡议。
-            title: 需要授权
         initiatives:
           closed_initiatives_warning: 目前没有开放的倡议，但在这里你可以找到列出的所有已关闭的倡议。
           no_initiatives_warning: 没有符合您搜索条件的倡议。
@@ -447,8 +442,12 @@ zh-CN:
         promotal_committee_help: 请记住，您必须邀请至少 %{member_count} 人加入促销委员会，转发以下链接来邀请人们加入促销者委员会
         status_change_body_for: '倡议 %{title} 已将其状态更改为 %{state}'
         status_change_for: 倡议 %{title} 改变了其状态
-      last_activity:
-        new_initiative: 新举措
+      modal:
+        not_authorized:
+          authorizations_page: 查看授权
+          close: 关闭
+          explanation: 您需要验证才能创建一个新的倡议。
+          title: 需要授权
       pages:
         home:
           highlighted_initiatives:

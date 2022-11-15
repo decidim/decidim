@@ -307,9 +307,6 @@ lb:
           index:
             meetings: Meetings
             space_type: Partizipativer Raum
-      last_activity:
-        meeting_updated_at_html: "<span>Besprechung aktualisiert unter %{link}</span>"
-        new_meeting_at_html: "<span>Neues Treffen um %{link}</span>"
       layouts:
         live_event:
           close: schließen

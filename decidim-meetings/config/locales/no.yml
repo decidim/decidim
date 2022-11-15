@@ -401,8 +401,6 @@
         embed_in_meeting_page: Bygg inn på møteside
         none: Ingen
         open_in_live_event_page: Åpne på siden for direktearrangement (med valgfri meningsmåling)
-      last_activity:
-        new_meeting_at_html: "<span>Nytt møte på %{link}</span>"
       layouts:
         live_event:
           administrate: Administrere

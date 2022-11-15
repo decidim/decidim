@@ -248,7 +248,6 @@ tr:
           affected_user:
             email_intro: 'Teklifiniz "%{resource_title}" reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
             email_outro: Bu bildirimi, "%{resource_title}" ın bir yazarı olduğunuz için aldınız.
-            email_subject: Teklifiniz reddedildi
             notification_title: Teklifiniz <a href="%{resource_path}">%{resource_title}</a> reddedildi.
           follower:
             email_intro: '"%{resource_title}" teklifi reddedildi. Cevabı bu sayfada okuyabilirsiniz:'
@@ -554,7 +553,6 @@ tr:
             one: "%{count} ortak taslak"
             other: "%{count} ortak taslak"
         create:
-          error: Bu ortak çalışma taslakları oluşturulurken bir sorunla karşılaşıldı
           success: Ortak taslak başarıyla oluşturuldu.
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
@@ -638,8 +636,6 @@ tr:
       destroy_draft:
         error: Ortak çalışma taslağı silinirken bir sorun oluştu.
         success: Teklif taslağı başarıyla silindi.
-      last_activity:
-        new_proposal_at_html: "<span>%{link} adresinde yeni teklif</span>"
       models:
         collaborative_draft:
           fields:
@@ -761,7 +757,6 @@ tr:
           changes_at_title: Değişiklikler "%{title}"
           comments: Yorumlar
           edit_proposal: Teklifi düzenle
-          endorsements_list: Onay Listesi
           estimated_cost: Tahmini maliyet
           hidden_endorsers_count:
             one: ve %{count} kişi daha

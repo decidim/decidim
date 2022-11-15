@@ -58,8 +58,6 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de enquête.
             success: Enquête succesvol opgeslagen.
-      last_activity:
-        new_survey_at_html: "<span>Nieuwe enquête op %{link}</span>"
       surveys:
         answer:
           invalid: Er is een fout opgetreden bij het opslaan van de pagina.

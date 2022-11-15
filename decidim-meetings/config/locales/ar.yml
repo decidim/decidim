@@ -327,8 +327,6 @@ ar:
           index:
             meetings: اجتماعات
             space_type: الفضاء التشاركي
-      last_activity:
-        new_meeting_at_html: "<span>اجتماع جديد في %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

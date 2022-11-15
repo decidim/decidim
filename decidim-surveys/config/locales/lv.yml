@@ -51,8 +51,6 @@ lv:
           update:
             invalid: Saglabājot aptauju, radās problēma.
             success: Aptauja ir veiksmīgi saglabāta
-      last_activity:
-        new_survey_at_html: "<span>Jauna aptauja %{link}</span>"
       surveys:
         answer:
           invalid: Atbildot uz aptauju, radās problēma.

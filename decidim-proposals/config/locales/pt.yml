@@ -287,7 +287,6 @@ pt:
           affected_user:
             email_intro: 'A sua proposta "%{resource_title}" foi rejeitada. Pode ler a resposta nesta página:'
             email_outro: Recebeu esta notificação porque é um autor de "%{resource_title}".
-            email_subject: A sua proposta foi rejeitada
             notification_title: A sua proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rejeitada. Pode ler a resposta nesta página:'
@@ -596,7 +595,6 @@ pt:
             one: "%{count} rascunho colaborativo"
             other: "%{count} rascunhos colaborativos"
         create:
-          error: Ocorreu um problema ao criar estes rascunhos colaborativos
           success: Rascunho colaborativo criado corretamente.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
@@ -680,9 +678,6 @@ pt:
       destroy_draft:
         error: Ocorreu um problema ao eliminar o rascunho colaborativo.
         success: O rascunho da proposta foi eliminado corretamente.
-      last_activity:
-        new_proposal_at_html: "<span>Nova proposta em %{link}</span>"
-        proposal_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -812,7 +807,6 @@ pt:
           changes_at_title: Modificação a "%{title}"
           comments: Comentários
           edit_proposal: Editar proposta
-          endorsements_list: Lista de Endossos
           estimated_cost: Custo estimado
           hidden_endorsers_count:
             one: e mais %{count} pessoa

@@ -293,8 +293,6 @@ ru:
         meetings:
           index:
             meetings: Встречи
-      last_activity:
-        new_meeting_at_html: "<span>Новая встреча в %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

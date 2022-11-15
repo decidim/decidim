@@ -373,8 +373,6 @@ sk:
         promotal_committee_help: Nezabudnite, že musíte vyzvať najmenej%{member_count} ľudí na organizačný výbor. Odovzdanie nasledujúceho odkazu na pozvanie osôb do výboru predkladateľov
         status_change_body_for: 'Iniciatíva%{title} zmenila svoj stav na:%{state}'
         status_change_for: Iniciatíva%{title} zmenila svoj stav
-      last_activity:
-        new_initiative: Nová iniciatíva
       pages:
         home:
           highlighted_initiatives:

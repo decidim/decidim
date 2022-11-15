@@ -73,7 +73,7 @@ ja:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: '無効なドキュメントタイプです。使用できるフォーマット: %{types}'
+              allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されます: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -353,7 +353,7 @@ ja:
       index:
         title: 参加スペース
       last_activity:
-        new_assembly: 新しい参加スペース
+        new_assembly: '新しい参加スペース:'
       pages:
         home:
           highlighted_assemblies:

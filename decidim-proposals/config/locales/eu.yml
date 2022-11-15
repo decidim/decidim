@@ -42,6 +42,10 @@ eu:
           valuator_role_id: Ebaluatzailearen izena
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Dokumentu mota hau ez da onartzen. Honako hauek onartzen dira: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -282,7 +286,7 @@ eu:
           affected_user:
             email_intro: 'Zure proposamena "%{resource_title}" baztertu egin da. Orri honetan erantzun dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilearena delako.
-            email_subject: Zure proposamena baztertu da
+            email_subject: Zure proposamena ez da onartu
             notification_title: Zure proposamena <a href="%{resource_path}">%{resource_title}</a> baztertu egin da.
           follower:
             email_intro: '"%{resource_title}" proposamena baztertu egin da. Orri honetan erantzun dezakezu:'
@@ -594,7 +598,6 @@ eu:
             one: "%{count} lankidetza zirriborroa"
             other: "%{count} lankidetza zirriborroa"
         create:
-          error: Arazo bat izan da lankidetza-zirriborroak sortzea
           success: Kolaborazio zirriborroa sortu da.
         edit:
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
@@ -678,9 +681,6 @@ eu:
       destroy_draft:
         error: Arazoak izan dira proposamenaren zirriborroa ezabatzean.
         success: Proposamenaren zirriborroa zuzen ezabatu da.
-      last_activity:
-        new_proposal_at_html: "<span> %{link}</span>proposamen berria"
-        proposal_updated_at_html: "<span>proposamena ordu honetan %{link}</span> eguneratuta"
       models:
         collaborative_draft:
           fields:
@@ -810,7 +810,6 @@ eu:
           changes_at_title: Zuzenketa honi "%{title}"
           comments: Iruzkinak
           edit_proposal: Editatu proposamena
-          endorsements_list: Onarpenen zerrenda
           estimated_cost: Gutxi gorabeherako kostua
           hidden_endorsers_count:
             one: eta %{count} pertsona gehiago
