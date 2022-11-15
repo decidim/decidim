@@ -169,7 +169,7 @@ export default class UploadModal {
       <div>
         <span>${truncateFilename(file.name)}</span>
         <span>${this.locales.validation_error}</span>
-        <ul>${errors.map((error) => `<li>${error}</li>`)}</ul>
+        <ul>${errors.map((error) => `<li>${error}</li>`).join("\n")}</ul>
       </div>
     `
 
