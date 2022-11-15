@@ -819,8 +819,6 @@ fi-pl:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
     forms:
-      current_image: Nykyinen kuva
-      default_image: Oletuskuva
       errors:
         decidim/user:
           password: Salasana on liian lyhyt.
@@ -863,7 +861,6 @@ fi-pl:
           validating: Validoidaan...
           validation_error: Validointivirhe!
       upload_help:
-        dropzone: Pudota tiedostot tähän tai napsauta ladataksesi
         explanation: Ohjeita %{attribute} varten
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
