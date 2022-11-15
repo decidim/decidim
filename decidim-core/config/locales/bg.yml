@@ -616,8 +616,6 @@ bg:
         button: Спри следването
         error: Възникна проблем с отказа от следване на този ресурс.
     forms:
-      current_image: Текущо изображение
-      default_image: Изображение по подразбиране
       errors:
         decidim/user:
           password: Паролата е твърде къса.
