@@ -817,8 +817,6 @@ ca:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
     forms:
-      current_image: Imatge actual
-      default_image: Imatge predeterminada
       errors:
         decidim/user:
           password: La contrasenya és massa curta.
@@ -861,7 +859,6 @@ ca:
           validating: Validant...
           validation_error: Error de validació!
       upload_help:
-        dropzone: Arrossegar-hi arxius o fer clic per a pujar-los
         explanation: Guia per a %{attribute}
     gamification:
       all_badges_link: Veure totes les insígnies disponibles.
