@@ -698,8 +698,6 @@ lb:
         button: Net méi nogoen
         error: Et gouf e Problem beim Un-Followen vun dëser Ressource.
     forms:
-      current_image: Aktuellt Bild
-      default_image: Standard-Bild
       errors:
         decidim/user:
           password: D'Passwuert ass ze kuerz.
