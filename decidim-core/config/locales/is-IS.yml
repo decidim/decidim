@@ -219,8 +219,6 @@ is-IS:
       destroy:
         button: Hættu að fylgja
     forms:
-      current_image: Núverandi mynd
-      default_image: Sjálfgefin mynd
       errors:
         error: Það er villa í þessu sviði.
     log:
