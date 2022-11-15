@@ -29,6 +29,7 @@ cs:
         password_confirmation: Potvrzení hesla
         personal_url: Osobní URL
         remove_avatar: Odstranit avatara
+        tos_agreement: Smluvní podmínky užití
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní součást
@@ -827,18 +828,6 @@ cs:
           how: Jak ho můžete získat
           page_description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky. Zde je seznam odznaků a některé způsoby, jak si je můžete vydělat.
           title: Odznaky
-        invitations:
-          conditions:
-            - Pomocí odkazu "pozvat přátele" na své uživatelské stránce můžete pozvat své přátele
-            - Přizpůsobte, pokud chcete, zprávu, kterou posíláte
-            - Posíláním pozvánek a jejich registrací se dostáváte výš.
-          description: Tento odznak je udělen, když jste pozvali některé lidi a tráví čas, aby se zaregistrovali v %{organization_name} a stali se účastníky. Děkujeme za %{organization_name} je známo, že ostatní a pomáhá rozšířit komunitu!
-          description_another: Tento uživatel pozval %{score} uživatelů.
-          description_own: Pozvali jste %{score} uživatelů.
-          name: Pozvánky
-          next_level_in: Pozvat %{score} dalších uživatelů, abyste se dostali na další úroveň!
-          unearned_another: Tento uživatel zatím nepozval žádného uživatele.
-          unearned_own: Dosud jste nepozvali žádné uživatele.
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
