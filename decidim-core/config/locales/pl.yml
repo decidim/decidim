@@ -808,8 +808,6 @@ pl:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
     forms:
-      current_image: Bieżący obraz
-      default_image: Domyślny obraz
       errors:
         decidim/user:
           password: Hasło jest za krótkie.
