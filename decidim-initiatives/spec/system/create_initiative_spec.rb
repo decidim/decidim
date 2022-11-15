@@ -499,15 +499,20 @@ describe "Initiative", type: :system do
             end
           end
 
+          it "shows input for initiative_type" do
+            expect(page).to have_content("Initiative type")
+            expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+          end
+
           it "shows information collected in previous steps already filled" do
-            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+            # expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
             expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
             expect(find(:xpath, "//input[@id='initiative_description']", visible: :all).value).to eq(translated(initiative.description, locale: :en))
           end
 
           it "shows input for signature collection type" do
             expect(page).to have_content("Signature collection type")
-            expect(find(:xpath, "//select[@id='initiative_signature_type']", visible: :all).value).to eq("")
+            expect(find(:xpath, "//select[@id='initiative_signature_type']", visible: :all).value).to eq("online")
           end
 
           it "shows input for hashtag" do
@@ -522,7 +527,7 @@ describe "Initiative", type: :system do
             it "hides and automatically selects the values" do
               expect(page).not_to have_content("Signature collection type")
               expect(page).not_to have_content("Scope")
-              expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
+              expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
               expect(find(:xpath, "//input[@id='initiative_signature_type']", visible: :all).value).to eq("offline")
             end
           end

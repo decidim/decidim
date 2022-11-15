@@ -18,6 +18,7 @@ en:
           online: Online
         state: Status
         title: Title
+        type_id: Initiative type
       initiatives_committee_member:
         user: Committee member
       initiatives_settings:
@@ -360,6 +361,7 @@ en:
           more_information: "(More information)"
           select_area: Select an area
           select_scope: Select a scope
+          decidim_user_group_id_help: It's not possible to change initiative authorship after creation
         finish:
           back: Back
           back_to_initiatives: Back to initiatives
