@@ -744,18 +744,6 @@ eu:
           how: Nola irabaz dezakezu?
           page_description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu. Hona hemen txapak eta irabazi ditzakezun modu batzuk.
           title: Badges
-        invitations:
-          conditions:
-            - Erabili "gonbidatu lagunak" esteka erabiltzaile-orrian zure lagunak gonbidatzeko
-            - Pertsonalizatu, nahi baduzu, bidaltzen ari zaren mezua
-            - Gonbidapenak bidaltzea eta inskribatzea lortuko duzu.
-          description: Idazmahaia ematen zaie pertsona batzuk gonbidatu dituzunean eta denbora pixka bat pasatu dute %{organization_name} erregistratu eta parte-hartzaile bihurtu. Eskerrik asko egiteko %{organization_name} besteei ezaguna eta komunitatea zabaltzeko laguntzen!
-          description_another: Erabiltzaile honek %{score} erabiltzaile gonbidatu ditu.
-          description_own: '%{score} erabiltzaile gonbidatu dituzu.'
-          name: Gonbidapenak
-          next_level_in: Gonbidatu %{score} erabiltzaile gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek ez du oraindik gonbidatu erabiltzaileak.
-          unearned_own: Erabiltzaile ez da gonbidatu oraindik.
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.

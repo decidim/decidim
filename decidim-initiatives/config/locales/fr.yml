@@ -19,6 +19,8 @@ fr:
         title: Titre
       initiatives_committee_member:
         user: Membre du Comité de promotion
+      initiatives_settings:
+        initiatives_order: Ordre
       initiatives_type:
         area_enabled: Permettre aux auteurs de choisir le périmètre d'assemblée pour leur pétition
         attachments_enabled: Autoriser les pièces jointes

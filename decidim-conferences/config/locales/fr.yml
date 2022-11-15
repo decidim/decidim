@@ -379,7 +379,8 @@ fr:
         invite_join_conference_mailer:
           invite:
             decline: Refuser l'invitation '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} a invité à participer à une conférence à %{application}. Vous pouvez refuser ou l'accepter via les liens ci-dessous."
+            invited_existing_user_to_join_a_conference: "%{invited_by} a invité à participer à une conférence à %{application}. Vous pouvez refuser ou l'accepter via les liens ci-dessous."
+            invited_user_to_join_a_conference: "%{invited_by} vous a invité à participer à une conférence à %{application}. Vous pouvez accepter en utilisant le lien ci-dessous."
             registration: Inscription pour '%{conference_title}'
         partners:
           index:
@@ -430,9 +431,11 @@ fr:
         create:
           invalid: Il y a eu un problème pour rejoindre cette conférence.
           success: Vous avez rejoint la conférence avec succès.
+          unauthorized: Vous devez vous connecter avant de vous inscrire à la conférence.
         decline_invitation:
           invalid: Il y a eu un problème pour refuser l'invitation.
           success: Vous avez refusé l'invitation avec succès.
+          unauthorized: Vous devez vous connecter avant de refuser l'invitation.
         destroy:
           invalid: Il y a eu un problème pour quitter cette conférence.
           success: Vous avez quitté la conférence avec succès.

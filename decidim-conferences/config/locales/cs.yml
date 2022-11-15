@@ -387,7 +387,8 @@ cs:
         invite_join_conference_mailer:
           invite:
             decline: Odmítnout pozvánku '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} vás zve na konferenci na %{application}. Můžete jej odmítnout nebo přijmout prostřednictvím níže uvedených odkazů."
+            invited_existing_user_to_join_a_conference: "%{invited_by} vás zve na konferenci na %{application}. Můžete jej odmítnout nebo přijmout prostřednictvím níže uvedených odkazů."
+            invited_user_to_join_a_conference: "%{invited_by} vás pozval, abyste se připojili ke konferenci v %{application}. Můžete ji přijmout prostřednictvím níže uvedeného odkazu."
             registration: Registrace pro "%{conference_title}"
         partners:
           index:
@@ -438,9 +439,11 @@ cs:
         create:
           invalid: Do této konference došlo k problému.
           success: Do konference jste se úspěšně připojili.
+          unauthorized: Před registrací na konferenci se musíte přihlásit.
         decline_invitation:
           invalid: Došlo k potížím s odmítnutím pozvánky.
           success: Odmítli jste pozvánku úspěšně.
+          unauthorized: Před odmítnutím pozvání se musíte přihlásit.
         destroy:
           invalid: Při této konferenci došlo k problému.
           success: Konference jste úspěšně opustili.

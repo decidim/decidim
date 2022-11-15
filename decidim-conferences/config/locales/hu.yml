@@ -340,7 +340,7 @@ hu:
         invite_join_conference_mailer:
           invite:
             decline: A "%{conference_title}" meghívása
-            invited_you_to_join_a_conference: "%{invited_by} meghívta Önt, hogy csatlakozzon egy konferenciához %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
+            invited_existing_user_to_join_a_conference: "%{invited_by} meghívta Önt, hogy csatlakozzon egy konferenciához %{application}kor. Az alábbi linkeken keresztül visszautasíthatja vagy elfogadhatja."
             registration: Regisztráció a '%{conference_title}' -ra
         partners:
           index:

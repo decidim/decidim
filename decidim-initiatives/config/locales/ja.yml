@@ -19,6 +19,8 @@ ja:
         title: タイトル
       initiatives_committee_member:
         user: 委員会メンバー
+      initiatives_settings:
+        initiatives_order: 順番
       initiatives_type:
         area_enabled: 作成者がイニシアチブの領域を選択できるようにする
         attachments_enabled: 添付ファイルを有効化

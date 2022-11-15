@@ -807,18 +807,6 @@ pl:
           how: Jak ją zdobyć
           page_description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki. Oto lista odznak i kilka sposobów na ich zdobycie.
           title: Odznaki
-        invitations:
-          conditions:
-            - Użyj linku "zaproś znajomych" na swojej stronie użytkownika, aby zaprosić znajomych
-            - Dostosuj, jeśli chcesz, wiadomość, którą wysyłasz
-            - Możesz awansować na wyższy poziom, wysyłając zaproszenia i gdy zostaną one przyjęte.
-          description: Ta odznaka jest przyznawana, gdy zapraszasz ludzi i gdy oni poświęcą trochę czasu, aby zarejestrować się w %{organization_name} i zostać użytkownikami. Dziękujemy za udostępnienie %{organization_name} innym osobom i pomoc w rozbudowywaniu społeczności!
-          description_another: Ten użytkownik zaprosił %{score} osób.
-          description_own: Zaprosiłeś %{score} osób.
-          name: Zaproszenia
-          next_level_in: Zaproś %{score} kolejnych użytkowników, aby przejść do następnego poziomu!
-          unearned_another: Ten użytkownik jeszcze nikogo nie zaprosił.
-          unearned_own: Jeszcze nikogo nie zaproszono.
       description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.

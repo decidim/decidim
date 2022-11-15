@@ -29,6 +29,7 @@ ja:
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
         remove_avatar: アバターを削除
+        tos_agreement: ユーザー利用規約
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -775,18 +776,6 @@ ja:
           how: どうやって稼ぐことができますか？
           page_description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。 ここにバッジのリストといくつかの方法があります。
           title: バッジ
-        invitations:
-          conditions:
-            - 友達を招待するには、ユーザーページの「友達招待」リンクを使用してください
-            - 必要に応じて、送信するメッセージをカスタマイズします
-            - 招待状を送信して登録することでレベルアップします。
-          description: このバッジは、あなたが何人かの人を招待し、その人たちが少し時間をかけて%{organization_name} に登録し、参加者になったときに与えられます。%{organization_name} を他の人に知らしめ、コミュニティの拡大に貢献してくれたことに感謝します！
-          description_another: この参加者は %{score} 人を招待しました。
-          description_own: '%{score} 人を招待しました。'
-          name: 招待
-          next_level_in: '%{score} 人を招待して次のレベルに到達しましょう！'
-          unearned_another: この参加者はまだ誰も招待していません。
-          unearned_own: まだ誰も招待していません。
       description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。
       level: レベル %{level}
       reached_top: このバッジの最高レベルに達しました。

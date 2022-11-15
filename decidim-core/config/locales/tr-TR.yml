@@ -729,18 +729,6 @@ tr:
           how: Nasıl kazanabilirsin
           page_description: Rozetler, katılımcı eylemleri ve platformdaki ilerlemeleri tanımaktadır. Platformda keşfetmeye, katılmaya ve etkileşim kurmaya başladığınızda farklı rozetler kazanacaksınız. İşte rozetlerin listesi ve bunları kazanmanın bazı yolları.
           title: Rozetler
-        invitations:
-          conditions:
-            - Arkadaşlarınızı davet etmek için kullanıcı sayfanızdaki “arkadaşlarını davet et” bağlantısını kullanın.
-            - İsterseniz, göndermek istediğiniz mesajı özelleştirin
-            - Davetiyeler göndererek ve onları kayıt altına alarak seviye atlayacaksınız.
-          description: Bu rozeti, bazı kişileri davet ettiğinizde ve %{organization_name} kaydolmak ve katılımcı olmak için biraz zaman ayırdıklarında verilir. Yaptığınız için teşekkür ederiz %{organization_name} başkalarına bilinen ve topluluğu genişletmek için yardımcı!
-          description_another: Bu kullanıcı %{score} kullanıcı davet etti.
-          description_own: '%{score} kullanıcıyı davet ettiniz.'
-          name: Davetiyeler
-          next_level_in: Bir sonraki seviyeye ulaşmak için %{score} kullanıcı daha davet edin!
-          unearned_another: Bu kullanıcı henüz bir kullanıcıyı davet etmedi.
-          unearned_own: Henüz hiç kullanıcı davet etmediniz.
       description: Rozetler, katılımcı eylemleri ve platformdaki ilerlemeleri tanımaktadır. Platformda keşfetmeye, katılmaya ve etkileşim kurmaya başladığınızda farklı rozetler kazanacaksınız.
       level: Seviye %{level}
       reached_top: Bu rozetin en üst seviyesine ulaştınız.

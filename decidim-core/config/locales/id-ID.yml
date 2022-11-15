@@ -550,18 +550,6 @@ id:
           how: Bagaimana Anda bisa mendapatkannya
           page_description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda. Di sini adalah daftar lencana dan beberapa cara Anda dapat memperolehnya.
           title: Lencana
-        invitations:
-          conditions:
-            - Gunakan tautan "undang teman" di halaman pengguna Anda untuk mengundang teman-teman Anda
-            - Sesuaikan, jika Anda mau, pesan yang Anda kirim
-            - Anda akan naik level dengan mengirim undangan dan meminta mereka terdaftar.
-          description: Lencana ini diberikan ketika Anda mengundang beberapa orang dan mereka telah menghabiskan sedikit waktu untuk mendaftar di %{organization_name} dan menjadi peserta. Terima kasih telah membuat %{organization_name} diketahui orang lain dan membantu memperluas komunitas!
-          description_another: Pengguna ini telah mengundang %{score} pengguna.
-          description_own: Anda telah mengundang %{score} pengguna.
-          name: Undangan
-          next_level_in: Undang %{score} lebih banyak pengguna untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum mengundang pengguna apa pun.
-          unearned_own: Anda belum mengundang pengguna.
       description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda.
       level: Level %{level}
       reached_top: Anda telah mencapai level teratas untuk lencana ini.

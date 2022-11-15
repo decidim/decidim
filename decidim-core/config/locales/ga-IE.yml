@@ -152,8 +152,6 @@ ga:
       badges:
         index:
           title: Suaitheantais
-        invitations:
-          name: Cuirí
     group_invites:
       accept_invitation: Glac
       index:

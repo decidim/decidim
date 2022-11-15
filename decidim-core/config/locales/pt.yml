@@ -744,18 +744,6 @@ pt:
           how: Como pode ganhar
           page_description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes. Aqui está a lista de distintivos e algumas maneiras de ganhá-los.
           title: Distintivos
-        invitations:
-          conditions:
-            - Use a hiperligação "convidar amigos" na sua página de utilizador para convidar os seus amigos
-            - Personalize, se quiser, a mensagem que está a enviar
-            - Subirá de nível ao enviar convites e obtendo registos.
-          description: Este distintivo é concedido quando convidou algumas pessoas e elas despenderam um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por dar a conhecer %{organization_name} aos outros e ajudar a expandir a comunidade!
-          description_another: Este participante convidou %{score} utilizadores.
-          description_own: Convidou %{score} utilizadores.
-          name: Convites
-          next_level_in: Convide mais %{score} utilizadores para alcançar o próximo nível!
-          unearned_another: Este participante ainda não convidou alguém.
-          unearned_own: Ainda não convidou alguém.
       description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Atingiu o nível superior para este distintivo.
