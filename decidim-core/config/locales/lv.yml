@@ -618,8 +618,6 @@ lv:
         button: Pārtraukt sekot
         error: Neizdevās pārtraukt sekot šim vienumam.
     forms:
-      current_image: Pašreizējais attēls
-      default_image: Noklusējuma attēls
       errors:
         decidim/user:
           password: Parole ir pārāk īsa.
