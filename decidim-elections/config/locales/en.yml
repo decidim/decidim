@@ -7,15 +7,32 @@ en:
         image: Image
         proposals: Related proposals
         title: Title
+      ballot_style:
+        code: Code
       election:
         description: Description
         end_time: Voting ends at
         start_time: Voting start at
         title: Title
+      monitoring_committee_member:
+        email: Email
+        name: Name
+      polling_officer:
+        email: Email
+        name: Name
+      polling_station:
+        address: Address
+        location: Location
+        location_hints: Location hint
+        polling_station_president_id: President
+        polling_station_managers: Managers
+        title: Title
       question:
         max_selections: Maximum number of selections
         min_selections: None of the above option
         title: Title
+      trustees_participatory_space:
+        user_id: Participant
       voting:
         banner_image: Banner image
         census_contact_information: Census contact information
