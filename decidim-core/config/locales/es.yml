@@ -817,8 +817,6 @@ es:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
     forms:
-      current_image: Imagen actual
-      default_image: Imagen predeterminada
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -861,7 +859,6 @@ es:
           validating: Validando...
           validation_error: '¡Error de validación!'
       upload_help:
-        dropzone: Arrastrar archivos aquí o haz clic para subirlos
         explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Ver todas las insígnias disponibles.
