@@ -893,6 +893,7 @@ cs:
           edit_image: Upravit obrázek
           error: Chyba!
           file_size_too_large: 'Velikost souboru je příliš velká! Maximální velikost souboru: %{megabytes}MB'
+          filename: Název souboru
           remove: Odebrat
           replace: Nahradit
           save: Uložit
@@ -901,7 +902,9 @@ cs:
           uploaded: Nahráno
           validating: Probíhá ověřování...
           validation_error: Chyba ověření!
+        select_file: Vyberte soubor
       upload_help:
+        dropzone: Přetáhněte soubory sem nebo klikněte na tlačítko pro nahrání
         explanation: Návod pro %{attribute}
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
