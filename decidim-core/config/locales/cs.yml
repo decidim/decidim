@@ -860,8 +860,6 @@ cs:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
     forms:
-      current_image: Aktuální obrázek
-      default_image: Výchozí obrázek
       errors:
         decidim/user:
           password: Heslo je příliš krátké.
@@ -904,7 +902,6 @@ cs:
           validating: Probíhá ověřování...
           validation_error: Chyba ověření!
       upload_help:
-        dropzone: Přetáhněte soubory sem nebo klikněte pro nahrání
         explanation: Návod pro %{attribute}
     gamification:
       all_badges_link: Zobrazit všechny dostupné odznaky.
