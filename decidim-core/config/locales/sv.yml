@@ -754,8 +754,6 @@ sv:
         button: Sluta följa
         error: Det gick inte att sluta följa den här resursen.
     forms:
-      current_image: Nuvarande bild
-      default_image: Förvald bild
       errors:
         decidim/user:
           password: Lösenordet är för kort.
