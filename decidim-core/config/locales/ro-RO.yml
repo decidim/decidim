@@ -723,8 +723,6 @@ ro:
         button: Nu doresc să mai urmăresc
         error: A apărut o problemă la anularea urmăririi acestei resurse.
     forms:
-      current_image: Imaginea curentă
-      default_image: Imagine implicită
       errors:
         decidim/user:
           password: Parola este prea scurtă.
