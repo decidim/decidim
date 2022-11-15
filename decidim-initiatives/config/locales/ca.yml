@@ -19,6 +19,8 @@ ca:
         title: Títol
       initiatives_committee_member:
         user: Membre del comitè
+      initiatives_settings:
+        initiatives_order: Ordre
       initiatives_type:
         area_enabled: Permet a les autores triar l'àrea de la seva iniciativa
         attachments_enabled: Habilitat arxius adjunts
