@@ -92,6 +92,7 @@ ca:
             cancel: Cancel·lar
             change_category: Canviar categoria
             change_scope: Canviar àmbit
+            change_selected: Canviar l'estat seleccionat
             deselect_implementation: No s'ha seleccionat per implementar
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
@@ -121,6 +122,7 @@ ca:
               selected: 'Aquests projectes ja han estat seleccionats per a ser implementats: %{projects}.'
               unselected: 'Aquests projectes han estat deseleccionats de ser implementats: %{projects}.'
             select_a_project: Si us plau, selecciona un projecte
+            select_a_selection: Si us plau, selecciona un estat d'implementació
             success:
               selected: 'Aquests projectes s''han seleccionat correctament per a ser implementats: %{projects}.'
               unselected: 'Aquests projectes s''han deseleccionat correctament per a ser implementats: %{projects}.'
