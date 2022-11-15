@@ -716,8 +716,6 @@ nl:
         button: Stop met volgen
         error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
     forms:
-      current_image: Huidige afbeelding
-      default_image: Standaard afbeelding
       errors:
         decidim/user:
           password: Het wachtwoord is te kort.
