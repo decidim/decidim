@@ -849,8 +849,6 @@ lt:
         button: Nebesekti
         error: Nutraukiant šio ištekliaus sekimą iškilo problema.
     forms:
-      current_image: Dabartinis paveikslėlis
-      default_image: Numatytas atvaizdas
       errors:
         decidim/user:
           password: Slaptažodis yra per trumpas.
@@ -891,7 +889,6 @@ lt:
           validating: Tvirtinama...
           validation_error: Tvirtinimo klaida!
       upload_help:
-        dropzone: Numeskite rinkmeną čia arba spauskite įkėlimo mygtuką
         explanation: Instrukcijos %{attribute}
     gamification:
       all_badges_link: Žiūrėti visus prieinamus ženklelius.
