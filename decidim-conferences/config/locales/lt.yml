@@ -387,7 +387,7 @@ lt:
         invite_join_conference_mailer:
           invite:
             decline: Atmesti kvietimą į „%{conference_title}“
-            invited_you_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamas nuorodas."
+            invited_existing_user_to_join_a_conference: "%{invited_by} jus pakvietė dalyvauti konferencijoje %{application}. Kvietimą galite atmesti arba priimti spustelėję toliau pateikiamas nuorodas."
             registration: Registracija į „%{conference_title}“
         partners:
           index:
