@@ -40,7 +40,7 @@ en:
         end_time: Voting ends
         introductory_image: Introductory image
         promoted: Promoted
-        scope: Scope
+        scope_id: Scope
         show_check_census: Show "check census" page
         start_time: Voting begins
         title: Title
