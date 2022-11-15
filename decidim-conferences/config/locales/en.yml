@@ -38,13 +38,13 @@ en:
         date: Date
         link: Link
         title: Title
-        weight: Weight
+        weight: Order position
       conference_partner:
         link: Link
         logo: Logo
         name: Name
         partner_type: Partner type
-        weight: Weight
+        weight: Order position
       conference_registration_invite:
         email: Email
         name: Name
@@ -54,7 +54,7 @@ en:
         description: Description
         price: Price
         title: Title
-        weight: Weight
+        weight: Order position
       conference_speaker:
         affiliation: Affiliation
         avatar: Avatar
