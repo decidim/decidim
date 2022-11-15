@@ -348,7 +348,7 @@ sk:
         invite_join_conference_mailer:
           invite:
             decline: Odmietnuť pozvánku na "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} Vás pozval na účasť na konferencii na %{application}. Účasť môžete potvrdiť alebo odmietnuť kliknutím na odkaz nižšie."
+            invited_existing_user_to_join_a_conference: "%{invited_by} Vás pozval na účasť na konferencii na %{application}. Účasť môžete potvrdiť alebo odmietnuť kliknutím na odkaz nižšie."
             registration: Registrácia na konferenciu "%{conference_title}"
         partners:
           index:
