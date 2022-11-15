@@ -35,7 +35,6 @@ en:
         registration_url: Registration URL
         registrations_enabled: Registrations enabled
         reserved_slots: Reserved slots for this meeting
-        show_embedded_iframe: Show embedded iframe for this URL
         start_time: Start time
         title: Title
         transparent: Transparent
