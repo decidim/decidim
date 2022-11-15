@@ -2,10 +2,6 @@
 en:
   activemodel:
     attributes:
-      agenda:
-        description: Description
-        duration: Duration
-        title: Title
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -47,6 +43,10 @@ en:
       meeting_agenda:
         title: Title
         visible: Visible
+      meeting_agenda_items:
+        description: Description
+        duration: Duration
+        title: Title
       meeting_registration_invite:
         email: Email
         name: Name
