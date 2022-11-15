@@ -3,6 +3,7 @@ ro:
     models:
       decidim/comments/comment_by_followed_user_event: Comentariu
       decidim/comments/comment_created_event: Comentează
+      decidim/comments/comment_upvoted_event: Comentariu votat
       decidim/comments/reply_created_event: Răspuns la comentariu
       decidim/comments/user_group_mentioned_event: Menționează
       decidim/comments/user_mentioned_event: Menționează
@@ -72,6 +73,7 @@ ro:
         edit: Editează
         edited: Editat
         hide_replies: Ascunde răspunsurile
+        moderated_at: Comentariu moderat pe %{date}
         reply: Răspunde
         report:
           action: Raportează

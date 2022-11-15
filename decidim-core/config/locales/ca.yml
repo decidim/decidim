@@ -29,6 +29,7 @@ ca:
         password_confirmation: Confirma la teva contrasenya
         personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
+        tos_agreement: Acord de termes i condicions d'ús
     models:
       decidim/attachment_created_event: Arxiu adjunt
       decidim/component_published_event: Component actiu
@@ -48,6 +49,9 @@ ca:
       decidim/welcome_notification_event: Missatge de benvinguda
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Hora
+        with_participatory_space: Espai de participació
       decidim/user:
         current_password: Contrasenya actual
         email: Correu electrònic
@@ -126,6 +130,7 @@ ca:
           question: Segur que vols eliminar el teu compte?
           title: Eliminar el meu compte
         explanation: Si us plau, explica'ns la raó per la qual vols eliminar el teu compte (opcional).
+        leaving_authorizations_behind: Algunes dades vinculades a la teva autorització es guardaran per motius de seguretat. Si crees un altre compte i l'autoritzes de nou, aquestes dades es recuperaran al teu nou compte.
       destroy:
         error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
@@ -150,6 +155,8 @@ ca:
         error: S'ha produït un error en actualitzar el teu compte.
         success: El teu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
+    activity:
+      time_ago: "Fa %{time}"
     admin:
       actions:
         cancel: Cancel·lar
@@ -598,10 +605,22 @@ ca:
       identities:
         done: Fet
         select_identity: Selecciona identitat
+    endorsers_list:
+      close: Tancar
+      endorsed_by: Li agrada a…
     errors:
       internal_server_error:
+        copied: Text copiat!
+        copy_error_message_clarification: Missatge d'error copiat amb el porta-retalls
+        copy_to_clipboard: Copiar al porta-retalls
+        date_and_time: Data i hora
+        reference: Referència
+        request_method: Mètode de sol·licitud
         title: Hi ha hagut un problema amb el nostre servidor
-        try_later: Si us plau, torna-ho a intentar més tard.
+        try_later: Si us plau, intenta-ho de nou més tard. Si l'error persisteix, si us plau copia la següent informació i envia-la a les mantenidores de la plataforma amb qualsevol altra informació que vulguis compartir.
+        unknown: Desconegut
+        url: URL
+        user: ID de participant
       not_found:
         back_home: Torna a l'inici
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
@@ -784,6 +803,9 @@ ca:
         other: "%{count} seguidores"
       no_followers: Encara no hi ha seguidores.
     following:
+      following_count:
+        one: "%{count} ho segueix"
+        other: "%{count} ho segueixen"
       no_followings: No segueix a cap persona ni cap activitat.
       non_public_followings: Alguns dels recursos seguits no són públics.
     follows:
@@ -819,6 +841,8 @@ ca:
         allowed_file_extensions: 'Tipus de fitxers admesos: %{extensions}'
         max_file_dimension: 'Mides máximes de l''arxiu: %{resolution} pixels'
         max_file_size: 'Mida màxima del fitxer:%{megabytes}MB'
+      files:
+        extension_allowlist: 'Formats acceptats: %{extensions}'
       upload:
         labels:
           add_attachment: Afegir adjunt
@@ -857,21 +881,10 @@ ca:
           how: Com pots aconseguir-la
           page_description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus. Aquí tens la llista d'insígnies i algunes formes d'aconseguir-les.
           title: Insígnies
-        invitations:
-          conditions:
-            - Utilitza l'enllaç "convidar amigues" a la teva pàgina d'usuària per convidar a les teves amistats
-            - Personalitza, si vols, el missatge que estàs enviant
-            - Pujaràs per mitjà de l'enviament d'invitacions i de registrar-les.
-          description: Aquesta insígna s'aconsegueix quan has convidat a algunes persones a la plataforma %{organization_name}, i s'hi han registrat com a participants. Gràcies per donar a conèixer %{organization_name} a d'altres i ajudar a ampliar la comunitat!
-          description_another: Aquesta participant ha convidat a %{score} persones.
-          description_own: Has convidat %{score} persones.
-          name: Invitacions
-          next_level_in: Convida a %{score} persones més per arribar al següent nivell!
-          unearned_another: Aquesta participant encara no ha convidat ningú.
-          unearned_own: Encara no has convidat a ningú.
       description: Les insígnies són reconeixements de les accions de les participants i del progrés en la plataforma. A mesura que comencis a descobrir, participar i interactuar amb la plataforma, n'obtindràs de diferents tipus.
       level: Nivell %{level}
       reached_top: Has arribat al màxim nivell d'aquesta insígnia.
+      title: Què són les ensenyes?
     group_admins:
       actions:
         are_you_sure: Segura? Això no eliminarà la participant del grup.
@@ -1057,8 +1070,6 @@ ca:
           modal_title: Nova conversa
           no_results: No hi ha resultats
           participant_with_disabled_message_reception: Aquesta participant ha desactivat la recepció de missatges
-        conversation:
-          show: Mostrar la conversa amb %{sender}
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         error_modal:
@@ -1068,19 +1079,13 @@ ca:
           ok: D'acord
         index:
           ago: fa
-          close: Tanca modal
-          from: De
-          groups: Els meus grups
-          last_message: Darrer missatge
           new_conversation: Nova conversa
           next: Següent
           no_conversations: Encara no tens converses
           title: Converses
-          to: Per a
-        reply:
+        reply_form:
           placeholder: La teva resposta...
           send: Enviar
-          title: Respon
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
@@ -1088,8 +1093,8 @@ ca:
           not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
+          placeholder: El teu missatge…
           send: Enviar
-          title: Comença una conversa
         update:
           error: El missatge no ha estat enviat degut a un error
     metrics:
@@ -1109,6 +1114,7 @@ ca:
         title: Participants
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
         note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
         see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <a href="%{link}" target="_blank"> versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
@@ -1239,7 +1245,6 @@ ca:
         sub_hero:
           register: Registra't
       index:
-        read_more: Llegir més
         standalone_pages: Pàgines
         subheading: Navega per les pàgines d'ajuda de %{name}
         title: Ajuda
@@ -1289,13 +1294,21 @@ ca:
         members: Membres
         officialized: Participant oficial
         send_private_message: Enviar missatge privat
-        timeline: Línia de temps
         view_full_profile: Mostra el perfil complet
       sidebar:
         badges:
           info: Els distintius s'aconsegueixen mitjançant la realització d'activitats específiques a la plataforma.
           title: Insígnies
       user:
+        actions:
+          create_user_group: Crear un grup
+          edit_profile: Editar el perfil
+          edit_user_group: Editar el perfil del grup
+          invite_user: Convidar a una participant
+          join_user_group: Sol·licitar unir-se al grup
+          manage_user_group_admins: Gestionar les administradores
+          manage_user_group_users: Gestionar les membres
+          message: Missatge
         confirmation_instructions_sent: Instruccions de confirmació de correu electrònic enviades
         create_user_group: Crea un grup
         edit_profile: Edita el perfil
@@ -1440,6 +1453,7 @@ ca:
         copy_share_link_message: S'ha copiat l'enllaç al porta-retalls.
         share: Compartir
         share_link: Compartir l'enllaç
+        share_to: Compartir a %{service}
     statistics:
       comments_count: Comentaris
       endorsements_count: Adhesions
@@ -1647,15 +1661,6 @@ ca:
       updated_not_active: La teva contrasenya s'ha modificat correctament.
     registrations:
       destroyed: El teu compte s'ha cancel·lat correctament. Esperem tornar-te a veure aviat.
-      edit:
-        are_you_sure: Estàs segura?
-        cancel_my_account: Cancel·lar el meu compte
-        currently_waiting_confirmation_for_email: 'Estem esperant la confirmació per a: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: Deixa-ho en blanc si no vols canviar-lo
-        title: Edita %{resource}
-        unhappy: Infeliç?
-        update: Actualitzar
-        we_need_your_current_password_to_confirm_your_changes: Necessitem la teva contrasenya actual per confirmar els canvis
       new:
         sign_up: Registra't
       signed_up: Benvinguda! Has iniciat la sessió amb èxit.
@@ -1691,8 +1696,34 @@ ca:
   doorkeeper:
     scopes:
       public: La teva informació pública.
+  emojis:
+    button: Afegir emoji
+    categories:
+      activities: Activitats
+      animals-nature: Animals i natura
+      custom: Personalitzat
+      flags: Banderes
+      food-drink: Aliments i begudes
+      objects: Objectes
+      people-body: Persones i cos
+      recents: Utilitzats recentment
+      smileys-emotion: Somriures i emocions
+      symbols: Símbols
+      travel-places: Viatges i llocs
+    error:
+      load: No s'ha pogut carregar la llista d'emojis
+    recents:
+      clear: Esborrar els emojis recents
+      none: Encara no heu seleccionat cap emoji.
+    retry: Prova-ho de nou
+    search:
+      _: Cercar emojis...
+      clear: Neteja la cerca
+      error: Error en cercar emojis
+      not_found: No s'han trobat resultats
   errors:
     messages:
+      allowed_file_content_types: 'Només s''accepten arxius amb les següents extensions: %{types}'
       already_confirmed: ja s'ha confirmat, si us plau intenta iniciar la sessió
       confirmation_period_expired: s'ha de confirmar dins de %{period}, si us plau sol·licita'n un de nou
       content_type_allowlist_error: el tipus de fitxer no és vàlid
@@ -1710,7 +1741,7 @@ ca:
         other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
-      too_short: És massa curt (menys de 15 caràcters)
+      too_short: És massa curt (menys %{count} caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:
@@ -1724,56 +1755,60 @@ ca:
     timestamp_error_message: Ho sentim, has estat massa ràpid! Si us plau, torna a enviar-ho.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: Descripció
             name: Nom
             service: Servei
             type: Tipus
-          cookies:
+          items:
             _session_id:
               description: Permet als llocs web recordar a la usuària dins d'un lloc web quan es mou entre pàgines web.
               service: Aquesta pàgina web
             decidim-consent:
               description: Emmagatzema informació sobre les galetes permeses per la usuària en aquesta pàgina web.
               service: Aquesta pàgina web
+            pwaInstallPromptSeen:
+              description: Guarda l'estat si la notificació d'instal·lació de l'aplicació web progressiva (PWA) ja ha estat vista per la usuària.
+              service: Aquesta pàgina web
           types:
             cookie: Galeta
+            local_storage: Emmagatzematge local
         dialog:
           accept_all: Acceptar totes
           accept_only_essential: Acceptar només les essencials
-          cookie_settings: Configuració
           description: Utilitzem galetes en el nostre lloc web per a millorar el rendiment i el contingut d'aquest. Les galetes ens permeten oferir una experiència d'usuari i uns continguts més personalitzats des dels nostres canals de xarxes socials.
+          settings: Configuració
           title: Informació sobre les galetes que es fan servir a aquesta pàgina web
         modal:
           accept_all: Acceptar totes
           accept_only_essential: Acceptar només les essencials
           analytics:
-            description: Les galetes analítiques són galetes que rastregen com els usuaris naveguen i interactuen amb un lloc web. La informació recollida s'utilitza per a ajudar el propietari del lloc web a millorar-lo.
+            description: Aquestes galetes s'utilitzen per a mesurar i analitzar l'audiència del lloc web per a ajudar a millorar-lo.
             title: Analítiques i estadístiques
-          description: Fem servir galetes per a garantir les funcionalitats bàsiques de la pàgina web i per a millorar la teva experiència en línia. Pots triar activar-les o desactivar-les per cada categoria quan vulguis.
+          description: Fem servir galetes per assegurar les funcionalitats bàsiques del lloc web i per a millorar la teva experiència en línia. Pots configurar i acceptar l'ús de galetes, i modificar les teves opcions de consentiment en qualsevol moment.
           essential:
-            description: Aquestes galetes són essencials per al bon funcionament de la pàgina web. Sense aquestes galetes, la pàgina web no funcionarà correctament.
+            description: Aquestes galetes permeten la funcionalitat clau del lloc web i ajuden a mantenir a les seves usuàries segures. Es guarden automàticament al navegador i no es poden desactivar.
             title: Essencials
           marketing:
-            description: Aquestes galetes recullen informació sobre com fas servir la plataforma, quines pàgines has visitat i a quins enllaços has fet clic.
+            description: Aquestes galetes recullen informació sobre com fas servir el lloc web i es poden fer servir per a proporcionar-te un servei més personalitzat en els diferents espais en què participes.
             title: Màrqueting
           preferences:
-            description: Aquestes galetes permeten a la plataforma recordar les opcions que vas realitzar en el passat
+            description: Aquestes galetes permeten que el lloc web recordi les opcions que s'han triat en el passat a aquest lloc web per tal de proporcionar una experiència més personalitzada a les usuàries.
             title: Preferències
           save_settings: Guardar configuració
           title: Configuració de les galetes
           toggle: Canviar %{consent_category}
         warning:
-          all_cookies: totes les galetes
-          change_cookie_settings: Canviar la configuració de les galetes
-          need_cookies: Cal que habilitis %{cookies} per veure aquest contingut.
+          all_categories: totes les galetes
+          change_settings: Canviar la configuració de les galetes
+          consent_required: Cal que habilitis %{categories} per veure aquest contingut.
       edit_link:
         edit: Edita
       footer:
         cc_by_license: Amb llicència Creative Commons
-        cookie_settings: Configuració de les galetes
+        data_consent_settings: Configuració de les galetes
         decidim_logo: Logo Decidim
         download_open_data: Descarrega els fitxers de dades obertes
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
@@ -1830,7 +1865,7 @@ ca:
         see_more: Veure més
   locale:
     name: Català
-    name_with_error: Anglès (error!)
+    name_with_error: Català (error!)
   password_validator:
     blacklisted: a la llista negra
     domain_included_in_password: és massa semblant a aquest nom de domini
@@ -1844,6 +1879,12 @@ ca:
     password_too_common: és massa comú
     password_too_long: és massa llarg
     password_too_short: és massa curt
+  ransack:
+    predicates:
+      dtgt: després
+      dtgteq: posterior o igual a
+      dtlt: abans
+      dtlteq: anterior o igual a
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1900,14 +1941,10 @@ ca:
       option_unified: Unificat
   views:
     pagination:
-      first: "&laquo; Primera"
-      first_title: Enllaç a la primera pàgina
-      last: Última &raquo;
-      last_title: Enllaç a la darrera pàgina
-      next: Següent &rsaquo;
+      next: Següent
       next_title: Enllaç a la pàgina següent
       pagination: Paginació
-      previous: "&lsaquo; Anterior"
+      previous: Anterior
       previous_title: Enllaç a la pàgina anterior
       title: 'Número de pàgina: '
       truncate: "&hellip;"

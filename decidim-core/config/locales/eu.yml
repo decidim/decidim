@@ -87,6 +87,7 @@ eu:
           question: Ziur zure kontua ezabatu nahi duzula?
           title: Ezabatu nire kontua
         explanation: Mesedez, zure kontu ezabatu nahi izateko arrazoia azaldu (aukerakoa).
+        leaving_authorizations_behind: Egiaztatze-prozesu honetako hainbat datu gorde egingo dira segurtasunagatik. Beste kontu bat sortu eta, berriz ere, egiaztatzeko prozesuari ekin nahi badiozu, datu horiek berreskuratu egingo dira.
       destroy:
         error: Errore bat gertatu da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
@@ -513,8 +514,8 @@ eu:
         select_identity: Hautatu identitatea
     errors:
       internal_server_error:
+        date_and_time: Data eta ordua
         title: Arazo bat izan da gure zerbitzariarekin
-        try_later: Mesedez beranduago saiatu.
       not_found:
         back_home: Itzuli hasierara
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
@@ -715,6 +716,8 @@ eu:
       file_validation:
         allowed_file_extensions: 'Onartutako artxiboen formatua: %{extensions}'
         max_file_size: 'Artxiboaren gehieneko tamaina: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Onartutako formatuak: %{extensions}'
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
       badges:
@@ -733,18 +736,6 @@ eu:
           how: Nola irabaz dezakezu?
           page_description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu. Hona hemen txapak eta irabazi ditzakezun modu batzuk.
           title: Badges
-        invitations:
-          conditions:
-            - Erabili "gonbidatu lagunak" esteka erabiltzaile-orrian zure lagunak gonbidatzeko
-            - Pertsonalizatu, nahi baduzu, bidaltzen ari zaren mezua
-            - Gonbidapenak bidaltzea eta inskribatzea lortuko duzu.
-          description: Idazmahaia ematen zaie pertsona batzuk gonbidatu dituzunean eta denbora pixka bat pasatu dute %{organization_name} erregistratu eta parte-hartzaile bihurtu. Eskerrik asko egiteko %{organization_name} besteei ezaguna eta komunitatea zabaltzeko laguntzen!
-          description_another: Erabiltzaile honek %{score} erabiltzaile gonbidatu ditu.
-          description_own: '%{score} erabiltzaile gonbidatu dituzu.'
-          name: Gonbidapenak
-          next_level_in: Gonbidatu %{score} erabiltzaile gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek ez du oraindik gonbidatu erabiltzaileak.
-          unearned_own: Erabiltzaile ez da gonbidatu oraindik.
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
@@ -930,8 +921,6 @@ eu:
           modal_title: Elkarrizketa berria
           no_results: Emaitzarik ez
           participant_with_disabled_message_reception: Erabiltzaile honek mezuak jasotzea desaktibatu du
-        conversation:
-          show: Erakutsi elkarrizketa honekin %{sender}
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         error_modal:
@@ -941,18 +930,10 @@ eu:
           ok: Ados
         index:
           ago: orain dela
-          close: Itxi leihoa
-          from: Nondik
-          groups: Nire taldeak
-          last_message: Azken mezua
           new_conversation: Elkarrizketa berria
           next: Hurrengoa
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
-        reply:
-          placeholder: Zure erantzuna...
-          send: Bidali
-          title: Erantzun
         show:
           back: Itzuli elkarrizketa guztietara
           chat_with: Elkarrizketa honekin
@@ -960,7 +941,6 @@ eu:
           title: Elkarrizketa honekin %{usernames}
         start:
           send: Bidali
-          title: Hasi elkarrizketa bat
         update:
           error: Mezua ez da bidali akats batengatik
     metrics:
@@ -1075,7 +1055,6 @@ eu:
         sub_hero:
           register: Erregistroa
       index:
-        read_more: Irakurri gehiago
         standalone_pages: orrialdeak
         subheading: Laguntza orrietan nabigatzeko %{name}
         title: Laguntza
@@ -1120,7 +1099,6 @@ eu:
         members: Bazkideek
         officialized: Parte-hartzaile ofiziala
         send_private_message: Bidali mezu pribatua
-        timeline: Timeline
         view_full_profile: Ikusi profil osoa
       sidebar:
         badges:
@@ -1269,6 +1247,7 @@ eu:
         copy_share_link_message: Lotura arbelera zuzen kopiatu da.
         share: Partekatu
         share_link: Partekatu esteka
+        share_to: 'Partekatu honekin: %{service}'
     statistics:
       comments_count: Iruzkinak
       endorsements_count: Atxikimenduak
@@ -1471,15 +1450,6 @@ eu:
       updated_not_active: Pasahitza ondo aldatu da.
     registrations:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
-      edit:
-        are_you_sure: Ziur zaude?
-        cancel_my_account: Utzi nire kontua
-        currently_waiting_confirmation_for_email: 'Une honetan espero da baieztapena: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: utzi hutsik egin nahi ez baduzu
-        title: Editatu %{resource}
-        unhappy: Konforme?
-        update: eguneratzearen
-        we_need_your_current_password_to_confirm_your_changes: Zure pasahitza behar dugu zure aldaketak berresteko
       new:
         sign_up: Izena eman
       signed_up: Ongi etorri! Eginda sinatu duzu.
@@ -1517,6 +1487,7 @@ eu:
       public: Zure informazio publikoa.
   errors:
     messages:
+      allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
       already_confirmed: dagoeneko baieztatu da. Saiatu saioa hasi
       confirmation_period_expired: '%{period}barruan baieztatu behar da, eskatu beste bat'
       content_type_allowlist_error: fitxategiaren mota ez da baliozkoa
@@ -1534,7 +1505,7 @@ eu:
         other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
-      too_short: laburra da (15 karaktere baino gutxiago)
+      too_short: laburregia da (gutxienez %{count} karaktere behar dira)
   forms:
     correct_errors: Akatsak daude galdetegian, mesedez, zuzendu jarraitu ahal izateko.
     required: Nahitaezkoa da
@@ -1600,7 +1571,7 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-    name_with_error: Ingelesa (akatsa!)
+    name_with_error: Euskera (akatsa!)
   password_validator:
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da
@@ -1664,14 +1635,8 @@ eu:
       option_unified: Bateratua
   views:
     pagination:
-      first: "&laquo; Lehena"
-      first_title: Lotura lehen orrialdearekin
-      last: Azkena &raquo;
-      last_title: Lotura azken orrialdearekin
-      next: Hurrengoa &rsaquo;
       next_title: Lotura hurrengo orrialdearekin
       pagination: Orri-zenbaketa
-      previous: "&lsaquo; Aurrekoa"
       previous_title: Lotura aurreko orrialdearekin
       title: 'Orrialde zenbakia: '
       truncate: "&hellip;"

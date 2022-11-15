@@ -262,9 +262,6 @@ tr:
         title: '%{scope_name} soruları'
       index:
         title: Danışma
-      last_activity:
-        new_consultation: Yeni danışma
-        new_question_at_html: "<span>Yeni soru, %{link}</span>"
       pages:
         home:
           highlighted_consultations:

@@ -305,8 +305,6 @@ lv:
           index:
             meetings: Sanāksmes
             space_type: Līdzdalības telpa
-      last_activity:
-        new_meeting_at_html: "<span>Jauna sanāksme plkst. %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

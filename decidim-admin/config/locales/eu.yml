@@ -129,6 +129,14 @@ eu:
               allowed_file_content_types: Irudi fitxategi baliogabea
             official_img_header:
               allowed_file_content_types: Irudi fitxategi baliogabea
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
       new_import:
         attributes:
           file:
@@ -178,7 +186,7 @@ eu:
           error: Errorea gertatu da Administrazioaren Gaiak eta Baldintzak onartzean.
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
-          accept: Ados nago ondoko gai hauekin
+          accept: Ados nago
           are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
           refuse: Ez onartu Administrazio-irizpideak eta baldintzak
           title: Onartzen ditut Administrazio-irizpideak eta baldintzak
@@ -481,9 +489,6 @@ eu:
           file_legend: Gehitu prozesatuko den inportazio-artxibo bat.
           import: Inportatu
         notice: "%{number} %{resource_name} zuzen inportatu da"
-      logs:
-        logs_list:
-          no_logs_yet: Ez dago oraindik erregistroik
       managed_users:
         promotion:
           error: Errorea gertatu da kudeatutako erabiltzailea mailaz igotzean.
@@ -807,10 +812,14 @@ eu:
           title: Erabiltzaile pribatuaren parte hartzailea.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Errorea gertatu da CSV artxiboa irakurtzean.
+          invalid: Arazo bat sortu da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
           success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Horrek denbora behar du.
         new:
-          explanation: 'Igo zure CSV fitxategia. Bi zutabe izan behar ditu, artxiboaren lehen zutabean eremu parte-hartzailera gehitu nahi dituzun erabiltzaileen posta elektronikoa, eta izena azken zutabean (posta elektronikoa, izena), goibururik gabe. Ez erabili balio ez duten karaktererik erabiltzaile-izenean, hala nola: `<>?%&^*#@()[]=+:;"{}\|`.'
+          example_file: 'Fitxategi eredua:'
+          explanation: 'Igo zure CSV fitxategia. Bizutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dutuzun erabiltzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Igo zure CSV artxiboa
           upload: Igo
       resource_permissions:
@@ -949,7 +958,11 @@ eu:
           verify_via_csv: Egiaztatu CSV bidez
       user_groups_csv_verifications:
         new:
+          example_file: 'Fitxategi eredua:'
           explanation: Igo zure CSV fitxategia. Zure erakundeko erabiltzaile taldeen mezu elektronikoak fitxategian lehen zutabean izan behar du, goibururik gabe. Zure posta elektronikoa baieztatu duten erabiltzaile taldeek eta CSV fitxategian agertzen diren mezu elektronikoak baliozkotu egingo dira.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Igo zure CSV fitxategia
           upload: Igo
       users:

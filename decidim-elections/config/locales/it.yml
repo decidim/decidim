@@ -997,8 +997,6 @@ it:
             create:
               invalid: Si è verificato un errore durante il caricamento del censimento, riprova più tardi.
               invalid_csv_header: Le intestazioni CSV sono mancanti o non corrette - si prega di leggere attentamente le istruzioni
-            creating_data:
-              info_message: "<strong>Attendere</strong>, elaborato %{processed_count} di %{raw_count} righe dal file %{file}."
             delete:
               button: Elimina tutti i dati del censimento
             destroy:
@@ -1010,8 +1008,6 @@ it:
               confirm: Puoi esportare i codici di accesso solo una volta. Assicurati di avere accesso all'indirizzo <strong>%{email}</strong>.
               launch_error: Problema nel lanciare l'esportazione dei codici di accesso
               launch_success: Esportazione codici di accesso avviata. A breve riceverai un'email all'indirizzo %{email}
-            exporting_access_codes:
-              info_message: "<strong>Attendere</strong>, l'esportazione è in fase di preparazione, lo riceverai tra breve all'indirizzo %{email}"
             freeze:
               callout: Il censimento è congelato e non può essere modificato.
             generate_access_codes:
@@ -1022,8 +1018,6 @@ it:
               info_message_warn: Si prega di controllare che non manchino dati, poiché %{data_count} record sono stati creati e il file caricato %{file} aveva %{raw_count} righe.
               launch_error: Problema nel lanciare la generazione di codici di accesso
               launch_success: Generazione di codici lanciata.
-            generating_access_codes:
-              info_message: "<strong>Attendere</strong>, vengono generati i codici di accesso alle votazioni..."
             new:
               file_help:
                 explanation: 'Guida per il file:'

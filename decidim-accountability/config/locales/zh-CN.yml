@@ -45,7 +45,6 @@ zh-CN:
         import_results:
           new:
             import: 导入
-            link: 链接
             title: 从 CSV 导入结果
         imports:
           create:
@@ -126,8 +125,6 @@ zh-CN:
           row_number: 行
           subject: 成功导入结果
           success: 成功导入结果。您可以在管理界面查看结果。
-      last_activity:
-        new_result_at_html: "<span>在 %{link}的新结果</span>"
       models:
         result:
           fields:
@@ -151,7 +148,6 @@ zh-CN:
             other: "%{count} 个结果"
         filters:
           all: 所有的
-          scopes: 范围
         home:
           categories_label: 类别管理
           subcategories_label: 子类别
