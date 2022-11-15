@@ -687,8 +687,6 @@ tr:
         button: Takibi bırak
         error: Bu kaynağı takip etmekten bir hata oluştu.
     forms:
-      current_image: Geçerli resim
-      default_image: Varsayılan görüntü
       errors:
         decidim/user:
           password: Bu şifre çok kısa.
