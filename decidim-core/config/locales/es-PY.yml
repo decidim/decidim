@@ -29,6 +29,7 @@ es-PY:
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
+        tos_agreement: Acuerdo de términos y condiciones de uso
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -791,18 +792,6 @@ es-PY:
           how: Como puedes conseguirlo
           page_description: Los distintivos son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirlo diferentes distintivo. Aquí está la lista de distintivos y algunas formas en que puedes conseguirlas.
           title: Distintivos
-        invitations:
-          conditions:
-            - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
-            - Personaliza, si quieres, el mensaje que estás enviando.
-            - Supera este nivel enviando invitaciones y registrándolas.
-          description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
-          description_another: Este usuario ha invitado a %{score} usuarios.
-          description_own: Has invitado a %{score} usuarios.
-          name: Invitaciones
-          next_level_in: '¡Invita %{score} usuarios más a alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha invitado a ningún usuario.
-          unearned_own: No has invitado aún a ningún usuario.
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
