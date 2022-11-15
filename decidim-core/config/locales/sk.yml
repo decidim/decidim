@@ -622,8 +622,6 @@ sk:
         button: Ukončiť sledovanie
         error: Pri sledovaní tohto zdroja sa vyskytla chyba.
     forms:
-      current_image: Aktuálna obrázok
-      default_image: Predvolený obrázok
       errors:
         decidim/user:
           password: Heslo je príliš krátke.
