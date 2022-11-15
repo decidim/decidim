@@ -650,18 +650,6 @@ lv:
           how: Kā jūs to varat nopelnīt
           page_description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus. Šeit ir žetonu saraksts un daži veidi, kā tos nopelnīt.
           title: Žetoni
-        invitations:
-          conditions:
-            - Lai uzaicinātu draugus, izmantojiet saiti Uzaicināt draugus savā lietotāja lapā
-            - Pielāgojiet sūtāmo ziņojumu, ja vēlaties
-            - Jūs sasniegsiet augstāku līmeni, sūtot ielūgumus un piesaistot jaunus reģistrētus lietotājus.
-          description: Šis žetons tiek piešķirts, kad esat uzaicinājis dažus cilvēkus un viņi ir veltījuši nedaudz laika, lai reģistrētos %{organization_name} un kļūtu par dalībniekiem. Paldies, ka darījāt %{organization_name} zināmu citiem un palīdzējāt paplašināt mūsu kopienu.
-          description_another: Šis dalībnieks ir uzaicinājis %{score} cilvēkus.
-          description_own: Jūs esat uzaicinājis %{score} cilvēkus.
-          name: Ielūgumi
-          next_level_in: Piesaistiet vēl %{score} cilvēkus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav uzaicinājis nevienu.
-          unearned_own: Jūs vēl nevienu neesat uzaicinājis.
       description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus.
       level: Līmenis %{level}
       reached_top: Jūs esat sasniedzis šim žetona nepieciešamo augstāko līmeni.
