@@ -23,7 +23,7 @@ en:
         decidim_scope_id: Scope
         decidim_user_group_id: User group
         description: Description
-        end_time: End Time
+        end_time: End time
         id: ID
         location: Location
         location_hints: Location hints
@@ -37,7 +37,7 @@ en:
         registration_url: Registration URL
         registrations_enabled: Registrations enabled
         show_embedded_iframe: Show embedded iframe for this URL
-        start_time: Start Time
+        start_time: Start time
         title: Title
         transparent: Transparent
         type_of_meeting: Type

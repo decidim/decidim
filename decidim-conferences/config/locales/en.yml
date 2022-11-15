@@ -29,7 +29,7 @@ en:
         show_statistics: Show statistics
         sign_date: Sign date
         signature: Signature
-        signature_name: signature name
+        signature_name: Signature name
         slogan: Slogan
         slug: URL slug
         start_date: Start date
@@ -135,7 +135,7 @@ en:
           title: Update conference admin.
           update: Update
         index:
-          conference_admins_title: conference admins
+          conference_admins_title: Conference admins
         new:
           create: Create
           title: New conference admin.

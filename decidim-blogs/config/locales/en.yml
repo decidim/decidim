@@ -58,7 +58,7 @@ en:
             body: Body
             official_blog_post: Official post
             published_at: Publish time
-            title: title
+            title: Title
       posts:
         show:
           comments: Comments
