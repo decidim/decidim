@@ -568,8 +568,6 @@ gl:
         button: Deixar de seguir
         error: Houbo un erro ao seguir este recurso.
     forms:
-      current_image: Imaxe actual
-      default_image: Imaxe predeterminada
       errors:
         error: Hai un erro neste campo.
       upload:
@@ -589,7 +587,6 @@ gl:
           validating: Validando...
           validation_error: Erro de validación!
       upload_help:
-        dropzone: Solta os ficheiros aquí ou preme para cargar
         explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Consulta todas as insignias dispoñibles.
