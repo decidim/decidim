@@ -63,5 +63,8 @@
 [data-drawer]{
   .budget-summary{
     @apply mx-0 mt-0;
+    + [data-drawer-content]{
+      @apply max-h-[75%];
+    }
   }
 }
