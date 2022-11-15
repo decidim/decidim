@@ -615,8 +615,6 @@ zh-CN:
         button: 停止关注
         error: 出现了一个不关注此资源的问题。
     forms:
-      current_image: 当前图像
-      default_image: 默认图像
       errors:
         decidim/user:
           password: 密码太短。
