@@ -654,18 +654,6 @@ sk:
           how: Ako ho môžete získať
           page_description: Odznaky sú uznaním aktivity účastníkov a ich pokroku na platforme. Keď začnete objavovať platformu, zúčastňovať sa na nej a pracovať na nej, získate rôzne odznaky. Tu je zoznam odznakov a spôsoby, ako ich môžete získať.
           title: Odznaky
-        invitations:
-          conditions:
-            - Použite odkaz "pozvať priateľov" na Vašej osobnej stránke pre pozvanie priateľov.
-            - Upravte, ak chcete, správu, ktorú posielate.
-            - Na ďalšiu úroveň sa dostanete rozosielaním a prijatím pozvánok.
-          description: Tento odznak obdržíte, ak ste pozvali pár ľudí, ktorí strávili čas registráciou v %{organization_name} a stali sa účastníkmi. Ďakujeme, že ste ostatným ukázali %{organization_name} a pomohli rozšíriť komunitu!
-          description_another: Tento účastník pozval %{score} ľudí.
-          description_own: Pozvali ste %{score} ľudí.
-          name: Pozvánky
-          next_level_in: Pozvite o %{score} ľudí viac pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník zatiaľ nikoho nepozval.
-          unearned_own: Zatial ste nikoho nepozvali.
       description: Odznaky sú uznanie akciou účastníkov a pokrok v platforme. Akonáhle začnete objavovať, zúčastniť sa a spolupracovať v platforme, získate rôzne odznaky.
       level: Úroveň%{level}
       reached_top: Dosiahli ste najvyššej úrovne tohto odznaku.
