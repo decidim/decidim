@@ -4,13 +4,15 @@
   display_map: current_component.settings.maps_enabled? && search.result.not_online.exists?,
   calendar_url: year_calendar_meetings_path,
   search_variable: :search_text_cont,
-  display_filter_date: false,
-  display_filter_type: false,
-  display_filter_scopes: false,
-  display_filter_categories: false,
-  display_filter_origin: false,
-  display_filter_space_type: false,
-  display_filter_activity: false
+  filter_options: {
+    display_filter_date: true,
+    display_filter_type: true,
+    #display_filter_scopes: true, #directory
+    #display_filter_categories: true, #directory
+    display_filter_origin: true, #directory
+    #display_filter_space_type: true, #directory
+    display_filter_activity: true
+  }
 } %>
 
 <%#= render partial: "decidim/meetings/shared/index", locals: {

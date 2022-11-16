@@ -24,13 +24,7 @@
 
   <%= render partial: "decidim/meetings/shared/filters", locals: {
     search_variable: search_variable,
-    display_filter_date: display_filter_date,
-    display_filter_type: display_filter_type,
-    display_filter_scopes: display_filter_scopes,
-    display_filter_categories: display_filter_categories,
-    display_filter_origin: display_filter_origin,
-    display_filter_space_type: display_filter_space_type,
-    display_filter_activity: display_filter_activity
+    filter_options: filter_options || {}
   } %>
 
   <%= render partial: "decidim/meetings/calendar_modal", locals: {
