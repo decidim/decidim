@@ -828,6 +828,7 @@ de:
           edit_image: Bild bearbeiten
           error: Fehler!
           file_size_too_large: 'Datei ist zu groß! Maximale Dateigröße: %{megabytes}MB'
+          filename: Dateiname
           remove: Entfernen
           replace: Ersetzen
           save: Speichern
@@ -836,7 +837,9 @@ de:
           uploaded: Hochgeladen
           validating: Wird validiert...
           validation_error: Validierungsfehler!
+        select_file: Datei auswählen
       upload_help:
+        dropzone: Dateien hier ablegen oder die Schaltfläche zum Hochladen benutzen
         explanation: Anleitung für %{attribute}
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
