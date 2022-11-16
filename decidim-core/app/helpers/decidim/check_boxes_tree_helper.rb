@@ -137,5 +137,12 @@ module Decidim
         scopes_values
       )
     end
+
+    def flat_filter_values(*types, **options)
+      scope = options[:scope]
+      types.map do |type|
+        [type, filter_text_for(type, t(type, scope:))]
+      end
+    end
   end
 end

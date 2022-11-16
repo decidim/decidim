@@ -486,7 +486,7 @@ en:
             all: All
             official: Official
             participants: Participants
-            user_groups: Groups
+            user_group: Groups
           scope: Scope
           search: Search
           type: Type
