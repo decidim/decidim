@@ -17,7 +17,7 @@ module Decidim
       private
 
       def count_pending_moderations
-        @count_pending_moderations ||= Decidim::Admin::ModerationStatsQuery.new(current_user).count_pending_moderations
+        @count_pending_moderations ||= Decidim::Admin::ModerationStats.new(current_user).count_pending_moderations
       end
 
       def latest_action_logs
