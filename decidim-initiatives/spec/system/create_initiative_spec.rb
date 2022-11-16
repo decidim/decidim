@@ -473,9 +473,14 @@ describe "Initiative", type: :system do
             find_button("Continue").click
           end
 
-          it "have no 'Initiative type' grey field" do
+          it "does not show select input for initiative_type" do
             expect(page).not_to have_content("Initiative type")
-            expect(page).not_to have_css("#type_description")
+            expect(page).not_to have_css("#initiative_type_id")
+          end
+
+          it "has a hidden field with the selected initiative type" do
+            expect(page).to have_xpath("//input[@id='initiative_type_id']", visible: :all)
+            expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
           end
         end
 
@@ -499,13 +504,12 @@ describe "Initiative", type: :system do
             end
           end
 
-          it "shows input for initiative_type" do
+          it "shows select input for initiative_type" do
             expect(page).to have_content("Initiative type")
             expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
           end
 
           it "shows information collected in previous steps already filled" do
-            # expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
             expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
             expect(find(:xpath, "//input[@id='initiative_description']", visible: :all).value).to eq(translated(initiative.description, locale: :en))
           end

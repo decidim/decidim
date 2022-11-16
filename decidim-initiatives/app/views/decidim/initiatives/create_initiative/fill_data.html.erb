@@ -21,7 +21,9 @@
         <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: "form new_initiative_form", novalidate: false }) do |f| %>
           <%= form_required_explanation %>
           <div class=section>
-            <% unless single_initiative_type? %>
+            <% if single_initiative_type? %>
+              <%= f.hidden_field :type_id %>
+            <% else %>
               <div class="field">
                 <%= f.select :type_id,
                                 initiative_type_options,
