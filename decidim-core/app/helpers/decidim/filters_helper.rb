@@ -39,7 +39,7 @@ module Decidim
       form_for(
         filter,
         namespace: filter_form_namespace,
-        builder: FormBuilder,
+        builder: RedesignedFilterFormBuilder,
         url:,
         as: :filter,
         method: :get,

@@ -1,0 +1,33 @@
+<% leaf = item.tree_node? ? item.leaf : item %>
+<%- check_box_label = capture do %>
+  <div class="filter">
+    <%= leaf.label %>
+    <% if item.tree_node? && item.node.present? %>
+      <button data-controls="panel-dropdown-menu-<%= leaf.value %>" onclick="event.preventDefault()">
+        <%= icon "arrow-down-s-fill" %>
+        <%= icon "arrow-up-s-fill" %>
+      </button>
+    <% end %>
+  </div>
+<% end %>
+<%= form.check_box(
+      method,
+      check_boxes_tree_options(
+        leaf.value,
+        check_box_label,
+        class: "reset-defaults",
+        hidden: "hidden",
+        data: { checkboxes_tree: [check_boxes_tree_id, leaf.value].join("-") },
+        is_root_check_box: leaf.value.blank?
+      ),
+      leaf.value.to_s,
+      nil
+    ) %>
+<% if item.tree_node? && item.node.present? %>
+  <div id="panel-dropdown-menu-<%= leaf.value %>">
+    <% item.node.each do |subitem| %>
+      <%= form.dropdown_label(subitem, method, check_boxes_tree_id:) %>
+    <% end %>
+  </div>
+<% end %>
+
