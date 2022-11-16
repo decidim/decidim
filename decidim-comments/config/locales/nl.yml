@@ -3,6 +3,7 @@ nl:
     models:
       decidim/comments/comment_by_followed_user_event: Commentaar
       decidim/comments/comment_created_event: Commentaar
+      decidim/comments/comment_upvoted_event: Reactie omhoog gestemd
       decidim/comments/reply_created_event: Reactie antwoord
       decidim/comments/user_group_mentioned_event: Vermelding
       decidim/comments/user_mentioned_event: Vermelding
@@ -23,11 +24,14 @@ nl:
             end_time: Reacties ingeschakeld tot
             start_time: Commentaren ingeschakeld vanaf
       comments:
+        create:
+          error: Er is een probleem opgetreden bij het aanmaken van de reactie.
         delete:
           error: De reactie kon niet worden verwijderd.
         update:
           error: Er is een probleem opgetreden bij het bijwerken van de reactie.
       comments_count: Aantal reacties
+      comments_title: Reacties
       last_activity:
         new_comment_at_html: "<span>Nieuwe opmerking op %{link}</span>"
       view: Bekijk
@@ -67,6 +71,7 @@ nl:
         edit: Bewerk
         edited: Bewerkt
         hide_replies: Antwoorden verbergen
+        moderated_at: Reactie gemodereerd op %{date}
         reply: Antwoord
         report:
           action: Melden
@@ -98,6 +103,9 @@ nl:
         loading: Reacties laden...
         single_comment_warning: <a href="%{url}">Bekijk alle reacties</a>
         single_comment_warning_title: Je ziet een enkele reactie
+        title:
+          one: "%{count} reacties"
+          other: "%{count} reacties"
       down_vote_button:
         text: Ik ben het niet eens met deze reactie
       edit_comment_modal_form:
@@ -127,6 +135,16 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je '%{resource_title}' of de auteur ervan volgt. Ontvolgen kan door te klikken op de vorige link.
           email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
           notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        comment_downvoted:
+          email_intro: Je reactie in "%{resource_title}" kreeg een tegenstem. Het heeft nu een totaal van %{upvotes} stemmen 'voor' en %{downvotes} stemmen 'tegen'.
+          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van deze reactie.
+          email_subject: Je reactie in "%{resource_title}" kreeg een tegenstem.
+          notification_title: Je <a href="%{resource_path}">reactie</a> in "%{resource_title}" kreeg een tegenstem. Het heeft nu een totaal van %{upvotes} stemmen 'voor' en %{downvotes} stemmen 'tegen'.
+        comment_upvoted:
+          email_intro: Je reactie in "%{resource_title}" kreeg een stem 'voor'. Het heeft nu een totaal van %{upvotes} stemmen 'voor' en %{downvotes} stemmen 'tegen'.
+          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van deze reactie.
+          email_subject: Je reactie in "%{resource_title}" kreeg een stem 'voor'.
+          notification_title: Je <a href="%{resource_path}">reactie</a> in "%{resource_title}" kreeg een stem 'voor'. Het heeft nu een totaal van %{upvotes} stemmen 'voor' en %{downvotes} stemmen 'tegen'.
         reply_created:
           email_intro: "%{author_name} heeft gereageerd op jouw opmerking in %{resource_title}. Lees het via deze link:"
           email_outro: Je hebt deze melding ontvangen omdat je reactie beantwoord is.

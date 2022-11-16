@@ -393,7 +393,7 @@ ar:
         invite_join_conference_mailer:
           invite:
             decline: رفض الدعوة "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} للانضمام إلى مؤتمر في %{application}. يمكنك رفضه أو قبوله من خلال الروابط أدناه."
+            invited_existing_user_to_join_a_conference: "%{invited_by} للانضمام إلى مؤتمر في %{application}. يمكنك رفضه أو قبوله من خلال الروابط أدناه."
             registration: التسجيل لـ "%{conference_title}"
         partners:
           index:

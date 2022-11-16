@@ -84,12 +84,17 @@
             label: Type
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Søk i %{collection} etter tittel, beskrivelse, ID eller forfatternavn.
+      initiatives_settings:
+        update:
+          error: Det oppstod en feil
+          success: Innstillingene for initiativer har blitt oppdatert
       menu:
         attachments: Vedlegg
         committee_members: Utvalgets medlemmer
         components: Komponenter
         information: Informasjon
         initiatives: Initiativer
+        initiatives_settings: Innstillinger
         initiatives_types: Initiativtyper
         moderations: Moderasjoner
       models:
@@ -241,6 +246,16 @@
           update:
             error: Det oppstod en feil
             success: Initiativet er oppdatert
+        initiatives_settings:
+          edit:
+            update: Oppdater
+          form:
+            comments: Flest kommentarer
+            date: Nyeste
+            publication_date: Sist publisert
+            random: Tilfeldig
+            signatures: Flest signeringer
+            title: Innstillinger for initiativer
         initiatives_type_scopes:
           create:
             error: Det oppstod en feil
@@ -288,6 +303,8 @@
           send_to_technical_validation: "%{user_name} sendte %{resource_name} initiativet til teknisk validering"
           unpublish: "%{user_name} forkastet %{resource_name} initiativet"
           update: "%{user_name} oppdaterte %{resource_name} initiativet"
+        initiatives_settings:
+          update: "%{user_name} oppdaterte innstillingene for initiativer"
       admin_states:
         accepted: Nok signaturer
         created: Opprettet
@@ -462,11 +479,6 @@
           unfold: Åpne
         index_header:
           new_initiative: Nytt initiativ
-          not_authorized:
-            authorizations_page: Vis godkjennelser
-            close: Lukk
-            explanation: Du må verifiseres for å opprette et nytt initiativ.
-            title: Autorisasjon kreves
         initiatives:
           closed_initiatives_warning: Det er foreløpig ingen åpne initiativer, men her kan du finne alle tidligere initiativer.
           no_initiatives_warning: Ingen initiativer samsvarer med dine søkekriterier.
@@ -540,8 +552,12 @@
         promotal_committee_help: Husk at du må invitere minst %{member_count} folk til promotør komiteen. Videresend den følgene lenken for å invitere folk til promotør komiteen
         status_change_body_for: 'Initiativet %{title} har endret sin status til: %{state}'
         status_change_for: Initiativet %{title} har endret sin status
-      last_activity:
-        new_initiative: Nytt initiativ
+      modal:
+        not_authorized:
+          authorizations_page: Vis godkjennelser
+          close: Lukk
+          explanation: Du må verifiseres for å opprette et nytt initiativ.
+          title: Autorisasjon kreves
       pages:
         home:
           highlighted_initiatives:

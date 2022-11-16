@@ -194,10 +194,8 @@ module Decidim
                         decidim_admin.static_pages_path,
                         icon_name: "book",
                         position: 4.5,
-                        active: [%w(
-                          decidim/admin/static_pages
-                          decidim/admin/static_page_topics
-                        ), []],
+                        active: is_active_link?(decidim_admin.static_pages_path, :inclusive) ||
+                                is_active_link?(decidim_admin.static_page_topics_path, :inclusive),
                         if: allowed_to?(:read, :static_page)
 
           menu.add_item :impersonatable_users,

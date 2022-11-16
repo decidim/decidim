@@ -1,0 +1,14 @@
+<li draggable="true" data-content-block-manifest-name="<%= manifest_name %>">
+  <div class="draggable-content">
+    <%= t(public_name_key) %>
+    <div>
+      <% if has_settings? %>
+        <%= link_to edit_content_block_path, class: "mr-s text-muted" do %>
+          <%= icon "pencil", role: "img", "aria-hidden": true %>
+        <% end %>
+      <% end %>
+
+      <%= icon "menu", role: "img", "aria-hidden": true %>
+    </div>
+  </div>
+</li>

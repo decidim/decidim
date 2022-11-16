@@ -46,12 +46,13 @@
 
   .tos-text{
     padding: .5rem;
-    border: 1px solid #e8e8e8;
+    border: none;
     margin: 1rem 0;
-    max-height: 10rem;
+    max-height: auto;
     overflow: auto;
     font-size: .8rem;
     font-style: italic;
+    text-align: left;
   }
 
   #card__tos,

@@ -10,6 +10,7 @@ ja:
         end_time: 終了時刻
         information_updates: 情報の更新
         instructions: 参加方法
+        scope_id: スコープ
         start_time: 開始
         title: タイトル
         user_group_id: ディベートを作成
@@ -170,8 +171,8 @@ ja:
         versions_list:
           back_to_resource: ディベートに戻る
       last_activity:
-        debate_updated_at_html: "<span>ディベートが %{link} に更新されました</span>"
-        new_debate_at_html: "<span> %{link}での新しいディベート</span>"
+        debate_updated: 'ディベートの更新日時:'
+        new_debate: '新しいディベート:'
       models:
         debate:
           fields:

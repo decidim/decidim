@@ -202,7 +202,6 @@ ar:
           affected_user:
             email_intro: 'تم رفض اقتراحك "%{resource_title}". يمكنك قراءة الإجابة في هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
-            email_subject: تم رفض اقتراحك
             notification_title: تم رفض اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
         proposal_update_category:
           email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
@@ -471,7 +470,6 @@ ar:
             many: "%{count} مسودات تعاونية"
             other: "%{count} مسودات تعاونية"
         create:
-          error: كانت هناك مشكلة في إنشاء هذه المسودات التعاونية
           success: تم إنشاء مشروع تعاوني بنجاح.
         edit:
           attachment_legend: "(اختياري) إضافة مرفق"
@@ -555,8 +553,6 @@ ar:
       destroy_draft:
         error: حدثت مشكلة في حذف المسودة التعاونية.
         success: تم حذف مسودة الاقتراح بنجاح.
-      last_activity:
-        new_proposal_at_html: "<span>اقتراح جديد في %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -681,7 +677,6 @@ ar:
           changes_at_title: تعديل على "%{title}"
           comments: تعليقات
           edit_proposal: تعديل الاقتراح
-          endorsements_list: قائمة المصادقة
           estimated_cost: التكلفة التقديرية
           hidden_endorsers_count:
             zero: و %{count} المزيد من الناس

@@ -156,8 +156,6 @@ zh-CN:
             title: 版本
         versions_list:
           back_to_resource: 回到辩论
-      last_activity:
-        new_debate_at_html: "<span>在 %{link}进行新的辩论</span>"
       models:
         debate:
           fields:

@@ -40,10 +40,16 @@ de:
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualisiert
       decidim/promote_to_admin: Zum Gruppenadministrator hochgestuft
+      decidim/promoted_to_admin_event: Zum Gruppenadministrator hochgestuft
       decidim/removed_from_group: Aus der Gruppe entfernt
       decidim/resource_endorsed_event: Ressource befürwortet
+      decidim/resource_hidden_event: Ressource versteckt
+      decidim/user_group_created_event: Benutzergruppe erstellt
+      decidim/welcome_notification_event: Willkommensnachricht
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Zeit
       decidim/user:
         current_password: Aktuelles Passwort
         email: E-Mail
@@ -69,6 +75,8 @@ de:
     'true': 'Ja'
   carrierwave:
     errors:
+      file_resolution_too_large: Die Datei-Auflösung ist zu groß
+      file_size_too_large: Datei ist zu groß
       not_inside_organization: Die Datei ist keiner Organisation hinzugefügt
   date:
     formats:
@@ -79,10 +87,35 @@ de:
       decidim_with_month_name_short: "%d. %b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: etwa eine Stunde
+        other: etwa %{count} Stunden
+      about_x_months:
+        one: etwa ein Monat
+        other: etwa %{count} Monate
       half_a_minute: eine halbe Minute
+      less_than_x_minutes:
+        one: weniger als eine Minute
+        other: weingier als %{count} Minuten
+      less_than_x_seconds:
+        one: gerade eben
+        other: weniger als %{count} Sekunden
+      x_days:
+        one: Vor 1 Tag
+        other: "Vor %{count} Tagen"
+      x_hours:
+        one: Vor 1 Stunde
+        other: "Vor %{count} Stunden"
+      x_minutes:
+        one: Vor 1 Minute
+        other: "Vor %{count} Minuten"
+      x_seconds:
+        one: Vor 1 Sekunde
+        other: "Vor %{count} Sekunden"
   decidim:
     accessibility:
       external_link: Externer Link
+      front_page_link: Zur Startseite gehen
       logo: "Offizielles Logo von %{organization}"
       skip_button: Zu Hauptinhalten überspringen
     account:
@@ -101,26 +134,66 @@ de:
       download_your_data_export:
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
+      email_change:
+        body1: Wir haben eine E-Mail an %{unconfirmed_email} gesendet, um Ihre neue E-Mail-Adresse zu verifizieren.
+        body2: Möchten Sie die Verifizierungs-E-Mail erneut senden? %{resend_link} oder %{cancel_link}.
+        cancel: stornieren
+        cancel_error: Die Änderung der E-Mail-Adresse konnte nicht storniert werden.
+        cancel_successfully: Die Änderung der E-Mail-Adresse wurde erfolgreich storniert.
+        resend_error: Bestätigungs-E-Mail konnte nicht erneut gesendet werden.
+        resend_successfully: Die Bestätigungs-E-Mail wurde erfolgreich an %{unconfirmed_email} gesendet
+        send_again: Erneut senden
       show:
+        available_locales_helper: Wählen Sie die Sprache aus, in der Sie Decidim verwenden und Benachrichtigungen erhalten möchten
         change_password: Passwort ändern
         update_account: Konto aktualisieren
       update:
         error: Beim Aktualisieren Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich aktualisiert.
         success_with_email_confirmation: Ihr Konto wurde erfolgreich aktualisiert. Sie erhalten eine E-Mail zur Bestätigung Ihrer neuen E-Mail-Adresse.
+    activity:
+      time_ago: "Vor %{time}"
     admin:
       actions:
         cancel: Stornieren
+      password_change:
+        alert: Sie müssen Ihr Passwort ändern, um fortzufahren
+        notification: Administratoren müssen ihr Passwort alle %{days} Tage ändern.
     admin_log:
       area:
         create: "%{user_name} hat den Bereich %{resource_name} erstellt"
         delete: "%{user_name} hat den Bereich %{resource_name} gelöscht"
         update: "%{user_name} hat den Bereich %{resource_name} aktualisiert"
+      area_type:
+        create: "%{user_name} hat den Bereichstyp %{resource_name} erstellt"
+        delete: "%{user_name} hat den Bereichstyp %{resource_name} gelöscht"
+        update: "%{user_name} hat den Bereichstyp %{resource_name} aktualisiert"
+      attachment:
+        create: "%{user_name} hat den Anhang %{resource_name} erstellt"
+        delete: "%{user_name} hat den Anhang %{resource_name} gelöscht"
+        update: "%{user_name} hat den Anhang %{resource_name} aktualisiert"
+      attachment_collection:
+        create: "%{user_name} hat den Ordner %{resource_name} erstellt"
+        delete: "%{user_name} hat den Ordner %{resource_name} gelöscht"
+        update: "%{user_name} hat den Ordner %{resource_name} aktualisiert"
+      category:
+        create: "%{user_name} hat die Kategorie %{resource_name} im Bereich %{space_name} hinzugefügt"
+        delete: "%{user_name} hat die Kategorie %{resource_name} im Bereich %{space_name} gelöscht"
+        update: "%{user_name} hat die Kategorie %{resource_name} im Bereich %{space_name} aktualisiert"
       component:
         create: "%{user_name} hat die Komponente %{resource_name} zu %{space_name} hinzugefügt"
         delete: "%{user_name} hat die Komponente %{resource_name} aus %{space_name} entfernt"
+        export_component: "%{user_name} hat %{resource_name} %{component_name} in %{space_name} als %{format_name} exportiert"
         publish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} veröffentlicht"
         unpublish: "%{user_name} hat die Komponente %{resource_name} in %{space_name} auf \"unveröffentlicht\" gesetzt"
+        update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
+      contextual_help_section:
+        update: "%{user_name} hat den Hilfebereich %{resource_name} aktualisiert"
+      helpers:
+        answers: antworten
+        comments: kommentare
+        projects: projekte
+        results: ergebnisse
       impersonation_log:
         manage: "%{user_name} hat %{resource_name} verwaltet, weil %{reason}"
       moderation:
@@ -261,6 +334,8 @@ de:
         download: Datei herunterladen
       documents:
         related_documents: Zugehörige Dokumente
+      geocoding:
+        geocoded_address: Adresse
       photos:
         related_photos: Zugehörige Bilder
     author:
@@ -272,6 +347,7 @@ de:
       endorsements:
         one: Befürwortung
         other: Befürwortungen
+      official_author: Offiziell
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Lassen Sie sich verifizieren, indem Sie eine Reisepassnummer eingeben, die mit "A" beginnt
@@ -505,6 +581,11 @@ de:
         download_data: Daten herunterladen
         download_data_description: Eine Datei, die alle mit Ihrem Konto verknüpften Informationen enthält, wird an <strong>%{user_email}</strong> gesendet. Diese E-Mail enthält eine .zip-Datei und ein Passwort, um sie zu öffnen.<br/><br/>Um die Datei zu entpacken, benötigen Sie <a href="https://www.7-zip.org/">7-Zip</a> (für Windows) oder <a href="https://www.keka.io/">Keka</a> (für MacOS). Wenn Sie Linux verwenden, wird es meistens standardmäßig installiert. Wenn nicht, können Sie <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> oder <a href="https://peazip.github.io">PeaZip</a> verwenden.
         request_data: Daten anfordern
+    editor_images:
+      create:
+        error: Fehler beim Hochladen des Bildes
+        success: Bild erfolgreich hochgeladen
+      drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
     endorsable:
       endorsements: Empfehlungen
       endorsements_count: Anzahl Befürworter
@@ -515,10 +596,16 @@ de:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
+    endorsers_list:
+      close: Schliessen
     errors:
       internal_server_error:
+        copied: Text Kopiert!
+        copy_to_clipboard: In die Zwischenablage kopieren
+        reference: Referenz
         title: Auf unserem Server ist ein Problem aufgetreten
-        try_later: Bitte versuchen Sie es später nochmal.
+        unknown: Unbekannt
+        url: URL
       not_found:
         back_home: Zurück zur Startseite
         content_doesnt_exist: Diese Adresse ist falsch oder wurde entfernt.
@@ -700,6 +787,7 @@ de:
       no_followers: Noch keine Follower.
     following:
       no_followings: Folgt noch niemandem oder irgendetwas.
+      non_public_followings: Einige der gefolgten Ressourcen sind nicht öffentlich.
     follows:
       create:
         button: Folgen
@@ -720,13 +808,39 @@ de:
         file:
           explanation: 'Anleitung für Datei:'
           message_1: Muss ein Bild oder ein Dokument sein.
+          message_2: Verwenden Sie für Bilder vorzugsweise das Querformat, der Dienst beschneidet das Bild.
+        icon:
+          explanation: 'Hinweise für das Bild:'
+          message_1: Muss ein quadratisches Bild sein.
+          message_2: Die empfohlene Größe für dieses Bild ist 512x512 Pixel.
         image:
           explanation: 'Anleitung für Bild:'
           message_1: Vorzugsweise ein Querformat ohne Text.
           message_2: Der Dienst schneidet die Datei zu.
       file_validation:
         allowed_file_extensions: 'Erlaubte Dateiendungen: %{extensions}'
+        max_file_dimension: 'Maximale Dateigröße: %{resolution} Pixel'
         max_file_size: 'Maximale Dateigröße: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Anhang hinzufügen
+          add_file: Datei hinzufügen
+          add_image: Bild hinzufügen
+          cancel: Abbrechen
+          edit_image: Bild bearbeiten
+          error: Fehler!
+          file_size_too_large: 'Datei ist zu groß! Maximale Dateigröße: %{megabytes}MB'
+          remove: Entfernen
+          replace: Ersetzen
+          save: Speichern
+          title: Titel
+          title_required: Titel ist erforderlich!
+          uploaded: Hochgeladen
+          validating: Wird validiert...
+          validation_error: Validierungsfehler!
+      upload_help:
+        dropzone: Zum Hochladen hier klicken oder Dateien hierher ziehen
+        explanation: Anleitung für %{attribute}
     gamification:
       all_badges_link: Sieh dir alle verfügbaren Abzeichen an.
       badges:
@@ -745,18 +859,6 @@ de:
           how: Wie kannst du es verdienen?
           page_description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen. Hier ist die Liste der Abzeichen und einige Möglichkeiten, wie Sie sie verdienen können.
           title: Abzeichen
-        invitations:
-          conditions:
-            - Verwenden Sie den Link "Freunde einladen" auf Ihrer Nutzerseite, um Ihre Freunde einzuladen
-            - Passen Sie, wenn Sie möchten, die gesendete Nachricht an
-            - Sie werden auf den neuesten Stand gebracht, indem Sie Einladungen senden und sie registrieren lassen.
-          description: Dieses Abzeichen wird gewährt, wenn Sie einige Personen eingeladen haben und sie sich ein wenig Zeit genommen haben, um sich in %{organization_name} zu registrieren und Teilnehmer zu werden. Vielen Dank für die Herstellung von %{organization_name} anderen bekannt und helfen , die Gemeinschaft zu erweitern!
-          description_another: Diese*r Benutzer*in hat %{score} Benutzer*innen eingeladen.
-          description_own: Sie haben %{score} Benutzer*innen eingeladen.
-          name: Einladungen
-          next_level_in: Laden Sie %{score} weitere Benutzer*innen ein, um das nächste Level zu erreichen!
-          unearned_another: Diese*r Benutzer*in hat noch niemanden eingeladen.
-          unearned_own: Sie haben noch keine Benutzer*innen eingeladen.
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
       reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
@@ -827,6 +929,7 @@ de:
         success: Join-Anforderung wurde erfolgreich erstellt. Ein Administrator überprüft Ihre Anfrage, bevor er Sie für die Gruppe akzeptiert.
       leave:
         error: Es gab ein Problem, die Gruppe zu verlassen
+        last_admin: Sie können sich nicht von dieser Gruppe entfernen, da Sie der letzte Administrator sind. Machen Sie ein anderes Mitglied zum Administrator, um die Gruppe zu verlassen.
         success: Gruppe erfolgreich verlassen.
       members:
         accept_or_reject_join_requests: 'Die folgenden Benutzer haben sich angemeldet, um dieser Gruppe beizutreten. Akzeptieren oder ablehnen ihrer Anfragen:'
@@ -839,6 +942,7 @@ de:
       no_user_groups: Gehört noch keiner Gruppe an.
       roles:
         admin: Administrator
+        creator: Administrator
         member: Mitglied
       update:
         error: Beim Aktualisieren der Gruppe ist ein Problem aufgetreten
@@ -857,6 +961,15 @@ de:
       index:
         last_activity: Letzte Aktivität
         resource_type: Art
+    links:
+      invalid_url: Ungültige URL
+      warning:
+        body_1: Sie sind dabei einen externen Link zu besuchen und wir möchten, dass Sie hinsichtlich der Inhalte auf der externen Seite vorsichtig sind.
+        body_2: Bitte überprüfen Sie den Link und stellen Sie sicher, dass es sich um eine vertrauenswürdige Seite handelt, bevor Sie fortfahren.
+        cancel: Abbrechen
+        close_modal: Dialog schließen
+        proceed: Fortfahren
+        title: Externen Link öffnen
     log:
       base_presenter:
         create: "%{user_name} hat %{resource_name} erstellt"
@@ -866,6 +979,7 @@ de:
         unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
         update: "%{user_name} hat %{resource_name} aktualisiert"
+        update_permissions_with_space: "%{user_name} hat die Berechtigungen für %{resource_name} in %{space_name} aktualisiert"
         update_with_space: "%{user_name} hat %{resource_name} in %{space_name} aktualisiert"
       value_types:
         area_presenter:
@@ -933,8 +1047,6 @@ de:
           modal_title: Neue Unterhaltung
           no_results: Keine Ergebnisse
           participant_with_disabled_message_reception: Dieser Teilnehmer hat Nachrichten deaktiviert
-        conversation:
-          show: Gespräch mit %{sender} anzeigen
         create:
           error: Die Unterhaltung wurde nicht gestartet. Versuchen Sie es später noch einmal
         error_modal:
@@ -944,26 +1056,18 @@ de:
           ok: OK
         index:
           ago: vor
-          close: Modal schließen
-          from: Von
-          groups: Meine Gruppen
-          last_message: Letzte Nachricht
           new_conversation: Neue Unterhaltung
           next: Weiter
           no_conversations: Du hast noch keine Unterhaltungen
           title: Nachrichten
-        reply:
-          placeholder: Ihre Antwort...
-          send: Senden
-          title: Antworten
         show:
           back: Zurück zu allen Unterhaltungen
           chat_with: Unterhaltung mit
+          deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
           not_allowed: Dieser Teilnehmer akzeptiert keine direkten Nachrichten.
           title: Gespräch mit %{usernames}
         start:
           send: Senden
-          title: Ein Gespräch beginnen
         update:
           error: Nachricht wurde aufgrund eines Fehlers nicht gesendet
     metrics:
@@ -1026,18 +1130,40 @@ de:
         greetings: Grüße,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hallo,
         subject: Möchten Sie weiterhin relevante Informationen über %{organization_name} erhalten?
+    notification_mailer:
+      event_received:
+        original_text: 'Originaltext:'
+        translated_text: 'Automatisch übersetzter Text:'
     notifications:
       no_notifications: Noch keine Benachrichtigungen
+      show:
+        missing_event: Hoppla, diese Benachrichtigung gehört zu einem Artikel, der nicht mehr verfügbar ist. Du kannst sie verwerfen.
+    notifications_digest_mailer:
+      header:
+        daily: Tägliche Zusammenfassung
+        weekly: Wöchentliche Zusammenfassung
+      hello: Hallo %{name}
+      see_more: Weitere Benachrichtigungen ansehen
+      subject: Dies ist deine E-Mail-Zusammenfassung
     notifications_settings:
       show:
         administrators: Administratoren
         allow_public_contact: Allen erlauben, mir Direktnachrichten zu senden, selbst wenn ich ihnen nicht folge.
+        allow_push_notifications: Erhalten Sie Push-Benachrichtigungen, um herauszufinden, was vor sich geht, wenn Sie nicht auf der Plattform sind. Sie können diese jederzeit ausschalten.
         direct_messages: Direktnachrichten von allen erhalten
         email_on_moderations: Ich möchte jedes Mal, wenn etwas oder jemand zur Moderation gemeldet wird, eine E-Mail erhalten.
         everything_followed: Alles was ich folge
         newsletter_notifications: Ich möchte Newsletter erhalten
         newsletters: Newsletter
+        notifications_sending_frequencies:
+          daily: Täglich
+          none: Keine
+          real_time: In Echtzeit
+          weekly: Wöchentlich
+        notifications_sending_frequency: Wie oft möchten Sie die Benachrichtigungs-E-Mail erhalten?
         own_activity: Meine eigene Tätigkeit, etwa wenn sich jemand in meinem Vorschlag äußert oder mich erwähnt
+        push_notifications: Push-Benachrichtigungen
+        push_notifications_reminder: Um Benachrichtigungen von der Plattform zu erhalten, müssen Sie diese zuerst in den Browser-Einstellungen zulassen.
         receive_notifications_about: Ich möchte Benachrichtigungen erhalten über
         update_notifications_settings: Änderungen speichern
       update:
@@ -1045,6 +1171,7 @@ de:
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
     offline:
       show:
+        message: Es sieht so aus, als ob du momentan offline bist. Bitte versuche es später erneut.
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
@@ -1082,7 +1209,6 @@ de:
         sub_hero:
           register: Registrieren
       index:
-        read_more: Weiterlesen
         standalone_pages: Seiten
         subheading: Navigieren Sie durch die Hilfeseiten von %{name}
         title: Hilfe
@@ -1099,6 +1225,7 @@ de:
           agreement: Ich stimme diesen Bedingungen zu
           legend: Stimme den Nutzungsbedingungen zu
         refuse:
+          modal_body: Wenn Sie Ihre Zustimmung nicht erteilen, werden Sie nicht in der Lage sein, die Plattform zu nutzen; Sie können <a href="%{download_your_data_path}">Ihre Daten herunterladen</a> und/oder <a href="%{delete_path}">Ihr Konto löschen</a>.
           modal_btn_continue: Bedingungen akzeptieren und fortfahren
           modal_btn_exit: Ich werde es später überprüfen
           modal_button: Bedingungen ablehnen
@@ -1110,6 +1237,10 @@ de:
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
+    passwords:
+      update:
+        error: Es gab ein Problem bei der Aktualisierung des Passwortes
+        success: Passwort erfolgreich aktualisiert
     profile:
       deleted: Teilnehmer gelöscht
       inaccessible_message: Dieses Profil ist wegen Verletzung der Nutzungsbedingungen nicht zugänglich!
@@ -1127,13 +1258,19 @@ de:
         members: Mitglieder
         officialized: Offizieller Teilnehmer
         send_private_message: Private Nachricht senden
-        timeline: Zeitleiste
         view_full_profile: Sehen Sie sich Vollständiges Profil anzeigen
       sidebar:
         badges:
           info: Abzeichen werden verdient, indem bestimmte Aktivitäten in der Plattform ausgeführt werden.
           title: Abzeichen
       user:
+        actions:
+          create_user_group: Gruppe erstellen
+          edit_profile: Profil bearbeiten
+          invite_user: Teilnehmer einladen
+          manage_user_group_admins: Admins verwalten
+          manage_user_group_users: Mitglieder verwalten
+          message: Nachricht
         confirmation_instructions_sent: E-Mail-Bestätigungsanweisungen gesendet
         create_user_group: Gruppe erstellen
         edit_profile: Profil bearbeiten
@@ -1260,6 +1397,8 @@ de:
         filters:
           areas: Bereiche
           select_an_area: Wählen Sie einen Bereich aus
+      public_participation:
+        public_participation: Meine Teilnahme öffentlich anzeigen
       reference:
         reference: 'Referenz: %{reference}'
       represent_user_group:
@@ -1323,6 +1462,7 @@ de:
         title_reply: Antworten
       show:
         back: Alle Unterhaltungen anzeigen
+        deleted_accounts: Sie können keine Unterhaltung mit gelöschten Konten führen.
         not_allowed: Dieser Benutzer akzeptiert keine Direktnachrichten mehr.
         title: Unterhaltung mit %{usernames}
       update:
@@ -1470,6 +1610,7 @@ de:
         confirm_new_password: Bestätige neues Passwort
         new_password: Neues Passwort
         password_help: "Mindestens %{minimun_characters} Zeichen, nicht zu gewöhnlich (z. B. 123456) und darf nicht Ihr Benutzername oder Ihre E-Mail-Adresse sein."
+        title: Passwort ändern
       new:
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         send_me_reset_password_instructions: Senden Sie mir das Passwort zurück
@@ -1480,15 +1621,6 @@ de:
       updated_not_active: Ihr Passwort wurde erfolgreich geändert.
     registrations:
       destroyed: Tschüss! Ihr Konto wurde erfolgreich storniert. Wir hoffen, Sie bald wieder zu sehen.
-      edit:
-        are_you_sure: Bist du sicher?
-        cancel_my_account: Brechen Sie mein Konto ab
-        currently_waiting_confirmation_for_email: 'Momentan wartende Bestätigung für: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lassen Sie das Feld leer, wenn Sie es nicht ändern möchten
-        title: Bearbeite %{resource}
-        unhappy: Unzufrieden?
-        update: Aktualisieren
-        we_need_your_current_password_to_confirm_your_changes: Wir benötigen Ihr aktuelles Passwort, um Ihre Änderungen zu bestätigen
       new:
         sign_up: Registrieren
       signed_up: Herzlich willkommen! Sie haben sich erfolgreich angemeldet.
@@ -1524,6 +1656,31 @@ de:
   doorkeeper:
     scopes:
       public: Ihre öffentlichen Informationen.
+  emojis:
+    button: Emoji hinzufügen
+    categories:
+      activities: Aktivitäten
+      animals-nature: Tiere & Natur
+      custom: Benutzerdefiniert
+      flags: Flaggen
+      food-drink: Essen & Trinken
+      objects: Objekte
+      people-body: Personen & Körper
+      recents: Kürzlich verwendet
+      smileys-emotion: Smileys & Emotion
+      symbols: Symbole
+      travel-places: Reisen & Orte
+    error:
+      load: Fehler beim Laden von Emojis
+    recents:
+      clear: Zuletzt benutzte Emoji entfernen
+      none: Sie haben noch keine Emojis ausgewählt.
+    retry: Erneut versuchen
+    search:
+      _: Emojis suchen...
+      clear: Suche löschen
+      error: Fehler beim Suchen von Emojis
+      not_found: Keine Ergebnisse gefunden
   errors:
     messages:
       already_confirmed: wurde bereits bestätigt, bitte versuchen Sie sich anzumelden
@@ -1543,9 +1700,12 @@ de:
         other: 'Bei der Bearbeitung Ihrer Anfrage sind mehrere Fehler aufgetreten:'
       too_many_marks: benutzt zu viele aufeinanderfolgende Satzzeichen (zB! und?)
       too_much_caps: verwendet zu viele Großbuchstaben (über 25% des Textes)
-      too_short: ist zu kurz (unter 15 Zeichen)
   forms:
     correct_errors: Es gibt Fehler auf dem Formular, bitte korrigieren Sie sie, um fortzufahren.
+    length_validator:
+      minimum:
+        one: Mindestens %{count} Zeichen
+        other: Mindestens %{count} Zeichen
     required: Erforderlich
     required_explanation: "* Pflichtfelder sind mit einem Stern gekennzeichnet"
   invisible_captcha:
@@ -1553,10 +1713,53 @@ de:
     timestamp_error_message: Entschuldigung, das war zu schnell! Bitte erneut einreichen
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            description: Beschreibung
+            name: Name
+            service: Service
+          items:
+            _session_id:
+              description: Ermöglicht es Websites, sich an Benutzer zu erinnern, wenn diese verschiedene Seiten aufrufen.
+              service: Diese Website
+            decidim-consent:
+              description: Speichert Informationen über die vom Benutzer erlaubten Cookies auf dieser Website.
+              service: Diese Website
+            pwaInstallPromptSeen:
+              service: Diese Website
+          types:
+            cookie: Cookie
+            local_storage: Lokaler Speicher
+        dialog:
+          accept_all: Alle akzeptieren
+          accept_only_essential: Nur essentielle Cookies akzeptieren
+          description: Wir verwenden Cookies auf unserer Website, um die Leistung und den Inhalt der Website zu verbessern. Die Cookies ermöglichen uns, Ihnen eine individuellere Nutzererfahrung und Social-Media-Kanäle zu bieten.
+          settings: Einstellungen
+          title: Informationen über die auf dieser Website verwendeten Cookies
+        modal:
+          accept_all: Alle akzeptieren
+          accept_only_essential: Nur essentielle Cookies akzeptieren
+          analytics:
+            title: Analysen und Statistiken
+          essential:
+            title: Notwendige
+          marketing:
+            title: Marketing
+          preferences:
+            title: Präferenzen
+          save_settings: Einstellungen speichern
+          title: Cookie Einstellungen
+          toggle: '%{consent_category} umschalten'
+        warning:
+          all_categories: alle Cookies
+          change_settings: Cookie Einstellungen ändern
+          consent_required: Sie müssen %{categories} aktivieren, um diesen Inhalt sehen zu können.
       edit_link:
         edit: Bearbeiten
       footer:
         cc_by_license: Creative Commons Lizenz
+        data_consent_settings: Cookie Einstellungen
         decidim_logo: Decidim-Logo
         download_open_data: Open Data Dateien herunterladen
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
@@ -1576,6 +1779,8 @@ de:
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren
+      offline_banner:
+        cache_version_page: Hoppla! Ihr Netzwerk ist offline. Dies ist eine zuvor gecachte Version der Seite, die Sie besuchen, möglicherweise ist der Inhalt nicht aktuell.
       social_media_links:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
@@ -1611,18 +1816,24 @@ de:
         see_more: Mehr sehen
   locale:
     name: Deutsch
-    name_with_error: Englisch (Fehler!)
+    name_with_error: Deutsch (Fehler!)
   password_validator:
     blacklisted: ist gesperrt
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich
     fallback: ist ungültig
     name_included_in_password: ist Ihrem Namen zu ähnlich
+    nickname_included_in_password: ist Ihrem Nicknamen zu ähnlich
     not_enough_unique_characters: hat nicht genug eindeutige Zeichen
     password_not_allowed: ist nicht erlaubt
+    password_repeated: ein früheres Passwort kann nicht wieder verwendet werden
     password_too_common: ist zu allgemein
     password_too_long: es ist zu lang
     password_too_short: ist zu kurz
+  ransack:
+    predicates:
+      dtgt: nach
+      dtlt: vor
   social_share_button:
     delicious: Köstlich
     douban: Douban
@@ -1652,6 +1863,8 @@ de:
       day_of_week: "%a"
       day_of_week_long: "%a %e."
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d. %B %Y"
       decidim_short: "%d.%m.%Y %H:%M"
       default: "%a, %d. %b %Y %H:%M:%S %z"
@@ -1677,14 +1890,10 @@ de:
       option_unified: Zusammengefasst
   views:
     pagination:
-      first: "&laquo; zuerst"
-      first_title: Verknüpfung zur ersten Seite
-      last: Letzte &raquo;
-      last_title: Verknüpfung zur letzten Seite
-      next: Nächste &rsaquo;
+      next: Weiter
       next_title: Verknüpfung zur nächsten Seite
       pagination: Paginierung
-      previous: "&lsaquo; Zurück"
+      previous: Zurück
       previous_title: Verknüpfung zur vorherigen Seite
       title: 'Seitenzahl:'
       truncate: "&hellip;"

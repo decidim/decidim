@@ -10,6 +10,7 @@ fi-pl:
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset
         instructions: Osallistumisohjeet
+        scope_id: Teema
         start_time: Alkamisaika
         title: Otsikko
         user_group_id: Luo keskustelu käyttäjänä
@@ -172,8 +173,8 @@ fi-pl:
         versions_list:
           back_to_resource: Takaisin keskusteluun
       last_activity:
-        debate_updated_at_html: "<span>Keskustelu päivitetty osoitteessa %{link}</span>"
-        new_debate_at_html: "<span>Uusi keskustelu osoitteessa %{link}</span>"
+        debate_updated: 'Keskustelu päivitetty:'
+        new_debate: 'Uusi keskustelu:'
       models:
         debate:
           fields:
