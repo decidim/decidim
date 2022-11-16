@@ -323,8 +323,6 @@ zh-CN:
         working_group: 工作组
       index:
         title: 程序集
-      last_activity:
-        new_assembly: 新建程序集
       pages:
         home:
           highlighted_assemblies:

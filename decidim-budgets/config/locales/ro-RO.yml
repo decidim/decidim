@@ -13,6 +13,7 @@ ro:
         decidim_scope_id: Domeniu de interes
         description: Descriere
         proposal_ids: Propuneri asociate
+        proposals: Propuneri
         selected: Selectate pentru implementare
         title: Titlu
   activerecord:
@@ -90,12 +91,20 @@ ro:
             pending_orders: Voturi în așteptare
             selected: Selectate
             title: Proiecte
+            update: Actualizare
           new:
             create: Creează
             title: Proiect nou
           update:
             invalid: A apărut o eroare la actualizarea acestui proiect
             success: Proiectul a fost actualizat cu succes
+          update_category:
+            select_a_category: Te rugăm să selectezi o categorie
+            select_a_project: Vă rugăm să selectaţi un proiect
+          update_scope:
+            select_a_project: Te rugăm să selectezi un proiect
+          update_selected:
+            select_a_project: Te rugăm să selectezi un proiect
         proposals_imports:
           create:
             invalid: A apărut o problemă la importul propunerilor în proiecte
@@ -219,6 +228,8 @@ ro:
           filter: Filtrare
           filter_by: Filtrează după
           unfold: Extinde
+        index:
+          view_project: Vizualizare proiect
         order_progress:
           vote: Votează
         order_selected_projects:

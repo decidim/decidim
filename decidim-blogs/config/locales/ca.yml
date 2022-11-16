@@ -1,5 +1,8 @@
 ca:
   activemodel:
+    attributes:
+      post:
+        published_at: Hora de publicació
     models:
       decidim/blogs/create_post_event: Nova publicació al blog
   activerecord:
@@ -32,6 +35,7 @@ ca:
             save: Actualitza
             title: Editar publicació
           index:
+            not_published_yet: No publicat encara
             title: Publicacions
           new:
             create: Crear
@@ -45,24 +49,19 @@ ca:
           delete: "%{user_name} ha eliminat el post %{resource_name} del blog de %{space_name}"
           update: "%{user_name} ha actualitzat el post %{resource_name} en el blog de %{space_name}"
       last_activity:
-        new_post_at_html: "<span>Nova publicació a %{link}</span>"
+        new_post: 'Nova publicació:'
       models:
         post:
           fields:
             author: Autora
             body: Cos
-            created_at: Creat el
             official_blog_post: Post oficial
+            published_at: Hora de publicació
             title: títol
       posts:
         show:
-          back: Tornar al llistat
           comments: Comentaris
           view: Veure
-        sidebar_blog:
-          comments: comentaris
-          most_commented_posts: Publicacions més comentades
-      read_more: Llegeix més
     components:
       blogs:
         actions:

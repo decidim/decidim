@@ -379,7 +379,8 @@ es-MX:
         invite_join_conference_mailer:
           invite:
             decline: Rechazar invitación a '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinarla o aceptarla a través de los siguientes enlaces."
+            invited_existing_user_to_join_a_conference: "%{invited_by} te ha invitado a unirte a una conferencia en %{application}. Puedes declinarla o aceptarla a través de los siguientes enlaces."
+            invited_user_to_join_a_conference: "%{invited_by} te ha invitado a unirte a un encuentro en %{application}. Puedes aceptarla a través del siguiente enlace."
             registration: Inscripción para '%{conference_title}'
         partners:
           index:
@@ -430,9 +431,11 @@ es-MX:
         create:
           invalid: Ha habido un problema al unirse a esta conferencia.
           success: Te has unido a la conferencia con éxito.
+          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la conferencia.
         decline_invitation:
           invalid: Ha habido un problema al rechazar la invitación.
           success: Has rechazado la invitación con éxito.
+          unauthorized: Necesitas iniciar tu sesión antes de rechazar la invitación.
         destroy:
           invalid: Ha habido un problema al abandonar esta conferencia.
           success: Has abandonado la conferencia con éxito.

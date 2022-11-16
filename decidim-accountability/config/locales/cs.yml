@@ -40,6 +40,7 @@ cs:
         confirm_destroy: Opravdu chcete smazat tento %{name}?
         destroy: Odstranit
         edit: Upravit
+        import: Importovat projekty do výsledků
         import_csv: Importovat CSV
         new: Nový %{name}
         preview: Náhled
@@ -51,9 +52,8 @@ cs:
           results: Výsledky
         import_results:
           new:
+            download_export: Stáhnout export s CSV formátem
             import: Importovat
-            info: "<p>Doporučujeme postupovat podle těchto kroků:</p><ol><li>Vytvořte stavy pro výsledky, které chcete přidat (<a href='%{link_new_status}' target='_blank'>odkaz</a>)</li><li>Vytvořte alespoň jeden výsledek ručně přes tento Admin panel (<a href='%{link_new_result}' target='_blank'>odkaz</a>) před použitím Importu, pro lepší pochopení formátu a toho, co budete muset vyplnit.</li><li>Stáhněte si export s CSV formátem (%{link_export_csv})</li><li>Proveďte změny lokálně. Následující sloupce CSV:</li></ol><ul><li><b>kategorie / id:</b> ID pro kategorii</li><li><b>rozsah / id:</b> ID pro rozsah</li><li><b>nadřazené / id:</b> ID nadřazených (pro související výsledky). Nepovinný</li><li><b>název / I18N:</b> Název jazyka X</li><li><b>popis / I18N:</b> Popis jazyka X</li><li><b>start_date:</b> datum, kdy výsledek začne provádět (formát YYYY-MM-DD)</li><li><b>end_date:</b> den, kdy výsledek končí provedení (formát YYYY-MM-DD)</li><li><b>status / id:</b> ID stavu pro tento výsledek</li><li><b>pokrok:</b> procenta (od 0 do 100) provedení</li><li><b>proposals_ids:</b> interní ID souvisejících návrhů (oddělené čárkou). Automaticky se převede na <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: odkaz
             title: Importovat výsledky z CSV
         imports:
           create:
@@ -65,6 +65,26 @@ cs:
             name: Stav
           timeline_entry:
             name: Záznam v harmonogramu
+        projects_import:
+          create:
+            invalid: Došlo k potížím při importu projektů do výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
+          new:
+            create: Importovat
+            import_all_selected_projects: Importovat všechny projekty vybrané pro realizaci
+            new_items:
+              one: 1 vybraný projekt bude importován
+              few: "%{count} vybrané projekty budou importovány"
+              many: "%{count} vybraných projektů bude importováno"
+              other: "%{count} vybraných projektů bude importováno"
+            no_components: V tomto participačním prostoru nejsou žádné složky rozpočtů pro import projektů do výsledků.
+            origin_component_id: Původ komponenty
+            select_component: Vybrat komponentu
+            success:
+              one: 1 projekt, který má být importován. Po dokončení budete upozorněni e-mailem
+              few: "%{count} projekty jsou ve frontě na import. Po dokončení budete informováni e-mailem"
+              many: "%{count} projektů je ve frontě na import. Po dokončení budete informováni e-mailem"
+              other: "%{count} projektů je ve frontě na import. Po dokončení budete informováni e-mailem"
+            title: Importovat projekty k odpovědnosti
         results:
           create:
             invalid: Při vytváření tohoto výsledku došlo k problému
@@ -147,8 +167,17 @@ cs:
           row_number: Řádek
           subject: Úspěšný import výsledků
           success: Úspěšný import výsledků. Výsledky můžete zkontrolovat v rozhraní administrace.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Jeden výsledek byl importován z projektů.
+            few: "%{count} výsledky byly importovány z projektů."
+            many: "%{count} výsledků bylo importováno z projektů."
+            other: "%{count} výsledků bylo importováno z projektů."
+          subject: Úspěšný import projektů
+          success: Úspěšný import projektů do výsledků v komponentě %{component_name}. Výsledky si můžete prohlédnout v administračním rozhraní.
       last_activity:
-        new_result_at_html: "<span>Nový výsledek v %{link}</span>"
+        new_result: 'Nový výsledek:'
       models:
         result:
           fields:
@@ -183,7 +212,6 @@ cs:
             other: "%{count} výsledků"
         filters:
           all: Vše
-          scopes: Oblasti působnosti
         home:
           categories_label: Kategorie
           subcategories_label: Podkategorie

@@ -389,9 +389,6 @@ eu:
           index:
             meetings: Bilerak
             space_type: Partaidetza espazioa
-      last_activity:
-        meeting_updated_at_html: "<span>eztabaida ordu honetan %{link}</span> eguneratuta"
-        new_meeting_at_html: "<span>Bilera berria %{link}</span>"
       layouts:
         live_event:
           administrate: Administratu
