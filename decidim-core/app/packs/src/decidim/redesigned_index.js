@@ -100,7 +100,7 @@ Rails.start()
  * Initializer event for those script who require to be triggered
  * when the page is loaded
  *
- * @param {DOMNode} element target node
+ * @param {HTMLElement} element target node
  * @returns {void}
  */
 const initializer = (element = document) => {

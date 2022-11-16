@@ -1,6 +1,7 @@
 /**
  * REDESIGN_PENDING: This file will be unnecessary once Turbo is implemented.
  * The topbar__notifications element has changes after redesign
+ * @param {HTMLElement} node target node
  * @returns {void}
  */
 export default function(node = document) {

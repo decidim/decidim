@@ -2,12 +2,12 @@
  * Send a request to select which identity want to use
  * NOTE: this shouldn't be done using javascript
  *
- * @param {DOMNode} element node to select
+ * @param {HTMLElement} node target node
  * @returns {void}
  */
-export default function(element) {
-  element.addEventListener("click", ({ target: node }) => {
-    const { method } = node.dataset
+export default function(node = document) {
+  node.addEventListener("click", ({ target: element }) => {
+    const { method } = element.dataset
 
     let attr = "destroy_url";
 
@@ -15,15 +15,15 @@ export default function(element) {
       attr = "create_url";
     }
 
-    const { [attr]: url } = node.dataset
+    const { [attr]: url } = element.dataset
     fetch(url, { method }).then((response) => {
       if (response.ok) {
         if (method === "POST") {
-          node.classList.add("is-selected")
-          node.dataset.method = "DELETE"
+          element.classList.add("is-selected")
+          element.dataset.method = "DELETE"
         } else {
-          node.classList.remove("is-selected")
-          node.dataset.method = "POST"
+          element.classList.remove("is-selected")
+          element.dataset.method = "POST"
         }
       }
     })

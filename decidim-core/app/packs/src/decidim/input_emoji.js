@@ -132,7 +132,7 @@ export class EmojiButton {
 /**
  * Adds the input emojis to the input elements that are defined to have them.
  *
- * @param {DOMNode} element target node
+ * @param {HTMLElement} element target node
  * @returns {void}
  */
 export default function addInputEmoji(element = document) {

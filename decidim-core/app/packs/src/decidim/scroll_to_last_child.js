@@ -2,7 +2,7 @@
  * Scroll smoothly to the last message automatically when the page is fully loaded.
  * To apply this to a page, at least one element must have the class "scroll-to-last-message".
  *
- * @param {DOMNode} node target node
+ * @param {HTMLElement} node target node
  * @returns {void}
  */
 export default function(node = document) {
