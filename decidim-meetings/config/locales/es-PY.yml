@@ -428,8 +428,8 @@ es-PY:
         open_in_live_event_page: Abrir en la página del evento en directo (con encuestas opcionales)
         open_in_new_tab: Abrir en nueva pestaña
       last_activity:
-        meeting_updated_at_html: "<span>Encuentro actualizado a las %{link}</span>"
-        new_meeting_at_html: "<span>Nueva reunión en %{link}</span>"
+        meeting_updated: 'Encuentro actualizado:'
+        new_meeting: 'Nuevo encuentro:'
       layouts:
         live_event:
           administrate: Administrar

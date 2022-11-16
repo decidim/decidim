@@ -2,6 +2,7 @@ ca:
   activemodel:
     attributes:
       initiative:
+        area_id: Àrea
         decidim_user_group_id: Autoria
         description: Descripció
         offline_votes: Signatures presencials
@@ -18,6 +19,8 @@ ca:
         title: Títol
       initiatives_committee_member:
         user: Membre del comitè
+      initiatives_settings:
+        initiatives_order: Ordre
       initiatives_type:
         area_enabled: Permet a les autores triar l'àrea de la seva iniciativa
         attachments_enabled: Habilitat arxius adjunts
@@ -33,6 +36,7 @@ ca:
         online_signature_enabled: S'ha activat la signatura digital
         only_global_scope_enabled: Permetre només la creació d'iniciatives d'àmbit global
         promoting_committee_enabled: Habilita el comitè promotor
+        signature_type: Tipus de signatura
         title: Títol
         undo_online_signatures_enabled: Permetre a les participants desfer les seves signatures digitals
         validate_sms_code_on_votes: Afegeix el pas de validació mitjançant SMS al procés de signatura
@@ -382,6 +386,7 @@ ca:
           more_information: "(Més informació)"
           select: Vull promoure aquesta iniciativa
           select_initiative_type_help: Les iniciatives són un mitjà pel qual les participants poden intervenir perquè l'organització pugui emprendre accions en defensa de l'interès general. Quina iniciativa vols iniciar?
+          verification_required: Verifica el teu compte per a impulsar la iniciativa
         share_committee_link:
           continue: Continua
           invite_to_committee_help: Enllaç per convidar a les persones que formaran part de la Comisió Promotora
@@ -493,11 +498,6 @@ ca:
           unfold: Desplegar
         index_header:
           new_initiative: Nova iniciativa
-          not_authorized:
-            authorizations_page: Veure les autoritzacions
-            close: Tanca
-            explanation: Cal que estiguis verificada per tal de crear una nova iniciativa.
-            title: Es requereix autorització
         initiatives:
           closed_initiatives_warning: Actualment no hi ha iniciatives obertes, però aquí pots trobar el llistat de totes les iniciatives tancades.
           no_initiatives_warning: No hi ha iniciatives que coincideixin amb el teu criteri de cerca.
@@ -573,7 +573,13 @@ ca:
         status_change_body_for: 'La iniciativa %{title} ha canviat el seu estat a: %{state}'
         status_change_for: La iniciativa %{title} ha canviat el seu estat
       last_activity:
-        new_initiative: Nova iniciativa
+        new_initiative: 'Nova iniciativa:'
+      modal:
+        not_authorized:
+          authorizations_page: Veure les autoritzacions
+          close: Tanca
+          explanation: Cal que estiguis verificada per tal de crear una nova iniciativa.
+          title: Es requereix autorització
       pages:
         home:
           highlighted_initiatives:
@@ -607,6 +613,7 @@ ca:
           comment: Comentar
       initiatives_type:
         actions:
+          create: Crear
           title: Accions
           vote: Signar
   layouts:

@@ -458,7 +458,6 @@ sk:
     errors:
       internal_server_error:
         title: Vyskytol sa problém s naším serverom
-        try_later: Prosím skúste to znova neskôr.
       not_found:
         back_home: Späť na úvodnú stránku
         content_doesnt_exist: Táto adresa je nesprávna alebo bola odstránená.
@@ -648,18 +647,6 @@ sk:
           how: Ako ho môžete získať
           page_description: Odznaky sú uznaním aktivity účastníkov a ich pokroku na platforme. Keď začnete objavovať platformu, zúčastňovať sa na nej a pracovať na nej, získate rôzne odznaky. Tu je zoznam odznakov a spôsoby, ako ich môžete získať.
           title: Odznaky
-        invitations:
-          conditions:
-            - Použite odkaz "pozvať priateľov" na Vašej osobnej stránke pre pozvanie priateľov.
-            - Upravte, ak chcete, správu, ktorú posielate.
-            - Na ďalšiu úroveň sa dostanete rozosielaním a prijatím pozvánok.
-          description: Tento odznak obdržíte, ak ste pozvali pár ľudí, ktorí strávili čas registráciou v %{organization_name} a stali sa účastníkmi. Ďakujeme, že ste ostatným ukázali %{organization_name} a pomohli rozšíriť komunitu!
-          description_another: Tento účastník pozval %{score} ľudí.
-          description_own: Pozvali ste %{score} ľudí.
-          name: Pozvánky
-          next_level_in: Pozvite o %{score} ľudí viac pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník zatiaľ nikoho nepozval.
-          unearned_own: Zatial ste nikoho nepozvali.
       description: Odznaky sú uznanie akciou účastníkov a pokrok v platforme. Akonáhle začnete objavovať, zúčastniť sa a spolupracovať v platforme, získate rôzne odznaky.
       level: Úroveň%{level}
       reached_top: Dosiahli ste najvyššej úrovne tohto odznaku.
@@ -808,21 +795,15 @@ sk:
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         index:
-          close: Zatvoriť okno
           new_conversation: Nová konverzácia
           next: Nasledujúce
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
-        reply:
-          placeholder: Vaša odpoveď...
-          send: Poslat
-          title: Odpověď
         show:
           chat_with: Konverzácia s
           title: Konverzace s číslem %{usernames}
         start:
           send: Poslat
-          title: Spusťte konverzaci
     metrics:
       followers:
         description: Počet účastníkov, ktorí sledujú tento participatívny priestor
@@ -932,7 +913,6 @@ sk:
         sub_hero:
           register: Registrovať
       index:
-        read_more: Prečítajte si viac
         standalone_pages: Stránky
         subheading: Prechádzajte stránky pomocníka%{name}
         title: Pomoc
@@ -972,7 +952,6 @@ sk:
         following: Nasleduje
         groups: Skupiny
         members: Členovia
-        timeline: Časová os
         view_full_profile: Zobraziť celý profil
       sidebar:
         badges:
@@ -1207,15 +1186,6 @@ sk:
       updated_not_active: Vaše heslo bolo úspešne zmenené.
     registrations:
       destroyed: Zbohom! Váš účet bol úspešne zrušený. Dúfame, že vás čoskoro uvidíme.
-      edit:
-        are_you_sure: Ste si istí?
-        cancel_my_account: Zrušiť môj účet
-        currently_waiting_confirmation_for_email: 'Aktuálne čaká potvrdenie o:%{email}'
-        leave_blank_if_you_don_t_want_to_change_it: ponechajte prázdne, ak nechcete zmeniť
-        title: Upraviť%{resource}
-        unhappy: Nespokojný?
-        update: Aktualizácia
-        we_need_your_current_password_to_confirm_your_changes: pre potvrdenie zmien potrebujeme vaše aktuálne heslo
       new:
         sign_up: Prihlásiť sa
       signed_up: Vitajte! Úspešne ste sa zaregistrovali.
@@ -1274,7 +1244,6 @@ sk:
         other: 'Pri spracovaní vašej požiadavky došlo k nejakým chybám:'
       too_many_marks: používa príliš veľa po sebe idúcich interpunkčných znamienok (napr.! a?)
       too_much_caps: používa príliš veľa veľkých písmen (viac ako 25% textu)
-      too_short: je príliš krátka (pod 15 znakov)
   forms:
     required: Povinný
   invisible_captcha:
@@ -1381,13 +1350,7 @@ sk:
       option_unified: Sjednocené
   views:
     pagination:
-      first: "&laquo; První"
-      first_title: Číslo na prvú stránku
-      last: Poslední &raquo;
-      last_title: Číslo na poslednú stránku
-      next: Další &rsaquo;
       next_title: Číslo na ďalšiu stránku
-      previous: "&lsaquo; Předchozí"
       previous_title: Späť na predošlú stránku
       title: 'Číslo stránky: '
       truncate: "&hellip;"

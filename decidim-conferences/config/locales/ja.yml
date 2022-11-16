@@ -375,7 +375,8 @@ ja:
         invite_join_conference_mailer:
           invite:
             decline: 招待を拒否する '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} が %{application}であなたをカンファレンスに招待しました。以下のリンクから拒否または承認できます。"
+            invited_existing_user_to_join_a_conference: "%{invited_by} が %{application}であなたをカンファレンスに招待しました。以下のリンクから拒否または承認できます。"
+            invited_user_to_join_a_conference: "%{invited_by} があなたを %{application} のカンファレンスに招待しました。以下のリンクから受付ができます。"
             registration: '''%{conference_title} '' の登録'
         partners:
           index:
@@ -426,9 +427,11 @@ ja:
         create:
           invalid: このカンファレンスに参加するのに問題がありました。
           success: カンファレンスに参加しました。
+          unauthorized: カンファレンスに登録する前にサインインする必要があります。
         decline_invitation:
           invalid: 招待を辞退するのに問題があった。
           success: 招待を拒否しました。
+          unauthorized: 招待を辞退する前にサインインする必要があります。
         destroy:
           invalid: このカンファレンスから退会するのに問題がありました。
           success: カンファレンスから退会しました。

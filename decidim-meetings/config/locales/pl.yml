@@ -369,9 +369,6 @@ pl:
           index:
             meetings: Spotkania
             space_type: Przestrzeń partycypacyjna
-      last_activity:
-        meeting_updated_at_html: "<span>Spotkanie zaktualizowane o %{link}</span>"
-        new_meeting_at_html: "<span>Nowe spotkanie %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -396,7 +393,7 @@ pl:
         count:
           meetings_count:
             one: "%{count} spotkanie"
-            few: "%{count} spotkań"
+            few: "%{count} spotkania"
             many: "%{count} spotkań"
             other: "%{count} spotkań"
         create:
@@ -535,6 +532,7 @@ pl:
           invalid: Wystąpił błąd podczas próby opuszczenia tego spotkania.
           success: Opuściłeś spotkanie.
       type_of_meeting:
+        hybrid: Hybrydowe
         in_person: Osobiście
         online: Online
       types:

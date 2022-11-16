@@ -1,28 +1,28 @@
 .upload-modal{
   &__dropzone{
-    @apply bg-background px-5 py-6 rounded max-h-[50vh] overflow-y-scroll;
+    @apply bg-background px-5 py-6 rounded max-h-[50vh] overflow-y-auto border-2 border-transparent;
 
     &[hidden] + &:last-child{
       @apply py-14;
     }
 
     &-container{
-      @apply mt-12 space-y-4;
+      @apply mt-4 md:mt-12 space-y-4;
     }
 
     &-placeholder{
-      @apply w-full flex items-center justify-between gap-4 font-semibold text-gray-2 text-md [&>span]:inline-flex [&>span]:items-center [&>span]:gap-2;
+      @apply w-full flex flex-col md:flex-row items-center justify-between gap-4 font-semibold text-gray-2 text-md [&>span]:inline-flex [&>span]:items-center [&>span]:gap-2;
     }
 
-    &.is-dragover:last-child{
-      @apply border-2 border-secondary border-dashed bg-background-4;
+    &.is-dragover:not(.is-disabled):last-child{
+      @apply border-2 border-secondary border-dashed bg-background-4 [&_*]:pointer-events-none;
     }
 
     [data-filename]{
       @apply w-full flex flex-col gap-4;
 
       [data-template]{
-        @apply grow flex items-center justify-start gap-6;
+        @apply grow flex flex-col md:flex-row items-center justify-start gap-6;
 
         > *:first-child{
           @apply w-24 flex-none flex justify-center;
@@ -60,7 +60,7 @@
       }
 
       button{
-        @apply ml-auto button button__sm button__transparent-primary;
+        @apply w-full md:w-auto md:ml-auto button button__sm button__transparent-primary;
       }
 
       progress{
@@ -100,7 +100,7 @@
   }
 
   &__text{
-    @apply text-sm text-gray-2 mt-4 mb-20;
+    @apply text-sm text-gray-2 mt-4 mb-8 md:mb-20;
 
     ul,
     ol{
@@ -109,6 +109,8 @@
   }
 
   &__files{
+    @apply mt-1 space-y-4;
+
     &-container{
       @apply space-y-10 [&_label]:block [&_label]:mb-4;
     }

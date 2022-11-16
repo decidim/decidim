@@ -459,6 +459,7 @@ module Decidim
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
       help_messages = options[:help] || upload_help(object, attribute, options)
+      redesigned = @template.redesign_enabled?
 
       options = {
         attribute:,
@@ -471,7 +472,8 @@ module Decidim
         help: help_messages,
         label: label_for(attribute),
         button_label:,
-        button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
+        button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
+        redesigned:
       }.merge(options)
 
       ::Decidim::ViewModel.cell(

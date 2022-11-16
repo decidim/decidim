@@ -532,10 +532,12 @@ nl:
       identities:
         done: Voltooid
         select_identity: Selecteer identiteit
+    endorsers_list:
+      close: Sluiten
+      endorsed_by: Geliket door...
     errors:
       internal_server_error:
         title: Er was een probleem met de server
-        try_later: Probeer het later opnieuw.
       not_found:
         back_home: Terug naar de hoofdpagina
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
@@ -750,18 +752,6 @@ nl:
           how: Hoe kun je het verdienen?
           page_description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges. Hier is de lijst met badges en enkele manieren waarop u ze kunt verdienen.
           title: Badges
-        invitations:
-          conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas het bericht aan dat u stuurt, als u wilt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
-          description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om in %{organization_name} te registreren en deelnemers te worden. Dank u om %{organization_name} bekend te maken bij anderen en om de community te helpen uit te breiden!
-          description_another: Deze deelnemer heeft %{score} personen uitgenodigd.
-          description_own: Je hebt %{score} mensen uitgenodigd.
-          name: Uitnodigingen
-          next_level_in: Nodig nog %{score} mensen uit om het volgende niveau te bereiken!
-          unearned_another: Deze deelnemer heeft nog niemand uitgenodigd.
-          unearned_own: Je hebt nog niemand uitgenodigd.
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
@@ -947,8 +937,6 @@ nl:
           modal_title: Nieuwe conversatie
           no_results: Geen resultaten gevonden
           participant_with_disabled_message_reception: Deze gebruiker heeft de berichtontvangst uitgeschakeld
-        conversation:
-          show: Toon gesprek met %{sender}
         create:
           error: Gesprek niet gestart. Probeer het later nogmaals
         error_modal:
@@ -958,18 +946,10 @@ nl:
           ok: OK
         index:
           ago: geleden
-          close: Sluit venster
-          from: van
-          groups: Mijn groepen
-          last_message: Laatste bericht
           new_conversation: Nieuwe conversatie
           next: Volgende
           no_conversations: Je hebt nog geen gesprekken
           title: conversaties
-        reply:
-          placeholder: Jouw antwoord...
-          send: Sturen
-          title: Beantwoorden
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
@@ -978,7 +958,6 @@ nl:
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
-          title: Een gesprek beginnen
         update:
           error: Bericht is niet verzonden vanwege een fout
     metrics:
@@ -998,6 +977,7 @@ nl:
         title: Deelnemers
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Deze e-mail is verzonden vanuit een adres dat geen inkomende e-mail kan accepteren. Reageer niet op dit bericht.
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
         see_on_website: Wordt deze e-mail niet correct worden weergegeven? Bekijk hem via deze link <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Om je uit te schrijven, <a href="%{link}" target="_blank" class="unsubscribe">Uitschrijven</a>.
@@ -1103,7 +1083,6 @@ nl:
         sub_hero:
           register: Registreren
       index:
-        read_more: Lees verder
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}
         title: Help
@@ -1147,7 +1126,6 @@ nl:
         groups: Groepen
         members: Leden
         officialized: Officiële gebruiker
-        timeline: Tijdlijn
         view_full_profile: Bekijk volledig profiel
       sidebar:
         badges:
@@ -1479,15 +1457,6 @@ nl:
       updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
       destroyed: Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
-      edit:
-        are_you_sure: Weet je het zeker?
-        cancel_my_account: Annuleer mijn account
-        currently_waiting_confirmation_for_email: 'Momenteel wachtende bevestiging voor: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laat leeg als je het niet wilt wijzigen
-        title: Bewerk %{resource}
-        unhappy: Ongelukkig?
-        update: Bijwerken
-        we_need_your_current_password_to_confirm_your_changes: we hebben je huidige wachtwoord nodig om je wijzigingen te bevestigen
       new:
         sign_up: Aanmelden
       signed_up: Welkom! Je hebt je succesvol aangemeld.
@@ -1542,7 +1511,6 @@ nl:
         other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
       too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld ! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
-      too_short: is te kort (minder dan 15 tekens)
   forms:
     correct_errors: Er zijn fouten in het formulier, corrigeer ze om door te gaan.
     length_validator:
@@ -1556,6 +1524,21 @@ nl:
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            description: Beschrijving
+            name: Naam
+            type: Type
+          items:
+            pwaInstallPromptSeen:
+              description: Bewaart de status als de progressieve webapplicatie (PWA) installatiemelding al gezien is door de gebruiker.
+          types:
+            local_storage: Lokale opslag
+        modal:
+          analytics:
+            description: Deze cookies worden gebruikt om het gebruik van de website te meten en te analyseren en zo de website te verbeteren.
+          description: We gebruiken cookies om de basisfunctionaliteiten van de website te garanderen en jouw online-ervaring te verbeteren. Je kunt op elk gewenst moment het gebruik van de cookies configureren en accepteren of je toestemmingsopties wijzigen.
       edit_link:
         edit: Bewerk
       footer:
@@ -1609,7 +1592,7 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-    name_with_error: Engels (fout!)
+    name_with_error: Nederlands (fout!)
   password_validator:
     blacklisted: staat op de zwarte lijst
     domain_included_in_password: lijkt te veel op deze domeinnaam
@@ -1677,14 +1660,8 @@ nl:
       option_unified: Verenigd
   views:
     pagination:
-      first: "&laquo; Eerste"
-      first_title: Link naar de eerste pagina
-      last: Laatste &raquo;
-      last_title: Link naar de laatste pagina
-      next: Volgende &rsaquo;
       next_title: Link naar de volgende pagina
       pagination: Paginering
-      previous: "&lsaquo; Vorige"
       previous_title: Link naar de vorige pagina
       title: 'Pagina nummer: '
       truncate: "&hellip;"

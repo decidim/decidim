@@ -67,7 +67,7 @@ fr-CA:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: 'Type de document invalide. Les formats acceptés sont: %{types}'
+              allowed_file_content_types: 'Type de document invalide. Seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
     models:
       decidim/participatory_process_step_activated_event: Étape activée
       decidim/participatory_process_step_changed_event: Étape modifiée
@@ -95,6 +95,7 @@ fr-CA:
           all_processes: Afficher tous les processus
           process_groups: Groupes de processus
         import_process: Importer
+        moderate: Modérer
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
         new_process_step: Nouvelle étape

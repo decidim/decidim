@@ -2,6 +2,10 @@
   <div>
     <%= tag.label label %>
 
+    <% if attachments.blank? && !has_title? && uploader_default_image_path(attribute).present? %>
+      <%= image_tag uploader_default_image_path(attribute) %>
+    <% end %>
+
     <div class="active-uploads upload-modal__files" data-active-uploads>
       <% attachments.each do |attachment| %>
         <% next if attachment.is_a? Array %>
