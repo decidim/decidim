@@ -24,8 +24,8 @@ en:
         address: Address
         location: Location
         location_hints: Location hint
-        polling_station_president_id: President
         polling_station_managers: Managers
+        polling_station_president_id: President
         title: Title
       question:
         max_selections: Maximum number of selections

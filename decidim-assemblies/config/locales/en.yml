@@ -4,6 +4,8 @@ en:
     attributes:
       assemblies_setting:
         enable_organization_chart: Enable organization chart
+      assemblies_type:
+        title: Title
       assembly:
         announcement: Announcement
         area_id: Area
@@ -71,8 +73,6 @@ en:
         position: Position
         user_id: User or group
         weight: Order position
-      assemblies_type:
-        title: Title
       assembly_user_role:
         email: Email
         name: Name
