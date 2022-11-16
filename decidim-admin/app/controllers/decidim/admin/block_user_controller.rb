@@ -44,7 +44,7 @@ module Decidim
           end
         end
 
-        redirect_to moderated_users_path(blocked: false), notice:
+        redirect_to moderated_users_path, notice:
       end
 
       private
