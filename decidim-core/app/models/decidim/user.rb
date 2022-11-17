@@ -36,8 +36,6 @@ module Decidim
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
 
-    has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
-
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname,
               presence: true,
