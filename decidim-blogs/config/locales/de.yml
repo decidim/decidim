@@ -50,7 +50,6 @@ de:
             author: Autor
             body: Haupttext
             official_blog_post: Offizieller Post
-            title: Titel
       posts:
         show:
           comments: Kommentare
