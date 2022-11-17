@@ -28,7 +28,6 @@ ja:
         show_statistics: 統計情報を表示
         sign_date: 署名日
         signature: 署名
-        signature_name: 署名の名前
         slogan: スローガン
         slug: URL スラグ
         start_date: 開始日
@@ -37,13 +36,11 @@ ja:
         date: 日付
         link: リンク
         title: タイトル
-        weight: 重みづけ
       conference_partner:
         link: リンク
         logo: ロゴ
         name: 名前
         partner_type: パートナータイプ
-        weight: 重みづけ
       conference_registration_invite:
         email: Eメールアドレス
         name: 名前
@@ -53,7 +50,6 @@ ja:
         description: 説明
         price: 価格
         title: タイトル
-        weight: 重みづけ
       conference_speaker:
         affiliation: 所属
         avatar: アバター
@@ -130,8 +126,6 @@ ja:
         edit:
           title: カンファレンス管理者を更新
           update: 更新
-        index:
-          conference_admins_title: カンファレンス管理者
         new:
           create: 作成
           title: 新しいカンファレンス管理者
