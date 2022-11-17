@@ -28,7 +28,6 @@ cs:
         show_statistics: Zobrazit statistiky
         sign_date: Datum podpisu
         signature: Podpis
-        signature_name: podpisové jméno
         slogan: Motto
         slug: URL slug
         start_date: Datum zahájení
@@ -37,13 +36,11 @@ cs:
         date: Datum
         link: Odkaz
         title: Název
-        weight: Váha
       conference_partner:
         link: Odkaz
         logo: Logo
         name: Název
         partner_type: Typ partnera
-        weight: Váha
       conference_registration_invite:
         email: E-mail
         name: Jméno
@@ -53,7 +50,6 @@ cs:
         description: Popis
         price: Cena
         title: Oslovení
-        weight: Váha
       conference_speaker:
         affiliation: Příslušnost
         avatar: Avatar
@@ -139,8 +135,6 @@ cs:
         edit:
           title: Aktualizovat uživatele konference.
           update: Aktualizace
-        index:
-          conference_admins_title: administrátoři konference
         new:
           create: Vytvořit
           title: Nový administrátor konference.
