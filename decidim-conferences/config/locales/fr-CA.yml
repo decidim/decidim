@@ -28,7 +28,6 @@ fr-CA:
         show_statistics: Montrer les statistiques
         sign_date: Date de signature
         signature: Signature
-        signature_name: nom de la signature
         slogan: Slogan
         slug: Slug URL
         start_date: Date de début
@@ -37,13 +36,11 @@ fr-CA:
         date: Date
         link: Lien
         title: Titre
-        weight: Rang d'affichage
       conference_partner:
         link: Lien
         logo: Logo
         name: Nom
         partner_type: Type de partenaire
-        weight: Rang d'affichage
       conference_registration_invite:
         email: Courriel
         name: Nom
@@ -53,7 +50,6 @@ fr-CA:
         description: Description
         price: Prix
         title: Titre
-        weight: Rang d'affichage
       conference_speaker:
         affiliation: Organisme
         avatar: Image de profil
@@ -133,8 +129,6 @@ fr-CA:
         edit:
           title: Mettre à jour l'administrateur de la conférence.
           update: Mettre à jour
-        index:
-          conference_admins_title: administrateurs de la conférence
         new:
           create: Créer
           title: Nouvel administrateur de conférence.
