@@ -9,25 +9,14 @@ module Decidim
     include_context "when a resource is ready for global search"
 
     let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
-    let(:current_component) { create :proposal_component, organization:, participatory_space: }
-    let!(:proposal) do
-      create(
-        :proposal,
-        :draft,
-        component: current_component,
-        scope: scope1,
-        body: description1,
-        users: [author]
-      )
-    end
+    let(:component) { create :proposal_component, organization:, participatory_space: }
+    let!(:proposal) { create(:proposal, :draft, component:, scope: scope1, body: description1, users: [author]) }
 
     describe "Indexing of proposals" do
       context "when implementing Searchable" do
         context "when on create" do
           context "when proposals are NOT official" do
-            let(:proposal2) do
-              create(:proposal, component: current_component)
-            end
+            let(:proposal2) { create(:proposal, component:) }
 
             it "does not index a SearchableResource after Proposal creation when it is not official" do
               searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: [proposal.id, proposal2.id])
@@ -113,7 +102,7 @@ module Decidim
         let!(:proposal2) do
           create(
             :proposal,
-            component: current_component,
+            component:,
             scope: scope1,
             title: Decidim::Faker.name,
             body: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
@@ -168,8 +157,8 @@ module Decidim
         "content_d" => I18n.transliterate(translated(proposal.body, locale:)),
         "locale" => locale,
         "decidim_organization_id" => proposal.component.organization.id,
-        "decidim_participatory_space_id" => current_component.participatory_space_id,
-        "decidim_participatory_space_type" => current_component.participatory_space_type,
+        "decidim_participatory_space_id" => component.participatory_space_id,
+        "decidim_participatory_space_type" => component.participatory_space_type,
         "decidim_scope_id" => proposal.decidim_scope_id,
         "resource_id" => proposal.id,
         "resource_type" => "Decidim::Proposals::Proposal"
