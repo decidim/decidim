@@ -57,7 +57,6 @@ ca:
             body: Cos
             official_blog_post: Post oficial
             published_at: Hora de publicació
-            title: títol
       posts:
         show:
           comments: Comentaris
