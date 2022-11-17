@@ -44,7 +44,6 @@ sk:
           fields:
             author: Autor
             body: Telo textu
-            title: názov
       posts:
         show:
           comments: Komentáre
