@@ -44,7 +44,6 @@ lb:
           fields:
             author: Autor
             body: Haupttext
-            title: Titel
       posts:
         show:
           comments: Kommentare
