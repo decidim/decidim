@@ -1,7 +1,7 @@
 <%# REDESIGN_PENDING: use the card list (small one) once verifications merged (https://github.com/decidim/decidim/pull/9759) %>
-<div class="item-list__content">
-  <%= link_to decidim_html_escape(translated_attribute(model.title)), model.link, rel: "noopener noreferrer", target: "_blank", class: "item-list__title" %>
-  <div class="item-list__metadata">
+<div class="card__list-content">
+  <%= link_to decidim_html_escape(translated_attribute(model.title)), model.link, rel: "noopener noreferrer", target: "_blank", class: "card__list-title" %>
+  <div class="card__list-metadata">
     <span><%= icon "calendar-line" %><%= l(model.date, format: :decidim_short_with_month_name_short) %></span>
     <span><%= icon "link-m" %><%= model.link %></span>
   </div>
