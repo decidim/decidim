@@ -1,10 +1,6 @@
 es-PY:
   activemodel:
     attributes:
-      agenda:
-        description: Descripción
-        duration: Duración
-        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
@@ -22,7 +18,6 @@ es-PY:
         decidim_scope_id: Ámbito
         decidim_user_group_id: Grupo de usuarias
         description: Descripción
-        end_time: Hora de finalización
         id: ID
         location: Ubicación
         location_hints: Pistas de ubicación
@@ -35,11 +30,11 @@ es-PY:
         registration_terms: Términos y condiciones de inscripción
         registration_url: URL de inscripción
         registrations_enabled: Inscripciones abiertas
-        show_embedded_iframe: Mostrar iframe incrustado para esta URL
-        start_time: Hora de inicio
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
+      meeting_agenda_items:
+        duration: Duración
     errors:
       models:
         meeting:
