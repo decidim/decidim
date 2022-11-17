@@ -6,7 +6,7 @@
   }
 
   &__title{
-    @apply h4 text-secondary;
+    @apply h4 text-secondary focus-visible:outline-none focus-visible:underline;
   }
 
   &__image{

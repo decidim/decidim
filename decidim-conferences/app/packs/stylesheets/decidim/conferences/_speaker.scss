@@ -4,7 +4,7 @@
   }
 
   &__item{
-    @apply flex flex-col gap-4 hover:cursor-pointer;
+    @apply flex flex-col gap-4 hover:cursor-pointer text-left focus-visible:outline-none;
 
     &-image{
       @apply ring-4 ring-background overflow-hidden rounded aspect-square;
@@ -22,11 +22,13 @@
       @apply mt-2 flex flex-col text-sm text-gray-2;
     }
 
-    &:hover &-image{
+    &:hover &-image,
+    &:focus &-image{
       @apply ring-tertiary;
     }
 
-    &:hover &-name{
+    &:hover &-name,
+    &:focus &-name{
       @apply underline;
     }
   }

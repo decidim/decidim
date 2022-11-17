@@ -1,8 +1,8 @@
-<div class="conference__media-photo" data-conference-media-photo data-dialog-open="media-picture-<%= index %>">
+<button class="conference__media-photo" data-conference-media-photo data-dialog-open="media-picture-<%= index %>">
   <div class="conference__media-photo__img"><%= image_thumb %></div>
   <div class="conference__media-photo__title"><%= title %></div>
   <div class="conference__media-photo__description"><%= short_description %></div>
-</div>
+</button>
 
 <%= decidim_modal id: "media-picture-#{index}", class: "conference__media-modal" do %>
 <div data-dialog-container>

@@ -39,7 +39,11 @@
   }
 
   &__collection-content{
-    @apply md:pl-8 w-full md:max-w-[50%] hidden border-t-0;
+    @apply md:pl-8 w-full md:max-w-[50%] border-t-0;
+
+    &[aria-hidden="true"]{
+      @apply md:hidden;
+    }
   }
 
   &__collection-content &__container{

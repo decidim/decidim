@@ -1,4 +1,4 @@
-<div class="conference__speaker__item" data-conference-speaker data-dialog-open="<%= model.id %>">
+<button class="conference__speaker__item" data-conference-speaker data-dialog-open="<%= model.id %>">
   <div class="conference__speaker__item-image">
     <%= image_tag avatar_path, alt: nickname || "" %>
   </div>
@@ -13,7 +13,7 @@
       <% end %>
     </div>
   </div>
-</div>
+</button>
 
 <%= decidim_modal id: model.id, class: "conference__speaker__modal" do %>
   <h3 class="conference__speaker__modal-title">

@@ -1,5 +1,5 @@
 <% unless attachment_collection.unused? %>
-<button class="documents__collection-trigger" data-component="dropdown" data-target="dropdown-menu-documents-<%= attachment_collection.id %>" data-auto-close="true" aria-expanded="false">
+<button id="dropdown-documents-trigger-<%= attachment_collection.id %>" class="documents__collection-trigger" data-component="dropdown" data-target="dropdown-menu-documents-<%= attachment_collection.id %>" data-open="false" aria-expanded="false">
   <span>
     <span class="documents__collection-trigger__icon">
       <%= icon "folder-line" %>
@@ -11,7 +11,7 @@
   <%= icon "arrow-up-s-fill" %>
 </button>
 
-<div id="dropdown-menu-documents-<%= attachment_collection.id %>" class="documents__collection-content">
+<div id="dropdown-menu-documents-<%= attachment_collection.id %>" class="documents__collection-content" aria-hidden="true">
   <p><%= translated_attribute(attachment_collection.description) %></p>
 
   <div class="documents__container">
