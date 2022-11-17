@@ -40,7 +40,6 @@
   @import "stylesheets/decidim/redesigned_filters.scss";
   @import "stylesheets/decidim/redesigned_tags.scss";
   @import "stylesheets/decidim/redesigned_tabs_x.scss";
-  @import "stylesheets/decidim/redesigned_item_list.scss";
   @import "stylesheets/decidim/redesigned_drawer.scss";
   @import "stylesheets/decidim/redesigned_drawer_metadata.scss";
   @import "stylesheets/decidim/redesigned_modal.scss";
@@ -49,8 +48,6 @@
   @import "stylesheets/decidim/redesigned_statistics.scss";
   @import "stylesheets/decidim/redesigned_content_blocks.scss";
   @import "stylesheets/decidim/redesigned_documents.scss";
-
-  // REDESIGNED_PENDING: Merge into this redesigned_item_list when available (https://github.com/decidim/decidim/pull/9772)
   @import "stylesheets/decidim/redesigned_cards.scss";
 }
 
