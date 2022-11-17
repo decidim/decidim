@@ -45,7 +45,6 @@ ro:
           fields:
             author: Autor
             body: Conținut
-            title: titlu
       posts:
         show:
           comments: Comentarii
