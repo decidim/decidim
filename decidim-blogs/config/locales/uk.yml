@@ -44,7 +44,6 @@ uk:
           fields:
             author: Автор
             body: Основний текст
-            title: заголовок
       posts:
         show:
           view: Переглянути
