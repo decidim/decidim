@@ -28,7 +28,6 @@ ro:
         show_statistics: Arată statistici
         sign_date: Data semnării
         signature: Semnătură
-        signature_name: numele semnăturii
         slogan: Slogan
         slug: URL slug
         start_date: Data de început
@@ -37,13 +36,11 @@ ro:
         date: Dată
         link: Link
         title: Titlu
-        weight: Ordinea în poziționare
       conference_partner:
         link: Link
         logo: Logo
         name: Nume
         partner_type: Tipul partenerului
-        weight: Ordinea în poziționare
       conference_registration_invite:
         email: E-mail
         name: Nume
@@ -53,7 +50,6 @@ ro:
         description: Descriere
         price: Preț
         title: Titlu
-        weight: Ordinea în poziționare
       conference_speaker:
         affiliation: Afiliere
         avatar: Avatar
@@ -134,8 +130,6 @@ ro:
         edit:
           title: Actualizează administratorul conferinţei.
           update: Actualizare
-        index:
-          conference_admins_title: administratori ai conferinței
         new:
           create: Creează
           title: Admin de conferință nouă.
