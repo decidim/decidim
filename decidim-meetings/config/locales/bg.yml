@@ -2,9 +2,7 @@ bg:
   activemodel:
     attributes:
       agenda:
-        description: Описание
         duration: Продължителност
-        title: Заглавие
   decidim:
     meetings:
       actions:
