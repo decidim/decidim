@@ -4,7 +4,10 @@ en:
     attributes:
       assemblies_setting:
         enable_organization_chart: Enable organization chart
+      assemblies_type:
+        title: Title
       assembly:
+        announcement: Announcement
         area_id: Area
         assembly_type: Assembly type
         assembly_type_other: Assembly type other
@@ -23,12 +26,16 @@ en:
         decidim_scope_id: Scope
         description: Description
         developer_group: Promoter group
+        document: Document
         domain: Domain
         duration: Duration
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Home image
+        import_attachments: Import attachments
+        import_categories: Import categories
+        import_components: Import components
         included_at: Included at
         instagram: Instagram
         internal_organisation: Internal organisation
@@ -65,6 +72,7 @@ en:
         non_user_avatar: Avatar
         position: Position
         user_id: User or group
+        weight: Order position
       assembly_user_role:
         email: Email
         name: Name
