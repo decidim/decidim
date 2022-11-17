@@ -7,6 +7,7 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         end_date: Datum ukončení
+        meetings_ids: Zahrnuté schůzky
         progress: Průběh
         project_ids: Zahrnuté projekty
         proposals: Zahrnuté návrhy
