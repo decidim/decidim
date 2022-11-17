@@ -1,10 +1,6 @@
 fr:
   activemodel:
     attributes:
-      agenda:
-        description: Description
-        duration: Durée
-        title: Titre
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
@@ -22,7 +18,6 @@ fr:
         decidim_scope_id: Périmètre d'application
         decidim_user_group_id: Groupe d'utilisateurs
         description: Description
-        end_time: Date de fin
         id: ID
         location: Lieu
         location_hints: Indicateurs d’emplacement
@@ -35,11 +30,11 @@ fr:
         registration_terms: Conditions d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
-        show_embedded_iframe: Montrer l'iframe intégrée pour cette URL
-        start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
+      meeting_agenda_items:
+        duration: Durée
     errors:
       models:
         meeting:
