@@ -9,6 +9,7 @@
 :uri-github-dependents: https://github.com/decidim/decidim/network/dependents?type=application
 :uri-metadecidim: https://meta.decidim.org
 :uri-modules: https://decidim.org/modules
+:uri-omniauth: https://github.com/omniauth/omniauth/wiki/List-of-Strategies
 :uri-opencollective-members: https://opencollective.com/decidim/contribute/member-39953
 :uri-opencollective-partners: https://opencollective.com/decidim/contribute/partner-33556
 :uri-opencollective: https://opencollective.com/decidim
@@ -62,6 +63,7 @@ All members of the Decidim community agree with {uri-social-contract}[Decidim So
 * <<contribute,🙌 Contribute>>
 * <<modules,🧩 Modules>>
 ** <<identity-verifications-and-authorizations,🪪 Identity verifications and authorizations>>
+** <<authentication-options>>,🚪 Authentication options>>
 * <<license,📘 License>>
 * <<example-applications,🔎 Example applications>>
 * <<security,🔒 Security>>
@@ -110,6 +112,10 @@ See {uri-modules}[Modules page on Decidim.org].
 === 🪪 Identity verifications and authorizations
 
 One specific thing regarding these kind of applications is how you manage the permissions that the participants will have in the platform (aka the authorization or verification logic). This tries to solve the problem of how to verify that the user is who they say they are and that they have the right to participate in this city or organization. Read more about {uri-docs-authorizations}[Authorizations] in our documentation.
+
+=== 🚪 Authentication options
+
+You can easily add any authentication provider to Decidim that is provided by {uri-omniauth}[OmniAuth].
 
 == 📘 License
 
