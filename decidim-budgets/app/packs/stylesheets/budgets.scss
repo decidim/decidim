@@ -43,7 +43,7 @@
     }
   }
 
-  &__item-list__project{
+  &__card__list-project{
     @apply ml-auto rounded px-3 md:px-6 py-4 bg-background font-bold text-gray-2 text-xl w-[50%] min-w-[120px] grid grid-cols-2 place-items-center;
   }
 

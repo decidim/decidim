@@ -1,12 +1,12 @@
-<div class="item-list__text">
+<div class="card__list-text">
   <%= link_to resource_path, class: "card__link" do %>
-    <h3 class="item-list__title">
+    <h3 class="card__list-title">
       <%= cell("decidim/budgets/project_selected_status", model) %>
       <%= resource_title %>
     </h3>
   <% end %>
 
-  <div class="item-list__metadata">
+  <div class="card__list-metadata">
     <%= cell "decidim/budgets/project_tags", model, context: { extra_classes: ["tags--project"] } %>
   </div>
 
