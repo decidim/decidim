@@ -4,7 +4,7 @@ ru:
       agenda:
         description: Описание
         duration: Длительность
-        title: Заголовок
+        title: Название
       close_meeting:
         attendees_count: Количество участников
         attending_organizations: Список принявших участие организаций
