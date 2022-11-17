@@ -124,7 +124,7 @@ en:
         show_in_footer: Show in the footer
         slug: URL slug
         title: Title
-        topic: Topic
+        topic_id: Topic
         weight: Order position
       static_page_topic:
         description: Description
