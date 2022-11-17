@@ -48,7 +48,6 @@ ar:
           fields:
             author: مؤلف
             body: الجسم
-            title: عنوان
       posts:
         show:
           comments: التعليقات
