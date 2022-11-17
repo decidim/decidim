@@ -2,7 +2,9 @@ cs:
   activemodel:
     attributes:
       post:
+        decidim_author_id: Autor
         published_at: Čas zveřejnění
+        title: Název
     models:
       decidim/blogs/create_post_event: Nový blogový příspěvek
   activerecord:
@@ -59,6 +61,7 @@ cs:
             body: Tělo
             official_blog_post: Oficiální příspěvek
             published_at: Čas zveřejnění
+            title: Název
       posts:
         show:
           comments: Komentáře
