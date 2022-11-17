@@ -16,7 +16,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - uses: deepakputhraya/action-pr-title@master
         with:
-          disallowed_prefixes: "feat,chore,build,ci,refactor,docs,wip"
+          disallowed_prefixes: "feat/,chore/,build/,ci/,refactor/,docs/,wip/"
           prefix_case_sensitive: false
           min_length: 5
           max_length: 100
