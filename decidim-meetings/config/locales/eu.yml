@@ -2,9 +2,9 @@ eu:
   activemodel:
     attributes:
       agenda:
-        description: deskribapena
+        description: Deskribapena
         duration: Iraupena
-        title: Izenburua
+        title: Titulua
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
