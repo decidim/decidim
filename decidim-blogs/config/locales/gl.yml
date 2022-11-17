@@ -44,7 +44,6 @@ gl:
           fields:
             author: Autor
             body: Corpo
-            title: título
       posts:
         show:
           comments: Comentarios
