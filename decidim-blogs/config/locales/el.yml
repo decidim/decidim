@@ -44,7 +44,6 @@ el:
           fields:
             author: Συντάκτης
             body: Σώμα
-            title: τίτλος
       posts:
         show:
           comments: Σχόλια
