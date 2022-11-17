@@ -5,7 +5,7 @@ uk:
       agenda:
         description: Опис
         duration: Тривалість
-        title: Заголовок
+        title: Назва
       close_meeting:
         attendees_count: Кількість учасників
         attending_organizations: Перелік організацій, які брали участь
