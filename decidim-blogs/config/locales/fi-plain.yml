@@ -57,7 +57,6 @@ fi-pl:
             body: Leipäteksti
             official_blog_post: Virallinen artikkeli
             published_at: Julkaisuaika
-            title: otsikko
       posts:
         show:
           comments: Kommentit
