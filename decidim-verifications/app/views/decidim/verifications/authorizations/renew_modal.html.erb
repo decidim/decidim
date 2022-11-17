@@ -1,10 +1,9 @@
 <div data-dialog-container>
   <%= icon "refresh-line" %>
+  <h3 class="h3" id="dialog-title-renew-modal" data-dialog-title>
+    <%= t("renew_modal.title", scope: "decidim.verifications.authorizations") %>
+  </h3>
   <div>
-    <h3 class="h3" id="dialog-title-renew-modal" data-dialog-title>
-      <%= t("renew_modal.title", scope: "decidim.verifications.authorizations") %>
-    </h3>
-
     <div id="dialog-desc-renew-modal" class="verification-modal__text">
       <p>
         <span class="verification-modal__name"><%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %></span>
