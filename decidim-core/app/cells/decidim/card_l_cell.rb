@@ -25,9 +25,9 @@ module Decidim
     end
 
     def item_list_class
-      return "item-list" if extra_class.blank?
+      return "card__list" if extra_class.blank?
 
-      "item-list #{extra_class}"
+      "card__list #{extra_class}"
     end
 
     def extra_class
