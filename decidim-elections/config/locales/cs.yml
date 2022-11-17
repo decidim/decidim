@@ -22,7 +22,7 @@ cs:
         end_time: Hlasování končí
         introductory_image: Úvodní obrázek
         promoted: Propagováno
-        scope: Rozsah
+        scope_id: Rozsah
         show_check_census: Zobrazit stránku "zkontrolovat rejstřík"
         start_time: Hlasování začíná
         title: Název
