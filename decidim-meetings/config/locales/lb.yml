@@ -3,7 +3,7 @@ lb:
   activemodel:
     attributes:
       agenda:
-        description: Beschreibung
+        description: Beschreiwung
         duration: Dauer
         title: Titel
       close_meeting:
