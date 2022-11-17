@@ -1,10 +1,6 @@
 ja:
   activemodel:
     attributes:
-      agenda:
-        description: 説明
-        duration: 持続期間
-        title: タイトル
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -22,7 +18,6 @@ ja:
         decidim_scope_id: スコープ
         decidim_user_group_id: ユーザーグループ
         description: 説明
-        end_time: 終了時刻
         id: ID
         location: 場所
         location_hints: 位置情報のヒント
@@ -35,11 +30,11 @@ ja:
         registration_terms: 登録条件
         registration_url: 登録URL
         registrations_enabled: 登録が有効
-        show_embedded_iframe: この URL の埋め込まれた iframe を表示
-        start_time: 開始時刻
         title: タイトル
         transparent: 透明度
         type_of_meeting: 種別
+      meeting_agenda_items:
+        duration: 持続期間
     errors:
       models:
         meeting:
