@@ -58,7 +58,7 @@ All members of the Decidim community agree with {uri-social-contract}[Decidim So
 
 = Table of Contents
 
-* <<getting-started, 🚀 Getting started>>
+* <<getting-started,🚀 Getting started>>
 * <<contribute,🙌 Contribute>>
 * <<modules,🧩 Modules>>
 ** <<permissions,🪪Permissions>>
