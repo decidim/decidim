@@ -50,7 +50,6 @@ hu:
             author: Szerző
             body: Szöveg
             official_blog_post: Hivatalos bejegyzés
-            title: cím
       posts:
         show:
           comments: Hozzászólások
