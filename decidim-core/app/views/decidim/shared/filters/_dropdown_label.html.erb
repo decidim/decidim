@@ -1,9 +1,10 @@
 <% leaf = item.tree_node? ? item.leaf : item %>
 <% data_checkboxes_tree_id = [check_boxes_tree_id, leaf.value].join("-") %>
-<%- check_box_label = capture do %>
+<% is_blank_root = leaf.value.blank? %>
+<% check_box_label = capture do %>
   <div class="filter">
     <%= leaf.label %>
-    <% if item.tree_node? && item.node.present? %>
+    <% if !is_blank_root && item.tree_node? && item.node.present? %>
       <button data-controls="panel-dropdown-menu-<%= leaf.value %>" onclick="event.preventDefault()">
         <%= icon "arrow-down-s-fill" %>
         <%= icon "arrow-up-s-fill" %>
@@ -11,6 +12,7 @@
     <% end %>
   </div>
 <% end %>
+
 <%= form.check_box(
       method,
       check_boxes_tree_options(
