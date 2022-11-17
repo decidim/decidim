@@ -1,4 +1,4 @@
-<li data-user-identity data-method="<%= http_method.to_s.upcase %>" data-create_url="<%= create_url %>" data-destroy_url="<%= destroy_url %>">
+<li class="<%= selected ? "is-selected" : "" %>" data-user-identity data-method="<%= http_method.to_s.upcase %>" data-create_url="<%= create_url %>" data-destroy_url="<%= destroy_url %>">
   <%== cell("decidim/author", identity, skip_profile_link: true).profile %>
   <%= icon("checkbox-circle-line") %>
 </li>
