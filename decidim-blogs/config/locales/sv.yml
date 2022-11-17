@@ -45,7 +45,6 @@ sv:
             author: Författare
             body: Innehåll
             official_blog_post: Officiellt inlägg
-            title: titel
       posts:
         show:
           comments: Kommentarer
