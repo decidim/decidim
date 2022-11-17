@@ -28,7 +28,6 @@ es-PY:
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
         signature: Firma
-        signature_name: nombre de firma
         slogan: Eslogan
         slug: URL amigable
         start_date: Fecha de inicio
@@ -37,13 +36,11 @@ es-PY:
         date: Fecha
         link: Enlace
         title: Título
-        weight: Peso
       conference_partner:
         link: Enlace
         logo: Logo
         name: Nombre
         partner_type: Tipo de colaboración
-        weight: Peso
       conference_registration_invite:
         email: Correo electrónico
         name: Nombre
@@ -53,7 +50,6 @@ es-PY:
         description: Descripción
         price: Coste
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
@@ -133,8 +129,6 @@ es-PY:
         edit:
           title: Actualizar el usuario de la conferencia.
           update: Actualizar
-        index:
-          conference_admins_title: usuarios de la conferencia
         new:
           create: Crear
           title: Nuevo usuario de la conferencia.
