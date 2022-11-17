@@ -43,7 +43,6 @@ tr:
           fields:
             author: Yazar
             body: Vücut
-            title: Başlık
       posts:
         show:
           comments: Yorumlar
