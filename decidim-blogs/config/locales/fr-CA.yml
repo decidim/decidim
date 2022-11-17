@@ -57,7 +57,6 @@ fr-CA:
             body: Corps du texte
             official_blog_post: Article officiel
             published_at: Date de publication
-            title: titre
       posts:
         show:
           comments: Commentaires
