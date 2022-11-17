@@ -44,7 +44,6 @@ it:
           fields:
             author: Autore
             body: Corpo
-            title: titolo
       posts:
         show:
           comments: Commenti
