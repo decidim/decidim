@@ -11,15 +11,22 @@ cs:
         decidim_area_id: Oblast
         description: Popis
         developer_group: Skupina promotérů
+        document: Dokument
         domain: Doména
         end_date: Datum ukončení
         hashtag: Hashtag
         hero_image: Domácí obrázek
+        import_attachments: Importovat přílohy
+        import_categories: Importovat kategorie
+        import_components: Importovat komponenty
+        import_steps: Importovat kroky
         local_area: Oblast působnosti organizace
         meta_scope: Metadata Oblasti působnosti
         participatory_process_group_id: Skupina procesů
+        participatory_process_type_id: Typ procesů
         participatory_scope: Co se rozhodlo
         participatory_structure: Jak se to rozhoduje
+        private_space: Soukromý proces
         promoted: Propagováno
         published_at: Publikováno v
         related_process_ids: Související procesy
