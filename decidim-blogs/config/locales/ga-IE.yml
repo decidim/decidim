@@ -34,7 +34,6 @@ ga:
           fields:
             author: Údar
             body: Corp
-            title: teideal
       posts:
         show:
           comments: Tráchtanna
