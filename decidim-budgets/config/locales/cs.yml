@@ -49,6 +49,7 @@ cs:
         import: Importovat návrhy do projektů
         new: Nový %{name}
         preview: Náhled
+        send_voting_reminders: Odeslat připomenutí hlasování
         title: Akce
       admin:
         budgets:
