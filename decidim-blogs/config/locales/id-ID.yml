@@ -41,7 +41,6 @@ id:
           fields:
             author: Penulis
             body: Tubuh
-            title: judul
       posts:
         show:
           view: Melihat
