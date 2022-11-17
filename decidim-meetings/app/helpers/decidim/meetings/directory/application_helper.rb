@@ -30,15 +30,15 @@ module Decidim
 
           scopes_values = main_scopes.includes(:scope_type, :children).flat_map do |scope|
             TreeNode.new(
-              TreePoint.new(scope.id.to_s, translated_attribute(scope.name, current_organization)),
+              TreePoint.new(scope.id.to_s, scope_filter_text(translated_attribute(scope.name, current_organization))),
             scope_children_to_tree(scope)
             )
           end
 
-          scopes_values.prepend(TreePoint.new("global", t("decidim.scopes.global")))
+          scopes_values.prepend(TreePoint.new("global", scope_filter_text(t("decidim.scopes.global"))))
 
           TreeNode.new(
-            TreePoint.new("", t("decidim.meetings.application_helper.filter_scope_values.all")),
+            TreePoint.new("", filter_text_for(:all, t("decidim.meetings.application_helper.filter_scope_values.all"))),
           scopes_values
           )
         end
@@ -48,7 +48,7 @@ module Decidim
 
           scope.children.includes(:scope_type, :children).flat_map do |child|
             TreeNode.new(
-              TreePoint.new(child.id.to_s, translated_attribute(child.name, current_organization)),
+              TreePoint.new(child.id.to_s, scope_filter_text(translated_attribute(child.name, current_organization))),
             scope_children_to_tree(child)
             )
           end
@@ -78,14 +78,14 @@ module Decidim
             key_point = current_participatory_space.class.name.gsub("::", "__") + current_participatory_space.id.to_s
 
             TreeNode.new(
-              TreePoint.new(key_point, translated_attribute(current_participatory_space.title, current_organization)),
+              TreePoint.new(key_point, filter_text_for(current_participatory_space.class, translated_attribute(current_participatory_space.title, current_organization))),
               categories_values
             )
           end
 
           list_of_ps.compact!
           TreeNode.new(
-            TreePoint.new("", t("decidim.meetings.application_helper.filter_category_values.all")),
+            TreePoint.new("", filter_text_for(:all, t("decidim.meetings.application_helper.filter_category_values.all"))),
             list_of_ps
           )
         end
@@ -117,11 +117,11 @@ module Decidim
             end
 
             subcategories = sorted_descendant_categories.flat_map do |subcategory|
-              TreePoint.new(subcategory.id.to_s, translated_attribute(subcategory.name, current_organization))
+              TreePoint.new(subcategory.id.to_s, category_filter_text(translated_attribute(subcategory.name, current_organization)))
             end
 
             TreeNode.new(
-              TreePoint.new(category.id.to_s, translated_attribute(category.name, current_organization)),
+              TreePoint.new(category.id.to_s, category_filter_text(translated_attribute(category.name, current_organization))),
               subcategories
             )
           end
