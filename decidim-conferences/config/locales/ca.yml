@@ -28,7 +28,6 @@ ca:
         show_statistics: Mostrar estadístiques
         sign_date: Data de signatura
         signature: Signatura
-        signature_name: nom de la signatura
         slogan: Eslògan
         slug: URL amigable
         start_date: Data d'inici
@@ -37,13 +36,11 @@ ca:
         date: Data
         link: Enllaç
         title: Títol
-        weight: Ordre de posició
       conference_partner:
         link: Enllaç
         logo: Logo
         name: Nom
         partner_type: Tipus de col·laboració
-        weight: Ordre de posició
       conference_registration_invite:
         email: Correu electrònic
         name: Nom
@@ -53,7 +50,6 @@ ca:
         description: Descripció
         price: Cost
         title: Títol
-        weight: Odre de posició
       conference_speaker:
         affiliation: Afiliació
         avatar: Imatge de perfil
@@ -133,8 +129,6 @@ ca:
         edit:
           title: Actualitzar administradora de la jornada.
           update: Actualitzar
-        index:
-          conference_admins_title: administradores de la jornada
         new:
           create: Crear
           title: Nova administradora de jornada.
