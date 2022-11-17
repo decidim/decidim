@@ -170,7 +170,7 @@ image::https://opencollective.com/decidim/tiers/partner.svg?avatarHeight=36&widt
 |===
 | Decidim Resource | Description
 
-| 🚀 **{uri-releases}[Our latest release]**
+| 🚀 **{uri-releases}[Our latest releases]**
 | New features and bug fixes.
 
 | 🧩 **{uri-modules}[Modules]**
