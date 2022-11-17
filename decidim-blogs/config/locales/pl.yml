@@ -46,7 +46,6 @@ pl:
           fields:
             author: Autor
             body: Treść
-            title: Tytuł
       posts:
         show:
           comments: Komentarze
