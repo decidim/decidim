@@ -44,7 +44,6 @@ ru:
           fields:
             author: Автор
             body: Основной текст
-            title: заголовок
       posts:
         show:
           view: Посмотреть
