@@ -61,7 +61,7 @@ All members of the Decidim community agree with {uri-social-contract}[Decidim So
 * <<getting-started,🚀 Getting started>>
 * <<contribute,🙌 Contribute>>
 * <<modules,🧩 Modules>>
-** <<permissions,🪪Permissions>>
+** <<identity-verifications-and-authorizations,🪪 Identity verifications and authorizations>>
 * <<license,📘 License>>
 * <<example-applications,🔎 Example applications>>
 * <<security,🔒 Security>>
@@ -107,7 +107,7 @@ We recommend that you extensively test your module.
 
 See {uri-modules}[Modules page on Decidim.org].
 
-=== 🪪 Permissions
+=== 🪪 Identity verifications and authorizations
 
 One specific thing regarding these kind of applications is how you manage the permissions that the participants will have in the platform (aka the authorization or verification logic). This tries to solve the problem of how to verify that the user is who they say they are and that they have the right to participate in this city or organization. Read more about {uri-docs-authorizations}[Authorizations] in our documentation.
 
