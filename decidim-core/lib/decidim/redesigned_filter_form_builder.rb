@@ -13,7 +13,7 @@ module Decidim
         options.merge!(builder_type: type.to_s.pluralize)
         type = "collection"
       when "check_boxes_tree"
-        options.merge!(check_boxes_tree_id: check_boxes_tree_id(options[:method]))
+        options.merge!(check_boxes_tree_id: check_boxes_tree_id(method))
       end
 
       @template.render(
