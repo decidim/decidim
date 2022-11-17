@@ -1,6 +1,11 @@
 ---
 en:
   activemodel:
+    attributes:
+      post:
+        decidim_author_id: Author
+        published_at: Publish time
+        title: Title
     models:
       decidim/blogs/create_post_event: New blog post
   activerecord:
@@ -54,7 +59,7 @@ en:
             body: Body
             created_at: Created at
             official_blog_post: Official post
-            title: title
+            title: Title
       posts:
         show:
           back: Back to list

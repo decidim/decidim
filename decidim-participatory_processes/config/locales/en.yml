@@ -12,15 +12,22 @@ en:
         decidim_area_id: Area
         description: Description
         developer_group: Promoter group
+        document: Document
         domain: Domain
         end_date: End date
         hashtag: Hashtag
         hero_image: Home image
+        import_attachments: Import attachments
+        import_categories: Import categories
+        import_components: Import components
+        import_steps: Import steps
         local_area: Organization area
         meta_scope: Scope metadata
         participatory_process_group_id: Processes group
+        participatory_process_type_id: Processes type
         participatory_scope: What is decided
         participatory_structure: How is it decided
+        private_space: Private process
         promoted: Promoted
         published_at: Published at
         related_process_ids: Related processes
