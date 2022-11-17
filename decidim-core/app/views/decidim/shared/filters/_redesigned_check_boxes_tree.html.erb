@@ -6,10 +6,10 @@
   </button>
 
   <div id="panel-scope-<%= id %>">
-      <% data_checkboxes_tree_id = "#{method}-#{id}-#{collection.leaf.value}" %>
+    <% data_checkboxes_tree_id = "#{method}-#{id}-#{collection.leaf.value}" %>
     <% is_root_check_box = collection.leaf.value == "" %>
     <% if is_root_check_box %>
-      <%= hidden_field_tag "#{form.object_name}[#{method}]", "", id: "#{form.options[:namespace] rescue 'default'}_filter_#{method}_all" %>
+      <%= hidden_field_tag "#{form.object_name}[#{method}][]", "", id: "#{form.options[:namespace] rescue 'default'}_filter_#{method}_all" %>
     <% end %>
     <%= form.dropdown_label(collection, method, check_boxes_tree_id:) %>
   </div>
