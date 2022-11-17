@@ -17,7 +17,7 @@ en:
         end_date: End date
         hashtag: Hashtag
         hero_image: Home image
-        import_attachments: Import attachmennts
+        import_attachments: Import attachments
         import_categories: Import categories
         import_components: Import components
         import_steps: Import steps
