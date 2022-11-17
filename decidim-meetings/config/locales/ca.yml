@@ -1,10 +1,6 @@
 ca:
   activemodel:
     attributes:
-      agenda:
-        description: Descripció
-        duration: Durada
-        title: Títol
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
@@ -22,7 +18,6 @@ ca:
         decidim_scope_id: Àmbit
         decidim_user_group_id: Grup d'usuàries
         description: Descripció
-        end_time: Hora de finalització
         id: ID
         location: Ubicació
         location_hints: Detalls d'ubicació
@@ -35,11 +30,11 @@ ca:
         registration_terms: Termes i condicions d'inscripció
         registration_url: URL d'inscripció
         registrations_enabled: Inscripcions obertes
-        show_embedded_iframe: Mostrar iframe incrustat per aquesta URL
-        start_time: Hora d'inici
         title: Títol
         transparent: Transparent
         type_of_meeting: Tipus
+      meeting_agenda_items:
+        duration: Durada
     errors:
       models:
         meeting:
