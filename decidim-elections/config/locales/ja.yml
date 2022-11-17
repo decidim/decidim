@@ -22,7 +22,7 @@ ja:
         end_time: 投票終了
         introductory_image: 導入画像
         promoted: プロモート
-        scope: スコープ
+        scope_id: スコープ
         show_check_census: '「センサスの確認」ページを表示'
         start_time: 投票開始
         title: タイトル
