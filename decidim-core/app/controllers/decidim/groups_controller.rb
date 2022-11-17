@@ -7,6 +7,7 @@ module Decidim
     include UserGroups
 
     before_action :enforce_user_groups_enabled
+    before_action :ensure_user_group_not_blocked
 
     def new
       enforce_permission_to :create, :user_group, current_user: current_user
@@ -72,6 +73,10 @@ module Decidim
     end
 
     private
+
+    def ensure_user_group_not_blocked
+      raise ActionController::RoutingError, "Blocked User Group" if user_group&.blocked?
+    end
 
     def accepted_user_group
       @accepted_user_group ||= Decidim::UserGroups::AcceptedUserGroups.for(current_user).find_by(nickname: params[:id])

@@ -21,7 +21,7 @@ module Decidim
         BlockUser.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("officializations.block.success", scope: "decidim.admin")
-            redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
+            redirect_to moderated_users_path(blocked: true), notice: notice
           end
 
           on(:invalid) do
@@ -44,13 +44,13 @@ module Decidim
           end
         end
 
-        redirect_to officializations_path(q: { name_or_nickname_or_email_cont: user.name }), notice: notice
+        redirect_to moderated_users_path(blocked: false), notice: notice
       end
 
       private
 
       def user
-        @user ||= Decidim::User.find_by(
+        @user ||= Decidim::UserBaseEntity.find_by(
           id: params[:user_id],
           organization: current_organization
         )
