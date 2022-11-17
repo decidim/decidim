@@ -277,8 +277,8 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           visit_authorizations
 
           within ".authorizations-list" do
-            expect(page).to have_css("div[data-dialog-open='renew-modal']", text: /Example authorization/)
-            page.find("div[data-dialog-open='renew-modal']", text: /Example authorization/).click
+            expect(page).to have_css("[data-verification]", text: /Example authorization/)
+            page.find("[data-verification]", text: /Example authorization/).click
           end
 
           within "#renew-modal" do

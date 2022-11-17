@@ -16,12 +16,12 @@
 <% end %>
 
 <% if local_assigns[:url].present? %>
-  <a href="<%= url %>" class="verification" title="<%= button_text %>">
+  <a data-verification href="<%= url %>" class="verification" title="<%= button_text %>">
     <%= verification %>
   </a>
 <% else %>
-  <div class="verification" data-dialog-open="renew-modal" data-dialog-remote-url="<%= remote_url %>">
+  <%= content_tag redesign_enabled? ? :div : :button, class: "verification", data_modal_open_key => "renew-modal", data_modal_remote_key => remote_url, data: { verification: "" } do %>
     <%= verification %>
-  </div>
+  <% end %>
   <%= decidim_modal id: "renew-modal", class:"verification-modal", remote: true if remote_url %>
 <% end %>
