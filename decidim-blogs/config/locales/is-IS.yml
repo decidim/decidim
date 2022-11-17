@@ -29,7 +29,6 @@ is-IS:
           fields:
             author: Höfundur
             body: Líkami
-            title: titill
     components:
       blogs:
         name: Blogg
