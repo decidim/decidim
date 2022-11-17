@@ -22,7 +22,7 @@ fi-pl:
         end_time: Äänestyksen päättymisaika
         introductory_image: Esittelykuva
         promoted: Korostettu
-        scope: Teema
+        scope_id: Teema
         show_check_census: Näytä "tarkasta henkilötietorekisterin tiedot" -sivu
         start_time: Äänestyksen alkamisaika
         title: Otsikko
