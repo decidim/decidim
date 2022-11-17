@@ -2,6 +2,9 @@
 is:
   activemodel:
     attributes:
+      agenda:
+        description: Lýsing
+        title: Titill
       close_meeting:
         attendees_count: Fjöldi þátttakenda
         attending_organizations: Listi yfir samtök sem sóttu
