@@ -57,7 +57,6 @@ es:
             body: Cuerpo
             official_blog_post: Post oficial
             published_at: Hora de publicación
-            title: título
       posts:
         show:
           comments: Comentarios
