@@ -44,7 +44,6 @@ eu:
           fields:
             author: Egilea
             body: Gorputzeko
-            title: Izenburua
       posts:
         show:
           comments: Iruzkinak
