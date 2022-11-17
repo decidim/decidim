@@ -22,7 +22,7 @@ es:
         end_time: La votación finaliza
         introductory_image: Imagen de presentación
         promoted: Destacada
-        scope: Ámbito
+        scope_id: Ámbito
         show_check_census: Mostrar la página de "comprobar censo"
         start_time: La votación empieza
         title: Título
