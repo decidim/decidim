@@ -848,6 +848,7 @@ fr-CA:
           edit_image: Modifier l'Image
           error: Erreur !
           file_size_too_large: 'Le fichier est trop volumineux ! Poids de fichier maximum : %{megabytes}Mo'
+          filename: Nom du fichier
           remove: Supprimer
           replace: Remplacer
           save: Sauvegarder
@@ -856,7 +857,9 @@ fr-CA:
           uploaded: Téléchargé
           validating: Validation en cours...
           validation_error: Erreur de validation !
+        select_file: Sélectionnez un fichier
       upload_help:
+        dropzone: Déposez des fichiers ici ou cliquez sur le bouton pour télécharger
         explanation: Explication pour %{attribute}
     gamification:
       all_badges_link: Voir tous les badges disponibles.
