@@ -1,10 +1,6 @@
 fi-pl:
   activemodel:
     attributes:
-      agenda:
-        description: Kuvaus
-        duration: Kesto
-        title: Otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -22,7 +18,6 @@ fi-pl:
         decidim_scope_id: Teema
         decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
-        end_time: Lopetusaika
         id: ID
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
@@ -35,11 +30,11 @@ fi-pl:
         registration_terms: Ilmoittautumisehdot
         registration_url: Ilmoittautumisosoite (URL)
         registrations_enabled: Ilmoittautumiset ovat käytössä
-        show_embedded_iframe: Näytä upotettu iframe tälle osoitteelle
-        start_time: Aloitusaika
         title: Otsikko
         transparent: Läpinäkyvä
         type_of_meeting: Tyyppi
+      meeting_agenda_items:
+        duration: Kesto
     errors:
       models:
         meeting:
