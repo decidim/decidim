@@ -59,7 +59,6 @@ cs:
             body: Tělo
             official_blog_post: Oficiální příspěvek
             published_at: Čas zveřejnění
-            title: titulek
       posts:
         show:
           comments: Komentáře
