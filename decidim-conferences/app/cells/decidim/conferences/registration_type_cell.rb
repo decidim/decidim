@@ -23,7 +23,7 @@ module Decidim
       end
 
       def description
-        decidim_sanitize_editor translated_attribute model.description
+        strip_tags translated_attribute model.description
       end
 
       def price

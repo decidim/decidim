@@ -1,7 +1,10 @@
 <div id="registration-type-<%= model.id %>" class="conference__registration" data-conference-registration>
   <div class="conference__registration-text">
     <h2 class="h5 text-secondary"><%= title %></h2>
-    <span><%= icon "information-line", class: "text-gray fill-current" %><%= description %></span>
+    <span>
+      <%= icon "information-line", class: "text-gray fill-current" %>
+      <span class="truncate" title="<%= description %>"><%= description %></span>
+    </span>
   </div>
   <div class="conference__registration-button-container">
     <span><%= price %></span>
