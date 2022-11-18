@@ -43,12 +43,6 @@
   }
 
   &__block{
-    @apply space-y-10;
-
-    &-title{
-      @apply flex justify-start items-center gap-4 last:[&>*]:ml-auto;
-    }
-
     &-map{
       @apply aspect-[2/1] md:aspect-[4/1] rounded overflow-hidden [&>*]:h-full;
     }

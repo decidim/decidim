@@ -3,8 +3,8 @@
 <%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
 <%= javascript_pack_tag "decidim_meetings" %>
 
-<div id="upcoming_meetings" class="meeting-list__block">
-  <div class="meeting-list__block-title">
+<section id="upcoming_meetings" class="content-block">
+  <div class="content-block__title">
     <h2 class="h2 decorator">
       <%= translated_attribute(model.name) %>
     </h2>
@@ -34,4 +34,4 @@
       <% end %>
     </div>
   </div>
-</div>
+</section>
