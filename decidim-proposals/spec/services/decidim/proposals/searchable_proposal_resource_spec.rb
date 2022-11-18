@@ -10,7 +10,17 @@ module Decidim
 
     let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
     let(:component) { create :proposal_component, organization:, participatory_space: }
-    let!(:proposal) { create(:proposal, :draft, component:, scope: scope1, body: description1, users: [author]) }
+    let!(:proposal) do
+      create(
+        :proposal,
+        :draft,
+        title: Decidim::Faker::Localized.sentence(word_count: 3),
+        component:,
+        scope: scope1,
+        body: description1,
+        users: [author]
+      )
+    end
 
     describe "Indexing of proposals" do
       context "when implementing Searchable" do
@@ -35,6 +45,17 @@ module Decidim
               organization.available_locales.each do |locale|
                 searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale:)
                 expect_searchable_resource_to_correspond_to_proposal(searchable, proposal, locale)
+              end
+            end
+
+            context "with enriched content" do
+              before do
+                proposal.update(title: { "en" => "Proposal <strong>title</strong>" })
+              end
+
+              it "does indexes a SearchableResource with stripped title" do
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: "en")
+                expect(searchable.attributes["content_a"]).to eq "Proposal title"
               end
             end
           end
@@ -81,6 +102,17 @@ module Decidim
 
               searchables = SearchableResource.where(resource_type: proposal.class.name, resource_id: proposal.id)
               expect(searchables).to be_empty
+            end
+
+            context "with enriched content" do
+              before do
+                proposal.update(title: { "en" => "Proposal <strong>title</strong>" })
+              end
+
+              it "inserts a SearchableResource after Proposal is published with stripped title" do
+                searchable = SearchableResource.find_by(resource_type: proposal.class.name, resource_id: proposal.id, locale: "en")
+                expect(searchable.attributes["content_a"]).to eq "Proposal title"
+              end
             end
           end
         end

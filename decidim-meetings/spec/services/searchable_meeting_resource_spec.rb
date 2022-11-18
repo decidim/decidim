@@ -54,6 +54,30 @@ module Decidim
 
           expect(searchables.any?).to be false
         end
+
+        context "with enriched content" do
+          before do
+            meeting.update(title: { "en" => "Meeting <strong>title</strong>" })
+            meeting.update(description: { "en" => "Meeting <strong>description</strong>" })
+          end
+
+          it "inserts a SearchableResource after Meeting creation" do
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: "en")
+            expect(searchable.attributes["content_a"]).to eq "Meeting title"
+            expect(searchable.attributes["content_d"]).to eq "Meeting description Some very centric address"
+          end
+
+          it "updates the associated SearchableResource after Meeting update" do
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: "en")
+            created_at = searchable.created_at
+            updated_title = "Meeting <strong>title</strong> EN"
+            meeting.update(title: { en: updated_title })
+
+            searchable = SearchableResource.find_by(resource_type: meeting.class.name, resource_id: meeting.id, locale: "en")
+            expect(searchable.content_a).to eq "Meeting title EN"
+            expect(searchable.updated_at).to be > created_at
+          end
+        end
       end
     end
 
