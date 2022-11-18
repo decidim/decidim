@@ -1,6 +1,10 @@
 .content-block{
   @apply flex flex-col gap-8 items-stretch py-8 md:py-16 first:pt-0 last:pb-0;
 
+  &__title{
+    @apply flex justify-start items-center gap-4 last:[&>*]:ml-auto;
+  }
+
   &__description{
     @apply text-lg prose max-w-2xl;
   }
