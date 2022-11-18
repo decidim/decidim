@@ -6,7 +6,7 @@ module Decidim
     # conferences.
     class PrioritizedConferences < Decidim::Query
       def query
-        Decidim::Conference.order(promoted: :desc)
+        Decidim::Conference.order(promoted: :desc, weight: :asc)
       end
     end
   end

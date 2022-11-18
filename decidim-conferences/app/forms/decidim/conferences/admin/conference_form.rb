@@ -37,6 +37,7 @@ module Decidim
         attribute :participatory_processes_ids, Array[Integer]
         attribute :assemblies_ids, Array[Integer]
         attribute :consultations_ids, Array[Integer]
+        attribute :weight, Integer, default: 0
 
         validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }
         validates :title, :slogan, :description, :short_description, translatable_presence: true
@@ -53,6 +54,7 @@ module Decidim
 
         validates :start_date, presence: true, date: { before_or_equal_to: :end_date }
         validates :end_date, presence: true, date: { after_or_equal_to: :start_date }
+        validates :weight, presence: true
 
         alias organization current_organization
 

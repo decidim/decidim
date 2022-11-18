@@ -14,6 +14,7 @@ shared_examples "manage conferences" do
 
     it "creates a new conference" do
       within ".new_conference" do
+        fill_in :conference_weight, with: 1
         fill_in_i18n(
           :conference_title,
           "#conference-title-tabs",
@@ -77,6 +78,7 @@ shared_examples "manage conferences" do
     end
 
     it "updates a conference" do
+      fill_in :conference_weight, with: 1
       fill_in_i18n(
         :conference_title,
         "#conference-title-tabs",

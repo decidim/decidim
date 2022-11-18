@@ -47,6 +47,7 @@ module Decidim
             organization: form.current_organization,
             title: form.title,
             slogan: form.slogan,
+            weight: form.weight,
             slug: form.slug,
             hashtag: form.hashtag,
             description: form.description,
