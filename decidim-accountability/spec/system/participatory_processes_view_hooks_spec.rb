@@ -10,7 +10,7 @@ describe "Results in process home", type: :system do
   context "when there are no results" do
     it "does not show the highlighted results section" do
       visit resource_locator(participatory_process).path
-      expect(page).not_to have_css(".highlighted_results")
+      expect(page).not_to have_css("#highlighted_results")
     end
   end
 

@@ -54,14 +54,12 @@
     <%= render partial: "metadata" %>
   </section>
 
-  <section class="content-block">
-    <%#= REDESIGN_PENDING: proposals markup not ready %>
-    <%= render_hook(:participatory_space_highlighted_elements) %>
-  </section>
+  <%#= REDESIGN_PENDING: proposals markup not ready %>
+  <%= render_hook(:participatory_space_highlighted_elements) %>
 
   <% if related_processes.any? %>
     <section class="content-block">
-      <div class="process__block-title">
+      <div class="content-block__title">
         <h2 class="h2 decorator"><%= t "related_processes", scope: "decidim.participatory_processes.show" %></h2>
         <div class="label text-lg"><%= related_processes.length %></div>
         <%#= REDESIGN_PENDING: add link to index %>
@@ -76,13 +74,12 @@
           <%= card_for(related_process) %>
         <% end %>
       </div>
-
     </section>
   <% end %>
 
   <% if linked_assemblies.any? %>
     <section class="content-block">
-      <div class="process__block-title">
+      <div class="content-block__title">
         <h2 class="h2 decorator"><%= t("participatory_process.show.related_assemblies", scope: "decidim") %></h2>
         <div class="label text-lg"><%= linked_assemblies.length %></div>
         <%#= REDESIGN_PENDING: add link to index %>

@@ -1,21 +1,23 @@
-<section class="section row collapse highlighted_results">
-  <h3 class="section-heading">
-    <%= translated_attribute(model.name) %> <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_results.see_all", count: results_count) %></a>
-  </h3>
+<%# NOTE: Since this call can be called from outside decidim-accountability, frontend assets are required %>
 
-  <div class="row">
-    <div class="columns accountability">
-      <div class="card card--action card--list">
-        <% results_to_render.each do |result| %>
-          <%= render partial: "decidim/participatory_spaces/result.html", locals: { result: result } %>
-        <% end %>
-      </div>
-    </div>
+<%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
+<%= javascript_pack_tag "decidim_accountability" %>
+
+<section id="highlighted_results" class="content-block">
+  <div class="content-block__title">
+    <h2 class="h2 decorator">
+      <%= translated_attribute(model.name) %>
+    </h2>
+    <div class="label text-lg"><%= results_to_render.length %></div>
+    <%= link_to main_component_path(model), class: "button button__sm button__text-secondary" do %>
+      <span><%= t("decidim.participatory_spaces.highlighted_results.see_all") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
   </div>
 
-  <%= link_to(
-    t("decidim.participatory_spaces.highlighted_results.see_all", count: results_count),
-    main_component_path(model),
-    class: "button button--sc hollow button--right"
-  ) %>
+  <div>
+    <% results_to_render.each do |result| %>
+      <%= cell "decidim/accountability/result_l", result, link_whole_card: true, title_tag: :h3 %>
+    <% end %>
+  </div>
 </section>
