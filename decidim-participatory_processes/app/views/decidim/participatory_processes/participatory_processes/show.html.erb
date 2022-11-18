@@ -55,24 +55,46 @@
   </section>
 
   <section class="content-block">
+    <%#= REDESIGN_PENDING: proposals markup not ready %>
     <%= render_hook(:participatory_space_highlighted_elements) %>
   </section>
 
   <% if related_processes.any? %>
     <section class="content-block">
-      <h2 class="h2 decorator"><%= t "related_processes", scope: "decidim.participatory_processes.show" %></h2>
-      <div class="collapsible-list row small-up-1 medium-up-2 card-grid">
-        <% related_processes.each do |related_process| %>
+      <div class="process__block-title">
+        <h2 class="h2 decorator"><%= t "related_processes", scope: "decidim.participatory_processes.show" %></h2>
+        <div class="label text-lg"><%= related_processes.length %></div>
+        <%#= REDESIGN_PENDING: add link to index %>
+        <%= link_to "#", class: "button button__sm button__text-secondary" do %>
+          <span><%= t("decidim.participatory_processes.pages.home.highlighted_processes.see_all_processes") %></span>
+          <%= icon "arrow-right-line" %>
+        <% end %>
+      </div>
+
+      <% related_processes2 = related_processes.to_a * 10 %>
+
+      <div class="process__block-grid">
+        <% related_processes2.each do |related_process| %>
           <%= card_for(related_process) %>
         <% end %>
       </div>
+
     </section>
   <% end %>
 
   <% if linked_assemblies.any? %>
     <section class="content-block">
-      <h2 class="h2 decorator"><%= t("participatory_process.show.related_assemblies", scope: "decidim") %></h2>
-      <div class="row small-up-1 medium-up-2 card-grid">
+      <div class="process__block-title">
+        <h2 class="h2 decorator"><%= t("participatory_process.show.related_assemblies", scope: "decidim") %></h2>
+        <div class="label text-lg"><%= linked_assemblies.length %></div>
+        <%#= REDESIGN_PENDING: add link to index %>
+        <%= link_to "#", class: "button button__sm button__text-secondary" do %>
+          <span><%= t("decidim.participatory_processes.pages.home.highlighted_processes.see_all_processes") %></span>
+          <%= icon "arrow-right-line" %>
+        <% end %>
+      </div>
+
+      <div class="process__block-grid">
         <% linked_assemblies.each do |linked_assembly| %>
           <%= card_for(linked_assembly) %>
         <% end %>

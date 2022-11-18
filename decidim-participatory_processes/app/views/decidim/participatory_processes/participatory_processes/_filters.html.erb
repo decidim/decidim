@@ -19,19 +19,8 @@
   <% end %>
 
   <%
+    # REDESIGN_PENDIGN: fetch the process filters
     filters = [];
-
-    filter_date_values = [
-      ["all", filter_text_for("all", t("decidim.meetings.meetings.filters.date_values.all"))],
-      ["upcoming", filter_text_for("upcoming", t("decidim.meetings.meetings.filters.date_values.upcoming"))],
-      ["past", filter_text_for("upcoming", t("decidim.meetings.meetings.filters.date_values.past"))]
-    ]
-
-    filters << ["status", "radio", :with_date, filter_date_values, "decidim.shared.participatory_space_filters.filters"]
-    filters << ["scopes", "check_box", :with_scope, filter_date_values, "decidim.shared.participatory_space_filters.filters"]
-    filters << ["areas", "check_box", :with_area, filter_date_values, "decidim.shared.participatory_space_filters.filters"]
-    filters << ["types", "radio", :with_type, filter_date_values, "decidim.shared.participatory_space_filters.filters"]
-
   %>
 
   <% filters.each do |f| %>
