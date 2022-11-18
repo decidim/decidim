@@ -1,11 +1,6 @@
 <%= render partial: "decidim/meetings/shared/year_calendar", locals: {
   year: @year,
-  search_variable: :title_or_description_cont,
-  display_filter_date: !@forced_past_meetings,
-  display_filter_type: true,
-  display_filter_scopes: true,
-  display_filter_categories: true,
-  display_filter_origin: true,
-  display_filter_space_type: true,
-  display_filter_activity: current_user.present?
+  year_path: @year_path,
+  search_variable: @search_variable,
+  filter_options: @filter_options
 } %>

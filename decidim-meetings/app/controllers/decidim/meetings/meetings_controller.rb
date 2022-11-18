@@ -55,6 +55,19 @@ module Decidim
       end
 
       def year_calendar
+        @filter_options = {
+          # REDESIGN_PENDING: This variable must be set
+          date: !@forced_past_meetings,
+          type: true,
+          scopes: current_component.has_subscopes?,
+          categories: current_component.categories.any?,
+          origin: component_settings.creation_enabled_for_participants?,
+          space_type: false,
+          activity: current_user.present?
+        }
+        @search_variable = :search_text_cont
+        @year = (params[:year] || Date.current.year).to_i
+        @year_path = proc { |year| year_calendar_meetings_path(year) }
         render template: "decidim/meetings/directory/meetings/year_calendar"
       end
 

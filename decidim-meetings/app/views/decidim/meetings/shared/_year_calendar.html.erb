@@ -21,13 +21,7 @@
 
   <%= render partial: "decidim/meetings/shared/filters", locals: {
     search_variable: search_variable,
-    display_filter_date: display_filter_date,
-    display_filter_type: display_filter_type,
-    display_filter_scopes: display_filter_scopes,
-    display_filter_categories: display_filter_categories,
-    display_filter_origin: display_filter_origin,
-    display_filter_space_type: display_filter_space_type,
-    display_filter_activity: display_filter_activity
+    filter_options:
   } %>
 
   <%= render partial: "decidim/meetings/calendar_modal", locals: {
@@ -42,11 +36,11 @@
   <%# REDESIGN_PENDING: include links %>
   <div class="meeting-calendar__selector-container">
     <div class="meeting-calendar__selector">
-      <%= link_to year_calendar_path(year: year - 1), class: "meeting-calendar__selector-arrow" do %>
+      <%= link_to year_path.call(year: year - 1), class: "meeting-calendar__selector-arrow" do %>
         <%= icon "arrow-left-s-line", class: "w-6 h-6 text-secondary fill-current" %>
       <% end %>
       <h2 class="h2"><%= year %></h2>
-      <%= link_to year_calendar_path(year: year + 1), class: "meeting-calendar__selector-arrow" do %>
+      <%= link_to year_path.call(year: year + 1), class: "meeting-calendar__selector-arrow" do %>
         <%= icon "arrow-right-s-line", class: "w-6 h-6 text-secondary fill-current" %>
       <% end %>
     </div>
