@@ -71,10 +71,8 @@
         <% end %>
       </div>
 
-      <% related_processes2 = related_processes.to_a * 10 %>
-
       <div class="process__block-grid">
-        <% related_processes2.each do |related_process| %>
+        <% related_processes.each do |related_process| %>
           <%= card_for(related_process) %>
         <% end %>
       </div>
