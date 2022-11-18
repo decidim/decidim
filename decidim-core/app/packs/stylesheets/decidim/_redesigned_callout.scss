@@ -13,7 +13,7 @@
     @apply border-warning bg-warning/5;
   }
 
-  & + &{
+  & + *{
     @apply mt-4;
   }
 }
