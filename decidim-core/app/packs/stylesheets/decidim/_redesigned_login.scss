@@ -67,16 +67,20 @@
   }
 
   &__modal{
-    &-title{
-      @apply flex items-center gap-2 mb-12;
-    }
-
     &-links{
       @apply flex flex-col md:flex-row justify-between items-start md:items-center [&>a]:text-secondary;
     }
 
-    &-form{
-      @apply w-full md:w-3/4 mx-auto [&>*]:justify-center md:[&>*]:justify-between;
+    [data-announcement]{
+      @apply mt-4;
+    }
+  }
+
+  &__modal &__omniauth{
+    @apply mt-6;
+
+    &-separator{
+      @apply last:mt-0 last:invisible;
     }
   }
 }
