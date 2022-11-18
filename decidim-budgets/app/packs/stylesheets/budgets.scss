@@ -58,6 +58,14 @@
   &__definition-data__number{
     @apply text-gray-2 font-bold text-3xl bg-background text-center py-2;
   }
+
+  &__filter-title{
+    @apply font-bold mb-4;
+  }
+
+  &__filter__container{
+    @apply my-4 rounded p-2 border-4 border-white;
+  }
 }
 
 [data-drawer]{
