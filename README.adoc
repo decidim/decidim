@@ -9,6 +9,7 @@
 :uri-github-dependents: https://github.com/decidim/decidim/network/dependents?type=application
 :uri-metadecidim: https://meta.decidim.org
 :uri-modules: https://decidim.org/modules
+:uri-modules-auth: https://decidim.org/modules/#auth
 :uri-omniauth: https://github.com/omniauth/omniauth/wiki/List-of-Strategies
 :uri-opencollective-members: https://opencollective.com/decidim/contribute/member-39953
 :uri-opencollective-partners: https://opencollective.com/decidim/contribute/partner-33556
@@ -115,7 +116,7 @@ One specific thing regarding these kind of applications is how you manage the pe
 
 === 🚪 Authentication options
 
-You can easily add any authentication provider to Decidim that is provided by {uri-omniauth}[OmniAuth].
+You can easily add any authentication provider to Decidim that is provided by {uri-omniauth}[OmniAuth]. Also you have a {uri-modules-auth}[list of modules related to authorization] already developed by the commmunity.
 
 == 📘 License
 
