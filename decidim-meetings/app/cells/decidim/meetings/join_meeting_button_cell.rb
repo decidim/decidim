@@ -27,11 +27,6 @@ module Decidim
         "button button__xl button__secondary w-full"
       end
 
-      # deprecated
-      def big_button?
-        options[:big_button]
-      end
-
       def shows_remaining_slots?
         options[:show_remaining_slots] && model.available_slots.positive?
       end
