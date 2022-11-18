@@ -64,7 +64,7 @@
         </div>
       </div>-->
       <% if !current_order_checked_out? && voting_open? %>
-        <button class="button button__xl" data-toggle="budget-confirm" <%= budget_confirm_disabled_attr %>>
+        <button class="button button__secondary button__xl" data-toggle="budget-confirm" <%= budget_confirm_disabled_attr %>>
           <span><%= t(".vote") %></span>
           <%= icon "check-line" %>
         </button>

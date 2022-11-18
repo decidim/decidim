@@ -24,9 +24,9 @@
         <%= budget_to_currency(total_budget) %>
       </strong>
     </div>
-    <%= link_to budget_path(budget), class: "button button__sm text-left mt-2 #{button_class} #{'button__secondary' if !voted?} #{'button__text-secondary' if voted?}" do %>
+    <%= link_to budget_path(budget), class: "button button__sm text-left mt-2 #{button_class} #{!voted? ? 'button__secondary' : 'button__transparent-secondary'}" do %>
       <span><%= button_text %></span>
-      <%= icon "arrow-right-line", class: "#{'text-secondary' if !voted?}" %>
+      <%= icon "arrow-right-line" %>
     <% end %>
   </div>
 </div>
