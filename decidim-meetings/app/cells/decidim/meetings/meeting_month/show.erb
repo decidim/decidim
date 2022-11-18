@@ -1,33 +1,27 @@
 <table class="meeting-calendar__month">
-  <caption><%= Date::MONTHNAMES[month[0]] %></caption>
+  <caption><%= month_name %></caption>
   <thead>
-    <%
-      # REDESIGN_PENDING: translatable day/months
-      Date::ABBR_DAYNAMES.each do |day| %>
+    <% abbr_day_names.each do |day| %>
       <th><%= day %></th>
     <% end %>
   </thead>
   <tbody>
-    <% month[1].group_by {|e| l e, format: "%U"}.each do |week| %>
+    <% weeks.each do |days| %>
       <tr>
-        <% if l(week[1].first, format: "%d") == "01" %>
-          <% (7 - week[1].length).times do %>
+        <% is_first_day = first_day_of_month?(days.first) %>
+
+        <% if is_first_day %>
+          <% (7 - days.length).times do %>
             <td></td>
           <% end %>
         <% end %>
-        <% week[1].each do |day| %>
-          <%
-            # REDESIGN_PENDING: create a controller function to get the css class
-            classes = []
 
-            classes << "is-today" if day == Date.today
-            classes << "is-past-event" if events.include? day and day < Date.today
-            classes << "is-upcoming-event" if events.include? day and day > Date.today
-          %>
-          <td class="<%= classes.join(" ") %>"><%= l day, format: "%d" %></td>
+        <% days.each do |day| %>
+          <%= content_tag :td, l(day, format: "%d"), class: day_class(day) %>
         <% end %>
-        <% if l(week[1].first, format: "%d") != "01" %>
-          <% (7 - week[1].length).times do %>
+
+        <% if !is_first_day %>
+          <% (7 - days.length).times do %>
             <td></td>
           <% end %>
         <% end %>
