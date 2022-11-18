@@ -30,7 +30,7 @@
   }
 
   &:hover{
-    @apply cursor-pointer border-tertiary;
+    @apply border-tertiary;
   }
 
   &:hover &-text > *:first-child{
