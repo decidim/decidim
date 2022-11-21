@@ -3,7 +3,7 @@
     <%= start_time.to_s(:time) %> - <%= end_time.to_s(:time) %>
   </div>
   <div class="column medium-10 programme-title">
-      <%= link_to present(meeting).title, resource_locator(meeting).path %>
+      <%= link_to present(meeting).title(html_escape: true), resource_locator(meeting).path %>
   </div>
 </div>
 <div class="row">
