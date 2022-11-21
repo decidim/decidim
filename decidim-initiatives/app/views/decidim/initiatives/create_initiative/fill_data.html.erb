@@ -61,6 +61,12 @@
               </div>
             <% end %>
 
+            <% if initiative_type.custom_signature_end_date_enabled? %>
+              <div class="field">
+                <%= f.date_field :signature_end_date %>
+              </div>
+            <% end %>
+
             <% if scopes.length == 1 %>
               <%= f.hidden_field :scope_id, value: scopes.first.scope&.id %>
             <% else %>
@@ -69,12 +75,6 @@
                              scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
                              required: true,
                              include_blank: t(".select_scope") %>
-              </div>
-            <% end %>
-
-            <% if initiative_type.custom_signature_end_date_enabled? %>
-              <div class="field">
-                <%= f.date_field :signature_end_date %>
               </div>
             <% end %>
 

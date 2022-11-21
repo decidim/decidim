@@ -29,17 +29,26 @@
   <%= form.text_field :hashtag, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
 </div>
 
-<div class="field">
-  <%= form.select :scope_id,
-                @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
-                { disabled: !@form.state_updatable? } %>
-</div>
+<% signature_type_options = signature_type_options(form.object) %>
+<% if signature_type_options.length == 1 %>
+  <%= form.hidden_field :signature_type %>
+<% else %>
+  <div class="field">
+    <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
+  </div>
+<% end %>
 
 <% if can_edit_custom_signature_end_date?(current_initiative) %>
   <div class="row column">
     <%= form.date_field :signature_end_date, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative) %>
   </div>
 <% end %>
+
+<div class="field">
+  <%= form.select :scope_id,
+                @form.available_scopes.map { |scope| [translated_attribute(scope.scope_name), scope&.scope&.id] },
+                { disabled: !@form.state_updatable? } %>
+</div>
 
 <% if current_initiative.area_enabled? %>
   <div class="field">
@@ -50,15 +59,6 @@
                             include_blank: current_initiative.decidim_area_id.blank? || current_initiative.created?
                           },
                           disabled: !@form.area_updatable? %>
-  </div>
-<% end %>
-
-<% signature_type_options = signature_type_options(form.object) %>
-<% if signature_type_options.length == 1 %>
-  <%= form.hidden_field :signature_type %>
-<% else %>
-  <div class="field">
-    <%= form.select :signature_type, [], {}, { disabled: !@form.signature_type_updatable? } %>
   </div>
 <% end %>
 
