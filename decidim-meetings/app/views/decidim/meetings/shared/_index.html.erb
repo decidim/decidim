@@ -9,46 +9,24 @@
 <% end %>
 
 <% content_for :aside do %>
-  <h1 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h1>
-
-  <% if allowed_to?(:create, :meeting) %>
-    <%= action_authorized_link_to :create, new_meeting_path, class: "button button__lg button__secondary", data: { "redirect_url" => new_meeting_path } do %>
-      <span><%= t("new_meeting", scope: "decidim.meetings.meetings.index") %></span>
-      <%= icon "add" %>
-    <% end %>
-  <% end %>
-
-  <% [Date.current, Date.current.next_month].each do |start_date| %>
-    <%= cell "decidim/meetings/meeting_month", search.result, start_date: %>
-  <% end %>
-
-  <%= render partial: "decidim/meetings/shared/filters", locals: {
-    search_variable: search_variable,
-    filter_options: filter_options || {}
-  } %>
-
-  <%= render partial: "decidim/meetings/calendar_modal", locals: {
-    path: short_url(
-      route_name: "calendar",
-      params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
-    )
-  } %>
+  <%= render partial: "decidim/meetings/shared/meetings_aside", locals: { main_action: true, search_variable:, filter_options: } %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <% if local_assigns[:preview] %>
+    <%= t("decidim.shared.turbo_frames.preview.loading") %>
+  <% else %>
+    <% if display_map %>
+    <div class="meeting-list__map">
+      <%= cell "decidim/meetings/meetings_map", search.result %>
+    </div>
 
-  <% if display_map %>
-  <div class="meeting-list__map">
-    <%= cell "decidim/meetings/meetings_map", search.result %>
-  </div>
+      <%= link_to calendar_url, class: "meeting-list__link" do %>
+        <%= t "decidim.meetings.directory.meetings.index.go_to_calendar" %>
+        <%= icon "calendar-2-line", class: "fill-current" %>
+      <% end %>
+    <% end %>
+
+    <%= render partial: "decidim/meetings/shared/meetings" %>
   <% end %>
-
-  <a href="<%= calendar_url %>" class="meeting-list__link">
-  <%= link_to calendar_url, class: "meeting-list__link" do %>
-    <%= t "decidim.meetings.directory.meetings.index.go_to_calendar" %>
-    <%= icon "calendar-2-line", class: "fill-current" %>
-  <% end %>
-
-  <%= render partial: "decidim/meetings/shared/meetings" %>
-
 <% end %>

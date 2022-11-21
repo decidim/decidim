@@ -12,3 +12,4 @@
     activity: current_user.present?
   }
 } %>
+<%= turbo_frame_tag "meeting_frame", data: { filtered_path: meetings_path(filter: filter_params.compact_blank) } %>

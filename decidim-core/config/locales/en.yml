@@ -1476,6 +1476,9 @@ en:
         share: Share
         share_link: Share link
         share_to: Share to %{service}
+      turbo_frames:
+        preview:
+          loading: Loading…
     statistics:
       comments_count: Comments
       endorsements_count: Endorsements
