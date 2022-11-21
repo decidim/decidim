@@ -28,6 +28,7 @@ es:
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
         signature: Firma
+        signature_name: Nombre de la firma
         slogan: Eslogan
         slug: URL amigable
         start_date: Fecha de inicio
@@ -36,11 +37,13 @@ es:
         date: Fecha
         link: Enlace
         title: Título
+        weight: Orden de posición
       conference_partner:
         link: Enlace
         logo: Logo
         name: Nombre
         partner_type: Tipo de colaboración
+        weight: Orden de posición
       conference_registration_invite:
         email: Correo electrónico
         name: Nombre
@@ -50,6 +53,7 @@ es:
         description: Descripción
         price: Coste
         title: Título
+        weight: Orden de posición
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
@@ -129,6 +133,8 @@ es:
         edit:
           title: Actualizar administradora de la jornada.
           update: Actualizar
+        index:
+          conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
           title: Nueva administradora de la jornada.
