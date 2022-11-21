@@ -71,7 +71,6 @@ es:
         edit: Editar
         edited: Editado
         hide_replies: Ocultar respuestas
-        cancel_reply: Cancelar respuesta
         moderated_at: Comentario moderado el %{date}
         reply: Respuesta
         report:
@@ -114,7 +113,7 @@ es:
         form:
           body:
             label: Comentario
-            placeholder: '¿Qué opinas sobre esto?'
+            placeholder: '¿Qué piensas sobre ésto?'
           submit: Enviar
         title: Edita tu comentario
       up_vote_button:
