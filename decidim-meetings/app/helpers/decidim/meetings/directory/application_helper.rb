@@ -24,7 +24,7 @@ module Decidim
         end
 
         def filter_date_values
-          ["all", "upcoming", "past"].map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters.date_values"))] }
+          %w(all upcoming past).map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters.date_values"))] }
         end
 
         def directory_filter_scopes_values
@@ -33,7 +33,7 @@ module Decidim
           scopes_values = main_scopes.includes(:scope_type, :children).flat_map do |scope|
             TreeNode.new(
               TreePoint.new(scope.id.to_s, scope_filter_text(translated_attribute(scope.name, current_organization))),
-            scope_children_to_tree(scope)
+              scope_children_to_tree(scope)
             )
           end
 
@@ -41,7 +41,7 @@ module Decidim
 
           TreeNode.new(
             TreePoint.new("", filter_text_for(:all, t("decidim.meetings.application_helper.filter_scope_values.all"))),
-          scopes_values
+            scopes_values
           )
         end
 
@@ -51,7 +51,7 @@ module Decidim
           scope.children.includes(:scope_type, :children).flat_map do |child|
             TreeNode.new(
               TreePoint.new(child.id.to_s, scope_filter_text(translated_attribute(child.name, current_organization))),
-            scope_children_to_tree(child)
+              scope_children_to_tree(child)
             )
           end
         end
@@ -107,15 +107,8 @@ module Decidim
 
         # Options to filter meetings by activity.
         def activity_filter_values
-          ["all", "my_meetings"].map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters"))] }
+          %w(all my_meetings).map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters"))] }
         end
-
-        # def filter_text_for(name, translation)
-        #   text = ""
-        #   text += resource_type_icon name
-        #   text += content_tag :span, translation
-        #   text.html_safe
-        # end
 
         protected
 
