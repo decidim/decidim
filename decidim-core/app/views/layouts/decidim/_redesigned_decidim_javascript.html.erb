@@ -1,5 +1,8 @@
 <%= javascript_pack_tag "redesigned_decidim_core", defer: false %>
 <%= render partial: "layouts/decidim/redesigned_js_configuration" %>
+<% if Decidim.service_worker_enabled %>
+  <%= javascript_pack_tag "decidim_sw", defer: false %>
+<% end %>
 
 <%= content_for :js_content %>
 
