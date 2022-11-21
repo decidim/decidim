@@ -138,6 +138,18 @@ module Decidim
       )
     end
 
+    def filter_tree_from_array(array)
+      root_point = if array.first[0].blank?
+                     TreePoint.new(*array.shift)
+                   else
+                     TreePoint.new("", filter_text_for(:all, t("decidim.proposals.application_helper.filter_scope_values.all")))
+                   end
+      TreeNode.new(
+        root_point,
+        array.map { |values| TreePoint.new(*values) }
+      )
+    end
+
     def flat_filter_values(*types, **options)
       scope = options[:scope]
       types.map do |type|
