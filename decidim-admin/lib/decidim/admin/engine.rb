@@ -30,7 +30,7 @@ module Decidim
 
       initializer "decidim_admin.global_moderation_menu" do
         Decidim.menu :admin_global_moderation_menu do |menu|
-          moderations_count = Decidim::Admin::ModerationStatsQuery.new(current_user).content_moderations.count
+          moderations_count = Decidim::Admin::ModerationStats.new(current_user).content_moderations.not_hidden.count
 
           caption = I18n.t("menu.content", scope: "decidim.admin")
           caption += content_tag(:span, moderations_count, class: moderations_count.zero? ? "component-counter component-counter--off" : "component-counter")
@@ -42,7 +42,7 @@ module Decidim
                         active: is_active_link?(decidim_admin.moderations_path),
                         if: allowed_to?(:read, :global_moderation)
 
-          user_reports = Decidim::Admin::ModerationStatsQuery.new(current_user).user_reports.unblocked.count
+          user_reports = Decidim::Admin::ModerationStats.new(current_user).user_reports.unblocked.count
 
           caption = I18n.t("menu.reported_users", scope: "decidim.admin")
           caption += content_tag(:span, user_reports, class: user_reports.zero? ? "component-counter component-counter--off" : "component-counter")

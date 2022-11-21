@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class ModerationStatsQuery
+    class ModerationStats
       def initialize(user)
         @user = user
       end

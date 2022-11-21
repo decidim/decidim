@@ -20,7 +20,7 @@ module Decidim
         #
         # Returns an `ActiveRecord::Relation`
         def moderations_for_user
-          @moderations_for_user ||= Decidim::Admin::ModerationStatsQuery.new(current_user).content_moderations
+          @moderations_for_user ||= Decidim::Admin::ModerationStats.new(current_user).content_moderations
         end
       end
     end

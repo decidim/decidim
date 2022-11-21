@@ -36,7 +36,7 @@ module Decidim
       end
 
       def base_query_finder
-        Decidim::Admin::ModerationStatsQuery.new(current_user).user_reports
+        Decidim::Admin::ModerationStats.new(current_user).user_reports
       end
 
       def collection
