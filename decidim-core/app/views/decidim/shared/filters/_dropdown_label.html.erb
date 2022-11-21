@@ -1,6 +1,7 @@
 <% leaf = item.tree_node? ? item.leaf : item %>
 <% data_checkboxes_tree_id = [check_boxes_tree_id, leaf.value].join("-") %>
 <% is_blank_root = leaf.value.blank? %>
+<% data = item.tree_node? && item.node.present? ? { checkboxes_tree: data_checkboxes_tree_id } : {} %>
 <% check_box_label = capture do %>
   <div class="filter">
     <%= leaf.label %>
@@ -20,7 +21,7 @@
         check_box_label,
         class: "reset-defaults",
         hidden: "hidden",
-        data: { checkboxes_tree: data_checkboxes_tree_id },
+        data:,
         is_root_check_box: is_blank_root
       ),
       leaf.value.to_s,
