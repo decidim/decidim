@@ -30,6 +30,7 @@ en:
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
+        tos_agreement: Terms and conditions of use agreement
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -513,6 +514,10 @@ en:
         view_all: View all
       metrics:
         name: Organization metrics
+      static_page:
+        summary:
+          name: Summary
+          summary_content: Content
       stats:
         name: Organization statistics
       sub_hero:
@@ -825,8 +830,6 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_image: Current image
-      default_image: Default image
       errors:
         decidim/user:
           password: The password is too short.
@@ -860,6 +863,7 @@ en:
           edit_image: Edit image
           error: Error!
           file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
+          filename: Filename
           remove: Remove
           replace: Replace
           save: Save
@@ -868,8 +872,9 @@ en:
           uploaded: Uploaded
           validating: Validating...
           validation_error: Validation error!
+        select_file: Select file
       upload_help:
-        dropzone: Drop files here or click to upload
+        dropzone: Drop files here or click the button to upload
         explanation: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
@@ -889,18 +894,6 @@ en:
           how: How can you earn it
           page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
           title: Badges
-        invitations:
-          conditions:
-          - Use the “invite friends” link on your user page to invite your friends
-          - Customize, if you want, the message you are sending
-          - You’ll level up by sending invitations and getting them registered.
-          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
-          description_another: This participant has invited %{score} people.
-          description_own: You have invited %{score} people.
-          name: Invitations
-          next_level_in: Invite %{score} more people to reach the next level!
-          unearned_another: This participant has not yet invited anyone.
-          unearned_own: You haven't invited anyone yet.
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.

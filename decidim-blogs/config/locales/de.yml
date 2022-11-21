@@ -39,24 +39,22 @@ de:
           update:
             invalid: Beim Speichern des Posts sind Fehler aufgetreten.
             success: Beitrag wurde erfolgreich gespeichert
-      last_activity:
-        new_post_at_html: "<span>Neuer Beitrag bei %{link}</span>"
+      admin_log:
+        post:
+          create: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} erstellt"
+          delete: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} gelöscht"
+          update: "%{user_name} hat den Blogpost %{resource_name} in %{space_name} aktualisiert"
       models:
         post:
           fields:
             author: Autor
             body: Haupttext
-            created_at: Hergestellt in
+            official_blog_post: Offizieller Post
             title: Titel
       posts:
         show:
-          back: Zurück zur Liste
           comments: Kommentare
           view: Anzeigen
-        sidebar_blog:
-          comments: Bemerkungen
-          most_commented_posts: Meist kommentierte Posts
-      read_more: Weiterlesen
     components:
       blogs:
         actions:

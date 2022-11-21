@@ -15,17 +15,24 @@ en:
         description: Description
         file: File
         title: Attachment or image name
+        weight: Order position
       attachment_collection:
         description: Description
         name: Name
+        weight: Order position
       category:
         description: Description
         name: Name
         parent_id: Parent
+        weight: Order position
       component:
         name: Name
         published_at: Published at
         weight: Order position
+      external_domain:
+        value: Value
+      help_section:
+        content: Content
       id: ID
       import:
         user_group_id: Create imports as
@@ -93,6 +100,9 @@ en:
         welcome_notification_body: Welcome notification body
         welcome_notification_subject: Welcome notification subject
         youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: Email
+        name: Name
       scope:
         code: Code
         name: Name
@@ -114,6 +124,7 @@ en:
         show_in_footer: Show in the footer
         slug: URL slug
         title: Title
+        topic_id: Topic
         weight: Order position
       static_page_topic:
         description: Description
@@ -193,7 +204,7 @@ en:
           error: There's been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
-          accept: I agree with the following terms
+          accept: I agree with the terms
           are_you_sure: Are you sure you want to refuse the admin terms of use?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions of use
@@ -848,7 +859,7 @@ en:
           title: New Participatory Space private participant.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: There was a problem reading the CSV file.
+          invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
           success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
         new:
           destroy:
@@ -857,7 +868,11 @@ en:
             empty: You have no private participants.
             explanation: You have %{count} private participants.
             title: Delete private participants
-          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file (email, name) of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
+          example_file: 'Example file:'
+          explanation: Upload your CSV file. It must have two columns with email in the first column of the file and name in the last column of the file of the users that you want to add to the participatory space, without headers. Avoid using invalid chars like `<>?%&^*#@()[]=+:;"{}\|` in user name.
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Upload your CSV file
           upload: Upload
       reminders:
@@ -927,6 +942,9 @@ en:
           delete_image: Delete Image
           edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
+      static_page_content_blocks:
+        edit:
+          update: Update
       static_page_topics:
         create:
           error: There was a problem creating a new topic.
@@ -945,6 +963,10 @@ en:
       static_pages:
         actions:
           view: View public page
+        content_blocks:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+          title: Page contents
         create:
           error: There was a problem creating a new page.
           success: Page created successfully.
@@ -1006,7 +1028,11 @@ en:
           verify_via_csv: Verify via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Example file:'
           explanation: Upload your CSV file. It must have the official emails of the groups in your organization in the first column of the file, without headers. Only groups that have confirmed their email and that have an email appearing in the CSV file will be validated.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Upload your CSV file
           upload: Upload
       users:

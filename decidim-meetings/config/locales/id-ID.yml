@@ -292,8 +292,6 @@ id:
           index:
             meetings: Rapat
             space_type: Ruang partisipatif
-      last_activity:
-        new_meeting_at_html: "<span>Pertemuan baru jam %{link}</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

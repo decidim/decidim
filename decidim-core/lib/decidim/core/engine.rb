@@ -39,6 +39,7 @@ require "diffy"
 require "ransack"
 require "wisper"
 require "webpacker"
+require "turbo-rails"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
@@ -494,6 +495,20 @@ module Decidim
         end
       end
 
+      initializer "decidim.core.static_page_blocks" do
+        Decidim.content_blocks.register(:static_page, :summary) do |content_block|
+          content_block.cell = "decidim/content_blocks/static_page/summary"
+          content_block.settings_form_cell = "decidim/content_blocks/static_page/summary_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.static_page.summary.name"
+
+          content_block.settings do |settings|
+            settings.attribute :summary, type: :text, translated: true
+          end
+
+          content_block.default!
+        end
+      end
+
       initializer "decidim.core.newsletter_templates" do
         Decidim.content_blocks.register(:newsletter_template, :basic_only_text) do |content_block|
           content_block.cell = "decidim/newsletter_templates/basic_only_text"
@@ -557,11 +572,6 @@ module Decidim
       end
 
       initializer "decidim.core.add_badges" do
-        Decidim::Gamification.register_badge(:invitations) do |badge|
-          badge.levels = [1, 5, 10, 30, 50]
-          badge.reset = ->(user) { Decidim::User.where(invited_by: user.id).count }
-        end
-
         Decidim::Gamification.register_badge(:followers) do |badge|
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }

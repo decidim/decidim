@@ -2,15 +2,15 @@
 
 In order to develop on decidim, you'll need:
 
-* *Git* 2.15+
-* *PostgreSQL* 12.7+
-* *Ruby* 2.7.5
-* *NodeJS* 16.9.x
-* *Npm* 7.21.x
+* *Git* 2.34+
+* *PostgreSQL* 14.5+
+* *Ruby* 3.0.2
+* *NodeJS* 16.18.x
+* *Npm* 8.19.x
 * *ImageMagick*
 * *Chrome* browser and https://sites.google.com/a/chromium.org/chromedriver/[chromedriver].
 
-We're starting with an Ubuntu 20.04.2 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
+We're starting with an Ubuntu 22.04.1 LTS. This is an opinionated guide, so you're free to use the technology that you are most comfortable. If you have any doubts and you're blocked you can go and ask on https://matrix.to/#/#decidimdevs:matrix.org[our Matrix.org chat room for developers].
 
 We recommend to have at least some basic proficiency in Ruby on Rails (a good starting point is http://guides.rubyonrails.org/getting_started.html[Getting Started with Ruby on Rails]) and have some knowledge on how gems work.
 
@@ -18,7 +18,7 @@ In this guide, we'll see how to install rbenv, PostgreSQL, Node.js and, Decidim,
 
 == 1. Installing rbenv
 
-First, we're going to install https://github.com/rbenv/rbenv[rbenv], for managing various ruby versions. You could also use https://rvm.io/[rvm] or https://github.com/asdf-vm/asdf[asdf] as alternatives on this step. Mind that at the moment, Decidim isn't compatible with Ruby 3.0.
+First, we're going to install https://github.com/rbenv/rbenv[rbenv], for managing various ruby versions. You could also use https://rvm.io/[rvm] or https://github.com/asdf-vm/asdf[asdf] as alternatives on this step.
 
 [source,bash]
 ----
@@ -29,8 +29,8 @@ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
 source ~/.bashrc
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-rbenv install 2.7.5
-rbenv global 2.7.5
+rbenv install 3.0.2
+rbenv global 3.0.2
 ----
 
 == 2. Installing PostgreSQL

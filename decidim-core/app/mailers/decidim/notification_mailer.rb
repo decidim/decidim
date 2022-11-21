@@ -5,6 +5,7 @@ module Decidim
   # a events are received.
   class NotificationMailer < Decidim::ApplicationMailer
     helper Decidim::ResourceHelper
+    helper Decidim::SanitizeHelper
 
     def event_received(event, event_class_name, resource, user, user_role, extra) # rubocop:disable Metrics/ParameterLists
       with_user(user) do

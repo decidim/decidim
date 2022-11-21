@@ -2,6 +2,7 @@ fr-CA:
   activemodel:
     attributes:
       initiative:
+        area_id: Périmètre d'assemblée
         decidim_user_group_id: Auteur
         description: Description
         offline_votes: Votes en présentiel
@@ -18,6 +19,8 @@ fr-CA:
         title: Titre
       initiatives_committee_member:
         user: Membre du Comité de promotion
+      initiatives_settings:
+        initiatives_order: Ordre
       initiatives_type:
         area_enabled: Permettre aux auteurs de choisir la zone pour leur initiative
         attachments_enabled: Autoriser les pièces jointes
@@ -33,6 +36,7 @@ fr-CA:
         online_signature_enabled: Signature en ligne activée
         only_global_scope_enabled: Autoriser uniquement la création d'initiatives de portée globale
         promoting_committee_enabled: Activer les comités de promotion sur ce type d'initiative (témoin. s dont l'invitation par l'auteur est obligatoire pour la validation de l'initiative si cette fonctionnalité est activée)
+        signature_type: Type de signature
         title: Titre
         undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
         validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature
@@ -88,12 +92,14 @@ fr-CA:
       initiatives_settings:
         update:
           error: Une erreur s'est produite
+          success: Les paramètres des initiatives ont bien été mis à jour
       menu:
         attachments: Pièces jointes
         committee_members: Membres de comité
         components: Fonctionnalités
         information: Informations
         initiatives: Pétitions
+        initiatives_settings: Paramètres
         initiatives_types: Types d'initiatives
         moderations: Modérations
       models:
@@ -245,6 +251,16 @@ fr-CA:
           update:
             error: Une erreur est survenue
             success: L'initiative a été mise à jour avec succès
+        initiatives_settings:
+          edit:
+            update: Mettre à jour
+          form:
+            comments: Les plus commentées
+            date: Les plus récentes
+            publication_date: Publiées le plus récemment
+            random: Aléatoire
+            signatures: Les plus signées
+            title: Paramètres des initiatives
         initiatives_type_scopes:
           create:
             error: Une erreur s'est produite
@@ -294,6 +310,8 @@ fr-CA:
           send_to_technical_validation: "%{user_name} a envoyé l'initiative %{resource_name} à la validation technique"
           unpublish: "%{user_name} a dépublié l'initiative %{resource_name}"
           update: "%{user_name} a mis à jour l'initiative %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} a mis à jour les paramètres des initiatives"
         initiatives_type:
           create: "%{user_name} a créé le type de pétition %{resource_name}"
           delete: "%{user_name} a supprimé le type de pétition %{resource_name}"
@@ -368,6 +386,7 @@ fr-CA:
           more_information: "(Plus d'informations)"
           select: Créer une initiative
           select_initiative_type_help: Les pétitions sont un moyen par lequel les participants peuvent intervenir afin que l'organisation puisse entreprendre des actions en faveur de l'intérêt général. Quelle pétition voulez-vous lancer?
+          verification_required: Vérifiez votre compte pour créer une pétition
         share_committee_link:
           continue: Continuer
           invite_to_committee_help: Lien pour inviter des personnes à faire partie du Comité de promotion
@@ -479,11 +498,6 @@ fr-CA:
           unfold: Voir la suite
         index_header:
           new_initiative: Nouvelle initiative
-          not_authorized:
-            authorizations_page: Voir les autorisations
-            close: Fermer
-            explanation: Vous devez être vérifié pour créer une nouvelle initiative.
-            title: Autorisation requise
         initiatives:
           closed_initiatives_warning: À l'heure actuelle, il n'y a pas de pétitions publiées, mais vous trouverez ici une liste de toutes les pétitions fermées.
           no_initiatives_warning: Aucune initiative ne correspond à vos critères de recherche.
@@ -559,7 +573,13 @@ fr-CA:
         status_change_body_for: 'Le statut de l''initiative %{title} a été changé pour : %{state}'
         status_change_for: L'initiative %{title} a changé de statut
       last_activity:
-        new_initiative: Nouvelle initiative
+        new_initiative: 'Nouvelle pétition :'
+      modal:
+        not_authorized:
+          authorizations_page: Voir les autorisations
+          close: Fermer
+          explanation: Vous devez être vérifié pour créer une nouvelle initiative.
+          title: Autorisation requise
       pages:
         home:
           highlighted_initiatives:
@@ -573,6 +593,8 @@ fr-CA:
           published: Publié
           rejected: Pas assez de signatures
           validating: Validation technique
+      signature_interval:
+        title: Période de collecte des signatures
       states:
         accepted: Acceptées
         expired: Expirées
@@ -591,6 +613,7 @@ fr-CA:
           comment: Commenter
       initiatives_type:
         actions:
+          create: Créer
           title: Actions
           vote: Vote
   layouts:

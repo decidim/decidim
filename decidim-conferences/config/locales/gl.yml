@@ -373,7 +373,7 @@ gl:
         invite_join_conference_mailer:
           invite:
             decline: Declina a invitación '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
+            invited_existing_user_to_join_a_conference: "%{invited_by} convidoute a unirse a unha conferencia en %{application}. Podes rexeitalo ou aceptalo a través das ligazóns a continuación."
             registration: Rexistro para '%{conference_title}'
         partners:
           index:

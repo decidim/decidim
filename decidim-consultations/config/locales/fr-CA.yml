@@ -265,8 +265,8 @@ fr-CA:
       index:
         title: Votations
       last_activity:
-        new_consultation: Nouvelle consultation
-        new_question_at_html: "<span>Nouvelle question à %{link}</span>"
+        new_consultation: 'Nouvelle consultation :'
+        new_question: 'Nouvelle question :'
       pages:
         home:
           highlighted_consultations:

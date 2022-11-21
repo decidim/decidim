@@ -58,8 +58,6 @@ lb:
           update:
             invalid: Beim Speichern der Umfrage sind Fehler aufgetreten.
             success: Umfrage wurde erfolgreich gespeichert.
-      last_activity:
-        new_survey_at_html: "<span>Neue Umfrage bei %{link}</span>"
       surveys:
         answer:
           invalid: Bei der Beantwortung der Umfrage sind Fehler aufgetreten.

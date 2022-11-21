@@ -10,9 +10,7 @@
   </div>
 
   <% if using_online? %>
-    <div class="field">
-      <%= form.upload :verification_attachment %>
-    </div>
+    <%= form.upload :verification_attachment, button_class: "button button__lg button__transparent-secondary verification__upload-button" %>
   <% end %>
 
   <%= form.hidden_field :verification_type, value: verification_type %>

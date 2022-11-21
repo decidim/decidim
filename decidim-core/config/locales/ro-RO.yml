@@ -536,7 +536,6 @@ ro:
     errors:
       internal_server_error:
         title: A apărut o problemă cu serverul nostru
-        try_later: Te rugăm să încerci mai târziu.
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
@@ -760,18 +759,6 @@ ro:
           how: Cum poți să o câștigi
           page_description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne. Aici este lista de insigne și câteva modalități prin care le poți câștiga.
           title: Insigne
-        invitations:
-          conditions:
-            - Folosește link-ul "invită prieteni" de pe pagina ta de utilizator pentru a-ți invita prietenii
-            - Personalizează, dacă dorești, mesajul pe care îl trimiți
-            - Vei crește în nivel trimițând invitații și primindu-le înregistrate.
-          description: Această insignă este acordată atunci când ai invitat câțiva oameni și aceștia au petrecut puțin timp să se înregistreze în %{organization_name} și să devină participanți. Îți mulțumim că ai făcut %{organization_name} cunoscută și altora existența comunității și ai ajutat la extinderea ei!
-          description_another: Acest participant a invitat %{score} persoane.
-          description_own: Ai invitat %{score} persoane.
-          name: Invitații
-          next_level_in: Invită încă %{score} persoane să ajungă la următorul nivel!
-          unearned_another: Acest participant nu a invitat încă pe nimeni.
-          unearned_own: Nu ai invitat încă pe nimeni.
       description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne.
       level: Nivelul %{level}
       reached_top: Ai atins nivelul maxim pentru această insignă.
@@ -957,8 +944,6 @@ ro:
           modal_title: Conversație nouă
           no_results: Niciun rezultat
           participant_with_disabled_message_reception: Acest participant a dezactivat recepția de mesaje
-        conversation:
-          show: Arată conversația cu %{sender}
         create:
           error: Conversația nu a început. Încercați din nou mai târziu
         error_modal:
@@ -968,19 +953,10 @@ ro:
           ok: Ok
         index:
           ago: acum
-          close: Închide fereastra
-          from: De la
-          groups: Grupurile mele
-          last_message: Ultimul mesaj
           new_conversation: Conversație nouă
           next: Următoarea
           no_conversations: Încă nu aveți conversații
           title: Conversații
-          to: Către
-        reply:
-          placeholder: Răspunsul tău...
-          send: Trimite
-          title: Răspuns
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
@@ -989,7 +965,6 @@ ro:
           title: Conversație cu %{usernames}
         start:
           send: Trimite
-          title: Începe o conversație
         update:
           error: Mesajul nu a fost trimis din cauza unei erori
     metrics:
@@ -1114,7 +1089,6 @@ ro:
         sub_hero:
           register: Inregistrare
       index:
-        read_more: Citește mai mult
         standalone_pages: Pagini
         subheading: Navigați prin paginile de ajutor ale %{name}
         title: Ajutor
@@ -1159,7 +1133,6 @@ ro:
         members: Membri
         officialized: Participant oficial
         send_private_message: Trimite mesaj privat
-        timeline: Cronologie
         view_full_profile: Vezi profilul complet
       sidebar:
         badges:
@@ -1513,15 +1486,6 @@ ro:
       updated_not_active: Parola dvs. a fost schimbată cu succes.
     registrations:
       destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
-      edit:
-        are_you_sure: Sigur dorești asta?
-        cancel_my_account: Anulează contul meu
-        currently_waiting_confirmation_for_email: 'În prezent se așteaptă confirmarea pentru: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lasă necompletat dacă nu vrei să-l schimbi
-        title: Editează %{resource}
-        unhappy: Nefericit?
-        update: Actualizare
-        we_need_your_current_password_to_confirm_your_changes: avem nevoie de parola curentă pentru a confirma modificările
       new:
         sign_up: Înscrie-te
       signed_up: Bine ați venit! V-ați înregistrat cu succes.
@@ -1578,7 +1542,6 @@ ro:
         other: 'Au existat mai multe erori la procesarea cererii dvs.:'
       too_many_marks: folosește prea multe semne consecutive de punctuație (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
-      too_short: este prea scurt (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
     length_validator:
@@ -1714,14 +1677,8 @@ ro:
       option_unified: Unificat
   views:
     pagination:
-      first: "&laquo; Primul"
-      first_title: Link către prima pagină
-      last: Ultima &raquo;
-      last_title: Link către ultima pagină
-      next: Următoarea &rsaquo;
       next_title: Link către pagina următoare
       pagination: Paginare
-      previous: "&lsaquo; Anterior"
       previous_title: Link către pagina anterioară
       title: 'Numărul paginii: '
       truncate: "&hellip;"

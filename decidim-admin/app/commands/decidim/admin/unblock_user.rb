@@ -39,7 +39,7 @@ module Decidim
           @blocked_user.blocked = false
           @blocked_user.blocked_at = nil
           @blocked_user.block_id = nil
-          @blocked_user.name = @blocked_user.user_name
+          @blocked_user.name = @blocked_user.extended_data["user_name"]
           @blocked_user.save!
         end
       end

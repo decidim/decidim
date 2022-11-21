@@ -1,8 +1,8 @@
 [id*="dropdown-menu"]{
-  @apply hidden md:flex flex-col py-3.5 md:py-0 mx-3.5 md:mx-0 mt-3.5 md:mt-0 border-t md:border-t-0 border-gray-3 cursor-pointer;
+  @apply flex flex-col py-3.5 md:py-0 mx-3.5 md:mx-0 border-t md:border-t-0 border-gray-3 cursor-pointer;
 
-  &[aria-hidden="false"]{
-    @apply flex;
+  &[aria-hidden="true"]{
+    @apply hidden md:flex;
   }
 }
 

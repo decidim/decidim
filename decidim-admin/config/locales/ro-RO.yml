@@ -123,12 +123,24 @@ ro:
         file: Fişier
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selectează cel puțin un spațiu participativ
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Fișier invalid
             official_img_header:
               allowed_file_content_types: Fișier invalid
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fişier de import malformat, vă rugăm să citiţi instrucţiunile cu atenţie şi asiguraţi-vă că fişierul este codificat UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fişier de import malformat, vă rugăm să citiţi instrucţiunile cu atenţie şi asiguraţi-vă că fişierul este codificat UTF-8.
       new_import:
         attributes:
           file:
@@ -172,13 +184,15 @@ ro:
         permissions: Drepturi
         reject: Respinge
         share: Distribuie
+        user:
+          new: Administrator nou
         verify: Verifică
       admin_terms_of_use:
         accept:
           error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
-          accept: Sunt de acord cu următorii termeni
+          accept: Sunt de acord cu acești termeni și condiţii
           are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
           refuse: Refuz termenii
           title: Acceptă termenii și condițiile de utilizare
@@ -507,8 +521,13 @@ ro:
           import: Importă
         notice: "%{number} %{resource_name} importate cu succes"
       logs:
+        filters:
+          participatory_space: Găsește spațiul participativ
+          text: Caută după e-mail, nume sau pseudonim.
+          user: Utilizator
         logs_list:
-          no_logs_yet: Nu există încă înregistrări
+          no_logs_yet: Nu există încă înregistrări.
+          no_matching_logs: Nu există înregistrări pentru filtrele de căutare furnizate. Încercați să le schimbați și reîncercați.
       managed_users:
         promotion:
           error: A apărut o problemă la promovarea participantului gestionat.
@@ -832,13 +851,24 @@ ro:
           title: Participant privat nou pentru spațiul participativ.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: A apărut o problemă la citirea fișierului CSV.
+          invalid: A apărut o eroare la citirea fișierului CSV. Vă rugăm să vă asigurați că ați urmat instrucțiunile.
           success: Fișier-ul CSV a fost încărcat cu succes, trimitem un e-mail de invitație participanților. Acest lucru ar putea dura puțin timp.
         new:
-          explanation: 'Încărcă fişierul tău CSV. Trebuie să aibă două coloane cu e-mail în prima coloană a fișierului și numele în ultima coloană (e-mail, numele) pentru utilizatorii pe care doriţi să îi adăugaţi în spaţiul participativ, fără antet. Evită folosirea caracterelor invalide, cum ar fi `<>?%&^*#@()[]=+:;"{}\<unk> ` în numele utilizatorului.'
+          destroy:
+            button: Șterge toți participanții privați
+            confirm: Sunteți sigur că doriți să ștergeți toți participanții privați? Această acțiune nu poate fi anulată, și nu îi veți putea recupera.
+            empty: Nu aveți niciun participant privat.
+            explanation: Aveți %{count} participanți privați.
+            title: Ștergere participanți privați
+          example_file: 'Exemplu de fişier:'
+          explanation_example: |
+            ion.popescu@example.org%{csv_col_sep}Ion Popescu
+            maria.popescu@example.org%{csv_col_sep}Maria Popescu
           title: Încarcă fișierul tău CSV
           upload: Încarcă
       reminders:
+        create:
+          error: A apărut o eroare la crearea de memento-uri.
         new:
           submit: Trimite
       resource_permissions:
@@ -898,6 +928,7 @@ ro:
         gallery:
           add_images: Adaugă imagini
           delete_image: Șterge imaginea
+          edit_images: Editare imagini
           gallery_legend: Adaugă o galerie de imagini (opțional)
       static_page_topics:
         create:
@@ -958,6 +989,7 @@ ro:
         static_pages: Pagini
         statistics: Activitate
         user_groups: Grupuri
+        users: Administratori
       user_group:
         csv_verify:
           invalid: A apărut o problemă la citirea fișierului CSV.
@@ -977,6 +1009,7 @@ ro:
           verify_via_csv: Verifică prin CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Exemplu de fişier:'
           explanation: Încărcă fișierul tău CSV. Acesta trebuie să aibă e-mail-urile oficiale ale grupurilor din organizația ta în prima coloană a fișierului, fără antet. Doar grupurile care și-au confirmat adresa de e-mail și care au un e-mail care apare în fișierul CSV vor fi validate.
           title: Încarcă fișierul tău CSV
           upload: Încarcă
@@ -993,6 +1026,7 @@ ro:
           role: Rol
         new:
           create: Invită
+          title: Invită un administrator nou
       users_statistics:
         users_count:
           admins: Administratori
@@ -1040,6 +1074,7 @@ ro:
         moderation:
           fields:
             created_at: Data creării
+            deleted_resource: Resursă ștersă
             hidden_at: Ascuns la
             participatory_space: Spațiu participativ
             report_count: Număr

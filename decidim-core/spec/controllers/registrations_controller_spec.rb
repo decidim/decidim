@@ -89,7 +89,7 @@ module Decidim
                 "Confirm your password doesn't match Password",
                 "Password is too short",
                 "Password does not have enough unique characters",
-                "Tos agreement must be accepted"
+                "Terms and conditions of use agreement must be accepted"
               ].join(", ")
             )
           end

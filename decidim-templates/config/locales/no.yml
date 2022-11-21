@@ -24,7 +24,6 @@
           success: Malen ble slettet
         empty: Det finnes ingen maler enda.
         update:
-          error: Det oppstod et problem under oppdatering av denne malen.
           success: Mal oppdatert
       titles:
         template_types:

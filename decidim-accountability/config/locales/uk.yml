@@ -138,7 +138,6 @@ uk:
             other: "%{count} підсумків"
         filters:
           all: Усі
-          scopes: Обсяги
         home:
           categories_label: Категорії
           subcategories_label: Підкатегорії

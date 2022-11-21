@@ -24,7 +24,6 @@ pt-BR:
           success: Modelo excluído com sucesso
         empty: Ainda não existem modelos.
         update:
-          error: Ocorreu um erro ao atualizar este modelo.
           success: Modelo atualizado com sucesso
       titles:
         template_types:

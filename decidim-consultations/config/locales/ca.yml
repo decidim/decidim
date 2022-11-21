@@ -265,8 +265,8 @@ ca:
       index:
         title: Consultes
       last_activity:
-        new_consultation: Nova consulta
-        new_question_at_html: "<span>Nova pregunta a %{link}</span>"
+        new_consultation: 'Nova consulta:'
+        new_question: 'Nova pregunta:'
       pages:
         home:
           highlighted_consultations:
