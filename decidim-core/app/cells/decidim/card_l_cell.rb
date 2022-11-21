@@ -34,6 +34,16 @@ module Decidim
       ""
     end
 
+    def html_options
+      @html_options ||= (options[:html_options] || {}).deep_merge(turbo_frame_options)
+    end
+
+    def turbo_frame_options
+      return {} if options[:turbo_frame].blank?
+
+      { data: { turbo_frame: options[:turbo_frame], turbo_action: "replace" } }
+    end
+
     def presented_resource
       present(resource)
     end

@@ -21,5 +21,9 @@ edit_link(
   <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
 <% end %>
 
-<%# REDESIGN_PENDING: this content must go inside the drawer, now the displayed result is kinda odd %>
-<%= render partial: "project", locals: { result: result } %>
+<%= turbo_frame_tag "main_frame",  src: preview_results_path %>
+
+<%= turbo_frame_tag "project_frame" do %>
+  <%= render partial: "project", locals: { result: result } %>
+  <%= turbo_stream_action_tag :open_drawer, frame_id: :project_frame %>
+<% end %>

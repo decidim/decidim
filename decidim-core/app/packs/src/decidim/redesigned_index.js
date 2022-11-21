@@ -8,7 +8,6 @@ import "regenerator-runtime/runtime";
 import "jquery"
 import "quill"
 import Rails from "@rails/ujs"
-import "@hotwired/turbo-rails"
 
 // external deps that require initialization
 import svg4everybody from "svg4everybody"
@@ -16,6 +15,8 @@ import morphdom from "morphdom"
 import Accordions from "a11y-accordion-component";
 import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
+import { StreamActions } from "@hotwired/turbo"
+import { Turbo } from "@hotwired/turbo-rails"
 
 // vendor customizated scripts (bad practice: these ones should be removed eventually)
 import "./vendor/foundation-datepicker"
@@ -78,6 +79,7 @@ import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
 import RemoteModal from "./ajax_modals"
+import setHeadingTag from "./redesigned_heading_tag"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -196,6 +198,19 @@ const initializer = () => {
   markAsReadNotifications()
 
   scrollToLastChild()
+
+  document.
+    querySelectorAll("[data-drawer]").
+    forEach(({ dataset: { drawer } }) =>
+      new Dialogs(`[data-drawer="${drawer}"]`, {
+        closingSelector: `[data-drawer-close="${drawer}"]`,
+        onOpen: (node) => setHeadingTag(node),
+        onClose: (node) => {
+          setHeadingTag(node);
+          Turbo.navigator.history.replace({ href: drawer });
+        }
+      }).open()
+    );
 }
 
 if ("Turbo" in window) {
@@ -206,4 +221,16 @@ if ("Turbo" in window) {
   // mentions stops working
   // document.addEventListener("DOMContentLoaded", () => {
   $(() => initializer());
+}
+
+// eslint-disable-next-line camelcase
+StreamActions.open_drawer = function() {
+  const frameId = this.getAttribute("frame_id");
+  const drawerItem = document.getElementById(frameId);
+  const filteredPath = drawerItem.dataset.filteredPath;
+
+  if (filteredPath) {
+    drawerItem.querySelector("a[data-drawer-close]").setAttribute("href", filteredPath);
+    drawerItem.querySelector("div[data-drawer]").setAttribute("data-drawer", filteredPath);
+  }
 }

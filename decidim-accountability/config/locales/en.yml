@@ -233,6 +233,8 @@ en:
           global_status: Global execution status
         nav_breadcrumb:
           global: Global execution
+        preview:
+          loading: Loading…
         search:
           search: Search for actions
         show:
