@@ -448,7 +448,7 @@ describe "Explore meetings", :slow, type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("ul.tags.tags--meeting")
+        expect(page).to have_no_selector("ul.tags.tag-container")
       end
     end
 
@@ -461,14 +461,14 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tags--meeting")
-        within "ul.tags.tags--meeting" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end
 
       it "links to the filter for this category" do
-        within "ul.tags.tags--meeting" do
+        within "ul.tags.tag-container" do
           click_link translated(meeting.category.name)
         end
 
@@ -485,14 +485,14 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tags--meeting")
-        within "ul.tags.tags--meeting" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(meeting.scope.name))
         end
       end
 
       it "links to the filter for this scope" do
-        within "ul.tags.tags--meeting" do
+        within "ul.tags.tag-container" do
           click_link translated(meeting.scope.name)
         end
 

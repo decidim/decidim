@@ -16,6 +16,8 @@ module Decidim::Meetings
     context "when rendering" do
       let(:show_space) { false }
 
+      it_behaves_like "m-cell", :meeting
+
       it "renders the card" do
         expect(cell_html).to have_css(".card--meeting")
       end
@@ -55,7 +57,7 @@ module Decidim::Meetings
       end
 
       it "escapes them correctly" do
-        expect(the_cell.title).not_to eq("#{@original_title} &amp;&#39;&lt;")
+        expect(the_cell.title).to eq("#{@original_title} &amp;&#39;&lt;")
         # as the `cell` test helper wraps content in a Capybara artifact that already converts html entities
         # we should compare with the expected visual result, as we were checking the DOM instead of the html
         expect(cell_html).to have_content("#{@original_title} &'<")

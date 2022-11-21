@@ -281,8 +281,8 @@ cs:
       index:
         title: Konzultace
       last_activity:
-        new_consultation: Nová konzultace
-        new_question_at_html: "<span>Nová otázka na %{link}</span>"
+        new_consultation: 'Nová konzultace:'
+        new_question: 'Nová otázka:'
       pages:
         home:
           highlighted_consultations:
@@ -329,7 +329,7 @@ cs:
       show:
         badge_name:
           finished: Dokončeno
-          open: otevřeno
+          open: Otevřeno
           open_votes: Hlasování zahájeno
           published_results: Publikované výsledky
         footer_button_text:

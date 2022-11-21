@@ -5,7 +5,7 @@ module Decidim
   class PagesController < Decidim::ApplicationController
     layout "layouts/decidim/application"
 
-    helper_method :page, :pages
+    helper_method :page, :pages, :page_content_blocks
     helper CtaButtonHelper
     helper Decidim::SanitizeHelper
 
@@ -28,6 +28,13 @@ module Decidim
 
     def set_default_request_format
       request.format = :html
+    end
+
+    def page_content_blocks
+      @page_content_blocks ||= Decidim::ContentBlock.published
+                                                    .for_scope(:static_page, organization: current_organization)
+                                                    .where(scoped_resource_id: @page.id)
+                                                    .reject { |content_block| content_block.manifest.nil? }
     end
   end
 end

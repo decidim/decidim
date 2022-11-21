@@ -1,5 +1,8 @@
 cs:
   activemodel:
+    attributes:
+      post:
+        published_at: Čas zveřejnění
     models:
       decidim/blogs/create_post_event: Nový blogový příspěvek
   activerecord:
@@ -34,6 +37,7 @@ cs:
             save: Aktualizovat
             title: Upravit příspěvek
           index:
+            not_published_yet: Zatím nezveřejněno
             title: Příspěvky
           new:
             create: Vytvořit
@@ -47,24 +51,19 @@ cs:
           delete: "%{user_name} odstranil příspěvek %{resource_name} z %{space_name}"
           update: "%{user_name} aktualizoval příspěvek %{resource_name} v %{space_name}"
       last_activity:
-        new_post_at_html: "<span>Nový příspěvek v %{link}</span>"
+        new_post: 'Nový příspěvek:'
       models:
         post:
           fields:
             author: Autor
             body: Tělo
-            created_at: Vytvořeno v
             official_blog_post: Oficiální příspěvek
+            published_at: Čas zveřejnění
             title: titulek
       posts:
         show:
-          back: Zpět na seznam
           comments: Komentáře
           view: Zobrazit
-        sidebar_blog:
-          comments: komentáře
-          most_commented_posts: Nejvíce komentované příspěvky
-      read_more: Přečtěte si více
     components:
       blogs:
         actions:

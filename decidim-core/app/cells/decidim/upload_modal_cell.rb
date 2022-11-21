@@ -3,8 +3,10 @@
 module Decidim
   # This cell creates the necessary elements for dynamic uploads.
   class UploadModalCell < Decidim::ViewModel
+    include LayoutHelper
     include Cell::ViewModel::Partial
     include ERB::Util
+    include Decidim::RedesignHelper
 
     alias form model
 
@@ -16,6 +18,15 @@ module Decidim
 
     private
 
+    # REDESIGN_PENDING: Remove once redesign is done. This cell is called from
+    # a form builder method and from there the context of controller is not
+    # available
+    def redesign_enabled?
+      return super if context.present? && context[:controller].present?
+
+      options[:redesigned]
+    end
+
     def button_id
       prefix = form.object_name.present? ? "#{form.object_name}_" : ""
 
@@ -23,9 +34,13 @@ module Decidim
     end
 
     def button_class
-      "button small hollow add-field add-file" if has_title?
+      if redesign_enabled?
+        options[:button_class] || ""
+      else
+        "button small hollow add-field add-file" if has_title?
 
-      "button small add-file"
+        "button small add-file"
+      end
     end
 
     def label
@@ -106,12 +121,6 @@ module Decidim
       "with-title" if has_title?
     end
 
-    def attachment_label
-      return I18n.t("current_image", scope: "decidim.forms") if attachments.count.positive? && file_attachment_path(attachments.first).present?
-
-      I18n.t("default_image", scope: "decidim.forms")
-    end
-
     def help_messages
       Array(options[:help])
     end
@@ -155,6 +164,7 @@ module Decidim
     def determine_filename(attachment)
       return attachment.filename.to_s if attachment.is_a? ActiveStorage::Blob
       return blob(attachment).filename.to_s if blob(attachment).present?
+      return attachment.original_filename.to_s.presence || attachhment.path.split("/").last if attachment.is_a? ActionDispatch::Http::UploadedFile
 
       attachment.url.split("/").last
     end
@@ -164,7 +174,7 @@ module Decidim
       return Rails.application.routes.url_helpers.rails_blob_url(attachment, only_path: true) if attachment.is_a? ActiveStorage::Blob
 
       if attachment.try(:attached?)
-        attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(attachment.blob, only_path: true)
+        attachment_path = Rails.application.routes.url_helpers&.rails_blob_url(blob(attachment), only_path: true)
         return attachment_path if attachment_path.present?
       end
 

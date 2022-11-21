@@ -30,8 +30,10 @@ module Decidim
         organization1.static_pages.each do |page|
           expect(page.title["en"]).not_to be_nil
           expect(page.title["ca"]).not_to be_nil
-          expect(page.content["en"]).not_to be_nil
-          expect(page.content["ca"]).not_to be_nil
+          unless page.slug == "terms-and-conditions"
+            expect(page.content["en"]).not_to be_nil
+            expect(page.content["ca"]).not_to be_nil
+          end
         end
       end
 
@@ -43,6 +45,12 @@ module Decidim
             slug: "terms-and-conditions"
           ).allow_public_access
         ).to be(true)
+      end
+
+      it "creates the terms-and-conditions summary content block" do
+        expect do
+          described_class.new(organization1).call
+        end.to change { Decidim::ContentBlock.where(organization: organization1, scope_name: :static_page).where.not(published_at: nil).count }.by 1
       end
     end
   end

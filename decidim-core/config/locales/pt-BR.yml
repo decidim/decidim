@@ -517,7 +517,6 @@ pt-BR:
     errors:
       internal_server_error:
         title: Houve um problema com o nosso servidor
-        try_later: Por favor, tente novamente mais tarde.
       not_found:
         back_home: Voltar ao início
         content_doesnt_exist: Este endereço está incorreto ou foi excluído.
@@ -739,18 +738,6 @@ pt-BR:
           how: Como você pode ganhar
           page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
           title: Distintivos
-        invitations:
-          conditions:
-            - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
-            - Personalize, se quiser, a mensagem que você está enviando
-            - Você vai subir de nível enviando convites e recebendo-os registrados.
-          description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
-          description_another: Este usuário convidou %{score} usuários.
-          description_own: Você convidou %{score} usuários.
-          name: Convites
-          next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não convidou nenhum usuário.
-          unearned_own: Você não convidou nenhum usuário ainda.
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
@@ -936,8 +923,6 @@ pt-BR:
           modal_title: Nova conversa
           no_results: Nenhum resultado
           participant_with_disabled_message_reception: Este usuário desativou o recebimento de mensagens
-        conversation:
-          show: Mostrar conversa com %{sender}
         create:
           error: Conversa não iniciada. Tente mais tarde
         error_modal:
@@ -947,18 +932,10 @@ pt-BR:
           ok: OK
         index:
           ago: atrás
-          close: Fechar modal
-          from: De
-          groups: Meus grupos
-          last_message: Última mensagem
           new_conversation: Nova conversa
           next: Próxima
           no_conversations: Ainda não há conversas
           title: Conversas
-        reply:
-          placeholder: Sua resposta...
-          send: Mandar
-          title: Resposta
         show:
           back: Voltar para todas as conversas
           chat_with: Conversa com
@@ -966,7 +943,6 @@ pt-BR:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-          title: Comece uma conversa
         update:
           error: A mensagem não foi enviada devido a um erro
     metrics:
@@ -1081,7 +1057,6 @@ pt-BR:
         sub_hero:
           register: Registrar-se
       index:
-        read_more: Ler Mais
         standalone_pages: Páginas
         subheading: Navegue pelas páginas de ajuda de %{name}
         title: Ajuda
@@ -1126,7 +1101,6 @@ pt-BR:
         members: Membros
         officialized: Participante oficial
         send_private_message: Enviar mensagem privada
-        timeline: Timeline
         view_full_profile: Ver o perfil completo
       sidebar:
         badges:
@@ -1478,15 +1452,6 @@ pt-BR:
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
-      edit:
-        are_you_sure: Você tem certeza?
-        cancel_my_account: Cancelar minha conta
-        currently_waiting_confirmation_for_email: 'Atualmente aguardando confirmação para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se você não quiser mudá-lo
-        title: Editar %{resource}
-        unhappy: Infeliz?
-        update: Atualizar
-        we_need_your_current_password_to_confirm_your_changes: Precisamos da sua senha atual para confirmar suas alterações
       new:
         sign_up: inscrever-se
       signed_up: Bem vinda! Você se inscreveu com sucesso.
@@ -1541,7 +1506,6 @@ pt-BR:
         other: 'Houve erros múltiplos ao processar sua solicitação:'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
-      too_short: é muito curto (menos de 15 caracteres)
   forms:
     correct_errors: Há erros no formulário, por favor corrija-os para continuar.
     length_validator:
@@ -1611,7 +1575,7 @@ pt-BR:
         see_more: Ver mais
   locale:
     name: Português
-    name_with_error: Inglês (erro!)
+    name_with_error: Português (erro!)
   password_validator:
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email
@@ -1675,14 +1639,8 @@ pt-BR:
       option_unified: Unificado
   views:
     pagination:
-      first: "&laquo; Primeiro"
-      first_title: Link para a primeira página
-      last: Última &raquo;
-      last_title: Link para a última página
-      next: Próximo &rsaquo;
       next_title: Link para a próxima página
       pagination: Paginação
-      previous: "&lsaquo; Anterior"
       previous_title: Link para a página anterior
       title: 'Número da página: '
       truncate: "&hellip;"

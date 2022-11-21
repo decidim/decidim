@@ -335,8 +335,6 @@ pt-BR:
         working_group: Grupo de trabalho
       index:
         title: Assembleias
-      last_activity:
-        new_assembly: Nova assembleia
       pages:
         home:
           highlighted_assemblies:

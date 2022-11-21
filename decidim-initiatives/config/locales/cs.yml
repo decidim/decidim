@@ -2,6 +2,7 @@ cs:
   activemodel:
     attributes:
       initiative:
+        area_id: Oblast
         decidim_user_group_id: Autor
         description: Popis
         offline_votes: Osobní fyzické podpisy
@@ -12,18 +13,20 @@ cs:
         signature_type: Typ sbírky podpisu
         signature_type_values:
           any: Online nebo naživo
-          offline: Z očí do očí
+          offline: Osobně
           online: OnLine
         state: Stav
         title: Titul
       initiatives_committee_member:
         user: Člen výboru
+      initiatives_settings:
+        initiatives_order: Pořadí
       initiatives_type:
         area_enabled: Povolit autorům vybrat tematickou oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
         banner_image: Obrázek banneru
         child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
-        collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
+        collect_user_extra_fields: Shromažďovat osobní údaje účastníků při podpisu
         comments_enabled: Povolit komentáře
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
@@ -33,6 +36,7 @@ cs:
         online_signature_enabled: Online podpis povolen
         only_global_scope_enabled: Umožnit pouze vytvoření iniciativ globálního rozsahu
         promoting_committee_enabled: Povolit podporu výboru
+        signature_type: Typ podpisu
         title: Titul
         undo_online_signatures_enabled: Povolit účastníkům vrátit zpět své online podpisy
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
@@ -56,9 +60,9 @@ cs:
   activerecord:
     models:
       decidim/initiative:
-        one: Initativní
+        one: Iniciativa
         few: Iniciativy
-        many: Iniciativy
+        many: Iniciativ
         other: Iniciativy
       decidim/initiative_comittee:
         one: Výbor
@@ -335,7 +339,7 @@ cs:
           all: Vše
           answered: Odpovězeno
           closed: Uzavřeno
-          open: otevřeno
+          open: Otevřeno
           rejected: Nedostatek podpisů
         filter_type_values:
           all: Vše
@@ -351,7 +355,7 @@ cs:
           success: Vaše žádost byla zaslána autorovi iniciativy.
       content_blocks:
         highlighted_initiatives:
-          name: Zdůrazněné iniciativy
+          name: Zvýrazněné iniciativy
       create_initiative:
         fill_data:
           back: Zpět
@@ -388,6 +392,7 @@ cs:
           more_information: "(Více informací)"
           select: Chci tuto iniciativu podpořit
           select_initiative_type_help: Iniciativy jsou prostředkem, kterým účastníci mohou zasáhnout, aby organizace mohla podniknout kroky na obranu obecného zájmu. Jakou iniciativu chcete spustit?
+          verification_required: Ověřte svůj účet pro podporu této iniciativy
         share_committee_link:
           continue: Pokračovat
           invite_to_committee_help: Odkaz na pozvání lidí, kteří budou součástí podporovaného výboru
@@ -503,11 +508,6 @@ cs:
           unfold: Rozvinout
         index_header:
           new_initiative: Nová iniciativa
-          not_authorized:
-            authorizations_page: Zobrazit autorizace
-            close: Zavřít
-            explanation: Musíte být ověřen, abyste mohli vytvořit novou iniciativu.
-            title: Vyžadována autorizace
         initiatives:
           closed_initiatives_warning: V současné době neexistují žádné otevřené iniciativy, ale zde najdete všechny uzavřené iniciativy uvedené v seznamu.
           no_initiatives_warning: Žádná iniciativa neodpovídá vašim kritériím vyhledávání.
@@ -571,10 +571,10 @@ cs:
           votes_blocked: Podpis zakázán
         votes_count:
           count:
-            one: PODPIS
-            few: PODPISY
-            many: PODPISY
-            other: PODPISY
+            one: Podpis
+            few: Podpisy
+            many: Podpisů
+            other: Podpisů
           most_popular_initiative: Nejoblíbenější iniciativa
           need_more_votes: Potřebujete další podpisy
       initiatives_mailer:
@@ -589,7 +589,13 @@ cs:
         status_change_body_for: 'Iniciativa %{title} změnila svůj stav na: %{state}'
         status_change_for: Iniciativa %{title} změnila svůj stav
       last_activity:
-        new_initiative: Nová iniciativa
+        new_initiative: 'Nová iniciativa:'
+      modal:
+        not_authorized:
+          authorizations_page: Zobrazit autorizace
+          close: Zavřít
+          explanation: Musíte být ověřen, abyste mohli vytvořit novou iniciativu.
+          title: Vyžadována autorizace
       pages:
         home:
           highlighted_initiatives:
@@ -623,6 +629,7 @@ cs:
           comment: Komentář
       initiatives_type:
         actions:
+          create: Vytvořit
           title: Akce
           vote: Podepsat
   layouts:

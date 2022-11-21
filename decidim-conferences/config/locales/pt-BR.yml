@@ -377,7 +377,7 @@ pt-BR:
         invite_join_conference_mailer:
           invite:
             decline: Recusar convite '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} convidou você para participar de uma conferência em %{application}. Você pode recusar ou aceitá-lo através dos links abaixo."
+            invited_existing_user_to_join_a_conference: "%{invited_by} convidou você para participar de uma conferência em %{application}. Você pode recusar ou aceitá-lo através dos links abaixo."
             registration: Registro para '%{conference_title}'
         partners:
           index:

@@ -64,7 +64,7 @@ cs:
             invalid: Při ukládání průzkumu došlo k chybám.
             success: Průzkum byl úspěšně uložen.
       last_activity:
-        new_survey_at_html: "<span>Nový průzkum na %{link}</span>"
+        new_survey: 'Nový průzkum:'
       surveys:
         answer:
           invalid: Při odpovědi na průzkum došlo k chybám.
