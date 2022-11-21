@@ -75,7 +75,7 @@ export default class CheckBoxesTree {
     // Quis custodiet ipsos custodes?
     const targetChecks = target.dataset.checkboxesTree;
     const checkStatus = target.checked;
-    const allChecks = document.querySelectorAll(`#${targetChecks} input[type='checkbox']`);
+    const allChecks = document.querySelectorAll(`[id*="${targetChecks}"] input[type='checkbox']`);
 
     allChecks.forEach((input) => {
       input.checked = checkStatus;
