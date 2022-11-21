@@ -33,12 +33,14 @@ ja:
         registration_type: 登録種別
         registration_url: 登録URL
         registrations_enabled: 登録が有効
+        reserved_slots: この会議の予約済みスロット
         start_time: 開始日時
         title: タイトル
         transparent: 透明度
         type_of_meeting: 種別
       meeting_agenda:
         title: タイトル
+        visible: 表示
       meeting_agenda_items:
         description: 説明
         duration: 持続期間
