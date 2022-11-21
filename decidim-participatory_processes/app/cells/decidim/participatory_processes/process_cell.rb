@@ -18,6 +18,8 @@ module Decidim
           "decidim/participatory_processes/process_s"
         when :m
           "decidim/participatory_processes/process_m"
+        when :l
+          "decidim/participatory_processes/process_l"
         else
           "decidim/participatory_processes/process_g"
         end
