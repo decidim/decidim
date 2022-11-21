@@ -6,15 +6,30 @@ ja:
         image: 画像
         proposals: 関連する提案
         title: タイトル
+      ballot_style:
+        code: コード
       election:
         description: 説明
         end_time: 投票が終了します：
         start_time: 投票開始
         title: タイトル
+      monitoring_committee_member:
+        email: Eメールアドレス
+        name: 名前
+      polling_officer:
+        email: Eメールアドレス
+        name: 名前
+      polling_station:
+        address: 住所
+        location: 場所
+        location_hints: 位置情報のヒント
+        title: タイトル
       question:
         max_selections: 選択範囲の最大数
         min_selections: 上記のどれでもない
         title: タイトル
+      trustees_participatory_space:
+        user_id: 参加者
       voting:
         banner_image: バナー画像
         census_contact_information: センサスの連絡先情報
