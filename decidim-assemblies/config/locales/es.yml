@@ -3,6 +3,8 @@ es:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar organigrama
+      assemblies_type:
+        title: Título
       assembly:
         area_id: Área
         assembly_type: Tipo de asamblea
