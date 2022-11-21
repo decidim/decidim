@@ -39,7 +39,7 @@ module Decidim
     end
 
     def default_form_type_for_collection(collection)
-      return "check_boxes" if collection.is_a?(Array)
+      return "radio_buttons" if collection.is_a?(Array)
       return "check_boxes_tree" if collection.is_a?(Decidim::CheckBoxesTreeHelper::TreeNode)
     end
   end
