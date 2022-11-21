@@ -67,7 +67,7 @@ ja:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: '無効なドキュメントタイプです。使用できるフォーマット: %{types}'
+              allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみが許可されています: %{types}'
     models:
       decidim/participatory_process_step_activated_event: フェーズ有効化
       decidim/participatory_process_step_changed_event: フェーズ変更
@@ -92,6 +92,7 @@ ja:
           all_processes: すべての参加型プロセスを表示
           process_groups: 参加型プロセス グループ
         import_process: インポート
+        moderate: モデレート
         new_process: 新規参加型プロセス
         new_process_group: 新規参加型プロセスグループ
         new_process_step: 新しいフェーズ

@@ -24,7 +24,6 @@ pt:
           success: Modelo eliminado com êxito
         empty: Ainda não há modelos.
         update:
-          error: Houve um problema ao actualizar este modelo.
           success: Modelo actualizado com êxito
       titles:
         template_types:

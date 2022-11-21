@@ -172,7 +172,6 @@ is-IS:
     errors:
       internal_server_error:
         title: Vandamál kom upp við netþjóninn okkar
-        try_later: Vinsamlegast reyndu aftur síðar.
       not_found:
         back_home: Heima
         content_doesnt_exist: Þetta netfang er rangt eða hefur verið fjarlægt.
@@ -264,7 +263,6 @@ is-IS:
           no_conversations: Þú hefur enga samtöl ennþá
         start:
           send: Senda
-          title: Byrjaðu samtal
     newsletter_mailer:
       newsletter:
         note: Þú fékkst þennan tölvupóst vegna þess að þú ert áskrifandi að fréttabréfinu á %{organization_name}. Þú getur breytt stillingum þínum á <a href="%{link}">tilkynningarsíðunni þinni</a>.
@@ -438,8 +436,4 @@ is-IS:
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; fyrst"
-      last: Síðasta &raquo;
-      next: Næsta &rsaquo;
-      previous: "&lsaquo; Prev"
       truncate: "&hellip;"

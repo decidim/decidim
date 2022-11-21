@@ -83,8 +83,11 @@ eu:
             title: Editatu proiektua
             update: Eguneratu
           index:
+            change_selected: Aldatu hautatutako eremua
+            deselect_implementation: Gauzatzekoetatik kendu
             finished_orders: Bukatutako botoak
             pending_orders: Zain dauden botoei
+            select_for_implementation: Gauzatzeko hautatua
             selected: Hautatua
             title: Proiektuak
           new:
@@ -93,6 +96,14 @@ eu:
           update:
             invalid: Arazo bat izan da proiektu hau eguneratzean
             success: Proiektua zuzen eguneratu da
+          update_selected:
+            invalid:
+              selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
+              unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
+            select_a_selection: Hautatu gauzatzearen egoera
+            success:
+              selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
+              unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
         proposals_imports:
           create:
             invalid: Arazo bat izan da proiektuen proposamenak inportatzea

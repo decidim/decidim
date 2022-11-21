@@ -73,7 +73,7 @@ ca:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Tipus de document no vàlid. Els formats acceptats són: %{types}'
+              allowed_file_content_types: 'Tipus de document no vàlid. Només s''accepten arxius amb les següents extensions: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -356,7 +356,7 @@ ca:
       index:
         title: Assemblees
       last_activity:
-        new_assembly: Nova assemblea
+        new_assembly: 'Nova assemblea:'
       pages:
         home:
           highlighted_assemblies:

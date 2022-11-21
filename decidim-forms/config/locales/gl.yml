@@ -60,8 +60,6 @@ gl:
       errors:
         answer:
           body: O corpo non pode estar en branco
-      files:
-        extension_allowlist: 'Formatos aceptados:'
       images:
         processors:
           resize_and_pad: A imaxe axustarase para se encadrar a %{dimensions}.

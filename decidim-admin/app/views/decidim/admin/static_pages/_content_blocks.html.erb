@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t ".title" %></h2>
+  </div>
+
+  <div class="card-section">
+    <div class="grid-container full">
+      <div class="grid-x grid-margin-x card-grid">
+        <div class="cell small-6">
+          <div class="card">
+            <div class="card-section">
+              <p class="mb-m"><%= t(".active_content_blocks") %></p>
+              <ul class="draggable-list js-connect js-list-actives" data-sort-url="<%= decidim_admin.update_content_blocks_static_page_path(@page.id) %>">
+                <% active_blocks.each do |content_block| %>
+                  <%= cell "decidim/admin/static_page_content_block", content_block %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="cell small-6">
+          <div class="card">
+            <div class="card-section">
+              <p class="mb-m"><%= t(".inactive_content_blocks") %></p>
+              <ul class="draggable-list js-connect js-list-availables">
+                <% inactive_blocks.each do |content_block_or_manifest| %>
+                  <%= cell "decidim/admin/static_page_content_block", content_block_or_manifest, scoped_resource_id: @page.id %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("dragend", function (event) {
+    var activeBlocks = Array.prototype.slice.call(document.querySelectorAll(".js-list-actives li"));
+    var activeBlocksManifestName = activeBlocks.map(block => block.dataset.contentBlockManifestName);
+    var sortUrl = document.querySelector(".js-list-actives").dataset.sortUrl;
+
+    $.ajax({
+      method: "PUT",
+      url: sortUrl,
+      contentType: "application/json",
+      data: JSON.stringify({ manifests: activeBlocksManifestName })
+    });
+  })
+</script>

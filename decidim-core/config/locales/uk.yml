@@ -269,7 +269,6 @@ uk:
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
-        try_later: Будь ласка, спробуйте ще раз пізніше.
       not_found:
         back_home: Повернутися на головну
         content_doesnt_exist: Ця адреса невірна або була видалена.
@@ -377,13 +376,9 @@ uk:
         create:
           error: Бесіда не розпочата. Спробуйте ще раз пізніше
         index:
-          close: Закрити віконце
           no_conversations: У вас ще немає бесід
-        reply:
-          title: Відповісти
         start:
           send: Надіслати
-          title: Почати бесіду
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
@@ -664,8 +659,4 @@ uk:
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; Перша"
-      last: Остання &raquo;
-      next: Далі &rsaquo;
-      previous: "Попередня &lsaquo;"
       truncate: "&hellip;"

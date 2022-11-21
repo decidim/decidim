@@ -184,7 +184,6 @@ de:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Fehler aufgetreten.
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
-          accept: Ich stimme den folgenden Bedingungen zu
           are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
           refuse: Die Admin-Nutzungsbedingungen ablehnen
           title: Den Admin-Nutzungsbedingungen zustimmen
@@ -508,9 +507,6 @@ de:
           file_legend: Datei zum Importieren hinzufügen.
           import: Importieren
         notice: "%{number}%{resource_name} erfolgreich importiert"
-      logs:
-        logs_list:
-          no_logs_yet: Es gibt noch keine Protokolle
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
@@ -834,7 +830,7 @@ de:
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
+          invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
           success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
           destroy:
@@ -843,12 +839,15 @@ de:
             empty: Sie haben keine private Teilnehmende.
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
-          explanation: 'Laden Sie Ihre CSV-Datei hoch. Diese muss zwei Spalten haben ohne Kopfzeile, mit E-Mail in der ersten Spalte der Datei und Namen in der letzten Spalte der Datei (E-Mail, Name) in Bezug auf die Benutzer, die Sie dem Beteiligungsbereich hinzufügen möchten. Vermeiden sie ungültige Zeichen wie `<>?%&^*#@()[]=+:;"{}\|` im Namen des Nutzers zu verwenden.'
+          example_file: 'Beispieldatei:'
           title: CSV-Datei hochladen
           upload: Hochladen
       reminders:
         create:
           error: Beim Erstellen dieser Erinnerungen ist ein Problem aufgetreten.
+          success:
+            one: "%{count} Benutzer wird erinnert."
+            other: "%{count} Benutzer werden erinnert."
         new:
           submit: Senden
       resource_permissions:
