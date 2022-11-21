@@ -2,7 +2,9 @@ ca:
   activemodel:
     attributes:
       post:
+        decidim_author_id: Autoria
         published_at: Hora de publicació
+        title: Títol
     models:
       decidim/blogs/create_post_event: Nova publicació al blog
   activerecord:
@@ -57,6 +59,7 @@ ca:
             body: Cos
             official_blog_post: Post oficial
             published_at: Hora de publicació
+            title: Títol
       posts:
         show:
           comments: Comentaris
