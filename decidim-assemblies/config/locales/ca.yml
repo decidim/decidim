@@ -3,6 +3,8 @@ ca:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar organigrama
+      assemblies_type:
+        title: Títol
       assembly:
         area_id: Àrea
         assembly_type: Tipus d'assemblea
