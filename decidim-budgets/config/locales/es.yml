@@ -47,6 +47,7 @@ es:
         import: Importar propuestas a proyectos
         new: Nuevo %{name}
         preview: Previsualizar
+        send_voting_reminders: Enviar recordatorios de votación
         title: Acciones
       admin:
         budgets:
