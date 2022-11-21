@@ -18,7 +18,9 @@ ja:
         decidim_scope_id: スコープ
         decidim_user_group_id: ユーザーグループ
         description: 説明
+        end_time: 終了時間
         id: ID
+        iframe_embed_type: Iframe 埋め込みタイプ
         location: 場所
         location_hints: 位置情報のヒント
         online_meeting_url: オンラインミーティングURL
@@ -28,13 +30,24 @@ ja:
         registration_email_custom_content: 登録メールのカスタムコンテンツ
         registration_form_enabled: 登録フォームが有効
         registration_terms: 登録条件
+        registration_type: 登録種別
         registration_url: 登録URL
         registrations_enabled: 登録が有効
+        start_time: 開始日時
         title: タイトル
         transparent: 透明度
         type_of_meeting: 種別
+      meeting_agenda:
+        title: タイトル
       meeting_agenda_items:
+        description: 説明
         duration: 持続期間
+        title: タイトル
+      meeting_registration_invite:
+        email: Eメールアドレス
+        name: 名前
+      validate_registration_code:
+        code: コード
     errors:
       models:
         meeting:
