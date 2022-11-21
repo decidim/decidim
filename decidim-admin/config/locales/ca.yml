@@ -14,17 +14,24 @@ ca:
         description: Descripció
         file: Arxiu
         title: Nom de l'adjunt o imatge
+        weight: Ordre de posició
       attachment_collection:
         description: Descripció
         name: Nom
+        weight: Ordre de posició
       category:
         description: Descripció
         name: Nom
         parent_id: Pare
+        weight: Ordre de posició
       component:
         name: Nom
         published_at: Publicat el
         weight: Ordre de posició
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contingut
       id: ID
       import:
         user_group_id: Importar com
@@ -92,6 +99,9 @@ ca:
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
         youtube_handler: Nom d'usuària de YouTube
+      participatory_space_private_user:
+        email: Correu electrònic
+        name: Nom
       scope:
         code: Codi
         name: Nom
@@ -113,6 +123,7 @@ ca:
         show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
+        topic_id: Assumpte
         weight: Ordre de posició
       static_page_topic:
         description: Descripció
@@ -930,6 +941,9 @@ ca:
           delete_image: Esborrar la imatge
           edit_images: Editar imatges
           gallery_legend: Afegir una galeria d'imatges (opcional)
+      static_page_content_blocks:
+        edit:
+          update: Actualitzar
       static_page_topics:
         create:
           error: S'ha produït un error en crear un tema nou.
@@ -948,6 +962,10 @@ ca:
       static_pages:
         actions:
           view: Visualitzar la pàgina pública
+        content_blocks:
+          active_content_blocks: Blocs de contingut actius
+          inactive_content_blocks: Blocs de contingut inactius
+          title: Contingut de la pàgina
         create:
           error: S'ha produït un error en crear una nova pàgina.
           success: La pàgina s'ha creat correctament.
