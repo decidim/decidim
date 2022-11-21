@@ -60,7 +60,7 @@
             </td>
 
             <td class="actions">
-              <% if allowed_to?(:unreport, :moderate_users) %>
+              <% if !moderation.user.blocked? && allowed_to?(:unreport, :moderate_users) %>
                 <%= icon_link_to "action-undo", ignore_moderated_user_path(id: moderation), t(".actions.unreport"), class: "action-icon--unreport", method: :put %>
               <% end %>
               <% if allowed_to?(:block, :moderate_users) %>
