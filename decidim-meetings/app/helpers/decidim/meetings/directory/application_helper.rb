@@ -18,7 +18,9 @@ module Decidim
 
         def filter_type_values
           type_values = Decidim::Meetings::Meeting::TYPE_OF_MEETING.map { |type| [type, filter_text_for(type, t(type, scope: "decidim.meetings.meetings.filters.type_values"))] }
-          type_values.prepend(["all", filter_text_for("all", t("decidim.meetings.meetings.filters.type_values.all"))])
+          type_values.prepend(["", filter_text_for("all", t("decidim.meetings.meetings.filters.type_values.all"))])
+
+          filter_tree_from_array(type_values)
         end
 
         def filter_date_values
@@ -57,9 +59,13 @@ module Decidim
         def directory_meeting_spaces_values
           participatory_spaces = current_organization.public_participatory_spaces
 
-          spaces = participatory_spaces.collect(&:model_name).uniq.map { |participatory_space| [participatory_space.name.underscore, filter_text_for(participatory_space.name, participatory_space.human(count: 2))] }
+          spaces = participatory_spaces.collect(&:model_name).uniq.map do |participatory_space|
+            [participatory_space.name.underscore, filter_text_for(participatory_space.name, participatory_space.human(count: 2))]
+          end
 
-          spaces.prepend(["all", filter_text_for("all", t("decidim.meetings.application_helper.filter_meeting_space_values.all"))])
+          spaces.prepend(["", filter_text_for("all", t("decidim.meetings.application_helper.filter_meeting_space_values.all"))])
+
+          filter_tree_from_array(spaces)
         end
 
         def directory_filter_categories_values
@@ -91,9 +97,12 @@ module Decidim
         end
 
         def directory_filter_origin_values
-          origin_values = ["all", "official", "participants"]
+          origin_values = %w(official participants)
           origin_values << "user_groups" if current_organization.user_groups_enabled?
           origin_values.map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters.origin_values"))] }
+          origin_values.prepend(["", filter_text_for("all", t("all", scope: "decidim.meetings.meetings.filters.origin_values"))])
+
+          filter_tree_from_array(origin_values)
         end
 
         # Options to filter meetings by activity.
