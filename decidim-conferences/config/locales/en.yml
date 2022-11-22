@@ -34,6 +34,7 @@ en:
         slug: URL slug
         start_date: Start date
         title: Title
+        weight: Order position
       conference_media_link:
         date: Date
         link: Link
