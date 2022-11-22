@@ -212,7 +212,7 @@ module Decidim::Conferences
             slogan: my_conference.slogan,
             weight: my_conference.weight,
             slug: my_conference.slug,
-            hashtag: my_conference.slug,
+            hashtag: my_conference.hashtag,
             short_description: my_conference.short_description,
             description: my_conference.description,
             objectives: my_conference.objectives,
