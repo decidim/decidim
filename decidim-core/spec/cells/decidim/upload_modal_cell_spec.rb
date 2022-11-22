@@ -12,7 +12,8 @@ describe Decidim::UploadModalCell, type: :cell do
       object_name: "object",
       file_field:,
       abide_error_element: "",
-      error_and_help_text: ""
+      error_and_help_text: "",
+      hidden_field: ""
     )
   end
   let(:object) do
@@ -127,6 +128,33 @@ describe Decidim::UploadModalCell, type: :cell do
 
       it "renders preview" do
         expect(subject).to have_selector("img[alt='#{attribute}']")
+      end
+    end
+
+    context "when there's a title" do
+      let(:titled) { true }
+      let(:attachment) do
+        instance_double(
+          Decidim::Attachment,
+          title: { en: title },
+          id: 123,
+          url: "https://example.org/file.png"
+        )
+      end
+      let(:attachments) { [attachment] }
+      let(:title) { "An image title" }
+
+      it "renders the title" do
+        expect(subject).to have_css(".attachment-details")
+        expect(subject).to have_content("An image title")
+      end
+
+      context "when there's rich content in the title" do
+        let(:title) { "An image <script>alert(\"ALERT\")</script>" }
+
+        it "renders the title" do
+          expect(subject).to have_content("An image alert(\"ALERT\")")
+        end
       end
     end
   end
