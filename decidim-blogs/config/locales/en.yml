@@ -65,7 +65,6 @@ en:
     components:
       blogs:
         actions:
-          amend: Amend
           comment: Comment
           create: Create
           destroy: Delete
