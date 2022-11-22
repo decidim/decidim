@@ -1,5 +1,6 @@
 .comment{
   @apply rounded-lg border-2 border-background p-4 pl-6;
+
   &__header{
     @apply flex items-center gap-x-2 mb-2 -ml-[34px] relative z-10;
   }
@@ -8,7 +9,7 @@
     @apply grid grid-cols-2 items-center mt-2;
   }
 
-  &__reply {
+  &__reply{
     @apply text-secondary mt-2;
   }
 
@@ -44,6 +45,7 @@
 
   .comment__votes{
     @apply justify-self-end;
+
     .comment__votes--up {
       @apply mr-2;
     }
@@ -51,51 +53,67 @@
     .button_to:first-child,
     button:first-child,
     button:nth-child(2),
-    .button_to:nth-child(2) {
+    .button_to:nth-child(2){
+
       svg:first-child {
         @apply block;
       }
-      svg:nth-child(2) {
+
+      svg:nth-child(2){
         @apply hidden;
       }
+
       .is-vote-selected{
+
          svg:first-child {
            @apply hidden;
          }
-         svg:nth-child(2) {
+
+         svg:nth-child(2){
            @apply block;
          }
        }
+
       .is-vote-notselected{
+
         svg:first-child {
           @apply block;
         }
-        svg:nth-child(2) {
+
+        svg:nth-child(2){
           @apply hidden;
         }
       }
     }
 
-    .button_to:nth-child(2) {
+    .button_to:nth-child(2){
+
       svg:first-child {
         @apply block;
       }
-      svg:nth-child(2) {
+
+      svg:nth-child(2){
         @apply hidden;
       }
+
       .is-vote-selected{
-         svg:first-child {
+
+         svg:first-child{
            @apply hidden;
          }
-         svg:nth-child(2) {
+
+         svg:nth-child(2){
            @apply block;
          }
        }
+
       .is-vote-notselected{
+
         svg:first-child {
           @apply block;
         }
-        svg:nth-child(2) {
+
+        svg:nth-child(2){
           @apply hidden;
         }
       }
@@ -119,34 +137,43 @@
   }
 
   &__actions{
+
     .button[aria-expanded="false"]{
+
       svg:first-of-type{
         @apply block;
       }
+
       svg:last-of-type{
         @apply hidden;
       }
+
       span:first-of-type{
         @apply block;
       }
+
       span:last-of-type{
         @apply hidden;
       }
     }
+
     .button[aria-expanded="true"]{
+
       svg:first-of-type{
         @apply hidden;
       }
+
       svg:last-of-type{
         @apply block;
       }
+
       span:first-of-type{
         @apply hidden;
       }
+
       span:last-of-type{
         @apply block;
       }
     }
   }
-
 }
