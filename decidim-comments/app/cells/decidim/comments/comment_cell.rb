@@ -91,15 +91,6 @@ module Decidim
         end
       end
 
-      def comment_classes
-        classes = ["comment"]
-        if nested?
-          classes << "comment--nested"
-          classes << "comment--nested--alt" if nested_level_even?
-        end
-        classes.join(" ")
-      end
-
       def alignment_badge_classes
         classes = %w(label alignment)
         case alignment

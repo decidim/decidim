@@ -6,7 +6,7 @@
           <% if single_comment? %>
             <%= t("decidim.components.comments.comment_details_title") %>
           <% else %>
-          <%= icon "chat-1-line", class: "fill-tertiary w-6 h-6 inline-block align-middle" %>
+            <%= icon "chat-1-line", class: "fill-tertiary w-6 h-6 inline-block align-middle" %>
             <span class="comments-count inline-block align-middle">
               <%= t("decidim.components.comments.title", count: comments_count) %>
             </span>
