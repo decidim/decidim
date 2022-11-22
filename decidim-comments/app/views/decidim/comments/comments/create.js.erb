@@ -14,6 +14,6 @@
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
 
-  Decidim.addInputEmoji();
-  Decidim.Accordions.init();
+  window.Decidim.Accordions.init();
+  window.Decidim.Dropdowns.init();
 }());

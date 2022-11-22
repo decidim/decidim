@@ -185,6 +185,7 @@ export default class CommentsComponent {
       const characterCounter = $text.data("remaining-characters-counter");
       $text.val("");
       if (characterCounter) {
+        characterCounter.handleInput();
         characterCounter.updateStatus();
       }
       if (!$add.parent().is(".comments")) {
