@@ -505,7 +505,7 @@ describe "Initiative", type: :system do
           end
 
           it "shows select input for initiative_type" do
-            expect(page).to have_content("Initiative type")
+            expect(page).to have_content("Type")
             expect(find(:xpath, "//select[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
           end
 
