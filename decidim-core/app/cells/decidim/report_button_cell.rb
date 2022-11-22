@@ -4,6 +4,8 @@ module Decidim
   class ReportButtonCell < RedesignedButtonCell
     include ActionView::Helpers::FormOptionsHelper
 
+    private
+
     def cache_hash
       hash = []
       hash.push(I18n.locale)
@@ -13,8 +15,6 @@ module Decidim
       hash.push(model.id)
       hash.join(Decidim.cache_key_separator)
     end
-
-    private
 
     def user_report_form
       Decidim::ReportForm.from_params(reason: "spam")
