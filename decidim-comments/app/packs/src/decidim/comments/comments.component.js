@@ -12,8 +12,6 @@
 // This is necessary for testing purposes
 const $ = window.$;
 
-import Rails from "@rails/ujs";
-
 import { createCharacterCounter } from "src/decidim/input_character_counter"
 import ExternalLink from "src/decidim/redesigned_external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"

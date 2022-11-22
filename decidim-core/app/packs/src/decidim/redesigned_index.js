@@ -88,7 +88,9 @@ window.Decidim = window.Decidim || {
   FormValidator,
   DataPicker,
   addInputEmoji,
-  EmojiButton
+  EmojiButton,
+  Accordions,
+  Dropdowns
 };
 
 window.morphdom = morphdom
@@ -162,8 +164,8 @@ const initializer = () => {
 
   backToListLink(document.querySelectorAll(".js-back-to-list"));
 
-  Accordions.init();
-  Dropdowns.init();
+  window.Decidim.Accordions.init();
+  window.Decidim.Dropdowns.init();
   document.querySelectorAll("[data-dialog]").forEach(
     ({ dataset: { dialog } }) =>
       new Dialogs(`[data-dialog="${dialog}"]`, {
