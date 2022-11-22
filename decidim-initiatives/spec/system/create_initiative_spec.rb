@@ -357,7 +357,7 @@ describe "Initiative", type: :system do
       find_button("I want to promote this initiative").click
     end
 
-    it_behaves_like "having a rich text editor", "new_initiative_previous_form", "basic"
+    it_behaves_like "having a rich text editor", "new_initiative_previous_form", "full"
   end
 
   describe "creating an initiative" do
