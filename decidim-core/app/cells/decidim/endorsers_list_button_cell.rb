@@ -11,7 +11,7 @@ module Decidim
     def html_options
       return {} if model.endorsements.blank?
 
-      { data: { component: "dropdown", target: "dropdown-menu-endorsers-list" } }
+      { id: "dropdown-trigger", data: { component: "dropdown", target: "dropdown-menu-endorsers-list" } }
     end
   end
 end
