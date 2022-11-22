@@ -11,7 +11,7 @@ module Decidim
     #
     # Returns a String with the link.
     def action_authorized_link_to(action, *arguments, &block)
-      authorized_to(:link, action, arguments, block)
+      redesign_enabled? ? redesign_authorized_to(:link, action, arguments, block) : authorized_to(:link, action, arguments, block)
     end
 
     # Public: Emulates a `button_to` but conditionally renders a popup modal
@@ -104,10 +104,16 @@ module Decidim
       permissions_holder = html_options.delete(:permissions_holder)
 
       if !current_user
+        html_options = clean_authorized_to_data_open(html_options)
+
         html_options["data-dialog-open"] = "loginModal"
+        url = "#"
       elsif action && !action_authorized_to(action, resource:, permissions_holder:).ok?
+        html_options = clean_authorized_to_data_open(html_options)
+
         html_options["data-dialog-open"] = "authorizationModal"
         html_options["data-dialog-remote-url"] = modal_path(action, resource)
+        url = "#"
       end
 
       html_options["onclick"] = "event.preventDefault();" if url == ""
