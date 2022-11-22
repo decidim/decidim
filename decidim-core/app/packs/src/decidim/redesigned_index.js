@@ -89,7 +89,10 @@ window.Decidim = window.Decidim || {
   FormValidator,
   DataPicker,
   addInputEmoji,
-  EmojiButton
+  EmojiButton,
+  Accordions,
+  Dropdowns,
+  Dialogs
 };
 
 window.morphdom = morphdom

@@ -2,7 +2,12 @@
   var $foo = $("<div />")
   $foo.html('<%= j(render partial: "modal").strip.html_safe %>');
   $("body").append($foo)
-  var $reveal = $(".reveal", $foo);
-  $foo.foundation()
-  $reveal.foundation("open")
+
+  const selector = "external-domain-warning"
+  new window.Decidim.Dialogs(`#${selector}`, {
+    closingSelector: `[data-dialog-close="${selector}"]`,
+    backdropSelector: `[data-dialog="${selector}"]`,
+    labelledby: `dialog-title-${selector}`,
+    describedby: `dialog-desc-${selector}`
+  }).open()
 })()
