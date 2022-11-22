@@ -34,6 +34,28 @@
 
   &-thread{
     @apply mb-8;
+
+    .button[aria-expanded="false"]{
+      svg:first-of-type{
+        @apply block;
+      }
+
+      svg:last-of-type{
+        @apply hidden;
+      }
+    }
+
+    .button[aria-expanded="true"]{
+      @apply bg-white;
+
+      svg:first-of-type{
+        @apply hidden;
+      }
+
+      svg:last-of-type{
+        @apply block;
+      }
+    }
   }
 
   &__as{

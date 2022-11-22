@@ -2,9 +2,9 @@
   <% if can_reply? %>
     <button class="button button__sm button__text-secondary" data-controls="panel-<%= reply_id %>">
       <%= icon "chat-1-line" %>
-      <span><%= t("decidim.components.comment.reply") %></span>
+      <span class="font-normal"><%= t("decidim.components.comment.reply") %></span>
       <%= icon "close-circle-line" %>
-      <span><%= t("decidim.components.comment.cancel_reply") %></span>
+      <span class="font-normal"><%= t("decidim.components.comment.cancel_reply") %></span>
     </button>
   <% end %>
 </div>

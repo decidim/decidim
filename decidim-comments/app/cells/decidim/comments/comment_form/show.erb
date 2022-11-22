@@ -3,13 +3,13 @@
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as_for(form) %>
   <div class="form__wrapper gap-2">
-    <label for="<%= add_comment_id %>">
+    <label class="text-gray-2" for="<%= add_comment_id %>">
       <%= t("decidim.components.add_comment_form.form.body.label") %>
     </label>
     <%= form.text_area(
       :body,
       id: add_comment_id,
-      class: "w-full rounded border",
+      class: "w-full rounded border min-h-[160px] border-text-gray-2",
       maxlength: comments_max_length,
       required: true,
       placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
@@ -21,6 +21,7 @@
       <button type="submit" class="button button__sm button__secondary" disabled="disabled">
       <%# REDESIGN_PENDING: if the user is replying to a comment the string should be: publicar respuesta/publicar respota, but if he's replying to the post it should be: publicar comentario/publicar comentari %>
         <span><%= t("decidim.components.add_comment_form.form.submit") %></span>
+        <%= icon "chat-1-line" %>
     </button>
     </div>
   </div>
