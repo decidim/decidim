@@ -226,7 +226,7 @@ export default class CommentsComponent {
         "commentable_gid": this.commentableGid,
         "root_depth": this.rootDepth,
         "order": this.order,
-        "after": this.lastCommentId,
+        // From here, the rest of properties are optional
         ...(this.toggleTranslations && { "toggle_translations": this.toggleTranslations }),
         ...(this.lastCommentId && { "after": this.lastCommentId })
       }),
