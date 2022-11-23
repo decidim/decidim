@@ -28,6 +28,10 @@ module Decidim
       @total ||= versions.count
     end
 
+    def turbo_frame
+      options[:turbo_frame]
+    end
+
     delegate :versions, to: :versioned_resource
   end
 end
