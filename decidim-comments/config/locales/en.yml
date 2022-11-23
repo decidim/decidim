@@ -74,6 +74,9 @@ en:
         edited: Edited
         hide_replies: Hide replies
         moderated_at: Comment moderated on %{date}
+        replies:
+          one: Reply
+          other: "%{count} replies"
         reply: Reply
         report:
           action: Report
