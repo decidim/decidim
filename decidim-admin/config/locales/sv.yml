@@ -134,6 +134,14 @@ sv:
               allowed_file_content_types: Ogiltig bildfil
             official_img_header:
               allowed_file_content_types: Ogiltig bildfil
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
       new_import:
         attributes:
           file:
@@ -185,6 +193,7 @@ sv:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
+          accept: Jag godkänner villkoren
           are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
           refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
@@ -1056,6 +1065,7 @@ sv:
         moderation:
           fields:
             created_at: Skapandedatum
+            deleted_resource: Borttagen resurs
             hidden_at: Dold
             participatory_space: Deltagarutrymme
             report_count: Antal
