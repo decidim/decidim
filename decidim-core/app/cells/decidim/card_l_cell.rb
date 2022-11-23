@@ -11,6 +11,7 @@ module Decidim
     include Decidim::CardHelper
     include Decidim::LayoutHelper
     include Decidim::SearchesHelper
+    include Decidim::TurboHelper
 
     alias resource model
 
@@ -35,13 +36,7 @@ module Decidim
     end
 
     def html_options
-      @html_options ||= (options[:html_options] || {}).deep_merge(turbo_frame_options)
-    end
-
-    def turbo_frame_options
-      return {} if options[:turbo_frame].blank?
-
-      { data: { turbo_frame: options[:turbo_frame], turbo_action: "replace" } }
+      @html_options ||= (options[:html_options] || {}).deep_merge(turbo_frame_options(options[:turbo_frame]))
     end
 
     def presented_resource

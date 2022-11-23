@@ -12,6 +12,7 @@ module Decidim
       include Decidim::SanitizeHelper
       include Decidim::CheckBoxesTreeHelper
       include Decidim::RichTextEditorHelper
+      include Decidim::TurboHelper
 
       def filter_origin_values
         elements = %w(official participants).tap do |e|
