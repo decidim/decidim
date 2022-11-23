@@ -3,7 +3,7 @@
 <% else %>
   <%= cell("decidim/announcement", t("decidim.meetings.meetings.meetings.upcoming_meetings_warning"), callout_class: "warning" ) if @forced_past_meetings %>
 
-  <div id="meetings" class="meeting-list__container">
+  <div class="meeting-list__container">
     <% meetings.each do |meeting| %>
       <%= cell "decidim/meetings/meeting_l", meeting, link_whole_card: true, turbo_frame: "meeting_frame" %>
     <% end %>
