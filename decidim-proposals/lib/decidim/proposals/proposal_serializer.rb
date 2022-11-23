@@ -5,6 +5,8 @@ module Decidim
     # This class serializes a Proposal so can be exported to CSV, JSON or other
     # formats.
     class ProposalSerializer < Decidim::Exporters::Serializer
+      include ActionView::Helpers::SanitizeHelper
+      include Decidim::SanitizeHelper
       include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
       include Decidim::TranslationsHelper
@@ -99,7 +101,7 @@ module Decidim
           if v.is_a? Hash
             v
           else
-            Nokogiri::HTML(v).text
+            decidim_sanitize(v, strip_tags: true)
           end
         end
       end
