@@ -104,8 +104,10 @@ en:
         one: right now
         other: less than %{count} sec.
       short:
+        about_x_days: "%{count}d"
         about_x_hours: "%{count}h"
-        about_x_months: "%{count} mon."
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} mo."
         about_x_years: "%{count}y"
         almost_x_years: "%{count}y"
         half_a_minute: 1m
@@ -115,7 +117,9 @@ en:
         x_days: "%{count}d"
         x_hours: "%{count}h"
         x_minutes: "%{count}m"
+        x_months: "%{count} mo."
         x_seconds: "%{count}s"
+        x_years: "%{count}y"
       x_days:
         one: 1 day ago
         other: "%{count} days ago"
