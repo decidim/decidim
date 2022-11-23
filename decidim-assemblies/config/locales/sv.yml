@@ -3,6 +3,8 @@ sv:
     attributes:
       assemblies_setting:
         enable_organization_chart: Aktivera organisationskarta
+      assemblies_type:
+        title: Titel
       assembly:
         area_id: Område
         assembly_type: Typ av grupp
