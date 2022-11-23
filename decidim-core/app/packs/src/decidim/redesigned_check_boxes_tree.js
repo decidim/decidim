@@ -3,29 +3,29 @@
  */
 export default class CheckBoxesTree {
   constructor() {
-    this.checkboxesTree = document.querySelectorAll("[data-checkboxes-tree]");
-    if (!this.checkboxesTree) {
+    this.checkboxesTree = Array.from(document.querySelectorAll("[data-checkboxes-tree]"));
+
+    if (!this.checkboxesTree.length) {
       return;
     }
 
-    this.globalChecks = document.querySelectorAll("[data-global-checkbox] input");
-    this.globalChecks.forEach((global) => {
-      if (global.value === "") {
-        global.classList.add("ignore-filter")
-      }
-    });
-    this.checkGlobalCheck();
+    this.checkboxesLeaf = Array.from(document.querySelectorAll("[data-children-checkbox] input"));
 
-    // Event listeners
+    // REDESIGN_PENDING: possibly deprecated
+    // this.globalChecks = document.querySelectorAll("[data-global-checkbox] input");
+    // this.globalChecks.forEach((global) => {
+    //   if (global.value === "") {
+    //     global.classList.add("ignore-filter")
+    //   }
+    // });
+    // this.checkGlobalCheck();
+
+    // handles the click in a tree, what means to mark/unmark every children
     this.checkboxesTree.forEach((input) => input.addEventListener("click", (event) => this.checkTheCheckBoxes(event.target)));
-    document.querySelectorAll("[data-children-checkbox] input").forEach((input) => {
-      input.addEventListener("change", (event) => this.checkTheCheckParent(event.target));
-    });
-
+    // handles the click in a leaf, what means to update the parent possibly
+    this.checkboxesLeaf.forEach((input) => input.addEventListener("change", (event) => this.checkTheCheckParent(event.target)));
     // Review parent checkboxes on initial load
-    document.querySelectorAll("[data-children-checkbox] input").forEach((input) => {
-      this.checkTheCheckParent(input);
-    });
+    this.checkboxesLeaf.forEach((input) => this.checkTheCheckParent(input));
   }
 
   /**
@@ -72,22 +72,35 @@ export default class CheckBoxesTree {
    * @returns {Void} - Returns nothing.
    */
   checkTheCheckBoxes(target) {
-    // Quis custodiet ipsos custodes?
     const targetChecks = target.dataset.checkboxesTree;
     const checkStatus = target.checked;
-    const allChecks = document.querySelectorAll(`[id*="${targetChecks}"] input[type='checkbox']`);
+    // NOTE: Note the regex CSS query, it selects those [data-children-checkbox] ended with the target id
+    const allChecks = document.querySelectorAll(`[data-children-checkbox$="${targetChecks}"] input`);
+    // const allChecks = document.querySelectorAll(`[id$="${targetChecks}"] input, input[type='checkbox'][id$="${targetChecks}"]`);
 
     allChecks.forEach((input) => {
       input.checked = checkStatus;
       input.indeterminate = false;
       input.classList.add("ignore-filter");
+
+      // recursive call if the input it's also a tree
+      if (input.dataset.checkboxesTree) {
+        this.checkTheCheckBoxes(input)
+      }
     });
+
+    // when the target is a children also, recurse up to the parent
+    if ("childrenCheckbox" in target.parentNode.dataset) {
+      this.checkTheCheckParent(target)
+    }
   }
 
   /**
+   * REDESIGN_PENDING: remove deprecation
    * Update global checkboxes state when the current selection changes
    * @private
    * @returns {Void} - Returns nothing.
+   * @deprecated
    */
   checkGlobalCheck() {
     this.globalChecks.forEach((global) => {
@@ -136,22 +149,14 @@ export default class CheckBoxesTree {
    * @returns {Void} - Returns nothing.
    */
   checkTheCheckParent(input) {
-    const checkBoxContext = $(input).parents(".filters__subfilters").attr("id");
-    if (!checkBoxContext) {
-      this.checkGlobalCheck();
-      return;
-    }
+    const key = input.parentNode.dataset.childrenCheckbox
+    // search in the checkboxes array if some id ends with the childrenCheckbox key, what means it's the parent
+    const parentCheck = this.checkboxesTree.find(({ id }) => new RegExp(`${key}$`, "i").test(id))
 
-    const parentCheck = document.querySelector(
-      `[data-checkboxes-tree=${checkBoxContext}]`
-    );
-    const totalCheckSiblings = document.querySelectorAll(
-      `#${checkBoxContext} > div > [data-children-checkbox] > input, #${checkBoxContext} > [data-children-checkbox] > input`
-    );
-    const checkedSiblings = document.querySelectorAll(
-      `#${checkBoxContext} > div > [data-children-checkbox] > input:checked, #${checkBoxContext} > [data-children-checkbox] > input:checked`
-    );
-    const indeterminateSiblings = Array.from(totalCheckSiblings).filter((checkbox) => checkbox.indeterminate)
+    // search for leaves with the same parent, what means they're siblings
+    const totalCheckSiblings = this.checkboxesLeaf.filter((node) => node.parentNode.dataset.childrenCheckbox === key)
+    const checkedSiblings = totalCheckSiblings.filter((checkbox) => checkbox.checked)
+    const indeterminateSiblings = totalCheckSiblings.filter((checkbox) => checkbox.indeterminate)
 
     if (checkedSiblings.length === 0 && indeterminateSiblings.length === 0) {
       parentCheck.checked = false;
@@ -160,26 +165,22 @@ export default class CheckBoxesTree {
       parentCheck.checked = true;
       parentCheck.indeterminate = false;
     } else {
-      parentCheck.checked = true;
+      parentCheck.checked = false;
       parentCheck.indeterminate = true;
     }
 
+    // ignore children filters when parent is checked, what means every children is checked
     totalCheckSiblings.forEach((sibling) => {
-      if (parent.indeterminate && !sibling.indeterminate) {
+      if (parentCheck.indeterminate && !sibling.indeterminate) {
         sibling.classList.remove("ignore-filter");
       } else {
         sibling.classList.add("ignore-filter");
       }
-      const subfilters = sibling.parentNode.parentNode.nextElementSibling;
-      if (subfilters && subfilters.classList.contains("filters__subfilters")) {
-        if (sibling.indeterminate) {
-          subfilters.classList.remove("ignore-filters");
-        } else {
-          subfilters.classList.add("ignore-filters");
-        }
-      }
     });
 
-    this.checkTheCheckParent(parentCheck);
+    // recursive call if there are more children
+    if ("childrenCheckbox" in parentCheck.parentNode.dataset) {
+      this.checkTheCheckParent(parentCheck);
+    }
   }
 }

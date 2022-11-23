@@ -12,7 +12,7 @@ module Decidim
         multiple: true,
         include_hidden: false,
         label_options: {
-          "data-children-checkbox": "",
+          "data-children-checkbox": options[:parent_id] || "",
           value:
         }
       }

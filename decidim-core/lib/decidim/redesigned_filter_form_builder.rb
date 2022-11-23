@@ -35,7 +35,7 @@ module Decidim
     private
 
     def check_boxes_tree_id(method)
-      "#{method}-#{object_id}"
+      method
     end
 
     def default_form_type_for_collection(collection)

@@ -1,5 +1,5 @@
 <% leaf = item.tree_node? ? item.leaf : item %>
-<% data_checkboxes_tree_id = [check_boxes_tree_id, leaf.value].join("-") %>
+<% data_checkboxes_tree_id = [check_boxes_tree_id, leaf.value].join("_") %>
 <% is_blank_root = leaf.value.blank? %>
 <% data = item.tree_node? && item.node.present? ? { checkboxes_tree: data_checkboxes_tree_id } : {} %>
 <% check_box_label = capture do %>
@@ -22,7 +22,8 @@
         class: "reset-defaults",
         hidden: "hidden",
         data:,
-        is_root_check_box: is_blank_root
+        is_root_check_box: is_blank_root,
+        parent_id:
       ),
       leaf.value.to_s,
       nil
@@ -31,7 +32,7 @@
 <% if item.tree_node? && item.node.present? %>
   <% subitems_content = capture do %>
     <% item.node.each do |subitem| %>
-      <%= form.dropdown_label(subitem, method, check_boxes_tree_id:) %>
+      <%= form.dropdown_label(subitem, method, check_boxes_tree_id:, parent_id: data_checkboxes_tree_id || "") %>
     <% end %>
   <% end %>
 

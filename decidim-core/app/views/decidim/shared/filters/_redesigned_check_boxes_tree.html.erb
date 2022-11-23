@@ -11,6 +11,6 @@
     <% if is_root_check_box %>
       <%= hidden_field_tag "#{form.object_name}[#{method}][]", "", id: "#{form.options[:namespace] rescue 'default'}_filter_#{method}_all" %>
     <% end %>
-    <%= form.dropdown_label(collection, method, check_boxes_tree_id:) %>
+    <%= form.dropdown_label(collection, method, check_boxes_tree_id:, parent_id: nil) %>
   </div>
 </div>

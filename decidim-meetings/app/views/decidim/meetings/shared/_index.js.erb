@@ -4,7 +4,7 @@ var $meetings = $('#meetings');
 var $calendarShare = $('#calendarShare');
 $calendarShare.remove();
 
-$meetings.html('<%= j(render partial: "meetings").strip.html_safe %>');
+$meetings.html('<%= j(render partial: "decidim/meetings/shared/meetings").strip.html_safe %>');
 
 var markerData = JSON.parse('<%= escape_javascript meetings_data_for_map(search.result).to_json.html_safe %>');
 

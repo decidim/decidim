@@ -43,9 +43,7 @@ module Decidim
         url:,
         as: :filter,
         method: :get,
-        # REDESIGN_PENDING: it must ne false in order to refresh the current selection
-        # Look further using Turbo
-        remote: false,
+        remote: true,
         html: { id: nil }.merge(html_options)
       ) do |form|
         yield form

@@ -79,7 +79,12 @@
   &-container [id*="dropdown-menu"] .is-active,
   &:hover{
     @apply bg-background-4;
+  }
 
+  &-container [type="radio"]:checked + &,
+  &-container [type="checkbox"]:checked + &,
+  &-container [id*="dropdown-menu"] .is-active,
+  &-container [type="checkbox"]:indeterminate + &{
     svg{
       @apply text-secondary;
     }
