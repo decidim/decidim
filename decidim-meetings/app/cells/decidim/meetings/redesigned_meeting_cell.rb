@@ -36,71 +36,64 @@ module Decidim
       end
 
       def items
-        @items ||= [].tap do |items|
-          if meeting.public_participants.any?
-            items.append(
-              id: "participants",
-              text: t("attending_participants", scope: "decidim.meetings.public_participants_list"),
-              icon: "group-line",
-              method: :cell,
-              args: ["decidim/meetings/public_participants_list", meeting]
-            )
-          end
-          if !meeting.closed? && meeting.user_group_registrations.any?
-            items.append(
-              id: "organizations",
-              text: t("organizations", scope: "decidim.meetings.meetings.show"),
-              icon: "community-line",
-              method: :cell,
-              args: ["decidim/meetings/participating_organizations_list", meeting]
-            )
-          end
-          if meeting.closed? && meeting.closing_visible?
-            items.append(
-              id: "meeting_minutes",
-              text: t("meeting_minutes", scope: "decidim.meetings.meetings.show"),
-              icon: "chat-new-line",
-              method: :render,
-              args: [:meeting_minutes]
-            )
-          end
-          if meeting.linked_resources(:proposals, "proposals_from_meeting").present?
-            items.append(
-              id: "included_proposals",
-              text: t("activemodel.attributes.result.proposals"),
-              icon: "chat-new-line",
-              method: :cell,
-              args: ["decidim/linked_resources_for", meeting, { type: :proposals, link_name: "proposals_from_meeting" }]
-            )
-          end
-          if meeting.linked_resources(:results, "meetings_through_proposals").present?
-            items.append(
-              id: "included_meetings",
-              text: t("activemodel.attributes.result.meetings_ids"),
-              icon: "treasure-map-line",
-              method: :cell,
-              args: ["decidim/linked_resources_for", meeting, { type: :results, link_name: "meetings_through_proposals" }]
-            )
-          end
-          if photos.present?
-            items.append(
-              id: "images",
-              text: t("decidim.application.photos.related_photos"),
-              icon: "image-line",
-              method: :render,
-              args: ["images"]
-            )
-          end
-          if documents.present?
-            items.append(
-              id: "documents",
-              text: t("decidim.application.documents.related_documents"),
-              icon: "file-text-line",
-              method: :render,
-              args: ["documents"]
-            )
-          end
-        end
+        @items ||= [
+          {
+            enabled: meeting.public_participants.any?,
+            id: "participants",
+            text: t("attending_participants", scope: "decidim.meetings.public_participants_list"),
+            icon: "group-line",
+            method: :cell,
+            args: ["decidim/meetings/public_participants_list", meeting]
+          },
+          {
+            enabled: !meeting.closed? && meeting.user_group_registrations.any?,
+            id: "organizations",
+            text: t("organizations", scope: "decidim.meetings.meetings.show"),
+            icon: "community-line",
+            method: :cell,
+            args: ["decidim/meetings/participating_organizations_list", meeting]
+          },
+          {
+            enabled: meeting.closed? && meeting.closing_visible?,
+            id: "meeting_minutes",
+            text: t("meeting_minutes", scope: "decidim.meetings.meetings.show"),
+            icon: "chat-new-line",
+            method: :render,
+            args: [:meeting_minutes]
+          },
+          {
+            enabled: meeting.linked_resources(:proposals, "proposals_from_meeting").present?,
+            id: "included_proposals",
+            text: t("activemodel.attributes.result.proposals"),
+            icon: "chat-new-line",
+            method: :cell,
+            args: ["decidim/linked_resources_for", meeting, { type: :proposals, link_name: "proposals_from_meeting" }]
+          },
+          {
+            enabled: meeting.linked_resources(:results, "meetings_through_proposals").present?,
+            id: "included_meetings",
+            text: t("activemodel.attributes.result.meetings_ids"),
+            icon: "treasure-map-line",
+            method: :cell,
+            args: ["decidim/linked_resources_for", meeting, { type: :results, link_name: "meetings_through_proposals" }]
+          },
+          {
+            enabled: photos.present?,
+            id: "images",
+            text: t("decidim.application.photos.related_photos"),
+            icon: "image-line",
+            method: :render,
+            args: ["images"]
+          },
+          {
+            enabled: documents.present?,
+            id: "documents",
+            text: t("decidim.application.documents.related_documents"),
+            icon: "file-text-line",
+            method: :render,
+            args: ["documents"]
+          }
+        ].select { |item| item[:enabled] }
       end
     end
   end
