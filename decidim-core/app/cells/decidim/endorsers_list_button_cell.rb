@@ -2,6 +2,12 @@
 
 module Decidim
   class EndorsersListButtonCell < RedesignedButtonCell
+    def show
+      return if model.endorsements.blank?
+
+      render
+    end
+
     private
 
     def button_classes
