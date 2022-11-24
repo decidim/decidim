@@ -10,7 +10,7 @@ module Decidim
     # Example:
     #
     #    cell("decidim/participating_organizations_list", meeting)
-    class ParticipatingOrganizationsListCell < PublicParticipantsListCell
+    class AttendingOrganizationsListCell < PublicParticipantsListCell
       private
 
       def user_group_ids

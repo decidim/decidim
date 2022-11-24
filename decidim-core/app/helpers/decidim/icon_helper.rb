@@ -23,6 +23,7 @@ module Decidim
       "Decidim::Conference" => "question-mark", # REDESIGN_PENDING: icon unknown
       "Decidim::Consultation" => "question-mark", # REDESIGN_PENDING: icon unknown
       "Decidim::Votings::Voting" => "check-double-fill",
+      "Decidim::Accountability::Result" => "treasure-map-line",
       "upcoming" => "calendar-2-line",
       "past" => "calendar-check-line",
       "in_person" => "community-line",
@@ -31,6 +32,8 @@ module Decidim
       "official" => "star-line",
       "participants" => "open-arm-line",
       "user_groups" => "team-line",
+      "images" => "image-line",
+      "documents" => "file-text-line",
       "other" => "question-line"
     }.freeze
 

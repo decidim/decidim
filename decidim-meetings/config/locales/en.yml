@@ -619,7 +619,8 @@ en:
             question_replied: Question replied
             reply_question: Reply question
       public_participants_list:
-        attending_participants: Attending participants
+        attending_organizations: Organizations
+        attending_participants: Participants
         hidden_participants_count:
           one: and %{count} more person
           other: and %{count} more people

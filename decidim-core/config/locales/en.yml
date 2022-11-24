@@ -361,10 +361,12 @@ en:
       document:
         download: Download file
       documents:
+        documents: Documents
         related_documents: Related documents
       geocoding:
         geocoded_address: Address
       photos:
+        photos: Images
         related_photos: Related images
     author:
       avatar: 'Avatar: %{name}'
