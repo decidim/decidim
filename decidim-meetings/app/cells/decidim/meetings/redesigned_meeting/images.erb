@@ -1,16 +1,9 @@
 <% if photos.present? %>
-  <div class="section images">
-    <h3 class="section-heading"><%= t("decidim.application.photos.related_photos") %></h3>
-    <div class="gallery row">
-      <% photos.in_groups_of(3, false).each do |group| %>
-        <% group.each_with_index do |photo, index| %>
-          <div class="columns small-6 medium-4 <%= (index == 2 || photo == group.last ? "end" : "") %>">
-            <%= link_to photo.big_url, target: "_blank", rel: "noopener" do %>
-              <%= image_tag photo.thumbnail_url, class:"thumbnail", alt: strip_tags(translated_attribute(photo.title)) %>
-            <% end %>
-          </div>
-        <% end %>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+    <% photos.each_with_index do |photo, index| %>
+      <%= link_to photo.big_url, target: "_blank", rel: "noopener", class: "overflow-hidden rounded aspect-video" do %>
+        <%= image_tag photo.thumbnail_url, class:"w-full h-full object-cover", alt: strip_tags(translated_attribute(photo.title)) %>
       <% end %>
-    </div>
+    <% end %>
   </div>
 <% end %>
