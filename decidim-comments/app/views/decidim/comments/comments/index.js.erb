@@ -22,6 +22,10 @@
 
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+  // Only init Accordions on the first Ajax request, which loads the comments from the HTML page,
+  // the other calls come from the polling.
+  <% if first_load? %>
   window.Decidim.Accordions.init();
+  <% end %>
   window.Decidim.Dropdowns.init();
 }());
