@@ -611,7 +611,7 @@ en:
       endorsements: Endorsements
       endorsements_count: Endorsements count
     endorsement_buttons_cell:
-      already_endorsed: Liked
+      already_endorsed: Dislike
       endorse: Like
     endorsements:
       identities:
