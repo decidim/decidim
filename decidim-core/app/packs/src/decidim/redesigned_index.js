@@ -7,9 +7,9 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
 import "quill"
-import Rails from "@rails/ujs"
 
 // external deps that require initialization
+import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 import Accordions from "a11y-accordion-component";

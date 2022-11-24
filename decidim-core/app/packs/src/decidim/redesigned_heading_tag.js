@@ -1,13 +1,13 @@
 /**
  * Ensures the aside heading tag is transformed to h2 or h1 if the drawer is shown or hidden
- * @param {DOMNode} target tarari
+ * @param {HTMLElement} node target node
  * @returns {void}
  */
-export default function(target) {
+export default function(node = document) {
   const element = document.querySelector("aside [data-heading-tag]")
   if (element) {
     let tagName = "H1";
-    if (target.querySelector("[data-drawer]")) {
+    if (node.querySelector("[data-drawer]")) {
       tagName = "H2";
     }
 
