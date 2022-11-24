@@ -48,6 +48,10 @@
       <%= cell "decidim/tags", meeting %>
     </div>
 
+    <%= comments_for meeting %>
+    <%= pad_iframe_for meeting %>
+
+
     <div class="mt-8">
       <ul class="drawer-metadata__container" data-metadata-footer>
         <%= content_tag :li, resource_reference(meeting), class: "drawer-metadata__item" %>
@@ -55,9 +59,6 @@
       </ul>
     </div>
 
-    <%= attachments_for meeting %>
-    <%= comments_for meeting %>
-    <%= pad_iframe_for meeting %>
 
     <%# REDESIGN_PENDING: deprecated, now it's always in the layout %>
     <%#= cell("decidim/flag_modal", meeting) %>
