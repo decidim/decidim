@@ -13,7 +13,7 @@ module Decidim
     end
 
     def icon_name
-      "share-line"
+      resource_type_icon_key("share")
     end
 
     def html_options

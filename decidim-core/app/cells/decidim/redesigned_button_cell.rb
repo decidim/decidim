@@ -4,6 +4,7 @@ module Decidim
   # This cell renders a generic redesigned button.
   class RedesignedButtonCell < Decidim::ViewModel
     include LayoutHelper
+    include IconHelper
     include Decidim::SanitizeHelper
     include Decidim::ResourceHelper
 

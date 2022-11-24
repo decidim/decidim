@@ -14,7 +14,7 @@ module Decidim
     end
 
     def icon_name
-      "chat-1-line"
+      resource_type_icon "Decidim::Comments::Comment"
     end
   end
 end

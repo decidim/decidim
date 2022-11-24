@@ -8,6 +8,7 @@ module Decidim
     include CellsHelper
     include EndorsableHelper
     include ResourceHelper
+    include IconHelper
     include Decidim::SanitizeHelper
 
     delegate :current_user, to: :controller, prefix: false
@@ -75,7 +76,7 @@ module Decidim
     end
 
     def endorse_icon
-      @endorse_icon ||= icon(resource.endorsed_by?(current_user) ? "dislike" : "heart-add-line")
+      @endorse_icon ||= resource_type_icon(resource.endorsed_by?(current_user) ? "dislike" : "like")
     end
 
     def raw_model
