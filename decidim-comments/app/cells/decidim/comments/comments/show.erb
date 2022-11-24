@@ -1,7 +1,7 @@
 <%= content_tag :div, id: node_id, data: { decidim_comments: comments_data } do %>
-  <div class="comments-container" id="comments">
+  <div class="comments__container" id="comments">
     <div class="comments">
-      <div class="font-bold text-xl grid grid-cols-1 md:grid-cols-2">
+      <div class="grid grid-cols-[max-content_1fr] gap-x-4">
         <h3 class="h4">
           <% if single_comment? %>
             <%= t("decidim.components.comments.comment_details_title") %>

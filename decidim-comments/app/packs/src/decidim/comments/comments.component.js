@@ -256,7 +256,7 @@ export default class CommentsComponent {
    * @returns {Void} - Returns nothing
    */
   _setLoading() {
-    const $container = $("> .comments-container", this.$element);
+    const $container = $("> .comments__container", this.$element);
     $("> .comments", $container).addClass("hide");
     $("> .loading-comments", $container).removeClass("hide");
   }

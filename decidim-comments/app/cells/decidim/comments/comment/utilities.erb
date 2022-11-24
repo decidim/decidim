@@ -19,9 +19,9 @@
     </li>
     <% unless reloaded? %>
       <% if model.authored_by?(current_user) %>
-        <li class="dropdown__item">
-          <button type="button" class="link-alt comment__header__context-menu__content-item" data-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog" tabindex="0">
-            <%= icon "pencil", class: "icon--small", aria_label: t("decidim.components.comment.edit") %>
+        <li>
+          <button type="button" class="dropdown__item" data-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog" tabindex="0">
+            <%= icon "edit-line" %>
             <span><%= t("decidim.components.comment.edit") %></span>
           </button>
         </li>

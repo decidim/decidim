@@ -1,10 +1,10 @@
 <div class="comment-order-by">
   <% available_orders.each do |order_value| %>
-    <div>
+    <div class="text-center">
       <%= link_to(
         t("decidim.components.comment_order_selector.order.#{order_value}"),
         decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1),
-        class:"comment-order-by__item",
+        class:"button button__sm button__text-secondary only:m-auto comment-order-by__item",
         remote: true
       ) %>
     </div>
