@@ -4,6 +4,8 @@
   </span>
 <% end %>
 
-<span class="endorsers-list__counter">
-  <%= endorsers_count %>
-</span>
+<% if full_endorsers.length > MAX_ITEMS_STACKED %>
+  <span class="endorsers-list__counter">
+    <%= "+" + (endorsers_count - MAX_ITEMS_STACKED).to_s %>
+  </span>
+<% end %>
