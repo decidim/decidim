@@ -1,7 +1,7 @@
 <div id="resource-<%= resource&.id %>-endorsement-button">
   <button id="select-identity-button" type="button" name="button" class="<%= button_classes %>" data-dialog-open="user-identities" data-dialog-remote-url="<%= reveal_identities_url %>">
     <%= endorse_translated %>
-    <%= icon "heart-add-line" %>
+    <%= endorse_icon %>
   </button>
 
   <%= decidim_modal id: "user-identities", class: "identities-modal", remote: true %>

@@ -71,7 +71,11 @@ module Decidim
     end
 
     def endorse_translated
-      @endorse_translated ||= t("decidim.endorsement_buttons_cell.endorse")
+      @endorse_translated ||= resource.endorsed_by?(current_user) ? t("decidim.endorsement_buttons_cell.already_endorsed") : t("decidim.endorsement_buttons_cell.endorse")
+    end
+
+    def endorse_icon
+      @endorse_icon ||= icon(resource.endorsed_by?(current_user) ? "dislike" : "heart-add-line")
     end
 
     def raw_model
