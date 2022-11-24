@@ -88,7 +88,7 @@ shared_examples "Endorse resource system specs" do
           visit_resource
           within ".buttons__row" do
             click_button "Like"
-            expect(page).to have_button("Liked")
+            expect(page).to have_button("Dislike")
           end
 
           expect_endorsements_count(1)
@@ -101,8 +101,8 @@ shared_examples "Endorse resource system specs" do
         it "is not able to endorse it again" do
           visit_resource
           within ".buttons__row" do
-            expect(page).to have_button("Liked")
-            expect(page).to have_no_button("Like ")
+            expect(page).to have_button("Dislike")
+            expect(page).to have_no_button("Like")
           end
 
           expect_endorsements_count(1)
@@ -111,7 +111,7 @@ shared_examples "Endorse resource system specs" do
         it "is able to undo the endorsement" do
           visit_resource
           within ".buttons__row" do
-            click_button "Liked"
+            click_button "Dislike"
             expect(page).to have_button("Like")
           end
 
@@ -160,7 +160,7 @@ shared_examples "Endorse resource system specs" do
             within ".buttons__row", match: :first do
               click_button "Like"
             end
-            expect(page).to have_button("Liked")
+            expect(page).to have_button("Dislike")
           end
         end
       end
