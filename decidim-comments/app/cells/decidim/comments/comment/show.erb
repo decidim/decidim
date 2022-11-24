@@ -36,13 +36,13 @@
     <% if has_replies_in_children? %>
       <div data-component="accordion">
         <div class="block text-center relative top-4 z-[1] -mt-8">
-          <button id="comment-trigger-<%= model.id %>-replies" class="button button__sm button__text-secondary bg-background px-2" data-controls="comment-<%= model.id %>-replies">
+          <button id="panel-trigger-<%= model.id %>-replies" class="button button__sm button__text-secondary bg-background px-2" data-controls="panel-<%= model.id %>-replies">
             <span class="font-normal"><%= t("replies", scope: "decidim.components.comment", count: replies.length) %></span>
             <%= icon "arrow-down-s-line" %>
             <%= icon "arrow-up-s-line" %>
           </button>
         </div>
-        <div class="comment-reply" id="comment-<%= model.id %>-replies">
+        <div class="comment-reply" id="panel-<%= model.id %>-replies">
           <% replies.each do |reply| %>
             <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
           <% end %>

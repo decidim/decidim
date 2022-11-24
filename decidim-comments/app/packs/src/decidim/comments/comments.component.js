@@ -98,7 +98,7 @@ export default class CommentsComponent {
   addReply(commentId, replyHtml, fromCurrentUser = false) {
     const $parent = $(`#comment_${commentId}`);
     const $comment = $(replyHtml);
-    const $replies = $(`#comment-${commentId}-replies`);
+    const $replies = $(`#panel-${commentId}-replies`);
     this._addComment($replies, $comment);
     $replies.siblings(".comment__additionalreply").removeClass("hide");
     this._finalizeCommentCreation($parent, fromCurrentUser);
