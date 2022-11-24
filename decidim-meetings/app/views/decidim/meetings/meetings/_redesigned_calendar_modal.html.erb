@@ -1,0 +1,18 @@
+<%= decidim_modal id: "calendarShare", class: "calendar-modal" do %>
+  <div data-dialog-container>
+    <h2 id="dialog-title-calendar-modal"><%= t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal") %></h2>
+    <div>
+      <ul>
+        <li>
+          <%= link_to t("outlook", scope: "decidim.meetings.meetings.calendar_modal"), ics_url, data: { turbo: false } %>
+        </li>
+        <li>
+          <%= link_to t("apple", scope: "decidim.meetings.meetings.calendar_modal"), ics_url, data: { turbo: false } %>
+        </li>
+        <li>
+          <%= link_to t("google", scope: "decidim.meetings.meetings.calendar_modal"), google_url, target: "_blank" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+<% end %>
