@@ -47,7 +47,8 @@ en:
             label: Comment
             placeholder: What do you think about this?
           form_error: The text is required and it can't be longer than %{length} characters.
-          submit: Send
+          submit_root_comment: Publish comment
+          submit_reply: Publish reply
           user_group_id:
             label: Comment as
         opinion:

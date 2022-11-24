@@ -19,10 +19,15 @@
     <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count show-erb-comment"></span>
     <div class="w-full text-right">
       <button type="submit" class="button button__sm button__secondary" disabled="disabled">
-      <%# REDESIGN_PENDING: if the user is replying to a comment the string should be: publicar respuesta/publicar respota, but if he's replying to the post it should be: publicar comentario/publicar comentari %>
-        <span><%= t("decidim.components.add_comment_form.form.submit") %></span>
+        <span>
+        <% if reply? %>
+          <%= t("decidim.components.add_comment_form.form.submit_reply") %>
+        <% else%>
+          <%= t("decidim.components.add_comment_form.form.submit_root_comment") %>
+        <% end %>
+        </span>
         <%= icon "chat-1-line" %>
-    </button>
+      </button>
     </div>
   </div>
 <% end %>

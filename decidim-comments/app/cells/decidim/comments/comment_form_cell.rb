@@ -38,6 +38,10 @@ module Decidim
         model.commentable_type
       end
 
+      def reply?
+        model.is_a?(Decidim::Comments::Comment)
+      end
+
       def form_id
         "new_comment_for_#{commentable_type.demodulize}_#{model.id}"
       end
