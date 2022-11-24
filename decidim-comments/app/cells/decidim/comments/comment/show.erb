@@ -9,7 +9,7 @@
         <%== cell("decidim/redesigned_author", author_presenter).profile %>
       </span>
       <span class="text-gray-2 text-sm">
-        <%= time_tag created_at, l(created_at, format: :decidim_short) %>
+        <%= time_tag created_at, time_ago_in_words(created_at) %>
       </span>
       <% if edited? %>
         <span>
