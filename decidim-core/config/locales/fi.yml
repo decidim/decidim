@@ -852,6 +852,7 @@ fi:
           edit_image: Muokkaa kuvaa
           error: Virhe!
           file_size_too_large: 'Tiedoston koko on liian suuri! Suurin tiedostokoko: %{megabytes}MB'
+          filename: Tiedoston nimi
           remove: Poista
           replace: Korvaa
           save: Tallenna
@@ -860,7 +861,9 @@ fi:
           uploaded: Ladattu
           validating: Validoidaan...
           validation_error: Validointivirhe!
+        select_file: Valitse tiedosto
       upload_help:
+        dropzone: Pudota tiedostot tähän tai paina viereistä nappia ladataksesi tiedostoja
         explanation: Ohjeita %{attribute} varten
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
