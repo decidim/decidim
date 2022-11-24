@@ -11,15 +11,6 @@ export default class CheckBoxesTree {
 
     this.checkboxesLeaf = Array.from(document.querySelectorAll("[data-children-checkbox] input"));
 
-    // REDESIGN_PENDING: possibly deprecated
-    // this.globalChecks = document.querySelectorAll("[data-global-checkbox] input");
-    // this.globalChecks.forEach((global) => {
-    //   if (global.value === "") {
-    //     global.classList.add("ignore-filter")
-    //   }
-    // });
-    // this.checkGlobalCheck();
-
     // handles the click in a tree, what means to mark/unmark every children
     this.checkboxesTree.forEach((input) => input.addEventListener("click", (event) => this.checkTheCheckBoxes(event.target)));
     // handles the click in a leaf, what means to update the parent possibly
@@ -76,69 +67,22 @@ export default class CheckBoxesTree {
     const checkStatus = target.checked;
     // NOTE: Note the regex CSS query, it selects those [data-children-checkbox] ended with the target id
     const allChecks = document.querySelectorAll(`[data-children-checkbox$="${targetChecks}"] input`);
-    // const allChecks = document.querySelectorAll(`[id$="${targetChecks}"] input, input[type='checkbox'][id$="${targetChecks}"]`);
 
     allChecks.forEach((input) => {
       input.checked = checkStatus;
       input.indeterminate = false;
-      input.classList.add("ignore-filter");
+      // NOTE: Long time ago, even before the redesign, the query params were smarter.
+      // That was, if a parent was checked, the url generated did not include the children ids.
+      // But, in some point of the history, this behaviour broke down, and never restored.
+      // It implies huge changes on this script and form_filter.js, so for the time being,
+      // the following code is just ignored.
+      //
+      // input.classList.add("ignore-filter");
 
       // recursive call if the input it's also a tree
       if (input.dataset.checkboxesTree) {
         this.checkTheCheckBoxes(input)
       }
-    });
-
-    // when the target is a children also, recurse up to the parent
-    if ("childrenCheckbox" in target.parentNode.dataset) {
-      this.checkTheCheckParent(target)
-    }
-  }
-
-  /**
-   * REDESIGN_PENDING: remove deprecation
-   * Update global checkboxes state when the current selection changes
-   * @private
-   * @returns {Void} - Returns nothing.
-   * @deprecated
-   */
-  checkGlobalCheck() {
-    this.globalChecks.forEach((global) => {
-      const checksContext = global.dataset.checkboxesTree;
-      const totalInputs = document.querySelectorAll(
-        `#${checksContext} input[type='checkbox']`
-      );
-      const checkedInputs = document.querySelectorAll(
-        `#${checksContext} input[type='checkbox']:checked`
-      );
-      const indeterminateInputs = Array.from(totalInputs).filter((checkbox) => checkbox.indeterminate)
-
-      if (checkedInputs.length === 0 && indeterminateInputs.length === 0) {
-        global.checked = false;
-        global.indeterminate = false;
-      } else if (checkedInputs.length === totalInputs.length && indeterminateInputs.length === 0) {
-        global.checked = true;
-        global.indeterminate = false;
-      } else {
-        global.checked = true;
-        global.indeterminate = true;
-      }
-
-      totalInputs.forEach((input) => {
-        if (global.indeterminate && !input.indeterminate) {
-          input.classList.remove("ignore-filter");
-        } else {
-          input.classList.add("ignore-filter");
-        }
-        const subfilters = input.parentNode.parentNode.nextElementSibling;
-        if (subfilters && subfilters.classList.contains("filters__subfilters")) {
-          if (input.indeterminate) {
-            subfilters.classList.remove("ignore-filters");
-          } else {
-            subfilters.classList.add("ignore-filters");
-          }
-        }
-      });
     });
   }
 
@@ -169,14 +113,19 @@ export default class CheckBoxesTree {
       parentCheck.indeterminate = true;
     }
 
-    // ignore children filters when parent is checked, what means every children is checked
-    totalCheckSiblings.forEach((sibling) => {
-      if (parentCheck.indeterminate && !sibling.indeterminate) {
-        sibling.classList.remove("ignore-filter");
-      } else {
-        sibling.classList.add("ignore-filter");
-      }
-    });
+    // NOTE: Long time ago, even before the redesign, the query params were smarter.
+    // That was, if a parent was checked, the url generated did not include the children ids.
+    // But, in some point of the history, this behaviour broke down, and never restored.
+    // It implies huge changes on this script and form_filter.js, so for the time being,
+    // the following code is just ignored.
+    //
+    // totalCheckSiblings.forEach((sibling) => {
+    //   if (parentCheck.indeterminate && !sibling.indeterminate) {
+    //     sibling.classList.remove("ignore-filter");
+    //   } else {
+    //     sibling.classList.add("ignore-filter");
+    //   }
+    // });
 
     // recursive call if there are more children
     if ("childrenCheckbox" in parentCheck.parentNode.dataset) {
