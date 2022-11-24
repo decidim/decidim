@@ -101,7 +101,7 @@ In this version we are introducing Tailwind CSS as the underlying layer to build
 
 This means that in case you have done any changes in the Decidim user interface or developed any modules with participant facing user interfaces, you need to do changes in all your views, partials and view components (aka cells).
 
-Tailwind is quite different from Foundation and it cannot
+Tailwind is quite different from Foundation and it does not support the old classes and markup that we used to use with Foundation. You will need to update all your views according to the new user interface conventions. You should always aim to follow the styling in the core and utilize the same components that the core provides in order to provide a consistent user experience.
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
@@ -111,7 +111,7 @@ You can read more about Tailwind from the [Tailwind documentation](https://tailw
 
 In previous Decidim versions authorization conflicts (i.e. authorizing the user with the same unique data as a previous user) needed to be always handled manually. Now these are automatically handled for cases where the original user had authorized their account, then deleted their account and finally authorized the new account with the same details as the previous account.
 
-This means that some participation data bound to the previous deleted user account is now automatically transferred over to the new account during the authorization process to prevent e.g. duplicate votes in budgeting votings. This includes any data that may or may not require an authorization through the component permissions because in Decidim we cannot be always perfectly sure when an authorization is required for the action or not. As an example, budget voting can start without an authorization and if the admin decides to configure an authorization for the component one day after the voting started, we need to assume that the all votes in that component required an authorization. Otherwise we would potentially allow multiple votes from the users that voted before the authorization was configured if they decided to create a new account to vote for a second time or deleted their original account and did that.
+This means that some participation data bound to the previous deleted user account is now automatically transferred over to the new account during the authorization process to prevent e.g. duplicate votes in budgeting votings (note that duplicate votes have never been possible but this PR improves the participant experience for any person trying to do that). This includes any data that may or may not require an authorization through the component permissions because in Decidim we cannot be always perfectly sure when an authorization is required for the action or not. As an example, budget voting can start without an authorization and if the admin decides to configure an authorization for the component one day after the voting started, we need to assume that the all votes in that component required an authorization. Otherwise we would potentially allow multiple votes from the users that voted before the authorization was configured if they decided to create a new account to vote for a second time or deleted their original account and did that.
 
 The transferred data can differ between the different modules but the official modules handle the following data automatically:
 
