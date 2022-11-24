@@ -85,7 +85,7 @@ module Decidim
           if photos.present?
             items.append(
               id: "images",
-              text: "images",
+              text: t("decidim.application.photos.related_photos"),
               icon: "image-line",
               method: :render,
               args: ["images"]
@@ -94,7 +94,7 @@ module Decidim
           if documents.present?
             items.append(
               id: "documents",
-              text: "documents",
+              text: t("decidim.application.documents.related_documents"),
               icon: "file-text-line",
               method: :render,
               args: ["documents"]
