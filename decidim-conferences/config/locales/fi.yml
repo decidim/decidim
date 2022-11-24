@@ -28,6 +28,7 @@ fi:
         show_statistics: Näytä tilastot
         sign_date: Allekirjoituksen päivämäärä
         signature: Allekirjoitus
+        signature_name: Allekirjoituksen nimi
         slogan: Iskulause
         slug: URL-tunniste
         start_date: Alkamispäivä
@@ -36,11 +37,13 @@ fi:
         date: Päivämäärä
         link: Linkki
         title: Otsikko
+        weight: Järjestysnumero
       conference_partner:
         link: Linkki
         logo: Logo
         name: Nimi
         partner_type: Kumppanin tyyppi
+        weight: Järjestysnumero
       conference_registration_invite:
         email: Sähköposti
         name: Nimi
@@ -50,6 +53,7 @@ fi:
         description: Kuvaus
         price: Hinta
         title: Otsikko
+        weight: Järjestysnumero
       conference_speaker:
         affiliation: Jäsenyys
         avatar: Avatar
@@ -129,6 +133,8 @@ fi:
         edit:
           title: Päivitä konferenssin hallintakäyttäjä.
           update: Päivitä
+        index:
+          conference_admins_title: Konferenssin ylläpitäjät
         new:
           create: Luo
           title: Uusi konferenssin hallintakäyttäjä.
