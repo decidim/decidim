@@ -2,7 +2,7 @@
 
 module Decidim
   module ExternalDomainHelper
-    # deprecated
+    # Redesign: deprecated once the redesign has been completed
     def highlight_domain
       tag.div do
         content_tag(:span, "#{@url_parts[:protocol]}//") +
