@@ -64,6 +64,7 @@ module Decidim
 
           expect(response).to redirect_to("/admin_tos")
           expect(response.body).to have_text("You are being redirected")
+          expect(session[:user_return_to]).to eq("http://test.host/another")
         end
       end
 

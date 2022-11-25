@@ -51,6 +51,13 @@ describe "AdminTosAcceptance", type: :system do
       it "has a message that they need to accept the admin TOS" do
         expect(page).to have_content(review_message)
       end
+
+      it "allows accepting and redirects to the previous page" do
+        click_button "I agree with the terms"
+        expect(page).to have_text("New process")
+        expect(page).to have_text("Process types")
+        expect(page).to have_text("Process groups")
+      end
     end
 
     context "when they visit the TOS page" do
