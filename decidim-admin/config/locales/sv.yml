@@ -24,7 +24,7 @@ sv:
       component:
         name: Namn
         published_at: Publicerad
-        weight: Vikt
+        weight: Ordning
       id: ID
       import:
         user_group_id: Skapa import som
@@ -113,12 +113,12 @@ sv:
         show_in_footer: Visa i sidfoten
         slug: URL slug
         title: Titel
-        weight: Vikt
+        weight: Ordning
       static_page_topic:
         description: Beskrivning
         show_in_footer: Visa i sidfoten
         title: Titel
-        weight: Vikt
+        weight: Ordning
       user_group_csv_verification:
         file: Fil
     errors:
