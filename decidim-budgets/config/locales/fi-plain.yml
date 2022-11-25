@@ -47,6 +47,7 @@ fi-pl:
         import: Tuo ehdotuksia suunnitelmiin
         new: Uusi %{name}
         preview: Esikatsele
+        send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
       admin:
         budgets:
@@ -288,7 +289,6 @@ fi-pl:
           votes:
             one: ääni
             other: ääntä
-          you_voted: Äänestit tätä
         project_budget_button:
           add: Lisää ääneesi
           add_descriptive: Lisää hanke %{resource_name} ääneesi
