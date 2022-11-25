@@ -14,20 +14,20 @@ sv:
         description: Beskrivning
         file: Fil
         title: Bilaga eller bildnamn
-        weight: Order
+        weight: Ordning
       attachment_collection:
         description: Beskrivning
         name: Namn
-        weight: Order
+        weight: Ordning
       category:
         description: Beskrivning
         name: Namn
         parent_id: Överordnad
-        weight: Order
+        weight: Ordning
       component:
         name: Namn
         published_at: Publicerad
-        weight: Vikt
+        weight: Ordning
       external_domain:
         value: Värde
       help_section:
@@ -124,12 +124,12 @@ sv:
         slug: URL slug
         title: Titel
         topic_id: Ämne
-        weight: Vikt
+        weight: Ordning
       static_page_topic:
         description: Beskrivning
         show_in_footer: Visa i sidfoten
         title: Titel
-        weight: Vikt
+        weight: Ordning
       user_group_csv_verification:
         file: Fil
     errors:
