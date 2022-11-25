@@ -31,5 +31,6 @@ sv:
             save: Spara
           preview:
             current_step: Steg %{step} av
+            of_total_steps: av %{total_steps}
       template_types:
         questionnaires: Enkäter
