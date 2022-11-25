@@ -60,6 +60,7 @@ sv:
         avatar: Avatar
         conference_meeting_ids: Relaterade möten
         full_name: Fullständigt namn
+        personal_url: Personlig URL
         position: Plats
         twitter_handle: Twitternamn
         user_id: Användare
