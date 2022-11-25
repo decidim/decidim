@@ -5,6 +5,7 @@ require "spec_helper"
 describe "AdminTosAcceptance", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
+  let(:review_message) { "Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform" }
 
   before do
     switch_to_host(organization.host)
@@ -21,7 +22,7 @@ describe "AdminTosAcceptance", type: :system do
       end
 
       it "has a message that they need to accept the admin TOS" do
-        expect(page).to have_content("Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform")
+        expect(page).to have_content(review_message)
       end
 
       it "has only the Dashboard menu item in the main navigation" do
@@ -37,10 +38,18 @@ describe "AdminTosAcceptance", type: :system do
         visit decidim_admin.newsletters_path
       end
 
-      it "says that you're not authorized" do
-        within ".callout.alert" do
-          expect(page).to have_text("You are not authorized to perform this action")
-        end
+      it "has a message that they need to accept the admin TOS" do
+        expect(page).to have_content(review_message)
+      end
+    end
+
+    context "when they visit other admin pages from other engines" do
+      before do
+        visit decidim_admin_participatory_processes.participatory_processes_path
+      end
+
+      it "has a message that they need to accept the admin TOS" do
+        expect(page).to have_content(review_message)
       end
     end
 

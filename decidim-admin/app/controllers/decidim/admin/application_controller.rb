@@ -14,6 +14,7 @@ module Decidim
       include PayloadInfo
       include HttpCachingDisabler
       include DisableRedirectionToExternalHost
+      include Decidim::Admin::NeedsAdminTosAccepted
 
       include DisabledRedesignLayout
 
