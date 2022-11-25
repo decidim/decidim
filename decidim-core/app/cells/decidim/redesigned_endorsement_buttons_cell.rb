@@ -57,6 +57,10 @@ module Decidim
       decidim.endorsement_path(*args)
     end
 
+    def button_content
+      render
+    end
+
     private
 
     def endorsements_blocked_or_user_can_not_participate?
