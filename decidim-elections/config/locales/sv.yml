@@ -643,6 +643,8 @@ sv:
             download: Ladda ner
       content_blocks:
         landing_page:
+          description:
+            title: Om den här omröstningen
           metrics:
             heading: Metrik
           polling_stations:
@@ -674,8 +676,10 @@ sv:
             heading: Omräkning
             modal_ballots_count_error:
               close_modal: Stäng
+              total_ballots: 'Totalt antal röstsedlar:'
               total_people: 'Totala människor:'
             polling_station: 'Vallokal:'
+            total_ballots_count: Antal röstsedlar
           show:
             heading: Omräkning
           sign:
@@ -691,6 +695,7 @@ sv:
             document_number_placeholder: ID-nummer
             month: Månad
             month_placeholder: MM
+            validate_document: Validera dokument
             year: År
             year_placeholder: ÅÅÅÅ
           verify_document:
@@ -702,6 +707,7 @@ sv:
               address: Adress
               count_votes: Räkna röster
               election: Omröstning
+              identify_person: Identifiera en person
               name: Namn
               role: Din roll
               show_closure: Visa avslutning
@@ -732,6 +738,8 @@ sv:
           title: Få behörighetskod
         check_census:
           check_status: Kontrollera status
+          success:
+            access_link_with_sms: via SMS eller e-post.
           title: Kan jag rösta?
         check_fields:
           date_of_birth: Födelsedatum
