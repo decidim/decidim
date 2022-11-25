@@ -14,6 +14,6 @@
 
     <%== embed_code(request.host) if show_embed? %>
 
-    <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button__xl button__secondary" %>
+    <%= link_to t("join", scope: "decidim.meetings.meetings.show"), live_event_url, target: "_blank", class: "button button__xl button__secondary", data: { "external-link": false } %>
   <% end %>
 </div>
