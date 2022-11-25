@@ -22,6 +22,8 @@ fr:
       polling_station:
         address: Adresse
         location: Lieu
+        location_hints: Indication de lieu
+        polling_station_managers: Gestionnaires
         polling_station_president_id: Président
         title: Titre
       question:
