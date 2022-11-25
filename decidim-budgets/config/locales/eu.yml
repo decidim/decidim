@@ -247,7 +247,6 @@ eu:
           votes:
             one: Botoa
             other: botoak
-          you_voted: Hau bozkatu duzu
         project_budget_button:
           add: Gehitu zure botoari
           add_descriptive: Gehitu %{resource_name} proiektua zure botoari
