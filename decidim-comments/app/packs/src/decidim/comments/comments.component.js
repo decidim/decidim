@@ -12,7 +12,7 @@
 // This is necessary for testing purposes
 const $ = window.$;
 
-import { createCharacterCounter } from "src/decidim/input_character_counter"
+import { createCharacterCounter } from "src/decidim/redesigned_input_character_counter"
 import ExternalLink from "src/decidim/redesigned_external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 
@@ -100,7 +100,7 @@ export default class CommentsComponent {
     const $comment = $(replyHtml);
     const $replies = $(`#panel-${commentId}-replies`);
     this._addComment($replies, $comment);
-    $replies.siblings(".comment__additionalreply").removeClass("hide");
+    $replies.siblings(".comment__additionalreply").removeClass("hidden");
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
@@ -161,10 +161,11 @@ export default class CommentsComponent {
     }
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
 
+
     $target.append($container);
     $container.foundation();
     this._initializeComments($container);
-    createCharacterCounter($(".add-comment textarea", $container));
+    $(".add-comment textarea", $container).each((_i, el) => createCharacterCounter($(el)));
     $container.find('a[target="_blank"]').each((_i, elem) => new ExternalLink(elem));
     updateExternalDomainLinks($container)
   }
@@ -189,7 +190,7 @@ export default class CommentsComponent {
         characterCounter.updateStatus();
       }
       if (!$add.parent().is(".comments")) {
-        $add.addClass("hide");
+        $add.addClass("hidden");
       }
     }
 
