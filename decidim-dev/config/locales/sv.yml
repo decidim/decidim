@@ -14,6 +14,7 @@ sv:
       dummy:
         settings:
           global:
+            guided: Guidad ingång
             readonly_attribute: Skrivskyddat attribut
             test: Ett test
             test_choices:
