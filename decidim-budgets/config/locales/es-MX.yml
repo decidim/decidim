@@ -47,6 +47,7 @@ es-MX:
         import: Importar propuestas a proyectos
         new: Nuevo %{name}
         preview: Previsualizar
+        send_voting_reminders: Enviar recordatorios de votación
         title: Acciones
       admin:
         budgets:
@@ -285,7 +286,6 @@ es-MX:
           votes:
             one: voto
             other: votos
-          you_voted: Has votado esto
         project_budget_button:
           add: Añadir a tu voto
           add_descriptive: Añadir proyecto %{resource_name} a tu voto
