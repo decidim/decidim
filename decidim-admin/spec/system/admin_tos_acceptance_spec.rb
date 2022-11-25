@@ -27,7 +27,7 @@ describe "AdminTosAcceptance", type: :system do
 
       it "has only the Dashboard menu item in the main navigation" do
         within ".main-nav" do
-          expect(page).to have_text("Dashboard")
+          expect(page).to have_content("Dashboard")
           expect(page).to have_selector("li a", count: 1)
         end
       end
@@ -54,9 +54,9 @@ describe "AdminTosAcceptance", type: :system do
 
       it "allows accepting and redirects to the previous page" do
         click_button "I agree with the terms"
-        expect(page).to have_text("New process")
-        expect(page).to have_text("Process types")
-        expect(page).to have_text("Process groups")
+        expect(page).to have_content("New process")
+        expect(page).to have_content("Process types")
+        expect(page).to have_content("Process groups")
       end
     end
 
@@ -66,20 +66,20 @@ describe "AdminTosAcceptance", type: :system do
       end
 
       it "renders the TOS page" do
-        expect(page).to have_text("Agree to the terms and conditions of use")
+        expect(page).to have_content("Agree to the terms and conditions of use")
       end
 
       it "allows accepting the terms" do
         click_button "I agree with the terms"
-        expect(page).to have_text("Activity")
-        expect(page).to have_text("Metrics")
+        expect(page).to have_content("Activity")
+        expect(page).to have_content("Metrics")
 
         within ".main-nav" do
-          expect(page).to have_text("Dashboard")
-          expect(page).to have_text("Newsletters")
-          expect(page).to have_text("Participants")
-          expect(page).to have_text("Settings")
-          expect(page).to have_text("Admin activity log")
+          expect(page).to have_content("Dashboard")
+          expect(page).to have_content("Newsletters")
+          expect(page).to have_content("Participants")
+          expect(page).to have_content("Settings")
+          expect(page).to have_content("Admin activity log")
         end
       end
     end
