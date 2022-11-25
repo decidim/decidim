@@ -257,8 +257,8 @@ export default class CommentsComponent {
    */
   _setLoading() {
     const $container = $("> .comments__container", this.$element);
-    $("> .comments", $container).addClass("hide");
-    $("> .loading-comments", $container).removeClass("hide");
+    $("> .comments", $container).addClass("hidden");
+    $("> .loading-comments", $container).removeClass("hidden");
   }
 
   /**
