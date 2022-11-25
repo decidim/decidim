@@ -2,9 +2,12 @@ fr-CA:
   activemodel:
     attributes:
       initiative:
+        answer: Réponse
+        answer_url: URL de la réponse
         area_id: Périmètre d'assemblée
         decidim_user_group_id: Auteur
         description: Description
+        hashtag: Hashtag
         offline_votes: Votes en présentiel
         offline_votes_for_scope: Signatures en personne pour %{scope_name}
         scope_id: Secteur
@@ -17,6 +20,7 @@ fr-CA:
           online: En ligne
         state: Etat
         title: Titre
+        type_id: Type
       initiatives_committee_member:
         user: Membre du Comité de promotion
       initiatives_settings:
