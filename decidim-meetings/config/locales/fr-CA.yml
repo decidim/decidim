@@ -18,6 +18,7 @@ fr-CA:
         decidim_scope_id: Périmètre d'application
         decidim_user_group_id: Groupe d'utilisateurs
         description: Description
+        end_time: Heure de fin
         id: ID
         location: Lieu
         location_hints: Indicateurs d’emplacement
@@ -28,13 +29,25 @@ fr-CA:
         registration_email_custom_content: Contenu personnalisé de l'e-mail d'inscription
         registration_form_enabled: Formulaire d'inscription activé
         registration_terms: Conditions d'inscription
+        registration_type: Type d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
+        start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
+      meeting_agenda:
+        title: Titre
+        visible: Visible
       meeting_agenda_items:
+        description: Description
         duration: Durée
+        title: Titre
+      meeting_registration_invite:
+        email: Email
+        name: Nom
+      validate_registration_code:
+        code: Code
     errors:
       models:
         meeting:
