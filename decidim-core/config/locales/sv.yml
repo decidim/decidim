@@ -145,6 +145,8 @@ sv:
     admin:
       actions:
         cancel: Avbryt
+      password_change:
+        alert: Du måste ändra ditt lösenord för att kunna fortsätta
     admin_log:
       area:
         create: "%{user_name} skapade området %{resource_name}"
@@ -312,6 +314,7 @@ sv:
       endorsements:
         one: instämmande
         other: instämmanden
+      official_author: Officiella
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Bli bekräftad genom att ange ett passnummer som inleds med "A"
@@ -402,6 +405,7 @@ sv:
           debate: Debatt
           initiative: Initiativ
           meeting: Möte
+          order: Röster
           post: Inlägg
           proposal: Förslag
           question: Fråga
@@ -875,6 +879,7 @@ sv:
         success: Förfrågan att gå med har skickats. En administratör granskar din förfrågan innan du blir godkänd i gruppen.
       leave:
         error: Det gick inte att lämna gruppen
+        last_admin: Du kan inte ta bort dig själv från denna grupp eftersom du är den sista administratören. Gör en annan medlem till administratör för att lämna gruppen.
         success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
@@ -1623,13 +1628,25 @@ sv:
       data_consent:
         details:
           columns:
+            name: Namn
             service: Tjänst
+            type: Typ
+          items:
+            _session_id:
+              service: Denna webbplats
+            decidim-consent:
+              service: Denna webbplats
+            pwaInstallPromptSeen:
+              service: Denna webbplats
           types:
             cookie: Cookie
+            local_storage: Lokal lagring
         dialog:
           settings: Inställningar
         modal:
           save_settings: Spara inställningar
+        warning:
+          consent_required: Du måste aktivera %{categories} för att kunna se innehållet.
       edit_link:
         edit: Redigera
       footer:
