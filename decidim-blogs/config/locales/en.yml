@@ -70,7 +70,6 @@ en:
           destroy: Delete
           endorse: Endorse
           update: Update
-          vote: Vote
         name: Blog
         settings:
           global:
