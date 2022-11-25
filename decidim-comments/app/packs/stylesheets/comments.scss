@@ -1,10 +1,14 @@
 .comments{
   &__container{
-    @apply mt-24;
+    @apply my-24;
   }
 
   .add-comment .remaining-character-count{
     @apply inline-block align-middle text-sm;
+  }
+
+  &__header{
+    @apply flex items-center gap-x-2 mb-4;
   }
 }
 
@@ -195,5 +199,9 @@
         @apply block;
       }
     }
+  }
+
+  &__opinion-container{
+    @apply flex gap-x-6
   }
 }
