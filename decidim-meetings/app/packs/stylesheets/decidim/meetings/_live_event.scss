@@ -1,6 +1,6 @@
 .meeting-polls{
   &__header{
-    @apply flex items-center justify-between py-2.5 bg-background border;
+    @apply flex items-center justify-between p-2.5 bg-background border;
   }
 
   &__main{

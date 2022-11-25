@@ -14,12 +14,12 @@
     <header class="meeting-polls__header">
       <% if current_user && poll %>
         <div class="flex gap-2">
-          <button class="button button__sm md:button__lg button__primary meeting-polls__action-list">
+          <button class="button button__sm button__primary meeting-polls__action-list">
             <%= t("questions", scope: "decidim.meetings.layouts.live_event") %> <span id="visible-questions-count">(<%= questionnaire.questions.visible.count %>)<span>
           </button>
 
           <% if admin_allowed_to?(:update, :poll, meeting: meeting, poll: poll) %>
-            <button class="button button__sm md:button__lg button__primary meeting-polls__action-administrate"><%= t("administrate", scope: "decidim.meetings.layouts.live_event") %></button>
+            <button class="button button__sm button__primary meeting-polls__action-administrate"><%= t("administrate", scope: "decidim.meetings.layouts.live_event") %></button>
           <% end %>
         </div>
       <% end %>
@@ -28,14 +28,14 @@
         <strong class="text-secondary"><%= current_organization.name %></strong> / <strong><%= present(meeting).title(links: true) %></strong>
       </div>
 
-      <div class="flex gap-2">
+      <div class="flex gap-10">
         <% if current_user %>
-          <%= link_to current_user.name, decidim.account_path, target: "_blank", class: "button button__sm md:button__lg button-text-secondary", data: { "external-link": false }, "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
+          <%= link_to current_user.name, decidim.account_path, target: "_blank", class: "button button__sm button__text-secondary", data: { "external-link": false }, "aria-label": t("layouts.decidim.user_menu.account", name: current_user.name) %>
         <% end %>
 
-        <%= link_to meeting_path(meeting), class: "button button__sm md:button__lg button__text-secondary", "aria-label": t("close", scope: "decidim.meetings.layouts.live_event") do %>
+        <%= link_to meeting_path(meeting), class: "button button__sm button__text-secondary", "aria-label": t("close", scope: "decidim.meetings.layouts.live_event") do %>
           <span><%= t("close", scope: "decidim.meetings.layouts.live_event") %></span>
-          <%= icon "x" %>
+          <%= icon "close-line" %>
         <% end %>
       </div>
     </header>
@@ -46,7 +46,7 @@
       <%= yield %>
     </main>
 
-    <%= render partial: "layouts/decidim/decidim_javascript" %>
+    <%= render partial: "layouts/decidim/redesigned_decidim_javascript" %>
     <%= javascript_pack_tag "decidim_meetings" %>
   </body>
 </html>
