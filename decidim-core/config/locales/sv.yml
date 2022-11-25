@@ -41,6 +41,7 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_endorsed_event: Resurs instämd
+      decidim/user_group_created_event: Användargrupp skapad
       decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
@@ -774,6 +775,8 @@ sv:
         file:
           explanation: 'Vägledning för fil:'
           message_1: Måste vara en bild eller ett dokument.
+        icon:
+          explanation: 'Vägledning för ikon:'
         image:
           explanation: 'Vägledning för bild:'
           message_1: Helst en landskapsbild som inte har någon text.
@@ -1112,6 +1115,7 @@ sv:
           none: Ingen
           weekly: Veckovis
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
+        push_notifications: Push-meddelanden
         receive_notifications_about: Jag vill få notiser om
         update_notifications_settings: Spara ändringar
       update:
@@ -1210,6 +1214,8 @@ sv:
         actions:
           create_user_group: Skapa grupp
           edit_profile: Redigera profil
+          edit_user_group: Redigera grupprofil
+          invite_user: Bjud in deltagare
           manage_user_group_admins: Hantera administratörer
           manage_user_group_users: Hantera medlemmar
           message: Meddelande
