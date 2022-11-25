@@ -1,8 +1,9 @@
 <%= decidim_modal id: "calendarShare", class: "calendar-modal" do %>
   <div data-dialog-container>
-    <h2 id="dialog-title-calendar-modal"><%= t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal") %></h2>
+    <%= icon "calendar-check-line" %>
+    <h2 id="dialog-title-calendarShare" data-dialog-title><%= t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal") %></h2>
     <div>
-      <ul>
+      <ul class="prose prose-a:text-secondary">
         <li>
           <%= link_to t("outlook", scope: "decidim.meetings.meetings.calendar_modal"), ics_url, data: { turbo: false } %>
         </li>
