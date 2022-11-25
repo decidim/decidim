@@ -2,6 +2,7 @@ sv:
   activemodel:
     attributes:
       initiative:
+        area_id: Område
         decidim_user_group_id: Författare
         description: Beskrivning
         offline_votes: Fysiska underskrifter
@@ -17,6 +18,8 @@ sv:
         title: Titel
       initiatives_committee_member:
         user: Kommittémedlem
+      initiatives_settings:
+        initiatives_order: Ordning
       initiatives_type:
         area_enabled: Gör det möjligt för författare att välja området för deras initiativ
         attachments_enabled: Aktivera bilagor
@@ -199,6 +202,7 @@ sv:
             max_results: Högsta antal element att visa
             order:
               default: Standard (Äldste)
+              label: 'Sortera efter:'
               most_recent: Senaste
         exports:
           initiatives: Initiativ
