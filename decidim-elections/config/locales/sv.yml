@@ -706,6 +706,7 @@ sv:
               address: Adress
               count_votes: Räkna röster
               election: Omröstning
+              identify_person: Identifiera en person
               name: Namn
               role: Din roll
               show_closure: Visa avslutning
@@ -736,6 +737,8 @@ sv:
           title: Få behörighetskod
         check_census:
           check_status: Kontrollera status
+          success:
+            access_link_with_sms: via SMS eller e-post.
           title: Kan jag rösta?
         check_fields:
           date_of_birth: Födelsedatum
