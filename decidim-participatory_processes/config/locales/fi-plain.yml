@@ -11,15 +11,22 @@ fi-pl:
         decidim_area_id: Alue
         description: Kuvaus
         developer_group: Kehittäjäryhmä
+        document: Asiakirja
         domain: Toimintaympäristö
         end_date: Päättymispäivä
         hashtag: Aihetunniste (hashtag)
         hero_image: Etusivun kuva
+        import_attachments: Tuo liitteitä
+        import_categories: Kopioi aihepiirejä
+        import_components: Tuo komponentteja
+        import_steps: Tuo vaiheita
         local_area: Järjestöalue
         meta_scope: Teeman metadata
         participatory_process_group_id: Prosessiryhmä
+        participatory_process_type_id: Prosessin tyyppi
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
+        private_space: Yksityinen prosessi
         promoted: Korostettu
         published_at: Julkaisuaika
         related_process_ids: Liittyvät prosessit
