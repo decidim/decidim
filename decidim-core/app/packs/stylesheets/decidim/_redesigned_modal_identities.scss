@@ -1,13 +1,15 @@
 .identities-modal{
   &__list{
-    @apply py-10 space-y-2;
+    @apply flex flex-col gap-2 py-10;
 
-    li{
+    button{
       @apply w-full border-4 border-background rounded p-2 flex items-center justify-between cursor-pointer;
 
       &.is-selected,
+      &:focus,
+      &:focus-visible,
       &:hover{
-        @apply border-primary/10 [&_svg]:visible;
+        @apply border-primary/10 [&_svg]:visible outline-none;
       }
 
       svg{

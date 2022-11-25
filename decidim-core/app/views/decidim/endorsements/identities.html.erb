@@ -2,12 +2,12 @@
   <%= icon "account-circle-line" %>
   <h3 id="dialog-title-user-identities" data-dialog-title><%= t ".select_identity" %></h3>
   <div>
-    <ul class="identities-modal__list">
+    <div class="identities-modal__list">
       <%= render_endorsement_identity(resource, current_user) %>
       <% @user_verified_groups.each do |user_group| %>
         <%= render_endorsement_identity(resource, current_user, user_group) %>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>
 <div data-dialog-actions>
