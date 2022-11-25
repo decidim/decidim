@@ -1,7 +1,6 @@
 <div class="blog__actions">
   <div class="blog__actions-left">
     <% if endorsements_enabled? %>
-      <%= cell "decidim/endorsers_list_button", post %>
       <%= endorsement_buttons_cell(post) %>
     <% end %>
 
