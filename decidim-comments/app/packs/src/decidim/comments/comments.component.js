@@ -100,7 +100,6 @@ export default class CommentsComponent {
     const $comment = $(replyHtml);
     const $replies = $(`#comment-${commentId}-replies`);
     this._addComment($replies, $comment);
-    $replies.siblings(".comment__additionalreply").removeClass("hidden");
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
@@ -181,16 +180,13 @@ export default class CommentsComponent {
    */
   _finalizeCommentCreation($parent, fromCurrentUser) {
     if (fromCurrentUser) {
-      const $add = $("> .add-comment", $parent);
+      const $add = $(".add-comment:eq(0)", $parent);
       const $text = $("textarea", $add);
       const characterCounter = $text.data("remaining-characters-counter");
       $text.val("");
       if (characterCounter) {
         characterCounter.handleInput();
         characterCounter.updateStatus();
-      }
-      if (!$add.parent().is(".comments")) {
-        $add.addClass("hidden");
       }
     }
 
