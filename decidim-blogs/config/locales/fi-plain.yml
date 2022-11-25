@@ -2,7 +2,9 @@ fi-pl:
   activemodel:
     attributes:
       post:
+        decidim_author_id: Laatija
         published_at: Julkaisuaika
+        title: Otsikko
     models:
       decidim/blogs/create_post_event: Uusi blogiartikkeli
   activerecord:
@@ -57,6 +59,7 @@ fi-pl:
             body: Leipäteksti
             official_blog_post: Virallinen artikkeli
             published_at: Julkaisuaika
+            title: Otsikko
       posts:
         show:
           comments: Kommentit
