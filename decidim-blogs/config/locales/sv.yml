@@ -1,5 +1,9 @@
 sv:
   activemodel:
+    attributes:
+      post:
+        decidim_author_id: Författare
+        title: Titel
     models:
       decidim/blogs/create_post_event: Nytt blogginlägg
   activerecord:
@@ -45,6 +49,7 @@ sv:
             author: Författare
             body: Innehåll
             official_blog_post: Officiellt inlägg
+            title: Titel
       posts:
         show:
           comments: Kommentarer
