@@ -1,4 +1,4 @@
-<div class="comment-reply" id="panel-<%= model.id %>-replies">
+<div class="comment-reply">
   <% replies.each do |reply| %>
     <%= cell("decidim/comments/comment", reply, root_depth: root_depth, order: order, reloaded: reloaded?) %>
   <% end %>

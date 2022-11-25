@@ -33,8 +33,10 @@
         </div>
       <% end %>
     </div>
-    <% if has_replies_in_children? %>
-      <%= render :replies %>
-    <% end %>
+    <div id="panel-<%= model.id %>-replies">
+      <% if has_replies_in_children? %>
+        <%= render :replies %>
+      <% end %>
+    </div>
   <% end %>
 <% end %>
