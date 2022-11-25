@@ -25,6 +25,8 @@ fr-CA:
         name: Titre
         published_at: Publiée à
         weight: Rang
+      help_section:
+        content: Contenu
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -92,6 +94,9 @@ fr-CA:
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Nom
       scope:
         code: Code
         name: Titre
@@ -930,6 +935,9 @@ fr-CA:
           delete_image: Supprimer l'image
           edit_images: Modifier les images
           gallery_legend: Ajouter une galerie d'images (facultatif)
+      static_page_content_blocks:
+        edit:
+          update: Mettre à jour
       static_page_topics:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau sujet.
@@ -948,6 +956,10 @@ fr-CA:
       static_pages:
         actions:
           view: Voir la page publique
+        content_blocks:
+          active_content_blocks: Blocs de contenu actifs
+          inactive_content_blocks: Blocs de contenu inactifs
+          title: Contenu de la page
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
