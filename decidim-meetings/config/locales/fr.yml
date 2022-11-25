@@ -20,6 +20,7 @@ fr:
         description: Description
         end_time: Heure de fin
         id: ID
+        iframe_embed_type: Type d'Iframe encapsulée
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
