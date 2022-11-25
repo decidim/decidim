@@ -138,6 +138,7 @@ sv:
         participatory_process_type:
           fields:
             title: Titel
+          name: Processtyp
         participatory_process_user_role:
           fields:
             email: E-post
@@ -222,6 +223,7 @@ sv:
           success: Steget i deltagarprocessen har uppdaterats.
       participatory_process_types:
         edit:
+          title: Redigera dialogtyp
           update: Uppdatera
         form:
           title: Titel
