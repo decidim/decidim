@@ -16,8 +16,10 @@ export default function(node = document) {
     }
 
     const { [attr]: url } = element.dataset
-    fetch(url, { method }).then((response) => {
-      if (response.ok) {
+    Rails.ajax({
+      url: url,
+      type: method,
+      success: function() {
         if (method === "POST") {
           element.classList.add("is-selected")
           element.dataset.method = "DELETE"
