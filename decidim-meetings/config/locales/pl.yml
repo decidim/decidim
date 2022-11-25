@@ -360,7 +360,11 @@ pl:
       calendar_modal:
         calendar_url: Adres URL kalendarza
         close_window: Zamknij okno
+        copy_calendar_url_description: Możesz zobaczyć wszystkie opublikowane spotkania w swojej aplikacji kalendarza. Skopiuj i wklej ten adres URL w swoim kalendarzu, używając opcji "Dodaj nowy kalendarz z URL".
         export_calendar: Eksportuj kalendarz
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          subject: Teraz możesz zamknąć spotkanie z opublikowaniem raportu na platformie %{organization_name}
       conference_venues: Sale konferencyjne
       content_blocks:
         upcoming_meetings:
