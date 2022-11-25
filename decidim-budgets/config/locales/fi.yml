@@ -289,7 +289,6 @@ fi:
           votes:
             one: ääni
             other: ääntä
-          you_voted: Äänestit tätä
         project_budget_button:
           add: Lisää ääneesi
           add_descriptive: Lisää hanke %{resource_name} ääneesi
