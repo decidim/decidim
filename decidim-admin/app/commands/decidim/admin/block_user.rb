@@ -67,7 +67,12 @@ module Decidim
           form.user.blocked_at = Time.current
           form.user.blocking = @current_blocking
           form.user.extended_data["user_name"] = form.user.name
+          form.user.extended_data["about"] = form.user.about
+          form.user.extended_data["personal_url"] = form.user.personal_url
           form.user.name = "Blocked user"
+          form.user.about = ""
+          form.user.personal_url = ""
+          form.user.avatar.purge if form.user.avatar.present?
           form.user.save!
         end
       end

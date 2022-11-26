@@ -26,23 +26,43 @@ module Decidim::Admin
           expect { subject.call }.to broadcast(:ok, user_to_block)
         end
 
-        it "user is notified" do
+        it "notifies the user" do
           subject.call
           expect(Decidim::BlockUserJob).to have_been_enqueued.on_queue("block_user")
         end
 
-        it "user is updated" do
+        it "updates the user's name" do
           subject.call
           expect(form.user.blocked).to be(true)
-          expect(form.user.extended_data["user_name"]).to eq(user_name)
+          expect(form.user.extended_data["user_name"]).to eq(name)
           expect(form.user.name).to eq("Blocked user")
         end
 
-        it "original username is stored in the action log entry's resource title" do
+        it "updates the user's about information" do
+          subject.call
+          expect(form.user.blocked).to be(true)
+          expect(form.user.extended_data["about"]).to eq(about)
+          expect(form.user.about).to eq("")
+        end
+
+        it "updates the user's personal_url information" do
+          subject.call
+          expect(form.user.blocked).to be(true)
+          expect(form.user.extended_data["personal_url"]).to eq(personal_url)
+          expect(form.user.personal_url).to eq("")
+        end
+
+        it "removes the user's avatar" do
+          expect(form.user.avatar).to be_present
+          subject.call
+          expect(form.user.avatar).not_to be_present
+        end
+
+        it "stores the original username in the action log resource title" do
           subject.call
           log = Decidim::ActionLog.last
           expect(log.resource).to eq(form.user)
-          expect(log.extra["resource"]["title"]).to eq(user_name)
+          expect(log.extra["resource"]["title"]).to eq(name)
         end
 
         it "tracks the changes" do
@@ -74,15 +94,19 @@ module Decidim::Admin
     end
 
     context "with a user" do
-      let(:user_to_block) { create :user, name: user_name, organization: }
-      let(:user_name) { "Testing user" }
+      let(:user_to_block) { create :user, name:, personal_url:, about:, organization: }
+      let(:name) { "Testing user" }
+      let(:about) { "About field" }
+      let(:personal_url) { Faker::Internet.url }
 
       it_behaves_like "blocking user or group form"
     end
 
     context "with a user group" do
-      let(:user_to_block) { create :user_group, name: user_name, organization: }
-      let(:user_name) { "Testing user group" }
+      let(:user_to_block) { create :user_group, name:, personal_url:, about:, organization: }
+      let(:name) { "Testing user" }
+      let(:about) { "About field" }
+      let(:personal_url) { Faker::Internet.url }
 
       it_behaves_like "blocking user or group form"
     end
