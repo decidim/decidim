@@ -15,6 +15,7 @@ window.Quill = Quill
 
 // Rails.ajax is used by the fetching/polling of the comments
 import Rails from "@rails/ujs";
+window.Rails = Rails;
 jest.mock("@rails/ujs");
 
 // Fake timers for testing polling

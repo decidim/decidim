@@ -19,31 +19,6 @@ module Decidim::Comments
       it "renders the thread" do
         expect(subject).to have_css(".comment-thread")
         expect(subject).to have_content(comment.body.values.first)
-
-        expect(subject).not_to have_css(".comment-thread__title")
-      end
-
-      context "with replies" do
-        let(:resource_locator) { Decidim::ResourceLocatorPresenter.new(commentable) }
-        let!(:replies) { create_list(:comment, 10, commentable: comment) }
-
-        before do
-          allow(Decidim::ResourceLocatorPresenter).to receive(:new).and_return(resource_locator)
-          allow(resource_locator).to receive(:path).and_return("/dummies")
-        end
-
-        it "renders the title" do
-          expect(subject).to have_css(".comment-thread__title", text: "Conversation with #{comment.author.name}")
-        end
-
-        context "with a deleted user" do
-          let(:user) { create(:user, :deleted, organization: component.organization) }
-          let(:comment) { create(:comment, commentable:, author: user) }
-
-          it "renders the title" do
-            expect(subject).to have_css(".comment-thread__title", text: "Conversation with Deleted participant")
-          end
-        end
       end
     end
   end

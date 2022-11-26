@@ -5,11 +5,9 @@
 
   <ul id="<%= context_menu_id %>" class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
     <% unless reloaded? %>
-      <% if current_user.present? %>
-        <li class="dropdown__item">
-          <%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
-        </li>
-      <% end %>
+      <li class="dropdown__item">
+        <%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
+      </li>
     <% end %>
     <li>
       <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title") do %>
