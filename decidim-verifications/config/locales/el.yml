@@ -94,13 +94,11 @@ el:
           expired_verification: Η επαλήθευση έληξε
           pending_verification: Εκκρεμεί επαλήθευση
           show_renew_info: Κάντε κλικ για ανανέωση της επαλήθευσης
-          unauthorized_verification: Νέα επαλήθευση
         new:
           authorize: Αποστολή
           authorize_with: Επαλήθευση με %{authorizer}
         renew_modal:
           cancel: Ακύρωση
-          close: κλείσιμο
           continue: Συνέχεια
           info_renew: Εάν θέλετε να ενημερώσετε τα δεδομένα, συνεχίστε με την ανανέωση
           title: Ανανέωση επαλήθευσης
