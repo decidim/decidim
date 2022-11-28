@@ -116,13 +116,11 @@ fi-pl:
           expired_verification: Vahvistus on erääntynyt
           pending_verification: Odottava vahvistus
           show_renew_info: Paina vahvistaaksesi uudestaan
-          unauthorized_verification: Uusi vahvistus
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
         renew_modal:
           cancel: Peruuta
-          close: sulje
           continue: Jatka
           info_renew: Jos haluat päivittää tiedot, jatka vahvistamalla uudestaan
           title: Vahvista uudestaan
