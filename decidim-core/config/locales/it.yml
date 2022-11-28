@@ -297,7 +297,6 @@ it:
           foo: foo
         name: Autorizzazione Foo
       granted_at: Concesso a %{timestamp}
-      renew: Rinnova Verifica
       sms:
         explanation: Invia il tuo numero di cellulare in modo che possiamo controllare la tua identità.
         name: Codice via SMS
