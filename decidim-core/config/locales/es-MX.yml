@@ -385,7 +385,6 @@ es-MX:
           foo: Foo
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
-      renew: Renovar la verificación
       sms:
         explanation: Introduce tu número de teléfono móvil para que podamos verificar tu identidad.
         name: Código por SMS
