@@ -285,7 +285,6 @@ tr:
           foo: Sahte
         name: Sahte yetkilendirme
       granted_at: '%{timestamp} tarihinde verildi'
-      renew: Doğrulamayı yenile
       sms:
         explanation: Cep telefon numaranızı gönderin, böylece kimliğinizi kontrol edebiliriz.
         name: SMS ile kod
