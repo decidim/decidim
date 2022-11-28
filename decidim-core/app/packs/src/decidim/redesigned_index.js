@@ -180,10 +180,24 @@ const initializer = (element = document) => {
     const {
       dataset: { dialog }
     } = elem;
+
     return new Dialogs(`[data-dialog="${dialog}"]`, {
       openingSelector: `[data-dialog-open="${dialog}"]`,
       closingSelector: `[data-dialog-close="${dialog}"]`,
       backdropSelector: `[data-dialog="${dialog}"]`,
+      onOpen: function(params) {
+        // when a remote modal is open, the contents are empty
+        // once they're in the DOM, we append the ARIA attributes
+        // otherwise they could not exists
+        setTimeout(() => {
+          if (params.querySelector(`#dialog-title-${dialog}`)) {
+            params.setAttribute("aria-labelledby", `dialog-title-${dialog}`);
+          }
+          if (params.querySelector(`#dialog-desc-${dialog}`)) {
+            params.setAttribute("aria-describedby", `dialog-desc-${dialog}`);
+          }
+        }, 500);
+      },
       // optional parameters (whenever exists the id, it'll add the tagging)
       ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && {
         labelledby: `dialog-title-${dialog}`
@@ -194,11 +208,12 @@ const initializer = (element = document) => {
     });
   });
 
-  document.querySelectorAll("[data-drawer]").forEach(
+  element.querySelectorAll("[data-drawer]").forEach(
     ({ dataset: { drawer } }) =>
       new Dialogs(`[data-drawer="${drawer}"]`, {
         openingSelector: `[data-drawer-open="${drawer}"]`,
-        closingSelector: `[data-drawer-close="${drawer}"]`
+        closingSelector: `[data-drawer-close="${drawer}"]`,
+        backdropSelector: "[data-drawer]"
       })
   );
 
@@ -207,7 +222,6 @@ const initializer = (element = document) => {
 
   // Add event listeners to identity modal
   element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
-
 }
 
 if ("Turbo" in window) {
