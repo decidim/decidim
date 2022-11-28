@@ -23,6 +23,8 @@ ja:
         address: 住所
         location: 場所
         location_hints: 位置情報のヒント
+        polling_station_managers: マネージャー
+        polling_station_president_id: 投票管理者
         title: タイトル
       question:
         max_selections: 選択範囲の最大数
