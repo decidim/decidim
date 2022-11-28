@@ -7,6 +7,7 @@ describe("updateExternalDomainLinks", () => {
     <div id="links">
       <a href="https://github.com/" target="_blank">This is an external link</a>
       <a href="https://example.com/" target="_blank">This is an external link from a whitelisted domain</a>
+      <a href="https://example.net/" class="ssb-icon" target="_blank">This is an external link with a whitelisted class</a>
       <div class="editor-container">
         <a href="https://example.org/" target="_blank">This is an external link within an editor</a>
       </div>
@@ -42,8 +43,16 @@ describe("updateExternalDomainLinks", () => {
     );
   });
 
-  it("doesn't update the link to the external link URL when the parent class is excluded", () => {
+  it("doesn't update the link to the external link URL when the class is excluded", () => {
     const $link = $("#links a")[2];
+
+    expect($link.outerHTML).toEqual(
+      `<a href="https://example.net/" class="ssb-icon" target="_blank">This is an external link with a whitelisted class</a>`
+    );
+  });
+
+  it("doesn't update the link to the external link URL when the parent class is excluded", () => {
+    const $link = $("#links a")[3];
 
     expect($link.outerHTML).toEqual(
       `<a href="https://example.org/" target="_blank">This is an external link within an editor</a>`

@@ -1,8 +1,12 @@
 /* eslint-disable require-jsdoc */
 
+const EXCLUDE_CLASSES = [
+  "ssb-icon"
+];
+
 const EXCLUDE_ANCESTOR_CLASSES = [
   "editor-container"
-]
+];
 
 export default function updateExternalDomainLinks($target) {
   const whitelist = window.Decidim.config.get("external_domain_whitelist") || []
@@ -14,6 +18,10 @@ export default function updateExternalDomainLinks($target) {
   $("a", $target).filter((_i, link) => {
     const $link = $(link);
     if (!$link[0].hasAttribute("href")) {
+      return false;
+    }
+
+    if (EXCLUDE_CLASSES.some((cls) => $link.hasClass(cls))) {
       return false;
     }
 
