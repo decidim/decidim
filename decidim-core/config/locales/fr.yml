@@ -511,6 +511,10 @@ fr:
         view_all: Voir tout
       metrics:
         name: Historique des statistiques de participation
+      static_page:
+        summary:
+          name: Résumé
+          summary_content: Contenu
       stats:
         name: Statistiques de l'organisation
       sub_hero:
