@@ -20,6 +20,7 @@ fr-CA:
         description: Description
         end_time: Heure de fin
         id: ID
+        iframe_embed_type: Type d'Iframe encapsulée
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
@@ -32,6 +33,7 @@ fr-CA:
         registration_type: Type d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
+        reserved_slots: Places disponibles pour cette rencontre
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
