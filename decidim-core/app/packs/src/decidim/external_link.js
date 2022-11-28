@@ -2,6 +2,7 @@ import icon from "src/decidim/icon"
 
 const EXCLUDE_CLASSES = [
   "card--list__data__icon",
+  "ssb-icon",
   "footer-social__icon",
   "logo-cityhall"
 ];
