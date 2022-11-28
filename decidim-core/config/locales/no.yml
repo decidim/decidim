@@ -321,7 +321,6 @@
           foo: Foo
         name: Foo autorisering
       granted_at: Godkjent på %{timestamp}
-      renew: Forny verifisering
       sms:
         explanation: Send inn ditt telefonnummer så vi kan sjekke din identitet.
         name: Kode via SMS
