@@ -385,7 +385,6 @@ fi-pl:
           foo: Foo
         name: Foo-varmennus
       granted_at: Myönnetty %{timestamp}
-      renew: Vahvista uudestaan
       sms:
         explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
         name: Koodi tekstiviestinä
