@@ -102,13 +102,11 @@ ro:
           expired_verification: Verificarea a expirat
           pending_verification: Verificare în așteptare
           show_renew_info: Apăsați pentru a reînnoi verificarea
-          unauthorized_verification: Verificare nouă
         new:
           authorize: Trimite
           authorize_with: Verifică cu %{authorizer}
         renew_modal:
           cancel: Anulează
-          close: închide
           continue: Continuă
           info_renew: Dacă dorești să actualizezi datele, continuă cu reînnoirea
           title: Reînnoiește verificarea
