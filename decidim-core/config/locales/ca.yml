@@ -382,7 +382,6 @@ ca:
           foo: Foo
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
-      renew: Renovar la verificació
       sms:
         explanation: Introdueix el teu número de telèfon mòbil per poder verificar la teva identitat.
         name: Codi per SMS
