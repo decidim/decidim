@@ -116,13 +116,11 @@ ca:
           expired_verification: La verificació ha caducat
           pending_verification: Pendent de verificació
           show_renew_info: Clica aquí per a renovar la verificació
-          unauthorized_verification: Nova verificació
         new:
           authorize: Enviar
           authorize_with: Verifica amb %{authorizer}
         renew_modal:
           cancel: Cancel·lar
-          close: Tanca
           continue: Continua
           info_renew: Si vols actualitzar les dades, continua amb la renovació
           title: Renova la verificació
