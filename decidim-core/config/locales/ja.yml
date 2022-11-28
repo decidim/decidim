@@ -495,6 +495,10 @@ ja:
         view_all: すべて表示
       metrics:
         name: 組織の指標
+      static_page:
+        summary:
+          name: 概要
+          summary_content: コンテンツ
       stats:
         name: 組織の統計
       sub_hero:
@@ -1906,6 +1910,7 @@ ja:
             accept_until_format: "%Y %B %d, %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%Y年%m月%d日 %H:%M"
       short: "%Y/%m/%d %H:%M"
       time_of_day: "%H:%M"
   versions:
