@@ -93,7 +93,7 @@ module Decidim
         def destroy
           enforce_permission_to :destroy, :template, template: template
 
-          DestroyTemplate.call(template, current_user) do
+          DestroyQuestionnaireTemplate.call(template, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("templates.destroy.success", scope: "decidim.admin")
               redirect_to action: :index

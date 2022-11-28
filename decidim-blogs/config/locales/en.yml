@@ -3,7 +3,9 @@ en:
   activemodel:
     attributes:
       post:
+        decidim_author_id: Author
         published_at: Publish time
+        title: Title
     models:
       decidim/blogs/create_post_event: New blog post
   activerecord:
@@ -58,7 +60,7 @@ en:
             body: Body
             official_blog_post: Official post
             published_at: Publish time
-            title: title
+            title: Title
       posts:
         show:
           view: View

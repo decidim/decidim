@@ -167,6 +167,10 @@ const initializer = (element = document) => {
 
   backToListLink(element.querySelectorAll(".js-back-to-list"));
 
+  markAsReadNotifications()
+
+  scrollToLastChild()
+
   // https://github.com/jonathanlevaillant/a11y-accordion-component
   Accordions.init();
   // https://github.com/jonathanlevaillant/a11y-dropdown-component
@@ -190,15 +194,20 @@ const initializer = (element = document) => {
     });
   });
 
+  document.querySelectorAll("[data-drawer]").forEach(
+    ({ dataset: { drawer } }) =>
+      new Dialogs(`[data-drawer="${drawer}"]`, {
+        openingSelector: `[data-drawer-open="${drawer}"]`,
+        closingSelector: `[data-drawer-close="${drawer}"]`
+      })
+  );
+
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
 
   // Add event listeners to identity modal
   element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
 
-  markAsReadNotifications(element)
-
-  scrollToLastChild(element)
 }
 
 if ("Turbo" in window) {
