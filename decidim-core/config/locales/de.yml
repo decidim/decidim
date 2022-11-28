@@ -376,7 +376,6 @@ de:
           foo: Foo
         name: Foo Berechtigung
       granted_at: Zugelassen am %{timestamp}
-      renew: Verifizierung erneuern
       sms:
         explanation: Geben Sie Ihre Handynummer ein, damit wir Ihre Identität überprüfen können.
         name: Code per SMS
