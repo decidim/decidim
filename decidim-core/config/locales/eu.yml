@@ -295,7 +295,6 @@ eu:
           foo: foo
         name: foo baimena
       granted_at: Onartua %{timestamp}
-      renew: Berritu egiaztapena
       sms:
         explanation: Bidali zure telefono mugikorraren zenbakia zure identitatea egiaztatzeko.
         name: Kodea SMS bidez
