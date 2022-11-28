@@ -401,7 +401,6 @@ pl:
           foo: Foo
         name: Autoryzacja Foo
       granted_at: Przyznano %{timestamp}
-      renew: Odnów weryfikację
       sms:
         explanation: Wprowadź swój numer telefonu komórkowego, abyśmy mogli potwierdzić Twoją tożsamość.
         name: Kod przez SMS
