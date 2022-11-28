@@ -5,7 +5,6 @@ module Decidim
     private
 
     def path
-      # REDESIGN_PENDING: Replace this path
       "#comments"
     end
 
@@ -14,7 +13,7 @@ module Decidim
     end
 
     def icon_name
-      resource_type_icon "Decidim::Comments::Comment"
+      resource_type_icon_key "Decidim::Comments::Comment"
     end
   end
 end
