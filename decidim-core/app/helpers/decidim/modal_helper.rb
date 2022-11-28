@@ -18,7 +18,7 @@ module Decidim
       if opts[:closable] == false
         button = ""
       else
-        button = content_tag(:button, "&times".html_safe, type: :button, data: { dialog_close: opts[:id] || "", dialog_closable: "" }, "aria-label": t("close_modal", scope: "decidim.shared.confirm_modal")))
+        button = content_tag(:button, "&times".html_safe, type: :button, data: { dialog_close: opts[:id] || "", dialog_closable: "" }, "aria-label": t("close_modal", scope: "decidim.shared.confirm_modal"))
       end
 
       content = opts[:remote].nil? ? button + capture(&).html_safe : icon("loader-3-line")
