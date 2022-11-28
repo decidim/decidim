@@ -7,7 +7,7 @@ const EXCLUDE_CLASSES = [
 ];
 const EXCLUDE_ANCESTOR_CLASSES = [
   "editor-container"
-]
+];
 const EXCLUDE_REL = ["license", "decidim"];
 
 const DEFAULT_MESSAGES = {
