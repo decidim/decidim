@@ -21,6 +21,7 @@ ja:
           online: オンライン
         state: ステータス
         title: タイトル
+        type_id: タイプ
       initiatives_committee_member:
         user: 委員会メンバー
       initiatives_settings:
@@ -46,6 +47,7 @@ ja:
         validate_sms_code_on_votes: 署名プロセスにSMSコード検証ステップを追加
       initiatives_type_scope:
         decidim_scopes_id: スコープ
+        supports_required: 必要サポート数
       initiatives_vote:
         date_of_birth: 誕生日
         document_number: ドキュメント番号
