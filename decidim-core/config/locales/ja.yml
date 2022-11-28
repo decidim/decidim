@@ -370,7 +370,6 @@ ja:
           foo: Foo
         name: Foo 認証
       granted_at: '%{timestamp} で付与されます'
-      renew: 検証を更新する
       sms:
         explanation: 身分証を確認するために、携帯電話番号を提出してください。
         name: SMSによるコード
