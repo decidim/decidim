@@ -71,6 +71,7 @@ fr-CA:
         non_user_avatar: Avatar
         position: Statut
         user_id: Utilisateur
+        weight: Rang d'affichage
       assembly_user_role:
         email: E-mail
         name: "Nom\n"
