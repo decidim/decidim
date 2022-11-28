@@ -346,7 +346,6 @@ sv:
           foo: Foo
         name: Foo godkännande
       granted_at: Beviljades vid %{timestamp}
-      renew: Förnya verifiering
       sms:
         explanation: Ange ditt mobilnummer så att vi kan kontrollera din identitet.
         name: Kod via SMS
