@@ -385,7 +385,6 @@ fr:
           foo: Truc
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
-      renew: Renouveler la vérification
       sms:
         explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
         name: Code par SMS
