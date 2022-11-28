@@ -296,7 +296,6 @@ pt:
           foo: Foo
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
-      renew: Renovar verificação
       sms:
         explanation: Submeta o seu número de telemóvel para que possamos verificar a sua identidade.
         name: Código por SMS
