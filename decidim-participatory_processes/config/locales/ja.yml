@@ -11,15 +11,22 @@ ja:
         decidim_area_id: エリア
         description: 説明
         developer_group: プロモーターグループ
+        document: ドキュメント
         domain: ドメイン
         end_date: 終了日
         hashtag: ハッシュタグ
         hero_image: ホーム画像
+        import_attachments: 添付ファイルをインポート
+        import_categories: カテゴリをインポート
+        import_components: コンポーネントをインポート
+        import_steps: ステップをインポート
         local_area: 組織エリア
         meta_scope: スコープメタデータ
         participatory_process_group_id: 参加型プロセスグループ
+        participatory_process_type_id: プロセス種別
         participatory_scope: 決定されるもの
         participatory_structure: どのように決められますか？
+        private_space: プライベートプロセス
         promoted: プロモート
         published_at: 公開日時
         related_process_ids: 関連する参加型プロセス
