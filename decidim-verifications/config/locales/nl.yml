@@ -102,13 +102,11 @@ nl:
           expired_verification: Verificatie verlopen
           pending_verification: Verificatie in behandeling
           show_renew_info: Klik om de verificatie te vernieuwen
-          unauthorized_verification: Nieuwe verificatie
         new:
           authorize: Verzenden
           authorize_with: Verifieer met %{authorizer}
         renew_modal:
           cancel: annuleren
-          close: Sluiten
           continue: Doorgaan
           info_renew: Als u de gegevens wilt bijwerken, ga dan door met de verlenging
           title: Verleng verificatie
