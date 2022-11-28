@@ -1673,6 +1673,7 @@ pl:
     email_included_in_password: jest zbyt podobne do twojego adresu e-mail
     fallback: nie jest poprawne
     name_included_in_password: jest zbyt podobne do twojego imienia
+    nickname_included_in_password: jest zbyt podobne do twojego nicka
     not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
     password_not_allowed: nie jest dozwolone
     password_too_common: jest zbyt powszechne
