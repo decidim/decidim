@@ -313,7 +313,6 @@ nl:
           foo: Foo
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
-      renew: Vernieuw verificatie
       sms:
         explanation: Dien uw mobiele nummer in, zodat wij uw identiteit kunnen controleren.
         name: Code per sms
