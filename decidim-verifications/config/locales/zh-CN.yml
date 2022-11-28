@@ -94,13 +94,11 @@ zh-CN:
           expired_verification: 验证已过期
           pending_verification: 待验证
           show_renew_info: 点击以更新验证
-          unauthorized_verification: 新的验证
         new:
           authorize: 发送
           authorize_with: 使用 %{authorizer} 验证
         renew_modal:
           cancel: 取消
-          close: 关闭
           continue: 继续
           info_renew: 如果您想要更新数据，请继续更新
           title: 更新验证
