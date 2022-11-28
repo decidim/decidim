@@ -257,7 +257,6 @@ zh-CN:
           foo: Foo
         name: Foo 授权
       granted_at: 在 %{timestamp} 授权
-      renew: 更新验证
       sms:
         explanation: 提交您的手机号码，以便我们可以检查您的身份。
         name: 短信代码
