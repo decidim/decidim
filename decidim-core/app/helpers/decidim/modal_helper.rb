@@ -14,7 +14,14 @@ module Decidim
   module ModalHelper
     def decidim_modal(opts = {}, &)
       opts[:closable] = true unless opts.has_key?(:closable)
-      button = opts[:closable] == false ? "" : content_tag(:button, "&times".html_safe, type: :button, data: { dialog_close: opts[:id] || "", dialog_closable: "" }, "aria-label": t("close_modal", scope: "decidim.shared.confirm_modal"))
+      button = opts[:closable] == false
+        ? ""
+        : content_tag(:button,
+            "&times".html_safe,
+            type: :button,
+            data: { dialog_close: opts[:id] || "", dialog_closable: "" },
+            "aria-label": t("close_modal", scope: "decidim.shared.confirm_modal")
+          )
       content = opts[:remote].nil? ? button + capture(&).html_safe : button + icon("loader-3-line")
       content_tag(:div, id: opts[:id], data: { dialog: opts[:id] || "" }) do
         content_tag(:div, id: "#{opts[:id]}-content", class: opts[:class]) do
