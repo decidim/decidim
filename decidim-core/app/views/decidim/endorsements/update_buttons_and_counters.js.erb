@@ -2,6 +2,19 @@
 
 <% if redesign_enabled? %>
   updateEndorsementBlock();
+
+  function updateEndorsementBlock() {
+    var $endorsementBlock = $('#resource-<%= resource.id %>-endorsement-block');
+    var $endorsementList = $('#resource-<%= resource.id %>-endorsement-block #dropdown-trigger');
+    var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button #select-identity-button');
+
+    if ($endorsementList.length == 0) {
+      $endorsementBlock.prepend($(`<%= j(cell("decidim/endorsers_list_button", resource)).strip.html_safe %>`));
+    } else {
+      $endorsementList[0].outerHTML = '<%= j(cell("decidim/endorsers_list_button", resource)).strip.html_safe %>';
+    }
+    $endorsementButton[0].innerHTML = '<%= j(cell("decidim/redesigned_endorsement_buttons", resource).button_content).strip.html_safe %>';
+  }
 <% else %>
   <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.empty? %>
     update_main_page_button();
@@ -25,16 +38,3 @@
     morphdom($endorsementButton[0], '<%= j(endorsement_buttons_cell(resource).send(render_endorsement_cell_method)).strip.html_safe %>');
   }
 <% end %>
-
-function updateEndorsementBlock() {
-  var $endorsementBlock = $('#resource-<%= resource.id %>-endorsement-block');
-  var $endorsementList = $('#resource-<%= resource.id %>-endorsement-block #dropdown-trigger');
-  var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button #select-identity-button');
-
-  if ($endorsementList.length == 0) {
-    $endorsementBlock.prepend($(`<%= j(cell("decidim/endorsers_list_button", resource)).strip.html_safe %>`));
-  } else {
-    $endorsementList[0].outerHTML = '<%= j(cell("decidim/endorsers_list_button", resource)).strip.html_safe %>';
-  }
-  $endorsementButton[0].innerHTML = '<%= j(cell("decidim/redesigned_endorsement_buttons", resource).button_content).strip.html_safe %>';
-}
