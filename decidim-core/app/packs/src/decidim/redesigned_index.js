@@ -78,7 +78,7 @@ import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
-import RemoteModal from "./ajax_modals"
+import RemoteModal from "./redesigned_ajax_modals"
 import setHeadingTag from "./redesigned_heading_tag"
 
 // bad practice: window namespace should avoid be populated as much as possible
@@ -165,6 +165,10 @@ const initializer = () => {
 
   backToListLink(document.querySelectorAll(".js-back-to-list"));
 
+  markAsReadNotifications()
+
+  scrollToLastChild()
+
   Accordions.init();
   Dropdowns.init();
   document.querySelectorAll("[data-dialog]").forEach((elem) => {
@@ -184,21 +188,6 @@ const initializer = () => {
     });
   });
 
-  // Initialize available remote modals (ajax-fetched contents)
-  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
-
-  document.querySelectorAll("[data-drawer]").forEach(
-    ({ dataset: { drawer } }) =>
-      new Dialogs(`[data-drawer="${drawer}"]`, {
-        openingSelector: `[data-drawer-open="${drawer}"]`,
-        closingSelector: `[data-drawer-close="${drawer}"]`
-      })
-  );
-
-  markAsReadNotifications()
-
-  scrollToLastChild()
-
   document.
     querySelectorAll("[data-drawer]").
     forEach(({ dataset: { drawer } }) =>
@@ -211,6 +200,9 @@ const initializer = () => {
         }
       }).open()
     );
+
+  // Initialize available remote modals (ajax-fetched contents)
+  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
 }
 
 if ("Turbo" in window) {

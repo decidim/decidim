@@ -17,9 +17,9 @@
 
   <div class="text-center py-10">
     <% if questionnaire.title.present? %>
-    <h1 class="h1 decorator inline-block text-left mb-12">
-      <%= translated_attribute questionnaire.title %>
-    </h1>
+      <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
+        <%= translated_attribute questionnaire.title %>
+      </h1>
     <% end %>
 
     <% if questionnaire.description.present? %>
