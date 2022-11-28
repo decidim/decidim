@@ -543,6 +543,10 @@ cs:
         view_all: Zobrazit vše
       metrics:
         name: Organizační metriky
+      static_page:
+        summary:
+          name: Shrnutí
+          summary_content: Obsah
       stats:
         name: Statistika organizace
       sub_hero:
@@ -1976,6 +1980,7 @@ cs:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d, %Y v %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
