@@ -24,6 +24,7 @@ module Decidim
       link_to(
         uri,
         rel: "nofollow noopener noreferrer",
+        target: "_blank",
         data: { site: service.name.downcase },
         class: "ssb-icon ssb-#{service.name.downcase}",
         title: t("decidim.shared.share_modal.share_to", service: service.name)
