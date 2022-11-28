@@ -410,7 +410,6 @@ lt:
           foo: Foo
         name: Foo leidimas
       granted_at: Suteikta %{timestamp}
-      renew: Atnaujinti tapatybės patikrinimą
       sms:
         explanation: Įveskite telefono numerį tam, kad patikrinti Jūsų tapatybę.
         name: SMS žinute siunčiamas kodas
