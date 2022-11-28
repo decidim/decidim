@@ -297,7 +297,6 @@ lb:
           foo: Foo
         name: Foo Berechtegung
       granted_at: Bewëllegt den %{timestamp}
-      renew: Iwwerpréiwung erneieren
       sms:
         explanation: Gëff w. e. g. deng Handy-Nummer an, dass mir deng Identitéit iwwerpréiwen kënnen.
         name: Code iwwer SMS
