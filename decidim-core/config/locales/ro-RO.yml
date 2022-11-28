@@ -307,7 +307,6 @@ ro:
           foo: Foo
         name: Autorizare foo
       granted_at: Acordată la %{timestamp}
-      renew: Reînnoire verificare
       sms:
         explanation: Trimite numărul tău de telefon mobil pentru a-ți putea verifica identitatea.
         name: Cod prin SMS
