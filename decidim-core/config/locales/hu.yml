@@ -382,7 +382,6 @@ hu:
           foo: Foo
         name: Foo jogosítvány
       granted_at: Megadva %{timestamp}
-      renew: Hitelesítés megújítása
       sms:
         explanation: Küldd el mobiltelefonszámodat, hogy ellenőrizhessük személyazonosságod.
         name: Kód SMS-ben
