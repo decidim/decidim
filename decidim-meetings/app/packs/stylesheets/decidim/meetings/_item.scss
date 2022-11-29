@@ -17,7 +17,7 @@
     }
 
     &-container{
-      @apply flex items-stretch rounded overflow-hidden;
+      @apply flex items-stretch rounded overflow-hidden max-h-[120px];
 
       > *:last-child:not(:only-child){
         @apply grow pl-5 border-4 border-l-0 border-background;
@@ -47,7 +47,7 @@
     }
 
     &__lg{
-      @apply w-32 flex-none justify-center;
+      @apply w-32 flex-none justify-center [&>*]:px-2;
     }
 
     &__lg &-month{

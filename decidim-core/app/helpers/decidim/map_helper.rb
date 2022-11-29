@@ -28,8 +28,9 @@ module Decidim
         # creating the static map utility. If it does not, the image would be
         # otherwise blank.
         if map_utility_static.url(latitude: resource.latitude, longitude: resource.longitude)
-          return link_to map_url, target: "_blank", rel: "noopener" do
-            image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
+          return link_to map_url, class: "static-map", target: "_blank", rel: "noopener", data: { "external-link": false } do
+            # image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
+            image_tag "/static_map.jpeg"
           end
         end
       end
