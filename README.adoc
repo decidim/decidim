@@ -64,7 +64,7 @@ All members of the Decidim community agree with {uri-social-contract}[Decidim So
 * <<contribute,🙌 Contribute>>
 * <<modules,🧩 Modules>>
 ** <<identity-verifications-and-authorizations,🪪 Identity verifications and authorizations>>
-** <<authentication-options>>,🚪 Authentication options>>
+** <<authentication-options,🚪 Authentication options>>
 * <<license,📘 License>>
 * <<example-applications,🔎 Example applications>>
 * <<security,🔒 Security>>
