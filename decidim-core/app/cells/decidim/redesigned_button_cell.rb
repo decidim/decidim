@@ -12,7 +12,7 @@ module Decidim
       button_classes: "button button__sm button__transparent-secondary",
       text_classes: nil,
       icon_classes: nil,
-      method: :get,
+      method: nil,
       remote: false,
       html_options: {}
     }.freeze
