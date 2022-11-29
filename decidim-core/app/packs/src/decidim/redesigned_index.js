@@ -202,7 +202,6 @@ const initializer = () => {
 }
 
 if ("Turbo" in window) {
-  document.addEventListener("turbo:frame-render", () => initializer());
   document.addEventListener("turbo:load", () => initializer());
 } else {
   // If no jQuery is used the Tribute feature used in comments to autocomplete
