@@ -318,6 +318,7 @@ cs:
           update: "%{user_name} aktualizoval partnera %{resource_name} na konferenci %{space_name}"
         registration_type:
           create: "%{user_name} vytvořil typ registrace %{resource_name} na konferenci %{space_name}"
+          delete: "%{user_name} odstranil typ registrace %{resource_name} z konference %{space_name}"
           publish: "%{user_name} publikoval %{resource_name} typ registrace na %{space_name} konferencích"
           unpublish: "%{user_name} nepublikováno %{resource_name} typ registrace na %{space_name} konferencích"
           update: "%{user_name} aktualizoval typ registrace %{resource_name} na konferenci %{space_name}"
