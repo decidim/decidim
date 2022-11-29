@@ -1,37 +1,29 @@
-
-
 <%= render partial: "decidim/shared/component_announcement" %>
-
 
 <% content_for :aside do %>
   <h1 class="h1 decorator"><%= t("decidim.components.debates.name") %></h1>
 
   <div class="columns mediumlarge-4 large-3">
     <%= render partial: "filters_small_view" %>
+    <% if current_settings.creation_enabled? && current_component.participatory_space.can_participate?(current_user) %>
+      <%= action_authorized_link_to :create, new_debate_path, class: "title-action__action button small", data: { "redirect_url" => new_debate_path } do %>
+        <%= t(".new_debate") %>
+        <%= icon "plus", role: "img", "aria-hidden": true %>
+      <% end %>
+    <% end %>
     <div class="card card--secondary show-for-mediumlarge">
       <%= render partial: "filters" %>
     </div>
   </div>
 <% end %>
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <div class="row columns">
-    <div class="title-action">
-      <h2 id="debates-count" class="title-action__title section-heading">
-        <%= render partial: "count" %>
-      </h2>
-      <% if current_settings.creation_enabled? && current_component.participatory_space.can_participate?(current_user) %>
-        <%= action_authorized_link_to :create, new_debate_path, class: "title-action__action button small", data: { "redirect_url" => new_debate_path } do %>
-          <%= t(".new_debate") %>
-          <%= icon "plus", role: "img", "aria-hidden": true %>
-        <% end %>
-      <% end %>
-    </div>
+  <div class="title-action">
+    <h2 id="debates-count" class="title-action__title section-heading">
+      <%= render partial: "count" %>
+    </h2>
   </div>
-  <div class="row">
-
-    <div id="debates" class="columns mediumlarge-8 large-9" aria-live="polite">
-      <%= render partial: "debates" %>
-    </div>
+  <div id="debates" class="columns mediumlarge-8 large-9" aria-live="polite">
+    <%= render partial: "debates" %>
   </div>
 <% end %>
 
