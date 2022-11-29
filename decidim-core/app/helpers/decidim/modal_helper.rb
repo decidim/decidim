@@ -15,11 +15,17 @@ module Decidim
     def decidim_modal(opts = {}, &)
       opts[:closable] = true unless opts.has_key?(:closable)
 
-      if opts[:closable] == false
-        button = ""
-      else
-        button = content_tag(:button, "&times".html_safe, type: :button, data: { dialog_close: opts[:id] || "", dialog_closable: "" }, "aria-label": t("close_modal", scope: "decidim.shared.confirm_modal"))
-      end
+      button = if opts[:closable] == false
+                 ""
+               else
+                 content_tag(
+                   :button,
+                   "&times".html_safe,
+                   type: :button,
+                   data: { dialog_close: opts[:id] || "", dialog_closable: "" },
+                   "aria-label": t("close_modal", scope: "decidim.shared.confirm_modal")
+                 )
+               end
 
       content = opts[:remote].nil? ? button + capture(&).html_safe : icon("loader-3-line")
       content_tag(:div, id: opts[:id], data: { dialog: opts[:id] || "" }) do
