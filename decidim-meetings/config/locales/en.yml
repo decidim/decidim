@@ -283,9 +283,6 @@ en:
           edit:
             close: Close
             title: Close meeting
-        meeting_copies:
-          form:
-            select_a_meeting_type: Please select a meeting type
         meetings:
           close:
             invalid: There was a problem closing this meeting
