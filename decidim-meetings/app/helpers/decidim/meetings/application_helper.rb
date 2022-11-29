@@ -15,18 +15,13 @@ module Decidim
       include Decidim::TurboHelper
 
       def filter_origin_values
-        elements = %w(official participants).tap do |e|
-          e << "user_group" if current_organization.user_groups_enabled?
-        end
+        origin_keys = %w(official participants)
+        origin_keys << "user_group" if current_organization.user_groups_enabled?
 
-        origin_values = flat_filter_values(*elements, scope: "decidim.meetings.meetings.filters.origin_values").map do |args|
-          TreePoint.new(*args)
-        end
+        origin_values = flat_filter_values(*origin_keys, scope: "decidim.meetings.meetings.filters.origin_values")
+        origin_values.prepend(["", filter_text_for("all", t("all", scope: "decidim.meetings.meetings.filters.origin_values"))])
 
-        TreeNode.new(
-          TreePoint.new("", filter_text_for(:all, t("decidim.meetings.meetings.filters.type_values.all"))),
-          origin_values
-        )
+        filter_tree_from_array(origin_values)
       end
 
       def filter_type_values

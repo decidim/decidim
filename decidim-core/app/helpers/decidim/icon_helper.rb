@@ -31,6 +31,7 @@ module Decidim
       "hybrid" => "home-wifi-line",
       "official" => "star-line",
       "participants" => "open-arm-line",
+      "user_group" => "team-line",
       "user_groups" => "team-line",
       "images" => "image-line",
       "documents" => "file-text-line",

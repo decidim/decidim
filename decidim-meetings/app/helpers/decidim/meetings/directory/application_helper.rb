@@ -96,15 +96,6 @@ module Decidim
           )
         end
 
-        def directory_filter_origin_values
-          origin_values = %w(official participants)
-          origin_values << "user_groups" if current_organization.user_groups_enabled?
-          origin_values.map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters.origin_values"))] }
-          origin_values.prepend(["", filter_text_for("all", t("all", scope: "decidim.meetings.meetings.filters.origin_values"))])
-
-          filter_tree_from_array(origin_values)
-        end
-
         # Options to filter meetings by activity.
         def activity_filter_values
           %w(all my_meetings).map { |k| [k, filter_text_for(k, t(k, scope: "decidim.meetings.meetings.filters"))] }
