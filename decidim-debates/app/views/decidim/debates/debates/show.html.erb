@@ -14,7 +14,7 @@ edit_link(
 %>
 
 <div class="row column view-header">
-  <div class="m-bottom">
+  <div>
     <%= link_to debates_path, class: "small hollow js-back-to-list" do %>
       <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
       <%= t(".back") %>
@@ -28,8 +28,8 @@ edit_link(
   <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
   <%= cell "decidim/author", debate_presenter.author, from: debate, context: { extra_classes: ["author-data--small"] } %>
 </div>
-<div class="row">
-  <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+<div>
+  <div>
     <% if allowed_to?(:edit, :debate, debate: debate) %>
       <%= link_to t(".edit_debate"), edit_debate_path(debate), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% elsif admin_allowed_to?(:update, :debate, debate: debate) %>
@@ -92,7 +92,7 @@ edit_link(
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for debate_widget_url(debate, format: :js) %>
   </div>
-  <div class="columns mediumlarge-8 mediumlarge-pull-4">
+  <div>
     <div class="section">
       <% if debate.closed? %>
         <span class="success label proposal-status">
