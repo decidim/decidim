@@ -22,5 +22,6 @@
     <%= render partial: "decidim/shared/authorization_modal" %>
     <%= render partial: "layouts/decidim/redesigned_js_configuration" %>
     <%= render partial: "layouts/decidim/cors" if Decidim.cors_enabled %>
+    <%= snippets.display(:foot) %>
   </body>
 </html>
