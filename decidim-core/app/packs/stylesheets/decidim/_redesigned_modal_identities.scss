@@ -5,11 +5,14 @@
     button{
       @apply w-full border-4 border-background rounded p-2 flex items-center justify-between cursor-pointer;
 
-      &.is-selected,
+      &.is-selected{
+        @apply border-transparent bg-success/10 [&_svg]:visible;
+      }
+
       &:focus,
       &:focus-visible,
       &:hover{
-        @apply border-primary/10 [&_svg]:visible outline-none;
+        @apply border-tertiary [&_svg]:visible outline-none;
       }
 
       svg{
