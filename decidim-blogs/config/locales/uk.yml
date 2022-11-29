@@ -44,15 +44,10 @@ uk:
           fields:
             author: Автор
             body: Основний текст
-            created_at: 'Створено:'
             title: заголовок
       posts:
         show:
           view: Переглянути
-        sidebar_blog:
-          comments: коментарі
-          most_commented_posts: Найбільш коментовані дописи
-      read_more: Читати далі
     components:
       blogs:
         name: Блог

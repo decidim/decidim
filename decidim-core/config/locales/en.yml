@@ -387,7 +387,6 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
-      renew: Renew verification
       sms:
         explanation: Submit your mobile phone number so we can check your identity.
         name: Code by SMS
@@ -514,6 +513,10 @@ en:
         view_all: View all
       metrics:
         name: Organization metrics
+      static_page:
+        summary:
+          name: Summary
+          summary_content: Content
       stats:
         name: Organization statistics
       sub_hero:
@@ -826,8 +829,6 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_image: Current image
-      default_image: Default image
       errors:
         decidim/user:
           password: The password is too short.
@@ -861,6 +862,7 @@ en:
           edit_image: Edit image
           error: Error!
           file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
+          filename: Filename
           remove: Remove
           replace: Replace
           save: Save
@@ -869,8 +871,9 @@ en:
           uploaded: Uploaded
           validating: Validating...
           validation_error: Validation error!
+        select_file: Select file
       upload_help:
-        dropzone: Drop files here or click to upload
+        dropzone: Drop files here or click the button to upload
         explanation: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
@@ -1935,6 +1938,7 @@ en:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

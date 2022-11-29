@@ -60,7 +60,7 @@ import "./impersonation"
 // import "./start_conversation_dialog" -- deprecated
 import "./identity_selector_dialog"
 import "./gallery"
-import "./direct_uploads/upload_field"
+import "./direct_uploads/redesigned_upload_field"
 
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
@@ -80,6 +80,7 @@ import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
 import setHeadingTag from "./redesigned_heading_tag"
+import RemoteModal from "./redesigned_ajax_modals"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -164,8 +165,14 @@ const initializer = () => {
 
   backToListLink(document.querySelectorAll(".js-back-to-list"));
 
+  markAsReadNotifications()
+
+  scrollToLastChild()
+
   Accordions.init();
   Dropdowns.init();
+
+  // Intialize dialog modals
   document.querySelectorAll("[data-dialog]").forEach(
     ({ dataset: { dialog } }) =>
       new Dialogs(`[data-dialog="${dialog}"]`, {
@@ -176,10 +183,7 @@ const initializer = () => {
       })
   );
 
-  markAsReadNotifications()
-
-  scrollToLastChild()
-
+  // Initialize drawer components
   document.
     querySelectorAll("[data-drawer]").
     forEach(({ dataset: { drawer } }) =>
@@ -192,6 +196,9 @@ const initializer = () => {
         }
       }).open()
     );
+
+  // Initialize available remote modals (ajax-fetched contents)
+  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
 }
 
 if ("Turbo" in window) {

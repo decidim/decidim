@@ -92,8 +92,8 @@ fi-pl:
             cancel: Peruuta
             change_category: Vaihda aihepiiri
             change_scope: Vaihda teema
-            change_selected: Vaihda valittu-tilaa
-            deselect_implementation: Ei toteutukseen
+            change_selected: Muuta tilaa
+            deselect_implementation: Ei valittu toteutukseen
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
             select_for_implementation: Valittu toteutukseen
@@ -118,10 +118,14 @@ fi-pl:
             select_a_scope: Valitse teema
             success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
           update_selected:
-            invalid: 'Nämä projektit oli jo merkitty toteutettaviksi: %{projects}.'
+            invalid:
+              selected: 'Nämä projektit oli jo valittu toteutukseen: %{projects}.'
+              unselected: 'Näitä projekteja ei oltu valittu toteutukseen: %{projects}.'
             select_a_project: Valitse projekti
-            select_a_selection: Valitse toteutuksen tila
-            success: 'Toteutuksen tilan päivitys onnistui projekteille: %{projects}.'
+            select_a_selection: Valitse tila
+            success:
+              selected: 'Näiden projektien valinta toteutukseen onnistui: %{projects}.'
+              unselected: 'Näiden projektien toteutukseen valinnan poistaminen onnistui: %{projects}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuomisessa suunnitelmiin esiintyi ongelmia
@@ -172,7 +176,7 @@ fi-pl:
         vote: Äänestä
         voted_on: Olet äänestänyt budjeteissa %{links}
       last_activity:
-        new_vote_at_html: "<span>Uusi budjetointiääni %{link}</span>"
+        new_vote_at: Uusi budjetointiääni
       limit_announcement:
         cant_vote: Et voi äänestää tästä budjetista. <a href="%{landing_path}">Kokeile toista budjettia</a>.
         limit_reached: Sinulla on ääniä kohteessa %{links}. Äänestääksesi tästä budjetista <a href="%{landing_path}">poista äänesi ja aloita alusta</a>.
@@ -259,6 +263,8 @@ fi-pl:
           filter: Suodata
           filter_by: Suodata
           unfold: Avaa
+        index:
+          view_project: Näytä projekti
         order_progress:
           vote: Äänestä
         order_selected_projects:
@@ -316,6 +322,7 @@ fi-pl:
               errors:
                 budget_voting_rule_only_one: Voit valita ainoastaan yhden äänestyssäännön
                 budget_voting_rule_required: Yksi äänestyssääntö vaaditaan
+            geocoding_enabled: Geokoodaus käytössä
             landing_page_content: Budjetoinnin aloitussivun teksti
             more_information_modal: Lisätietoikkunan teksti
             projects_per_page: Suunnitelmat sivua kohden

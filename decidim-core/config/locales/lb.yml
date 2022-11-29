@@ -517,7 +517,6 @@ lb:
     errors:
       internal_server_error:
         title: Op eisem Server ass e Problem opgetrueden
-        try_later: Bitte versuchen Sie es später nochmal.
       not_found:
         back_home: Zréck op d'Startsäit
         content_doesnt_exist: Dës Adress ass falsch oder gouf geläscht.
@@ -735,18 +734,6 @@ lb:
           how: Wéi kanns de der et verdéngen
           page_description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen. Hei ass eng Lëscht vun den Ofzeechen an e puer Méiglechkeeten, wéi een sech déi verdéngen kann.
           title: Ofzeechen
-        invitations:
-          conditions:
-            - Benotz den "Frënn alueden" -Link op denger Profil-Säit, fir Frënn anzelueden
-            - Du kanns, wann s'de dat wëlls, d'Noriicht déi s'de schécke wëlls upassen
-            - Du verbessers dech andeem s'de Aluedungen erausschécks an registréieren léiss.
-          description: Dëst Ofzeechen kritt een, wann een e puer Persounen agelueden huet déi sech d'Zäit geholl hunn sech bei %{organization_name} ze registréieren. Merci, dass du hëllefs d'%{organization_name} bekannt ze maachen an dozou bäidréis d'Communautéit ze vergréisseren!
-          description_another: Dësen Teilnehmer huet %{score} Teilnehmer agelueden.
-          description_own: Du hues %{score} Teilnehmer agelueden.
-          name: Aluedungen
-          next_level_in: Lued %{score} méi Teilnehmer an, fir op den nächsten Level ze kommen!
-          unearned_another: Dësen Teilnehmer huet nach keen agelueden.
-          unearned_own: Du hues nach keen Teilnehmer agelueden.
       description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen.
       level: Level %{level}
       reached_top: Du hues den héchsten Level bei dësem Ofzeechen erreecht.
@@ -932,8 +919,6 @@ lb:
           modal_title: Nei Konversatioun
           no_results: Keen Resultat
           participant_with_disabled_message_reception: Dësen Teilnehmer huet Noriichten desaktivéiert
-        conversation:
-          show: Konversatioun mam %{sender} uweisen
         create:
           error: D'Konversatioun gouf net gestart. Probéier méi spéit nach emol
         error_modal:
@@ -943,18 +928,10 @@ lb:
           ok: OK
         index:
           ago: virun
-          close: Modal zou maachen
-          from: Vum
-          groups: Meng Gruppen
-          last_message: Lescht Noriicht
           new_conversation: Nei Konversatioun
           next: Weider
           no_conversations: Du hues nach keng Konversatiounen
           title: Konversatiounen
-        reply:
-          placeholder: Deng Äntwert...
-          send: Senden
-          title: Äntweren
         show:
           back: Zeréck bei all d'Konversatiounen
           chat_with: Konversatioun mat
@@ -962,7 +939,6 @@ lb:
           title: Konversatioun mam %{usernames}
         start:
           send: Senden
-          title: Eng Konversatioun ufänken
         update:
           error: Wéinst engem Feeler konnt d'Noriicht net geschéckt ginn
     metrics:
@@ -1077,7 +1053,6 @@ lb:
         sub_hero:
           register: Registréieren
       index:
-        read_more: Weideres liesen
         standalone_pages: Säiten
         subheading: Duerch d'Hëllefs-Säiten vun %{name} navigéieren
         title: Hëllef
@@ -1122,7 +1097,6 @@ lb:
         members: Memberen
         officialized: Offiziellen Teilnehmer
         send_private_message: Privat Noriicht schécken
-        timeline: Verlaf
         view_full_profile: Kuck den vollstännegen Profil
       sidebar:
         badges:
@@ -1474,15 +1448,6 @@ lb:
       updated_not_active: Däin Passwuert ass geännert.
     registrations:
       destroyed: Däin Kont gouf zou gemaach. Mir hoffen dech geschwënn erëm ze gesinn.
-      edit:
-        are_you_sure: Bass de sécher?
-        cancel_my_account: Kont erstellen ofbriechen
-        currently_waiting_confirmation_for_email: 'Op Bestätegung waarden fir: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: net ausfëllen wann s'de keng Ännerung wëlls
-        title: Änneren %{resource}
-        unhappy: Net zefridden?
-        update: Aktualiséierung
-        we_need_your_current_password_to_confirm_your_changes: mir brauchen en aktuellt Passwuert fir deng Ännerungen ze bestätegen
       new:
         sign_up: Registréieren
       signed_up: Wëllkomm, du bass elo registréiert.
@@ -1537,7 +1502,6 @@ lb:
         other: 'Bei denger Ufro sin e puer Feeler opgetrueden:'
       too_many_marks: benotzt ze vill Sazzeechen (zB! und?)
       too_much_caps: benotzt ze vill Groussbuschtawen (über 25% des Textes)
-      too_short: ze kuerz (ënner 15 Zeechen)
   forms:
     correct_errors: Et sinn Feeler um Formular, w. e. g. virum weiderfueren verbesseren.
     length_validator:
@@ -1671,14 +1635,8 @@ lb:
       option_unified: Eenheetlech
   views:
     pagination:
-      first: "&laquo; fir d'éischt"
-      first_title: Link op d'éischt Säit
-      last: Lescht &raquo;
-      last_title: Link op di lescht Säit
-      next: Nächst &rsaquo;
       next_title: Link op déi nächst Säit
       pagination: Säitenzuelen
-      previous: "&lsaquo; virdrun"
       previous_title: Link op déi nächst Säit
       title: 'Säit Nummer: '
       truncate: "&hellip;"

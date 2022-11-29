@@ -112,8 +112,6 @@ sr:
         value_types:
           parent_presenter:
             not_found: 'Ovaj roditelj nije pronađen u bazi podataka (ID: %{id})'
-      last_activity:
-        new_result_at_html: "<span>Novi rezultat u %{link}</span>"
       models:
         result:
           fields:
@@ -139,7 +137,6 @@ sr:
             other: "%{count} rezultata"
         filters:
           all: Sve
-          scopes: Opsezi
         home:
           categories_label: Kategorije
           subcategories_label: Podkategorije

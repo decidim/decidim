@@ -27,8 +27,9 @@ cs:
         nickname: Přezdívka
         password: Heslo
         password_confirmation: Potvrzení hesla
-        personal_url: Osobní adresa URL
+        personal_url: Osobní URL
         remove_avatar: Odstranit avatara
+        tos_agreement: Smluvní podmínky užití
     models:
       decidim/attachment_created_event: Příloha
       decidim/component_published_event: Aktivní součást
@@ -48,6 +49,9 @@ cs:
       decidim/welcome_notification_event: Uvítací zpráva
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Čas
+        with_participatory_space: Účastnický prostor
       decidim/user:
         current_password: Aktuální heslo
         email: E-mail
@@ -150,6 +154,7 @@ cs:
           question: Opravdu chcete smazat účet?
           title: Smazat můj účet
         explanation: Zadejte prosím důvod, pro který chcete svůj účet smazat (nepovinné).
+        leaving_authorizations_behind: Některá data spojená s vaším autorizací budou uložena z důvodu bezpečnosti. Pokud vytvoříte jiný účet a znovu autorizujete, tato data budou obnovena na váš nový účet.
       destroy:
         error: Při mazání účtu došlo k chybě.
         success: Účet byl úspěšně smazán.
@@ -174,6 +179,8 @@ cs:
         error: Při aktualizaci účtu došlo k chybě.
         success: Váš účet byl úspěšně aktualizován.
         success_with_email_confirmation: Váš účet byl úspěšně aktualizován. Obdržíte e-mail, který potvrdí vaši novou e-mailovou adresu.
+    activity:
+      time_ago: "před %{time}"
     admin:
       actions:
         cancel: Zrušit
@@ -637,10 +644,22 @@ cs:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
+    endorsers_list:
+      close: Zavřít‏
+      endorsed_by: Líbí se…
     errors:
       internal_server_error:
+        copied: Text zkopírován!
+        copy_error_message_clarification: Kopírovat chybovou zprávu do schránky
+        copy_to_clipboard: Kopírovat do schránky
+        date_and_time: Datum a čas
+        reference: Odkaz
+        request_method: Metoda požadavku
         title: Vyskytl se problém s naším serverem
-        try_later: Prosím zkuste to znovu později.
+        try_later: Zkuste to prosím znovu později. Pokud chyba přetrvává, zkopírujte prosím následující informace a pošlete je správci platformy s dalšími informacemi, které budete chtít sdílet.
+        unknown: Neznámý
+        url: URL
+        user: ID uživatele
       not_found:
         back_home: Zpět na úvodní stránku
         content_doesnt_exist: Tato adresa je nesprávná nebo byla odstraněna.
@@ -798,7 +817,7 @@ cs:
         click_button: 'Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici do %{date}.<br/>Budete potřebovat <a href="https://www.7-zip.org/">7-Zip</a> (pro Windows), <a href="https://www.keka.io/en/">Keka</a> (pro MacOS) nebo <a href="https://peazip.github.io">PeaZip</a> (pro Linux) pro jeho otevření. Heslo: %{password}'
         download: Stažení
       export:
-        ready: V příloze naleznete exportovanou exportovanou verzi.
+        ready: V příloze naleznete zazipovanou verzi vašeho exportu.
       subject: Váš export "%{name}" je připraven
     filters:
       linked_classes:
@@ -825,6 +844,11 @@ cs:
         other: "%{count} sledujících"
       no_followers: Zatím žádní sledující.
     following:
+      following_count:
+        one: "%{count} sleduje"
+        few: "%{count} sledují"
+        many: "%{count} sleduje"
+        other: "%{count} sledujících"
       no_followings: Nesleduje nikoho ani nic.
       non_public_followings: Některé z uvedených zdrojů nejsou veřejné.
     follows:
@@ -860,6 +884,8 @@ cs:
         allowed_file_extensions: 'Povolené přípony souborů: %{extensions}'
         max_file_dimension: 'Maximální rozměry souboru: %{resolution} pixelů'
         max_file_size: 'Maximální velikost souboru: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Přijaté formáty: %{extensions}'
       upload:
         labels:
           add_attachment: Přidat přílohu
@@ -898,21 +924,10 @@ cs:
           how: Jak ho můžete získat
           page_description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky. Zde je seznam odznaků a některé způsoby, jak si je můžete vydělat.
           title: Odznaky
-        invitations:
-          conditions:
-            - Pomocí odkazu "pozvat přátele" na své uživatelské stránce můžete pozvat své přátele
-            - Přizpůsobte, pokud chcete, zprávu, kterou posíláte
-            - Posíláním pozvánek a jejich registrací se dostáváte výš.
-          description: Tento odznak je udělen, když jste pozvali některé lidi a tráví čas, aby se zaregistrovali v %{organization_name} a stali se účastníky. Děkujeme za %{organization_name} je známo, že ostatní a pomáhá rozšířit komunitu!
-          description_another: Tento uživatel pozval %{score} uživatelů.
-          description_own: Pozvali jste %{score} uživatelů.
-          name: Pozvánky
-          next_level_in: Pozvat %{score} dalších uživatelů, abyste se dostali na další úroveň!
-          unearned_another: Tento uživatel zatím nepozval žádného uživatele.
-          unearned_own: Dosud jste nepozvali žádné uživatele.
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
       reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
+      title: Jaké jsou odznaky?
     group_admins:
       actions:
         are_you_sure: Jste si jisti? Toto uživatele ze skupiny neodstraní.
@@ -1042,7 +1057,7 @@ cs:
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
     managed_users:
-      expired_session: Aktuální platnost sesouhlasení již vypršela.
+      expired_session: Aktuální relace správy účastníka vypršela.
     map:
       dynamic:
         screen_reader_explanation: Následující prvek je mapa, která prezentuje položky na této stránce jako mapové body. Prvek lze použít s čtečkou obrazovky, ale může být těžko srozumitelný.
@@ -1098,8 +1113,6 @@ cs:
           modal_title: Nová konverzace
           no_results: Žádné výsledky
           participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv
-        conversation:
-          show: Zobrazit konverzaci s %{sender}
         create:
           error: Konverzace se nespustí. Zkuste to později znovu
         error_modal:
@@ -1109,19 +1122,13 @@ cs:
           ok: OK
         index:
           ago: před
-          close: Zavřít okno
-          from: Od
-          groups: Moje skupiny
-          last_message: Poslední zpráva
           new_conversation: Nová konverzace
           next: Další
           no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
-          to: Komu
-        reply:
+        reply_form:
           placeholder: Vaše odpověď...
-          send: Poslat
-          title: Odpověď
+          send: Odeslat
         show:
           back: Zpět ke všem konverzacím
           chat_with: Konverzace s
@@ -1129,8 +1136,8 @@ cs:
           not_allowed: Tento uživatel nepřijímá přímé zprávy.
           title: Konverzace s číslem %{usernames}
         start:
+          placeholder: Vaše zpráva...
           send: Poslat
-          title: Spusťte konverzaci
         update:
           error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
@@ -1150,6 +1157,7 @@ cs:
         title: Uživatelé
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
         note: Tento e-mail jste obdrželi, protože jste odběrateli zpravodajů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
         see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
         unsubscribe: Chcete-li se odhlásit z příjmu tohoto typu e-mailu, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit se</a>.
@@ -1183,7 +1191,7 @@ cs:
       unathorized: Je nám líto, tento odkaz již není k dispozici
       update:
         error: Došlo k chybě
-        success: Nastavení Newsletteru bylo úspěšně aktualizováno
+        success: Nastavení Zpravodaje bylo úspěšně aktualizováno
     newsletters_opt_in_mailer:
       notify:
         body_1: Zpracování osobních údajů a jejich ochrana jsou pro nás všechny stále důležitější. S novým obecným nařízením o ochraně osobních údajů (GDPR) ze dne 25. května 2018 mají jednotlivci lepší kontrolu nad svými osobními údaji. Z tohoto důvodu potřebujeme vaše "OK" pro pokračování v zasílání relevantních informací o aktivitách %{organization_name}.
@@ -1280,7 +1288,6 @@ cs:
         sub_hero:
           register: Registrovat
       index:
-        read_more: Přečtěte si více
         standalone_pages: Stránky
         subheading: Procházejte stránky nápovědy %{name}
         title: Pomoc
@@ -1330,14 +1337,22 @@ cs:
         members: Členové
         officialized: Oficiální účastník
         send_private_message: Odeslat soukromou zprávu
-        timeline: Časová osa
         view_full_profile: Zobrazit celý profil
       sidebar:
         badges:
           info: Odznaky jsou získávány prováděním konkrétní činnosti v platformě.
           title: Odznaky
       user:
-        confirmation_instructions_sent: Byly odeslány pokyny pro potvrzení e-mailu
+        actions:
+          create_user_group: Vytvořit skupinu
+          edit_profile: Upravit profil
+          edit_user_group: Upravit profil skupiny
+          invite_user: Pozvat účastníka
+          join_user_group: Požádat o připojení ke skupině
+          manage_user_group_admins: Spravovat správce
+          manage_user_group_users: Spravovat členy
+          message: Zpráva
+        confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány
         create_user_group: Vytvořit skupinu
         edit_profile: Editovat profil
         edit_user_group: Upravit profil skupiny
@@ -1347,7 +1362,7 @@ cs:
         leave_user_group: Opustit skupinu
         manage_user_group_admins: Správa administrátorů
         manage_user_group_users: Správa členů
-        resend_email_confirmation_instructions: Opakujte e-mailové pokyny k potvrzení
+        resend_email_confirmation_instructions: Znovu odeslat pokyny pro potvrzení e-mailu
     reported_mailer:
       hide:
         hello: Zdravím %{name},
@@ -1377,7 +1392,7 @@ cs:
     scopes:
       global: Globální oblast působnosti
       picker:
-        cancel: zrušení
+        cancel: Zrušit
         change: Změnit vybraný rozsah
         choose: Vybrat
         currently_selected: Aktuálně vybraný rozsah
@@ -1483,6 +1498,7 @@ cs:
         copy_share_link_message: Odkaz byl úspěšně zkopírován do schránky.
         share: Sdílet
         share_link: Sdílet odkaz
+        share_to: Sdílet na %{service}
     statistics:
       comments_count: Komentáře
       endorsements_count: Schválení
@@ -1691,15 +1707,6 @@ cs:
       updated_not_active: Vaše heslo bylo úspěšně změněno.
     registrations:
       destroyed: Sbohem! Váš účet byl úspěšně zrušen. Doufáme, že vás brzy uvidíme.
-      edit:
-        are_you_sure: Jste si jisti?
-        cancel_my_account: Zrušit můj účet
-        currently_waiting_confirmation_for_email: 'Aktuálně čeká potvrzení o: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: ponechte prázdné, pokud nechcete změnit
-        title: Upravit %{resource}
-        unhappy: Nešťastný?
-        update: Aktualizace
-        we_need_your_current_password_to_confirm_your_changes: pro potvrzení změn potřebujeme vaše aktuální heslo
       new:
         sign_up: Přihlásit se
       signed_up: Vítejte! Úspěšně jste se zaregistrovali.
@@ -1737,8 +1744,34 @@ cs:
   doorkeeper:
     scopes:
       public: Vaše veřejné informace.
+  emojis:
+    button: Přidat emoji
+    categories:
+      activities: Aktivity
+      animals-nature: Zvířata a příroda
+      custom: Vlastní
+      flags: Značky
+      food-drink: Jídlo a pití
+      objects: Objekty
+      people-body: Lidé a tělo
+      recents: Naposledy použité
+      smileys-emotion: Smajlíky a emoce
+      symbols: Symboly
+      travel-places: Cestování a místa
+    error:
+      load: Nepodařilo se načíst emoje
+    recents:
+      clear: Vymazat nedávné emoji
+      none: Zatím jste nevybrali žádné emoji.
+    retry: Zkuste to znovu
+    search:
+      _: Hledat emoji...
+      clear: Vymazat hledání
+      error: Nepodařilo se vyhledat emoji
+      not_found: Nenalezeny žádné výsledky
   errors:
     messages:
+      allowed_file_content_types: 'jsou povoleny pouze soubory s následujícími příponami: %{types}'
       already_confirmed: bylo již potvrzeno, zkuste prosím přihlásit
       confirmation_period_expired: musí být potvrzeno v rámci %{period}, požádejte o nový
       content_type_allowlist_error: typ souboru není platný
@@ -1758,7 +1791,7 @@ cs:
         other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
-      too_short: je příliš krátká (pod 15 znaků)
+      too_short: je příliš krátká (pod %{count} znaků)
   forms:
     correct_errors: Na formuláři jsou chyby, opravte je a pokračujte.
     length_validator:
@@ -1774,56 +1807,60 @@ cs:
     timestamp_error_message: Promiňte, bylo to příliš rychlé! Znovu odešlete.
   layouts:
     decidim:
-      cookie_consent:
-        cookie_details:
+      data_consent:
+        details:
           columns:
             description: Popis
             name: Název
             service: Služba
             type: Typ
-          cookies:
+          items:
             _session_id:
               description: Umožňuje webovým stránkám zapamatovat si uživatele na webových stránkách, když se pohybují mezi webovými stránkami.
               service: Tato stránka
             decidim-consent:
               description: Uloží informace o cookies povolených uživatelem na této stránce.
               service: Tato stránka
+            pwaInstallPromptSeen:
+              description: Uloží stav, pokud uživatel již viděl instalační oznámení progresivní webové aplikace (PWA).
+              service: Tato stránka
           types:
             cookie: Cookie
+            local_storage: Místní úložiště
         dialog:
           accept_all: Přijmout vše
           accept_only_essential: Přijmout pouze nezbytné soubory cookie
-          cookie_settings: Nastavení
           description: Na našich webových stránkách používáme soubory cookie ke zlepšení výkonu a obsahu těchto stránek. Soubory cookie nám umožňují poskytovat individuálnější uživatelské nastavení a sociální kanály.
+          settings: Nastavení
           title: Informace o cookies používaných na internetových stránkách
         modal:
           accept_all: Přijmout vše
           accept_only_essential: Přijmout pouze nezbytné soubory cookie
           analytics:
-            description: Analytické soubory cookie jsou soubory cookie, které sledují, jak se uživatelé pohybují a komunikují s webem. Shromážděné informace slouží k tomu, aby majitel vylepšil webové stránky.
+            description: Tyto soubory cookie se používají k měření a analýze publika internetových stránek, aby pomohly zlepšit webové stránky.
             title: Analytika a statistiky
-          description: Soubory cookie používáme, abychom zajistili základní funkce webových stránek a zlepšili vaše online zážitky. Pro každou kategorii si můžete vybrat, zda se chcete přihlásit/odhlásit.
+          description: Soubory cookie používáme, abychom zajistili základní funkce webových stránek a zlepšili vaše online zkušenosti. Můžete si kdykoliv nastavit a akceptovat používání cookies a změnit své možnosti souhlasu.
           essential:
-            description: Tyto soubory cookie jsou nezbytné pro správné fungování nešich webových stránek. Bez těchto souborů cookie by tyto stránky nefungovaly správně.
+            description: Tyto soubory cookie umožňují klíčové funkce webu a pomáhají udržet uživatele v bezpečí. Jsou automaticky uloženy v prohlížeči a nemohou být zakázány.
             title: Zásadní
           marketing:
-            description: Tyto soubory cookie shromažďují informace o tom, jak používáte webové stránky, které jste navštívili a na které odkazy jste klikli.
+            description: Tyto soubory cookie shromažďují informace o tom, jak používáte webovou stránku a mohou být využity k poskytování více individualizovaného marketingu na různých webových stránkách, které používáte.
             title: Marketing
           preferences:
-            description: Tyto soubory cookie umožňují webovým stránkám zapamatovat si vybrání možností, které jste učinili v minulosti
+            description: Tyto soubory cookie umožňují si pamatovat si volby, které jste učinili v minulosti na těchto webových stránkách, aby poskytovaly více individualizovaného zážitku pro uživatele webových stránek.
             title: Předvolby
           save_settings: Uložit nastavení
           title: Nastavení cookies
           toggle: Přepínač %{consent_category}
         warning:
-          all_cookies: všechny soubory cookie
-          change_cookie_settings: Změnit nastavení cookie
-          need_cookies: Abyste mohli vidět tento obsah, musíte povolit %{cookies}.
+          all_categories: všechny cookie
+          change_settings: Změnit nastavení cookie
+          consent_required: Abyste mohli vidět tento obsah, musíte povolit %{categories}.
       edit_link:
         edit: Upravit
       footer:
         cc_by_license: Licence Creative Commons
-        cookie_settings: Nastavení cookies
+        data_consent_settings: Nastavení cookies
         decidim_logo: Logo Decidim
         download_open_data: Stáhněte si soubory s otevřenými daty
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
@@ -1880,7 +1917,7 @@ cs:
         see_more: Vidět víc
   locale:
     name: Čeština
-    name_with_error: Čeština
+    name_with_error: Čeština (chyba!)
   password_validator:
     blacklisted: je na černé listině
     domain_included_in_password: je příliš podobné tomuto názvu domény
@@ -1894,6 +1931,12 @@ cs:
     password_too_common: je příliš běžné
     password_too_long: je to moc dlouhé
     password_too_short: je příliš krátké
+  ransack:
+    predicates:
+      dtgt: po
+      dtgteq: po nebo rovno
+      dtlt: před
+      dtlteq: před nebo rovno
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1950,14 +1993,10 @@ cs:
       option_unified: Sjednocené
   views:
     pagination:
-      first: "&laquo; První"
-      first_title: Odkaz na první stránku
-      last: Poslední &raquo;
-      last_title: Odkaz na poslední stránku
-      next: Další &rsaquo;
+      next: Další
       next_title: Odkaz na další stránku
       pagination: Stránkování
-      previous: "&lsaquo; Předchozí"
+      previous: Předchozí
       previous_title: Odkaz na předchozí stránku
       title: 'Číslo strany: '
       truncate: "&hellip;"

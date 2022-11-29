@@ -279,8 +279,6 @@ id:
         working_group: Kelompok kerja
       index:
         title: Assemblies
-      last_activity:
-        new_assembly: Perakitan baru
       pages:
         home:
           highlighted_assemblies:

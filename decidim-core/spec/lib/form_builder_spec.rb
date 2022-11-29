@@ -9,6 +9,7 @@ module Decidim
     let(:available_locales) { %w(ca en de-CH) }
     let(:uploader) { Decidim::ApplicationUploader }
     let(:organization) { create(:organization) }
+    let(:redesign_enabled?) { false }
 
     let(:resource) do
       klass = Class.new do
@@ -77,6 +78,7 @@ module Decidim
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
+      allow(helper).to receive(:redesign_enabled?).and_return(redesign_enabled?)
     end
 
     describe "#editor" do
@@ -720,7 +722,10 @@ module Decidim
           let(:file) { nil }
           let(:uploader) { Decidim::AvatarUploader }
 
+          # REDESIGN_PENDING: Merge this with upload-modal in another branch
+          # and remove if necessary
           it "renders the 'Default image' label" do
+            skip "This example will be deprecated once merged the feature/redesign-upload-modal branch"
             expect(output).to include("Default image")
           end
         end
@@ -728,7 +733,10 @@ module Decidim
         context "and it is present" do
           let(:present?) { true }
 
+          # REDESIGN_PENDING: Merge this with upload-modal in another branch
+          # and remove if necessary
           it "renders the 'Current image' label" do
+            skip "This example will be deprecated once merged the feature/redesign-upload-modal branch"
             expect(output).to include("Current image")
           end
 
@@ -768,7 +776,7 @@ module Decidim
         let(:present?) { true }
 
         it "renders the add file button" do
-          expect(parsed.css("button.add-file")).not_to be_empty
+          expect(parsed.css("button[data-upload]")).not_to be_empty
         end
       end
 

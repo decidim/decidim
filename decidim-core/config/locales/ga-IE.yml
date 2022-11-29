@@ -152,8 +152,6 @@ ga:
       badges:
         index:
           title: Suaitheantais
-        invitations:
-          name: Cuirí
     group_invites:
       accept_invitation: Glac
       index:
@@ -182,11 +180,7 @@ ga:
           ok: Togha
         index:
           ago: ó shin
-          from: Ó
           next: I ndiaidh
-        reply:
-          send: Seol
-          title: Freagra
         start:
           send: Seol
     newsletter_templates:
@@ -322,8 +316,6 @@ ga:
       edit:
         submit_button: Sábháil
     registrations:
-      edit:
-        update: Nuashonraigh
       new:
         sign_up: Cláraigh
     sessions:

@@ -289,7 +289,6 @@ sv:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
             email_outro: Du har fått det här meddelandet eftersom du är en författare av %{resource_title}".
-            email_subject: Ditt förslag har avslagits
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avslagits.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
@@ -382,9 +381,6 @@ sv:
           proposal_comments: Kommentarer
           proposals: Förslag
         imports:
-          help:
-            answers: 'Importdokumentet ska innehålla följande kolumner: id, state (accepterat, utvärderat, avvisat), answer/sv, answer/en (och andra språk aktiverade för organisationen).'
-            proposals: Filen måste ha kolumnnamn title/sv och body/sv (eller ett annat språk som du föredrar t. ex.. title/en och body/en). Även scope/id och category/id kolumner stöds.
           label:
             answers: Importera svar från en fil
             proposals: Importerar förslag från en fil
@@ -616,7 +612,6 @@ sv:
             one: "%{count} gemensamt utkast"
             other: "%{count} gemensamma utkast"
         create:
-          error: Det gick inte att skapa det gemensamma utkastet
           success: Det gemensamma utkastet har skapats.
         edit:
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
@@ -701,9 +696,6 @@ sv:
       destroy_draft:
         error: Det gick inte att radera det gemensamma utkastet.
         success: Utkastet till förslag har tagits bort.
-      last_activity:
-        new_proposal_at_html: "<span>Nytt förslag vid %{link}</span>"
-        proposal_updated_at_html: "<span>Förslag uppdaterades på %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -835,7 +827,6 @@ sv:
           changes_at_title: Ändring till %{title}
           comments: Kommentarer
           edit_proposal: Redigera förslag
-          endorsements_list: Lista över instämmanden
           estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
             one: och %{count} till person

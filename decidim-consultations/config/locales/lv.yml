@@ -268,9 +268,6 @@ lv:
         title: Jautājumi no%{scope_name}
       index:
         title: Konsultācijas
-      last_activity:
-        new_consultation: Jauna konsultācija
-        new_question_at_html: "<span> Jauns jautājums %{link}</span>"
       pages:
         home:
           highlighted_consultations:

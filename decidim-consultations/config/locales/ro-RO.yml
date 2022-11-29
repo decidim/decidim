@@ -273,8 +273,8 @@ ro:
       index:
         title: Consultări
       last_activity:
-        new_consultation: Consultare nouă
-        new_question_at_html: "<span>Noua întrebare la %{link}</span>"
+        new_consultation: 'Consultare nouă:'
+        new_question: 'Întrebare nouă:'
       pages:
         home:
           highlighted_consultations:
