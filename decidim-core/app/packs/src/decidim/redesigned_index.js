@@ -181,22 +181,24 @@ const initializer = (element = document) => {
       dataset: { dialog }
     } = elem;
 
-    return new Dialogs(`[data-dialog="${dialog}"]`, {
+    // NOTE: due to some SR bugs we've to set the focus on the title
+    // See discussion: https://github.com/decidim/decidim/issues/9760
+    // See further info: https://adrianroselli.com/2020/10/dialog-focus-in-screen-readers.html
+    const setFocusOnTitle = (content) => {
+      const heading = content.querySelector("[id^=dialog-title]")
+      if (heading) {
+        heading.setAttribute("tabindex", heading.getAttribute("tabindex") || -1)
+        heading.focus();
+      }
+    }
+
+    const modal = new Dialogs(`[data-dialog="${dialog}"]`, {
       openingSelector: `[data-dialog-open="${dialog}"]`,
       closingSelector: `[data-dialog-close="${dialog}"]`,
       backdropSelector: `[data-dialog="${dialog}"]`,
-      onOpen: function(params) {
-        // when a remote modal is open, the contents are empty
-        // once they're in the DOM, we append the ARIA attributes
-        // otherwise they could not exists
-        setTimeout(() => {
-          if (params.querySelector(`#dialog-title-${dialog}`)) {
-            params.setAttribute("aria-labelledby", `dialog-title-${dialog}`);
-          }
-          if (params.querySelector(`#dialog-desc-${dialog}`)) {
-            params.setAttribute("aria-describedby", `dialog-desc-${dialog}`);
-          }
-        }, 500);
+      enableAutoFocus: false,
+      onOpen: (params) => {
+        setFocusOnTitle(params)
       },
       // optional parameters (whenever exists the id, it'll add the tagging)
       ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && {
@@ -206,6 +208,21 @@ const initializer = (element = document) => {
         describedby: `dialog-desc-${dialog}`
       })
     });
+
+    // NOTE: when a remote modal is open, the contents are empty
+    // once they're in the DOM, we append the ARIA attributes
+    // otherwise they could not exist yet
+    // (this listener must be applied over 'document', not 'element')
+    document.addEventListener("remote-modal:loaded", () => {
+      const heading = modal.dialog.querySelector(`#dialog-title-${dialog}`)
+      if (heading) {
+        modal.dialog.setAttribute("aria-labelledby", `dialog-title-${dialog}`);
+        setFocusOnTitle(modal.dialog)
+      }
+      if (modal.dialog.querySelector(`#dialog-desc-${dialog}`)) {
+        modal.dialog.setAttribute("aria-describedby", `dialog-desc-${dialog}`);
+      }
+    })
   });
 
   element.querySelectorAll("[data-drawer]").forEach(
