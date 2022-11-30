@@ -48,9 +48,8 @@ pt-BR:
           results: Resultados
         import_results:
           new:
+            download_export: Baixe a Exportação com formato CSV
             import: Importar
-            info: "<p>Nós recomendamos que vosê siga os seguintes passos:</p><ol><li>Crie os Status para os Resultados que você gostaria de adicionar(<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Crie o último Resultado manualmente através do Painel de Administração(<a href='%{link_new_result}' target='_blank'>link</a>) antes de usar Importação, para ter um melhor entendimento do formato e o que você precisa preencher.</li><li>Baixe a Exportação em formato CSV (%{link_export_csv})</li><li>Faça as mudanças localmente. Você só pode fazer mudanças nas seguintes colunas do CSV:</li></ol><ul><li><b>categoria/id:</b> ID da Categoria</li><li><b>escopo/id:</b> ID do Escopo</li><li><b>pai/id:</b> ID do pai(para resultados Relacionados). Opcional</li><li><b>Título/I18N:</b> Título na liinguagem X</li><li><b>Descrição/I18N:</b> Descrição na linguagem X</li><li><b>data_inicial:</b> data em que os resultados começaram a ser executados (formato YYYY-MM-DD)</li><li><b>data_final:</b> em que os resultados pararam de ser executados (formato YYYY-MM-DD)</li><li><b>status/id:</b> ID do Status para este resultado</li><li><b>progresso:</b> Percentual (De 0 a 100) de execução</li><li><b>id_propostas:</b> ID interno relacionado às propostas (separados por vírgula). Ele é convertido automaticamente para<span class='attribute-name'>url_proposta</span></li></ul>"
-            link: link
             title: Importar resultados de CSV
         imports:
           create:
@@ -204,6 +203,8 @@ pt-BR:
             label: Status
     components:
       accountability:
+        actions:
+          comment: Comentário
         name: Prestação de contas
         settings:
           global:

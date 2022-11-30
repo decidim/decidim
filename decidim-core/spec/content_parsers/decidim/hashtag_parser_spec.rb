@@ -90,6 +90,13 @@ module Decidim
       it_behaves_like "find and stores the hashtags references"
     end
 
+    context "when the hashtag is at the beginning of the string" do
+      let(:content) { "##{hashtag.name} is at the beginning of the string" }
+      let(:parsed_content) { "#{hashtag.to_global_id}/#{hashtag.name} is at the beginning of the string" }
+
+      it_behaves_like "find and stores the hashtags references"
+    end
+
     context "when content contains an URL with a fragment (aka anchor link)" do
       let(:content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path##{hashtag.name}" }
       let(:parsed_content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path#fragment" }

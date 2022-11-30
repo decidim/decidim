@@ -39,6 +39,18 @@ module Decidim::ComponentTestHelpers
   def have_admin_callout(text)
     have_selector(".callout--full", text: text)
   end
+
+  def stub_get_request_with_format(rq_url, rs_format)
+    stub_request(:get, rq_url)
+      .with(
+        headers: {
+          "Accept" => "*/*",
+          "Accept-Encoding" => "gzip;q=1.0,deflate;q=0.6,identity;q=0.3",
+          "User-Agent" => "Ruby"
+        }
+      )
+      .to_return(status: 200, body: "", headers: { content_type: rs_format })
+  end
 end
 
 RSpec.configure do |config|

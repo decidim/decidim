@@ -48,7 +48,6 @@ is-IS:
         import_results:
           new:
             import: Flytja inn
-            link: hlekkur
             title: Flytja inn niðurstöður frá CSV
         imports:
           create:

@@ -13,6 +13,7 @@ ro:
         decidim_scope_id: Domeniu de interes
         description: Descriere
         proposal_ids: Propuneri asociate
+        proposals: Propuneri
         selected: Selectate pentru implementare
         title: Titlu
   activerecord:

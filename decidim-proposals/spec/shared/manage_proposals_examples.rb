@@ -27,6 +27,19 @@ shared_examples "manage proposals" do
     end
   end
 
+  describe "listing" do
+    context "with enriched content" do
+      before do
+        proposal.update!(title: { en: "Proposal <strong>title</strong>" })
+        visit current_path
+      end
+
+      it "displays the correct title" do
+        expect(page.html).to include("Proposal &lt;strong&gt;title&lt;/strong&gt;")
+      end
+    end
+  end
+
   describe "creation" do
     context "when official_proposals setting is enabled" do
       before do
@@ -337,8 +350,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
       end
 
       it "can accept a proposal" do
@@ -356,8 +369,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as evaluating" do
@@ -375,8 +388,8 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
-        expect(proposal.state_published_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
+        expect(proposal.state_published_at).to be_within(2.seconds).of Time.zone.now
       end
 
       it "can mark a proposal as 'not answered'" do
@@ -435,7 +448,7 @@ shared_examples "manage proposals" do
         end
 
         proposal.reload
-        expect(proposal.answered_at).to be_within(1.second).of Time.zone.now
+        expect(proposal.answered_at).to be_within(2.seconds).of Time.zone.now
       end
     end
 

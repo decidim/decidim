@@ -27,6 +27,66 @@ describe "Explore meetings", :slow, type: :system do
       end
     end
 
+    context "with default filter" do
+      let!(:past_meeting) { create(:meeting, :published, start_time: 2.weeks.ago, component: component) }
+      let!(:upcoming_meeting) { create(:meeting, :published, :not_official, component: component) }
+
+      it "shows all the upcoming meetings" do
+        visit_component
+        within ".date_collection_radio_buttons_filter" do
+          expect(find("input[value='upcoming']").checked?).to be(true)
+        end
+
+        within "#meetings" do
+          expect(page).to have_css(".card--meeting", count: 6)
+        end
+
+        expect(page).to have_css("#meetings-count", text: "6 MEETINGS")
+        expect(page).to have_content(translated(upcoming_meeting.title))
+      end
+
+      it "doesn't show past meetings" do
+        visit_component
+        within "#meetings" do
+          expect(page).not_to have_content(translated(past_meeting.title))
+        end
+      end
+    end
+
+    context "when checking withdrawn meetings" do
+      context "when there are no withrawn meetings" do
+        let!(:meeting) { create_list(:meeting, 3, :published, component: component) }
+
+        before do
+          visit_component
+          click_link "See all withdrawn meetings"
+        end
+
+        it "shows an empty page with a message" do
+          expect(page).to have_content("No meetings match your search criteria or there isn't any meeting scheduled.")
+          within ".callout.warning", match: :first do
+            expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
+          end
+        end
+      end
+
+      context "when there are withrawn meetings" do
+        let!(:withdrawn_meetings) { create_list(:meeting, 3, :withdrawn, :published, component: component) }
+
+        before do
+          visit_component
+          click_link "See all withdrawn meetings"
+        end
+
+        it "shows all the withdrawn meetings" do
+          expect(page).to have_css(".card--meeting.alert", count: 3)
+          within ".callout.warning", match: :first do
+            expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
+          end
+        end
+      end
+    end
+
     context "with hidden meetings" do
       let(:meeting) { meetings.last }
 
@@ -143,24 +203,123 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_content(translated(meetings.first.title))
       end
 
-      it "allows filtering by date" do
+      context "when filtering by date" do
+        let!(:past_meeting1) { create(:meeting, :published, component: component, start_time: 1.week.ago) }
+        let!(:past_meeting2) { create(:meeting, :published, component: component, start_time: 3.months.ago) }
+        let!(:past_meeting3) { create(:meeting, :published, component: component, start_time: 2.days.ago) }
+        let!(:upcoming_meeting1) { create(:meeting, :published, component: component, start_time: 1.week.from_now) }
+        let!(:upcoming_meeting2) { create(:meeting, :published, component: component, start_time: 3.months.from_now) }
+        let!(:upcoming_meeting3) { create(:meeting, :published, component: component, start_time: 2.days.from_now) }
+
+        it "lists filtered meetings" do
+          visit_component
+
+          within ".date_collection_radio_buttons_filter" do
+            choose "Past"
+          end
+
+          expect(page).to have_css(".card--meeting", count: 3)
+          expect(page).to have_content(translated(past_meeting1.title))
+          expect(page).not_to have_content(translated(upcoming_meeting1.title))
+
+          within ".date_collection_radio_buttons_filter" do
+            choose "Upcoming"
+          end
+
+          expect(page).to have_content(translated(upcoming_meeting1.title))
+          expect(page).not_to have_content(translated(past_meeting1.title))
+
+          expect(page).to have_css(".card--meeting", count: 8)
+
+          within ".date_collection_radio_buttons_filter" do
+            choose "All"
+          end
+
+          expect(page).to have_css(".card--meeting", count: 8)
+          expect(page).to have_content(translated(past_meeting1.title))
+          expect(page).to have_content(translated(upcoming_meeting1.title))
+        end
+
+        context "when there are multiple past meetings" do
+          it "orders them by start date" do
+            visit_component
+            within ".date_collection_radio_buttons_filter" do
+              choose "Past"
+            end
+
+            expect(page).to have_css("#meetings-count", text: "3 MEETINGS")
+
+            result = page.find("#meetings .card-grid").text
+            expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
+            expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting2.title))
+          end
+        end
+
+        context "when there are multiple upcoming meetings" do
+          it "orders them by start date" do
+            visit_component
+            within ".date_collection_radio_buttons_filter" do
+              choose "Upcoming"
+            end
+
+            expect(page).to have_css("#meetings-count", text: "8 MEETINGS")
+
+            result = page.find("#meetings .card-grid").text
+            expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
+            expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
+          end
+        end
+
+        context "when there are multiple meetings" do
+          it "orders them by start date" do
+            visit_component
+            within ".date_collection_radio_buttons_filter" do
+              choose "All"
+            end
+
+            expect(page).to have_css("#meetings-count", text: "11 MEETINGS")
+
+            result = page.find("#meetings .card-grid").text
+            expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
+            expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting3.title))
+            expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(upcoming_meeting1.title))
+            expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
+            expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
+          end
+        end
+      end
+
+      it "allows linking to the filtered view using a short link" do
         past_meeting = create(:meeting, :published, component: component, start_time: 1.day.ago)
         visit_component
 
-        within ".date_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Past"
+        within ".date_collection_radio_buttons_filter" do
+          choose "Past"
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
         expect(page).to have_content(translated(past_meeting.title))
 
-        within ".date_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Upcoming"
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        base_url = "http://#{organization.host}"
+
+        click_button "Export calendar"
+        expect(page).to have_content("Calendar URL:")
+        expect(page).to have_css("#calendarShare", visible: :visible)
+        share_url = nil
+        within "#calendarShare" do
+          input = find("input[readonly]")
+          share_url = input.value
+          expect(share_url).to match(%r{^#{base_url}:[0-9]+/processes/#{participatory_process.slug}/f/#{component.id}/calendar$})
         end
 
-        expect(page).to have_css(".card--meeting", count: 5)
+        visit share_url
+        expect(page).to have_css(".card--meeting", count: 1)
+        expect(page).to have_content(translated(past_meeting.title))
+        expect(page).to have_current_path(/^#{main_component_path(component)}/)
+
+        current_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(current_params).to eq(filter_params)
       end
 
       it "allows filtering by scope" do

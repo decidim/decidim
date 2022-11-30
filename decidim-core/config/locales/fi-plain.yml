@@ -29,6 +29,7 @@ fi-pl:
         password_confirmation: Vahvista salasanasi
         personal_url: Henkilökohtainen URL-osoite
         remove_avatar: Poista profiilikuva
+        tos_agreement: Käyttöehdot
     models:
       decidim/attachment_created_event: Liite
       decidim/component_published_event: Aktiivinen komponentti
@@ -790,18 +791,6 @@ fi-pl:
           how: Kuinka voit ansaita tämän
           page_description: Kunniamerkit ovat tunnistuksia osallistumisesta tällä alustalla. Kun aloitat tutustumaan alustaan osallistumalla ja vuorovaikuttamalla, ansaitset erilaisia ​​kunniamerkkejä. Tässä on luettelo kunniamerkeistä ja tapoja, joilla voit ansaita niitä.
           title: Kunniamerkit
-        invitations:
-          conditions:
-            - Käytä profiilisivullasi olevaa "kutsua ystäviä" -linkkiä kutsuaksesi ystäviäsi palveluun
-            - Muokkaa lähetettävää viestiä halutessasi
-            - Pääset seuraavalle tasolle lähettämällä kutsuja ja saadessasi kyseiset ihmiset rekisteröitymään palveluun.
-          description: Tämä kunniamerkki myönnetään, kun olet kutsunut ihmisiä %{organization_name} -palveluun ja nämä ihmiset rekisteröityvät palvelun käyttäjiksi. Kiitos, että autat tekemään %{organization_name} -palvelusta tunnetumpaa ja laajentamaan yhteisöä!
-          description_another: Tämä käyttäjä on kutsunut %{score} käyttäjää.
-          description_own: Olet kutsunut %{score} käyttäjää.
-          name: Kutsut
-          next_level_in: Kutsu %{score} käyttäjää lisää päästäksesi seuraavalle tasolle!
-          unearned_another: Tämä käyttäjä ei ole vielä kutsunut yhtään käyttäjää.
-          unearned_own: Et ole vielä kutsunut yhtään käyttäjää.
       description: Kunniamerkit ovat tunnistuksia osallistumisestasi ja toimistasi tällä alustalla. Ansaitset niitä aloittamalla tutustumaan, osallistumaan ja vuorovaikuttamaan tällä alustalla.
       level: Taso %{level}
       reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
@@ -1547,15 +1536,6 @@ fi-pl:
       updated_not_active: Salasanasi on vaihdettu onnistuneesti.
     registrations:
       destroyed: Hei hei! Tilisi on poistettu onnistuneesti. Toivomme näkevämme sinut pian uudelleen.
-      edit:
-        are_you_sure: Oletko varma?
-        cancel_my_account: Poista tilini
-        currently_waiting_confirmation_for_email: 'Odottaa varmistusta sähköpostista: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: jätä tyhjäksi, jos et halua muuttaa
-        title: Muokkaa %{resource}
-        unhappy: Oletko tyytymätön?
-        update: Päivitä
-        we_need_your_current_password_to_confirm_your_changes: tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset
       new:
         sign_up: Rekisteröidy
       signed_up: Tervetuloa! Olet kirjautunut sisään onnistuneesti.
@@ -1610,7 +1590,7 @@ fi-pl:
         other: 'Virheitä käsiteltäessä pyyntöä:'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
-      too_short: liian lyhyt (alle 15 merkkiä)
+      too_short: liian lyhyt (alle %{count} merkkiä)
   forms:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:

@@ -77,7 +77,7 @@ ca:
         organization_admin_name: Nom de l'administradora de l'organització
         organization_locales: Idiomes de l'organització
         primary_color: Primària
-        reference_prefix: prefix de referència
+        reference_prefix: Prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
         secondary_hosts: Hosts secundaris
@@ -184,7 +184,7 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
-          accept: Estic d'acord amb els termes següents
+          accept: Estic d'acord amb els termes
           are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
@@ -1039,6 +1039,7 @@ ca:
         moderation:
           fields:
             created_at: Data de creació
+            deleted_resource: Elimina el recurs
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
             report_count: Recompte

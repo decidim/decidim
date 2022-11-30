@@ -78,9 +78,9 @@ cs:
         other: Participativní procesy
       decidim/participatory_process_group:
         one: Skupina účastnických procesů
-        few: Skupiny zúčastněných procesů
-        many: Skupiny zúčastněných procesů
-        other: Skupiny zúčastněných procesů
+        few: Skupiny účastnických procesů
+        many: Skupiny účastnických procesů
+        other: Skupiny účastnických procesů
       decidim/participatory_process_step:
         one: Krok
         few: Kroky
@@ -122,7 +122,7 @@ cs:
           info: Info
           moderations: Moderování
           private_users: Soukromí uživatelé
-          process_admins: Zpracovat uživatele
+          process_admins: Administrátoři procesu
           steps: Kroky
       models:
         participatory_process:
@@ -268,7 +268,7 @@ cs:
           error: Došlo k chybě při vytváření nové skupiny účastnických procesů.
           success: Skupina úspěšně vytvořená skupina účastníků.
       titles:
-        participatory_process_groups: Skupiny zúčastněných procesů
+        participatory_process_groups: Skupiny účastnických procesů
         participatory_processes: Participativní procesy
       users:
         resend_invitation:
@@ -305,7 +305,7 @@ cs:
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Krok %{resource_title} je nyní aktivní pro <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Byly aktualizovány datumy pro krok %{resource_title} v %{participatory_space_title}. Můžete je vidět z této stránky:'
+          email_intro: 'Data pro %{resource_title} fáze na %{participatory_space_title} byly aktualizovány. Můžete si je prohlédnout na této stránce:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Aktualizace na %{participatory_space_title}
           notification_title: Byly aktualizovány data pro krok <a href="%{resource_path}">%{resource_title}</a> ve <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
@@ -352,7 +352,7 @@ cs:
             many: "%{count} procesů"
             other: "%{count} procesy"
       show:
-        title: Skupiny zúčastněných procesů
+        title: Skupiny účastnických procesů
     participatory_process_steps:
       index:
         process_steps: Procesní kroky
@@ -386,9 +386,9 @@ cs:
             announcement_help: Text, který zde zadáte, se uživateli zobrazí přímo pod informacemi o procesu.
             duration: Doba trvání
             filters: Filtry
-            images: snímky
+            images: Obrázky
             metadata: Metadata
-            other: jiný
+            other: Ostatní
             related_processes: Související procesy
             scope_type_max_depth_help: Omezit hloubku filtru rozsahu. Filtr se zobrazí od obecného k vybranému typu rozsahu.
             select_an_area: Vyberte oblast

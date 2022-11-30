@@ -66,7 +66,7 @@ cs:
         user_id: Uživatel
       conference_user_role:
         email: E-mail
-        name: název
+        name: Název
         role: Role
     errors:
       models:
@@ -99,7 +99,7 @@ cs:
         send_diplomas: Odeslání certifikátů o účasti
       conference_copies:
         new:
-          copy: kopírovat
+          copy: Kopírovat
           select: Vyberte, která data chcete duplikovat
           title: Duplikovat konferenci
       conference_publications:
@@ -222,7 +222,7 @@ cs:
         conference_user_role:
           fields:
             email: E-mail
-            name: název
+            name: Název
             role: Role
           name: Administrátor konference
           roles:
@@ -232,7 +232,7 @@ cs:
             valuator: Hodnotitel
         media_link:
           fields:
-            date: datum
+            date: Datum
             link: Odkaz
             title: Název
           name: Odkaz na média
@@ -240,7 +240,7 @@ cs:
           fields:
             link: Odkaz
             logo: Logo
-            name: název
+            name: Název
             partner_type: Typ
           name: Partner
           types:
@@ -387,7 +387,8 @@ cs:
         invite_join_conference_mailer:
           invite:
             decline: Odmítnout pozvánku '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} vás zve na konferenci na %{application}. Můžete jej odmítnout nebo přijmout prostřednictvím níže uvedených odkazů."
+            invited_existing_user_to_join_a_conference: "%{invited_by} vás zve na konferenci na %{application}. Můžete jej odmítnout nebo přijmout prostřednictvím níže uvedených odkazů."
+            invited_user_to_join_a_conference: "%{invited_by} vás pozval, abyste se připojili ke konferenci v %{application}. Můžete ji přijmout prostřednictvím níže uvedeného odkazu."
             registration: Registrace pro "%{conference_title}"
         partners:
           index:
@@ -409,7 +410,7 @@ cs:
           success: Konferenční certifikáty o návštěvě byly zaslány správně
       conference:
         registration_confirm:
-          cancel: zrušení
+          cancel: Zrušit
           confirm: Potvrdit
         show:
           free: Volný, uvolnit
@@ -438,9 +439,11 @@ cs:
         create:
           invalid: Do této konference došlo k problému.
           success: Do konference jste se úspěšně připojili.
+          unauthorized: Před registrací na konferenci se musíte přihlásit.
         decline_invitation:
           invalid: Došlo k potížím s odmítnutím pozvánky.
           success: Odmítli jste pozvánku úspěšně.
+          unauthorized: Před odmítnutím pozvání se musíte přihlásit.
         destroy:
           invalid: Při této konferenci došlo k problému.
           success: Konference jste úspěšně opustili.
@@ -488,7 +491,7 @@ cs:
         conference_invite:
           fields:
             email: E-mail
-            name: název
+            name: Název
             registration_type: Typ registrace
             sent_at: Odeslané
             status: Postavení
@@ -499,12 +502,12 @@ cs:
         conference_registration:
           fields:
             email: E-mail
-            name: název
+            name: Název
             registration_type: Typ registrace
             state: Stav
             states:
               confirmed: Potvrzeno
-              pending: čekající
+              pending: Čekající
       pages:
         home:
           highlighted_conferences:

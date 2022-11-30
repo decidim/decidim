@@ -12,7 +12,6 @@ gl:
         start_time: A votación comeza ás
         title: Título
       question:
-        description: Descrición
         title: Título
   activerecord:
     models:
@@ -268,6 +267,8 @@ gl:
           header: Cifrando o voto...
           text: Cifrando a papeleta para asegurar que o teu voto é segredo.
         failed:
+          modal:
+            close: Pechar
           try_again: Tentar de novo
         header:
           ballot_decision: Enviar ou auditar o teu voto

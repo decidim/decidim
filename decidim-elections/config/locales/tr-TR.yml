@@ -12,7 +12,6 @@ tr:
         start_time: Oylama başlangıcı
         title: Başlık
       question:
-        description: Açıklama
         max_selections: Maksimum seçim sayısı
         min_selections: Yukarıdakilerden hiçbiri
         title: Başlık
@@ -307,6 +306,9 @@ tr:
           feedback: Bize geri bildirim verin
           header: Oy onaylandı
           text: 'Aşağıdaki tanımlayıcıyla oyunuzun başarıyla oy sandığına eklenip eklenmediğini kontrol edebilirsiniz: <strong class = "evote__poll-id">%{e_vote_poll_id} </strong>'
+        failed:
+          modal:
+            close: Kapat
         header:
           confirm: Oyunu onayla
           confirmed: Oy onaylandı

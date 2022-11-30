@@ -73,6 +73,23 @@ module Decidim
           end
         end
       end
+
+      context "when the answer has an attachment" do
+        let!(:answer) { create(:answer, body: nil) }
+        let!(:attachment) { create(:attachment, :with_image, attached_to: answer) }
+
+        it "returns the download attachment link" do
+          expect(subject.body).to eq(%(<ul><li><a target="_blank" rel="noopener noreferrer" href="#{attachment.url}"><span>#{translated(attachment.title)}</span> <small>jpeg 105 KB</small></a></li></ul>))
+        end
+
+        context "when the attachment does not have a title" do
+          let!(:attachment) { create(:attachment, :with_image, attached_to: answer, title: {}, description: {}) }
+
+          it "returns the download attachment link" do
+            expect(subject.body).to eq(%(<ul><li><a target="_blank" rel="noopener noreferrer" href="#{attachment.url}"><span>Download attachment</span> <small>jpeg 105 KB</small></a></li></ul>))
+          end
+        end
+      end
     end
   end
 end

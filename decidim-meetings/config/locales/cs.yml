@@ -35,7 +35,7 @@ cs:
         registration_terms: Podmínky registrace
         registration_url: URL registrace
         registrations_enabled: Registrace povoleny
-        show_embedded_iframe: Zobrazit vloženou iframe pro tuto URL
+        show_embedded_iframe: Zobrazit vložený iframe pro tuto URL
         start_time: Čas zahájení
         title: Název
         transparent: Transparentní
@@ -164,7 +164,7 @@ cs:
         meeting_registration_confirmed:
           notification_title: Vaše registrace pro schůzku <a href="%{resource_url}">%{resource_title}</a> byla potvrzena. Váš registrační kód je %{registration_code}.
         meeting_registrations_over_percentage:
-          email_intro: Počet schůzek obsazených schůzem "%{resource_title}" je vyšší než %{percentage}%.
+          email_intro: Přidělených míst pro schůzku "%{resource_title}" je více než %{percentage}%.
           email_outro: Toto oznámení jste obdrželi, protože jste administrátor participačního prostoru schůzky.
           email_subject: Schůzky obsazené schůzkou "%{resource_title}" jsou nad %{percentage}%
           notification_title: Počet obsazených slotů <a href="%{resource_path}">%{resource_title}</a> je vyšší než %{percentage}%.
@@ -190,7 +190,7 @@ cs:
           notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bude zahájeno za méně než 48 hodin.
     forms:
       meetings:
-        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobně, online nebo hybridně.
+        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobní, online nebo smíšené.
     gamification:
       badges:
         attended_meetings:
@@ -228,7 +228,7 @@ cs:
           agenda_item:
             add_agenda_item_child: Přidání položky agendy dítěte
             agenda_item: Položka agendy
-            agenda_item_children: Agenda Item Childs
+            agenda_item_children: Dílčí body programu
             down: Dolů
             remove: Odstranit
             up: Nahoru

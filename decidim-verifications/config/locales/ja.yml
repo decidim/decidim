@@ -64,7 +64,7 @@ ja:
             - 郵便物を送信済みとしてマークすると、参加者はコードを入力して検証することができます。
       csv_census:
         explanation: 組織センサスを使用して認証を取得する
-        name: 組織の国勢調査
+        name: 組織のセンサス
       direct: ダイレクト
       help: ヘルプ
       id_documents:
@@ -78,10 +78,10 @@ ja:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: 参加者 <a href="%{resource_path}">%{resource_title}</a> が管理対象参加者 <a href="%{managed_user_path}">%{managed_user_name}</a>のデータで検証しようとしました。
-          email_outro: <a href="%{conflicts_path}">検証の競合リスト</a> を確認し、参加者に連絡して詳細を調査し、問題を解決します。
-          email_subject: 管理対象参加者に対する検証の試みに失敗しました
-          notification_title: 参加者 <a href="%{resource_path}">%{resource_title}</a> が管理参加者 <a href="%{managed_user_path}">%{managed_user_name}</a>のデータでそれらを確認しようとしました。
+          email_intro: 参加者 <a href="%{resource_url}">%{resource_title}</a> が別の参加者(<a href="%{managed_user_url}">%{managed_user_name}</a>) のデータで検証しようとしました.
+          email_outro: <a href="%{conflicts_url}">検証の競合リスト</a> を確認し、参加者に連絡して詳細の検証を行い、問題を解決します。
+          email_subject: 他の参加者に対する検証の試みに失敗しました
+          notification_title: 参加者 <a href="%{resource_path}">%{resource_title}</a> が別の参加者 (<a href="%{managed_user_path}">%{managed_user_name}</a>) のデータでそれらを確認しようとしました.
     verifications:
       authorizations:
         authorization_metadata:
@@ -97,7 +97,7 @@ ja:
         first_login:
           actions:
             another_dummy_authorization_handler: 認証ハンドラーの別の例に対して検証する
-            csv_census: 組織の国勢調査に照らして確認
+            csv_census: 組織のセンサスに照らして確認
             dummy_authorization_handler: 認証ハンドラーの例に対して確認する
             dummy_authorization_workflow: 認証ワークフローの例に対して確認する
             id_documents: 本人確認書類をアップロードして認証を取得する
@@ -128,14 +128,14 @@ ja:
               error: センサスのインポート中にエラーが発生しました。
               success: '%{count} 個のアイテムを正常にインポートしました (%{errors} 個のエラー)'
             destroy_all:
-              success: すべての国勢調査データが削除されました
+              success: すべてのセンサスデータが削除されました
           destroy:
-            confirm: 国勢調査をすべて削除することはできません。続行してもよろしいですか？
-            title: 国勢調査データをすべて削除する
+            confirm: センサスをすべて削除することはできません。続行してもよろしいですか？
+            title: センサスデータをすべて削除する
           index:
             data: 合計 %{count} 件のレコードが読み込まれています。最終アップロード日は %{due_date}です。
-            empty: 国勢調査データがありません。CSVファイルを使用してインポートするには、以下のフォームを使用してください。
-            title: 現在の国勢調査データ
+            empty: センサスデータがありません。CSVファイルを使用してインポートするには、以下のフォームを使用してください。
+            title: 現在のセンサスデータ
           instructions:
             body: これを行うには、システム管理を入力し、csv_census の認証を組織に追加する必要があります。
             title: この組織のCSVセンサス認証を有効にする必要があります
@@ -143,7 +143,7 @@ ja:
             file: "電子メールデータを含む.csvファイル"
             info: 'メールアドレスの列が 1 つだけの CSV 形式のファイルである必要があります:'
             submit: ファイルをアップロード
-            title: 新しい国勢調査をアップロード
+            title: 新しいセンサスをアップロード
         authorizations:
           new:
             error: お客様のアカウントを確認できませんでした。また、組織のセンサスに入っていない場合もあります。

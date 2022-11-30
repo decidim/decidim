@@ -53,8 +53,6 @@ module Decidim
       validate :body_length
       validate :commentable_can_have_comments
 
-      delegate :organization, to: :commentable
-
       scope :not_deleted, -> { where(deleted_at: nil) }
 
       translatable_fields :body
@@ -76,6 +74,10 @@ module Decidim
 
       def self.negative
         where(alignment: -1)
+      end
+
+      def organization
+        commentable&.organization || participatory_space&.organization
       end
 
       def visible?
@@ -128,6 +130,8 @@ module Decidim
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
+        return unless root_commentable
+
         url_params = { anchor: "comment_#{id}" }
 
         if root_commentable&.respond_to?(:polymorphic_resource_url)

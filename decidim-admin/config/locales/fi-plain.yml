@@ -184,7 +184,7 @@ fi-pl:
           error: Hallintakäyttäjän ehtojen hyväksymisessä tapahtui virhe.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
-          accept: Hyväksyn seuraavat ehdot
+          accept: Hyväksyn ehdot
           are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
           title: Hyväksy käyttöehdot
@@ -832,7 +832,7 @@ fi-pl:
           title: Uusi osallisuustilan yksityinen käyttäjä.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSV-tiedostossa on ongelma.
+          invalid: CSV-tiedoston käsittelyssä tapahtui virhe.
           success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
           explanation: 'Lataa CSV-tiedosto osallistumistilan käyttäjistä. Tiedostossa on oltava kaksi saraketta tuotaville käyttäjille ilman sarakeotsikoita: sähköpostiosoitteet ensimmäisessä ja nimi toisessa sarakkeessa (sähköposti, nimi). Vältä erikoismerkkejä nimessä, kuten `<>?%&^*#@()[]=+:;"{}\|`.'
@@ -1039,6 +1039,7 @@ fi-pl:
         moderation:
           fields:
             created_at: Luonnin ajankohta
+            deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
             report_count: Määrä

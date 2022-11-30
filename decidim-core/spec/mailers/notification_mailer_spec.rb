@@ -74,6 +74,51 @@ module Decidim
           expect(mail.body).to include(event_instance.button_url)
         end
       end
+
+      context "when the event has a linked resource" do
+        shared_examples "amendment notification mails" do
+          let!(:amendment) { create(:amendment, amendable: amendable, emendation: emendation) }
+          let(:component) { create(:proposal_component) }
+          let(:amendable) { create(:proposal, component: component) }
+          let(:emendation) { create(:proposal, component: component, title: %(Testing <a href="https://example.org">proposal</a>)) }
+          let(:link_to_emendation) { ::Decidim::ResourceLocatorPresenter.new(emendation).url }
+          let(:resource) { emendation }
+
+          it "includes the link to the resource" do
+            expect(mail.body).to include(
+              %(<a href="#{link_to_emendation}">Testing proposal</a>)
+            )
+          end
+        end
+
+        context "when the amendment is created" do
+          let(:event_class_name) { "Decidim::Amendable::AmendmentCreatedEvent" }
+          let(:event) { "decidim.events.amendments.amendment_created" }
+
+          it_behaves_like "amendment notification mails"
+        end
+
+        context "when the amendment is accepted" do
+          let(:event_class_name) { "Decidim::Amendable::AmendmentAcceptedEvent" }
+          let(:event) { "decidim.events.amendments.amendment_accepted" }
+
+          it_behaves_like "amendment notification mails"
+        end
+
+        context "when the amendment is rejected" do
+          let(:event_class_name) { "Decidim::Amendable::AmendmentRejectedEvent" }
+          let(:event) { "decidim.events.amendments.amendment_rejected" }
+
+          it_behaves_like "amendment notification mails"
+        end
+
+        context "when the emendation is promoted" do
+          let(:event_class_name) { "Decidim::Amendable::EmendationPromotedEvent" }
+          let(:event) { "decidim.events.amendments.emendation_promoted" }
+
+          it_behaves_like "amendment notification mails"
+        end
+      end
     end
   end
 end

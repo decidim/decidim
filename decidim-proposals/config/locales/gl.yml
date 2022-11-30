@@ -257,7 +257,6 @@ gl:
           affected_user:
             email_intro: 'A túa proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
             email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
-            email_subject: A túa proposta foi rexeitada
             notification_title: A túa proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
@@ -347,8 +346,6 @@ gl:
           proposal_comments: Comentarios
           proposals: Propostas
         imports:
-          help:
-            answers: 'O documento a importar ten de conter as seguintes columnas: id, state (aceptado, avaliando, rexeitado), resposta (e outros idiomas habilitados pola organización).'
           label:
             answers: Importar respostas dende un ficheiro
             proposals: Importar propostas dende un ficheiro
@@ -548,7 +545,6 @@ gl:
             one: "%{count} borrador colaborativo"
             other: "%{count} borrador colaborativo"
         create:
-          error: Produciuse un problema creando estes borradores colaborativos
           success: Creouse un borrador colaborativo.
         edit:
           attachment_legend: "(Opcional) Engada un anexo"

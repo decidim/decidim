@@ -29,6 +29,7 @@ es:
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
+        tos_agreement: Acuerdo de términos y condiciones de uso
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -44,7 +45,7 @@ es:
       decidim/removed_from_group: Eliminada del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
       decidim/resource_hidden_event: Recurso oculto
-      decidim/user_group_created_event: Grupo de usuarios creado
+      decidim/user_group_created_event: Grupo creado
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
@@ -569,12 +570,12 @@ es:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptado para <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verla desde esta página:'
@@ -602,12 +603,12 @@ es:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque eres autora de %{amendable_title}.
             email_subject: Enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
             email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
-            notification_title: El <a href="%{emendation_path}">enmienda</a> creado por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
@@ -788,18 +789,6 @@ es:
           how: Como puedes conseguirla
           page_description: Las insignias son reconocimientos a las acciones de las participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirás diferentes insignias. Aquí está la lista de insignias y algunas formas en que puedes conseguirlas.
           title: Insignias
-        invitations:
-          conditions:
-            - Usa el enlace "invitar amigas" en tu página de usuaria para invitar a tus amistades
-            - Personaliza, si quieres, el mensaje que estás enviando
-            - Subirás de nivel enviando invitaciones y consiguiendo nuevas participantes.
-          description: Esta insignia se consigue cuando has invitado a algunas personas a la plataforma %{organization_name}, y se han registrado como participantes. ¡Gracias por dar a conocer %{organization_name} a otras y ayudar a ampliar la comunidad!
-          description_another: Esta participante ha invitado a %{score} personas.
-          description_own: Has invitado a %{score} personas.
-          name: Invitaciones
-          next_level_in: '¡Invita a %{score} personas más para alcanzar el siguiente nivel!'
-          unearned_another: Esta participante aún no ha invitado a nadie.
-          unearned_own: Aún no has invitado a nadie.
       description: Las insignias son reconocimientos de las acciones de las participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
@@ -1009,7 +998,7 @@ es:
         reply:
           placeholder: Tu respuesta...
           send: Enviar
-          title: Respuesta
+          title: Responder
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
@@ -1018,7 +1007,7 @@ es:
           title: Conversación con %{usernames}
         start:
           send: Enviar
-          title: Inicia una conversación
+          title: Iniciar una conversación
         update:
           error: El mensaje no fue enviado debido a un error
     metrics:
@@ -1544,15 +1533,6 @@ es:
       updated_not_active: Tu contraseña se ha modificado correctamente.
     registrations:
       destroyed: Tu cuenta se ha cancelado correctamente. Esperamos volver a verte pronto.
-      edit:
-        are_you_sure: '¿Estás segura?'
-        cancel_my_account: Cancelar mi cuenta
-        currently_waiting_confirmation_for_email: 'Estamos esperando la confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: Déjalo en blanco si no quieres cambiarlo
-        title: Editar %{resource}
-        unhappy: '¿Infeliz?'
-        update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: Necesitamos tu contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
       signed_up: '¡Bienvenida! Te has registrado con éxito.'
@@ -1607,7 +1587,7 @@ es:
         other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: Es demasiado corto (menos de 15 caracteres)
+      too_short: Es demasiado corto (menos %{count} caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:
@@ -1681,7 +1661,7 @@ es:
         see_more: Ver más
   locale:
     name: Castellano
-    name_with_error: Inglés (¡error!)
+    name_with_error: Castellano (¡error!)
   password_validator:
     blacklisted: en la lista negra
     domain_included_in_password: es demasiado similar a este nombre de dominio

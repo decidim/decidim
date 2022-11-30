@@ -458,7 +458,7 @@ lb:
           newsletter: Heiansdo en Newsletter mat relevanten Informatiounen zougeschéckt kréien
           newsletter_title: Erlabnis Kontakt opzehuelen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
-          password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal (z.B. 123456) an et dierf net däin Benotzernumm oder deng Email-Adress enthalen."
+          password_help: "Muss op mannst aus %{minimun_characters} Zeechen bestoen, keng ze banal Zeechen (z.B. 123456) an et dierf weder däin Pseudonym nach deng Email-Adress enthalen."
           sign_in: Umelden
           sign_up: Registréieren
           sign_up_as:
@@ -741,18 +741,6 @@ lb:
           how: Wéi kanns de der et verdéngen
           page_description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen. Hei ass eng Lëscht vun den Ofzeechen an e puer Méiglechkeeten, wéi een sech déi verdéngen kann.
           title: Ofzeechen
-        invitations:
-          conditions:
-            - Benotz den "Frënn alueden" -Link op denger Profil-Säit, fir Frënn anzelueden
-            - Du kanns, wann s'de dat wëlls, d'Noriicht déi s'de schécke wëlls upassen
-            - Du verbessers dech andeem s'de Aluedungen erausschécks an registréieren léiss.
-          description: Dëst Ofzeechen kritt een, wann een e puer Persounen agelueden huet déi sech d'Zäit geholl hunn sech bei %{organization_name} ze registréieren. Merci, dass du hëllefs d'%{organization_name} bekannt ze maachen an dozou bäidréis d'Communautéit ze vergréisseren!
-          description_another: Dësen Teilnehmer huet %{score} Teilnehmer agelueden.
-          description_own: Du hues %{score} Teilnehmer agelueden.
-          name: Aluedungen
-          next_level_in: Lued %{score} méi Teilnehmer an, fir op den nächsten Level ze kommen!
-          unearned_another: Dësen Teilnehmer huet nach keen agelueden.
-          unearned_own: Du hues nach keen Teilnehmer agelueden.
       description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen.
       level: Level %{level}
       reached_top: Du hues den héchsten Level bei dësem Ofzeechen erreecht.
@@ -1487,15 +1475,6 @@ lb:
       updated_not_active: Däin Passwuert ass geännert.
     registrations:
       destroyed: Däin Kont gouf zou gemaach. Mir hoffen dech geschwënn erëm ze gesinn.
-      edit:
-        are_you_sure: Bass de sécher?
-        cancel_my_account: Kont erstellen ofbriechen
-        currently_waiting_confirmation_for_email: 'Op Bestätegung waarden fir: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: net ausfëllen wann s'de keng Ännerung wëlls
-        title: Änneren %{resource}
-        unhappy: Net zefridden?
-        update: Aktualiséierung
-        we_need_your_current_password_to_confirm_your_changes: mir brauchen en aktuellt Passwuert fir deng Ännerungen ze bestätegen
       new:
         sign_up: Registréieren
       signed_up: Wëllkomm, du bass elo registréiert.
@@ -1550,7 +1529,6 @@ lb:
         other: 'Bei denger Ufro sin e puer Feeler opgetrueden:'
       too_many_marks: benotzt ze vill Sazzeechen (zB! und?)
       too_much_caps: benotzt ze vill Groussbuschtawen (über 25% des Textes)
-      too_short: ze kuerz (ënner 15 Zeechen)
   forms:
     correct_errors: Et sinn Feeler um Formular, w. e. g. virum weiderfueren verbesseren.
     length_validator:

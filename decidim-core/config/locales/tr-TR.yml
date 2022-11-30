@@ -729,18 +729,6 @@ tr:
           how: Nasıl kazanabilirsin
           page_description: Rozetler, katılımcı eylemleri ve platformdaki ilerlemeleri tanımaktadır. Platformda keşfetmeye, katılmaya ve etkileşim kurmaya başladığınızda farklı rozetler kazanacaksınız. İşte rozetlerin listesi ve bunları kazanmanın bazı yolları.
           title: Rozetler
-        invitations:
-          conditions:
-            - Arkadaşlarınızı davet etmek için kullanıcı sayfanızdaki “arkadaşlarını davet et” bağlantısını kullanın.
-            - İsterseniz, göndermek istediğiniz mesajı özelleştirin
-            - Davetiyeler göndererek ve onları kayıt altına alarak seviye atlayacaksınız.
-          description: Bu rozeti, bazı kişileri davet ettiğinizde ve %{organization_name} kaydolmak ve katılımcı olmak için biraz zaman ayırdıklarında verilir. Yaptığınız için teşekkür ederiz %{organization_name} başkalarına bilinen ve topluluğu genişletmek için yardımcı!
-          description_another: Bu kullanıcı %{score} kullanıcı davet etti.
-          description_own: '%{score} kullanıcıyı davet ettiniz.'
-          name: Davetiyeler
-          next_level_in: Bir sonraki seviyeye ulaşmak için %{score} kullanıcı daha davet edin!
-          unearned_another: Bu kullanıcı henüz bir kullanıcıyı davet etmedi.
-          unearned_own: Henüz hiç kullanıcı davet etmediniz.
       description: Rozetler, katılımcı eylemleri ve platformdaki ilerlemeleri tanımaktadır. Platformda keşfetmeye, katılmaya ve etkileşim kurmaya başladığınızda farklı rozetler kazanacaksınız.
       level: Seviye %{level}
       reached_top: Bu rozetin en üst seviyesine ulaştınız.
@@ -929,7 +917,7 @@ tr:
           ok: OK
         index:
           ago: önce
-          close: Pencereyi kapat
+          close: Yakın kalıcı
           from: Gönderen
           groups: Gruplarım
           last_message: Son mesaj
@@ -947,7 +935,7 @@ tr:
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
-          title: Bir görüşme başlat
+          title: Bir görüşme başlatın
         update:
           error: Bir hata nedeniyle mesaj gönderilemedi
     metrics:
@@ -1446,15 +1434,6 @@ tr:
       updated_not_active: Şifreniz başarıyla değiştirildi.
     registrations:
       destroyed: Hoşçakal! Hesabınız başarıyla iptal edildi. Kısa süre sonra tekrar görmeyi umuyoruz.
-      edit:
-        are_you_sure: Emin misiniz?
-        cancel_my_account: Hesabımı iptal et
-        currently_waiting_confirmation_for_email: 'Şu an için bekleme onayı: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: değiştirmek istemiyorsanız boş bırakın
-        title: '%{resource}düzenle'
-        unhappy: Mutsuz?
-        update: Güncelleştirme
-        we_need_your_current_password_to_confirm_your_changes: değişikliklerinizi onaylamak için mevcut şifrenize ihtiyacımız var
       new:
         sign_up: kaydol
       signed_up: Hoşgeldiniz! Başarıyla kaydoldunuz.
@@ -1509,7 +1488,6 @@ tr:
         other: 'İsteğinizi işlerken birden çok hata oluştu:'
       too_many_marks: çok fazla ardışık noktalama işareti kullanıyor (örneğin! ve?)
       too_much_caps: çok fazla büyük harf kullanıyor (metnin% 25'inden fazlası)
-      too_short: çok kısa (15 karakterin altında)
   forms:
     correct_errors: Aşağıdaki formda hatalar oluştu, Devam etmek için lütfen bunları düzeltin.
     required: gereklidir

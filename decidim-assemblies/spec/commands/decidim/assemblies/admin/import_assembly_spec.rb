@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim::Assemblies::Admin
   describe ImportAssembly do
+    include Decidim::ComponentTestHelpers
+
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
@@ -38,7 +40,28 @@ module Decidim::Assemblies::Admin
     let(:import_attachments) { false }
     let(:import_categories) { false }
 
+    def stub_calls_to_external_files
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/assembly/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/assembly/banner_image/1/city2.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/attachment/file/31/Exampledocument.pdf",
+        "application/pdf"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/attachment/file/32/city.jpeg",
+        "image/jpeg"
+      )
+    end
+
     shared_examples "import assembly succeeds" do
+      before { stub_calls_to_external_files }
+
       it "broadcasts ok and create the assembly" do
         expect { subject.call }.to(
           broadcast(:ok) &&
@@ -80,6 +103,8 @@ module Decidim::Assemblies::Admin
       let(:import_categories) { true }
 
       it "imports an assembly and the categories" do
+        stub_calls_to_external_files
+
         expect { subject.call }.to change { Decidim::Category.count }.by(8)
         expect(Decidim::Category.distinct.select(:decidim_participatory_space_id).count).to eq 1
 
@@ -98,6 +123,8 @@ module Decidim::Assemblies::Admin
 
       context "when attachment collections exists" do
         it "imports a assembly and the collections" do
+          stub_calls_to_external_files
+
           expect { subject.call }.to change { Decidim::AttachmentCollection.count }.by(1)
           imported_assembly_collection = Decidim::AttachmentCollection.first
           expect(imported_assembly_collection.name).to eq("ca" => "deleniti", "en" => "laboriosam", "es" => "quia")

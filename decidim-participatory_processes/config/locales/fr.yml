@@ -25,7 +25,7 @@ fr:
         related_process_ids: Concertations liées
         scope_id: Périmètre d'application
         scope_type_max_depth_id: Profondeur du filtre de portée
-        scopes_enabled: Périmètres d'application activés
+        scopes_enabled: Secteurs activés
         short_description: Résumé
         show_metrics: Afficher les métriques
         show_statistics: Montrer les statistiques

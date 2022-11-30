@@ -2,6 +2,7 @@ eu:
   activemodel:
     attributes:
       initiative:
+        area_id: Arloa
         decidim_user_group_id: Egilea
         description: deskribapena
         offline_votes: Aurrez aurreko sinadurak
@@ -32,6 +33,7 @@ eu:
         online_signature_enabled: Sinadura elektronikoa gaituta dago
         only_global_scope_enabled: Eremu globaleko ekimenak soilik sortzeko aukera ematea
         promoting_committee_enabled: Batzorde sustatzailea gaitzea
+        signature_type: Sinadura mota
         title: Izenburua
         undo_online_signatures_enabled: Gaitu erabiltzaileek beren sinadurak desegin ditzaten
         validate_sms_code_on_votes: Gehitu SMS kodea baliozkotzeko urratsa sinadura prozesura

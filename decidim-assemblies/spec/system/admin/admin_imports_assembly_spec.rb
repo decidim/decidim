@@ -11,8 +11,25 @@ describe "Admin imports assembly", type: :system do
     visit decidim_admin_assemblies.assemblies_path
   end
 
-  context "with context" do
-    before "Imports the assembly with the basic fields" do
+  context "when importing the assembly with basic fields" do
+    before do
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/assembly/hero_image/1/city.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/assembly/banner_image/1/city2.jpeg",
+        "image/jpeg"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/attachment/file/31/Exampledocument.pdf",
+        "application/pdf"
+      )
+      stub_get_request_with_format(
+        "http://localhost:3000/uploads/decidim/attachment/file/32/city.jpeg",
+        "image/jpeg"
+      )
+
       click_link "Import", match: :first
 
       within ".import_assembly" do

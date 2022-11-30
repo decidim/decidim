@@ -179,7 +179,6 @@ pt:
           error: Ocorreu um erro ao aceitar os termos de utilização de administrador.
           success: Excelente! Aceitou os termos de utilização de administrador.
         actions:
-          accept: Concordo com os seguintes termos
           are_you_sure: Tem a certeza que quer rejeitar os termos de utilização de administrador?
           refuse: Recusar os termos de administrador
           title: Concordar com os termos e condições de utilização

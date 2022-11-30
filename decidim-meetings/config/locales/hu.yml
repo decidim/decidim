@@ -17,20 +17,29 @@ hu:
       meeting:
         address: Lakcím
         available_slots: A találkozóhoz rendelkezésre álló helyek
+        customize_registration_email: Regisztrációs email beállítása
         decidim_category_id: Kategória
         decidim_scope_id: Hatáskör
+        decidim_user_group_id: Felhasználói csoport
         description: Leírás
         end_time: Záró időpont
+        id: ID
         location: Helye
         location_hints: Tippek a helyre
+        online_meeting_url: Online megbeszélés URL-címe
+        organizer_gid: Létrehozás mint
         organizer_id: Szervező
         private_meeting: Privát találkozó
+        registration_email_custom_content: A regisztrációs email egyedi tartalma
         registration_form_enabled: Regisztrációs űrlap engedélyezve
         registration_terms: Regisztrációs feltételek
+        registration_url: Regisztrációs URL
         registrations_enabled: Regisztráció engedélyezve
+        show_embedded_iframe: Mutassa ennek az url-nek az iframe beágyazását
         start_time: Kezdő időpont
         title: Cím
         transparent: Átlátszó
+        type_of_meeting: Típus
     errors:
       models:
         meeting:
@@ -68,14 +77,31 @@ hu:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Kategória
+          closed_at_present:
+            label: Állapot
+            values:
+              'false': Nyitva
+              'true': Lezárva
+          is_upcoming_true:
+            label: Dátum
+            values:
+              'false': Előzmények
+              'true': Közelgő
           origin_eq:
             values:
               citizen: Polgár
+              official: Hivatalos
               user_group: Felhasználói csoportok
+          scope_id_eq:
+            label: Hatókör
           type_eq:
             label: Értekezlet típusa
             values:
+              hybrid: Hibrid
               in_person: Személyesen
+              online: Online
       meeting_copies:
         create:
           error: Hiba történt a találkozó duplikálása során.
@@ -87,18 +113,28 @@ hu:
     components:
       meetings:
         actions:
+          comment: Megjegyzés
           join: Csatlakozás
         name: Találkozók
         settings:
           global:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
+            comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
+            creation_enabled_for_participants: A résztvevők létrehozhatnak találkozókat
             default_registration_terms: Alapértelmezett regisztrációs feltételek
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
+            maps_enabled: Térképek engedélyezve
+            registration_code_enabled: Regisztrációs kód engedélyezve
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
+            scope_id: Hatókör
+            scopes_enabled: A hatókör engedélyezett
+            terms_and_conditions_url_for_meeting_creators: A találkozó szervezői számára a felhasználás feltételek URL-je
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
+            creation_enabled_for_participants: Résztvevők általi találkozók engedélyezve
+            creation_enabled_for_user_groups: Felhasználói csoportok általi találkozó szervezése engedélyezve
     events:
       meetings:
         meeting_closed:
@@ -113,6 +149,7 @@ hu:
             email_subject: A(z) "%{resource_title}" ülés lezárult
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> ülés lezárult.
         meeting_created:
+          button_text: Regisztráció a találkozóra
           email_intro: 'A(z) "%{resource_title}" találkozót hozzáadtuk ehhez: "%{participatory_space_title}" (követed).'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Leiratkozás az előző link segítségével.'
           email_subject: 'Új találkozó hozzáadva ehhez: %{participatory_space_title}'
@@ -144,6 +181,9 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
+    forms:
+      meetings:
+        attendees_count_help_text: Ne felejtse el megadni a találkozón részt vevők teljes számát, akár személyesen, akár online, akár vegyesen.
     gamification:
       badges:
         attended_meetings:
@@ -169,6 +209,7 @@ hu:
           proposals_count:
             one: 'A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá:'
             other: 'A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá:'
+        manage_poll: Szavazás menedzselése
         new: Új találkozó
         preview: Előnézet
         registrations: Regisztrációk
@@ -205,6 +246,8 @@ hu:
             invalid: Probléma történt a napirend frissítése során
             success: Napirend frissítése sikeres
         exports:
+          answers: Válaszok
+          meeting_comments: Hozzászólások
           meetings: Találkozók
           registrations: Regisztrációk
         invite_join_meeting_mailer:
@@ -238,12 +281,16 @@ hu:
           edit:
             close: Bezárás
             title: Ttalálkozó lezárása
+        meeting_copies:
+          form:
+            select_a_meeting_type: Válassza ki a találkozó típusát
         meetings:
           close:
             invalid: Probléma merült fel a találkozó lezárásakor
             success: Találkozó lezárása sikeres
           create:
             invalid: Probléma történt a találkozó létrehozása során
+            success: A találkozó létrehozása sikeres - a nyilvánossá tételhez manuálisan kell publikálnia.
           destroy:
             invalid:
               proposals_count:
@@ -251,11 +298,19 @@ hu:
                 other: A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá
             success: Találkozó törlése sikeres
           edit:
+            title: Találkozó szerkesztése
             update: Frissítés
           form:
             address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
+            available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
+            disclaimer: 'Jogi nyilatkozat: Egy külső regisztrációs rendszer használatával Ön tudatában van annak, hogy a %{organization} szervezői nem felelősek a felhasználók által a külső szolgáltatásnak megadott adatokért.'
             location_help: 'Helyszín: üzenet az adott felhasználóknak a találkozó helyéről'
+            location_hints_help: 'Helyszíni tippek: további információk. Példa: az épület emelete ha személyes találkozóról van szó, vagy a találkozó jelszava, ha korlátozott hozzáféréssel rendelkező online találkozóról van szó.'
+            online_meeting_url_help: 'Link: a résztvevők engedélyezése a találkozóhoz való közvetlen kapcsolódáshoz'
             registration_email_help: Ez a szöveg a regisztrációt megerősítő e-mail közepén fog megjelenni. Épp a regisztrációs kód után.
+            registration_url_help: 'Link: lehetővé teszi a résztvevők számára, hogy a regisztrációhoz a külső szolgáltatást használják'
+            select_a_meeting_type: Válassza ki a találkozó típusát
+            select_a_registration_type: Kérjük, válassza ki a regisztráció típusát
             select_an_iframe_access_level: Kérjük, válassz iframe hozzáférési szintet
             show_embedded_iframe_help: Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe (YouTube, Twitch és Jitsi)
           index:
@@ -263,6 +318,9 @@ hu:
           new:
             create: Létrehozás
             title: Találkozó létrehozása
+          publish:
+            invalid: Hiba történt a találkozó közzététele során
+            success: A találkozó publikálásra került
           service:
             description: Leírás
             down: Le
@@ -273,9 +331,18 @@ hu:
           services:
             add_service: Szolgáltatás hozzáadása
             services: Szolgáltatások
+          unpublish:
+            invalid: Hiba történt a találkozó közzétételének visszavonása során
+            success: A találkozó közzétételének visszavonása sikeres
           update:
             invalid: Probléma történt a találkozó frissítése során
             success: Találkozó frissítése sikeres
+        meetings_poll:
+          form:
+            title: A szavazáshoz kapcsolódó kérdőív szerkesztése %{questionnaire_for}
+          update:
+            invalid: Probléma történt a találkozó szavazás frissítése során
+            success: A találkozó szavazása sikeresen frissült
         models:
           meeting:
             name: Találkozó
@@ -287,6 +354,7 @@ hu:
           form:
             available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan.
             invites: Meghívók
+            recommendation_message: Adatvédelmi okokból javasoljuk, hogy törölje ezt az űrlapot, ha már nincs rá szüksége. Alapértelmezés szerint ez 3 hónap az ülés végét követően.
             registration_form: Regisztrációs űrlap
             registrations_count:
               one: '%{count} regisztráció volt.'
@@ -314,6 +382,13 @@ hu:
           value_types:
             organizer_presenter:
               not_found: 'A szervező nem található az adatbázisban (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Összes
+        filter_meeting_space_values:
+          all: Összes
+        filter_scope_values:
+          all: Összes
       calendar_modal:
         calendar_url: Naptár URL
         close_window: Ablak bezárása
@@ -321,6 +396,8 @@ hu:
       conference_venues: Konferencia helyszínek
       content_blocks:
         upcoming_meetings:
+          name: Közelgő találkozók
+          upcoming_meetings: Közelgő találkozók
           view_all_meetings: Összes megtekintése
       directory:
         meetings:
@@ -337,7 +414,13 @@ hu:
         open_in_live_event_page: Megnyitás az élő esemény oldalán (opcionális szavazásokkal)
         open_in_new_tab: Megnyitás új fülön
       last_activity:
+        meeting_updated_at_html: "<span>Találkozó frissítve %{link}</span>"
         new_meeting_at_html: "<span>Új találkozó %{link}</span>kor"
+      layouts:
+        live_event:
+          administrate: Admin
+          close: bezár
+          questions: Kérdések
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -347,19 +430,58 @@ hu:
             subject: A találkozód regisztrációját megerősítették
       meeting:
         not_allowed: Nincs jogosultságod a találkozó megtekintésére
+      meeting_closes:
+        edit:
+          back: Vissza
+          close: Találkozó lezárása
+          title: Találkozó lezárása
       meetings:
+        calendar_modal:
+          add_to_calendar: Hozzáadás a naptárhoz
+          apple: Küldés Apple Naptárba
+          close_window: Ablak bezárása
+          full_details_html: Az összes részletet itt találja %{link}
+          google: Hozzáadás a Google naptárhoz
+          outlook: Hozzáadás az Outlook naptárhoz
+        create:
+          invalid: Probléma történt a találkozó létrehozása során.
+          success: Sikeresen létrehoztad a találkozót.
+        edit:
+          back: Vissza
+          title: A találkozód szerkesztése
+          update: Frissítés
         filters:
+          activity: Tevékenységeim
+          all: Összes
           category: Kategória
           date: Dátum
+          date_values:
+            all: Összes
+            past: Korábban
+            upcoming: Közelgő
+          my_meetings: Találkozóim
           origin_values:
+            all: Összes
             citizens: Polgárok
+            official: Hivatalos
+            user_groups: Csoportok
+          scope: Hatókör
           search: Keresés
+          type: Típus
+          type_values:
+            all: Összes
+            hybrid: Hibrid
+            in_person: Személyes
+            online: Online
         filters_small_view:
           close_modal: Modal bezárása
           filter: Szűrő
           filter_by: 'Szűrés ez alapján:'
           unfold: Kibont
         form:
+          address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
+          available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
+          create_as: Ülés létrehozása mint
           show_embedded_iframe_help: Csak néhány szolgáltatás engedélyezi a beágyazást megbeszélésekbe vagy élő eseményekbe (YouTube, Twitch és Jitsi)
         meeting_minutes:
           related_information: Kapcsolódó információ
@@ -405,12 +527,23 @@ hu:
             map: Térkép
             start_time: Kezdő dátum
             title: Cím
+      polls:
+        questions:
+          published_question:
+            question_replied: Kérdés megválaszolva
+            reply_question: Válasz a kérdésre
+      public_participants_list:
+        attending_participants: Résztvevők
       read_more: "(bővebben)"
       registration_mailer:
         confirmation:
           confirmed_html: Regisztrációd a(z) <a href="%{url}">%{title}</a> találkozóra megerősítve.
           details: A találkozó részletei megtalálhatók a mellékletben.
           registration_code: 'Regisztrációs kódod: %{code}.'
+      registration_type:
+        on_different_platform: Egy másik platformon
+        on_this_platform: Ezen a platformon
+        registration_disabled: Regisztráció kikakpcsolva
       registrations:
         create:
           invalid: Probléma történt a találkozóhoz való csatlakozáskor.
@@ -421,9 +554,19 @@ hu:
         destroy:
           invalid: Probléma történt a találkozó elhagyása közben.
           success: Sikeresen elhagytad a találkozót.
+      type_of_meeting:
+        hybrid: Hibrid
+        in_person: Személyesen
+        online: Online
       types:
         private_meeting: Privát találkozó
         transparent: Átlátszó
+        withdraw: Visszavonva
+      versions:
+        back_to_resource: Vissza a találkozóhoz
+      withdraw:
+        error: A találkozó visszavonása során hiba történt
+        success: A találkozó visszavonása sikeres
     metrics:
       meetings:
         description: A létrehozott találkozók száma
@@ -443,6 +586,8 @@ hu:
       proposals_from_meeting:
         meeting_proposal: 'Kapcsolódó javaslatok:'
         proposal_meeting: 'Kapcsolódó találkozók:'
+    statistics:
+      meetings_count: Találkozók
   devise:
     mailer:
       join_meeting:

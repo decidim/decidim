@@ -21,6 +21,8 @@ sv:
       admin:
         questionnaire_templates:
           choose:
+            label: Välj mall
+            placeholder: Välj mall
             skip_template: Hoppa över
           edit:
             edit: Redigera
@@ -29,3 +31,5 @@ sv:
             save: Spara
           preview:
             current_step: Steg %{step} av
+      template_types:
+        questionnaires: Enkäter

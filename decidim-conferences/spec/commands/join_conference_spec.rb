@@ -158,5 +158,13 @@ module Decidim::Conferences
         expect { subject.call }.to broadcast(:invalid)
       end
     end
+
+    context "when the user has already joined the conference" do
+      let!(:registration) { create(:conference_registration, conference: conference, user: user) }
+
+      it "broadcasts ok" do
+        expect { subject.call }.to broadcast(:ok)
+      end
+    end
   end
 end

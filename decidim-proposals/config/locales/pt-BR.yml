@@ -259,7 +259,6 @@ pt-BR:
           affected_user:
             email_intro: 'Sua proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
             email_outro: Você recebeu esta notificação porque é um autor de "%{resource_title}".
-            email_subject: Sua proposta foi rejeitada
             notification_title: Sua proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
@@ -567,7 +566,6 @@ pt-BR:
             one: "%{count} rascunho colaborativo"
             other: "%{count} rascunho colaborativo"
         create:
-          error: Houve um problema ao criar esses rascunhos colaborativos
           success: Rascunho colaborativo criado com sucesso.
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"

@@ -48,9 +48,29 @@ fr:
           results: Réalisations
         import_results:
           new:
+            download_export: Télécharger l'export au format CSV
             import: Importer
-            info: "<p>Nous vous recommandons de suivre les étapes suivantes :</p><ol><li>Créez les statuts pour les résultats que vous souhaitez ajouter (<a href='%{link_new_status}' target='_blank'>lien</a>)</li><li>Créez au moins un résultat manuellement via ce panneau administrateur (<a href='%{link_new_result}' target='_blank'>lien</a>) avant d'utiliser l'import, pour comprendre ce que vous aurez besoin de remplir.</li><li>Téléchargez l'export en format CSV (%{link_export_csv})</li><li>Faites les modifications nécessaires. Vous pouvez uniquement changer les colonnes suivantes du fichier CSV : </li></ol><ul><li><b>category/id:</b> Identifiant de la catégorie</li><li><b>scope/id :</b> Identifiant du secteur</li><li><b>parent/id :</b> Identifiant du parent (pour les résultats liés). Optional</li><li><b>title/I18N:</b> Titre en langue X</li><li><b>description/I18N:</b> Description en langue X</li><li><b>start_date:</b> date à laquelle le résultat commence (format AAAA-MM-JJ)</li><li><b>end_date:</b> date à laquelle le résultat finit (format AAAA-MM-JJ)</li><li><b>status/id:</b> Identifiant du statut du résultat</li><li><b>progress:</b> Pourcentage (de 0 à 100) de l'exécution du résultat</li><li><b>proposals_ids:</b> Identifiant interne des propositions liées (séparées avec une virgule). La conversion en <span class='attribute-name'>URL de la proposition</span> se fait automatiquement.</li></ul>"
-            link: lien
+            info: |
+              <p>Nous vous recommandons les étapes suivantes:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Créer les Status pour les résultats</a> que vous voulez ajouter</li>
+              <li><a href='%{link_new_result}' target='_blank'>Créer au moins un résultat manuellement</a> via ce panneau admin avant d'utiliser l'import, pour mieux comprendre le format et ce que vous devrez compléter.</li>
+              <li>%{link_export_csv}</li>
+              <li>Appliquer les changement localement. Vous ne pouvez changer que les colonnes suivantes du CSV:
+                <ul>
+                <li><b>category/id:</b> ID de la catégorie</li>
+                <li><b>scope/id:</b> ID du périmètre d'application</li>
+                <li><b>parent/id:</b> ID du parent (pour résultat liés). Optionel</li>
+                <li><b>title/en:</b> Titre en anglais. Cela dépend de la configuration des langues sur votre plateforme.</li>
+                <li><b>description/en:</b> Description en anglais. Cela dépend de la configuration des langues sur votre plateforme.</li>
+                <li><b>start_date:</b> date à partir de laquelle le résultat est mis en œuvre (format AAAA-MM-JJ)</li>
+                <li><b>end_date:</b> date à laquelle se termine la mise en œuvre du résultat (format AAAA-MM-JJ)</li>
+                <li><b>status/id:</b> ID du status de ce résultat</li>
+                <li><b>progress:</b> Pourcentage (de 0 à 100) de l'exécution</li>
+                <li><b>proposals_ids:</b> IDs des propositions liées (séparés par une virgule). C'est automatiquement converti en  <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Importer les résultats depuis un fichier CSV
         imports:
           create:

@@ -754,18 +754,6 @@ nl:
           how: Hoe kun je het verdienen?
           page_description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges. Hier is de lijst met badges en enkele manieren waarop u ze kunt verdienen.
           title: Badges
-        invitations:
-          conditions:
-            - Gebruik de link "Vrienden uitnodigen" op uw gebruikerspagina om uw vrienden uit te nodigen
-            - Pas het bericht aan dat u stuurt, als u wilt
-            - Je komt op een niveau door uitnodigingen te versturen en ze te laten registreren.
-          description: Deze badge wordt toegekend als je enkele mensen hebt uitgenodigd en ze hebben een beetje tijd besteed om in %{organization_name} te registreren en deelnemers te worden. Dank u om %{organization_name} bekend te maken bij anderen en om de community te helpen uit te breiden!
-          description_another: Deze deelnemer heeft %{score} personen uitgenodigd.
-          description_own: Je hebt %{score} mensen uitgenodigd.
-          name: Uitnodigingen
-          next_level_in: Nodig nog %{score} mensen uit om het volgende niveau te bereiken!
-          unearned_another: Deze deelnemer heeft nog niemand uitgenodigd.
-          unearned_own: Je hebt nog niemand uitgenodigd.
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
@@ -973,7 +961,7 @@ nl:
           title: conversaties
         reply:
           placeholder: Jouw antwoord...
-          send: Sturen
+          send: Verzenden
           title: Beantwoorden
         show:
           back: Terug naar alle gesprekken
@@ -983,7 +971,7 @@ nl:
           title: Gesprek met %{usernames}
         start:
           send: Verzenden
-          title: Een gesprek beginnen
+          title: Gesprek starten
         update:
           error: Bericht is niet verzonden vanwege een fout
     metrics:
@@ -1486,15 +1474,6 @@ nl:
       updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
       destroyed: Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
-      edit:
-        are_you_sure: Weet je het zeker?
-        cancel_my_account: Annuleer mijn account
-        currently_waiting_confirmation_for_email: 'Momenteel wachtende bevestiging voor: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: laat leeg als je het niet wilt wijzigen
-        title: Bewerk %{resource}
-        unhappy: Ongelukkig?
-        update: Bijwerken
-        we_need_your_current_password_to_confirm_your_changes: we hebben je huidige wachtwoord nodig om je wijzigingen te bevestigen
       new:
         sign_up: Aanmelden
       signed_up: Welkom! Je hebt je succesvol aangemeld.
@@ -1549,7 +1528,6 @@ nl:
         other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
       too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld ! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
-      too_short: is te kort (minder dan 15 tekens)
   forms:
     correct_errors: Er zijn fouten in het formulier, corrigeer ze om door te gaan.
     length_validator:
@@ -1618,7 +1596,7 @@ nl:
         see_more: Zie meer
   locale:
     name: Nederlands
-    name_with_error: Engels (fout!)
+    name_with_error: Nederlands (fout!)
   password_validator:
     blacklisted: staat op de zwarte lijst
     domain_included_in_password: lijkt te veel op deze domeinnaam

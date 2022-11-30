@@ -29,6 +29,7 @@ es-MX:
         password_confirmation: Confirma tu contraseña
         personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
+        tos_agreement: Acuerdo de términos y condiciones de uso
     models:
       decidim/attachment_created_event: Archivo adjunto
       decidim/component_published_event: Componente activo
@@ -44,7 +45,7 @@ es-MX:
       decidim/removed_from_group: Eliminado del grupo
       decidim/resource_endorsed_event: Adhesión a recurso realizada
       decidim/resource_hidden_event: Recurso oculto
-      decidim/user_group_created_event: Grupo de usuarios creado
+      decidim/user_group_created_event: Grupo creado
       decidim/welcome_notification_event: Mensaje de bienvenida
   activerecord:
     attributes:
@@ -791,18 +792,6 @@ es-MX:
           how: Como puedes conseguirlo
           page_description: Los distintivos son reconocimientos a las acciones de los participantes y al progreso en la plataforma. A medida que comiences a descubrir, participar e interactuar en la plataforma, conseguirlo diferentes distintivo. Aquí está la lista de distintivos y algunas formas en que puedes conseguirlas.
           title: Distintivos
-        invitations:
-          conditions:
-            - Usa el enlace "invitar amigos" en tu página de usuario para invitar a tus amistades
-            - Personaliza, si quieres, el mensaje que estás enviando.
-            - Supera este nivel enviando invitaciones y registrándolas.
-          description: Este distintivo se consigue cuando has invitado a algunas personas y han pasado un poco de tiempo para registrarse en %{organization_name} y se converten en participantes. ¡Gracias por dar a conocer %{organization_name} a otros y ayudar a ampliar la comunidad!
-          description_another: Este usuario ha invitado a %{score} usuarios.
-          description_own: Has invitado a %{score} usuarios.
-          name: Invitaciones
-          next_level_in: '¡Invita %{score} usuarios más a alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha invitado a ningún usuario.
-          unearned_own: No has invitado aún a ningún usuario.
       description: Las insignias son reconocimientos de las acciones de los participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
       reached_top: Has alcanzado el nivel superior para esta insignia.
@@ -1012,7 +1001,7 @@ es-MX:
         reply:
           placeholder: Tu respuesta...
           send: Enviar
-          title: Respuesta
+          title: Responder
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
@@ -1548,15 +1537,6 @@ es-MX:
       updated_not_active: Tu contraseña ha sido cambiada con éxito.
     registrations:
       destroyed: '¡Adiós! Tu cuenta ha sido cancelada exitosamente. Esperamos volverte a ver pronto.'
-      edit:
-        are_you_sure: '¿Estás seguro?'
-        cancel_my_account: Cancelar mi cuenta
-        currently_waiting_confirmation_for_email: 'Esperando de confirmación para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: Déjalo en blanco si no quieres cambiarlo
-        title: Editar %{resource}
-        unhappy: '¿Infeliz?'
-        update: Actualizar
-        we_need_your_current_password_to_confirm_your_changes: Necesitamos tu contraseña actual para confirmar sus cambios
       new:
         sign_up: Regístrate
       signed_up: '¡Bienvenido/a! Te has registrado con éxito.'
@@ -1611,7 +1591,7 @@ es-MX:
         other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: Es demasiado corto (menos de 15 caracteres)
+      too_short: Es demasiado corto (menos %{count} caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:
@@ -1685,7 +1665,7 @@ es-MX:
         see_more: Ver más
   locale:
     name: Español
-    name_with_error: Inglés (¡error!)
+    name_with_error: Español (¡error!)
   password_validator:
     blacklisted: en la lista negra
     domain_included_in_password: Es muy similar a este nombre de dominio

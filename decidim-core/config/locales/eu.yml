@@ -744,18 +744,6 @@ eu:
           how: Nola irabaz dezakezu?
           page_description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu. Hona hemen txapak eta irabazi ditzakezun modu batzuk.
           title: Badges
-        invitations:
-          conditions:
-            - Erabili "gonbidatu lagunak" esteka erabiltzaile-orrian zure lagunak gonbidatzeko
-            - Pertsonalizatu, nahi baduzu, bidaltzen ari zaren mezua
-            - Gonbidapenak bidaltzea eta inskribatzea lortuko duzu.
-          description: Idazmahaia ematen zaie pertsona batzuk gonbidatu dituzunean eta denbora pixka bat pasatu dute %{organization_name} erregistratu eta parte-hartzaile bihurtu. Eskerrik asko egiteko %{organization_name} besteei ezaguna eta komunitatea zabaltzeko laguntzen!
-          description_another: Erabiltzaile honek %{score} erabiltzaile gonbidatu ditu.
-          description_own: '%{score} erabiltzaile gonbidatu dituzu.'
-          name: Gonbidapenak
-          next_level_in: Gonbidatu %{score} erabiltzaile gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek ez du oraindik gonbidatu erabiltzaileak.
-          unearned_own: Erabiltzaile ez da gonbidatu oraindik.
       description: Badiak partaideen ekintzak eta plataforma aurrerapenean aitortzen dira. Plataforman ezagutzeko, parte hartu eta elkarreraginean hasten zarenean, txapak irabazten dituzu.
       level: '%{level}maila'
       reached_top: Idatzi honen goialdean iritsi zara.
@@ -953,8 +941,8 @@ eu:
           ok: Ados
         index:
           ago: orain dela
-          close: Itxi leihoa
-          from: Nondik
+          close: Itxi modal
+          from: Nork
           groups: Nire taldeak
           last_message: Azken mezua
           new_conversation: Elkarrizketa berria
@@ -972,7 +960,7 @@ eu:
           title: Elkarrizketa honekin %{usernames}
         start:
           send: Bidali
-          title: Hasi elkarrizketa bat
+          title: Hasi elkarrizketa
         update:
           error: Mezua ez da bidali akats batengatik
     metrics:
@@ -1489,15 +1477,6 @@ eu:
       updated_not_active: Pasahitza ondo aldatu da.
     registrations:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
-      edit:
-        are_you_sure: Ziur zaude?
-        cancel_my_account: Utzi nire kontua
-        currently_waiting_confirmation_for_email: 'Une honetan espero da baieztapena: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: utzi hutsik egin nahi ez baduzu
-        title: Editatu %{resource}
-        unhappy: Konforme?
-        update: eguneratzearen
-        we_need_your_current_password_to_confirm_your_changes: Zure pasahitza behar dugu zure aldaketak berresteko
       new:
         sign_up: Izena eman
       signed_up: Ongi etorri! Eginda sinatu duzu.
@@ -1552,7 +1531,7 @@ eu:
         other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: maiuskulaz gehiegi erabiltzen ditu (testuaren% 25 baino gehiago)
-      too_short: laburra da (15 karaktere baino gutxiago)
+      too_short: laburregia da (gutxienez %{count} karaktere behar dira)
   forms:
     correct_errors: Akatsak daude galdetegian, mesedez, zuzendu jarraitu ahal izateko.
     required: Nahitaezkoa da
@@ -1622,7 +1601,7 @@ eu:
         see_more: Ikusi gehiago
   locale:
     name: Euskera
-    name_with_error: Ingelesa (akatsa!)
+    name_with_error: Euskera (akatsa!)
   password_validator:
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da

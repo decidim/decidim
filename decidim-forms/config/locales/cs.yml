@@ -142,6 +142,8 @@ cs:
         single_option: Jedna možnost
         sorting: Třídění
         title_and_description: Název a popis
+      questionnaire_answer_presenter:
+        download_attachment: Stáhnout přílohu
       questionnaires:
         answer:
           invalid: Při odpovědi na dotazník došlo k chybám.

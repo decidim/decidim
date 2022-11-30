@@ -29,12 +29,14 @@ module Decidim
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
-        allow! if permission_action.subject == :global_moderation
+        allow! if permission_action.subject == :global_moderation && admin_terms_accepted?
 
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
+          allow! if read_user_statistics_action?
           allow! if read_metrics_action?
           allow! if static_page_action?
+          allow! if templates_action?
           allow! if organization_action?
           allow! if user_action?
 
@@ -101,6 +103,11 @@ module Decidim
         end
       end
 
+      def read_user_statistics_action?
+        permission_action.subject == :users_statistics &&
+          permission_action.action == :read
+      end
+
       def read_metrics_action?
         permission_action.subject == :metrics &&
           permission_action.action == :read
@@ -128,6 +135,11 @@ module Decidim
         end
       end
 
+      def templates_action?
+        permission_action.subject == :templates &&
+          permission_action.action == :read
+      end
+
       def organization_action?
         return unless permission_action.subject == :organization
         return unless permission_action.action == :update
@@ -139,6 +151,7 @@ module Decidim
         return unless permission_action.subject == :managed_user
         return user_manager_permissions if user_manager?
         return unless user&.admin?
+        return unless user&.admin_terms_accepted?
 
         case permission_action.action
         when :create
@@ -183,7 +196,7 @@ module Decidim
 
       def space_allows_admin_access_to_current_action?(require_admin_terms_accepted: false)
         Decidim.participatory_space_manifests.any? do |manifest|
-          next if manifest.name != :initiatives && require_admin_terms_accepted && !admin_terms_accepted?
+          next if require_admin_terms_accepted && !admin_terms_accepted?
 
           new_permission_action = Decidim::PermissionAction.new(
             action: permission_action.action,

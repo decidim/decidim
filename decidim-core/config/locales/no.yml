@@ -780,18 +780,6 @@
           how: Hvordan kan du tjene det
           page_description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker. Her er listen over merker og noen måter du kan tjene dem på.
           title: Merker
-        invitations:
-          conditions:
-            - Bruk "invitere venner" lenken på din bruker side for å invitere vennene dine
-            - Tilpass, hvis du vil, meldingen du sender
-            - Du vil gå opp i nivå ved å sende invitasjoner og få dem registrert.
-          description: Dette merket blir gitt når du har invitert noen og de har brukt lite tid på å registrere seg i %{organization_name} og bli deltakere. Takk for at du gjør %{organization_name} kjent til andre og hjelper med å utvide samfunnet!
-          description_another: Denne deltakeren har invitert %{score} folk.
-          description_own: Du har invitert %{score} folk.
-          name: Invitasjoner
-          next_level_in: Inviter %{score} flere folk for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke invitert noen ennå.
-          unearned_own: Du har ikke invitert noen ennå.
       description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
       level: Nivå %{level}
       reached_top: Du har nådd det høyeste nivået for dette merket.
@@ -1535,15 +1523,6 @@
       updated_not_active: Passordet ditt er blitt endret.
     registrations:
       destroyed: Din konto er lukket. Vi håper å se deg igjen snart.
-      edit:
-        are_you_sure: Er du sikker?
-        cancel_my_account: Avbryt kontoen min
-        currently_waiting_confirmation_for_email: 'Foreløpig venter for bekreftelse på: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: la stå tom hvis du ikke vil endre det
-        title: Endre %{resource}
-        unhappy: Ikke fornøyd?
-        update: Oppdater
-        we_need_your_current_password_to_confirm_your_changes: vi trenger ditt nåværende passord for å bekrefte endringene dine
       new:
         sign_up: Registrer deg
       signed_up: Velkommen! Din registrering er fullført. Husk å bekrefte epostadressen din via mailen vi har sendt deg.
@@ -1598,7 +1577,6 @@
         other: 'Det oppsto flere feil med å behandle forespørselen din:'
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
-      too_short: er for kort (under 15 tegn)
   forms:
     correct_errors: Det er feil i skjemaet, korriger dem for å fortsette.
     length_validator:
@@ -1672,7 +1650,7 @@
         see_more: Se mer
   locale:
     name: Engelsk
-    name_with_error: Engelsk (feil!)
+    name_with_error: Norsk (feil!)
   password_validator:
     blacklisted: er svartelistet
     domain_included_in_password: er for lik dette domenenavnet

@@ -286,7 +286,7 @@ eu:
           affected_user:
             email_intro: 'Zure proposamena "%{resource_title}" baztertu egin da. Orri honetan erantzun dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilearena delako.
-            email_subject: Zure proposamena baztertu da
+            email_subject: Zure proposamena ez da onartu
             notification_title: Zure proposamena <a href="%{resource_path}">%{resource_title}</a> baztertu egin da.
           follower:
             email_intro: '"%{resource_title}" proposamena baztertu egin da. Orri honetan erantzun dezakezu:'
@@ -599,7 +599,6 @@ eu:
             one: "%{count} lankidetza zirriborroa"
             other: "%{count} lankidetza zirriborroa"
         create:
-          error: Arazo bat izan da lankidetza-zirriborroak sortzea
           success: Kolaborazio zirriborroa sortu da.
         edit:
           attachment_legend: "(Aukerakoa) Gehitu eranskina"

@@ -10,6 +10,7 @@ cs:
         end_time: Končí v
         information_updates: Aktualizace informací
         instructions: Pokyny k účasti
+        scope_id: Oblast působnosti
         start_time: Začíná v
         title: Titul
         user_group_id: Vytvořte debatu jako
@@ -163,7 +164,7 @@ cs:
           groups_count: Skupiny
           last_comment_by: Poslední komentář od
           no_comments_yet: Zatím žádné komentáře
-          open: Otevřít diskusi
+          open: Otevřená diskuse
           participants_count: Účastníci
         update:
           invalid: Při aktualizaci rozpravy došlo k chybě.

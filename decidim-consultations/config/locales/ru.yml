@@ -214,6 +214,8 @@ ru:
         title: Вопросы из %{scope_name}
       index:
         title: Консультации
+      last_activity:
+        new_consultation: Добавить консультацию
       pages:
         home:
           highlighted_consultations:

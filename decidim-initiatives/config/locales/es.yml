@@ -2,6 +2,7 @@ es:
   activemodel:
     attributes:
       initiative:
+        area_id: Área
         decidim_user_group_id: Autoria
         description: Descripción
         offline_votes: Firmas presenciales
@@ -18,6 +19,8 @@ es:
         title: Título
       initiatives_committee_member:
         user: Miembro del Comité
+      initiatives_settings:
+        initiatives_order: Orden
       initiatives_type:
         area_enabled: Permitir a las autoras elegir el área para su iniciativa
         attachments_enabled: Habilitar archivos adjuntos
@@ -32,6 +35,7 @@ es:
         online_signature_enabled: Firma digital habilitada
         only_global_scope_enabled: Permitir sólo la creación de iniciativas de ámbito global
         promoting_committee_enabled: Habilitar el comité promotor
+        signature_type: Tipo de firma
         title: Título
         undo_online_signatures_enabled: Permitir a las participantes deshacer sus firmas digitales
         validate_sms_code_on_votes: Añadir paso de validación mediante SMS al proceso de firma

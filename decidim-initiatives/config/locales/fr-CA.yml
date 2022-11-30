@@ -2,6 +2,7 @@ fr-CA:
   activemodel:
     attributes:
       initiative:
+        area_id: Périmètre d'assemblée
         decidim_user_group_id: Auteur
         description: Description
         offline_votes: Votes en présentiel
@@ -18,6 +19,8 @@ fr-CA:
         title: Titre
       initiatives_committee_member:
         user: Membre du Comité de promotion
+      initiatives_settings:
+        initiatives_order: Ordre
       initiatives_type:
         area_enabled: Permettre aux auteurs de choisir la zone pour leur initiative
         attachments_enabled: Autoriser les pièces jointes
@@ -32,6 +35,7 @@ fr-CA:
         online_signature_enabled: Signature en ligne activée
         only_global_scope_enabled: Autoriser uniquement la création d'initiatives de portée globale
         promoting_committee_enabled: Activer les comités de promotion sur ce type d'initiative (témoin. s dont l'invitation par l'auteur est obligatoire pour la validation de l'initiative si cette fonctionnalité est activée)
+        signature_type: Type de signature
         title: Titre
         undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
         validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature

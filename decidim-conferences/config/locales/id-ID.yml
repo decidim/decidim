@@ -335,7 +335,7 @@ id:
         invite_join_conference_mailer:
           invite:
             decline: Tolak undangan '%{conference_title}'
-            invited_you_to_join_a_conference: "%{invited_by} telah mengundang Anda untuk bergabung dalam konferensi di %{application}. Anda dapat menolak atau menerimanya melalui tautan di bawah ini."
+            invited_existing_user_to_join_a_conference: "%{invited_by} telah mengundang Anda untuk bergabung dalam konferensi di %{application}. Anda dapat menolak atau menerimanya melalui tautan di bawah ini."
             registration: Registrasi untuk '%{conference_title}'
         partners:
           index:

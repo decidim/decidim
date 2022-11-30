@@ -11,6 +11,7 @@ import createSortList from "src/decidim/admin/sort_list.component"
 import createDynamicFields from "src/decidim/admin/dynamic_fields.component"
 import createFieldDependentInputs from "src/decidim/admin/field_dependent_inputs.component"
 import createQuillEditor from "src/decidim/editor"
+import initLanguageChangeSelect from "src/decidim/admin/choose_language"
 
 export default function createEditableForm() {
   const wrapperSelector = ".questionnaire-questions";
@@ -392,6 +393,8 @@ export default function createEditableForm() {
 
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
+
+      initLanguageChangeSelect($field.find("select.language-change").toArray());
     },
     onRemoveField: ($field) => {
       autoLabelByPosition.run();

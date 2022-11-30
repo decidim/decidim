@@ -3,9 +3,7 @@
 require "spec_helper"
 
 describe "Explore meeting directory", type: :system do
-  let(:directory) do
-    Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path
-  end
+  let(:directory) { Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path }
   let(:organization) { create(:organization) }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:components) do
@@ -22,12 +20,30 @@ describe "Explore meeting directory", type: :system do
     visit directory
   end
 
-  it "shows all the upcoming meetings" do
-    within "#meetings" do
-      expect(page).to have_css(".card--meeting", count: 6)
+  describe "with default filter" do
+    let!(:past_meeting) { create(:meeting, :published, start_time: 2.weeks.ago, component: components.first) }
+    let!(:upcoming_meeting) { create(:meeting, :published, :not_official, component: components.first) }
+
+    it "shows all the upcoming meetings" do
+      visit directory
+
+      within ".date_collection_radio_buttons_filter" do
+        expect(find("input[value='upcoming']").checked?).to be(true)
+      end
+
+      within "#meetings" do
+        expect(page).to have_css(".card--meeting", count: 7)
+      end
+
+      expect(page).to have_css("#meetings-count", text: "7 MEETINGS")
+      expect(page).to have_content(translated(upcoming_meeting.title))
     end
 
-    expect(page).to have_css("#meetings-count", text: "6 MEETINGS")
+    it "doesn't show past meetings" do
+      within "#meetings" do
+        expect(page).not_to have_content(translated(past_meeting.title))
+      end
+    end
   end
 
   describe "category filter" do
@@ -143,12 +159,8 @@ describe "Explore meeting directory", type: :system do
 
   describe "type filter" do
     context "when there are only online meetings" do
-      let!(:online_meeting1) do
-        create(:meeting, :published, :online, component: components.last)
-      end
-      let!(:online_meeting2) do
-        create(:meeting, :published, :online, component: components.last)
-      end
+      let!(:online_meeting1) { create(:meeting, :published, :online, component: components.last) }
+      let!(:online_meeting2) { create(:meeting, :published, :online, component: components.last) }
 
       it "allows filtering by type 'online'" do
         within ".type_check_boxes_tree_filter" do
@@ -163,9 +175,7 @@ describe "Explore meeting directory", type: :system do
     end
 
     context "when there are only in-person meetings" do
-      let!(:in_person_meeting) do
-        create(:meeting, :published, :in_person, component: components.last)
-      end
+      let!(:in_person_meeting) { create(:meeting, :published, :in_person, component: components.last) }
 
       it "allows filtering by type 'in-person'" do
         within ".type_check_boxes_tree_filter" do
@@ -179,9 +189,7 @@ describe "Explore meeting directory", type: :system do
     end
 
     context "when there are hybrid meetings" do
-      let!(:online_meeting) do
-        create(:meeting, :published, :hybrid, component: components.last)
-      end
+      let!(:online_meeting) { create(:meeting, :published, :hybrid, component: components.last) }
 
       it "allows filtering by type 'both'" do
         within ".type_check_boxes_tree_filter" do
@@ -194,19 +202,59 @@ describe "Explore meeting directory", type: :system do
     end
   end
 
-  context "when there's a past meeting" do
-    let!(:past_meeting) do
-      create(:meeting, :published, component: components.last, start_time: 1.week.ago)
+  describe "date filter" do
+    let!(:past_meeting1) { create(:meeting, :published, component: components.last, start_time: 1.week.ago) }
+    let!(:past_meeting2) { create(:meeting, :published, component: components.last, start_time: 3.months.ago) }
+    let!(:past_meeting3) { create(:meeting, :published, component: components.last, start_time: 2.days.ago) }
+    let!(:upcoming_meeting1) { create(:meeting, :published, component: components.last, start_time: 1.week.from_now) }
+    let!(:upcoming_meeting2) { create(:meeting, :published, component: components.last, start_time: 3.months.from_now) }
+    let!(:upcoming_meeting3) { create(:meeting, :published, component: components.last, start_time: 2.days.from_now) }
+
+    context "with all meetings" do
+      it "orders them by start date" do
+        visit directory
+
+        within ".date_collection_radio_buttons_filter" do
+          choose "All"
+        end
+
+        expect(page).to have_css("#meetings-count", text: "12 MEETINGS")
+
+        result = page.find("#meetings .card-grid").text
+        expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
+        expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting3.title))
+        expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(upcoming_meeting1.title))
+        expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
+        expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
+      end
     end
 
-    it "allows filtering by past events" do
-      within ".date_check_boxes_tree_filter" do
-        uncheck "All"
-        check "Past"
-      end
+    context "with past meetings" do
+      it "orders them by start date" do
+        visit directory
 
-      expect(page).to have_content(past_meeting.title["en"])
-      expect(page).to have_css("#meetings-count", text: "1 MEETING")
+        within ".date_collection_radio_buttons_filter" do
+          choose "Past"
+        end
+
+        expect(page).to have_css("#meetings-count", text: "3 MEETINGS")
+
+        result = page.find("#meetings .card-grid").text
+        expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
+        expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting2.title))
+      end
+    end
+
+    context "with upcoming meetings" do
+      it "orders them by start date" do
+        visit directory
+
+        expect(page).to have_css("#meetings-count", text: "9 MEETINGS")
+
+        result = page.find("#meetings .card-grid").text
+        expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
+        expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
+      end
     end
   end
 
@@ -232,9 +280,8 @@ describe "Explore meeting directory", type: :system do
       # have_content to wait for the card list to change. This is a hack to
       # reset the contents to no meetings at all, and then showing only the upcoming
       # assembly meetings.
-      within ".date_check_boxes_tree_filter" do
-        uncheck "All"
-        check "Past"
+      within ".date_collection_radio_buttons_filter" do
+        choose "Past"
       end
 
       expect(page).to have_no_css(".card--meeting")
@@ -243,8 +290,8 @@ describe "Explore meeting directory", type: :system do
         check "Assemblies"
       end
 
-      within ".date_check_boxes_tree_filter" do
-        check "Upcoming"
+      within ".date_collection_radio_buttons_filter" do
+        choose "Upcoming"
       end
 
       expect(page).to have_content(assembly_meeting.title["en"])

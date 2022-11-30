@@ -2,6 +2,7 @@ cs:
   activemodel:
     attributes:
       initiative:
+        area_id: Oblast
         decidim_user_group_id: Autor
         description: Popis
         offline_votes: Osobní fyzické podpisy
@@ -12,18 +13,20 @@ cs:
         signature_type: Typ sbírky podpisu
         signature_type_values:
           any: Online nebo naživo
-          offline: Z očí do očí
+          offline: Osobně
           online: OnLine
         state: Stav
         title: Titul
       initiatives_committee_member:
         user: Člen výboru
+      initiatives_settings:
+        initiatives_order: Pořadí
       initiatives_type:
         area_enabled: Povolit autorům vybrat tematickou oblast pro jejich iniciativu
         attachments_enabled: Povolit přílohy
         banner_image: Obrázek banneru
         child_scope_threshold_enabled: Povolit podpisy podřízené oblasti působnosti
-        collect_user_extra_fields: Sbírejte osobní údaje uživatelů podpisem
+        collect_user_extra_fields: Shromažďovat osobní údaje účastníků při podpisu
         custom_signature_end_date_enabled: Povolit autorům zvolit konec doby sběru podpisů
         description: Popis
         document_number_authorization_handler: Autorizace k ověření čísla dokumentu pro podpisy
@@ -32,6 +35,7 @@ cs:
         online_signature_enabled: Online podpis povolen
         only_global_scope_enabled: Umožnit pouze vytvoření iniciativ globálního rozsahu
         promoting_committee_enabled: Povolit podporu výboru
+        signature_type: Typ podpisu
         title: Titul
         undo_online_signatures_enabled: Povolit účastníkům vrátit zpět své online podpisy
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
@@ -55,9 +59,9 @@ cs:
   activerecord:
     models:
       decidim/initiative:
-        one: Initativní
+        one: Iniciativa
         few: Iniciativy
-        many: Iniciativy
+        many: Iniciativ
         other: Iniciativy
       decidim/initiative_comittee:
         one: Výbor
@@ -313,7 +317,7 @@ cs:
           all: Vše
           answered: Odpovězeno
           closed: Uzavřeno
-          open: otevřeno
+          open: Otevřeno
           rejected: Nedostatek podpisů
         filter_type_values:
           all: Vše
@@ -329,7 +333,7 @@ cs:
           success: Vaše žádost byla zaslána autorovi iniciativy.
       content_blocks:
         highlighted_initiatives:
-          name: Zdůrazněné iniciativy
+          name: Zvýrazněné iniciativy
       create_initiative:
         fill_data:
           back: Zpět
@@ -549,10 +553,10 @@ cs:
           votes_blocked: Podpis zakázán
         votes_count:
           count:
-            one: PODPIS
-            few: PODPISY
-            many: PODPISY
-            other: PODPISY
+            one: Podpis
+            few: Podpisy
+            many: Podpisů
+            other: Podpisů
           most_popular_initiative: Nejoblíbenější iniciativa
           need_more_votes: Potřebujete další podpisy
       initiatives_mailer:

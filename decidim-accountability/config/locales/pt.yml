@@ -49,8 +49,6 @@ pt:
         import_results:
           new:
             import: Importar
-            info: "<p>Recomendamos que siga os seguintes passos:</p><ol><li>Crie os Estados para os Resultados que deseja adicionar (<a href='%{link_new_status}' target='_blank'>hiperligação</a>)</li><li>Crie pelo menos um Resultado de forma manual através deste painel de Administrador (<a href='%{link_new_result}' target='_blank'>link</a>) antes de usar Importar, para obter uma melhor compreensão do formato e daquilo que terá de preencher.</li><li>Transfira a Exportação com o formato CSV (%{link_export_csv})</li><li>Faça as alterações localmente. Apenas poderá alterar as seguintes colunas do CSV:</li></ol><ul><li><b>categoria/id:</b> ID para a Categoria</li><li><b>âmbito/id:</b> ID para o Âmbito</li><li><b>principal/id:</b> ID do principal (para os Resultados relacionados). Opcional</li><li><b>título/I18N:</b> Título no idioma X</li><li><b>descrição/I18N:</b> Descrição no idioma X</li><li><b>data_início:</b> data na qual o resultado inicia a execução (formato AAAA-MM-DD)</li><li><b>data_fim:</b> data na qual o resultado termina a execução (formato AAAA-MM-DD)</li><li><b>estado/id:</b> ID do Estado para este resultado</li><li><b>progresso:</b> Percentagem (de 0 a 100) da execução</li><li><b>ids_propostas:</b> ID interna das propostas relacionadas (separado por vírgula). Automaticamente convertido para <span class='attribute-name'>url_proposta</span></li></ul>"
-            link: hiperligação
             title: Importar resultados do CSV
         imports:
           create:

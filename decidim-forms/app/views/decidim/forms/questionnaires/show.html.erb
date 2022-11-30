@@ -5,7 +5,7 @@
 
 <% columns = allow_answers? && visitor_can_answer? && @form.responses.map(&:question).any?(&:matrix?) ? 9 : 6 %>
 
-<%= render partial: "decidim/shared/component_announcement" %>
+<%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
 
 <div class="row columns">
   <h2 class="section-heading"><%= translated_attribute questionnaire.title %></h2>

@@ -183,6 +183,8 @@ lb:
         filter: Filter
         filter_by: Filtern nach
         unfold: Entfalten
+      last_activity:
+        new_consultation: Neue Konsultation
       pages:
         home:
           highlighted_consultations:

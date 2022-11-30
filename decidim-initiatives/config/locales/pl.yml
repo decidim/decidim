@@ -278,6 +278,7 @@ pl:
             update: Aktualizuj
           form:
             authorizations: Ustawienia autoryzacji
+            child_scope_threshold_enabled_help: 'Ta konfiguracja nie pozwala na głosowania offline, zezwala na pod-zakresy i działa z procedurą autoryzacji, która łączy zakres z użytkownikiem. Upewnij się, że wybrałeś taką autoryzację w sekcji autoryzacji poniżej. Zakresy muszą być konfigurowane w hierarchii: 1 Rodzic - N element podrzędny. Więcej informacji o działaniu tej konfiguracji znajdziesz pod tym <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">linkiem</a>.'
             options: Ustawienia
             title: Informacje ogólne
           initiative_type_scopes:

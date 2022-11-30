@@ -756,18 +756,6 @@ it:
           how: Come puoi guadagnarlo
           page_description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi. Ecco la lista dei badge e alcuni modi per guadagnarli.
           title: Badge
-        invitations:
-          conditions:
-            - Usa il link "invita amici" nella tua pagina utente per invitare i tuoi amici
-            - Personalizza, se vuoi, il messaggio che stai inviando
-            - Aumenterai di livello inviando inviti e registrandoli.
-          description: Questo badge è concesso quando hai invitato alcune persone e hanno trascorso un po 'di tempo per registrarsi in %{organization_name} e diventare partecipanti. Grazie per aver reso %{organization_name} conoscere agli altri e contribuendo ad ampliare la comunità!
-          description_another: Questo utente ha invitato %{score} utenti.
-          description_own: Hai invitato %{score} utenti.
-          name: inviti
-          next_level_in: Invita altri %{score} utenti a raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora invitato alcun utente.
-          unearned_own: Non hai ancora invitato nessun utente.
       description: I badge sono riconoscimenti delle azioni dei partecipanti e dei progressi nella piattaforma. Quando inizi a scoprire, partecipare e interagire nella piattaforma, guadagnerai badge diversi.
       level: Livello %{level}
       reached_top: Hai raggiunto il livello più alto per questo badge.
@@ -965,7 +953,7 @@ it:
           ok: Ok
         index:
           ago: fa
-          close: Chiudi modale
+          close: Chiudi modalità
           from: Da
           groups: I miei gruppi
           last_message: Ultimo messaggio
@@ -975,7 +963,7 @@ it:
           title: Conversazioni
         reply:
           placeholder: La tua risposta...
-          send: Inviare
+          send: Invia
           title: Rispondi
         show:
           back: Torna a tutte le conversazioni
@@ -1506,15 +1494,6 @@ it:
       updated_not_active: La tua password è stata cambiata con successo.
     registrations:
       destroyed: Ciao! Il tuo account è stato cancellato con successo. Speriamo di rivederti presto.
-      edit:
-        are_you_sure: Sei sicuro?
-        cancel_my_account: Cancellare il mio account
-        currently_waiting_confirmation_for_email: 'Conferma in attesa per: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lasciare vuoto se non si desidera modificarlo
-        title: Modifica %{resource}
-        unhappy: Infelice?
-        update: Aggiornare
-        we_need_your_current_password_to_confirm_your_changes: abbiamo bisogno della tua password corrente per confermare le tue modifiche
       new:
         sign_up: Iscriviti
       signed_up: Benvenuto! Ti sei registrato con successo.
@@ -1569,7 +1548,6 @@ it:
         other: 'Ci sono stati molteplici errori durante l''elaborazione della tua richiesta:'
       too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
       too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
-      too_short: è troppo corto (meno di 15 caratteri)
   forms:
     correct_errors: Ci sono errori nel modulo, correggerli per continuare.
     length_validator:
@@ -1643,7 +1621,7 @@ it:
         see_more: vedi di più
   locale:
     name: Italiano
-    name_with_error: Inglese (errore!)
+    name_with_error: Italiano (errore!)
   password_validator:
     blacklisted: è nella blacklist
     domain_included_in_password: è troppo simile a questo nome di dominio

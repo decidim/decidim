@@ -457,7 +457,7 @@ pt:
           newsletter: Receber um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contacto
           nickname_help: A sua alcunha em %{organization}. Só pode conter letras, números, “-”, e “_”
-          password_help: "%{minimun_characters} caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
+          password_help: "%{minimun_characters} de caracteres no mínimo, não deverá ser muito comum (por ex. 123456) e deverá ser diferente da sua alcunha e do seu e-mail."
           sign_in: Entrar
           sign_up: Inscreva-se
           sign_up_as:
@@ -744,18 +744,6 @@ pt:
           how: Como pode ganhar
           page_description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes. Aqui está a lista de distintivos e algumas maneiras de ganhá-los.
           title: Distintivos
-        invitations:
-          conditions:
-            - Use a hiperligação "convidar amigos" na sua página de utilizador para convidar os seus amigos
-            - Personalize, se quiser, a mensagem que está a enviar
-            - Subirá de nível ao enviar convites e obtendo registos.
-          description: Este distintivo é concedido quando convidou algumas pessoas e elas despenderam um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por dar a conhecer %{organization_name} aos outros e ajudar a expandir a comunidade!
-          description_another: Este participante convidou %{score} utilizadores.
-          description_own: Convidou %{score} utilizadores.
-          name: Convites
-          next_level_in: Convide mais %{score} utilizadores para alcançar o próximo nível!
-          unearned_another: Este participante ainda não convidou alguém.
-          unearned_own: Ainda não convidou alguém.
       description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Atingiu o nível superior para este distintivo.
@@ -963,7 +951,7 @@ pt:
           title: Conversas
         reply:
           placeholder: A sua resposta...
-          send: Mandar
+          send: Enviar
           title: Responder
         show:
           back: Retroceder a todas as conversas
@@ -1490,15 +1478,6 @@ pt:
       updated_not_active: A sua palavra-passe foi modificada corretamente.
     registrations:
       destroyed: A sua conta foi cancelada corretamente. Esperamos vê-lo(a) novamente em breve.
-      edit:
-        are_you_sure: Tem a certeza?
-        cancel_my_account: Cancelar a minha conta
-        currently_waiting_confirmation_for_email: 'Atualmente à espera de confirmação para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se não quiser modificá-lo
-        title: Editar %{resource}
-        unhappy: Infeliz?
-        update: Atualizar
-        we_need_your_current_password_to_confirm_your_changes: precisamos da sua palavra-passe atual para confirmar as suas alterações
       new:
         sign_up: Inscrever-se
       signed_up: Bem-vindo(a)! Inscreveu-se corretamente.
@@ -1553,7 +1532,6 @@ pt:
         other: 'Ocorreram diversos erros ao processar o seu pedido:'
       too_many_marks: está a usar muitos sinais de pontuação consecutivos (por exemplo, ! e ?)
       too_much_caps: está a usar muitas letras maiúsculas (acima de 25% do texto)
-      too_short: é muito curto (abaixo de 15 caracteres)
   forms:
     correct_errors: Existem erros no formulário, por favor corrija-os para continuar.
     length_validator:

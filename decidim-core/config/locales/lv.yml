@@ -650,18 +650,6 @@ lv:
           how: Kā jūs to varat nopelnīt
           page_description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus. Šeit ir žetonu saraksts un daži veidi, kā tos nopelnīt.
           title: Žetoni
-        invitations:
-          conditions:
-            - Lai uzaicinātu draugus, izmantojiet saiti Uzaicināt draugus savā lietotāja lapā
-            - Pielāgojiet sūtāmo ziņojumu, ja vēlaties
-            - Jūs sasniegsiet augstāku līmeni, sūtot ielūgumus un piesaistot jaunus reģistrētus lietotājus.
-          description: Šis žetons tiek piešķirts, kad esat uzaicinājis dažus cilvēkus un viņi ir veltījuši nedaudz laika, lai reģistrētos %{organization_name} un kļūtu par dalībniekiem. Paldies, ka darījāt %{organization_name} zināmu citiem un palīdzējāt paplašināt mūsu kopienu.
-          description_another: Šis dalībnieks ir uzaicinājis %{score} cilvēkus.
-          description_own: Jūs esat uzaicinājis %{score} cilvēkus.
-          name: Ielūgumi
-          next_level_in: Piesaistiet vēl %{score} cilvēkus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav uzaicinājis nevienu.
-          unearned_own: Jūs vēl nevienu neesat uzaicinājis.
       description: Žetoni ir atzinība par dalībnieku darbībām un progresu platformā. Sākot atklāt platformu, piedaloties un mijiedarbojoties ar to, jūs nopelnīsiet dažādus žetonus.
       level: Līmenis %{level}
       reached_top: Jūs esat sasniedzis šim žetona nepieciešamo augstāko līmeni.
@@ -1289,15 +1277,6 @@ lv:
       updated_not_active: Jūsu parole ir veiksmīgi nomainīta.
     registrations:
       destroyed: Jūsu konts ir veiksmīgi atcelts. Mēs ceram jūs drīz atkal redzēt.
-      edit:
-        are_you_sure: Vai esat pārliecināts?
-        cancel_my_account: Atcelt manu kontu
-        currently_waiting_confirmation_for_email: 'Pašlaik tiek gaidīts apstiprinājums e-pastam: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: atstājiet tukšu, ja nevēlaties to mainīt
-        title: Labot %{resource}
-        unhappy: Neesat apmierināts?
-        update: Atjaunināt
-        we_need_your_current_password_to_confirm_your_changes: mums ir nepieciešama jūsu pašreizējā parole, lai apstiprinātu izmaiņas
       new:
         sign_up: Reģistrēties
       signed_up: Laipni lūdzam! Jūsu reģistrācija bija veiksmīga.
@@ -1354,7 +1333,6 @@ lv:
         other: 'Apstrādājot jūsu pieprasījumu, radās vairākas kļūdas:'
       too_many_marks: izmanto pārāk daudz secīgu pieturzīmju (piemēram,! un ?)
       too_much_caps: izmanto pārāk daudz lielo burtu (vairāk nekā 25 % no teksta)
-      too_short: ir pārāk īsa (līdz 15 rakstzīmēm)
   invisible_captcha:
     sentence_for_humans: Ja esat cilvēks, ignorējiet šo lauku
     timestamp_error_message: Diemžēl tas bija par ātru! Lūdzu, iesniedziet atkārtoti.

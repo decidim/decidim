@@ -206,6 +206,8 @@ is-IS:
           check_initiative_details: Þú getur séð frumkvæði upplýsingar
           here: hér
         more_information: Hér hefur þú meiri upplýsingar um frumkvöðlunarferlið.
+      last_activity:
+        new_initiative: Nýtt frumkvæði
       pages:
         home:
           highlighted_initiatives:

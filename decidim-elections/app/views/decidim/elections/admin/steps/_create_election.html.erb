@@ -14,10 +14,23 @@
       <% end %>
     </ul>
 
+    <% if form.needs_census? %>
+      <h4><%= t(".census") %></h4>
+      <ul class="no-bullet-indented">
+        <% form.census_messages.each do |key, value| %>
+          <% if form.errors.include?(key) %>
+            <li><%= icon "x", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= form.errors.messages[key][0].html_safe %></li>
+          <% else %>
+            <li><%= icon "check", class: "text-success", role: "img", "aria-hidden": true %>&nbsp;<%= value.html_safe %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    <% end %>
+
     <h4><%= t(".trustees") %></h4>
     <ul class="no-bullet-indented">
       <% if form.participatory_space_trustees.none? %>
-        <li><%= t(".no_trustees") %></li>
+        <li><%= icon "x", class: "text-alert", role: "img", "aria-hidden": true %>&nbsp;<%= t(".no_trustees") %></li>
       <% end %>
 
       <% form.participatory_space_trustees.map {|trustee| [trustee, form.trustees.none? || form.trustees.include?(trustee)] }

@@ -156,6 +156,21 @@ module Decidim
 
           it { is_expected.to eq(initiative.scope) }
         end
+
+        context "when the authorization does not have metadata" do
+          let!(:authorization) do
+            create(
+              :authorization,
+              :granted,
+              name: "dummy_authorization_handler",
+              user: current_user,
+              unique_id: document_number,
+              metadata: nil
+            )
+          end
+
+          it { is_expected.to be_nil }
+        end
       end
 
       describe "authorized_scope_candidates" do

@@ -30,6 +30,7 @@ en:
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
+        tos_agreement: Terms and conditions of use agreement
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -796,18 +797,6 @@ en:
           how: How can you earn it
           page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
           title: Badges
-        invitations:
-          conditions:
-          - Use the “invite friends” link on your user page to invite your friends
-          - Customize, if you want, the message you are sending
-          - You’ll level up by sending invitations and getting them registered.
-          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
-          description_another: This participant has invited %{score} people.
-          description_own: You have invited %{score} people.
-          name: Invitations
-          next_level_in: Invite %{score} more people to reach the next level!
-          unearned_another: This participant has not yet invited anyone.
-          unearned_own: You haven't invited anyone yet.
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
@@ -1553,15 +1542,6 @@ en:
       updated_not_active: Your password has been successfully changed.
     registrations:
       destroyed: Your account has been successfully cancelled. We hope to see you again soon.
-      edit:
-        are_you_sure: Are you sure?
-        cancel_my_account: Cancel my account
-        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
-        title: Edit %{resource}
-        unhappy: Unhappy?
-        update: Update
-        we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
       new:
         sign_up: Sign up
       signed_up: Welcome! You have signed up successfully.
@@ -1616,7 +1596,7 @@ en:
         other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
-      too_short: is too short (under 15 characters)
+      too_short: is too short (under %{count} characters)
   forms:
     correct_errors: There are errors on the form, please correct them to continue.
     length_validator:

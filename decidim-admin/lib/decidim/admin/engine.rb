@@ -174,7 +174,10 @@ module Decidim
                         decidim_admin.root_path,
                         icon_name: "dashboard",
                         position: 1,
-                        active: ["decidim/admin/dashboard" => :show]
+                        active: [%w(
+                          decidim/admin/dashboard
+                          decidim/admin/metrics
+                        ), []]
 
           menu.add_item :moderations,
                         I18n.t("menu.moderation", scope: "decidim.admin"),
@@ -209,10 +212,15 @@ module Decidim
                           decidim/admin/user_groups_csv_verifications
                           decidim/admin/officializations
                           decidim/admin/impersonatable_users
+                          decidim/admin/conflicts
                           decidim/admin/moderated_users
                           decidim/admin/managed_users/impersonation_logs
                           decidim/admin/managed_users/promotions
                           decidim/admin/authorization_workflows
+                          decidim/verifications/id_documents/admin/pending_authorizations
+                          decidim/verifications/id_documents/admin/config
+                          decidim/verifications/postal_letter/admin/pending_authorizations
+                          decidim/verifications/csv_census/admin/census
                         ), []],
                         if: allowed_to?(:read, :admin_user) || allowed_to?(:read, :managed_user)
 
@@ -239,6 +247,8 @@ module Decidim
                             decidim/admin/scopes
                             decidim/admin/scope_types
                             decidim/admin/areas decidim/admin/area_types
+                            decidim/admin/help_sections
+                            decidim/admin/organization_external_domain_whitelist
                           ),
                           []
                         ],

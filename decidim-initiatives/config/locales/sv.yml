@@ -29,6 +29,7 @@ sv:
         minimum_committee_members: Minsta antal kommittémedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
         promoting_committee_enabled: Tillåt kampanjutskott
+        signature_type: Signaturtyp
         title: Titel
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen

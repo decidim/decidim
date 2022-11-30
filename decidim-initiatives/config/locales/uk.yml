@@ -292,6 +292,8 @@ uk:
         promotal_committee_help: Пам'ятайте, що ви повинні запросити щонайменше %{member_count} людей до робочого гурту з просування. Перешліть їм наступне посилання, щоб запросити їх до робочого гурту з просування
         status_change_body_for: 'Стан почину %{title} змінився на: %{state}'
         status_change_for: Стан почину %{title} змінився
+      last_activity:
+        new_initiative: Започаткувати почин
       pages:
         home:
           highlighted_initiatives:

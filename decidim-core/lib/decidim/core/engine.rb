@@ -254,7 +254,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
       end
 
-      initializer "doorkeeper" do
+      initializer "doorkeeper", before: "doorkeeper.params.filter" do
         Doorkeeper.configure do
           orm :active_record
 
@@ -531,11 +531,6 @@ module Decidim
       end
 
       initializer "decidim.core.add_badges" do
-        Decidim::Gamification.register_badge(:invitations) do |badge|
-          badge.levels = [1, 5, 10, 30, 50]
-          badge.reset = ->(user) { Decidim::User.where(invited_by: user.id).count }
-        end
-
         Decidim::Gamification.register_badge(:followers) do |badge|
           badge.levels = [1, 15, 30, 60, 100]
           badge.reset = ->(user) { user.followers.count }

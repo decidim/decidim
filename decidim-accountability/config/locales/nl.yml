@@ -49,7 +49,6 @@ nl:
         import_results:
           new:
             import: Importeren
-            link: link
             title: Importeer resultaten van CSV
         imports:
           create:

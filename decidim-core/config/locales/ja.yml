@@ -29,6 +29,7 @@ ja:
         password_confirmation: パスワードの確認
         personal_url: 個人用URL
         remove_avatar: アバターを削除
+        tos_agreement: ユーザー利用規約
     models:
       decidim/attachment_created_event: 添付ファイル
       decidim/component_published_event: アクティブなコンポーネント
@@ -706,7 +707,7 @@ ja:
     filters:
       linked_classes:
         all: すべて
-        collaborative_draft: 共同ドラフト（下書き）
+        collaborative_draft: 共同草案
         dummy_resource: ダミーリソース
         meeting: ミーティング
         project: プロジェクト
@@ -775,18 +776,6 @@ ja:
           how: どうやって稼ぐことができますか？
           page_description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。 ここにバッジのリストといくつかの方法があります。
           title: バッジ
-        invitations:
-          conditions:
-            - 友達を招待するには、ユーザーページの「友達招待」リンクを使用してください
-            - 必要に応じて、送信するメッセージをカスタマイズします
-            - 招待状を送信して登録することでレベルアップします。
-          description: このバッジは、あなたが何人かの人を招待し、その人たちが少し時間をかけて%{organization_name} に登録し、参加者になったときに与えられます。%{organization_name} を他の人に知らしめ、コミュニティの拡大に貢献してくれたことに感謝します！
-          description_another: この参加者は %{score} 人を招待しました。
-          description_own: '%{score} 人を招待しました。'
-          name: 招待
-          next_level_in: '%{score} 人を招待して次のレベルに到達しましょう！'
-          unearned_another: この参加者はまだ誰も招待していません。
-          unearned_own: まだ誰も招待していません。
       description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。
       level: レベル %{level}
       reached_top: このバッジの最高レベルに達しました。
@@ -1531,15 +1520,6 @@ ja:
       updated_not_active: パスワードが正常に変更されました。
     registrations:
       destroyed: お客様のアカウントは正常にキャンセルされました。しばらくお待ちください。
-      edit:
-        are_you_sure: よろしいですか？
-        cancel_my_account: アカウントをキャンセルする
-        currently_waiting_confirmation_for_email: '現在確認待ち: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 変更したくない場合は空白のままにしてください
-        title: '%{resource} を編集'
-        unhappy: 不満？
-        update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 変更を確認するには現在のパスワードが必要です
       new:
         sign_up: 新規登録
       signed_up: ようこそ！正常に登録完了しました。
@@ -1592,7 +1572,7 @@ ja:
         other: 'リクエストの処理中に複数のエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
-      too_short: 短すぎます（15文字未満）
+      too_short: は短すぎます( %{count} 文字以下)
   forms:
     correct_errors: 下記のフォームにエラーがありました。修正して継続してください。
     length_validator:
@@ -1665,7 +1645,7 @@ ja:
         see_more: もっと見る
   locale:
     name: 日本語
-    name_with_error: 英語 (エラー!)
+    name_with_error: 日本語 (エラー!)
   password_validator:
     blacklisted: ブラックリストに登録済み
     domain_included_in_password: このドメイン名に似ています

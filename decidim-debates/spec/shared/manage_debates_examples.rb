@@ -5,6 +5,19 @@ RSpec.shared_examples "manage debates" do
 
   before { visit_component_admin }
 
+  describe "listing" do
+    context "with enriched content" do
+      before do
+        debate.update!(title: { en: "Debate <strong>title</strong>" })
+        visit current_path
+      end
+
+      it "displays the correct title" do
+        expect(page.html).to include("Debate &lt;strong&gt;title&lt;/strong&gt;")
+      end
+    end
+  end
+
   describe "admin form" do
     before { click_on "New Debate" }
 
@@ -225,10 +238,10 @@ RSpec.shared_examples "manage debates" do
       within "table" do
         within find("tr", text: translated(debate.title)) do
           expect(page).to have_no_selector(".action-icon--edit")
+          page.find(".action-icon--close").click
         end
       end
 
-      page.find(".action-icon--close").click
       expect(page).to have_content("The debate was great")
     end
 

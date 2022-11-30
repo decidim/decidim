@@ -6,14 +6,14 @@ nl:
     models:
       decidim/blogs/post:
         one: Post
-        other: berichten
+        other: Posts
   decidim:
     blogs:
       actions:
         confirm_destroy: Weet je zeker dat je dit bericht wilt verwijderen?
         destroy: Verwijder
         edit: Bewerk
-        new: Nieuw bericht
+        new: Nieuwe blogpost
         title: acties
         user_group_id: Bericht aanmaken als
       admin:
@@ -37,8 +37,8 @@ nl:
             create: creëren
             title: Maak bericht
           update:
-            invalid: Er zijn fouten opgetreden bij het opslaan van het bericht.
-            success: Bericht succesvol opgeslagen
+            invalid: Er zijn fouten opgetreden bij het opslaan van deze blogpost.
+            success: Post succesvol opgeslagen
       last_activity:
         new_post_at_html: "<span>Nieuw bericht op %{link}</span>"
       models:

@@ -12,7 +12,6 @@ eu:
         start_time: Bozketaren hasiera-data
         title: Izenburua
       question:
-        description: Deskribapena
         max_selections: Gehieneko aukera kopurua
         min_selections: Aurreko bat ere ez
         title: Izenburua
@@ -223,11 +222,12 @@ eu:
         steps:
           create_election:
             errors:
+              census_codes_generated: Erroldarako sarbide kodeak ez dira sortu.
+              census_frozen: Erroldarako sarbide kodeak ez dira esportatu.
               max_selections: Galderek ez dute <strong>balio zuzenik </strong> galdera kopururako
               minimum_answers: Galderek gutxienez eduki behar dituzte <strong> bi erantzun </strong>.
               minimum_questions: <strong>aukerak gutxienez </strong> galdera bat eduki behar du.
               published: <strong>aukera ez dago argitaratuta </strong>.
-              time_before: Hasierako ordua hemen dago <strong>3 ordu baino gutxiago</strong> bozketa hasi baino lehen.
               trustees_number: <strong> espazio parte-hartzaileak gutxienez eduki behar du %{number} bermatzaile gako publikoarekin </strong>.
             invalid: Arazo bat izan da aukera hau konfiguratzean
             no_trustees: Ez dago bermatzaile konfiguraturik espazio parte-hartzaile honetarako
@@ -236,6 +236,8 @@ eu:
               'false': ez du <strong>gako publikorik</strong>
               'true': badu <strong> gako publiko bat </strong>
             requirements:
+              census_codes_generated: Sortu dira erroldarako sarbide kodeak.
+              census_frozen: Erroldarako sarbide kodeak esportatu dira eta errolda izoztu da.
               max_selections: Erantzun guztiek balio zuzena dute honetarako <strong>erantzun gehien</strong>.
               minimum_answers: Galdera bakoitzak badu <strong>gutxienez 2 erantzun</strong>.
               minimum_questions: Aukerak badu <strong>gutxienez galdera 1</strong>.
@@ -611,6 +613,8 @@ eu:
         failed:
           header: Boto okerra
           lead: Ez duzu eman botoa!
+          modal:
+            close: Itxi
           text: Zerbait txarto irten da, mesedez, saiatu berriro.
           try_again: Saiatu berriro
         header:

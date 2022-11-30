@@ -14,9 +14,9 @@ cs:
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Sortiment
-        few: Sortitions
-        many: Sortitions
+        one: Losování
+        few: Losování
+        many: Losování
         other: Losování
   decidim:
     components:
@@ -55,9 +55,9 @@ cs:
               target_items: Položky k výběru
               title: Název
             name:
-              one: Třídění
-              few: Třídění
-              many: Sortitions
+              one: Losování
+              few: Losování
+              many: Losování
               other: Losování
         sortitions:
           confirm_destroy:
@@ -90,7 +90,7 @@ cs:
             success: Losování úspěšně aktualizováno
       admin_log:
         sortition:
-          create: "%{user_name} vytvořil %{resource_name} sortit v %{space_name}"
+          create: "%{user_name} vytvořil %{resource_name} losování v %{space_name}"
           delete: "%{user_name} zrušil losování %{resource_name} v %{space_name}"
           update: "%{user_name} aktualizoval losování %{resource_name} v %{space_name}"
       sortitions:
@@ -154,9 +154,9 @@ cs:
           deleted: Odstraněný uživatel
         sortitions_count:
           count:
-            one: 1 sortie
-            few: "%{count} sortitions"
-            many: "%{count} sortitions"
+            one: 1 losování
+            few: "%{count} losování"
+            many: "%{count} losování"
             other: "%{count} losování"
     statistics:
       sortitions_count: Losování

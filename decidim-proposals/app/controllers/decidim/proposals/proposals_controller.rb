@@ -52,8 +52,8 @@ module Decidim
                              else
                                []
                              end
-          @proposals = paginate(@proposals)
           @proposals = reorder(@proposals)
+          @proposals = paginate(@proposals)
         end
       end
 

@@ -25,7 +25,8 @@ module Decidim
         private
 
         def meetings
-          @meetings ||= paginate(search.results)
+          is_past_meetings = params.dig("filter", "date")&.include?("past")
+          @meetings ||= paginate(search.results.order(start_time: is_past_meetings ? :desc : :asc))
         end
 
         def search_klass

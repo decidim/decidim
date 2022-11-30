@@ -744,18 +744,6 @@ pt-BR:
           how: Como você pode ganhar
           page_description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes. Aqui está a lista de crachás e algumas maneiras de ganhá-los.
           title: Distintivos
-        invitations:
-          conditions:
-            - Use o link "convidar amigos" na sua página de usuário para convidar seus amigos
-            - Personalize, se quiser, a mensagem que você está enviando
-            - Você vai subir de nível enviando convites e recebendo-os registrados.
-          description: Esse selo é concedido quando você convidou algumas pessoas e elas gastaram um pouco de tempo para se inscrever em %{organization_name} e se tornarem participantes. Obrigado por fazer %{organization_name} a conhecer aos outros e ajudando a expandir a comunidade!
-          description_another: Este usuário convidou %{score} usuários.
-          description_own: Você convidou %{score} usuários.
-          name: Convites
-          next_level_in: Convide mais %{score} usuários para alcançar o próximo nível!
-          unearned_another: Este usuário ainda não convidou nenhum usuário.
-          unearned_own: Você não convidou nenhum usuário ainda.
       description: Crachás são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, você ganhará distintivos diferentes.
       level: Nível %{level}
       reached_top: Você atingiu o nível superior para este selo.
@@ -963,7 +951,7 @@ pt-BR:
           title: Conversas
         reply:
           placeholder: Sua resposta...
-          send: Mandar
+          send: Enviar
           title: Resposta
         show:
           back: Voltar para todas as conversas
@@ -972,7 +960,7 @@ pt-BR:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-          title: Comece uma conversa
+          title: Iniciar uma conversa
         update:
           error: A mensagem não foi enviada devido a um erro
     metrics:
@@ -1490,15 +1478,6 @@ pt-BR:
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
-      edit:
-        are_you_sure: Você tem certeza?
-        cancel_my_account: Cancelar minha conta
-        currently_waiting_confirmation_for_email: 'Atualmente aguardando confirmação para: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: deixe em branco se você não quiser mudá-lo
-        title: Editar %{resource}
-        unhappy: Infeliz?
-        update: Atualizar
-        we_need_your_current_password_to_confirm_your_changes: Precisamos da sua senha atual para confirmar suas alterações
       new:
         sign_up: inscrever-se
       signed_up: Bem vinda! Você se inscreveu com sucesso.
@@ -1553,7 +1532,6 @@ pt-BR:
         other: 'Houve erros múltiplos ao processar sua solicitação:'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
-      too_short: é muito curto (menos de 15 caracteres)
   forms:
     correct_errors: Há erros no formulário, por favor corrija-os para continuar.
     length_validator:
@@ -1627,7 +1605,7 @@ pt-BR:
         see_more: Ver mais
   locale:
     name: Português
-    name_with_error: Inglês (erro!)
+    name_with_error: Português (erro!)
   password_validator:
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email

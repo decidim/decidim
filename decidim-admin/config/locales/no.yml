@@ -123,6 +123,10 @@
         file: Fil
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Velg minst et rom
         organization:
           attributes:
             official_img_footer:
@@ -180,7 +184,6 @@
           error: Det oppstod et problem med å godkjenne administrator vilkårene.
           success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
-          accept: Jeg godtar følgende vilkår
           are_you_sure: Er du sikker på at du vil avslå administratorvilkårene for bruk?
           refuse: Avslå administratorvilkårene
           title: Godta vilkårene for bruk
@@ -1038,6 +1041,7 @@
             hidden_at: Skjult på
             participatory_space: Deltakerrom
             report_count: Antall
+            reportable_id: ID
             reportable_type: Type
             reported_content_url: Rapportert innholds URL
             reports: Rapporter

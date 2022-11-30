@@ -110,6 +110,39 @@ shared_examples "manage moderations" do
         expect(page).to have_no_selector("tr[data-id=\"#{moderation.id}\"]")
       end
     end
+
+    context "when the user changes language" do
+      around do |example|
+        previous_backend = I18n.backend
+        I18n.backend = I18n::Backend::Simple.new
+        example.run
+        I18n.backend = previous_backend
+      end
+
+      before do
+        I18n.backend.store_translations(
+          :ca,
+          activerecord: {
+            models: {
+              moderation.reportable.class.name.underscore.to_sym => {
+                one: "Objecte informable",
+                other: "Objectes informables"
+              }
+            }
+          }
+        )
+
+        within_language_menu do
+          click_link "Català"
+        end
+      end
+
+      it "renders the reportable types in the selected language" do
+        within "tr[data-id=\"#{moderation.id}\"]" do
+          expect(page).to have_content("Objecte informable")
+        end
+      end
+    end
   end
 
   context "when listing hidden resources" do
@@ -123,6 +156,45 @@ shared_examples "manage moderations" do
           expect(page).to have_css("a[href='#{moderation.reportable.reported_content_url}']")
         end
       end
+    end
+  end
+
+  context "when listing comments for deleted resources" do
+    let(:comments) do
+      reportables.first(reportables.length - 1).map do |resource|
+        create(:comment, commentable: resource)
+      end
+    end
+    let!(:moderations) do
+      comments.map do |reportable|
+        space = reportable.is_a?(Decidim::Participable) ? reportable : reportable.participatory_space
+        moderation = create(:moderation, reportable: reportable, report_count: 1, participatory_space: space, reported_content: reportable.reported_searchable_content_text)
+        create(:report, moderation: moderation)
+
+        reportable.root_commentable.destroy!
+        reportable.reload
+
+        moderation
+      end
+    end
+
+    it "user can review them" do
+      moderations.each do |moderation|
+        within "tr[data-id=\"#{moderation.id}\"]" do
+          expect(page).to have_content "Deleted resource"
+          expect(page).to have_content "Spam"
+        end
+      end
+    end
+
+    it "user can hide them" do
+      moderation_id = moderations.first.id
+      within "tr[data-id=\"#{moderation_id}\"]" do
+        click_link "Hide"
+      end
+
+      expect(page).to have_admin_callout("Resource successfully hidden")
+      expect(page).not_to have_selector("tr[data-id=\"#{moderation_id}\"]")
     end
   end
 end

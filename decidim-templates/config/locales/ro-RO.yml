@@ -24,7 +24,7 @@ ro:
           success: Modelul a fost şters cu succes
         empty: Nu există încă nici un model.
         update:
-          error: A apărut o eroare la actualizarea acestui model.
+          error: A apărut o eroare la actualizarea acestui șablon.
           success: Modelul a fost actualizat cu succes
       titles:
         template_types:

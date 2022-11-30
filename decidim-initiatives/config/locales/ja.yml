@@ -2,6 +2,7 @@ ja:
   activemodel:
     attributes:
       initiative:
+        area_id: エリア
         decidim_user_group_id: 作成者
         description: 説明
         offline_votes: In-personal 署名
@@ -18,6 +19,8 @@ ja:
         title: タイトル
       initiatives_committee_member:
         user: 委員会メンバー
+      initiatives_settings:
+        initiatives_order: 順番
       initiatives_type:
         area_enabled: 作成者がイニシアチブの領域を選択できるようにする
         attachments_enabled: 添付ファイルを有効化
@@ -32,6 +35,7 @@ ja:
         online_signature_enabled: オンライン署名は有効です
         only_global_scope_enabled: グローバルスコープのイニシアチブの作成のみを許可する
         promoting_committee_enabled: 推進委員会を有効にする
+        signature_type: 署名の種別
         title: タイトル
         undo_online_signatures_enabled: 参加者がオンライン署名を取り消すことを有効にする
         validate_sms_code_on_votes: 署名プロセスにSMSコード検証ステップを追加

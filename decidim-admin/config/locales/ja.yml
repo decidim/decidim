@@ -184,7 +184,6 @@ ja:
           error: 管理者向け利用規約に同意中にエラーが発生しました。
           success: ありがとうございます、管理者向け利用規約に同意しました。
         actions:
-          accept: 次の規約に同意します
           are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
           refuse: 同意しない
           title: 利用規約に同意する
@@ -1035,6 +1034,7 @@ ja:
         moderation:
           fields:
             created_at: 作成日
+            deleted_resource: 削除されたリソース
             hidden_at: '非表示:'
             participatory_space: 参加型スペース
             report_count: カウント

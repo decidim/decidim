@@ -3,7 +3,7 @@
 <%= link_to t("decidim.initiatives.initiatives_mailer.more_information"), decidim.page_url("initiatives", host: @organization.host) %>
 </p>
 
-<% if @initiative.created_by_individual? %>
+<% if @initiative.promoting_committee_enabled? %>
     <p>
       <%= t "decidim.initiatives.initiatives_mailer.promotal_committee_help",
            member_count: Decidim::Initiatives.minimum_committee_members %>
@@ -18,5 +18,5 @@
 <p>
   <%= t("check_initiative_details", scope: "decidim.initiatives.initiatives_mailer.initiative_link") %>
   <%= link_to t("here",  scope: "decidim.initiatives.initiatives_mailer.initiative_link"),
-              decidim_admin_initiatives.initiative_url(@initiative, host: @organization.host) %>
+              decidim_initiatives.initiative_url(@initiative, host: @organization.host) %>
 </p>

@@ -49,8 +49,6 @@ lb:
         import_results:
           new:
             import: Import
-            info: "<p>Wir empfehlen, dass Sie folgende Schritte befolgen:</p><ol><li>Erstellen Sie den Status der Ergebnisse, die Sie hinzufügen möchten (<a href='%{link_new_status}' target='_blank'>link</a>)</li><li>Erstellen Sie mindestens ein Ergebnis über diesen Administrator-Panel (<a href='%{link_new_result}' target='_blank'>link</a>) bevor Sie Importieren, damit Sie mit dem Format und den benötigten Eingaben vertraut sind.</li><li>Laden Sie den Export im CSV-Format herunter (%{link_export_csv})</li><li>Nehmen Sie Änderungen lokal vor. Sie können nur die folgenden Spalten der CSV ändern:</li></ol><ul><li><b>Kategorie/ID:</b> ID der Kategorie</li><li><b>Umfang/ID:</b> ID des Umfangs</li><li><b>Übergeordnet/ID:</b> Übergeordnete ID (für verwandte Ergebnisse). Optional</li><li><b>Titel/I18N:</b> Titel in Sprache X </li><li><b>Beschreibung/I18N:</b> Beschreibung in Sprache X </li><li><b>start_datum:</b> Datum, an dem die Ausführung des Ergebnisses beginnt (Format JJJJ-MM-TT)</li><li><b>end_datum:</b> Datum, an dem die Ausführung des Ergebnisses endet (Format JJJJ-MM-TT)</li><li><b>Status/ID:</b> ID des Status dieses Ergebnisses</li><li><b>Fortschritt:</b> Prozentualer (von 0 bis 100) Fortschritt der Durchführung</li><li><b>Vorschläge_IDs:</b> Interne ID der verwandten Vorschläge (getrennt durch Komma). Dies wird automatisch umgewandelt in <span class='attribute-name'>proposal_url</span></li></ul>"
-            link: link
             title: Resultater aus engem CSV-Fichier importéieren
         imports:
           create:

@@ -30,6 +30,7 @@ module Decidim
 
     scope :blocked, -> { where(blocked: true) }
     scope :not_blocked, -> { where(blocked: false) }
+    scope :available, -> { where(deleted_at: nil, blocked: false, managed: false) }
 
     # Public: Returns a collection with all the public entities this user is following.
     #

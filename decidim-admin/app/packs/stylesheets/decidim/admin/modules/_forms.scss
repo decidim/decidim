@@ -116,6 +116,12 @@ label,
   margin-bottom: $input-margin;
 }
 
+.form-input-extra-before{
+  margin-bottom: $form-spacing * 1.5;
+  display: block;
+  margin-top: $form-spacing * -1;
+}
+
 .custom-error{
   @extend .form-error;
 }

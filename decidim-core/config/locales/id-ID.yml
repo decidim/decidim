@@ -550,18 +550,6 @@ id:
           how: Bagaimana Anda bisa mendapatkannya
           page_description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda. Di sini adalah daftar lencana dan beberapa cara Anda dapat memperolehnya.
           title: Lencana
-        invitations:
-          conditions:
-            - Gunakan tautan "undang teman" di halaman pengguna Anda untuk mengundang teman-teman Anda
-            - Sesuaikan, jika Anda mau, pesan yang Anda kirim
-            - Anda akan naik level dengan mengirim undangan dan meminta mereka terdaftar.
-          description: Lencana ini diberikan ketika Anda mengundang beberapa orang dan mereka telah menghabiskan sedikit waktu untuk mendaftar di %{organization_name} dan menjadi peserta. Terima kasih telah membuat %{organization_name} diketahui orang lain dan membantu memperluas komunitas!
-          description_another: Pengguna ini telah mengundang %{score} pengguna.
-          description_own: Anda telah mengundang %{score} pengguna.
-          name: Undangan
-          next_level_in: Undang %{score} lebih banyak pengguna untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum mengundang pengguna apa pun.
-          unearned_own: Anda belum mengundang pengguna.
       description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda.
       level: Level %{level}
       reached_top: Anda telah mencapai level teratas untuk lencana ini.
@@ -710,12 +698,10 @@ id:
           title: Percakapan
         reply:
           send: Kirim
-          title: Balasan
         show:
           title: Percakapan dengan %{usernames}
         start:
           send: Kirim
-          title: Mulai percakapan
     metrics:
       followers:
         description: Jumlah pengguna yang mengikuti ruang partisipasi ini
@@ -1070,15 +1056,6 @@ id:
       updated_not_active: Kata sandi Anda telah berhasil diubah.
     registrations:
       destroyed: Bye! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi segera.
-      edit:
-        are_you_sure: Apakah kamu yakin?
-        cancel_my_account: Batalkan akun saya
-        currently_waiting_confirmation_for_email: 'Sedang menunggu konfirmasi untuk: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: biarkan kosong jika Anda tidak ingin mengubahnya
-        title: Edit %{resource}
-        unhappy: Tidak bahagia?
-        update: Memperbarui
-        we_need_your_current_password_to_confirm_your_changes: kami memerlukan kata sandi Anda saat ini untuk mengonfirmasi perubahan Anda
       new:
         sign_up: Daftar
       signed_up: Selamat datang! Anda telah berhasil mendaftar.
@@ -1127,7 +1104,6 @@ id:
       not_locked: tidak terkunci
       too_many_marks: menggunakan terlalu banyak tanda baca (misalnya! dan?)
       too_much_caps: menggunakan terlalu banyak huruf besar (lebih dari 25% dari teks)
-      too_short: terlalu pendek (kurang dari 15 karakter)
   forms:
     required: Wajib
   invisible_captcha:

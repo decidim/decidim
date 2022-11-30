@@ -49,6 +49,24 @@ module Decidim
       end
     end
 
+    describe "name" do
+      context "with an empty name" do
+        let(:name) { "" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "with invalid characters" do
+        let(:name) { "foo@bar" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+    end
+
     describe "email" do
       context "with an empty email" do
         let(:email) { "" }

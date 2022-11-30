@@ -473,7 +473,7 @@ ro:
           newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
           nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
-          password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de pseudonimul și adresa ta de e-mail."
+          password_help: "minim %{minimun_characters} caractere, nu trebuie să fie prea comune (ex. 123456) și trebuie să fie diferite de porecla și adresa dvs. de e-mail."
           sign_in: Autentificare
           sign_up: Înscrie-te
           sign_up_as:
@@ -770,18 +770,6 @@ ro:
           how: Cum poți să o câștigi
           page_description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne. Aici este lista de insigne și câteva modalități prin care le poți câștiga.
           title: Insigne
-        invitations:
-          conditions:
-            - Folosește link-ul "invită prieteni" de pe pagina ta de utilizator pentru a-ți invita prietenii
-            - Personalizează, dacă dorești, mesajul pe care îl trimiți
-            - Vei crește în nivel trimițând invitații și primindu-le înregistrate.
-          description: Această insignă este acordată atunci când ai invitat câțiva oameni și aceștia au petrecut puțin timp să se înregistreze în %{organization_name} și să devină participanți. Îți mulțumim că ai făcut %{organization_name} cunoscută și altora existența comunității și ai ajutat la extinderea ei!
-          description_another: Acest participant a invitat %{score} persoane.
-          description_own: Ai invitat %{score} persoane.
-          name: Invitații
-          next_level_in: Invită încă %{score} persoane să ajungă la următorul nivel!
-          unearned_another: Acest participant nu a invitat încă pe nimeni.
-          unearned_own: Nu ai invitat încă pe nimeni.
       description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne.
       level: Nivelul %{level}
       reached_top: Ai atins nivelul maxim pentru această insignă.
@@ -1526,15 +1514,6 @@ ro:
       updated_not_active: Parola dvs. a fost schimbată cu succes.
     registrations:
       destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
-      edit:
-        are_you_sure: Sigur dorești asta?
-        cancel_my_account: Anulează contul meu
-        currently_waiting_confirmation_for_email: 'În prezent se așteaptă confirmarea pentru: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: lasă necompletat dacă nu vrei să-l schimbi
-        title: Editează %{resource}
-        unhappy: Nefericit?
-        update: Actualizare
-        we_need_your_current_password_to_confirm_your_changes: avem nevoie de parola curentă pentru a confirma modificările
       new:
         sign_up: Înscrie-te
       signed_up: Bine ați venit! V-ați înregistrat cu succes.
@@ -1591,7 +1570,6 @@ ro:
         other: 'Au existat mai multe erori la procesarea cererii dvs.:'
       too_many_marks: folosește prea multe semne consecutive de punctuație (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
-      too_short: este prea scurt (sub 15 caractere)
   forms:
     correct_errors: Există erori în formular, vă rugăm să le corectaţi pentru a continua.
     length_validator:
