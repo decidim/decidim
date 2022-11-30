@@ -1,4 +1,4 @@
-name: "[CI] API"
+name: "[CI] Api"
 on:
   push:
     branches:
