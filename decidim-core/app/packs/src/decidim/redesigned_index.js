@@ -192,6 +192,7 @@ const initializer = () => {
         onOpen: (node) => setHeadingTag(node),
         onClose: (node) => {
           setHeadingTag(node);
+          Turbo.visit(drawer)
           Turbo.navigator.history.replace({ href: drawer });
         }
       }).open()
