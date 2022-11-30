@@ -508,6 +508,10 @@ ca:
         view_all: Veure-ho tot
       metrics:
         name: Mètriques de l'organització
+      static_page:
+        summary:
+          name: Resum
+          summary_content: Contingut
       stats:
         name: Estadístiques de l'organització
       sub_hero:
@@ -849,6 +853,7 @@ ca:
           edit_image: Editar imatge
           error: Error!
           file_size_too_large: 'L''arxiu és massa gran! Pes d''arxiu màxim: %{megabytes}MB'
+          filename: Nom del fitxer
           remove: Eliminar
           replace: Reemplaçar
           save: Desar
@@ -857,7 +862,9 @@ ca:
           uploaded: Pujat
           validating: Validant...
           validation_error: Error de validació!
+        select_file: Selecciona un fitxer
       upload_help:
+        dropzone: Arrossega-hi els arxius o fes clic per a pujar-los
         explanation: Guia per a %{attribute}
     gamification:
       all_badges_link: Veure totes les insígnies disponibles.
@@ -995,6 +1002,7 @@ ca:
         create_with_space: "%{user_name} ha creat %{resource_name} a %{space_name}"
         delete: "%{user_name} ha eliminat %{resource_name}"
         delete_with_space: "%{user_name} ha eliminat %{resource_name} en %{space_name}"
+        publish_with_space: "%{user_name} ha publicat %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
         unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualitzat %{resource_name}"
