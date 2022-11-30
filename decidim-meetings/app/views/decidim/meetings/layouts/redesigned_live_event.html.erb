@@ -4,9 +4,10 @@
     <title><%= decidim_page_title %></title>
     <%= render partial: "layouts/decidim/redesigned_head" %>
     <%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
+    <%= stylesheet_pack_tag "decidim_forms", media: "all" %>
   </head>
 
-  <body>
+  <body class="meeting-polls__body">
     <%= render partial: "layouts/decidim/timeout_modal" %>
     <%= render partial: "layouts/decidim/data_consent_warning" %>
     <%= cell("decidim/data_consent", current_organization) %>
@@ -14,12 +15,12 @@
     <header class="meeting-polls__header">
       <% if current_user && poll %>
         <div class="flex gap-2">
-          <button class="button button__sm button__primary meeting-polls__action-list">
+          <button class="button button__sm button__secondary meeting-polls__action-list">
             <%= t("questions", scope: "decidim.meetings.layouts.live_event") %> <span id="visible-questions-count">(<%= questionnaire.questions.visible.count %>)<span>
           </button>
 
           <% if admin_allowed_to?(:update, :poll, meeting: meeting, poll: poll) %>
-            <button class="button button__sm button__primary meeting-polls__action-administrate"><%= t("administrate", scope: "decidim.meetings.layouts.live_event") %></button>
+            <button class="button button__sm button__secondary meeting-polls__action-administrate"><%= t("administrate", scope: "decidim.meetings.layouts.live_event") %></button>
           <% end %>
         </div>
       <% end %>
@@ -48,5 +49,6 @@
 
     <%= render partial: "layouts/decidim/redesigned_decidim_javascript" %>
     <%= javascript_pack_tag "decidim_meetings" %>
+    <%= javascript_pack_tag "decidim_forms" %>
   </body>
 </html>
