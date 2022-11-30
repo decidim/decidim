@@ -1,7 +1,7 @@
 <%= decidim_modal id: modal_id, class: "upload-modal" do %>
 <div data-dialog-container>
   <%= icon "upload-cloud-2-line" %>
-  <h2 id="dialog-title-<%= modal_id %>" data-dialog-title data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h2>
+  <h2 id="dialog-title-<%= modal_id %>" tabindex="-1" data-dialog-title data-addlabel="<%= button_label %>" data-editlabel="<%= button_edit_label %>"><%= label %></h2>
   <div>
     <div data-name="<%= attribute %>" class="upload-modal__dropzone-container" data-dropzone>
       <%= form.file_field add_attribute,

@@ -1,6 +1,6 @@
 <div data-dialog-container>
   <%= icon "account-circle-line" %>
-  <h2 id="dialog-title-user-identities" data-dialog-title><%= t ".select_identity" %></h2>
+  <h2 id="dialog-title-user-identities" tabindex="-1" data-dialog-title><%= t ".select_identity" %></h2>
   <div>
     <div class="identities-modal__list">
       <%= render_endorsement_identity(resource, current_user) %>
