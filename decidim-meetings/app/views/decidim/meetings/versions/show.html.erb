@@ -7,7 +7,7 @@
       versioned_resource,
       version_path: proc { |version_index| url_for(action: :show, id: version_index) },
       i18n_scope: "decidim.meetings.versions",
-      turbo_frame: :meeting_frame
+      turbo_frame: :drawer_content_frame
     ) %>
   <% end %>
 
@@ -20,7 +20,7 @@
       path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) },
       versions_path: proc { url_for(action: :index) },
       i18n_scope: "decidim.meetings.versions",
-      turbo_frame: :meeting_frame
+      turbo_frame: :drawer_content_frame
     ) %>
   <% end %>
   <%= turbo_stream_action_tag :open_drawer, frame_id: :meeting_frame %>
