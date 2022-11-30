@@ -9,7 +9,7 @@
       </div>
     <% end %>
     <% documents.select(&:attachment_collection_id?).group_by(&:attachment_collection).sort_by { |c, d| c.weight }.each do |collection, documents| %>
-      <%= render partial: "decidim/application/collection", locals: { attachment_collection: collection, documents: documents } %>
+      <%= render partial: "decidim/application/collection.html", locals: { attachment_collection: collection, documents: documents } %>
     <% end %>
   </div>
 <% end %>
