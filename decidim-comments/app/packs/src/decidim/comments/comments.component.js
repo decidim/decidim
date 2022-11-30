@@ -47,7 +47,6 @@ export default class CommentsComponent {
         });
       }
 
-      $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments", () => this._onInitOrder());
     }
   }
 
@@ -63,7 +62,6 @@ export default class CommentsComponent {
 
       $(".add-comment .opinion-toggle .button", this.$element).off("click.decidim-comments");
       $(".add-comment textarea", this.$element).off("input.decidim-comments");
-      $(".order-by__dropdown .is-submenu-item a", this.$element).off("click.decidim-comments");
       $(".add-comment form", this.$element).off("submit.decidim-comments");
       $(".add-comment textarea", this.$element).each((_i, el) => el.removeEventListener("emoji.added", this._onTextInput));
     }
