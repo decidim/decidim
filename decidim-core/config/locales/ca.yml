@@ -1005,6 +1005,7 @@ ca:
         publish_with_space: "%{user_name} ha publicat %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
         unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
+        unpublish_with_space: "%{user_name} ha despublicat %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualitzat %{resource_name}"
         update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
         update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
@@ -1929,6 +1930,7 @@ ca:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%A-%m-%d %H:%M:%S"
+      long_with_particles: "%d %B, de %Y a les %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
