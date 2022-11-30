@@ -15,9 +15,9 @@
     <% if local_assigns[:next].present? %>
       <div data-drawer-next><%= icon "arrow-left-s-line", class: "w-8 h-8 text-secondary fill-current" %></div>
     <% end %>
-    <div data-drawer-content>
+    <%= turbo_frame_tag "drawer_content_frame", data: { drawer_content: "" } do %>
       <div><%= yield %></div>
       <div><%= yield :drawer_aside %></div>
-    </div>
+    <% end %>
   </div>
 </div>
