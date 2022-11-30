@@ -1,3 +1,6 @@
+<% filtered_path = meetings_path(filter: params[:filter].blank? ? {} : filter_params.compact_blank) %>
+<%= turbo_frame_tag "meeting_frame", data: { filtered_path: } %>
+
 <% if meetings.length.zero? %>
   <%= cell("decidim/announcement", t("decidim.meetings.meetings.meetings.no_meetings_warning"), callout_class: "warning" ) %>
 <% else %>
