@@ -289,6 +289,7 @@ ca:
           votes:
             one: vot
             other: vots
+          you_voted: Has votat això
         project_budget_button:
           add: Afegir al teu vot
           add_descriptive: Afegir el projecte %{resource_name} al teu vot
