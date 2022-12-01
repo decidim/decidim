@@ -1,7 +1,6 @@
 <%= turbo_frame_tag "main_frame" do %>
   <%= render partial: "decidim/meetings/shared/index", locals: {
     display_map: current_component.settings.maps_enabled? && search.result.not_online.exists?,
-    calendar_url: year_calendar_meetings_path,
     search_variable: :search_text_cont,
     preview: true,
     filter_options: {

@@ -17,14 +17,9 @@
     <%= t("decidim.shared.turbo_frames.preview.loading") %>
   <% else %>
     <% if display_map %>
-    <div class="meeting-list__map">
-      <%= cell "decidim/meetings/meetings_map", search.result %>
-    </div>
-
-      <%= link_to calendar_url, class: "meeting-list__link" do %>
-        <%= t "decidim.meetings.directory.meetings.index.go_to_calendar" %>
-        <%= icon "calendar-2-line", class: "fill-current" %>
-      <% end %>
+      <div class="meeting-list__map">
+        <%= cell "decidim/meetings/meetings_map", search.result %>
+      </div>
     <% end %>
 
     <div id="meetings">
