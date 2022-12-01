@@ -2,8 +2,8 @@
   <%= decidim_form_for(registration_form, url: meeting_registration_path(model), method: :post) do |form| %>
     <div data-dialog-container>
       <%= icon "login-circle-line" %>
+      <h2 id="dialog-title-meeting-registration-confirm-<%= model.id %>" data-dialog-title><%= t("join", scope: "decidim.meetings.meetings.show") %></h2>
       <div>
-        <div id="dialog-title-meeting-registration-confirm-<%= model.id %>" data-dialog-title><%= t("join", scope: "decidim.meetings.meetings.show") %></div>
 
         <div class="form__wrapper">
           <%= cell("decidim/represent_user_group", form) %>
