@@ -2,12 +2,8 @@
 <% turbo_frame = local_assigns[:turbo_frame] || "main_frame" %>
 <div data-drawer="<%= close_url %>">
   <div>
-    <% if close_url.present? %>
-      <%= link_to close_url, data: { drawer_close: "", turbo_frame:, turbo_action: "replace" } do %>
-       <%= icon "close-line", class: "w-5 h-5 text-secondary fill-current" %>
-      <% end %>
-    <% else %>
-      <div data-drawer-close><%= icon "close-line", class: "w-5 h-5 text-secondary fill-current" %></div>
+    <%= content_tag :div, data: { drawer_close: close_url } do %>
+      <%= icon "close-line", class: "w-5 h-5 text-secondary fill-current" %>
     <% end %>
     <% if local_assigns[:prev].present? %>
       <div data-drawer-prev><%= icon "arrow-right-s-line", class: "w-8 h-8 text-secondary fill-current" %></div>

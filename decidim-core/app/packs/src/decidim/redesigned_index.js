@@ -221,7 +221,7 @@ StreamActions.open_drawer = function() {
   const filteredPath = drawerItem.dataset.filteredPath;
 
   if (filteredPath) {
-    drawerItem.querySelector("a[data-drawer-close]").setAttribute("href", filteredPath);
-    drawerItem.querySelector("div[data-drawer]").setAttribute("data-drawer", filteredPath);
+    drawerItem.querySelector("[data-drawer-close]").setAttribute("data-drawer-close", filteredPath);
+    drawerItem.querySelector("[data-drawer]").setAttribute("data-drawer", filteredPath);
   }
 }
