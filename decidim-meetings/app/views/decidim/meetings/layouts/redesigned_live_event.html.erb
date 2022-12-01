@@ -9,8 +9,6 @@
 
   <body class="meeting-polls__body">
     <%= render partial: "layouts/decidim/timeout_modal" %>
-    <%= render partial: "layouts/decidim/data_consent_warning" %>
-    <%= cell("decidim/data_consent", current_organization) %>
 
     <header class="meeting-polls__header">
       <% if current_user && poll %>
@@ -46,6 +44,9 @@
       <aside class="meeting-polls__aside" id="admin-meeting-poll-aside" data-decidim-admin-meetings-poll='{"questionsUrl":"<%= meeting_polls_questions_path(meeting, admin: true) %>"}'></aside>
       <%= yield %>
     </main>
+
+    <%= render partial: "layouts/decidim/data_consent_warning" %>
+    <%= cell("decidim/data_consent", current_organization) %>
 
     <%= render partial: "layouts/decidim/redesigned_decidim_javascript" %>
     <%= javascript_pack_tag "decidim_meetings" %>
