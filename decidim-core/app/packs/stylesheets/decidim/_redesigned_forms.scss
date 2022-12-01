@@ -80,6 +80,7 @@
   input[type="text"],
   input[type="email"],
   input[type="password"],
+  textarea,
   select{
     @apply w-full block mt-4;
   }

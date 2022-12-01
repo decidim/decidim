@@ -7,7 +7,7 @@
 <% if allowed_to?(:create, :meeting) %>
   <%= action_authorized_link_to :create, new_meeting_path, class: "button button__lg button__secondary", data: { "redirect_url" => new_meeting_path } do %>
     <span><%= t("new_meeting", scope: "decidim.meetings.meetings.index") %></span>
-    <%= icon "add" %>
+    <%= icon "add-line" %>
   <% end %>
 <% end %>
 
