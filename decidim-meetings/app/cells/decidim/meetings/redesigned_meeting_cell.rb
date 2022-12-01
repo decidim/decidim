@@ -12,11 +12,6 @@ module Decidim
       include Decidim::LayoutHelper
       include Decidim::IconHelper
 
-      # Move to attachments independent cell:
-      include Decidim::AttachmentsHelper
-      include Cell::ViewModel::Partial
-      include ActiveSupport::NumberHelper
-
       delegate :current_component, :component_settings, to: :controller
       delegate :documents, :photos, to: :model
 
@@ -83,16 +78,16 @@ module Decidim
             id: "images",
             text: t("decidim.application.photos.photos"),
             icon: resource_type_icon_key("images"),
-            method: :render,
-            args: ["images"]
+            method: :cell,
+            args: ["decidim/images_panel", meeting]
           },
           {
             enabled: documents.present?,
             id: "documents",
             text: t("decidim.application.documents.documents"),
             icon: resource_type_icon_key("documents"),
-            method: :render,
-            args: ["documents"]
+            method: :cell,
+            args: ["decidim/documents_panel", meeting]
           }
         ].select { |item| item[:enabled] }
       end
