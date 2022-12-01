@@ -23,7 +23,7 @@ edit_link(
   <%= javascript_pack_tag "decidim_meetings" %>
 <% end %>
 
-<%= turbo_frame_tag "main_frame",  src: preview_meetings_path %>
+<%= turbo_frame_tag "main_frame",  src: meetings_path %>
 
 <%= turbo_frame_tag "meeting_frame" do %>
   <%= render partial: "meeting", locals: { meeting: meeting } %>

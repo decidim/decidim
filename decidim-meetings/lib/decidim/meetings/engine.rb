@@ -19,7 +19,6 @@ module Decidim
           end
           collection do
             get :year_calendar
-            get :preview
           end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection

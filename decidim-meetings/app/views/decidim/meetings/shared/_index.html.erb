@@ -12,10 +12,7 @@
   <%= render partial: "decidim/meetings/shared/meetings_aside", locals: { main_action: true, search_variable:, filter_options: } %>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
-  <% if local_assigns[:preview] %>
-    <%= t("decidim.shared.turbo_frames.preview.loading") %>
-  <% else %>
+  <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
     <% if display_map %>
       <div class="meeting-list__map">
         <%= cell "decidim/meetings/meetings_map", search.result %>
