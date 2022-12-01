@@ -47,7 +47,7 @@
     }
 
     &__lg{
-      @apply w-32 flex-none justify-center [&>*]:px-2;
+      @apply w-fit flex-none justify-center [&>*]:px-2;
     }
 
     &__lg &-month{
