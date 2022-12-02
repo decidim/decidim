@@ -133,6 +133,6 @@
   }
 
   &__admin-action{
-    @apply py-2 flex items-center border-t-background [&>*]:flex-none first:[&>*]:w-2/5 last:[&>*]:w-3/5
+    @apply py-2 flex items-center border-t-background [&>*]:flex-none first:[&>*]:w-2/5 last:[&>*]:w-3/5;
   }
 }
