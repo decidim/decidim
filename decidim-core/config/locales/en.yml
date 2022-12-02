@@ -1485,9 +1485,6 @@ en:
         share: Share
         share_link: Share link
         share_to: Share to %{service}
-      turbo_frames:
-        preview:
-          loading: Loading…
     statistics:
       comments_count: Comments
       endorsements_count: Endorsements
@@ -1576,7 +1573,6 @@ en:
         see_other_versions: see other versions
         version: Version number %{number}
     versions_list_item:
-      back: Show all versions
       show:
         version_index: Version %{index} of %{total}
     welcome_notification:
@@ -1964,7 +1960,6 @@ en:
     dropdown:
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
-      choose_diff_view_mode_menu: Choose compare mode
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped

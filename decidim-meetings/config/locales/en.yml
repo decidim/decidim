@@ -404,7 +404,6 @@ en:
           all: All
       calendar_modal:
         calendar_url: Calendar URL
-        close_window: Close window
         copy_calendar_url: Copy
         copy_calendar_url_clarification: Copy calendar URL to clipboard
         copy_calendar_url_copied: Copied!
@@ -505,11 +504,6 @@ en:
             hybrid: Hybrid
             in_person: In-person
             online: Online
-        filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
-          unfold: Unfold
         form:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
@@ -525,13 +519,13 @@ en:
           select_an_iframe_access_level: Please select an iframe access level
           show_embedded_iframe_help: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
         index:
-          click_here: See all meetings
           new_meeting: New meeting
-          see_all: See all meetings
-          see_all_withdrawn: See all withdrawn meetings
-          text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link}.
         meeting_minutes:
           related_information: Related Information
+        meeting:
+          close_meeting: Close meeting
+          edit_close_meeting: Edit meeting report
+          edit_meeting: Edit meeting
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
@@ -544,13 +538,8 @@ en:
           confirm: Confirm
         show:
           attendees: Attendees count
-          back: Back to list
-          close_meeting: Close meeting
           contributions: Contributions count
           date: Date
-          edit_close_meeting: Edit meeting report
-          edit_meeting: Edit meeting
-          going: You have signed up for this meeting
           join: Join meeting
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
