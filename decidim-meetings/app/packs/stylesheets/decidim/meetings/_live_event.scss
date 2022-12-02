@@ -48,7 +48,7 @@
       }
 
       & ~ *{
-        @apply p-4 space-y-4;
+        @apply p-4;
 
         // dynamic content
         > :first-child{
