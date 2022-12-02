@@ -190,16 +190,28 @@ const initializer = () => {
 
   document.
     querySelectorAll("[data-drawer]").
-    forEach(({ dataset: { drawer } }) =>
-      new Dialogs(`[data-drawer="${drawer}"]`, {
+    forEach(({ dataset: { drawer } }) => {
+      const dialogElement = new Dialogs(`[data-drawer="${drawer}"]`, {
         closingSelector: `[data-drawer-close="${drawer}"]`,
+        backdropSelector: "[data-drawer]",
         onOpen: (node) => setHeadingTag(node),
         onClose: (node) => {
           setHeadingTag(node);
           Turbo.navigator.history.replace({ href: drawer });
         }
-      }).open()
-    );
+      });
+
+      // open automatically the drawer
+      dialogElement.open();
+
+      // NOTE: handle an edge case of changing the url (through anchors)
+      // when an open drawer. This enforces to be closed as it should.
+      dialogElement.dialog.
+        querySelectorAll("a:not([target])").
+        forEach((anchor) =>
+          anchor.addEventListener("click", () => dialogElement.close())
+        );
+    });
 
   // Initialize available remote modals (ajax-fetched contents)
   document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
