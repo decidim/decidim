@@ -65,11 +65,11 @@
 
   <% content_for :drawer_aside do %>
     <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-      <%= link_to t(".edit_meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
+      <%= link_to t("edit_meeting", scope: "decidim.meetings.meetings.meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% end %>
 
     <% if allowed_to?(:close, :meeting, meeting: meeting) %>
-      <% caption =  meeting.closed? ? t(".edit_close_meeting") : t(".close_meeting") %>
+      <% caption =  meeting.closed? ? t("edit_close_meeting", scope: "decidim.meetings.meetings.meeting") : t("close_meeting", scope: "decidim.meetings.meetings.meeting") %>
       <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
     <% end %>
 

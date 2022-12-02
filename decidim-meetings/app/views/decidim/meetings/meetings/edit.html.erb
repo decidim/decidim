@@ -1,7 +1,7 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
   <div class="text-center py-10">
     <h1 class="h3 md:h1 decorator inline-block text-left">
-      <%= t("title", scope: "decidim.meetings.meetings.new") %>
+      <%= t("title", scope: "decidim.meetings.meetings.edit") %>
     </h1>
   </div>
 
@@ -13,9 +13,9 @@
     <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
       <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
         <%= icon "arrow-left-line" %>
-        <%= t("back", scope: "decidim.meetings.meetings.new") %>
+        <%= t("back", scope: "decidim.meetings.meetings.edit") %>
       <% end %>
-      <%= f.submit t("update", scope: "decidim.meetings.meetings.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+      <%= f.submit t("update", scope: "decidim.meetings.meetings.edit"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
     </div>
   <% end %>
 <% end %>
