@@ -519,12 +519,12 @@ en:
           show_embedded_iframe_help: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
         index:
           new_meeting: New meeting
-        meeting_minutes:
-          related_information: Related Information
         meeting:
           close_meeting: Close meeting
           edit_close_meeting: Edit meeting report
           edit_meeting: Edit meeting
+        meeting_minutes:
+          related_information: Related Information
         meetings:
           no_meetings_warning: No meetings match your search criteria or there isn't any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
