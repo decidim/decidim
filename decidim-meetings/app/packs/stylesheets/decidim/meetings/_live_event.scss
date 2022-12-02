@@ -101,27 +101,21 @@
     }
   }
 
-  // &__answer{
-  //   display: flex;
-  //   align-items: center;
+  &__answer{
+    @apply flex items-center gap-2;
 
-  //   &--value{
-  //     flex: 0 0 15%;
-  //     font-weight: bold;
-  //   }
+    &--value{
+      @apply w-1/5 font-bold;
+    }
 
-  //   &--bar{
-  //     flex: 0 0 85%;
-  //     height: 10px;
-  //     overflow: hidden;
+    &--bar{
+      @apply w-4/5 h-2.5 overflow-hidden;
 
-  //     > *{
-  //       background-color: var(--primary);
-  //       height: 100%;
-  //       opacity: 0;
-  //     }
-  //   }
-  // }
+      > *{
+        @apply bg-primary h-full opacity-0;
+      }
+    }
+  }
 
   // vertical flow
   label + &__answer + label{
