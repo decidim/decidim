@@ -45,7 +45,7 @@ module Decidim
     private
 
     def display_html_config
-      @display_html_config ||= (params["diff-html"] == "unescaped" || show_html_view_dropdown?) ? :unescaped_html : :html
+      @display_html_config ||= params["diff-html"] == "unescaped" || show_html_view_dropdown? ? :unescaped_html : :html
     end
 
     def unified_mode?

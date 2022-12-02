@@ -5,9 +5,7 @@ module Decidim
     class MeetingMonthCell < Decidim::ViewModel
       alias meetings model
 
-      def month
-        start_date.month
-      end
+      delegate :month, to: :start_date
 
       def month_days
         start_date.to_date.all_month
