@@ -64,16 +64,19 @@
   </div>
 
   <% content_for :drawer_aside do %>
-    <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-      <%= link_to t("edit_meeting", scope: "decidim.meetings.meetings.meeting"), edit_meeting_path(meeting), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
-    <% end %>
 
-    <% if allowed_to?(:close, :meeting, meeting: meeting) %>
-      <% caption =  meeting.closed? ? t("edit_close_meeting", scope: "decidim.meetings.meetings.meeting") : t("close_meeting", scope: "decidim.meetings.meetings.meeting") %>
-      <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button hollow expanded button-sc button--icon follow-button" %>
-    <% end %>
+    <div class="space-y-4">
+      <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+        <%= link_to t("edit_meeting", scope: "decidim.meetings.meetings.meeting"), edit_meeting_path(meeting), class: "button button__xl button__secondary w-full" %>
+      <% end %>
 
-    <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
+      <% if allowed_to?(:close, :meeting, meeting: meeting) %>
+        <% caption =  meeting.closed? ? t("edit_close_meeting", scope: "decidim.meetings.meetings.meeting") : t("close_meeting", scope: "decidim.meetings.meetings.meeting") %>
+        <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button button__xl button__secondary w-full" %>
+      <% end %>
+
+      <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
+    </div>
 
     <% if meeting.closed? && meeting.closing_visible? %>
       <% if meeting.has_contributions? %>
