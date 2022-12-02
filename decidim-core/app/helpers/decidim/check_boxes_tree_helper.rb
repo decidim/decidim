@@ -164,5 +164,14 @@ module Decidim
     def scope_filter_text(text)
       filter_text_for(Decidim::Scope, text)
     end
+
+    def filter_text_for(name, translation)
+      return translation unless redesign_enabled?
+
+      text = ""
+      text += resource_type_icon name
+      text += content_tag :span, translation
+      text.html_safe
+    end
   end
 end

@@ -53,15 +53,6 @@ module Decidim
       end
     end
 
-    def filter_text_for(name, translation)
-      return translation unless redesign_enabled?
-
-      text = ""
-      text += resource_type_icon name
-      text += content_tag :span, translation
-      text.html_safe
-    end
-
     private
 
     # Creates a unique namespace for a filter form to prevent dupliacte IDs in
