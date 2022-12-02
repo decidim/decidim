@@ -85,18 +85,14 @@
 
   &__question--admin{
     summary ~ *{
-      border-top: 1px solid #e8e8e8;
-      background-color: #f6f6f6;
-      padding: 1rem;
+      @apply border-t border-t-background p-4 bg-background-2;
 
       a{
-        text-decoration: underline;
-        // margin-bottom: $global_margin;
-        display: block;
+        @apply underline mb-4 block;
       }
 
       > :first-child{
-        font-weight: normal;
+        @apply font-normal;
       }
     }
   }
