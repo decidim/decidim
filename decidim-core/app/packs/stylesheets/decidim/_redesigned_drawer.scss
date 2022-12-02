@@ -34,3 +34,8 @@
     @apply right-0 rounded-r;
   }
 }
+
+/* block scroll when drawer is open */
+html.is-disabled{
+  @apply overflow-hidden
+}
