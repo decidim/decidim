@@ -3,33 +3,31 @@
 <%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
 <%= javascript_pack_tag "decidim_meetings" %>
 
-<section id="upcoming_meetings" class="content-block">
+<section id="<%= section_id %>" class="content-block">
   <div class="content-block__title">
     <h2 class="h2 decorator">
       <%= translated_attribute(model.name) %>
     </h2>
-    <div class="label text-lg"><%= upcoming_meetings_count %></div>
+    <div class="label text-lg"><%= upcoming_meetings? ? upcoming_meetings_count : past_meetings_count %></div>
     <%= link_to main_component_path(model), class: "button button__sm button__text-secondary" do %>
       <span><%= t("decidim.participatory_spaces.highlighted_meetings.see_all") %></span>
       <%= icon "arrow-right-line" %>
     <% end %>
   </div>
   <div class="meeting-list__block-map">
-    <%= cell "decidim/meetings/meetings_map", upcoming_meetings %>
+    <%= cell "decidim/meetings/meetings_map", collection %>
   </div>
   <div class="meeting-list__block-list">
-    <div class="meeting-list__block-list-aside">
-      <%= link_to component_routes.year_calendar_meetings_path, class: "button button__sm button__transparent-secondary" do %>
-        <%= t "decidim.meetings.directory.meetings.index.go_to_calendar" %>
-        <%= icon "calendar-2-line" %>
-      <% end %>
-      <% [Date.current, Date.current.next_month].each do |start_date| %>
-        <%= cell "decidim/meetings/meeting_month", upcoming_meetings, start_date: %>
-      <% end %>
-    </div>
+    <% if upcoming_meetings? && false %>
+      <div class="meeting-list__block-list-aside">
+        <% [Date.current, Date.current.next_month].each do |start_date| %>
+          <%= cell "decidim/meetings/meeting_month", collection, start_date: %>
+        <% end %>
+      </div>
+    <% end %>
     <div class="meeting-list__container">
-      <span class="meeting-list__block-list-title"><%= t("decidim.participatory_spaces.highlighted_meetings.upcoming_meetings") %></span>
-      <% upcoming_meetings.includes(:component).each do |meeting| %>
+      <span class="meeting-list__block-list-title"><%= title %></span>
+      <% collection.includes(:component).each do |meeting| %>
         <%= cell "decidim/meetings/meeting_l", meeting, link_whole_card: true, title_tag: :h2 %>
       <% end %>
     </div>
