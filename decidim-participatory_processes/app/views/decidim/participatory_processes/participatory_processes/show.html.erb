@@ -120,6 +120,28 @@
     </section>
   <% end %>
 
+  <%# REDESIGN_PENDING: integrate blog section %>
+  <% linked_blogs = Decidim::Blogs::Post.take(3) %>
+  <% if linked_blogs.any? %>
+    <section class="content-block">
+      <div class="content-block__title">
+        <h2 class="h2 decorator"><%= t("name", scope: "decidim.components.blogs") %></h2>
+        <div class="label text-lg"><%= linked_blogs.length %></div>
+        <%#= REDESIGN_PENDING: add link to index %>
+        <%= link_to "#", class: "button button__sm button__text-secondary" do %>
+          <span><%= t("decidim.participatory_processes.pages.home.highlighted_processes.see_all_processes") %></span>
+          <%= icon "arrow-right-line" %>
+        <% end %>
+      </div>
+
+      <div class="process__block-grid">
+        <% linked_blogs.each do |linked_blog| %>
+          <%= card_for(linked_blog) %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+
   <% if current_participatory_space.show_statistics? %>
     <%= cell "decidim/statistics", stats.collection %>
   <% end %>
