@@ -25,6 +25,10 @@
     & > :last-child{
       @apply md:col-span-4;
     }
+
+    &-span{
+      @apply text-gray-2 font-semibold uppercase;
+    }
   }
 
   &__nav{

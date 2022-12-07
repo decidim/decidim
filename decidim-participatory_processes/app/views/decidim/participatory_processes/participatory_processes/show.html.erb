@@ -54,6 +54,29 @@
     <%= render partial: "metadata" %>
   </section>
 
+  <section class="content-block">
+    <div class="content-block__title">
+      <h2 class="h2 decorator"><%= t("activity", scope: "decidim.profiles.show") %></h2>
+      <div class="process__metadata-link-endorsers">
+        <% Decidim::User.take(6).each do |user| %>
+          <span class="endorsers-list__avatar">
+            <%= cell "decidim/author", present(user), layout: :avatar, skip_profile_link: true %>
+          </span>
+        <% end %>
+      </div>
+      <div class="label text-lg"><%= Decidim::User.count %></div>
+      <%#= REDESIGN_PENDING: add link to last_activity %>
+      <%= link_to "#", class: "button button__sm button__text-secondary" do %>
+        <span><%= t("see_all_activity", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
+        <%= icon "arrow-right-line" %>
+      <% end %>
+    </div>
+
+    <span class="process__content-block-span"><%= t("name", scope: "decidim.content_blocks.last_activity") %></span>
+    <%#= REDESIGN_PENDING: user_activity requires a proper modal to make it work %>
+    <%#= cell "decidim/user_activity", nil %>
+  </section>
+
   <%#= REDESIGN_PENDING: proposals markup not ready %>
   <%= render_hook(:participatory_space_highlighted_elements) %>
 
@@ -116,6 +139,7 @@
   <%= resource_reference(current_participatory_space) %>
 </section>
 
+<%# LEGACY DESIGN %>
 <% if false %>
 <div class="row column">
   <div class="row">

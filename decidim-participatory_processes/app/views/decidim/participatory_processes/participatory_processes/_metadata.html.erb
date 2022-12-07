@@ -19,7 +19,9 @@
       <%= send(item[:method], *item[:args]).to_s.html_safe %>
     </div>
   <% end %>
-  <a href="#activity" class="process__metadata-link">
+
+  <%# REDESIGN_PENDING: fix path %>
+  <a href="<%= "last_activities_path" %>" class="process__metadata-link">
     <div class="process__metadata-link-endorsers">
       <% Decidim::User.take(6).each do |user| %>
         <span class="endorsers-list__avatar">
