@@ -561,7 +561,7 @@ en:
         moderation: Global moderations
         newsletters: Newsletters
         participants: Participants
-        reported_users: Reported Users
+        reported_users: Reported Participants
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -660,7 +660,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing reported users
+          title: Listing participants
         report:
           reasons:
             does_not_belong: Does not belong
@@ -1118,7 +1118,7 @@ en:
     decidim:
       admin:
         global_moderations:
-          title: Global moderations
+          title: Content moderations
         newsletters:
           title: Newsletters
         settings:
