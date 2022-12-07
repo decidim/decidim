@@ -40,11 +40,20 @@ module Decidim
 
       initializer "decidim_participatory_processes.admin_participatory_processes_menu" do
         Decidim.menu :admin_template_types_menu do |menu|
-          template_types.each_pair do |name, url|
-            menu.add_item name, name, url,
-                          if: allowed_to?(:index, :templates),
-                          active: is_active_link?(url)
-          end
+          menu.add_item :questionnaires,
+                        I18n.t("template_types.questionnaires", scope: "decidim.templates"),
+                        decidim_admin_templates.questionnaire_templates_path,
+                        if: allowed_to?(:index, :templates),
+                        active: (
+                          is_active_link?(decidim_admin_templates.questionnaire_templates_path) ||
+                            is_active_link?(decidim_admin_templates.root_path)
+                        ) && !is_active_link?(decidim_admin_templates.block_user_templates_path)
+
+          menu.add_item :user_reports,
+                        I18n.t("template_types.block_user", scope: "decidim.templates"),
+                        decidim_admin_templates.block_user_templates_path,
+                        if: allowed_to?(:index, :templates),
+                        active: is_active_link?(decidim_admin_templates.block_user_templates_path)
         end
       end
 
@@ -61,7 +70,7 @@ module Decidim
                         decidim_admin_templates.questionnaire_templates_path,
                         icon_name: "document",
                         position: 12,
-                        active: :inclusive,
+                        active: is_active_link?(decidim_admin_templates.root_path),
                         if: allowed_to?(:read, :templates)
         end
       end

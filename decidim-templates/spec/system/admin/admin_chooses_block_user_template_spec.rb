@@ -8,9 +8,9 @@ describe "Admin chooses user block templates when blocking user", type: :system 
   let(:model_name) { Decidim::User.model_name }
   let(:resource_controller) { Decidim::Admin::ModeratedUsersController }
 
-  let!(:first_user) { create(:user, :confirmed, organization:) }
-  let!(:first_moderation) { create(:user_moderation, user: first_user, report_count: 1) }
-  let!(:first_user_report) { create(:user_report, moderation: first_moderation, user: admin, reason: "spam") }
+  let!(:user) { create(:user, :confirmed, organization:) }
+  let!(:moderation) { create(:user_moderation, user:, report_count: 1) }
+  let!(:user_report) { create(:user_report, moderation:, user: admin, reason: "spam") }
 
   let!(:template) { create(:template, :user_block, organization:) }
 
@@ -36,8 +36,8 @@ describe "Admin chooses user block templates when blocking user", type: :system 
       find("*[type=submit]").click
       expect(page).to have_admin_callout("successfully")
 
-      expect(first_user.reload).to be_blocked
-      expect(first_user.reload.blocking.justification).to eq(template.description["en"])
+      expect(user.reload).to be_blocked
+      expect(user.reload.blocking.justification).to eq(template.description["en"])
     end
   end
 end
