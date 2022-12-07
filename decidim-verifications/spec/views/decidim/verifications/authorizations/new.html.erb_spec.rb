@@ -8,6 +8,7 @@ module Decidim
       DummyAuthorizationHandler.new({})
     end
     let(:organization) { double(cta_button_path: "/") }
+    let(:redesign_enabled) { false }
 
     before do
       view.extend AuthorizationFormHelper
@@ -20,14 +21,15 @@ module Decidim
       allow(view).to receive(:authorizations_path).and_return("/authorizations")
       allow(view).to receive(:stored_location).and_return("/processes")
       allow(view).to receive(:redirect_url).and_return("/")
+      allow(view).to receive(:redesign_enabled?).and_return(redesign_enabled)
     end
 
     it "renders the form from the partial" do
-      expect(render).to include("partial-demo")
+      expect(render).to have_css("[data-partial-demo]")
     end
 
     it "renders the button separately" do
-      expect(render).to have_tag("input[type=submit]", count: 1)
+      expect(render).to have_tag("button[type=submit]", count: 1)
     end
 
     context "when there's not a partial to render the form" do
@@ -36,7 +38,7 @@ module Decidim
       end
 
       it "renders the form without the partial" do
-        expect(render).not_to include("partial-demo")
+        expect(render).to have_no_css("[data-partial-demo]")
       end
     end
   end
