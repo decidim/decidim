@@ -229,6 +229,7 @@ export default class CommentsComponent {
         if (successCallback) {
           successCallback();
         }
+        Rails.fire(document, "ajax:success");
         this._pollComments();
       }
     });

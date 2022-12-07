@@ -5,12 +5,15 @@
 
   <ul id="<%= context_menu_id %>" class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
     <% unless reloaded? %>
-      <li class="dropdown__item">
-        <%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
+      <li>
+        <button type="button" class="dropdown__item" data-dialog-open="<%= "flagModalComment#{model.id}" %>" title="<%= t("decidim.components.comment.report.action") %>" aria-controls="<%= "flagModalComment#{model.id}" %>" aria-haspopup="dialog" tabindex="0">
+          <%= icon "flag-line" %>
+          <span><%= t("decidim.components.comment.report.action") %></span>
+        </button>
       </li>
     <% end %>
     <li>
-      <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title") do %>
+      <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title"), tabindex: 1 do %>
         <%= icon "share-line" %>
         <span><%= t("decidim.components.comment.single_comment_link_title") %></span>
       <% end %>
@@ -18,7 +21,7 @@
     <% unless reloaded? %>
       <% if model.authored_by?(current_user) %>
         <li>
-          <button type="button" class="dropdown__item" data-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog" tabindex="0">
+          <button type="button" class="dropdown__item" data-dialog-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog" tabindex="2">
             <%= icon "edit-line" %>
             <span><%= t("decidim.components.comment.edit") %></span>
           </button>
@@ -27,7 +30,7 @@
     <% end %>
     <% if model.authored_by?(current_user) %>
       <li>
-        <%= link_to comment_path, remote: true, method: :delete, class: "dropdown__item", data: { confirm: t("decidim.components.comment.confirm_destroy") } do %>
+        <%= link_to comment_path, remote: true, method: :delete, class: "dropdown__item", data: { confirm: t("decidim.components.comment.confirm_destroy") }, tabindex: 3 do %>
           <%= icon "delete-bin-line" %>
           <span><%= t("decidim.components.comment.delete") %></span>
         <% end %>
@@ -37,7 +40,10 @@
 </details>
 
 <% unless reloaded? %>
+  <% if current_user.present? %>
+    <%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
+  <% end %>
   <% if model.authored_by?(current_user) %>
-    <%= cell("decidim/comments/edit_comment_modal_form", model, modal_id: "editCommentModal#{model.id}") %>
+    <%= cell("decidim/comments/edit_comment_modal_form", model) %>
   <% end %>
 <% end %>

@@ -1,27 +1,32 @@
-<div class="reveal flag-modal" id="<%= modal_id %>" data-reveal role="dialog" aria-modal="true" aria-labelledby="<%= modal_id %>-label">
-  <div class="reveal__header">
-    <h3 id="<%= modal_id %>-label" class="reveal__title"><%= t("decidim.shared.flag_modal.title") %></h3>
-    <button class="close-button" data-close aria-label="<%= t("decidim.shared.flag_modal.close") %>" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <% if model.reported_by? current_user %>
-    <p><%= t("decidim.shared.flag_modal.already_reported") %></p>
-  <% else %>
-    <p><%= t("decidim.shared.flag_modal.description") %></p>
-    <%= decidim_form_for report_form, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, html: { id: nil } do |f| %>
-      <fieldset>
-        <legend><%= t("decidim.shared.flag_modal.reason") %></legend>
-        <%= f.collection_radio_buttons :reason, [
-          [:spam, t("decidim.shared.flag_modal.spam")],
-          [:offensive, t("decidim.shared.flag_modal.offensive")],
-          [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
-        ], :first, :last do |builder| %>
-          <label><%= builder.radio_button(id: nil) + builder.text %></label>
-        <% end %>
-      </fieldset>
-      <%= f.text_area :details, rows: 4, id: "#{modal_id}_details", label_options: { for: "#{modal_id}_details" } %>
-      <%= f.submit t("decidim.shared.flag_modal.report") %>
-    <% end %>
+<%= decidim_modal id: modal_id do %>
+  <%= decidim_form_for report_form, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, html: { id: nil } do |f| %>
+    <div data-dialog-container>
+      <%= icon "flag-line" %>
+      <h2 id="dialog-title-<%= modal_id %>">
+        <%= t("decidim.shared.flag_modal.title") %>
+      </h2>
+
+      <% if model.reported_by? current_user %>
+        <p><%= t("decidim.shared.flag_modal.already_reported") %></p>
+      <% else %>
+        <p><%= t("decidim.shared.flag_modal.description") %></p>
+        <fieldset>
+          <legend><%= t("decidim.shared.flag_modal.reason") %></legend>
+          <%= f.collection_radio_buttons :reason, [
+            [:spam, t("decidim.shared.flag_modal.spam")],
+            [:offensive, t("decidim.shared.flag_modal.offensive")],
+            [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
+          ], :first, :last do |builder| %>
+            <label><%= builder.radio_button(id: nil) + builder.text %></label>
+          <% end %>
+        </fieldset>
+      <% end %>
+    </div>
+    <div data-dialog-actions>
+      <% unless model.reported_by? current_user %>
+        <%= f.text_area :details, rows: 4, id: "#{modal_id}_details", label_options: { for: "#{modal_id}_details" } %>
+        <%= f.submit t("decidim.shared.flag_modal.report") %>
+      <% end %>
+    </div>
   <% end %>
-</div>
+<% end %>
