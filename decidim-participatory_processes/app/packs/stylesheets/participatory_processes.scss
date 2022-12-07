@@ -132,5 +132,9 @@
     &-grid{
       @apply grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-16;
     }
+
+    &-reference{
+      @apply py-4 bg-background text-center text-gray-2 text-xs font-normal;
+    }
   }
 }
