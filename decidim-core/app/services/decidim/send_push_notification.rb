@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "web-push"
+require "gem_overrides/web_push/vapid_key"
 
 module Decidim
   # This class generates a notification based on the given event, for the given

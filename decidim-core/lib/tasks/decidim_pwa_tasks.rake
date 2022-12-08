@@ -1,6 +1,5 @@
 # frozen_string_literal: true
-
-require "web-push"
+require "gem_overrides/web_push/vapid_key"
 
 namespace :decidim do
   namespace :pwa do
