@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "gem_overrides/web_push/vapid_key"
 
 namespace :decidim do

@@ -3,6 +3,7 @@
 require "decidim/core/engine"
 require "decidim/core/api"
 require "decidim/core/version"
+require "gem_overrides/web_push/vapid_key"
 
 # Decidim configuration.
 module Decidim
