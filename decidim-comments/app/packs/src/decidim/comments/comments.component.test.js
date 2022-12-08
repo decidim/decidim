@@ -66,7 +66,7 @@ describe("CommentsComponent", () => {
 
       if (jqSelector === document) {
         return $doc;
-      } else if (jqSelector === ".order-by__dropdown .is-submenu-item a" && parent.is(subject.$element)) {
+      } else if (jqSelector === ".comment-order-by a.comment-order-by__item" && parent.is(subject.$element)) {
         return orderLinks;
       } else if (jqSelector === ".add-comment" && parent.is(subject.$element)) {
         return addComment;
@@ -362,7 +362,7 @@ describe("CommentsComponent", () => {
 
     $doc = $(document);
     addComment = $(".add-comment", subject.$element);
-    orderLinks = $(".order-by__dropdown .is-submenu-item a", subject.$element);
+    orderLinks = $(".comment-order-by a.comment-order-by__item", subject.$element);
 
     allToggles = $(".add-comment .opinion-toggle .button", subject.$element);
     allTextareas = $(".add-comment textarea", subject.$element);

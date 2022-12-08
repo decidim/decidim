@@ -6,7 +6,7 @@
   <ul id="<%= context_menu_id %>" class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
     <% unless reloaded? %>
       <li>
-        <button type="button" class="dropdown__item" data-dialog-open="<%= "flagModalComment#{model.id}" %>" title="<%= t("decidim.components.comment.report.action") %>" aria-controls="<%= "flagModalComment#{model.id}" %>" aria-haspopup="dialog" tabindex="0">
+        <button type="button" class="dropdown__item" data-dialog-open="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" title="<%= t("decidim.components.comment.report.action") %>" aria-controls="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" aria-haspopup="dialog" tabindex="0">
           <%= icon "flag-line" %>
           <span><%= t("decidim.components.comment.report.action") %></span>
         </button>
