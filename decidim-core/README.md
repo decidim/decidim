@@ -79,6 +79,3 @@ See [Decidim](https://github.com/decidim/decidim).
 ## License
 
 See [Decidim](https://github.com/decidim/decidim).
-
-
-just some random text 
