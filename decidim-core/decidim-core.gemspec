@@ -57,6 +57,8 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-google-oauth2", "~> 1.0"
   s.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
   s.add_dependency "omniauth-twitter", "~> 1.4"
+  # Open SSL V3 in pipeline
+  s.add_dependency 'openssl', '~> 3.0'
   s.add_dependency "paper_trail", "~> 12.0"
   s.add_dependency "pg", "~> 1.4.0", "< 2"
   s.add_dependency "pg_search", "~> 2.2"
@@ -76,7 +78,7 @@ Gem::Specification.new do |s|
   s.add_dependency "turbo-rails", ">= 1.3.0"
   s.add_dependency "valid_email2", "~> 4.0"
   s.add_dependency "webpacker", "= 6.0.0.rc.5"
-  s.add_dependency "webpush", "~> 1.1"
+  s.add_dependency "web-push", "~> 2.1"
   s.add_dependency "wisper", "~> 2.0"
 
   s.add_dependency "decidim-api", Decidim::Core.version
