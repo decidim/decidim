@@ -28,7 +28,12 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
     return unless uploader.validable_dimensions
     return if (image = extract_image(file)).blank?
 
-    record.errors.add attribute, I18n.t("carrierwave.errors.file_resolution_too_large") if image.dimensions.any? { |dimension| dimension > uploader.max_image_height_or_width }
+    resolution_too_large = begin
+      image.dimensions.any? { |dimension| dimension > uploader.max_image_height_or_width }
+    rescue MiniMagick::Error
+      true
+    end
+    record.errors.add attribute, I18n.t("carrierwave.errors.file_resolution_too_large") if resolution_too_large
   end
 
   def extract_image(file)
