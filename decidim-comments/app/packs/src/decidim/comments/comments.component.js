@@ -46,7 +46,6 @@ export default class CommentsComponent {
           $(".add-comment textarea", this.$element).prop("disabled", false);
         });
       }
-
     }
   }
 
@@ -158,7 +157,6 @@ export default class CommentsComponent {
     }
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
 
-
     $target.append($container);
     $container.foundation();
     this._initializeComments($container);
@@ -178,7 +176,7 @@ export default class CommentsComponent {
    */
   _finalizeCommentCreation($parent, fromCurrentUser) {
     if (fromCurrentUser) {
-      const $add = $(".add-comment:eq(0)", $parent);
+      const $add = $("> .add-comment", $parent);
       const $text = $("textarea", $add);
       const characterCounter = $text.data("remaining-characters-counter");
       $text.val("");

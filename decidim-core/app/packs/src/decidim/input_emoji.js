@@ -49,6 +49,10 @@ export class EmojiButton {
   }
 
   constructor(elem) {
+    if (elem.dataset.inputEmojiInitialized) {
+      return;
+    }
+
     const i18nConfig = EmojiButton.i18n();
     const i18n = i18nConfig.dictionary;
     const buttonText = i18nConfig.messages.buttonText;
@@ -126,6 +130,8 @@ export class EmojiButton {
       const event = new Event("emoji.added");
       elem.dispatchEvent(event);
     });
+
+    elem.dataset.inputEmojiInitialized = true;
   }
 }
 
