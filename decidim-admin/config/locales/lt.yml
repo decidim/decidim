@@ -547,7 +547,6 @@ lt:
         moderation: Globalūs moderavimai
         newsletters: Naujienlaiškiai
         participants: Dalyviai
-        reported_users: Raportuoti Naudotojai
         scope_types: Apimties tipai
         scopes: Apimtys
         settings: Nustatymai
@@ -646,7 +645,6 @@ lt:
           nickname: Slapyvardis
           reason: Priežastis
           reports: Raportavimų skaičius
-          title: Raportuotų dalyvių sąrašas
         report:
           reasons:
             does_not_belong: Nepriklauso
@@ -1087,8 +1085,6 @@ lt:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globalūs moderavimai
         newsletters:
           title: Naujienlaiškiai
         settings:
