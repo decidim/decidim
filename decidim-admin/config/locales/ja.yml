@@ -555,7 +555,6 @@ ja:
         moderation: グローバルモデレーション
         newsletters: ニュースレター
         participants: 参加者
-        reported_users: 報告済みユーザー
         scope_types: スコープ種別
         scopes: スコープ
         settings: 設定
@@ -654,7 +653,6 @@ ja:
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
-          title: 報告されたユーザー一覧
         report:
           reasons:
             does_not_belong: 所属していない
@@ -1110,8 +1108,6 @@ ja:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: グローバルモデレーション
         newsletters:
           title: ニュースレター
         settings:
