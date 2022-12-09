@@ -567,7 +567,6 @@ cs:
         moderation: Globální moderace
         newsletters: Zpravodaje
         participants: Účastníci
-        reported_users: Nahlášení uživatelé
         scope_types: Typ oblasti působnosti
         scopes: Oblasti působnosti
         settings: Nastavení
@@ -666,7 +665,6 @@ cs:
           nickname: Přezdívka
           reason: Důvod
           reports: Počet zpráv
-          title: Seznam nahlášených uživatelů
         report:
           reasons:
             does_not_belong: Nepatří
@@ -1125,8 +1123,6 @@ cs:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globální moderace
         newsletters:
           title: Zpravodaje
         settings:
