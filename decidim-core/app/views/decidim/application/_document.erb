@@ -1,7 +1,6 @@
 <div id="<%= dom_id(document) %>">
   <div class="card__list-content">
     <%= link_to document.url, target: "_blank", rel: "noopener noreferrer", class: "card__list-title", title: t("decidim.application.document.download") do %>
-      <%= icon "download-cloud-2-line", class: "inline-block w-4 h-4 mr-2 text-gray fill-current" %>
       <%= attachment_title(document) %>
     <% end %>
     <% if document.description.present? %>
@@ -18,7 +17,7 @@
               class: "button button__sm button__transparent-secondary flex-none",
               title: t("decidim.application.document.download"),
               data: { "external-link": false } do %>
-    <%= icon "download-cloud-2-line" %>
     <%= t("decidim.application.document.download") %>
+    <%= icon "download-line" %>
   <% end %>
 </div>
