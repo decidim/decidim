@@ -559,7 +559,6 @@ fr-CA:
         moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
-        reported_users: Utilisateurs signalés
         scope_types: Types de secteur
         scopes: Périmètres d’application
         settings: Paramètres
@@ -658,7 +657,6 @@ fr-CA:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
-          title: Liste des utilisateurs signalés
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -1115,8 +1113,6 @@ fr-CA:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Modération globale
         newsletters:
           title: Newsletters
         settings:
