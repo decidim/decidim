@@ -1086,7 +1086,7 @@ ro:
     decidim:
       admin:
         global_moderations:
-          title: Moderare globală
+          title: Moderări globale
         newsletters:
           title: Buletine informative
         settings:
