@@ -559,7 +559,6 @@ es:
         moderation: Moderaciones globales
         newsletters: Boletines
         participants: Participantes
-        reported_users: Usuarias reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         settings: Configuración
@@ -658,7 +657,6 @@ es:
           nickname: Alias
           reason: Motivo
           reports: Cantidad de veces reportado
-          title: Listando usuarios reportados
         report:
           reasons:
             does_not_belong: No pertenece
@@ -1115,8 +1113,6 @@ es:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderaciones globales
         newsletters:
           title: Boletines
         settings:
