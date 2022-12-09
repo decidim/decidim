@@ -31,33 +31,6 @@
     }
   }
 
-  &__form{
-    @apply flex flex-col py-10 gap-10;
-
-    &-block{
-      @apply py-10 border-t-2 border-background flex flex-col py-10 gap-4 only:[&_button]:ml-auto [&_p]:text-gray-2;
-    }
-
-    &-checkbox-label{
-      @apply text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline cursor-pointer;
-    }
-
-    & label:not(&-checkbox-label),
-    &-block label:not(&-checkbox-label){
-      @apply font-semibold text-lg;
-    }
-
-    .help-text{
-      @apply mt-4;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"]{
-      @apply w-full block mt-4;
-    }
-  }
-
   &__links{
     @apply flex flex-col gap-4 py-10 border-t-2 border-background;
 

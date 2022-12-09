@@ -47,6 +47,25 @@ describe "Explore meeting directory", type: :system do
     end
   end
 
+  describe "text filter" do
+    it "updates the current URL" do
+      create(:meeting, :published, component: components[0], title: { en: "Foobar meeting" })
+      create(:meeting, :published, component: components[1], title: { en: "Another meeting" })
+      visit directory
+
+      within "form.new_filter" do
+        fill_in("filter[title_or_description_cont]", with: "foobar")
+        click_button "Search"
+      end
+
+      expect(page).not_to have_content("Another meeting")
+      expect(page).to have_content("Foobar meeting")
+
+      filter_params = CGI.parse(URI.parse(page.current_url).query)
+      expect(filter_params["filter[title_or_description_cont]"]).to eq(["foobar"])
+    end
+  end
+
   describe "category filter" do
     context "with a category" do
       let!(:category1) { create(:category, participatory_space: participatory_process, name: { en: "Category1" }) }

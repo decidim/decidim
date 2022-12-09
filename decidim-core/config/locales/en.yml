@@ -383,7 +383,6 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
-      renew: Renew verification
       sms:
         explanation: Submit your mobile phone number so we can check your identity.
         name: Code by SMS
@@ -1008,8 +1007,10 @@ en:
         create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
         delete: "%{user_name} deleted %{resource_name}"
         delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        publish_with_space: "%{user_name} published %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} performed some action on %{resource_name}"
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
+        unpublish_with_space: "%{user_name} unpublished %{resource_name} from %{space_name}"
         update: "%{user_name} updated %{resource_name}"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
@@ -1938,6 +1939,7 @@ en:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

@@ -29,7 +29,7 @@ en:
         show_statistics: Show statistics
         sign_date: Sign date
         signature: Signature
-        signature_name: signature name
+        signature_name: Signature name
         slogan: Slogan
         slug: URL slug
         start_date: Start date
@@ -38,13 +38,13 @@ en:
         date: Date
         link: Link
         title: Title
-        weight: Weight
+        weight: Order position
       conference_partner:
         link: Link
         logo: Logo
         name: Name
         partner_type: Partner type
-        weight: Weight
+        weight: Order position
       conference_registration_invite:
         email: Email
         name: Name
@@ -54,7 +54,7 @@ en:
         description: Description
         price: Price
         title: Title
-        weight: Weight
+        weight: Order position
       conference_speaker:
         affiliation: Affiliation
         avatar: Avatar
@@ -135,7 +135,7 @@ en:
           title: Update conference admin.
           update: Update
         index:
-          conference_admins_title: conference admins
+          conference_admins_title: Conference admins
         new:
           create: Create
           title: New conference admin.
@@ -313,6 +313,7 @@ en:
           update: "%{user_name} updated the partner %{resource_name} in the %{space_name} conference"
         registration_type:
           create: "%{user_name} created the %{resource_name} registration type in the %{space_name} conference"
+          delete: "%{user_name} removed the %{resource_name} registration type from the %{space_name} conference"
           publish: "%{user_name} published the %{resource_name} registration type in the %{space_name} conference"
           unpublish: "%{user_name} unpublished the %{resource_name} registration type in the %{space_name} conference"
           update: "%{user_name} updated the %{resource_name} registration type in the %{space_name} conference"
