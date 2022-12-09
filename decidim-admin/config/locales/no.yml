@@ -531,7 +531,6 @@
         moderation: Globale moderasjoner
         newsletters: Nyhetsbrev
         participants: Deltakere
-        reported_users: Rapporterte brukere
         scope_types: Tematyper
         scopes: Tema
         settings: Innstillinger
@@ -630,7 +629,6 @@
           nickname: Kallenavn
           reason: Årsak
           reports: Antall rapporter
-          title: Oppføring rapporterte brukere
         report:
           reasons:
             does_not_belong: Tilhører ikke
@@ -1069,8 +1067,6 @@
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globale moderasjoner
         newsletters:
           title: Nyhetsbrev
         settings:
