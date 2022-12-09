@@ -418,48 +418,41 @@ shared_examples "comments" do
     context "when the user is writing a new comment while someone else comments" do
       let(:new_comment_body) { "Hey, I just jumped in the conversation!" }
       let(:new_comment) { build(:comment, commentable:, body: new_comment_body) }
+      let(:content) { "This is a new comment" }
 
       before do
-        within ".add-comment form" do
-          fill_in "#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment"
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+          field.set " "
+          field.native.send_keys content
         end
         new_comment.save!
       end
 
       it "does not clear the current user's comment" do
         expect(page).to have_content(new_comment.body.values.first, wait: 20)
-        expect(page).to have_field(
-          "#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
-          with: "This is a new comment"
-        )
+        expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to include(content)
       end
 
       context "when inside a thread reply form" do
         let(:thread) { comments.first }
         let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
         let(:new_reply) { build(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
+        let(:reply_content) { "This is a new reply" }
 
         before do
-          within "#comment_#{thread.id}" do
-            click_button "Publish reply"
-
-            within ".add-comment form" do
-              fill_in "#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}", with: "This is a new reply"
-            end
+          within "form#new_comment_for_#{thread.commentable_type.demodulize}_#{thread.id}" do
+            field = find("#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}")
+            field.set " "
+            field.native.send_keys reply_content
           end
           new_reply.save!
         end
 
         it "does not clear the current user's comment" do
           expect(page).to have_content(new_reply.body.values.first, wait: 20)
-          expect(page).to have_field(
-            "#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
-            with: "This is a new comment"
-          )
-          expect(page).to have_field(
-            "#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}",
-            with: "This is a new reply"
-          )
+          expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to include(content)
+          expect(page.find("#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}").value).to include(reply_content)
         end
       end
     end
@@ -555,7 +548,9 @@ shared_examples "comments" do
 
         it "the context menu of the comment doesn't show an edit button" do
           within "#comment_#{comment.id}" do
-            expect(page).to_not find("button", text: "Edit")
+            # Toolbar
+            page.find(".comment__header details summary").click
+            expect(page).to have_no_button("Edit")
           end
         end
       end
@@ -565,7 +560,8 @@ shared_examples "comments" do
 
         it "the context menu of the comment show an edit button" do
           within "#comment_#{comment.id}" do
-            expect(page.find("button", text: "Edit")).to be_present
+            # Toolbar
+            page.find(".comment__header details summary").click
             expect(page).to have_button("Edit")
           end
         end
@@ -573,10 +569,11 @@ shared_examples "comments" do
         context "when the user edits a comment" do
           before do
             within "#comment_#{comment.id}" do
-              page.find("label").click
+              # Toolbar
+              page.find(".comment__header details summary").click
               click_button "Edit"
             end
-            fill_in "edit_comment_#{comment.id}", with: "This comment has been fixed"
+            fill_in "edit_comment_#{comment.id}", with: " This comment has been fixed"
             click_button "Send"
           end
 
@@ -692,8 +689,10 @@ shared_examples "comments" do
       before do
         visit resource_path
 
-        within ".add-comment form" do
-          fill_in "#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: content
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+          field.set " "
+          field.native.send_keys content
         end
       end
 

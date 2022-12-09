@@ -2,7 +2,7 @@ import CommentsComponent from "src/decidim/comments/comments.component"
 
 window.Decidim.CommentsComponent = CommentsComponent;
 
-const initializer = () => {
+const commentsInitializer = () => {
   // Mount comments component
   $("[data-decidim-comments]").each((_i, el) => {
     const $el = $(el);
@@ -12,6 +12,6 @@ const initializer = () => {
   });
 }
 
-initializer();
+commentsInitializer();
 
-document.addEventListener("turbo:load", () => initializer());
+document.addEventListener("turbo:load", () => commentsInitializer());

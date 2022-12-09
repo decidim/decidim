@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 0 */
 import Tribute from "src/decidim/vendor/tribute"
 
-$(() => {
+const mentionsInitializer = () => {
   const $mentionContainer = $(".js-mentions");
   const nodatafound = $mentionContainer.attr("data-noresults");
 
@@ -184,5 +184,10 @@ $(() => {
       }
     });
   }, 1000);
-});
+}
 
+if ("Turbo" in window) {
+  document.addEventListener("turbo:load", () => mentionsInitializer());
+} else {
+  $(() => mentionsInitializer());
+}
