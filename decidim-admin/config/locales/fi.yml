@@ -559,7 +559,6 @@ fi:
         moderation: Yleiset moderoinnit
         newsletters: Uutiskirjeet
         participants: Osallistujat
-        reported_users: Ilmoitetut käyttäjät
         scope_types: Teematyypit
         scopes: Teemat
         settings: Asetukset
@@ -658,7 +657,6 @@ fi:
           nickname: Nimimerkki
           reason: Syy
           reports: Ilmoitusten määrä
-          title: Ilmoitettujen käyttäjien lista
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -1115,8 +1113,6 @@ fi:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Yleiset moderoinnit
         newsletters:
           title: Uutiskirjeet
         settings:
