@@ -941,8 +941,6 @@ ar:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: مُشرف عام
         newsletters:
           title: النشرات الإخبارية
         settings:
