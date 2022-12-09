@@ -29,14 +29,6 @@
     }
   }
 
-  &:hover{
-    @apply border-tertiary;
-  }
-
-  &:hover &-text > *:first-child{
-    @apply underline;
-  }
-
   &:hover &-button{
     @apply bg-secondary text-white border-transparent;
   }
