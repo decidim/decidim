@@ -559,7 +559,6 @@ ca:
         moderation: Moderacions globals
         newsletters: Butlletins
         participants: Participants
-        reported_users: Usuàries reportades
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         settings: Configuració
@@ -658,7 +657,6 @@ ca:
           nickname: Àlies
           reason: Raó
           reports: Número de denúncies
-          title: Llistant usuàries reportades
         report:
           reasons:
             does_not_belong: No pertany
@@ -1115,8 +1113,6 @@ ca:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderacions globals
         newsletters:
           title: Butlletins
         settings:
