@@ -552,7 +552,6 @@ ro:
         moderation: Moderări globale
         newsletters: Buletine informative
         participants: Participanți
-        reported_users: Utilizatori raportați
         scope_types: Tipuri de domenii
         scopes: Domenii de interes
         settings: Setări
@@ -651,7 +650,6 @@ ro:
           nickname: Pseudonim
           reason: Motiv
           reports: Număr de raportări
-          title: Listarea utilizatorilor raportați
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -1093,8 +1091,6 @@ ro:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderare globală
         newsletters:
           title: Buletine informative
         settings:
