@@ -286,6 +286,7 @@ es-MX:
           votes:
             one: voto
             other: votos
+          you_voted: Has votado esto
         project_budget_button:
           add: Añadir a tu voto
           add_descriptive: Añadir proyecto %{resource_name} a tu voto
