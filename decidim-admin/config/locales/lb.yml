@@ -484,7 +484,6 @@ lb:
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
-        reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -583,7 +582,6 @@ lb:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
-          title: Liste der gemeldeten Benutzer
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -1003,8 +1001,6 @@ lb:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:
