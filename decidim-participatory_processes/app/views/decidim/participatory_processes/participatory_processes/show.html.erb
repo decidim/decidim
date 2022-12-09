@@ -18,11 +18,13 @@
 
   <%= redesigned_participatory_space_floating_help %>
 
-  <% if current_participatory_space.private_space? %>
-    <%= cell("decidim/announcement", t("private_space", scope: "decidim.participatory_processes.show"), callout_class: "alert") %>
-  <% end %>
+  <div>
+    <% if current_participatory_space.private_space? %>
+      <%= cell("decidim/announcement", t("private_space", scope: "decidim.participatory_processes.show"), callout_class: "alert") %>
+    <% end %>
 
-  <%= cell("decidim/announcement", current_participatory_space.announcement) %>
+    <%= cell("decidim/announcement", current_participatory_space.announcement) %>
+  </div>
 
   <section class="content-block process__content-block">
     <div>
@@ -75,6 +77,10 @@
     <span class="process__content-block-span"><%= t("name", scope: "decidim.content_blocks.last_activity") %></span>
     <%#= REDESIGN_PENDING: user_activity requires a proper modal to make it work %>
     <%#= cell "decidim/user_activity", nil %>
+  </section>
+
+  <%#= REDESIGN_PENDING: the html block must include id="html-block-..." to span the full width %>
+  <section id="html-block-SEED">
   </section>
 
   <%#= REDESIGN_PENDING: proposals markup not ready %>
@@ -137,7 +143,8 @@
       <span class="process__content-block-span"><%= "Last published" %></span>
       <div class="process__block-grid">
         <% linked_blogs.each do |linked_blog| %>
-          <%= card_for(linked_blog) %>
+          <%#= card_for(linked_blog) %>
+          <%= cell "decidim/blogs/post_g", linked_blog %>
         <% end %>
       </div>
     </section>
