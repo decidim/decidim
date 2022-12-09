@@ -12,7 +12,7 @@
       &:focus,
       &:focus-visible,
       &:hover{
-        @apply border-tertiary [&_svg]:visible outline-none;
+        @apply border-tertiary outline-none;
       }
 
       svg{
