@@ -474,7 +474,6 @@ pt-BR:
         moderation: Moderadores globais
         newsletters: Newsletters
         participants: Participantes
-        reported_users: Usuários Reportados
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -573,7 +572,6 @@ pt-BR:
           nickname: Apelido
           reason: Motivo
           reports: Número de denúncias
-          title: Listando usuários reportados
         report:
           reasons:
             does_not_belong: Não pertence
@@ -986,8 +984,6 @@ pt-BR:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderações globais
         newsletters:
           title: Boletins informativos
         settings:
