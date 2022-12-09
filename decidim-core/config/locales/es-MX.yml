@@ -511,6 +511,10 @@ es-MX:
         view_all: Ver todo
       metrics:
         name: Métricas de la organización
+      static_page:
+        summary:
+          name: Resumen
+          summary_content: Contenido
       stats:
         name: Estadísticas de la organización
       sub_hero:
@@ -852,6 +856,7 @@ es-MX:
           edit_image: Editar imagen
           error: '¡Error!'
           file_size_too_large: '¡El archivo es demasiado grande! Peso de archivo máximo: %{megabytes}MB'
+          filename: Nombre del archivo
           remove: Eliminar
           replace: Reemplazar
           save: Guardar
@@ -860,7 +865,9 @@ es-MX:
           uploaded: Subido
           validating: Validando...
           validation_error: '¡Error de validación!'
+        select_file: Seleccione un archivo
       upload_help:
+        dropzone: Arrastra los archivos aquí o haz clic en el botón para subirlos
         explanation: Guía para %{attribute}
     gamification:
       all_badges_link: Ver todas los distintivos disponibles.
@@ -998,8 +1005,10 @@ es-MX:
         create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
         delete: "%{user_name} eliminó %{resource_name}"
         delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        publish_with_space: "%{user_name} ha publicado %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
+        unpublish_with_space: "%{user_name} ha despublicado %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
@@ -1925,6 +1934,7 @@ es-MX:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%d-%m-%Y %H:%M:%S"
+      long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
