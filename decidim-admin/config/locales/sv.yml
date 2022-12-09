@@ -559,7 +559,6 @@ sv:
         moderation: Global moderering
         newsletters: Nyhetsbrev
         participants: Deltagare
-        reported_users: Rapporterade användare
         scope_types: Omfattningstyper
         scopes: Omfattningar
         settings: Inställningar
@@ -658,7 +657,6 @@ sv:
           nickname: Användarnamn
           reason: Anledning
           reports: Antal anmälningar
-          title: Rapporterade användare
         report:
           reasons:
             does_not_belong: Tillhör inte
@@ -1115,8 +1113,6 @@ sv:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Global moderering
         newsletters:
           title: Nyhetsbrev
         settings:
