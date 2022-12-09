@@ -395,7 +395,6 @@ tr:
         moderation: Küresel denetimler
         newsletters: Haber bültenleri
         participants: Katılımcılar
-        reported_users: Raporlanan Kullanıcı
         scope_types: Kapsam türleri
         scopes: kapsamları
         settings: Ayarlar
@@ -491,7 +490,6 @@ tr:
           name: Adı
           nickname: Rumuz
           reason: Nedeni
-          title: Bildirilen kullanıcılar listesi
         report:
           reasons:
             does_not_belong: Ait değil
@@ -880,8 +878,6 @@ tr:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Küresel denetimler
         newsletters:
           title: Haber bültenleri
         settings:
