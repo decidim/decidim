@@ -9,7 +9,7 @@
     @apply text-lg prose max-w-2xl;
   }
 
-  & + &{
+  & ~ &{
     @apply border-t-2 border-background;
   }
 }
