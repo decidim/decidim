@@ -539,7 +539,6 @@ nl:
         moderation: Algemene moderatie
         newsletters: Nieuwsbrieven
         participants: Deelnemers
-        reported_users: Gerapporteerde gebruikers
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -638,7 +637,6 @@ nl:
           nickname: Bijnaam
           reason: Reden
           reports: Aantal rapporteringen
-          title: Gerapporteerde gebruikers weergeven
         report:
           reasons:
             does_not_belong: Hoort niet bij
@@ -1077,8 +1075,6 @@ nl:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Algemene moderatie
         newsletters:
           title: Nieuwsbrieven
         settings:
