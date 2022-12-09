@@ -37,8 +37,7 @@ shared_examples "comments" do
 
     expect(page).to have_css(".comment", minimum: 1)
 
-    within ".order-by" do
-      click_link "Older" # Opens the dropdown
+    within ".comment-order-by" do
       click_link "Best rated"
     end
 
@@ -60,13 +59,12 @@ shared_examples "comments" do
       expect(page).to have_no_content(deleted_comment.body.values.first)
       within "#comment_#{deleted_comment.id}" do
         expect(page).to have_content("Comment deleted on")
-        expect(page).to have_no_selector("comment__header")
         expect(page).to have_no_selector("comment__footer")
       end
     end
 
     it "counts only not deleted comments" do
-      expect(page).to have_selector("span.comments-count", text: "#{comments.length - 1} COMMENTS")
+      expect(page).to have_selector("span.comments-count", text: "#{comments.length - 1} comments")
     end
 
     context "when deleted comment has replies, they are shown" do
@@ -119,9 +117,12 @@ shared_examples "comments" do
       end
 
       it "updates the numbers of characters left correctly" do
-        within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment."
-          expect(page).to have_content("1978 characters left")
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+          field.set " "
+          field.native.send_keys "This is a new comment."
+
+          expect(page).to have_content("1977 characters left")
         end
       end
 
@@ -136,7 +137,7 @@ shared_examples "comments" do
         end
 
         it "updates the numbers of characters left correctly for screen reader" do
-          within ".add-comment form" do
+          within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
             fill_in field_id, with: "This is a new comment."
 
             # The screen reader character counter should update only when the user
@@ -208,10 +209,11 @@ shared_examples "comments" do
 
         context "when reaching the announce after every threshold" do
           it "updates the numbers of characters left correctly for screen reader" do
-            within ".add-comment form" do
+            within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
               # Test that when reaching the "announce after every" threshold, the
               # characters are announced after every keystroke.
-              fill_in field_id, with: "a" * 1989
+              field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+              field.set "a" * 1989
               within ".remaining-character-count" do
                 expect(page).to have_content("11 characters left") # Normal
               end
@@ -327,7 +329,7 @@ shared_examples "comments" do
             component.update!(settings: { comments_max_length: 3000 })
             visit current_path
 
-            within ".add-comment form" do
+            within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
               expect(page).to have_content("3000 characters left")
             end
           end
@@ -338,11 +340,15 @@ shared_examples "comments" do
             component.update!(settings: { comments_max_length: 100 })
             visit current_path
 
-            within ".add-comment form" do
-              find(:css, "textarea:enabled").set("toto")
+            within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+              field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+              field.set " "
+              field.native.send_keys "toto"
             end
+
             expect(page).not_to have_selector(".picmo-picker.picker")
-            within ".add-comment form" do
+
+            within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
               find(".emoji__button").click
             end
             expect(page).to have_selector(".picmo-picker.picker")
@@ -354,8 +360,10 @@ shared_examples "comments" do
             component.update!(settings: { comments_max_length: 30 })
             visit current_path
 
-            within ".add-comment form" do
-              find(:css, "textarea:enabled").set("0123456789012345678901234567")
+            within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+              field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+              field.set " "
+              field.native.send_keys("0123456789012345678901234567")
               find(".emoji__button").click
             end
             expect(page).not_to have_selector(".picmo-picker.picker")
@@ -365,25 +373,33 @@ shared_examples "comments" do
     end
 
     context "when user adds a new comment" do
+      let(:content) { "This is a new comment" }
+
       before do
-        within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment"
-          click_button "Send"
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+          field.set " "
+          field.native.send_keys content
+          click_button "Publish comment"
         end
       end
 
       it "shows comment to the user, updates the comments counter and clears the comment textarea" do
-        expect(page).to have_comment_from(user, "This is a new comment", wait: 20)
-        expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} COMMENTS")
-        expect(page).to have_field("add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "")
+        expect(page).to have_comment_from(user, content, wait: 20)
+        expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} comments")
+        expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to be_empty
       end
     end
 
     context "when user adds a new comment with a link" do
+      let(:content) { "Very nice http://www.debian.org linux distro"}
+
       before do
-        within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "Very nice http://www.debian.org linux distro"
-          click_button "Send"
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+          field.set " "
+          field.native.send_keys content
+          click_button "Publish comment"
         end
       end
 
@@ -405,7 +421,7 @@ shared_examples "comments" do
 
       before do
         within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment"
+          fill_in "#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment"
         end
         new_comment.save!
       end
@@ -413,7 +429,7 @@ shared_examples "comments" do
       it "does not clear the current user's comment" do
         expect(page).to have_content(new_comment.body.values.first, wait: 20)
         expect(page).to have_field(
-          "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
+          "#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
           with: "This is a new comment"
         )
       end
@@ -425,10 +441,10 @@ shared_examples "comments" do
 
         before do
           within "#comment_#{thread.id}" do
-            click_button "Reply"
+            click_button "Publish reply"
 
             within ".add-comment form" do
-              fill_in "add-comment-#{thread.commentable_type.demodulize}-#{thread.id}", with: "This is a new reply"
+              fill_in "#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}", with: "This is a new reply"
             end
           end
           new_reply.save!
@@ -437,11 +453,11 @@ shared_examples "comments" do
         it "does not clear the current user's comment" do
           expect(page).to have_content(new_reply.body.values.first, wait: 20)
           expect(page).to have_field(
-            "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
+            "#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}",
             with: "This is a new comment"
           )
           expect(page).to have_field(
-            "add-comment-#{thread.commentable_type.demodulize}-#{thread.id}",
+            "#add-comment-#{thread.commentable_type.demodulize}-#{thread.id}",
             with: "This is a new reply"
           )
         end
@@ -450,6 +466,7 @@ shared_examples "comments" do
 
     context "when the user has verified organizations" do
       let(:user_group) { create(:user_group, :verified) }
+      let(:content) { "This is a new comment" }
 
       before do
         create(:user_group_membership, user:, user_group:)
@@ -458,15 +475,15 @@ shared_examples "comments" do
       it "adds new comment as a user group" do
         visit resource_path
 
-        expect(page).to have_selector(".add-comment form")
-
-        within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "This is a new comment"
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+          field.set " "
+          field.native.send_keys content
           select user_group.name, from: "Comment as"
-          click_button "Send"
+          click_button "Publish comment"
         end
 
-        expect(page).to have_comment_from(user_group, "This is a new comment", wait: 20)
+        expect(page).to have_comment_from(user_group, content, wait: 20)
       end
     end
 
@@ -483,10 +500,8 @@ shared_examples "comments" do
 
         it "the context menu of the comment doesn't show a delete link" do
           within "#comment_#{comment.id}" do
-            within ".comment__header__context-menu" do
-              page.find("label").click
-              expect(page).to have_no_link("Delete")
-            end
+            page.find("label").click
+            expect(page).to have_no_link("Delete")
           end
         end
       end
@@ -496,10 +511,8 @@ shared_examples "comments" do
 
         it "the context menu of the comment shows a delete link" do
           within "#comment_#{comment.id}" do
-            within ".comment__header__context-menu" do
-              page.find("label").click
-              expect(page).to have_link("Delete")
-            end
+            page.find("label").click
+            expect(page).to have_link("Delete")
           end
         end
 
@@ -507,10 +520,8 @@ shared_examples "comments" do
           expect(Decidim::Comments::Comment.not_deleted.count).to eq(4)
 
           within "#comment_#{comment.id}" do
-            within ".comment__header__context-menu" do
-              page.find("label").click
-              click_link "Delete"
-            end
+            page.find("label").click
+            click_link "Delete"
           end
 
           within "div.confirm-reveal" do
@@ -522,10 +533,9 @@ shared_examples "comments" do
           within "#comment_#{comment.id}" do
             expect(page).to have_content("Comment deleted on")
             expect(page).to have_no_content comment_author.name
-            expect(page).to have_no_selector("comment__header")
             expect(page).to have_no_selector("comment__footer")
           end
-          expect(page).to have_selector("span.comments-count", text: "3 COMMENTS")
+          expect(page).to have_selector("span.comments-count", text: "3 comments")
 
           expect(Decidim::Comments::Comment.not_deleted.count).to eq(3)
         end
@@ -545,10 +555,7 @@ shared_examples "comments" do
 
         it "the context menu of the comment doesn't show an edit button" do
           within "#comment_#{comment.id}" do
-            within ".comment__header__context-menu" do
-              page.find("label").click
-              expect(page).to have_no_button("Edit")
-            end
+            expect(page).to_not find("button", text: "Edit")
           end
         end
       end
@@ -558,16 +565,14 @@ shared_examples "comments" do
 
         it "the context menu of the comment show an edit button" do
           within "#comment_#{comment.id}" do
-            within ".comment__header__context-menu" do
-              page.find("label").click
-              expect(page).to have_button("Edit")
-            end
+            expect(page.find("button", text: "Edit")).to be_present
+            expect(page).to have_button("Edit")
           end
         end
 
         context "when the user edits a comment" do
           before do
-            within "#comment_#{comment.id} .comment__header__context-menu" do
+            within "#comment_#{comment.id}" do
               page.find("label").click
               click_button "Edit"
             end
@@ -583,7 +588,7 @@ shared_examples "comments" do
           end
 
           it "the header of the comment displays an edited message" do
-            within "#comment_#{comment.id} .comment__header" do
+            within "#comment_#{comment.id}" do
               expect(page).to have_content("Edited")
             end
           end
@@ -594,43 +599,25 @@ shared_examples "comments" do
     context "when a user replies to a comment", :slow do
       let!(:comment_author) { create(:user, :confirmed, organization:) }
       let!(:comment) { create(:comment, commentable:, author: comment_author) }
+      let(:content) { "This is a reply" }
 
       it "shows reply to the user" do
         visit resource_path
-
-        expect(page).to have_selector(".comment__reply")
-        expect(page).not_to have_selector(".comment__additionalreply")
 
         within "#comments #comment_#{comment.id}" do
           click_button "Reply"
         end
 
         expect(page).to have_selector("#comment_#{comment.id} .add-comment")
-        fill_in "add-comment-Comment-#{comment.id}", with: "This is a reply"
-        within ".comment-thread .add-comment" do
-          click_button "Send"
+        within "form#new_comment_for_#{comment.commentable_type.demodulize}_#{comment.id}" do
+          field = find("#add-comment-#{comment.commentable_type.demodulize}-#{comment.id}")
+          field.set " "
+          field.native.send_keys content
+          click_button "Publish reply"
         end
 
-        expect(page).to have_selector(".comment-thread .comment--nested", wait: 20)
-        expect(page).to have_selector(".comment__additionalreply")
-        expect(page).to have_reply_to(comment, "This is a reply")
-        expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} COMMENTS")
-      end
-    end
-
-    context "when a comment has been moderated" do
-      let!(:parent) { create(:comment, commentable:) }
-      let!(:reply) { create(:comment, commentable: parent, root_commentable: commentable) }
-
-      it "doesn't show additional reply" do
-        Decidim::Moderation.create!(reportable: reply, participatory_space: reply.participatory_space, hidden_at: 1.day.ago)
-
-        visit current_path
-
-        within "#comments #comment_#{parent.id}" do
-          expect(page).to have_selector(".comment__reply")
-          expect(page).not_to have_selector(".comment__additionalreply")
-        end
+        expect(page).to have_reply_to(comment, content)
+        expect(page).to have_selector("span.comments-count", text: "#{commentable.comments.count} comments")
       end
     end
 
@@ -650,9 +637,11 @@ shared_examples "comments" do
             expect(page.find(".opinion-toggle--ko")["aria-pressed"]).to eq("false")
             expect(page.find(".opinion-toggle .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
 
-            within ".add-comment form" do
-              fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: "I am in favor about this!"
-              click_button "Send"
+            within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+              field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+              field.set " "
+              field.native.send_keys "I am in favor about this!"
+              click_button "Publish comment"
             end
 
             within "#comments" do
@@ -674,11 +663,11 @@ shared_examples "comments" do
         it "works according to the setting in the commentable" do
           within "#comment_#{comments[0].id}" do
             if commentable.comments_have_votes?
-              expect(page).to have_selector(".comment__votes--up", text: /0/)
-              page.find(".comment__votes--up").click
-              expect(page).to have_selector(".comment__votes--up", text: /1/)
+              expect(page).to have_selector(".js-comment__votes--up", text: /0/)
+              page.find(".js-comment__votes--up").click
+              expect(page).to have_selector(".js-comment__votes--up", text: /1/)
             else
-              expect(page).to have_no_selector(".comment__votes--up", text: /0/)
+              expect(page).to have_no_selector(".js-comment__votes--up", text: /0/)
             end
           end
         end
@@ -688,11 +677,11 @@ shared_examples "comments" do
         it "works according to the setting in the commentable" do
           within "#comment_#{comments[0].id}" do
             if commentable.comments_have_votes?
-              expect(page).to have_selector(".comment__votes--down", text: /0/)
-              page.find(".comment__votes--down").click
-              expect(page).to have_selector(".comment__votes--down", text: /1/)
+              expect(page).to have_selector(".js-comment__votes--down", text: /0/)
+              page.find(".js-comment__votes--down").click
+              expect(page).to have_selector(".js-comment__votes--down", text: /1/)
             else
-              expect(page).to have_no_selector(".comment__votes--down", text: /0/)
+              expect(page).to have_no_selector(".js-comment__votes--down", text: /0/)
             end
           end
         end
@@ -704,7 +693,7 @@ shared_examples "comments" do
         visit resource_path
 
         within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: content
+          fill_in "#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: content
         end
       end
 
@@ -750,9 +739,11 @@ shared_examples "comments" do
       before do
         visit resource_path
 
-        within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type.demodulize.demodulize}-#{commentable.id}", with: content
-          click_button "Send"
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+          field.set " "
+          field.native.send_keys content
+          click_button "Publish comment"
         end
       end
 
@@ -793,9 +784,11 @@ shared_examples "comments" do
       before do
         visit resource_path
 
-        within ".add-comment form" do
-          fill_in "add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}", with: content
-          click_button "Send"
+        within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+          field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+          field.set " "
+          field.native.send_keys content
+          click_button "Publish comment"
         end
       end
 

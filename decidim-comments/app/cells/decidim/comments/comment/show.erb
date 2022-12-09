@@ -33,10 +33,10 @@
         </div>
       <% end %>
     </div>
-    <div id="comment-<%= model.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
-      <% if has_replies_in_children? %>
-        <%= render :replies %>
-      <% end %>
-    </div>
   <% end %>
+  <div id="comment-<%= model.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
+    <% if has_replies_in_children? %>
+      <%= render :replies %>
+    <% end %>
+  </div>
 <% end %>
