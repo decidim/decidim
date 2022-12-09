@@ -539,7 +539,6 @@ pl:
         moderation: Globalne moderacje
         newsletters: Newslettery
         participants: Użytkownicy
-        reported_users: Zgłoszeni użytkownicy
         scope_types: Typy zakresów
         scopes: Zakresy
         settings: Ustawienia
@@ -638,7 +637,6 @@ pl:
           nickname: Pseudonim
           reason: Powód
           reports: Liczba zgłoszeń
-          title: Lista zgłoszonych użytkowników
         report:
           reasons:
             does_not_belong: Nie należy
@@ -1079,8 +1077,6 @@ pl:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globalne moderacje
         newsletters:
           title: Newslettery
         settings:
