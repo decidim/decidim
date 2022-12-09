@@ -551,6 +551,7 @@ fr-CA:
         area_types: Types de périmètre d'assemblée
         areas: Zones d'application
         configuration: Configuration
+        content: Contenu
         dashboard: Tableau de bord
         external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
@@ -559,6 +560,7 @@ fr-CA:
         moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
+        reported_users: Participants signalés
         scope_types: Types de secteur
         scopes: Périmètres d’application
         settings: Paramètres
@@ -657,6 +659,7 @@ fr-CA:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
+          title: Liste des participants
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -1113,6 +1116,8 @@ fr-CA:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Modération de contenu
         newsletters:
           title: Newsletters
         settings:
