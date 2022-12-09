@@ -486,7 +486,6 @@ it:
         moderation: Moderazione globale
         newsletters: Newsletters
         participants: Partecipanti
-        reported_users: Utenti Segnalati
         scope_types: Tipi di ambito
         scopes: Ambito tematico
         settings: Impostazioni
@@ -585,7 +584,6 @@ it:
           nickname: Nickname
           reason: Motivazione
           reports: Numero di segnalazioni
-          title: Elencando gli utenti segnalati
         report:
           reasons:
             does_not_belong: Non appartiene
@@ -1010,8 +1008,6 @@ it:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderazione globale
         newsletters:
           title: Newsletters
         settings:
