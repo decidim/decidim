@@ -114,6 +114,7 @@ fr-CA:
           verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité :'
         index:
           expired_verification: Vérification expiré
+          granted_verification: Vérification admise
           introduce_code: Introduire le code
           pending_verification: En attente de vérification
           show_renew_info: Cliquez pour renouveler la vérification
