@@ -21,6 +21,10 @@ module Decidim
       render
     end
 
+    def full_endorsers_list
+      render
+    end
+
     private
 
     def full_list?
