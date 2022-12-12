@@ -43,20 +43,10 @@
     }
 
     &-text{
-      @apply px-4 py-3 block text-secondary;
-
-      >*:first-child{
-        /* min-height: line-height * num_lines */
-        @apply min-h-[calc(25px*3)];
-
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
+      @apply px-4 py-3 flex flex-col gap-y-2 md:gap-y-4 text-gray-2;
     }
 
-    &:hover &-text{
+    &:hover &-text h3{
       @apply underline;
     }
   }
