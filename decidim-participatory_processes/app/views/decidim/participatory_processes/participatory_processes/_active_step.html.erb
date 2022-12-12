@@ -3,9 +3,8 @@
 <%= decidim_modal id: "process-steps-modal", class: "process__metadata-modal" do %>
 <div data-dialog-container>
   <%= icon "flag-line" %>
+  <h3 id="dialog-title-process-steps-modal" data-dialog-title><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h3>
   <div>
-    <h3 id="dialog-title-process-steps-modal" data-dialog-title><%= t("participatory_process_steps.index.process_steps", scope: "decidim") %></h3>
-
     <div class="process__metadata-modal__list-container" data-component="accordion" data-multiselectable="false" data-collapsible="false">
       <ol class="process__metadata-modal__list">
         <% current_participatory_space.steps.each_with_index do |step, i| %>
