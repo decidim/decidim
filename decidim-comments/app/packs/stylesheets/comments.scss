@@ -36,7 +36,7 @@
   }
 
   &-reply::after{
-    @apply bg-gray inline-block absolute top-8 h-4/5 w-px;
+    @apply bg-gray inline-block absolute top-8 h-4/5 w-px z-0;
 
     content: "";
   }
@@ -203,5 +203,29 @@
 
   &__opinion-container{
     @apply flex gap-x-6;
+
+    button.is-active{
+      svg:first-of-type{
+        @apply hidden;
+      }
+
+      svg:last-of-type{
+        @apply block;
+      }
+
+      span{
+        @apply font-bold;
+      }
+    }
+
+    button{
+      svg:first-of-type{
+        @apply block;
+      }
+
+      svg:last-of-type{
+        @apply hidden;
+      }
+    }
   }
 }
