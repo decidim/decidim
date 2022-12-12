@@ -6,14 +6,23 @@
   function updateEndorsementBlock() {
     var $endorsementBlock = $('#resource-<%= resource.id %>-endorsement-block');
     var $endorsementList = $('#resource-<%= resource.id %>-endorsement-block #dropdown-trigger');
-    var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button button');
+    var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button');
+    var $endorsementIdentitiesButton = $('#resource-<%= resource.id %>-endorsement-button #select-identity-button');
 
     if ($endorsementList.length == 0) {
       $endorsementBlock.prepend($(`<%= j(cell("decidim/endorsers_list_button", resource)).strip.html_safe %>`));
     } else {
       $endorsementList[0].outerHTML = '<%= j(cell("decidim/endorsers_list_button", resource)).strip.html_safe %>';
     }
-    $endorsementButton[0].innerHTML = '<%= j(cell("decidim/redesigned_endorsement_buttons", resource).button_content).strip.html_safe %>';
+
+    <%# If the endorsement button displays a modal to select the identity to endorse only the content of the button %>
+    <%# has to be updated to maintain the function of the button to open the modal. Otherwise the button has to be fully %>
+    <%# updated because the form request also changes %>
+    if ($endorsementIdentitiesButton.length == 0) {
+      $endorsementButton[0].outerHTML = '<%= j(cell("decidim/redesigned_endorsement_buttons", resource).show).strip.html_safe %>';
+    } else {
+      $endorsementIdentitiesButton[0].innerHTML = '<%= j(cell("decidim/redesigned_endorsement_buttons", resource).button_content).strip.html_safe %>';
+    }
   }
 <% else %>
   <% if Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.empty? %>
