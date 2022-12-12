@@ -5,14 +5,18 @@
 
   function updateEndorsementBlock() {
     var $endorsementBlock = $('#resource-<%= resource.id %>-endorsement-block');
-    var $endorsementList = $('#resource-<%= resource.id %>-endorsement-block #dropdown-trigger');
+    var $endorsementListTrigger = $('#resource-<%= resource.id %>-endorsement-block #dropdown-trigger');
     var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button');
     var $endorsementIdentitiesButton = $('#resource-<%= resource.id %>-endorsement-button #select-identity-button');
+    var $endorsementListGrid = $('#dropdown-menu-endorsers-list .endorsers-list__grid');
+    var endorsersCount = <%= j(cell("decidim/endorsers_list", resource).endorsers_count) %>
 
-    if ($endorsementList.length == 0) {
-      $endorsementBlock.prepend($(`<%= j(cell("decidim/endorsers_list_button", resource)).strip.html_safe %>`));
+    $endorsementListTrigger[0].innerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
+    $endorsementListGrid[0].innerHTML = '<%= j(cell("decidim/endorsers_list", resource).full_endorsers_list).strip.html_safe %>';
+    if (endorsersCount > 0) {
+      $endorsementListTrigger.removeClass('hidden');
     } else {
-      $endorsementList[0].outerHTML = '<%= j(cell("decidim/endorsers_list_button", resource)).strip.html_safe %>';
+      $endorsementListTrigger.addClass('hidden');
     }
 
     <%# If the endorsement button displays a modal to select the identity to endorse only the content of the button %>

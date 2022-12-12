@@ -14,8 +14,6 @@ module Decidim
     MAX_ITEMS_STACKED = 3
 
     def show
-      return unless base_relation.exists?
-
       return render :full if full_list?
 
       render
@@ -23,6 +21,10 @@ module Decidim
 
     def full_endorsers_list
       render
+    end
+
+    def endorsers_count
+      base_relation.count
     end
 
     private
@@ -44,10 +46,6 @@ module Decidim
 
     def base_relation
       @base_relation ||= model.endorsements.for_listing.includes(:author, :user_group)
-    end
-
-    def endorsers_count
-      base_relation.count
     end
   end
 end
