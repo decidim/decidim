@@ -88,7 +88,7 @@ module Decidim
     end
 
     def base_card_class
-      "card--#{dom_class(model)}"
+      "card--#{dom_class(model)} card__list"
     end
 
     def card_classes

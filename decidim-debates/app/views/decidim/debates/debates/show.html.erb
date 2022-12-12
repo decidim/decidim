@@ -43,8 +43,8 @@ edit_link(
     <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
       <%= link_to t(close_debate_action_text), Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "button hollow expanded button-sc button--icon follow-button" %>
     <% end %>
-    <div class="card extra">
-      <div class="card__content">
+    <div class="card__list extra">
+      <div class="card__list-content">
         <%= cell("decidim/date_range", { start: debate.start_time, end: debate.end_time }) %>
 
         <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
