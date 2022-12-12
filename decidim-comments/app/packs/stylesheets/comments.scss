@@ -10,6 +10,47 @@
   &__header{
     @apply flex items-center gap-x-2 mb-4;
   }
+
+  .tribute-container{
+    @apply w-full relative;
+
+    #results{
+      @apply absolute max-h-[225px] top-full left-0 right-0 p-0 my-2 rounded z-50 overflow-y-scroll bg-white;
+
+      border: 1px solid rgba(33, 33, 33, .1);
+
+      li{
+        @apply flex items-center gap-2 cursor-pointer px-4 py-2;
+      }
+
+      li:hover{
+        @apply cursor-pointer;
+
+        background-color: rgba(123, 123, 123, .1);
+      }
+
+      img{
+        @apply rounded-full w-6 h-6 object-cover;
+      }
+
+      span,
+      strong{
+        @apply font-semibold text-sm text-secondary;
+      }
+
+      small{
+        @apply font-normal text-gray-2 text-xs;
+      }
+
+      svg{
+        @apply w-4 h-4 text-primary fill-current;
+      }
+
+      .is-group{
+        @apply flex items-center gap-1;
+      }
+    }
+  }
 }
 
 .comment{
@@ -199,6 +240,15 @@
         @apply block;
       }
     }
+  }
+
+  &__content .user-mention{
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600;
+    --tw-text-opacity: 1;
+    color: rgb(21 90 191 / var(--tw-text-opacity));
+    color: rgb(var(--secondary-rgb) / var(--tw-text-opacity));
   }
 
   &__opinion-container{
