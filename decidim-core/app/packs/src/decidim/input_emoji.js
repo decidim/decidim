@@ -97,11 +97,13 @@ export class EmojiButton {
     }, {
       position: "bottom-end",
       triggerElement: btn,
+      className: "z-50",
       referenceElement
     });
 
     // Prevent the picker close button to submit the comment form
     picker.closeButton.type = "button";
+    picker.closeButton.style.zIndex = 51;
 
     let handlerPicker = () => {
       picker.toggle();
