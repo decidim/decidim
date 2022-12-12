@@ -6,7 +6,7 @@
   function updateEndorsementBlock() {
     var $endorsementBlock = $('#resource-<%= resource.id %>-endorsement-block');
     var $endorsementList = $('#resource-<%= resource.id %>-endorsement-block #dropdown-trigger');
-    var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button #select-identity-button');
+    var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button button');
 
     if ($endorsementList.length == 0) {
       $endorsementBlock.prepend($(`<%= j(cell("decidim/endorsers_list_button", resource)).strip.html_safe %>`));
