@@ -198,7 +198,10 @@ if ("Turbo" in window) {
   document.addEventListener("turbo:frame-render", () => initializer());
   document.addEventListener("turbo:load", () => initializer());
   document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
-  document.addEventListener("ajax:success", () => initializer());
+  document.addEventListener("ajax:success", () => {
+    const commentsContainer = document.getElementById("comments");
+    initializer(commentsContainer)
+  });
 } else {
   // If no jQuery is used the Tribute feature used in comments to autocomplete
   // mentions stops working

@@ -29,6 +29,7 @@ export default class CommentsComponent {
     this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
+    this.initialCommentsId = [];
   }
 
   /**
@@ -138,6 +139,8 @@ export default class CommentsComponent {
         // Attach event to the DOM node, instead of the jQuery object
         $text.get(0).addEventListener("emoji.added", this._onTextInput);
       }
+
+      this.initialCommentsId = this._getDataCommentsIds()
     });
   }
 
@@ -228,9 +231,18 @@ export default class CommentsComponent {
           successCallback();
         }
         Rails.fire(document, "ajax:success");
-        this._pollComments();
+        const getCommentsIdAfterAjax = this._getDataCommentsIds()
+        if(this.initialCommentsId.every((id, index)=> id !== getCommentsIdAfterAjax[index])) {
+          this._pollComments();
+          this.initialCommentsId = this._getDataCommentsIds()
+        }
       }
     });
+  }
+
+  _getDataCommentsIds() {
+    return Array.from(document.querySelectorAll('.comment'))
+      .map(({ dataset: { commentId } }) => commentId)
   }
 
   /**
