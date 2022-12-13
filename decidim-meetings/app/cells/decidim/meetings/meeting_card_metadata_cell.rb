@@ -9,7 +9,7 @@ module Decidim
 
       alias meeting model
 
-      delegate :type_of_meeting, :start_time, :end_time, to: :meeting
+      delegate :type_of_meeting, :start_time, :end_time, :category, to: :meeting
 
       def initialize(*)
         super
@@ -20,7 +20,7 @@ module Decidim
       private
 
       def meeting_items
-        [type, duration, official]
+        [type, category_item, duration, official]
       end
 
       def type
@@ -36,6 +36,15 @@ module Decidim
         {
           text: distance_of_time_in_words(start_time, end_time, scope: "datetime.distance_in_words.short"),
           icon: "time-line"
+        }
+      end
+
+      def category_item
+        return if category.blank?
+
+        {
+          text: category.translated_name,
+          icon: resource_type_icon_key("Decidim::Category")
         }
       end
 
