@@ -151,7 +151,7 @@
 
 .process-about{
   &__text{
-    @apply py-10;
+    @apply py-10 max-w-2xl;
   }
 
   &__aside{
