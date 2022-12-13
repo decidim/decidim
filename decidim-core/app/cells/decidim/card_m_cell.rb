@@ -88,7 +88,7 @@ module Decidim
     end
 
     def base_card_class
-      "card--#{dom_class(model)} card__list"
+      "card--#{dom_class(model)}"
     end
 
     def card_classes
@@ -119,8 +119,7 @@ module Decidim
     end
 
     def creation_date_status
-      explanation = content_tag(:strong, t("activemodel.attributes.common.created_at"))
-      "#{explanation}<br>#{l(model.created_at.to_date, format: :decidim_short)}"
+      "#{l(model.created_at.to_date, format: :decidim_short)}"
     end
 
     def follow_status
@@ -136,9 +135,7 @@ module Decidim
     end
 
     def render_comments_count
-      with_tooltip t("decidim.comments.comments_title") do
-        render :comments_counter
-      end
+      render :comments_counter
     end
 
     def render_authorship
