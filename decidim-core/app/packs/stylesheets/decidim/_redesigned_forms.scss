@@ -15,7 +15,7 @@
   select,
   textarea{
     &:not(.reset-defaults){
-      @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary invalid:outline-2 invalid:outline-alert disabled:bg-background-3 disabled:text-gray-2 disabled:cursor-not-allowed read-only:bg-background read-only:border-0 read-only:text-gray-2;
+      @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary invalid:outline-2 invalid:outline-alert disabled:bg-background-3 disabled:text-gray-2 disabled:cursor-not-allowed;
 
       &.sm{
         @apply px-1 py-0.5 text-sm;
@@ -24,6 +24,11 @@
       &.sm-icon{
         @apply pr-1 pl-6 py-0.5 text-sm;
       }
+    }
+
+    /* read-only can be applied only to input and textarea, otherwise selects will be set as readonly */
+    &:not(select){
+      @apply read-only:bg-background read-only:border-0 read-only:text-gray-2;
     }
   }
 
