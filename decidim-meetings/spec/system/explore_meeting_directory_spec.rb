@@ -12,6 +12,7 @@ describe "Explore meeting directory", type: :system do
       create_list(:meeting, 2, :published, :not_official, component:)
     end
   end
+  let(:redesign_enabled?) { Decidim.redesign_active }
 
   before do
     # Required for the link to be pointing to the correct URL with the server
@@ -125,17 +126,18 @@ describe "Explore meeting directory", type: :system do
       let!(:official_meeting) { create(:meeting, :published, :official, component: components.first, author: organization) }
 
       it "lists the filtered meetings" do
+        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+
         visit directory
 
-        within ".with_any_origin_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Official"
+        within "#panel-dropdown-menu-origin" do
+          click_filter_item "All"
+          click_filter_item "Official"
         end
 
-        expect(page).to have_content("1 MEETING")
-        expect(page).to have_css(".card--meeting", count: 1)
+        expect(page).to have_css(".meeting-list", count: 1)
 
-        within ".card--meeting" do
+        within ".meeting-list" do
           expect(page).to have_content("Official meeting")
         end
       end
@@ -145,11 +147,13 @@ describe "Explore meeting directory", type: :system do
       let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component: components.first) }
 
       it "lists the filtered meetings" do
+        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+
         visit directory
 
-        within ".with_any_origin_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Groups"
+        within "#panel-dropdown-menu-origin" do
+          click_filter_item "All"
+          click_filter_item "Groups"
         end
 
         expect(page).to have_css(".meeting-list", count: 1)
@@ -182,9 +186,11 @@ describe "Explore meeting directory", type: :system do
       let!(:online_meeting2) { create(:meeting, :published, :online, component: components.last) }
 
       it "allows filtering by type 'online'" do
-        within ".with_any_type_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Online"
+        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+
+        within "#panel-dropdown-menu-type" do
+          click_filter_item "All"
+          click_filter_item "Online"
         end
 
         expect(page).to have_content(online_meeting1.title["en"])
@@ -192,9 +198,11 @@ describe "Explore meeting directory", type: :system do
       end
 
       it "allows linking to the filtered view using a short link" do
-        within ".with_any_type_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Online"
+        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+
+        within "#panel-dropdown-menu-type" do
+          click_filter_item "All"
+          click_filter_item "Online"
         end
 
         expect(page).to have_content(online_meeting1.title["en"])
@@ -229,9 +237,11 @@ describe "Explore meeting directory", type: :system do
       let!(:in_person_meeting) { create(:meeting, :published, :in_person, component: components.last) }
 
       it "allows filtering by type 'in-person'" do
-        within ".with_any_type_check_boxes_tree_filter" do
-          uncheck "All"
-          check "In-person"
+        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+
+        within "#panel-dropdown-menu-type" do
+          click_filter_item "All"
+          click_filter_item "In-person"
         end
 
         expect(page).to have_content(in_person_meeting.title["en"])
@@ -314,28 +324,30 @@ describe "Explore meeting directory", type: :system do
     end
 
     it "allows filtering by space" do
+      skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+
       expect(page).to have_content(assembly_meeting.title["en"])
 
       # Since in the first load all the meeting are present, we need can't rely on
       # have_content to wait for the card list to change. This is a hack to
       # reset the contents to no meetings at all, and then showing only the upcoming
       # assembly meetings.
-      within ".with_any_date_collection_radio_buttons_filter" do
-        choose "Past"
+      within "#panel-dropdown-menu-date" do
+        click_filter_item "Past"
       end
 
-      expect(page).to have_no_css(".card--meeting")
-      within('form[id*="space_type"]') do
-        uncheck "All"
-        check "Assemblies"
+      expect(page).to have_no_css(".meeting-list")
+      within("#panel-dropdown-menu-space_type") do
+        click_filter_item "All"
+        click_filter_item "Assemblies"
       end
 
-      within ".with_any_date_collection_radio_buttons_filter" do
-        choose "Upcoming"
+      within "#panel-dropdown-menu-date" do
+        click_filter_item "Upcoming"
       end
 
       expect(page).to have_content(assembly_meeting.title["en"])
-      expect(page).to have_css(".card--meeting", count: 1)
+      expect(page).to have_css(".meeting-list", count: 1)
     end
   end
 end
