@@ -1,31 +1,54 @@
 <%= decidim_modal id: modal_id do %>
-  <%= decidim_form_for report_form, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, html: { id: nil } do |f| %>
+  <%= decidim_form_for report_form, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, html: { id: nil, class: "form__report form-defaults" } do |f| %>
     <div data-dialog-container>
-      <%= icon "flag-line" %>
-      <h2 id="dialog-title-<%= modal_id %>">
+      <%= icon "flag-line", class: "inline-block align-middle" %>
+      <h3 data-dialog-title id="dialog-title-<%= modal_id %>">
         <%= t("decidim.shared.flag_modal.title") %>
-      </h2>
+      </h3>
 
       <% if model.reported_by? current_user %>
-        <p><%= t("decidim.shared.flag_modal.already_reported") %></p>
+        <div>
+          <p class="text-lg text-gray-2 font-semibold mt-4">
+            <%= t("decidim.shared.flag_modal.already_reported") %>
+          </p>
+        </div>
       <% else %>
-        <p><%= t("decidim.shared.flag_modal.description") %></p>
-        <fieldset>
-          <legend><%= t("decidim.shared.flag_modal.reason") %></legend>
-          <%= f.collection_radio_buttons :reason, [
-            [:spam, t("decidim.shared.flag_modal.spam")],
-            [:offensive, t("decidim.shared.flag_modal.offensive")],
-            [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
-          ], :first, :last do |builder| %>
-            <label><%= builder.radio_button(id: nil) + builder.text %></label>
+        <div>
+          <p class="text-lg text-gray-2 font-semibold mt-4">
+            <%= t("decidim.shared.flag_modal.description") %>
+          </p>
+          <fieldset>
+            <legend><%= t("decidim.shared.flag_modal.reason") %></legend>
+            <%= f.collection_radio_buttons :reason, [
+              [:spam, t("decidim.shared.flag_modal.spam")],
+              [:offensive, t("decidim.shared.flag_modal.offensive")],
+              [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
+            ], :first, :last do |builder| %>
+              <div class="grid grid-cols-[min-content_1fr] content-start mb-4">
+                <%= builder.radio_button(id: nil) %>
+                <label>
+                  <%= builder.text %>
+                </label>
+              </div>
+            <% end %>
+          </fieldset>
+          <% unless model.reported_by? current_user %>
+            <%= f.text_area :details, class: "w-full rounded border min-h-[160px] border-text-gray-2 mt-2", id: "#{modal_id}_details", label_options: { for: "#{modal_id}_details", class: "text-gray-2" } %>
           <% end %>
-        </fieldset>
+        </div>
       <% end %>
     </div>
     <div data-dialog-actions>
+      <button class="button button__lg button__transparent-secondary" data-dialog-close="loginModal">
+        <%= t("cancel", scope: "decidim.admin.actions") %>
+      </button>
       <% unless model.reported_by? current_user %>
-        <%= f.text_area :details, rows: 4, id: "#{modal_id}_details", label_options: { for: "#{modal_id}_details" } %>
-        <%= f.submit t("decidim.shared.flag_modal.report") %>
+        <button type="submit" class="button button__lg button__secondary">
+          <span>
+            <%= t("decidim.shared.flag_modal.report") %>
+          </span>
+          <%= icon "arrow-right-line" %>
+        </button>
       <% end %>
     </div>
   <% end %>

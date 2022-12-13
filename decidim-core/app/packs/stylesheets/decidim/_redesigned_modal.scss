@@ -32,4 +32,19 @@
   [data-dialog-actions]{
     @apply flex justify-between items-center only:[&>*]:ml-auto;
   }
+
+  .form__report{
+    label{
+      @apply font-semibold text-lg mb-2;
+    }
+
+    fieldset label{
+      @apply inline-block text-md font-normal mb-0;
+    }
+
+    legend{
+      @apply text-lg my-4 block;
+    }
+  }
 }
+
