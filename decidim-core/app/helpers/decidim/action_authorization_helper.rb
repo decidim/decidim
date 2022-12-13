@@ -94,7 +94,7 @@ module Decidim
         url = arguments[0]
         html_options = arguments[1]
       else
-        body = arguments[0]
+        body = content_tag :span, arguments[0]
         url = arguments[1]
         html_options = arguments[2]
       end
