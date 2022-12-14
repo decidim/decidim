@@ -29,7 +29,7 @@
     }
   }
 
-  &:hover &-button{
+  &:hover &-button:not([disabled]){
     @apply bg-secondary text-white border-transparent;
   }
 
