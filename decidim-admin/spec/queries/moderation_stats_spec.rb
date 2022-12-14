@@ -55,6 +55,7 @@ module Decidim::Admin
         end
       end
     end
+
     describe "#count_pending_moderations" do
       context "when there is no data" do
         it "returns 0 matches" do
@@ -65,8 +66,8 @@ module Decidim::Admin
       context "when executing query" do
         context "when there are users reported" do
           before do
-            expect_any_instance_of(described_class).to receive(:count_user_pending_reports).and_return(2)
-            expect_any_instance_of(described_class).to receive(:count_content_moderations).and_return(0)
+            allow(query).to receive(:count_user_pending_reports).and_return(2)
+            allow(query).to receive(:count_content_moderations).and_return(0)
           end
 
           it "returns some matches" do
@@ -76,8 +77,8 @@ module Decidim::Admin
 
         context "when there is some content reported" do
           before do
-            expect_any_instance_of(described_class).to receive(:count_user_pending_reports).and_return(0)
-            expect_any_instance_of(described_class).to receive(:count_content_moderations).and_return(2)
+            allow(query).to receive(:count_user_pending_reports).and_return(0)
+            allow(query).to receive(:count_content_moderations).and_return(2)
           end
 
           it "displays the right number" do
@@ -87,9 +88,10 @@ module Decidim::Admin
 
         context "when we have users and content reported" do
           before do
-            expect_any_instance_of(described_class).to receive(:count_user_pending_reports).and_return(2)
-            expect_any_instance_of(described_class).to receive(:count_content_moderations).and_return(2)
+            allow(query).to receive(:count_user_pending_reports).and_return(2)
+            allow(query).to receive(:count_content_moderations).and_return(2)
           end
+
           it "displays the right number" do
             expect(query.count_pending_moderations).to eq(4)
           end
