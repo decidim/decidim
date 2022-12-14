@@ -3,7 +3,7 @@
     @apply absolute right-0 bg-background [&_button]:rounded-r-none [&_svg]:text-gray [&_svg]:fill-current;
 
     &:hover{
-      @apply [&_svg]:text-white;
+      @apply [&_svg]:text-secondary;
     }
   }
 
