@@ -1,5 +1,5 @@
 <%= decidim_modal id: modal_id do %>
-  <%= decidim_form_for report_form, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, html: { id: nil, class: "form__report form-defaults" } do |f| %>
+  <%= decidim_form_for report_form, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post, html: { id: nil, class: "modal__report form-defaults" } do |f| %>
     <div data-dialog-container>
       <%= icon "flag-line", class: "inline-block align-middle" %>
       <h3 data-dialog-title id="dialog-title-<%= modal_id %>">
@@ -8,13 +8,13 @@
 
       <% if model.reported_by? current_user %>
         <div>
-          <p class="text-lg text-gray-2 font-semibold mt-4">
+          <p class="modal__report-text">
             <%= t("decidim.shared.flag_modal.already_reported") %>
           </p>
         </div>
       <% else %>
         <div>
-          <p class="text-lg text-gray-2 font-semibold mt-4">
+          <p class="modal__report-text">
             <%= t("decidim.shared.flag_modal.description") %>
           </p>
           <fieldset>
@@ -24,9 +24,9 @@
               [:offensive, t("decidim.shared.flag_modal.offensive")],
               [:does_not_belong, t("decidim.shared.flag_modal.does_not_belong", organization_name: current_organization.name)]
             ], :first, :last do |builder| %>
-              <div class="grid grid-cols-[min-content_1fr] content-start mb-4">
-                <%= builder.radio_button(id: nil) %>
-                <label>
+              <div class="modal__report-container__radio">
+                <%= builder.radio_button(id: builder.value) %>
+                <label for="<%= builder.value %>">
                   <%= builder.text %>
                 </label>
               </div>
@@ -39,9 +39,6 @@
       <% end %>
     </div>
     <div data-dialog-actions>
-      <button class="button button__lg button__transparent-secondary" data-dialog-close="loginModal">
-        <%= t("cancel", scope: "decidim.admin.actions") %>
-      </button>
       <% unless model.reported_by? current_user %>
         <button type="submit" class="button button__lg button__secondary">
           <span>

@@ -33,9 +33,17 @@
     @apply flex justify-between items-center only:[&>*]:ml-auto;
   }
 
-  .form__report{
-    label{
-      @apply font-semibold text-lg mb-2;
+  .modal__report{
+    &-container__radio{
+      @apply grid grid-cols-[min-content_1fr] content-start mb-4;
+
+      label{
+        @apply font-semibold text-lg mb-2;
+      }
+    }
+
+    &-text{
+      @apply text-lg text-gray-2 font-semibold mt-4;
     }
 
     fieldset label{
@@ -47,4 +55,3 @@
     }
   }
 }
-
