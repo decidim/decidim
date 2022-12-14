@@ -15,6 +15,7 @@ describe "Explore results", versioning: true, type: :system do
       component:
     )
   end
+  let(:redesign_enabled?) { Decidim.redesign_active }
 
   before do
     component.update(settings: { scopes_enabled: true })
@@ -134,7 +135,7 @@ describe "Explore results", versioning: true, type: :system do
 
     it "shows all results for the given process and category" do
       within("#results") do
-        expect(page).to have_selector(".item-list", count: results_count)
+        expect(page).to have_selector(".card__list", count: results_count)
 
         results.each do |result|
           expect(page).to have_content(translated(result.title))
@@ -333,11 +334,12 @@ describe "Explore results", versioning: true, type: :system do
       it "shows related meetings" do
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
-          expect(page).to have_i18n_content(meeting.description)
         end
       end
 
       it "the result is mentioned in the meeting page" do
+        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled with drawers" unless redesign_enabled?
+
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(result.title)
       end
