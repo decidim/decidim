@@ -12,7 +12,6 @@ describe "Explore meeting directory", type: :system do
       create_list(:meeting, 2, :published, :not_official, component:)
     end
   end
-  let(:redesign_enabled?) { Decidim.redesign_active }
 
   before do
     # Required for the link to be pointing to the correct URL with the server
@@ -126,7 +125,7 @@ describe "Explore meeting directory", type: :system do
       let!(:official_meeting) { create(:meeting, :published, :official, component: components.first, author: organization) }
 
       it "lists the filtered meetings" do
-        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+        skip_unless_redesign_enabled
 
         visit directory
 
@@ -147,7 +146,7 @@ describe "Explore meeting directory", type: :system do
       let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component: components.first) }
 
       it "lists the filtered meetings" do
-        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+        skip_unless_redesign_enabled
 
         visit directory
 
@@ -186,7 +185,7 @@ describe "Explore meeting directory", type: :system do
       let!(:online_meeting2) { create(:meeting, :published, :online, component: components.last) }
 
       it "allows filtering by type 'online'" do
-        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+        skip_unless_redesign_enabled
 
         within "#panel-dropdown-menu-type" do
           click_filter_item "All"
@@ -198,7 +197,7 @@ describe "Explore meeting directory", type: :system do
       end
 
       it "allows linking to the filtered view using a short link" do
-        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+        skip_unless_redesign_enabled
 
         within "#panel-dropdown-menu-type" do
           click_filter_item "All"
@@ -237,7 +236,7 @@ describe "Explore meeting directory", type: :system do
       let!(:in_person_meeting) { create(:meeting, :published, :in_person, component: components.last) }
 
       it "allows filtering by type 'in-person'" do
-        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+        skip_unless_redesign_enabled
 
         within "#panel-dropdown-menu-type" do
           click_filter_item "All"
@@ -324,7 +323,7 @@ describe "Explore meeting directory", type: :system do
     end
 
     it "allows filtering by space" do
-      skip "REDESIGN_PREPARED: This test works when redesign is fully enabled" unless redesign_enabled?
+      skip_unless_redesign_enabled
 
       expect(page).to have_content(assembly_meeting.title["en"])
 

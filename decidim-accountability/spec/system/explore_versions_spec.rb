@@ -21,7 +21,6 @@ describe "Explore versions", versioning: true, type: :system do
       component:
     )
   end
-  let(:redesign_enabled?) { Decidim.redesign_active }
 
   before do
     Decidim.traceability.update!(
@@ -62,7 +61,8 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the version author and creation date" do
-      skip "REDESIGN_PREPARED: This test works when redesign is fully enabled with redesigned version_author cell" unless redesign_enabled?
+      skip_unless_redesign_enabled("this test pass using redesigned version_author cell")
+
       within ".version__author" do
         expect(page).to have_content("test suite")
         expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))

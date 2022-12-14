@@ -15,7 +15,6 @@ describe "Explore results", versioning: true, type: :system do
       component:
     )
   end
-  let(:redesign_enabled?) { Decidim.redesign_active }
 
   before do
     component.update(settings: { scopes_enabled: true })
@@ -338,7 +337,7 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "the result is mentioned in the meeting page" do
-        skip "REDESIGN_PREPARED: This test works when redesign is fully enabled with drawers" unless redesign_enabled?
+        skip_unless_redesign_enabled("this test pass with drawers enabled")
 
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(result.title)
