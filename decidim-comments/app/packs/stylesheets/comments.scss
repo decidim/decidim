@@ -246,9 +246,10 @@
     font-size: 14px;
     line-height: 18px;
     font-weight: 600;
-    --tw-text-opacity: 1;
     color: rgb(21 90 191 / var(--tw-text-opacity));
     color: rgb(var(--secondary-rgb) / var(--tw-text-opacity));
+
+    --tw-text-opacity: 1;
   }
 
   &__opinion-container{

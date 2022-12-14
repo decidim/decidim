@@ -232,7 +232,7 @@ export default class CommentsComponent {
         }
         Rails.fire(document, "ajax:success");
         const getCommentsIdAfterAjax = this._getDataCommentsIds()
-        if(this.initialCommentsId.every((id, index)=> id !== getCommentsIdAfterAjax[index])) {
+        if (this.initialCommentsId.every((id, index) => id !== getCommentsIdAfterAjax[index])) {
           this._pollComments();
           this.initialCommentsId = this._getDataCommentsIds()
         }
@@ -241,8 +241,7 @@ export default class CommentsComponent {
   }
 
   _getDataCommentsIds() {
-    return Array.from(document.querySelectorAll('.comment'))
-      .map(({ dataset: { commentId } }) => commentId)
+    return Array.from(document.querySelectorAll(".comment")).map(({ dataset: { commentId } }) => commentId)
   }
 
   /**
