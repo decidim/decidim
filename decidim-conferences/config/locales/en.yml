@@ -407,7 +407,6 @@ en:
           cancel: Cancel
           confirm: Confirm
         show:
-          free: Free
           going: Attending
           no_slots_available: No slots available
           registration: Registration
