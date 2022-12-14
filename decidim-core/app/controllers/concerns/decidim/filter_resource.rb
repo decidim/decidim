@@ -53,6 +53,9 @@ module Decidim
         @filter_params = begin
           passed_params = params.to_unsafe_h[:filter].try(:symbolize_keys) || {}
           passed_params.transform_values! { |value| value == all_value ? nil : value } if all_value.present?
+          # REDESIGN_PENDING - This behaviour should be produced on js
+          # manipulation of query params
+          passed_params.transform_values! { |values| values.is_a?(Array) && values.count(&:blank?) > 1 ? [""] : values }
           default_filter_params.merge(passed_params.slice(*default_filter_params.keys))
         end
       end
