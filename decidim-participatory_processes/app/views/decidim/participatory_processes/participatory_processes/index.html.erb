@@ -19,7 +19,7 @@ edit_link(
 <% content_for :aside do %>
   <h1 class="h3 md:h1 decorator"><%= t("decidim.menu.processes") %></h1>
 
-  <%= render partial: "filters" %>
+  <%= render partial: "decidim/shared/filters" %>
 <% end %>
 
 <%= render layout:"layouts/decidim/shared/layout_two_col" do %>
