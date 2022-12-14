@@ -108,8 +108,8 @@ describe "Assemblies", type: :system do
       end
 
       it "lists the parent assemblies" do
-        within "#parent-assemblies" do
-          within "#parent-assemblies h3" do
+        within "#assemblies-grid" do
+          within "#assemblies-grid h2" do
             expect(page).to have_content("2")
           end
 
