@@ -7,8 +7,6 @@ module RedesignHelpers
     skip [base_message, extra_message].compact_blank.join(" - ") unless redesign_enabled_by_configuration?
   end
 
-  private
-
   def redesign_enabled_by_configuration?
     @redesign_enabled_by_configuration ||= Decidim.redesign_active
   end
