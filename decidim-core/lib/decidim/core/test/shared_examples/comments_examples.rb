@@ -392,7 +392,7 @@ shared_examples "comments" do
     end
 
     context "when user adds a new comment with a link" do
-      let(:content) { "Very nice http://www.debian.org linux distro"}
+      let(:content) { "Very nice http://www.debian.org linux distro" }
 
       before do
         within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
