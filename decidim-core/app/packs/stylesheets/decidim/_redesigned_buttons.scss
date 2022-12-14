@@ -65,8 +65,8 @@
     @apply text-gray bg-background-3 border border-gray;
   }
 
-  &__transparent:hover,
-  &:not([class*="button__text"]):hover{
+  &__transparent:not([disabled]):hover,
+  &:not([disabled]):not([class*="button__text"]):hover{
     @apply text-white;
 
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), theme('colors.secondary');
