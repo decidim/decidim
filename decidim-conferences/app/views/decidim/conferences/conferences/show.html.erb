@@ -60,7 +60,7 @@ edit_link(
         <% end %>
         <% current_participatory_space.components.where(manifest_name: "meetings").each do |component_meeting| %>
           <% if component_meeting.published? || component_meeting == self.try(:current_component) %>
-            <%= link_to "#{t("title", scope: "decidim.conference_program.index")}: #{translated_attribute(component_meeting.name)}", decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__transparent-secondary" %>
+            <%= link_to translated_attribute(component_meeting.name), decidim_conferences.conference_conference_program_path(current_participatory_space, id: component_meeting.id), class:"button button__lg button__transparent-secondary" %>
           <% end %>
         <% end %>
       </div>
