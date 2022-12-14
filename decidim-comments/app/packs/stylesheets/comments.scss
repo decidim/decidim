@@ -278,6 +278,10 @@
       }
     }
   }
+
+  &__deleted{
+    @apply font-bold;
+  }
 }
 
 a[href*="/users/sign_"]{
