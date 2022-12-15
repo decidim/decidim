@@ -118,6 +118,7 @@ es:
           introduce_code: Introduce el código
           pending_verification: Pendiente de verificación
           show_renew_info: Haz click aquí para renovar la verificación
+          subscribe: Suscribirse
           unauthorized_methods: Metodos de verificación
         new:
           authorize: Enviar
