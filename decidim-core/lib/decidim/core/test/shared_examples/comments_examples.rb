@@ -493,7 +493,7 @@ shared_examples "comments" do
 
         it "the context menu of the comment doesn't show a delete link" do
           within "#comment_#{comment.id}" do
-            page.find("label").click
+            page.find(".comment__header details summary").click
             expect(page).to have_no_link("Delete")
           end
         end
@@ -504,7 +504,7 @@ shared_examples "comments" do
 
         it "the context menu of the comment shows a delete link" do
           within "#comment_#{comment.id}" do
-            page.find("label").click
+            page.find(".comment__header details summary").click
             expect(page).to have_link("Delete")
           end
         end
@@ -513,7 +513,7 @@ shared_examples "comments" do
           expect(Decidim::Comments::Comment.not_deleted.count).to eq(4)
 
           within "#comment_#{comment.id}" do
-            page.find("label").click
+            page.find(".comment__header details summary").click
             click_link "Delete"
           end
 
@@ -702,7 +702,7 @@ shared_examples "comments" do
 
         context "when text finish with a mention" do
           it "shows the tribute container" do
-            expect(page).to have_selector(".tribute-container", text: mentioned_user.name)
+            expect(page).to have_selector(".tribute-container", text: mentioned_user.name, wait: 10)
           end
         end
 
@@ -729,7 +729,7 @@ shared_examples "comments" do
         let(:content) { "A confirmed user group mention: @#{mentioned_group.nickname}" }
 
         it "shows the tribute container" do
-          expect(page).to have_selector(".tribute-container")
+          expect(page).to have_selector(".tribute-container", text: mentioned_group.nickname, wait: 10)
         end
       end
     end

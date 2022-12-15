@@ -12,6 +12,5 @@ const commentsInitializer = () => {
   });
 }
 
-commentsInitializer();
-
+document.addEventListener("DOMContentLoaded", () => commentsInitializer());
 document.addEventListener("turbo:load", () => commentsInitializer());
