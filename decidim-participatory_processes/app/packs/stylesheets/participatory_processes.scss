@@ -1,3 +1,5 @@
+/* REDESIGN_PENDING: CSS inside this block is the same as assemblies
+  move to content-block (in core) when merge https://github.com/decidim/decidim/pull/9658 */
 .process{
   &__hero{
     @apply backdrop-brightness-[30%];

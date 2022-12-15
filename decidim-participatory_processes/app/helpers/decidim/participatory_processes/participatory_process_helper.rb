@@ -68,8 +68,7 @@ module Decidim
         render partial: name, locals: { name => promoted_item }.symbolize_keys
       end
 
-            # Items to display in the navigation of a process
-      #
+      # Items to display in the navigation of a process
       def process_nav_items
         components = current_participatory_space.components.published.or(Decidim::Component.where(id: self.try(:current_component)))
 
