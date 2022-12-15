@@ -1,5 +1,5 @@
 $(() => {
-  var rootCommentableId = <%== "comments-for-#{@comment.commentable.commentable_type.demodulize}-#{@comment.commentable.id}".to_json %>;
+  var rootCommentableId = <%== "comments-for-#{@commentable.class.name.demodulize}-#{@commentable.id}".to_json %>;
   var $comments = $("#" + rootCommentableId);
   var config = $comments.data("decidim-comments");
 
@@ -12,7 +12,6 @@ $(() => {
 
   $comment.replaceWith(commentHtml);
 
-  $comments = $("#" + rootCommentableId);
   $comments.foundation();
 
   // Re-create the component
