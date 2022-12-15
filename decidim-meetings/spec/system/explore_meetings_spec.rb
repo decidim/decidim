@@ -124,6 +124,8 @@ describe "Explore meetings", :slow, type: :system do
     context "when filtering" do
       context "when filtering by text" do
         it "updates the current URL" do
+          skip_unless_redesign_enabled
+
           create(:meeting, :published, component:, title: { en: "Foobar meeting" })
           create(:meeting, :published, component:, title: { en: "Another meeting" })
           visit_component
@@ -155,6 +157,8 @@ describe "Explore meetings", :slow, type: :system do
 
         context "with 'official' origin" do
           it "lists the filtered meetings" do
+            skip_unless_redesign_enabled
+
             visit_component
 
             within "#panel-dropdown-menu-origin" do
@@ -172,6 +176,8 @@ describe "Explore meetings", :slow, type: :system do
 
         context "with 'groups' origin" do
           it "lists the filtered meetings" do
+            skip_unless_redesign_enabled
+
             visit_component
 
             within "#panel-dropdown-menu-origin" do
@@ -188,6 +194,8 @@ describe "Explore meetings", :slow, type: :system do
 
         context "with 'participants' origin" do
           it "lists the filtered meetings" do
+            skip_unless_redesign_enabled
+
             visit_component
 
             within "#panel-dropdown-menu-origin" do
@@ -588,6 +596,8 @@ describe "Explore meetings", :slow, type: :system do
 
     shared_examples_for "a closing report page" do
       it "shows the closing report" do
+        skip_unless_redesign_enabled
+
         visit_component
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(meeting.closing_report)
