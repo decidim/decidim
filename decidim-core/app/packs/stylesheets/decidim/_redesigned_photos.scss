@@ -2,7 +2,7 @@
   @apply cursor-pointer text-left focus-visible:outline-none;
 
   &__container{
-    @apply mt-10 grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-10 md:gap-12 place-items-start;
+    @apply grid grid-cols-2 md:grid-cols-5 gap-x-4 gap-y-10 md:gap-12 place-items-start;
   }
 
   &__img{

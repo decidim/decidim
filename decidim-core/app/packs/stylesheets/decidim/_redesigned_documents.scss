@@ -1,6 +1,6 @@
 .documents{
   &__container{
-    @apply mt-10 divide-y divide-background [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0;
+    @apply divide-y divide-background [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0;
 
     > *{
       @apply flex items-center justify-between gap-4;
