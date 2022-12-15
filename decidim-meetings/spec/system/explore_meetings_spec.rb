@@ -187,7 +187,7 @@ describe "Explore meetings", :slow, type: :system do
 
             expect(page).to have_css(".meeting-list", count: 1)
             within ".meeting-list" do
-              expect(page).to have_content(user_group_meeting.normalized_author.name)
+              expect(page).to have_content(translated(user_group_meeting.title))
             end
           end
         end
@@ -214,22 +214,11 @@ describe "Explore meetings", :slow, type: :system do
         visit_component
 
         within "form.new_filter" do
-          fill_in("filter[search_text_cont]", with: "foobar")
+          fill_in("filter[search_text_cont]", with: translated(meetings.first.title))
           within "div.filter-search" do
             click_button
           end
         end
-
-        # within ".filters" do
-        #   # It seems that there's another field with the same name in another form on page.
-        #   # Because of that we try to select the correct field to set the value and submit the right form
-        #   find(:css, "#content form.new_filter [name='filter[search_text_cont]']").set(translated(meetings.first.title))
-
-        #   # The form should be auto-submitted when filter box is filled up, but
-        #   # somehow it's not happening. So we workaround that be explicitly
-        #   # clicking on "Search" until we find out why.
-        #   find("#content form.new_filter .icon--magnifying-glass").click
-        # end
 
         expect(page).to have_css(".meeting-list", count: 1)
         expect(page).to have_content(translated(meetings.first.title))
