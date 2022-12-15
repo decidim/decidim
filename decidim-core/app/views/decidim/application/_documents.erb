@@ -1,6 +1,4 @@
 <% if documents.any? %>
-  <h2 class="h4 md:h3 decorator"><%= t("decidim.application.documents.related_documents") %></h2>
-
   <% if (documents_without_collection = documents.reject(&:attachment_collection_id?)).any? %>
   <div class="documents__container">
     <% documents_without_collection.each do |document| %>
