@@ -206,7 +206,6 @@ describe "Explore meetings", :slow, type: :system do
         skip_unless_redesign_enabled
 
         visit_component
-        visit_component
 
         within "form.new_filter" do
           fill_in("filter[search_text_cont]", with: "foobar")
@@ -242,7 +241,6 @@ describe "Explore meetings", :slow, type: :system do
           skip_unless_redesign_enabled
 
           visit_component
-          visit_component
 
           within "#panel-dropdown-menu-date" do
             click_filter_item "Past"
@@ -274,7 +272,6 @@ describe "Explore meetings", :slow, type: :system do
           it "orders them by start date" do
             skip_unless_redesign_enabled
 
-            visit_component
             visit_component
             within "#panel-dropdown-menu-date" do
               click_filter_item "Past"
@@ -309,7 +306,6 @@ describe "Explore meetings", :slow, type: :system do
           it "orders them by start date" do
             skip_unless_redesign_enabled
 
-            visit_component
             page.visit "#{main_component_path(component)}?per_page=20"
             within "#panel-dropdown-menu-date" do
               click_filter_item "All"
@@ -331,7 +327,6 @@ describe "Explore meetings", :slow, type: :system do
         skip_unless_redesign_enabled
 
         past_meeting = create(:meeting, :published, component:, start_time: 1.day.ago)
-        visit_component
         visit_component
 
         within "#panel-dropdown-menu-date" do
@@ -374,7 +369,6 @@ describe "Explore meetings", :slow, type: :system do
         meeting.save
 
         visit_component
-        visit_component
 
         within "#panel-dropdown-menu-scope" do
           click_filter_item "All"
@@ -392,7 +386,6 @@ describe "Explore meetings", :slow, type: :system do
         meeting.scope = scope
         meeting.save
 
-        visit_component
         visit_component
 
         within "#panel-dropdown-menu-scope" do
@@ -473,9 +466,6 @@ describe "Explore meetings", :slow, type: :system do
         end_time: date.end_of_day
       )
 
-      # REDESIGN - Visit component first to ensure the redesigned layout is
-      # loaded
-      visit_component
       visit resource_locator(meeting).path
     end
 
