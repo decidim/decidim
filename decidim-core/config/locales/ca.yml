@@ -756,7 +756,7 @@ ca:
         resource_hidden:
           email_intro: Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}.
           email_outro: Has rebut aquesta notificació perquè ets autora d'un contingut eliminat.
-          email_subject: S'ha eliminat el teu %{resource_type}
+          email_subject: S'ha eliminat el/la teu/teva %{resource_type}
           notification_title: |-
             Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}..</br>
             <i>%{resource_content}</i>
