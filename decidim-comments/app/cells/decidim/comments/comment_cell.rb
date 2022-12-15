@@ -64,10 +64,6 @@ module Decidim
         SortedComments.for(model, order_by: order)
       end
 
-      def replies_count
-        SortedComments.new(model, order_by: order).count_replies(model)
-      end
-
       def order
         options[:order] || "older"
       end
