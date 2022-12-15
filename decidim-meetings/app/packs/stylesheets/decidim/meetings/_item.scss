@@ -10,7 +10,7 @@
   }
 
   &__calendar{
-    @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center border-4 border-r-0 border-background only:border-r-4;
+    @apply w-14 flex flex-col justify-start rounded overflow-hidden bg-background text-center;
 
     &:only-child &-month{
       @apply rounded-t;
@@ -47,7 +47,7 @@
     }
 
     &__lg{
-      @apply w-fit flex-none justify-center [&>*]:px-2;
+      @apply w-fit flex-none justify-center [&>*]:px-2 border-4 border-r-0 border-background only:border-r-4;
     }
 
     &__lg &-month{
