@@ -98,6 +98,7 @@ export default class CommentsComponent {
     const $comment = $(replyHtml);
     const $replies = $(`#comment-${commentId}-replies`);
     this._addComment($replies, $comment);
+    $replies.addClass("comment-reply");
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
