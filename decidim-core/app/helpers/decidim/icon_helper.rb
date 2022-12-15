@@ -24,6 +24,7 @@ module Decidim
       "Decidim::Consultation" => "question-mark", # REDESIGN_PENDING: icon unknown
       "Decidim::Votings::Voting" => "check-double-fill",
       "Decidim::Accountability::Result" => "treasure-map-line",
+      "comments_count" => "wechat-line",
       "upcoming" => "calendar-2-line",
       "past" => "calendar-check-line",
       "in_person" => "community-line",

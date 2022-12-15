@@ -56,5 +56,15 @@ module Decidim
     def official?
       model.respond_to?(:official?) && model.official?
     end
+
+    def comments_count
+      return unless model.is_a?(Decidim::Comments::Commentable) && model.commentable?
+      return if (count = model.comments_count).zero?
+
+      {
+        text: count,
+        icon: resource_type_icon_key(:comments_count)
+      }
+    end
   end
 end

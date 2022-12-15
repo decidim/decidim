@@ -9,7 +9,7 @@ module Decidim
 
       alias meeting model
 
-      delegate :type_of_meeting, :start_time, :end_time, :category, to: :meeting
+      delegate :type_of_meeting, :start_time, :end_time, :category, :withdrawn?, to: :meeting
 
       def initialize(*)
         super
@@ -20,7 +20,7 @@ module Decidim
       private
 
       def meeting_items
-        [type, category_item, duration, official]
+        [type, category_item, duration, comments_count, official, withdrawn_item]
       end
 
       def type
@@ -54,6 +54,15 @@ module Decidim
         {
           text: t("decidim.meetings.models.meeting.fields.official_meeting"),
           icon: "information-line"
+        }
+      end
+
+      def withdrawn_item
+        return unless withdrawn?
+
+        {
+          text: t("withdraw", scope: "decidim.meetings.types"),
+          icon: resource_type_icon_key("withdrawn")
         }
       end
     end
