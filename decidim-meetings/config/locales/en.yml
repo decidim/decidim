@@ -518,7 +518,11 @@ en:
           select_an_iframe_access_level: Please select an iframe access level
           show_embedded_iframe_help: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
         index:
+          click_here: See all meetings
           new_meeting: New meeting
+          see_all: See all meetings
+          see_all_withdrawn: See all withdrawn meetings
+          text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link}.
         meeting:
           close_meeting: Close meeting
           edit_close_meeting: Edit meeting report

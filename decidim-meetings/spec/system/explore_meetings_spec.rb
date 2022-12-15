@@ -81,7 +81,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         it "shows all the withdrawn meetings" do
-          expect(page).to have_css(".meeting-list.alert", count: 3)
+          expect(page).to have_css(".item-list__metadata span", text: "Withdrawn", count: 3)
           within ".callout.warning", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end

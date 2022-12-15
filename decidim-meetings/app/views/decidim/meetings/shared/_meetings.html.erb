@@ -1,6 +1,16 @@
 <% filtered_path = meetings_path(filter: params[:filter].blank? ? {} : filter_params.compact_blank) %>
 <%= turbo_frame_tag "meeting_frame", data: { filtered_path: } %>
 
+<% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
+  <%= cell(
+        "decidim/announcement",
+        t("decidim.meetings.meetings.index.text_banner",
+          go_back_link: link_to(t("decidim.meetings.meetings.index.click_here"), meetings_path("filter[with_availability]" => nil)),
+         ).html_safe,
+        callout_class: "warning"
+      ) %>
+<% end %>
+
 <% if meetings.length.zero? %>
   <%= cell("decidim/announcement", t("decidim.meetings.meetings.meetings.no_meetings_warning"), callout_class: "warning" ) %>
 <% else %>
@@ -13,3 +23,13 @@
   </div>
   <%= decidim_paginate meetings, order_start_time: params[:order_start_time], scope_id: params[:scope_id] %>
 <% end %>
+
+<div class="row">
+  <div class="text-right">
+    <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
+      <%= link_to t("decidim.meetings.meetings.index.see_all"), meetings_path("filter[with_availability]" => nil) %>
+    <% else %>
+      <%= link_to t("decidim.meetings.meetings.index.see_all_withdrawn"), meetings_path("filter[with_availability]" => "withdrawn") %>
+    <% end %>
+  </div>
+</div>
