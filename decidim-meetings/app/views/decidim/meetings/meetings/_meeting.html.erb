@@ -6,7 +6,7 @@
     <%= cell "decidim/meetings/dates_and_map", meeting %>
 
     <div class="meeting__author">
-      <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: [:date], layout: :compact %>
+      <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
 
       <% if meeting.private_meeting? %>
         <span class="<%= meeting_type_badge_css_class("private") %> label">
