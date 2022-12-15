@@ -5,12 +5,6 @@
 </div>
 
 <div class="reveal" id="filter-box" data-reveal role="dialog" aria-modal="true" aria-labelledby="filter-box-label">
-  <div class="reveal__header">
-    <h3 id="filter-box-label" class="reveal__title"><%= t ".filter_by" %>:</h3>
-    <button class="close-button" data-close aria-label="<%= t(".close_modal") %>" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
   <div class="filters">
     <%= render partial: "filters", locals: { type: :small } %>
   </div>

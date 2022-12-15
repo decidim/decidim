@@ -1,0 +1,15 @@
+<div class="card__header">
+  <% if has_link_to_resource? %>
+    <%= link_to resource_path, class: "card__link" do %>
+      <div class="card__list-title">
+        <%= title %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="card__link">
+      <div class="card__list-title">
+        <%= title %>
+      </div>
+    </div>
+  <% end %>
+</div>
