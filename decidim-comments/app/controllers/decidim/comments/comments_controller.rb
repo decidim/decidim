@@ -48,6 +48,7 @@ module Decidim
 
       def update
         set_comment
+        set_commentable
         enforce_permission_to :update, :comment, comment: comment
 
         form = Decidim::Comments::CommentForm.from_params(
@@ -130,7 +131,11 @@ module Decidim
       attr_reader :commentable, :comment
 
       def set_commentable
-        @commentable = GlobalID::Locator.locate_signed(commentable_gid)
+        @commentable ||= if commentable_gid
+                           GlobalID::Locator.locate_signed(commentable_gid)
+                         elsif comment
+                           comment.root_commentable
+                         end
       end
 
       def set_comment
