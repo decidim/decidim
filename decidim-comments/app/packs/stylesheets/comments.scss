@@ -101,8 +101,6 @@
     }
 
     .button[aria-expanded="true"]{
-      @apply bg-white;
-
       svg:first-of-type{
         @apply hidden;
       }
