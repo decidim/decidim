@@ -1,7 +1,0 @@
-<h2 class="h4 md:h3 decorator"><%= t("conferences.photos_list.show.related_photos", scope: "decidim") %></h2>
-
-<div class="conference__media-grid">
-  <% model.each_with_index do |photo, index| %>
-    <%= cell "decidim/conferences/photo", photo, index: index %>
-  <% end %>
-</div>

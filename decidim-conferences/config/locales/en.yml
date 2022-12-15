@@ -501,15 +501,6 @@ en:
             active_conferences: Active conferences
             conferences_button_title: Link to the Conferences page displaying all the conferences
             see_all_conferences: See all conferences
-      photo:
-        image:
-          attributes:
-            alt: Media picture
-        show:
-          photo: Image
-      photos_list:
-        show:
-          related_photos: Images
       registration_types:
         index:
           choose_an_option: 'Choose your registration option:'

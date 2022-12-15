@@ -1,0 +1,7 @@
+<h2 class="h4 md:h3 decorator"><%= t("decidim.application.photos.related_photos") %></h2>
+
+<div class="photo__container">
+  <% model.each_with_index do |photo, index| %>
+    <%= cell "decidim/photo", photo, index: index %>
+  <% end %>
+</div>

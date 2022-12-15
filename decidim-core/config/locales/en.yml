@@ -343,6 +343,9 @@ en:
         related_documents: Related documents
       geocoding:
         geocoded_address: Address
+      photo:
+        alt: Media picture
+        title: Image
       photos:
         related_photos: Related images
     author:

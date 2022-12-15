@@ -31,7 +31,7 @@ edit_link(
 
   <% if current_participatory_space.attachments.any? %>
     <section id="conference-media-photos" class="conference__media-section">
-      <%= cell("decidim/conferences/photos_list", current_participatory_space.photos) %>
+      <%= cell("decidim/photos_list", current_participatory_space.photos) %>
     </section>
 
     <section id="conference-media-documents" class="conference__media-section">
