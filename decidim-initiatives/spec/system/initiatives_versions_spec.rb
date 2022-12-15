@@ -89,7 +89,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the creation date" do
-      within ".author-data .author-data__extra" do
+      within ".version__author" do
         expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
       end
     end
