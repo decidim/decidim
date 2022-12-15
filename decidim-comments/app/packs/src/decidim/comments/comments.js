@@ -12,6 +12,7 @@ const commentsInitializer = () => {
   });
 }
 
-commentsInitializer();
-
+// If no jQuery is used the Tribute feature used in comments to autocomplete
+// mentions stops working
+$(() => commentsInitializer());
 document.addEventListener("turbo:load", () => commentsInitializer());

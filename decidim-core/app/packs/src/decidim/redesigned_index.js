@@ -205,6 +205,5 @@ if ("Turbo" in window) {
 } else {
   // If no jQuery is used the Tribute feature used in comments to autocomplete
   // mentions stops working
-  // document.addEventListener("DOMContentLoaded", () => {
   $(() => initializer());
 }

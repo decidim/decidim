@@ -186,8 +186,5 @@ const mentionsInitializer = () => {
   }, 1000);
 }
 
-if ("Turbo" in window) {
-  document.addEventListener("turbo:load", () => mentionsInitializer());
-} else {
-  $(() => mentionsInitializer());
-}
+document.addEventListener("turbo:load", () => mentionsInitializer());
+$(() => mentionsInitializer());
