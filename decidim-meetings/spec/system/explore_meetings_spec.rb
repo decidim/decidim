@@ -523,16 +523,6 @@ describe "Explore meetings", :slow, type: :system do
           expect(page).to have_content(translated(meeting.scope.name))
         end
       end
-
-      it "links to the filter for this scope" do
-        within "ul.tags.tag-container" do
-          click_link translated(meeting.scope.name)
-        end
-
-        within ".filters" do
-          expect(page).to have_checked_field(translated(meeting.scope.name))
-        end
-      end
     end
 
     context "with linked proposals" do
