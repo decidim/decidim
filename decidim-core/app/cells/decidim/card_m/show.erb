@@ -1,17 +1,23 @@
-<div class="card__list" id="<%= dom_id(model) %>">
-  <div class="card__list-content <%= card_classes %>">
+<div class="column" id="<%= dom_id(model) %>">
+  <div class="card <%= card_classes %>">
     <%= render :label if has_label? %>
     <%= render :top if render_top? %>
+    <%= render :image if has_image? %>
+    <div class="card__content">
+      <%= render :header if has_header? %>
 
-    <%= render :header if has_header? %>
-
-    <div class="card__text">
-      <div class="card__text--paragraph">
-        <%= render :badge if has_badge? %>
-        <%= Decidim::ContentProcessor.render(description, "div") %>
+      <div class="card__text">
+        <div class="card__text--paragraph">
+          <%= render :badge if has_badge? %>
+          <%= Decidim::ContentProcessor.render(description, "div") %>
+        </div>
       </div>
+
+      <%= render :tags %>
     </div>
 
+    <%= render :data %>
     <%= render :status %>
+    <%= render :footer %>
   </div>
 </div>

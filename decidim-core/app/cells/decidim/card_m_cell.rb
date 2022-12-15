@@ -119,7 +119,8 @@ module Decidim
     end
 
     def creation_date_status
-      "#{l(model.created_at.to_date, format: :decidim_short)}"
+      explanation = content_tag(:strong, t("activemodel.attributes.common.created_at"))
+      "#{explanation}<br>#{l(model.created_at.to_date, format: :decidim_short)}"
     end
 
     def follow_status
@@ -135,7 +136,9 @@ module Decidim
     end
 
     def render_comments_count
-      render :comments_counter
+      with_tooltip t("decidim.comments.comments_title") do
+        render :comments_counter
+      end
     end
 
     def render_authorship
