@@ -75,6 +75,19 @@
         <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button button__xl button__secondary w-full" %>
       <% end %>
 
+      <% if meeting.withdrawable_by?(current_user) %>
+        <%= action_authorized_link_to(
+              :withdraw,
+              withdraw_meeting_path(meeting),
+              method: :put,
+              class: "button button__xl button__secondary w-full",
+              title: t("withdraw_btn_hint", scope: "decidim.meetings.meetings.show"),
+              data: { confirm: t("withdraw_confirmation_html", scope: "decidim.meetings.meetings.show") }
+            ) do %>
+            <%= t("withdraw_meeting", scope:"decidim.meetings.meetings.show") %>
+        <% end %>
+      <% end %>
+
       <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
     </div>
 
