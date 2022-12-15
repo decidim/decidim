@@ -99,7 +99,7 @@ describe "Explore meetings", :slow, type: :system do
       it "does not list the hidden meetings" do
         visit_component
 
-        expect(page).to have_selector(".card.card--meeting", count: meetings_count - 1)
+        expect(page).to have_selector(".meeting-list", count: meetings_count - 1)
 
         expect(page).to have_no_content(translated(meeting.title))
       end
@@ -113,11 +113,9 @@ describe "Explore meetings", :slow, type: :system do
       it "displays unhidden comments count" do
         visit_component
 
-        within("#meeting_#{meeting.id}") do
-          within(".card__status") do
-            within(".card-data__item:last-child") do
-              expect(page).to have_content(2)
-            end
+        within("#meetings__meeting_#{meeting.id}") do
+          within(".item-list__metadata") do
+            expect(page).to have_css("span", text: 2)
           end
         end
       end
