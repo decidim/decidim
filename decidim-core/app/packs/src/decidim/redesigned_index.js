@@ -188,6 +188,8 @@ const initializer = () => {
     });
   });
 
+  // REDESIGN_PENDING: Replace document with element once merged feature/redesign-action-buttons
+  // element.
   document.
     querySelectorAll("[data-drawer]").
     forEach(({ dataset: { drawer } }) => {
