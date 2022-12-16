@@ -30,6 +30,7 @@ en:
         password_confirmation: Confirm your password
         personal_url: Personal URL
         remove_avatar: Remove avatar
+        tos_agreement: Terms and conditions of use agreement
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -386,13 +387,13 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
-      renew: Renew verification
       sms:
         explanation: Submit your mobile phone number so we can check your identity.
         name: Code by SMS
       started_at: Started at %{timestamp}
     authorization_modals:
       content:
+        close_modal: Close modal
         expired:
           authorize: Reauthorize with "%{authorization}"
           explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
@@ -423,8 +424,6 @@ en:
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
-      show:
-        close_modal: Close modal
     block_user_mailer:
       notify:
         body_1: Your account was blocked.
@@ -513,6 +512,10 @@ en:
         view_all: View all
       metrics:
         name: Organization metrics
+      static_page:
+        summary:
+          name: Summary
+          summary_content: Content
       stats:
         name: Organization statistics
       sub_hero:
@@ -607,14 +610,13 @@ en:
       endorsements: Endorsements
       endorsements_count: Endorsements count
     endorsement_buttons_cell:
-      already_endorsed: Endorsed
-      endorse: Endorse
+      already_endorsed: Dislike
+      endorse: Like
     endorsements:
       identities:
         done: Done
         select_identity: Select identity
     endorsers_list:
-      close: Close
       endorsed_by: Liked by…
     errors:
       internal_server_error:
@@ -825,8 +827,6 @@ en:
         button: Stop following
         error: There was a problem unfollowing this resource.
     forms:
-      current_image: Current image
-      default_image: Default image
       errors:
         decidim/user:
           password: The password is too short.
@@ -860,6 +860,7 @@ en:
           edit_image: Edit image
           error: Error!
           file_size_too_large: 'File size is too large! Maximun file size: %{megabytes}MB'
+          filename: Filename
           remove: Remove
           replace: Replace
           save: Save
@@ -868,8 +869,9 @@ en:
           uploaded: Uploaded
           validating: Validating...
           validation_error: Validation error!
+        select_file: Select file
       upload_help:
-        dropzone: Drop files here or click to upload
+        dropzone: Drop files here or click the button to upload
         explanation: Guidance for %{attribute}
     gamification:
       all_badges_link: See all available badges.
@@ -889,18 +891,6 @@ en:
           how: How can you earn it
           page_description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges. Here is the list of badges and some ways you can earn them.
           title: Badges
-        invitations:
-          conditions:
-          - Use the “invite friends” link on your user page to invite your friends
-          - Customize, if you want, the message you are sending
-          - You’ll level up by sending invitations and getting them registered.
-          description: This badge is granted when you’ve invited some people and they have spend a little time to register in %{organization_name} and become participants. Thank you for making %{organization_name} known to others and helping to expand the community!
-          description_another: This participant has invited %{score} people.
-          description_own: You have invited %{score} people.
-          name: Invitations
-          next_level_in: Invite %{score} more people to reach the next level!
-          unearned_another: This participant has not yet invited anyone.
-          unearned_own: You haven't invited anyone yet.
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
       reached_top: You've reached the top level for this badge.
@@ -1010,7 +1000,6 @@ en:
         body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site.
         body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
         cancel: Cancel
-        close_modal: Close modal
         proceed: Proceed
         title: Open external link
     log:
@@ -1019,8 +1008,10 @@ en:
         create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
         delete: "%{user_name} deleted %{resource_name}"
         delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        publish_with_space: "%{user_name} published %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} performed some action on %{resource_name}"
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
+        unpublish_with_space: "%{user_name} unpublished %{resource_name} from %{space_name}"
         update: "%{user_name} updated %{resource_name}"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
@@ -1949,6 +1940,7 @@ en:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

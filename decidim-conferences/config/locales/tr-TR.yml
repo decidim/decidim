@@ -340,7 +340,7 @@ tr:
         invite_join_conference_mailer:
           invite:
             decline: '''%{conference_title}'' davetiyesini reddet'
-            invited_you_to_join_a_conference: "%{invited_by} sizi %{application}bir konferansa katılmaya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
+            invited_existing_user_to_join_a_conference: "%{invited_by} sizi %{application}bir konferansa katılmaya davet etti. Aşağıdaki bağlantılardan reddedebilir veya kabul edebilirsiniz."
             registration: '''%{conference_title}'' için kayıt'
         partners:
           index:

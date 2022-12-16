@@ -13,8 +13,13 @@ edit_link(
 )
 %>
 
-<% if result.children.any? %>
-  <%= render partial: "show_parent", locals: { result: result } %>
-<% else %>
-  <%= render partial: "show_leaf", locals: { result: result } %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_accountability" %>
 <% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
+<% end %>
+
+<%# REDESIGN_PENDING: this content must go inside the drawer, now the displayed result is kinda odd %>
+<%= render partial: "project", locals: { result: result } %>

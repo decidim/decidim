@@ -342,7 +342,6 @@ ru:
     errors:
       internal_server_error:
         title: При попытке связи с нашим сервером произошла ошибка
-        try_later: Пожалуйста, повторите попытку позже.
       not_found:
         back_home: Вернуться на главную
         content_doesnt_exist: Этот адрес неверен или был удален.
@@ -426,8 +425,6 @@ ru:
         index:
           how: Как вы можете его получить
           title: Значки
-        invitations:
-          name: Приглашения
       level: Уровень %{level}
     group_admins:
       actions:
@@ -503,14 +500,9 @@ ru:
         create:
           error: Беседа не началась. Попробуйте позже
         index:
-          close: Закрыть окошко
           no_conversations: У вас еще нет бесед
-        reply:
-          send: Отправить
-          title: Ответить
         start:
           send: Отправить
-          title: Начать беседу
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
@@ -870,8 +862,4 @@ ru:
       time_of_day: "%H:%M"
   views:
     pagination:
-      first: "&laquo; Первая"
-      last: Последняя &raquo;
-      next: Следующая &rsaquo;
-      previous: "&lsaquo; Предыдущая"
       truncate: "&hellip;"

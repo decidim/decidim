@@ -379,7 +379,8 @@ fi-pl:
         invite_join_conference_mailer:
           invite:
             decline: Hylkää kutsu "%{conference_title}"
-            invited_you_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
+            invited_existing_user_to_join_a_conference: "%{invited_by} on kutsunut sinut konferenssiin palvelussa %{application}. Voit hylätä tai hyväksyä kutsun alla olevien linkkien avulla."
+            invited_user_to_join_a_conference: "%{invited_by} on kutsunut sinut osallistumaan konferenssiin palvelussa %{application}. Voit hyväksyä kutsun alla esitetyn linkin kautta."
             registration: Ilmoittautuminen konferenssiin "%{conference_title}"
         partners:
           index:
@@ -430,9 +431,11 @@ fi-pl:
         create:
           invalid: Konferenssiin ilmoittautumisessa tapahtui virhe.
           success: Olet ilmoittautunut konferenssiin onnistuneesti.
+          unauthorized: Sinun täytyy kirjautua sisään hyväksyäksesi konferenssikutsun.
         decline_invitation:
           invalid: Kutsun hyläämisessä esiintyi ongelma.
           success: Olet hylännyt kutsun onnistuneesti.
+          unauthorized: Sinun täytyy kirjautua sisään hylätäksesi konferenssikutsun.
         destroy:
           invalid: Konferenssista poistumisessa on tapahtunut virhe.
           success: Olet poistunut konferenssista onnistuneeksi.

@@ -2,7 +2,7 @@
   <h2 class="heading2"><%= translated_attribute(participatory_process_group.title) %></h2>
   <div class="row">
     <div class="columns medium-9">
-      <%= decidim_sanitize_editor translated_attribute(participatory_process_group.description) %>
+      <%= decidim_sanitize_editor_admin translated_attribute(participatory_process_group.description) %>
       <div class="row">
         <div class="column medium-6 text-muted">
           <%= icon "grid-three-up", role: "img", "aria-hidden": true, class: "mr-xs" %>

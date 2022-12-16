@@ -31,7 +31,7 @@ module Decidim
 
         ActiveRecord::Base.transaction do
           i = 1
-          csv = CSV.new(@csv_file, headers: true, col_sep: ";")
+          csv = CSV.new(@csv_file, headers: true, col_sep: Decidim.default_csv_col_sep)
           while (row = csv.shift).present?
             i += 1
             next if row.empty?

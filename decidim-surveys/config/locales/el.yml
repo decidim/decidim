@@ -49,8 +49,6 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της έρευνας.
             success: Η έρευνα αποθηκεύτηκε με επιτυχία.
-      last_activity:
-        new_survey_at_html: "<span>Νέα έρευνα σε %{link}</span>"
       surveys:
         answer:
           invalid: Υπήρξε ένα πρόβλημα κατά την απάντηση στην έρευνα.

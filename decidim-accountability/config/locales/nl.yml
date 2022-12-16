@@ -21,6 +21,7 @@ nl:
       timeline_entry:
         description: Beschrijving
         entry_date: Datum
+        title: Titel
     models:
       decidim/accountability/proposal_linked_event: Voorstel opgenomen in een resultaat
       decidim/accountability/result_progress_updated_event: Resultaat voortgang bijgewerkt
@@ -49,7 +50,6 @@ nl:
         import_results:
           new:
             import: Importeren
-            link: link
             title: Importeer resultaten van CSV
         imports:
           create:
@@ -120,6 +120,14 @@ nl:
           create: "%{user_name} heeft het resultaat %{resource_name} gemaakt in %{space_name}"
           delete: "%{user_name} verwijderde het resultaat %{resource_name} in %{space_name}"
           update: "%{user_name} bijgewerkt resultaat %{resource_name} in %{space_name}"
+        status:
+          create: "%{user_name} heeft %{resource_name} status aangemaakt"
+          delete: "%{user_name} heeft %{resource_name} status verwijderd"
+          update: "%{user_name} heeft %{resource_name} status bijgewerkt"
+        timeline_entry:
+          create: "%{user_name} heeft timeline entry %{resource_name} aangemaakt"
+          delete: "%{user_name} heeft timeline entry %{resource_name} verwijderd"
+          update: "%{user_name} heeft timeline entry %{resource_name} bijgewerkt"
         value_types:
           parent_presenter:
             not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
@@ -135,8 +143,6 @@ nl:
           row_number: Rij
           subject: Resultaten importeren geslaagd
           success: Resultaten importeren geslaagd. Je kunt de resultaten bekijken via de administratie interface.
-      last_activity:
-        new_result_at_html: "<span>Nieuw resultaat op %{link}</span>"
       models:
         result:
           fields:
@@ -158,6 +164,7 @@ nl:
         timeline_entry:
           fields:
             entry_date: Datum
+            title: Titel
       result_m:
         executed: Uitgevoerd
         view: Bekijk
@@ -168,7 +175,6 @@ nl:
             other: "%{count} resultaten"
         filters:
           all: Alle
-          scopes: scopes
         home:
           categories_label: Categorieën
           subcategories_label: subcategorieën

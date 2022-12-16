@@ -15,7 +15,7 @@ end
 
 shared_examples "Endorse resource system specs" do
   def expect_page_not_to_include_endorsements
-    expect(page).to have_no_button("Endorse")
+    expect(page).to have_no_button("Like")
     expect(page).to have_no_css("#resource-#{resource.id}-endorsements-count")
   end
 
@@ -71,7 +71,7 @@ shared_examples "Endorse resource system specs" do
       it "is given the option to sign in" do
         visit_resource
         within ".buttons__row", match: :first do
-          click_button "Endorse"
+          click_button "Like"
         end
 
         expect(page).to have_css("#loginModal", visible: :visible)
@@ -87,8 +87,8 @@ shared_examples "Endorse resource system specs" do
         it "is able to endorse the resource" do
           visit_resource
           within ".buttons__row" do
-            click_button "Endorse"
-            expect(page).to have_button("Endorsed")
+            click_button "Like"
+            expect(page).to have_button("Dislike")
           end
 
           expect_endorsements_count(1)
@@ -101,8 +101,8 @@ shared_examples "Endorse resource system specs" do
         it "is not able to endorse it again" do
           visit_resource
           within ".buttons__row" do
-            expect(page).to have_button("Endorsed")
-            expect(page).to have_no_button("Endorse ")
+            expect(page).to have_button("Dislike")
+            expect(page).to have_no_button("Like")
           end
 
           expect_endorsements_count(1)
@@ -111,8 +111,8 @@ shared_examples "Endorse resource system specs" do
         it "is able to undo the endorsement" do
           visit_resource
           within ".buttons__row" do
-            click_button "Endorsed"
-            expect(page).to have_button("Endorse")
+            click_button "Dislike"
+            expect(page).to have_button("Like")
           end
 
           expect_endorsements_count(0)
@@ -140,7 +140,7 @@ shared_examples "Endorse resource system specs" do
           it "is NOT able to endorse" do
             visit_resource
             within ".buttons__row", match: :first do
-              click_button "Endorse"
+              click_button "Like"
             end
             expect(page).to have_css("#authorizationModal", visible: :visible)
           end
@@ -158,9 +158,9 @@ shared_examples "Endorse resource system specs" do
           it "IS able to endorse", :slow do
             visit_resource
             within ".buttons__row", match: :first do
-              click_button "Endorse"
+              click_button "Like"
             end
-            expect(page).to have_button("Endorsed")
+            expect(page).to have_button("Dislike")
           end
         end
       end

@@ -23,6 +23,12 @@ fr:
       postal_letter_postage:
         full_address: Adresse complète
         verification_code: Code de vérification
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
   decidim:
     admin:
       menu:
@@ -78,10 +84,10 @@ fr:
     events:
       verifications:
         verify_with_managed_user:
-          email_intro: Le participant <a href="%{resource_path}">%{resource_title}</a> a essayé d'être vérifié avec les données de l'utilisateur représenté <a href="%{managed_user_path}">%{managed_user_name}</a>.
-          email_outro: Consultez la <a href="%{conflicts_path}">liste de conflits des vérifications</a> et contactez le participant pour vérifier ses détails et résoudre le problème. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
+          email_intro: Le participant <a href="%{resource_url}">%{resource_title}</a> a essayé d'être vérifié avec les données d'un autre utilisateur (<a href="%{managed_user_url}">%{managed_user_name}</a>).
+          email_outro: Consultez la <a href="%{conflicts_url}">liste de conflits des vérifications</a> et contactez le participant pour vérifier ses détails et résoudre le problème. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Echec lors de la tentative de vérification d'un participant
-          notification_title: Le participant <a href="%{resource_path}">%{resource_title}</a> a essayé d'être vérifié avec les données de l'utilisateur représenté <a href="%{managed_user_path}">%{managed_user_name}</a>.
+          notification_title: Le participant <a href="%{resource_path}">%{resource_title}</a> a essayé d'être vérifié avec les données d'un autre utilisateur (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -90,6 +96,7 @@ fr:
         create:
           error: Une erreur s'est produite lors de la création de l'autorisation.
           success: Vous avez été autorisé avec succès.
+          transferred: 'Nous avons récupéré les données de participation suivantes basées sur votre autorisation :'
           unconfirmed: Vous devez confirmer votre email pour vous autoriser.
         destroy:
           error: Un problème est survenu lors de la destruction de l'autorisation.
@@ -140,6 +147,9 @@ fr:
             body: Pour ce faire, vous devez entrer dans l’administration système et ajouter les autorisations csv_census à l’organisation.
             title: Vous devez activer le recensement CSV pour cette organisation
           new:
+            example: |
+              john.doe@exemple.org
+              jane.doe@exemple.org
             file: "Fichier .csv avec données de courrier électronique"
             info: 'Doit être un fichier au format CSV avec une seule colonne avec l''adresse e-mail :'
             submit: Téléverser un fichier

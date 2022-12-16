@@ -220,7 +220,6 @@ el:
           affected_user:
             email_intro: 'Η πρότασή σας «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
             email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε συντάκτης του στοιχείου «%{resource_title}».
-            email_subject: Η πρότασή σας απορρίφθηκε
             notification_title: Η πρότασή σας <a href="%{resource_path}">%{resource_title}</a> απορρίφθηκε.
           follower:
             email_intro: 'Η πρόταση «%{resource_title}» απορρίφθηκε. Μπορείτε να διαβάσετε την απάντηση σε αυτήν τη σελίδα:'
@@ -522,7 +521,6 @@ el:
             one: "%{count} προσχέδιο συνεργασίας"
             other: "%{count} προσχέδια συνεργασίας"
         create:
-          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτού του προσχεδίου συνεργασίας
           success: Το προσχέδιο συνεργασίας δημιουργήθηκε με επιτυχία.
         edit:
           attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
@@ -603,8 +601,6 @@ el:
       destroy_draft:
         error: Υπήρξε ένα πρόβλημα κατά τη διαγραφή του προσχεδίου συνεργασίας.
         success: Το προσχέδιο πρότασης διαγράφηκε με επιτυχία.
-      last_activity:
-        new_proposal_at_html: "<span>Νέα πρόταση σε %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -723,7 +719,6 @@ el:
           changes_at_title: Τροποποίηση σε «%{title}»
           comments: Σχόλια
           edit_proposal: Επεξεργασία πρότασης
-          endorsements_list: Λίστα επιδοκιμασιών
           estimated_cost: Εκτιμώμενο κόστος
           hidden_endorsers_count:
             one: και %{count} ακόμη άτομο

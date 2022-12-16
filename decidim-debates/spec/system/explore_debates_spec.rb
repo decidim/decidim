@@ -108,6 +108,25 @@ describe "Explore debates", type: :system do
     end
 
     context "when filtering" do
+      context "when filtering by text" do
+        it "updates the current URL" do
+          create(:debate, component:, title: { en: "Foobar debate" })
+          create(:debate, component:, title: { en: "Another debate" })
+          visit_component
+
+          within "form.new_filter" do
+            fill_in("filter[search_text_cont]", with: "foobar")
+            click_button "Search"
+          end
+
+          expect(page).not_to have_content("Another debate")
+          expect(page).to have_content("Foobar debate")
+
+          filter_params = CGI.parse(URI.parse(page.current_url).query)
+          expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+        end
+      end
+
       context "when filtering by origin" do
         context "with 'official' origin" do
           let!(:debates) { create_list(:debate, 2, component:, skip_injection: true) }
@@ -270,7 +289,7 @@ describe "Explore debates", type: :system do
 
     context "without category or scope" do
       it "does not show any tag" do
-        expect(page).not_to have_selector("ul.tags.tags--debate")
+        expect(page).not_to have_selector("ul.tags.tag-container")
       end
     end
 
@@ -283,9 +302,9 @@ describe "Explore debates", type: :system do
       end
 
       it "shows tags for category" do
-        expect(page).to have_selector("ul.tags.tags--debate")
+        expect(page).to have_selector("ul.tags.tag-container")
 
-        within "ul.tags.tags--debate" do
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(debate.category.name))
         end
       end
@@ -300,14 +319,14 @@ describe "Explore debates", type: :system do
       end
 
       it "shows tags for scope" do
-        expect(page).to have_selector("ul.tags.tags--debate")
-        within "ul.tags.tags--debate" do
+        expect(page).to have_selector("ul.tags.tag-container")
+        within "ul.tags.tag-container" do
           expect(page).to have_content(translated(debate.scope.name))
         end
       end
 
       it "links to the filter for this scope" do
-        within "ul.tags.tags--debate" do
+        within "ul.tags.tag-container" do
           click_link translated(debate.scope.name)
         end
 

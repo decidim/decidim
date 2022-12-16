@@ -1,3 +1,7 @@
+.layout-container{
+  @apply flex flex-col min-h-screen [&_[data-content]]:min-h-[50vh];
+}
+
 .layout-1col{
   @apply container grid grid-cols-12;
 
@@ -20,7 +24,7 @@
   --tw-gradient-stops: var(--tw-gradient-from) 0%, var(--tw-gradient-from) 50%, var(--tw-gradient-to) 50%;
 
   aside{
-    @apply col-span-3 py-6 md:py-12 gap-12 flex flex-col justify-between items-start md:justify-start;
+    @apply col-span-3 md:pr-16 py-6 md:py-12 gap-12 flex flex-col justify-between items-start md:justify-start;
   }
 
   main{
@@ -31,7 +35,7 @@
     --tw-gradient-stops: var(--tw-gradient-to) 0%, var(--tw-gradient-to) 50%, var(--tw-gradient-from) 50%;
 
     aside{
-      @apply order-last;
+      @apply order-last pr-0;
     }
 
     main{

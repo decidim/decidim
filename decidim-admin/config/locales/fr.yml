@@ -133,6 +133,14 @@ fr:
               allowed_file_content_types: Fichier image invalide
             official_img_header:
               allowed_file_content_types: Fichier image invalide
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
       new_import:
         attributes:
           file:
@@ -184,7 +192,7 @@ fr:
           error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
-          accept: J'accepte les conditions d'utilisation suivantes
+          accept: J'accepte les conditions d'utilisation
           are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur ?
           refuse: Refuser les conditions d'utilisation administrateur
           title: Accepter les conditions d'utilisation
@@ -210,21 +218,21 @@ fr:
           success: Le type de périmètre d'assemblée a été mis à jour avec succès
       areas:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
-          success: Zone d'application créée avec succès.
+          error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
+          success: Périmètre d'assemblée créé avec succès.
         destroy:
-          has_spaces: Des espaces dépendent de cette zone d'application. Veuillez vous assurer qu'aucun espace participatif n'est lié à cette zone avant de la supprimer.
-          success: La zone d'application a bien été supprimée
+          has_spaces: Des espaces dépendent de ce périmètre d'assemblée. Veuillez vous assurer qu'aucun espace participatif n'est lié à périmètre avant de la supprimer.
+          success: Le périmètre d'assemblée a bien été supprimé
         edit:
-          title: Modifier la zone d'application
+          title: Modifier le périmètre d'assemblée
           update: Mettre à jour
         new:
-          create: Créer une zone d'application
-          title: Nouvelle zone d'application
-        no_areas: Aucune zone d'application
+          create: Créer un périmètre d'assemblée
+          title: Nouveau périmètre d'assemblée
+        no_areas: Aucun périmètre d'assemblée
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
-          success: Zone d'application mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de ce périmètre d'assemblée.
+          success: Périmètre d'assemblée mise à jour avec succès
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
@@ -509,8 +517,13 @@ fr:
           import: Importer
         notice: "%{count} %{resource_name} importées avec succès"
       logs:
+        filters:
+          participatory_space: Trouver un espace participatif
+          text: Recherche par adresse e-mail, nom ou pseudonyme.
+          user: Utilisateur
         logs_list:
-          no_logs_yet: Il n'y a pas encore de journal d'activité
+          no_logs_yet: Il n'y a pas encore de journaux d'activité. 
+          no_matching_logs: Il n'y a pas de journaux avec les filtres de recherche fournis. Essayez de les modifier et réessayez.
       managed_users:
         promotion:
           error: Une erreur s'est produite lors de la promotion de l'utilisateur représenté.
@@ -525,7 +538,7 @@ fr:
         admins: Administrateurs
         appearance: Apparence
         area_types: Types de périmètre d'assemblée
-        areas: Zones d'application
+        areas: Périmètres d'assemblée
         configuration: Configuration
         dashboard: Tableau de bord
         external_domain_whitelist: Domaines externes autorisés
@@ -537,7 +550,7 @@ fr:
         participants: Participants
         reported_users: Utilisateurs signalés
         scope_types: Types de secteur
-        scopes: Périmètres d’application
+        scopes: Secteurs
         settings: Paramètres
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -834,7 +847,7 @@ fr:
           title: Nouvel utilisateur privé de l'espace participatif.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Il y a eu un problème de lecture du fichier CSV.
+          invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
           success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           destroy:
@@ -843,7 +856,11 @@ fr:
             empty: Vous n'avez aucun utilisateur privé.
             explanation: Vous avez %{count} utilisateurs privés.
             title: Supprimer les utilisateurs privés
-          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec dans la première colonne les emails, et dans la deuxième colonne les noms (email, nom) des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
+          example_file: 'Fichier d''exemple :'
+          explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec les emails dans la première colonne, et dans la seconde colonne les noms des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
+          explanation_example: |
+            john.doe@exemple.org%{csv_col_sep}John D'oe
+            jane.doe@exemple.org%{csv_col_sep}Jane D'oe
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       reminders:
@@ -959,7 +976,7 @@ fr:
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
-        areas: Zones d'application
+        areas: Périmètres d'assemblée
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonatable_users: Utilisateurs pouvant être représentés
@@ -968,7 +985,7 @@ fr:
         panel: Administrateur
         participants: Utilisateurs
         scope_types: Types de secteur
-        scopes: Périmètres d'application
+        scopes: Secteurs
         static_pages: Pages
         statistics: Activité
         user_groups: Groupes d'utilisateurs
@@ -992,7 +1009,11 @@ fr:
           verify_via_csv: Vérifier via CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Fichier d''exemple :'
           explanation: Téléchargez votre fichier CSV. Les courriels officiels des groupes d'utilisateurs de votre organisation doivent figurer dans la première colonne du fichier, sans en-tête. Seuls les groupes d'utilisateurs ayant confirmé leur courrier électronique et ayant un courrier électronique dans le fichier CSV seront validés.
+          explanation_example: |
+            acme@exemple.org
+            bubba.gump@exemple.org
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       users:
@@ -1056,6 +1077,7 @@ fr:
         moderation:
           fields:
             created_at: Date de création
+            deleted_resource: Ressource supprimée
             hidden_at: Masqué le
             participatory_space: Espace participatif
             report_count: Compteur

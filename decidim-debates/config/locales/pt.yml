@@ -168,9 +168,6 @@ pt:
             title: Versões
         versions_list:
           back_to_resource: Retroceder para debate
-      last_activity:
-        debate_updated_at_html: "<span>Proposta actualizada em %{link}</span>"
-        new_debate_at_html: "<span>Novo debate em %{link}</span>"
       models:
         debate:
           fields:

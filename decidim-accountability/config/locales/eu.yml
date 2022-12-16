@@ -7,6 +7,7 @@ eu:
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
+        meetings_ids: Honekin lotutako topaketak
         progress: Aurrerapena
         project_ids: Proiektu barne
         proposals: Proposamen sortak
@@ -49,8 +50,6 @@ eu:
         import_results:
           new:
             import: Inportatu
-            info: "Ondoko urrats hauek ematea gomendatzen dizugu: </p><ol><li> Sortu egoerak erantsi nahi dituzun emaitzetarako (<a href='%{link_new_status}' target='_blank'> link </a>)</li><li>) Sortu emaitza bat gutxienez eskuz administrazioaren panelaren bidez (<a href='%{link_new_result}' target='_blank'>link</a>) inportatu baino lehen, hobeto ulertzeko formatua eta nola bete. </li><li> Deskargatu CSV formatuko artxiboa (%{link_export_csv}</li><li> Egin aldaketak lokalean. CSVren ondoko zutabeak baino ezin dituzu aldatu: </li></ol><ul><li><b> id category /id:</b> ID kategoriarako </li><li><b>scope /id:</b> ID eremurako </li><li><b>parent /id:</b> ID aitarentzat (erlazionatutako emaitzetarako). Aukerakoa </li> <li><b>title /I18N:</b> izenburua hizkuntzan X</li> <li><b> deskribapena /I18N:</b> deskribapena hizkuntzan X</li><li><b>start_date: </b> emaitza gauzatzen den hasiera-data (AAAA-MM-DD formatua) </li><li><b>end emaitza gauzatzen den amaiera-data (AAAA-MM-DD formatua) </li><li><b> status /id: </b> egoeraren ID emaitza honetarako </li><li><b>progress:</b> gauzatzearen ehunekoa (0tik 100era) </li><li><b>proposals_ids:</b> erlazionatutako proposamenen barneko ID (komez bidez bereizita). Automatikoki bihurtuko da: <span class = 'attribute-name'>proposal_url</span></li></ul>"
-            link: lotura
             title: Inportatu emaitzak CSVtik
         imports:
           create:
@@ -136,8 +135,6 @@ eu:
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
-      last_activity:
-        new_result_at_html: "<span> %{link}</span>emaitza berrian"
       models:
         result:
           fields:
@@ -169,7 +166,6 @@ eu:
             other: "%{count} emaitza"
         filters:
           all: Guztiak
-          scopes: Esparruak
         home:
           categories_label: Kategoriak
           subcategories_label: Azpikategoriak

@@ -13,6 +13,7 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
+        proposals: Vorschläge
         selected: Zur Implementierung ausgewählt
         title: Titel
   activerecord:
@@ -89,11 +90,9 @@ de:
             cancel: Abbrechen
             change_category: Kategorie ändern
             change_scope: Themenbereich ändern
-            change_selected: Auswahl ändern
-            deselect_implementation: Auswahl aufheben
+            change_selected: Ausgewählten Status ändern
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
-            select_for_implementation: Auswählen
             selected: Ausgewählt
             title: Projekte
             update: Aktualisieren
@@ -115,16 +114,14 @@ de:
             select_a_scope: Bitte wählen Sie einen Themenbereich
             success: 'Die folgenden Projekte wurden erfolgreich zum Themenbereich %{subject_name} hinzugefügt: %{projects}.'
           update_selected:
-            invalid: 'Diese Projekte wurden bereits zur Umsetzung ausgewählt: %{projects}.'
             select_a_project: Bitte wählen Sie ein Projekt
-            select_a_selection: Bitte wähle einen Umsetzungsstatus
-            success: 'Ausgewählte Projekte erfolgreich geändert: %{projects}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
             success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
+            import_all_accepted_proposals: Alle akzeptierten Vorschläge importieren
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie eine Komponente aus
             title: Vorschläge importieren
@@ -165,8 +162,6 @@ de:
         show: Projekte ansehen
         vote: Abstimmen
         voted_on: Sie haben über %{links} abgestimmt
-      last_activity:
-        new_vote_at_html: "<span>Neue Budgetverteilung unter %{link}</span>"
       limit_announcement:
         cant_vote: Sie können nicht über dieses Budget abstimmen. <a href="%{landing_path}">Versuchen Sie es mit einem anderen Budget</a>.
         limit_reached: Sie haben aktive Stimmen in %{links}. Um über dieses Budget abstimmen zu können, müssen Sie <a href="%{landing_path}">Ihre Stimme löschen und neu </a> beginnen.
@@ -253,6 +248,8 @@ de:
           filter: Filter
           filter_by: Filtern nach
           unfold: Aufklappen
+        index:
+          view_project: Projekt anzeigen
         order_progress:
           vote: Abstimmung
         order_selected_projects:
@@ -310,6 +307,7 @@ de:
               errors:
                 budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein
                 budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig
+            geocoding_enabled: Geocoding aktiviert
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite

@@ -265,8 +265,8 @@ es-PY:
       index:
         title: Consultas
       last_activity:
-        new_consultation: Nueva consulta
-        new_question_at_html: "<span>Nueva pregunta en %{link}</span>"
+        new_consultation: 'Nueva consulta:'
+        new_question: 'Nueva pregunta:'
       pages:
         home:
           highlighted_consultations:

@@ -2,6 +2,7 @@ es-MX:
   activemodel:
     attributes:
       initiative:
+        area_id: Área
         decidim_user_group_id: Autor
         description: Descripción
         offline_votes: Apoyo cara a cara
@@ -18,6 +19,8 @@ es-MX:
         title: Título
       initiatives_committee_member:
         user: Miembro del Comité
+      initiatives_settings:
+        initiatives_order: Orden
       initiatives_type:
         area_enabled: Permitir a las autoras elegir el área para su iniciativa
         attachments_enabled: Habilitar archivos adjuntos
@@ -33,6 +36,7 @@ es-MX:
         online_signature_enabled: Firma en línea habilitada
         only_global_scope_enabled: Permitir sólo la creación de iniciativas de ámbito global
         promoting_committee_enabled: Habilitar el comité promotor
+        signature_type: Tipo de firma
         title: Título
         undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
         validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma
@@ -382,6 +386,7 @@ es-MX:
           more_information: "(Más información)"
           select: Quiero promover esta iniciativa.
           select_initiative_type_help: Las iniciativas son un medio por el que las participantes pueden intervenir para que la organización emprenda acciones en defensa del interés general. ¿Qué iniciativa quieres lanzar?
+          verification_required: Verifica tu cuenta para impulsar la iniciativa
         share_committee_link:
           continue: Continuar
           invite_to_committee_help: Enlace para invitar a personas que formarán parte del Comisión Promotora.
@@ -493,11 +498,6 @@ es-MX:
           unfold: Desplegar
         index_header:
           new_initiative: Nueva iniciativa
-          not_authorized:
-            authorizations_page: Ver autorizaciones
-            close: Cerrar
-            explanation: Debes estar verificado para crear una nueva iniciativa.
-            title: Autorización requerida
         initiatives:
           closed_initiatives_warning: Actualmente no hay iniciativas abiertas, pero aquí puedes encontrar todas las iniciativas cerradas listadas.
           no_initiatives_warning: Ninguna iniciativa coincide con los criterios de búsqueda.
@@ -573,7 +573,13 @@ es-MX:
         status_change_body_for: 'La iniciativa %{title} ha cambiado su estado a: %{state}'
         status_change_for: La iniciativa %{title} ha cambiado su estado
       last_activity:
-        new_initiative: Nueva iniciativa
+        new_initiative: 'Nueva iniciativa:'
+      modal:
+        not_authorized:
+          authorizations_page: Ver autorizaciones
+          close: Cerrar
+          explanation: Debes estar verificado para crear una nueva iniciativa.
+          title: Autorización requerida
       pages:
         home:
           highlighted_initiatives:
@@ -607,6 +613,7 @@ es-MX:
           comment: Comentar
       initiatives_type:
         actions:
+          create: Crear
           title: Comportamiento
           vote: Votar
   layouts:
