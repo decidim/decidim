@@ -392,6 +392,7 @@ en:
       started_at: Started at %{timestamp}
     authorization_modals:
       content:
+        close_modal: Close modal
         expired:
           authorize: Reauthorize with "%{authorization}"
           explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
@@ -422,8 +423,6 @@ en:
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
-      show:
-        close_modal: Close modal
     block_user_mailer:
       notify:
         body_1: Your account was blocked.
@@ -610,14 +609,13 @@ en:
       endorsements: Endorsements
       endorsements_count: Endorsements count
     endorsement_buttons_cell:
-      already_endorsed: Endorsed
-      endorse: Endorse
+      already_endorsed: Dislike
+      endorse: Like
     endorsements:
       identities:
         done: Done
         select_identity: Select identity
     endorsers_list:
-      close: Close
       endorsed_by: Liked by…
     errors:
       internal_server_error:
@@ -1001,7 +999,6 @@ en:
         body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site.
         body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
         cancel: Cancel
-        close_modal: Close modal
         proceed: Proceed
         title: Open external link
     log:

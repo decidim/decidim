@@ -8,6 +8,7 @@ module Decidim
     include CellsHelper
     include EndorsableHelper
     include ResourceHelper
+    include IconHelper
     include Decidim::SanitizeHelper
 
     delegate :current_user, to: :controller, prefix: false
@@ -27,7 +28,7 @@ module Decidim
     def show
       return render :disabled_endorsements if endorsements_blocked_or_user_can_not_participate?
       return render unless current_user
-      return render :user_verification_button unless endorse_allowed?
+      return render :verification_modal unless endorse_allowed?
       return render :select_identity_button if user_has_verified_groups?
 
       render
@@ -56,6 +57,10 @@ module Decidim
       decidim.endorsement_path(*args)
     end
 
+    def button_content
+      render
+    end
+
     private
 
     def endorsements_blocked_or_user_can_not_participate?
@@ -71,7 +76,11 @@ module Decidim
     end
 
     def endorse_translated
-      @endorse_translated ||= t("decidim.endorsement_buttons_cell.endorse")
+      @endorse_translated ||= resource.endorsed_by?(current_user) ? t("decidim.endorsement_buttons_cell.already_endorsed") : t("decidim.endorsement_buttons_cell.endorse")
+    end
+
+    def endorse_icon
+      @endorse_icon ||= resource_type_icon(resource.endorsed_by?(current_user) ? "dislike" : "like")
     end
 
     def raw_model

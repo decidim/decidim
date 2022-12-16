@@ -38,6 +38,7 @@ module Decidim
     helper Decidim::SanitizeHelper
     helper Decidim::TwitterSearchHelper
     helper Decidim::SocialShareButtonHelper
+    helper Decidim::FiltersHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,
