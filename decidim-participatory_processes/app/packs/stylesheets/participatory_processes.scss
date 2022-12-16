@@ -14,8 +14,10 @@
   }
 
   &__container{
+    @apply mt-6 md:mt-12 mb-16 md:mb-24;
+
     > :not([id^="html-block"]){
-      @apply container mt-6;
+      @apply container;
     }
 
     > [id^="html-block"]{
