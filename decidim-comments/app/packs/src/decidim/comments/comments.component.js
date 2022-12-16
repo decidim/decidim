@@ -98,6 +98,7 @@ export default class CommentsComponent {
     const $comment = $(replyHtml);
     const $replies = $(`#comment-${commentId}-replies`);
     this._addComment($replies, $comment);
+    $replies.addClass("comment-reply");
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
@@ -179,14 +180,18 @@ export default class CommentsComponent {
    */
   _finalizeCommentCreation($parent, fromCurrentUser) {
     if (fromCurrentUser) {
-      const $add = $("> .add-comment", $parent);
-      const $text = $("textarea", $add);
-      const characterCounter = $text.data("remaining-characters-counter");
-      $text.val("");
-      if (characterCounter) {
-        characterCounter.handleInput();
-        characterCounter.updateStatus();
-      }
+      const $add = $(".add-comment", $parent);
+      $("textarea", $add).each((_i, text) => {
+        const $text = $(text);
+        // Reset textarea content
+        $text.val("")
+        // Update characterCounter component
+        const characterCounter = $text.data("remaining-characters-counter");
+        if (characterCounter) {
+          characterCounter.handleInput();
+          characterCounter.updateStatus();
+        }
+      })
     }
 
     // Restart the polling
