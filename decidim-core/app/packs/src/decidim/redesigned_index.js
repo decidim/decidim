@@ -270,3 +270,11 @@ StreamActions.open_drawer = function() {
     drawerItem.querySelector("div[data-drawer]").setAttribute("data-drawer", filteredPath);
   }
 }
+
+// eslint-disable-next-line camelcase
+StreamActions.refresh_filter = function() {
+  const filteredPath = this.getAttribute("filtered_path");
+  const turboFrame = document.getElementById(this.getAttribute("turbo_frame"));
+  turboFrame.dataset.filteredPath = filteredPath;
+  turboFrame.innerHTML = "";
+}
