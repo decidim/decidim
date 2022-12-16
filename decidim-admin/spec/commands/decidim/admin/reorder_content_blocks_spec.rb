@@ -64,7 +64,7 @@ module Decidim::Admin
         organization:
       )
     end
-    let(:order) { [published_block2.manifest_name, unpublished_block.manifest_name] }
+    let(:order) { [published_block2.id, unpublished_block.id] }
 
     context "when the order is nil" do
       let(:order) { nil }
@@ -111,28 +111,10 @@ module Decidim::Admin
 
         expect(unpublished_block).to be_published
       end
-
-      context "when it adds a new content block" do
-        let(:order) { [:highlighted_content_banner] }
-
-        it "is valid" do
-          expect { subject.call }.to broadcast(:ok)
-        end
-
-        it "creates the new content block" do
-          expect { subject.call }.to change(Decidim::ContentBlock, :count).by(1)
-          content_block = Decidim::ContentBlock.last
-
-          expect(content_block.organization).to eq organization
-          expect(content_block.weight).to eq 1
-          expect(content_block.scope_name).to eq scope.to_s
-          expect(content_block).to be_published
-        end
-      end
     end
 
     context "when scoped resource is present and order is valid" do
-      let(:order) { [resource2_unpublished_block.manifest_name, resource1_published_block.manifest_name, unpublished_block.manifest_name] }
+      let(:order) { [resource2_unpublished_block.id, resource1_published_block.id, unpublished_block.id] }
       let(:args) { [organization, scope, order, scoped_resource_id] }
 
       it "is valid" do

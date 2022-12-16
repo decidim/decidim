@@ -37,6 +37,22 @@ module Decidim
           t("participatory_process_group_landing_page_content_blocks.edit.update", scope: "decidim.admin")
         end
 
+        def content_block_create_success_text
+          t("participatory_process_group_landing_page_content_blocks.create.success", scope: "decidim.admin")
+        end
+
+        def content_block_create_error_text
+          t("participatory_process_group_landing_page_content_blocks.create.error", scope: "decidim.admin")
+        end
+
+        def content_block_destroy_success_text
+          t("participatory_process_group_landing_page_content_blocks.destroy.success", scope: "decidim.admin")
+        end
+
+        def content_block_destroy_error_text
+          t("participatory_process_group_landing_page_content_blocks.destroy.error", scope: "decidim.admin")
+        end
+
         alias participatory_process_group scoped_resource
 
         def collection

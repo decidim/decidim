@@ -4,52 +4,56 @@ module Decidim
   module Admin
     # Controller that allows managing the organization homepage
     class OrganizationHomepageController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::LandingPage
+
       layout "decidim/admin/settings"
 
-      helper_method :active_blocks, :inactive_blocks
+      def content_block_scope
+        :homepage
+      end
+
+      def scoped_resource
+        nil
+      end
+
+      def enforce_permission_to_update_resource
+        enforce_permission_to :update, :organization, organization: current_organization
+      end
+
+      def resource_sort_url
+        organization_homepage_path
+      end
+
+      def resource_create_url(manifest_name)
+        organization_homepage_content_blocks_path(manifest_name:)
+      end
+
+      def content_blocks_title
+        t("organization_homepage.edit.title", scope: "decidim.admin")
+      end
+
+      def add_content_block_text
+        t("organization_homepage.edit.add", scope: "decidim.admin")
+      end
+
+      def content_block_destroy_confirmation_text
+        t("organization_homepage.edit.destroy_confirmation", scope: "decidim.admin")
+      end
+
+      def active_content_blocks_title
+        t("organization_homepage.edit.active_content_blocks", scope: "decidim.admin")
+      end
+
+      def inactive_content_blocks_title
+        t("organization_homepage.edit.inactive_content_blocks", scope: "decidim.admin")
+      end
+
+      def resource_content_block_cell
+        "decidim/admin/homepage_content_block"
+      end
 
       def edit
         enforce_permission_to :update, :organization, organization: current_organization
-      end
-
-      def update
-        enforce_permission_to :update, :organization, organization: current_organization
-        ReorderContentBlocks.call(current_organization, :homepage, params[:manifests]) do
-          on(:ok) do
-            head :ok
-          end
-          on(:invalid) do
-            head :bad_request
-          end
-        end
-      end
-
-      private
-
-      def content_blocks
-        @content_blocks ||= Decidim::ContentBlock.for_scope(:homepage, organization: current_organization)
-      end
-
-      def active_blocks
-        @active_blocks ||= content_blocks.published.where(manifest_name: Decidim.content_blocks.for(:homepage).map(&:name))
-      end
-
-      def unpublished_blocks
-        @unpublished_blocks ||= content_blocks.unpublished.where(manifest_name: Decidim.content_blocks.for(:homepage).map(&:name))
-      end
-
-      def inactive_blocks
-        @inactive_blocks ||= unpublished_blocks + unused_manifests
-      end
-
-      def used_manifests
-        @used_manifests ||= content_blocks.map(&:manifest_name)
-      end
-
-      def unused_manifests
-        @unused_manifests ||= Decidim.content_blocks.for(:homepage).reject do |manifest|
-          used_manifests.include?(manifest.name.to_s)
-        end
       end
     end
   end

@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # A command that reorders a collection of content blocks. It also creates
+    # A command that reorders a collection of content blocks
     # the ones that might be missing.
     class ReorderContentBlocks < Decidim::Command
       # Public: Initializes the command.
@@ -52,16 +52,14 @@ module Decidim
       end
 
       def set_new_weights
-        data = order.each_with_index.inject({}) do |hash, (manifest_name, index)|
-          hash.update(manifest_name => index + 1)
+        data = order.each_with_index.inject({}) do |hash, (id, index)|
+          hash.update(id => index + 1)
         end
 
-        data.each do |manifest_name, weight|
-          content_block = collection.find { |block| block.manifest_name == manifest_name }
+        data.each do |id, weight|
+          content_block = collection.find(id)
           if content_block.present?
             content_block.update!(weight:)
-          else
-            create_content_block(manifest_name, weight)
           end
         end
       end
@@ -75,16 +73,6 @@ module Decidim
         collection.where(published_at: nil).where.not(weight: nil).update_all(published_at: Time.current)
       end
       # rubocop:enable Rails/SkipsModelValidations
-
-      def create_content_block(manifest_name, weight)
-        Decidim::ContentBlock.create!(
-          organization:,
-          scope_name: scope,
-          scoped_resource_id: scoped_resource_id.presence,
-          weight:,
-          manifest_name:
-        )
-      end
 
       def order
         return nil unless @order.is_a?(Array) && @order.present?

@@ -514,9 +514,16 @@ en:
       metrics:
         name: Organization metrics
       static_page:
+        section:
+          name: Section
+          section_content: Content
         summary:
           name: Summary
           summary_content: Content
+        two_pane_section:
+          left_column: Left column
+          name: Two-pane section
+          right_column: Right column
       stats:
         name: Organization statistics
       sub_hero:
