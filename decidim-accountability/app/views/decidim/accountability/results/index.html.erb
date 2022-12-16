@@ -19,9 +19,10 @@
     <% end %>
 
     <div id="results" class="my-20">
-      <%= turbo_frame_tag "project_frame", data: { filtered_path: request.fullpath } %>
       <%= cell "decidim/accountability/results", results %>
       <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
     </div>
   <% end %>
 <% end %>
+
+<%= turbo_frame_tag "project_frame", data: { filtered_path: request.fullpath } %>
