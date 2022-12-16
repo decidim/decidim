@@ -64,7 +64,10 @@ describe "Edit proposals", type: :system do
 
         it "can delete attachments" do
           visit current_path
-          expect(page).to have_content("Related documents")
+
+          # REDESIGN_PENDING: the documents partial now comes with no title,
+          # that's is something will be added in the proposal view
+          # expect(page).to have_content("Related documents")
           expect(page).to have_content("RELATED IMAGES")
           click_link "Edit proposal"
 
@@ -120,13 +123,9 @@ describe "Edit proposals", type: :system do
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("avatar.jpg"))
           click_button "Send"
           click_link "Edit proposal"
-          within ".photos_container" do
-            expect(page).to have_content("city.jpeg")
-          end
-          within ".attachments_container" do
-            expect(page).to have_content("icon.png")
-            expect(page).to have_content("avatar.jpg")
-          end
+          expect(page).to have_content("city.jpeg")
+          expect(page).to have_content("icon.png")
+          expect(page).to have_content("avatar.jpg")
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city2.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city3.jpeg"))
           click_button "Send"
