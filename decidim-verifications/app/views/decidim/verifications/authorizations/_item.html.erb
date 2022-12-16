@@ -19,9 +19,11 @@
   <a href="<%= url %>" class="verification" title="<%= button_text %>" data-verification>
     <%= verification %>
   </a>
-<% else %>
+<% elsif remote_url.present? %>
   <div class="verification" data-verification data-dialog-open="renew-modal" data-dialog-remote-url="<%= remote_url %>">
     <%= verification %>
   </div>
-  <%= decidim_modal id: "renew-modal", class:"verification-modal", remote: true if remote_url %>
+  <%= decidim_modal id: "renew-modal", class:"verification-modal", remote: true %>
+<% else %>
+    <%= verification %>
 <% end %>
