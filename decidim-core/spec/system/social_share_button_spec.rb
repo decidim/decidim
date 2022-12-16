@@ -5,6 +5,7 @@ require "spec_helper"
 describe "Social share button", type: :system do
   let!(:resource) { create(:dummy_resource) }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
+  let(:modal_selector) { Decidim.redesign_active ? "[data-social-share]" : ".social-share-button" }
 
   before { switch_to_host(resource.organization.host) }
 
@@ -12,30 +13,30 @@ describe "Social share button", type: :system do
     it "shows the 'socialShare' modal" do
       within "#socialShare", visible: :visible do
         expect(page).to have_css("h3", text: "Share:")
-        expect(page).to have_css(".social-share-button")
+        expect(page).to have_css(modal_selector)
       end
     end
 
     it "shows the 'Share to Twitter' button" do
-      within ".social-share-button" do
+      within modal_selector do
         expect(page).to have_css('a[data-site="twitter"]')
       end
     end
 
     it "shows the 'Share to Facebook' button" do
-      within ".social-share-button" do
+      within modal_selector do
         expect(page).to have_css('a[data-site="facebook"]')
       end
     end
 
     it "shows the 'Share to Telegram' button" do
-      within ".social-share-button" do
+      within modal_selector do
         expect(page).to have_css('a[data-site="telegram"]')
       end
     end
 
     it "shows the 'Share to Whatsapp' button" do
-      within ".social-share-button" do
+      within modal_selector do
         expect(page).to have_css('a[data-site="whatsapp"]')
       end
     end

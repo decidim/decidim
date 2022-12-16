@@ -1,7 +1,2 @@
-<% if text.present? %>
-  <span class="<%= text_classes %>"><%= text %></span>
-<% end %>
-
-<% if icon_name.present? %>
-  <%= icon icon_name, class: icon_classes %>
-<% end %>
+<%= content_tag(:span, text, class: text_classes) if text.present? %>
+<%= icon(icon_name, class: icon_classes) if icon_name.present? %>

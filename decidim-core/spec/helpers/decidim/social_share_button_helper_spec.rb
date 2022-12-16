@@ -6,10 +6,17 @@ module Decidim
   describe SocialShareButtonHelper do
     let(:args) { { url: "http://example.org" } }
     let(:result) { helper.social_share_button_tag("Hello", **args) }
+    let(:redesign_enabled) { false }
+
+    before do
+      # rubocop:disable RSpec/AnyInstance
+      allow_any_instance_of(ActionView::Base).to receive(:redesign_enabled?).and_return(redesign_enabled)
+      # rubocop:enable RSpec/AnyInstance
+    end
 
     describe "social_share_button_tag" do
       it "renders the class" do
-        expect(result).to include("social-share-button")
+        expect(result).to include(redesign_enabled ? "data-social-share" : "social-share-button")
       end
     end
 
@@ -83,7 +90,7 @@ module Decidim
           let(:args) { { hashtags: "Hello" } }
 
           it "renders the correct HTML" do
-            expect(result).to eq(%(<div class="social-share-button"></div>))
+            expect(result).to eq(redesign_enabled ? %(<div class="share-modal__list" data-social-share=""></div>) : %(<div class="social-share-button"></div>))
           end
         end
       end

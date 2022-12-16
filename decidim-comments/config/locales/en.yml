@@ -32,7 +32,7 @@ en:
         update:
           error: There was a problem updating the comment.
       comments_count: Comments count
-      comments_title: Comments
+      comments_title: Comment
       last_activity:
         new_comment_at_html: "<span>New comment at %{link}</span>"
       view: View
