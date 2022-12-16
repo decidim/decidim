@@ -289,14 +289,7 @@ export default class FormFilterComponent {
    */
   _currentStateAndPath() {
     const formAction = this.$form.attr("action");
-
-    // NOTE: Long time ago, even before the redesign, the query params were smarter.
-    // That was, if a parent was checked, the url generated did not include the children ids.
-    // But, in some point of the history, this behaviour broke down, and never restored.
-    // It implies huge changes on this script and form_filter.js, so for the time being,
-    // the following code is just ignored.
-    // const params = this.$form.find("*:not(.ignore-filter)").serialize();
-    const params = this.$form.serialize();
+    const params = this.$form.find("input:not(.ignore-filter)").serialize();
 
     let path = "";
     let currentState = {};

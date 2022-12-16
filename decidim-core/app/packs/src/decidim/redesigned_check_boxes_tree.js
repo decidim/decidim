@@ -71,13 +71,7 @@ export default class CheckBoxesTree {
     allChecks.forEach((input) => {
       input.checked = checkStatus;
       input.indeterminate = false;
-      // NOTE: Long time ago, even before the redesign, the query params were smarter.
-      // That was, if a parent was checked, the url generated did not include the children ids.
-      // But, in some point of the history, this behaviour broke down, and never restored.
-      // It implies huge changes on this script and form_filter.js, so for the time being,
-      // the following code is just ignored.
-      //
-      // input.classList.add("ignore-filter");
+      input.classList.add("ignore-filter");
 
       // recursive call if the input it's also a tree
       if (input.dataset.checkboxesTree) {
@@ -113,19 +107,13 @@ export default class CheckBoxesTree {
       parentCheck.indeterminate = true;
     }
 
-    // NOTE: Long time ago, even before the redesign, the query params were smarter.
-    // That was, if a parent was checked, the url generated did not include the children ids.
-    // But, in some point of the history, this behaviour broke down, and never restored.
-    // It implies huge changes on this script and form_filter.js, so for the time being,
-    // the following code is just ignored.
-    //
-    // totalCheckSiblings.forEach((sibling) => {
-    //   if (parentCheck.indeterminate && !sibling.indeterminate) {
-    //     sibling.classList.remove("ignore-filter");
-    //   } else {
-    //     sibling.classList.add("ignore-filter");
-    //   }
-    // });
+    totalCheckSiblings.forEach((sibling) => {
+      if (parentCheck.indeterminate && !sibling.indeterminate) {
+        sibling.classList.remove("ignore-filter");
+      } else {
+        sibling.classList.add("ignore-filter");
+      }
+    });
 
     // recursive call if there are more children
     if ("childrenCheckbox" in parentCheck.parentNode.dataset) {
