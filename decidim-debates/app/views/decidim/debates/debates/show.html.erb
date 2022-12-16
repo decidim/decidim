@@ -13,13 +13,15 @@ edit_link(
 )
 %>
 
+
 <button class="button button__secondary button__lg" data-drawer-open>open version</button>
 <%= render layout: "layouts/decidim/shared/drawer" , locals: { close_url: debate_path } do %>
-  <h2 class="h2 decorator">
+  <h2 class="h2 decorator mb-8">
     <%== present(debate).title(links: true, html_escape: true) %>
   </h2>
 
   <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
+  <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
 
   <% if debate.closed? %>
     <span class="success label proposal-status">
@@ -46,21 +48,42 @@ edit_link(
 
   <%= render partial: "decidim/shared/tags", locals: { resource: debate, tags_class_extra: "tags--debate" } %>
 
+  <%= cell "decidim/comments_button", nil %>
   <%= cell "decidim/endorsers_list", debate %>
 
-  <%= comments_for debate %>
 
-  <%= cell("decidim/flag_modal", debate) %>
-  <%=
-    render partial: "close_debate_modal", locals: {
-      debate: debate,
-      form: close_debate_form
-    }
-  %>
+  <%= comments_for debate %>
 
   <%= resource_reference(debate) %>
 
   <% content_for :drawer_aside do %>
+
+    <div class="rounded p-4 bg-background mb-4 divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0">
+      <div class="text-gray-2 space-y-1.5">
+        <div class="text-sm flex items-center gap-1">
+          <%= icon "calendar-line", class: "inline-block" %>
+          <span class="text-gray-2 space-y-1.5">Start date / End date</span>
+        </div>
+        <div class="text-md font-semibold">25 Oct 2022 / 28 Oct 2022</div>
+      </div>
+      <div class="text-gray-2 space-y-1.5">
+        <div class="text-sm grid grid-cols-2 gap-1">
+          <div>
+            <span class="block text-center mb-2">
+              <%= t("participants_count", scope: "decidim.debates.debates.show") %>
+            </span>
+            <span class="text-4xl font-bold block text-center"><%= debate_presenter.participants_count %></span>
+          </div>
+          <div>
+            <span class="block text-center mb-2">
+              <%= t("groups_count", scope: "decidim.debates.debates.show") %>
+            </span>
+            <span class="text-4xl font-bold block text-center"><%= debate_presenter.groups_count %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <% if allowed_to?(:edit, :debate, debate: debate) %>
       <%= link_to t("edit_debate", scope: "decidim.debates.debates.show"), edit_debate_path(debate), class: "button button__secondary button__xl w-full mb-4" %>
     <% elsif admin_allowed_to?(:update, :debate, debate: debate) %>
@@ -76,7 +99,8 @@ edit_link(
     <% end %>
     <div class="card__list extra">
       <div class="card__list-content">
-        <%= cell("decidim/date_range", { start: debate.start_time, end: debate.end_time }) %>
+        <%= endorsement_buttons_cell(debate) %>
+        <%#= cell("decidim/date_range", { start: debate.start_time, end: debate.end_time }) %>
 
         <%# if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
           <!-- <div class="row collapse buttons__row">
@@ -87,24 +111,12 @@ edit_link(
         <%# end %>
       </div>
     </div>
-    <%= follow_button_for(debate) %>
-    <div class="card extra">
-      <div class="definition-data">
-        <div class="definition-data__item definition-data__item--double">
-          <span class="definition-data__title">
-            <%= t("participants_count", scope: "decidim.debates.debates.show") %>
-          </span>
-          <span class="definition-data__number"><%= debate_presenter.participants_count %></span>
-        </div>
 
-        <div class="definition-data__item definition-data__item--double">
-          <span class="definition-data__title">
-            <%= t("groups_count", scope: "decidim.debates.debates.show") %>
-          </span>
-          <span class="definition-data__number"><%= debate_presenter.groups_count %></span>
-        </div>
-      </div>
+    <div class="grid grid-cols-3">
+      <%= follow_button_for(debate) %>
+      <%= cell "decidim/share_button", nil %>
     </div>
+
   <% end %>
 
 <% end %>
