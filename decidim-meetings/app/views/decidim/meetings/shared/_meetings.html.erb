@@ -1,6 +1,3 @@
-<% filtered_path = meetings_path(filter: params[:filter].blank? ? {} : filter_params.compact_blank) %>
-<%= turbo_frame_tag "meeting_frame", data: { filtered_path: } %>
-
 <% if params.dig("filter", "with_availability").present? && params["filter"]["with_availability"] == "withdrawn" %>
   <%= cell(
         "decidim/announcement",
