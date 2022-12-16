@@ -10,10 +10,12 @@ module Decidim
     attribute :name, String
     attribute :icon, String
     attribute :share_uri, String
+    attribute :icon_color, String
     attribute :optional_params, Array
 
     validates :name, presence: true
     validates :icon, presence: true
+    validates :icon_color, presence: false
     validates :share_uri, presence: true, format: { with: /%{url}/ }
 
     # Format a given URL to be shareable

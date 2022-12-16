@@ -36,6 +36,11 @@ module Decidim
       "user_groups" => "team-line",
       "images" => "image-line",
       "documents" => "file-text-line",
+      "like" => "heart-add-line",
+      "dislike" => "dislike-line",
+      "follow" => "notification-3-line",
+      "unfollow" => "notification-3-fill",
+      "share" => "share-line",
       "other" => "question-line"
     }.freeze
 
@@ -58,7 +63,7 @@ module Decidim
     #
     # Returns an HTML tag with the icon.
     def manifest_icon(manifest, options = {})
-      if manifest.icon
+      if manifest.respond_to?(:icon) && manifest.icon.present?
         external_icon manifest.icon, options
       else
         icon "question-mark", options
@@ -76,9 +81,9 @@ module Decidim
     def resource_icon(resource, options = {})
       if resource.instance_of?(Decidim::Comments::Comment)
         icon "comment-square", options
-      elsif resource.respond_to?(:component)
+      elsif resource.respond_to?(:component) && resource.component.present?
         component_icon(resource.component, options)
-      elsif resource.respond_to?(:manifest)
+      elsif resource.respond_to?(:manifest) && resource.manifest.present?
         manifest_icon(resource.manifest, options)
       elsif resource.is_a?(Decidim::User)
         icon "person", options
