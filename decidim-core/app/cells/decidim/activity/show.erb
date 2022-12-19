@@ -1,8 +1,8 @@
-<div class="profile__activity__item" id="<%= element_id %>" data-activity>
-  <div class="profile__activity__item-time">
+<div class="activity" id="<%= element_id %>" data-activity>
+  <div class="activity__time">
     <%= created_at %>
   </div>
-  <div class="profile__activity__item-content">
+  <div class="activity__content">
     <span>
       <%= title if title.present? %>
       <a href="<%= resource_link_path %>">
@@ -10,7 +10,7 @@
       </a>
     </span>
     <span>
-      <%= icon "treasure-map-line", class: "w-3.5 h-3.5 text-gray fill-current" %>
+      <%= icon "treasure-map-line" %>
       <%= participatory_space_link %>
     </span>
   </div>
