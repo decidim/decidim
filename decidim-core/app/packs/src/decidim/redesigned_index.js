@@ -77,7 +77,6 @@ import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
-import RemoteModal from "./redesigned_ajax_modals"
 import setHeadingTag from "./redesigned_heading_tag"
 import selectActiveIdentity from "./redesigned_identity_selector_dialog"
 
@@ -235,6 +234,7 @@ const initializer = (element = document) => {
         onOpen: (node) => setHeadingTag(node),
         onClose: (node) => {
           setHeadingTag(node);
+          Turbo.visit(drawer)
           Turbo.navigator.history.replace({ href: drawer });
         }
       });
@@ -278,4 +278,12 @@ StreamActions.open_drawer = function() {
     drawerItem.querySelector("[data-drawer-close]").setAttribute("data-drawer-close", filteredPath);
     drawerItem.querySelector("[data-drawer]").setAttribute("data-drawer", filteredPath);
   }
+}
+
+// eslint-disable-next-line camelcase
+StreamActions.refresh_filter = function() {
+  const filteredPath = this.getAttribute("filtered_path");
+  const turboFrame = document.getElementById(this.getAttribute("turbo_frame"));
+  turboFrame.dataset.filteredPath = filteredPath;
+  turboFrame.innerHTML = "";
 }
