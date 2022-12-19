@@ -39,11 +39,11 @@ describe "Meeting", type: :system, download: true do
     it "they show it" do
       visit_meeting
 
-      within ".view-side .card--list" do
-        expect(page).to have_selector(".card--list__item", count: meeting.services.size)
+      within "#drawer_content_frame" do
+        expect(page).to have_selector(".meeting__aside-block", count: meeting.services.size)
 
         services_titles = meeting.services.map { |service| service.title["en"] }
-        services_present_in_pages = current_scope.all(".card--list__heading").map(&:text)
+        services_present_in_pages = current_scope.all(".meeting__aside-block__title").map(&:text)
         expect(services_titles).to include(*services_present_in_pages)
       end
     end
@@ -68,7 +68,7 @@ describe "Meeting", type: :system, download: true do
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.address__map")
+        expect(page).to have_no_css("div.meeting__calendar-container .static-map")
       end
     end
 
@@ -78,7 +78,7 @@ describe "Meeting", type: :system, download: true do
       it "shows the map section" do
         visit_meeting
 
-        expect(page).to have_css("div.address__map")
+        expect(page).to have_css("div.meeting__calendar-container .static-map")
       end
     end
 
@@ -88,7 +88,7 @@ describe "Meeting", type: :system, download: true do
       it "shows the map section" do
         visit_meeting
 
-        expect(page).to have_css("div.address__map")
+        expect(page).to have_css("div.meeting__calendar-container .static-map")
       end
     end
   end
@@ -110,7 +110,7 @@ describe "Meeting", type: :system, download: true do
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.address__map")
+        expect(page).to have_no_css("div.meeting__calendar-container .static-map")
       end
     end
 
@@ -120,7 +120,7 @@ describe "Meeting", type: :system, download: true do
       it "hides the map section" do
         visit_meeting
 
-        expect(page).to have_no_css("div.address__map")
+        expect(page).to have_no_css("div.meeting__calendar-container .static-map")
       end
     end
   end
