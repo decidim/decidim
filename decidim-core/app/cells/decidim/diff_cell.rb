@@ -27,6 +27,8 @@ module Decidim
     end
 
     def path(extra_params)
+      return if options[:path].blank?
+
       options[:path].call(extra_params)
     end
 
