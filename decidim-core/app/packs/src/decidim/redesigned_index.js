@@ -77,6 +77,7 @@ import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
+import RemoteModal from "./redesigned_ajax_modals"
 import setHeadingTag from "./redesigned_heading_tag"
 import selectActiveIdentity from "./redesigned_identity_selector_dialog"
 
