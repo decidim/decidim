@@ -58,9 +58,7 @@ module Decidim
 
         data.each do |id, weight|
           content_block = collection.find(id)
-          if content_block.present?
-            content_block.update!(weight:)
-          end
+          content_block.update!(weight:) if content_block.present?
         end
       end
 

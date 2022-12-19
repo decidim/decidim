@@ -847,14 +847,14 @@ en:
           published: Published
         landing_page:
           content_blocks:
+            create:
+              error: There was a problem trying to create this content block
+              success: Content block successfully created
+            destroy:
+              error: There was a problem trying to delete this content block
+              success: Content block successfully deleted
             edit:
               update: Update
-            create:
-              success: Content block successfully created
-              error: There was a problem trying to create this content block
-            destroy:
-              success: Content block successfully deleted
-              error: There was a problem trying to delete this content block
           edit:
             active_content_blocks: Active content blocks
             add: Add content block

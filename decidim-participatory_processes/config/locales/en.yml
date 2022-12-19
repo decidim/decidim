@@ -183,14 +183,14 @@ en:
           inactive_content_blocks: Inactive content blocks
           title: Page contents
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: There was a problem trying to create this content block
+          success: Content block successfully created
+        destroy:
+          error: There was a problem trying to delete this content block
+          success: Content block successfully deleted
         edit:
           update: Update
-        create:
-          success: Content block successfully created
-          error: There was a problem trying to create this content block
-        destroy:
-          success: Content block successfully deleted
-          error: There was a problem trying to delete this content block
       participatory_process_groups:
         destroy:
           error: There was an error while destroying the Participatory process group.
