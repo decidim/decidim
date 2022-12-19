@@ -64,7 +64,8 @@ describe "Explore versions", versioning: true, type: :system do
       end
     end
 
-    it_behaves_like "accessible page"
+    # REDESIGN_PENDING: The accessibility should be tested after complete redesign
+    # it_behaves_like "accessible page"
 
     it "shows the version number" do
       expect(page).to have_content("VERSION NUMBER\n2 out of 2")
@@ -81,7 +82,8 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "shows the version author and creation date" do
-      within ".card.extra.definition-data" do
+      skip_unless_redesign_enabled("this test pass using redesigned version_author cell")
+
         expect(page).to have_content(author.name)
         expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
       end
