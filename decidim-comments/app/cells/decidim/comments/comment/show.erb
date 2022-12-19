@@ -22,7 +22,7 @@
       <%= alignment_badge %>
       <%= comment_body %>
     </div>
-    <div class="comment__footer" data-component="accordion">
+    <div class="comment__footer" data-component="accordion" id="accordion-<%= model.id %>">
       <div class="comment__footer-grid">
         <%= render :actions %>
         <%= votes %>

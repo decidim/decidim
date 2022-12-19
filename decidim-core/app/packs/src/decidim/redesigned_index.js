@@ -172,9 +172,25 @@ const initializer = (element = document) => {
   scrollToLastChild()
 
   // https://github.com/jonathanlevaillant/a11y-accordion-component
-  Accordions.init();
+  element.querySelectorAll('[data-component="accordion"]').forEach((component) => {
+    const accordionOptions = {};
+    accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
+    accordionOptions.isCollapsible = component.dataset.collapsible !== "false";
+
+    window.Decidim.Accordions.render(component.id, accordionOptions);
+  });
+
   // https://github.com/jonathanlevaillant/a11y-dropdown-component
-  Dropdowns.init();
+  element.querySelectorAll('[data-component="dropdown"]').forEach((component) => {
+    const dropdownOptions = {};
+    dropdownOptions.dropdown = component.dataset.target;
+    dropdownOptions.hover = component.dataset.hover === "true";
+    dropdownOptions.isOpen = component.dataset.open === "true";
+    dropdownOptions.autoClose = component.dataset.autoClose === "true";
+
+    window.Decidim.Dropdowns.render(component.id, dropdownOptions);
+  });
+
   // https://github.com/jonathanlevaillant/a11y-dialog-component
   element.querySelectorAll("[data-dialog]").forEach((elem) => {
     const {
@@ -244,9 +260,14 @@ const initializer = (element = document) => {
 if ("Turbo" in window) {
   document.addEventListener("turbo:load", () => initializer());
   document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
-  document.addEventListener("ajax:success", () => {
-    const commentsContainer = document.getElementById("comments");
-    initializer(commentsContainer)
+  document.addEventListener("ajax:success", (data) => {
+    const commentsIds = data.detail.commentsIds;
+    if (commentsIds) {
+      commentsIds.forEach((commentId) => {
+        const commentsContainer = document.getElementById(`comment_${commentId}`);
+        initializer(commentsContainer)
+      });
+    }
   });
 } else {
   // If no jQuery is used the Tribute feature used in comments to autocomplete

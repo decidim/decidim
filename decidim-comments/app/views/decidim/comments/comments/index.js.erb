@@ -5,8 +5,10 @@
   var component = $comments.data("comments");
 
   $(".loading-comments").addClass("hidden");
+  var commentsIds = [];
 <% @comments.each do |comment| %>
   var commentId = <%= comment.id.to_json %>;
+  commentsIds.push(commentId);
   var commentHtml = '<%== j(render comment).strip %>';
   var inReplyTo = <%== (reply?(comment) ? comment.commentable.id : nil).to_json %>;
 
@@ -19,6 +21,11 @@
     }
   }
 <% end %>
+  if (commentsIds.length) {
+    Rails.fire(document, "ajax:success", {
+      commentsIds: commentsIds
+    });
+  }
 
   // Update the comments count
   $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);

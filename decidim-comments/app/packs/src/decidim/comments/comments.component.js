@@ -1,7 +1,6 @@
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 /* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
 
-
 /**
  * A plain Javascript component that handles the comments.
  *
@@ -29,7 +28,6 @@ export default class CommentsComponent {
     this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
-    this.initialCommentsId = [];
   }
 
   /**
@@ -140,8 +138,6 @@ export default class CommentsComponent {
         // Attach event to the DOM node, instead of the jQuery object
         $text.get(0).addEventListener("emoji.added", this._onTextInput);
       }
-
-      this.initialCommentsId = this._getDataCommentsIds()
     });
   }
 
@@ -235,18 +231,9 @@ export default class CommentsComponent {
         if (successCallback) {
           successCallback();
         }
-        Rails.fire(document, "ajax:success");
-        const getCommentsIdAfterAjax = this._getDataCommentsIds()
-        if (this.initialCommentsId.every((id, index) => id !== getCommentsIdAfterAjax[index])) {
-          this._pollComments();
-          this.initialCommentsId = this._getDataCommentsIds()
-        }
+        this._pollComments();
       }
     });
-  }
-
-  _getDataCommentsIds() {
-    return Array.from(document.querySelectorAll(".comment")).map(({ dataset: { commentId } }) => commentId)
   }
 
   /**
