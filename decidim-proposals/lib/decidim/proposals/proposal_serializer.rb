@@ -10,6 +10,7 @@ module Decidim
       include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
       include Decidim::TranslationsHelper
+      include HtmlToPlainText
 
       # Public: Initializes the serializer with a proposal.
       def initialize(proposal)
@@ -98,11 +99,7 @@ module Decidim
 
       def plain_text_body
         proposal.body.transform_values do |v|
-          if v.is_a? Hash
-            v
-          else
-            decidim_sanitize(v, strip_tags: true)
-          end
+          v.is_a?(Hash) ? v : convert_to_text(v)
         end
       end
     end
