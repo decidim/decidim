@@ -59,8 +59,6 @@ module Decidim
         "decidim/admin/static_page_content_block"
       end
 
-      alias page scoped_resource
-
       def index
         enforce_permission_to :read, :static_page
         @topics = Decidim::StaticPageTopic.where(organization: current_organization)
@@ -139,6 +137,10 @@ module Decidim
 
         form_params["static_page"]["slug"] ||= page.slug
         form_params
+      end
+
+      def page
+        @page ||= scoped_resource
       end
 
       def collection
