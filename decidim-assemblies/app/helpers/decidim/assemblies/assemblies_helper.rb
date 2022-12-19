@@ -15,6 +15,7 @@ module Decidim
 
       # Public: Returns the characteristics of an assembly in a readable format like
       # "title: close, no public, no transparent and is restricted to the members of the assembly"
+      # deprecated
       def participatory_processes_for_assembly(assembly_participatory_processes)
         html = ""
         html += %( <div class="section"> ).html_safe

@@ -74,7 +74,21 @@ edit_link(
   <%#= REDESIGN_PENDING: proposals markup not ready %>
   <%= render_hook(:participatory_space_highlighted_elements) %>
 
-  <%= participatory_processes_for_assembly(assembly_participatory_processes) if assembly_participatory_processes.present? %>
+  <%#= participatory_processes_for_assembly(assembly_participatory_processes) if assembly_participatory_processes.present? %>
+  <% if assembly_participatory_processes.present? %>
+    <section class="content-block">
+      <div class="content-block__title">
+        <h2 class="h2 decorator"><%= t("assemblies.show.related_participatory_processes", scope: "decidim") %></h2>
+        <div class="label text-lg"><%= assembly_participatory_processes.length %></div>
+      </div>
+
+      <div class="assembly__block-grid">
+        <% assembly_participatory_processes.each do |child| %>
+          <%= card_for(child) %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
 
   <% if current_participatory_space.show_statistics? %>
     <%= cell "decidim/statistics", stats.collection %>
