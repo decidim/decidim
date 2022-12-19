@@ -14,6 +14,8 @@ describe "Meeting", type: :system, download: true do
   end
 
   it "has a link to download the meeting in ICS format" do
+    skip_unless_redesign_enabled("This test pass using redesigned modals")
+
     visit_meeting
     click_button "Add to calendar"
 
@@ -25,6 +27,8 @@ describe "Meeting", type: :system, download: true do
   end
 
   it "has a link to add to google calendar" do
+    skip_unless_redesign_enabled("This test pass using redesigned modals")
+
     visit_meeting
     click_button "Add to calendar"
 
@@ -180,6 +184,8 @@ describe "Meeting", type: :system, download: true do
         end
 
         it "fetching comments doesnt prevent timeout" do
+          skip_unless_redesign_enabled("This test pass using comments for drawers")
+
           visit_meeting
           comment
           expect(page).to have_content(translated(comment.body), wait: 30)
