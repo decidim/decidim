@@ -74,7 +74,9 @@
 
     <span class="process__content-block-span"><%= t("name", scope: "decidim.content_blocks.last_activity") %></span>
     <%#= REDESIGN_PENDING: user_activity requires a proper modal to make it work %>
-    <%#= cell "decidim/user_activity", nil %>
+    <div>
+      <%= cell "decidim/activities", Decidim::LastActivity.new(current_organization).query.limit(6) %>
+    </div>
   </section>
 
   <%#= REDESIGN_PENDING: the html block must include id="html-block-..." to span the full width %>
