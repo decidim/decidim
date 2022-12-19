@@ -2,7 +2,7 @@
   @apply flex flex-col gap-8 items-stretch py-8 md:py-16 first:pt-0 last:pb-0;
 
   &__title{
-    @apply flex justify-start items-center gap-4 last:[&>*:not(:only-child)]:ml-auto;
+    @apply flex justify-start items-center gap-4 last:[&>*:not(:only-child):not(:nth-child(2))]:ml-auto;
   }
 
   &__description{
