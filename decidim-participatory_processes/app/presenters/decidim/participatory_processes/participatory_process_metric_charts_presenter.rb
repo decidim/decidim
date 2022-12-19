@@ -18,16 +18,17 @@ module Decidim
       end
 
       def highlighted
-        render_highlighted(Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process"))
+        redesigned_charts(Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process"))
       end
 
+      # deprecated
       def not_highlighted
         render_not_highlighted(Decidim.metrics_registry.filtered(highlight: false, scope: "participatory_process"))
       end
 
-      def redesigned_charts
+      def redesigned_charts(charts)
         safe_join(
-          Decidim.metrics_registry.filtered(scope: "participatory_process", sort: true).map do |metric_manifest|
+          charts.map do |metric_manifest|
             redesigned_render_metrics(metric_manifest.metric_name,
                                       title: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.title"),
                                       description: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.description"),
