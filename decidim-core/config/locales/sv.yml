@@ -382,8 +382,6 @@ sv:
           explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad, innan du gör det måste du bekräfta din e-postadress <strong>%{email}</strong>.
           request_confirmation_instructions: Begär bekräftelseanvisningar
           title: Bekräfta din e-postadress
-      show:
-        close_modal: Stäng modal
     block_user_mailer:
       notify:
         body_1: Ditt konto har spärrats.
@@ -561,15 +559,10 @@ sv:
     endorsable:
       endorsements: Instämmanden
       endorsements_count: Antal Endorsements
-    endorsement_buttons_cell:
-      already_endorsed: Instämt
-      endorse: Instäm
     endorsements:
       identities:
         done: Klar
         select_identity: Välj identitet
-    endorsers_list:
-      close: Stäng
     errors:
       internal_server_error:
         copied: Text kopierad!
@@ -926,7 +919,6 @@ sv:
         body_1: Du är på väg att besöka en extern länk och vi vill att du ska vara försiktig med innehållet på den externa webbplatsen.
         body_2: Kontrollera länken du är på väg att besöka och se till att den är säker innan du fortsätter.
         cancel: Avbryt
-        close_modal: Stäng fönster
         proceed: Fortsätt
         title: Öppna extern länk
     log:
