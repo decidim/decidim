@@ -920,7 +920,7 @@ sv:
         body_1: Du är på väg att besöka en extern länk och vi vill att du ska vara försiktig med innehållet på den externa webbplatsen.
         body_2: Kontrollera länken du är på väg att besöka och se till att den är säker innan du fortsätter.
         cancel: Avbryt
-        close_modal: Stäng fönster
+        close_modal: Stäng modal
         proceed: Fortsätt
         title: Öppna extern länk
     log:
