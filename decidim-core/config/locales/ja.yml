@@ -359,7 +359,7 @@ ja:
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
       show:
-        close_modal: ウィンドウを閉じる
+        close_modal: モーダルを閉じる
     block_user_mailer:
       notify:
         body_1: あなたのアカウントはブロックされました。
@@ -883,7 +883,7 @@ ja:
         body_1: あなたは外部リンクにアクセスしようとしています。外部サイトの内容にはご注意ください。
         body_2: サイトにアクセスする前に、訪問しようとしているリンクをチェックし、安全なサイトであるか確認してください。
         cancel: キャンセル
-        close_modal: 閉じる
+        close_modal: モーダルを閉じる
         proceed: 続行
         title: 外部リンクを開く
     log:
@@ -923,37 +923,37 @@ ja:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{manager} が %{group}という名前で新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{manager} が %{group} として新しい会話を開始しました"
         comanagers_new_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{manager} は、 %{group}という名前の新しいメッセージを会話に投稿しました。それらを表示するにはここをクリックしてください："
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{manager} は %{group} として新しいメッセージを送信しました"
         new_conversation:
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} があなたと新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{sender} があなたと会話を開始しました"
         new_group_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{sender} が %{group} と会話を開始しました"
         new_group_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との会話に新しいメッセージを投稿しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{group} に %{sender} からの新しいメッセージがあります"
         new_message:
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} さんがあなたの会話に新しいメッセージを投稿しました。こちらをクリックしてください："
-          outro: お楽しみください!
+          outro: ' '
           subject: '%{sender} からの新しいメッセージがあります'
       conversations:
         add_conversation_users:
