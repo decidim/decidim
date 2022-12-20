@@ -19,8 +19,6 @@ ro:
         title: Acțiuni
       admin:
         models:
-          components:
-            body: Conținut
           post:
             name: Postează
         posts:
@@ -47,7 +45,6 @@ ro:
             body: Conținut
       posts:
         show:
-          comments: Comentarii
           view: Vizualizează
     components:
       blogs:
