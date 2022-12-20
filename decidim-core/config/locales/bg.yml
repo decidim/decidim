@@ -300,6 +300,8 @@ bg:
           explanation_html: За да изпълните това действие, първо се идентифицирайте, но преди това потвърдете вашата ел. поща <strong>%{email}</strong>.
           request_confirmation_instructions: Заявка на инструкции за потвърждение
           title: Потвърдете Вашата ел. поща
+      show:
+        close_modal: Затвори прозорчето
     collapsible_list:
       hidden_elements_count:
         one: и още %{count}
@@ -749,6 +751,9 @@ bg:
       index:
         last_activity: Последна активност
         resource_type: Тип
+    links:
+      warning:
+        close_modal: Затвори прозорчето
     log:
       base_presenter:
         create: "%{user_name} създаде %{resource_name}"
