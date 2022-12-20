@@ -331,8 +331,6 @@ eu:
           explanation_html: Ekintza hau burutzeko baimena behar da, egiten zure email berretsi behar duzula aurretik behar duzu <strong>%{email}</strong>.
           request_confirmation_instructions: Eska ezazu berrespen-argibideak
           title: Berretsi zure posta elektronikoa
-      show:
-        close_modal: Itxi leihoa
     block_user_mailer:
       notify:
         body_1: Zure kontua blokeatu egin da.
@@ -504,9 +502,6 @@ eu:
     endorsable:
       endorsements: Oniritziak
       endorsements_count: Atxikimendu kopurua
-    endorsement_buttons_cell:
-      already_endorsed: Atxikita
-      endorse: Atxiki
     endorsements:
       identities:
         done: Eginda
@@ -839,7 +834,6 @@ eu:
         body_1: Kanpoko lotura bat bisitatuko duzu eta eskatzen dizugu zuhurra izatea kanpoko orrialdeen edukiarekin.
         body_2: Mesedez, jarraitu aurretik, egiaztatu bisitatuko duzun lotura leku seguru batena dela.
         cancel: Utzi
-        close_modal: Itxi leihoa
         proceed: Jarraitu
         title: Ireki kanpoko lotura
     log:
