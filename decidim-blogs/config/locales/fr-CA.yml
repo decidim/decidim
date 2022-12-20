@@ -23,8 +23,6 @@ fr-CA:
         title: Actions
       admin:
         models:
-          components:
-            body: Corps du texte
           post:
             name: Publier
         posts:
@@ -62,7 +60,6 @@ fr-CA:
             title: Titre
       posts:
         show:
-          comments: Commentaires
           view: Voir
     components:
       blogs:
