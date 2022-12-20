@@ -435,8 +435,6 @@ pl:
           explanation_html: Aby wykonać tę akcję, musisz mieć autoryzację, zanim to zrobisz, musisz potwierdzić swój adres e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Poproś o instrukcje uwierzytelniające
           title: Potwierdź swój adres e-mail
-      show:
-        close_modal: Zamknij okno
     block_user_mailer:
       notify:
         body_1: Twoje konto zostało zablokowane.
@@ -611,9 +609,6 @@ pl:
     endorsable:
       endorsements: Rekomendacje
       endorsements_count: Liczba rekomendacji
-    endorsement_buttons_cell:
-      already_endorsed: Rekomendowano
-      endorse: Rekomenduj
     endorsements:
       identities:
         done: Gotowe
@@ -944,7 +939,6 @@ pl:
         resource_type: Typ
     links:
       warning:
-        close_modal: Zamknij okno
         proceed: Dalej
         title: Otwórz zewnętrzny link
     log:
