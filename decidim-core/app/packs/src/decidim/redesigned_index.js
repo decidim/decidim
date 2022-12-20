@@ -260,12 +260,14 @@ const initializer = (element = document) => {
 if ("Turbo" in window) {
   document.addEventListener("turbo:load", () => initializer());
   document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
-  document.addEventListener("ajax:success", (data) => {
-    const commentsIds = data.detail.commentsIds;
+  document.addEventListener("ajax:success", (event) => {
+    const commentsIds = event.detail.commentsIds;
     if (commentsIds) {
       commentsIds.forEach((commentId) => {
         const commentsContainer = document.getElementById(`comment_${commentId}`);
-        initializer(commentsContainer)
+        if (commentsContainer) {
+          initializer(commentsContainer)
+        }
       });
     }
   });
