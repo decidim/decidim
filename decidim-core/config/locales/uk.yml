@@ -171,6 +171,8 @@ uk:
           invalid_field: "Для поля %{field} значення %{value} неприпустиме."
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
+      show:
+        close_modal: Закрити віконце
     collapsible_list:
       see_less: "(читати менше)"
       see_more: "(читати далі)"
@@ -339,6 +341,9 @@ uk:
       default_image: Зображення за замовчуванням
       errors:
         error: У цьому полі є помилка.
+    links:
+      warning:
+        close_modal: Закрити віконце
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
