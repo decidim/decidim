@@ -66,6 +66,7 @@ describe "Admin manages newsletter templates", type: :system do
         visit decidim_admin.preview_newsletter_template_path(template_id)
         expect(page).to have_link("notifications page", href: "#")
         expect(page).to have_link("Unsubscribe", href: "#")
+        expect(page).to have_link(organization.name, href: "#", count: 2)
       end
     end
 

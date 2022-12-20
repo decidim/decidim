@@ -19,7 +19,12 @@ module Decidim
       @user = user
       @preview = preview
 
-      @custom_url_for_mail_root = custom_url_for_mail_root(@organization, @newsletter.id) if Decidim.config.track_newsletter_links
+      @custom_url_for_mail_root =
+        if @preview
+          "#"
+        elsif Decidim.config.track_newsletter_links
+          custom_url_for_mail_root(@organization, @newsletter.id)
+        end
       @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, @newsletter.sent_at)
 
       with_user(user) do
@@ -41,6 +46,7 @@ module Decidim
         organization: @organization,
         newsletter: @newsletter,
         recipient_user: @user,
+        custom_url_for_mail_root: @custom_url_for_mail_root,
         context: {
           controller: self
         }
