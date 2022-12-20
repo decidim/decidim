@@ -8,8 +8,6 @@ is-IS:
         title: Aðgerðir
       admin:
         models:
-          components:
-            body: Líkami
           post:
             name: Post
         posts:
