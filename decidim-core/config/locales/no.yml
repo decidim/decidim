@@ -357,8 +357,6 @@
           explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte e-postadressen din <strong>%{email}</strong>.
           request_confirmation_instructions: Be om bekreftels instruksjoner
           title: Bekreft e-posten din
-      show:
-        close_modal: Lukk vinduet
     block_user_mailer:
       notify:
         body_1: Kontoen din ble blokkert.
@@ -539,9 +537,6 @@
     endorsable:
       endorsements: Påtegnelser
       endorsements_count: Antall tilslutninger
-    endorsement_buttons_cell:
-      already_endorsed: Tilsluttet
-      endorse: Tilslutte
     endorsements:
       identities:
         done: Ferdig
@@ -875,7 +870,6 @@
         body_1: Du er i ferd med å besøke en ekstern lenke, og vi vil at du skal være forsiktig med hensyn til innholdet på det eksterne nettstedet.
         body_2: Vennligst sjekk linken du er i ferd med å besøke og sørg for at du anser den som et sikkert nettsted før du fortsetter.
         cancel: Avbryt
-        close_modal: Lukk dialogboks
         proceed: Fortsett
         title: Åpne ekstern lenke
     log:
