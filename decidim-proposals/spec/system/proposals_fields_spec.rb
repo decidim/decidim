@@ -127,10 +127,9 @@ describe "Proposals", type: :system do
               find("*[type=submit]").click
             end
 
-            within ".card__content.address" do
-              expect(page).to have_css(".address__info")
-              expect(page).to have_css(".address__map")
-              expect(page).to have_content(address)
+            within ".static-map__container" do
+              expect(page).to have_css("li", text: address)
+              expect(page).to have_css(".static-map")
             end
 
             click_button "Publish"
