@@ -23,8 +23,6 @@ es-PY:
         title: Comportamiento
       admin:
         models:
-          components:
-            body: Cuerpo
           post:
             name: Enviar
         posts:
@@ -62,7 +60,6 @@ es-PY:
             title: Título
       posts:
         show:
-          comments: Comentarios
           view: Ver
     components:
       blogs:
