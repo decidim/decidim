@@ -418,8 +418,6 @@ es:
           explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
-      show:
-        close_modal: Cerrar el modal
     block_user_mailer:
       notify:
         body_1: Tu cuenta ha sido bloqueda.
@@ -601,15 +599,11 @@ es:
     endorsable:
       endorsements: Adhesiones
       endorsements_count: Número de adhesiones
-    endorsement_buttons_cell:
-      already_endorsed: Adherido
-      endorse: Adherirse
     endorsements:
       identities:
         done: Hecho
         select_identity: Seleccionar identidad
     endorsers_list:
-      close: Cerrar
       endorsed_by: Le gusta a…
     errors:
       internal_server_error:
@@ -993,7 +987,6 @@ es:
         body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
         body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
         cancel: Cancelar
-        close_modal: Cerrar ventana
         proceed: Continuar
         title: Abrir enlace externo
     log:
