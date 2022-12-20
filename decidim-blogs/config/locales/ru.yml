@@ -19,8 +19,6 @@ ru:
         title: Действия
       admin:
         models:
-          components:
-            body: Основной текст
           post:
             name: Пост
         posts:
