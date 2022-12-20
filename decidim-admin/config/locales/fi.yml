@@ -551,6 +551,7 @@ fi:
         area_types: Aluetyypit
         areas: Alueet
         configuration: Asetukset
+        content: Sisältö
         dashboard: Hallintapaneeli
         external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
@@ -559,6 +560,7 @@ fi:
         moderation: Yleiset moderoinnit
         newsletters: Uutiskirjeet
         participants: Osallistujat
+        reported_users: Ilmoitetut osallistujat
         scope_types: Teematyypit
         scopes: Teemat
         settings: Asetukset
@@ -657,6 +659,7 @@ fi:
           nickname: Nimimerkki
           reason: Syy
           reports: Ilmoitusten määrä
+          title: Osallistujat
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -1113,6 +1116,8 @@ fi:
   layouts:
     decidim:
       admin:
+        global_moderations:
+          title: Sisällön moderointi
         newsletters:
           title: Uutiskirjeet
         settings:
