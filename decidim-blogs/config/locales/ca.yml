@@ -23,8 +23,6 @@ ca:
         title: Accions
       admin:
         models:
-          components:
-            body: Cos
           post:
             name: Publicar
         posts:
@@ -62,7 +60,6 @@ ca:
             title: Títol
       posts:
         show:
-          comments: Comentaris
           view: Veure
     components:
       blogs:
