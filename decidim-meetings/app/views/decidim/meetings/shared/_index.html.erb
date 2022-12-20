@@ -20,6 +20,10 @@
       </div>
     <% end %>
 
+    <% if display_announcement %>
+      <%= render partial: "decidim/shared/component_announcement" %>
+    <% end %>
+
     <div id="meetings">
       <%= render partial: "decidim/meetings/shared/meetings" %>
     </div>
