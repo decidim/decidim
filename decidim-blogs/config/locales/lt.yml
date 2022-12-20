@@ -23,8 +23,6 @@ lt:
         title: Veiksmai
       admin:
         models:
-          components:
-            body: Pagrindinė dalis
           post:
             name: Publikacija
         posts:
@@ -61,7 +59,6 @@ lt:
             published_at: Paskelbimo laikas
       posts:
         show:
-          comments: Komentarai
           view: Peržiūrėti
     components:
       blogs:
