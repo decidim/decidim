@@ -32,6 +32,14 @@ module Decidim
       options[:turbo_frame]
     end
 
+    def reverse_ordered_versions
+      @reverse_ordered_versions ||= relation? ? versions.reverse_order : versions.reverse
+    end
+
+    def relation?
+      versions.is_a?(ActiveRecord::Relation)
+    end
+
     delegate :versions, to: :versioned_resource
   end
 end

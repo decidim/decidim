@@ -1,3 +1,3 @@
-<% versions.reverse_order.each_with_index do |version, index| %>
+<% reverse_ordered_versions.each_with_index do |version, index| %>
   <%= cell("decidim/versions_list_item", version, index:, versioned_resource:, version_path:, i18n_scope:, total:, turbo_frame:) %>
 <% end %>
