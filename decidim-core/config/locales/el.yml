@@ -305,7 +305,7 @@ el:
           request_confirmation_instructions: Ζητήστε οδηγίες επιβεβαίωσης
           title: Επιβεβαίωση διεύθυνσης email
       show:
-        close_modal: Κλείσιμο παραθύρου
+        close_modal: Κλείσιμο βοηθητικού στοιχείου
     collapsible_list:
       hidden_elements_count:
         one: και %{count} ακόμη
@@ -779,6 +779,9 @@ el:
       index:
         last_activity: Τελευταία δραστηριότητα
         resource_type: Τύπος
+    links:
+      warning:
+        close_modal: Κλείσιμο βοηθητικού στοιχείου
     log:
       base_presenter:
         create: "Ο χρήστης %{user_name} δημιούργησε το στοιχείο %{resource_name}"
