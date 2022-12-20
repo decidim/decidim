@@ -451,8 +451,6 @@ cs:
           explanation_html: Abyste mohli provést tuto akci, musíte být autorizováni, před tím musíte potvrdit svůj e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
           title: Potvrdit svůj email
-      show:
-        close_modal: Zavřít okno
     block_user_mailer:
       notify:
         body_1: Váš účet byl zablokován.
@@ -640,15 +638,11 @@ cs:
     endorsable:
       endorsements: Schválení
       endorsements_count: Počet schvalování
-    endorsement_buttons_cell:
-      already_endorsed: Schváleno
-      endorse: Schválit
     endorsements:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
     endorsers_list:
-      close: Zavřít‏
       endorsed_by: Líbí se…
     errors:
       internal_server_error:
@@ -1036,7 +1030,6 @@ cs:
         body_1: Chystáte se navštívit externí odkaz a chtěli bychom, abyste byli opatrní, pokud jde o obsah na externím webu.
         body_2: Zkontrolujte prosím odkaz, který se chystáte navštívit, a než budete pokračovat, ujistěte se, že jste jej rozpoznali jako bezpečný web.
         cancel: Zrušit
-        close_modal: Zavřít modal
         proceed: Pokračovat
         title: Otevřít externí odkaz
     log:
