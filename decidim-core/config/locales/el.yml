@@ -300,8 +300,6 @@ el:
           explanation_html: Για να εκτελέσετε αυτήν την ενέργεια, θα πρέπει να είστε εξουσιοδοτημένοι. Για να το κάνετε αυτό, πρέπει να επιβεβαιώσετε τη διεύθυνση email σας <strong>%{email}</strong>.
           request_confirmation_instructions: Ζητήστε οδηγίες επιβεβαίωσης
           title: Επιβεβαίωση διεύθυνσης email
-      show:
-        close_modal: Κλείσιμο παραθύρου
     collapsible_list:
       hidden_elements_count:
         one: και %{count} ακόμη
@@ -449,9 +447,6 @@ el:
     endorsable:
       endorsements: Επιδοκιμασίες
       endorsements_count: Καταμέτρηση επιδοκιμασιών
-    endorsement_buttons_cell:
-      already_endorsed: Με επιδοκιμασία
-      endorse: Επιδοκιμασία
     endorsements:
       identities:
         done: Τέλος
