@@ -343,8 +343,6 @@ ro:
           explanation_html: Pentru a efectua această acțiune, trebuie să fii autorizat, înainte de a face acest lucru, trebuie să confirmi adresa ta de e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Cere instrucțiunile de confirmare
           title: Confirmați e-mailul tău
-      show:
-        close_modal: Închide fereastra
     block_user_mailer:
       notify:
         body_1: Contul tău a fost blocat.
@@ -525,9 +523,6 @@ ro:
     endorsable:
       endorsements: Susținători
       endorsements_count: Număr de susțineri
-    endorsement_buttons_cell:
-      already_endorsed: Susținut
-      endorse: Susține
     endorsements:
       identities:
         done: Finalizat
@@ -862,7 +857,6 @@ ro:
         body_1: Ești pe cale de a vizita un link extern și am dori să fii precaut în ceea ce privește conținutul de pe site-ul extern.
         body_2: Te rugăm să verifici link-ul pe care urmează să îl vizitezi și să te asiguri că îl este un site sigur înainte de a continua.
         cancel: Anulare
-        close_modal: Închidere
         proceed: Continuă
         title: Deschide link-ul extern
     log:
