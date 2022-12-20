@@ -370,7 +370,7 @@ ca:
           request_confirmation_instructions: Sol·licita instruccions de confirmació
           title: Confirma el teu correu electrònic
       show:
-        close_modal: Tancar el modal
+        close_modal: Tanca modal
     block_user_mailer:
       notify:
         body_1: El teu compte ha estat bloquejat.
@@ -689,7 +689,7 @@ ca:
         resource_hidden:
           email_intro: Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}.
           email_outro: Has rebut aquesta notificació perquè ets autora d'un contingut eliminat.
-          email_subject: S'ha eliminat el teu %{resource_type}
+          email_subject: S'ha eliminat el/la teu/teva %{resource_type}
           notification_title: |-
             Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}..</br>
             <i>%{resource_content}</i>
@@ -896,7 +896,7 @@ ca:
         body_1: Estàs a punt de visitar un enllaç extern i et recomanem que siguis prudent pel que fa als continguts en pàgines externes.
         body_2: Assegura't que l'enllaç que visitaràs és d'un lloc segur abans de seguir.
         cancel: Cancel·lar
-        close_modal: Tancar finestra
+        close_modal: Tanca modal
         proceed: Continuar
         title: Obrir enllaç extern
     log:
