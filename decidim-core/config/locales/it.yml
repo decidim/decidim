@@ -333,8 +333,6 @@ it:
           explanation_html: Per eseguire questa azione devi essere autorizzato, prima di farlo devi confermare la tua email <strong>%{email}</strong>.
           request_confirmation_instructions: Richiedi le istruzioni di conferma
           title: conferma la tua email
-      show:
-        close_modal: Chiudi modalità
     block_user_mailer:
       notify:
         body_1: Il tuo account è stato bloccato.
@@ -511,9 +509,6 @@ it:
     endorsable:
       endorsements: Mi piace
       endorsements_count: Numero di Appoggi
-    endorsement_buttons_cell:
-      already_endorsed: Appoggiato
-      endorse: Appoggia
     endorsements:
       identities:
         done: Fatto
@@ -846,7 +841,6 @@ it:
         body_1: Stai per visitare un collegamento esterno e vorremmo che tu sia cauto riguardo al contenuto del sito esterno.
         body_2: Per favore controlla il link che stai per visitare e assicurati di riconoscerlo come un sito sicuro prima di procedere.
         cancel: Annulla
-        close_modal: Chiudi finestra
         proceed: Procedi
         title: Apri collegamento esterno
     log:
