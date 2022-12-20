@@ -227,7 +227,7 @@ At the top you should have an `Unreleased` header with the `Added`, `Changed`, `
 After that, the header with the current version and link like `+## [0.20.0](https://github.com/decidim/decidim/tree/v0.20.0)+` and again the headers for the `Added`, `Changed`, `Fixed` and `Removed` sections.
 . Commit all the changes: `git add . && git commit -m "Bump to v0.XX.0 final version" && git push origin release/x.y-stable`.
 . Wait for the tests to finish and check that everything is passing before releasing the version.
-NOTE: When you bump the version, the generator tests will fail because the gems and NPM pacakges have not yet been actually released that we are now depending on. You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.
+NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.
 . Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
 . Once all the gems are published:
  .. Re-run the failed generators tests at the release branch.
@@ -293,7 +293,7 @@ At the top you should have an `Unreleased` header with the `Added`, `Changed`, `
 After that, the header with the current version and link like `+## [0.20.0](https://github.com/decidim/decidim/tree/v0.20.0)+` and again the headers for the `Added`, `Changed`, `Fixed` and `Removed` sections.
 . Commit all the changes: `git add . && git commit -m "Prepare VERSION release"`
 . Wait for the tests to finish and check that everything is passing before releasing the version.
-NOTE: When you bump the version, the generator tests will fail because the gems and NPM pacakges have not yet been actually released that we are now depending on. You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.
+NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.
 . Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems.
 . Once all the gems are published:
  .. Re-run the failed generators tests at the release branch.
