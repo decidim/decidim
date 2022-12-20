@@ -448,9 +448,6 @@ sk:
         request_data: Vyžiadať dáta
     endorsable:
       endorsements: Potvrdenie
-    endorsement_buttons_cell:
-      already_endorsed: Podporené
-      endorse: Podporiť
     endorsements:
       identities:
         done: Hotovo
