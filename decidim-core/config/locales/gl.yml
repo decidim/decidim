@@ -712,7 +712,6 @@ gl:
         body_1: Estás a punto de visitar unha ligazón externa e gustaríanos ser cautelosos canto ao contido deste sitio externo.
         body_2: Por favor, verifica a ligazón a punto de visitar e asegúrate de que é un sitio seguro antes de continuar.
         cancel: Cancelar
-        close_modal: Pechar modal
         proceed: Continuar
         title: Abrir ligazón externa
     log:
