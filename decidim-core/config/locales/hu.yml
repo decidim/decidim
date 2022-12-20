@@ -418,8 +418,6 @@ hu:
           explanation_html: Annak érdekében, hogy ezt a műveletet elvégezhesse, engedélyeznie kell, mielőtt ezt elvégezné, meg kell erősítenie az e-mail címét <strong>%{email}</strong>.
           request_confirmation_instructions: Kérjen megerősítési utasítást
           title: Erősítsd meg az e-mail címed
-      show:
-        close_modal: Felugró ablak bezárása
     block_user_mailer:
       notify:
         body_1: A fiókod zárolva van.
@@ -595,15 +593,10 @@ hu:
     endorsable:
       endorsements: Jóváhagyások
       endorsements_count: Támogatások száma
-    endorsement_buttons_cell:
-      already_endorsed: Jóváhagyva
-      endorse: Jóváhagy
     endorsements:
       identities:
         done: Kész
         select_identity: Válassz azonosítót
-    endorsers_list:
-      close: Bezárás
     errors:
       internal_server_error:
         copied: Szöveg kimásolva!
