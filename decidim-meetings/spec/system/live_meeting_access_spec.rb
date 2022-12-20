@@ -39,7 +39,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_css("iframe")
             else
-              expect(page).to have_content("JOIN MEETING")
+              expect(page).to have_content("Join meeting")
             end
           end
         end
@@ -59,7 +59,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_no_css("iframe")
             else
-              expect(page).to have_no_content("JOIN MEETING")
+              expect(page).to have_no_content("Join meeting")
             end
           end
         end
@@ -77,7 +77,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_css("iframe")
             else
-              expect(page).to have_content("JOIN MEETING")
+              expect(page).to have_content("Join meeting")
             end
           end
 
@@ -93,7 +93,7 @@ describe "Meeting live event access", type: :system do
                 expect(page).to have_content("You need to enable all cookies in order to see this content")
                 expect(page).not_to have_css("iframe")
               else
-                expect(page).to have_content("JOIN MEETING")
+                expect(page).to have_content("Join meeting")
               end
             end
           end
@@ -117,7 +117,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_no_css("iframe")
             else
-              expect(page).to have_no_content("JOIN MEETING")
+              expect(page).to have_no_content("Join meeting")
             end
           end
         end
@@ -135,7 +135,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_no_css("iframe")
             else
-              expect(page).to have_no_content("JOIN MEETING")
+              expect(page).to have_no_content("Join meeting")
             end
           end
         end
@@ -153,7 +153,7 @@ describe "Meeting live event access", type: :system do
             when :embedded
               expect(page).to have_css("iframe")
             else
-              expect(page).to have_content("JOIN MEETING")
+              expect(page).to have_content("Join meeting")
             end
           end
         end

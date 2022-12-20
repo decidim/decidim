@@ -31,7 +31,7 @@ describe "Meeting agenda", type: :system do
       expect(page).to have_css("[data-meeting-agenda]")
 
       within "[data-meeting-agenda]" do
-        expect(page).to have_i18n_content(agenda.title, upcase: true)
+        expect(page).to have_i18n_content(agenda.title)
         expect(page).to have_css("h4", count: agenda.agenda_items.first_class.count)
       end
     end

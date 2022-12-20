@@ -51,7 +51,7 @@ describe "Private meetings", type: :system do
             expect(page).to have_current_path resource_locator(private_meeting).path
             expect(page).to have_content "Private"
             expect(page).to have_content "Transparent"
-            expect(page).not_to have_button("JOIN MEETING")
+            expect(page).not_to have_button("Join meeting")
           end
         end
       end
