@@ -15,17 +15,24 @@ en:
         description: Description
         file: File
         title: Attachment or image name
+        weight: Order position
       attachment_collection:
         description: Description
         name: Name
+        weight: Order position
       category:
         description: Description
         name: Name
         parent_id: Parent
+        weight: Order position
       component:
         name: Name
         published_at: Published at
         weight: Order position
+      external_domain:
+        value: Value
+      help_section:
+        content: Content
       id: ID
       import:
         user_group_id: Create imports as
@@ -93,6 +100,9 @@ en:
         welcome_notification_body: Welcome notification body
         welcome_notification_subject: Welcome notification subject
         youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: Email
+        name: Name
       scope:
         code: Code
         name: Name
@@ -114,6 +124,7 @@ en:
         show_in_footer: Show in the footer
         slug: URL slug
         title: Title
+        topic_id: Topic
         weight: Order position
       static_page_topic:
         description: Description
@@ -541,6 +552,7 @@ en:
         area_types: Area types
         areas: Areas
         configuration: Configuration
+        content: Content
         dashboard: Dashboard
         external_domain_whitelist: Allowed external domains
         help_sections: Help sections
@@ -549,7 +561,7 @@ en:
         moderation: Global moderations
         newsletters: Newsletters
         participants: Participants
-        reported_users: Reported Users
+        reported_users: Reported participants
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -648,7 +660,7 @@ en:
           nickname: Nickname
           reason: Reason
           reports: Reports count
-          title: Listing reported users
+          title: Listing participants
         report:
           reasons:
             does_not_belong: Does not belong
@@ -931,6 +943,9 @@ en:
           delete_image: Delete Image
           edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
+      static_page_content_blocks:
+        edit:
+          update: Update
       static_page_topics:
         create:
           error: There was a problem creating a new topic.
@@ -949,6 +964,10 @@ en:
       static_pages:
         actions:
           view: View public page
+        content_blocks:
+          active_content_blocks: Active content blocks
+          inactive_content_blocks: Inactive content blocks
+          title: Page contents
         create:
           error: There was a problem creating a new page.
           success: Page created successfully.
@@ -1099,7 +1118,7 @@ en:
     decidim:
       admin:
         global_moderations:
-          title: Global moderations
+          title: Content moderations
         newsletters:
           title: Newsletters
         settings:

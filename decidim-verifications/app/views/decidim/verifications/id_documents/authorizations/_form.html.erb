@@ -1,18 +1,12 @@
 <%= form_required_explanation %>
 
-<div class="card-section">
-  <div class="field">
-    <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
-  </div>
+<div class="form__wrapper">
+  <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
 
-  <div class="field">
-    <%= form.text_field :document_number %>
-  </div>
+  <%= form.text_field :document_number %>
 
   <% if using_online? %>
-    <div class="field">
-      <%= form.upload :verification_attachment %>
-    </div>
+    <%= form.upload :verification_attachment, button_class: "button button__lg button__transparent-secondary verification__upload-button" %>
   <% end %>
 
   <%= form.hidden_field :verification_type, value: verification_type %>

@@ -29,7 +29,7 @@ env:
 jobs:
   main:
     name: Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
@@ -47,7 +47,7 @@ jobs:
         image: ghcr.io/validator/validator:latest
         ports: ["8888:8888"]
       bulletin_board:
-        image: decidim/decidim-bulletin-board:0.23.0
+        image: decidim/decidim-bulletin-board:0.24.1
         ports: ["8000:8000"]
         env:
           DATABASE_URL: postgresql://postgres:postgres@postgres/bb

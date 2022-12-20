@@ -374,13 +374,12 @@ module Decidim
       data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(Date)
       datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
+      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
 
       template = text_field(
         attribute,
         options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
-      template += error_and_help_text(attribute, options.merge(help_text:))
       template.html_safe
     end
 
@@ -399,13 +398,12 @@ module Decidim
       end
       datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
+      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
 
       template = text_field(
         attribute,
         options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
-      template += content_tag(:span, help_text, class: "help-text")
       template.html_safe
     end
 
@@ -461,6 +459,7 @@ module Decidim
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
       help_messages = options[:help] || upload_help(object, attribute, options)
+      redesigned = @template.redesign_enabled?
 
       options = {
         attribute:,
@@ -473,7 +472,8 @@ module Decidim
         help: help_messages,
         label: label_for(attribute),
         button_label:,
-        button_edit_label: I18n.t("decidim.forms.upload.labels.replace")
+        button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
+        redesigned:
       }.merge(options)
 
       ::Decidim::ViewModel.cell(
