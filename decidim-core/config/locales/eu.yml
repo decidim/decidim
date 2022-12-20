@@ -333,7 +333,7 @@ eu:
           request_confirmation_instructions: Eska ezazu berrespen-argibideak
           title: Berretsi zure posta elektronikoa
       show:
-        close_modal: Itxi leihoa
+        close_modal: Itxi modal
     block_user_mailer:
       notify:
         body_1: Zure kontua blokeatu egin da.
@@ -842,7 +842,7 @@ eu:
         body_1: Kanpoko lotura bat bisitatuko duzu eta eskatzen dizugu zuhurra izatea kanpoko orrialdeen edukiarekin.
         body_2: Mesedez, jarraitu aurretik, egiaztatu bisitatuko duzun lotura leku seguru batena dela.
         cancel: Utzi
-        close_modal: Itxi leihoa
+        close_modal: Itxi modal
         proceed: Jarraitu
         title: Ireki kanpoko lotura
     log:
