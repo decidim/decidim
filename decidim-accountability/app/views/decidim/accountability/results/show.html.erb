@@ -21,7 +21,7 @@ edit_link(
   <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
 <% end %>
 
-<%= turbo_frame_tag "main_frame", src: results_path %>
+<%= turbo_frame_tag "main_frame", src: results_path(refresh_filter: false) %>
 
 <%= turbo_frame_tag "project_frame" do %>
   <%= render partial: "project", locals: { result: result } %>
