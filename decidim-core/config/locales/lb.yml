@@ -333,8 +333,6 @@ lb:
           explanation_html: Fir dës Aktioun duerch ze féieren muss du eng Berechtegung hunn, fir dass déi gülteg ass muss du fir d'éischt deng Email-Adress bestätegen <strong>%{email}</strong>.
           request_confirmation_instructions: Instruktiounen fir d'Bestätegung ufroen
           title: Email bestätegen
-      show:
-        close_modal: Modal zou maachen
     block_user_mailer:
       notify:
         body_1: Däin Kont ass gespaart.
@@ -506,9 +504,6 @@ lb:
     endorsable:
       endorsements: Ennerstëtzungen
       endorsements_count: Zuel vun den Ënnerstëtzer
-    endorsement_buttons_cell:
-      already_endorsed: Ënnerstëtzt
-      endorse: Ënnerstëtzen
     endorsements:
       identities:
         done: Erleedegt
@@ -837,7 +832,6 @@ lb:
         body_1: Du kënns elo op en externen Link an mir bieden dech, virsiichteg mam Inhalt vun externen Säiten ëmzegoen.
         body_2: W. e. g. iwwerpréif de Link den s'de besiche wëlls an iwwerpréif ob et eng sécher Säit ass, éier s'de weider méchs.
         cancel: Ofbriechen
-        close_modal: Modal zou maachen
         proceed: Weidermaachen
         title: Externen Link op maachen
     log:
