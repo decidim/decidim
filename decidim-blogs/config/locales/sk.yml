@@ -19,8 +19,6 @@ sk:
         title: Akcie
       admin:
         models:
-          components:
-            body: Telo textu
           post:
             name: Príspevok
         posts:
@@ -46,7 +44,6 @@ sk:
             body: Telo textu
       posts:
         show:
-          comments: Komentáre
           view: Zobraziť
     components:
       blogs:
