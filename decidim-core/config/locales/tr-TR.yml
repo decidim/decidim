@@ -319,8 +319,6 @@ tr:
           explanation_html: Bu eylemi gerçekleştirmek için yetkilendirilmeniz gerekir, bunu yapmadan önce e-postanızı doğrulamanız gerekir <strong>%{email}</strong>.
           request_confirmation_instructions: Onaylama talimatlarını tekrar gönder
           title: E-posta adresinizi doğrulayın
-      show:
-        close_modal: Pencereyi kapat
     block_user_mailer:
       notify:
         body_1: Hesabınız kilitlendi.
@@ -493,9 +491,6 @@ tr:
     endorsable:
       endorsements: Cirolar
       endorsements_count: Onay sayısı
-    endorsement_buttons_cell:
-      already_endorsed: Onaylanan
-      endorse: Onaylama
     endorsements:
       identities:
         done: Bitti
