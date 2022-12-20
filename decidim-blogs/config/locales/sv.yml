@@ -22,8 +22,6 @@ sv:
         title: Åtgärder
       admin:
         models:
-          components:
-            body: Innehåll
           post:
             name: Publicera
         posts:
@@ -52,7 +50,6 @@ sv:
             title: Titel
       posts:
         show:
-          comments: Kommentarer
           view: Visa
     components:
       blogs:
