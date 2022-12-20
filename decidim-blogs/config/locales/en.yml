@@ -1,6 +1,9 @@
 ---
 en:
   activemodel:
+    attributes:
+      post:
+        body: Body
     models:
       decidim/blogs/create_post_event: New blog post
   activerecord:
@@ -19,8 +22,6 @@ en:
         user_group_id: Create post as
       admin:
         models:
-          components:
-            body: Body
           post:
             name: Post
         posts:
