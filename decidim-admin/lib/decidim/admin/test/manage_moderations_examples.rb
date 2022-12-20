@@ -146,11 +146,17 @@ shared_examples "manage moderations" do
   end
 
   context "when listing hidden resources" do
-    it "user can review them" do
+    before do
       within ".card-title" do
         click_link "Hidden"
       end
+    end
 
+    it "user can't unreport them" do
+      expect(page).not_to have_css(".action-icon--unreport")
+    end
+
+    it "user can review them" do
       hidden_moderations.each do |moderation|
         within "tr[data-id=\"#{moderation.id}\"]" do
           expect(page).to have_css("a[href='#{moderation.reportable.reported_content_url}']")
