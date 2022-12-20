@@ -421,8 +421,6 @@ fi:
           explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
           request_confirmation_instructions: Pyydä vahvistusohjeita
           title: Vahvista sähköpostiosoitteesi
-      show:
-        close_modal: Sulje ikkuna
     block_user_mailer:
       notify:
         body_1: Tilisi on estettiin.
@@ -600,15 +598,11 @@ fi:
     endorsable:
       endorsements: Suositukset
       endorsements_count: Suositusten määrä
-    endorsement_buttons_cell:
-      already_endorsed: Suositeltu
-      endorse: Suosittele
     endorsements:
       identities:
         done: Valmis
         select_identity: Valitse henkilöllisyys
     endorsers_list:
-      close: Sulje
       endorsed_by: He tykkäävät tästä…
     errors:
       internal_server_error:
@@ -991,7 +985,6 @@ fi:
         body_1: Olet siirtymässä ulkoiseen osoitteeseen ja haluaisimme varoittaa sinua ulkoisilla sivustoilla olevasta sisällöstä.
         body_2: Tarkasta osoite, jonne olet siirtymässä ja varmista, että tunnistat sen turvalliseksi sivustoksi ennen kuin jatkat eteenpäin.
         cancel: Peruuta
-        close_modal: Sulje ikkuna
         proceed: Jatka
         title: Avaa ulkoinen linkki
     log:
