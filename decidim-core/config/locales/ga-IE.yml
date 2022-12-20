@@ -126,9 +126,6 @@ ga:
         ready: Réidh
     endorsable:
       endorsements: Formhuinithe
-    endorsement_buttons_cell:
-      already_endorsed: Formhuinithe
-      endorse: Formhuinigh
     endorsements:
       identities:
         done: Críochnaithe
