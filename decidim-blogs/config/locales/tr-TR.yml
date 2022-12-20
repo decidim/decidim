@@ -17,8 +17,6 @@ tr:
         title: Eylemler
       admin:
         models:
-          components:
-            body: Vücut
           post:
             name: posta
         posts:
@@ -45,7 +43,6 @@ tr:
             body: Vücut
       posts:
         show:
-          comments: Yorumlar
           view: Görünüm
     components:
       blogs:
