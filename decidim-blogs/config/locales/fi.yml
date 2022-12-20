@@ -23,8 +23,6 @@ fi:
         title: Toiminnot
       admin:
         models:
-          components:
-            body: Leipäteksti
           post:
             name: Artikkeli
         posts:
@@ -62,7 +60,6 @@ fi:
             title: Otsikko
       posts:
         show:
-          comments: Kommentit
           view: Näytä
     components:
       blogs:
