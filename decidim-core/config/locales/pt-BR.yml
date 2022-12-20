@@ -333,8 +333,6 @@ pt-BR:
           explanation_html: A fim de executar esta ação que você precisa ser autorizado, antes de fazer isso você precisa confirmar o seu e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Reenviar instruções de confirmação
           title: Confirme seu e-mail
-      show:
-        close_modal: Fechar modal
     block_user_mailer:
       notify:
         body_1: Sua conta está bloqueada.
@@ -506,9 +504,6 @@ pt-BR:
     endorsable:
       endorsements: Avais
       endorsements_count: Contagem de endossos
-    endorsement_buttons_cell:
-      already_endorsed: Endossado
-      endorse: Endossar
     endorsements:
       identities:
         done: Concluído
@@ -841,7 +836,6 @@ pt-BR:
         body_1: Você está prestes a visitar um link externo e gostaríamos que fosse cauteloso com o conteúdo do site externo.
         body_2: Verifique o link que está prestes a visitar e certifique-se de reconhecê-lo como um site seguro antes de prosseguir.
         cancel: Cancelar
-        close_modal: Fechar modal
         proceed: Prosseguir
         title: Abrir Link Externo
     log:
