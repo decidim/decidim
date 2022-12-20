@@ -322,7 +322,7 @@ tr:
           request_confirmation_instructions: Onaylama talimatlarını tekrar gönder
           title: E-posta adresinizi doğrulayın
       show:
-        close_modal: Pencereyi kapat
+        close_modal: Yakın kalıcı
     block_user_mailer:
       notify:
         body_1: Hesabınız kilitlendi.
@@ -830,6 +830,9 @@ tr:
       index:
         last_activity: Son Aktivite
         resource_type: Türü
+    links:
+      warning:
+        close_modal: Yakın kalıcı
     log:
       base_presenter:
         create: "%{user_name}, %{resource_name} oluşturdu"
