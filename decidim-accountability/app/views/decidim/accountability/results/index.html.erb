@@ -23,7 +23,9 @@
       <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
     </div>
   <% end %>
-  <%= turbo_stream_action_tag :refresh_filter, filtered_path: request.fullpath, turbo_frame: "project_frame" %>
+  <% unless params["refresh_filter"] == "false" %>
+    <%= turbo_stream_action_tag :refresh_filter, filtered_path: request.fullpath, turbo_frame: "project_frame" %>
+  <% end %>
 <% end %>
 
 <%= turbo_frame_tag "project_frame", data: { filtered_path: request.fullpath } %>
