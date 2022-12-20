@@ -291,8 +291,6 @@ zh-CN:
           explanation_html: 要执行此操作，您需要获得授权，然后才能确认您的电子邮件 <strong>%{email}</strong>
           request_confirmation_instructions: 请求确认说明
           title: 确认您的电子邮件
-      show:
-        close_modal: 关闭模式
     collapsible_list:
       hidden_elements_count:
         other: 和 %{count} 更多
@@ -432,9 +430,6 @@ zh-CN:
     endorsable:
       endorsements: 授权
       endorsements_count: 批准次数
-    endorsement_buttons_cell:
-      already_endorsed: 已批准
-      endorse: 批准
     endorsements:
       identities:
         done: 完成
