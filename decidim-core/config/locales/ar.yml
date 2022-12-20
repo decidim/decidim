@@ -302,6 +302,8 @@ ar:
           title: غير مخوّل
         unconfirmed:
           title: تأكيد البريد الإلكتروني
+      show:
+        close_modal: إغلاق مشروط
     block_user_mailer:
       notify:
         hello: مرحبًا،
@@ -737,6 +739,7 @@ ar:
     links:
       warning:
         cancel: إلغاء
+        close_modal: إغلاق مشروط
     log:
       base_presenter:
         create: "%{user_name} تم الإنشاء %{resource_name}"
