@@ -446,8 +446,6 @@ lt:
           explanation_html: Kad galėtumėte atlikti šį veiksmą, turite gauti leidimą, o prieš atlikdami šį veiksmą turite patvirtinti savo el. pašto adresą <strong>%{email}</strong>.
           request_confirmation_instructions: Paprašyti patvirtinimo instrukcijų
           title: Patvirtinkite savo el. pašto adresą
-      show:
-        close_modal: Uždaryti modalinį langą
     block_user_mailer:
       notify:
         body_1: Jūsų paskyra užblokuota.
@@ -625,15 +623,11 @@ lt:
     endorsable:
       endorsements: Palaikymai
       endorsements_count: Palaikymų skaičius
-    endorsement_buttons_cell:
-      already_endorsed: Palaikyta
-      endorse: Palaikyti
     endorsements:
       identities:
         done: Atlikta
         select_identity: Pasirinkite tapatybę
     endorsers_list:
-      close: Uždaryti
       endorsed_by: Mėgiama…
     errors:
       internal_server_error:
@@ -1016,7 +1010,6 @@ lt:
         body_1: Ketinate apsilankyti išoriniame tinklapyje tad norėtume, kad būtumėte apdairūs dėl išorinės svetainės turinio.
         body_2: Prieš tęsdami patikrinkite nuorodą, kurią ketinate aplankyti, ir įsitikinkite, kad ją atpažįstate kaip saugią.
         cancel: Atšaukti
-        close_modal: Uždaryti modalinį langą
         proceed: Tęsti
         title: Atverti išorinę nuorodą
     log:
