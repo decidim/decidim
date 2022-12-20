@@ -1010,7 +1010,7 @@ cs:
         body_1: Chystáte se navštívit externí odkaz a chtěli bychom, abyste byli opatrní, pokud jde o obsah na externím webu.
         body_2: Zkontrolujte prosím odkaz, který se chystáte navštívit, a než budete pokračovat, ujistěte se, že jste jej rozpoznali jako bezpečný web.
         cancel: Zrušit
-        close_modal: Zavřít modal
+        close_modal: Zavřít okno
         proceed: Pokračovat
         title: Otevřít externí odkaz
     log:
