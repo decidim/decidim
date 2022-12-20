@@ -72,7 +72,7 @@
       <% end %>
     </div>
 
-    <span class="process__content-block-span"><%= t("name", scope: "decidim.content_blocks.last_activity") %></span>
+    <span class="content-block__span"><%= t("name", scope: "decidim.content_blocks.last_activity") %></span>
     <%#= REDESIGN_PENDING: user_activity requires a proper modal to make it work %>
     <div>
       <%= cell "decidim/activities", Decidim::LastActivity.new(current_organization).query.limit(6) %>
@@ -140,7 +140,7 @@
         <% end %>
       </div>
 
-      <span class="process__content-block-span"><%= "Last published" %></span>
+      <span class="content-block__span"><%= "Last published" %></span>
       <div class="process__block-grid">
         <% linked_blogs.each do |linked_blog| %>
           <%#= card_for(linked_blog) %>
