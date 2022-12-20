@@ -22,8 +22,6 @@ ar:
         title: أفعال
       admin:
         models:
-          components:
-            body: الجسم
           post:
             name: بريد
         posts:
@@ -50,7 +48,6 @@ ar:
             body: الجسم
       posts:
         show:
-          comments: التعليقات
           view: رأي
     components:
       blogs:
