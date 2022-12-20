@@ -80,8 +80,8 @@ describe "Admin manages user block templates", type: :system do
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(page).to have_current_path decidim_admin_templates.edit_block_user_template_path(template)
-        expect(page.find("#template_name_en").value).to eq("My new name")
+        expect(page).to have_current_path decidim_admin_templates.block_user_templates_path
+        expect(page).to have_content("My new name")
       end
     end
   end

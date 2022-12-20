@@ -52,9 +52,9 @@ module Decidim
           enforce_permission_to :update, :template, template: template
           @form = form(TemplateForm).from_params(params)
           UpdateTemplate.call(template, @form, current_user) do
-            on(:ok) do |template|
+            on(:ok) do
               flash[:notice] = I18n.t("templates.update.success", scope: "decidim.admin")
-              redirect_to edit_block_user_template_path(template)
+              redirect_to action: :index
             end
 
             on(:invalid) do |template|
@@ -76,9 +76,9 @@ module Decidim
           @form = form(TemplateForm).from_params(params)
 
           CreateBlockUserTemplate.call(@form) do
-            on(:ok) do |questionnaire_template|
+            on(:ok) do
               flash[:notice] = I18n.t("templates.create.success", scope: "decidim.admin")
-              redirect_to edit_block_user_template_path(questionnaire_template)
+              redirect_to action: :index
             end
 
             on(:invalid) do

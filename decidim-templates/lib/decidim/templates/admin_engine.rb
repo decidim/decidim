@@ -38,6 +38,14 @@ module Decidim
         root to: "questionnaire_templates#index"
       end
 
+      initializer "decidim_templates.action_controller" do |_app|
+        config.to_prepare do
+          ActiveSupport.on_load :action_controller do
+            Decidim::Admin::ApplicationController.helper Decidim::Templates::Admin::ApplicationHelper if respond_to?(:helper)
+          end
+        end
+      end
+
       initializer "decidim_participatory_processes.admin_participatory_processes_menu" do
         Decidim.menu :admin_template_types_menu do |menu|
           menu.add_item :questionnaires,
