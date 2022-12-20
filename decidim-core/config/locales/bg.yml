@@ -434,9 +434,6 @@ bg:
         request_data: Заяви данни
     endorsable:
       endorsements: Одобрявания
-    endorsement_buttons_cell:
-      already_endorsed: Одобрен
-      endorse: Одобрявам
     endorsements:
       identities:
         done: Готово
