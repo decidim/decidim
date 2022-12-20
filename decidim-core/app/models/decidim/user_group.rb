@@ -21,7 +21,7 @@ module Decidim
              foreign_key: :decidim_user_id,
              source: :user
 
-    validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
+    validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }, unless: -> { blocked? }
 
     validate :correct_state
     validate :unique_document_number, if: :has_document_number?
