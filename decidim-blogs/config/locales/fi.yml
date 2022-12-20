@@ -2,6 +2,7 @@ fi:
   activemodel:
     attributes:
       post:
+        body: Sisältöteksti
         decidim_author_id: Laatija
         published_at: Julkaisuaika
         title: Otsikko
@@ -64,8 +65,10 @@ fi:
     components:
       blogs:
         actions:
+          comment: Kommentointi
           create: Luo
           destroy: Poista
+          endorse: Suosittelu
           update: Päivitä
         name: Blogi
         settings:
