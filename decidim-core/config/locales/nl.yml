@@ -349,8 +349,6 @@ nl:
           explanation_html: Om deze actie uit te voeren moet je geautoriseerd zijn, daarvoor moet je je e-mail bevestigen <strong>%{email}</strong>.
           request_confirmation_instructions: Bevestigingsinstructies aanvragen
           title: bevestig je email
-      show:
-        close_modal: Sluit venster
     block_user_mailer:
       notify:
         body_1: Je account werd geblokkeerd
@@ -524,15 +522,11 @@ nl:
     endorsable:
       endorsements: Aanbevelingen
       endorsements_count: Aantal suggesties
-    endorsement_buttons_cell:
-      already_endorsed: Aangekleed
-      endorse: Aanbevelen
     endorsements:
       identities:
         done: Voltooid
         select_identity: Selecteer identiteit
     endorsers_list:
-      close: Sluiten
       endorsed_by: Geliket door...
     errors:
       internal_server_error:
@@ -855,7 +849,6 @@ nl:
         body_1: Je staat op het punt om een externe link te bezoeken, wees voorzichtig met de inhoud van de externe site.
         body_2: Controleer de link, zorg ervoor dat je deze herkent als een veilige site voor je verdergaat.
         cancel: Annuleer
-        close_modal: Sluit venster
         proceed: Doorgaan
         title: Externe link openen
     log:
