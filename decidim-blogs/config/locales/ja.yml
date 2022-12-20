@@ -22,8 +22,6 @@ ja:
         title: アクション
       admin:
         models:
-          components:
-            body: 本文
           post:
             name: 投稿
         posts:
@@ -61,7 +59,6 @@ ja:
             title: タイトル
       posts:
         show:
-          comments: コメント
           view: 表示
     components:
       blogs:
