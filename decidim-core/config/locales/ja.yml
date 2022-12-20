@@ -406,8 +406,6 @@ ja:
           explanation_html: この操作を行うには、承認が必要です。その前に、メールアドレス <strong>%{email}</strong> を確認する必要があります。
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
-      show:
-        close_modal: ウィンドウを閉じる
     block_user_mailer:
       notify:
         body_1: あなたのアカウントはブロックされました。
@@ -588,15 +586,11 @@ ja:
     endorsable:
       endorsements: オススメ
       endorsements_count: オススメ数
-    endorsement_buttons_cell:
-      already_endorsed: オススメ済み
-      endorse: オススメする
     endorsements:
       identities:
         done: 完了
         select_identity: IDを選択
     endorsers_list:
-      close: 閉じる
       endorsed_by: オススメ
     errors:
       internal_server_error:
@@ -978,7 +972,6 @@ ja:
         body_1: あなたは外部リンクにアクセスしようとしています。外部サイトの内容にはご注意ください。
         body_2: サイトにアクセスする前に、訪問しようとしているリンクをチェックし、安全なサイトであるか確認してください。
         cancel: キャンセル
-        close_modal: 閉じる
         proceed: 続行
         title: 外部リンクを開く
     log:
