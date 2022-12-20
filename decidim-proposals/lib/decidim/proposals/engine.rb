@@ -208,6 +208,12 @@ module Decidim
           transfer.move_records(Decidim::Proposals::ProposalVote, :decidim_author_id)
         end
       end
+
+      initializer "decidim_proposals.moderation_content" do
+        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+          Decidim::Proposals::HideAllCreatedByAuthorJob.perform_later(**data)
+        end
+      end
     end
   end
 end

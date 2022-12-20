@@ -33,6 +33,12 @@ module Decidim
           get :foo, on: :member
         end
       end
+
+      initializer "dummy.moderation_content" do
+        ActiveSupport::Notifications.subscribe("decidim.system.events.hide_user_created_content") do |_event_name, data|
+          Decidim::DummyResources::HideAllCreatedByAuthorJob.perform_later(**data)
+        end
+      end
     end
 
     class DummyAdminEngine < Rails::Engine
@@ -70,6 +76,14 @@ module Decidim
             context[:current_component]
           end
         end
+      end
+    end
+
+    class HideAllCreatedByAuthorJob < ::Decidim::HideAllCreatedByAuthorJob
+      protected
+
+      def base_query
+        DummyResource.not_hidden.where(author: @author)
       end
     end
 

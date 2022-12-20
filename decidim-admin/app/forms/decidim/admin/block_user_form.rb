@@ -6,7 +6,7 @@ module Decidim
     class BlockUserForm < Form
       attribute :user_id, Integer
       attribute :justification, String
-
+      attribute :hide, Boolean, default: false
       validates :user, presence: true
       validates :justification, presence: true, length: { minimum: UserBlock::MINIMUM_JUSTIFICATION_LENGTH }
 

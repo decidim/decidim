@@ -23,6 +23,7 @@ module Decidim
           register_justification!
           block!
           notify_user!
+          publish_hide_event if form.hide?
         end
 
         broadcast(:ok, form.user)
@@ -30,7 +31,16 @@ module Decidim
 
       private
 
-      attr_reader :form
+      attr_reader :form, :current_blocking
+
+      def publish_hide_event
+        event_name = "decidim.system.events.hide_user_created_content"
+        ActiveSupport::Notifications.publish(event_name, {
+                                               author: current_blocking.user,
+                                               justification: current_blocking.justification,
+                                               current_user: current_blocking.blocking_user
+                                             })
+      end
 
       def register_justification!
         @current_blocking = UserBlock.create!(

@@ -682,6 +682,7 @@ en:
         report:
           reasons:
             does_not_belong: Does not belong
+            hidden_during_block: Hidden while blocking user
             offensive: Offensive
             spam: Spam
         reports:

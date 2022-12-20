@@ -11,6 +11,7 @@ module Decidim
         enforce_permission_to :block, :admin_user
 
         @form = form(BlockUserForm).from_model(user)
+        @form.hide = params[:hide] || false
       end
 
       def create

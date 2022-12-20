@@ -10,12 +10,16 @@ module Decidim
     def create
       enforce_permission_to :create, :user_report
 
-      @form = form(Decidim::ReportForm).from_params(params)
+      @form = form(Decidim::ReportForm).from_params(params).with_context(can_hide: current_user&.admin?)
 
       CreateUserReport.call(@form, reportable, current_user) do
         on(:ok) do
           flash[:notice] = I18n.t("decidim.reports.create.success")
-          redirect_back fallback_location: root_path
+          if @form.block?
+            redirect_to decidim_admin.new_user_block_path(user_id: reportable.id, hide: form.hide?)
+          else
+            redirect_back fallback_location: root_path
+          end
         end
 
         on(:invalid) do

@@ -1435,9 +1435,11 @@ en:
         visit_profile: If you want to also block the participant and the rest of its contents, go to %{user_link} profile page.
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
+        block: Block this participant
         close: Close
         description: What is inappropriate about the user?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        hide: Hide all their contents
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.

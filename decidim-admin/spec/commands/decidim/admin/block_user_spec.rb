@@ -18,7 +18,8 @@ module Decidim::Admin
             user: user_to_block,
             current_user:,
             justification: :justification,
-            valid?: true
+            valid?: true,
+            hide?: false
           )
         end
 
@@ -63,7 +64,8 @@ module Decidim::Admin
       context "when the form is not ok" do
         let(:form) do
           double(
-            valid?: false
+            valid?: false,
+            hide?: false
           )
         end
 

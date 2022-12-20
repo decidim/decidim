@@ -461,6 +461,14 @@ FactoryBot.define do
       end
     end
 
+    trait :participant_author do
+      after :build do |draft|
+        draft.coauthorships.clear
+        user = build(:user, organization: draft.component.participatory_space.organization)
+        draft.coauthorships.build(author: user)
+      end
+    end
+
     trait :published do
       state { "published" }
       published_at { Time.current }
