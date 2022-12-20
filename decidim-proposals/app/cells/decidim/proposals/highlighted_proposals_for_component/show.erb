@@ -1,19 +1,29 @@
-<section class="section row collapse highlighted_proposals">
-  <h3 class="section-heading">
-    <%= translated_attribute(model.name) %>  <a href="<%= main_component_path(model) %>" class="text-small"><%= t("decidim.participatory_spaces.highlighted_proposals.see_all", count: proposals_count) %></a>
-  </h3>
+<section id="highlighted_proposals" class="content-block">
+  <div class="content-block__title">
+    <h2 class="h2 decorator">
+      <%= translated_attribute(model.name) %>
+    </h2>
+    <div class="label text-lg"><%= proposals_count %></div>
+    <%= link_to main_component_path(model), class: "button button__sm button__text-secondary" do %>
+      <span><%= t("decidim.participatory_spaces.highlighted_proposals.see_all") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  </div>
 
-  <%= cell(
-    "decidim/collapsible_list",
-    proposals_to_render,
-    cell_options: {},
-    list_class: "row small-up-1 medium-up-2 card-grid",
-    size: proposals_count
-    ) %>
+  <div class="flex items-start justify-between">
+    <div class="grow">
+      <span class="content-block__span">
+        <%= t("decidim.participatory_spaces.highlighted_proposals.last") %>
+      </span>
 
-  <%= link_to(
-    t("decidim.participatory_spaces.highlighted_proposals.see_all", count: proposals_count),
-    main_component_path(model),
-    class: "button button--sc hollow button--right"
-  ) %>
+      <% proposals_to_render.each do |p| %>
+        <%= card_for p %>
+      <% end %>
+    </div>
+
+    <%= link_to main_component_path(model), class: "button button__sm md:button__lg button__secondary" do %>
+      <span><%= t("decidim.proposals.actions.new") %></span>
+      <%= icon "add-line" %>
+    <% end %>
+  </div>
 </section>

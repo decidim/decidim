@@ -9,6 +9,7 @@ module Decidim
     # view hook.
     class HighlightedProposalsForComponentCell < Decidim::ViewModel
       include Decidim::ComponentPathHelper
+      include Decidim::CardHelper
 
       def show
         render unless proposals_count.zero?

@@ -385,7 +385,8 @@ en:
         title: Supports
     participatory_spaces:
       highlighted_proposals:
-        see_all: See all proposals (%{count})
+        see_all: See all proposals
+        last: Last proposals
     proposals:
       actions:
         answer_proposal: Answer proposal
