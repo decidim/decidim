@@ -9,6 +9,10 @@
     @apply text-lg prose max-w-2xl;
   }
 
+  &__span{
+    @apply text-gray-2 font-semibold uppercase;
+  }
+
   & ~ &{
     @apply border-t-2 border-background;
   }
