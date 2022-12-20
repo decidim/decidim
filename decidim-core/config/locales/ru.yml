@@ -225,6 +225,8 @@ ru:
           title: Не подтвердили свою личность
         unconfirmed:
           title: Подтвердите вашу электронную почту
+      show:
+        close_modal: Закрыть окошко
     collapsible_list:
       hidden_elements_count:
         one: и еще %{count}
@@ -462,6 +464,9 @@ ru:
       all: Все виды активности
       index:
         last_activity: Последняя активность
+    links:
+      warning:
+        close_modal: Закрыть окошко
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
