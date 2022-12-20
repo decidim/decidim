@@ -23,8 +23,6 @@ es:
         title: Acciones
       admin:
         models:
-          components:
-            body: Cuerpo
           post:
             name: Publicar
         posts:
@@ -62,7 +60,6 @@ es:
             title: Título
       posts:
         show:
-          comments: Comentarios
           view: Ver
     components:
       blogs:
