@@ -18,8 +18,6 @@ lb:
         title: Aktionen
       admin:
         models:
-          components:
-            body: Haupttext
           post:
             name: Post
         posts:
@@ -46,7 +44,6 @@ lb:
             body: Haupttext
       posts:
         show:
-          comments: Kommentare
           view: Anzeigen
     components:
       blogs:
