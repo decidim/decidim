@@ -19,8 +19,6 @@ uk:
         title: Дії
       admin:
         models:
-          components:
-            body: Основний текст
           post:
             name: Допис
         posts:
