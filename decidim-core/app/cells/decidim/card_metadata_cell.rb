@@ -57,7 +57,7 @@ module Decidim
       model.respond_to?(:official?) && model.official?
     end
 
-    def comments_count
+    def comments_count_item
       return unless model.is_a?(Decidim::Comments::Commentable) && model.commentable?
       return if (count = model.comments_count).zero?
 

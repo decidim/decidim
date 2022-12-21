@@ -20,7 +20,7 @@ module Decidim
       private
 
       def meeting_items
-        [type, category_item, duration, comments_count, official, withdrawn_item]
+        [type, category_item, duration, comments_count_item, official, withdrawn_item]
       end
 
       def type
