@@ -5,6 +5,7 @@ module Decidim
   # so other cells only have to customize a few methods or overwrite views.
   class CardMetadataCell < Decidim::ViewModel
     include Decidim::IconHelper
+    include Decidim::ApplicationHelper
 
     alias resource model
 
@@ -52,6 +53,28 @@ module Decidim
       }
     end
 
+    def author_item
+      return unless authorable?
+
+      {
+        cell: "decidim/redesigned_author",
+        args: [present(resource.author), { from: resource, skip_profile_link: true }]
+      }
+    end
+
+    def coauthors_item
+      # REDESIGN_PENDING - Define a cell to deal with coauthors of a resource.
+      # For the moment this item only shows first coauthor
+      return unless coauthorable?
+
+      presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.identities.first)
+
+      {
+        cell: "decidim/redesigned_author",
+        args: [presented_author, { from: resource, skip_profile_link: true }]
+      }
+    end
+
     def enable_links?
       return true unless options.has_key?(:links)
 
@@ -76,7 +99,12 @@ module Decidim
       resource.respond_to?(:official?) && resource.official?
     end
 
+    def authorable?
+      @authorable ||= resource.is_a?(Decidim::Authorable)
+    end
 
+    def coauthorable?
+      @coauthorable ||= resource.is_a?(Decidim::Coauthorable)
     end
   end
 end
