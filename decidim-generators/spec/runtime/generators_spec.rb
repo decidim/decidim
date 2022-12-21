@@ -144,7 +144,9 @@ module Decidim
     end
 
     def json_secrets_for(path, env)
-      JSON.parse cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env:)
+      output = cmd_capture(path, "bin/rails runner 'puts Rails.application.secrets.to_json'", env:)
+      puts output
+      JSON.parse output
     end
 
     def initializer_config_for(path, env, mod = "Decidim")
