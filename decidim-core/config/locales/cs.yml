@@ -269,7 +269,9 @@ cs:
         unblock: "%{user_name} odblokoval uživatele %{resource_name}"
         unofficialize: "%{user_name} neoficiální uživatel %{resource_name}"
       user_group:
+        block: "%{user_name} zablokoval uživatelskou skupinu %{resource_name}"
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
+        unblock: "%{user_name} odblokoval uživatelskou skupinu %{resource_name}"
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
       user_moderation:
@@ -421,6 +423,7 @@ cs:
       started_at: Začal v %{timestamp}
     authorization_modals:
       content:
+        close_modal: Zavřít modal
         expired:
           authorize: Znovu autorizujte s "%{authorization}"
           explanation: Platnost vašeho oprávnění vypršela. Chcete-li provést tuto akci, musíte být znovu autorizován s "%{authorization}".
@@ -638,6 +641,9 @@ cs:
     endorsable:
       endorsements: Schválení
       endorsements_count: Počet schvalování
+    endorsement_buttons_cell:
+      already_endorsed: Nelíbí se mi
+      endorse: Líbí se mi
     endorsements:
       identities:
         done: Hotovo
