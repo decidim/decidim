@@ -153,10 +153,50 @@ module Decidim
         context "with rich text proposal body" do
           let(:image) { "<img src=\"logo.png\" #{alt_attribute} width=\"407\">" }
           let(:alt_attribute) { "alt=\"Logo alt attribute\"" }
-          let(:body) { { "en" => "<h2>This is my \"heading 2\" title</h2><h2><br></h2><p>A \"normal\" description below Heading 2</p><h3>Now this is my \"heading 3\"</h3><h3><br></h3><ul><li>This is my first option</li><li>This is my second option</li><li>This is my third option</li></ul><p><br></p><p>And below an uploaded image</p><p>#{image}</p><p><br></p><p><code>Here is code block</code></p>" } }
+          let(:body_content) do
+            <<~TEXT
+              <h2>This is my "heading 2" title</h2>
+              <p>A "normal" description below Heading 2</p>
+              <p><br></p>
+              <h3>Now this is my "heading 3"</h3>
+              <p><br></p>
+              <ul>
+              <li>This is my first option</li>
+              <li>This is my second option</li>
+              <li>This is my third option</li>
+              </ul>
+              <p><br></p>
+              <p>And below an uploaded image</p>
+              <p>#{image}</p>
+              <p><br></p>
+              <p><code>Here is code block</code></p>
+            TEXT
+          end
+          let(:body) { { "en" => body_content } }
 
           it "serializes the body without HTML tags" do
-            expect(serialized).to include(body: { "en" => "----------------------------\nThis is my \"heading 2\" title\n----------------------------\n\nA \"normal\" description below Heading 2\n\nNow this is my \"heading 3\"\n--------------------------\n\n* This is my first option\n* This is my second option\n* This is my third option\n\nAnd below an uploaded image\n\nLogo alt attribute\n\nHere is code block" })
+            expected_body = <<~TEXT
+              ----------------------------
+              This is my "heading 2" title
+              ----------------------------
+
+              A "normal" description below Heading 2
+
+              Now this is my "heading 3"
+              --------------------------
+
+              * This is my first option
+              * This is my second option
+              * This is my third option
+
+              And below an uploaded image
+
+              Logo alt attribute
+
+              Here is code block
+            TEXT
+
+            expect(serialized[:body]["en"]).to eq(expected_body.chomp)
             expect(serialized[:body]["en"]).to include("Logo alt attribute")
           end
 
