@@ -10,7 +10,7 @@ describe "show", type: :system do
 
   before do
     visit_component
-    click_link meeting.title[I18n.locale.to_s], class: "card__link"
+    click_link meeting.title[I18n.locale.to_s], class: "meeting-list"
   end
 
   context "when shows the meeting component" do
