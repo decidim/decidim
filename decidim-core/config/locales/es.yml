@@ -245,7 +245,9 @@ es:
         unblock: "%{user_name} desoficializó a la usuaria %{resource_name}"
         unofficialize: "%{user_name} ha desoficializado a la participante %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloqueado al grup de usuarias %{resource_name}"
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
+        unblock: "%{user_name} ha desbloqueado el grupo de usuarias %{resource_name}"
         verify: "%{user_name} verificó el grupo %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
       user_moderation:
@@ -388,6 +390,7 @@ es:
       started_at: Comenzó el %{timestamp}
     authorization_modals:
       content:
+        close_modal: Cerrar la ventana
         expired:
           authorize: Volver a autorizar con "%{authorization}"
           explanation: Tu autorización ha expirado. Para realizar esta acción, tienes que volver a obtener la autorización con "%{authorization}".
@@ -599,6 +602,9 @@ es:
     endorsable:
       endorsements: Adhesiones
       endorsements_count: Número de adhesiones
+    endorsement_buttons_cell:
+      already_endorsed: No me gusta
+      endorse: Me gusta
     endorsements:
       identities:
         done: Hecho
