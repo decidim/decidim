@@ -2,6 +2,7 @@ fr:
   activemodel:
     attributes:
       post:
+        body: Corps du texte
         decidim_author_id: Auteur
         published_at: Date de publication
         title: Titre
@@ -64,8 +65,10 @@ fr:
     components:
       blogs:
         actions:
+          comment: Commenter
           create: Créer
           destroy: Supprimer
+          endorse: Soutenir
           update: Mettre à jour
         name: Actualités
         settings:
