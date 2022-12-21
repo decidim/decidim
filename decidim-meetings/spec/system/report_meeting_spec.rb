@@ -9,13 +9,12 @@ describe "Report Meeting", type: :system do
   let!(:meetings) { create_list(:meeting, 3, :not_official, :published, component:) }
   let(:reportable) { meetings.first }
   let(:reportable_path) { resource_locator(reportable).path }
-  let!(:user) { create :user, :confirmed, organization: }
 
   let!(:component) do
-    create(:proposal_component,
+    create(:meeting_component,
            manifest:,
            participatory_space: participatory_process)
   end
 
-  include_examples "reports"
+  include_examples "reports by user type"
 end

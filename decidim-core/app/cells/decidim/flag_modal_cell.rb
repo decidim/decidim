@@ -45,8 +45,10 @@ module Decidim
     end
 
     def report_form
-      context = { can_hide: model.try(:can_be_administred_by?, current_user) }
-      @report_form ||= Decidim::ReportForm.new(reason: "spam").with_context(context)
+      @report_form ||= begin
+        context = { can_hide: model.try(:can_be_administred_by?, current_user) }
+        Decidim::ReportForm.new(reason: "spam").with_context(context)
+      end
     end
   end
 end
