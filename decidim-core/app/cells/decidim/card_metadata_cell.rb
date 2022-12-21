@@ -43,6 +43,15 @@ module Decidim
       }
     end
 
+    def endorsements_count_item
+      return unless resource.respond_to?(:endorsements_count)
+
+      {
+        text: resource.endorsements_count,
+        icon: resource_type_icon_key(:like)
+      }
+    end
+
     def enable_links?
       return true unless options.has_key?(:links)
 
