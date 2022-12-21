@@ -41,6 +41,14 @@ ca:
         name: Plantilla
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Desar
+            template_title: Informació de la plantilla
+          index:
+            confirm_delete: Segur que vols eliminar aquesta plantilla?
+          template_chooser:
+            select_template: Selecciona una plantilla de resposta
         questionnaire_templates:
           choose:
             create_from_template: Crear des d'una plantilla
