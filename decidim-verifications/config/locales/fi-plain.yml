@@ -114,8 +114,12 @@ fi-pl:
           verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
         index:
           expired_verification: Vahvistus on erääntynyt
+          granted_verification: Hyväksytyt tunnistautumiset
+          introduce_code: Varmennuskoodi
           pending_verification: Odottava vahvistus
           show_renew_info: Paina vahvistaaksesi uudestaan
+          subscribe: Tilaa
+          unauthorized_methods: Tunnistautumistavat
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
