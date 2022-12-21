@@ -245,7 +245,9 @@ fi-pl:
         unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
+        block: "%{user_name} esti käyttäjän %{resource_name}"
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
+        unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
       user_moderation:
@@ -391,6 +393,7 @@ fi-pl:
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       content:
+        close_modal: Sulje ikkuna
         expired:
           authorize: Varmenna varmennustavalla "%{authorization}"
           explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
@@ -509,6 +512,10 @@ fi-pl:
         view_all: Näytä kaikki
       metrics:
         name: Organisaation mittarit
+      static_page:
+        summary:
+          name: Lyhyt kuvaus
+          summary_content: Sisältö
       stats:
         name: Organisaation tilastot
       sub_hero:
@@ -598,6 +605,9 @@ fi-pl:
     endorsable:
       endorsements: Suosituksia
       endorsements_count: Suositusten määrä
+    endorsement_buttons_cell:
+      already_endorsed: Poista tykkäys
+      endorse: Tykkää
     endorsements:
       identities:
         done: Valmis
@@ -993,8 +1003,10 @@ fi-pl:
         create_with_space: "%{user_name} loi %{resource_name} tilassa %{space_name}"
         delete: "%{user_name} poisti %{resource_name}"
         delete_with_space: "%{user_name} poisti %{resource_name} tilassa %{space_name}"
+        publish_with_space: "%{user_name} julkaisi %{resource_name} osallistumistilassa %{space_name}"
         unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} tilassa %{space_name}"
+        unpublish_with_space: "%{user_name} lopetti %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update: "%{user_name} päivitti %{resource_name}"
         update_permissions_with_space: "%{user_name} päivitti kohteen %{resource_name} oikeuksia tilassa %{space_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} tilassa %{space_name}"
@@ -1920,6 +1932,7 @@ fi-pl:
             accept_until_format: "%B %d, %Y klo %k:%M"
       long: "%B %d., %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d., %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
