@@ -41,6 +41,12 @@ fr:
         name: Modèle
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Enregistrer
+            template_title: Informations sur le modèle
+          index:
+            confirm_delete: Êtes-vous sûr(e) de vouloir supprimer ce modèle ?
         questionnaire_templates:
           choose:
             create_from_template: Créer depuis un modèle
