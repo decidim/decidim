@@ -540,7 +540,7 @@ en:
           attendees: Attendees count
           contributions: Contributions count
           date: Date
-          join: Join meeting
+          join: Register
           leave: Cancel your registration
           leave_confirmation: Are you sure you want to cancel your registration for this meeting?
           link_available_soon: Link available soon
