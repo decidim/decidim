@@ -19,4 +19,96 @@ header{
       @apply ml-0 md:ml-auto;
     }
   }
+
+  .main-bar{
+    @apply container flex justify-between items-center gap-4 py-5;
+
+    &__container{
+      @apply relative w-full;
+    }
+
+    &__logo{
+      @apply w-3/4 md:w-2/5 lg:w-1/4 prose prose-img:max-h-16 prose-img:my-0;
+    }
+
+    &__search{
+      @apply hidden md:block md:w-2/5 lg:w-1/6;
+
+      span{
+        @apply block relative rounded text-md bg-background;
+      }
+
+      input[type="text"]{
+        @apply block bg-transparent w-full px-4 py-1.5;
+      }
+
+      button[type="submit"]{
+        @apply absolute right-2 inset-y-2 text-secondary;
+      }
+    }
+
+    &__links-desktop{
+      @apply hidden lg:flex justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-8 first:[&>*]:pl-0 last:[&>*]:pr-0;
+
+      a{
+        @apply flex flex-col items-center text-secondary;
+      }
+
+      svg{
+        @apply w-5 h-5 fill-current;
+      }
+
+      svg + span{
+        @apply text-sm first-letter:uppercase;
+      }
+    }
+
+    &__links-mobile{
+      @apply fixed bottom-0 left-0 z-20 bg-white w-full px-4 py-3 grid grid-cols-4 text-secondary shadow-[0_-4px_6px_rgba(198,198,198,0.25)];
+
+      &__trigger{
+        @apply flex flex-col items-center text-secondary cursor-pointer;
+
+        svg{
+          @apply w-5 h-5 fill-current;
+        }
+
+        span{
+          @apply text-sm first-letter:uppercase;
+        }
+      }
+
+      &__dropdown{
+        @apply absolute top-full left-0 z-10;
+      }
+    }
+
+    &__dropdown{
+      @apply px-4 divide-y divide-gray-3 z-20 w-64;
+
+      &-container{
+        @apply relative cursor-pointer;
+      }
+
+      &-trigger{
+        @apply flex flex-col items-center text-secondary relative;
+
+        &__notification{
+          @apply w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary;
+        }
+
+        &__avatar{
+          @apply w-8 h-8 rounded-full border border-secondary;
+
+          span{
+            @apply w-full h-full rounded-full overflow-hidden;
+          }
+
+          img{
+            @apply object-cover w-full h-full;
+          }
+        }
+      }
+    }
+  }
 }
