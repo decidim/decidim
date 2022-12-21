@@ -18,6 +18,9 @@ describe "show", type: :system do
       expect(page).to have_content meeting.title[I18n.locale.to_s]
     end
 
-    it_behaves_like "going back to list button"
+    # REDESIGN_PENDING - These shared examples should be replaced with other
+    # considering the drawer feature, the back button doesn't exist in drawers,
+    # there is a close drawer behavior instead
+    # it_behaves_like "going back to list button"
   end
 end
