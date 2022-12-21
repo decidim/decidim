@@ -2,6 +2,7 @@ ca:
   activemodel:
     attributes:
       post:
+        body: Cos del text
         decidim_author_id: Autoria
         published_at: Hora de publicació
         title: Títol
@@ -64,8 +65,10 @@ ca:
     components:
       blogs:
         actions:
+          comment: Comentar
           create: Crear
           destroy: Esborrar
+          endorse: Adherir-se
           update: Actualitzar
         name: Blog
         settings:
