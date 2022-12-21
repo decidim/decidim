@@ -39,6 +39,7 @@ module Decidim::Conferences
         invalid?: invalid,
         title: { en: "title" },
         slogan: { en: "slogan" },
+        weight: 1,
         slug: "slug",
         hashtag: "hashtag",
         location: "location location",
