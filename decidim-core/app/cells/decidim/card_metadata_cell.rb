@@ -52,5 +52,19 @@ module Decidim
         url: Decidim::ResourceLocatorPresenter.new(participatory_space).path
       }
     end
+
+    def official?
+      resource.respond_to?(:official?) && resource.official?
+    end
+
+    def comments_count_item
+      return unless model.is_a?(Decidim::Comments::Commentable) && model.commentable?
+      return if (count = model.comments_count).zero?
+
+      {
+        text: count,
+        icon: resource_type_icon_key(:comments_count)
+      }
+    end
   end
 end

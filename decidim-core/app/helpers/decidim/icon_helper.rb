@@ -20,6 +20,7 @@ module Decidim
       "Decidim::ParticipatoryProcess" => "treasure-map-line",
       "Decidim::Category" => "price-tag-3-line",
       "Decidim::Scope" => "scan-line",
+      "comments_count" => "wechat-line",
       "other" => "question-line",
       "like" => "heart-add-line",
       "dislike" => "dislike-line",
