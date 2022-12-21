@@ -10,6 +10,12 @@ module Decidim
       delegate :component_settings, to: :controller
 
       alias proposal model
+
+      private
+
+      def metadata_cell
+        "decidim/proposals/proposal_card_metadata"
+      end
     end
   end
 end
