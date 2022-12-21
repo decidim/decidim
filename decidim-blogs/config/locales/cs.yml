@@ -2,6 +2,7 @@ cs:
   activemodel:
     attributes:
       post:
+        body: Tělo zprávy
         decidim_author_id: Autor
         published_at: Čas zveřejnění
         title: Název
@@ -66,8 +67,10 @@ cs:
     components:
       blogs:
         actions:
+          comment: Komentář
           create: Vytvořit
           destroy: Smazat
+          endorse: Schválit
           update: Aktualizovat
         name: Blog
         settings:
