@@ -245,7 +245,9 @@ ca:
         unblock: "%{user_name} ha desbloquejat a la usuària %{resource_name}"
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloquejat al grup d'usuàries %{resource_name}"
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
+        unblock: "%{user_name} ha desbloquejat al grup d'usuàries %{resource_name}"
         verify: "%{user_name} ha verificat el grup %{resource_name}"
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
       user_moderation:
@@ -388,6 +390,7 @@ ca:
       started_at: Iniciat el %{timestamp}
     authorization_modals:
       content:
+        close_modal: Tanca la finestra
         expired:
           authorize: Torna a autoritzar amb "%{authorization}"
           explanation: La teva autorització ha caducat. Per realitzar aquesta acció, has de tornar a autoritzar-vos amb "%{authorization}".
@@ -599,6 +602,9 @@ ca:
     endorsable:
       endorsements: Adhesions
       endorsements_count: Número d'adhesions
+    endorsement_buttons_cell:
+      already_endorsed: No m'agrada
+      endorse: M'agrada
     endorsements:
       identities:
         done: Fet
