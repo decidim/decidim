@@ -50,7 +50,7 @@ header{
     &__links-desktop{
       @apply hidden lg:flex justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-8 first:[&>*]:pl-0 last:[&>*]:pr-0;
 
-      a{
+      &__item{
         @apply flex flex-col items-center text-secondary;
       }
 

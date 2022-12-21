@@ -1,17 +1,17 @@
-<%= link_to decidim.pages_path, "aria-label": t("decidim.menu.help") do %>
+<%= link_to decidim.pages_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.menu.help") do %>
   <%= icon "question-line" %><span><%= t("decidim.menu.help") %></span>
 <% end %>
 <div class="flex gap-x-8">
-  <%= link_to Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path, "aria-label": t("decidim.pages.home.extended.meetings") do %>
+  <%= link_to Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.pages.home.extended.meetings") do %>
     <%= icon "road-map-line" %><span><%= t("decidim.pages.home.extended.meetings") %></span>
   <% end %>
-  <%= link_to decidim.last_activities_path, "aria-label": t("decidim.profiles.show.activity") do %>
+  <%= link_to decidim.last_activities_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.profiles.show.activity") do %>
     <%= icon "bubble-chart-line" %><span><%= t("decidim.profiles.show.activity") %></span>
   <% end %>
 </div>
 
 <% if !current_user %>
-  <%= link_to decidim.new_user_session_path, "aria-label": t("layouts.decidim.header.sign_in") do %>
+  <%= link_to decidim.new_user_session_path, class: "main-bar__links-desktop__item", "aria-label": t("layouts.decidim.header.sign_in") do %>
     <%= icon "login-box-line" %><span><%= t("layouts.decidim.header.sign_in") %></span>
   <% end %>
 <% else %>
