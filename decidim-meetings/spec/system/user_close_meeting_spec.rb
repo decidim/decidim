@@ -37,6 +37,8 @@ describe "User edit meeting", type: :system do
     end
 
     it "updates the related attributes" do
+      skip_unless_redesign_enabled("This test pass using panels in drawers")
+
       visit_component
 
       click_link translated(meeting.title)
@@ -74,6 +76,8 @@ describe "User edit meeting", type: :system do
       end
 
       it "updates the meeting report" do
+        skip_unless_redesign_enabled("This test pass using panels in drawers")
+
         visit_component
 
         click_link translated(meeting.title)
