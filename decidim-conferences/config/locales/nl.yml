@@ -396,18 +396,11 @@ nl:
           cancel: Annuleer
           confirm: Bevestigen
         show:
-          free: Gratis
           going: Ingeschreven
           no_slots_available: Geen slots beschikbaar
           registration: Inschrijving
       conference_program:
-        program_meeting:
-          content: Inhoud
-          location: Plaats
-          speakers: Sprekers
-          streaming: Streaming
         show:
-          day: Dag
           program: Programma
       conference_registration_mailer:
         confirmation:
@@ -438,18 +431,12 @@ nl:
       conference_speaker_cell:
         personal_url:
           personal_website: Persoonlijke website
-        twitter_handle:
-          go_to_twitter: Ga naar Twitter
-      conference_speakers:
-        index:
-          speakers: Sprekers
       conferences:
         partners:
           collaborators: Partners
           main_promotors: Organisatoren
         show:
           login_as: U bent ingelogd als %{name} <%{email}>
-          make_conference_registration: 'Maak uw registratie in de conferentie:'
           register: Registreren
       content_blocks:
         highlighted_conferences:
@@ -495,29 +482,12 @@ nl:
             active_conferences: Actieve conferenties
             conferences_button_title: Link naar de pagina Conferenties waarop alle conferenties worden weergegeven
             see_all_conferences: Bekijk alle conferenties
-      photo:
-        image:
-          attributes:
-            alt: Media afbeelding
-        show:
-          close_modal: Modal sluiten
-          photo: Beeld
-      photos_list:
-        show:
-          related_photos: Afbeeldingen
       registration_types:
         index:
           choose_an_option: 'Kies je registratieoptie:'
-          login_as: Je bent ingelogd als %{name} <%{email}>
           no_registrations: Geen inschrijvingen
           register: Registreren
           title: Registratie soorten
-      shared:
-        conference_user_login:
-          already_account: Heb je al een account bij decidim?
-          new_user: Nieuwe gebruiker?
-          sign_in: Meld u aan om u te registreren voor de conferentie
-          sign_up: Maak een account aan in decidim om u te registreren voor de conferentie
       show:
         details: Details
         introduction: Inleiding
