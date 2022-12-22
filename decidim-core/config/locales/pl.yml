@@ -346,12 +346,6 @@ pl:
           '4': Opublikuj poprawkę
     anonymous_user: Anonim
     application:
-      collection:
-        documents:
-          one: Dokument
-          few: Dokumenty
-          many: Dokumenty
-          other: Dokumenty
       document:
         download: Pobierz plik
       documents:
