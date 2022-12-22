@@ -177,7 +177,12 @@ const initializer = (element = document) => {
     accordionOptions.isMultiSelectable = component.dataset.multiselectable !== "false";
     accordionOptions.isCollapsible = component.dataset.collapsible !== "false";
 
-    window.Decidim.Accordions.render(component.id, accordionOptions);
+    if (!component.id) {
+      // when componente has no id, we enforce to have it one
+      component.id = `accordion-${Math.random().toString(36).substring(7)}`
+    }
+
+    Accordions.render(component.id, accordionOptions);
   });
 
   // https://github.com/jonathanlevaillant/a11y-dropdown-component
@@ -188,7 +193,12 @@ const initializer = (element = document) => {
     dropdownOptions.isOpen = component.dataset.open === "true";
     dropdownOptions.autoClose = component.dataset.autoClose === "true";
 
-    window.Decidim.Dropdowns.render(component.id, dropdownOptions);
+    if (!component.id) {
+      // when componente has no id, we enforce to have it one
+      component.id = `dropdown-${Math.random().toString(36).substring(7)}`
+    }
+
+    Dropdowns.render(component.id, dropdownOptions);
   });
 
   // https://github.com/jonathanlevaillant/a11y-dialog-component
