@@ -272,10 +272,6 @@
           '4': Publiser endringen din
     anonymous_user: Anonym
     application:
-      collection:
-        documents:
-          one: Dokument
-          other: Dokumenter
       document:
         download: Last ned fil
       documents:
