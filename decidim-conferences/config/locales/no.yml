@@ -409,7 +409,7 @@
       conference_program:
         program_meeting:
           content: Innhold
-          location: Plassering
+          location: Sted
           speakers: Talere
           streaming: Strømming
         show:
