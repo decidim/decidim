@@ -1,19 +1,27 @@
-<%= link_to decidim.pages_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.menu.help") do %>
-  <%= icon "question-line" %><span><%= t("decidim.menu.help") %></span>
-<% end %>
-<div class="flex gap-x-8">
-  <%= link_to Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.pages.home.extended.meetings") do %>
-    <%= icon "road-map-line" %><span><%= t("decidim.pages.home.extended.meetings") %></span>
+<div>
+  <%= link_to decidim.pages_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.menu.help") do %>
+    <%= icon "question-line" %><span><%= t("decidim.menu.help") %></span>
   <% end %>
-  <%= link_to decidim.last_activities_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.profiles.show.activity") do %>
-    <%= icon "bubble-chart-line" %><span><%= t("decidim.profiles.show.activity") %></span>
-  <% end %>
+</div>
+<div class="main-bar__links-desktop__item-wrapper">
+  <div>
+    <%= link_to Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.pages.home.extended.meetings") do %>
+      <%= icon "road-map-line" %><span><%= t("decidim.pages.home.extended.meetings") %></span>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to decidim.last_activities_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.profiles.show.activity") do %>
+      <%= icon "bubble-chart-line" %><span><%= t("decidim.profiles.show.activity") %></span>
+    <% end %>
+  </div>
 </div>
 
 <% if !current_user %>
-  <%= link_to decidim.new_user_session_path, class: "main-bar__links-desktop__item", "aria-label": t("layouts.decidim.header.sign_in") do %>
-    <%= icon "login-box-line" %><span><%= t("layouts.decidim.header.sign_in") %></span>
-  <% end %>
+  <div>
+    <%= link_to decidim.new_user_session_path, class: "main-bar__links-desktop__item", "aria-label": t("layouts.decidim.header.sign_in") do %>
+      <%= icon "login-box-line" %><span><%= t("layouts.decidim.header.sign_in") %></span>
+    <% end %>
+  </div>
 <% else %>
   <details class="main-bar__dropdown-container">
     <summary id="dropdown-summary-account" class="main-bar__dropdown-trigger" aria-controls="dropdown-account">
@@ -30,8 +38,10 @@
           </span>
         </span>
       <% else %>
-        <%= icon "user-smile-line" %>
-        <span><%= t("layouts.decidim.user_profile.account") %></span>
+        <span class="main-bar__links-desktop__item">
+          <%= icon "user-smile-line" %>
+          <span><%= t("layouts.decidim.user_profile.account") %></span>
+        </span>
       <% end %>
     </summary>
     <ul id="dropdown-account" class="dropdown dropdown__bottom main-bar__dropdown" aria-labelledby="dropdown-summary-account">
