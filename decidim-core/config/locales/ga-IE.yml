@@ -54,13 +54,6 @@ ga:
       review:
         back: Ar Ais
     application:
-      collection:
-        documents:
-          one: Cáipéis
-          two: Cáipéisí
-          few: Cáipéisí
-          many: Cáipéisí
-          other: Cáipéisí
       geocoding:
         geocoded_address: Seoladh
     authorization_handlers:
