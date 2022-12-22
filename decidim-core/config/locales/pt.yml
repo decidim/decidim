@@ -247,10 +247,6 @@ pt:
           '4': Publicar a sua modificação
     anonymous_user: Anônimo
     application:
-      collection:
-        documents:
-          one: Documento
-          other: Documentos
       document:
         download: Transferir ficheiro
       documents:
