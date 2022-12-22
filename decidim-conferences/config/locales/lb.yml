@@ -330,7 +330,7 @@ lb:
       conference_program:
         program_meeting:
           content: Inhalt
-          location: Ort
+          location: Standort
           speakers: Lautsprecher
           streaming: Streaming
         show:
