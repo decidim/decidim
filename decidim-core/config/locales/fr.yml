@@ -343,6 +343,9 @@ fr:
         related_documents: Documents à consulter
       geocoding:
         geocoded_address: Adresse
+      photo:
+        alt: Photo
+        title: Image
       photos:
         related_photos: Photos associées
     author:
@@ -1435,6 +1438,9 @@ fr:
           select_an_area: Sélectionnez un périmètre d'assemblée
       public_participation:
         public_participation: Afficher ma présence publiquement
+      redesigned_login_modal:
+        please_sign_in: Veuillez vous connecter
+        sign_up: Inscription
       reference:
         reference: 'Référence : %{reference}'
       represent_user_group:
