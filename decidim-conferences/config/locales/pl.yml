@@ -416,7 +416,7 @@ pl:
       conference_program:
         program_meeting:
           content: Zawartość
-          location: Lokalizacja
+          location: Miejsce
           speakers: Prelegenci
           streaming: Streaming
         show:
