@@ -240,10 +240,6 @@ tr:
           '4': Değişikliğinizi yayınlayın
     anonymous_user: Anonim
     application:
-      collection:
-        documents:
-          one: Doküman
-          other: Dokümanlar
       document:
         download: Dosyayı indir
       documents:
