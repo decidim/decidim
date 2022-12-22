@@ -413,7 +413,7 @@ ro:
       conference_program:
         program_meeting:
           content: Conținut
-          location: Locaţie
+          location: Locație
           speakers: Vorbitori
           streaming: Streaming
         show:
