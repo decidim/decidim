@@ -13,7 +13,7 @@ module Decidim
       private
 
       def proposal_items
-        [coauthors_item, comments_count_item, endorsements_count_item]
+        [coauthors_item, comments_count_item, endorsements_count_item, emendation_item]
       end
     end
   end

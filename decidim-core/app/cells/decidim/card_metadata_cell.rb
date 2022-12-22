@@ -75,6 +75,17 @@ module Decidim
       }
     end
 
+    def emendation_item
+      # REDESIGN_DETAILS - Maybe this item should be moved to another part of
+      # the card instead of the metadata list
+      return unless resource.try(:emendation?)
+
+      {
+        icon: resource_type_icon_key("other"),
+        text: t("decidim/amendment", scope: "activerecord.models", count: 1)
+      }
+    end
+
     def enable_links?
       return true unless options.has_key?(:links)
 
