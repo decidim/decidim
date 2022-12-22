@@ -144,19 +144,9 @@ ga:
         registration_confirm:
           cancel: Cealaigh
           confirm: Deimhnigh
-        show:
-          free: Saor in aisce
       conference_program:
-        program_meeting:
-          content: Inneachar
-          location: Suíomh
-          speakers: Cainteoirí
         show:
-          day: Lá
           program: Clár
-      conference_speakers:
-        index:
-          speakers: Cainteoirí
       conferences:
         partners:
           collaborators: Comhpháirtithe
@@ -178,12 +168,6 @@ ga:
             state: Stádas
             states:
               pending: Ar feitheamh
-      photo:
-        show:
-          photo: Íomhá
-      photos_list:
-        show:
-          related_photos: Íomhánna
       registration_types:
         index:
           register: Cláraigh
