@@ -173,9 +173,6 @@ id:
           '4': Publish your amendment
     anonymous_user: Anonim
     application:
-      collection:
-        documents:
-          other: Dokumen
       documents:
         related_documents: Dokumen yang berkaitan
       photos:
