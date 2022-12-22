@@ -11,6 +11,10 @@ module Decidim
 
       alias proposal model
 
+      def extra_class
+        "proposal-list-item"
+      end
+
       private
 
       def metadata_cell
