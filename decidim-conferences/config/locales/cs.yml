@@ -421,7 +421,7 @@ cs:
       conference_program:
         program_meeting:
           content: Obsah
-          location: Umístění
+          location: Lokalita
           speakers: Řečníci
           streaming: Streamování
         show:
