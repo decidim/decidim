@@ -12,5 +12,5 @@
       </div>
     </div>
   <% end %>
-  <%= render_authorship if has_authors? %>
+  <%= cell "decidim/author", presented_resource.author, from: resource, has_actions: true, skip_profile_link: true %>
 </div>

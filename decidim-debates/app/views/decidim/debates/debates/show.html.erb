@@ -54,9 +54,28 @@ edit_link(
 
   <%= comments_for debate %>
 
-  <%= resource_reference(debate) %>
+  <div class="mt-8">
+    <ul class="drawer-metadata__container" data-metadata-footer>
+      <%= content_tag :li, resource_reference(debate), class: "drawer-metadata__item" %>
+      <%#= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count), **turbo_frame_options(:drawer_content_frame)), class: "drawer-metadata__item" %>
+    </ul>
+  </div>
 
   <% content_for :drawer_aside do %>
+
+    <% if allowed_to?(:edit, :debate, debate: debate) %>
+      <%= link_to t("edit_debate", scope: "decidim.debates.debates.show"), edit_debate_path(debate), class: "button button__secondary button__xl w-full mb-4" %>
+    <% elsif admin_allowed_to?(:update, :debate, debate: debate) %>
+      <%= link_to t("edit_debate", scope: "decidim.debates.debates.show"), resource_locator(debate).edit, class: "button button__secondary button__xl w-full mb-4" %>
+    <% end %>
+    <% close_debate_action_text = (debate.closed? ? "decidim.debates.debates.show.edit_conclusions" : "decidim.debates.debates.show.close_debate" ) %>
+    <% if allowed_to?(:close, :debate, debate: debate) %>
+      <button type="button" data-open="closeDebateModal" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="button button__secondary button__xl w-full mb-4">
+        <%= t(close_debate_action_text) %>
+      </button>
+    <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
+      <%= link_to t(close_debate_action_text), Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "button button__secondary button__xl w-full mb-4" %>
+    <% end %>
 
     <div class="rounded p-4 bg-background mb-4 divide-y divide-gray-3 [&>*]:py-4 first:[&>*]:pt-0 last:[&>*]:pb-0">
       <div class="text-gray-2 space-y-1.5">
@@ -84,22 +103,8 @@ edit_link(
       </div>
     </div>
 
-    <% if allowed_to?(:edit, :debate, debate: debate) %>
-      <%= link_to t("edit_debate", scope: "decidim.debates.debates.show"), edit_debate_path(debate), class: "button button__secondary button__xl w-full mb-4" %>
-    <% elsif admin_allowed_to?(:update, :debate, debate: debate) %>
-      <%= link_to t("edit_debate", scope: "decidim.debates.debates.show"), resource_locator(debate).edit, class: "button button__secondary button__xl w-full mb-4" %>
-    <% end %>
-    <% close_debate_action_text = (debate.closed? ? "decidim.debates.debates.show.edit_conclusions" : "decidim.debates.debates.show.close_debate" ) %>
-    <% if allowed_to?(:close, :debate, debate: debate) %>
-      <button type="button" data-open="closeDebateModal" title="<%= t(close_debate_action_text) %>" aria-controls="closeDebateModal" aria-haspopup="dialog" tabindex="0" class="button button__secondary button__xl w-full mb-4">
-        <%= t(close_debate_action_text) %>
-      </button>
-    <% elsif admin_allowed_to?(:close, :debate, debate: debate) %>
-      <%= link_to t(close_debate_action_text), Decidim::EngineRouter.admin_proxy(debate.component).edit_debate_debate_close_path(debate_id: debate.id, id: debate.id), class: "button button__secondary button__xl w-full mb-4" %>
-    <% end %>
     <div class="card__list extra">
       <div class="card__list-content">
-        <%= endorsement_buttons_cell(debate) %>
         <%#= cell("decidim/date_range", { start: debate.start_time, end: debate.end_time }) %>
 
         <%# if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
