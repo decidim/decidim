@@ -367,7 +367,6 @@ id:
       conference_program:
         program_meeting:
           content: Konten
-          location: Lokasi
           speakers: Pembicara
           streaming: Streaming
         show:
