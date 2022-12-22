@@ -380,7 +380,6 @@ sk:
       conference_program:
         program_meeting:
           content: Obsah
-          location: Miesto
           speakers: Rečníci
           streaming: Streamovanie
         show:
