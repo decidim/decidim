@@ -33,6 +33,7 @@ ca:
         slug: URL amigable
         start_date: Data d'inici
         title: Títol
+        weight: Ordre de posició
       conference_media_link:
         date: Data
         link: Enllaç
@@ -443,12 +444,18 @@ ca:
       conference_speaker_cell:
         personal_url:
           personal_website: Lloc web personal
+      conference_speakers:
+        index:
+          speakers:
+            one: Ponent
+            other: Ponents
       conferences:
         partners:
           collaborators: Col·laboradores
           main_promotors: Organitzadores
         show:
           login_as: Has iniciat la sessió com a %{name} <%{email}>
+          make_conference_registration: Inscriure's a la jornada
           register: Inscripcions
       content_blocks:
         highlighted_conferences:
