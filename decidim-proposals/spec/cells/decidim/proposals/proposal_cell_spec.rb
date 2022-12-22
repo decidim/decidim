@@ -20,7 +20,7 @@ describe Decidim::Proposals::ProposalCell, type: :cell do
     let(:model) { official_proposal }
 
     it "renders the card" do
-      expect(subject).to have_css(".card--proposal")
+      expect(subject).to have_css(".item-list")
     end
   end
 
@@ -28,7 +28,7 @@ describe Decidim::Proposals::ProposalCell, type: :cell do
     let(:model) { user_proposal }
 
     it "renders the card" do
-      expect(subject).to have_css(".card--proposal")
+      expect(subject).to have_css(".item-list")
     end
   end
 end

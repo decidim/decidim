@@ -182,15 +182,15 @@ describe "Participatory Process Groups", type: :system do
 
       it "shows cards of proposals from both processes" do
         within("#participatory-process-group-homepage-highlighted-proposals") do
-          expect(page).to have_selector("#proposal_#{proposal1.id}")
-          expect(page).to have_selector("#proposal_#{proposal2.id}")
+          expect(page).to have_selector("#proposals__proposal_#{proposal1.id}")
+          expect(page).to have_selector("#proposals__proposal_#{proposal2.id}")
 
-          within("#proposal_#{proposal1.id}") do
+          within("#proposals__proposal_#{proposal1.id}") do
             expect(page).to have_content "First awesome proposal!"
             expect(page).to have_i18n_content process.title
           end
 
-          within("#proposal_#{proposal2.id}") do
+          within("#proposals__proposal_#{proposal2.id}") do
             expect(page).to have_content "Second fabulous proposal!"
             expect(page).to have_i18n_content other_process.title
           end
