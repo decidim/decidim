@@ -248,10 +248,6 @@ pt-BR:
           '4': Publique sua alteração
     anonymous_user: Anônimo
     application:
-      collection:
-        documents:
-          one: Documento
-          other: Documentos
       document:
         download: Baixar arquivo
       documents:
