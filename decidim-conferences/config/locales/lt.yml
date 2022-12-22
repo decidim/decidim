@@ -421,7 +421,7 @@ lt:
         program_meeting:
           content: Turinys
           location: Vieta
-          speakers: Kalbėtojai
+          speakers: Pranešėjai
           streaming: Transliuoti
         show:
           day: Diena
