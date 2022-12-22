@@ -411,7 +411,7 @@ pt-BR:
         program_meeting:
           content: Conteúdo
           location: Localização
-          speakers: Alto-falantes
+          speakers: caixas de som
           streaming: Transmissão
         show:
           day: Dia
