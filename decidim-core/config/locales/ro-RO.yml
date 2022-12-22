@@ -255,11 +255,6 @@ ro:
           '4': Publică amendamentul tău
     anonymous_user: Anonim
     application:
-      collection:
-        documents:
-          one: Document
-          few: Documente
-          other: Documente
       document:
         download: Descarcă fișier
       documents:
