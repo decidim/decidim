@@ -414,18 +414,11 @@ cs:
           cancel: Zrušit
           confirm: Potvrdit
         show:
-          free: Volný, uvolnit
           going: Chystáte se
           no_slots_available: Žádné sloty nejsou k dispozici
           registration: Registrace
       conference_program:
-        program_meeting:
-          content: Obsah
-          location: Umístění
-          speakers: Řečníci
-          streaming: Streamování
         show:
-          day: Den
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -458,18 +451,12 @@ cs:
       conference_speaker_cell:
         personal_url:
           personal_website: Osobní web
-        twitter_handle:
-          go_to_twitter: Přejděte na Twitter
-      conference_speakers:
-        index:
-          speakers: Řečníci
       conferences:
         partners:
           collaborators: Partneři
           main_promotors: Organizátoři
         show:
           login_as: Jste přihlášeni jako %{name} <%{email}>
-          make_conference_registration: 'Zaregistrujte se na konferenci:'
           register: Registrovat
       content_blocks:
         highlighted_conferences:
@@ -515,29 +502,12 @@ cs:
             active_conferences: Aktivní konference
             conferences_button_title: Odkaz na stránku Konference zobrazující všechny konference
             see_all_conferences: Podívejte se na všechny konference
-      photo:
-        image:
-          attributes:
-            alt: Obrázek médií
-        show:
-          close_modal: Zavřít modální
-          photo: Fotografie
-      photos_list:
-        show:
-          related_photos: Fotky
       registration_types:
         index:
           choose_an_option: 'Vyberte možnost registrace:'
-          login_as: Jste přihlášeni jako %{name} <%{email}>
           no_registrations: Žádné registrace
           register: Registrovat
           title: Typy registrace
-      shared:
-        conference_user_login:
-          already_account: Máte již účet v decidimu?
-          new_user: Nový uživatel?
-          sign_in: Přihlaste se pro registraci do konference
-          sign_up: Vytvořte účet v decidim a zaregistrujte se pro tuto konferenci
       show:
         details: Podrobnosti
         introduction: Úvod
