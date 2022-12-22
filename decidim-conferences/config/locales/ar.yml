@@ -425,7 +425,7 @@ ar:
       conference_program:
         program_meeting:
           content: المحتوى
-          location: موقعك
+          location: الموقع
           speakers: مكبرات الصوت
           streaming: تدفق
         show:
