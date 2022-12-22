@@ -98,7 +98,7 @@ header{
         }
 
         &__avatar{
-          @apply w-8 h-8 rounded-full border border-secondary;
+          @apply w-8 h-8 rounded-full border border-secondary overflow-hidden;
 
           span{
             @apply w-full h-full rounded-full overflow-hidden;
