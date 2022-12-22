@@ -354,12 +354,6 @@ lt:
           '4': Paskalbkite savo pataisą
     anonymous_user: Anonimas
     application:
-      collection:
-        documents:
-          one: Dokumentas
-          few: Dokumentai
-          many: Dokumentai
-          other: Dokumentai
       document:
         download: Atsisiųsti dokumentą
       documents:
