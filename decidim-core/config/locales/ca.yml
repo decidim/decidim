@@ -334,10 +334,6 @@ ca:
           '4': Publica la teva esmena
     anonymous_user: Anònim
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documents
       document:
         download: Descarregar fitxer
       documents:
