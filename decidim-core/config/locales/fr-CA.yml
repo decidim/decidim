@@ -337,10 +337,6 @@ fr-CA:
           '4': Publier votre amendement
     anonymous_user: Anonyme
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documents
       document:
         download: Télécharger le fichier
       documents:
