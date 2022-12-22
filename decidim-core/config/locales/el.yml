@@ -226,10 +226,6 @@ el:
           '4': Δημοσιεύστε την τροποποίησή σας
     anonymous_user: Ανώνυμη
     application:
-      collection:
-        documents:
-          one: Έγγραφο
-          other: Έγγραφα
       document:
         download: Λήψη αρχείου
       documents:
