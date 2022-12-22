@@ -296,10 +296,6 @@ sv:
           '4': Publicera ändringsförslaget
     anonymous_user: Anonym
     application:
-      collection:
-        documents:
-          one: Dokument
-          other: Dokument
       document:
         download: Hämta fil
       documents:
