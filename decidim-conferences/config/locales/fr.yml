@@ -33,6 +33,7 @@ fr:
         slug: Slug URL
         start_date: Date de début
         title: Titre
+        weight: Rang d'affichage
       conference_media_link:
         date: Date
         link: Lien
@@ -443,12 +444,18 @@ fr:
       conference_speaker_cell:
         personal_url:
           personal_website: Site Web personnel
+      conference_speakers:
+        index:
+          speakers:
+            one: Conférencier
+            other: Conférenciers
       conferences:
         partners:
           collaborators: Partenaires
           main_promotors: Organisateurs
         show:
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
+          make_conference_registration: Inscrivez-vous à la conférence
           register: S'inscrire
       content_blocks:
         highlighted_conferences:
