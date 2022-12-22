@@ -194,7 +194,7 @@ const initializer = (element = document) => {
     dropdownOptions.autoClose = component.dataset.autoClose === "true";
 
     if (!component.id) {
-      // when componente has no id, we enforce to have it one
+      // when component has no id, we enforce to have it one
       component.id = `dropdown-${Math.random().toString(36).substring(7)}`
     }
 
