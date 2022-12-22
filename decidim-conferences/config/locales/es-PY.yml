@@ -406,18 +406,11 @@ es-PY:
           cancel: Cancelar
           confirm: Confirmar
         show:
-          free: Gratis
           going: Yendo
           no_slots_available: No hay espacios disponibles
           registration: Registro
       conference_program:
-        program_meeting:
-          content: Contenido
-          location: Ubicación
-          speakers: Ponentes
-          streaming: Transmisión
         show:
-          day: Día
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -450,18 +443,12 @@ es-PY:
       conference_speaker_cell:
         personal_url:
           personal_website: Sitio web personal
-        twitter_handle:
-          go_to_twitter: Ir a twitter
-      conference_speakers:
-        index:
-          speakers: Altavoces
       conferences:
         partners:
           collaborators: Fogonadura
           main_promotors: Organizadores
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
-          make_conference_registration: 'Haga su inscripción en la conferencia:'
           register: Registro
       content_blocks:
         highlighted_conferences:
@@ -507,29 +494,12 @@ es-PY:
             active_conferences: Conferencias activas
             conferences_button_title: Enlace a la página de Jornadas que muestra todas las jornadas
             see_all_conferences: Ver todas las conferencias
-      photo:
-        image:
-          attributes:
-            alt: Imagen multimedia
-        show:
-          close_modal: Cerrar modal
-          photo: Foto
-      photos_list:
-        show:
-          related_photos: Las fotos
       registration_types:
         index:
           choose_an_option: 'Elige tu tipo de inscripción:'
-          login_as: Has iniciado sesión como %{name} <%{email}>
           no_registrations: No hay inscripciones
           register: Inscribirse
           title: Tipos de inscripción
-      shared:
-        conference_user_login:
-          already_account: '¿Ya tienes una cuenta en decidim?'
-          new_user: '¿Nuevo usuario?'
-          sign_in: Inicie sesión para registrarse para la conferencia
-          sign_up: Crear una cuenta en decidim para registrarse para la conferencia
       show:
         details: Detalles
         introduction: Introducción
