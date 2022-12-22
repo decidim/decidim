@@ -343,6 +343,9 @@ es-MX:
         related_documents: Documentos relacionados
       geocoding:
         geocoded_address: Dirección
+      photo:
+        alt: Imagen para los medios
+        title: Imagen
       photos:
         related_photos: Fotos relacionadas
     author:
@@ -1440,6 +1443,9 @@ es-MX:
           select_an_area: Seleccione un area
       public_participation:
         public_participation: Mostrar mi asistencia públicamente
+      redesigned_login_modal:
+        please_sign_in: Por favor, inicia la sesión
+        sign_up: Registrarse
       reference:
         reference: 'Referencia: %{reference}'
       represent_user_group:
