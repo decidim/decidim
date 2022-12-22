@@ -334,10 +334,6 @@ es:
           '4': Publicar tu enmienda
     anonymous_user: Anónima
     application:
-      collection:
-        documents:
-          one: Documento
-          other: Documentos
       document:
         download: Descargar archivo
       documents:
