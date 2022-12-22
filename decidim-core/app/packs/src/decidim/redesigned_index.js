@@ -178,7 +178,7 @@ const initializer = (element = document) => {
     accordionOptions.isCollapsible = component.dataset.collapsible !== "false";
 
     if (!component.id) {
-      // when componente has no id, we enforce to have it one
+      // when component has no id, we enforce to have it one
       component.id = `accordion-${Math.random().toString(36).substring(7)}`
     }
 
