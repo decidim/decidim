@@ -205,10 +205,6 @@ gl:
           '4': Publish your amendment
     anonymous_user: Anónimo
     application:
-      collection:
-        documents:
-          one: Documento
-          other: Documentos
       documents:
         related_documents: Documentos relacionados
       geocoding:
