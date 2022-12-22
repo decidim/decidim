@@ -2,6 +2,7 @@ es-MX:
   activemodel:
     attributes:
       post:
+        body: Cuerpo del texto
         decidim_author_id: Autoria
         published_at: Hora de publicación
         title: Título
@@ -64,8 +65,10 @@ es-MX:
     components:
       blogs:
         actions:
+          comment: Comentar
           create: Crear
           destroy: Borrar
+          endorse: Adherirse
           update: Actualizar
         name: Blog
         settings:
