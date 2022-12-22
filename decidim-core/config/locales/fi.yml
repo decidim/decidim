@@ -337,10 +337,6 @@ fi:
           '4': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
-      collection:
-        documents:
-          one: Asiakirja
-          other: Asiakirjaa
       document:
         download: Lataa tiedosto
       documents:
