@@ -413,7 +413,7 @@ es-PY:
       conference_program:
         program_meeting:
           content: Contenido
-          location: Ubicación
+          location: Localización
           speakers: Ponentes
           streaming: Transmisión
         show:
@@ -454,7 +454,7 @@ es-PY:
           go_to_twitter: Ir a twitter
       conference_speakers:
         index:
-          speakers: Altavoces
+          speakers: Ponentes
       conferences:
         partners:
           collaborators: Fogonadura
