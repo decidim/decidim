@@ -240,14 +240,6 @@ ar:
           '4': انشر تعديلك
     anonymous_user: مجهول
     application:
-      collection:
-        documents:
-          zero: مستندات
-          one: وثيقة
-          two: مستندات
-          few: مستندات
-          many: مستندات
-          other: مستندات
       document:
         download: نزّل الملف
       documents:
