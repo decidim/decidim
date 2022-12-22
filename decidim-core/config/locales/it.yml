@@ -248,10 +248,6 @@ it:
           '4': Pubblica il tuo emendamento
     anonymous_user: Anonimo
     application:
-      collection:
-        documents:
-          one: Documento
-          other: Documenti
       document:
         download: Scarica file
       documents:
