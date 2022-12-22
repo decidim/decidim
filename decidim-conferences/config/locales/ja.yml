@@ -402,18 +402,11 @@ ja:
           cancel: キャンセル
           confirm: 確認する
         show:
-          free: 無料
           going: 参加
           no_slots_available: 利用可能なスロットがありません
           registration: 登録
       conference_program:
-        program_meeting:
-          content: コンテンツ
-          location: 場所
-          speakers: スピーカー
-          streaming: ストリーミング
         show:
-          day: 日
           program: プログラム
       conference_registration_mailer:
         confirmation:
@@ -446,18 +439,12 @@ ja:
       conference_speaker_cell:
         personal_url:
           personal_website: 個人のウェブサイト
-        twitter_handle:
-          go_to_twitter: Twitter に移動
-      conference_speakers:
-        index:
-          speakers: スピーカー
       conferences:
         partners:
           collaborators: パートナー
           main_promotors: オーガナイザー
         show:
           login_as: '%{name} <%{email} >としてログインしています'
-          make_conference_registration: 'カンファレンスに参加登録を行います'
           register: 登録
       content_blocks:
         highlighted_conferences:
@@ -503,29 +490,12 @@ ja:
             active_conferences: アクティブなカンファレンス
             conferences_button_title: すべてのカンファレンスを表示するカンファレンス一覧ページへのリンク
             see_all_conferences: すべてのカンファレンスを見る
-      photo:
-        image:
-          attributes:
-            alt: メディア画像
-        show:
-          close_modal: モーダルを閉じる
-          photo: 画像
-      photos_list:
-        show:
-          related_photos: 画像
       registration_types:
         index:
           choose_an_option: '登録オプションを選択：'
-          login_as: '%{name} <%{email} >としてログインしています'
           no_registrations: 登録なし
           register: 登録
           title: 登録種別
-      shared:
-        conference_user_login:
-          already_account: 既にアカウントをお持ちですか？
-          new_user: 新規ユーザーですか？
-          sign_in: ログインしてカンファレンスに登録する
-          sign_up: カンファレンスに登録するために Decidim にアカウントを作成する
       show:
         details: 詳細
         introduction: はじめに
