@@ -409,7 +409,7 @@ it:
       conference_program:
         program_meeting:
           content: Soddisfare
-          location: Posizione
+          location: Luogo
           speakers: Relatori
           streaming: Streaming
         show:
