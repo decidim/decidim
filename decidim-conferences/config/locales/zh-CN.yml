@@ -368,7 +368,6 @@ zh-CN:
       conference_program:
         program_meeting:
           content: 内容
-          location: 地点
           speakers: 发言者：
           streaming: 流流
         show:
