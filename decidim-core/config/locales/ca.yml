@@ -340,6 +340,9 @@ ca:
         related_documents: Documents relacionats
       geocoding:
         geocoded_address: Adreça
+      photo:
+        alt: Imatge pels mitjans
+        title: Imatge
       photos:
         related_photos: Imatges relacionades
     author:
@@ -1437,6 +1440,9 @@ ca:
           select_an_area: Selecciona una àrea
       public_participation:
         public_participation: Mostra públicament la meva assistència
+      redesigned_login_modal:
+        please_sign_in: Si us plau, inicia la sessió
+        sign_up: Registrar-se
       reference:
         reference: 'Referència: %{reference}'
       represent_user_group:
