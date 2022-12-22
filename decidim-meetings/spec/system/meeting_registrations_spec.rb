@@ -48,7 +48,7 @@ describe "Meeting registrations", type: :system do
     it "the registration button is not visible" do
       visit_meeting
 
-      expect(page).not_to have_button("Join meeting")
+      expect(page).not_to have_button("Register")
       expect(page).not_to have_text("20 slots remaining")
     end
 
@@ -108,7 +108,7 @@ describe "Meeting registrations", type: :system do
         it "they have the option to sign in" do
           visit_meeting
 
-          click_button "Join meeting"
+          click_button "Register"
 
           expect(page).to have_css("#loginModal", visible: :visible)
         end
@@ -117,7 +117,7 @@ describe "Meeting registrations", type: :system do
           it "they have the option to sign in with different languages" do
             visit_meeting
 
-            click_button "Join meeting"
+            click_button "Register"
 
             within "#loginModal" do
               expect(page).to have_content("Sign in with Facebook")
@@ -165,7 +165,7 @@ describe "Meeting registrations", type: :system do
 
             visit_meeting
 
-            click_button "Join meeting"
+            click_button "Register"
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "A legal text"
@@ -190,7 +190,7 @@ describe "Meeting registrations", type: :system do
 
             visit_meeting
 
-            click_button "Join meeting"
+            click_button "Register"
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "Show my attendance publicly"
@@ -216,7 +216,7 @@ describe "Meeting registrations", type: :system do
 
             visit_meeting
 
-            click_button "Join meeting"
+            click_button "Register"
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "A legal text"
@@ -243,7 +243,7 @@ describe "Meeting registrations", type: :system do
 
             visit_meeting
 
-            click_button "Join meeting"
+            click_button "Register"
 
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "I represent a group"
@@ -380,7 +380,7 @@ describe "Meeting registrations", type: :system do
           expect(page).to have_content("successfully")
         end
 
-        expect(page).to have_css(".button", text: "Join meeting")
+        expect(page).to have_css(".button", text: "Register")
         expect(page).to have_text("20 slots remaining")
       end
 

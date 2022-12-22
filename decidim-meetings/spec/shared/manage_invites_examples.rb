@@ -102,7 +102,7 @@ shared_examples "manage invites" do
           end
 
           expect(page).to have_content "declined the invitation successfully"
-          expect(page).to have_css(".button", text: "Join meeting")
+          expect(page).to have_css(".button", text: "Register")
         end
       end
 
@@ -126,7 +126,7 @@ shared_examples "manage invites" do
 
           visit last_email_first_link
 
-          expect(page).to have_css(".button", text: "Join meeting")
+          expect(page).to have_css(".button", text: "Register")
         end
       end
 
@@ -150,7 +150,7 @@ shared_examples "manage invites" do
 
           visit last_email_first_link
 
-          expect(page).to have_css(".button", text: "Join meeting")
+          expect(page).to have_css(".button", text: "Register")
         end
       end
     end
