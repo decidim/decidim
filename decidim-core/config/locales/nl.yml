@@ -266,10 +266,6 @@ nl:
           '4': Publiceer uw amendement
     anonymous_user: Anoniem
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documenten
       document:
         download: Bestand downloaden
       documents:
