@@ -373,8 +373,7 @@ tr:
       conference_program:
         program_meeting:
           content: içerik
-          location: yer
-          speakers: Hoparlörler
+          speakers: Konuşmacılar
           streaming: Yayın Akışı
         show:
           day: Gün
@@ -412,7 +411,7 @@ tr:
           go_to_twitter: Twitter'a git
       conference_speakers:
         index:
-          speakers: Hoparlörler
+          speakers: Konuşmacılar
       conferences:
         partners:
           collaborators: Ortaklar
