@@ -395,18 +395,11 @@ el:
           cancel: Ακύρωση
           confirm: Επιβεβαίωση
         show:
-          free: Δωρεάν
           going: Συμμετέχοντες
           no_slots_available: Δεν υπάρχουν διαθέσιμες θέσεις
           registration: Εγγραφή
       conference_program:
-        program_meeting:
-          content: Περιεχόμενο
-          location: Τοποθεσία
-          speakers: Ομιλητές
-          streaming: Ροή
         show:
-          day: Ημέρα
           program: Πρόγραμμα
       conference_registration_mailer:
         confirmation:
@@ -437,18 +430,12 @@ el:
       conference_speaker_cell:
         personal_url:
           personal_website: Προσωπικός ιστότοπος
-        twitter_handle:
-          go_to_twitter: Μετάβαση στο Twitter
-      conference_speakers:
-        index:
-          speakers: Ομιλητές
       conferences:
         partners:
           collaborators: Συνεργάτες
           main_promotors: Διοργανωτές
         show:
           login_as: Έχετε συνδεθεί ως %{name} <%{email}>
-          make_conference_registration: 'Εγγραφείτε στη διάσκεψη:'
           register: Εγγραφή
       content_blocks:
         highlighted_conferences:
@@ -494,29 +481,12 @@ el:
             active_conferences: Ενεργές διασκέψεις
             conferences_button_title: Σύνδεσμος προς τη σελίδα Διασκέψεων που εμφανίζει όλες τις διασκέψεις
             see_all_conferences: Δείτε όλες τις διασκέψεις
-      photo:
-        image:
-          attributes:
-            alt: Εικόνα πολυμέσων
-        show:
-          close_modal: Κλείσιμο βοηθητικού στοιχείου
-          photo: Εικόνα
-      photos_list:
-        show:
-          related_photos: Εικόνες
       registration_types:
         index:
           choose_an_option: 'Ορίστε την επιλογή εγγραφής σας:'
-          login_as: Έχετε συνδεθεί ως %{name} <%{email}>
           no_registrations: Δεν υπάρχουν εγγραφές
           register: Εγγραφή
           title: Τύποι εγγραφής
-      shared:
-        conference_user_login:
-          already_account: Έχετε ήδη λογαριασμό στο decidim;
-          new_user: Νέος χρήστης;
-          sign_in: Συνδεθείτε για να εγγραφείτε στη διάσκεψη
-          sign_up: Δημιουργήστε έναν λογαριασμό στο decidim για να εγγραφείτε στη διάσκεψη
       show:
         details: Λεπτομέρειες
         introduction: Εισαγωγή
