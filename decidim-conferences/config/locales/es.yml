@@ -33,6 +33,7 @@ es:
         slug: URL amigable
         start_date: Fecha de inicio
         title: Título
+        weight: Orden de posición
       conference_media_link:
         date: Fecha
         link: Enlace
@@ -443,12 +444,18 @@ es:
       conference_speaker_cell:
         personal_url:
           personal_website: Sitio web personal
+      conference_speakers:
+        index:
+          speakers:
+            one: Ponente
+            other: Ponentes
       conferences:
         partners:
           collaborators: Colaboradores
           main_promotors: Organizadores
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
+          make_conference_registration: Inscribirse a la jornada
           register: Inscripciones
       content_blocks:
         highlighted_conferences:
