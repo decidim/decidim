@@ -406,18 +406,11 @@ lt:
           cancel: Atšaukti
           confirm: Patvirtinti
         show:
-          free: Nemokama
           going: Dalyvauja
           no_slots_available: Nebėra vietų
           registration: Registracija
       conference_program:
-        program_meeting:
-          content: Turinys
-          location: Vieta
-          speakers: Kalbėtojai
-          streaming: Transliuoti
         show:
-          day: Diena
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -448,18 +441,12 @@ lt:
       conference_speaker_cell:
         personal_url:
           personal_website: Asmeninė interneto svetainė
-        twitter_handle:
-          go_to_twitter: Eiti į Twitter
-      conference_speakers:
-        index:
-          speakers: Pranešėjai
       conferences:
         partners:
           collaborators: Partneriai
           main_promotors: Organizatoriai
         show:
           login_as: Jūs prisijungėte kaip %{name} <%{email}>
-          make_conference_registration: 'Užsiregistruokite konferencijoje:'
           register: Registruotis
       content_blocks:
         highlighted_conferences:
@@ -505,29 +492,12 @@ lt:
             active_conferences: Aktyvios konferencijos
             conferences_button_title: Nuoroda į puslapį „Konferencijos“, kuriame pateikiamos visos konferencijos
             see_all_conferences: Žiūrėti visas konferencijas
-      photo:
-        image:
-          attributes:
-            alt: Nuotrauka multimedijos formatu
-        show:
-          close_modal: Uždaryti modalinį langą
-          photo: Paveikslėlis
-      photos_list:
-        show:
-          related_photos: Paveikslėliai
       registration_types:
         index:
           choose_an_option: 'Pasirinkite registracijos būdą:'
-          login_as: Jūs prisijungėte kaip %{name} <%{email}>
           no_registrations: Nėra registracijų
           register: Registruotis
           title: Registracijos tipai
-      shared:
-        conference_user_login:
-          already_account: Ar jau turite paskyrą „Decidim“ puslapyje?
-          new_user: Naujas naudotojas?
-          sign_in: Prisijunkite, kad galėtumėte užsiregistruoti į konferenciją
-          sign_up: Susikurkite paskyrą „Decidim“ puslapyje, kad galėtumėte užsiregistruoti į konferenciją
       show:
         details: Išsamiau
         introduction: Įžanga
