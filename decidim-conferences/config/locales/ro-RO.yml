@@ -400,18 +400,11 @@ ro:
           cancel: Anulează
           confirm: Confirmare
         show:
-          free: Gratuit
           going: Participare
           no_slots_available: Niciun slot disponibil
           registration: Înregistrare
       conference_program:
-        program_meeting:
-          content: Conținut
-          location: Locaţie
-          speakers: Vorbitori
-          streaming: Streaming
         show:
-          day: Zi
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -442,18 +435,12 @@ ro:
       conference_speaker_cell:
         personal_url:
           personal_website: Website personal
-        twitter_handle:
-          go_to_twitter: Mergi la Twitter
-      conference_speakers:
-        index:
-          speakers: Vorbitori
       conferences:
         partners:
           collaborators: Parteneri
           main_promotors: Organizatori
         show:
           login_as: Ești contectat ca %{name} <%{email}>
-          make_conference_registration: 'Înregistrați-vă la conferință:'
           register: Inregistrare
       content_blocks:
         highlighted_conferences:
@@ -499,29 +486,12 @@ ro:
             active_conferences: Conferințe active
             conferences_button_title: Link către pagina de conferințe care afișează toate conferințele
             see_all_conferences: Vezi toate conferințele
-      photo:
-        image:
-          attributes:
-            alt: Poză media
-        show:
-          close_modal: Închide fereastra
-          photo: Imagine
-      photos_list:
-        show:
-          related_photos: Imagini
       registration_types:
         index:
           choose_an_option: 'Alegeți opțiunea de înregistrare:'
-          login_as: Ești contectat ca %{name} <%{email}>
           no_registrations: Fără înregistrări
           register: Inregistrare
           title: Tipuri de înregistrare
-      shared:
-        conference_user_login:
-          already_account: Ai deja un cont în decidim?
-          new_user: Utilizator nou?
-          sign_in: Conectează-te pentru a te înregistra la conferință
-          sign_up: Creează un cont în platforma Decidem pentru a vă înregistra la conferință
       show:
         details: Detalii
         introduction: Introducere
