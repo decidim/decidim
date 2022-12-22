@@ -412,7 +412,7 @@ es:
       conference_program:
         program_meeting:
           content: Contenido
-          location: Ubicación
+          location: Localización
           speakers: Ponentes
           streaming: Streaming
         show:
