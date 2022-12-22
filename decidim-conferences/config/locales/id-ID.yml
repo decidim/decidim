@@ -352,18 +352,11 @@ id:
           cancel: Membatalkan
           confirm: Memastikan
         show:
-          free: Bebas
           going: Pergi
           no_slots_available: Tidak ada slot yang tersedia
           registration: Pendaftaran
       conference_program:
-        program_meeting:
-          content: Konten
-          location: Lokasi
-          speakers: Pembicara
-          streaming: Streaming
         show:
-          day: Hari
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -393,18 +386,12 @@ id:
       conference_speaker_cell:
         personal_url:
           personal_website: Situs web pribadi
-        twitter_handle:
-          go_to_twitter: Pergi ke Twitter
-      conference_speakers:
-        index:
-          speakers: Pembicara
       conferences:
         partners:
           collaborators: Mitra
           main_promotors: Penyelenggara
         show:
           login_as: Anda masuk sebagai %{name} <%{email}>
-          make_conference_registration: 'Buat pendaftaran Anda di konferensi:'
           register: Daftar
       content_blocks:
         highlighted_conferences:
@@ -449,25 +436,11 @@ id:
           highlighted_conferences:
             active_conferences: Konferensi aktif
             see_all_conferences: Lihat semua konferensi
-      photo:
-        show:
-          close_modal: Tutup modal
-          photo: Foto
-      photos_list:
-        show:
-          related_photos: Foto
       registration_types:
         index:
           choose_an_option: 'Pilih opsi pendaftaran Anda:'
-          login_as: Anda masuk sebagai %{name} <%{email}>
           register: Daftar
           title: Jenis pendaftaran
-      shared:
-        conference_user_login:
-          already_account: Apakah Anda sudah memiliki akun di desidim?
-          new_user: Pengguna baru?
-          sign_in: Login untuk mendaftar konferensi
-          sign_up: Buat akun di desidim untuk mendaftar konferensi
       show:
         details: Detail
         introduction: pengantar
