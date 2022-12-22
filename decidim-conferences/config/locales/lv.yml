@@ -376,7 +376,6 @@ lv:
       conference_program:
         program_meeting:
           content: Saturs
-          location: Atrašanās vieta
           speakers: Runātāji
           streaming: Straumēšana
         show:
