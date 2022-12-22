@@ -1,16 +1,13 @@
-<div class="conference-registration card__block" id="registration-type-<%= model.id %>">
-  <div class="row flex--cc">
-    <div class="columns medium-8">
-      <div class="registration__text">
-        <strong><%= title %></strong>
-        <span> <%= description %></span>
-      </div>
-    </div>
-    <div class="columns medium-4">
-      <div class="registration__buttons">
-        <button type="button" class="small-5 small"><strong><%= price %></strong></button>
-        <%= render :join_conference %>
-      </div>
-    </div>
+<div id="registration-type-<%= model.id %>" class="conference__registration" data-conference-registration>
+  <div class="conference__registration-text">
+    <h2 class="h5 text-secondary"><%= title %></h2>
+    <span>
+      <%= icon "information-line", class: "text-gray fill-current" %>
+      <span class="truncate" title="<%= description %>"><%= description %></span>
+    </span>
+  </div>
+  <div class="conference__registration-button-container">
+    <span><%= price %></span>
+    <%= render :join_conference %>
   </div>
 </div>
