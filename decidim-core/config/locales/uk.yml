@@ -106,12 +106,6 @@ uk:
         verify: "%{user_name} підтвердив гурт учасників %{resource_name}"
     anonymous_user: Анонімний вхід
     application:
-      collection:
-        documents:
-          one: Документ
-          few: Документи
-          many: Документів
-          other: Документів
       documents:
         related_documents: Супутні документи
       photos:
