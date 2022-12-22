@@ -223,10 +223,6 @@ bg:
           '4': Публикувайте Вашите поправки
     anonymous_user: Анонимен
     application:
-      collection:
-        documents:
-          one: Документ
-          other: Документи
       document:
         download: Изтегли файл
       documents:
