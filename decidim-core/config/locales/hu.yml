@@ -332,10 +332,6 @@ hu:
           '4': Módosításod publikálása
     anonymous_user: Névtelen
     application:
-      collection:
-        documents:
-          one: Dokumentum
-          other: Dokumentumok
       document:
         download: Fájl letöltése
       documents:
