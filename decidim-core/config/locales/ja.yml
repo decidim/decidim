@@ -323,9 +323,6 @@ ja:
           '4': 修正内容を公開
     anonymous_user: 匿名です
     application:
-      collection:
-        documents:
-          other: ドキュメント
       document:
         download: ファイルをダウンロード
       documents:
