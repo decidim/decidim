@@ -361,12 +361,6 @@ cs:
           '4': Zveřejněte svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
-      collection:
-        documents:
-          one: Dokument
-          few: Dokumenty
-          many: Dokumenty
-          other: Dokumenty
       document:
         download: Stáhnout soubor
       documents:
