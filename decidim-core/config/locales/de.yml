@@ -326,10 +326,6 @@ de:
           '4': Veröffentlichen Sie Ihren Änderungsvorschlag
     anonymous_user: Anonym
     application:
-      collection:
-        documents:
-          one: Dokument
-          other: Unterlagen
       document:
         download: Datei herunterladen
       documents:
