@@ -41,6 +41,14 @@ es-MX:
         name: Plantilla
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Guardar
+            template_title: Información de la plantilla
+          index:
+            confirm_delete: '¿Seguro que quieres eliminar esta plantilla?'
+          template_chooser:
+            select_template: Selecciona una plantilla de respuesta
         questionnaire_templates:
           choose:
             create_from_template: Crear desde plantilla
