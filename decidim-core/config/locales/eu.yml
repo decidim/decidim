@@ -246,10 +246,6 @@ eu:
           '4': Argitaratu zure zuzenketa
     anonymous_user: Anonimoa
     application:
-      collection:
-        documents:
-          one: Dokumentuaren
-          other: Dokumentuak
       document:
         download: Deskargatu fitxategia
       documents:
