@@ -248,10 +248,6 @@ lb:
           '4': Verëffentlech deng Ännerungsvirschléi
     anonymous_user: Anonym
     application:
-      collection:
-        documents:
-          one: Dokument
-          other: Unterlagen
       document:
         download: Datei erof lueden
       documents:
