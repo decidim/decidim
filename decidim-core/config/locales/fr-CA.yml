@@ -1407,11 +1407,14 @@ fr-CA:
         close: Fermer
         description: Ce contenu est-il inapproprié ?
         does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
+        hide: Masquer
+        hide_content: Masquer ce contenu
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
         reason: Motif
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
+        visit_profile: Si vous voulez également bloquer le participant et le reste de son contenu, allez sur la page de profil de %{user_link}.
       flag_user_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
