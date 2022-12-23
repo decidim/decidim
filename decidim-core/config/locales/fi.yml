@@ -343,6 +343,9 @@ fi:
         related_documents: Liittyvät dokumentit
       geocoding:
         geocoded_address: Osoite
+      photo:
+        alt: Mediakuva
+        title: Kuva
       photos:
         related_photos: Liittyvät kuvat
     author:
@@ -1408,11 +1411,14 @@ fi:
         close: Sulje
         description: Onko tämä sisältö epäasiallista?
         does_not_belong: Sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
+        hide: Piilota
+        hide_content: Piilota tämä sisältö
         offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
         reason: Syy
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita asiatonta sisältöä
+        visit_profile: Jos haluat myös estää osallistujan ja hänen lähettämän muun sisällön, siirry profiilisivulle %{user_link}.
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         close: Sulje
@@ -1439,6 +1445,9 @@ fi:
           select_an_area: Valitse alue
       public_participation:
         public_participation: Näytä läsnäoloni julkisesti
+      redesigned_login_modal:
+        please_sign_in: Kirjaudu sisään
+        sign_up: Rekisteröidy
       reference:
         reference: 'Viite: %{reference}'
       represent_user_group:
