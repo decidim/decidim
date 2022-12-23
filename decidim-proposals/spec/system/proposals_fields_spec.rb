@@ -128,7 +128,6 @@ describe "Proposals", type: :system do
             end
 
             within ".static-map__container" do
-              expect(page).to have_css("li", text: address)
               expect(page).to have_css(".static-map")
             end
 
