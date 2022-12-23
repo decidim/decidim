@@ -52,13 +52,13 @@ module Decidim
         "aria-hidden" => "true"
       }
 
-      html_properties = options.with_indifferent_access.transform_keys(&:dasherize).slice("width", "height", "aria-label", "role", "aria-hidden", "class")
+      html_properties = options.with_indifferent_access.transform_keys(&:dasherize).slice("width", "height", "aria-label", "role", "aria-hidden", "class", "style")
       html_properties = default_html_properties.merge(html_properties)
 
       href = Decidim.cors_enabled ? "" : asset_pack_path("media/images/remixicon.symbol.svg")
 
       content_tag :svg, html_properties do
-        content_tag :use, nil, "href" => "#{href}#ri-#{name}"
+        content_tag :use, nil, "href" => "#{href}#ri-#{name}", tabindex: -1
       end
     end
 

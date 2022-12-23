@@ -24,10 +24,31 @@ export default class RemoteModal {
   }
 
   handleSuccess(response) {
-    document.getElementById(`${this.modalTarget}-content`).innerHTML = response
+    const node = document.getElementById(`${this.modalTarget}-content`)
+
+    // save the close button if exists (modal.closable = true)
+    const btn = node.querySelector("button")
+
+    // clear the modal contents
+    node.innerHTML = ""
+
+    if (btn) {
+      // append the close button
+      node.appendChild(btn)
+    }
+
+    // create a fake div to wrap the response, and then, iterate over its children
+    const div = document.createElement("div")
+    div.innerHTML = response
+    // in this way we don't append the parent element, useless
+    Array.from(div.children).forEach((child) => node.appendChild(child))
+
+    document.dispatchEvent(new CustomEvent("remote-modal:loaded", { detail: node }));
   }
 
   handleError(err) {
-    document.getElementById(`${this.modalTarget}-content`).innerHTML = `<h3>${err.status}</h3><p>${err.statusText}</p>`
+    const node = document.getElementById(`${this.modalTarget}-content`)
+    node.innerHTML = `<h3>${err.status}</h3><p>${err.statusText}</p>`
+    document.dispatchEvent(new CustomEvent("remote-modal:failed", { detail: node }));
   }
 }

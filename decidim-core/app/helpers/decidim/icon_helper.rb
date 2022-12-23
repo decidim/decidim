@@ -20,7 +20,12 @@ module Decidim
       "Decidim::ParticipatoryProcess" => "treasure-map-line",
       "Decidim::Category" => "price-tag-3-line",
       "Decidim::Scope" => "scan-line",
-      "other" => "question-line"
+      "other" => "question-line",
+      "like" => "heart-add-line",
+      "dislike" => "dislike-line",
+      "follow" => "notification-3-line",
+      "unfollow" => "notification-3-fill",
+      "share" => "share-line"
     }.freeze
 
     # Public: Returns an icon given an instance of a Component. It defaults to

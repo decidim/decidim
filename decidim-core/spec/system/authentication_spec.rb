@@ -331,13 +331,13 @@ describe "Authentication", type: :system do
 
       it "caches the omniauth buttons correctly with different languages", :caching do
         find(".sign-in-link").click
-        expect(page).to have_content("Sign in with Facebook")
+        expect(page).to have_link("Sign in with Facebook")
 
         within_language_menu do
           click_link "Català"
         end
 
-        expect(page).to have_content("Inicia sessió amb Facebook")
+        expect(page).to have_link("Inicia sessió amb Facebook")
       end
     end
 
@@ -587,7 +587,9 @@ describe "Authentication", type: :system do
         it "doesn't allow the user to sign in as a regular user, only through external accounts" do
           find(".sign-in-link").click
           expect(page).not_to have_content("Email")
-          expect(page).to have_css(".button--facebook")
+          within("div.login__omniauth") do
+            expect(page).to have_link("Facebook")
+          end
         end
 
         it "authenticates an existing User" do

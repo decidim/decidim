@@ -15,6 +15,18 @@ module Decidim
         @user_reports ||= UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: user.decidim_organization_id })
       end
 
+      def count_content_moderations
+        content_moderations.not_hidden.count
+      end
+
+      def count_user_pending_reports
+        user_reports.unblocked.count
+      end
+
+      def count_pending_moderations
+        count_content_moderations + count_user_pending_reports
+      end
+
       private
 
       attr_reader :user
