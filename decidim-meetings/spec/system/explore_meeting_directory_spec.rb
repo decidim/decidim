@@ -80,7 +80,7 @@ describe "Explore meeting directory", type: :system do
       it "shows tags for category" do
         visit directory
 
-        within "div.item-list__metadata", match: :first do
+        within "#meetings" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end

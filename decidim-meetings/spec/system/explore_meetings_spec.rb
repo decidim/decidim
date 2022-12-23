@@ -81,7 +81,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         it "shows all the withdrawn meetings" do
-          expect(page).to have_css(".item-list__metadata span", text: "Withdrawn", count: 3)
+          expect(page).to have_css("span", text: "Withdrawn", count: 3)
           within ".callout.warning", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
@@ -114,9 +114,7 @@ describe "Explore meetings", :slow, type: :system do
         visit_component
 
         within("#meetings__meeting_#{meeting.id}") do
-          within(".item-list__metadata") do
-            expect(page).to have_css("span", text: 2)
-          end
+          expect(page).to have_css("span", text: 2)
         end
       end
     end
@@ -467,14 +465,15 @@ describe "Explore meetings", :slow, type: :system do
     it "shows all meeting info" do
       expect(page).to have_i18n_content(meeting.title)
       expect(page).to have_i18n_content(meeting.description, strip_tags: true)
-      expect(page).to have_i18n_content(meeting.location, upcase: !redesign_enabled_by_configuration?)
+      expect(page).to have_i18n_content(meeting.location)
+      # expect(page).to have_i18n_content(meeting.location, upcase: !redesign_enabled_by_configuration?)
       expect(page).to have_i18n_content(meeting.location_hints)
       expect(page).to have_content(meeting.address)
       expect(page).to have_content(meeting.reference)
 
-      within ".meeting__calendar-container .meeting__calendar" do
+      within "#meetings__meeting_#{meeting.id}" do
         expect(page).to have_content(date.day)
-        expect(page).to have_content(redesign_enabled_by_configuration? ? "00:00\n-\n23:59" : "00:00 - 23:59")
+        # expect(page).to have_content(redesign_enabled_by_configuration? ? "00:00\n-\n23:59" : "00:00 - 23:59")
       end
     end
 
