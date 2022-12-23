@@ -34,7 +34,7 @@
   }
 
   [data-dialog-actions]{
-    @apply flex justify-between items-center only:[&>*]:ml-auto;
+    @apply flex justify-between items-center mt-10 only:[&>*]:ml-auto;
   }
 
   .modal__report{
