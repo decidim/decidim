@@ -361,6 +361,11 @@ fr:
         'true': 'Oui'
         user_name: Utilisateur
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Il y a %{count} modérations en attente
+            other: Il y a %{count} modérations en attente
+          title: Modérations en attente
         show:
           view_more_logs: Afficher plus
           welcome: Bienvenue dans l'espace d'administration.
