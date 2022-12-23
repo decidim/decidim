@@ -94,6 +94,10 @@ header{
         @apply relative cursor-pointer;
       }
 
+      &__notification{
+        @apply w-2.5 h-2.5 rounded-full bg-primary;
+      }
+
       &-trigger{
         @apply flex flex-col items-center text-secondary relative px-2 py-1;
 
