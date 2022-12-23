@@ -44,7 +44,7 @@ import "./account_form"
 import "./append_redirect_url_to_modals"
 import "./form_attachments"
 import "./form_remote"
-import "./conferences"
+// import "./conferences" -- deprecated
 import "./tooltip_keep_on_hover"
 import "./diff_mode_dropdown"
 import "./delayed"
