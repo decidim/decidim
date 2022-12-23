@@ -43,20 +43,10 @@
     }
 
     &-text{
-      @apply px-4 py-3 block text-secondary;
-
-      >*:first-child{
-        /* min-height: line-height * num_lines */
-        @apply min-h-[calc(25px*3)];
-
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
+      @apply px-4 py-3 flex flex-col gap-y-2 md:gap-y-4 text-gray-2;
     }
 
-    &:hover &-text{
+    &:hover &-text h3{
       @apply underline;
     }
   }
@@ -64,15 +54,15 @@
   &__list{
     @apply flex flex-col md:flex-row gap-2.5 md:gap-4 px-4 rounded overflow-hidden border-l-4 border-background hover:border-tertiary;
 
-    &__content{
+    &-content{
       @apply flex flex-col gap-2.5;
     }
 
-    &__title{
+    &-title{
       @apply h4 text-secondary focus-visible:outline-none focus-visible:underline;
     }
 
-    &__image{
+    &-image{
       @apply w-1/4 flex-none rounded overflow-hidden aspect-[1.5] -ml-[calc(1rem+4px)];
 
       img{
@@ -80,11 +70,11 @@
       }
     }
 
-    &__text{
+    &-text{
       @apply text-gray-2;
     }
 
-    &__metadata{
+    &-metadata{
       @apply mt-auto inline-flex flex-wrap gap-x-4 md:gap-0;
 
       & > span{
@@ -100,7 +90,7 @@
       @apply mt-6;
     }
 
-    &:hover &__title{
+    &:hover &-title{
       @apply underline;
     }
   }

@@ -34,6 +34,7 @@ en:
         slug: URL slug
         start_date: Start date
         title: Title
+        weight: Order position
       conference_media_link:
         date: Date
         link: Link
@@ -407,18 +408,11 @@ en:
           cancel: Cancel
           confirm: Confirm
         show:
-          free: Free
           going: Attending
           no_slots_available: No slots available
           registration: Registration
       conference_program:
-        program_meeting:
-          content: Content
-          location: Location
-          speakers: Speakers
-          streaming: Streaming
         show:
-          day: Day
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -451,18 +445,18 @@ en:
       conference_speaker_cell:
         personal_url:
           personal_website: Personal website
-        twitter_handle:
-          go_to_twitter: Go to Twitter
       conference_speakers:
         index:
-          speakers: Speakers
+          speakers:
+            one: Speaker
+            other: Speakers
       conferences:
         partners:
           collaborators: Partners
           main_promotors: Organizers
         show:
           login_as: You are logged in as %{name} <%{email}>
-          make_conference_registration: 'Make your registration in the conference:'
+          make_conference_registration: Make your registration in the conference
           register: Register
       content_blocks:
         highlighted_conferences:
@@ -508,29 +502,12 @@ en:
             active_conferences: Active conferences
             conferences_button_title: Link to the Conferences page displaying all the conferences
             see_all_conferences: See all conferences
-      photo:
-        image:
-          attributes:
-            alt: Media picture
-        show:
-          close_modal: Close modal
-          photo: Image
-      photos_list:
-        show:
-          related_photos: Images
       registration_types:
         index:
           choose_an_option: 'Choose your registration option:'
-          login_as: You are logged in as %{name} <%{email}>
           no_registrations: No registrations
           register: Register
           title: Registration types
-      shared:
-        conference_user_login:
-          already_account: Do you already have an account in decidim?
-          new_user: New user?
-          sign_in: Login to register for the conference
-          sign_up: Create an account in decidim to register for the conference
       show:
         details: Details
         introduction: Introduction

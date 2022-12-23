@@ -48,7 +48,6 @@ module Webpacker
         expect(runtime_config["default"]["stylesheet_imports"]["imports"]["app"]).to include(
           "stylesheets/decidim/budgets/budgets",
           "stylesheets/decidim/proposals/proposals",
-          "stylesheets/decidim/conferences/conferences",
           "stylesheets/decidim/consultations/consultations",
           "stylesheets/decidim/elections/elections",
           "stylesheets/decidim/votings/votings",
