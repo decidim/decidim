@@ -339,16 +339,15 @@ en:
           '4': Publish your amendment
     anonymous_user: Anonymous
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documents
       document:
         download: Download file
       documents:
         related_documents: Related documents
       geocoding:
         geocoded_address: Address
+      photo:
+        alt: Media picture
+        title: Image
       photos:
         related_photos: Related images
     author:
@@ -1419,11 +1418,14 @@ en:
         close: Close
         description: Is this content inappropriate?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        hide: Hide
+        hide_content: Hide this content
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         reason: Reason
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
+        visit_profile: If you want to also block the participant and the rest of its contents, go to %{user_link} profile page.
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
@@ -1450,6 +1452,9 @@ en:
           select_an_area: Select an area
       public_participation:
         public_participation: Show my attendance publicly
+      redesigned_login_modal:
+        please_sign_in: Please sign in
+        sign_up: Sign up
       reference:
         reference: 'Reference: %{reference}'
       represent_user_group:
