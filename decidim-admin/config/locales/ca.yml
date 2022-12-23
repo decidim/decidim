@@ -361,6 +361,12 @@ ca:
         'true': 'Sí'
         user_name: Usuària
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Hi ha %{count} moderació pendent
+            other: Hi ha %{count} moderacions pendents
+          goto_moderation: Anar a moderacions globals
+          title: Moderacions pendents
         show:
           view_more_logs: Veure més registres
           welcome: Benvinguda al Tauler d'Aministració.
