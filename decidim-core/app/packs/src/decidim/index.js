@@ -17,6 +17,7 @@ import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
+import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 
 // NOTE: new libraries required to give functionality to redesigned views
 import Accordions from "a11y-accordion-component";
@@ -98,6 +99,7 @@ $(() => {
 
     formFilter.mountComponent();
   })
+  document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
   updateExternalDomainLinks($("body"))
 
@@ -113,13 +115,16 @@ $(() => {
   Accordions.init();
   Dropdowns.init();
   document.querySelectorAll("[data-dialog]").forEach(
-    ({ dataset: { dialog } }) =>
-      new Dialogs(`[data-dialog="${dialog}"]`, {
+    (elem) => {
+      const { dataset: { dialog } } = elem
+      return new Dialogs(`[data-dialog="${dialog}"]`, {
         openingSelector: `[data-dialog-open="${dialog}"]`,
         closingSelector: `[data-dialog-close="${dialog}"]`,
-        labelledby: `dialog-title-${dialog}`,
-        describedby: `dialog-desc-${dialog}`
+        // optional parameters (whenever exists the id, it'll add the tagging)
+        ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && { labelledby: `dialog-title-${dialog}` }),
+        ...(Boolean(elem.querySelector(`#dialog-desc-${dialog}`)) && { describedby: `dialog-desc-${dialog}` })
       })
+    }
   );
   document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
   // end new libraries

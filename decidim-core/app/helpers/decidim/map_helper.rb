@@ -109,7 +109,7 @@ module Decidim
       map = builder.map_element(map_html_options, &)
       bottom = content_tag(:div, "", id: bottom_id)
 
-      help + map + bottom
+      content_tag(:div, help + map + bottom)
     end
 
     private
