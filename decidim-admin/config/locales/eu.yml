@@ -353,6 +353,12 @@ eu:
         'true': 'Bai'
         user_name: Erabiltzailea
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: '%{count} moderazo zain'
+            other: '%{count} moderazo zain'
+          goto_moderation: Joan moderazio globaletara
+          title: Zain dauden moderazioak
         show:
           view_more_logs: Ikusi gehiago erregistroak
       domain_whitelist:
