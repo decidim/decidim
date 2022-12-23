@@ -35,14 +35,14 @@
 
 /* REDESIGN_PENDING: this .dropdown class will be very likely deprecated */
 .dropdown{
-  @apply absolute bg-white border-2 border-gray-3 rounded min-w-max drop-shadow-md text-left z-10;
+  @apply absolute bg-white border-2 border-gray-3 rounded min-w-max p-4 drop-shadow-md text-left z-10;
 
   & > *{
-    @apply relative z-10;
+    @apply relative z-10 p-3.5 first:pt-1.5 last:pb-1.5;
   }
 
   &__item{
-    @apply p-2 gap-x-2 flex items-center text-sm text-secondary;
+    @apply gap-x-2 flex items-center text-sm text-secondary;
 
     > svg{
       @apply w-4 h-4 flex-none text-gray fill-current ;
