@@ -33,7 +33,7 @@ module Decidim
           },
           component: { id: component.id },
           title: proposal.title,
-          body: plain_text_body,
+          body: strip_tags_from(proposal.body),
           address: proposal.address,
           latitude: proposal.latitude,
           longitude: proposal.longitude,
@@ -95,9 +95,13 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(proposal.amendable).url
       end
 
-      def plain_text_body
-        proposal.body.transform_values do |v|
-          v.is_a?(Hash) ? v : convert_to_text(v)
+      # Recursively strips HTML tags from given Hash strings using convert_to_text from Premailer
+      def strip_tags_from(hash)
+        return hash unless hash.is_a?(Hash)
+        return hash if hash.blank?
+
+        hash.transform_values do |v|
+          v.is_a?(Hash) ? strip_tags_from(v) : convert_to_text(v)
         end
       end
     end

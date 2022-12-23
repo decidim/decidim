@@ -172,7 +172,15 @@ module Decidim
               <p><code>Here is code block</code></p>
             TEXT
           end
-          let(:body) { { "en" => body_content } }
+          let(:body) do
+            {
+              "en" => body_content,
+              "machine_translation" => {
+                "es" => body_content,
+                "ca" => body_content
+              }
+            }
+          end
 
           it "serializes the body without HTML tags" do
             expected_body = <<~TEXT
@@ -198,6 +206,10 @@ module Decidim
 
             expect(serialized[:body]["en"]).to eq(expected_body.chomp)
             expect(serialized[:body]["en"]).to include("Logo alt attribute")
+            expect(serialized[:body]["machine_translation"]["es"]).to eq(expected_body.chomp)
+            expect(serialized[:body]["machine_translation"]["es"]).to include("Logo alt attribute")
+            expect(serialized[:body]["machine_translation"]["ca"]).to eq(expected_body.chomp)
+            expect(serialized[:body]["machine_translation"]["ca"]).to include("Logo alt attribute")
           end
 
           context "and image is uploaded without 'alt' attribute" do
@@ -205,6 +217,8 @@ module Decidim
 
             it "serializes the body without image" do
               expect(serialized[:body]["en"]).not_to include("Logo alt attribute")
+              expect(serialized[:body]["machine_translation"]["es"]).not_to include("Logo alt attribute")
+              expect(serialized[:body]["machine_translation"]["ca"]).not_to include("Logo alt attribute")
             end
           end
         end
