@@ -88,7 +88,7 @@ header{
     }
 
     &__dropdown{
-      @apply px-4 divide-y divide-gray-3 z-20 w-64;
+      @apply divide-y divide-gray-3 z-20 w-64;
 
       &-container{
         @apply relative cursor-pointer;
