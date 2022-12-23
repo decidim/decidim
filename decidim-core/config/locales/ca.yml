@@ -1409,11 +1409,14 @@ ca:
         close: Tancar
         description: Aquest contingut no és apropiat?
         does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
+        hide: Amagar
+        hide_content: Amagar aquest contingut
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort o de suïcidi o qualsevol forma de discurs d'odi.
         reason: Motiu
         report: Denunciar
         spam: Conté "clickbait", publicitat o estafes.
         title: Reportar contingut inapropiat
+        visit_profile: Si també vols bloquejar a la participant i la resta dels seus continguts, ves a la pàgina de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Aquest contingut ja ha estat reportat i serà revisat per una administradora.
         close: Tancar
