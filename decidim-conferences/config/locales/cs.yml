@@ -452,6 +452,13 @@ cs:
       conference_speaker_cell:
         personal_url:
           personal_website: Osobní web
+      conference_speakers:
+        index:
+          speakers:
+            one: Řečník
+            few: Řečníci
+            many: Řečníků
+            other: Řečníků
       conferences:
         partners:
           collaborators: Partneři
