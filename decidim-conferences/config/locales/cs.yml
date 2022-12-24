@@ -33,6 +33,7 @@ cs:
         slug: URL slug
         start_date: Datum zahájení
         title: Titul
+        weight: Pozice v řazení
       conference_media_link:
         date: Datum
         link: Odkaz
@@ -457,6 +458,7 @@ cs:
           main_promotors: Organizátoři
         show:
           login_as: Jste přihlášeni jako %{name} <%{email}>
+          make_conference_registration: Zaregistrujte se na konferenci
           register: Registrovat
       content_blocks:
         highlighted_conferences:
