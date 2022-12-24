@@ -361,6 +361,9 @@ cs:
         'true': 'Ano'
         user_name: Uživatel
       dashboard:
+        pending_moderations:
+          goto_moderation: Přejít na globální moderaci
+          title: Čekající moderování
         show:
           view_more_logs: Zobrazit další protokoly
           welcome: Vítejte v Admin panelu.
