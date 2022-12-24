@@ -1485,6 +1485,9 @@ cs:
           select_an_area: Vyberte oblast
       public_participation:
         public_participation: Ukázat svou účast veřejně
+      redesigned_login_modal:
+        please_sign_in: Přihlaste se prosím
+        sign_up: Zaregistrovat se
       reference:
         reference: 'Odkaz: %{reference}'
       represent_user_group:
