@@ -367,6 +367,9 @@ cs:
         related_documents: Související dokumenty
       geocoding:
         geocoded_address: Adresa
+      photo:
+        alt: Obrázek médií
+        title: Obrázek
       photos:
         related_photos: Související fotografie
     author:
@@ -1449,6 +1452,8 @@ cs:
         close: Zavřít
         description: Je tento obsah nevhodný?
         does_not_belong: Obsahuje nezákonnou činnost, sebevražedné hrozby, osobní informace nebo něco jiného, o kterém si myslíte, že nepatří na %{organization_name}.
+        hide: Skrýt
+        hide_content: Skrýt tento obsah
         offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
         reason: Důvod
         report: Zpráva
