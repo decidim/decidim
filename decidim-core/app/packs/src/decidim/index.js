@@ -17,6 +17,7 @@ import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
+import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 
 // NOTE: new libraries required to give functionality to redesigned views
 import Accordions from "a11y-accordion-component";
@@ -102,6 +103,7 @@ $(() => {
 
     formFilter.mountComponent();
   })
+  document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
   updateExternalDomainLinks($("body"))
 
