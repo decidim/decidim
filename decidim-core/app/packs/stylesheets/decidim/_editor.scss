@@ -15,6 +15,15 @@
     border-bottom: 1px solid #ccc;
     padding: 10px;
 
+    .editor-toolbar-group{
+      display: inline-block;
+      margin: 0 .7rem;
+
+      &:first-child{
+        margin-left: 0;
+      }
+    }
+
     .editor-toolbar-control{
       margin-left: .5rem;
 
