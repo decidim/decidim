@@ -8,4 +8,3 @@ Decidim::Webpacker.register_entrypoints(
   decidim_accountability_admin: "#{base_path}/app/packs/entrypoints/decidim_accountability_admin.js",
   decidim_accountability_admin_imports: "#{base_path}/app/packs/entrypoints/decidim_accountability_admin_imports.js"
 )
-Decidim::Webpacker.register_stylesheet_import("stylesheets/decidim/accountability/accountability")

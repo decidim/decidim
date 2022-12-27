@@ -9,7 +9,7 @@ module Decidim
       end
 
       def query
-        Decidim::Conference.where(organization: @organization)
+        Decidim::Conference.where(organization: @organization).order(weight: :asc, start_date: :desc)
       end
     end
   end

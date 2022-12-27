@@ -263,9 +263,6 @@
         title: Spørsmål fra %{scope_name}
       index:
         title: Konsultasjoner
-      last_activity:
-        new_consultation: Ny konsultasjon
-        new_question_at_html: "<span>Nytt spørsmål på %{link}</span>"
       pages:
         home:
           highlighted_consultations:

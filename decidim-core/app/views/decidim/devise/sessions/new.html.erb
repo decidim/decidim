@@ -23,7 +23,7 @@
     <% end %>
   </div>
 
-  <div class="border-t-2 border-background">
+  <div class="login__omniauth-container">
     <% cache current_organization do %>
       <%= render "decidim/devise/shared/omniauth_buttons" %>
     <% end %>
@@ -31,17 +31,17 @@
 
   <% if current_organization.sign_in_enabled? %>
     <%= decidim_form_for(resource, namespace: "session", as: resource_name, url: session_path(resource_name) ) do |f| %>
-      <div class="login__form">
+      <div class="form__wrapper">
         <%= f.email_field :email, autocomplete: "email", placeholder: "hi@email.com" %>
 
         <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••" %>
 
         <% if devise_mapping.rememberable? %>
-          <%= f.check_box :remember_me, label_options: { class: "login__form-checkbox-label" } %>
+          <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
         <% end %>
       </div>
 
-      <div class="login__form-block">
+      <div class="form__wrapper-block">
         <button type="submit" class="button button__lg button__secondary">
           <%= t("devise.sessions.new.sign_in") %>
           <%= icon "arrow-right-line", class: "fill-current" %>

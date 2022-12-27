@@ -279,7 +279,6 @@
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
             email_outro: Du har mottatt denne varslingen fordi du er en forfatter av "%{resource_title}".
-            email_subject: Forslaget ditt har blitt avvist
             notification_title: Forslaget ditt <a href="%{resource_path}">%{resource_title}</a> har blitt avvist.
           follower:
             email_intro: 'Forslaget "%{resource_title}" er blitt avvist. Du kan lese svaret på denne siden:'
@@ -572,7 +571,6 @@
             one: "%{count} samarbeids utkast"
             other: "%{count} samarbeids utkaster"
         create:
-          error: Det oppsto et problem med å lage disse samarbeidsutkastene
           success: Samarbeids utkast opprettet.
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
@@ -652,8 +650,6 @@
       destroy_draft:
         error: Det oppsto et problem med å slette samarbeids utkastet.
         success: Forslags utkastet ble slettet.
-      last_activity:
-        new_proposal_at_html: "<span>Nytt forslag på %{link}</span>"
       models:
         collaborative_draft:
           fields:
@@ -775,7 +771,6 @@
           changes_at_title: Endring til "%{title}"
           comments: Kommentarer
           edit_proposal: Rediger forslaget
-          endorsements_list: Liste over Påtegnelser
           estimated_cost: Estimert kostnad
           hidden_endorsers_count:
             one: og %{count} til person

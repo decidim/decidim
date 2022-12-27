@@ -1,5 +1,8 @@
 fr-CA:
   activemodel:
+    attributes:
+      post:
+        published_at: Date de publication
     models:
       decidim/blogs/create_post_event: Nouvel article
   activerecord:
@@ -32,6 +35,7 @@ fr-CA:
             save: Mettre à jour
             title: Éditer le post
           index:
+            not_published_yet: Pas encore publié
             title: Articles
           new:
             create: Créer
@@ -39,24 +43,25 @@ fr-CA:
           update:
             invalid: Il y a eu des erreurs lors de l'enregistrement de l'article.
             success: Article enregistré avec succès
+      admin_log:
+        post:
+          create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé l'article de blog %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour l'article de blog %{resource_name} dans %{space_name}"
       last_activity:
-        new_post_at_html: "<span>Nouvel article à %{link}</span>"
+        new_post: 'Nouvel article :'
       models:
         post:
           fields:
             author: Auteur
             body: Corps du texte
-            created_at: Créé à
+            official_blog_post: Article officiel
+            published_at: Date de publication
             title: titre
       posts:
         show:
-          back: Retour à la liste
           comments: Commentaires
           view: Voir
-        sidebar_blog:
-          comments: commentaires
-          most_commented_posts: Articles les plus commentés
-      read_more: Voir la suite
     components:
       blogs:
         actions:

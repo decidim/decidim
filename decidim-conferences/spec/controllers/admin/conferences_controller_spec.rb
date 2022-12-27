@@ -30,6 +30,7 @@ module Decidim
             slogan: conference.slogan,
             description: conference.description,
             short_description: conference.short_description,
+            weight: conference.weight,
             slug: conference.slug,
             start_date: conference.start_date,
             end_date: conference.end_date,

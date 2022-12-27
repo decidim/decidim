@@ -268,9 +268,6 @@ uk:
           impersonate_existing_managed_user: Виступити в ролі керованого учасника "%{name}"
           impersonate_existing_user: Виступити в ролі учасника "%{name}"
           impersonate_new_managed_user: Виступити в ролі нового керованого учасника
-      logs:
-        logs_list:
-          no_logs_yet: Ще немає журналів
       managed_users:
         promotion:
           error: При підвищенні керованого учасника сталася помилка.

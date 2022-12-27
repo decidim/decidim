@@ -283,9 +283,6 @@ ar:
         title: أسئلة من %{scope_name}
       index:
         title: المشاورات
-      last_activity:
-        new_consultation: استشارة جديدة
-        new_question_at_html: "<span>سؤال جديد في %{link}</span>"
       pages:
         home:
           highlighted_consultations:

@@ -312,7 +312,6 @@ ru:
           answer: Ответить
           comments: Комментарии
           edit_proposal: Редактировать предложение
-          endorsements_list: Список тех, кто поддержал
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'

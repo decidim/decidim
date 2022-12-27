@@ -173,9 +173,6 @@ ro:
             title: Versiuni
         versions_list:
           back_to_resource: Înapoi la dezbatere
-      last_activity:
-        debate_updated_at_html: "<span>Dezbatere actualizată la %{link}</span>"
-        new_debate_at_html: "<span>Noua dezbatere la %{link}</span>"
       models:
         debate:
           fields:

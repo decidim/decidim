@@ -265,8 +265,8 @@ fi:
       index:
         title: Kuulemiset
       last_activity:
-        new_consultation: Uusi kuuleminen
-        new_question_at_html: "<span>Uusi kysymys osoitteessa %{link}</span>"
+        new_consultation: 'Uusi kuuleminen:'
+        new_question: 'Uusi kysymys:'
       pages:
         home:
           highlighted_consultations:

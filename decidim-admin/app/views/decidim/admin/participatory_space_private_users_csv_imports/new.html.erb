@@ -25,7 +25,11 @@
   </div>
   <div class="card-section">
     <%= decidim_form_for(@form, url: participatory_space_private_users_csv_imports_path, html: { class: "form" }) do |form| %>
-      <p><%= t(".explanation") %></p>
+      <div class="mb-s">
+        <p><%= t(".explanation") %></p>
+        <p><%= t(".example_file") %></p>
+        <code class="code-block"><%= t(".explanation_example", csv_col_sep: Decidim.default_csv_col_sep) %></code>
+      </div>
       <div class="row column">
         <%= form.upload :file, optional: false %>
       </div>

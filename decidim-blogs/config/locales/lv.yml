@@ -38,24 +38,16 @@ lv:
           update:
             invalid: Ziņas saglabāšanas laikā radās problēma.
             success: Ziņa ir veiksmīgi saglabāta
-      last_activity:
-        new_post_at_html: "<span>Jauna ziņa %{link}</span>"
       models:
         post:
           fields:
             author: Autors
             body: Pamatteksts
-            created_at: Izveidots plkst.
             title: nosaukums
       posts:
         show:
-          back: Atpakaļ uz sarakstu
           comments: Komentāri
           view: Apskatīt
-        sidebar_blog:
-          comments: komentāri
-          most_commented_posts: Visvairāk komentētie ziņojumi
-      read_more: Lasīt vairāk
     components:
       blogs:
         name: Emuārs

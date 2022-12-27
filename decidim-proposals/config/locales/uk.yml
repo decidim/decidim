@@ -312,7 +312,6 @@ uk:
           answer: Відповісти
           comments: Коментарі
           edit_proposal: Редагувати пропозицію
-          endorsements_list: Перелік тих, хто підтримав
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'

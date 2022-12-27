@@ -1,5 +1,8 @@
 es-MX:
   activemodel:
+    attributes:
+      post:
+        published_at: Hora de publicación
     models:
       decidim/blogs/create_post_event: Nueva publicación del blog
   activerecord:
@@ -32,6 +35,7 @@ es-MX:
             save: Actualizar
             title: Editar publicación
           index:
+            not_published_yet: No publicado aún
             title: Publicaciones
           new:
             create: Crear
@@ -45,24 +49,19 @@ es-MX:
           delete: "%{user_name} ha eliminado el post %{resource_name} en el blog de %{space_name}"
           update: "%{user_name} ha actualizado el post %{resource_name} en el blog de %{space_name}"
       last_activity:
-        new_post_at_html: "<span>Nueva publicación en %{link}</span>"
+        new_post: 'Nueva publicación:'
       models:
         post:
           fields:
             author: Autoría
             body: Cuerpo
-            created_at: Creado en
             official_blog_post: Post oficial
+            published_at: Hora de publicación
             title: título
       posts:
         show:
-          back: Volver al listado
           comments: Comentarios
           view: Ver
-        sidebar_blog:
-          comments: comentarios
-          most_commented_posts: Publicaciones más comentadas
-      read_more: Leer más
     components:
       blogs:
         actions:

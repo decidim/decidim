@@ -11,8 +11,16 @@
     <%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
   <% end %>
 
+  <% if count_pending_moderations.positive? %>
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-12 medium-6 large-4">
+        <%= render "pending_moderations" %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="grid-x grid-margin-x">
-    <% if current_user.admin? && current_user.organization&.id == current_organization.id %>
+    <% if allowed_to? :read, :users_statistics %>
       <div class="cell small-12 medium-6 large-4">
         <%= render(
           partial: "decidim/admin/users_statistics/users_count",

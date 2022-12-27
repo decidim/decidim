@@ -171,9 +171,6 @@
             title: Versjoner
         versions_list:
           back_to_resource: Gå tilbake til innspillstråden
-      last_activity:
-        debate_updated_at_html: "<span>Debatt oppdatert på %{link}</span>"
-        new_debate_at_html: "<span>Ny innspillstråd i %{link}</span>"
       models:
         debate:
           fields:

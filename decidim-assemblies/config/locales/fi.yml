@@ -73,7 +73,7 @@ fi:
         assembly:
           attributes:
             document:
-              allowed_file_content_types: 'Virheellinen asiakirjan tyyppi. Hyväksytyt tiedostomuodot ovat: %{types}'
+              allowed_file_content_types: 'Virheellinen tiedostomuoto. Ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
   activerecord:
     models:
       decidim/assembly:
@@ -356,7 +356,7 @@ fi:
       index:
         title: Ryhmät
       last_activity:
-        new_assembly: Uusi ryhmä
+        new_assembly: 'Uusi ryhmä:'
       pages:
         home:
           highlighted_assemblies:

@@ -97,6 +97,13 @@ describe "Participatory Process Groups", type: :system do
       it "has a link to the group url" do
         expect(page).to have_link("www.example.org/external", href: "https://www.example.org/external")
       end
+
+      it_behaves_like "has embedded video in description", :description do
+        before do
+          participatory_process_group.update!(description:)
+          visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+        end
+      end
     end
 
     context "when the metadata content block is enabled" do
@@ -211,15 +218,15 @@ describe "Participatory Process Groups", type: :system do
 
       it "shows cards of results from both processes" do
         within("#participatory-process-group-homepage-highlighted-results") do
-          expect(page).to have_selector("#result_#{result1.id}")
-          expect(page).to have_selector("#result_#{result2.id}")
+          expect(page).to have_selector("#accountability__result_#{result1.id}")
+          expect(page).to have_selector("#accountability__result_#{result2.id}")
 
-          within("#result_#{result1.id}") do
+          within("#accountability__result_#{result1.id}") do
             expect(page).to have_content "First awesome result!"
             expect(page).to have_i18n_content process.title
           end
 
-          within("#result_#{result2.id}") do
+          within("#accountability__result_#{result2.id}") do
             expect(page).to have_content "Second fabulous result!"
             expect(page).to have_i18n_content other_process.title
           end
@@ -297,7 +304,7 @@ describe "Participatory Process Groups", type: :system do
     it "shows no data if there are no components or followers in depending participatory processes" do
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
-      within(".section-statistics") do
+      within("[data-statistics]") do
         expect(page).to have_content("There are no statistics yet")
       end
     end
@@ -324,19 +331,19 @@ describe "Participatory Process Groups", type: :system do
       end
 
       it "shows unique participants count from both participatory processes" do
-        within(".section-statistics") do
-          expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-          expect(page).to have_css(".statistic__title", text: "PARTICIPANTS")
+        within("[data-statistics]") do
+          expect(page).to have_css("h2.h2", text: "Statistics")
+          expect(page).to have_css(".statistic__title", text: "Participants")
           expect(page).to have_css(".statistic__number", text: "1")
         end
       end
 
       it "shows accumulated resources from components of both participatory processes" do
-        within(".section-statistics") do
-          expect(page).to have_css("h3.section-heading", text: "STATISTICS")
-          expect(page).to have_css(".statistic__title", text: "PROPOSALS")
+        within("[data-statistics]") do
+          expect(page).to have_css("h2.h2", text: "Statistics")
+          expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "10")
-          expect(page).to have_css(".statistic__title", text: "MEETINGS")
+          expect(page).to have_css(".statistic__title", text: "Meetings")
           expect(page).to have_css(".statistic__number", text: "4")
         end
       end

@@ -67,7 +67,7 @@ es-MX:
         participatory_process:
           attributes:
             document:
-              allowed_file_content_types: 'Tipo de documento inválido. Los formatos que se aceptan son: %{types}'
+              allowed_file_content_types: 'Tipo de documento no válido. Sólo se permiten archivos con las siguientes extensiones: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Fase activada
       decidim/participatory_process_step_changed_event: La fase ha cambiado
@@ -95,6 +95,7 @@ es-MX:
           all_processes: Mostrar todos los procesos
           process_groups: Grupos de proceso
         import_process: Importar
+        moderate: Moderar
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
         new_process_step: Nueva fase
