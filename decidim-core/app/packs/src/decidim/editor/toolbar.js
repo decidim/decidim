@@ -2,26 +2,13 @@ import InputModal from "src/decidim/editor/input_modal";
 
 import iconsUrl from "images/decidim/remixicon.symbol.svg";
 
-const createIcon = (iconName, options = {}) => {
-  const transformations = [];
-  if (options.verticalFlip) {
-    transformations.push("scaleY(-1)");
-  }
-  if (options.horizontalFlip) {
-    transformations.push("scaleX(-1)");
-  }
-
-  let styleAttr = "";
-  if (transformations) {
-    styleAttr += `transform:${transformations.join(" ")};`;
-  }
-
-  return `<svg class="editor-toolbar-icon" role="img" aria-hidden="true" style="${styleAttr}">
+const createIcon = (iconName) => {
+  return `<svg class="editor-toolbar-icon" role="img" aria-hidden="true">
     <use href="${iconsUrl}#ri-${iconName}" />
   </svg>`;
 }
 
-const createEditorToolbarGroup = (editor, { items }) => {
+const createEditorToolbarGroup = (_editor, { items }) => {
   const group = document.createElement("div")
   group.classList.add("editor-toolbar-group");
   items.forEach((item) => group.appendChild(item));
