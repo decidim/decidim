@@ -47,7 +47,7 @@ const createEditorToolbarToggle = (editor, { label, icon, action }) => {
   return ctrl;
 }
 
-const createEditorSelect = (editor, { label, options, action }) => {
+const createEditorToolbarSelect = (editor, { label, options, action }) => {
   const ctrl = document.createElement("select");
   ctrl.classList.add("editor-toolbar-control");
   ctrl.ariaLabel = label;
@@ -92,7 +92,7 @@ export default function createEditorToolbar(editor) {
   toolbar.appendChild(
     createEditorToolbarGroup(editor, {
       items: [
-        createEditorSelect(editor, {
+        createEditorToolbarSelect(editor, {
           label: "Text style",
           options: [
             { value: "normal", label: "Normal" },
