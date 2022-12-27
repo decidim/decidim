@@ -6,7 +6,6 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
-import "quill"
 import Rails from "@rails/ujs"
 import "@hotwired/turbo-rails"
 
