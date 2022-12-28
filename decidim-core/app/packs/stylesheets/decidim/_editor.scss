@@ -73,6 +73,10 @@
       li p{
         margin-bottom: 0;
       }
+
+      [data-video-embed] iframe{
+        pointer-events: none;
+      }
     }
   }
 }

@@ -110,7 +110,13 @@ export default Image.extend({
           },
 
           handleDoubleClick(view) {
-            editor.chain().focus().imageModal(view.state.selection.node).run();
+            const node = view.state.selection.node;
+            if (node.type.name !== "image") {
+              return false;
+            }
+
+            editor.chain().focus().imageModal(node).run();
+            return true;
           },
 
           handleDOMEvents: {

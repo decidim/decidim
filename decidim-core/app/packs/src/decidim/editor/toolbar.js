@@ -66,9 +66,6 @@ export default function createEditorToolbar(editor) {
     inputs: { href: { label: "Please insert the link below" } },
     removeButton: true
   });
-  const videoModal = new InputModal({
-    inputs: { src: { label: "Please insert the video URL below" } }
-  });
 
   toolbar.appendChild(
     createEditorToolbarGroup(editor, {
@@ -198,18 +195,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           label: "Video",
           icon: "video-line",
-          action: async () => {
-            const state = await videoModal.toggle();
-            if (state !== "save") {
-              return;
-            }
-
-            editor.commands.setYoutubeVideo({
-              src: videoModal.getValue("src"),
-              width: 640,
-              height: 480
-            });
-          }
+          action: () => editor.commands.videoModal()
         }),
         createEditorToolbarToggle(editor, {
           label: "Image",

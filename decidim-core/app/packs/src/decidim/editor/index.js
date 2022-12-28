@@ -2,11 +2,11 @@ import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import Link from "@tiptap/extension-link";
-import Youtube from "@tiptap/extension-youtube";
 
 import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
 import CodeBlock from "src/decidim/editor/extensions/code_block";
+import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 
 import createEditorToolbar from "src/decidim/editor/toolbar";
 
@@ -16,8 +16,6 @@ import createEditorToolbar from "src/decidim/editor/toolbar";
  * Missing features:
  * - Highlight the currently active control from the toolbar
  * - Uploading an image through the image modal
- * - Other videos than YouTube (e.g. Vimeo)
- * - Iframe support (?)
  * - Integrate with redesigned layout
  * - Confirm configuration is according to the legacy Quill configs (e.g.
  *   pasting options, pasting content with styling, etc.)
@@ -48,7 +46,7 @@ export default function createEditor(container) {
       CodeBlock,
       Link.configure({ openOnClick: false }),
       Underline,
-      Youtube,
+      VideoEmbed,
       Image.configure({ uploadImagesPath })
     ],
     content: input.value
