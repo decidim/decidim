@@ -40,12 +40,14 @@
   @import "stylesheets/decidim/redesigned_filters.scss";
   @import "stylesheets/decidim/redesigned_tags.scss";
   @import "stylesheets/decidim/redesigned_tabs_x.scss";
-  @import "stylesheets/decidim/redesigned_item_list.scss";
   @import "stylesheets/decidim/redesigned_drawer.scss";
   @import "stylesheets/decidim/redesigned_drawer_metadata.scss";
   @import "stylesheets/decidim/redesigned_modal.scss";
+  @import "stylesheets/decidim/redesigned_modal_share.scss";
+  @import "stylesheets/decidim/redesigned_modal_flag.scss";
+  @import "stylesheets/decidim/redesigned_modal_identities.scss";
+  @import "stylesheets/decidim/redesigned_modal_authorization.scss";
   @import "stylesheets/decidim/redesigned_modal_update.scss";
-  @import "stylesheets/decidim/redesigned_endorsers_list.scss";
   @import "stylesheets/decidim/redesigned_address.scss";
   @import "stylesheets/decidim/redesigned_statistics.scss";
   @import "stylesheets/decidim/redesigned_content_blocks.scss";
@@ -53,6 +55,8 @@
   @import "stylesheets/decidim/redesigned_floating_help.scss";
   @import "stylesheets/decidim/redesigned_cards.scss";
   @import "stylesheets/decidim/redesigned_order-by.scss";
+  @import "stylesheets/decidim/redesigned_photos.scss";
+  @import "stylesheets/decidim/redesigned_endorsers_list.scss";
 }
 
 // On the other hand, the following styles match with specific routes

@@ -29,6 +29,7 @@ module Decidim
       options[:design].presence || "default"
     end
 
+    # deprecated
     def wrapper_class
       "large-8" if design == "default"
     end
