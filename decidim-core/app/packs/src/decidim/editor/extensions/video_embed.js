@@ -135,17 +135,12 @@ export default Node.create({
         });
       },
 
-      videoModal: () => async ({ dispatch, state }) => {
+      videoModal: () => async ({ dispatch }) => {
         if (dispatch) {
-          let node = state.selection.node;
-          if (node?.type?.name !== "video") {
-            node = null;
-          }
-
           const videoModal = new InputModal({
             inputs: { src: { label: "Please insert the video URL below" } }
           });
-          let src = node?.attrs?.src;
+          let { src } = this.editor.getAttributes("video");
 
           const modalState = await videoModal.toggle({ src });
           if (modalState !== "save") {

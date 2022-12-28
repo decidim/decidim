@@ -44,21 +44,15 @@ export default Image.extend({
   addCommands() {
     return {
       ...this.parent?.(),
-      imageModal: () => async ({ dispatch, state }) => {
+      imageModal: () => async ({ dispatch }) => {
         if (dispatch) {
-          let node = state.selection.node;
-          if (node?.type?.name !== "image") {
-            node = null;
-          }
-
           const imageModal = new InputModal({
             inputs: {
               src: { label: "Please insert the image URL below" },
               alt: { label: "Please provide an alternative text for the image" }
             }
           });
-          let src = node?.attrs?.src;
-          let alt = node?.attrs?.alt;
+          let { src, alt } = this.editor.getAttributes("image");
 
           const modalState = await imageModal.toggle({ src, alt });
           if (modalState !== "save") {
