@@ -5,14 +5,16 @@ import InputModal from "src/decidim/editor/input_modal";
 
 const YOUTUBE_REGEX = /^(https?:\/\/)?(www\.|music\.)?(youtube\.com|youtu\.be)(.+)?$/;
 const YOUTUBE_REGEX_GLOBAL = /^(https?:\/\/)?(www\.|music\.)?(youtube\.com|youtu\.be)(.+)?$/g;
+const VIMEO_REGEX = /^(https?:\/\/)?(www\.|player\.)?(vimeo\.com)(.+)?$/;
+const VIMEO_REGEX_GLOBAL = /^(https?:\/\/)?(www\.|player\.)?(vimeo\.com)(.+)?$/g;
 
 const isValidYoutubeUrl = (url) => {
   return url.match(YOUTUBE_REGEX);
 }
 
-const isValidVideoUrl = (url) => {
-  return isValidYoutubeUrl(url);
-}
+const isValidVimeoUrl = (url) => {
+  return url.match(VIMEO_REGEX);
+};
 
 const getEmbedUrlFromYoutubeUrl = (options) => {
   const embedUrl = "https://www.youtube-nocookie.com/embed/";
@@ -59,11 +61,24 @@ const getEmbedUrlFromYoutubeUrl = (options) => {
   return `${outputUrl}?${new URLSearchParams(urlParams)}`;
 }
 
+const getEmbedUrlFromVimeoUrl = (options) => {
+  const embedUrl = "https://player.vimeo.com/video/";
+
+  const { url } = options;
+
+  const cleanUrl = url.split("?").shift();
+  const id = cleanUrl.split("/").pop();
+
+  return `${embedUrl}${id}`;
+}
+
 const getEmbedUrlFromVideoUrl = (options) => {
   const { url } = options;
 
   if (isValidYoutubeUrl(url)) {
     return getEmbedUrlFromYoutubeUrl(options);
+  } else if (isValidVimeoUrl(url)) {
+    return getEmbedUrlFromVimeoUrl(options);
   }
 
   return url;
@@ -102,7 +117,8 @@ export default Node.create({
     return {
       src: { default: null },
       width: { default: this.options.width },
-      height: { default: this.options.height }
+      height: { default: this.options.height },
+      frameborder: { default: 0 }
     }
   },
 
@@ -113,10 +129,6 @@ export default Node.create({
   addCommands() {
     return {
       setVideo: (options) => ({ commands }) => {
-        if (!isValidVideoUrl(options.src)) {
-          return false;
-        }
-
         return commands.insertContent({
           type: this.name,
           attrs: options
@@ -162,6 +174,13 @@ export default Node.create({
     return [
       nodePasteRule({
         find: YOUTUBE_REGEX_GLOBAL,
+        type: this.type,
+        getAttributes: (match) => {
+          return { src: match.input }
+        }
+      }),
+      nodePasteRule({
+        find: VIMEO_REGEX_GLOBAL,
         type: this.type,
         getAttributes: (match) => {
           return { src: match.input }
