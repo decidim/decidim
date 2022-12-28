@@ -15,7 +15,6 @@ import createEditorToolbar from "src/decidim/editor/toolbar";
  *
  * Missing features:
  * - Highlight the currently active control from the toolbar
- * - Drag+drop images
  * - Uploading an image through the image modal
  * - Other videos than YouTube (e.g. Vimeo)
  * - Iframe support (?)
