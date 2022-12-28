@@ -84,13 +84,9 @@ export default Image.extend({
               return;
             }
 
-            const { schema } = view.state;
-
             Promise.all(images.map((item) => uploadImage(item.getAsFile(), uploadImagesPath))).then((uploadedImages) => {
               uploadedImages.forEach((imageData) => {
-                const node = schema.nodes.image.create({ src: imageData.url, alt: "" });
-                const transaction = view.state.tr.replaceSelectionWith(node);
-                view.dispatch(transaction)
+                editor.commands.setImage({ src: imageData.url, alt: "" });
               });
             });
           },
@@ -119,14 +115,9 @@ export default Image.extend({
 
               event.preventDefault();
 
-              const { schema } = view.state;
-              const coordinates = view.posAtCoords({ left: event.clientX, top: event.clientY });
-
               Promise.all(images.map((image) => uploadImage(image, uploadImagesPath))).then((uploadedImages) => {
                 uploadedImages.forEach((imageData) => {
-                  const node = schema.nodes.image.create({ src: imageData.url, alt: "" });
-                  const transaction = view.state.tr.insert(coordinates.pos, node);
-                  view.dispatch(transaction);
+                  editor.commands.setImage({ src: imageData.url, alt: "" });
                 });
               });
             }
