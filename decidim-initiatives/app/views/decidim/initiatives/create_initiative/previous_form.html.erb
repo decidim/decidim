@@ -27,7 +27,7 @@
           </div>
 
           <div class="field">
-            <%= f.editor :description, lines: 8, toolbar: :full %>
+            <%= text_editor_for(f, :description, lines: 8, toolbar: :full) %>
           </div>
 
           <div class="actions">
