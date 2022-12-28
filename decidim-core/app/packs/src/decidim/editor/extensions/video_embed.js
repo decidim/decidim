@@ -135,8 +135,13 @@ export default Node.create({
         });
       },
 
-      videoModal: (node) => async ({ view, dispatch, state, commands }) => {
+      videoModal: () => async ({ dispatch, state }) => {
         if (dispatch) {
+          let node = state.selection.node;
+          if (node?.type?.name !== "video") {
+            node = null;
+          }
+
           const videoModal = new InputModal({
             inputs: { src: { label: "Please insert the video URL below" } }
           });
@@ -149,20 +154,7 @@ export default Node.create({
 
           src = videoModal.getValue("src");
 
-          // Note that `commands.setVideo(...)` won't work here because
-          // apparently TipTap does not understand the async behavior of the
-          // command, so we need to manually dispatch the change.
-          const position = state.selection.anchor;
-          if (node) {
-            const transaction = state.tr.setNodeMarkup(position, null, { src });
-            view.dispatch(transaction);
-          } else {
-            const videoNode = state.schema.nodes.video.create({ src });
-            const transaction = state.tr.insert(position, videoNode);
-            view.dispatch(transaction);
-          }
-
-          commands.focus();
+          return this.editor.chain().setVideo({ src }).focus().run();
         }
 
         return true;
@@ -220,11 +212,11 @@ export default Node.create({
         props: {
           handleDoubleClick(view) {
             const node = view.state.selection.node;
-            if (node.type.name !== "video") {
+            if (node?.type?.name !== "video") {
               return false;
             }
 
-            editor.chain().focus().videoModal(node).run();
+            editor.chain().focus().videoModal().run();
             return true;
           }
         }

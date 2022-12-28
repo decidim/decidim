@@ -30,7 +30,7 @@ const filterImages = (files) => {
  * Handles the image uploads through ActiveStorage when they are dropped or
  * pasted to the editor.
  *
- * Based on:
+ * Paste and drop handling based on:
  * https://gist.github.com/slava-vishnyakov/16076dff1a77ddaca93c4bccd4ec4521
  */
 export default Image.extend({
@@ -44,8 +44,13 @@ export default Image.extend({
   addCommands() {
     return {
       ...this.parent?.(),
-      imageModal: (node) => async ({ view, dispatch, state, commands }) => {
+      imageModal: () => async ({ dispatch, state }) => {
         if (dispatch) {
+          let node = state.selection.node;
+          if (node?.type?.name !== "image") {
+            node = null;
+          }
+
           const imageModal = new InputModal({
             inputs: {
               src: { label: "Please insert the image URL below" },
@@ -63,20 +68,7 @@ export default Image.extend({
           src = imageModal.getValue("src");
           alt = imageModal.getValue("alt");
 
-          // Note that `commands.setImage(...)` won't work here because
-          // apparently TipTap does not understand the async behavior of the
-          // command, so we need to manually dispatch the change.
-          const position = state.selection.anchor;
-          if (node) {
-            const transaction = state.tr.setNodeMarkup(position, null, { src, alt });
-            view.dispatch(transaction);
-          } else {
-            const imageNode = state.schema.nodes.image.create({ src, alt });
-            const transaction = state.tr.insert(position, imageNode);
-            view.dispatch(transaction);
-          }
-
-          commands.focus();
+          return this.editor.chain().setImage({ src, alt }).focus().run();
         }
 
         return true;
@@ -111,11 +103,11 @@ export default Image.extend({
 
           handleDoubleClick(view) {
             const node = view.state.selection.node;
-            if (node.type.name !== "image") {
+            if (node?.type?.name !== "image") {
               return false;
             }
 
-            editor.chain().focus().imageModal(node).run();
+            editor.chain().focus().imageModal().run();
             return true;
           },
 
