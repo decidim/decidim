@@ -69,12 +69,6 @@ export default function createEditorToolbar(editor) {
   const videoModal = new InputModal({
     inputs: { src: { label: "Please insert the video URL below" } }
   });
-  const imageModal = new InputModal({
-    inputs: {
-      src: { label: "Please insert the image URL below" },
-      alt: { label: "Please provide an alternative text for the image" }
-    }
-  });
 
   toolbar.appendChild(
     createEditorToolbarGroup(editor, {
@@ -204,31 +198,23 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           label: "Video",
           icon: "video-line",
-          action: () => {
-            videoModal.toggle((state) => {
-              if (state === "save") {
-                editor.commands.setYoutubeVideo({
-                  src: videoModal.getValue("src"),
-                  width: 640,
-                  height: 480
-                });
-              }
-            })
+          action: async () => {
+            const state = await videoModal.toggle();
+            if (state !== "save") {
+              return;
+            }
+
+            editor.commands.setYoutubeVideo({
+              src: videoModal.getValue("src"),
+              width: 640,
+              height: 480
+            });
           }
         }),
         createEditorToolbarToggle(editor, {
           label: "Image",
           icon: "image-line",
-          action: () => {
-            imageModal.toggle((state) => {
-              if (state === "save") {
-                editor.commands.setImage({
-                  src: imageModal.getValue("src"),
-                  alt: imageModal.getValue("alt")
-                });
-              }
-            })
-          }
+          action: () => editor.commands.imageModal()
         })
       ]
     })

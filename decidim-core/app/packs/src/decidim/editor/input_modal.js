@@ -43,6 +43,7 @@ export default class InputModal {
         this.close();
         if (this.callback) {
           this.callback(action);
+          this.callback = null;
         }
       });
     });
@@ -51,28 +52,39 @@ export default class InputModal {
     $(this.element).on("open.zf.reveal", () => {
       setTimeout(() => this.focusFirstInput(), 0);
     });
+    $(this.element).on("closed.zf.reveal", () => {
+      setTimeout(() => this.destroy(), 0);
+    });
   }
 
-  toggle(callback, currentValues = {}) {
-    this.element.querySelectorAll("[data-input]").forEach((wrapper) => {
-      const input = wrapper.querySelector("input");
-      const currentValue = currentValues[wrapper.dataset.input];
-      if (currentValue) {
-        input.value = currentValue;
-      } else {
-        input.value = "";
-      }
-    });
+  toggle(currentValues = {}) {
+    return new Promise((resolve) => {
+      this.element.querySelectorAll("[data-input]").forEach((wrapper) => {
+        const input = wrapper.querySelector("input");
+        const currentValue = currentValues[wrapper.dataset.input];
+        if (currentValue) {
+          input.value = currentValue;
+        } else {
+          input.value = "";
+        }
+      });
 
-    this.callback = callback;
+      this.callback = resolve;
 
-    // Foundation needs jQuery
-    $(this.element).foundation("open");
+      // Foundation needs jQuery
+      $(this.element).foundation("open");
+    })
   }
 
   close() {
     // Foundation needs jQuery
     $(this.element).foundation("close");
+  }
+
+  destroy() {
+    // Foundation needs jQuery
+    $(this.element).foundation("_destroy");
+    this.element.remove();
   }
 
   focusFirstInput() {
@@ -84,8 +96,6 @@ export default class InputModal {
 
   getValue(key = "default") {
     const input = this.element.querySelector(`[data-input="${key}"] input`);
-    console.log(this.element);
-    console.log(input);
     if (input) {
       return input.value;
     }

@@ -3,11 +3,12 @@ import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 import Link from "@tiptap/extension-link";
 import Youtube from "@tiptap/extension-youtube";
-import Image from "@tiptap/extension-image";
 
-import createEditorToolbar from "src/decidim/editor/toolbar";
+import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
 import CodeBlock from "src/decidim/editor/extensions/code_block";
+
+import createEditorToolbar from "src/decidim/editor/toolbar";
 
 /**
  * Creates a new rich text editor instance.
@@ -35,6 +36,8 @@ export default function createEditor(container) {
   editorContainer.classList.add("editor-input");
   container.appendChild(editorContainer);
 
+  const { uploadImagesPath } = container.dataset;
+
   const editor = new Editor({
     element: editorContainer,
     extensions: [
@@ -47,7 +50,7 @@ export default function createEditor(container) {
       Link.configure({ openOnClick: false }),
       Underline,
       Youtube,
-      Image
+      Image.configure({ uploadImagesPath })
     ],
     content: input.value
   });
