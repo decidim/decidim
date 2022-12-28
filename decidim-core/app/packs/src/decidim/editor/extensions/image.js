@@ -1,3 +1,4 @@
+import { mergeAttributes } from "@tiptap/core";
 import Image from "@tiptap/extension-image";
 import { Plugin } from "prosemirror-state";
 
@@ -68,6 +69,21 @@ export default Image.extend({
         return true;
       }
     }
+  },
+
+  parseHTML() {
+    return [{ tag: "p[data-image] img[src]:not([src^='data:'])" }]
+  },
+
+  renderHTML({ HTMLAttributes }) {
+    return [
+      "p",
+      { "data-image": "" },
+      [
+        "img",
+        mergeAttributes(this.options.HTMLAttributes, HTMLAttributes)
+      ]
+    ]
   },
 
   addProseMirrorPlugins() {
