@@ -180,7 +180,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           label: "Video",
           icon: "video-line",
-          action: () => editor.commands.videoModal()
+          action: () => editor.commands.videoEmbedModal()
         }),
         createEditorToolbarToggle(editor, {
           label: "Image",

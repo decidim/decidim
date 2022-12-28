@@ -135,7 +135,7 @@ export default Node.create({
         });
       },
 
-      videoModal: () => async ({ dispatch }) => {
+      videoEmbedModal: () => async ({ dispatch }) => {
         if (dispatch) {
           const videoModal = new InputModal({
             inputs: { src: { label: "Please insert the video URL below" } }
@@ -211,7 +211,7 @@ export default Node.create({
               return false;
             }
 
-            editor.chain().focus().videoModal().run();
+            editor.chain().focus().videoEmbedModal().run();
             return true;
           }
         }
