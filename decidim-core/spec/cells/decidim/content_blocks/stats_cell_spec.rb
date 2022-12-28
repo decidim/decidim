@@ -23,8 +23,8 @@ describe Decidim::ContentBlocks::StatsCell, type: :cell do
   end
 
   it "renders the correct stats" do
-    expect(subject.find(".statistic__data.users_count .statistic__number")).to have_text("10")
-    expect(subject.find(".statistic__data.processes_count .statistic__number")).to have_text("5")
+    expect(subject.find(".users_count[data-statistic] .statistic__number")).to have_text("10")
+    expect(subject.find(".processes_count[data-statistic] .statistic__number")).to have_text("5")
   end
 
   describe "#cache_hash" do

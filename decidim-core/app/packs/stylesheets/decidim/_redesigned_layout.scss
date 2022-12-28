@@ -23,23 +23,23 @@
 
   --tw-gradient-stops: var(--tw-gradient-from) 0%, var(--tw-gradient-from) 50%, var(--tw-gradient-to) 50%;
 
-  aside{
+  &__aside{
     @apply col-span-3 md:pr-16 py-6 md:py-12 gap-12 flex flex-col justify-between items-start md:justify-start;
   }
 
-  main{
+  &__main{
     @apply col-span-9 bg-white md:pl-16 py-6 md:py-12;
   }
 
   &__reverse{
     --tw-gradient-stops: var(--tw-gradient-to) 0%, var(--tw-gradient-to) 50%, var(--tw-gradient-from) 50%;
+  }
 
-    aside{
-      @apply order-last pr-0;
-    }
+  &__reverse &__aside{
+    @apply order-last pr-0;
+  }
 
-    main{
-      @apply pl-0 md:pr-16;
-    }
+  &__reverse &__main{
+    @apply pl-0 md:pr-16;
   }
 }
