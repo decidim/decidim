@@ -1,5 +1,3 @@
-import InputModal from "src/decidim/editor/input_modal";
-
 import iconsUrl from "images/decidim/remixicon.symbol.svg";
 
 const createIcon = (iconName) => {
@@ -61,11 +59,6 @@ const createEditorToolbarSelect = (editor, { label, options, action }) => {
 export default function createEditorToolbar(editor) {
   const toolbar = document.createElement("div");
   toolbar.classList.add("editor-toolbar");
-
-  const linkModal = new InputModal({
-    inputs: { href: { label: "Please insert the link below" } },
-    removeButton: true
-  });
 
   toolbar.appendChild(
     createEditorToolbarGroup(editor, {
@@ -139,15 +132,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           label: "Link",
           icon: "link",
-          action: () => {
-            linkModal.toggle((state) => {
-              if (state === "save") {
-                editor.commands.setLink({ href: linkModal.getValue("href") })
-              } else {
-                editor.commands.unsetLink();
-              }
-            }, { href: editor.getAttributes("link").href });
-          }
+          action: () => editor.commands.linkModal()
         }),
         createEditorToolbarToggle(editor, {
           label: "Erase styles",

@@ -1,11 +1,11 @@
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
-import Link from "@tiptap/extension-link";
 
+import CodeBlock from "src/decidim/editor/extensions/code_block";
 import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
-import CodeBlock from "src/decidim/editor/extensions/code_block";
+import Link from "src/decidim/editor/extensions/link";
 import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 
 import createEditorToolbar from "src/decidim/editor/toolbar";
