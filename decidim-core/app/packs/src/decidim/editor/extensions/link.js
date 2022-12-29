@@ -21,11 +21,11 @@ export default Link.extend({
             removeButton: true
           });
           const modalState = await linkModal.toggle({ href });
-          if (modalState !== "save") {
+          href = linkModal.getValue("href");
+
+          if (modalState !== "save" || !href || href.trim().length < 1) {
             return this.editor.chain().focus().unsetLink().run();
           }
-
-          href = linkModal.getValue("href");
 
           return this.editor.chain().focus().setLink({ href }).run();
         }
