@@ -247,9 +247,9 @@ export default function createEditorToolbar(editor) {
 
     selectionControls.forEach((ctrl) => {
       if (editor.isActive(ctrl.dataset.editorSelectionType)) {
-        ctrl.classList.add("active")
+        ctrl.classList.add("active");
       } else {
-        ctrl.classList.remove("active")
+        ctrl.classList.remove("active");
       }
     });
   }
