@@ -46,8 +46,6 @@ const getEmbedUrlFromYoutubeUrl = (options) => {
   let outputUrl = `${embedUrl}${matches[1]}`
 
   const params = {
-    hl: "en",
-    ccLangPref: "en",
     ccLoadPolicy: 1,
     modestbranding: 1
   }
