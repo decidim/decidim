@@ -6,16 +6,21 @@ const createIcon = (iconName) => {
   </svg>`;
 }
 
-const createEditorToolbarGroup = (_editor, { items }) => {
-  const group = document.createElement("div")
+const createEditorToolbarGroup = (_editor, inner) => {
+  const group = document.createElement("div");
   group.classList.add("editor-toolbar-group");
-  items.forEach((item) => group.appendChild(item));
+  inner(group);
+
   return group;
 }
 
-const createEditorToolbarToggle = (editor, { label, icon, action }) => {
+const createEditorToolbarToggle = (editor, { type, label, icon, action, activatable = true }) => {
   const ctrl = document.createElement("button");
   ctrl.classList.add("editor-toolbar-control");
+  ctrl.dataset.editorType = type;
+  if (activatable) {
+    ctrl.dataset.editorSelectionType = type;
+  }
   ctrl.type = "button";
   ctrl.ariaLabel = label;
   ctrl.title = label;
@@ -32,9 +37,13 @@ const createEditorToolbarToggle = (editor, { label, icon, action }) => {
   return ctrl;
 }
 
-const createEditorToolbarSelect = (editor, { label, options, action }) => {
+const createEditorToolbarSelect = (editor, { type, label, options, action, activatable = true }) => {
   const ctrl = document.createElement("select");
   ctrl.classList.add("editor-toolbar-control");
+  ctrl.dataset.editorType = type;
+  if (activatable) {
+    ctrl.dataset.editorSelectionType = type;
+  }
   ctrl.ariaLabel = label;
   ctrl.title = label;
   options.forEach(({ label: optionLabel, value }) => {
@@ -61,9 +70,10 @@ export default function createEditorToolbar(editor) {
   toolbar.classList.add("editor-toolbar");
 
   toolbar.appendChild(
-    createEditorToolbarGroup(editor, {
-      items: [
+    createEditorToolbarGroup(editor, (group) => {
+      group.appendChild(
         createEditorToolbarSelect(editor, {
+          type: "heading",
           label: "Text style",
           options: [
             { value: "normal", label: "Normal" },
@@ -81,115 +91,170 @@ export default function createEditorToolbar(editor) {
             }
           }
         })
-      ]
+      );
     })
   );
   toolbar.appendChild(
-    createEditorToolbarGroup(editor, {
-      items: [
+    createEditorToolbarGroup(editor, (group) => {
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Bold",
+          type: "bold",
           icon: "bold",
+          label: "Bold",
           action: () => editor.commands.toggleBold()
-        }),
+        })
+      );
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Italic",
+          type: "italic",
           icon: "italic",
+          label: "Italic",
           action: () => editor.commands.toggleItalic()
-        }),
+        })
+      );
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Underline",
+          type: "underline",
           icon: "underline",
+          label: "Underline",
           action: () => editor.commands.toggleUnderline()
-        }),
+        })
+      );
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Line break",
+          type: "hardBreak",
           icon: "text-wrap",
+          label: "Line break",
+          activatable: false,
           action: () => editor.commands.setHardBreak()
         })
-      ]
+      );
     })
   );
   toolbar.appendChild(
-    createEditorToolbarGroup(editor, {
-      items: [
+    createEditorToolbarGroup(editor, (group) => {
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Ordered list",
+          type: "orderedList",
           icon: "list-ordered",
+          label: "Ordered list",
           action: () => editor.commands.toggleOrderedList()
-        }),
+        })
+      );
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Unordered list",
+          type: "bulletList",
           icon: "list-unordered",
+          label: "Unordered list",
           action: () => editor.commands.toggleBulletList()
         })
-      ]
+      );
     })
   );
   toolbar.appendChild(
-    createEditorToolbarGroup(editor, {
-      items: [
+    createEditorToolbarGroup(editor, (group) => {
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Link",
+          type: "link",
           icon: "link",
+          label: "Link",
           action: () => editor.commands.linkModal()
-        }),
+        })
+      );
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Erase styles",
+          type: "common:eraseStyles",
           icon: "eraser-line",
+          label: "Erase styles",
+          activatable: false,
           action: () => editor.chain().focus().clearNodes().unsetAllMarks().run()
         })
-      ]
+      );
     })
   );
   toolbar.appendChild(
-    createEditorToolbarGroup(editor, {
-      items: [
+    createEditorToolbarGroup(editor, (group) => {
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Code block",
+          type: "codeBlock",
           icon: "code-line",
+          label: "Code block",
           action: () => editor.commands.toggleCodeBlock()
-        }),
+        })
+      );
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Blockquote",
+          type: "blockquote",
           icon: "double-quotes-l",
+          label: "Blockquote",
           action: () => editor.commands.toggleBlockquote()
         })
-      ]
+      );
     })
   );
   toolbar.appendChild(
-    createEditorToolbarGroup(editor, {
-      items: [
+    createEditorToolbarGroup(editor, (group) => {
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Indent",
+          type: "indent:indent",
           icon: "indent-increase",
+          label: "Indent",
+          activatable: false,
           action: () => editor.commands.indent()
-        }),
+        })
+      );
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Outdent",
+          type: "indent:outdent",
           icon: "indent-decrease",
+          label: "Outdent",
+          activatable: false,
           action: () => editor.commands.outdent()
         })
-      ]
+      );
     })
   );
   toolbar.appendChild(
-    createEditorToolbarGroup(editor, {
-      items: [
+    createEditorToolbarGroup(editor, (group) => {
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Video",
+          type: "video",
           icon: "video-line",
+          label: "Video",
           action: () => editor.commands.videoEmbedModal()
-        }),
+        })
+      );
+      group.appendChild(
         createEditorToolbarToggle(editor, {
-          label: "Image",
+          type: "image",
           icon: "image-line",
+          label: "Image",
           action: () => editor.commands.imageModal()
         })
-      ]
+      );
     })
   );
+
+  const selectionControls = toolbar.querySelectorAll(".editor-toolbar-control[data-editor-selection-type]");
+  const headingSelect = toolbar.querySelector(".editor-toolbar-control[data-editor-type='heading']");
+  const selectionUpdated = () => {
+    if (editor.isActive("heading")) {
+      const { level } = editor.getAttributes("heading");
+      headingSelect.value = `${level}`;
+    } else {
+      headingSelect.value = "normal";
+    }
+
+    selectionControls.forEach((ctrl) => {
+      if (editor.isActive(ctrl.dataset.editorSelectionType)) {
+        ctrl.classList.add("active")
+      } else {
+        ctrl.classList.remove("active")
+      }
+    });
+  }
+  editor.on("update", selectionUpdated);
+  editor.on("selectionUpdate", selectionUpdated);
 
   return toolbar;
 }

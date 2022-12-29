@@ -14,12 +14,11 @@ import UploadModal from "src/decidim/editor/upload_modal";
 /**
  * Creates a new rich text editor instance.
  *
- * Missing features:
- * - Highlight the currently active control from the toolbar
+ * TODO:
  * - Integrate with redesigned layout
+ * - Translations
  * - Confirm configuration is according to the legacy Quill configs (e.g.
  *   pasting options, pasting content with styling, etc.)
- * - Translations
  * - Replace legacy classes in tests/markup .ql-editor, .ql-reset-decidim,
  *   .ql-video, .ql-toolbar, etc.
  *
