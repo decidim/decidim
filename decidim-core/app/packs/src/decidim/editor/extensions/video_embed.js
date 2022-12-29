@@ -148,6 +148,9 @@ export default Node.create({
           }
 
           src = videoModal.getValue("src");
+          if (!src || src.length < 1) {
+            return false;
+          }
 
           return this.editor.chain().setVideo({ src }).focus().run();
         }
