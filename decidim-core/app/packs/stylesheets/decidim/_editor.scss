@@ -116,6 +116,15 @@
   }
 }
 
+.rich-text-display,
+.editor-container .editor-input .ProseMirror{
+  @for $i from 1 through 10{
+    .editor-indent-#{$i}{
+      margin-left: 1rem * $i;
+    }
+  }
+}
+
 .ql-editor-display{
   ul,
   ol{

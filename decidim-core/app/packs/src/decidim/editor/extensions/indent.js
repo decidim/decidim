@@ -103,9 +103,9 @@ export default Extension.create({
   addOptions() {
     return {
       names: ["heading", "paragraph"],
-      indentRange: 24,
+      indentRange: 1,
       minIndentLevel: 0,
-      maxIndentLevel: 24 * 10,
+      maxIndentLevel: 10,
       defaultIndentLevel: 0,
       HTMLAttributes: {}
     };
@@ -118,12 +118,21 @@ export default Extension.create({
         attributes: {
           indent: {
             default: this.options.defaultIndentLevel,
-            renderHTML: (attributes) => ({
-              style: `margin-left: ${attributes.indent}px!important;`
-            }),
-            parseHTML: (element) =>
-              parseInt(element.style.marginLeft, 10) ||
-                this.options.defaultIndentLevel
+            renderHTML: (attributes) => {
+              if (attributes.indent < 1) {
+                return {};
+              }
+
+              return { class: `editor-indent-${attributes.indent}` };
+            },
+            parseHTML: (element) => {
+              const regexp = /^editor-indent-([0-9]+)/;
+              const indentClass = Array.from(element.classList).find((cls) => regexp.test(cls))
+              if (!indentClass) {
+                return this.options.defaultIndentLevel;
+              }
+              return parseInt(indentClass.match(regexp)[1], 10);
+            }
           }
         }
       }
