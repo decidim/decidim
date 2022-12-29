@@ -208,9 +208,8 @@ export default Node.create({
     return [
       new Plugin({
         props: {
-          handleDoubleClick(view) {
-            const node = view.state.selection.node;
-            if (node?.type?.name !== "videoEmbed") {
+          handleDoubleClick() {
+            if (!editor.isActive("videoEmbed")) {
               return false;
             }
 

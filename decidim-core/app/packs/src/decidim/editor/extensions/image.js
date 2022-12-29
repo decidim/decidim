@@ -115,9 +115,8 @@ export default Image.extend({
             });
           },
 
-          handleDoubleClick(view) {
-            const node = view.state.selection.node;
-            if (node?.type?.name !== "image") {
+          handleDoubleClick() {
+            if (!editor.isActive("image")) {
               return false;
             }
 
