@@ -91,7 +91,7 @@ const getEmbedUrlFromVideoUrl = (options) => {
  * other embedding services than only YouTube.
  */
 export default Node.create({
-  name: "video",
+  name: "videoEmbed",
   draggable: true,
 
   addOptions() {

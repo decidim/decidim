@@ -218,7 +218,7 @@ export default function createEditorToolbar(editor) {
     createEditorToolbarGroup(editor, (group) => {
       group.appendChild(
         createEditorToolbarToggle(editor, {
-          type: "video",
+          type: "videoEmbed",
           icon: "video-line",
           label: "Video",
           action: () => editor.commands.videoEmbedModal()
