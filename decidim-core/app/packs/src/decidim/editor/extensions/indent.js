@@ -25,15 +25,15 @@ export const getIndent = () => ({ editor }) => {
 
 export const getOutdent = (outdentOnlyAtHead) => ({ editor }) => {
   if (outdentOnlyAtHead && editor.state.selection.$head.parentOffset > 0) {
-    return false
+    return false;
   }
   if (
     (!outdentOnlyAtHead || editor.state.selection.$head.parentOffset > 0) &&
     editor.can().liftListItem("listItem")
   ) {
-    return editor.chain().focus().liftListItem("listItem").run()
+    return editor.chain().focus().liftListItem("listItem").run();
   }
-  return editor.chain().focus().outdent().run()
+  return editor.chain().focus().outdent().run();
 }
 
 export const clamp = (val, min, max) => {
@@ -108,7 +108,7 @@ export default Extension.create({
       maxIndentLevel: 24 * 10,
       defaultIndentLevel: 0,
       HTMLAttributes: {}
-    }
+    };
   },
 
   addGlobalAttributes() {
@@ -123,7 +123,7 @@ export default Extension.create({
             }),
             parseHTML: (element) =>
               parseInt(element.style.marginLeft, 10) ||
-              this.options.defaultIndentLevel
+                this.options.defaultIndentLevel
           }
         }
       }
@@ -172,15 +172,15 @@ export default Extension.create({
       Backspace: getOutdent(true),
       "Mod-]": getIndent(),
       "Mod-[": getOutdent(false)
-    }
+    };
   },
 
   onUpdate() {
     const { editor } = this
     if (editor.isActive("listItem")) {
-      const node = editor.state.selection.$head.node()
+      const node = editor.state.selection.$head.node();
       if (node.attrs.indent) {
-        editor.commands.updateAttributes(node.type.name, { indent: 0 })
+        editor.commands.updateAttributes(node.type.name, { indent: 0 });
       }
     }
   }

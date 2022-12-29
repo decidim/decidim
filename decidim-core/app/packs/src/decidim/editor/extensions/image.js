@@ -38,7 +38,7 @@ export default Image.extend({
       ...this.parent?.(),
       uploadImagesPath: null,
       uploadModal: null
-    }
+    };
   },
 
   addCommands() {
@@ -72,7 +72,7 @@ export default Image.extend({
   },
 
   parseHTML() {
-    return [{ tag: "p[data-image] img[src]:not([src^='data:'])" }]
+    return [{ tag: "p[data-image] img[src]:not([src^='data:'])" }];
   },
 
   renderHTML({ HTMLAttributes }) {
@@ -83,7 +83,7 @@ export default Image.extend({
         "img",
         mergeAttributes(this.options.HTMLAttributes, HTMLAttributes)
       ]
-    ]
+    ];
   },
 
   addProseMirrorPlugins() {

@@ -23,7 +23,7 @@ const getEmbedUrlFromYoutubeUrl = (options) => {
 
   // if is already an embed url, return it
   if (url.includes("/embed/")) {
-    return url
+    return url;
   }
 
   // if is a youtu.be url, get the id after the /
@@ -31,30 +31,30 @@ const getEmbedUrlFromYoutubeUrl = (options) => {
     const id = url.split("/").pop();
 
     if (!id) {
-      return null
+      return null;
     }
-    return `${embedUrl}${id}`
+    return `${embedUrl}${id}`;
   }
 
-  const videoIdRegex = /v=([-\w]+)/gm
-  const matches = videoIdRegex.exec(url)
+  const videoIdRegex = /v=([-\w]+)/gm;
+  const matches = videoIdRegex.exec(url);
 
   if (!matches || !matches[1]) {
-    return null
+    return null;
   }
 
-  let outputUrl = `${embedUrl}${matches[1]}`
+  let outputUrl = `${embedUrl}${matches[1]}`;
 
   const params = {
     ccLoadPolicy: 1,
     modestbranding: 1
-  }
+  };
 
   const urlParams = {};
   Object.keys(params).forEach((key) => {
     const urlKey = key.replace(/[A-Z]/g, (char) => `_${char.toLowerCase()}`);
     urlParams[urlKey] = params[key];
-  })
+  });
 
   return `${outputUrl}?${new URLSearchParams(urlParams)}`;
 }
@@ -101,7 +101,7 @@ export default Node.create({
   },
 
   inline() {
-    return this.options.inline
+    return this.options.inline;
   },
 
   group() {
@@ -117,11 +117,11 @@ export default Node.create({
       width: { default: this.options.width },
       height: { default: this.options.height },
       frameborder: { default: 0 }
-    }
+    };
   },
 
   parseHTML() {
-    return [{ tag: "div[data-video-embed] iframe" }]
+    return [{ tag: "div[data-video-embed] iframe" }];
   },
 
   addCommands() {
@@ -164,14 +164,14 @@ export default Node.create({
         find: YOUTUBE_REGEX_GLOBAL,
         type: this.type,
         getAttributes: (match) => {
-          return { src: match.input }
+          return { src: match.input };
         }
       }),
       nodePasteRule({
         find: VIMEO_REGEX_GLOBAL,
         type: this.type,
         getAttributes: (match) => {
-          return { src: match.input }
+          return { src: match.input };
         }
       })
     ];
@@ -182,7 +182,7 @@ export default Node.create({
       url: HTMLAttributes.src
     });
 
-    HTMLAttributes.src = embedUrl
+    HTMLAttributes.src = embedUrl;
 
     return [
       "div",
@@ -197,7 +197,7 @@ export default Node.create({
           HTMLAttributes
         )
       ]
-    ]
+    ];
   },
 
   addProseMirrorPlugins() {

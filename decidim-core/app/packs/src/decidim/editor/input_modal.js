@@ -1,6 +1,6 @@
 export default class InputModal {
   constructor({ inputs, removeButton }) {
-    const inputId = `inputmodal-${(new Date()).getTime()}`
+    const inputId = `inputmodal-${(new Date()).getTime()}`;
     this.element = document.createElement("div");
     this.element.classList.add("reveal");
     this.element.setAttribute("data-reveal", "");
