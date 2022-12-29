@@ -210,7 +210,7 @@ export default Node.create({
         props: {
           handleDoubleClick(view) {
             const node = view.state.selection.node;
-            if (node?.type?.name !== "video") {
+            if (node?.type?.name !== "videoEmbed") {
               return false;
             }
 
