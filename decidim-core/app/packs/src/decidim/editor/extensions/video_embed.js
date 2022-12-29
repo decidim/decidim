@@ -140,7 +140,7 @@ export default Node.create({
           const videoModal = new InputModal({
             inputs: { src: { label: "Please insert the video URL below" } }
           });
-          let { src } = this.editor.getAttributes("video");
+          let { src } = this.editor.getAttributes("videoEmbed");
 
           const modalState = await videoModal.toggle({ src });
           if (modalState !== "save") {
