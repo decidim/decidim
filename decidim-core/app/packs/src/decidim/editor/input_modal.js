@@ -26,7 +26,9 @@ export default class InputModal {
 
     this.element.innerHTML = `
       <div>
-        ${inputsHTML}
+        <form>
+          ${inputsHTML}
+        </form>
       </div>
       <div class="row columns">
         <div class="text-center">
@@ -37,6 +39,12 @@ export default class InputModal {
     document.body.appendChild(this.element);
     $(this.element).foundation();
 
+    this.element.querySelector("form").addEventListener("submit", (ev) => {
+      ev.preventDefault();
+
+      const btn = this.element.querySelector("button[data-action='save']");
+      btn.dispatchEvent(new Event("click"));
+    });
     this.element.querySelectorAll("button[data-action]").forEach((button) => {
       button.addEventListener("click", (ev) => {
         ev.preventDefault();
