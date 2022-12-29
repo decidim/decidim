@@ -2,8 +2,6 @@ import { mergeAttributes } from "@tiptap/core";
 import Image from "@tiptap/extension-image";
 import { Plugin } from "prosemirror-state";
 
-import InputModal from "src/decidim/editor/input_modal";
-
 const uploadImage = async (image, uploadUrl) => {
   const token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
@@ -38,7 +36,8 @@ export default Image.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      uploadImagesPath: null
+      uploadImagesPath: null,
+      uploadModal: null
     }
   },
 
@@ -47,21 +46,22 @@ export default Image.extend({
       ...this.parent?.(),
       imageModal: () => async ({ dispatch }) => {
         if (dispatch) {
-          const imageModal = new InputModal({
-            inputs: {
-              src: { label: "Please insert the image URL below" },
-              alt: { label: "Please provide an alternative text for the image" }
-            }
-          });
+          const { uploadModal } = this.options;
           let { src, alt } = this.editor.getAttributes("image");
 
-          const modalState = await imageModal.toggle({ src, alt });
+          const modalState = await uploadModal.toggle({
+            src,
+            alt
+          }, {
+            inputLabel: "Please provide an alternative text for the image",
+            uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
+          });
           if (modalState !== "save") {
             return false;
           }
 
-          src = imageModal.getValue("src");
-          alt = imageModal.getValue("alt");
+          src = uploadModal.getValue("src");
+          alt = uploadModal.getValue("alt");
 
           return this.editor.chain().setImage({ src, alt }).focus().run();
         }
@@ -90,6 +90,16 @@ export default Image.extend({
     const editor = this.editor;
     const { uploadImagesPath } = this.options;
 
+    const handleUploadedImages = (uploadedImages) => {
+      uploadedImages.forEach((imageData) => {
+        if (!imageData.url) {
+          return;
+        }
+
+        editor.commands.setImage({ src: imageData.url, alt: "" });
+      });
+    }
+
     return [
       new Plugin({
         props: {
@@ -101,9 +111,7 @@ export default Image.extend({
             }
 
             Promise.all(images.map((item) => uploadImage(item.getAsFile(), uploadImagesPath))).then((uploadedImages) => {
-              uploadedImages.forEach((imageData) => {
-                editor.commands.setImage({ src: imageData.url, alt: "" });
-              });
+              handleUploadedImages(uploadedImages);
             });
           },
 
@@ -132,9 +140,7 @@ export default Image.extend({
               event.preventDefault();
 
               Promise.all(images.map((image) => uploadImage(image, uploadImagesPath))).then((uploadedImages) => {
-                uploadedImages.forEach((imageData) => {
-                  editor.commands.setImage({ src: imageData.url, alt: "" });
-                });
+                handleUploadedImages(uploadedImages);
               });
             }
           }

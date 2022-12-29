@@ -9,13 +9,13 @@ import Link from "src/decidim/editor/extensions/link";
 import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 
 import createEditorToolbar from "src/decidim/editor/toolbar";
+import UploadModal from "src/decidim/editor/upload_modal";
 
 /**
  * Creates a new rich text editor instance.
  *
  * Missing features:
  * - Highlight the currently active control from the toolbar
- * - Uploading an image through the image modal
  * - Integrate with redesigned layout
  * - Confirm configuration is according to the legacy Quill configs (e.g.
  *   pasting options, pasting content with styling, etc.)
@@ -33,7 +33,9 @@ export default function createEditor(container) {
   editorContainer.classList.add("editor-input");
   container.appendChild(editorContainer);
 
-  const { uploadImagesPath } = container.dataset;
+  const options = JSON.parse(container.dataset.options);
+  const { uploadImagesPath, uploadModalSelector } = options;
+  const uploadModal = new UploadModal(document.querySelector(uploadModalSelector));
 
   const editor = new Editor({
     element: editorContainer,
@@ -47,7 +49,7 @@ export default function createEditor(container) {
       Link.configure({ openOnClick: false }),
       Underline,
       VideoEmbed,
-      Image.configure({ uploadImagesPath })
+      Image.configure({ uploadModal, uploadImagesPath })
     ],
     content: input.value
   });
