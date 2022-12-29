@@ -17,19 +17,21 @@ export default class InputModal {
     });
 
     let buttonsHTML = "";
+    buttonsHTML += '<button type="button" class="button mr-xs mb-none" data-action="save">Save</button>';
     if (removeButton) {
-      buttonsHTML += '<button type="button" class="button danger" data-action="remove">Remove</button>';
+      buttonsHTML += '<button type="button" class="button alert mb-none" data-action="remove">Remove</button>';
     } else {
-      buttonsHTML += '<button type="button" class="button danger" data-action="cancel">Cancel</button>';
+      buttonsHTML += '<button type="button" class="button clear mb-none" data-action="cancel">Cancel</button>';
     }
-    buttonsHTML += '<button type="button" class="button primary" data-action="save">Save</button>';
 
     this.element.innerHTML = `
       <div>
         ${inputsHTML}
       </div>
-      <div>
-        ${buttonsHTML}
+      <div class="row columns">
+        <div class="text-center">
+          ${buttonsHTML}
+        </div>
       </div>
     `;
     document.body.appendChild(this.element);
