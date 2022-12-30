@@ -23,11 +23,7 @@ const createEditorToolbarToggle = (editor, { type, label, icon, action, activata
     ctrl.type = "button";
     ctrl.ariaLabel = label;
     ctrl.title = label;
-    if (typeof icon === "function") {
-      ctrl.innerHTML = icon();
-    } else {
-      ctrl.innerHTML = createIcon(icon);
-    }
+    ctrl.innerHTML = createIcon(icon);
     ctrl.addEventListener("click", (ev) => {
       ev.preventDefault();
       editor.commands.focus();
