@@ -3,6 +3,13 @@ import Link from "@tiptap/extension-link";
 import InputModal from "src/decidim/editor/input_modal";
 
 export default Link.extend({
+  addOptions() {
+    return {
+      ...this.parent?.(),
+      i18n: { hrefLabel: "Link URL" }
+    };
+  },
+
   addCommands() {
     return {
       ...this.parent?.(),
@@ -14,10 +21,11 @@ export default Link.extend({
           // the current selection getting the updated link URL.
           commands.extendMarkRange("link");
 
+          const { i18n } = this.options;
           let { href } = this.editor.getAttributes("link");
 
           const linkModal = new InputModal({
-            inputs: { href: { label: "Please insert the link below" } },
+            inputs: { href: { label: i18n.hrefLabel } },
             removeButton: true
           });
           const modalState = await linkModal.toggle({ href });

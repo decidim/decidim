@@ -46,7 +46,8 @@ export default Image.extend({
       ...this.parent?.(),
       contentTypes: /^image\/(jpe?g|png|svg|webp)$/i,
       uploadImagesPath: null,
-      uploadModal: null
+      uploadModal: null,
+      i18n: { altLabel: "Alternative text" }
     };
   },
 
@@ -55,14 +56,14 @@ export default Image.extend({
       ...this.parent?.(),
       imageModal: () => async ({ dispatch }) => {
         if (dispatch) {
-          const { uploadModal } = this.options;
+          const { uploadModal, i18n } = this.options;
           let { src, alt } = this.editor.getAttributes("image");
 
           const modalState = await uploadModal.toggle({
             src,
             alt
           }, {
-            inputLabel: "Please provide an alternative text for the image",
+            inputLabel: i18n.altLabel,
             uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
           });
           if (modalState !== "save") {

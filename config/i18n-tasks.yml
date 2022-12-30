@@ -328,6 +328,7 @@ ignore_unused:
   - decidim.initiatives.create_initiative.select_initiative_type.*
   - decidim.blogs.admin_log.*
   - decidim.templates.admin_log.*
+  - editor.*
   - emojis.*
   - ransack.predicates.*
   - decidim.profiles.user.actions.*

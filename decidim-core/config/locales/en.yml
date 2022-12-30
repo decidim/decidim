@@ -1715,6 +1715,36 @@ en:
   doorkeeper:
     scopes:
       public: Your public information.
+  editor:
+    extensions:
+      image:
+        altLabel: Alternative text for the image
+      link:
+        hrefLabel: Link URL
+      videoEmbed:
+        urlLabel: Video URL
+    toolbar:
+      control:
+        blockquote: Blockquote
+        bold: Bold
+        bulletList: Unordered list
+        codeBlock: Code block
+        common:
+          eraseStyles: Erase styles
+        hardBreak: Line break
+        heading: Text style
+        image: Image
+        indent:
+          indent: Indent
+          outdent: Outdent
+        italic: Italic
+        link: Link
+        orderedList: Ordered list
+        underline: Underline
+        videoEmbed: Video embed
+      textStyle:
+        normal: Normal
+        heading: Heading %level%
   emojis:
     button: Add emoji
     categories:

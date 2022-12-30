@@ -1,27 +1,6 @@
 import { createPopup } from "@picmo/popup-picker";
 
-/**
- * Turns a deep messages object into a dictionary object with a single level and
- * the keys separated with a dot.
- *
- * @param {Object} messages The messages object
- * @param {String | null} prefix Prefix for the messages on recursive calls
- * @returns {Object} The converted dictionary object
- */
-const dictionary = (messages, prefix = "") => {
-  let final = {};
-  Object.keys(messages).forEach((key) => {
-    if (typeof messages[key] === "object") {
-      final = { ...final, ...dictionary(messages[key], `${key}.`) };
-    } else if (key === "") {
-      final[prefix.replace(/\.$/, "")] = messages[key];
-    } else {
-      final[`${prefix}${key}`] = messages[key];
-    }
-  });
-
-  return final;
-};
+import i18n from "src/decidim/i18n";
 
 let I18N_CONFIG = null;
 
@@ -31,12 +10,11 @@ export class EmojiButton {
       return I18N_CONFIG;
     }
 
-    const allMessages = window.Decidim.config.get("messages");
-    let dict = allMessages.emojis || null;
+    let dict = i18n.getMessages("emojis") || null;
     const buttonText = dict.button;
     if (dict) {
       Reflect.deleteProperty(dict, "button");
-      dict = dictionary(dict);
+      dict = i18n.createDictionary(dict);
     }
 
     // dictionary = the messages dictionary passed to Picmo
@@ -50,7 +28,7 @@ export class EmojiButton {
 
   constructor(elem) {
     const i18nConfig = EmojiButton.i18n();
-    const i18n = i18nConfig.dictionary;
+    const i18nDictionary = i18nConfig.dictionary;
     const buttonText = i18nConfig.messages.buttonText;
 
     // if the selector is inside a modal window
@@ -89,7 +67,7 @@ export class EmojiButton {
     const picker = createPopup({
       autoFocus: "search",
       locale: document.documentElement.getAttribute("lang"),
-      i18n
+      i18n: i18nDictionary
     }, {
       position: "bottom-end",
       triggerElement: btn,

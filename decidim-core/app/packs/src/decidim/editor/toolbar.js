@@ -65,7 +65,7 @@ const createEditorToolbarSelect = (editor, { type, label, options, action, activ
  * @param {Editor} editor An instance of the rich text editor.
  * @returns {HTMLElement} The toolbar element
  */
-export default function createEditorToolbar(editor) {
+export default function createEditorToolbar(editor, { i18n }) {
   const toolbar = document.createElement("div");
   toolbar.classList.add("editor-toolbar");
 
@@ -74,14 +74,14 @@ export default function createEditorToolbar(editor) {
       group.appendChild(
         createEditorToolbarSelect(editor, {
           type: "heading",
-          label: "Text style",
+          label: i18n["control.heading"],
           options: [
-            { value: "normal", label: "Normal" },
-            { value: 2, label: "Heading 2" },
-            { value: 3, label: "Heading 3" },
-            { value: 4, label: "Heading 4" },
-            { value: 5, label: "Heading 5" },
-            { value: 6, label: "Heading 6" }
+            { value: "normal", label: i18n["textStyle.normal"] },
+            { value: 2, label: i18n["textStyle.heading"].replace("%level%", 2) },
+            { value: 3, label: i18n["textStyle.heading"].replace("%level%", 3) },
+            { value: 4, label: i18n["textStyle.heading"].replace("%level%", 4) },
+            { value: 5, label: i18n["textStyle.heading"].replace("%level%", 5) },
+            { value: 6, label: i18n["textStyle.heading"].replace("%level%", 6) }
           ],
           action: (value) => {
             if (value === "normal") {
@@ -100,7 +100,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "bold",
           icon: "bold",
-          label: "Bold",
+          label: i18n["control.bold"],
           action: () => editor.commands.toggleBold()
         })
       );
@@ -108,7 +108,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "italic",
           icon: "italic",
-          label: "Italic",
+          label: i18n["control.italic"],
           action: () => editor.commands.toggleItalic()
         })
       );
@@ -116,7 +116,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "underline",
           icon: "underline",
-          label: "Underline",
+          label: i18n["control.underline"],
           action: () => editor.commands.toggleUnderline()
         })
       );
@@ -124,7 +124,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "hardBreak",
           icon: "text-wrap",
-          label: "Line break",
+          label: i18n["control.hardBreak"],
           activatable: false,
           action: () => editor.commands.setHardBreak()
         })
@@ -137,7 +137,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "orderedList",
           icon: "list-ordered",
-          label: "Ordered list",
+          label: i18n["control.orderedList"],
           action: () => editor.commands.toggleOrderedList()
         })
       );
@@ -145,7 +145,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "bulletList",
           icon: "list-unordered",
-          label: "Unordered list",
+          label: i18n["control.bulletList"],
           action: () => editor.commands.toggleBulletList()
         })
       );
@@ -157,7 +157,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "link",
           icon: "link",
-          label: "Link",
+          label: i18n["control.link"],
           action: () => editor.commands.linkModal()
         })
       );
@@ -165,7 +165,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "common:eraseStyles",
           icon: "eraser-line",
-          label: "Erase styles",
+          label: i18n["control.common.eraseStyles"],
           activatable: false,
           action: () => editor.chain().focus().clearNodes().unsetAllMarks().run()
         })
@@ -178,7 +178,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "codeBlock",
           icon: "code-line",
-          label: "Code block",
+          label: i18n["control.codeBlock"],
           action: () => editor.commands.toggleCodeBlock()
         })
       );
@@ -186,7 +186,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "blockquote",
           icon: "double-quotes-l",
-          label: "Blockquote",
+          label: i18n["control.blockquote"],
           action: () => editor.commands.toggleBlockquote()
         })
       );
@@ -198,7 +198,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "indent:indent",
           icon: "indent-increase",
-          label: "Indent",
+          label: i18n["control.indent.indent"],
           activatable: false,
           action: () => editor.commands.indent()
         })
@@ -207,7 +207,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "indent:outdent",
           icon: "indent-decrease",
-          label: "Outdent",
+          label: i18n["control.indent.outdent"],
           activatable: false,
           action: () => editor.commands.outdent()
         })
@@ -220,7 +220,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "videoEmbed",
           icon: "video-line",
-          label: "Video",
+          label: i18n["control.videoEmbed"],
           action: () => editor.commands.videoEmbedModal()
         })
       );
@@ -228,7 +228,7 @@ export default function createEditorToolbar(editor) {
         createEditorToolbarToggle(editor, {
           type: "image",
           icon: "image-line",
-          label: "Image",
+          label: i18n["control.image"],
           action: () => editor.commands.imageModal()
         })
       );

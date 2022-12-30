@@ -96,7 +96,8 @@ export default Node.create({
     return {
       height: 360,
       width: 640,
-      inline: false
+      inline: false,
+      i18n: { urlLabel: "Video URL" }
     }
   },
 
@@ -135,8 +136,10 @@ export default Node.create({
 
       videoEmbedModal: () => async ({ dispatch }) => {
         if (dispatch) {
+          const { i18n } = this.options;
+
           const videoModal = new InputModal({
-            inputs: { src: { label: "Please insert the video URL below" } }
+            inputs: { src: { label: i18n.urlLabel } }
           });
           let { src } = this.editor.getAttributes("videoEmbed");
 

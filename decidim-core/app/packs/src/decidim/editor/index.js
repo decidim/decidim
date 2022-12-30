@@ -2,6 +2,8 @@ import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 
+import i18n from "src/decidim/i18n";
+
 import CodeBlock from "src/decidim/editor/extensions/code_block";
 import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
@@ -16,7 +18,6 @@ import UploadModal from "src/decidim/editor/upload_modal";
  *
  * TODO:
  * - Integrate with redesigned layout
- * - Translations
  * - Confirm configuration is according to the legacy Quill configs (e.g.
  *   pasting options, pasting content with styling, etc.)
  * - Replace legacy classes in tests/markup .ql-editor, .ql-reset-decidim,
@@ -36,6 +37,8 @@ export default function createEditor(container) {
   const { uploadImagesPath, uploadModalSelector, contentTypes } = options;
   const uploadModal = new UploadModal(document.querySelector(uploadModalSelector));
 
+  const i18nMessages = i18n.getMessages("editor");
+
   const editor = new Editor({
     element: editorContainer,
     extensions: [
@@ -45,15 +48,15 @@ export default function createEditor(container) {
       }),
       Indent,
       CodeBlock,
-      Link.configure({ openOnClick: false }),
+      Link.configure({ openOnClick: false, i18n: i18n.createDictionary(i18nMessages.extensions.link) }),
       Underline,
-      VideoEmbed,
-      Image.configure({ uploadModal, uploadImagesPath, contentTypes: contentTypes.image })
+      VideoEmbed.configure({ i18n: i18n.createDictionary(i18nMessages.extensions.videoEmbed) }),
+      Image.configure({ uploadModal, uploadImagesPath, contentTypes: contentTypes.image, i18n: i18n.createDictionary(i18nMessages.extensions.image) })
     ],
     content: input.value
   });
 
-  const toolbar = createEditorToolbar(editor);
+  const toolbar = createEditorToolbar(editor, { i18n: i18n.createDictionary(i18nMessages.toolbar) });
   container.insertBefore(toolbar, editorContainer);
 
   editor.on("update", () => {
