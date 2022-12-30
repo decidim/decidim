@@ -361,6 +361,11 @@ ja:
         'true': 'はい'
         user_name: ユーザー
       dashboard:
+        pending_moderations:
+          anouncement:
+            other: '%{count} 件の保留中のモデレーションがあります'
+          goto_moderation: グローバルモデレーションへ移動
+          title: 保留中のモデレーション
         show:
           view_more_logs: もっとログを見る
           welcome: 管理画面へようこそ。
