@@ -2,8 +2,6 @@ import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 
-import { getDictionary } from "src/decidim/i18n";
-
 import CodeBlock from "src/decidim/editor/extensions/code_block";
 import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
@@ -54,7 +52,7 @@ export default function createEditor(container) {
     content: input.value
   });
 
-  const toolbar = createEditorToolbar(editor, { i18n: getDictionary("editor.toolbar") });
+  const toolbar = createEditorToolbar(editor);
   container.insertBefore(toolbar, editorContainer);
 
   editor.on("update", () => {

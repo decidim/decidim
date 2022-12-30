@@ -1,3 +1,5 @@
+import { getDictionary } from "src/decidim/i18n";
+
 import iconsUrl from "images/decidim/remixicon.symbol.svg";
 
 const createIcon = (iconName) => {
@@ -65,7 +67,8 @@ const createEditorToolbarSelect = (editor, { type, label, options, action, activ
  * @param {Editor} editor An instance of the rich text editor.
  * @returns {HTMLElement} The toolbar element
  */
-export default function createEditorToolbar(editor, { i18n }) {
+export default function createEditorToolbar(editor) {
+  const i18n = getDictionary("editor.toolbar");
   const toolbar = document.createElement("div");
   toolbar.classList.add("editor-toolbar");
 
