@@ -233,7 +233,9 @@ ja:
         unblock: "%{user_name} さんが %{resource_name} さんのブロックを解除しました"
         unofficialize: "%{user_name} が参加者 %{resource_name} を非公式にしました"
       user_group:
+        block: "%{user_name} がユーザーグループ %{resource_name} をブロックしました"
         reject: "%{user_name} が %{resource_name} グループの確認を拒否しました"
+        unblock: "%{user_name} がユーザーグループ %{resource_name} のブロックを解除しました"
         verify: "%{user_name} がグループ %{resource_name} を確認しました"
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
       user_moderation:
@@ -329,6 +331,9 @@ ja:
         related_documents: 関連ドキュメント
       geocoding:
         geocoded_address: 住所
+      photo:
+        alt: メディア画像
+        title: 画像
       photos:
         related_photos: 関連画像
     author:
@@ -373,6 +378,7 @@ ja:
       started_at: '%{timestamp} に開始'
     authorization_modals:
       content:
+        close_modal: モーダルを閉じる
         expired:
           authorize: '「%{authorization} 」で再認証'
           explanation: 認証の有効期限が切れました。この操作を実行するには、"%{authorization}" で再認証する必要があります。
@@ -1385,11 +1391,14 @@ ja:
         close: 閉じる
         description: このコンテンツは不適切ですか？
         does_not_belong: 違法行為、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
+        hide: 非表示
+        hide_content: このコンテンツを非表示
         offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
         reason: 理由
         report: 報告
         spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
         title: 不適切な内容を報告する
+        visit_profile: この参加者と残りの内容の部分もブロックしたい場合は、 %{user_link} プロフィールページにアクセスしてください。
       flag_user_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
@@ -1416,6 +1425,9 @@ ja:
           select_an_area: エリアを選択
       public_participation:
         public_participation: 参加を公開する
+      redesigned_login_modal:
+        please_sign_in: ログインしてください
+        sign_up: 新規登録
       reference:
         reference: 'リファレンス： %{reference}'
       represent_user_group:
