@@ -981,7 +981,7 @@ module Decidim
       end
 
       field = nil
-      @template.decidim_form_for(editor_image, url: "") do |form|
+      @template.form_for(editor_image, url: "") do |form|
         field = capture { form.upload(:file, upload_options) }
       end
 
