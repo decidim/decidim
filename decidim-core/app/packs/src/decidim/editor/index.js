@@ -37,8 +37,6 @@ export default function createEditor(container) {
   const { uploadImagesPath, uploadModalSelector, contentTypes } = options;
   const uploadModal = new UploadModal(document.querySelector(uploadModalSelector));
 
-  // const i18nMessages = i18n.getMessages("editor");
-
   const editor = new Editor({
     element: editorContainer,
     extensions: [
