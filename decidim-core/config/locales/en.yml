@@ -1721,6 +1721,10 @@ en:
         altLabel: Alternative text for the image
       link:
         hrefLabel: Link URL
+        targetLabel: Target
+        targets:
+          blank: New tab
+          default: Default (same tab)
       videoEmbed:
         urlLabel: Video URL
     toolbar:

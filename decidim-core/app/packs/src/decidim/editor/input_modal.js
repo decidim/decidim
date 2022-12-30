@@ -8,10 +8,18 @@ export default class InputModal {
     let inputsHTML = "";
     Object.keys(inputs).forEach((name) => {
       const input = inputs[name];
+      let inputHTML = "";
+      if (input.type === "select") {
+        const optionsHTML = input.options.map((opt) => `<option value="${opt.value}">${opt.label}</option>`)
+        inputHTML = `<select id="${inputId}-${name}">${optionsHTML}</select>`;
+      } else {
+        inputHTML = `<input id="${inputId}-${name}" type="${input.type || "text"}">`;
+      }
+
       inputsHTML += `
         <div data-input="${name}">
           <label for="${inputId}-${name}">${input.label}</label>
-          <input id="${inputId}-${name}" type="text">
+          ${inputHTML}
         </div>
       `;
     });
@@ -70,7 +78,7 @@ export default class InputModal {
   toggle(currentValues = {}) {
     return new Promise((resolve) => {
       this.element.querySelectorAll("[data-input]").forEach((wrapper) => {
-        const input = wrapper.querySelector("input");
+        const input = wrapper.querySelector("input, select");
         const currentValue = currentValues[wrapper.dataset.input];
         if (currentValue) {
           input.value = currentValue;
@@ -98,14 +106,15 @@ export default class InputModal {
   }
 
   focusFirstInput() {
-    const firstInput = this.element.querySelector("input");
+    const firstInput = this.element.querySelector("input, select");
     if (firstInput) {
       firstInput.focus();
     }
   }
 
   getValue(key = "default") {
-    const input = this.element.querySelector(`[data-input="${key}"] input`);
+    const wrapper = this.element.querySelector(`[data-input="${key}"]`);
+    const input = wrapper.querySelector("input, select");
     if (input) {
       return input.value;
     }

@@ -6,7 +6,11 @@ export default Link.extend({
   addOptions() {
     return {
       ...this.parent?.(),
-      i18n: { hrefLabel: "Link URL" }
+      i18n: {
+        hrefLabel: "Link URL",
+        targetLabel: "Target",
+        targets: { blank: "New tab", default: "Default (same tab)" }
+      }
     };
   },
 
@@ -22,20 +26,34 @@ export default Link.extend({
           commands.extendMarkRange("link");
 
           const { i18n } = this.options;
-          let { href } = this.editor.getAttributes("link");
+          let { href, target } = this.editor.getAttributes("link");
 
           const linkModal = new InputModal({
-            inputs: { href: { label: i18n.hrefLabel } },
+            inputs: {
+              href: { type: "text", label: i18n.hrefLabel },
+              target: {
+                type: "select",
+                label: i18n.targetLabel,
+                options: [
+                  { value: "", label: i18n["targets.default"] },
+                  { value: "_blank", label: i18n["targets.blank"] }
+                ]
+              }
+            },
             removeButton: true
           });
-          const modalState = await linkModal.toggle({ href });
+          const modalState = await linkModal.toggle({ href, target });
           href = linkModal.getValue("href");
+          target = linkModal.getValue("target");
+          if (target && target.length < 1) {
+            target = null;
+          }
 
           if (modalState !== "save" || !href || href.trim().length < 1) {
             return this.editor.chain().focus().unsetLink().run();
           }
 
-          return this.editor.chain().focus().setLink({ href }).run();
+          return this.editor.chain().focus().setLink({ href, target }).run();
         }
 
         return true;

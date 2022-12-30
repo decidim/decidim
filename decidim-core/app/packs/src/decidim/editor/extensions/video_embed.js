@@ -139,7 +139,7 @@ export default Node.create({
           const { i18n } = this.options;
 
           const videoModal = new InputModal({
-            inputs: { src: { label: i18n.urlLabel } }
+            inputs: { src: { type: "text", label: i18n.urlLabel } }
           });
           let { src } = this.editor.getAttributes("videoEmbed");
 
