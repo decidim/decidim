@@ -21,7 +21,7 @@ export const getIndent = () => ({ editor }) => {
     return editor.chain().focus().sinkListItem("listItem").run();
   }
   return editor.chain().focus().indent().run();
-}
+};
 
 export const getOutdent = (outdentOnlyAtHead) => ({ editor }) => {
   if (outdentOnlyAtHead && editor.state.selection.$head.parentOffset > 0) {
@@ -34,7 +34,7 @@ export const getOutdent = (outdentOnlyAtHead) => ({ editor }) => {
     return editor.chain().focus().liftListItem("listItem").run();
   }
   return editor.chain().focus().outdent().run();
-}
+};
 
 export const clamp = (val, min, max) => {
   if (val < min) {
@@ -44,7 +44,7 @@ export const clamp = (val, min, max) => {
     return max
   }
   return val
-}
+};
 
 const setNodeIndentMarkup = ({ tr, pos, delta, min, max }) => {
   if (!tr.doc) {
@@ -63,8 +63,7 @@ const setNodeIndentMarkup = ({ tr, pos, delta, min, max }) => {
     indent
   };
   return tr.setNodeMarkup(pos, node.type, nodeAttrs, node.marks);
-}
-
+};
 
 const updateIndentLevel = ({ tr, options, extensions, type }) => {
   const { doc, selection } = tr;
@@ -95,7 +94,7 @@ const updateIndentLevel = ({ tr, options, extensions, type }) => {
     return !isList(node.type.name, extensions);
   })
   return finalTr;
-}
+};
 
 export default Extension.create({
   name: "indent",
@@ -193,4 +192,4 @@ export default Extension.create({
       }
     }
   }
-})
+});

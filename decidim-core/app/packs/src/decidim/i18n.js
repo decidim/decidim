@@ -14,7 +14,7 @@ export const getMessages = (key = null) => {
   let messages = allMessages;
   key.split(".").forEach((part) => (messages = messages[part] || {}));
   return messages;
-}
+};
 
 /**
  * Turns a deep messages object into a dictionary object with a single level and
