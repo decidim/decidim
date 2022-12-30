@@ -69,12 +69,6 @@
       min-height: 100%;
       outline: 0;
 
-      // Tiptap adds an extra <p> inside list items to support multiple
-      // sub-elements within the content model.
-      li p{
-        margin-bottom: 0;
-      }
-
       [data-video-embed] iframe{
         pointer-events: none;
       }
@@ -83,12 +77,6 @@
 }
 
 .rich-text-display{
-  // Tiptap adds an extra <p> inside list items to support multiple sub-elements
-  // within the content model.
-  li p{
-    margin-bottom: 0;
-  }
-
   // vv Legacy vv
   .ql-video{
     max-width: 600px;
@@ -118,6 +106,12 @@
 
 .rich-text-display,
 .editor-container .editor-input .ProseMirror{
+  // Tiptap adds an extra <p> inside list items to support multiple sub-elements
+  // within the content model.
+  li p{
+    margin-bottom: 0;
+  }
+
   @for $i from 1 through 10{
     .editor-indent-#{$i}{
       margin-left: 1rem * $i;
