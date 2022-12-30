@@ -124,7 +124,7 @@ createDynamicFields({
     createSortableList();
 
     $field.find(".editor-container").each((idx, el) => {
-      createQuillEditor(el);
+      createEditor(el);
     });
 
     autoLabelByPosition.run();

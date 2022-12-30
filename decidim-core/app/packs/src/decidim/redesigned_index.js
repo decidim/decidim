@@ -62,7 +62,7 @@ import "./direct_uploads/redesigned_upload_field"
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
 import fixDropdownMenus from "./dropdowns_menus"
-import createQuillEditor from "./editor"
+import createEditor from "./editor"
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
 import updateExternalDomainLinks from "./external_domain_warning"
@@ -137,7 +137,7 @@ const initializer = (element = document) => {
   formDatePicker();
 
   $(".editor-container").each((_idx, container) => {
-    createQuillEditor(container);
+    createEditor(container);
   });
 
   element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
