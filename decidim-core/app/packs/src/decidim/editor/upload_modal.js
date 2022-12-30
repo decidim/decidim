@@ -26,12 +26,16 @@ export default class UploadModal {
     this.saveButton = this.element.querySelector("button.add-file-file");
     this.cancelButton = this.element.querySelector("button.cancel-attachment");
     this.dropZone = this.element.querySelector(".dropzone");
+    this.messageSection = document.createElement("div");
     this.currentFileSection = document.createElement("div");
     this.inputSection = document.createElement("div");
 
     const dc = this.element.querySelector(".dropzone-container");
-    dc.parentNode.insertBefore(this.inputSection, dc.nextSibling);
-    dc.parentNode.insertBefore(this.currentFileSection, this.inputSection);
+    const extra = document.createElement("div");
+    dc.parentNode.insertBefore(extra, dc.nextSibling);
+    extra.append(this.messageSection);
+    extra.append(this.currentFileSection);
+    extra.append(this.inputSection);
 
     this.saveButton.addEventListener("click", () => {
       this.exitMode = "save";
@@ -49,7 +53,8 @@ export default class UploadModal {
       },
       drop: (event) => {
         event.preventDefault();
-        this.dropZone.classList.remove("is-dragover")
+        this.dropZone.classList.remove("is-dragover");
+        this.messageSection.innerHTML = "";
 
         const files = event.dataTransfer.files;
         if (files.length < 1) {
@@ -122,7 +127,6 @@ export default class UploadModal {
 
     this.saveButton.disabled = false;
     this.currentFileSection.innerHTML = `
-      <span>Current file</span>
       <img src="${this.values.src}" alt="Uploaded file" style="max-width:100px">
     `;
   }
@@ -134,6 +138,7 @@ export default class UploadModal {
 
     const response = await this.uploadHandler(file);
     if (!response.url) {
+      this.messageSection.innerHTML = `<div class="form-error is-visible">${response.message}</div>`;
       return;
     }
     this.values.src = response.url;
