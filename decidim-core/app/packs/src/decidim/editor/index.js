@@ -33,7 +33,7 @@ export default function createEditor(container) {
   container.appendChild(editorContainer);
 
   const options = JSON.parse(container.dataset.options);
-  const { uploadImagesPath, uploadModalSelector } = options;
+  const { uploadImagesPath, uploadModalSelector, contentTypes } = options;
   const uploadModal = new UploadModal(document.querySelector(uploadModalSelector));
 
   const editor = new Editor({
@@ -48,7 +48,7 @@ export default function createEditor(container) {
       Link.configure({ openOnClick: false }),
       Underline,
       VideoEmbed,
-      Image.configure({ uploadModal, uploadImagesPath })
+      Image.configure({ uploadModal, uploadImagesPath, contentTypes: contentTypes.image })
     ],
     content: input.value
   });

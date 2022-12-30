@@ -19,9 +19,17 @@ const uploadImage = async (image, uploadUrl) => {
   return response.json();
 }
 
-const filterImages = (files) => {
+const filterImages = (files, contentTypes) => {
   return Array.from(files).filter(
-    (file) => (/^image\/(jpe?g|png|svg|webp)$/i).test(file.type)
+    (file) => {
+      if (contentTypes instanceof RegExp) {
+        return contentTypes.test(file.type)
+      } else if (contentTypes instanceof Array) {
+        return contentTypes.includes(file.type);
+      }
+      // string
+      return contentTypes === file.type;
+    }
   );
 }
 
@@ -36,6 +44,7 @@ export default Image.extend({
   addOptions() {
     return {
       ...this.parent?.(),
+      contentTypes: /^image\/(jpe?g|png|svg|webp)$/i,
       uploadImagesPath: null,
       uploadModal: null
     };
@@ -88,7 +97,7 @@ export default Image.extend({
 
   addProseMirrorPlugins() {
     const editor = this.editor;
-    const { uploadImagesPath } = this.options;
+    const { uploadImagesPath, contentTypes } = this.options;
 
     const handleUploadedImages = (uploadedImages) => {
       uploadedImages.forEach((imageData) => {
@@ -105,7 +114,7 @@ export default Image.extend({
         props: {
           handlePaste(view, event) {
             const items = (event.clipboardData || event.originalEvent.clipboardData).items;
-            const images = filterImages(items);
+            const images = filterImages(items, contentTypes);
             if (images.length < 1) {
               return;
             }
@@ -131,7 +140,7 @@ export default Image.extend({
                 return;
               }
 
-              const images = filterImages(files);
+              const images = filterImages(files, contentTypes);
               if (images.length < 1) {
                 return;
               }
