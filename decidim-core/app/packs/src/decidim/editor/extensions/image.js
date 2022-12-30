@@ -53,7 +53,7 @@ export default Image.extend({
   },
 
   addCommands() {
-    const i18n = getDictionary("editor.extensions.videoEmbed");
+    const i18n = getDictionary("editor.extensions.image");
 
     return {
       ...this.parent?.(),
