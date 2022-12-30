@@ -2,6 +2,8 @@ import { mergeAttributes } from "@tiptap/core";
 import Image from "@tiptap/extension-image";
 import { Plugin } from "prosemirror-state";
 
+import { getDictionary } from "src/decidim/i18n";
+
 const uploadImage = async (image, uploadUrl) => {
   const token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
@@ -46,17 +48,18 @@ export default Image.extend({
       ...this.parent?.(),
       contentTypes: /^image\/(jpe?g|png|svg|webp)$/i,
       uploadImagesPath: null,
-      uploadModal: null,
-      i18n: { altLabel: "Alternative text" }
+      uploadModal: null
     };
   },
 
   addCommands() {
+    const i18n = getDictionary("editor.extensions.videoEmbed");
+
     return {
       ...this.parent?.(),
       imageModal: () => async ({ dispatch }) => {
         if (dispatch) {
-          const { uploadModal, i18n } = this.options;
+          const { uploadModal } = this.options;
           let { src, alt } = this.editor.getAttributes("image");
 
           const modalState = await uploadModal.toggle({

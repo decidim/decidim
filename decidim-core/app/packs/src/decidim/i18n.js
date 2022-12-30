@@ -6,12 +6,14 @@
  *   object or `null` to fetch all messages.
  * @returns {Object} The messages object
  */
-const getMessages = (key = null) => {
+export const getMessages = (key = null) => {
   const allMessages = window.Decidim.config.get("messages");
   if (key === null) {
     return allMessages;
   }
-  return allMessages[key] || {};
+  let messages = allMessages;
+  key.split(".").forEach((part) => (messages = messages[part] || {}));
+  return messages;
 }
 
 /**
@@ -22,7 +24,7 @@ const getMessages = (key = null) => {
  * @param {String | null} prefix Prefix for the messages on recursive calls
  * @returns {Object} The converted dictionary object
  */
-const createDictionary = (messages, prefix = "") => {
+export const createDictionary = (messages, prefix = "") => {
   let final = {};
   Object.keys(messages).forEach((key) => {
     if (typeof messages[key] === "object") {
@@ -45,8 +47,6 @@ const createDictionary = (messages, prefix = "") => {
  *   for
  * @returns {Object} The dictionary object
  */
-const getDictionary = (key) => {
+export const getDictionary = (key) => {
   return createDictionary(getMessages(key));
 }
-
-export default { getMessages, createDictionary, getDictionary };

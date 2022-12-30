@@ -1,6 +1,6 @@
 import { createPopup } from "@picmo/popup-picker";
 
-import i18n from "src/decidim/i18n";
+import * as i18n from "src/decidim/i18n";
 
 let I18N_CONFIG = null;
 

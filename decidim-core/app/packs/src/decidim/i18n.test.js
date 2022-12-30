@@ -1,4 +1,4 @@
-import i18n from "./i18n";
+import * as i18n from "./i18n";
 
 const config = {
   messages: {
@@ -28,9 +28,15 @@ describe("getMessages", () => {
     });
   });
 
-  describe("with a key", () => {
+  describe("with a top-level key", () => {
     it("returns the configured messages for that key only", () => {
       expect(i18n.getMessages("bar")).toEqual(config.messages.bar);
+    });
+  });
+
+  describe("with a sub key", () => {
+    it("returns the configured messages for that sub key only", () => {
+      expect(i18n.getMessages("test.catch.atiger")).toEqual(config.messages.test.catch.atiger);
     });
   });
 });

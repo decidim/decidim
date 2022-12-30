@@ -1,20 +1,12 @@
 import Link from "@tiptap/extension-link";
 
+import { getDictionary } from "src/decidim/i18n";
 import InputModal from "src/decidim/editor/input_modal";
 
 export default Link.extend({
-  addOptions() {
-    return {
-      ...this.parent?.(),
-      i18n: {
-        hrefLabel: "Link URL",
-        targetLabel: "Target",
-        targets: { blank: "New tab", default: "Default (same tab)" }
-      }
-    };
-  },
-
   addCommands() {
+    const i18n = getDictionary("editor.extensions.link");
+
     return {
       ...this.parent?.(),
       linkModal: () => async ({ dispatch, commands }) => {
@@ -25,7 +17,6 @@ export default Link.extend({
           // the current selection getting the updated link URL.
           commands.extendMarkRange("link");
 
-          const { i18n } = this.options;
           let { href, target } = this.editor.getAttributes("link");
 
           const linkModal = new InputModal({

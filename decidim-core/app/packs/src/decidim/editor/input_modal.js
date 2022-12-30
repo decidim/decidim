@@ -1,3 +1,5 @@
+import { getDictionary } from "src/decidim/i18n";
+
 export default class InputModal {
   constructor({ inputs, removeButton }) {
     const inputId = `inputmodal-${(new Date()).getTime()}`;
@@ -24,12 +26,14 @@ export default class InputModal {
       `;
     });
 
+    const i18n = getDictionary("editor.inputModal");
+
     let buttonsHTML = "";
-    buttonsHTML += '<button type="button" class="button mr-xs mb-none" data-action="save">Save</button>';
+    buttonsHTML += `<button type="button" class="button mr-xs mb-none" data-action="save">${i18n["buttons.save"]}</button>`;
     if (removeButton) {
-      buttonsHTML += '<button type="button" class="button alert mb-none" data-action="remove">Remove</button>';
+      buttonsHTML += `<button type="button" class="button alert mb-none" data-action="remove">${i18n["buttons.remove"]}</button>`;
     } else {
-      buttonsHTML += '<button type="button" class="button clear mb-none" data-action="cancel">Cancel</button>';
+      buttonsHTML += `<button type="button" class="button clear mb-none" data-action="cancel">${i18n["buttons.cancel"]}</button>`;
     }
 
     this.element.innerHTML = `

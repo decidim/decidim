@@ -1,6 +1,7 @@
 import { Node, nodePasteRule, mergeAttributes } from "@tiptap/core";
 import { Plugin } from "prosemirror-state";
 
+import { getDictionary } from "src/decidim/i18n";
 import InputModal from "src/decidim/editor/input_modal";
 
 const YOUTUBE_REGEX = /^(https?:\/\/)?(www\.|music\.)?(youtube\.com|youtu\.be)(.+)?$/;
@@ -96,8 +97,7 @@ export default Node.create({
     return {
       height: 360,
       width: 640,
-      inline: false,
-      i18n: { urlLabel: "Video URL" }
+      inline: false
     }
   },
 
@@ -126,6 +126,8 @@ export default Node.create({
   },
 
   addCommands() {
+    const i18n = getDictionary("editor.extensions.videoEmbed");
+
     return {
       setVideo: (options) => ({ commands }) => {
         return commands.insertContent({
@@ -136,8 +138,6 @@ export default Node.create({
 
       videoEmbedModal: () => async ({ dispatch }) => {
         if (dispatch) {
-          const { i18n } = this.options;
-
           const videoModal = new InputModal({
             inputs: { src: { type: "text", label: i18n.urlLabel } }
           });

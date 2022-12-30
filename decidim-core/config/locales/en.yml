@@ -1727,6 +1727,11 @@ en:
           default: Default (same tab)
       videoEmbed:
         urlLabel: Video URL
+    inputModal:
+      buttons:
+        cancel: Cancel
+        remove: Remove
+        save: Save
     toolbar:
       control:
         blockquote: Blockquote

@@ -2,7 +2,7 @@ import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 
-import i18n from "src/decidim/i18n";
+import { getDictionary } from "src/decidim/i18n";
 
 import CodeBlock from "src/decidim/editor/extensions/code_block";
 import Image from "src/decidim/editor/extensions/image";
@@ -37,7 +37,7 @@ export default function createEditor(container) {
   const { uploadImagesPath, uploadModalSelector, contentTypes } = options;
   const uploadModal = new UploadModal(document.querySelector(uploadModalSelector));
 
-  const i18nMessages = i18n.getMessages("editor");
+  // const i18nMessages = i18n.getMessages("editor");
 
   const editor = new Editor({
     element: editorContainer,
@@ -48,15 +48,15 @@ export default function createEditor(container) {
       }),
       Indent,
       CodeBlock,
-      Link.configure({ openOnClick: false, i18n: i18n.createDictionary(i18nMessages.extensions.link) }),
+      Link.configure({ openOnClick: false }),
       Underline,
-      VideoEmbed.configure({ i18n: i18n.createDictionary(i18nMessages.extensions.videoEmbed) }),
-      Image.configure({ uploadModal, uploadImagesPath, contentTypes: contentTypes.image, i18n: i18n.createDictionary(i18nMessages.extensions.image) })
+      VideoEmbed,
+      Image.configure({ uploadModal, uploadImagesPath, contentTypes: contentTypes.image })
     ],
     content: input.value
   });
 
-  const toolbar = createEditorToolbar(editor, { i18n: i18n.createDictionary(i18nMessages.toolbar) });
+  const toolbar = createEditorToolbar(editor, { i18n: getDictionary("editor.toolbar") });
   container.insertBefore(toolbar, editorContainer);
 
   editor.on("update", () => {
