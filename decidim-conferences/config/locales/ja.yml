@@ -33,6 +33,7 @@ ja:
         slug: URL スラグ
         start_date: 開始日
         title: タイトル
+        weight: 並び順の位置
       conference_media_link:
         date: 日付
         link: リンク
@@ -439,12 +440,17 @@ ja:
       conference_speaker_cell:
         personal_url:
           personal_website: 個人のウェブサイト
+      conference_speakers:
+        index:
+          speakers:
+            other: スピーカー
       conferences:
         partners:
           collaborators: パートナー
           main_promotors: オーガナイザー
         show:
           login_as: '%{name} <%{email} >としてログインしています'
+          make_conference_registration: カンファレンスに参加登録する
           register: 登録
       content_blocks:
         highlighted_conferences:
