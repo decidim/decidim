@@ -1,4 +1,5 @@
 import { getDictionary } from "src/decidim/i18n";
+import html from "src/decidim/editor/utilities/html";
 
 import iconsUrl from "images/decidim/remixicon.symbol.svg";
 
@@ -6,60 +7,56 @@ const createIcon = (iconName) => {
   return `<svg class="editor-toolbar-icon" role="img" aria-hidden="true">
     <use href="${iconsUrl}#ri-${iconName}" />
   </svg>`;
-}
+};
 
-const createEditorToolbarGroup = (_editor, inner) => {
-  const group = document.createElement("div");
-  group.classList.add("editor-toolbar-group");
-  inner(group);
-
-  return group;
-}
+const createEditorToolbarGroup = () => {
+  return html("div").dom((el) => el.classList.add("editor-toolbar-group"));
+};
 
 const createEditorToolbarToggle = (editor, { type, label, icon, action, activatable = true }) => {
-  const ctrl = document.createElement("button");
-  ctrl.classList.add("editor-toolbar-control");
-  ctrl.dataset.editorType = type;
-  if (activatable) {
-    ctrl.dataset.editorSelectionType = type;
-  }
-  ctrl.type = "button";
-  ctrl.ariaLabel = label;
-  ctrl.title = label;
-  if (typeof icon === "function") {
-    ctrl.innerHTML = icon();
-  } else {
-    ctrl.innerHTML = createIcon(icon);
-  }
-  ctrl.addEventListener("click", (ev) => {
-    ev.preventDefault();
-    editor.commands.focus();
-    action();
-  })
-  return ctrl;
-}
+  return html("button").dom((ctrl) => {
+    ctrl.classList.add("editor-toolbar-control");
+    ctrl.dataset.editorType = type;
+    if (activatable) {
+      ctrl.dataset.editorSelectionType = type;
+    }
+    ctrl.type = "button";
+    ctrl.ariaLabel = label;
+    ctrl.title = label;
+    if (typeof icon === "function") {
+      ctrl.innerHTML = icon();
+    } else {
+      ctrl.innerHTML = createIcon(icon);
+    }
+    ctrl.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      editor.commands.focus();
+      action();
+    })
+  });
+};
 
 const createEditorToolbarSelect = (editor, { type, label, options, action, activatable = true }) => {
-  const ctrl = document.createElement("select");
-  ctrl.classList.add("editor-toolbar-control");
-  ctrl.dataset.editorType = type;
-  if (activatable) {
-    ctrl.dataset.editorSelectionType = type;
-  }
-  ctrl.ariaLabel = label;
-  ctrl.title = label;
-  options.forEach(({ label: optionLabel, value }) => {
-    const option = document.createElement("option");
-    option.setAttribute("value", value);
-    option.innerText = optionLabel;
-    ctrl.appendChild(option);
-  });
-  ctrl.addEventListener("change", () => {
-    editor.commands.focus();
-    action(ctrl.value);
-  });
-  return ctrl;
-}
+  return html("select").dom((ctrl) => {
+    ctrl.classList.add("editor-toolbar-control");
+    ctrl.dataset.editorType = type;
+    if (activatable) {
+      ctrl.dataset.editorSelectionType = type;
+    }
+    ctrl.ariaLabel = label;
+    ctrl.title = label;
+    options.forEach(({ label: optionLabel, value }) => {
+      const option = document.createElement("option");
+      option.setAttribute("value", value);
+      option.innerText = optionLabel;
+      ctrl.appendChild(option);
+    });
+    ctrl.addEventListener("change", () => {
+      editor.commands.focus();
+      action(ctrl.value);
+    });
+  })
+};
 
 /**
  * Creates the editor toolbar for the given editor instance.
@@ -69,12 +66,24 @@ const createEditorToolbarSelect = (editor, { type, label, options, action, activ
  */
 export default function createEditorToolbar(editor) {
   const i18n = getDictionary("editor.toolbar");
-  const toolbar = document.createElement("div");
-  toolbar.classList.add("editor-toolbar");
 
-  toolbar.appendChild(
-    createEditorToolbarGroup(editor, (group) => {
-      group.appendChild(
+  const supported = { nodes: [], marks: [], extensions: [] };
+  editor.extensionManager.extensions.forEach((ext) => {
+    if (ext.type === "node") {
+      supported.nodes.push(ext.name);
+    } else if (ext.type === "mark") {
+      supported.marks.push(ext.name);
+    } else if (ext.type === "extension") {
+      supported.extensions.push(ext.name);
+    }
+  });
+
+  // Create the toolbar element
+  const toolbar = html("div").
+    dom((el) => el.classList.add("editor-toolbar")).
+    append(
+      // Text style controls
+      createEditorToolbarGroup(editor).append(
         createEditorToolbarSelect(editor, {
           type: "heading",
           label: i18n["control.heading"],
@@ -93,150 +102,138 @@ export default function createEditorToolbar(editor) {
               editor.commands.toggleHeading({ level: parseInt(value, 10) });
             }
           }
-        })
-      );
-    })
-  );
-  toolbar.appendChild(
-    createEditorToolbarGroup(editor, (group) => {
-      group.appendChild(
+        }).render(supported.nodes.includes("heading"))
+      )
+    ).
+    append(
+      // Basic styling controls
+      createEditorToolbarGroup(editor).append(
         createEditorToolbarToggle(editor, {
           type: "bold",
           icon: "bold",
           label: i18n["control.bold"],
           action: () => editor.commands.toggleBold()
-        })
-      );
-      group.appendChild(
+        }).render(supported.marks.includes("bold")),
         createEditorToolbarToggle(editor, {
           type: "italic",
           icon: "italic",
           label: i18n["control.italic"],
           action: () => editor.commands.toggleItalic()
-        })
-      );
-      group.appendChild(
+        }).render(supported.marks.includes("italic")),
         createEditorToolbarToggle(editor, {
           type: "underline",
           icon: "underline",
           label: i18n["control.underline"],
           action: () => editor.commands.toggleUnderline()
-        })
-      );
-      group.appendChild(
+        }).render(supported.marks.includes("underline")),
         createEditorToolbarToggle(editor, {
           type: "hardBreak",
           icon: "text-wrap",
           label: i18n["control.hardBreak"],
           activatable: false,
           action: () => editor.commands.setHardBreak()
-        })
-      );
-    })
-  );
-  toolbar.appendChild(
-    createEditorToolbarGroup(editor, (group) => {
-      group.appendChild(
+        }).render(supported.nodes.includes("hardBreak"))
+      )
+    ).
+    append(
+      // List controls
+      createEditorToolbarGroup(editor).append(
         createEditorToolbarToggle(editor, {
           type: "orderedList",
           icon: "list-ordered",
           label: i18n["control.orderedList"],
           action: () => editor.commands.toggleOrderedList()
-        })
-      );
-      group.appendChild(
+        }).render(supported.nodes.includes("orderedList")),
         createEditorToolbarToggle(editor, {
           type: "bulletList",
           icon: "list-unordered",
           label: i18n["control.bulletList"],
           action: () => editor.commands.toggleBulletList()
-        })
-      );
-    })
-  );
-  toolbar.appendChild(
-    createEditorToolbarGroup(editor, (group) => {
-      group.appendChild(
+        }).render(supported.nodes.includes("bulletList"))
+      )
+    ).
+    append(
+      // Link and erase styles
+      createEditorToolbarGroup(editor).append(
         createEditorToolbarToggle(editor, {
           type: "link",
           icon: "link",
           label: i18n["control.link"],
           action: () => editor.commands.linkModal()
-        })
-      );
-      group.appendChild(
+        }).render(supported.marks.includes("link")),
         createEditorToolbarToggle(editor, {
           type: "common:eraseStyles",
           icon: "eraser-line",
           label: i18n["control.common.eraseStyles"],
           activatable: false,
           action: () => editor.chain().focus().clearNodes().unsetAllMarks().run()
-        })
-      );
-    })
-  );
-  toolbar.appendChild(
-    createEditorToolbarGroup(editor, (group) => {
-      group.appendChild(
+        }).render(
+          supported.nodes.includes("heading") ||
+          supported.marks.includes("bold") ||
+          supported.marks.includes("italic") ||
+          supported.marks.includes("underline") ||
+          supported.nodes.includes("hardBreak") ||
+          supported.nodes.includes("orderedList") ||
+          supported.nodes.includes("bulletList") ||
+          supported.marks.includes("link")
+        )
+      )
+    ).
+    append(
+      // Block styling
+      createEditorToolbarGroup(editor).append(
         createEditorToolbarToggle(editor, {
           type: "codeBlock",
           icon: "code-line",
           label: i18n["control.codeBlock"],
           action: () => editor.commands.toggleCodeBlock()
-        })
-      );
-      group.appendChild(
+        }).render(supported.nodes.includes("codeBlock")),
         createEditorToolbarToggle(editor, {
           type: "blockquote",
           icon: "double-quotes-l",
           label: i18n["control.blockquote"],
           action: () => editor.commands.toggleBlockquote()
-        })
-      );
-    })
-  );
-  toolbar.appendChild(
-    createEditorToolbarGroup(editor, (group) => {
-      group.appendChild(
+        }).render(supported.nodes.includes("blockquote"))
+      )
+    ).
+    append(
+      // Indent and outdent
+      createEditorToolbarGroup(editor).append(
         createEditorToolbarToggle(editor, {
           type: "indent:indent",
           icon: "indent-increase",
           label: i18n["control.indent.indent"],
           activatable: false,
           action: () => editor.commands.indent()
-        })
-      );
-      group.appendChild(
+        }).render(supported.extensions.includes("indent")),
         createEditorToolbarToggle(editor, {
           type: "indent:outdent",
           icon: "indent-decrease",
           label: i18n["control.indent.outdent"],
           activatable: false,
           action: () => editor.commands.outdent()
-        })
-      );
-    })
-  );
-  toolbar.appendChild(
-    createEditorToolbarGroup(editor, (group) => {
-      group.appendChild(
+        }).render(supported.extensions.includes("indent"))
+      )
+    ).
+    append(
+      // Multimedia
+      createEditorToolbarGroup(editor).append(
         createEditorToolbarToggle(editor, {
           type: "videoEmbed",
           icon: "video-line",
           label: i18n["control.videoEmbed"],
           action: () => editor.commands.videoEmbedModal()
-        })
-      );
-      group.appendChild(
+        }).render(supported.nodes.includes("videoEmbed")),
         createEditorToolbarToggle(editor, {
           type: "image",
           icon: "image-line",
           label: i18n["control.image"],
           action: () => editor.commands.imageModal()
-        })
-      );
-    })
-  );
+        }).render(supported.nodes.includes("image"))
+      )
+    ).
+    render()
+  ;
 
   const selectionControls = toolbar.querySelectorAll(".editor-toolbar-control[data-editor-selection-type]");
   const headingSelect = toolbar.querySelector(".editor-toolbar-control[data-editor-type='heading']");
@@ -260,4 +257,4 @@ export default function createEditorToolbar(editor) {
   editor.on("selectionUpdate", selectionUpdated);
 
   return toolbar;
-}
+};
