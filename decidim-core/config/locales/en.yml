@@ -1752,8 +1752,8 @@ en:
         underline: Underline
         videoEmbed: Video embed
       textStyle:
-        normal: Normal
         heading: Heading %level%
+        normal: Normal
   emojis:
     button: Add emoji
     categories:
