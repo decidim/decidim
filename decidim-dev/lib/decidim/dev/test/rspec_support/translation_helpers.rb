@@ -90,7 +90,7 @@ module TranslationHelpers
     raise ArgumentError if params[:with].blank?
 
     page.execute_script <<-SCRIPT
-      $('##{locator}').siblings('.editor-container').find('.ProseMirror')[0].innerHTML = `#{params[:with]}}`;
+      $('##{locator}').siblings('.editor-container').find('.ProseMirror')[0].innerHTML = `#{params[:with]}`;
       $('##{locator}').val(`#{params[:with]}`)
     SCRIPT
   end
