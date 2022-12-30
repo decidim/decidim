@@ -49,7 +49,8 @@ export default function createEditor(container) {
       VideoEmbed,
       Image.configure({ uploadModal, uploadImagesPath, contentTypes: contentTypes.image })
     ],
-    content: input.value
+    content: input.value,
+    editable: !input.disabled
   });
 
   const toolbar = createEditorToolbar(editor);
