@@ -14,7 +14,7 @@ export default (tag = "div") => {
     callback(el);
     return proxy;
   };
-  proxy.append = function(element, ...rest) {
+  proxy.append = (element, ...rest) => {
     if (rest.length > 0) {
       proxy.append(element);
       rest.forEach((subEl) => proxy.append(subEl));
