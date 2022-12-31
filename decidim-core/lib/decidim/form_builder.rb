@@ -460,7 +460,7 @@ module Decidim
       max_file_size = options[:max_file_size] || max_file_size(object, attribute)
       button_label = options[:button_label] || choose_button_label(attribute)
       help_messages = options[:help] || upload_help(object, attribute, options)
-      redesigned = @template.redesign_enabled?
+      redesigned = @template.try(:redesign_enabled?)
 
       options = {
         attribute:,
