@@ -27,13 +27,14 @@ export default (tag = "div") => {
     if (rest.length > 0) {
       proxy.append(element);
       rest.forEach((subEl) => proxy.append(subEl));
+      return;
     } else if (!element) {
       return;
     }
 
     if (element instanceof Function) {
       proxy.append(element());
-    } else if (element.render instanceof Function) {
+    } else if (element?.render instanceof Function) {
       proxy.append(element.render());
     } else if (element instanceof Node && element.childNodes.length > 0) {
       el.appendChild(element);
