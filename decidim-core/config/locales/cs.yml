@@ -1459,6 +1459,7 @@ cs:
         report: Zpráva
         spam: Obsahuje clickbait, reklama, podvody nebo skripty.
         title: Nahlásit problém
+        visit_profile: Pokud chcete také zablokovat účastníka a zbytek jeho obsahu, přejděte na stránku profilu %{user_link}.
       flag_user_modal:
         already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
         close: Zavřít
