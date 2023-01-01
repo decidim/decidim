@@ -136,6 +136,8 @@ export default Image.extend({
 
           handleDOMEvents: {
             drop(view, event) {
+              const position = view.posAtCoords({left: event.clientX, top: event.clientY});
+
               const files = event?.dataTransfer?.files;
               if (!files || files.length < 1) {
                 return;
@@ -147,6 +149,12 @@ export default Image.extend({
               }
 
               event.preventDefault();
+
+              // Make sure the image is dropped at the right place. Otherwise
+              // the image would appear at the current text selection position
+              // and always in the beginning of the content in case the editor
+              // did not have focus when the image was dropped.
+              editor.chain().focus().setTextSelection(position.pos).run();
 
               Promise.all(images.map((image) => uploadImage(image, uploadImagesPath))).then((uploadedImages) => {
                 handleUploadedImages(uploadedImages);
