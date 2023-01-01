@@ -95,8 +95,8 @@ export default Node.create({
 
   addOptions() {
     return {
-      height: 360,
-      width: 640,
+      height: null,
+      width: null,
       inline: false
     }
   },
