@@ -56,9 +56,7 @@ export default function createEditor(container) {
   const toolbar = createEditorToolbar(editor);
   container.insertBefore(toolbar, editorContainer);
 
-  editor.on("update", () => {
-    input.value = editor.getHTML();
-  });
+  editor.on("update", () => (input.value = editor.getHTML()));
 
   return editor;
 }
