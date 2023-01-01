@@ -3,6 +3,7 @@ import Image from "@tiptap/extension-image";
 import { Plugin } from "prosemirror-state";
 
 import { getDictionary } from "src/decidim/i18n";
+import { fileNameToTitle } from "src/decidim/editor/utilities/file";
 
 const uploadImage = async (image, uploadUrl) => {
   const token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
@@ -18,7 +19,9 @@ const uploadImage = async (image, uploadUrl) => {
     body: data
   });
 
-  return response.json();
+  return new Promise((resolve) => {
+    response.json().then((json) => resolve({ title: fileNameToTitle(image.name), ...json }));
+  });
 }
 
 const filterImages = (files, contentTypes) => {
@@ -106,7 +109,7 @@ export default Image.extend({
           return;
         }
 
-        editor.commands.setImage({ src: imageData.url, alt: "" });
+        editor.commands.setImage({ src: imageData.url, alt: imageData.title });
       });
     }
 
