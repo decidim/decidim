@@ -114,7 +114,18 @@ export default Node.create({
 
   addAttributes() {
     return {
-      src: { default: null },
+      src: {
+        default: null,
+        parseHTML: (element) => {
+          const wrapper = element?.parentElement?.parentElement;
+          const embedUrl = wrapper?.dataset?.videoEmbed;
+          if (embedUrl && embedUrl.length > 0) {
+            return embedUrl;
+          }
+          return element.src;
+        }
+      },
+      title: { default: null },
       width: { default: this.options.width },
       height: { default: this.options.height },
       frameborder: { default: 0 }
@@ -122,7 +133,7 @@ export default Node.create({
   },
 
   parseHTML() {
-    return [{ tag: "div[data-video-embed] iframe" }];
+    return [{ tag: "div[data-video-embed] div iframe" }];
   },
 
   addCommands() {
@@ -181,24 +192,25 @@ export default Node.create({
   },
 
   renderHTML({ HTMLAttributes }) {
-    const embedUrl = getEmbedUrlFromVideoUrl({
-      url: HTMLAttributes.src
-    });
-
-    HTMLAttributes.src = embedUrl;
+    const { src } = HTMLAttributes;
+    HTMLAttributes.src = getEmbedUrlFromVideoUrl({ url: src  });
 
     return [
       "div",
-      { "data-video-embed": "" },
+      { "class": "editor-content-videoEmbed", "data-video-embed": src },
       [
-        "iframe",
-        mergeAttributes(
-          {
-            width: this.options.width,
-            height: this.options.height
-          },
-          HTMLAttributes
-        )
+        "div",
+        {},
+        [
+          "iframe",
+          mergeAttributes(
+            {
+              width: this.options.width,
+              height: this.options.height
+            },
+            HTMLAttributes
+          )
+        ]
       ]
     ];
   },
