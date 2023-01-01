@@ -150,21 +150,25 @@ export default Node.create({
       videoEmbedModal: () => async ({ dispatch }) => {
         if (dispatch) {
           const videoModal = new InputModal({
-            inputs: { src: { type: "text", label: i18n.urlLabel } }
+            inputs: {
+              src: { type: "text", label: i18n.urlLabel },
+              title: { type: "text", label: i18n.titleLabel }
+            }
           });
-          let { src } = this.editor.getAttributes("videoEmbed");
+          let { src, title } = this.editor.getAttributes("videoEmbed");
 
-          const modalState = await videoModal.toggle({ src });
+          const modalState = await videoModal.toggle({ src, title });
           if (modalState !== "save") {
             return false;
           }
 
           src = videoModal.getValue("src");
+          title = videoModal.getValue("title");
           if (!src || src.length < 1) {
             return false;
           }
 
-          return this.editor.chain().setVideo({ src }).focus().run();
+          return this.editor.chain().setVideo({ src, title }).focus().run();
         }
 
         return true;

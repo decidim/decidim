@@ -1726,6 +1726,7 @@ en:
           blank: New tab
           default: Default (same tab)
       videoEmbed:
+        titleLabel: Title
         urlLabel: Video URL
     inputModal:
       buttons:
