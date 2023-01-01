@@ -62,10 +62,7 @@ export default Image.extend({
           const { uploadModal } = this.options;
           let { src, alt } = this.editor.getAttributes("image");
 
-          const modalState = await uploadModal.toggle({
-            src,
-            alt
-          }, {
+          const modalState = await uploadModal.toggle({ src, alt }, {
             inputLabel: i18n.altLabel,
             uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
           });
@@ -85,13 +82,13 @@ export default Image.extend({
   },
 
   parseHTML() {
-    return [{ tag: "p[data-image] img[src]:not([src^='data:'])" }];
+    return [{ tag: "div[data-image] img[src]:not([src^='data:'])" }];
   },
 
   renderHTML({ HTMLAttributes }) {
     return [
-      "p",
-      { "data-image": "" },
+      "div",
+      { "class": "editor-content-image", "data-image": "" },
       [
         "img",
         mergeAttributes(this.options.HTMLAttributes, HTMLAttributes)
