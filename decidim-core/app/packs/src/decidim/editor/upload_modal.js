@@ -1,3 +1,5 @@
+import { fileNameToTitle } from "src/decidim/editor/utilities/file";
+
 const createElement = (template) => {
   const el = document.createElement("div");
   el.innerHTML = template;
@@ -145,7 +147,7 @@ export default class UploadModal {
 
     const titleInput = this.inputSection.querySelector(".attachment-title");
     if (titleInput && (!titleInput.value || titleInput.value.length < 1)) {
-      titleInput.value = file.name.split(".")[0];
+      titleInput.value = fileNameToTitle(file.name);
     }
 
     this.updateCurrentFile();
