@@ -40,10 +40,10 @@ export default (tag = "div") => {
       el.appendChild(element);
     }
   });
-  proxy.render = (test) => {
-    if (test instanceof Function && !test()) {
+  proxy.render = (condition) => {
+    if (condition instanceof Function && !condition(el)) {
       return null;
-    } else if (test === false) {
+    } else if (condition === false) {
       return null;
     }
     return el;
