@@ -183,7 +183,7 @@ module Decidim
           end
 
           it "serializes the body without HTML tags" do
-            expected_body = <<~TEXT
+            expected_body = <<~TEXT.chomp
               ----------------------------
               This is my "heading 2" title
               ----------------------------
@@ -204,11 +204,11 @@ module Decidim
               Here is code block
             TEXT
 
-            expect(serialized[:body]["en"]).to eq(expected_body.chomp)
+            expect(serialized[:body]["en"]).to eq(expected_body)
             expect(serialized[:body]["en"]).to include("Logo alt attribute")
-            expect(serialized[:body]["machine_translation"]["es"]).to eq(expected_body.chomp)
+            expect(serialized[:body]["machine_translation"]["es"]).to eq(expected_body)
             expect(serialized[:body]["machine_translation"]["es"]).to include("Logo alt attribute")
-            expect(serialized[:body]["machine_translation"]["ca"]).to eq(expected_body.chomp)
+            expect(serialized[:body]["machine_translation"]["ca"]).to eq(expected_body)
             expect(serialized[:body]["machine_translation"]["ca"]).to include("Logo alt attribute")
           end
 
