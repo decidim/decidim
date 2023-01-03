@@ -18,7 +18,6 @@
     "@tiptap/extension-image": "^2.0.0-beta.199",
     "@tiptap/extension-link": "^2.0.0-beta.199",
     "@tiptap/extension-underline": "^2.0.0-beta.199",
-    "@tiptap/extension-youtube": "^2.0.0-beta.199",
     "@tiptap/starter-kit": "^2.0.0-beta.199",
     "@zeitiger/appendaround": "^1.0.0",
     "a11y-accordion-component": "^1.2.6",
