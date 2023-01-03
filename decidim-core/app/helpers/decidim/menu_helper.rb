@@ -25,6 +25,15 @@ module Decidim
       )
     end
 
+    def breadcrumb_root_menu
+      @breadcrumb_root_menu ||= ::Decidim::BreadcrumbRootMenuPresenter.new(
+        :menu,
+        self,
+        element_class: "py-3 md:py-3.5",
+        container_options: { class: "w-full md:w-1/2 mt-8 md:mt-0 divide-y divide-gray-3 grid md:grid-cols-2 gap-x-6 text-secondary" }
+      )
+    end
+
     def footer_menu
       @footer_menu ||= ::Decidim::FooterMenuPresenter.new(
         :menu,
