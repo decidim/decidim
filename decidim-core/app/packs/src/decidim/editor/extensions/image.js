@@ -20,14 +20,15 @@ const uploadImage = async (image, uploadUrl) => {
       cache: "no-cache",
       headers: { "X-CSRF-Token": token },
       body: data
-    }).then(
-      (response) => {
+    }).then((response) => {
+      return new Promise((responseResolve, responseReject) => {
         if (response.ok) {
-          return response.json();
+          response.json().then(responseResolve).catch(responseReject);
+        } else {
+          responseResolve({ message: i18n.uploadError });
         }
-        return { message: i18n.uploadError };
-      }
-    ).then(
+      });
+    }).then(
       (json) => resolve({ title: fileNameToTitle(image.name), ...json })
     ).catch(reject);
   });
