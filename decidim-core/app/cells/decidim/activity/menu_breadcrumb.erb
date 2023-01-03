@@ -1,0 +1,15 @@
+<div class="flex justify-between gap-4" id="<%= element_id %>" data-activity>
+  <div class="text-sm text-gray-2 whitespace-nowrap flex-none"><%= created_at %></div>
+  <div class="flex flex-col grow space-y-1 text-sm">
+    <span>
+      <%= title if title.present? %>
+      <a href="<%= resource_link_path %>">
+        <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
+      </a>
+    </span>
+    <span class="text-gray-2"><%= participatory_space_link %></span>
+  </div>
+  <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
+    <%= author %>
+  </div>
+</div>

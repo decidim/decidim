@@ -12,10 +12,12 @@ module Decidim
     include Decidim::SanitizeHelper
     include ActionView::Helpers::DateHelper
 
+    LAYOUTS = [:show, :menu_breadcrumb].freeze
+
     def show
       return unless renderable?
 
-      render
+      render layout
     end
 
     # Since activity logs could be linked to resource no longer available
@@ -88,11 +90,16 @@ module Decidim
     delegate :action, to: :model
 
     def element_id
-      "action-#{model.id}"
+      "#{id_prefix}-#{model.id}"
+    end
+
+    def id_prefix
+      @id_prefix ||= context[:layout].presence&.dasherize || "action"
     end
 
     def cache_hash
       hash = []
+      hash << layout
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
       hash << model.cache_key_with_version
@@ -104,6 +111,10 @@ module Decidim
     end
 
     private
+
+    def layout
+      @layout ||= LAYOUTS.include?(context[:layout]) ? context[:layout] : :show
+    end
 
     def published?
       return true unless resource.respond_to?(:published?)
@@ -119,6 +130,10 @@ module Decidim
       model.organization_lazy
     end
 
+    def author_options
+      @author_options ||= context[:author_options].presence || {}
+    end
+
     def author
       return unless show_author? && user.is_a?(UserBaseEntity)
 
@@ -131,7 +146,7 @@ module Decidim
 
       return unless presenter
 
-      cell "decidim/author", presenter
+      cell "decidim/author", presenter, author_options
     end
 
     def participatory_space
