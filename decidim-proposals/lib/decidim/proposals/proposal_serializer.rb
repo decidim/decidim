@@ -33,7 +33,7 @@ module Decidim
           },
           component: { id: component.id },
           title: proposal.title,
-          body: strip_tags_from(proposal.body),
+          body: convert_to_plain_text(proposal.body),
           address: proposal.address,
           latitude: proposal.latitude,
           longitude: proposal.longitude,
@@ -96,13 +96,10 @@ module Decidim
       end
 
       # Recursively strips HTML tags from given Hash strings using convert_to_text from Premailer
-      def strip_tags_from(hash)
-        return hash unless hash.is_a?(Hash)
-        return hash if hash.blank?
+      def convert_to_plain_text(value)
+        return value.transform_values { |v| convert_to_plain_text(v) } if value.is_a?(Hash)
 
-        hash.transform_values do |v|
-          v.is_a?(Hash) ? strip_tags_from(v) : convert_to_text(v)
-        end
+        convert_to_text(value)
       end
     end
   end
