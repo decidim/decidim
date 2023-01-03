@@ -17,7 +17,6 @@
 <% content_for :aside do %>
 
   <%
-
   # REDESIGN_PENDING: move logic to controller
 
   data = []
@@ -39,7 +38,6 @@
   data << ["developer_group", translated_attribute(current_participatory_space.developer_group)] if translated_attribute(current_participatory_space.developer_group).present?
   data << ["start_date", l(current_participatory_space.start_date, format: :long)] if current_participatory_space.start_date.present?
   data << ["end_date", l(current_participatory_space.end_date, format: :long)] if current_participatory_space.end_date.present?
-
   %>
 
   <div class="process-about__aside">

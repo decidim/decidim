@@ -11,7 +11,8 @@
       <div>
         <%
           # REDESIGN_PENDING: Decimal number between 0-1. Higher when closer to date
-          value = rand(1..100).to_f / 100 %>
+          value = rand(1..100).to_f / 100
+        %>
         <div class="card__highlight-loader" style="--value:<%= value %>;"></div>
         queda un mes
       </div>
