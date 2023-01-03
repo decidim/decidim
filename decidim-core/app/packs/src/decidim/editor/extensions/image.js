@@ -11,16 +11,25 @@ const uploadImage = async (image, uploadUrl) => {
   const data = new FormData();
   data.append("image", image);
 
-  const response = await fetch(uploadUrl, {
-    method: "POST",
-    mode: "cors",
-    cache: "no-cache",
-    headers: { "X-CSRF-Token": token },
-    body: data
-  });
+  const i18n = getDictionary("editor.extensions.image");
 
-  return new Promise((resolve) => {
-    response.json().then((json) => resolve({ title: fileNameToTitle(image.name), ...json }));
+  return new Promise((resolve, reject) => {
+    fetch(uploadUrl, {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      headers: { "X-CSRF-Token": token },
+      body: data
+    }).then(
+      (response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        return { message: i18n.uploadError };
+      }
+    ).then(
+      (json) => resolve({ title: fileNameToTitle(image.name), ...json })
+    ).catch(reject);
   });
 }
 

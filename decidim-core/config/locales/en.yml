@@ -1719,6 +1719,7 @@ en:
     extensions:
       image:
         altLabel: Alternative text for the image
+        uploadError: Uploading the file failed.
       link:
         hrefLabel: Link URL
         targetLabel: Target
