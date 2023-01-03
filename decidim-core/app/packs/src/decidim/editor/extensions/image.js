@@ -1,6 +1,7 @@
 import { mergeAttributes } from "@tiptap/core";
 import Image from "@tiptap/extension-image";
 import { Plugin } from "prosemirror-state";
+import { DOMSerializer } from "prosemirror-model";
 
 import { getDictionary } from "src/decidim/i18n";
 import { fileNameToTitle } from "src/decidim/editor/utilities/file";
@@ -65,6 +66,13 @@ export default Image.extend({
     };
   },
 
+  addAttributes() {
+    return {
+      ...this.parent?.(),
+      width: { default: null }
+    };
+  },
+
   addCommands() {
     const i18n = getDictionary("editor.extensions.image");
 
@@ -73,7 +81,7 @@ export default Image.extend({
       imageModal: () => async ({ dispatch }) => {
         if (dispatch) {
           const { uploadModal } = this.options;
-          let { src, alt } = this.editor.getAttributes("image");
+          let { src, alt, width } = this.editor.getAttributes("image");
 
           const modalState = await uploadModal.toggle({ src, alt }, {
             inputLabel: i18n.altLabel,
@@ -83,14 +91,117 @@ export default Image.extend({
             return false;
           }
 
+          if (uploadModal.getValue("src") !== src) {
+            // Reset the width to original width in case the image changed.
+            width = null;
+          }
+
           src = uploadModal.getValue("src");
           alt = uploadModal.getValue("alt");
 
-          return this.editor.chain().setImage({ src, alt }).focus().run();
+          return this.editor.chain().setImage({ src, alt, width }).focus().run();
         }
 
         return true;
       }
+    }
+  },
+
+  /**
+   * Wraps the editor elemnet around the resizable element and implements the
+   * resizer functionality.
+   *
+   * @returns {Object} The custom node view
+   */
+  addNodeView() {
+    const createControl = (position) => {
+      const el = document.createElement("div");
+      el.dataset.imageResizerControl = position;
+      return el;
+    };
+
+    return ({ editor, node }) => {
+      const resizer = document.createElement("div");
+      resizer.dataset.imageResizerWrapper = "";
+      resizer.append(createControl("top-left"));
+      resizer.append(createControl("top-right"));
+      resizer.append(createControl("bottom-left"));
+      resizer.append(createControl("bottom-right"));
+
+      const contentDOM = DOMSerializer.fromSchema(node.type.schema).serializeNode(node);
+      resizer.append(contentDOM);
+
+      const img = contentDOM.querySelector("img");
+      let activeResizeControl = null,
+          currentWidth = null,
+          originalWidth = null,
+          resizeStartPosition = null;
+      document.addEventListener("mousemove", (ev) => {
+        if (!activeResizeControl) {
+          return;
+        }
+
+        let diff = resizeStartPosition - ev.clientX;
+        if (activeResizeControl.match(/-left$/)) {
+          diff *= -1;
+        }
+
+        currentWidth = Math.round(originalWidth * (1 - diff / originalWidth));
+        if (currentWidth < 100) {
+          currentWidth = 100;
+        } else if (currentWidth >= img.naturalWidth) {
+          currentWidth = null;
+        }
+
+        editor.commands.updateAttributes("image", { width: currentWidth });
+      });
+      document.addEventListener("mouseup", () => {
+        activeResizeControl = resizeStartPosition = null;
+      });
+      resizer.querySelectorAll("[data-image-resizer-control]").forEach((ctrl) => {
+        ctrl.addEventListener("mousedown", (ev) => {
+          if (!editor.isEditable) {
+            return;
+          }
+
+          ev.preventDefault();
+          activeResizeControl = ctrl.dataset.imageResizerControl;
+          originalWidth = editor.getAttributes("image").width || img.naturalWidth;
+          resizeStartPosition = ev.clientX;
+        });
+      });
+
+      const dom = document.createElement("div");
+      dom.dataset.imageResizer = "";
+      dom.append(resizer);
+
+      return {
+        dom,
+        contentDOM,
+        update: (updatedNode) => {
+          if (updatedNode.type !== this.type) {
+            return false;
+          }
+          const { alt, src, title, width } = updatedNode.attrs;
+
+          img.alt = alt;
+          if (activeResizeControl === null && img.src !== src) {
+            img.src = src;
+          }
+          if (title) {
+            img.title = title;
+          } else {
+            img.removeAttribute("title");
+          }
+          if (width) {
+            img.width = width;
+          } else {
+            img.removeAttribute("width");
+          }
+
+          return true;
+        }
+      };
     }
   },
 

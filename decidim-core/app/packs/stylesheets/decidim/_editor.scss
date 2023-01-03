@@ -80,6 +80,44 @@ $paragraph-margin-bottom: 1rem !default;
           pointer-events: none;
         }
       }
+
+      [data-image-resizer]{
+        margin-bottom: $paragraph-margin-bottom;
+
+        &.ProseMirror-selectednode{
+          [data-image-resizer-wrapper]{
+            [data-image-resizer-control]{
+              display: block;
+            }
+          }
+        }
+
+        [data-image-resizer-wrapper]{
+          position: relative;
+          display: inline-block;
+
+          [data-image-resizer-control]{
+            display: none;
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #000;
+            background-color: #fff;
+            opacity: .8;
+          }
+
+          [data-image-resizer-control^="top-"]{ top: 0; }
+          [data-image-resizer-control^="bottom-"]{ bottom: 0; }
+          [data-image-resizer-control$="-left"]{ left: 0; }
+          [data-image-resizer-control$="-right"]{ right: 0; }
+
+          [data-image-resizer-control^="top-right"],
+          [data-image-resizer-control^="bottom-left"]{ cursor: nesw-resize; }
+
+          [data-image-resizer-control^="top-left"],
+          [data-image-resizer-control^="bottom-right"]{ cursor: nwse-resize; }
+        }
+      }
     }
   }
 }
@@ -92,6 +130,10 @@ $paragraph-margin-bottom: 1rem !default;
 
   .editor-content-videoEmbed{
     margin: 40px auto;
+  }
+
+  .editor-content-image{
+    margin-bottom: $paragraph-margin-bottom;
   }
 }
 
@@ -108,10 +150,6 @@ $paragraph-margin-bottom: 1rem !default;
   // within the content model.
   li p{
     margin-bottom: 0;
-  }
-
-  .editor-content-image{
-    margin-bottom: $paragraph-margin-bottom;
   }
 
   .editor-content-videoEmbed{
