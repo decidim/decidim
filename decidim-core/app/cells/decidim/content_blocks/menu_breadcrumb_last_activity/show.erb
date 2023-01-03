@@ -1,0 +1,9 @@
+<div class="bg-background rounded p-4 space-y-3">
+  <%= cell(
+        "decidim/activities",
+        valid_activities,
+        layout: :menu_breadcrumb,
+        author_options: { layout: :avatar }
+      ) %>
+</div>
+<%= arrow_link t("decidim.content_blocks.last_activity.name"), "", class: "mt-4 text-secondary" %>

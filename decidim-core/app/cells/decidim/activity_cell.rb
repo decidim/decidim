@@ -94,7 +94,7 @@ module Decidim
     end
 
     def id_prefix
-      @id_prefix ||= context[:layout].presence&.dasherize || "action"
+      @id_prefix ||= context[:layout].to_s.presence&.dasherize || "action"
     end
 
     def cache_hash
@@ -113,7 +113,7 @@ module Decidim
     private
 
     def layout
-      @layout ||= LAYOUTS.include?(context[:layout]) ? context[:layout] : :show
+      @layout ||= LAYOUTS.include?(context[:layout]&.to_sym) ? context[:layout] : :show
     end
 
     def published?
