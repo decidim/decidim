@@ -1729,6 +1729,7 @@ en:
         titleLabel: Title
         urlLabel: Video URL
     inputModal:
+      close: Close modal
       buttons:
         cancel: Cancel
         remove: Remove
@@ -1755,6 +1756,8 @@ en:
       textStyle:
         heading: Heading %level%
         normal: Normal
+    upload:
+      uploadedFile: Uploaded file
   emojis:
     button: Add emoji
     categories:

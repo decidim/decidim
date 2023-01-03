@@ -1,3 +1,5 @@
+$paragraph-margin-bottom: 1rem !default;
+
 // TODO: Write in Tailwind
 .editor-container{
   display: flex;
@@ -44,6 +46,8 @@
       display: inline-block;
       width: auto;
       margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
       height: 2rem;
     }
 
@@ -93,6 +97,13 @@
 
 .rich-text-display,
 .editor-container .editor-input .ProseMirror{
+  // Extra styling needed temporarily for redesign
+  p,
+  ul,
+  ol{
+    margin-bottom: $paragraph-margin-bottom;
+  }
+
   // Tiptap adds an extra <p> inside list items to support multiple sub-elements
   // within the content model.
   li p{

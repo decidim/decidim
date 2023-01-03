@@ -1,3 +1,4 @@
+import icon from "src/decidim/redesigned_icon";
 import { fileNameToTitle } from "src/decidim/editor/utilities/file";
 
 const createElement = (template) => {
@@ -19,25 +20,45 @@ const createElement = (template) => {
  * inputs as they are only used.
  */
 export default class UploadModal {
-  constructor(element) {
+  constructor(element, { i18n }) {
     this.element = element;
+    this.i18n = i18n;
+    this.legacyDesign = Boolean(element.dataset.reveal);
 
     this.values = { src: null, alt: null };
     this.dropZoneEnabled = true;
     this.exitMode = "cancel";
-    this.saveButton = this.element.querySelector("button.add-file-file");
-    this.cancelButton = this.element.querySelector("button.cancel-attachment");
-    this.dropZone = this.element.querySelector(".dropzone");
+
+    let extra = null;
     this.messageSection = document.createElement("div");
     this.currentFileSection = document.createElement("div");
     this.inputSection = document.createElement("div");
+    if (this.legacyDesign) {
+      this.saveButton = this.element.querySelector("button.add-file-file");
+      this.cancelButton = this.element.querySelector("button.cancel-attachment");
+      this.dropZone = this.element.querySelector(".dropzone");
 
-    const dc = this.element.querySelector(".dropzone-container");
-    const extra = document.createElement("div");
-    dc.parentNode.insertBefore(extra, dc.nextSibling);
+      const dc = this.element.querySelector(".dropzone-container");
+      extra = document.createElement("div");
+      dc.parentNode.insertBefore(extra, dc.nextSibling);
+    } else {
+      this.saveButton = this.element.querySelector("button[data-dropzone-save]");
+      this.cancelButton = this.element.querySelector("button[data-dropzone-cancel]");
+      this.dropZone = this.element.querySelector("[data-dropzone]");
+
+      extra = document.createElement("div");
+      this.dropZone.parentNode.insertBefore(extra, this.dropZone.nextSibling);
+    }
+
     extra.append(this.messageSection);
     extra.append(this.currentFileSection);
-    extra.append(this.inputSection);
+
+    if (this.legacyDesign) {
+      extra.append(this.inputSection);
+    } else {
+      this.dropZone.parentNode.querySelector(".upload-modal__text").classList.add("mb-0");
+      this.dropZone.parentNode.append(this.inputSection);
+    }
 
     this.saveButton.addEventListener("click", () => {
       this.exitMode = "save";
@@ -46,16 +67,25 @@ export default class UploadModal {
       this.exitMode = "cancel";
     });
 
+    const toggleDragover = (active) => {
+      if (active) {
+        this.dropZone.classList.add("is-dragover");
+        this.dropZone.querySelectorAll(".upload-modal__dropzone").forEach((el) => el.classList.add("is-dragover"));
+      } else {
+        this.dropZone.classList.remove("is-dragover");
+        this.dropZone.querySelectorAll(".upload-modal__dropzone").forEach((el) => el.classList.remove("is-dragover"));
+      }
+    };
     const dropEvents = {
       dragenter: (event) => event.preventDefault(),
-      dragleave: () => this.dropZone.classList.remove("is-dragover"),
+      dragleave: () => toggleDragover(false),
       dragover: (event) => {
         event.preventDefault();
-        this.dropZone.classList.add("is-dragover");
+        toggleDragover(true);
       },
       drop: (event) => {
         event.preventDefault();
-        this.dropZone.classList.remove("is-dragover");
+        toggleDragover(false);
         this.messageSection.innerHTML = "";
 
         const files = event.dataTransfer.files;
@@ -69,7 +99,7 @@ export default class UploadModal {
       this.dropZone.addEventListener(key, dropEvents[key]);
     });
 
-    $(this.element).on("closed.zf.reveal", () => {
+    const handleClose = () => {
       const titleInput = this.inputSection.querySelector(".attachment-title");
       if (titleInput) {
         this.values.alt = titleInput.value;
@@ -79,7 +109,12 @@ export default class UploadModal {
         this.callback(this.exitMode);
         this.callback = null;
       }
-    });
+    };
+    if (this.legacyDesign) {
+      $(this.element).on("closed.zf.reveal", handleClose);
+    } else {
+      this.element.addEventListener("close.dialog", () => setTimeout(handleClose, 0));
+    }
   }
 
   getValue(key) {
@@ -95,42 +130,77 @@ export default class UploadModal {
 
       this.updateCurrentFile();
 
-      const titleEl = this.element.querySelector(".reveal__title");
+      let titleEl = null;
+      if (this.legacyDesign) {
+        titleEl = this.element.querySelector(".reveal__title");
+      } else {
+        titleEl = this.element.querySelector("[data-dialog-title]");
+      }
+
       if (values.src && values.src.length > 0) {
         titleEl.innerText = titleEl.dataset.editlabel;
       } else {
         titleEl.innerText = titleEl.dataset.addlabel;
       }
 
-      const titleSection = createElement(`
-        <div class="row">
-          <label>
-            ${options.inputLabel}
-            <input class="attachment-title" type="text" name="alt">
-          </label>
-        </div>
-      `);
+      const titleInputHtml = `
+        <label>
+          ${options.inputLabel}
+          <input class="attachment-title" type="text" name="alt">
+        </label>
+      `;
+
+      let titleSection = null;
+      if (this.legacyDesign) {
+        titleSection = createElement(`<div class="row">${titleInputHtml}</div>`);
+      } else {
+        titleSection = createElement(`<div class="form__wrapper">${titleInputHtml}</div>`);
+      }
       titleSection.querySelector(".attachment-title").value = values.alt || "";
       this.inputSection.innerHTML = "";
       this.inputSection.append(titleSection);
 
       this.uploadHandler = options.uploadHandler;
-      $(this.element).foundation("open");
+
+      if (this.legacyDesign) {
+        $(this.element).foundation("open");
+      } else {
+        this.element.dialog.open();
+      }
 
       this.callback = resolve;
     });
   }
 
-  updateCurrentFile() {
+  updateCurrentFile(file) {
+    const items = this.dropZone.querySelector("[data-dropzone-items]");
+
     if (!this.values.src || this.values.src.length < 1) {
-      this.currentFileSection.innerHTML = "";
+      if (this.legacyDesign) {
+        this.currentFileSection.innerHTML = "";
+      } else {
+        items.setAttribute("hidden", "hidden");
+        items.innerHTML = "";
+      }
       return;
     }
 
     this.saveButton.disabled = false;
-    this.currentFileSection.innerHTML = `
-      <img src="${this.values.src}" alt="Uploaded file" style="max-width:100px">
-    `;
+    if (this.legacyDesign) {
+      this.currentFileSection.innerHTML = `
+        <img src="${this.values.src}" alt="${this.i18n.uploadedFile}" style="max-width:100px">
+      `;
+    } else if (file) {
+      items.removeAttribute("hidden");
+      items.innerHTML = `
+        <li data-filename="${file.name}" data-state="validated">
+          <div data-template="ok">
+            <div><img src="${this.values.src}" alt="${this.i18n.uploadedFile}"></div>
+            <span>${file.name}</span>
+          </div>
+        </li>
+      `;
+    }
   }
 
   async uploadFile(file) {
@@ -140,7 +210,25 @@ export default class UploadModal {
 
     const response = await this.uploadHandler(file);
     if (!response.url) {
-      this.messageSection.innerHTML = `<div class="form-error is-visible">${response.message}</div>`;
+      if (this.legacyDesign) {
+        this.messageSection.innerHTML = `<div class="form-error is-visible">${response.message}</div>`;
+      } else {
+        const items = this.dropZone.querySelector("[data-dropzone-items]");
+        const locales = JSON.parse(items.dataset.locales);
+        items.removeAttribute("hidden");
+        items.innerHTML = `
+          <li data-filename="${file.name}" data-state="validated">
+            <div data-template="error">
+              <div>${icon("error-warning-line")}</div>
+              <div>
+                <span>${file.name}</span>
+                <span>${locales.validation_error}</span>
+                <ul><li>${response.message}</li></ul>
+              </div>
+            </div>
+          </li>
+        `;
+      }
       return;
     }
     this.values.src = response.url;
@@ -150,6 +238,6 @@ export default class UploadModal {
       titleInput.value = fileNameToTitle(file.name);
     }
 
-    this.updateCurrentFile();
+    this.updateCurrentFile(file);
   }
 }

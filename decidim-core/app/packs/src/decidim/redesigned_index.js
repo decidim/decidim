@@ -136,7 +136,7 @@ const initializer = (element = document) => {
 
   formDatePicker();
 
-  $(".editor-container").each((_idx, container) => {
+  document.querySelectorAll(".editor-container").forEach((container) => {
     createEditor(container);
   });
 
@@ -196,8 +196,12 @@ const initializer = (element = document) => {
       closingSelector: `[data-dialog-close="${dialog}"]`,
       backdropSelector: `[data-dialog="${dialog}"]`,
       enableAutoFocus: false,
-      onOpen: (params) => {
-        setFocusOnTitle(params)
+      onOpen: (el) => {
+        setFocusOnTitle(el)
+        el.dispatchEvent(new CustomEvent("open.dialog"));
+      },
+      onClose: (el) => {
+        el.dispatchEvent(new CustomEvent("close.dialog"));
       },
       // optional parameters (whenever exists the id, it'll add the tagging)
       ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && {
@@ -207,6 +211,7 @@ const initializer = (element = document) => {
         describedby: `dialog-desc-${dialog}`
       })
     });
+    elem.dialog = modal;
 
     // NOTE: when a remote modal is open, the contents are empty
     // once they're in the DOM, we append the ARIA attributes

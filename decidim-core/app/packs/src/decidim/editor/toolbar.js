@@ -34,7 +34,7 @@ const createEditorToolbarToggle = (editor, { type, label, icon, action, activata
 
 const createEditorToolbarSelect = (editor, { type, label, options, action, activatable = true }) => {
   return html("select").dom((ctrl) => {
-    ctrl.classList.add("editor-toolbar-control");
+    ctrl.classList.add("editor-toolbar-control", "!pr-8");
     ctrl.dataset.editorType = type;
     if (activatable) {
       ctrl.dataset.editorSelectionType = type;

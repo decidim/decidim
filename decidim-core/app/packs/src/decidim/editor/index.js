@@ -8,6 +8,7 @@ import Indent from "src/decidim/editor/extensions/indent";
 import Link from "src/decidim/editor/extensions/link";
 import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 
+import { getDictionary } from "src/decidim/i18n";
 import createEditorToolbar from "src/decidim/editor/toolbar";
 import UploadModal from "src/decidim/editor/upload_modal";
 
@@ -31,9 +32,10 @@ export default function createEditor(container) {
   editorContainer.classList.add("editor-input");
   container.appendChild(editorContainer);
 
+  const i18nUpload = getDictionary("editor.upload");
   const options = JSON.parse(container.dataset.options);
   const { uploadImagesPath, uploadModalSelector, contentTypes } = options;
-  const uploadModal = new UploadModal(document.querySelector(uploadModalSelector));
+  const uploadModal = new UploadModal(document.querySelector(uploadModalSelector), { i18n: i18nUpload });
 
   const editor = new Editor({
     element: editorContainer,
