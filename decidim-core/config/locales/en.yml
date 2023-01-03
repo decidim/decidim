@@ -1730,11 +1730,11 @@ en:
         titleLabel: Title
         urlLabel: Video URL
     inputModal:
-      close: Close modal
       buttons:
         cancel: Cancel
         remove: Remove
         save: Save
+      close: Close modal
     toolbar:
       control:
         blockquote: Blockquote
