@@ -15,5 +15,11 @@ module Decidim
         safe_join(output)
       end
     end
+
+    def arrow_link(text, url, args = {})
+      link_to url, class: "button button__text-secondary #{args.with_indifferent_access[:class]}" do
+        "<span>#{text}</span> #{redesigned_icon("arrow-right-line")}".html_safe
+      end
+    end
   end
 end
