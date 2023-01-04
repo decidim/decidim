@@ -1,4 +1,9 @@
 $paragraph-margin-bottom: 1rem !default;
+$editor-active-color: #487bda;
+
+@mixin editor-active{
+  outline: 4px solid $editor-active-color;
+}
 
 // TODO: Write in Tailwind
 .editor-container{
@@ -73,6 +78,23 @@ $paragraph-margin-bottom: 1rem !default;
       min-height: 100%;
       outline: 0;
 
+      &:focus,
+      &.dialog-open{
+        [data-video-embed].ProseMirror-selectednode{
+          @include editor-active;
+        }
+
+        [data-image-resizer].ProseMirror-selectednode{
+          [data-image-resizer-wrapper]{
+            @include editor-active;
+
+            [data-image-resizer-control]{
+              display: block;
+            }
+          }
+        }
+      }
+
       [data-video-embed]{
         margin-bottom: $paragraph-margin-bottom;
 
@@ -83,14 +105,6 @@ $paragraph-margin-bottom: 1rem !default;
 
       [data-image-resizer]{
         margin-bottom: $paragraph-margin-bottom;
-
-        &.ProseMirror-selectednode{
-          [data-image-resizer-wrapper]{
-            [data-image-resizer-control]{
-              display: block;
-            }
-          }
-        }
 
         [data-image-resizer-wrapper]{
           position: relative;
