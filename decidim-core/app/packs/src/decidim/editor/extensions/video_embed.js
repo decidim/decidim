@@ -149,7 +149,7 @@ export default Node.create({
 
       videoEmbedModal: () => async ({ dispatch }) => {
         if (dispatch) {
-          const videoModal = new InputModal({
+          const videoModal = new InputModal(this.editor, {
             inputs: {
               src: { type: "text", label: i18n.urlLabel },
               title: { type: "text", label: i18n.titleLabel }
@@ -165,10 +165,11 @@ export default Node.create({
           src = videoModal.getValue("src");
           title = videoModal.getValue("title");
           if (!src || src.length < 1) {
+            this.editor.commands.focus(null, { scrollIntoView: false });
             return false;
           }
 
-          return this.editor.chain().setVideo({ src, title }).focus().run();
+          return this.editor.chain().setVideo({ src, title }).focus(null, { scrollIntoView: false }).run();
         }
 
         return true;

@@ -20,10 +20,12 @@ const createElement = (template) => {
  * inputs as they are only used.
  */
 export default class UploadModal {
-  constructor(element, { i18n }) {
+  constructor(element, { i18n, onOpen, onClose }) {
     this.element = element;
     this.i18n = i18n;
     this.legacyDesign = Boolean(element.dataset.reveal);
+    this.onOpen = onOpen;
+    this.onClose = onClose;
 
     this.values = { src: null, alt: null };
     this.dropZoneEnabled = true;
@@ -105,6 +107,9 @@ export default class UploadModal {
         this.values.alt = titleInput.value;
       }
 
+      if (this.onClose) {
+        this.onClose(this);
+      }
       if (this.callback) {
         this.callback(this.exitMode);
         this.callback = null;
@@ -169,6 +174,10 @@ export default class UploadModal {
       }
 
       this.callback = resolve;
+
+      if (this.onOpen) {
+        this.onOpen(this);
+      }
     });
   }
 

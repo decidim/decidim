@@ -19,7 +19,7 @@ export default Link.extend({
 
           let { href, target } = this.editor.getAttributes("link");
 
-          const linkModal = new InputModal({
+          const linkModal = new InputModal(this.editor, {
             inputs: {
               href: { type: "text", label: i18n.hrefLabel },
               target: {
@@ -41,10 +41,10 @@ export default Link.extend({
           }
 
           if (modalState !== "save" || !href || href.trim().length < 1) {
-            return this.editor.chain().focus().unsetLink().run();
+            return this.editor.chain().focus(null, { scrollIntoView: false }).unsetLink().run();
           }
 
-          return this.editor.chain().focus().setLink({ href, target }).run();
+          return this.editor.chain().focus(null, { scrollIntoView: false }).setLink({ href, target }).run();
         }
 
         return true;

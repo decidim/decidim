@@ -3,7 +3,8 @@ import Dialog from "a11y-dialog-component";
 import { getDictionary } from "src/decidim/i18n";
 
 export default class InputModal {
-  constructor({ inputs, removeButton }) {
+  constructor(editor, { inputs, removeButton }) {
+    this.editor = editor;
     // The legacy design should not have any elements on the page with the
     // `data-dialog` attribute.
     this.legacyDesign = !document.querySelector("[data-dialog]");
@@ -147,6 +148,8 @@ export default class InputModal {
 
       this.callback = resolve;
 
+      this.editor.commands.toggleDialog(true);
+
       if (this.legacyDesign) {
         // Foundation needs jQuery
         $(this.element).foundation("open");
@@ -157,6 +160,8 @@ export default class InputModal {
   }
 
   close() {
+    this.editor.chain().toggleDialog(false).focus(null, { scrollIntoView: false }).run()
+
     if (this.legacyDesign) {
       // Foundation needs jQuery
       $(this.element).foundation("close");

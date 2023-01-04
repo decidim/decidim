@@ -6,6 +6,7 @@ import CodeBlock from "src/decidim/editor/extensions/code_block";
 import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
 import Link from "src/decidim/editor/extensions/link";
+import Dialog from "src/decidim/editor/extensions/dialog";
 import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 
 import { getDictionary } from "src/decidim/i18n";
@@ -16,10 +17,7 @@ import UploadModal from "src/decidim/editor/upload_modal";
  * Creates a new rich text editor instance.
  *
  * TODO:
- * - Confirm configuration is according to the legacy Quill configs (e.g.
- *   pasting options, pasting content with styling, etc.)
- * - Replace legacy classes in tests/markup .ql-editor, .ql-reset-decidim,
- *   .ql-video, .ql-toolbar, etc.
+ * - Replace legacy classes in tests/markup .ql-editor
  *
  * @param {HTMLElement} container The element that contains the editor.
  * @return {Editor} The rich text editor instance.
@@ -31,18 +29,27 @@ export default function createEditor(container) {
   editorContainer.classList.add("editor-input");
   container.appendChild(editorContainer);
 
+  let editor = null;
   const i18nUpload = getDictionary("editor.upload");
   const options = JSON.parse(container.dataset.options);
   const { uploadImagesPath, uploadModalSelector, contentTypes } = options;
-  const uploadModal = new UploadModal(document.querySelector(uploadModalSelector), { i18n: i18nUpload });
+  const uploadModal = new UploadModal(
+    document.querySelector(uploadModalSelector),
+    {
+      i18n: i18nUpload,
+      onOpen: () => editor.commands.toggleDialog(true),
+      onClose: () => editor.chain().toggleDialog(false).focus(null, { scrollIntoView: false }).run()
+    }
+  );
 
-  const editor = new Editor({
+  editor = new Editor({
     element: editorContainer,
     extensions: [
       StarterKit.configure({
         heading: { levels: [2, 3, 4, 5, 6] },
         codeBlock: false
       }),
+      Dialog,
       Indent,
       CodeBlock,
       Link.configure({ openOnClick: false }),
