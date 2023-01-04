@@ -10,6 +10,10 @@ module Decidim
       def title
         "Decidim"
       end
+
+      def current_admin?(admin)
+        current_admin == admin
+      end
     end
   end
 end
