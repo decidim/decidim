@@ -2,8 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
-    class ProcessDropdownMetadataCell < Decidim::ViewModel
-      include Decidim::SanitizeHelper
+    class ProcessDropdownMetadataCell < Decidim::ParticipatorySpaceDropdownMetadataCell
       include Decidim::TwitterSearchHelper
       include ParticipatoryProcessHelper
       include Decidim::ComponentPathHelper
@@ -18,16 +17,18 @@ module Decidim
 
       private
 
-      def title
-        decidim_html_escape(translated_attribute(process.title))
-      end
-
       def step_title
         translated_attribute process.active_step.title
       end
 
       def hashtag
         @hashtag ||= decidim_html_escape(process.hashtag) if process.hashtag.present?
+      end
+
+      def nav_items
+        return super unless try(:process_nav_items)
+
+        process_nav_items
       end
     end
   end
