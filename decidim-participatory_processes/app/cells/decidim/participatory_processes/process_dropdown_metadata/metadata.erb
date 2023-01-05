@@ -6,12 +6,12 @@
   <span class="flex items-center space-x-2">
     <%= icon "direction-line", class: "text-gray fill-current" %>
 
-  <span class="font-semibold"><%= t("layouts.decidim.participatory_processes.participatory_process.active_step") %></span>
-  <%= link_to(
-    step_title,
-    decidim_participatory_processes.participatory_process_participatory_process_steps_path(process),
-    class: "text-secondary underline"
-  ) %>
+    <span class="font-semibold"><%= t("layouts.decidim.participatory_processes.participatory_process.active_step") %></span>
+    <%= link_to(
+      step_title,
+      decidim_participatory_processes.participatory_process_participatory_process_steps_path(process),
+      class: "text-secondary underline"
+    ) %>
   </span>
 
   <% if hashtag.present? %>

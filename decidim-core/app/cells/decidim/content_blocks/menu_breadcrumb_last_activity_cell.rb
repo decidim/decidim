@@ -5,7 +5,6 @@ module Decidim
     # A cell to be rendered as a content block with the latest activities performed
     # in a Decidim Organization.
     class MenuBreadcrumbLastActivityCell < LastActivityCell
-
       private
 
       # A MD5 hash of model attributes because is needed because
