@@ -141,22 +141,22 @@ describe PasswordValidator do
       end
     end
 
-    describe "email domain included in password" do
-      let(:email) { "john.doe@decidim.com" }
+    describe "parts of email domain included in password" do
+      context "when less than 4 character parts" do
+        let(:email) { "john.doe@1.lvh.me" }
+        let(:value) { "Summer1Snowlvhme" }
 
-      context "when less than 4 characters match" do
-        let(:value) { "December1945" }
-
-        it "is valid" do
+        it "ignores domain validation" do
           expect(validator).to be(true)
           expect(record.errors[attribute]).to be_empty
         end
       end
 
-      context "when 4 or more characters match" do
+      context "when 4 or more character parts" do
+        let(:email) { "john.doe@decidim.com" }
         let(:value) { "Decidim1945" }
 
-        it "is too similar with email domain" do
+        it "validates with domain" do
           expect(validator).to be(false)
           expect(record.errors[attribute]).to eq(["is too similar to your email"])
         end
@@ -190,22 +190,22 @@ describe PasswordValidator do
       end
     end
 
-    describe "part of organization host included in password" do
-      let(:organization) { create(:organization, host: "www.decidim.com") }
+    describe "parts of organization host included in password" do
+      let(:organization) { create(:organization, host: "www.decidim.1.lvh.me") }
 
-      context "when less than 4 characters match" do
-        let(:value) { "December1945" }
+      context "when less than 4 character parts" do
+        let(:value) { "Summer1Snowlvhme" }
 
-        it "is valid" do
+        it "ignores domain validation" do
           expect(validator).to be(true)
           expect(record.errors[attribute]).to be_empty
         end
       end
 
-      context "when 4 or more characters match" do
+      context "when 4 or more character parts" do
         let(:value) { "Decidim1945" }
 
-        it "is too similar with domain" do
+        it "validates with domain" do
           expect(validator).to be(false)
           expect(record.errors[attribute]).to eq(["is too similar to this domain name"])
         end
