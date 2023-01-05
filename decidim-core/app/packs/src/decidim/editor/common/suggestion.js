@@ -69,12 +69,9 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
       suggestion = document.createElement("div");
       document.body.append(suggestion);
       suggestion.classList.add("editor-suggestions", "hidden", "hide");
-
-      console.log("START");
     },
 
     onUpdate({ clientRect, items }) {
-      console.log("UPDATE");
       if (!clientRect || !suggestion) {
         return;
       }
@@ -135,7 +132,6 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
     },
 
     onExit() {
-      console.log("EXIT");
       suggestion.remove();
 
       suggestion = suggestionItems = selectCommand = currentEditor = currentRange = null;
