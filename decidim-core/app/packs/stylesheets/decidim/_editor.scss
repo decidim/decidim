@@ -1,5 +1,6 @@
 $paragraph-margin-bottom: 1rem !default;
 $editor-active-color: #487bda;
+$editor-disabled-color: #eee;
 
 @mixin editor-active{
   outline: 4px solid $editor-active-color;
@@ -93,6 +94,11 @@ $editor-active-color: #487bda;
             }
           }
         }
+      }
+
+      &[contenteditable="false"]{
+        cursor: not-allowed;
+        background: $editor-disabled-color;
       }
 
       [data-video-embed]{
