@@ -139,9 +139,21 @@ describe "Admin manages organization", type: :system do
           )
         end
         let(:terms_content) do
+          img_content = <<~IMG.gsub(/\n\s*/, "")
+            <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
+              <div data-image-resizer-wrapper="">
+                <div data-image-resizer-control="top-left"></div>
+                <div data-image-resizer-control="top-right"></div>
+                <div data-image-resizer-control="bottom-left"></div>
+                <div data-image-resizer-control="bottom-right"></div>
+                <div class="editor-content-image" data-image=""><img src="#{image.url}" alt="foo bar"></div>
+              </div>
+            </div>
+          IMG
+
           <<~HTML
             <p>Paragraph</p>
-            <div class="editor-content-image ProseMirror-selectednode" data-image="" contenteditable="false" draggable="true"><img src="#{image.url}" alt="foo bar"></div>
+            #{img_content}
           HTML
         end
 
