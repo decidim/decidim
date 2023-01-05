@@ -27,6 +27,7 @@ module Decidim
 
       helper ParticipatorySpaceHelpers, IconHelper, ContextualHelpHelper
       helper_method :current_participatory_space
+      helper_method :participatory_space_breadcrumb_items
       helper_method :current_participatory_space_manifest
       helper_method :current_participatory_space_context
       helper_method :help_section, :help_id
@@ -40,6 +41,10 @@ module Decidim
 
     def current_participatory_space
       raise NotImplementedError
+    end
+
+    def current_participatory_space_breadcrumb_item
+      {}
     end
 
     def current_participatory_space_manifest
@@ -56,6 +61,10 @@ module Decidim
 
     def authorize_participatory_space
       enforce_permission_to :read, :participatory_space, current_participatory_space:
+    end
+
+    def participatory_space_breadcrumb_items
+      @participatory_space_breadcrumb_items ||= [current_participatory_space_breadcrumb_item].compact_blank
     end
 
     def layout
