@@ -1,6 +1,7 @@
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
+import CharacterCount from "@tiptap/extension-character-count";
 
 import CodeBlock from "src/decidim/editor/extensions/code_block";
 import Dialog from "src/decidim/editor/extensions/dialog";
@@ -44,11 +45,17 @@ export default function createEditor(container) {
     }
   );
 
+  const characterCountOptions = {};
+  if (input.hasAttribute("maxlength")) {
+    characterCountOptions.limit = parseInt(input.getAttribute("maxlength"), 10);
+  }
+
   const extensions = [
     StarterKit.configure({
       heading: { levels: [2, 3, 4, 5, 6] },
       codeBlock: false
     }),
+    CharacterCount.configure(characterCountOptions),
     Dialog,
     Indent,
     CodeBlock,
