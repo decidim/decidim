@@ -952,7 +952,7 @@ module Decidim
         },
         upload_images_path: Decidim::Core::Engine.routes.url_helpers.editor_images_path,
         drag_and_drop_help_text: I18n.t("drag_and_drop_help", scope: "decidim.editor_images"),
-        upload_modal_selector: "##{upload_options[:modal_id]}"
+        upload_dialog_selector: "##{upload_options[:modal_id]}"
       }.transform_keys { |key| key.to_s.camelize(:lower) }
 
       { editor: editor_options, upload: upload_options }
