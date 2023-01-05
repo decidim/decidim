@@ -19,9 +19,6 @@ import UploadModal from "src/decidim/editor/upload_modal";
 /**
  * Creates a new rich text editor instance.
  *
- * TODO:
- * - Replace legacy classes in tests/markup .ql-editor
- *
  * @param {HTMLElement} container The element that contains the editor.
  * @return {Editor} The rich text editor instance.
  */
