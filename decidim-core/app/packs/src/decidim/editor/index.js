@@ -3,10 +3,12 @@ import StarterKit from "@tiptap/starter-kit";
 import Underline from "@tiptap/extension-underline";
 
 import CodeBlock from "src/decidim/editor/extensions/code_block";
+import Dialog from "src/decidim/editor/extensions/dialog";
+import Hashtag from "src/decidim/editor/extensions/hashtag";
 import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
 import Link from "src/decidim/editor/extensions/link";
-import Dialog from "src/decidim/editor/extensions/dialog";
+import Mention from "src/decidim/editor/extensions/mention";
 import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 
 import { getDictionary } from "src/decidim/i18n";
@@ -50,6 +52,8 @@ export default function createEditor(container) {
         codeBlock: false
       }),
       Dialog,
+      Hashtag,
+      Mention,
       Indent,
       CodeBlock,
       Link.configure({ openOnClick: false }),

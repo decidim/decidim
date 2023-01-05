@@ -42,7 +42,7 @@ $editor-active-color: #487bda;
       &:hover,
       &:focus{
         svg{
-          fill: #00f;
+          fill: $editor-active-color;
         }
       }
     }
@@ -78,7 +78,7 @@ $editor-active-color: #487bda;
       min-height: 100%;
       outline: 0;
 
-      &:focus,
+      &.ProseMirror-focused,
       &.dialog-open{
         [data-video-embed].ProseMirror-selectednode{
           @include editor-active;
@@ -132,6 +132,41 @@ $editor-active-color: #487bda;
           [data-image-resizer-control^="bottom-right"]{ cursor: nwse-resize; }
         }
       }
+
+      [data-suggestion]{
+        border: 1px solid #000;
+        border-radius: .4rem;
+        padding: .1rem .3rem;
+      }
+    }
+  }
+}
+
+.editor-suggestions{
+  background: #fff;
+  border: 1px solid #000;
+
+  &:hover{
+    .editor-suggestions-item[data-selected]:not(:hover){
+      background: transparent;
+    }
+  }
+
+  .editor-suggestions-item{
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 5px;
+    border-top: 1px solid #000;
+    border-radius: 0;
+
+    &:first-child{
+      border-top: 0;
+    }
+
+    &:hover,
+    &[data-selected]{
+      background: #c7c7c7;
     }
   }
 }
