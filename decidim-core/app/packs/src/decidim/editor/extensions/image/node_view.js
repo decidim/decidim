@@ -27,6 +27,7 @@ export default (self) => {
 
     const img = contentDOM.querySelector("img");
     let activeResizeControl = null,
+        currentSrc = node.attrs.src,
         currentWidth = null,
         naturalWidth = img.naturalWidth,
         originalWidth = null,
@@ -96,8 +97,9 @@ export default (self) => {
         const { alt, src, title, width } = updatedNode.attrs;
 
         img.alt = alt;
-        if (img.src !== src) {
+        if (currentSrc !== src) {
           img.src = src;
+          currentSrc = src;
         }
         if (title) {
           img.title = title;
