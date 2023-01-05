@@ -17,6 +17,6 @@
       </div>
     </details>
   <% else %>
-    <span class="cursor-pointer <%= "font-bold" if item[:active] %>"><%= item_label %></span>
+    <span class="cursor-pointer <%= "font-bold" if item[:active] %>"><%= link_to_if(item[:url].present?, item_label, item[:url]) %></span>
   <% end %>
 <% end %>
