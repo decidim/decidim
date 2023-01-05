@@ -1,7 +1,7 @@
 <h4 class="h4"><%= title %></h4>
-<a href="#" class="mt-4 button button__text-secondary">
-  <span><%= "More info" %></span><%= icon "arrow-right-line" %>
-</a>
+<%= link_to decidim_participatory_processes.description_participatory_process_path(process), class: "mt-4 button button__text-secondary" do %>
+  <span><%= t("more_info", scope: "layouts.decidim.participatory_processes.participatory_process") %></span><%= icon "arrow-right-line" %>
+<% end %>
 <div class="my-8 flex items-center text-sm space-x-6">
   <span class="flex items-center space-x-2">
     <%= icon "direction-line", class: "text-gray fill-current" %>
