@@ -9,6 +9,10 @@
   <%= render partial: "layouts/decidim/header/redesigned_menu" %>
 <% end %>
 
+<%= content_for :participatory_space_actions do %>
+  <%= render partial: "layouts/decidim/header/redesigned_menu_buttons", locals: { participatory_space: current_participatory_space } %>
+<% end %>
+
 <%= render "layouts/decidim/redesigned_application" do %>
     <%= yield %>
 <% end %>
