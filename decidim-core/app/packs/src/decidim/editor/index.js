@@ -44,25 +44,32 @@ export default function createEditor(container) {
     }
   );
 
+  const extensions = [
+    StarterKit.configure({
+      heading: { levels: [2, 3, 4, 5, 6] },
+      codeBlock: false
+    }),
+    Dialog,
+    Indent,
+    CodeBlock,
+    Link.configure({ openOnClick: false }),
+    Underline,
+    VideoEmbed,
+    Image.configure({ uploadModal, uploadImagesPath, contentTypes: contentTypes.image })
+  ];
+
+  if (editorContainer.classList.contains("js-hashtags")) {
+    extensions.push(Hashtag);
+  }
+  if (editorContainer.classList.contains("js-mentions")) {
+    extensions.push(Mention);
+  }
+
   editor = new Editor({
     element: editorContainer,
-    extensions: [
-      StarterKit.configure({
-        heading: { levels: [2, 3, 4, 5, 6] },
-        codeBlock: false
-      }),
-      Dialog,
-      Hashtag,
-      Mention,
-      Indent,
-      CodeBlock,
-      Link.configure({ openOnClick: false }),
-      Underline,
-      VideoEmbed,
-      Image.configure({ uploadModal, uploadImagesPath, contentTypes: contentTypes.image })
-    ],
     content: input.value,
-    editable: !input.disabled
+    editable: !input.disabled,
+    extensions
   });
 
   const toolbar = createEditorToolbar(editor);
