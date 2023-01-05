@@ -48,7 +48,7 @@ export default Mention.extend({
           }
 
           const data = await searchUsers(query);
-          const sorted = data.sort((user) => user.name);
+          const sorted = data.sort((user) => user.nickname.slice(1));
           return sorted.slice(0, 5);
         },
         render: createSuggestionRenderer(this, {
