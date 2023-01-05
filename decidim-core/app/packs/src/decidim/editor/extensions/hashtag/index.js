@@ -33,6 +33,11 @@ export default Mention.extend({
 
     return {
       ...options,
+      renderLabel({ node }) {
+        // The labels already have the suggestion character in front of them
+        // which is why we do not want to add it twice.
+        return `${node.attrs.label ?? node.attrs.id}`
+      },
       suggestion: {
         ...suggestion,
         char: "#",
@@ -40,9 +45,13 @@ export default Mention.extend({
         items: async ({ query }) => {
           const data = await searchHashtags(query);
           const sorted = data.sort((tag) => tag.name);
-          return sorted.slice(0, 5).map((tag) => tag.name);
+          return sorted.slice(0, 5);
         },
-        render: createSuggestionRenderer(this)
+        render: createSuggestionRenderer(this, {
+          itemConverter: (tag) => {
+            return { label: `#${tag.name}` }
+          }
+        })
       }
     };
   },
