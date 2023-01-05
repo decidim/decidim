@@ -2,7 +2,7 @@ import { Node, nodePasteRule, mergeAttributes } from "@tiptap/core";
 import { Plugin } from "prosemirror-state";
 
 import { getDictionary } from "src/decidim/i18n";
-import InputModal from "src/decidim/editor/input_modal";
+import InputDialog from "src/decidim/editor/common/input_dialog";
 
 const YOUTUBE_REGEX = /^(https?:\/\/)?(www\.|music\.)?(youtube\.com|youtu\.be)(.+)?$/;
 const YOUTUBE_REGEX_GLOBAL = /^(https?:\/\/)?(www\.|music\.)?(youtube\.com|youtu\.be)(.+)?$/g;
@@ -147,9 +147,9 @@ export default Node.create({
         });
       },
 
-      videoEmbedModal: () => async ({ dispatch }) => {
+      videoEmbedDialog: () => async ({ dispatch }) => {
         if (dispatch) {
-          const videoModal = new InputModal(this.editor, {
+          const videoDialog = new InputDialog(this.editor, {
             inputs: {
               src: { type: "text", label: i18n.urlLabel },
               title: { type: "text", label: i18n.titleLabel }
@@ -157,13 +157,13 @@ export default Node.create({
           });
           let { src, title } = this.editor.getAttributes("videoEmbed");
 
-          const modalState = await videoModal.toggle({ src, title });
-          if (modalState !== "save") {
+          const dialogState = await videoDialog.toggle({ src, title });
+          if (dialogState !== "save") {
             return false;
           }
 
-          src = videoModal.getValue("src");
-          title = videoModal.getValue("title");
+          src = videoDialog.getValue("src");
+          title = videoDialog.getValue("title");
           if (!src || src.length < 1) {
             this.editor.commands.focus(null, { scrollIntoView: false });
             return false;
@@ -231,7 +231,7 @@ export default Node.create({
               return false;
             }
 
-            editor.chain().focus().videoEmbedModal().run();
+            editor.chain().focus().videoEmbedDialog().run();
             return true;
           }
         }

@@ -1729,7 +1729,7 @@ en:
       videoEmbed:
         titleLabel: Title
         urlLabel: Video URL
-    inputModal:
+    inputDialog:
       buttons:
         cancel: Cancel
         remove: Remove

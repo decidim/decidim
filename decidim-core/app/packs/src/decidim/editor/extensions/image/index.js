@@ -59,7 +59,7 @@ export default Image.extend({
       ...this.parent?.(),
       contentTypes: /^image\/(jpe?g|png|svg|webp)$/i,
       uploadImagesPath: null,
-      uploadModal: null
+      uploadDialog: null
     };
   },
 
@@ -75,27 +75,27 @@ export default Image.extend({
 
     return {
       ...this.parent?.(),
-      imageModal: () => async ({ dispatch }) => {
+      imageDialog: () => async ({ dispatch }) => {
         if (dispatch) {
-          const { uploadModal } = this.options;
+          const { uploadDialog } = this.options;
           let { src, alt, width } = this.editor.getAttributes("image");
 
-          const modalState = await uploadModal.toggle({ src, alt }, {
+          const dialogState = await uploadDialog.toggle({ src, alt }, {
             inputLabel: i18n.altLabel,
             uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
           });
-          if (modalState !== "save") {
+          if (dialogState !== "save") {
             this.editor.commands.focus(null, { scrollIntoView: false });
             return false;
           }
 
-          if (uploadModal.getValue("src") !== src) {
+          if (uploadDialog.getValue("src") !== src) {
             // Reset the width to original width in case the image changed.
             width = null;
           }
 
-          src = uploadModal.getValue("src");
-          alt = uploadModal.getValue("alt");
+          src = uploadDialog.getValue("src");
+          alt = uploadDialog.getValue("alt");
 
           return this.editor.chain().setImage({ src, alt, width }).focus(null, { scrollIntoView: false }).run();
         }
@@ -158,7 +158,7 @@ export default Image.extend({
               return false;
             }
 
-            editor.chain().focus().imageModal().run();
+            editor.chain().focus().imageDialog().run();
             return true;
           },
 

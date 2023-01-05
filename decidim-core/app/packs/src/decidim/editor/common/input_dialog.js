@@ -2,13 +2,13 @@ import Dialog from "a11y-dialog-component";
 
 import { getDictionary } from "src/decidim/i18n";
 
-export default class InputModal {
+export default class InputDialog {
   constructor(editor, { inputs, removeButton }) {
     this.editor = editor;
     // The legacy design should not have any elements on the page with the
     // `data-dialog` attribute.
     this.legacyDesign = !document.querySelector("[data-dialog]");
-    const inputId = `inputmodal-${(new Date()).getTime()}`;
+    const inputId = `inputdialog-${(new Date()).getTime()}`;
     this.element = document.createElement("div");
     if (this.legacyDesign) {
       this.element.classList.add("reveal");
@@ -38,7 +38,7 @@ export default class InputModal {
       `;
     });
 
-    const i18n = getDictionary("editor.inputModal");
+    const i18n = getDictionary("editor.inputDialog");
 
     let buttonsHTML = "";
     if (this.legacyDesign) {

@@ -19,7 +19,6 @@ export default Extension.create({
       new Plugin({
         key: new PluginKey("editable"),
         props: {
-          modalOpen: () => this.storage.open,
           attributes: () => {
             if (this.storage.open) {
               return { class: "dialog-open" };

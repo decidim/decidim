@@ -155,7 +155,7 @@ export default function createEditorToolbar(editor) {
           type: "link",
           icon: "link",
           label: i18n["control.link"],
-          action: () => editor.commands.linkModal()
+          action: () => editor.commands.linkDialog()
         }).render(supported.marks.includes("link")),
         createEditorToolbarToggle(editor, {
           type: "common:eraseStyles",
@@ -218,13 +218,13 @@ export default function createEditorToolbar(editor) {
           type: "videoEmbed",
           icon: "video-line",
           label: i18n["control.videoEmbed"],
-          action: () => editor.commands.videoEmbedModal()
+          action: () => editor.commands.videoEmbedDialog()
         }).render(supported.nodes.includes("videoEmbed")),
         createEditorToolbarToggle(editor, {
           type: "image",
           icon: "image-line",
           label: i18n["control.image"],
-          action: () => editor.commands.imageModal()
+          action: () => editor.commands.imageDialog()
         }).render(supported.nodes.includes("image"))
       )
     ).

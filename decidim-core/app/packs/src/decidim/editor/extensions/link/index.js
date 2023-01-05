@@ -1,7 +1,7 @@
 import Link from "@tiptap/extension-link";
 
 import { getDictionary } from "src/decidim/i18n";
-import InputModal from "src/decidim/editor/input_modal";
+import InputDialog from "src/decidim/editor/common/input_dialog";
 
 export default Link.extend({
   addCommands() {
@@ -9,7 +9,7 @@ export default Link.extend({
 
     return {
       ...this.parent?.(),
-      linkModal: () => async ({ dispatch, commands }) => {
+      linkDialog: () => async ({ dispatch, commands }) => {
         if (dispatch) {
           // If the cursor is within the link but the link is not selected, the
           // link would not be correctly updated. Also if only a part of the
@@ -19,7 +19,7 @@ export default Link.extend({
 
           let { href, target } = this.editor.getAttributes("link");
 
-          const linkModal = new InputModal(this.editor, {
+          const linkDialog = new InputDialog(this.editor, {
             inputs: {
               href: { type: "text", label: i18n.hrefLabel },
               target: {
@@ -33,14 +33,14 @@ export default Link.extend({
             },
             removeButton: true
           });
-          const modalState = await linkModal.toggle({ href, target });
-          href = linkModal.getValue("href");
-          target = linkModal.getValue("target");
+          const dialogState = await linkDialog.toggle({ href, target });
+          href = linkDialog.getValue("href");
+          target = linkDialog.getValue("target");
           if (target && target.length < 1) {
             target = null;
           }
 
-          if (modalState !== "save" || !href || href.trim().length < 1) {
+          if (dialogState !== "save" || !href || href.trim().length < 1) {
             return this.editor.chain().focus(null, { scrollIntoView: false }).unsetLink().run();
           }
 

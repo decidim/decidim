@@ -8,10 +8,10 @@ const createElement = (template) => {
 }
 
 /**
- * This is a simplified version of the normal upload modal, uses the same
- * markup as the normal upload modal to maintain consistency.
+ * This is a simplified version of the normal upload dialog, uses the same
+ * markup as the normal upload dialog to maintain consistency.
  *
- * The functionality differs from the original modal as this only handles the
+ * The functionality differs from the original dialog as this only handles the
  * file uploads for the editor and the purpose is to simply provide the same
  * upload functionality and ability to update the alternative texts for the
  * images within the editor.
@@ -19,7 +19,7 @@ const createElement = (template) => {
  * This works only for the editor and does not store the files in the view
  * inputs as they are only used.
  */
-export default class UploadModal {
+export default class UploadDialog {
   constructor(element, { i18n, onOpen, onClose }) {
     this.element = element;
     this.i18n = i18n;

@@ -14,7 +14,7 @@ import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 
 import { getDictionary } from "src/decidim/i18n";
 import createEditorToolbar from "src/decidim/editor/toolbar";
-import UploadModal from "src/decidim/editor/upload_modal";
+import UploadDialog from "src/decidim/editor/common/upload_dialog";
 
 /**
  * Creates a new rich text editor instance.
@@ -32,9 +32,9 @@ export default function createEditor(container) {
   let editor = null;
   const i18nUpload = getDictionary("editor.upload");
   const options = JSON.parse(container.dataset.options);
-  const { uploadImagesPath, uploadModalSelector, contentTypes } = options;
-  const uploadModal = new UploadModal(
-    document.querySelector(uploadModalSelector),
+  const { uploadImagesPath, uploadDialogSelector, contentTypes } = options;
+  const uploadDialog = new UploadDialog(
+    document.querySelector(uploadDialogSelector),
     {
       i18n: i18nUpload,
       onOpen: () => editor.commands.toggleDialog(true),
@@ -59,7 +59,7 @@ export default function createEditor(container) {
     Link.configure({ openOnClick: false }),
     Underline,
     VideoEmbed,
-    Image.configure({ uploadModal, uploadImagesPath, contentTypes: contentTypes.image })
+    Image.configure({ uploadDialog, uploadImagesPath, contentTypes: contentTypes.image })
   ];
 
   if (editorContainer.classList.contains("js-hashtags")) {
