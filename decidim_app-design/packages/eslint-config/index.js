@@ -27,7 +27,6 @@ module.exports = { // eslint-disable-line
     "afterEach": false,
     "sinon": false,
     "GraphQLDocs": false,
-    "Quill": false,
     "SVGInjector": false,
     "require": false,
     "DecidimAdmin": false,
