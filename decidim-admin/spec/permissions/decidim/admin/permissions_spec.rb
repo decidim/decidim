@@ -336,6 +336,17 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "admins" do
+    let(:action_subject) { :admin_user }
+
+    context "when trying to delete admin rights from self" do
+      let(:action_name) { :destroy }
+      let(:context) { { user: } }
+
+      it_behaves_like "permission is not set"
+    end
+  end
+
   shared_examples "can perform any action for" do |action_subject_name|
     let(:action_subject) { action_subject_name }
 
@@ -357,19 +368,4 @@ describe Decidim::Admin::Permissions do
   it_behaves_like "can perform any action for", :moderate_users
   it_behaves_like "can perform any action for", :authorization
   it_behaves_like "can perform any action for", :authorization_workflow
-
-  describe "admin" do
-    let(:subject_user) { build :user, :admin, organization: }
-    let(:organization) { build :organization }
-
-    before do
-      allow(organization).to receive(:current_user).and_return(subject_user)
-    end
-
-    context "when trying to delete itself" do
-      let(:action_name) { :destroy }
-
-      it { is_expected.to be false }
-    end
-  end
 end

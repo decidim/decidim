@@ -96,7 +96,7 @@ describe "Organization admins", type: :system do
         end
 
         within "tr[data-user-id=\"#{other_admin.id}\"]" do
-          expect(page).to have_css('[data-method="delete"]')
+          expect(page).to have_link("Delete")
         end
       end
     end

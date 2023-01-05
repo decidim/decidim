@@ -21,15 +21,15 @@ module Decidim
       end
 
       describe "#current_admin?" do
-        context "when currently signed in admin user is different from the targeted admin user"
-        subject { helper.current_admin?(other_admin) }
-
         before do
           allow(helper).to receive(:current_admin).and_return(admin)
         end
 
-        it "returns false" do
-          expect(subject).to be(false)
+        context "when currently signed in admin user is different from the targeted admin user" do
+          subject { helper.current_admin?(other_admin) }
+          it "returns false" do
+            expect(subject).to be(false)
+          end
         end
 
         context "when currently signed in admin user is the target" do
