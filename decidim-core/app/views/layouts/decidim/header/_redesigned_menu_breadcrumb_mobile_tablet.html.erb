@@ -1,5 +1,6 @@
+<% dropdown_item = breadcrumb_items.select { |item| item[:dropdown_cell].present? }.last %>
 <details>
-  <summary id="secondary-dropdown-summary-mobile" aria-controls="secondary-dropdown-mobile" class="flex items-center justify-between text-white">
+  <summary id="secondary-dropdown-summary-mobile" class="flex items-center justify-between text-white" <%= "aria-controls=\"secondary-dropdown-mobile\"" if dropdown_item.present? %>>
     <span class="flex flex-wrap md:flex-nowrap gap-x-2.5 overflow-hidden">
       <!-- REDESIGN_PENDING: Only displays two last items -->
       <% breadcrumb_items.take(2).each_with_index do |item, i| %>
@@ -12,7 +13,6 @@
     <%= icon "arrow-down-s-line", class: "flex-none w-6 h-6 fill-current" %>
   </summary>
 
-  <% dropdown_item = breadcrumb_items.select { |item| item[:dropdown_cell].present? }.last %>
   <% if dropdown_item.present? %>
     <div id="secondary-dropdown-mobile" aria-labelledby="secondary-dropdown-summary-mobile">
       <%= cell dropdown_item[:dropdown_cell], dropdown_item[:resource] %>
