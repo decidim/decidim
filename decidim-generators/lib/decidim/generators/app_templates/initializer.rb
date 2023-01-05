@@ -391,6 +391,7 @@ Decidim.configure do |config|
   config.follow_http_x_forwarded_host = Rails.application.secrets.decidim[:follow_http_x_forwarded_host].present?
   config.maximum_conversation_message_length = Rails.application.secrets.decidim[:maximum_conversation_message_length].to_i
   config.password_blacklist = Rails.application.secrets.decidim[:password_blacklist] if Rails.application.secrets.decidim[:password_blacklist].present?
+  config.password_similarity_length = Rails.application.secrets.decidim[:password_similarity_length] if Rails.application.secrets.decidim[:password_similarity_length].present?
   config.allow_open_redirects = Rails.application.secrets.decidim[:allow_open_redirects] if Rails.application.secrets.decidim[:allow_open_redirects].present?
 end
 
