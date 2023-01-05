@@ -1,0 +1,9 @@
+<h4 class="h4"><%= title %></h4>
+<div class="my-8 flex items-center text-sm space-x-6">
+  <% if hashtag.present? %>
+    <span class="flex items-center space-x-2">
+      <%= icon "twitter-line", class: "text-gray fill-current" %>
+      <%= link_to "##{hashtag}", twitter_hashtag_url(hashtag), target: "_blank", class: "text-secondary underline" %>
+    </span>
+  <% end %>
+</div>
