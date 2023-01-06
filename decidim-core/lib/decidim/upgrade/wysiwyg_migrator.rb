@@ -164,7 +164,16 @@ module Decidim
         current_level = 0
         list.children.each do |item|
           indent = detect_indent(item)
-          li, paragraph = add_empty_child.call(current_parent) if indent == current_level || li.nil?
+          if indent == current_level || li.nil?
+            if item.child.name == "p"
+              # This content has already been migrated so we do not need to
+              # re-migrate it.
+              append_node(current_parent, convert_node(item))
+              next
+            else
+              li, paragraph = add_empty_child.call(current_parent)
+            end
+          end
 
           while indent > current_level
             sublist = Nokogiri::XML::Node.new(list.name, doc)
@@ -228,6 +237,10 @@ module Decidim
       # wrapped in a `<p>` tag. In Quill.js the content used to be directly
       # inside the `<blockquote>` element.
       def convert_blockquote(node)
+        # In case the node already contains a `<p>` element, it has been
+        # migrated.
+        return node if node.child.name == "p"
+
         parent = Nokogiri::XML::Node.new(node.name, doc)
         paragraph = Nokogiri::XML::Node.new("p", doc)
         parent.add_child(paragraph)
@@ -253,7 +266,7 @@ module Decidim
       end
 
       def detect_indent(node)
-        node["class"]&.match(/^ql-indent-([0-9]+)/)&.public_send(:[], 1).to_i
+        node["class"]&.match(/^(ql|editor)-indent-([0-9]+)/)&.public_send(:[], 2).to_i
       end
     end
   end

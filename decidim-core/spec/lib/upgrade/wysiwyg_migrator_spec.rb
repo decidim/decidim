@@ -172,8 +172,18 @@ module Decidim
     end
 
     shared_examples "HTML content migration" do
+      subject { migrator.run }
+
       it "converts the content structure correctly" do
         expect(subject).to eq(expected_content)
+      end
+
+      context "when the content has already been converted" do
+        let(:content) { expected_content }
+
+        it "does not change the content" do
+          expect(subject).to eq(expected_content)
+        end
       end
     end
 
