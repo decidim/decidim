@@ -173,6 +173,31 @@ module Decidim::Conferences
           expect(linked_processes.first).to eq(process_two)
         end
       end
+
+      context "when linking unpublished linked_participatory_space_resources" do
+        let!(:process_one) { create :participatory_process, :unpublished, organization:, weight: 2 }
+        let!(:process_two) { create :participatory_process, organization:, weight: 1 }
+        let(:related_process_ids) { [process_one.id, process_two.id] }
+        let!(:consultation_one) { create :consultation, :unpublished, organization: }
+        let!(:consultation_two) { create :consultation, organization: }
+        let(:related_consultation_ids) { [consultation_one.id, consultation_two.id] }
+
+        it "sorts by created at" do
+          subject.call
+
+          linked_processes = conference.linked_participatory_space_resources("Consultations", "included_consultations")
+          expect(linked_processes.first).to eq(consultation_two)
+          expect(linked_processes.size).to eq(1)
+        end
+
+        it "sorts by weigth" do
+          subject.call
+
+          linked_processes = conference.linked_participatory_space_resources(:participatory_process, "included_participatory_processes")
+          expect(linked_processes.size).to eq(1)
+          expect(linked_processes.first).to eq(process_two)
+        end
+      end
     end
   end
 end
