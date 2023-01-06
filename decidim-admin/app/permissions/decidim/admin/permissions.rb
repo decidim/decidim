@@ -29,7 +29,13 @@ module Decidim
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
-        allow! if permission_action.subject == :global_moderation && admin_terms_accepted?
+        if permission_action.subject == :global_moderation && admin_terms_accepted?
+          if user_valuator?
+            disallow!
+          else
+            allow!
+          end
+        end
 
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
@@ -65,6 +71,10 @@ module Decidim
       end
 
       private
+
+      def user_valuator?
+        user && !user.admin? && Decidim::ParticipatoryProcessUserRole.exists?(user: , role: "valuator")
+      end
 
       def user_manager?
         user && !user.admin? && user.role?("user_manager")
