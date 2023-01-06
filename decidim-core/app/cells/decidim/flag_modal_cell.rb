@@ -21,7 +21,8 @@ module Decidim
     private
 
     def frontend_administrable?
-      model.can_be_administred_by?(current_user) && (model.respond_to?(:official?) && !model.official?)
+      model.can_be_administred_by?(current_user) && (model.respond_to?(:official?) && !model.official?) &&
+        !Decidim::ParticipatoryProcessUserRole.exists?(user: current_user, role: "valuator")
     end
 
     def link_to_profile
