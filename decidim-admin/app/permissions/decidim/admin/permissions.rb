@@ -73,7 +73,7 @@ module Decidim
       private
 
       def user_valuator?
-        user && !user.admin? && Decidim::ParticipatoryProcessUserRole.exists?(user: , role: "valuator")
+        user && !user.admin? && Decidim::ParticipatoryProcessUserRole.exists?(user:, role: "valuator")
       end
 
       def user_manager?
