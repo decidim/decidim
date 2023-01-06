@@ -201,8 +201,13 @@ $editor-disabled-color: #eee;
     margin-bottom: $paragraph-margin-bottom;
   }
 
-  // Tiptap adds an extra <p> inside list items to support multiple sub-elements
-  // within the content model.
+  // We do not want to show the bottom border in sub-lists. Also, Tiptap adds an
+  // extra <p> inside list items to support marks/styling within the list item
+  // content.
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul,
   li p{
     margin-bottom: 0;
   }
