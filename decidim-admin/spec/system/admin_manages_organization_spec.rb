@@ -494,7 +494,7 @@ describe "Admin manages organization", type: :system do
 
           organization.reload
           expect(translated(organization.admin_terms_of_use_body)).to eq(
-            %(<div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc"><div><iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Test video" frameborder="0"></iframe></div></div>)
+            %(<div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc"><div><iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="Test video" frameborder="0" allowfullscreen="true"></iframe></div></div>)
           )
         end
       end

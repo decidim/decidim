@@ -128,7 +128,8 @@ export default Node.create({
       title: { default: null },
       width: { default: this.options.width },
       height: { default: this.options.height },
-      frameborder: { default: 0 }
+      frameborder: { default: 0 },
+      allowfullscreen: { default: true }
     };
   },
 
