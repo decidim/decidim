@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "webpush"
+require "web-push"
 
 module Decidim
   # This class generates a notification based on the given event, for the given
@@ -25,8 +25,8 @@ module Decidim
           # Capture webpush exceptions in order to avoid this call to be repeated by the background job runner
           # Webpush::Error class is the parent class of all defined errors
           begin
-            Webpush.payload_send(**payload)
-          rescue Webpush::Error => e
+            WebPush.payload_send(**payload)
+          rescue WebPush::Error => e
             Rails.logger.warn("[ERROR] Push notification delivery failed due to #{e.message}")
             nil
           end
