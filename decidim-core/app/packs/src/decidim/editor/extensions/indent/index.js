@@ -140,7 +140,11 @@ export default Extension.create({
 
   addCommands() {
     return {
-      indent: () => ({ tr, state, dispatch, editor }) => {
+      indent: () => ({ tr, state, dispatch, editor, commands }) => {
+        if (dispatch && editor.isActive("listItem")) {
+          return commands.sinkListItem("listItem");
+        }
+
         const { selection } = state;
         let finalTr = tr.setSelection(selection);
         finalTr = updateIndentLevel({
@@ -149,13 +153,19 @@ export default Extension.create({
           extensions: editor.extensionManager.extensions,
           type: "indent"
         });
+
+        // if (editor.isActive("listItem")) {
         if (finalTr.docChanged && dispatch) {
           dispatch(finalTr);
           return true;
         };
         return false;
       },
-      outdent: () => ({ tr, state, dispatch, editor }) => {
+      outdent: () => ({ tr, state, dispatch, editor, commands }) => {
+        if (dispatch && editor.isActive("listItem")) {
+          return commands.liftListItem("listItem");
+        }
+
         const { selection } = state;
         let finalTr = tr.setSelection(selection);
         finalTr = updateIndentLevel({
