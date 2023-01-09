@@ -24,10 +24,7 @@ import UploadDialog from "src/decidim/editor/common/upload_dialog";
  */
 export default function createEditor(container) {
   const input = container.parentElement.querySelector("input[type=hidden]");
-
-  const editorContainer = document.createElement("div");
-  editorContainer.classList.add("editor-input");
-  container.appendChild(editorContainer);
+  const editorContainer = container.querySelector(".editor-input");
 
   let editor = null;
   const i18nUpload = getDictionary("editor.upload");

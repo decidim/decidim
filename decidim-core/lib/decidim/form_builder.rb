@@ -199,11 +199,16 @@ module Decidim
         template = ""
         template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options)
-        template += content_tag(:div, nil, class: "editor-container #{"js-hashtags" if hashtaggable}", data: {
-                                  toolbar:,
-                                  disabled: options[:disabled],
-                                  options: editor_options[:editor]
-                                }, style: "height: #{lines}rem")
+        template += content_tag(
+          :div,
+          nil,
+          class: "editor-container #{"js-hashtags" if hashtaggable}",
+          data: {
+            toolbar:,
+            disabled: options[:disabled],
+            options: editor_options[:editor]
+          }
+        ) { content_tag(:div, nil, class: "editor-input", style: "height: #{lines}rem") }
         template += error_for(name, options) if error?(name)
         template += editor_upload(editor_image, editor_options[:upload])
         template.html_safe
