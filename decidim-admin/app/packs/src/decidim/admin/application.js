@@ -2,7 +2,6 @@
 
 import toggleNav from "src/decidim/admin/toggle_nav"
 import createSortList from "src/decidim/admin/sort_list.component"
-import createEditor from "src/decidim/editor"
 import formDatePicker from "src/decidim/form_datepicker"
 import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
@@ -40,7 +39,7 @@ $(() => {
   formDatePicker();
 
   document.querySelectorAll(".editor-container").forEach((container) => {
-    createEditor(container);
+    window.createEditor(container);
   });
 
   $("form.new_filter").each(function () {

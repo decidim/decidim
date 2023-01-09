@@ -7,7 +7,6 @@ import $ from "jquery"
 import Rails from "@rails/ujs"
 import "foundation-sites"
 
-import createEditor from "src/decidim/editor"
 import Configuration from "src/decidim/configuration"
 
 window.Decidim = window.Decidim || {};
@@ -20,7 +19,7 @@ $(() => {
   $(document).foundation();
 
   document.querySelectorAll(".editor-container").forEach((container) => {
-    createEditor(container);
+    window.createEditor(container);
   });
 
   $("button.collapse").on("click", () => {

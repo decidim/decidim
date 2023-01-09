@@ -62,7 +62,6 @@ import "./direct_uploads/redesigned_upload_field"
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"
 import fixDropdownMenus from "./dropdowns_menus"
-import createEditor from "./editor"
 import Configuration from "./configuration"
 import ExternalLink from "./redesigned_external_link"
 import updateExternalDomainLinks from "./external_domain_warning"
@@ -137,7 +136,7 @@ const initializer = (element = document) => {
   formDatePicker();
 
   document.querySelectorAll(".editor-container").forEach((container) => {
-    createEditor(container);
+    window.createEditor(container);
   });
 
   element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
