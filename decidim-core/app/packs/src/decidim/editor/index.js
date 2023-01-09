@@ -16,9 +16,6 @@ import { getDictionary } from "src/decidim/i18n";
 import createEditorToolbar from "src/decidim/editor/toolbar";
 import UploadDialog from "src/decidim/editor/common/upload_dialog";
 
-// CSS
-import "stylesheets/decidim/editor.scss"
-
 /**
  * Creates a new rich text editor instance.
  *
