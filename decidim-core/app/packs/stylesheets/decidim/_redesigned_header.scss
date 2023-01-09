@@ -21,18 +21,18 @@ header{
   }
 
   .main-bar{
-    @apply container flex justify-between items-center gap-4 py-5;
+    @apply container grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-4 items-center py-5;
 
     &__container{
       @apply relative w-full;
     }
 
     &__logo{
-      @apply w-3/4 md:w-2/5 lg:w-1/4 prose prose-img:max-h-16 prose-img:my-0;
+      @apply col-span-3 lg:col-span-2 prose prose-img:max-h-16 prose-img:my-0;
     }
 
     &__search{
-      @apply hidden md:block md:w-2/5 lg:w-1/4 xl:w-1/6;
+      @apply hidden md:block col-span-3 lg:col-span-2 lg:col-start-4;
 
       span{
         @apply block relative rounded text-md bg-background;
@@ -45,6 +45,11 @@ header{
       button[type="submit"]{
         @apply absolute right-2 inset-y-2 text-secondary;
       }
+    }
+
+    &__links-desktop,
+    > *:last-child{
+      @apply col-span-1 xl:col-end-13 md:col-start-8 justify-self-end;
     }
 
     &__links-desktop{
