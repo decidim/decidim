@@ -4,8 +4,158 @@ module Decidim
   module Upgrade
     class WysiwygMigrator
       class << self
+        def model_registry
+          @model_registry ||= []
+        end
+
+        def register_model(klass, columns)
+          if klass.is_a?(String)
+            return unless Object.const_defined?(klass)
+
+            klass = Object.const_get(klass)
+          end
+
+          model_registry << { class: klass, columns: }
+        end
+
+        def batch_size
+          @batch_size ||= 100
+        end
+
+        def batch_range(idx, data)
+          start = idx * batch_size
+          (start + 1)..(start + data.count)
+        end
+
+        def update_records_batches(query, columns, value_convert)
+          query.in_batches(of: batch_size).each_with_index do |relation, idx|
+            data = convert_model_data(relation, columns, &value_convert)
+            next if data.empty?
+
+            yield relation.klass, batch_range(idx, data) if block_given?
+
+            # We are not using `update(data.keys, data.values)` here because
+            # we want to bypass the overridden model methods, to be able to
+            # update the data efficiently.
+            data.each do |id, values|
+              relation.klass.find(id).update_columns(values) # rubocop:disable Rails/SkipsModelValidations
+            end
+          end
+        end
+
+        def convert_model_data(relation, columns)
+          {}.tap do |converted|
+            relation.pluck(:id, *columns).map do |data|
+              record_data = {}
+              columns.each_with_index do |column, idx|
+                value = data[idx + 1]
+                record_data[column.to_s] = yield value, column
+              end
+
+              converted[data[0]] = record_data
+            end
+          end
+        end
+
+        # This is just a simplification method to avoid extending the cyclomatic
+        # complexity of the settings hash value update lambda. In case a subkey
+        # is given, the value of that key in the given hash will be yielded. If
+        # no subkey is given, the hash itself is yielded. This allows us to
+        # avoid repeating the same code twice in the `update_settings` method
+        # depending on the depth of the hash we want to manage.
+        def hash_subkey(hash, subkey = nil)
+          return if hash.blank?
+
+          if subkey.nil?
+            yield hash
+          else
+            return if hash[subkey.to_s].blank?
+
+            yield hash[subkey.to_s]
+          end
+        end
+
+        def update_models(&)
+          model_registry.each do |model|
+            update_records_batches(
+              model[:class],
+              model[:columns],
+              ->(value, _column) { convert(value) },
+              &
+            )
+          end
+        end
+
+        def update_settings(query, keys, &)
+          keys = { nil => keys } unless keys.is_a?(Hash)
+
+          update_records_batches(
+            query,
+            [:settings],
+            lambda do |settings, _column|
+              keys.each do |key, definition|
+                definition = { type: :single, keys: definition } unless definition.is_a?(Hash)
+
+                hash_subkey(settings, key) do |current|
+                  subkeys = definition[:type] == :multi ? current.keys : [nil]
+                  subkeys.each do |subkey|
+                    hash_subkey(current, subkey) do |attrs|
+                      definition[:keys].each do |attribute|
+                        attrs[attribute.to_s] = convert(attrs[attribute.to_s])
+                      end
+                      attrs
+                    end
+                  end
+                end
+              end
+
+              settings
+            end,
+            &
+          )
+        end
+
+        def editor_attributes_for(manifest)
+          editor_attributes = { global: [], step: [] }
+          editor_attributes.keys.each do |type|
+            manifest.settings(type).attributes.each do |key, attribute|
+              editor_attributes[type] << key.to_s if attribute.editor
+            end
+            editor_attributes.delete(type) if editor_attributes[type].blank?
+          end
+          editor_attributes
+        end
+
+        def update_component_settings
+          Decidim.component_manifests.each do |manifest|
+            editor_attributes = editor_attributes_for(manifest)
+            next if editor_attributes.blank?
+
+            # The step settings are stored in the DB with the key name in plural
+            # format which is why we change it here. The `editor_attributes_for`
+            # returns that key in singular format because this is how it it is
+            # known by the manifest. Also, we need to define the type of the
+            # settings values as step settings are stored in multi-dimensional
+            # hash where each value contains settings for the defined step.
+            keys = {}
+            keys[:global] = { type: :single, keys: editor_attributes[:global] } if editor_attributes[:global].present?
+            keys[:steps] = { type: :multi, keys: editor_attributes[:step] } if editor_attributes[:step].present?
+
+            update_settings(
+              Decidim::Component.where(manifest_name: manifest.name),
+              keys
+            ) do |_klass, range|
+              yield manifest.name, range if block_given?
+            end
+          end
+        end
+
         def convert(content)
-          new(content).run
+          if content.is_a?(Hash)
+            content.transform_values { |v| convert(v) }
+          else
+            new(content).run
+          end
         end
       end
 
@@ -15,6 +165,8 @@ module Decidim
       end
 
       def run
+        return content unless content
+
         content_doc = Nokogiri::HTML5.parse(content)
         content_root = content_doc.at("//body")
         return content if content_root.children.empty?
