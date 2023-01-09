@@ -10,7 +10,6 @@ $editor-disabled-color: #eee !default;
   @apply border-solid border-[#ccc];
 }
 
-// TODO: Write in Tailwind
 .editor-container{
   --editor-active-color: $editor-active-color;
   --editor-border-color: $editor-border-color;
