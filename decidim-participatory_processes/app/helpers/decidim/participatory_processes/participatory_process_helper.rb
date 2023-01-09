@@ -19,7 +19,7 @@ module Decidim
       # Returns a String with the formatted dates.
       def step_dates(participatory_process_step)
         dates = [participatory_process_step.start_date, participatory_process_step.end_date]
-        dates.map { |date| date ? localize(date.to_date, format: :default) : "?" }.join(" - ")
+        dates.map { |date| date ? l(date.to_date, format: :decidim_short) : "?" }.join(" - ")
       end
 
       # Public: Returns the path for the participatory process cta button
