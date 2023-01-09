@@ -1,178 +1,153 @@
-$paragraph-margin-bottom: 1rem !default;
-$editor-active-color: #487bda;
-$editor-disabled-color: #eee;
+$editor-border-color: #ccc !default;
+$editor-active-color: #487bda !default;
+$editor-disabled-color: #eee !default;
 
-@mixin editor-active{
-  outline: 4px solid $editor-active-color;
+.editor-active{
+  @apply outline outline-4 outline-[var(--editor-active-color)];
+}
+
+.editor-border{
+  @apply border-solid border-[#ccc];
 }
 
 // TODO: Write in Tailwind
 .editor-container{
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ccc;
-  margin-bottom: 1.5rem;
+  --editor-active-color: $editor-active-color;
+  --editor-border-color: $editor-border-color;
+  --editor-disabled-color: $editor-disabled-color;
+
+  @apply flex flex-col mb-6 border editor-border;
 
   &.editor-disabled{
     .editor-input .ProseMirror{
-      background: #eee;
+      @apply bg-[var(--editor-disabled-color)];
     }
   }
 
   .editor-toolbar{
-    border-bottom: 1px solid #ccc;
-    padding: 5px 10px;
+    @apply py-1.5 px-2.5 border-0 border-b editor-border;
 
     .editor-toolbar-group{
-      display: inline-block;
-      margin: 0 .7rem;
+      @apply inline-block mx-2.5;
 
       &:first-child{
-        margin-left: 0;
+        @apply ml-0;
       }
     }
 
     .editor-toolbar-control{
-      margin-left: .5rem;
+      @apply ml-2;
 
       &:first-child{
-        margin-left: 0;
+        @apply ml-0;
       }
 
       &.active,
       &:hover,
       &:focus{
         svg{
-          fill: $editor-active-color;
+          @apply fill-[var(--editor-active-color)];
         }
       }
     }
 
     select{
-      display: inline-block;
-      width: auto;
-      margin-bottom: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-      height: 2rem;
+      @apply inline-block w-auto h-8 mb-0 py-0;
     }
 
     button{
-      position: relative;
-      top: .2rem;
+      @apply relative top-1;
     }
 
     .editor-toolbar-icon{
-      width: 1.2em;
-      height: 1.2em;
+      @apply w-5 h-5;
     }
   }
 
   .editor-input{
-    position: relative;
-    flex: 1 1 auto;
-    overflow-y: auto;
+    @apply relative flex-auto overflow-y-auto;
 
     .ProseMirror{
-      position: relative;
-      padding: 10px;
-      min-height: 100%;
-      outline: 0;
+      @apply relative p-2.5 outline-0 min-h-full;
 
       &.ProseMirror-focused,
       &.dialog-open{
         [data-video-embed].ProseMirror-selectednode{
-          @include editor-active;
+          @apply editor-active;
         }
 
         [data-image-resizer].ProseMirror-selectednode{
           [data-image-resizer-wrapper]{
-            @include editor-active;
+            @apply editor-active;
 
             [data-image-resizer-control]{
-              display: block;
+              @apply block;
             }
           }
         }
       }
 
       &[contenteditable="false"]{
-        cursor: not-allowed;
-        background: $editor-disabled-color;
+        @apply cursor-not-allowed bg-[var(--editor-disabled-color)];
       }
 
       [data-video-embed]{
-        margin-bottom: $paragraph-margin-bottom;
+        @apply mb-4;
 
         iframe{
-          pointer-events: none;
+          @apply pointer-events-none;
         }
       }
 
       [data-image-resizer]{
-        margin-bottom: $paragraph-margin-bottom;
+        @apply mb-4;
 
         [data-image-resizer-wrapper]{
-          position: relative;
-          display: inline-block;
+          @apply relative inline-block;
 
           [data-image-resizer-control]{
-            display: none;
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border: 1px solid #000;
-            background-color: #fff;
-            opacity: .8;
+            @apply absolute hidden w-2.5 h-2.5 border border-solid border-[#000] bg-[#fff] opacity-80;
           }
 
-          [data-image-resizer-control^="top-"]{ top: 0; }
-          [data-image-resizer-control^="bottom-"]{ bottom: 0; }
-          [data-image-resizer-control$="-left"]{ left: 0; }
-          [data-image-resizer-control$="-right"]{ right: 0; }
+          [data-image-resizer-control^="top-"]{ @apply top-0; }
+          [data-image-resizer-control^="bottom-"]{ @apply bottom-0; }
+          [data-image-resizer-control$="-left"]{ @apply left-0; }
+          [data-image-resizer-control$="-right"]{ @apply right-0; }
 
           [data-image-resizer-control^="top-right"],
-          [data-image-resizer-control^="bottom-left"]{ cursor: nesw-resize; }
+          [data-image-resizer-control^="bottom-left"]{ @apply cursor-nesw-resize; }
 
           [data-image-resizer-control^="top-left"],
-          [data-image-resizer-control^="bottom-right"]{ cursor: nwse-resize; }
+          [data-image-resizer-control^="bottom-right"]{ @apply cursor-nwse-resize; }
         }
       }
 
       [data-suggestion]{
-        border: 1px solid #000;
-        border-radius: .4rem;
-        padding: .1rem .3rem;
+        @apply border border-solid border-[#000] rounded-md py-0.5 px-1;
       }
     }
   }
 }
 
 .editor-suggestions{
-  background: #fff;
-  border: 1px solid #000;
+  @apply border border-solid border-[#000] bg-[#fff];
 
   &:hover{
     .editor-suggestions-item[data-selected]:not(:hover){
-      background: transparent;
+      @apply bg-transparent;
     }
   }
 
   .editor-suggestions-item{
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 10px 5px;
-    border-top: 1px solid #000;
-    border-radius: 0;
+    @apply block w-full text-left py-2.5 px-1.5 border-0 border-t border-solid border-[#000] rounded-none;
 
     &:first-child{
-      border-top: 0;
+      @apply border-t-0;
     }
 
     &:hover,
     &[data-selected]{
-      background: #c7c7c7;
+      @apply bg-[#c7c7c7];
     }
   }
 }
@@ -180,15 +155,15 @@ $editor-disabled-color: #eee;
 .rich-text-display{
   ul,
   ol{
-    margin-bottom: $paragraph-margin-bottom;
+    @apply mb-4;
   }
 
   .editor-content-videoEmbed{
-    margin: 40px auto;
+    @apply my-10 mx-auto;
   }
 
   .editor-content-image{
-    margin-bottom: $paragraph-margin-bottom;
+    @apply mb-4;
   }
 }
 
@@ -198,7 +173,7 @@ $editor-disabled-color: #eee;
   p,
   ul,
   ol{
-    margin-bottom: $paragraph-margin-bottom;
+    @apply mb-4;
   }
 
   // We do not want to show the bottom border in sub-lists. Also, Tiptap adds an
@@ -209,32 +184,29 @@ $editor-disabled-color: #eee;
   ol ol,
   ol ul,
   li p{
-    margin-bottom: 0;
+    @apply mb-0;
   }
 
   .editor-content-videoEmbed{
-    max-width: 600px;
+    @apply max-w-screen-sm;
 
     > div{
-      position: relative;
-      height: 0;
-      padding-bottom: 56.25%; /* 16:9 */
-      width: 100%;
+      @apply relative h-0 w-full pb-[56.25%]; /* 16:9 */
     }
 
     iframe{
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      @apply absolute block top-0 left-0 w-full h-full;
     }
   }
 
-  @for $i from 1 through 10{
-    .editor-indent-#{$i}{
-      margin-left: 1rem * $i;
-    }
-  }
+  .editor-indent-1{ @apply ml-4; }
+  .editor-indent-2{ @apply ml-8; }
+  .editor-indent-3{ @apply ml-12; }
+  .editor-indent-4{ @apply ml-16; }
+  .editor-indent-5{ @apply ml-20; }
+  .editor-indent-6{ @apply ml-24; }
+  .editor-indent-7{ @apply ml-28; }
+  .editor-indent-8{ @apply ml-32; }
+  .editor-indent-9{ @apply ml-36; }
+  .editor-indent-10{ @apply ml-40; }
 }
