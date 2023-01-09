@@ -1,6 +1,14 @@
-$editor-border-color: #ccc !default;
-$editor-active-color: #487bda !default;
-$editor-disabled-color: #eee !default;
+.editor-props{
+  --editor-active-color: #487bda;
+  --editor-border-color: #ccc;
+  --editor-disabled-color: #eee;
+}
+
+.editor-suggestions-props{
+  --editor-suggestions-border-color: #000;
+  --editor-suggestions-background-color: #fff;
+  --editor-suggestions-selected-highlight-color: #c7c7c7;
+}
 
 .editor-active{
   @apply outline outline-4 outline-[var(--editor-active-color)];
@@ -11,11 +19,7 @@ $editor-disabled-color: #eee !default;
 }
 
 .editor-container{
-  --editor-active-color: $editor-active-color;
-  --editor-border-color: $editor-border-color;
-  --editor-disabled-color: $editor-disabled-color;
-
-  @apply flex flex-col mb-6 border editor-border;
+  @apply editor-props editor-suggestions-props flex flex-col mb-6 border editor-border;
 
   &.editor-disabled{
     .editor-input .ProseMirror{
@@ -122,14 +126,14 @@ $editor-disabled-color: #eee !default;
       }
 
       [data-suggestion]{
-        @apply border border-solid border-[#000] rounded-md py-0.5 px-1;
+        @apply border border-solid border-[var(--editor-suggestions-border-color)] rounded-md py-0.5 px-1;
       }
     }
   }
 }
 
 .editor-suggestions{
-  @apply border border-solid border-[#000] bg-[#fff];
+  @apply editor-suggestions-props border border-solid border-[var(--editor-suggestions-border-color)] bg-[var(--editor-suggestions-background-color)];
 
   &:hover{
     .editor-suggestions-item[data-selected]:not(:hover){
@@ -138,7 +142,7 @@ $editor-disabled-color: #eee !default;
   }
 
   .editor-suggestions-item{
-    @apply block w-full text-left py-2.5 px-1.5 border-0 border-t border-solid border-[#000] rounded-none;
+    @apply block w-full text-left py-2.5 px-1.5 border-0 border-t border-solid border-[var(--editor-suggestions-border-color)] rounded-none;
 
     &:first-child{
       @apply border-t-0;
@@ -146,7 +150,7 @@ $editor-disabled-color: #eee !default;
 
     &:hover,
     &[data-selected]{
-      @apply bg-[#c7c7c7];
+      @apply bg-[var(--editor-suggestions-selected-highlight-color)];
     }
   }
 }
