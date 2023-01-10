@@ -1,10 +1,10 @@
-<div class="absolute top-full left-0 lg:relative flex justify-between bg-white rounded-b shadow-lg text-black w-full lg:w-[1000px]">
-  <div class="hidden md:block w-3/4 p-8">
+<div id="breadcrumb-secondary-dropdown-<%= model.id %>" class="menu-bar__secondary-dropdown">
+  <div class="menu-bar__secondary-dropdown__left">
     <%= render :metadata %>
     <%# REDESIGN_PENDING: Show last activity related whit participatory space only %>
     <%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", nil %>
   </div>
-  <ul class="w-full md:w-1/4 bg-primary px-8 py-3 divide-y divide-gray-3 text-white">
+  <ul class="menu-bar__secondary-dropdown__menu">
     <%= render :links %>
   </ul>
 </div>
