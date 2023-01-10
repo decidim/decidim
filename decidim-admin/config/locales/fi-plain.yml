@@ -646,6 +646,7 @@ fi-pl:
           name: Nimi
           nickname: Nimimerkki
           reason: Syy
+          reported_at: Ilmoitettu
           reports: Ilmoitusten määrä
           title: Ilmoitettujen käyttäjien lista
         report:
