@@ -54,5 +54,43 @@ header{
     &__actions{
       @apply hidden lg:flex justify-between items-center gap-6;
     }
+
+    &__main-dropdown{
+      @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1200px];
+
+      &__bottom,
+      &__top{
+        @apply flex flex-col md:flex-row justify-between p-4 md:p-8 gap-x-8;
+
+        &-left{
+          @apply w-full md:w-1/2;
+        }
+
+        &-left{
+          @apply hidden md:block md:w-1/2;
+        }
+      }
+
+      &__title{
+        @apply h4 md:h3;
+      }
+
+      &__subtitle{
+        @apply text-md md:text-lg text-gray-2 mt-5;
+      }
+
+      &__menu{
+        @apply w-full md:w-1/2 mt-8 md:mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
+
+        > *{
+          @apply py-3 md:py-3.5 border-b border-gray-3;
+
+          /* since the grid has 2 columns, remove the border for these last 2 columns */
+          &:nth-last-child(-n+2){
+            @apply border-0;
+          }
+        }
+      }
+    }
   }
 }
