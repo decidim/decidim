@@ -2,7 +2,7 @@
 
 namespace :decidim do
   namespace :upgrade do
-    desc "Updates the content entered through the WYSIWYG editors"
+    desc "Registers records for the WYSIWYG content migration"
     task :register_wysiwyg_migration do
       # Core
       Decidim::Upgrade::WysiwygMigrator.register_model(
