@@ -22,7 +22,7 @@
           <th><%= t(".name") %></th>
           <th><%= t(".nickname") %></th>
           <th><%= t(".reason") %></th>
-          <th><%= t(".reported_at") %></th>
+          <th><%= sort_link(query, :created_at, t("models.moderation.fields.created_at", scope: "decidim.moderations")) %></th>
           <th><%= sort_link(query, :report_count, t(".reports"), default_order: :desc) %></th>
           <th class="actions"><%= t(".actions.title") %></th>
         </tr>

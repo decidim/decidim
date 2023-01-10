@@ -646,7 +646,6 @@ fi-pl:
           name: Nimi
           nickname: Nimimerkki
           reason: Syy
-          reported_at: Ilmoitettu
           reports: Ilmoitusten määrä
           title: Ilmoitettujen käyttäjien lista
         report:
@@ -1077,7 +1076,7 @@ fi-pl:
       models:
         moderation:
           fields:
-            created_at: Luonnin ajankohta
+            created_at: Ilmoituksen ajankohta
             deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila

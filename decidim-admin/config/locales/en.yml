@@ -665,7 +665,6 @@ en:
           name: Name
           nickname: Nickname
           reason: Reason
-          reported_at: Reported at
           reports: Reports count
           title: Listing participants
         report:
@@ -1103,7 +1102,7 @@ en:
       models:
         moderation:
           fields:
-            created_at: Creation date
+            created_at: Reported at
             deleted_resource: Deleted resource
             hidden_at: Hidden at
             participatory_space: Participatory space
