@@ -666,7 +666,6 @@ en:
           nickname: Nickname
           reason: Reason
           reported_at: Reported at
-          created_at: Created at
           reports: Reports count
           title: Listing participants
         report:
