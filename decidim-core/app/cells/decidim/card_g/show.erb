@@ -1,0 +1,16 @@
+<%= link_to resource_path, class: class_prefix, id: resource_id do %>
+  <% if has_image? %>
+    <div class="<%= class_prefix %>-img">
+      <%= image_tag resource_image_path, alt: title %>
+    </div>
+  <% end %>
+
+  <div class="<%= class_prefix %>-text">
+    <%= content_tag title_tag, title, class: title_class %>
+    <%= content_tag :div, description if has_description? %>
+
+    <div class="<%= class_prefix %>-metadata">
+      <%= cell metadata_cell, resource %>
+    </div>
+  </div>
+<% end %>
