@@ -1,14 +1,10 @@
-<details>
-  <summary id="main-dropdown-summary"
-    class="flex rounded overflow-hidden px-2 py-1 cursor-pointer relative group"
-    aria-controls="main-dropdown">
-    <span class="opacity-0 group-hover:opacity-100 transition z-0 absolute top-0 left-0 w-full h-full brightness-75 bg-primary"></span>
-    <span class="relative z-10"><%= icon "home-2-line" , class: "w-6 h-6 fill-current" %></span>
-  </summary>
-  <div id="main-dropdown" aria-labelledby="main-dropdown-summary"
-    class="absolute top-full left-8 z-20">
-    <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown" %>
-  </div>
-</details>
+<div id="main-dropdown-summary"
+  class="menu-bar__breadcrumb-desktop__dropdown-trigger"
+  data-controls="main-dropdown-panel">
+  <%= icon "home-2-line" %>
+</div>
+<div id="main-dropdown-panel" class="menu-bar__breadcrumb-desktop__dropdown-content" aria-hidden="true">
+  <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown" %>
+</div>
 
 <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_items" %>

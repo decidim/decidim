@@ -19,4 +19,40 @@ header{
       @apply ml-0 md:ml-auto;
     }
   }
+
+  .menu-bar{
+    @apply container h-full flex justify-between items-center lg:relative;
+
+    &__container{
+      @apply bg-primary relative h-14;
+    }
+
+    &__breadcrumb-desktop{
+      @apply hidden lg:flex justify-between items-center gap-2.5 text-lg text-white;
+
+      &__dropdown-trigger{
+        @apply flex rounded overflow-hidden px-2 py-1 cursor-pointer relative hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
+
+        svg{
+          @apply w-6 h-6 fill-current;
+        }
+      }
+
+      &__dropdown-content{
+        @apply absolute z-20 top-full left-8;
+
+        &-secondary{
+          @apply absolute z-20 top-[calc(100%+12px)] left-0;
+        }
+      }
+    }
+
+    &__breadcrumb-mobile{
+      @apply block lg:hidden w-full;
+    }
+
+    &__actions{
+      @apply hidden lg:flex justify-between items-center gap-6;
+    }
+  }
 }
