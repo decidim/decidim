@@ -200,14 +200,14 @@ export default function createEditorToolbar(editor) {
           icon: "indent-increase",
           label: i18n["control.indent.indent"],
           activatable: false,
-          action: () => editor.commands.indent({ fromKeyboard: false })
+          action: () => editor.commands.indent()
         }).render(supported.extensions.includes("indent")),
         createEditorToolbarToggle(editor, {
           type: "indent:outdent",
           icon: "indent-decrease",
           label: i18n["control.indent.outdent"],
           activatable: false,
-          action: () => editor.commands.outdent({ fromKeyboard: false })
+          action: () => editor.commands.outdent()
         }).render(supported.extensions.includes("indent"))
       )
     ).

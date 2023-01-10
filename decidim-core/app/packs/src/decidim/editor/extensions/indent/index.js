@@ -1,122 +1,71 @@
+import { Extension } from "@tiptap/core";
+
+// The node types for which indentation is allowed
+const allowedNodeTypes = ["heading", "paragraph"];
+
+/**
+ * Helper method to check whether one of the allowed type nodes is currently
+ * active where the indentation can be performed on.
+ *
+ * @param {Object} editor The editor instance.
+ * @returns {Boolean} A boolean indicating if an allowed type node is active
+ */
+const allowedNodeActive = (editor) => allowedNodeTypes.some((type) => editor.isActive(type));
+
+/**
+ * Finds the closest allowed type node from the given position. Traversese the
+ * document depth upwards to search through all the node parents.
+ *
+ * @param {Object} position The position where to look for
+ * @returns {Node|null} The allowed node or null if no allowed node is found
+ */
+const closestAllowedNode = (position) => {
+  let depth = position.depth;
+  while (depth > 0) {
+    const node = position.node(depth);
+    if (allowedNodeTypes.some((type) => node.type.name === type)) {
+      return node;
+    }
+    depth -= 1;
+  }
+  return null;
+}
+
 /**
  * Indent extension for the Tiptap editor.
  *
- * Original sources from:
+ * Originally based on the following MIT licensed code:
  * https://github.com/ueberdosis/tiptap/issues/1036#issuecomment-1000983233
  * https://github.com/evanfuture/tiptaptop-extension-indent
  *
- * License: MIT
  * License as specified at:
  * https://github.com/evanfuture/tiptaptop-extension-indent
+ *
+ * The code has been simplified and modified to fit better the needs of Decidim.
  *
  * Authors/Credits: Jeet Mandaliya (@sereneinserenade),
  *   Evan Payne (@evanfuture), @danline, YukiYama (@yuyuyukie)
  */
-
-import { Extension, isList } from "@tiptap/core";
-import { TextSelection } from "prosemirror-state";
-
-export const getIndent = () => ({ editor }) => {
-  if (editor.can().sinkListItem("listItem")) {
-    return editor.chain().focus().sinkListItem("listItem").run();
-  }
-  return editor.chain().focus().indent().run();
-};
-
-export const getOutdent = (outdentOnlyAtHead) => ({ editor }) => {
-  if (outdentOnlyAtHead && editor.state.selection.$head.parentOffset > 0) {
-    return false;
-  }
-  if (
-    (!outdentOnlyAtHead || editor.state.selection.$head.parentOffset > 0) &&
-    editor.can().liftListItem("listItem")
-  ) {
-    return editor.chain().focus().liftListItem("listItem").run();
-  }
-  return editor.chain().focus().outdent().run();
-};
-
-export const clamp = (val, min, max) => {
-  if (val < min) {
-    return min
-  }
-  if (val > max) {
-    return max
-  }
-  return val
-};
-
-const setNodeIndentMarkup = ({ tr, pos, delta, min, max }) => {
-  if (!tr.doc) {
-    return tr;
-  }
-  const node = tr.doc.nodeAt(pos)
-  if (!node) {
-    return tr;
-  }
-  const indent = clamp((node.attrs.indent || 0) + delta, min, max);
-  if (indent === node.attrs.indent) {
-    return tr;
-  }
-  const nodeAttrs = {
-    ...node.attrs,
-    indent
-  };
-  return tr.setNodeMarkup(pos, node.type, nodeAttrs, node.marks);
-};
-
-const updateIndentLevel = ({ tr, options, extensions, type }) => {
-  const { doc, selection } = tr;
-  let finalTr = tr;
-  if (!doc || !selection) {
-    return finalTr;
-  }
-  if (!(selection instanceof TextSelection)) {
-    return finalTr;
-  }
-  const { from, to } = selection;
-  doc.nodesBetween(from, to, (node, pos) => {
-    if (options.names.includes(node.type.name)) {
-      let rangeFactor = -1;
-      if (type === "indent") {
-        rangeFactor = 1;
-      }
-
-      finalTr = setNodeIndentMarkup({
-        tr: finalTr,
-        pos,
-        delta: options.indentRange * rangeFactor,
-        min: options.minIndentLevel,
-        max: options.maxIndentLevel
-      });
-      return false;
-    }
-    return !isList(node.type.name, extensions);
-  })
-  return finalTr;
-};
-
 export default Extension.create({
   name: "indent",
 
   addOptions() {
     return {
-      names: ["heading", "paragraph"],
-      indentRange: 1,
       minIndentLevel: 0,
       maxIndentLevel: 10,
-      defaultIndentLevel: 0,
       HTMLAttributes: {}
     };
   },
 
   addGlobalAttributes() {
+    const defaultIndentLevel = 0;
+
     return [
       {
-        types: this.options.names,
+        types: allowedNodeTypes,
         attributes: {
           indent: {
-            default: this.options.defaultIndentLevel,
+            default: defaultIndentLevel,
             renderHTML: (attributes) => {
               if (attributes.indent < 1) {
                 return {};
@@ -125,12 +74,15 @@ export default Extension.create({
               return { class: `editor-indent-${attributes.indent}` };
             },
             parseHTML: (element) => {
-              const regexp = /^editor-indent-([0-9]+)/;
+              // The "ql" prefix here is to maintain backwards compatibility
+              // with the old editor. The new prefix is editor-indent-X where X
+              // is the current indentation level.
+              const regexp = /^(editor|ql)-indent-([0-9]+)/;
               const indentClass = Array.from(element.classList).find((cls) => regexp.test(cls))
               if (!indentClass) {
-                return this.options.defaultIndentLevel;
+                return defaultIndentLevel;
               }
-              return parseInt(indentClass.match(regexp)[1], 10);
+              return parseInt(indentClass.match(regexp)[2], 10);
             }
           }
         }
@@ -139,65 +91,98 @@ export default Extension.create({
   },
 
   addCommands() {
-    return {
-      indent: ({ fromKeyboard } = { fromKeyboard: true }) => ({ tr, state, dispatch, editor, commands }) => {
-        if (dispatch && !fromKeyboard && editor.isActive("listItem")) {
-          return commands.sinkListItem("listItem");
-        }
-
-        const { selection } = state;
-        let finalTr = tr.setSelection(selection);
-        finalTr = updateIndentLevel({
-          tr: finalTr,
-          options: this.options,
-          extensions: editor.extensionManager.extensions,
-          type: "indent"
-        });
-        if (finalTr.docChanged && dispatch) {
-          dispatch(finalTr);
-          return true;
-        };
-        return false;
-      },
-      outdent: ({ fromKeyboard } = { fromKeyboard: true }) => ({ tr, state, dispatch, editor, commands }) => {
-        if (dispatch && !fromKeyboard && editor.isActive("listItem")) {
-          return commands.liftListItem("listItem");
-        }
-
-        const { selection } = state;
-        let finalTr = tr.setSelection(selection);
-        finalTr = updateIndentLevel({
-          tr: finalTr,
-          options: this.options,
-          extensions: editor.extensionManager.extensions,
-          type: "outdent"
-        });
-        if (finalTr.docChanged && dispatch) {
-          dispatch(finalTr);
-          return true;
-        }
+    const updateIndent = (modifier, { editor, state, dispatch, commands }) => {
+      if (!allowedNodeActive(editor)) {
         return false;
       }
-    };
+
+      const node = closestAllowedNode(state.selection.$head);
+      if (node === null) {
+        return false;
+      }
+
+      const indent = node.attrs.indent + modifier;
+      if (indent < this.options.minIndentLevel || indent > this.options.maxIndentLevel) {
+        return false;
+      }
+
+      if (dispatch) {
+        return commands.updateAttributes(node.type.name, { indent });
+      }
+
+      return true;
+    }
+
+    return {
+      indent: () => ({ editor, state, commands, dispatch }) => {
+        if (editor.isActive("listItem")) {
+          if (dispatch) {
+            return commands.sinkListItem("listItem");
+          }
+          return true;
+        }
+
+        return updateIndent(1, { editor, state, dispatch, commands})
+      },
+      outdent: () => ({ editor, state, commands, dispatch }) => {
+        if (editor.isActive("listItem")) {
+          // When the list item depth is at 3 it means that the list is at the
+          // top level because of the following structure:
+          // <ul><!-- depth: 1 -->
+          //   <li><!-- depth: 2 -->
+          //     <p>Content</p><!-- depth: 3 -->
+          //   </li>
+          // </ul>
+          //
+          // We do not allow outdent at the top level of the list.
+          if (state.selection.$head.depth === 3) {
+            return false;
+          }
+          if (dispatch) {
+            return commands.liftListItem("listItem");
+          }
+          return true;
+        }
+
+        return updateIndent(-1, { editor, state, dispatch, commands})
+      }
+    }
   },
 
   addKeyboardShortcuts() {
-    return {
-      Tab: getIndent(),
-      "Shift-Tab": getOutdent(false),
-      Backspace: getOutdent(true),
-      "Mod-]": getIndent(),
-      "Mod-[": getOutdent(false)
-    };
-  },
-
-  onUpdate() {
-    const { editor } = this
-    if (editor.isActive("listItem")) {
-      const node = editor.state.selection.$head.node();
-      if (node.attrs.indent) {
-        editor.commands.updateAttributes(node.type.name, { indent: 0 });
+    const indent = () => {
+      if (!this.editor.can().indent()) {
+        return false;
       }
-    }
+
+      return this.editor.commands.indent();
+    };
+    const outdent = () => {
+      if (!this.editor.can().outdent()) {
+        return false;
+      }
+
+      return this.editor.commands.outdent();
+    };
+
+    return {
+      Tab: indent,
+      "Shift-Tab": outdent,
+      Backspace: () => {
+        if (this.editor.isActive("listItem")) {
+          return false;
+        }
+
+        // With the backspace we only allow outdent when the cursor is at the
+        // beginning of the line.
+        if (this.editor.state.selection.$head.parentOffset > 0) {
+          return false;
+        }
+
+        return outdent();
+      },
+      "Mod-]": indent,
+      "Mod-[": outdent
+    };
   }
 });
