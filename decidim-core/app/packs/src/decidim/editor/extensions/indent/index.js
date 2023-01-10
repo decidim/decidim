@@ -140,8 +140,8 @@ export default Extension.create({
 
   addCommands() {
     return {
-      indent: () => ({ tr, state, dispatch, editor, commands }) => {
-        if (dispatch && editor.isActive("listItem")) {
+      indent: ({ fromKeyboard } = { fromKeyboard: true }) => ({ tr, state, dispatch, editor, commands }) => {
+        if (dispatch && !fromKeyboard && editor.isActive("listItem")) {
           return commands.sinkListItem("listItem");
         }
 
@@ -153,16 +153,14 @@ export default Extension.create({
           extensions: editor.extensionManager.extensions,
           type: "indent"
         });
-
-        // if (editor.isActive("listItem")) {
         if (finalTr.docChanged && dispatch) {
           dispatch(finalTr);
           return true;
         };
         return false;
       },
-      outdent: () => ({ tr, state, dispatch, editor, commands }) => {
-        if (dispatch && editor.isActive("listItem")) {
+      outdent: ({ fromKeyboard } = { fromKeyboard: true }) => ({ tr, state, dispatch, editor, commands }) => {
+        if (dispatch && !fromKeyboard && editor.isActive("listItem")) {
           return commands.liftListItem("listItem");
         }
 
