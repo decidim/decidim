@@ -13,7 +13,7 @@
     <% end %>
     <%= turbo_frame_tag "drawer_content_frame", data: { drawer_content: "" } do %>
       <div><%= yield %></div>
-      <div><%= yield :drawer_aside %></div>
+      <aside><%= yield :drawer_aside %></aside>
     <% end %>
   </div>
 </div>
