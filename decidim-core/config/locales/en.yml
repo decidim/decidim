@@ -1109,6 +1109,12 @@ en:
           send: Send
         update:
           error: Message was not sent due to an error
+    metadata:
+      progress:
+        active: Active
+        finished: Finished
+        not_started: Not started yet
+        remaining: "%{time_distance} remaining"
     metrics:
       download:
         csv: Download data (CSV)
