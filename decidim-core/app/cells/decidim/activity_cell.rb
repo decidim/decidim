@@ -94,7 +94,7 @@ module Decidim
     end
 
     def id_prefix
-      @id_prefix ||= context[:layout].to_s.presence&.dasherize || "action"
+      @id_prefix ||= context[:layout].to_s.dasherize.presence || "action"
     end
 
     def cache_hash
