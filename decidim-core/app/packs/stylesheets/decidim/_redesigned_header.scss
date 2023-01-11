@@ -97,7 +97,7 @@ header{
       @apply absolute top-full left-0 lg:relative flex justify-between bg-white rounded-b shadow-lg text-black w-full lg:w-[1000px];
 
       &__left{
-        @apply hidden md:block w-3/4 p-8 space-y-8;
+        @apply hidden md:block w-3/4 p-8;
       }
 
       &__title{
@@ -113,7 +113,7 @@ header{
       }
 
       &__metadata{
-        @apply flex items-center text-sm space-x-6;
+        @apply flex items-center text-sm space-x-6 py-8;
 
         > span{
           @apply flex items-center space-x-2;
