@@ -17,15 +17,15 @@
     }
 
     &-container{
-      @apply flex items-stretch rounded overflow-hidden max-h-[120px];
+      @apply flex flex-col md:flex-row items-stretch gap-y-2 md:gap-0 rounded overflow-hidden md:max-h-[120px];
 
       > *:last-child:not(:only-child){
-        @apply grow pl-5 border-4 border-l-0 border-background;
+        @apply grow md:pl-5 md:border-4 md:border-l-0 border-background;
       }
     }
 
     &-month{
-      @apply bg-primary uppercase text-white text-xs rounded-tl;
+      @apply bg-primary uppercase text-white text-xs rounded-t md:rounded-tr-none;
     }
 
     &-day{
@@ -47,7 +47,7 @@
     }
 
     &__lg{
-      @apply w-fit flex-none justify-center [&>*]:px-2 border-4 border-r-0 border-background only:border-r-4;
+      @apply w-fit flex-none justify-center [&>*]:px-2 border-4 md:border-r-0 border-background only:border-r-4;
     }
 
     &__lg &-month{
