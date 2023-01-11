@@ -1,7 +1,7 @@
 <div data-meeting-agenda>
   <div class="meeting__agenda-title">
     <%= icon "list-ordered", class: "w-6 h-6 text-tertiary fill-current" %>
-    <h3 class="h4"><%= translated_attribute(meeting.agenda.title) %></h3>
+    <h2 class="h4"><%= translated_attribute(meeting.agenda.title) %></h2>
   </div>
 
   <% agenda_items_times = calculate_start_and_end_time_of_agenda_items(meeting.agenda.agenda_items.first_class, meeting) %>
