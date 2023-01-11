@@ -13,5 +13,10 @@
       <%= icon "treasure-map-line", class: "w-3.5 h-3.5 text-gray fill-current" %>
       <%= participatory_space_link %>
     </span>
+    <% if show_author? %>
+      <div class="overflow-hidden w-6 h-6 rounded-full flex-none">
+        <%= author %>
+      </div>
+    <% end %>
   </div>
 </div>

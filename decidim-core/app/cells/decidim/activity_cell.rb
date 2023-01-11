@@ -12,12 +12,10 @@ module Decidim
     include Decidim::SanitizeHelper
     include ActionView::Helpers::DateHelper
 
-    LAYOUTS = [:show, :menu_breadcrumb].freeze
-
     def show
       return unless renderable?
 
-      render layout
+      render
     end
 
     # Since activity logs could be linked to resource no longer available
@@ -94,12 +92,12 @@ module Decidim
     end
 
     def id_prefix
-      @id_prefix ||= context[:layout].to_s.dasherize.presence || "action"
+      @id_prefix ||= context[:id_prefix].presence || "action"
     end
 
     def cache_hash
       hash = []
-      hash << layout
+      hash << id_prefix
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
       hash << model.cache_key_with_version
@@ -111,10 +109,6 @@ module Decidim
     end
 
     private
-
-    def layout
-      @layout ||= LAYOUTS.include?(context[:layout]&.to_sym) ? context[:layout] : :show
-    end
 
     def published?
       return true unless resource.respond_to?(:published?)
