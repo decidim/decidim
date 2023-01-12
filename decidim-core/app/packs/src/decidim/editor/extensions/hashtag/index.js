@@ -43,6 +43,10 @@ export default Mention.extend({
         char: "#",
         pluginKey: HashtagPluginKey,
         items: async ({ query }) => {
+          if (query.length < 2) {
+            return [];
+          }
+
           const data = await searchHashtags(query);
           const sorted = data.sort((tag) => tag.name);
           return sorted.slice(0, 5);
