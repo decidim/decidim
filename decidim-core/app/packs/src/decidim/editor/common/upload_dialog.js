@@ -143,9 +143,9 @@ export default class UploadDialog {
       }
 
       if (values.src && values.src.length > 0) {
-        titleEl.innerText = titleEl.dataset.editlabel;
+        titleEl.textContent = titleEl.dataset.editlabel;
       } else {
-        titleEl.innerText = titleEl.dataset.addlabel;
+        titleEl.textContent = titleEl.dataset.addlabel;
       }
 
       const titleInputHtml = `

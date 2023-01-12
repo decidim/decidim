@@ -44,7 +44,7 @@ const createEditorToolbarSelect = (editor, { type, label, options, action, activ
     options.forEach(({ label: optionLabel, value }) => {
       const option = document.createElement("option");
       option.setAttribute("value", value);
-      option.innerText = optionLabel;
+      option.textContent = optionLabel;
       ctrl.appendChild(option);
     });
     ctrl.addEventListener("change", () => {
