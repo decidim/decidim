@@ -28,6 +28,7 @@ export default function createEditor(container) {
 
   let editor = null;
   const i18nUpload = getDictionary("editor.upload");
+  const features = container.dataset?.toolbar || "basic";
   const options = JSON.parse(container.dataset.options);
   const { uploadImagesPath, uploadDialogSelector, contentTypes } = options;
   const uploadDialog = new UploadDialog(
@@ -54,10 +55,14 @@ export default function createEditor(container) {
     Indent,
     CodeBlock,
     Link.configure({ openOnClick: false }),
-    Underline,
-    VideoEmbed,
-    Image.configure({ uploadDialog, uploadImagesPath, contentTypes: contentTypes.image })
+    Underline
   ];
+  if (features === "full") {
+    extensions.push(...[
+      VideoEmbed,
+      Image.configure({ uploadDialog, uploadImagesPath, contentTypes: contentTypes.image })
+    ]);
+  }
 
   if (editorContainer.classList.contains("js-hashtags")) {
     extensions.push(Hashtag);
