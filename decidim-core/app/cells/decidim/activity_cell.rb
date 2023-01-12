@@ -131,7 +131,7 @@ module Decidim
 
       return unless presenter
 
-      cell "decidim/author", presenter
+      cell "decidim/author", presenter, layout: :avatar
     end
 
     def participatory_space
