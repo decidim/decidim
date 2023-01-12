@@ -49,12 +49,12 @@ export default class InputDialog {
         buttonsHTML += `<button type="button" class="button clear mb-none" data-action="cancel">${i18n["buttons.cancel"]}</button>`;
       }
     } else {
-      buttonsHTML += `<button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-action="cancel">${i18n["buttons.cancel"]}</button>`;
       if (removeButton) {
-        buttonsHTML += `<button type="button" class="button button__sm md:button__lg button__secondary" data-action="remove">${i18n["buttons.remove"]}</button>`;
+        buttonsHTML += `<button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-action="remove">${i18n["buttons.remove"]}</button>`;
       } else {
-        buttonsHTML += `<button type="button" class="button button__sm md:button__lg button__secondary" data-action="save">${i18n["buttons.save"]}</button>`;
+        buttonsHTML += `<button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-action="cancel">${i18n["buttons.cancel"]}</button>`;
       }
+      buttonsHTML += `<button type="button" class="button button__sm md:button__lg button__secondary" data-action="save">${i18n["buttons.save"]}</button>`;
     }
 
     if (this.legacyDesign) {
