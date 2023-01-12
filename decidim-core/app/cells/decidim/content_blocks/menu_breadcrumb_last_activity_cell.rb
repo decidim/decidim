@@ -12,6 +12,7 @@ module Decidim
       def cache_hash
         hash = []
         hash << "decidim/content_blocks/menu_breadcrumb_last_activity"
+        hash << id_prefix
         hash << Digest::MD5.hexdigest(valid_activities.map(&:cache_key_with_version).to_s)
         hash << I18n.locale.to_s
 
@@ -19,7 +20,11 @@ module Decidim
       end
 
       def activities_options
-        @activities_options ||= { id_prefix: "menu-breadcrumb" }.merge(options.slice(:show_participatory_space))
+        @activities_options ||= { id_prefix: }.merge(options.slice(:show_participatory_space))
+      end
+
+      def id_prefix
+        @id_prefix ||= options[:id_prefix] || model.respond_to?(:to_gid) ? model.to_gid.to_param : "menu-breadcrumb"
       end
 
       def activities_to_show
