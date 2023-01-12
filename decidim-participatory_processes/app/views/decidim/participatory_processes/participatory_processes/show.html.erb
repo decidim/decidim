@@ -74,7 +74,7 @@
 
     <span class="content-block__span"><%= t("name", scope: "decidim.content_blocks.last_activity") %></span>
     <%#= REDESIGN_PENDING: user_activity requires a proper modal to make it work %>
-    <div>
+    <div class="space-y-4">
       <%= cell "decidim/activities", Decidim::LastActivity.new(current_organization).query.limit(6) %>
     </div>
   </section>

@@ -1,5 +1,5 @@
 .activity{
-  @apply flex flex-col-reverse md:flex-row gap-2 md:gap-12 py-4 first:pt-0 last:pb-0;
+  @apply flex flex-col-reverse md:flex-row gap-2 md:gap-12;
 
   &__time{
     @apply w-full md:w-1/6 flex-none text-gray-2;
