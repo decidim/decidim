@@ -61,14 +61,49 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
     command(convertItem(items[idx]));
   };
 
+  const showSuggestions = ({ items, clientRect }) => {
+    const rect = clientRect();
+    Object.assign(suggestion.style, {
+      position: "absolute",
+      top: `${document.documentElement.scrollTop + rect.top + rect.height}px`,
+      left: `${rect.left}px`
+    });
+
+    suggestion.classList.remove("hidden", "hide");
+    suggestion.innerHTML = "";
+    items.forEach((rawItem, idx) => {
+      const { label, id } = convertItem(rawItem);
+      const suggestionItem = document.createElement("button");
+      suggestionItem.type = "button";
+      suggestionItem.classList.add("editor-suggestions-item");
+      if (id) {
+        suggestionItem.dataset.id = id;
+      }
+      suggestionItem.dataset.index = idx;
+      suggestionItem.dataset.value = label;
+      if (idx === 0) {
+        selectedIndex = idx;
+        suggestionItem.dataset.selected = "true";
+      }
+      suggestionItem.textContent = label;
+      suggestion.append(suggestionItem);
+
+      suggestionItem.addEventListener("click", () => selectItem(idx));
+    });
+  }
+
   return {
-    onStart({ editor, items, command }) {
+    onStart({ editor, items, clientRect, command }) {
       currentEditor = editor;
       suggestionItems = items;
       selectCommand = command;
       suggestion = document.createElement("div");
       document.body.append(suggestion);
       suggestion.classList.add("editor-suggestions", "hidden", "hide");
+
+      if (items.length > 0) {
+        showSuggestions({ clientRect, items });
+      }
     },
 
     onUpdate({ clientRect, items }) {
@@ -78,34 +113,11 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
 
       suggestionItems = items;
 
-      const rect = clientRect();
-      Object.assign(suggestion.style, {
-        position: "absolute",
-        top: `${document.documentElement.scrollTop + rect.top + rect.height}px`,
-        left: `${rect.left}px`
-      });
-
-      suggestion.classList.remove("hidden", "hide");
-      suggestion.innerHTML = "";
-      items.forEach((rawItem, idx) => {
-        const { label, id } = convertItem(rawItem);
-        const suggestionItem = document.createElement("button");
-        suggestionItem.type = "button";
-        suggestionItem.classList.add("editor-suggestions-item");
-        if (id) {
-          suggestionItem.dataset.id = id;
-        }
-        suggestionItem.dataset.index = idx;
-        suggestionItem.dataset.value = label;
-        if (idx === 0) {
-          selectedIndex = idx;
-          suggestionItem.dataset.selected = "true";
-        }
-        suggestionItem.innerText = label;
-        suggestion.append(suggestionItem);
-
-        suggestionItem.addEventListener("click", () => selectItem(idx));
-      });
+      if (items.length > 0) {
+        showSuggestions({ clientRect, items });
+      } else {
+        suggestion.classList.add("editor-suggestions", "hidden", "hide");
+      }
     },
 
     onKeyDown({ event, range }) {
@@ -143,7 +155,7 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
 export const createNodeView = (self) => {
   return ({ node }) => {
     const dom = document.createElement("span");
-    dom.innerText = self.options.renderLabel({ options: self.options, node });
+    dom.textContent = self.options.renderLabel({ options: self.options, node });
 
     const { id, label } = node.attrs;
     dom.dataset.suggestion = node.type.name;
