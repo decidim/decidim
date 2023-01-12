@@ -17,16 +17,16 @@
       </div>
 
       <%# Main dropdown mobile %>
-      <details>
-        <summary id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger"
-          aria-controls="main-dropdown-mobile">
+      <div data-component="accordion">
+        <div id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger"
+          data-controls="panel-dropdown-account-mobile">
           <%= icon "menu-line" %><span><%= "menu" %></span>
-        </summary>
+        </div>
 
-        <div id="main-dropdown-mobile" aria-labelledby="main-dropdown-summary-mobile" class="main-bar__links-mobile__dropdown">
+        <div id="panel-dropdown-account-mobile" class="main-bar__links-mobile__dropdown" aria-hidden="true">
           <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown" %>
         </div>
-      </details>
+      </div>
     </div>
   </div>
 </div>
