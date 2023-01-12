@@ -9,8 +9,10 @@
     <%= content_tag title_tag, title, class: title_class %>
     <%= description if has_description? %>
 
-    <div class="<%= class_prefix %>-metadata">
-      <%= cell metadata_cell, resource %>
-    </div>
+    <% if metadata_cell.present? && !metadata_cell.blank? %>
+      <div class="<%= class_prefix %>-metadata">
+        <%= cell metadata_cell, resource %>
+      </div>
+    <% end %>
   </div>
 <% end %>

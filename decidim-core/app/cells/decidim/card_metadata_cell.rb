@@ -7,9 +7,10 @@ module Decidim
     include Decidim::IconHelper
 
     alias resource model
+    delegate :blank, to: :items
 
     def show
-      return if items.blank?
+      return if blank?
 
       render
     end

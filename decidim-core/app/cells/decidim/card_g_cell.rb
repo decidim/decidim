@@ -48,12 +48,7 @@ module Decidim
     end
 
     def metadata_cell
-      "decidim/card_metadata"
-    end
-
-    def details_template
-      return :metadata if metadata_cell.present?
-      return :author if has_author?
+      nil
     end
 
     def has_author?
