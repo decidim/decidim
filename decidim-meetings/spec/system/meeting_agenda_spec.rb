@@ -32,7 +32,7 @@ describe "Meeting agenda", type: :system do
 
       within "[data-meeting-agenda]" do
         expect(page).to have_i18n_content(agenda.title)
-        expect(page).to have_css("h4", count: agenda.agenda_items.first_class.count)
+        expect(page).to have_css("h3", count: agenda.agenda_items.first_class.count)
       end
     end
   end

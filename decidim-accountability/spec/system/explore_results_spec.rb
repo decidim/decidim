@@ -384,5 +384,5 @@ describe "Explore results", versioning: true, type: :system do
 end
 
 def select_tab(text)
-  find("li.tab-x", text:).click
+  find("li", text:).click
 end
