@@ -124,10 +124,6 @@ module Decidim
       model.organization_lazy
     end
 
-    def author_options
-      @author_options ||= context[:author_options].presence || {}
-    end
-
     def author
       return unless show_author? && user.is_a?(UserBaseEntity)
 
@@ -140,7 +136,7 @@ module Decidim
 
       return unless presenter
 
-      cell "decidim/author", presenter, author_options
+      cell "decidim/author", presenter, layout: :avatar
     end
 
     def participatory_space
