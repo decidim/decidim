@@ -18,6 +18,10 @@ module Decidim
         hash.join(Decidim.cache_key_separator)
       end
 
+      def activities_options
+        @activities_options ||= { id_prefix: "menu-breadcrumb" }.merge(options.slice(:show_participatory_space))
+      end
+
       def activities_to_show
         4
       end

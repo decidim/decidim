@@ -2,7 +2,7 @@
   <%= cell(
         "decidim/activities",
         valid_activities,
-        id_prefix: "menu-breadcrumb"
+        **activities_options
       ) %>
 </div>
 <%= link_to last_activities_path, class: "mt-2.5 button button__text-secondary" do %>

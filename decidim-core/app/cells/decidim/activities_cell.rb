@@ -17,7 +17,7 @@ module Decidim
     end
 
     def activity_cell_for(activity)
-      opts = options.slice(:id_prefix).merge(
+      opts = options.slice(:id_prefix, :show_participatory_space).merge(
         show_author: (context[:user] != activity.user)
       )
 
