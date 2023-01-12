@@ -8,11 +8,11 @@ module Decidim
       private
 
       def items
-        [progress_item, interactions_count].compact
+        [progress_item].compact
       end
 
       def interactions_count
-        # REDESIGN_PENDING
+        # REDESIGN_DETAILS: Definition pending
         {
           text: "2666 interactions",
           icon: "bubble-chart-line"
