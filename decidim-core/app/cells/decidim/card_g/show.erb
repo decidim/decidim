@@ -7,7 +7,7 @@
 
   <div class="<%= class_prefix %>-text">
     <%= content_tag title_tag, title, class: title_class %>
-    <%= content_tag :div, description if has_description? %>
+    <%= description if has_description? %>
 
     <div class="<%= class_prefix %>-metadata">
       <%= cell metadata_cell, resource %>

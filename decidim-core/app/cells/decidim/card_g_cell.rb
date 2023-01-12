@@ -69,14 +69,14 @@ module Decidim
     end
 
     def title_class
-      "h4 text-secondary"
+      "#{highlight? ? "h3" : "h4"} text-secondary"
     end
 
     def description
       attribute = resource.try(:short_description) || resource.try(:body) || resource.description
       text = translated_attribute(attribute)
 
-      decidim_sanitize_editor(html_truncate(text, length: 100))
+      decidim_sanitize_editor(html_truncate(text, length: 300))
     end
 
     def has_authors?
