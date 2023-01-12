@@ -44,8 +44,10 @@
         </span>
       <% end %>
     </div>
-    <ul id="panel-dropdown-account" class="dropdown dropdown__bottom main-bar__dropdown" aria-hidden="true">
-      <%= render partial: "layouts/decidim/header/redesigned_main_links_dropdown" %>
-    </ul>
+    <div id="panel-dropdown-account" aria-hidden="true">
+      <ul class="dropdown dropdown__bottom main-bar__dropdown">
+        <%= render partial: "layouts/decidim/header/redesigned_main_links_dropdown" %>
+      </ul>
+    </div>
   </div>
 <% end %>
