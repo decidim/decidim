@@ -1,6 +1,7 @@
 import Dialog from "a11y-dialog-component";
 
 import { getDictionary } from "src/decidim/i18n";
+import { uniqueId } from "src/decidim/editor/common/helpers";
 
 export default class InputDialog {
   constructor(editor, { inputs, removeButton }) {
@@ -8,7 +9,7 @@ export default class InputDialog {
     // The legacy design should not have any elements on the page with the
     // `data-dialog` attribute.
     this.legacyDesign = !document.querySelector("[data-dialog]");
-    const inputId = `inputdialog-${(new Date()).getTime()}`;
+    const inputId = uniqueId("inputdialog");
     this.element = document.createElement("div");
     if (this.legacyDesign) {
       this.element.classList.add("reveal");
