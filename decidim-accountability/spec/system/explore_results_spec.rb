@@ -306,12 +306,14 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows related projects" do
+        click_button "Included projects"
         projects.each do |project|
           expect(page).to have_content(translated(project.title))
         end
       end
 
       it "the result is mentioned in the project page" do
+        click_button "Included projects"
         click_link translated(project.title)
         expect(page).to have_i18n_content(result.title)
       end
@@ -331,6 +333,7 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "shows related meetings" do
+        click_button "Included meetings"
         meetings.each do |meeting|
           expect(page).to have_i18n_content(meeting.title)
         end
