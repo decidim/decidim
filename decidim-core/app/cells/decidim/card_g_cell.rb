@@ -24,7 +24,7 @@ module Decidim
     end
 
     def resource_id
-      "#{id_base_name}_#{resource.id}"
+      "#{id_base_name}_#{"highlight" if highlight?}_#{resource.id}"
     end
 
     def resource_path
