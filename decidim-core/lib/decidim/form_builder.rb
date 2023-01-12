@@ -191,14 +191,14 @@ module Decidim
       label_text = label_for(name) if label_text.blank?
       options.delete(:required)
       hashtaggable = options.delete(:hashtaggable)
-      hidden_options = extract_validations(name, options).merge(options)
       editor_image = Decidim::EditorImage.new
       editor_options = editor_options(editor_image, options)
+      hidden_options = extract_validations(name, options).merge(options)
 
       content_tag(:div, class: "editor #{"hashtags__container" if hashtaggable}") do
         template = ""
-        template += label(name, label_text + required_for_attribute(name)) if options.fetch(:label, true)
-        template += hidden_field(name, hidden_options)
+        template += label(name, label_text + required_for_attribute(name), for: nil) if options.fetch(:label, true)
+        template += hidden_field(name, hidden_options.merge(id: nil))
         template += content_tag(
           :div,
           nil,
@@ -948,7 +948,7 @@ module Decidim
     # Private: creates the options to pass to the view editor and its attached
     # upload modal.
     def editor_options(editor_image, options)
-      upload_options = options[:image_upload] || {}
+      upload_options = options.delete(:image_upload) || {}
       upload_options[:modal_id] ||= "upload_#{SecureRandom.uuid}"
 
       editor_options = {

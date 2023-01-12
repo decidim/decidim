@@ -15,6 +15,7 @@ import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 import { getDictionary } from "src/decidim/i18n";
 import createEditorToolbar from "src/decidim/editor/toolbar";
 import UploadDialog from "src/decidim/editor/common/upload_dialog";
+import { uniqueId } from "src/decidim/editor/common/helpers";
 
 /**
  * Creates a new rich text editor instance.
@@ -24,7 +25,15 @@ import UploadDialog from "src/decidim/editor/common/upload_dialog";
  */
 export default function createEditor(container) {
   const input = container.parentElement.querySelector("input[type=hidden]");
+  const label = container.parentElement.querySelector("label");
   const editorContainer = container.querySelector(".editor-input");
+
+  const editorAttributes = { role: "textbox", "aria-multiline": true };
+  if (label) {
+    const labelId = uniqueId("editorlabel");
+    label.setAttribute("id", labelId);
+    editorAttributes["aria-labelledby"] = labelId;
+  }
 
   let editor = null;
   const i18nUpload = getDictionary("editor.upload");
@@ -73,6 +82,7 @@ export default function createEditor(container) {
 
   editor = new Editor({
     element: editorContainer,
+    editorProps: { attributes: editorAttributes },
     content: input.value,
     editable: !input.disabled,
     extensions
