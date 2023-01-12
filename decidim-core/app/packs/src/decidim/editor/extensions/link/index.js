@@ -36,7 +36,7 @@ export default Link.extend({
           const dialogState = await linkDialog.toggle({ href, target });
           href = linkDialog.getValue("href");
           target = linkDialog.getValue("target");
-          if (target && target.length < 1) {
+          if (!target || target.length < 1) {
             target = null;
           }
 
