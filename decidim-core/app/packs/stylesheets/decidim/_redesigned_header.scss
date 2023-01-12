@@ -28,7 +28,7 @@ header{
     }
 
     &__breadcrumb-desktop{
-      @apply hidden lg:flex justify-between items-center gap-2.5 text-lg text-white;
+      @apply hidden lg:flex justify-between items-center gap-2.5 [&>*]:text-lg [&>*]:text-white;
 
       &__dropdown-trigger{
         @apply flex rounded overflow-hidden px-2 py-1 cursor-pointer relative hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
@@ -97,7 +97,7 @@ header{
       @apply absolute top-full left-0 lg:relative flex justify-between bg-white rounded-b shadow-lg text-black w-full lg:w-[1000px];
 
       &__left{
-        @apply hidden md:block w-3/4 p-8;
+        @apply hidden md:block w-3/4 p-8 text-md;
       }
 
       &__title{
