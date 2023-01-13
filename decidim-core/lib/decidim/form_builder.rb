@@ -195,7 +195,11 @@ module Decidim
       editor_options = editor_options(editor_image, options)
       hidden_options = extract_validations(name, options).merge(options)
 
-      content_tag(:div, class: "editor #{"hashtags__container" if hashtaggable}") do
+      content_tag(
+        :div,
+        class: "editor #{"hashtags__container" if hashtaggable}",
+        id: "#{sanitize_for_dom_selector(@object_name)}_#{sanitize_for_dom_selector(name)}"
+      ) do
         template = ""
         template += label(name, label_text + required_for_attribute(name), for: nil) if options.fetch(:label, true)
         template += hidden_field(name, hidden_options.merge(id: nil))
