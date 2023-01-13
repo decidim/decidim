@@ -12,7 +12,12 @@ module Decidim
       private
 
       def card_size
-        "decidim/assemblies/assembly_m"
+        case @options[:size]
+        when :g
+          "decidim/assemblies/assembly_g"
+        else
+          "decidim/assemblies/assembly_m"
+        end
       end
     end
   end
