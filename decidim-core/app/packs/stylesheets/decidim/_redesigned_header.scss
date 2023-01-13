@@ -45,6 +45,19 @@ header{
           @apply absolute z-20 top-[calc(100%+12px)] left-0;
         }
       }
+
+      /* overwrite default dropdown styles */
+      [id*="dropdown-menu"][aria-hidden="true"]{
+        @apply md:hidden;
+      }
+
+      [data-target*="dropdown"]{
+        @apply w-auto last-of-type:[&>svg]:block;
+
+        > svg{
+          @apply text-white;
+        }
+      }
     }
 
     &__breadcrumb-mobile{

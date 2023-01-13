@@ -5,10 +5,11 @@
     <div class="relative">
       <div id="secondary-dropdown-summary"
         class="menu-bar__breadcrumb-desktop__dropdown-trigger<%= " font-bold" if item[:active] %>"
-        data-controls="secondary-dropdown-panel-<%= i %>">
+        data-component="dropdown"
+        data-target="secondary-dropdown-menu-<%= i %>">
         <%= item_label %>
       </div>
-      <div id="secondary-dropdown-panel-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true">
+      <div id="secondary-dropdown-menu-<%= i %>" class="menu-bar__breadcrumb-desktop__dropdown-content-secondary" aria-hidden="true">
         <%= cell item[:dropdown_cell], item[:resource] %>
       </div>
     </div>
