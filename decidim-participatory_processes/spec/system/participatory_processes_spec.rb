@@ -211,6 +211,8 @@ describe "Participatory Processes", type: :system do
             end
 
             it "shows a CTA button" do
+              skip "REDESIGN_DETAILS: CTA button will be deprecated after redesign integration"
+
               visit decidim_participatory_processes.participatory_processes_path
 
               within "#highlighted-processes" do
@@ -284,6 +286,8 @@ describe "Participatory Processes", type: :system do
           end
 
           it "shows a CTA button inside group card" do
+            skip "REDESIGN_DETAILS: CTA button will be deprecated after redesign integration"
+
             within("#highlighted-processes") do
               expect(page).to have_link(cta_settings[:button_text_en], href: cta_settings[:button_url])
             end
