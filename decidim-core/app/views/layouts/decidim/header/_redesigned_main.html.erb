@@ -17,15 +17,14 @@
       </div>
 
       <%# Main dropdown mobile %>
-      <div data-component="accordion">
-        <div id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger"
-          data-controls="panel-dropdown-account-mobile">
-          <%= icon "menu-line" %><span><%= "menu" %></span>
-        </div>
+      <div id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger"
+        data-component="dropdown"
+        data-target="dropdown-menu-account-mobile">
+        <%= icon "menu-line" %><span class="sr-only"><%= t("main_menu", scope: "layouts.decidim.header") %></span>
+      </div>
 
-        <div id="panel-dropdown-account-mobile" class="main-bar__links-mobile__dropdown" aria-hidden="true">
-          <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown" %>
-        </div>
+      <div id="dropdown-menu-account-mobile" class="main-bar__links-mobile__dropdown" aria-hidden="true">
+        <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown" %>
       </div>
     </div>
   </div>
