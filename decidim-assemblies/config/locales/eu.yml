@@ -4,7 +4,7 @@ eu:
       assemblies_setting:
         enable_organization_chart: Gaitu organigrama
       assembly:
-        area_id: Area
+        area_id: Arloa
         assembly_type: Muntatze-mota
         assembly_type_other: Batzar mota beste
         banner_image: Bannerra
