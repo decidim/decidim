@@ -961,7 +961,9 @@ ar:
       report:
         content_original_language: لغة المحتوى الأصلية
         hello: مرحبا %{name}،
+        reason: السبب
         report_html: <p>تم الإبلاغ عن المحتوى <a href="%{url}">التالي</a> .</p>
+        see_report: معاينة التقرير
         subject: تم الإبلاغ عن مورد
     reports:
       create:
