@@ -92,6 +92,11 @@ header{
       }
     }
 
+    /* overwrite default dropdown styles */
+    [id*="dropdown-menu"][aria-hidden="true"]{
+      @apply md:hidden;
+    }
+
     &__dropdown{
       @apply divide-y divide-gray-3 z-20 w-64;
 
