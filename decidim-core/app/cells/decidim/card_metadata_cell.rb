@@ -63,7 +63,7 @@ module Decidim
     end
 
     def dates_blank?
-      [start_date, end_date].all?(&:blank?)
+      [start_date, end_date].any?(&:blank?)
     end
 
     def current_date
@@ -74,24 +74,20 @@ module Decidim
       return if progress_value.blank?
 
       {
-        text: "<div class=\"card__grid-loader\" style=\"--value:#{progress_value};\"></div>#{progress_text}".html_safe
+        text: "#{progress_span}#{progress_text}".html_safe
       }
     end
 
     def progress_value
       return if dates_blank?
 
-      @progress_value ||= if start_date.present?
-                            if current_date <= start_date || end_date.blank?
-                              1
-                            elsif current_date <= end_date
-                              (end_date - current_date).to_f / (end_date - start_date).to_i
-                            else
-                              0
-                            end
-                          else
-                            current_date <= end_date ? 1 : 0
-                          end
+      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date).to_i if current_date <= end_date
+    end
+
+    def progress_span
+      return if progress_value.blank?
+
+      "<span class=\"card__grid-loader\" style=\"--value:#{progress_value};\"></span>"
     end
 
     def progress_text
