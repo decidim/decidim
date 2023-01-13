@@ -124,7 +124,7 @@ describe "Participatory Processes", type: :system do
         it "lists all the highlighted processes" do
           within "#highlighted-processes" do
             expect(page).to have_content(translated(promoted_process.title, locale: :en))
-            expect(page).to have_selector(".card--full", count: 1)
+            expect(page).to have_selector("[id^='participatory_process_highlight']", count: 1)
           end
         end
       end
@@ -240,7 +240,7 @@ describe "Participatory Processes", type: :system do
 
       context "when there are promoted participatory process groups" do
         let!(:promoted_group) { create(:participatory_process_group, :promoted, :with_participatory_processes, organization:) }
-        let(:promoted_items_titles) { page.all("#highlighted-processes .card__title").map(&:text) }
+        let(:promoted_items_titles) { page.all("#highlighted-processes .h3").map(&:text) }
 
         before do
           promoted_group.title["en"] = "D'Artagnan #{promoted_group.title["en"]}"
@@ -260,7 +260,8 @@ describe "Participatory Processes", type: :system do
         it "lists all the highlighted process groups" do
           within "#highlighted-processes" do
             expect(page).to have_content(translated(promoted_group.title, locale: :en))
-            expect(page).to have_selector(".card--full", count: 2)
+            expect(page).to have_selector("[id^='participatory_process_highlight']", count: 1)
+            expect(page).to have_selector("[id^='participatory_process_group_highlight']", count: 1)
           end
         end
 
