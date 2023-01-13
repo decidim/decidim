@@ -19,8 +19,19 @@ module Decidim
       options[:highlight] == true
     end
 
-    def class_prefix
-      @class_prefix ||= "card__#{highlight? ? "highlight" : "grid"}"
+    def classes
+      # avoid metaprogramming in CSS classes due to Tailwind purge
+      @classes ||= highlight? ? {
+        default: "card__highlight",
+        img: "card__highlight-img",
+        text: "card__highlight-text",
+        metadata: "card__highlight-metadata"
+      } : {
+        default: "card__grid",
+        img: "card__grid-img",
+        text: "card__grid-text",
+        metadata: "card__grid-metadata"
+      }
     end
 
     def resource_id
