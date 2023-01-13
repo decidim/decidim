@@ -21,17 +21,21 @@ module Decidim
 
     def classes
       # avoid metaprogramming in CSS classes due to Tailwind purge
-      @classes ||= highlight? ? {
-        default: "card__highlight",
-        img: "card__highlight-img",
-        text: "card__highlight-text",
-        metadata: "card__highlight-metadata"
-      } : {
-        default: "card__grid",
-        img: "card__grid-img",
-        text: "card__grid-text",
-        metadata: "card__grid-metadata"
-      }
+      @classes ||= if highlight?
+                     {
+                       default: "card__highlight",
+                       img: "card__highlight-img",
+                       text: "card__highlight-text",
+                       metadata: "card__highlight-metadata"
+                     }
+                   else
+                     {
+                       default: "card__grid",
+                       img: "card__grid-img",
+                       text: "card__grid-text",
+                       metadata: "card__grid-metadata"
+                     }
+                   end
     end
 
     def resource_id
