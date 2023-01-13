@@ -9,11 +9,9 @@
         <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
       </a>
     </span>
-    <% if show_participatory_space? %>
-      <span>
-        <%= icon "treasure-map-line" %>
-        <%= participatory_space_link %>
-      </span>
-    <% end %>
+    <span>
+      <%= icon "treasure-map-line" %>
+      <%= participatory_space_link %>
+    </span>
   </div>
 </div>

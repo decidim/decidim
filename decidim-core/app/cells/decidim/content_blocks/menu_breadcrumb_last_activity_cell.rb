@@ -20,7 +20,7 @@ module Decidim
       end
 
       def activities_options
-        @activities_options ||= { id_prefix: }.merge(options.slice(:show_participatory_space))
+        @activities_options ||= { id_prefix: }.merge(options.slice(:hide_participatory_space))
       end
 
       def id_prefix

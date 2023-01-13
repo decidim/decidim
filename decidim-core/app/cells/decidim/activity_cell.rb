@@ -155,9 +155,5 @@ module Decidim
     def show_author?
       context[:show_author]
     end
-
-    def show_participatory_space?
-      context[:show_participatory_space]
-    end
   end
 end
