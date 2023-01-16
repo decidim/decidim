@@ -112,4 +112,18 @@ describe("Mention", () => {
       '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
     );
   });
+
+  it("allows selecting a mention from the list by clicking the Enter key", async () => {
+    editorElement.focus();
+    await updateContent(editorElement, "@joh");
+
+    editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
+
+    expect(editorElement.innerHTML).toEqual(
+      '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+    );
+    expect(editor.getHTML()).toEqual(
+      '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+    );
+  });
 });
