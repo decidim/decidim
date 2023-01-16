@@ -1076,7 +1076,7 @@ fi:
       models:
         moderation:
           fields:
-            created_at: Ilmoituksen ajankohta
+            created_at: Luonnin ajankohta
             deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila

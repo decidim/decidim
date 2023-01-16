@@ -1106,11 +1106,11 @@ en:
             deleted_resource: Deleted resource
             hidden_at: Hidden at
             participatory_space: Participatory space
-            report_count: Count
+            report_count: Reports count
             reportable_id: ID
             reportable_type: Type
             reported_content_url: Reported content URL
-            reports: Reports
+            reports: Reason
             visit_url: Visit URL
         report:
           fields:
