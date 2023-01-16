@@ -196,11 +196,74 @@ describe("Image", () => {
   });
 
   describe("resizing", () => {
-    const simulateDrag = (moveControl, { from, to }) => {
-      moveControl.dispatchEvent(new MouseEvent("mousedown", { clientX: from, clientY: 0 }));
-      document.dispatchEvent(new MouseEvent("mousemove", { clientX: to, clientY: 0 }));
-      document.dispatchEvent(new MouseEvent("mouseup"));
-    };
+    const behavesLikeImageResizer = (dragMode) => {
+      const simulateDrag = (moveControl, { from, to }) => {
+        if (dragMode === "touch") {
+          moveControl.dispatchEvent(new MouseEvent("touchstart", { clientX: from, clientY: 0 }));
+          document.dispatchEvent(new MouseEvent("touchmove", { clientX: to, clientY: 0 }));
+          document.dispatchEvent(new MouseEvent("touchend"));
+        } else {
+          moveControl.dispatchEvent(new MouseEvent("mousedown", { clientX: from, clientY: 0 }));
+          document.dispatchEvent(new MouseEvent("mousemove", { clientX: to, clientY: 0 }));
+          document.dispatchEvent(new MouseEvent("mouseup"));
+        }
+      };
+
+      it("allows resizing the image down using the right side controls", () => {
+        const topRight = editorElement.querySelector("[data-image-resizer-control='top-right']");
+        simulateDrag(topRight, { from: 800, to: 700 });
+        expect(editorElement.querySelector("img").outerHTML).toEqual(
+          '<img src="/path/to/image.jpg" alt="Test text" width="500">'
+        );
+
+        const bottomRight = editorElement.querySelector("[data-image-resizer-control='bottom-right']");
+        simulateDrag(bottomRight, { from: 700, to: 750 });
+        expect(editorElement.querySelector("img").outerHTML).toEqual(
+          '<img src="/path/to/image.jpg" alt="Test text" width="550">'
+        );
+      });
+
+      it("allows resizing the image down using the left side controls", () => {
+        const topLeft = editorElement.querySelector("[data-image-resizer-control='top-left']");
+        simulateDrag(topLeft, { from: 200, to: 300 });
+        expect(editorElement.querySelector("img").outerHTML).toEqual(
+          '<img src="/path/to/image.jpg" alt="Test text" width="500">'
+        );
+
+        const bottomLeft = editorElement.querySelector("[data-image-resizer-control='bottom-left']");
+        simulateDrag(bottomLeft, { from: 200, to: 150 });
+        expect(editorElement.querySelector("img").outerHTML).toEqual(
+          '<img src="/path/to/image.jpg" alt="Test text" width="550">'
+        );
+      });
+
+      it("removes the width attribute when the image reaches its natural width", () => {
+        const topRight = editorElement.querySelector("[data-image-resizer-control='top-right']");
+        simulateDrag(topRight, { from: 800, to: 700 });
+        expect(editorElement.querySelector("img").outerHTML).toEqual(
+          '<img src="/path/to/image.jpg" alt="Test text" width="500">'
+        );
+
+        simulateDrag(topRight, { from: 700, to: 1500 });
+        expect(editorElement.querySelector("img").outerHTML).toEqual(
+          '<img src="/path/to/image.jpg" alt="Test text">'
+        );
+      });
+
+      it("does not allow making the image smaller than 100px", () => {
+        const bottomLeft = editorElement.querySelector("[data-image-resizer-control='bottom-left']");
+        simulateDrag(bottomLeft, { from: 200, to: 1500 });
+        expect(editorElement.querySelector("img").outerHTML).toEqual(
+          '<img src="/path/to/image.jpg" alt="Test text" width="100">'
+        );
+
+        const bottomRight = editorElement.querySelector("[data-image-resizer-control='bottom-right']");
+        simulateDrag(bottomRight, { from: 300, to: 200 });
+        expect(editorElement.querySelector("img").outerHTML).toEqual(
+          '<img src="/path/to/image.jpg" alt="Test text" width="100">'
+        );
+      });
+    }
 
     beforeEach(async () => {
       // Mock the createElement method so that we can mock the image natural
@@ -230,59 +293,8 @@ describe("Image", () => {
       );
     });
 
-    it("allows resizing the image down using the right side controls", () => {
-      const topRight = editorElement.querySelector("[data-image-resizer-control='top-right']");
-      simulateDrag(topRight, { from: 800, to: 700 });
-      expect(editorElement.querySelector("img").outerHTML).toEqual(
-        '<img src="/path/to/image.jpg" alt="Test text" width="500">'
-      );
+    describe("with mouse", () => behavesLikeImageResizer("mouse"));
 
-      const bottomRight = editorElement.querySelector("[data-image-resizer-control='bottom-right']");
-      simulateDrag(bottomRight, { from: 700, to: 750 });
-      expect(editorElement.querySelector("img").outerHTML).toEqual(
-        '<img src="/path/to/image.jpg" alt="Test text" width="550">'
-      );
-    });
-
-    it("allows resizing the image down using the left side controls", () => {
-      const topLeft = editorElement.querySelector("[data-image-resizer-control='top-left']");
-      simulateDrag(topLeft, { from: 200, to: 300 });
-      expect(editorElement.querySelector("img").outerHTML).toEqual(
-        '<img src="/path/to/image.jpg" alt="Test text" width="500">'
-      );
-
-      const bottomLeft = editorElement.querySelector("[data-image-resizer-control='bottom-left']");
-      simulateDrag(bottomLeft, { from: 200, to: 150 });
-      expect(editorElement.querySelector("img").outerHTML).toEqual(
-        '<img src="/path/to/image.jpg" alt="Test text" width="550">'
-      );
-    });
-
-    it("removes the width attribute when the image reaches its natural width", () => {
-      const topRight = editorElement.querySelector("[data-image-resizer-control='top-right']");
-      simulateDrag(topRight, { from: 800, to: 700 });
-      expect(editorElement.querySelector("img").outerHTML).toEqual(
-        '<img src="/path/to/image.jpg" alt="Test text" width="500">'
-      );
-
-      simulateDrag(topRight, { from: 700, to: 1500 });
-      expect(editorElement.querySelector("img").outerHTML).toEqual(
-        '<img src="/path/to/image.jpg" alt="Test text">'
-      );
-    });
-
-    it("does not allow making the image smaller than 100px", () => {
-      const bottomLeft = editorElement.querySelector("[data-image-resizer-control='bottom-left']");
-      simulateDrag(bottomLeft, { from: 200, to: 1500 });
-      expect(editorElement.querySelector("img").outerHTML).toEqual(
-        '<img src="/path/to/image.jpg" alt="Test text" width="100">'
-      );
-
-      const bottomRight = editorElement.querySelector("[data-image-resizer-control='bottom-right']");
-      simulateDrag(bottomRight, { from: 300, to: 200 });
-      expect(editorElement.querySelector("img").outerHTML).toEqual(
-        '<img src="/path/to/image.jpg" alt="Test text" width="100">'
-      );
-    });
+    describe("with touch", () => behavesLikeImageResizer("touch"));
   })
 });
