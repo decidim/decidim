@@ -184,14 +184,14 @@ export default Node.create({
         find: YOUTUBE_REGEX_GLOBAL,
         type: this.type,
         getAttributes: (match) => {
-          return { src: match.input };
+          return { src: match.input, title: "" };
         }
       }),
       nodePasteRule({
         find: VIMEO_REGEX_GLOBAL,
         type: this.type,
         getAttributes: (match) => {
-          return { src: match.input };
+          return { src: match.input, title: "" };
         }
       })
     ];
