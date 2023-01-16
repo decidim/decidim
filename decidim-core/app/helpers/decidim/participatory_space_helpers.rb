@@ -30,15 +30,13 @@ module Decidim
     def participatory_space_floating_help
       return if help_section.blank?
 
-      content_tag "div", class: "row collapse" do
-        floating_help(help_id) { translated_attribute(help_section).html_safe }
+      if redesign_enabled?
+        redesigned_floating_help(help_id) { translated_attribute(help_section).html_safe }
+      else
+        content_tag "div", class: "row collapse" do
+          floating_help(help_id) { translated_attribute(help_section).html_safe }
+        end
       end
-    end
-
-    def redesigned_participatory_space_floating_help
-      return if help_section.blank?
-
-      redesigned_floating_help(help_id) { translated_attribute(help_section).html_safe }
     end
 
     # deprecated
