@@ -202,3 +202,29 @@ export const dropFixtureFile = async (target, filename, options) => {
   target.dispatchEvent(ev);
   await sleep(0);
 };
+
+export const pasteContent = async (target, content) => {
+  let { html, plain } = content;
+  if (typeof content !== "object") {
+    html = content;
+  }
+  if (!html) {
+    html = plain;
+  }
+  if (!plain) {
+    // Convert potential HTML to plain text
+    const div = document.createElement("div");
+    div.innerHTML = content;
+    plain = div.textContent;
+  }
+
+  const data = {
+    "text/html": html,
+    "text/plain": plain
+  };
+
+  const ev = new Event("paste");
+  ev.clipboardData = { getData: (type) => data[type] };
+  target.dispatchEvent(ev);
+  await sleep(0);
+};
