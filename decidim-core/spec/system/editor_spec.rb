@@ -9,7 +9,8 @@ describe "Editor", type: :system do
   # Which features to enable for the toolbar: basic|full
   let(:features) { "basic" }
 
-  let(:record) { OpenStruct.new(body: "") }
+  let(:editor_content) { "" }
+  let(:record) { OpenStruct.new(body: editor_content) }
   let(:form) { Decidim::FormBuilder.new(:record, record, template, {}) }
   let(:template_class) do
     Class.new(ActionView::Base) do
@@ -86,9 +87,11 @@ describe "Editor", type: :system do
       mount Decidim::Core::Engine => "/"
 
       # Necessary ActiveStorage routes for the image uploads
-      post "/direct_uploads" => "active_storage/direct_uploads#create", as: :rails_direct_uploads
-      get "/disk/:encoded_key/*filename" => "active_storage/disk#show", as: :rails_disk_service
-      get "/blobs/redirect/:signed_id/*filename" => "active_storage/blobs/redirect#show", as: :rails_service_blob
+      scope ActiveStorage.routes_prefix do
+        get "/blobs/redirect/:signed_id/*filename" => "active_storage/blobs/redirect#show", as: :rails_service_blob
+        get "/disk/:encoded_key/*filename" => "active_storage/disk#show", as: :rails_disk_service
+        post "/direct_uploads" => "active_storage/direct_uploads#create", as: :rails_direct_uploads
+      end
       direct :rails_blob do |blob, options|
         route_for(ActiveStorage.resolve_model_to_route, blob, options)
       end
@@ -498,6 +501,117 @@ describe "Editor", type: :system do
             <img src="#{src}" alt="city">
           </div>
         HTML
+      )
+    end
+  end
+
+  context "with pointer device" do
+    let(:features) { "full" }
+
+    context "when resizing an image" do
+      let(:image) { create(:editor_image, organization:) }
+      let(:image_src) { image.attached_uploader(:file).path }
+      let(:dimensions) { MiniMagick::Image.read(image.file.blob.download).dimensions }
+      let(:editor_content) do
+        <<~HTML
+          <div class="editor-content-image" data-image="">
+            <img src="#{image_src}" alt="Test">
+          </div>
+        HTML
+      end
+
+      shared_examples "resize controls" do |mode|
+        context "with right side controls" do
+          it "allows resizing the image" do
+            drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+
+            drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 50)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 50}"></div>))
+          end
+
+          it "removes the width attribute when resizing back to original width or above it" do
+            drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+
+            drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 100)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
+
+            drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+
+            drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 500)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
+          end
+        end
+
+        context "with left side controls" do
+          it "allows resizing the image" do
+            drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+
+            drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 50)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 50}"></div>))
+          end
+
+          it "removes the width attribute when resizing back to original width or above it" do
+            drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+
+            drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 100)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
+
+            drag("[data-image-resizer-control='bottom-left']", mode:, direction: "right", amount: 100)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test" width="#{dimensions[0] - 100}"></div>))
+
+            drag("[data-image-resizer-control='top-left']", mode:, direction: "left", amount: 500)
+            expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
+          end
+        end
+      end
+
+      context "when mouse" do
+        it_behaves_like "resize controls", "mouse"
+      end
+
+      context "when touch" do
+        it_behaves_like "resize controls", "touch"
+      end
+    end
+
+    def drag(selector, mode: "mouse", direction: nil, amount: 0)
+      events =
+        if mode == "touch"
+          { start: "touchstart", move: "touchmove", end: "touchend" }
+        else
+          { start: "mousedown", move: "mousemove", end: "mouseup" }
+        end
+
+      move =
+        case direction
+        when "left"
+          "x -= #{amount}"
+        when "right"
+          "x += #{amount}"
+        when "top"
+          "y -= #{amount}"
+        when "bottom"
+          "y += #{amount}"
+        end
+
+      page.execute_script(
+        <<~JS
+          var element = document.querySelector("#{selector}");
+          var rect = element.getBoundingClientRect();
+
+          var x = rect.x;
+          var y = rect.y;
+          #{move};
+
+          element.dispatchEvent(new MouseEvent("#{events[:start]}", { clientX: rect.x, clientY: rect.y }));
+          document.dispatchEvent(new MouseEvent("#{events[:move]}", { clientX: x, clientY: y }));
+          document.dispatchEvent(new MouseEvent("#{events[:end]}"));
+        JS
       )
     end
   end
