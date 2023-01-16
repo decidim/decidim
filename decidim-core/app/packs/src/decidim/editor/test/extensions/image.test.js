@@ -32,7 +32,7 @@ class DummyDialog {
   }
 }
 
-describe("Link", () => {
+describe("Image", () => {
   let editor = null;
   let editorElement = null;
   let uploadDialog = new DummyDialog();
