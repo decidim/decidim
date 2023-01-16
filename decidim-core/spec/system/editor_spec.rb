@@ -72,9 +72,10 @@ describe "Editor", type: :system do
   end
 
   # Element helpers for the tests
+  let(:prosemirror_selector) { ".editor .editor-input .ProseMirror" }
   let(:input) { find(".editor input[name='record[body]']", visible: :hidden) }
   let(:toolbar) { find(".editor .editor-toolbar") }
-  let(:prosemirror) { find(".editor .editor-input .ProseMirror") }
+  let(:prosemirror) { find(prosemirror_selector) }
 
   before do
     # Create a temporary route to display the generated HTML in a correct site
@@ -106,7 +107,7 @@ describe "Editor", type: :system do
     visit "/test_editor"
 
     # Wait for the editor to be initialized
-    expect(page).to have_css(".editor .editor-input .ProseMirror")
+    expect(page).to have_css(prosemirror_selector)
   end
 
   after do
@@ -456,6 +457,51 @@ describe "Editor", type: :system do
     end
   end
 
+  context "with clipboard" do
+    let(:features) { "full" }
+
+    it "accepts a YouTube video" do
+      paste_content("https://www.youtube.com/watch?v=f6JMgJAQ2tc", prosemirror_selector)
+
+      expect_value(
+        <<~HTML
+          <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=f6JMgJAQ2tc">
+            <div>
+              <iframe src="https://www.youtube-nocookie.com/embed/f6JMgJAQ2tc?cc_load_policy=1&amp;modestbranding=1" title="" frameborder="0" allowfullscreen="true"></iframe>
+            </div>
+          </div>
+        HTML
+      )
+    end
+
+    it "accepts a Vimeo video" do
+      paste_content("https://vimeo.com/312909656", prosemirror_selector)
+
+      expect_value(
+        <<~HTML
+          <div class="editor-content-videoEmbed" data-video-embed="https://vimeo.com/312909656">
+            <div>
+              <iframe src="https://player.vimeo.com/video/312909656" title="" frameborder="0" allowfullscreen="true"></iframe>
+            </div>
+          </div>
+        HTML
+      )
+    end
+
+    it "accepts an image" do
+      paste_file("city.jpeg", prosemirror_selector)
+
+      src = Decidim::EditorImage.last.attached_uploader(:file).path
+      expect_value(
+        <<~HTML
+          <div class="editor-content-image" data-image="">
+            <img src="#{src}" alt="city">
+          </div>
+        HTML
+      )
+    end
+  end
+
   context "with markdown shortcuts" do
     [2, 3, 4, 5, 6].each do |level|
       it "creates a heading level #{level}" do
@@ -498,16 +544,26 @@ describe "Editor", type: :system do
     end
   end
 
-  def drop_file(filename, target_selector)
+  def file_to_frontend(filename)
     filepath = Decidim::Dev.asset(filename)
     mime = MiniMime.lookup_by_filename(filepath).content_type
     encoded = Base64.encode64(File.read(filepath))
 
+    {
+      filename:,
+      data_url: "data:application/octet-binary;base64,#{encoded.gsub("\n", "")}",
+      mime_type: mime
+    }
+  end
+
+  def drop_file(filename, target_selector)
+    file = file_to_frontend(filename)
+
     page.execute_script(
       <<~JS
-        var dataUrl = "data:application/octet-binary;base64,#{encoded.gsub("\n", "")}";
+        var dataUrl = "#{file[:data_url]}";
         fetch(dataUrl).then(function(res) { return res.arrayBuffer(); }).then(function (buffer) {
-          var file = new File([buffer], "#{filename}", { type: "#{mime}" });
+          var file = new File([buffer], "#{filename}", { type: "#{file[:mime_type]}" });
 
           var dt = new DataTransfer();
           dt.items.add(file);
@@ -525,5 +581,40 @@ describe "Editor", type: :system do
     within "[data-dropzone-items]" do
       expect(page).to have_content(filename)
     end
+  end
+
+  def paste_file(filename, target_selector)
+    file = file_to_frontend(filename)
+
+    page.execute_script(
+      <<~JS
+        var dataUrl = "#{file[:data_url]}";
+        fetch(dataUrl).then(function(res) { return res.arrayBuffer(); }).then(function (buffer) {
+          var file = new File([buffer], "#{filename}", { type: "#{file[:mime_type]}" });
+
+          var dt = new DataTransfer();
+          dt.items.add(file);
+
+          var element = document.querySelector("#{target_selector}");
+          element.dispatchEvent(new ClipboardEvent("paste", { clipboardData: dt }));
+        });
+      JS
+    )
+
+    # Wait for the file to be uploaded
+    sleep 1
+  end
+
+  def paste_content(content, target_selector)
+    page.execute_script(
+      <<~JS
+        var dt = new DataTransfer();
+        dt.setData("text/html", #{content.to_json});
+        dt.setData("text/plain", #{content.to_json});
+
+        var element = document.querySelector("#{target_selector}");
+        element.dispatchEvent(new ClipboardEvent("paste", { clipboardData: dt }));
+      JS
+    )
   end
 end
