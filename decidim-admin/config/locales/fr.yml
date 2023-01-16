@@ -365,6 +365,7 @@ fr:
           anouncement:
             one: Il y a %{count} modérations en attente
             other: Il y a %{count} modérations en attente
+          goto_moderation: Aller aux modérations globales
           title: Modérations en attente
         show:
           view_more_logs: Afficher plus
