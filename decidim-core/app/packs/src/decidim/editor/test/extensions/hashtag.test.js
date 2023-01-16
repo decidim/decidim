@@ -88,4 +88,19 @@ describe("Hashtag", () => {
       '<p><span data-type="hashtag" data-label="#loganberries">#loganberries</span> </p>'
     );
   });
+
+  it("allows selecting a hashtag from the list by clicking the Enter key", async () => {
+    editorElement.focus();
+    await updateContent(editorElement, "#log");
+
+    // editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
+    editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
+
+    expect(editorElement.innerHTML).toEqual(
+      '<p><span data-suggestion="hashtag" data-label="#loganberries">#loganberries</span> </p>'
+    );
+    expect(editor.getHTML()).toEqual(
+      '<p><span data-type="hashtag" data-label="#loganberries">#loganberries</span> </p>'
+    );
+  });
 });

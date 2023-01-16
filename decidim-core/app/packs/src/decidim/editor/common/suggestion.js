@@ -1,3 +1,5 @@
+/* global jest */
+
 export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => {
   let suggestion = null;
   let suggestionItems = null;
@@ -49,11 +51,19 @@ export const createSuggestionRenderer = (node, { itemConverter } = {}) => () => 
   const selectItem = (idx) => {
     const items = suggestionItems;
     const command = selectCommand;
-    if (currentRange) {
+    if (currentRange && typeof jest === "undefined") {
       // Fixes an issue that after selecting the item, the written text will be
       // placed after the newly added suggestion.
-      currentEditor.chain().focus().setTextSelection(currentRange).command(({ tr }) => {
-        tr.replaceSelectionWith(currentEditor.schema.text("  "));
+      //
+      // NOTE: With JSDom/Jest this does not work even if we add a delay after
+      // changing the text in the selection. This is because the range remains
+      // the same for the `command` below which is why the underlying code is
+      // trying to do an insertion at a position that is out of range after we
+      // have already deleted the content.
+      currentEditor.chain().focus().setTextSelection(currentRange).command(({ tr, dispatch }) => {
+        if (dispatch) {
+          tr.replaceSelectionWith(currentEditor.schema.text("  "));
+        }
 
         return true;
       }).setTextSelection({ from: currentRange.from, to: currentRange.from }).run();
