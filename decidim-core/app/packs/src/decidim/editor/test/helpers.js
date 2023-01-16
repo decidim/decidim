@@ -174,9 +174,9 @@ export const createEditorContainer = (options) => {
   return editorContainer;
 };
 
-export const fixtureFile = (filename, encoding = "utf8") => {
+export const fixtureFileData = (filename, encoding = "utf8") => {
   return new Promise((resolve, reject) => {
-    fs.readFile(path.join(__dirname, `fixtures/${filename}`), encoding, (err, data) => {
+    fs.readFile(path.join(__dirname, `fixtures/${filename}`), encoding || "utf8", (err, data) => {
       if (err) {
         reject(err);
       } else {
@@ -184,21 +184,31 @@ export const fixtureFile = (filename, encoding = "utf8") => {
       }
     })
   });
-}
+};
 
 export const fixtureFileBuffer = async (filename, encoding = "utf8") => {
-  return Buffer.from(await fixtureFile(filename, encoding), encoding);
-}
+  return Buffer.from(await fixtureFileData(filename, encoding || "utf8"), encoding || "utf8");
+};
 
-export const dropFixtureFile = async (target, filename, options) => {
-  const { encoding, type } = Object.assign({
-    encoding: "utf8",
-    type: mime.lookup(filename) || "text/plain"
-  }, options)
+export const fixtureFile = async (filename, encoding = "utf8") => {
+  const type = mime.lookup(filename) || "text/plain";
+  return new File(await fixtureFileBuffer(filename, encoding || "utf8"), filename, { type });
+};
 
-  const file = new File(await fixtureFileBuffer(filename, encoding), filename, { type });
+export const dropFixtureFile = async (target, filename, { encoding } = {}) => {
+  const file = await fixtureFile(filename, encoding || "utf8");
   const ev = new Event("drop");
-  ev.dataTransfer = { files: [file] };
+  ev.dataTransfer = { getData: () => null, files: [file] };
+  target.dispatchEvent(ev);
+  await sleep(0);
+};
+
+export const pasteFixtureFile = async (target, filename, { encoding } = {}) => {
+  const file = await fixtureFile(filename, encoding || "utf8");
+  const type = mime.lookup(filename) || "text/plain";
+  const transferItem = { type, getAsFile: () => file };
+  const ev = new Event("paste");
+  ev.clipboardData = { getData: () => null, items: [transferItem] };
   target.dispatchEvent(ev);
   await sleep(0);
 };
