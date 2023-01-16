@@ -39,8 +39,7 @@ module Decidim
         end
       end
 
-      def description
-      end
+      def description; end
 
       private
 
