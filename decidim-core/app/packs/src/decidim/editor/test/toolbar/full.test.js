@@ -165,7 +165,7 @@ describe("full toolbar", () => {
 
         // Simulate the file drop, set the alt title and click save
         const dropZone = uploadDialog.querySelector("[data-dropzone]");
-        await dropFixtureFile("logo.png", dropZone);
+        await dropFixtureFile(dropZone, "logo.png");
 
         uploadDialog.querySelector("input.attachment-title").value = "Decidim logo";
         uploadDialog.querySelector("button[data-dropzone-save]").click();
@@ -204,7 +204,7 @@ describe("full toolbar", () => {
         getControl("image").click();
 
         const dropZone = uploadDialog.querySelector("[data-dropzone]");
-        await dropFixtureFile("logo.png", dropZone);
+        await dropFixtureFile(dropZone, "logo.png");
 
         uploadDialog.querySelector("input.attachment-title").value = "Decidim logo";
         uploadDialog.querySelector("button[data-dropzone-save]").click();

@@ -10,7 +10,7 @@ export default (ctx) => {
       await setContent("Hello, world!");
 
       // Select the word "world" from the original text for the link
-      selectRange(ctx.prosemirror, ctx.prosemirror.querySelector("p").firstChild, { start: 7, end: 12 });
+      await selectRange(ctx.prosemirror, ctx.prosemirror.querySelector("p").firstChild, { start: 7, end: 12 });
 
       // Open the link dialog and set the values
       getControl("link").click();

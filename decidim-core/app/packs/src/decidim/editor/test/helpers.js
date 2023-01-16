@@ -14,7 +14,11 @@ import { printDiffOrStringify } from "jest-matcher-utils";
 
 import { Editor } from "@tiptap/core";
 import { Document } from "@tiptap/extension-document";
+import { Heading } from "@tiptap/extension-heading";
 import { Paragraph } from "@tiptap/extension-paragraph";
+import { BulletList } from "@tiptap/extension-bullet-list";
+import { OrderedList } from "@tiptap/extension-ordered-list";
+import { ListItem } from "@tiptap/extension-list-item";
 import { Text } from "@tiptap/extension-text";
 
 import createEditor from "../index";
@@ -94,7 +98,7 @@ export const selectContent = (editable, selector = null) => {
   document.dispatchEvent(new Event("selectionchange", { bubbles: true }));
 };
 
-export const selectRange = (editable, target, range = null) => {
+export const selectRange = async (editable, target, range = null) => {
   let selectionTarget = target;
   let selectionRange = range;
   if (range === null) {
@@ -107,23 +111,28 @@ export const selectRange = (editable, target, range = null) => {
   const { start, end } = Object.assign({ start: null, end: null }, selectionRange);
 
   const domRange = new Range();
-  if (start) {
+  if (start !== null && !isNaN(start)) {
     domRange.setStart(selectionTarget, start);
-  } else if (end) {
-    domRange.setStart(selectionTarget, end);
   }
-  if (end) {
+  if (end !== null && !isNaN(end)) {
     domRange.setEnd(selectionTarget, end);
-  } else if (start) {
-    domRange.setEnd(selectionTarget, start);
   }
 
   editable.focus();
+
+  // We need to give the editor a bit of time to handle the focus event because
+  // otherwise it will be messing with the selection position e.g. if we set the
+  // position at the beginning of the text.
+  await sleep(200);
+
   const selection = document.getSelection();
   selection.removeAllRanges();
   selection.addRange(domRange);
 
   document.dispatchEvent(new Event("selectionchange", { bubbles: true }));
+
+  // There is a small timeout set for the editor selectionchange listener.
+  await sleep(50);
 };
 
 export const createBasicEditor = ({ extensions }) => {
@@ -134,7 +143,7 @@ export const createBasicEditor = ({ extensions }) => {
   return new Editor({
     element,
     content: "",
-    extensions: [Document, Paragraph, Text, ...(extensions || [])]
+    extensions: [Document, Heading, Paragraph, Text, BulletList, OrderedList, ListItem, ...(extensions || [])]
   });
 }
 
@@ -181,7 +190,7 @@ export const fixtureFileBuffer = async (filename, encoding = "utf8") => {
   return Buffer.from(await fixtureFile(filename, encoding), encoding);
 }
 
-export const dropFixtureFile = async (filename, target, options) => {
+export const dropFixtureFile = async (target, filename, options) => {
   const { encoding, type } = Object.assign({
     encoding: "utf8",
     type: mime.lookup(filename) || "text/plain"

@@ -8,7 +8,7 @@ export default (ctx) => {
   describe("indent:indent", () => {
     it("indents the existing content", async () => {
       await setContent("Hello, world!");
-      selectRange(ctx.prosemirror, ctx.prosemirror.querySelector("p").firstChild, { start: 3, end: 3 });
+      await selectRange(ctx.prosemirror, ctx.prosemirror.querySelector("p").firstChild, { start: 3, end: 3 });
       const ctrl = getControl("indent:indent");
       ctrl.click();
       ctrl.click();
@@ -30,7 +30,7 @@ export default (ctx) => {
   describe("indent:outdent", () => {
     it("outdents the existing content", async () => {
       await setContent('<p class="editor-indent-2">Hello, world!</p>');
-      selectRange(ctx.prosemirror, ctx.prosemirror.querySelector("p").firstChild, { start: 3, end: 3 });
+      await selectRange(ctx.prosemirror, ctx.prosemirror.querySelector("p").firstChild, { start: 3, end: 3 });
       const ctrl = getControl("indent:outdent");
       ctrl.click();
       ctrl.click();
