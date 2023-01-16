@@ -80,10 +80,13 @@ export default Image.extend({
           const { uploadDialog } = this.options;
           let { src, alt, width } = this.editor.getAttributes("image");
 
+          this.editor.commands.toggleDialog(true);
           const dialogState = await uploadDialog.toggle({ src, alt }, {
             inputLabel: i18n.altLabel,
             uploadHandler: async (file) => uploadImage(file, this.options.uploadImagesPath)
           });
+          this.editor.commands.toggleDialog(false);
+
           if (dialogState !== "save") {
             this.editor.commands.focus(null, { scrollIntoView: false });
             return false;
