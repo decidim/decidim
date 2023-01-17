@@ -9,7 +9,7 @@
             <%= image_tag present(current_user).avatar.default_multiuser_url, alt: t("decidim.author.avatar_multiuser") %>
           <% end %>
         </div>
-        <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= conversation.created_at.wday %></span>
+        <span class="text-medium mt-xs"><%= Date::ABBR_DAYNAMES[conversation.created_at.wday] %> <%= l conversation.created_at, format: :decidim_short %></span>
       </div>
     </li>
     <li class="card-data__item card--list__item card-data__item--expand absolutes">
