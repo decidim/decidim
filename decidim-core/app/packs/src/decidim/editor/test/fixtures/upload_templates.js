@@ -15,7 +15,7 @@ const dropzoneLocales = {
 
 export default {
   legacy: `
-    <div class="reveal upload-modal" id="upload_dialog" data-reveal>
+    <div class="reveal upload-modal" id="upload_dialog" data-reveal="test">
       <div class="reveal__header">
         <h3 class="reveal__title" data-addlabel="Add image" data-editlabel="Edit image">Add image</h3>
         <button class="close-button" data-close aria-label="Close modal" type="button">
