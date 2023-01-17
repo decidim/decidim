@@ -361,6 +361,10 @@ fi:
         'true': 'Kyllä'
         user_name: Käyttäjä
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Yksi moderointi odottaa käsittelyä
+            other: '%{count} moderointia odottavat käsittelyä'
         show:
           view_more_logs: Näytä lisää lokitietoja
           welcome: Tervetuloa hallintapaneeliin.
