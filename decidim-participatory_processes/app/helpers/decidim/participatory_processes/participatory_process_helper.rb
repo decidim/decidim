@@ -12,7 +12,7 @@ module Decidim
       include Decidim::ResourceReferenceHelper
 
       # Public: Returns the dates for a step in a readable format like
-      # "2016-01-01 - 2016-02-05".
+      # "01/01/2016 - 05/02/2016".
       #
       # participatory_process_step - The step to format to
       #
