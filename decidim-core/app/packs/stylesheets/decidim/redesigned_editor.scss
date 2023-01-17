@@ -83,7 +83,8 @@
           [data-image-resizer-wrapper]{
             @apply editor-active;
 
-            [data-image-resizer-control]{
+            [data-image-resizer-control],
+            [data-image-resizer-dimensions]{
               @apply block;
             }
           }
@@ -122,6 +123,14 @@
 
           [data-image-resizer-control^="top-left"],
           [data-image-resizer-control^="bottom-right"]{ @apply cursor-nwse-resize; }
+
+          [data-image-resizer-dimensions]{
+            @apply absolute bottom-2 right-3 p-1 hidden bg-[#fff] opacity-80 text-xs;
+
+            [data-image-resizer-dimension]::after{
+              content: attr(data-image-resizer-dimension-value);
+            }
+          }
         }
       }
 

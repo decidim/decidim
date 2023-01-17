@@ -6,6 +6,25 @@ const createControl = (position) => {
   return el;
 };
 
+const createDimensionDisplay = () => {
+  const el = document.createElement("div");
+  el.dataset.imageResizerDimensions = "";
+
+  const width = document.createElement("span");
+  width.dataset.imageResizerDimension = "width";
+  width.dataset.imageResizerDimensionValue = "";
+
+  const height = document.createElement("span");
+  height.dataset.imageResizerDimension = "height";
+  height.dataset.imageResizerDimensionValue = "";
+
+  el.append(width);
+  el.append("×");
+  el.append(height);
+
+  return { wrapper: el, width, height };
+};
+
 /**
  * Wraps the editor element around the resizable element and implements the
  * resizer functionality.
@@ -22,6 +41,9 @@ export default (self) => {
     resizer.append(createControl("bottom-left"));
     resizer.append(createControl("bottom-right"));
 
+    const dimensions = createDimensionDisplay();
+    resizer.append(dimensions.wrapper);
+
     const contentDOM = DOMSerializer.fromSchema(node.type.schema).serializeNode(node);
     resizer.append(contentDOM);
 
@@ -29,14 +51,21 @@ export default (self) => {
     let activeResizeControl = null,
         currentSrc = node.attrs.src,
         currentWidth = null,
+        currentHeight = null,
         naturalWidth = img.naturalWidth,
+        naturalHeight = img.naturalHeight,
         originalWidth = null,
         resizeStartPosition = null;
 
     // Used to reliably get the image width so that it is not reported as zero
     // in case the original image element has not finished loading yet.
     const tmpImg = document.createElement("img");
-    tmpImg.onload = () => (naturalWidth = tmpImg.naturalWidth);
+    tmpImg.onload = () => {
+      naturalWidth = currentWidth = tmpImg.naturalWidth;
+      naturalHeight = currentHeight = tmpImg.naturalHeight;
+
+      editor.commands.updateAttributes("image", { width: naturalWidth });
+    }
     tmpImg.src = img.src;
 
     const handleMove = (ev) => {
@@ -49,10 +78,15 @@ export default (self) => {
       if (currentWidth < 100) {
         currentWidth = 100;
       } else if (currentWidth >= naturalWidth) {
-        currentWidth = null;
+        currentWidth = naturalWidth;
       }
+      currentHeight = Math.round(naturalHeight * (currentWidth/naturalWidth));
 
-      editor.commands.updateAttributes("image", { width: currentWidth });
+      let width = currentWidth;
+      if (width >= naturalWidth) {
+        width = null;
+      }
+      editor.commands.updateAttributes("image", { width });
     };
     const handleEnd = () => {
       activeResizeControl = resizeStartPosition = null;
@@ -94,7 +128,11 @@ export default (self) => {
         if (updatedNode.type !== self.type) {
           return false;
         }
+
         const { alt, src, title, width } = updatedNode.attrs;
+
+        dimensions.width.dataset.imageResizerDimensionValue = currentWidth;
+        dimensions.height.dataset.imageResizerDimensionValue = currentHeight;
 
         img.alt = alt;
         if (currentSrc !== src) {
