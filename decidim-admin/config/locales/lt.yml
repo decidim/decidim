@@ -1065,14 +1065,11 @@ lt:
       models:
         moderation:
           fields:
-            created_at: Sukūrimo data
             hidden_at: Paslėpta
             participatory_space: Dalyvaujamoji erdvė
-            report_count: Kiekis
             reportable_id: ID
             reportable_type: Tipas
             reported_content_url: Turinio, apie kurį pranešta, URL
-            reports: Pranešimai
             visit_url: Apsilankykite URL
         report:
           fields:
