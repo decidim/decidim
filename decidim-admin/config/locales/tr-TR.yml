@@ -859,13 +859,10 @@ tr:
       models:
         moderation:
           fields:
-            created_at: Oluşturulma tarihi
             hidden_at: Gizli
             participatory_space: Katılımcı alanı
-            report_count: saymak
             reportable_type: Türü
             reported_content_url: Raporlanan içerik URL'si
-            reports: Raporlar
             visit_url: URL'yi ziyaret et
         report:
           fields:
