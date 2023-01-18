@@ -992,13 +992,10 @@ it:
       models:
         moderation:
           fields:
-            created_at: Data di creazione
             hidden_at: Nascosto a
             participatory_space: Spazio partecipativo
-            report_count: Conteggio
             reportable_type: Tipo
             reported_content_url: URL del contenuto riportato
-            reports: Report
             visit_url: Visita URL
         report:
           fields:
