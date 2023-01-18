@@ -965,13 +965,10 @@ pt-BR:
       models:
         moderation:
           fields:
-            created_at: Data de criação
             hidden_at: Escondido em
             participatory_space: Espaço participativo
-            report_count: Contagem
             reportable_type: Tipo
             reported_content_url: URL de conteúdo relatado
-            reports: Denúncias
             visit_url: URL de visita
         report:
           fields:
