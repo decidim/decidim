@@ -1046,7 +1046,7 @@ ca:
             reportable_id: ID
             reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
-            reports: Denúncies
+            reports: Informes
             visit_url: Visiteu l'URL
         report:
           fields:
