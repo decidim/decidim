@@ -1047,14 +1047,11 @@
       models:
         moderation:
           fields:
-            created_at: Opprettelsesdato
             hidden_at: Skjult på
             participatory_space: Deltakerrom
-            report_count: Antall
             reportable_id: ID
             reportable_type: Type
             reported_content_url: Rapportert innholds URL
-            reports: Rapporter
             visit_url: Besøk URL
         report:
           fields:
