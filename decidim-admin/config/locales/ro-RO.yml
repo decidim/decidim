@@ -1071,14 +1071,11 @@ ro:
       models:
         moderation:
           fields:
-            created_at: Data creării
             deleted_resource: Resursă ștersă
             hidden_at: Ascuns la
             participatory_space: Spațiu participativ
-            report_count: Număr
             reportable_type: Tip
             reported_content_url: URL-ul conținutului raportat
-            reports: Rapoarte
             visit_url: Vizitaţi URL-ul
         report:
           fields:
