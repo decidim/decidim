@@ -1052,15 +1052,12 @@ hu:
       models:
         moderation:
           fields:
-            created_at: Létrehozás dátuma
             deleted_resource: Törölt erőforrás
             hidden_at: 'Rejtett itt:'
             participatory_space: Részvételi tér
-            report_count: Számol
             reportable_id: ID
             reportable_type: Típus
             reported_content_url: Jelentett URL tartalom
-            reports: Jelentések
             visit_url: URL meglátogatása
         report:
           fields:
