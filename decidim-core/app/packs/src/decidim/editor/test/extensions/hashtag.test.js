@@ -93,7 +93,6 @@ describe("Hashtag", () => {
     editorElement.focus();
     await updateContent(editorElement, "#log");
 
-    // editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
     editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
 
     expect(editorElement.innerHTML).toEqual(

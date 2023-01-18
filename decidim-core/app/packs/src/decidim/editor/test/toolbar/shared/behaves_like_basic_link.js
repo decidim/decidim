@@ -18,7 +18,15 @@ export default (ctx) => {
       const dialog = document.body.lastElementChild;
       dialog.querySelector("[data-input='href'] input").value = "https://decidim.org";
       dialog.querySelector("[data-input='target'] select").value = "_blank";
-      dialog.querySelector("[data-dialog-actions] button[data-action='save']").click();
+
+      // Consider legacy or new design by checking elements containing the
+      // `data-reveal` attribute.
+      if (dialog.querySelector("[data-reveal]")) {
+        dialog.querySelector("button[data-action='save']").click();
+      } else {
+        dialog.querySelector("[data-dialog-actions] button[data-action='save']").click();
+      }
+
 
       // Wait for the next event loop as this is when the dialog closing is
       // handled
