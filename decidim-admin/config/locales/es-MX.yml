@@ -361,6 +361,12 @@ es-MX:
         'true': 'Sí'
         user_name: Usuaria
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Hay %{count} moderación pendiente
+            other: Hay %{count} moderaciones pendientes
+          goto_moderation: Ir a moderaciones globales
+          title: Moderaciones pendientes
         show:
           view_more_logs: Ver más registros
           welcome: Bienvenida al panel de administración.
@@ -1095,15 +1101,12 @@ es-MX:
       models:
         moderation:
           fields:
-            created_at: Fecha de creación
             deleted_resource: Eliminar recurso
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
-            report_count: Recuento
             reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
-            reports: Denuncias
             visit_url: Visita la URL
         report:
           fields:
