@@ -661,10 +661,10 @@ id:
       models:
         moderation:
           fields:
+            created_at: Tanggal pembuatan
             hidden_at: Tersembunyi di
             report_count: Menghitung
             reported_content_url: URL konten yang dilaporkan
-            reports: Laporan
             visit_url: Kunjungi URL
   errors:
     messages:
