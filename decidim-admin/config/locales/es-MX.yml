@@ -1072,7 +1072,7 @@ es-MX:
             reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
-            reports: Denuncias
+            reports: Informes
             visit_url: Visita la URL
         report:
           fields:
