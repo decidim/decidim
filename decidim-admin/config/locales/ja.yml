@@ -1067,7 +1067,7 @@ ja:
             reportable_id: ID
             reportable_type: 種別
             reported_content_url: 報告されたコンテンツ URL
-            reports: レポート
+            reports: 報告
             visit_url: URL を参照
         report:
           fields:
