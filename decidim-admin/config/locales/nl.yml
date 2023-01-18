@@ -1044,7 +1044,7 @@ nl:
             reportable_id: ID
             reportable_type: Type
             reported_content_url: Gerapporteerde inhouds-URL
-            reports: Meldingen
+            reports: Rapporten
             visit_url: Bezoek URL
         report:
           fields:
