@@ -571,3 +571,8 @@ sr:
           last_month: Poslednji mesec
           last_week: Poslednje nedelje
           no_users_count_statistics_yet: Još nema statistike o broju korisnika
+    moderations:
+      models:
+        moderation:
+          fields:
+            created_at: Datum kreiranja
