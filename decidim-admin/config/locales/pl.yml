@@ -1056,15 +1056,12 @@ pl:
       models:
         moderation:
           fields:
-            created_at: Data utworzenia
             deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
-            report_count: Liczba
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL zgłoszonej treści
-            reports: Zgłoszenia
             visit_url: Odwiedź adres URL
         report:
           fields:
