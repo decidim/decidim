@@ -1101,15 +1101,12 @@ ca:
       models:
         moderation:
           fields:
-            created_at: Data de creació
             deleted_resource: Elimina el recurs
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
-            report_count: Recompte
             reportable_id: ID
             reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
-            reports: Denúncies
             visit_url: Visiteu l'URL
         report:
           fields:
