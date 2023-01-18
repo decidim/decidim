@@ -1101,15 +1101,12 @@ fr:
       models:
         moderation:
           fields:
-            created_at: Date de création
             deleted_resource: Ressource supprimée
             hidden_at: Masqué le
             participatory_space: Espace participatif
-            report_count: Compteur
             reportable_id: ID
             reportable_type: Type
             reported_content_url: URL
-            reports: Motif
             visit_url: Visitez l'URL
         report:
           fields:
