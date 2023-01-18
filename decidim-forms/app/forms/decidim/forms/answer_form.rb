@@ -61,7 +61,6 @@ module Decidim
       def display_conditions_fulfilled?
         question.display_conditions.all? do |condition|
           answer = context.responses&.find { |r| r.question_id&.to_i == condition.condition_question.id }
-          raise answer.inspect
           condition.fulfilled?(answer)
         end
       end
