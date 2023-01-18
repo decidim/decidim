@@ -33,7 +33,8 @@ const createDimensionDisplay = () => {
  * @returns {Function} The custom node view callback to pass on to TipTap
  */
 export default (self) => {
-  return ({ editor, node }) => {
+  return (params) => {
+    const { editor, node, getPos } = params;
     const resizer = document.createElement("div");
     resizer.dataset.imageResizerWrapper = "";
     resizer.append(createControl("top-left"));
@@ -62,12 +63,20 @@ export default (self) => {
     const tmpImg = document.createElement("img");
     const { width: givenWidth } = node.attrs;
     tmpImg.onload = () => {
-      naturalWidth = currentWidth = tmpImg.naturalWidth;
-      naturalHeight = currentHeight = tmpImg.naturalHeight;
+      naturalWidth = tmpImg.naturalWidth;
+      naturalHeight = tmpImg.naturalHeight;
+      // Set currentWidth and currentHeight
+      currentWidth = givenWidth === null ? naturalWidth : givenWidth;
+      currentHeight = givenWidth === null ? naturalHeight : Math.round(naturalHeight * (currentWidth / naturalWidth));
+
 
       // Force node update in order to set the initial dimensions
-      editor.commands.updateAttributes("image", { width: naturalWidth });
-      setTimeout(() => editor.commands.updateAttributes("image", { width: givenWidth }), 0);
+      [{ ...node.attrs, width: 1 }, node.attrs].forEach((newAttrs) => {
+
+        editor.view.dispatch(
+          editor.view.state.tr.setNodeMarkup(getPos(), self.type, newAttrs)
+        );
+      });
     }
     tmpImg.src = img.src;
 
@@ -123,7 +132,8 @@ export default (self) => {
     const dom = document.createElement("div");
     dom.dataset.imageResizer = "";
     dom.append(resizer);
-
+    // dimensions.width.dataset.imageResizerDimensionValue = currentWidth;
+    // dimensions.height.dataset.imageResizerDimensionValue = currentHeight;
     return {
       dom,
       contentDOM,
