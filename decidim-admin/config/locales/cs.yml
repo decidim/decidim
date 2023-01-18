@@ -1074,7 +1074,7 @@ cs:
       models:
         moderation:
           fields:
-            created_at: Datum vytvoření
+            created_at: Datum vzniku
             deleted_resource: Smazaný dokument
             hidden_at: Skryté u
             participatory_space: Participativní prostor
@@ -1082,7 +1082,7 @@ cs:
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: Oznámená adresa URL obsahu
-            reports: Zprávy
+            reports: Hlášení
             visit_url: Navštívit URL
         report:
           fields:
