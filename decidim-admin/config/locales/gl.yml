@@ -1015,13 +1015,10 @@ gl:
       models:
         moderation:
           fields:
-            created_at: Data de creación
             hidden_at: Oculto en
             participatory_space: Espazo participativo
-            report_count: Conde
             reportable_type: Tipo
             reported_content_url: URL de contido reportado
-            reports: Informes
             visit_url: Visita o URL
         report:
           fields:
