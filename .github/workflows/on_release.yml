@@ -6,7 +6,7 @@ on:
 jobs:
   trigger_docker_build:
     name: Trigger decidim/docker build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 60
     steps:
     - name: Send dispatch for Docker Hub build
