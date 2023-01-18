@@ -60,11 +60,14 @@ export default (self) => {
     // Used to reliably get the image width so that it is not reported as zero
     // in case the original image element has not finished loading yet.
     const tmpImg = document.createElement("img");
+    const { width: givenWidth } = node.attrs;
     tmpImg.onload = () => {
       naturalWidth = currentWidth = tmpImg.naturalWidth;
       naturalHeight = currentHeight = tmpImg.naturalHeight;
 
+      // Force node update in order to set the initial dimensions
       editor.commands.updateAttributes("image", { width: naturalWidth });
+      setTimeout(() => editor.commands.updateAttributes("image", { width: givenWidth }), 0);
     }
     tmpImg.src = img.src;
 
