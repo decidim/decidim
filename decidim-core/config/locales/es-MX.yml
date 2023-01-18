@@ -1412,11 +1412,14 @@ es-MX:
         close: Cerrar
         description: Es inapropiado este contenido?
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
+        hide: Esconder
+        hide_content: Esconder este contenido
         offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
         reason: Motivo
         report: Denunciar
         spam: Contiene clickbait, publicidad o estafas.
         title: Denunciar un problema
+        visit_profile: Si también quieres bloquear al participante y el resto de sus contenidos, ve a la página de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         close: Cerrar
