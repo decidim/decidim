@@ -392,9 +392,7 @@ ga:
       models:
         moderation:
           fields:
-            report_count: Líon
             reportable_type: Cineál
-            reports: Tuairiscí
         report:
           fields:
             reason: Cúis
