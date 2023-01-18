@@ -18,7 +18,7 @@ module Decidim
       validates :selected_choices, presence: true, if: :mandatory_choices?
 
       validate :max_choices, if: -> { question.max_choices }
-      validate :all_choices, if: -> { question.question_type == "sorting" }
+      validate :all_choices, if: -> { question.question_type == "sorting" && question.mandatory }
       validate :min_choices, if: -> { question.matrix? && question.mandatory? }
       validate :documents_present, if: -> { question.question_type == "files" && question.mandatory? }
       validate :max_characters, if: -> { question.max_characters.positive? }
@@ -61,6 +61,7 @@ module Decidim
       def display_conditions_fulfilled?
         question.display_conditions.all? do |condition|
           answer = context.responses&.find { |r| r.question_id&.to_i == condition.condition_question.id }
+          raise answer.inspect
           condition.fulfilled?(answer)
         end
       end
