@@ -1042,13 +1042,10 @@ eu:
       models:
         moderation:
           fields:
-            created_at: Sortze-data
             hidden_at: Ezkutatze-data
             participatory_space: Parte hartzeko esparrua
-            report_count: Zenbaketa
             reportable_type: Mota
             reported_content_url: Emandako edukiaren URLa
-            reports: Salaketak
             visit_url: Bisitatu URLa
         report:
           fields:
