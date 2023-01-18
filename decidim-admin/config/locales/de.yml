@@ -1049,14 +1049,11 @@ de:
       models:
         moderation:
           fields:
-            created_at: Erstellungsdatum
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
-            report_count: Anzahl
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
-            reports: Berichte
             visit_url: Besuchs-URL
         report:
           fields:
