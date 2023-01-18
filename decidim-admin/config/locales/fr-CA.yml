@@ -1072,7 +1072,7 @@ fr-CA:
             reportable_id: ID
             reportable_type: Type
             reported_content_url: URL
-            reports: Motif
+            reports: Signalements
             visit_url: Visitez l'URL
         report:
           fields:
