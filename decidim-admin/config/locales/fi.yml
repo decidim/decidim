@@ -1101,15 +1101,12 @@ fi:
       models:
         moderation:
           fields:
-            created_at: Luonnin ajankohta
             deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
-            report_count: Määrä
             reportable_id: ID
             reportable_type: Tyyppi
             reported_content_url: Raportoidun sisällön URL
-            reports: Raportit
             visit_url: Vieraile URL-osoitteessa
         report:
           fields:
