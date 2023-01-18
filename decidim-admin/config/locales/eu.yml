@@ -1026,7 +1026,7 @@ eu:
             report_count: Zenbaketa
             reportable_type: Mota
             reported_content_url: Emandako edukiaren URLa
-            reports: Salaketak
+            reports: Txostenak
             visit_url: Bisitatu URLa
         report:
           fields:
