@@ -1055,14 +1055,11 @@ nl:
       models:
         moderation:
           fields:
-            created_at: Aanmaakdatum
             hidden_at: Verborgen op
             participatory_space: Participatieve ruimte
-            report_count: Aantal
             reportable_id: ID
             reportable_type: Type
             reported_content_url: Gerapporteerde inhouds-URL
-            reports: Meldingen
             visit_url: Bezoek URL
         report:
           fields:
