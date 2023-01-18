@@ -756,10 +756,10 @@ sk:
       models:
         moderation:
           fields:
+            created_at: Dátum vytvorenia
             hidden_at: Skryté
             report_count: Počet
             reported_content_url: Nahlásiť URL obsahu
-            reports: Nahlásenia
             visit_url: Navštíviť URL
   errors:
     messages:
