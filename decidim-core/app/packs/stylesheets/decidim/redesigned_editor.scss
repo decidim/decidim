@@ -71,7 +71,7 @@
     @apply relative flex-auto overflow-y-auto;
 
     .ProseMirror{
-      @apply relative p-2.5 outline-0 min-h-full;
+      @apply relative p-2.5 outline-0 min-h-full prose max-w-none prose-headings:first:mt-0 prose-p:first:mt-0 prose-ul:first:mt-0 prose-ol:first:mt-0 prose-blockquote:first:mt-0 prose-pre:first:mt-0;
 
       &.ProseMirror-focused,
       &.dialog-open{
