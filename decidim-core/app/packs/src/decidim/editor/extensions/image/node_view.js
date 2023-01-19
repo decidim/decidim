@@ -137,8 +137,7 @@ export default (self) => {
     const dom = document.createElement("div");
     dom.dataset.imageResizer = "";
     dom.append(resizer);
-    // dimensions.width.dataset.imageResizerDimensionValue = currentWidth;
-    // dimensions.height.dataset.imageResizerDimensionValue = currentHeight;
+
     return {
       dom,
       contentDOM,
