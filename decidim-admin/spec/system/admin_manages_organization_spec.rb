@@ -139,28 +139,34 @@ describe "Admin manages organization", type: :system do
           )
         end
         let(:terms_content) do
-          img_content = <<~IMG.gsub(/\n\s*/, "")
+          <<~HTML.gsub(/\n\s*/, "")
+            <p>Paragraph</p>
+            <div class="editor-content-image" data-image=""><img src="#{image.url}" alt="foo bar"></div>
+          HTML
+        end
+        let(:terms_content_editor) do
+          <<~HTML.gsub(/\n\s*/, "")
+            <p>Paragraph</p>
             <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
               <div data-image-resizer-wrapper="">
                 <div data-image-resizer-control="top-left"></div>
                 <div data-image-resizer-control="top-right"></div>
                 <div data-image-resizer-control="bottom-left"></div>
                 <div data-image-resizer-control="bottom-right"></div>
+                <div data-image-resizer-dimensions="">
+                  <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="512"></span>
+                  ×
+                  <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="342"></span></div>
                 <div class="editor-content-image" data-image=""><img src="#{image.url}" alt="foo bar"></div>
               </div>
             </div>
-          IMG
-
-          <<~HTML
-            <p>Paragraph</p>
-            #{img_content}
           HTML
         end
 
         it "renders an image and its attributes inside the editor" do
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq(terms_content.gsub("\n", ""))
+          )["innerHTML"]).to eq(terms_content_editor)
         end
       end
 
