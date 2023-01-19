@@ -106,7 +106,7 @@ describe "Manage admins", type: :system do
     end
   end
 
-  it "cannot delete currently signed in admin user" do
+  it "cannot delete admin rights from self" do
     within find("tr", text: admin.email) do
       expect(page).not_to have_link("Delete", visible: :hidden)
     end
