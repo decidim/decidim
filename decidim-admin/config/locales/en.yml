@@ -860,9 +860,6 @@ en:
           destroy_confirmation: Are you sure you want to delete this content block?
           inactive_content_blocks: Inactive content blocks
           title: Page contents
-      organization_homepage_content_blocks:
-        edit:
-          update: Update
       participatory_space_private_users:
         create:
           error: There was a problem adding a private participant for this participatory space.
@@ -961,9 +958,6 @@ en:
           delete_image: Delete Image
           edit_images: Edit images
           gallery_legend: Add an image gallery (Optional)
-      static_page_content_blocks:
-        edit:
-          update: Update
       static_page_topics:
         create:
           error: There was a problem creating a new topic.
