@@ -122,7 +122,7 @@ module Decidim::Admin
       end
 
       it "only affects to content blocks associated with the resource" do
-        expect { subject.call }.to change(Decidim::ContentBlock, :count).by(2)
+        expect { subject.call }.not_to change(Decidim::ContentBlock, :count)
 
         published_block1.reload
         published_block2.reload
@@ -137,9 +137,11 @@ module Decidim::Admin
         expect(resource2_unpublished_block.weight).to eq 2
         expect(resource2_unpublished_block.published_at).to be_nil
 
-        order.each_with_index do |manifest_name, index|
-          expect(Decidim::ContentBlock.for_scope(scope, organization:).where(scoped_resource_id:, manifest_name:)).to exist
-          expect(Decidim::ContentBlock.for_scope(scope, organization:).find_by(scoped_resource_id:, manifest_name:).weight).to eq index + 1
+        order.each_with_index do |id, index|
+          next unless id == resource1_published_block.id
+
+          expect(Decidim::ContentBlock.for_scope(scope, organization:).where(scoped_resource_id:, id:)).to exist
+          expect(Decidim::ContentBlock.for_scope(scope, organization:).find_by(scoped_resource_id:, id:).weight).to eq index + 1
         end
       end
     end
