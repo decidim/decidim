@@ -458,6 +458,7 @@ describe "Editor", type: :system do
           find("button[data-dropzone-save]").click
         end
       end
+      expect(Decidim::EditorImage.count).to be(1)
 
       src = Decidim::EditorImage.last.attached_uploader(:file).path
       expect_value(
@@ -521,6 +522,7 @@ describe "Editor", type: :system do
 
     it "accepts an image" do
       paste_file("city.jpeg", prosemirror_selector)
+      expect(Decidim::EditorImage.count).to be(1)
 
       src = Decidim::EditorImage.last.attached_uploader(:file).path
       expect_value(
@@ -570,6 +572,18 @@ describe "Editor", type: :system do
 
             drag("[data-image-resizer-control='bottom-right']", mode:, direction: "right", amount: 500)
             expect_value(%(<div class="editor-content-image" data-image=""><img src="#{image_src}" alt="Test"></div>))
+          end
+
+          it "shows and updates image sizes" do
+            width = dimensions[0]
+            height = dimensions[1]
+
+            expect(page).to have_selector("[data-image-resizer-dimension-value='#{width}']", visible: :all)
+            expect(page).to have_selector("[data-image-resizer-dimension-value='#{height}']", visible: :all)
+
+            drag("[data-image-resizer-control='top-right']", mode:, direction: "left", amount: 100)
+            expect(page).to have_selector("[data-image-resizer-dimension-value='#{width - 100}']", visible: :all)
+            expect(page).to have_selector("[data-image-resizer-dimension-value='#{height - 67}']", visible: :all)
           end
         end
 
@@ -776,6 +790,7 @@ describe "Editor", type: :system do
 
           find("button.add-file-file").click
         end
+        expect(Decidim::EditorImage.count).to be(1)
 
         src = Decidim::EditorImage.last.attached_uploader(:file).path
         expect_value(
