@@ -345,6 +345,13 @@ describe Decidim::Admin::Permissions do
 
       it_behaves_like "permission is not set"
     end
+
+    context "when trying to block self" do
+      let(:action_name) { :block }
+      let(:context) { { user: } }
+
+      it_behaves_like "permission is not set"
+    end
   end
 
   shared_examples "can perform any action for" do |action_subject_name|

@@ -190,7 +190,7 @@ module Decidim
         target_user = context.fetch(:user, nil)
 
         case permission_action.action
-        when :destroy
+        when :destroy, :block
           target_user != user
         else
           true
