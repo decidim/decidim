@@ -530,8 +530,12 @@ en:
         name: Last activity
         title: Last activity
         view_all: View all
+      main_data:
+        name: Main data
       metrics:
         name: Organization metrics
+      participatory_space_main_data:
+        more_info: More info
       static_page:
         section:
           name: Section
