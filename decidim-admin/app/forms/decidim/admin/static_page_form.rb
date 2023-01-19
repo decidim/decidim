@@ -7,6 +7,7 @@ module Decidim
       include TranslatableAttributes
 
       attribute :slug, String
+      validates :title, translatable_presence: true
       translatable_attribute :title, String
       translatable_attribute :content, String
       attribute :changed_notably, Boolean
