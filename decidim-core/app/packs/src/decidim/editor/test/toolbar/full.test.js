@@ -181,6 +181,11 @@ describe("full toolbar", () => {
                 <div data-image-resizer-control="top-right"></div>
                 <div data-image-resizer-control="bottom-left"></div>
                 <div data-image-resizer-control="bottom-right"></div>
+                <div data-image-resizer-dimensions="">
+                  <span data-image-resizer-dimension="width" data-image-resizer-dimension-value=""></span>
+                  ×
+                  <span data-image-resizer-dimension="height" data-image-resizer-dimension-value=""></span>
+                </div>
                 <div class="editor-content-image" data-image="">
                   <img src="/path/to/logo.png" alt="Decidim logo">
                 </div>
@@ -220,6 +225,11 @@ describe("full toolbar", () => {
                 <div data-image-resizer-control="top-right"></div>
                 <div data-image-resizer-control="bottom-left"></div>
                 <div data-image-resizer-control="bottom-right"></div>
+                <div data-image-resizer-dimensions="">
+                  <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="null"></span>
+                  ×
+                  <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="null"></span>
+                </div>
                 <div class="editor-content-image" data-image="">
                   <img src="/path/to/logo.png" alt="Decidim logo">
                 </div>
