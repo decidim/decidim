@@ -194,23 +194,46 @@ module Decidim
       context "when the question is sorting" do
         let(:question_type) { "sorting" }
 
-        it "is valid if all options checked" do
-          subject.choices = [
-            { "answer_option_id" => "1", "body" => "foo" },
-            { "answer_option_id" => "2", "body" => "bar" },
-            { "answer_option_id" => "3", "body" => "baz" }
-          ]
+        context "when the question is not mandatory" do
+          it "is valid if all options checked" do
+            subject.choices = [
+              { "answer_option_id" => "1", "body" => "foo" },
+              { "answer_option_id" => "2", "body" => "bar" },
+              { "answer_option_id" => "3", "body" => "baz" }
+            ]
 
-          expect(subject).to be_valid
+            expect(subject).to be_valid
+          end
+
+          it "is valid if not all options checked" do
+            subject.choices = [
+              { "answer_option_id" => "1", "body" => "foo" }
+            ]
+
+            expect(subject).to be_valid
+          end
         end
 
-        it "is not valid if not all options checked" do
-          subject.choices = [
-            { "answer_option_id" => "1", "body" => "foo" },
-            { "answer_option_id" => "2", "body" => "bar" }
-          ]
+        context "when the question is mandatory" do
+          let(:mandatory) { true }
 
-          expect(subject).not_to be_valid
+          it "is valid if all options checked" do
+            subject.choices = [
+              { "answer_option_id" => "1", "body" => "foo" },
+              { "answer_option_id" => "2", "body" => "bar" },
+              { "answer_option_id" => "3", "body" => "baz" }
+            ]
+
+            expect(subject).to be_valid
+          end
+
+          it "is not valid if not all options checked" do
+            subject.choices = [
+              { "answer_option_id" => "1", "body" => "foo" }
+            ]
+
+            expect(subject).not_to be_valid
+          end
         end
       end
 
