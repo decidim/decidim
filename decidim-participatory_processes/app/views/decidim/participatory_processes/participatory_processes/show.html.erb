@@ -47,7 +47,7 @@
         <%= icon "arrow-up-s-line" %>
       </button>
       <ul id="dropdown-menu" class="process__nav">
-        <%= render partial: "layouts/decidim/process_nav_item", collection: process_nav_items, as: :item %>
+        <%= render partial: "layouts/decidim/process_nav_item", collection: process_nav_items(current_participatory_space), as: :item %>
       </ul>
     </div>
 
