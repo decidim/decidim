@@ -402,17 +402,15 @@ module Decidim
         parent
       end
 
-      # The code blocks are wrapped in a `<pre>` tag and we also add the
-      # "code-block" class to the code element in order to display it correctly.
+      # The code blocks are wrapped in a `<pre>`.
       #
       # The end result should look as follows:
       #   <pre>
-      #     <code class="code-block">{"foo": "bar"}</code>
+      #     <code>{"foo": "bar"}</code>
       #   </pre>
       def convert_code(node)
         parent = Nokogiri::XML::Node.new("pre", doc)
         parent.add_child(node)
-        node.add_class("code-block")
 
         parent
       end

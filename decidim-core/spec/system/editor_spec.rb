@@ -344,7 +344,7 @@ describe "Editor", type: :system do
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <pre><code class="code-block">Another paragraph.</code></pre>
+          <pre><code>Another paragraph.</code></pre>
         HTML
       )
 

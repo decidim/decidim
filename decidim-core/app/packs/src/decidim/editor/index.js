@@ -1,9 +1,9 @@
 import { Editor } from "@tiptap/core";
 import StarterKit from "@tiptap/starter-kit";
+import CodeBlock from "@tiptap/extension-code-block";
 import Underline from "@tiptap/extension-underline";
 import CharacterCount from "@tiptap/extension-character-count";
 
-import CodeBlock from "src/decidim/editor/extensions/code_block";
 import Dialog from "src/decidim/editor/extensions/dialog";
 import Hashtag from "src/decidim/editor/extensions/hashtag";
 import Image from "src/decidim/editor/extensions/image";

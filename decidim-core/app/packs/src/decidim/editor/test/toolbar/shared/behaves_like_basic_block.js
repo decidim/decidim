@@ -11,11 +11,11 @@ export default (ctx) => {
       selectContent(ctx.prosemirror);
       getControl("codeBlock").click();
 
-      expect(ctx.prosemirror.innerHTML).toEqual('<pre><code class="code-block">Hello, world!</code></pre>');
+      expect(ctx.prosemirror.innerHTML).toEqual("<pre><code>Hello, world!</code></pre>");
     });
 
     it("makes existing code block content as normal text", async () => {
-      await setContent('<pre><code class="code-block">Hello, world!</code></pre>');
+      await setContent("<pre><code>Hello, world!</code></pre>");
 
       selectContent(ctx.prosemirror, "pre code");
       getControl("codeBlock").click();

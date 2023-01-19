@@ -166,7 +166,7 @@ module Decidim
         <blockquote><p>Blockquote element content <br>should be <strong>wrapped inside</strong> a paragraph.</p></blockquote>
         <p>Code segments such as... </p>
         <pre>
-          <code class="code-block">{"foo": "bar"}</code>
+          <code>{"foo": "bar"}</code>
         </pre>
         <p> ...have been converted to code blocks.</p>
         <p>This is the end of the document.</p>
