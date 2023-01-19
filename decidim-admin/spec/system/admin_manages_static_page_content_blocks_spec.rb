@@ -35,7 +35,7 @@ describe "Admin manages static page content blocks", type: :system do
     it "creates all the content blocks" do
       visit decidim_admin.edit_static_page_path(tos_page)
       expect do
-        number_of_content_blocks.times do |content|
+        number_of_content_blocks.times do
           within ".edit_content_blocks" do
             find("button", text: "Add content block").click
             within ".add-components" do
