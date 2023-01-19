@@ -33,8 +33,7 @@ const createDimensionDisplay = () => {
  * @returns {Function} The custom node view callback to pass on to TipTap
  */
 export default (self) => {
-  return (params) => {
-    const { editor, node, getPos } = params;
+  return ({ editor, node, getPos }) => {
     const resizer = document.createElement("div");
     resizer.dataset.imageResizerWrapper = "";
     resizer.append(createControl("top-left"));
@@ -50,11 +49,11 @@ export default (self) => {
 
     const img = contentDOM.querySelector("img");
     let activeResizeControl = null,
+        currentHeight = null,
         currentSrc = node.attrs.src,
         currentWidth = null,
-        currentHeight = null,
-        naturalWidth = img.naturalWidth,
         naturalHeight = img.naturalHeight,
+        naturalWidth = img.naturalWidth,
         originalWidth = null,
         resizeStartPosition = null;
 
@@ -65,17 +64,23 @@ export default (self) => {
     tmpImg.onload = () => {
       naturalWidth = tmpImg.naturalWidth;
       naturalHeight = tmpImg.naturalHeight;
-      // Set currentWidth and currentHeight
-      currentWidth = givenWidth === null ? naturalWidth : givenWidth;
-      currentHeight = givenWidth === null ? naturalHeight : Math.round(naturalHeight * (currentWidth / naturalWidth));
 
+      // Set currentWidth and currentHeight
+      if (givenWidth === null) {
+        currentWidth = naturalWidth;
+        currentHeight = naturalHeight;
+      } else {
+        currentWidth = givenWidth;
+        currentHeight = Math.round(naturalHeight * (currentWidth / naturalWidth));
+      }
 
       // Force node update in order to set the initial dimensions
       [{ ...node.attrs, width: 1 }, node.attrs].forEach((newAttrs) => {
-
-        editor.view.dispatch(
-          editor.view.state.tr.setNodeMarkup(getPos(), self.type, newAttrs)
-        );
+        setTimeout(() => {
+          editor.view.dispatch(
+            editor.view.state.tr.setNodeMarkup(getPos(), self.type, newAttrs)
+          );
+        }, 0);
       });
     }
     tmpImg.src = img.src;
@@ -92,7 +97,7 @@ export default (self) => {
       } else if (currentWidth >= naturalWidth) {
         currentWidth = naturalWidth;
       }
-      currentHeight = Math.round(naturalHeight * (currentWidth/naturalWidth));
+      currentHeight = Math.round(naturalHeight * (currentWidth / naturalWidth));
 
       let width = currentWidth;
       if (width >= naturalWidth) {
