@@ -148,12 +148,14 @@ export default Image.extend({
             const items = (event.clipboardData || event.originalEvent.clipboardData).items;
             const images = filterImages(items, contentTypes);
             if (images.length < 1) {
-              return;
+              return false;
             }
 
             Promise.all(images.map((item) => uploadImage(item.getAsFile(), uploadImagesPath))).then((uploadedImages) => {
               handleUploadedImages(uploadedImages);
             });
+
+            return true;
           },
 
           handleDoubleClick() {
