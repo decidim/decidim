@@ -15,27 +15,39 @@ class DummyDialog {
     this.values = {};
   }
 
-  toggle() {
-    return new Promise((resolve) => setTimeout(resolve(this.dialogState), 50));
-  }
+  toggle() { return new Promise((resolve) => setTimeout(resolve(this.dialogState), 50)); }
 
-  setDialogState(state) {
-    this.dialogState = state;
-  }
+  setDialogState(state) {this.dialogState = state;}
 
-  getValue(key) {
-    return this.values[key];
-  }
+  getValue(key) { return this.values[key]; }
 
-  setValues(values) {
-    this.values = values;
-  }
+  setValues(values) { this.values = values; }
 }
 
 describe("Image", () => {
   let editor = null;
   let editorElement = null;
   let uploadDialog = new DummyDialog();
+  let editorInnerHTML = (dim, src, alt) => {
+    return `
+    <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
+      <div data-image-resizer-wrapper="">
+        <div data-image-resizer-control="top-left"></div>
+        <div data-image-resizer-control="top-right"></div>
+        <div data-image-resizer-control="bottom-left"></div>
+        <div data-image-resizer-control="bottom-right"></div>
+        <div data-image-resizer-dimensions="">
+          <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="${dim}"></span>
+          ×
+          <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="${dim}"></span>
+        </div>
+        <div class="editor-content-image" data-image="">
+          <img src="${src}" alt="${alt}">
+        </div>
+      </div>
+    </div>
+  `
+  }
 
   beforeEach(() => {
     document.body.innerHTML = "";
@@ -85,28 +97,9 @@ describe("Image", () => {
     await sleep(55);
     expect(editorElement.classList.contains("dialog-open")).toBe(false);
 
-    expect(editorElement.innerHTML).toMatchHtml(`
-      <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
-        <div data-image-resizer-wrapper="">
-          <div data-image-resizer-control="top-left"></div>
-          <div data-image-resizer-control="top-right"></div>
-          <div data-image-resizer-control="bottom-left"></div>
-          <div data-image-resizer-control="bottom-right"></div>
-          <div data-image-resizer-dimensions="">
-            <span data-image-resizer-dimension="width" data-image-resizer-dimension-value=""></span>
-            ×
-            <span data-image-resizer-dimension="height" data-image-resizer-dimension-value=""></span>
-          </div>
-          <div class="editor-content-image" data-image="">
-            <img src="/path/to/image.jpg" alt="Test text">
-          </div>
-        </div>
-      </div>
-    `);
+    expect(editorElement.innerHTML).toMatchHtml(editorInnerHTML("", "/path/to/image.jpg", "Test text"));
     expect(editor.getHTML()).toMatchHtml(`
-      <div class="editor-content-image" data-image="">
-        <img src="/path/to/image.jpg" alt="Test text">
-      </div>
+      <div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>
     `);
   });
 
@@ -126,28 +119,9 @@ describe("Image", () => {
     await sleep(55);
     expect(editorElement.classList.contains("dialog-open")).toBe(false);
 
-    expect(editorElement.innerHTML).toMatchHtml(`
-      <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
-        <div data-image-resizer-wrapper="">
-          <div data-image-resizer-control="top-left"></div>
-          <div data-image-resizer-control="top-right"></div>
-          <div data-image-resizer-control="bottom-left"></div>
-          <div data-image-resizer-control="bottom-right"></div>
-          <div data-image-resizer-dimensions="">
-            <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="null"></span>
-            ×
-            <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="null"></span>
-          </div>
-          <div class="editor-content-image" data-image="">
-            <img src="/path/to/image_updated.jpg" alt="Updated text">
-          </div>
-        </div>
-      </div>
-    `);
+    expect(editorElement.innerHTML).toMatchHtml(editorInnerHTML("null", "/path/to/image_updated.jpg", "Updated text"));
     expect(editor.getHTML()).toMatchHtml(`
-      <div class="editor-content-image" data-image="">
-        <img src="/path/to/image_updated.jpg" alt="Updated text">
-      </div>
+      <div class="editor-content-image" data-image=""><img src="/path/to/image_updated.jpg" alt="Updated text"></div>
     `);
   });
 
@@ -166,7 +140,6 @@ describe("Image", () => {
 
     // Position calculations do not work with JSDom / Jest
     editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
-
     editorElement.dispatchEvent(new MouseEvent("mousedown", { clientX: 10, clientY: 10 }));
     editorElement.dispatchEvent(new MouseEvent("mousedown", { clientX: 10, clientY: 10 }));
     await sleep(55);
@@ -195,7 +168,6 @@ describe("Image", () => {
 
     // Position calculations do not work with JSDom / Jest
     editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
-
     await dropFixtureFile(editorElement, "logo.png");
 
     expect(editor.getHTML()).toMatchHtml(`
@@ -320,7 +292,6 @@ describe("Image", () => {
         '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
       );
     });
-
     describe("with mouse", () => behavesLikeImageResizer("mouse"));
 
     describe("with touch", () => behavesLikeImageResizer("touch"));
