@@ -18,9 +18,10 @@ describe "Admin manages static page content blocks", type: :system do
 
       expect(Decidim::ContentBlock.count).to eq 0
 
-      within ".js-list-availables" do
-        within find("li", text: "Summary") do
-          find("svg.icon--pencil").click
+      within ".edit_content_blocks" do
+        find("button", text: "Add content block").click
+        within ".add-components" do
+          find("a", text: "Summary").click
         end
       end
 
@@ -32,7 +33,7 @@ describe "Admin manages static page content blocks", type: :system do
     let!(:content_block) { create :content_block, organization:, manifest_name: :summary, scope_name: :static_page, scoped_resource_id: tos_page.id }
 
     it "updates the settings of the content block" do
-      visit decidim_admin.edit_static_page_content_block_path(:summary, static_page_id: tos_page.id)
+      visit decidim_admin.edit_static_page_content_block_path(content_block, static_page_id: tos_page.slug)
 
       fill_in_i18n_editor :content_block_settings_summary,
                           "#content_block-settings--summary-tabs",
