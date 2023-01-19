@@ -1108,12 +1108,15 @@ cs:
       models:
         moderation:
           fields:
+            created_at: Nahlášeno v
             deleted_resource: Smazaný dokument
             hidden_at: Skryté u
             participatory_space: Participativní prostor
+            report_count: Počet nahlášení
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: Oznámená adresa URL obsahu
+            reports: Důvod
             visit_url: Navštívit URL
         report:
           fields:
