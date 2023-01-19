@@ -2,7 +2,7 @@
   <div class="draggable-content">
     <%= t(public_name_key) %>
     <div>
-      <% if model.id.present? %>
+      <% if model.persisted? %>
         <% if has_settings? %>
           <%= link_to edit_content_block_path, class: "mr-s text-muted" do %>
             <%= icon "pencil", role: "img", "aria-hidden": true %>

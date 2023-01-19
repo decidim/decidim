@@ -51,10 +51,6 @@ module Decidim
       def resource_content_block_cell
         "decidim/admin/homepage_content_block"
       end
-
-      def edit
-        enforce_permission_to :update, :organization, organization: current_organization
-      end
     end
   end
 end
