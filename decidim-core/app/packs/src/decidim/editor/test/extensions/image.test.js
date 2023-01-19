@@ -92,6 +92,11 @@ describe("Image", () => {
           <div data-image-resizer-control="top-right"></div>
           <div data-image-resizer-control="bottom-left"></div>
           <div data-image-resizer-control="bottom-right"></div>
+          <div data-image-resizer-dimensions="">
+            <span data-image-resizer-dimension="width" data-image-resizer-dimension-value=""></span>
+            ×
+            <span data-image-resizer-dimension="height" data-image-resizer-dimension-value=""></span>
+          </div>
           <div class="editor-content-image" data-image="">
             <img src="/path/to/image.jpg" alt="Test text">
           </div>
@@ -128,6 +133,11 @@ describe("Image", () => {
           <div data-image-resizer-control="top-right"></div>
           <div data-image-resizer-control="bottom-left"></div>
           <div data-image-resizer-control="bottom-right"></div>
+          <div data-image-resizer-dimensions="">
+            <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="null"></span>
+            ×
+            <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="null"></span>
+          </div>
           <div class="editor-content-image" data-image="">
             <img src="/path/to/image_updated.jpg" alt="Updated text">
           </div>
@@ -209,11 +219,28 @@ describe("Image", () => {
         }
       };
 
+      it("putputs and updates the dimensions of the element", () => {
+        expect(editorElement.querySelector("[data-image-resizer-dimensions]").innerHTML).toEqual(
+          '<span data-image-resizer-dimension="width" data-image-resizer-dimension-value="600"></span>×<span data-image-resizer-dimension="height" data-image-resizer-dimension-value="800"></span>'
+        );
+        const topRight = editorElement.querySelector("[data-image-resizer-control='top-right']");
+        simulateDrag(topRight, { from: 800, to: 700 });
+        expect(editorElement.querySelector("img").outerHTML).toEqual(
+          '<img src="/path/to/image.jpg" alt="Test text" width="500">'
+        );
+        expect(editorElement.querySelector("[data-image-resizer-dimensions]").innerHTML).toEqual(
+          '<span data-image-resizer-dimension="width" data-image-resizer-dimension-value="500"></span>×<span data-image-resizer-dimension="height" data-image-resizer-dimension-value="667"></span>'
+        );
+      })
+
       it("allows resizing the image down using the right side controls", () => {
         const topRight = editorElement.querySelector("[data-image-resizer-control='top-right']");
         simulateDrag(topRight, { from: 800, to: 700 });
         expect(editorElement.querySelector("img").outerHTML).toEqual(
           '<img src="/path/to/image.jpg" alt="Test text" width="500">'
+        );
+        expect(editorElement.querySelector("[data-image-resizer-dimensions]").innerHTML).toEqual(
+          '<span data-image-resizer-dimension="width" data-image-resizer-dimension-value="500"></span>×<span data-image-resizer-dimension="height" data-image-resizer-dimension-value="667"></span>'
         );
 
         const bottomRight = editorElement.querySelector("[data-image-resizer-control='bottom-right']");
@@ -274,6 +301,7 @@ describe("Image", () => {
         if (element.nodeName === "IMG") {
           // Mock the `naturalWidth` getter on the <img> element
           jest.spyOn(element, "naturalWidth", "get").mockReturnValue(600);
+          jest.spyOn(element, "naturalHeight", "get").mockReturnValue(800);
 
           // Mock the `onload` setter on the <img> element to call it correctly
           jest.spyOn(element, "onload", "set").mockImplementation((callback) => {
