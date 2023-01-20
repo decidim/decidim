@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::Admin
+module Decidim::Admin::ContentBlocks
   describe UpdateContentBlock do
     subject { described_class.new(form, content_block, scope) }
 
