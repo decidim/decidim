@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows to (de)activate the content blocks from a voting landing page
       class VotingsLandingPageController < Decidim::Votings::Admin::ApplicationController
-        include Decidim::Admin::LandingPage
+        include Decidim::Admin::ContentBlocks::LandingPage
 
         layout "decidim/admin/voting"
 

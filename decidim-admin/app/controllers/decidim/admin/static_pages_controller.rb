@@ -5,7 +5,7 @@ module Decidim
     # Controller that allows managing all pages at the admin panel.
     #
     class StaticPagesController < Decidim::Admin::ApplicationController
-      include Decidim::Admin::LandingPage
+      include Decidim::Admin::ContentBlocks::LandingPage
       include Concerns::HasContentBlocks
 
       layout "decidim/admin/pages"

@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing the participatory process group landing
       # page
       class ParticipatoryProcessGroupLandingPageController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
-        include Decidim::Admin::LandingPage
+        include Decidim::Admin::ContentBlocks::LandingPage
 
         layout "decidim/admin/participatory_process_group"
 

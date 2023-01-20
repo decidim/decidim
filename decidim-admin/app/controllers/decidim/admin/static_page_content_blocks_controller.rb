@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # Controller that allows managing the organization privacy policy content blocks
     class StaticPageContentBlocksController < Decidim::Admin::ApplicationController
-      include Decidim::Admin::LandingPageContentBlocks
+      include Decidim::Admin::ContentBlocks::LandingPageContentBlocks
 
       layout "decidim/admin/pages"
 

@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows to manage the content from the participatory process landing page content blocks
       class ParticipatoryProcessGroupLandingPageContentBlocksController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
-        include Decidim::Admin::LandingPageContentBlocks
+        include Decidim::Admin::ContentBlocks::LandingPageContentBlocks
 
         layout "decidim/admin/participatory_process_group"
 

@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # Controller that allows managing the organization homepage
     class OrganizationHomepageController < Decidim::Admin::ApplicationController
-      include Decidim::Admin::LandingPage
+      include Decidim::Admin::ContentBlocks::LandingPage
 
       layout "decidim/admin/settings"
 

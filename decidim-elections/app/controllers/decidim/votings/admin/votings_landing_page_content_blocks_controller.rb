@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # Controller that allows to edit the content of the landing page content blocks
       class VotingsLandingPageContentBlocksController < Decidim::Votings::Admin::ApplicationController
-        include Decidim::Admin::LandingPageContentBlocks
+        include Decidim::Admin::ContentBlocks::LandingPageContentBlocks
 
         layout "decidim/admin/voting"
 
