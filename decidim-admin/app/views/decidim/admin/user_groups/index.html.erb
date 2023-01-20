@@ -25,8 +25,8 @@
         <tbody>
           <% @user_groups.each do |user_group| %>
             <tr data-user-group-id="<%= user_group.id %>">
-              <td><%= link_to user_group.nickname.present?, user_group.name, decidim.profile_path(user_group.nickname) %></td>
-              <td><%= link_to user_group.nickname.present?, user_group.nickname, decidim.profile_path(user_group.nickname) %></td>
+              <td><%= link_to_if user_group.nickname.present?, user_group.name, decidim.profile_path(user_group.nickname) %></td>
+              <td><%= link_to_if user_group.nickname.present?, user_group.nickname, decidim.profile_path(user_group.nickname) %></td>
               <td><%= user_group.document_number %></td>
               <td><%= user_group.phone %></td>
               <td><%= user_group.users.size %></td>
