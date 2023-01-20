@@ -146,6 +146,10 @@ ar:
           create: "%{user_name} نتيجة تم إنشاؤها %{resource_name} في %{space_name}"
           delete: "%{user_name} حذف النتيجة %{resource_name} في %{space_name}"
           update: "%{user_name} نتيجة محدثة %{resource_name} في %{space_name}"
+        status:
+          create: "شريط المنشأ\n(إسم المستخدم)  إنشاء مصدر (الإسم الحاله)"
+          delete: "شريط المنشأ\n(إسم المستخدم)  إنشاء مصدر (الإسم الحاله)"
+          update: "شريط المنشأ\n(إسم المستخدم)  إنشاء مصدر (الإسم الحاله)"
         value_types:
           parent_presenter:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (الرقم-المُعرف: %{id})'
