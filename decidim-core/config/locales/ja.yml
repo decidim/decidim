@@ -589,6 +589,9 @@ ja:
     endorsable:
       endorsements: オススメ
       endorsements_count: オススメ数
+    endorsement_buttons_cell:
+      already_endorsed: 取り消し
+      endorse: いいね
     endorsements:
       identities:
         done: 完了
