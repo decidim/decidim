@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::Admin
+module Decidim::Admin::ContentBlocks
   describe ReorderContentBlocks do
     subject { described_class.new(*args) }
 
