@@ -116,7 +116,7 @@
           @apply relative inline-block;
 
           [data-image-resizer-control]{
-            @apply absolute hidden w-2.5 h-2.5 border border-solid border-[#000] bg-[#fff] opacity-80;
+            @apply absolute hidden w-2.5 h-2.5 rounded-none border border-solid border-[#000] bg-[#fff] opacity-80;
           }
 
           [data-image-resizer-control^="top-"]{ @apply top-0; }

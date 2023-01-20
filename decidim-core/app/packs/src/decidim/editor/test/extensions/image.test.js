@@ -24,6 +24,14 @@ class DummyDialog {
   setValues(values) { this.values = values; }
 }
 
+// Not implemented in Jest
+global.Touch = class Touch {
+  constructor(options) {
+    this.pageX = options.pageX;
+    this.pageY = options.pageY;
+  }
+}
+
 describe("Image", () => {
   let editor = null;
   let editorElement = null;
@@ -32,10 +40,10 @@ describe("Image", () => {
     return `
     <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
       <div data-image-resizer-wrapper="">
-        <div data-image-resizer-control="top-left"></div>
-        <div data-image-resizer-control="top-right"></div>
-        <div data-image-resizer-control="bottom-left"></div>
-        <div data-image-resizer-control="bottom-right"></div>
+        <button data-image-resizer-control="top-left"></button>
+        <button data-image-resizer-control="top-right"></button>
+        <button data-image-resizer-control="bottom-left"></button>
+        <button data-image-resizer-control="bottom-right"></button>
         <div data-image-resizer-dimensions="">
           <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="${dim}"></span>
           ×
@@ -74,9 +82,7 @@ describe("Image", () => {
     document.head.append(csrf);
 
     // Mocks the fetch method for the dynamic upload
-    global.fetch = jest.fn(() =>
-      Promise.resolve({ ok: true, json: () => Promise.resolve({ url: "/path/to/logo.png" }) })
-    );
+    global.fetch = jest.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve({ url: "/path/to/logo.png" }) }));
   });
 
   afterEach(() => {
@@ -87,10 +93,7 @@ describe("Image", () => {
   });
 
   it("allows setting the image through the dialog", async () => {
-    uploadDialog.setValues({
-      src: "/path/to/image.jpg",
-      alt: "Test text"
-    });
+    uploadDialog.setValues({ src: "/path/to/image.jpg", alt: "Test text" });
 
     editor.commands.imageDialog();
     expect(editorElement.classList.contains("dialog-open")).toBe(true);
@@ -109,10 +112,7 @@ describe("Image", () => {
       '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
     );
 
-    uploadDialog.setValues({
-      src: "/path/to/image_updated.jpg",
-      alt: "Updated text"
-    });
+    uploadDialog.setValues({ src: "/path/to/image_updated.jpg", alt: "Updated text" });
 
     editor.commands.imageDialog();
     expect(editorElement.classList.contains("dialog-open")).toBe(true);
@@ -131,17 +131,14 @@ describe("Image", () => {
       '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
     );
 
-    uploadDialog.setValues({
-      src: "/path/to/image_updated.jpg",
-      alt: "Updated text"
-    });
+    uploadDialog.setValues({ src: "/path/to/image_updated.jpg", alt: "Updated text" });
 
     jest.spyOn(uploadDialog, "toggle");
 
     // Position calculations do not work with JSDom / Jest
     editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
-    editorElement.dispatchEvent(new MouseEvent("mousedown", { clientX: 10, clientY: 10 }));
-    editorElement.dispatchEvent(new MouseEvent("mousedown", { clientX: 10, clientY: 10 }));
+    editorElement.dispatchEvent(new MouseEvent("mousedown", { button: 0, clientX: 10, clientY: 10 }));
+    editorElement.dispatchEvent(new MouseEvent("mousedown", { button: 0, clientX: 10, clientY: 10 }));
     await sleep(55);
 
     expect(uploadDialog.toggle).toHaveBeenCalled();
@@ -181,17 +178,18 @@ describe("Image", () => {
     const behavesLikeImageResizer = (dragMode) => {
       const simulateDrag = (moveControl, { from, to }) => {
         if (dragMode === "touch") {
-          moveControl.dispatchEvent(new MouseEvent("touchstart", { clientX: from, clientY: 0 }));
-          document.dispatchEvent(new MouseEvent("touchmove", { clientX: to, clientY: 0 }));
-          document.dispatchEvent(new MouseEvent("touchend"));
+          // var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+          moveControl.dispatchEvent(new TouchEvent("touchstart", { touches: [new Touch({ pageX: from, pageY: 0 })] }));
+          document.dispatchEvent(new TouchEvent("touchmove", { touches: [new Touch({ pageX: to, pageY: 0 })] }));
+          document.dispatchEvent(new TouchEvent("touchend"));
         } else {
-          moveControl.dispatchEvent(new MouseEvent("mousedown", { clientX: from, clientY: 0 }));
+          moveControl.dispatchEvent(new MouseEvent("mousedown", { button: 0, clientX: from, clientY: 0 }));
           document.dispatchEvent(new MouseEvent("mousemove", { clientX: to, clientY: 0 }));
-          document.dispatchEvent(new MouseEvent("mouseup"));
+          document.dispatchEvent(new MouseEvent("mouseup", { button: 0 }));
         }
       };
 
-      it("putputs and updates the dimensions of the element", () => {
+      it("updates the dimensions of the element", () => {
         expect(editorElement.querySelector("[data-image-resizer-dimensions]").innerHTML).toEqual(
           '<span data-image-resizer-dimension="width" data-image-resizer-dimension-value="600"></span>×<span data-image-resizer-dimension="height" data-image-resizer-dimension-value="800"></span>'
         );
@@ -295,5 +293,5 @@ describe("Image", () => {
     describe("with mouse", () => behavesLikeImageResizer("mouse"));
 
     describe("with touch", () => behavesLikeImageResizer("touch"));
-  })
+  });
 });

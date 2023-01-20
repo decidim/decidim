@@ -1,7 +1,10 @@
 import { DOMSerializer } from "prosemirror-model";
 
-const createControl = (position) => {
-  const el = document.createElement("div");
+import { getDictionary } from "src/decidim/i18n";
+
+const createControl = (position, label) => {
+  const el = document.createElement("button");
+  el.ariaLabel = label;
   el.dataset.imageResizerControl = position;
   return el;
 };
@@ -33,13 +36,21 @@ const createDimensionDisplay = () => {
  * @returns {Function} The custom node view callback to pass on to TipTap
  */
 export default (self) => {
+  const i18nResize = getDictionary("editor.extensions.image.nodeView.resizer");
+  const createResizeControl = (position) => {
+    const label = i18nResize["control.resize"];
+    const positionLabel = i18nResize[`position.${position.replace(/-(\w)/, (da, ch) => ch.toUpperCase())}`];
+
+    return createControl(position, label.replace("%position%", positionLabel));
+  }
+
   return ({ editor, node, getPos }) => {
     const resizer = document.createElement("div");
     resizer.dataset.imageResizerWrapper = "";
-    resizer.append(createControl("top-left"));
-    resizer.append(createControl("top-right"));
-    resizer.append(createControl("bottom-left"));
-    resizer.append(createControl("bottom-right"));
+    resizer.append(createResizeControl("top-left"));
+    resizer.append(createResizeControl("top-right"));
+    resizer.append(createResizeControl("bottom-left"));
+    resizer.append(createResizeControl("bottom-right"));
 
     const dimensions = createDimensionDisplay();
     resizer.append(dimensions.wrapper);
@@ -88,8 +99,21 @@ export default (self) => {
     }
     tmpImg.src = img.src;
 
+    const getEventPagePosition = (ev) => {
+      if (ev instanceof TouchEvent) {
+        const originalEv = ev.originalEvent;
+        const touches = ev.touches || ev.changedTouches || originalEv.touches || originalEv.changedTouches;
+        if (!touches) {
+          return { xPos: null, yPos: null };
+        }
+        const touch = touches[0];
+        return { xPos: touch.pageX, yPos: touch.pageY };
+      }
+      return { xPos: ev.clientX, yPos: ev.clientY };
+    };
     const handleMove = (ev) => {
-      let diff = resizeStartPosition - ev.clientX;
+      let { xPos } = getEventPagePosition(ev);
+      let diff = resizeStartPosition - xPos;
       if (activeResizeControl.match(/-left$/)) {
         diff *= -1;
       }
@@ -101,6 +125,7 @@ export default (self) => {
         currentWidth = naturalWidth;
       }
       currentHeight = Math.round(naturalHeight * (currentWidth / naturalWidth));
+
 
       let width = currentWidth;
       if (width >= naturalWidth) {
@@ -118,6 +143,11 @@ export default (self) => {
     };
     resizer.querySelectorAll("[data-image-resizer-control]").forEach((ctrl) => {
       const handleStart = (ev) => {
+        // Only allow mouse events to start the resize on the primary button
+        // click.
+        if (ev instanceof MouseEvent && ev.button !== 0) {
+          return;
+        }
         if (!editor.isEditable || activeResizeControl) {
           return;
         }
@@ -130,7 +160,8 @@ export default (self) => {
         ev.preventDefault();
         activeResizeControl = ctrl.dataset.imageResizerControl;
         originalWidth = editor.getAttributes("image").width || naturalWidth;
-        resizeStartPosition = ev.clientX;
+
+        resizeStartPosition = getEventPagePosition(ev).xPos;
       };
 
       ctrl.addEventListener("mousedown", handleStart);

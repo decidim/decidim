@@ -2,7 +2,18 @@ export default {
   extensions: {
     image: {
       altLabel: "Alternative text for the image",
-      uploadError: "Uploading the file failed."
+      uploadError: "Uploading the file failed.",
+      nodeView: {
+        resizer: {
+          control: { resize: "Resize image (%position%)" },
+          position: {
+            bottomLeft: "bottom left corner",
+            bottomRight: "bottom right corner",
+            topLeft: "top left corner",
+            topRight: "top right corner"
+          }
+        }
+      }
     },
     link: {
       hrefLabel: "Link URL",
