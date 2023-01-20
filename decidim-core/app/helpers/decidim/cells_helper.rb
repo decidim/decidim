@@ -35,7 +35,7 @@ module Decidim
     end
 
     def user_flaggable?
-      return if (try(:profile_holder) || try(:profile_user))&.blocked?
+      return if (try(:profile_holder) || try(:profile_user) || try(:model))&.blocked?
       return unless context[:controller].try(:flaggable_controller?)
 
       true
