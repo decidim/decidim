@@ -95,8 +95,14 @@
         @apply cursor-not-allowed bg-[var(--editor-disabled-color)];
       }
 
+      .editor-content-image{
+        img{
+          @apply my-0;
+        }
+      }
+
       [data-video-embed]{
-        @apply mb-4;
+        @apply mb-8;
 
         iframe{
           @apply pointer-events-none;
@@ -104,7 +110,7 @@
       }
 
       [data-image-resizer]{
-        @apply mb-4;
+        @apply mb-8;
 
         [data-image-resizer-wrapper]{
           @apply relative inline-block;
@@ -172,10 +178,6 @@
 
   .editor-content-videoEmbed{
     @apply my-10 mx-auto;
-  }
-
-  .editor-content-image{
-    @apply mb-4;
   }
 }
 
