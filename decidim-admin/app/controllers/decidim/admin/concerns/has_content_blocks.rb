@@ -11,10 +11,8 @@ module Decidim
 
           private
 
-          ACCEPTED_SLUGS = %w(terms-and-conditions).freeze
-
           def content_blocks?
-            return unless ACCEPTED_SLUGS.include?(scoped_resource&.slug)
+            return unless Decidim.page_blocks.include?(scoped_resource.try(:slug))
 
             @has_content_blocks ||= available_manifests.present?
           end
