@@ -1095,12 +1095,15 @@ ja:
       models:
         moderation:
           fields:
+            created_at: 報告日時
             deleted_resource: 削除されたリソース
             hidden_at: '非表示:'
             participatory_space: 参加型スペース
+            report_count: レポート数
             reportable_id: ID
             reportable_type: 種別
             reported_content_url: 報告されたコンテンツ URL
+            reports: 理由
             visit_url: URL を参照
         report:
           fields:
