@@ -73,10 +73,10 @@ export default function createEditor(container) {
     ]);
   }
 
-  if (editorContainer.classList.contains("js-hashtags")) {
+  if (container.classList.contains("js-hashtags")) {
     extensions.push(Hashtag);
   }
-  if (editorContainer.classList.contains("js-mentions")) {
+  if (container.classList.contains("js-mentions")) {
     extensions.push(Mention);
   }
 
