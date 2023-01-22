@@ -28,6 +28,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::FilterableResource
+      include Decidim::EnumerableAttribute
 
       translatable_fields :title, :body
 
@@ -54,16 +55,13 @@ module Decidim
       validates :title, :body, presence: true
 
       geocoded_by :address
+      enum_fields :state, POSSIBLE_STATES, prepend_scope: [:state_published]
 
       scope :answered, -> { where.not(answered_at: nil) }
       scope :not_answered, -> { where(answered_at: nil) }
 
       scope :state_not_published, -> { where(state_published_at: nil) }
       scope :state_published, -> { where.not(state_published_at: nil).where.not(state: nil) }
-
-      scope :accepted, -> { state_published.where(state: "accepted") }
-      scope :rejected, -> { state_published.where(state: "rejected") }
-      scope :evaluating, -> { state_published.where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_rejected, -> { where.not(state: "rejected").or(state_not_published) }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
@@ -227,27 +225,6 @@ module Decidim
       # Returns Boolean.
       def withdrawn?
         internal_state == "withdrawn"
-      end
-
-      # Public: Checks if the organization has accepted a proposal.
-      #
-      # Returns Boolean.
-      def accepted?
-        state == "accepted"
-      end
-
-      # Public: Checks if the organization has rejected a proposal.
-      #
-      # Returns Boolean.
-      def rejected?
-        state == "rejected"
-      end
-
-      # Public: Checks if the organization has marked the proposal as evaluating it.
-      #
-      # Returns Boolean.
-      def evaluating?
-        state == "evaluating"
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.

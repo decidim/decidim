@@ -2,6 +2,8 @@
 
 module Decidim
   class Amendment < ApplicationRecord
+    include Decidim::EnumerableAttribute
+
     STATES = %w(draft evaluating accepted rejected withdrawn).freeze
 
     belongs_to :amendable, foreign_key: "decidim_amendable_id", foreign_type: "decidim_amendable_type", polymorphic: true
@@ -10,23 +12,13 @@ module Decidim
 
     validates :state, presence: true, inclusion: { in: STATES }
 
+    enum_fields :state, STATES
+
     # Reports the mapped resource type for authorization transfers.
     #
     # @return [String] The resource type as string (i.e. its class name).
     def mapped_resource_type
       decidim_amendable_type
-    end
-
-    def draft?
-      state == "draft"
-    end
-
-    def evaluating?
-      state == "evaluating"
-    end
-
-    def rejected?
-      state == "rejected"
     end
 
     def promoted?

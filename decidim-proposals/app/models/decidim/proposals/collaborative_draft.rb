@@ -17,6 +17,7 @@ module Decidim
       include Decidim::Loggable
       include Decidim::Randomable
       include Decidim::FilterableResource
+      include Decidim::EnumerableAttribute
 
       has_many :collaborator_requests,
                class_name: "Decidim::Proposals::CollaborativeDraftCollaboratorRequest",
@@ -31,10 +32,8 @@ module Decidim
 
       geocoded_by :address
 
-      scope :open, -> { where(state: "open") }
-      scope :withdrawn, -> { where(state: "withdrawn") }
+      enum_fields :state, %w(open withdrawn published)
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
-      scope :published, -> { where(state: "published") }
 
       scope_search_multi :with_any_state, [:open, :published, :withdrawn]
 
@@ -43,18 +42,6 @@ module Decidim
       # user - the user to check for authorship
       def editable_by?(user)
         authored_by?(user)
-      end
-
-      def open?
-        state == "open"
-      end
-
-      def withdrawn?
-        state == "withdrawn"
-      end
-
-      def published?
-        state == "published"
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.

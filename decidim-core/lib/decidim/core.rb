@@ -118,6 +118,7 @@ module Decidim
   autoload :DisabledRedesignLayout, "decidim/disabled_redesign_layout"
   autoload :BlockRegistry, "decidim/block_registry"
   autoload :DependencyResolver, "decidim/dependency_resolver"
+  autoload :EnumerableAttribute, "decidim/enumerable_attribute"
 
   include ActiveSupport::Configurable
   # Loads seeds from all engines.

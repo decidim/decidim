@@ -26,9 +26,12 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::Publicable
       include Decidim::FilterableResource
-
+      include Decidim::EnumerableAttribute
       TYPE_OF_MEETING = %w(in_person online hybrid).freeze
       REGISTRATION_TYPE = %w(registration_disabled on_this_platform on_different_platform).freeze
+
+      enum_fields :type_of_meeting, TYPE_OF_MEETING, { method_suffix: :meeting }
+      enum_fields :registration_type, REGISTRATION_TYPE, { enable_scopes: false }
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
@@ -134,11 +137,6 @@ module Decidim
       scope :authored_by, ->(author) { where(decidim_author_id: author) }
 
       scope_search_multi :with_any_type, TYPE_OF_MEETING.map(&:to_sym)
-
-      TYPE_OF_MEETING.each do |type|
-        scope type.to_sym, -> { where(type_of_meeting: type.to_sym) }
-        scope "not_#{type}".to_sym, -> { where.not(type_of_meeting: type.to_sym) }
-      end
 
       searchable_fields({
                           scope_id: :decidim_scope_id,
@@ -323,24 +321,6 @@ module Decidim
       # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
       def reported_searchable_content_extras
         [normalized_author.name]
-      end
-
-      TYPE_OF_MEETING.each do |type|
-        define_method("#{type}_meeting?") do
-          type_of_meeting == type
-        end
-      end
-
-      def registration_disabled?
-        registration_type == "registration_disabled"
-      end
-
-      def on_this_platform?
-        registration_type == "on_this_platform"
-      end
-
-      def on_different_platform?
-        registration_type == "on_different_platform"
       end
 
       def has_contributions?
