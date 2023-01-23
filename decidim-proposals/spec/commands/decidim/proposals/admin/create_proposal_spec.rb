@@ -135,13 +135,11 @@ module Decidim
               expect(action_log.version).to be_present
             end
 
-            it "notifies the space followers" do
-              follower = create(:user, organization: component.participatory_space.organization)
-              create(:follow, followable: component.participatory_space, user: follower)
-
-              expect(Decidim::EventsManager)
-                .to receive(:publish)
-                .with(
+            context "when followers" do
+              let(:follower) { create(:user, organization: component.participatory_space.organization) }
+              let!(:follow) { create(:follow, followable: component.participatory_space, user: follower) }
+              let(:data) do
+                {
                   event: "decidim.events.proposals.proposal_published",
                   event_class: Decidim::Proposals::PublishProposalEvent,
                   resource: kind_of(Decidim::Proposals::Proposal),
@@ -149,9 +147,28 @@ module Decidim
                   extra: {
                     participatory_space: true
                   }
-                )
+                }
+              end
 
-              command.call
+              it "notifies the space followers" do
+                expect(Decidim::EventsManager).to receive(:publish).with(data)
+
+                command.call
+              end
+
+              context "when active record is slow" do
+                let(:proposal) { build :proposal, component: component }
+
+                before do
+                  allow(command).to receive(:proposal).and_return(nil)
+                end
+
+                it "does not notifies the space followers" do
+                  expect(Decidim::EventsManager).not_to receive(:publish).with(data)
+
+                  command.call
+                end
+              end
             end
 
             context "when geocoding is enabled" do
