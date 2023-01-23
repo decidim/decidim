@@ -656,6 +656,7 @@ cs:
             created_at: Vytvořeno v
             document_number: Číslo dokumentu
             name: Název
+            nickname: Přezdívka
             phone: Telefon
             state: Stav
             users_count: Počet účastníků
