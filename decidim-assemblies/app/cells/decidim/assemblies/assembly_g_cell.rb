@@ -2,6 +2,7 @@
 
 module Decidim
   module Assemblies
+    # REDESIGN_PENDING: This cell will be overwritten with the version introduced by card-g PR
     # This cell renders the Medium (:m) assembyl card
     # for an given instance of an Assembly
     class AssemblyGCell < Decidim::CardMCell

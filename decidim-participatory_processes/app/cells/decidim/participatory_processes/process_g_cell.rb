@@ -2,6 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
+    # REDESIGN_PENDING: This cell will be overwritten with the version introduced by card-g PR
     # This cell renders the Grid (:g) process card
     # for an given instance of a Process
     class ProcessGCell < Decidim::CardMCell
