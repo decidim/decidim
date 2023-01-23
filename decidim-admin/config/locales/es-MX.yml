@@ -1101,12 +1101,15 @@ es-MX:
       models:
         moderation:
           fields:
+            created_at: Denunciado el
             deleted_resource: Eliminar recurso
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
+            report_count: Número de denuncias
             reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
+            reports: Motivo
             visit_url: Visita la URL
         report:
           fields:
