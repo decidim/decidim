@@ -98,9 +98,15 @@ module Decidim
     end
 
     def explanation
-      return I18n.t("explanation", scope: options[:help_i18n_scope], attribute:) if options[:help_i18n_scope].present?
+      return I18n.t("explanation", scope: options[:help_i18n_scope], attribute: attribute_translation) if options[:help_i18n_scope].present?
 
-      I18n.t("explanation", scope: "decidim.forms.upload_help", attribute:)
+      I18n.t("explanation", scope: "decidim.forms.upload_help", attribute: attribute_translation)
+    end
+
+    def attribute_translation
+      I18n.t(attribute, scope: [:activemodel, :attributes, resource_class.constantize.model_name.param_key].join("."))
+    rescue NameError
+      I18n.t(attribute, scope: "decidim.forms")
     end
 
     def add_attribute
