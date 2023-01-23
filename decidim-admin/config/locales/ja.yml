@@ -646,6 +646,7 @@ ja:
             created_at: 作成日時
             document_number: ドキュメント番号
             name: 名前
+            nickname: ニックネーム
             phone: 電話番号
             state: 都道府県：
             users_count: 参加者数
