@@ -629,6 +629,7 @@ en:
             created_at: Created at
             document_number: Document number
             name: Name
+            nickname: Nickname
             phone: Phone
             state: State
             users_count: Participants count
