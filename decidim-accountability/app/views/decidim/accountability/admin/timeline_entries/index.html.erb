@@ -20,7 +20,7 @@
         <tbody>
           <% timeline_entries.each do |timeline_entry| %>
             <tr data-id="<%= timeline_entry.id %>">
-              <td><%= timeline_entry.entry_date %><br></td>
+              <td><%= l timeline_entry.entry_date, format: :decidim_short %><br></td>
               <td><%= translated_attribute(timeline_entry.description) %></td>
               <td class="table-list__actions">
                 <% if allowed_to? :update, :timeline_entry, timeline_entry: timeline_entry %>
