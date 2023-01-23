@@ -117,6 +117,7 @@ describe "Conversations", type: :system do
       visit_inbox
 
       within ".conversations" do
+        expect(page).to have_content(conversation.created_at.strftime("%d/%m/%Y %H:%M"))
         expect(page).to have_selector(".card.card--widget", text: /#{interlocutor.name}/i)
         expect(page).to have_selector(".card.card--widget", text: "who wants apples?")
       end
