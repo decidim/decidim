@@ -21,7 +21,13 @@ module Decidim
         "content-block #{extra_classes}"
       end
 
+      def prefixed_class(name)
+        [classes_prefix, name].compact.join("__")
+      end
+
       def extra_classes; end
+
+      def classes_prefix; end
     end
   end
 end

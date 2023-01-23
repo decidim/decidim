@@ -19,8 +19,6 @@ module Decidim
 
       def details_path; end
 
-      def classes_prefix; end
-
       def nav_items
         []
       end
@@ -43,10 +41,6 @@ module Decidim
         main_query = Arel.sql("SELECT * FROM (#{subquery}) as q order by created_at DESC limit #{max_last_activity_users}")
 
         Decidim::User.where(id: ActiveRecord::Base.connection.execute(main_query).field_values("decidim_user_id"))
-      end
-
-      def prefixed_class(name)
-        [classes_prefix, name].compact.join("__")
       end
     end
   end
