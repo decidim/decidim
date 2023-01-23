@@ -3,8 +3,6 @@
 module Decidim
   module ContentBlocks
     class ParticipatorySpaceMainDataCell < BaseCell
-      DEFAULT_MAX_LAST_ACTIVITY_USERS = 6
-
       def nav_links
         return if nav_items.blank?
 
@@ -25,22 +23,6 @@ module Decidim
 
       def metadata_items
         []
-      end
-
-      def max_last_activity_users
-        DEFAULT_MAX_LAST_ACTIVITY_USERS
-      end
-
-      def last_activities_users
-        subquery = Decidim::ParticipatorySpaceLastActivity
-                   .new(resource).query
-                   .where.not(user: nil)
-                   .reorder(decidim_user_id: :asc, created_at: :desc)
-                   .select("DISTINCT ON (decidim_user_id) decidim_user_id, created_at")
-                   .to_sql
-        main_query = Arel.sql("SELECT * FROM (#{subquery}) as q order by created_at DESC limit #{max_last_activity_users}")
-
-        Decidim::User.where(id: ActiveRecord::Base.connection.execute(main_query).field_values("decidim_user_id"))
       end
     end
   end
