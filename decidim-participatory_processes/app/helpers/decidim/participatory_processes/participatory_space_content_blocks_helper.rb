@@ -5,7 +5,7 @@ module Decidim
     # Method shared by different content blocks for the process
     #
     module ParticipatorySpaceContentBlocksHelper
-      def base_relation
+      def base_model
         Decidim::ParticipatoryProcess
       end
 

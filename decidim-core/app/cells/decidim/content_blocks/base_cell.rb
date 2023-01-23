@@ -6,13 +6,19 @@ module Decidim
     # the block belongs to
     class BaseCell < Decidim::ViewModel
       def resource
-        @resource ||= base_relation.find(model.scoped_resource_id)
+        @resource ||= base_model.presence && base_model.find(model.scoped_resource_id)
       end
 
       private
 
-      def base_relation
-        raise NotImplementedError, "Please, overwrite this method. Inheriting classes should define their own base relation"
+      def base_model
+        @base_model ||= options[:base_model] ||
+                        case model.scope_name
+                        when "participatory_process_group_homepage"
+                          Decidim::ParticipatoryProcessGroup
+                        when "participatory_process_homepage"
+                          Decidim::ParticipatoryProcess
+                        end
       end
 
       def section_class
