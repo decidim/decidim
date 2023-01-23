@@ -141,4 +141,17 @@ describe "Initiatives", type: :system do
       end
     end
   end
+
+  context "when there are more than 20 initiatives" do
+    before do
+      create_list(:initiative, 21, organization: organization)
+      visit decidim_initiatives.initiatives_path
+    end
+
+    it "shows the correct initiatives count" do
+      within "#initiatives-count" do
+        expect(page).to have_content("21")
+      end
+    end
+  end
 end
