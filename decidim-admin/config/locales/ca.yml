@@ -651,6 +651,7 @@ ca:
             created_at: Data de creació
             document_number: Número de document
             name: Nom
+            nickname: Àlies
             phone: Telèfon
             state: Estat
             users_count: Nombre de participants
