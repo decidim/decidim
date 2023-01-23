@@ -651,6 +651,7 @@ fr:
             created_at: Créé le
             document_number: Numéro de document
             name: Nom
+            nickname: Pseudonyme
             phone: Téléphone
             state: État
             users_count: Nombre d'utilisateurs
