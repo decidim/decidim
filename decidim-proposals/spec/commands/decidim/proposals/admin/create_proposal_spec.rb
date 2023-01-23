@@ -157,7 +157,7 @@ module Decidim
               end
 
               context "when active record is slow" do
-                let(:proposal) { build :proposal, component: component }
+                let(:proposal) { build :proposal, component: }
 
                 before do
                   allow(command).to receive(:proposal).and_return(nil)
