@@ -26,6 +26,11 @@
     <%= cell("decidim/announcement", current_participatory_space.announcement) %>
   </div>
 
+  <% Decidim::ContentBlock.published.for_scope(:participatory_process_homepage, organization: current_organization).where(scoped_resource_id: current_participatory_space.id).each do |content_block| %>
+    <% next unless content_block.manifest %>
+    <%= cell content_block.manifest.cell, content_block %>
+  <% end %>
+
   <section class="content-block process__content-block">
     <div>
       <h2 class="h2 decorator"><%= t(".title") %></h2>
