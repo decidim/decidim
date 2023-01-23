@@ -651,6 +651,7 @@ es:
             created_at: Fecha de creación
             document_number: Número del documento
             name: Nombre
+            nickname: Alias
             phone: Teléfono
             state: Estado
             users_count: Número de participantes
