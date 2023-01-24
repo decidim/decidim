@@ -66,7 +66,7 @@ module Decidim
     end
 
     def current_date
-      @current_date ||= Time.current.to_time
+      @current_date ||= Date.current.to_time
     end
 
     def progress_item
