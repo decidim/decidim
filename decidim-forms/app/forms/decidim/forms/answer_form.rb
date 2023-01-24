@@ -59,7 +59,24 @@ module Decidim
       end
 
       def display_conditions_fulfilled?
-        question.display_conditions.all? do |condition|
+        return true if mandatory_conditions_fulfilled?
+
+        optional_conditions_fulfilled?
+      end
+
+      def mandatory_conditions_fulfilled?
+        return false unless question.display_conditions.where(mandatory: true).any?
+
+        question.display_conditions.where(mandatory: true).all? do |condition|
+          answer = context.responses&.find { |r| r.question_id&.to_i == condition.condition_question.id }
+          condition.fulfilled?(answer)
+        end
+      end
+
+      def optional_conditions_fulfilled?
+        return true unless question.display_conditions.where(mandatory: false).any?
+
+        question.display_conditions.where(mandatory: false).any? do |condition|
           answer = context.responses&.find { |r| r.question_id&.to_i == condition.condition_question.id }
           condition.fulfilled?(answer)
         end
