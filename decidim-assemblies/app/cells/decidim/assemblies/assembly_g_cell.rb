@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    # This cell renders the Grid (:g) assemby card
+    # This cell renders the Grid (:g) assembly card
     # for an given instance of an Assembly
     class AssemblyGCell < Decidim::CardGCell
       private
