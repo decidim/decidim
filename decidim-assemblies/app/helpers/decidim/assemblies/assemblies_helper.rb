@@ -70,11 +70,11 @@ module Decidim
             active: is_active_link?(decidim_assemblies.assembly_path(current_participatory_space), :exclusive)
           },
           *(if current_participatory_space.members.not_ceased.any?
-              {
+              [{
                 name: t("assembly_member_menu_item", scope: "layouts.decidim.assembly_navigation"),
                 url: decidim_assemblies.assembly_assembly_members_path(current_participatory_space),
                 active: is_active_link?(decidim_assemblies.assembly_assembly_members_path(current_participatory_space), :inclusive)
-              }
+              }]
             end
            )
         ] + components.map do |component|
