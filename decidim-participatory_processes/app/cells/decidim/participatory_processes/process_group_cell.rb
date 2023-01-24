@@ -11,6 +11,7 @@ module Decidim
 
       private
 
+      # REDESIGN_DETAILS: size :m will be deprecated
       def card_size
         case @options[:size]
         when :s
