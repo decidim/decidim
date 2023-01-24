@@ -58,7 +58,7 @@ module Decidim
       resource_image_path.present?
     end
 
-    def has_description?
+    def show_description?
       highlight?
     end
 
