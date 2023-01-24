@@ -537,6 +537,7 @@ en:
       participatory_space_main_data:
         more_info: More info
       participatory_space_metrics:
+        name: Metrics
         show_all: Show all
       participatory_space_stats:
         name: Statistics
