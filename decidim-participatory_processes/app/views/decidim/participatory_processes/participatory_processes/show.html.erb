@@ -26,10 +26,12 @@
     <%= cell("decidim/announcement", current_participatory_space.announcement) %>
   </div>
 
+  <h4>CONTENT BLOCKS START</h4>
   <% Decidim::ContentBlock.published.for_scope(:participatory_process_homepage, organization: current_organization).where(scoped_resource_id: current_participatory_space.id).each do |content_block| %>
     <% next unless content_block.manifest %>
     <%= cell content_block.manifest.cell, content_block %>
   <% end %>
+  <h4>CONTENT BLOCKS END</h4>
 
   <section class="content-block process__content-block">
     <div>
@@ -88,6 +90,7 @@
   <section id="html-block-SEED">
   </section>
 
+  <% if false #DISABLED TEMPORARILY %>
   <%#= REDESIGN_PENDING: proposals markup not ready %>
   <%= render_hook(:participatory_space_highlighted_elements) %>
 
@@ -153,6 +156,7 @@
         <% end %>
       </div>
     </section>
+  <% end %>
   <% end %>
 
   <% if current_participatory_space.show_statistics? %>
