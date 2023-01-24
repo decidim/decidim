@@ -43,6 +43,18 @@ module Decidim
       raise NotImplementedError
     end
 
+    # Overwrite this method in your component controller to define
+    # the breadcrumb element to be shown. The item may contain the following
+    # keys with their respective values:
+    # * label - The text to use in the breadcrumb element. For example, the
+    #           title of the space (mandatory).
+    # * url - The url of the resource (optional).
+    # * active - Whether the item is active (optional).
+    # * dropdown_cell - When this value is present is used to generate a dropdown
+    #                   associated to the item (optional).
+    # * resource - The resource of the item. This value is passed to the
+    #              dropdown cell, so it's mandatory if the dropdown cell is
+    #              present.
     def current_participatory_space_breadcrumb_item
       {}
     end
