@@ -25,7 +25,7 @@ describe "Private meetings", type: :system do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_content(translated(private_meeting.title, locale: :en))
-              expect(page).to have_selector(".card", count: 2)
+              expect(page).to have_selector(".meeting-list", count: 2)
             end
           end
         end
@@ -41,7 +41,7 @@ describe "Private meetings", type: :system do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_content(translated(private_meeting.title, locale: :en))
-              expect(page).to have_selector(".card", count: 2)
+              expect(page).to have_selector(".meeting-list", count: 2)
             end
           end
 
@@ -51,7 +51,7 @@ describe "Private meetings", type: :system do
             expect(page).to have_current_path resource_locator(private_meeting).path
             expect(page).to have_content "Private"
             expect(page).to have_content "Transparent"
-            expect(page).not_to have_button("JOIN MEETING")
+            expect(page).not_to have_button("Register")
           end
         end
       end
@@ -68,7 +68,7 @@ describe "Private meetings", type: :system do
           it "lists only the not private meetings" do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
-              expect(page).to have_selector(".card", count: 1)
+              expect(page).to have_selector(".meeting-list", count: 1)
 
               expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
             end
@@ -85,7 +85,7 @@ describe "Private meetings", type: :system do
           it "lists only the not private meetings" do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
-              expect(page).to have_selector(".card", count: 1)
+              expect(page).to have_selector(".meeting-list", count: 1)
 
               expect(page).to have_no_content(translated(private_meeting.title, locale: :en))
             end
@@ -103,7 +103,7 @@ describe "Private meetings", type: :system do
             within "#meetings" do
               expect(page).to have_content(translated(meeting.title, locale: :en))
               expect(page).to have_content(translated(private_meeting.title, locale: :en))
-              expect(page).to have_selector(".card", count: 2)
+              expect(page).to have_selector(".meeting-list", count: 2)
             end
           end
 
@@ -112,7 +112,7 @@ describe "Private meetings", type: :system do
 
             expect(page).to have_current_path resource_locator(private_meeting).path
             expect(page).to have_content "Private"
-            expect(page).to have_css(".button", text: "CANCEL YOUR REGISTRATION")
+            expect(page).to have_css(".button", text: "Cancel your registration")
           end
         end
       end
