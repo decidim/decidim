@@ -28,7 +28,7 @@ module Decidim
         # creating the static map utility. If it does not, the image would be
         # otherwise blank.
         if map_utility_static.url(latitude: resource.latitude, longitude: resource.longitude)
-          return link_to map_url, target: "_blank", rel: "noopener" do
+          return link_to map_url, class: "static-map", target: "_blank", rel: "noopener", data: { "external-link": false } do
             image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s), alt: "#{map_service_brand} - #{address_text}"
           end
         end
@@ -96,12 +96,12 @@ module Decidim
         snippets.add(:foot, snippets.for(:map_scripts))
       end
 
-      map_html_options = { id: "map", class: "google-map" }.merge(html_options)
+      map_html_options = { id: "map" }.merge(html_options)
       bottom_id = "#{map_html_options[:id]}_bottom"
 
-      help = content_tag(:div, class: "map__help") do
-        sr_content = content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"), class: "show-for-sr")
-        link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "##{bottom_id}", class: "skip")
+      help = content_tag(:div, class: "sr-only") do
+        sr_content = content_tag(:p, t("screen_reader_explanation", scope: "decidim.map.dynamic"))
+        link = link_to(t("skip_button", scope: "decidim.map.dynamic"), "##{bottom_id}")
 
         sr_content + link
       end

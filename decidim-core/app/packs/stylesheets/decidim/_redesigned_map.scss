@@ -1,0 +1,11 @@
+[data-decidim-map]{
+  @apply h-full bg-background z-0;
+}
+
+.static-map{
+  @apply cursor-pointer overflow-hidden [&_img]:w-full [&_img]:object-cover;
+
+  &__container{
+    @apply flex gap-4 [&>*]:w-1/2 first:[&>*]:self-center;
+  }
+}

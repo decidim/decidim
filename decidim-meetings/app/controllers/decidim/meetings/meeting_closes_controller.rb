@@ -9,6 +9,8 @@ module Decidim
 
       helper_method :meeting
 
+      redesign active: true
+
       def edit
         enforce_permission_to :close, :meeting, meeting: meeting
 

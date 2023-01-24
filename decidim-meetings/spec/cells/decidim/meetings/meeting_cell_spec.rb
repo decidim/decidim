@@ -13,7 +13,7 @@ module Decidim::Meetings
 
     context "when rendering" do
       it "renders the card" do
-        expect(cell_html).to have_css(".card--meeting")
+        expect(cell_html).to have_css(".meeting-list")
       end
     end
 
