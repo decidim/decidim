@@ -1,7 +1,5 @@
 <%# NOTE: Since this call can be called from outside decidim-accountability, frontend assets are required %>
-
-<%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
-<%= javascript_pack_tag "decidim_accountability" %>
+<%= apply_accountability_pack_tags %>
 
 <section id="highlighted_results" class="content-block">
   <div class="content-block__title">
