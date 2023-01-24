@@ -7,7 +7,7 @@ module Decidim
     class MenuBreadcrumbLastActivityCell < LastActivityCell
       private
 
-      # A MD5 hash of model attributes because is needed because
+      # A MD5 hash of model attributes is needed because
       # it ensures the cache version value will always be the same size
       def cache_hash
         hash = []
