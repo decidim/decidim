@@ -362,6 +362,11 @@ cs:
         user_name: Uživatel
       dashboard:
         pending_moderations:
+          anouncement:
+            one: Je zde %{count} čekající na moderování
+            few: Jsou zde %{count} čekající na moderování
+            many: Je zde %{count} čekajících na moderování
+            other: Je tu %{count} čekajících na moderování
           goto_moderation: Přejít na globální moderaci
           title: Čekající moderování
         show:
@@ -864,6 +869,7 @@ cs:
           add: Přidat blok obsahu
           destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
           inactive_content_blocks: Neaktivní bloky obsahu
+          title: Obsah stránky
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
@@ -984,6 +990,16 @@ cs:
           view: Zobrazit veřejnou stránku
         content_blocks:
           active_content_blocks: Aktivní bloky obsahu
+          add: Přidat blok obsahu
+          create:
+            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém
+            success: Blok obsahu byl úspěšně vytvořen
+          destroy:
+            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě
+            success: Blok obsahu byl úspěšně odstraněn
+          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
+          edit:
+            update: Aktualizovat
           inactive_content_blocks: Neaktivní bloky obsahu
           title: Obsah stránky
         create:
