@@ -56,6 +56,10 @@ module Decidim
 
           self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
           self.type_of_meeting = model.type_of_meeting
+
+          presenter = MeetingEditionPresenter.new(model)
+          self.title = presenter.title(all_locales: true)
+          self.description = presenter.editor_description(all_locales: true)
         end
 
         def services_to_persist

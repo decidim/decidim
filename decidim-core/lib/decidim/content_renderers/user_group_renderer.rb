@@ -8,7 +8,7 @@ module Decidim
     # e.g. gid://<APP_NAME>/Decidim::UserGroup/1
     #
     # @see BaseRenderer Examples of how to use a content renderer
-    class UserGroupRenderer < BaseRenderer
+    class UserGroupRenderer < UserRenderer
       # Matches a global id representing a Decidim::UserGroup
       GLOBAL_ID_REGEX = %r{gid://[\w-]+/Decidim::UserGroup/\d+}
 
@@ -17,15 +17,14 @@ module Decidim
       # invalid Decidim::UserGroup are replaced with an empty string.
       #
       # @return [String] the content ready to display (contains HTML)
-      def render(_options = nil)
-        return content unless content.respond_to?(:gsub)
+      def render(editor: false, **_)
+        replace_pattern(content, GLOBAL_ID_REGEX, editor:)
+      end
 
-        content.gsub(GLOBAL_ID_REGEX) do |user_gid|
-          user = GlobalID::Locator.locate(user_gid)
-          Decidim::UserGroupPresenter.new(user).display_mention
-        rescue ActiveRecord::RecordNotFound => _e
-          ""
-        end
+      protected
+
+      def presenter_for(mentionable)
+        Decidim::UserGroupPresenter.new(mentionable)
       end
     end
   end

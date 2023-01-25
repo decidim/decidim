@@ -58,6 +58,27 @@ module Decidim
       def metadata
         Metadata.new
       end
+
+      protected
+
+      # Reports if the content being processed is in HTML format. The content
+      # is interpreted as HTML when it contains one or more HTML tags in it.
+      #
+      # @return [Boolean] a boolean indicating if the content is HTML
+      def html_content?
+        return false if html_fragment.children.count.zero?
+        return true if html_fragment.children.count > 1
+
+        html_fragment.children.first.name != "text"
+      end
+
+      # Turns the content string into a document fragment object. This is useful
+      # for parsing the HTML content.
+      #
+      # @return [Loofah::HTML::DocumentFragment]
+      def html_fragment
+        @html_fragment ||= Loofah.fragment(content)
+      end
     end
   end
 end
