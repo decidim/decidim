@@ -59,14 +59,12 @@ module Decidim
       end
 
       def display_conditions_fulfilled?
-        return true if mandatory_conditions_fulfilled?
+        return optional_conditions_fulfilled? unless question.display_conditions.where(mandatory: true).any?
 
-        optional_conditions_fulfilled?
+        mandatory_conditions_fulfilled?
       end
 
       def mandatory_conditions_fulfilled?
-        return false unless question.display_conditions.where(mandatory: true).any?
-
         question.display_conditions.where(mandatory: true).all? do |condition|
           answer = context.responses&.find { |r| r.question_id&.to_i == condition.condition_question.id }
           condition.fulfilled?(answer)
