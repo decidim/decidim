@@ -556,6 +556,9 @@ sr:
           images:
             preview: Pregled
           omnipresent_banner_appearance_title: Izmeni sveprisutni baner
+      organization_homepage_content_blocks:
+        edit:
+          update: Ažuriraj
       shared:
         gallery:
           add_images: Dodaj slike
