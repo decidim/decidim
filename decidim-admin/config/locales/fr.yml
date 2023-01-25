@@ -845,9 +845,21 @@ fr:
           add: Ajouter à la liste blanche
           title: Liste blanche du domaine externe
       organization_homepage:
+        content_blocks:
+          create:
+            error: Un problème est survenu lors de la création de ce bloc de contenu
+            success: Le bloc de contenu a été créé avec succès
+          destroy:
+            error: Un problème est survenu lors de la suppression de ce bloc de contenu
+            success: Le bloc de contenu a été supprimé avec succès
+          edit:
+            update: Mettre à jour
         edit:
           active_content_blocks: Blocs de contenu actif
+          add: Ajouter un bloc de contenu
+          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
           inactive_content_blocks: Blocs de contenu inactif
+          title: Contenus de la page
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -966,6 +978,16 @@ fr:
           view: Voir la page publique
         content_blocks:
           active_content_blocks: Blocs de contenu actifs
+          add: Ajouter un bloc de contenu
+          create:
+            error: Un problème est survenu lors de la création de ce bloc de contenu
+            success: Le bloc de contenu a été créé avec succès
+          destroy:
+            error: Un problème est survenu lors de la suppression de ce bloc de contenu
+            success: Le bloc de contenu a été supprimé avec succès
+          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
+          edit:
+            update: Mettre à jour
           inactive_content_blocks: Blocs de contenu inactifs
           title: Contenu de la page
         create:
