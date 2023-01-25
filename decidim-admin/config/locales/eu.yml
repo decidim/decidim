@@ -809,9 +809,6 @@ eu:
         edit:
           active_content_blocks: Eduki bloke aktiboak
           inactive_content_blocks: Eduki eduki gabeko blokeak
-      organization_homepage_content_blocks:
-        edit:
-          update: Eguneratu
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
@@ -895,9 +892,6 @@ eu:
           add_images: Gehiru irudiak
           delete_image: Ezabatu irudia
           gallery_legend: Gehitu irudi-galeria bat (aukerakoa)
-      static_page_content_blocks:
-        edit:
-          update: Eguneratu
       static_page_topics:
         create:
           error: Errore bat gertatu da gai berri bat sortzean.
