@@ -5,11 +5,9 @@ module Decidim
     # This cell renders the Grid (:g) post card
     # for an given instance of a Post
     class PostGCell < Decidim::CardGCell
-      private
+      delegate :photo, to: :model
 
-      def photo
-        @photo ||= model.photo
-      end
+      private
 
       def resource_image_path
         return if photo.blank?
