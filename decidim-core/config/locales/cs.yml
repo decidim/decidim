@@ -542,9 +542,16 @@ cs:
       metrics:
         name: Organizační metriky
       static_page:
+        section:
+          name: Sekce
+          section_content: Obsah
         summary:
           name: Shrnutí
           summary_content: Obsah
+        two_pane_section:
+          left_column: Levý sloupec
+          name: Sekce se dvěma deskami
+          right_column: Pravý sloupec
       stats:
         name: Statistika organizace
       sub_hero:
