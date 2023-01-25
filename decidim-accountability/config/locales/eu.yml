@@ -55,7 +55,7 @@ eu:
               <ol>
               <li>Sortu egoerak erantsi nahi dituzun emaitzetarako (<a href='%{link_new_status}' target='_blank'> link </a>)</li>
               <li>Sortu emaitza bat gutxienez eskuz administrazioaren panelaren bidez (<a href='%{link_new_result}' target='_blank'>link</a>) inportatu baino lehen, hobeto ulertzeko formatua eta nola bete.</li>
-              <li>Deskargatu CSV formatuko artxiboa (%{link_export_csv}</li>
+              <li>Deskargatu CSV formatuko artxiboa (%{link_export_csv})</li>
               <li>Egin aldaketak lokalean. CSVren ondoko zutabeak baino ezin dituzu aldatu:
                 <ul>
                 <li><b> id category/id:</b> ID kategoriarako </li>
