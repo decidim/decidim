@@ -766,9 +766,6 @@ it:
         edit:
           active_content_blocks: Blocchi di contenuto attivo
           inactive_content_blocks: Blocchi di contenuto inattivo
-      organization_homepage_content_blocks:
-        edit:
-          update: Aggiornare
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
