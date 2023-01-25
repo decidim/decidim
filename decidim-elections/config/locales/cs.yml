@@ -868,11 +868,20 @@ cs:
           published: Zveřejněno
         landing_page:
           content_blocks:
+            create:
+              error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém
+              success: Blok obsahu byl úspěšně vytvořen
+            destroy:
+              error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě
+              success: Blok obsahu byl úspěšně odstraněn
             edit:
               update: Aktualizovat
           edit:
             active_content_blocks: Aktivní bloky obsahu
+            add: Přidat blok obsahu
+            destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
             inactive_content_blocks: Neaktivní bloky obsahu
+            title: Obsah stránky
         menu:
           votings: Hlasování
           votings_submenu:
