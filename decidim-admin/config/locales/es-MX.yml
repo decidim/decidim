@@ -848,9 +848,6 @@ es-MX:
         edit:
           active_content_blocks: Bloques de contenido activos
           inactive_content_blocks: Bloques de contenido inactivos
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualizar
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
@@ -949,9 +946,6 @@ es-MX:
           delete_image: Borrar la imagen
           edit_images: Editar imagenes
           gallery_legend: Añadir una galería de imágenes (opccional)
-      static_page_content_blocks:
-        edit:
-          update: Actualizar
       static_page_topics:
         create:
           error: Se ha producido un error al crear un nuevo tema.
