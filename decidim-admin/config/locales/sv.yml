@@ -838,9 +838,6 @@ sv:
         edit:
           active_content_blocks: Block med aktivt innehåll
           inactive_content_blocks: Block med inaktivt innehåll
-      organization_homepage_content_blocks:
-        edit:
-          update: Uppdatera
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
@@ -939,9 +936,6 @@ sv:
           delete_image: Ta bort bild
           edit_images: Redigera bilder
           gallery_legend: Lägg till ett bildgalleri (Frivilligt)
-      static_page_content_blocks:
-        edit:
-          update: Uppdatera
       static_page_topics:
         create:
           error: Det gick inte att skapa ett nytt ämne.
