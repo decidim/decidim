@@ -512,9 +512,16 @@ fr:
       metrics:
         name: Historique des statistiques de participation
       static_page:
+        section:
+          name: Section
+          section_content: Contenu
         summary:
           name: Résumé
           summary_content: Contenu
+        two_pane_section:
+          left_column: Colonne de gauche
+          name: Section à deux volets
+          right_column: Colonne de droite
       stats:
         name: Statistiques de l'organisation
       sub_hero:
