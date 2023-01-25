@@ -853,9 +853,6 @@ cs:
         edit:
           active_content_blocks: Bloky aktivního obsahu
           inactive_content_blocks: Neaktivní bloky obsahu
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualizace
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.
@@ -956,9 +953,6 @@ cs:
           delete_image: Odstranit obrázek
           edit_images: Upravit obrázky
           gallery_legend: Přidat galerii obrázků (volitelné)
-      static_page_content_blocks:
-        edit:
-          update: Aktualizovat
       static_page_topics:
         create:
           error: Při vytváření nového tématu došlo k chybě.
