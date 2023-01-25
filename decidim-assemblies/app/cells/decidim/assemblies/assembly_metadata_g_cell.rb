@@ -29,11 +29,7 @@ module Decidim
       end
 
       def children_assemblies_count_for_user
-        @children_assemblies_count_for_user ||= if current_user
-                                                  current_user.admin? ? published_children_assemblies.count : published_children_assemblies.visible_for(current_user).count
-                                                else
-                                                  published_children_assemblies.public_spaces.count
-                                                end
+        @children_assemblies_count_for_user ||= published_children_assemblies.visible_for(current_user).count
       end
 
       def published_children_assemblies
