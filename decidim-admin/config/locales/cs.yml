@@ -850,8 +850,19 @@ cs:
           add: Přidat do seznamu povolených
           title: Seznam externích povolených domén
       organization_homepage:
+        content_blocks:
+          create:
+            error: Při pokusu o vytvoření tohoto obsahu se vyskytl problém
+            success: Blok obsahu byl úspěšně vytvořen
+          destroy:
+            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě
+            success: Blok obsahu byl úspěšně odstraněn
+          edit:
+            update: Aktualizovat
         edit:
           active_content_blocks: Bloky aktivního obsahu
+          add: Přidat blok obsahu
+          destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
           inactive_content_blocks: Neaktivní bloky obsahu
       participatory_space_private_users:
         create:
