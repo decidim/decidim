@@ -321,9 +321,6 @@ ga:
           down: Ísligh
           remove: Bain as
           up: Ardaigh
-      organization_homepage_content_blocks:
-        edit:
-          update: Nuashonraigh
       participatory_space_private_users:
         new:
           create: Cruthaigh
