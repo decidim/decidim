@@ -848,9 +848,6 @@ fr-CA:
         edit:
           active_content_blocks: Blocs de contenu actif
           inactive_content_blocks: Blocs de contenu inactif
-      organization_homepage_content_blocks:
-        edit:
-          update: Mettre à jour
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -949,9 +946,6 @@ fr-CA:
           delete_image: Supprimer l'image
           edit_images: Modifier les images
           gallery_legend: Ajouter une galerie d'images (facultatif)
-      static_page_content_blocks:
-        edit:
-          update: Mettre à jour
       static_page_topics:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau sujet.
