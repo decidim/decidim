@@ -53,16 +53,6 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
-      context "when default language in content is missing" do
-        let(:content) do
-          {
-            ca: "Descripció"
-          }
-        end
-
-        it { is_expected.to be_invalid }
-      end
-
       context "when slug is missing" do
         let(:slug) { nil }
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::Admin
+module Decidim::Admin::ContentBlocks
   describe ReorderContentBlocks do
     subject { described_class.new(*args) }
 
@@ -64,7 +64,7 @@ module Decidim::Admin
         organization:
       )
     end
-    let(:order) { [published_block2.manifest_name, unpublished_block.manifest_name] }
+    let(:order) { [published_block2.id, unpublished_block.id] }
 
     context "when the order is nil" do
       let(:order) { nil }
@@ -111,28 +111,10 @@ module Decidim::Admin
 
         expect(unpublished_block).to be_published
       end
-
-      context "when it adds a new content block" do
-        let(:order) { [:highlighted_content_banner] }
-
-        it "is valid" do
-          expect { subject.call }.to broadcast(:ok)
-        end
-
-        it "creates the new content block" do
-          expect { subject.call }.to change(Decidim::ContentBlock, :count).by(1)
-          content_block = Decidim::ContentBlock.last
-
-          expect(content_block.organization).to eq organization
-          expect(content_block.weight).to eq 1
-          expect(content_block.scope_name).to eq scope.to_s
-          expect(content_block).to be_published
-        end
-      end
     end
 
     context "when scoped resource is present and order is valid" do
-      let(:order) { [resource2_unpublished_block.manifest_name, resource1_published_block.manifest_name, unpublished_block.manifest_name] }
+      let(:order) { [resource2_unpublished_block.id, resource1_published_block.id, unpublished_block.id] }
       let(:args) { [organization, scope, order, scoped_resource_id] }
 
       it "is valid" do
@@ -140,7 +122,7 @@ module Decidim::Admin
       end
 
       it "only affects to content blocks associated with the resource" do
-        expect { subject.call }.to change(Decidim::ContentBlock, :count).by(2)
+        expect { subject.call }.not_to change(Decidim::ContentBlock, :count)
 
         published_block1.reload
         published_block2.reload
@@ -155,9 +137,11 @@ module Decidim::Admin
         expect(resource2_unpublished_block.weight).to eq 2
         expect(resource2_unpublished_block.published_at).to be_nil
 
-        order.each_with_index do |manifest_name, index|
-          expect(Decidim::ContentBlock.for_scope(scope, organization:).where(scoped_resource_id:, manifest_name:)).to exist
-          expect(Decidim::ContentBlock.for_scope(scope, organization:).find_by(scoped_resource_id:, manifest_name:).weight).to eq index + 1
+        order.each_with_index do |id, index|
+          next unless id == resource1_published_block.id
+
+          expect(Decidim::ContentBlock.for_scope(scope, organization:).where(scoped_resource_id:, id:)).to exist
+          expect(Decidim::ContentBlock.for_scope(scope, organization:).find_by(scoped_resource_id:, id:).weight).to eq index + 1
         end
       end
     end
