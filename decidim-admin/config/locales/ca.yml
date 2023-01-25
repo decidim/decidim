@@ -848,9 +848,6 @@ ca:
         edit:
           active_content_blocks: Blocs de contingut actiu
           inactive_content_blocks: Blocs de contingut inactiu
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualitza
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
@@ -949,9 +946,6 @@ ca:
           delete_image: Esborrar la imatge
           edit_images: Editar imatges
           gallery_legend: Afegir una galeria d'imatges (opcional)
-      static_page_content_blocks:
-        edit:
-          update: Actualitzar
       static_page_topics:
         create:
           error: S'ha produït un error en crear un tema nou.
