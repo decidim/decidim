@@ -51,6 +51,7 @@ tr:
           results: Sonuçlar
         import_results:
           new:
+            download_export: '  İhracat i CSV formatında indirin '
             import: İçe aktar
             title: Sonuçları CSV'den içe aktar
         imports:
@@ -63,6 +64,10 @@ tr:
             name: durum
           timeline_entry:
             name: Zaman çizelgesi girişi
+        projects_import:
+          new:
+            create: İçe aktar
+            select_component: Bir bileşen seç
         results:
           create:
             invalid: Bu sonucu oluştururken bir sorun oluştu
