@@ -650,6 +650,10 @@ tr:
             preview: Önizleme
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
       organization_homepage:
+        content_blocks:
+          create:
+            error: Bu içerik bloğu oluşturulurken bir sorun oluştu
+            success: Içerik bloğu başarıyla oluşturuldu
         edit:
           active_content_blocks: Aktif içerik blokları
           inactive_content_blocks: Etkin olmayan içerik blokları
