@@ -402,6 +402,14 @@ tr:
         view_all: Tümünü görüntüle
       metrics:
         name: Organizasyon metrikleri
+      static_page:
+        section:
+          name: Bölüm
+          section_content: İçerik
+        two_pane_section:
+          left_column: Sol Sütun
+          name: Iki bölme bölümü
+          right_column: Sağ sütun
       stats:
         name: Organizasyon istatistikleri
       sub_hero:
