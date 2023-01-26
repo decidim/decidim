@@ -103,7 +103,7 @@ describe "Assemblies", type: :system do
       it "lists all the highlighted assemblies" do
         within "#highlighted-assemblies" do
           expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-          expect(page).to have_selector(".card--full", count: 1)
+          expect(page).to have_selector("[id^='assembly_highlight']", count: 1)
         end
       end
 

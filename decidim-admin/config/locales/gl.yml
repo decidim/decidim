@@ -790,9 +790,6 @@ gl:
         edit:
           active_content_blocks: Bloques de contido activo
           inactive_content_blocks: Bloques de contido inactivo
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualización
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
