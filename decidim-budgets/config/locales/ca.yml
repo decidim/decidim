@@ -40,7 +40,7 @@ ca:
       actions:
         attachment_collections: Carpetes
         attachments: Adjunts
-        confirm_destroy: Estàs segura que vols eliminar aquest projecte?
+        confirm_destroy: Segur que vols eliminar aquest projecte?
         destroy: Esborrar
         edit: Editar
         edit_projects: Gestionar projectes
