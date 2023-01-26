@@ -22,6 +22,7 @@ tr:
       timeline_entry:
         description: Açıklama
         entry_date: tarih
+        title: Başlik / Unvani 
     models:
       decidim/accountability/proposal_linked_event: Teklif bir sonuca dahil edildi
       decidim/accountability/result_progress_updated_event: Sonuç ilerlemesi güncellendi
@@ -33,9 +34,12 @@ tr:
   decidim:
     accountability:
       actions:
+        attachment_collections: Klasörler 
+        attachments: Ekler 
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
+        import: Projeleri sonuçlara aktar 
         import_csv: CSV'yi içe aktar
         new: Yeni %{name}
         preview: Ön izleme
