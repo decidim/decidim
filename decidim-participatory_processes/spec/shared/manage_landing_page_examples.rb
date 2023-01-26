@@ -30,9 +30,10 @@ shared_examples "manage landing page examples" do
       visit edit_landing_page_path
 
       expect do
-        within ".js-list-availables" do
-          within find("li", text: "Hero image") do
-            find("svg.icon--pencil").click
+        within ".edit_content_blocks" do
+          find("button", text: "Add content block").click
+          within ".add-components" do
+            find("a", text: "Hero image").click
           end
         end
       end.to change(active_content_blocks, :count).by(1)
@@ -40,11 +41,16 @@ shared_examples "manage landing page examples" do
 
     it "creates the content block when dragged from inactive to active panel" do
       visit edit_landing_page_path
-      content_block = first("ul.js-list-availables li")
-      active_blocks_list = find("ul.js-list-actives")
 
       expect do
-        content_block.drag_to(active_blocks_list)
+        within ".edit_content_blocks" do
+          find("button", text: "Add content block").click
+          within ".add-components" do
+            find("a", text: "Hero image").click
+          end
+        end
+
+        first("ul.js-list-availables li").drag_to(find("ul.js-list-actives"))
         sleep(2)
       end.to change(active_content_blocks, :count).by(1)
     end
@@ -67,7 +73,7 @@ shared_examples "manage landing page examples" do
     end
 
     it "updates the settings of the content block" do
-      visit edit_content_block_path(resource, :hero)
+      visit edit_content_block_path(resource, content_block)
 
       fill_in(
         :content_block_settings_welcome_text_en,
@@ -75,7 +81,7 @@ shared_examples "manage landing page examples" do
       )
 
       click_button "Update"
-      visit edit_content_block_path(resource, :hero)
+      visit edit_content_block_path(resource, content_block)
       expect(page).to have_selector("input[value='Custom welcome text!']")
 
       content_block.reload
