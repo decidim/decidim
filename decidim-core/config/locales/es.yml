@@ -509,9 +509,16 @@ es:
       metrics:
         name: Métricas de la organización
       static_page:
+        section:
+          name: Sección
+          section_content: Contenido
         summary:
           name: Resumen
           summary_content: Contenido
+        two_pane_section:
+          left_column: Columna izquierda
+          name: Sección de dos paneles
+          right_column: Columna derecha
       stats:
         name: Estadísticas de la organización
       sub_hero:
