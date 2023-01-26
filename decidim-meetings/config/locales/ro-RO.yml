@@ -33,8 +33,11 @@ ro:
         title: Titlu
         transparent: Transparentă
         type_of_meeting: Tip
+      meeting_agenda:
+        title: Titlu
       meeting_agenda_items:
         duration: Durată
+        title: Titlu
     errors:
       models:
         meeting:
