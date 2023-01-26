@@ -37,14 +37,14 @@ describe("Link", () => {
     await sleep(50);
 
     expect(editor.getHTML()).toEqual(
-      '<p>Hello, <a target="_blank" rel="noopener noreferrer nofollow" href="https://decidim.org">world</a>!</p>'
+      '<p>Hello, <a target="_blank" href="https://decidim.org">world</a>!</p>'
     );
   });
 
   it("allows editing the link through the dialog", async () => {
     editorElement.focus();
     await updateContent(editorElement,
-      '<p>Hello, <a target="_blank" rel="noopener noreferrer nofollow" href="https://decidim.org">world</a>!</p>'
+      '<p>Hello, <a target="_blank" href="https://decidim.org">world</a>!</p>'
     );
 
     // Set the editor cursor inside the link
@@ -60,7 +60,7 @@ describe("Link", () => {
     await sleep(50);
 
     expect(editor.getHTML()).toEqual(
-      '<p>Hello, <a rel="noopener noreferrer nofollow" href="https://docs.decidim.org">world</a>!</p>'
+      '<p>Hello, <a href="https://docs.decidim.org">world</a>!</p>'
     );
   });
 });
