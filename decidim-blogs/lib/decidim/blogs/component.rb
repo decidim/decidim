@@ -36,7 +36,7 @@ Decidim.register_component(:blogs) do |component|
   component.register_resource(:blogpost) do |resource|
     resource.model_class_name = "Decidim::Blogs::Post"
     resource.card = "decidim/blogs/post"
-    resource.actions = %w(endorse vote amend comment)
+    resource.actions = %w(endorse comment)
     resource.searchable = true
   end
 

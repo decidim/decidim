@@ -5,10 +5,10 @@ import formDatePicker from "src/decidim/form_datepicker"
 import fixDropdownMenus from "src/decidim/dropdowns_menus"
 import createQuillEditor from "src/decidim/editor"
 import Configuration from "src/decidim/configuration"
-import ExternalLink from "src/decidim/redesigned_external_link"
+import ExternalLink from "src/decidim/external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
 import scrollToLastChild from "src/decidim/scroll_to_last_child"
-import InputCharacterCounter, { createCharacterCounter } from "src/decidim/redesigned_input_character_counter"
+import InputCharacterCounter, { createCharacterCounter } from "src/decidim/input_character_counter"
 import FormValidator from "src/decidim/form_validator"
 import DataPicker from "src/decidim/data_picker"
 import FormFilterComponent from "src/decidim/form_filter"
@@ -16,10 +16,15 @@ import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
 import dialogMode from "src/decidim/dialog_mode"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
+import markAsReadNotifications from "src/decidim/notifications"
+import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
+
+// NOTE: new libraries required to give functionality to redesigned views
 import Accordions from "a11y-accordion-component";
 import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
-import markAsReadNotifications from "src/decidim/notifications"
+import RemoteModal from "./redesigned_ajax_modals"
+// end new libraries
 
 window.Decidim = window.Decidim || {};
 window.Decidim.config = new Configuration()
@@ -73,7 +78,10 @@ $(() => {
     createQuillEditor(container);
   });
 
-  document.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
+  $('a[target="_blank"]').each((_i, elem) => {
+    const $link = $(elem);
+    $link.data("external-link", new ExternalLink($link));
+  });
 
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
@@ -91,6 +99,7 @@ $(() => {
 
     formFilter.mountComponent();
   })
+  document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
   updateExternalDomainLinks($("body"))
 
@@ -98,27 +107,25 @@ $(() => {
 
   backToListLink(document.querySelectorAll(".js-back-to-list"));
 
-  Accordions.init();
-  Dropdowns.init();
-  document.querySelectorAll("[data-dialog]").forEach(
-    ({ dataset: { dialog } }) =>
-      new Dialogs(`[data-dialog="${dialog}"]`, {
-        openingSelector: `[data-dialog-open="${dialog}"]`,
-        closingSelector: `[data-dialog-close="${dialog}"]`,
-        labelledby: `dialog-title-${dialog}`,
-        describedby: `dialog-desc-${dialog}`
-      })
-  );
-
-  document.querySelectorAll("[data-drawer]").forEach(
-    ({ dataset: { drawer } }) =>
-      new Dialogs(`[data-drawer="${drawer}"]`, {
-        openingSelector: `[data-drawer-open="${drawer}"]`,
-        closingSelector: `[data-drawer-close="${drawer}"]`
-      })
-  );
-
   markAsReadNotifications()
 
   scrollToLastChild()
+
+  // NOTE: new libraries required to give functionality to redesigned views
+  Accordions.init();
+  Dropdowns.init();
+  document.querySelectorAll("[data-dialog]").forEach(
+    (elem) => {
+      const { dataset: { dialog } } = elem
+      return new Dialogs(`[data-dialog="${dialog}"]`, {
+        openingSelector: `[data-dialog-open="${dialog}"]`,
+        closingSelector: `[data-dialog-close="${dialog}"]`,
+        // optional parameters (whenever exists the id, it'll add the tagging)
+        ...(Boolean(elem.querySelector(`#dialog-title-${dialog}`)) && { labelledby: `dialog-title-${dialog}` }),
+        ...(Boolean(elem.querySelector(`#dialog-desc-${dialog}`)) && { describedby: `dialog-desc-${dialog}` })
+      })
+    }
+  );
+  document.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
+  // end new libraries
 });

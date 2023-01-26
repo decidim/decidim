@@ -1,5 +1,5 @@
-<button class="close-button" data-close aria-label="<%= t ".close_modal" %>" type="button">
-  <span aria-hidden="true">&times;</span>
-</button>
-
-<%= render partial: "decidim/authorization_modals/content" %>
+<% if redesign_enabled? %>
+  <%= cell "decidim/authorization_modal", authorizations %>
+<% else %>
+  <%= render partial: "decidim/authorization_modals/content" %>
+<% end %>

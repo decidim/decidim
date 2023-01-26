@@ -7,15 +7,32 @@ en:
         image: Image
         proposals: Related proposals
         title: Title
+      ballot_style:
+        code: Code
       election:
         description: Description
         end_time: Voting ends at
         start_time: Voting start at
         title: Title
+      monitoring_committee_member:
+        email: Email
+        name: Name
+      polling_officer:
+        email: Email
+        name: Name
+      polling_station:
+        address: Address
+        location: Location
+        location_hints: Location hint
+        polling_station_managers: Managers
+        polling_station_president_id: President
+        title: Title
       question:
         max_selections: Maximum number of selections
         min_selections: None of the above option
         title: Title
+      trustees_participatory_space:
+        user_id: Participant
       voting:
         banner_image: Banner image
         census_contact_information: Census contact information
@@ -23,7 +40,7 @@ en:
         end_time: Voting ends
         introductory_image: Introductory image
         promoted: Promoted
-        scope: Scope
+        scope_id: Scope
         show_check_census: Show "check census" page
         start_time: Voting begins
         title: Title
@@ -830,11 +847,20 @@ en:
           published: Published
         landing_page:
           content_blocks:
+            create:
+              error: There was a problem trying to create this content block
+              success: Content block successfully created
+            destroy:
+              error: There was a problem trying to delete this content block
+              success: Content block successfully deleted
             edit:
               update: Update
           edit:
             active_content_blocks: Active content blocks
+            add: Add content block
+            destroy_confirmation: Are you sure you want to delete this content block?
             inactive_content_blocks: Inactive content blocks
+            title: Page contents
         menu:
           votings: Votings
           votings_submenu:
