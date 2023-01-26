@@ -62,8 +62,9 @@ module Decidim
 
           it "renders a sanitized body" do
             expect(subject).to eq(
-              <<~HTML.strip
-                <div class="rich-text-display"><ul>
+              <<~HTML.sub(/\n$/, "")
+                <div class="rich-text-display">
+                <ul>
                 <li>First</li>
                 <li>Second</li>
                 <li>Third</li>
