@@ -77,6 +77,8 @@ tr:
         welcome_notification_body: Karşılama bildirimi gövdesi
         welcome_notification_subject: Karşılama bildirimi konusu
         youtube_handler: YouTube işleyici
+      participatory_space_private_user:
+        name: Adı
       scope:
         code: kod
         name: isim
