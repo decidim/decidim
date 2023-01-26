@@ -11,6 +11,6 @@ export default Extension.create({
   name: "emoji",
 
   onCreate({ editor }) {
-    createEmojiButton({ editor });
+    createEmojiButton(editor);
   }
 });
