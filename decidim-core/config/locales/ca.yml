@@ -230,7 +230,7 @@ ca:
         success: L'esborrany d'esmena s'ha eliminat correctament.
       edit_draft:
         discard: Descarta aquest esborrany
-        discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta esmena?
+        discard_confirmation: Segur que vols descartar l'esborrany d'aquesta esmena?
         send: Vista prèvia
         title: Edita l'esborrany d'esmena
       emendation:
@@ -516,7 +516,7 @@ ca:
             close_modal: Tanca modal
             uncheck: Deixa desmarcada
           notice: |-
-            <p>Hola, estàs segura que no vols rebre un butlletí?<br>
+            <p>Hola, segur que no vols rebre un butlletí?<br>
             Si us plau, torna a marcar la casella de selecció de butlletí a continuació.<br>
             Per a nosaltres és molt important que rebeu correus electrònics ocasionals per fer avisos importants, sempre podeu canviar-lo a la pàgina de configuració de les notificacions.</p>
             <p>Si no marques la casella, pot ser que et falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
@@ -794,7 +794,7 @@ ca:
       reached_top: Has arribat al màxim nivell d'aquesta insígnia.
     group_admins:
       actions:
-        are_you_sure: Segura? Això no eliminarà la participant del grup.
+        are_you_sure: Segur? Això no eliminarà la participant del grup.
         demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta participant de la llista d'administradores
@@ -823,7 +823,7 @@ ca:
         error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació al grup
         success: Sol·licitud acceptada correctament
       actions:
-        are_you_sure: Estàs segur?
+        are_you_sure: Segur?
         promote_to_admin: Fer administrador
         remove_from_group: Eliminar participant
       index:
@@ -840,7 +840,7 @@ ca:
         success: La participant s'ha eliminat correctament del grup
     groups:
       actions:
-        are_you_sure: Estàs segur?
+        are_you_sure: Segur?
       create:
         error: S'ha produït un errot en crear el grup
         success: Grup creat correctament
