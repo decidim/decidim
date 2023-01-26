@@ -94,10 +94,10 @@ fr:
             change_category: Modifier la catégorie
             change_scope: Changer le secteur
             change_selected: Changer l'état sélectionné
-            deselect_implementation: Retirer de la sélection pour une implémentation
+            deselect_implementation: Retirer de la sélection pour implémentation
             finished_orders: Votes terminés
             pending_orders: Votes en cours
-            select_for_implementation: Sélectionner pour une implémentation
+            select_for_implementation: Sélectionné pour implémentation
             selected: Sélectionné
             title: Projets
             update: Mettre à jour
