@@ -203,7 +203,7 @@ ca:
         committee_requests:
           index:
             approve: Aprova
-            confirm_revoke: Estàs segur?
+            confirm_revoke: Segur?
             invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones al comitè promotor
             no_members_yet: No hi ha membres al comitè promotor
             revoke: Revocar
@@ -220,8 +220,8 @@ ca:
         initiatives:
           edit:
             accept: Accepta la iniciativa
-            confirm: Estàs segur?
-            confirm_send_to_technical_validation: N'estàs segura?
+            confirm: Segur?
+            confirm_send_to_technical_validation: Segur?
             discard: Descarta la iniciativa
             export_pdf_signatures: Exporta PDF de signatures
             export_votes: Exportar signatures
@@ -253,7 +253,7 @@ ca:
             success: L'àmbit s'ha eliminat correctament
           edit:
             back: Torna
-            confirm_destroy: N'estàs segur?
+            confirm_destroy: Segur?
             destroy: Suprimeix
             title: Edita l'àmbit del tipus d'iniciativa
             update: Actualitza
@@ -271,7 +271,7 @@ ca:
           destroy:
             success: S'ha eliminat correctament el tipus d'iniciativa
           edit:
-            confirm_destroy: N'estàs segur?
+            confirm_destroy: Segur?
             destroy: Suprimeix
             update: Actualitza
           form:
@@ -375,7 +375,7 @@ ca:
       edit:
         accept: Accepta la iniciativa
         back: Tornar
-        confirm: N'estàs segura?
+        confirm: Segur?
         discard: Descarta la iniciativa
         export_pdf_signatures: Exporta PDF de signatures
         export_votes: Exportar signatures
@@ -450,7 +450,7 @@ ca:
             other: i %{count} persones més
         committee_members:
           approve: Aprova
-          confirm_revoke: N'estàs segura?
+          confirm_revoke: Segur?
           invite_to_committee_help: Comparteix aquest enllaç per convidar altres persones a la comissió promotora
           no_members_yet: No hi ha membres a la comissió promotora
           revoke: Revocar
@@ -522,7 +522,7 @@ ca:
           initiative_rejected_reason: Aquesta iniciativa ha estat rebutjada per falta de signatures.
         show:
           any_vote_method: Aquesta iniciativa recull signatures digitals i presencials.
-          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. N'estàs segura?
+          confirm: Estàs a punt d'enviar la iniciativa perquè una administradora la revisi i la publiqui. Un cop publicada no la podràs editar. Segur?
           edit: Editar
           follow_description: Rebre una notificació quan hi hagi novetats sobre aquesta iniciativa
           offline_method: Aquesta iniciativa només recull signatures presencials.
