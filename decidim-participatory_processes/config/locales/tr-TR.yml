@@ -153,6 +153,8 @@ tr:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Aktif içerik blokları
+          add: İçerik bloğu ekle 
+          destroy_confirmation: Bu içerik bloğunu silmek istediğnizden emin misniz 
           inactive_content_blocks: Aktif olmayan içerik blokları
       participatory_process_group_landing_page_content_blocks:
         edit:
