@@ -11,6 +11,7 @@ import Indent from "src/decidim/editor/extensions/indent";
 import Link from "src/decidim/editor/extensions/link";
 import Mention from "src/decidim/editor/extensions/mention";
 import VideoEmbed from "src/decidim/editor/extensions/video_embed";
+import Emoji from "src/decidim/editor/extensions/emoji";
 
 import { getDictionary } from "src/decidim/i18n";
 import createEditorToolbar from "src/decidim/editor/toolbar";
@@ -78,6 +79,9 @@ export default function createEditor(container) {
   }
   if (container.classList.contains("js-mentions")) {
     extensions.push(Mention);
+  }
+  if (container.classList.contains("js-emojis")) {
+    extensions.push(Emoji);
   }
 
   editor = new Editor({
