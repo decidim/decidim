@@ -28,19 +28,23 @@ ro:
         show_statistics: Arată statistici
         sign_date: Data semnării
         signature: Semnătură
+        signature_name: Nume semnătură
         slogan: Slogan
         slug: URL slug
         start_date: Data de început
         title: Titlu
+        weight: Poziție
       conference_media_link:
         date: Dată
         link: Link
         title: Titlu
+        weight: Poziție
       conference_partner:
         link: Link
         logo: Logo
         name: Nume
         partner_type: Tipul partenerului
+        weight: Poziție
       conference_registration_invite:
         email: E-mail
         name: Nume
@@ -50,12 +54,15 @@ ro:
         description: Descriere
         price: Preț
         title: Titlu
+        weight: Poziție
       conference_speaker:
         affiliation: Afiliere
         avatar: Avatar
         conference_meeting_ids: Întâlniri asociate
         full_name: Numele complet
+        personal_url: URL personal
         position: Poziție
+        short_bio: Biografie scurtă
         twitter_handle: Responsabil Twitter
         user_id: Utilizator
       conference_user_role:
@@ -130,6 +137,8 @@ ro:
         edit:
           title: Actualizează administratorul conferinţei.
           update: Actualizare
+        index:
+          conference_admins_title: Administratori ai conferinţei
         new:
           create: Creează
           title: Admin de conferință nouă.
@@ -241,7 +250,7 @@ ro:
             price: Preț
             registrations_count: Numărul de înregistrări
             title: Titlu
-            weight: Ordinea în poziționare
+            weight: Poziție
           name: Tip de înregistrare
       partners:
         create:
@@ -307,6 +316,7 @@ ro:
           update: "%{user_name} a actualizat vorbitorul %{resource_name} în conferința %{space_name}"
         registration_type:
           create: "%{user_name} a creat tipul de înregistrare %{resource_name} în conferința %{space_name}"
+          delete: "%{user_name} a eliminat tipul de înregistrare %{resource_name} din conferința %{space_name}"
           publish: "%{user_name} a publicat tipul de înregistrare %{resource_name} în conferința %{space_name}"
           unpublish: "%{user_name} nu a publicat tipul de înregistrare %{resource_name} în conferința %{space_name}"
           update: "%{user_name} a actualizat tipul de înregistrare %{resource_name} în conferința %{space_name}"
@@ -376,6 +386,7 @@ ro:
           invite:
             decline: Refuzați invitația '%{conference_title}'
             invited_existing_user_to_join_a_conference: "%{invited_by} te-a invitat să participi la o conferință la %{application}. Puteți să o refuzați sau să o acceptați prin intermediul linkurilor de mai jos."
+            invited_user_to_join_a_conference: "%{invited_by} te-a invitat să te alături unei conferințe la %{application}. Poți să o accepți prin link-ul de mai jos."
             registration: Înregistrare pentru '%{conference_title}'
         partners:
           index:
@@ -419,9 +430,11 @@ ro:
         create:
           invalid: A apărut o problemă la această conferință.
           success: V-aţi alăturat cu succes conferinţei.
+          unauthorized: Trebuie să te autentifici înainte de a te înregistra la conferință.
         decline_invitation:
           invalid: A existat o problemă la refuzarea invitaţiei.
           success: Ați refuzat cu succes invitația.
+          unauthorized: Trebuie să te autentifici înainte de a refuza invitația.
         destroy:
           invalid: A apărut o problemă la ieşirea din această conferinţă.
           success: Aţi părăsit cu succes conferinţa.
@@ -441,6 +454,7 @@ ro:
           main_promotors: Organizatori
         show:
           login_as: Ești contectat ca %{name} <%{email}>
+          make_conference_registration: Înscrieți-vă la conferință
           register: Inregistrare
       content_blocks:
         highlighted_conferences:
