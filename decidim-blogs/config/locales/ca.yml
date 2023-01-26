@@ -10,7 +10,7 @@ ca:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Estàs segura que vols eliminar aquesta publicació?
+        confirm_destroy: Segur que vols eliminar aquesta publicació?
         destroy: Suprimeix
         edit: Edita
         new: Nova publicació
