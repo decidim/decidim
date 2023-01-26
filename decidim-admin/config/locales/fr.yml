@@ -363,9 +363,9 @@ fr:
       dashboard:
         pending_moderations:
           anouncement:
-            one: Il y a %{count} modérations en attente
+            one: Il y a %{count} modération en attente
             other: Il y a %{count} modérations en attente
-          goto_moderation: Aller aux modérations globales
+          goto_moderation: Aller au panneau de modération global
           title: Modérations en attente
         show:
           view_more_logs: Afficher plus
@@ -887,8 +887,8 @@ fr:
           example_file: 'Fichier d''exemple :'
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec les emails dans la première colonne, et dans la seconde colonne les noms des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
           explanation_example: |
-            john.doe@exemple.org%{csv_col_sep}John D'oe
-            jane.doe@exemple.org%{csv_col_sep}Jane D'oe
+            john.doe@example.org%{csv_col_sep}Jean Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       reminders:
