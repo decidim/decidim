@@ -60,7 +60,9 @@ ro:
         avatar: Avatar
         conference_meeting_ids: Întâlniri asociate
         full_name: Numele complet
+        personal_url: URL personal
         position: Poziție
+        short_bio: Biografie scurtă
         twitter_handle: Responsabil Twitter
         user_id: Utilizator
       conference_user_role:
@@ -248,7 +250,7 @@ ro:
             price: Preț
             registrations_count: Numărul de înregistrări
             title: Titlu
-            weight: Ordinea în poziționare
+            weight: Poziție
           name: Tip de înregistrare
       partners:
         create:
@@ -383,6 +385,7 @@ ro:
           invite:
             decline: Refuzați invitația '%{conference_title}'
             invited_existing_user_to_join_a_conference: "%{invited_by} te-a invitat să participi la o conferință la %{application}. Puteți să o refuzați sau să o acceptați prin intermediul linkurilor de mai jos."
+            invited_user_to_join_a_conference: "%{invited_by} te-a invitat să te alături unei conferințe la %{application}. Poți să o accepți prin link-ul de mai jos."
             registration: Înregistrare pentru '%{conference_title}'
         partners:
           index:
@@ -433,9 +436,11 @@ ro:
         create:
           invalid: A apărut o problemă la această conferință.
           success: V-aţi alăturat cu succes conferinţei.
+          unauthorized: Trebuie să te autentifici înainte de a te înregistra la conferință.
         decline_invitation:
           invalid: A existat o problemă la refuzarea invitaţiei.
           success: Ați refuzat cu succes invitația.
+          unauthorized: Trebuie să te autentifici înainte de a refuza invitația.
         destroy:
           invalid: A apărut o problemă la ieşirea din această conferinţă.
           success: Aţi părăsit cu succes conferinţa.
