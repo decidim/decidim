@@ -525,8 +525,6 @@ en:
           see_all_activity: See all the activity
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
-        promoted_process_group:
-          more_info: More info
       process_header_steps:
         step: Phase %{current} of %{total}
         view_steps: Process phases

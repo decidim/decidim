@@ -452,7 +452,6 @@ en:
         index:
           children: 'Assemblies: '
           promoted_assemblies: Highlighted assemblies
-          reset_chart: Reset
         metadata:
           children_item:
             one: "%{count} assembly"
