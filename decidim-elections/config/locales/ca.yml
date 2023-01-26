@@ -844,11 +844,20 @@ ca:
           published: Publicada
         landing_page:
           content_blocks:
+            create:
+              error: S'ha produït un error en intentar crear aquest bloc de contingut
+              success: Bloc de contingut creat amb èxit
+            destroy:
+              error: S'ha produït un error en intentar eliminar aquest bloc de contingut
+              success: Bloc de contingut eliminat amb èxit
             edit:
               update: Actualitzar
           edit:
             active_content_blocks: Blocs de contingut actius
+            add: Afegir bloc de contingut
+            destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
             inactive_content_blocks: Blocs de contingut inactius
+            title: Continguts de la pàgina
         menu:
           votings: Votacions
           votings_submenu:
