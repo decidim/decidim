@@ -32,6 +32,8 @@ tr:
   decidim:
     accountability:
       actions:
+        attachment_collections: Klasörler 
+        attachments: Ekler 
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
