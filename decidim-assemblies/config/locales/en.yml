@@ -452,6 +452,11 @@ en:
         index:
           children: 'Assemblies: '
           promoted_assemblies: Highlighted assemblies
+          reset_chart: Reset
+        metadata:
+          children_item:
+            one: "%{count} assembly"
+            other: "%{count} assemblies"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblies"

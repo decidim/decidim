@@ -545,9 +545,6 @@ ar:
         edit:
           active_content_blocks: كتل المحتوى النشط
           inactive_content_blocks: كتل المحتوى غير النشطة
-      organization_homepage_content_blocks:
-        edit:
-          update: تحديث
       participatory_space_private_users:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.

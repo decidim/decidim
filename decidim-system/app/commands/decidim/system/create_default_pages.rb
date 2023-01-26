@@ -25,7 +25,7 @@ module Decidim
             page.allow_public_access = true if slug == "terms-and-conditions"
           end
 
-          create_default_content_blocks_for(static_page)
+          create_summary_content_blocks_for(static_page) if slug == "terms-and-conditions"
         end
       end
 
@@ -43,7 +43,7 @@ module Decidim
         end
       end
 
-      def create_default_content_blocks_for(page)
+      def create_summary_content_blocks_for(page)
         content_block_summary = Decidim::ContentBlock.create(
           organization:,
           scope_name: :static_page,

@@ -37,12 +37,14 @@ describe "User edit meeting", type: :system do
     end
 
     it "updates the related attributes" do
+      skip_unless_redesign_enabled("This test pass using panels in drawers")
+
       visit_component
 
       click_link translated(meeting.title)
       click_link "Close meeting"
 
-      expect(page).to have_content "CLOSE MEETING"
+      expect(page).to have_content "Close meeting"
 
       within "form.edit_close_meeting" do
         expect(page).to have_content "Choose proposals"
@@ -55,7 +57,7 @@ describe "User edit meeting", type: :system do
 
       expect(page).to have_content(closing_report)
       expect(page).not_to have_content "Close meeting"
-      expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
+      expect(page).not_to have_content "Organizations"
       expect(meeting.reload.closed_at).not_to be_nil
     end
 
@@ -74,12 +76,14 @@ describe "User edit meeting", type: :system do
       end
 
       it "updates the meeting report" do
+        skip_unless_redesign_enabled("This test pass using panels in drawers")
+
         visit_component
 
         click_link translated(meeting.title)
         click_link "Edit meeting report"
 
-        expect(page).to have_content "CLOSE MEETING"
+        expect(page).to have_content "Close meeting"
 
         within "form.edit_close_meeting" do
           expect(page).to have_content "Choose proposals"
@@ -91,7 +95,7 @@ describe "User edit meeting", type: :system do
 
         expect(page).to have_content(edit_closing_report)
         expect(page).not_to have_content "Close meeting"
-        expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
+        expect(page).not_to have_content "Organizations"
         expect(meeting.reload.closed_at).not_to be_nil
       end
     end
@@ -107,7 +111,7 @@ describe "User edit meeting", type: :system do
         click_link translated(meeting.title)
         click_link "Close meeting"
 
-        expect(page).to have_content "CLOSE MEETING"
+        expect(page).to have_content "Close meeting"
 
         within "form.edit_close_meeting" do
           expect(page).not_to have_content "Choose proposals"
