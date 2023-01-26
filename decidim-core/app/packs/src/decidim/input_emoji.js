@@ -94,7 +94,15 @@ export class EmojiButton {
     });
 
     picker.addEventListener("emoji:select", ({emoji}) => {
-      elem.value += ` ${emoji} `
+      if (elem.contentEditable === "true") {
+        if (elem.editor) {
+          elem.editor.chain().insertContent(` ${emoji} `).focus().run();
+        } else {
+          elem.innerHTML += ` ${emoji} `
+        }
+      } else {
+        elem.value += ` ${emoji} `
+      }
 
       // Make sure the input event is dispatched on the input/textarea elements
       if (elem.tagName === "TEXTAREA" || elem.tagName === "INPUT") {
