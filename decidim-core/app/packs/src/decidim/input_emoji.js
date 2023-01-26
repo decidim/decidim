@@ -86,10 +86,10 @@ export class EmojiButton {
     elem.addEventListener("characterCounter", (event) => {
       if (event.detail.remaining >= 4) {
         btn.addEventListener("click", handlerPicker);
-        btnContainer.removeAttribute("style");
+        btn.removeAttribute("style");
       } else {
         btn.removeEventListener("click", handlerPicker);
-        btnContainer.setAttribute("style", "color:lightgrey");
+        btn.setAttribute("style", "color:lightgrey");
       }
     });
 
