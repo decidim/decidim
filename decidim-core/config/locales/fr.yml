@@ -344,7 +344,7 @@ fr:
       geocoding:
         geocoded_address: Adresse
       photo:
-        alt: Photo
+        alt: Image média
         title: Image
       photos:
         related_photos: Photos associées
