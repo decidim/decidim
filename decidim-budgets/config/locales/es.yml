@@ -40,7 +40,7 @@ es:
       actions:
         attachment_collections: Carpetas
         attachments: Adjuntos
-        confirm_destroy: '¿Estás segura de que deseas eliminar este proyecto?'
+        confirm_destroy: '¿Seguro que deseas eliminar este proyecto?'
         destroy: Borrar
         edit: Editar
         edit_projects: Gestionar proyectos
@@ -179,7 +179,7 @@ es:
             description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
             title: Se ha superado el número máximo de proyectos
         budget_summary:
-          are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
+          are_you_sure: '¿Seguro que deseas cancelar tu voto?'
           assigned: 'Asignado:'
           cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
