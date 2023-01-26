@@ -3,7 +3,10 @@ ro:
     attributes:
       assemblies_setting:
         enable_organization_chart: Activează graficul organizatiei
+      assemblies_type:
+        title: Titlu
       assembly:
+        announcement: Anunţ
         area_id: Zonă
         assembly_type: Tipul grupului de lucru
         assembly_type_other: Alt tip de grup de lucru
@@ -22,12 +25,16 @@ ro:
         decidim_scope_id: Domeniu
         description: Descriere
         developer_group: Grup promotor
+        document: Document
         domain: Domeniu
         duration: Durată
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imagine pentru pagina principală
+        import_attachments: Importă atașamente
+        import_categories: Importă categorii
+        import_components: Importă componente
         included_at: Inclus la
         instagram: Instagram
         internal_organisation: Organizare internă
@@ -52,7 +59,7 @@ ro:
         target: Cine participă
         title: Titlu
         twitter: Twitter
-        weight: Ordinea în poziționare
+        weight: Poziție
         youtube: YouTube
       assembly_member:
         birthday: Data nașterii
@@ -64,6 +71,7 @@ ro:
         non_user_avatar: Avatar
         position: Poziție
         user_id: Utilizator sau grup
+        weight: Poziție
       assembly_user_role:
         email: E-mail
         name: Nume
