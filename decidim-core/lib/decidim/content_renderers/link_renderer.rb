@@ -21,7 +21,15 @@ module Decidim
         return content unless content.is_a?(String)
 
         options = { target: "_blank", rel: "nofollow noopener noreferrer ugc" }.merge(options)
-        auto_link(content, options)
+
+        if html_content?
+          html_fragment.search("a[href]").each do |el|
+            el.replace anchor_tag(el["href"], el.inner_html, options)
+          end
+          html_fragment.to_s
+        else
+          auto_link(content, options)
+        end
       end
 
       def auto_link(text, options = {}, &)

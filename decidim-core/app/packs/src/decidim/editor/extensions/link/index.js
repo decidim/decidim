@@ -4,6 +4,16 @@ import { getDictionary } from "src/decidim/i18n";
 import InputDialog from "src/decidim/editor/common/input_dialog";
 
 export default Link.extend({
+  addOptions() {
+    return {
+      ...this.parent?.(),
+      HTMLAttributes: {
+        target: "_blank",
+        class: null
+      }
+    }
+  },
+
   addCommands() {
     const i18n = getDictionary("editor.extensions.link");
 
