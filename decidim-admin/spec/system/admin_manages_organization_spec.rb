@@ -197,7 +197,7 @@ describe "Admin manages organization", type: :system do
       context "when the admin terms of use content has a link" do
         let(:terms_content) do
           <<~HTML
-            <p>foo<br><a href="https://www.decidim.org" rel="noopener noreferrer" target="_blank">link</a></p>
+            <p>foo<br><a href="https://www.decidim.org" target="_blank">link</a></p>
           HTML
         end
         let(:organization) do
@@ -212,7 +212,7 @@ describe "Admin manages organization", type: :system do
           find('div[contenteditable="true"].ProseMirror').native.send_keys([:shift, :enter])
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq('<p>foo<br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.decidim.org">link</a></p>')
+          )["innerHTML"]).to eq('<p>foo<br><br><a target="_blank" href="https://www.decidim.org">link</a></p>')
         end
 
         it "doesnt create br tag inside a tag" do
@@ -220,7 +220,7 @@ describe "Admin manages organization", type: :system do
           find('div[contenteditable="true"].ProseMirror').native.send_keys([:shift, :enter])
           expect(find(
             "#organization-admin_terms_of_use_body-tabs-admin_terms_of_use_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq('<p>foo<br><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.decidim.org">link</a></p>')
+          )["innerHTML"]).to eq('<p>foo<br><br><a target="_blank" href="https://www.decidim.org">link</a></p>')
         end
       end
 
@@ -442,7 +442,7 @@ describe "Admin manages organization", type: :system do
 
           cnt = <<~HTML
             <p style="#{styles[:p]}">testing</p>
-            <p style="#{styles[:p]}"><strong style="#{styles[:strong]}">foo</strong><br style="styles[:br]"><a href="https://www.decidim.org/" rel="noopener noreferrer" target="_blank" style="#{styles[:a]}">link</a></p>
+            <p style="#{styles[:p]}"><strong style="#{styles[:strong]}">foo</strong><br style="styles[:br]"><a href="https://www.decidim.org/" target="_blank" style="#{styles[:a]}">link</a></p>
           HTML
 
           cnt.gsub("\n", "")
@@ -453,7 +453,7 @@ describe "Admin manages organization", type: :system do
         let(:parsed_content) do
           cnt = <<~HTML
             <p>testing</p>
-            <p><strong>foo</strong><br><a target="_blank" rel="noopener noreferrer nofollow" href="https://www.decidim.org/"><u>link</u></a></p>
+            <p><strong>foo</strong><br><a target="_blank" href="https://www.decidim.org/"><u>link</u></a></p>
             <p><br></p>
           HTML
 

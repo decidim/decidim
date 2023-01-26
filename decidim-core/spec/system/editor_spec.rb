@@ -289,7 +289,7 @@ describe "Editor", type: :system do
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a target="_blank" rel="noopener noreferrer nofollow" href="https://decidim.org">paragraph.</a></p>
+          <p>Another <a target="_blank" href="https://decidim.org">paragraph.</a></p>
         HTML
       )
 
@@ -302,7 +302,7 @@ describe "Editor", type: :system do
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
-          <p>Another <a rel="noopener noreferrer nofollow" href="https://docs.decidim.org">paragraph.</a></p>
+          <p>Another <a href="https://docs.decidim.org">paragraph.</a></p>
         HTML
       )
 
@@ -707,7 +707,7 @@ describe "Editor", type: :system do
         expect_value(
           <<~HTML
             <p>Hello, world!</p>
-            <p>Another <a target="_blank" rel="noopener noreferrer nofollow" href="https://decidim.org">paragraph.</a></p>
+            <p>Another <a target="_blank" href="https://decidim.org">paragraph.</a></p>
           HTML
         )
 
@@ -720,7 +720,7 @@ describe "Editor", type: :system do
         expect_value(
           <<~HTML
             <p>Hello, world!</p>
-            <p>Another <a rel="noopener noreferrer nofollow" href="https://docs.decidim.org">paragraph.</a></p>
+            <p>Another <a href="https://docs.decidim.org">paragraph.</a></p>
           HTML
         )
 
