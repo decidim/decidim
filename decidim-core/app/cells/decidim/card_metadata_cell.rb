@@ -53,6 +53,56 @@ module Decidim
       }
     end
 
+    def start_date
+      nil
+    end
+
+    def end_date
+      nil
+    end
+
+    def dates_blank?
+      [start_date, end_date].any?(&:blank?)
+    end
+
+    def current_date
+      @current_date ||= Date.current.to_time
+    end
+
+    def progress_item
+      return if progress_value.blank?
+
+      {
+        text: "#{progress_span}#{progress_text}".html_safe
+      }
+    end
+
+    def progress_value
+      return if dates_blank?
+
+      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date).to_i if current_date <= end_date
+    end
+
+    def progress_span
+      return if progress_value.blank?
+
+      "<span class=\"card__grid-loader\" style=\"--value:#{progress_value};\"></span>"
+    end
+
+    def progress_text
+      return if progress_value.blank?
+
+      @progress_text ||= if start_date.present? && current_date < start_date
+                           t("not_started", scope: "decidim.metadata.progress")
+                         elsif end_date.blank?
+                           t("active", scope: "decidim.metadata.progress")
+                         elsif current_date < end_date
+                           t("remaining", time_distance: distance_of_time_in_words(current_date, end_date), scope: "decidim.metadata.progress")
+                         else
+                           t("finished", scope: "decidim.metadata.progress")
+                         end
+    end
+
     def official?
       model.respond_to?(:official?) && model.official?
     end

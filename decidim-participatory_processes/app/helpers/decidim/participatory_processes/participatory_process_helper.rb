@@ -56,17 +56,6 @@ module Decidim
           image_url: block.images_container.attached_uploader(:background_image).path(variant: :big)
         )
       end
-
-      # Public: Invokes the appropriate partial for a promoted
-      # participatory process or group based on the type name
-      #
-      # promoted_item - Can be a Decidim::ParticipatoryProcess or
-      #                 Decidim::ParticipatoryProcessGroup
-      def render_highlighted_partial_for(promoted_item)
-        name = promoted_item.class.name.demodulize.underscore.gsub("participatory_", "promoted_")
-
-        render partial: name, locals: { name => promoted_item }.symbolize_keys
-      end
     end
   end
 end
