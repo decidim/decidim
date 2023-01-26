@@ -723,7 +723,7 @@ es:
           all: todos
           all_users: 'Todos los usuarios '
           and: 'y '
-          confirm_delete: '¿Seguro de que quieres eliminar este boletín?'
+          confirm_delete: '¿Seguro que quieres eliminar este boletín?'
           followers: 'seguidores '
           has_been_sent_to: 'Se ha enviado a: '
           no_scopes: Sin ámbitos
@@ -738,7 +738,7 @@ es:
         select_recipients_to_deliver:
           all_spaces: Todos
           all_users_help: Envía el boletín de noticias a todos las participantes confirmadas.
-          confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_deliver: '¿Seguro que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           none: Ninguno
@@ -880,7 +880,7 @@ es:
         new:
           destroy:
             button: Borrar todas las participantes privadas
-            confirm: '¿Estás segura que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recupararlas.'
+            confirm: '¿Seguro que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recupararlas.'
             empty: No hay participantes privadas.
             explanation: Hay %{count} participante/s privada/s.
             title: Borrar las participantes privadas
