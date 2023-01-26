@@ -41,6 +41,9 @@ ro:
       decidim/promote_to_admin: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
       decidim/resource_endorsed_event: Resursă susținută
+      decidim/resource_hidden_event: Resursă ascunsă
+      decidim/user_group_created_event: Grup de utilizatori creat
+      decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
     attributes:
       decidim/user:
@@ -72,6 +75,8 @@ ro:
     'true': 'Da'
   carrierwave:
     errors:
+      file_resolution_too_large: Rezoluția fișierului este prea mare
+      file_size_too_large: Mărimea fișierului este prea mare
       not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
@@ -104,6 +109,9 @@ ro:
       download_your_data_export:
         file_no_exists: Fișierul nu există
         notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
+      email_change:
+        cancel: anulare
+        send_again: Trimite din nou
       show:
         change_password: Schimbă parola
         update_account: Actualizați contul
@@ -124,6 +132,11 @@ ro:
         delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul %{space_name}"
         publish: "%{user_name} a publicat componenta %{resource_name} în spațiul %{space_name}"
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul %{space_name}"
+      helpers:
+        answers: răspunsuri
+        comments: comentarii
+        projects: proiecte
+        results: rezultate
       impersonation_log:
         manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
@@ -280,6 +293,7 @@ ro:
         one: susținere
         few: susțineri
         other: susțineri
+      official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”
@@ -736,6 +750,8 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
+        icon:
+          explanation: 'Îndrumare pentru imagine:'
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: De preferință o imagine landscape care să nu conțină vreun text.
@@ -743,6 +759,20 @@ ro:
       file_validation:
         allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'
         max_file_size: 'Dimensiunea maximă a fișierului: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Adaugă atașament
+          add_file: Adaugă fișier
+          add_image: Adaugă imagine
+          edit_image: Schimbă imaginea
+          error: Eroare!
+          remove: Șterge
+          replace: Înlocuiește
+          save: Salvează
+          title: Titlu
+          title_required: Titlul este obligatoriu!
+      upload_help:
+        explanation: Îndrumare pentru %{attribute}
     gamification:
       all_badges_link: Vezi toate insignele disponibile.
       badges:
@@ -843,6 +873,7 @@ ro:
       no_user_groups: Încă nu aparține niciunui grup.
       roles:
         admin: Administrator
+        creator: Administrator
         member: Membru
       update:
         error: A apărut o eroare la actualizarea grupului
@@ -1049,6 +1080,14 @@ ro:
         translated_text: 'Text tradus automat:'
     notifications:
       no_notifications: Nici o notificare încă.
+    notifications_digest_mailer:
+      header:
+        daily: Rezumat notificare zilnică
+        weekly: Rezumat notificări săptămânale
+      hello: Salut %{name},
+      intro:
+        daily: 'Acestea sunt notificările din ultima zi în funcție de activitatea pe care o dețineți:'
+      see_more: Vezi mai multe notificări
     notifications_settings:
       show:
         administrators: Administratori
@@ -1057,7 +1096,14 @@ ro:
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere
+        notifications_sending_frequencies:
+          daily: Zilnic
+          none: Nimic
+          real_time: În timp real
+          weekly: Săptămânal
         own_activity: Propria mea activitate, ca atunci când cineva comentează în propunerea mea sau mă menționează
+        push_notifications: Notificări Instant
+        push_notifications_reminder: Pentru a primi notificări de pe platformă, trebuie să le permiteți mai întâi în setările browser-ului.
         receive_notifications_about: Vreau să primesc notificări despre
         update_notifications_settings: Salvează modificările
       update:
