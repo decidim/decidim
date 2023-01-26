@@ -62,6 +62,7 @@ module Decidim
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :ContentBlockRegistry, "decidim/content_block_registry"
   autoload :ContentBlockManifest, "decidim/content_block_manifest"
+  autoload :ContentBlocks, "decidim/content_blocks"
   autoload :MetricRegistry, "decidim/metric_registry"
   autoload :MetricManifest, "decidim/metric_manifest"
   autoload :MetricOperation, "decidim/metric_operation"
