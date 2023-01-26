@@ -812,9 +812,6 @@ sv:
         edit:
           active_content_blocks: Block med aktivt innehåll
           inactive_content_blocks: Block med inaktivt innehåll
-      organization_homepage_content_blocks:
-        edit:
-          update: Uppdatera
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.

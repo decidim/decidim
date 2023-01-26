@@ -511,6 +511,11 @@ module Decidim
     Rails.env.exclude?("development")
   end
 
+  # List of static pages' slugs that can include content blocks
+  config_accessor :page_blocks do
+    %w(terms-and-conditions)
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #

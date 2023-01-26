@@ -55,9 +55,10 @@ describe "Admin manages participatory process group landing page", type: :system
       visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
 
       expect do
-        within ".js-list-availables" do
-          within find("li", text: "Hero image") do
-            find("svg.icon--pencil").click
+        within ".edit_content_blocks" do
+          find("button", text: "Add content block").click
+          within ".add-components" do
+            find("a", text: "Hero image").click
           end
         end
       end.to change(active_content_blocks, :count).by(1)
@@ -65,11 +66,16 @@ describe "Admin manages participatory process group landing page", type: :system
 
     it "creates the content block when dragged from inactive to active panel" do
       visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_path(participatory_process_group)
-      content_block = first("ul.js-list-availables li")
-      active_blocks_list = find("ul.js-list-actives")
 
       expect do
-        content_block.drag_to(active_blocks_list)
+        within ".edit_content_blocks" do
+          find("button", text: "Add content block").click
+          within ".add-components" do
+            find("a", text: "Hero image").click
+          end
+        end
+
+        first("ul.js-list-availables li").drag_to(find("ul.js-list-actives"))
         sleep(2)
       end.to change(active_content_blocks, :count).by(1)
     end
@@ -104,7 +110,7 @@ describe "Admin manages participatory process group landing page", type: :system
     end
 
     it "updates the settings of the content block" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :hero)
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, content_block)
 
       fill_in(
         :content_block_settings_welcome_text_en,
@@ -112,7 +118,7 @@ describe "Admin manages participatory process group landing page", type: :system
       )
 
       click_button "Update"
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :hero)
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, content_block)
       expect(page).to have_selector("input[value='Custom welcome text!']")
 
       content_block.reload
@@ -121,7 +127,7 @@ describe "Admin manages participatory process group landing page", type: :system
     end
 
     it "shows settings of cta" do
-      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, :cta)
+      visit decidim_admin_participatory_processes.edit_participatory_process_group_landing_page_content_block_path(participatory_process_group, cta_content_block)
       cta_settings.values.each do |value|
         expect(page).to have_selector("input[value='#{value}']")
       end
