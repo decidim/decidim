@@ -40,6 +40,9 @@ ro:
       decidim/promote_to_admin: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
       decidim/resource_endorsed_event: Resursă susținută
+      decidim/resource_hidden_event: Resursă ascunsă
+      decidim/user_group_created_event: Grup de utilizatori creat
+      decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
     attributes:
       decidim/user:
