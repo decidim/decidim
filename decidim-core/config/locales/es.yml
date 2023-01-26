@@ -516,7 +516,7 @@ es:
             close_modal: Cierra modal
             uncheck: Mantener desmarcado
           notice: |-
-            <p>Hola, ¿estás segura de que no quieres recibir un boletín informativo?<br>
+            <p>Hola, ¿segura de que no quieres recibir un boletín informativo?<br>
             Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
             Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
             <p>Si no marcas la casilla, es posible que se pierda información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
@@ -794,7 +794,7 @@ es:
       reached_top: Has alcanzado el nivel superior para esta insignia.
     group_admins:
       actions:
-        are_you_sure: '¿Segura? Esto no eliminará a la participante del grupo.'
+        are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
         demote_admin: Eliminar permisos de administración
       demote:
         error: Se ha producido un error al eliminar esta participante de la lista de administradoras
@@ -823,7 +823,7 @@ es:
         error: Se ha producido un error al aceptar esta solicitud de incorporación al grupo
         success: Solicitud aceptada correctamente
       actions:
-        are_you_sure: '¿Estás seguro?'
+        are_you_sure: '¿Seguro?'
         promote_to_admin: Hacer administrador
         remove_from_group: Eliminar participante
       index:
@@ -840,7 +840,7 @@ es:
         success: Participante eliminada correctamente del grupo
     groups:
       actions:
-        are_you_sure: '¿Estás seguro?'
+        are_you_sure: '¿Seguro?'
       create:
         error: Se ha producido un error al crear el grupo
         success: Grupo creado correctamente
