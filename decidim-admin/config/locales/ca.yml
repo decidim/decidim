@@ -738,7 +738,7 @@ ca:
         select_recipients_to_deliver:
           all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
-          confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           none: Cap
@@ -845,9 +845,21 @@ ca:
           add: Afegir a la llista blanca
           title: Llista blanca de dominis externs
       organization_homepage:
+        content_blocks:
+          create:
+            error: S'ha produït un error en intentar crear aquest bloc de contingut
+            success: Bloc de contingut creat correctament
+          destroy:
+            error: S'ha produït un error en intentar eliminar aquest bloc de contingut
+            success: Bloc de contingut eliminat amb èxit
+          edit:
+            update: Actualitzar
         edit:
           active_content_blocks: Blocs de contingut actiu
+          add: Afegir bloc de contingut
+          destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
           inactive_content_blocks: Blocs de contingut inactiu
+          title: Continguts de la pàgina
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
@@ -966,6 +978,16 @@ ca:
           view: Visualitzar la pàgina pública
         content_blocks:
           active_content_blocks: Blocs de contingut actius
+          add: Afegir bloc de contingut
+          create:
+            error: S'ha produït un error en intentar crear aquest bloc de contingut
+            success: Bloc de contingut creat amb èxit
+          destroy:
+            error: S'ha produït un error en intentar eliminar aquest bloc de contingut
+            success: Bloc de contingut eliminat amb èxit
+          destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
+          edit:
+            update: Actualitzar
           inactive_content_blocks: Blocs de contingut inactius
           title: Contingut de la pàgina
         create:
