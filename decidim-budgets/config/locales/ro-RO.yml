@@ -16,6 +16,8 @@ ro:
         proposals: Propuneri
         selected: Selectate pentru implementare
         title: Titlu
+      proposals_import:
+        scope_id: Domeniu de interes
   activerecord:
     models:
       decidim/budgets/project:
