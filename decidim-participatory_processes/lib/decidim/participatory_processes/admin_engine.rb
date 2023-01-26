@@ -45,7 +45,7 @@ module Decidim
             resources :imports, controller: "participatory_process_imports", only: [:new, :create]
           end
           resource :landing_page, only: [:edit, :update], controller: "participatory_process_landing_page" do
-            resources :content_blocks, only: [:edit, :update], controller: "participatory_process_landing_page_content_blocks"
+            resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "participatory_process_landing_page_content_blocks"
           end
         end
 
