@@ -156,19 +156,23 @@ module Decidim
       # is interpreted as HTML when it contains one or more HTML tags in it.
       #
       # @return [Boolean] a boolean indicating if the content is HTML
-      def html_content?
-        return false if html_fragment.children.count.zero?
-        return true if html_fragment.children.count > 1
+      def html_content?(fragment = html_fragment)
+        return false if fragment.children.count.zero?
+        return true if fragment.children.count > 1
 
-        html_fragment.children.first.name != "text"
+        fragment.children.first.name != "text"
       end
 
       # Turns the content string into a document fragment object. This is useful
       # for parsing the HTML content.
       #
       # @return [Loofah::HTML::DocumentFragment]
-      def html_fragment
-        @html_fragment ||= Loofah.fragment(content)
+      def html_fragment(text = nil)
+        if text
+          Loofah.fragment(text)
+        else
+          @html_fragment ||= Loofah.fragment(content)
+        end
       end
     end
   end
