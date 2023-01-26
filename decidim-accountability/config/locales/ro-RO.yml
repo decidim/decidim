@@ -22,6 +22,7 @@ ro:
       timeline_entry:
         description: Descriere
         entry_date: Data
+        title: Titlu
     models:
       decidim/accountability/proposal_linked_event: Propunere inclusă în rezultat
       decidim/accountability/result_progress_updated_event: Progresul rezultatului actualizat
@@ -50,6 +51,7 @@ ro:
           results: Rezultate
         import_results:
           new:
+            download_export: Descarcă Export cu format CSV
             import: Importă
             title: Importați rezultate de la CSV
         imports:
@@ -62,6 +64,9 @@ ro:
             name: Stadiu
           timeline_entry:
             name: Intrare cronologie
+        projects_import:
+          new:
+            create: Importă
         results:
           create:
             invalid: A apărut o problemă la crearea acestui rezultat
@@ -121,6 +126,12 @@ ro:
           create: "%{user_name} a creat %{resource_name} în %{space_name}"
           delete: "%{user_name} a șters %{resource_name} în %{space_name}"
           update: "%{user_name} a actualizat %{resource_name} în %{space_name}"
+        status:
+          update: "%{user_name} a actualizat starea %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} a creat intrarea de cronologie pentru %{resource_name}"
+          delete: "%{user_name} a șters intrarea de cronologie pentru %{resource_name}"
+          update: "%{user_name} a actualizat intrarea de cronologie pentru %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'Elementul-părinte nu a fost găsit în baza de date (ID: %{id})'
@@ -136,6 +147,11 @@ ro:
           row_number: Rând
           subject: Importare cu succes a rezultatelor
           success: Rezultate importate. Puteți revizui rezultatele în interfața de administrare.
+      import_projects_mailer:
+        import:
+          subject: Importul de proiecte a avut succes
+      last_activity:
+        new_result: 'Rezultat nou:'
       models:
         result:
           fields:
@@ -157,6 +173,7 @@ ro:
         timeline_entry:
           fields:
             entry_date: Dată
+            title: Titlu
       result_m:
         executed: Executat
         view: Vizualizare
