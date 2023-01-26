@@ -7,6 +7,7 @@ tr:
         decidim_scope_id: kapsam
         description: Açıklama
         end_date: Bitiş tarihi
+        meetings_ids: Görüşmeler
         progress: İlerleme
         project_ids: Dahil edilen projeler
         proposals: Dahil edilen teklifler
