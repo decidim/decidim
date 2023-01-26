@@ -509,9 +509,16 @@ ca:
       metrics:
         name: Mètriques de l'organització
       static_page:
+        section:
+          name: Secció
+          section_content: Contingut
         summary:
           name: Resum
           summary_content: Contingut
+        two_pane_section:
+          left_column: Columna esquerra
+          name: Secció de dos panells
+          right_column: Columna dreta
       stats:
         name: Estadístiques de l'organització
       sub_hero:
