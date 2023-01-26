@@ -16,10 +16,10 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        import_attachments: Importer des pièces jointes
-        import_categories: Importer des catégories
-        import_components: Importer des composants
-        import_steps: Importer des étapes
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
         local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
