@@ -11,7 +11,9 @@ module Decidim
     end
 
     def decidim_tooltip(opts = {}, &)
-      content_tag(:div, class: opts[:class] || "bottom", role: "tooltip", &)
+      content_tag(:span, data: { tooltip: "true" }) do
+        capture(&).html_safe + content_tag(:div, opts[:content], id: opts[:id], class: opts[:class] || "bottom", role: "tooltip", "aria-hidden": "true")
+      end
     end
   end
 end
