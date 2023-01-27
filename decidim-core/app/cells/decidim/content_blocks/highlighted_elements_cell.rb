@@ -2,7 +2,7 @@
 
 module Decidim
   module ContentBlocks
-    class HighlightedElementsCell < Decidim::ViewModel
+    class HighlightedElementsCell < BaseCell
       include Decidim::CardHelper
 
       def elements
