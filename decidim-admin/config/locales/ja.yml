@@ -840,9 +840,21 @@ ja:
           add: ホワイトリストに追加
           title: 外部ドメインのホワイトリスト
       organization_homepage:
+        content_blocks:
+          create:
+            error: コンテンツブロックの作成中に問題が発生しました
+            success: コンテンツブロックを作成しました
+          destroy:
+            error: コンテンツブロックの削除中に問題が発生しました
+            success: コンテンツブロックを削除しました
+          edit:
+            update: 更新
         edit:
           active_content_blocks: アクティブなコンテンツブロック
+          add: コンテンツブロックを追加
+          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
           inactive_content_blocks: 非アクティブコンテンツブロック
+          title: ページコンテンツ
       participatory_space_private_users:
         create:
           error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
@@ -960,6 +972,16 @@ ja:
           view: 公開ページを表示
         content_blocks:
           active_content_blocks: アクティブコンテンツブロック
+          add: コンテンツブロックを追加
+          create:
+            error: コンテンツブロックの作成中に問題が発生しました
+            success: コンテンツブロックを作成しました
+          destroy:
+            error: コンテンツブロックの削除中に問題が発生しました
+            success: コンテンツブロックを削除しました
+          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
+          edit:
+            update: 更新
           inactive_content_blocks: 非アクティブコンテンツブロック
           title: ページ内容
         create:
