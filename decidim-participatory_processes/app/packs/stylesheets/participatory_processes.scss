@@ -77,7 +77,7 @@
       @apply md:ml-auto flex flex-col items-center gap-1 font-semibold text-secondary hover:underline;
 
       &-endorsers{
-        @apply flex items-center justify-start -space-x-2;
+        @apply hidden md:flex items-center justify-start -space-x-2;
 
         > span{
           @apply rounded-full overflow-hidden border border-white inline-grid w-8 h-8;
