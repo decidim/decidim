@@ -23,7 +23,17 @@ module Decidim
       private
 
       def results
-        @results ||= Decidim::Accountability::Result.where(component: model).order_randomly((rand * 2) - 1)
+        @results ||= case options[:order]
+                     when "recent"
+                       Decidim::Accountability::Result.where(component: model).order_by_most_recent
+                     else
+                       Decidim::Accountability::Result.where(component: model).order_randomly((rand * 2) - 1)
+                     end
+
+      end
+
+      def single_component?
+        @single_component ||= model.is_a?(Decidim::Component)
       end
 
       def results_to_render
