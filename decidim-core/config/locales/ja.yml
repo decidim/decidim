@@ -497,9 +497,16 @@ ja:
       metrics:
         name: 組織の指標
       static_page:
+        section:
+          name: セクション
+          section_content: コンテンツ
         summary:
           name: 概要
           summary_content: コンテンツ
+        two_pane_section:
+          left_column: 左カラム
+          name: 2カラムセクション
+          right_column: 右カラム
       stats:
         name: 組織の統計
       sub_hero:
