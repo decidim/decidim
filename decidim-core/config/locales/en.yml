@@ -521,6 +521,9 @@ en:
           label: 'Sort elements by:'
           random: Random
           recent: Most recent
+        components:
+          all: All
+          label: 'Select component:'
       how_to_participate:
         name: How to participate
       html:
