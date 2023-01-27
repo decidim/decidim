@@ -3,6 +3,7 @@
 module Decidim
   module ContentBlocks
     class HighlightedElementsCell < BaseCell
+      include Decidim::ContentBlocks::HasRelatedComponents
       include Decidim::CardHelper
 
       def elements
@@ -25,11 +26,10 @@ module Decidim
       end
 
       def published_components
-        @published_components ||= if model.scope_name == "participatory_process_group_homepage"
-                                    group = Decidim::ParticipatoryProcessGroup.find(model.scoped_resource_id)
-                                    Decidim::Component.where(participatory_space: group.participatory_processes).published
+        @published_components ||= if model.settings.try(:component_id).present?
+                                    components.published.where(id: model.settings.component_id)
                                   else
-                                    Decidim::Component.none
+                                    components.published
                                   end
       end
 
@@ -45,6 +45,10 @@ module Decidim
 
       def random_seed
         (rand * 2) - 1
+      end
+
+      def components
+        @components ||= components_for(model)
       end
     end
   end
