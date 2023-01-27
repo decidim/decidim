@@ -832,11 +832,20 @@ ja:
           published: 公開済み
         landing_page:
           content_blocks:
+            create:
+              error: コンテンツブロックの作成中に問題が発生しました
+              success: コンテンツブロックを作成しました
+            destroy:
+              error: コンテンツブロックの削除中に問題が発生しました
+              success: コンテンツブロックを削除しました
             edit:
               update: 更新
           edit:
             active_content_blocks: アクティブコンテンツブロック
+            add: コンテンツブロックを追加
+            destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
             inactive_content_blocks: 非アクティブコンテンツブロック
+            title: ページコンテンツ
         menu:
           votings: 投票
           votings_submenu:
