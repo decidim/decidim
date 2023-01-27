@@ -15,12 +15,27 @@ describe Decidim::SendPushNotification do
   end
 
   before do
-    allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: true, public_key: "public_key", private_key: "private_key" })
+    Rails.application.secrets[:vapid] = { enabled: true, public_key: "public_key", private_key: "private_key" }
   end
 
   context "without vapid settings config" do
     before do
-      allow(Rails.application.secrets).to receive("vapid").and_return({ enabled: false })
+      Rails.application.secrets.delete(:vapid)
+    end
+
+    describe "#perform" do
+      let(:user) { create(:user) }
+      let(:notification) { create :notification, user: }
+
+      it "returns false" do
+        expect(subject.perform(notification)).to be_falsy
+      end
+    end
+  end
+
+  context "without vapid enabled" do
+    before do
+      Rails.application.secrets[:vapid] = { enabled: false }
     end
 
     describe "#perform" do
