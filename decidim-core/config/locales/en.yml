@@ -103,6 +103,23 @@ en:
       less_than_x_seconds:
         one: right now
         other: less than %{count} sec.
+      short:
+        about_x_days: "%{count}d"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} mo."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count}m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count}m"
+        x_months: "%{count} mo."
+        x_seconds: "%{count}s"
+        x_years: "%{count}y"
       x_days:
         one: 1 day ago
         other: "%{count} days ago"
@@ -342,6 +359,7 @@ en:
       document:
         download: Download file
       documents:
+        documents: Documents
         related_documents: Related documents
       geocoding:
         geocoded_address: Address
@@ -349,6 +367,7 @@ en:
         alt: Media picture
         title: Image
       photos:
+        photos: Images
         related_photos: Related images
     author:
       avatar: 'Avatar: %{name}'
@@ -514,9 +533,16 @@ en:
       metrics:
         name: Organization metrics
       static_page:
+        section:
+          name: Section
+          section_content: Content
         summary:
           name: Summary
           summary_content: Content
+        two_pane_section:
+          left_column: Left column
+          name: Two-pane section
+          right_column: Right column
       stats:
         name: Organization statistics
       sub_hero:
@@ -1109,6 +1135,12 @@ en:
           send: Send
         update:
           error: Message was not sent due to an error
+    metadata:
+      progress:
+        active: Active
+        finished: Finished
+        not_started: Not started yet
+        remaining: "%{time_distance} remaining"
     metrics:
       download:
         csv: Download data (CSV)
@@ -1559,16 +1591,9 @@ en:
         of_versions: "(of %{number})"
         see_other_versions: see other versions
         version: Version number %{number}
-    versions_list:
-      show:
-        back_to_resource: Go back
-        changes_at_title: Changes at "%{title}"
-        number_of_versions: Versions
-        title: Versions
     versions_list_item:
-      back: Show all versions
       show:
-        version_index: Version %{index}
+        version_index: Version %{index} of %{total}
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
@@ -1954,7 +1979,6 @@ en:
     dropdown:
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
-      choose_diff_view_mode_menu: Choose compare mode
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped

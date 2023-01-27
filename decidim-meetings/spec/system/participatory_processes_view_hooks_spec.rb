@@ -15,7 +15,7 @@ describe "Meetings in process home", type: :system do
 
     it "shows the last three past meetings" do
       visit resource_locator(participatory_process).path
-      expect(page).to have_css(".past_meetings .card--list__item", count: 3)
+      expect(page).to have_css("#past_meetings .meeting-list", count: 3)
 
       expect(page).not_to have_content(/#{translated(moderated_meeting.title)}/i)
 
@@ -33,7 +33,7 @@ describe "Meetings in process home", type: :system do
 
     it "shows the first three upcoming meetings" do
       visit resource_locator(participatory_process).path
-      expect(page).to have_css(".upcoming_meetings .card--list__item", count: 3)
+      expect(page).to have_css("#upcoming_meetings .meeting-list", count: 3)
 
       expect(page).not_to have_content(/#{translated(moderated_meeting.title)}/i)
 
@@ -54,8 +54,8 @@ describe "Meetings in process home", type: :system do
 
     it "only shows the first three upcoming meetings" do
       visit resource_locator(participatory_process).path
-      expect(page).to have_css(".upcoming_meetings .card--list__item", count: 3)
-      expect(page).not_to have_css(".past_meetings")
+      expect(page).to have_css("#upcoming_meetings .meeting-list", count: 3)
+      expect(page).not_to have_css("#past_meetings")
 
       past_meetings.each do |meeting|
         expect(page).not_to have_content(/#{translated(meeting.title)}/i)

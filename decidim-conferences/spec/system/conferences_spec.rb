@@ -97,7 +97,7 @@ describe "Conferences", type: :system do
     it "lists all the highlighted conferences" do
       within "#highlighted-conferences" do
         expect(page).to have_content(translated(promoted_conference.title, locale: :en))
-        expect(page).to have_selector("[id^='promoted']", count: 1)
+        expect(page).to have_selector("[id^='conference_highlight']", count: 1)
       end
     end
 

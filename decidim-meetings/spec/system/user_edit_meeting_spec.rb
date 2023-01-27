@@ -36,9 +36,9 @@ describe "User edit meeting", type: :system do
       click_link translated(meeting.title)
       click_link "Edit meeting"
 
-      expect(page).to have_content "EDIT YOUR MEETING"
+      expect(page).to have_content "Edit Your Meeting"
 
-      within "form.edit_meeting" do
+      within "form.meetings_form" do
         fill_in :meeting_title, with: new_title
         fill_in :meeting_description, with: new_description
         click_button "Update"
@@ -52,7 +52,7 @@ describe "User edit meeting", type: :system do
       it_behaves_like(
         "a record with front-end geocoding address field",
         Decidim::Meetings::Meeting,
-        within_selector: ".edit_meeting",
+        within_selector: "form.meetings_form",
         address_field: :meeting_address
       ) do
         let(:geocoded_address_value) { meeting.address }
@@ -65,7 +65,7 @@ describe "User edit meeting", type: :system do
           click_link translated(meeting.title)
           click_link "Edit meeting"
 
-          expect(page).to have_content "EDIT YOUR MEETING"
+          expect(page).to have_content "Edit Your Meeting"
         end
       end
     end
@@ -77,9 +77,9 @@ describe "User edit meeting", type: :system do
         click_link translated(meeting.title)
         click_link "Edit meeting"
 
-        expect(page).to have_content "EDIT YOUR MEETING"
+        expect(page).to have_content "Edit Your Meeting"
 
-        within "form.edit_meeting" do
+        within "form.meetings_form" do
           fill_in :meeting_description, with: " "
           click_button "Update"
         end
@@ -97,9 +97,9 @@ describe "User edit meeting", type: :system do
         click_link translated(meeting.title)
         click_link "Edit meeting"
 
-        expect(page).to have_content "EDIT YOUR MEETING"
+        expect(page).to have_content "Edit Your Meeting"
 
-        within "form.edit_meeting" do
+        within "form.meetings_form" do
           expect(page).to have_no_css("div.ql-editor")
         end
 

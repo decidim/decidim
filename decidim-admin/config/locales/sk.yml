@@ -113,7 +113,7 @@ sk:
         client_id: ID klienta
         client_secret: Tajný kľúč klienta
         organization_name: Názov organizácie
-        organization_url: Odkaz na stránku organizácie 
+        organization_url: Odkaz na stránku organizácie
         redirect_uri: Presmerovanie URI
         site: Webstránka
   decidim:
@@ -556,15 +556,12 @@ sk:
           homepage_appearance_title: Upraviť vzhľad úvodnej obrazovky
           homepage_highlighted_content_banner_title: Banner so zdôrazneným obsahom
           images:
-            layout_appearance_title: Upraviť vzhľad 
+            layout_appearance_title: Upraviť vzhľad
           omnipresent_banner_appearance_title: Upraviť všadeprítomný banner
       organization_homepage:
         edit:
           active_content_blocks: Bloky aktívneho obsahu
           inactive_content_blocks: Bloky neaktívneho obsahu
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualizovať
       participatory_space_private_users:
         create:
           error: Pri pridávaní súkromného používateľa pre tento participačný priestor došlo k chybe.

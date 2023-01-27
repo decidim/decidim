@@ -37,6 +37,7 @@
   @import "stylesheets/decidim/redesigned_tos.scss";
   @import "stylesheets/decidim/redesigned_vertical_tabs.scss";
   @import "stylesheets/decidim/redesigned_flash.scss";
+  @import "stylesheets/decidim/redesigned_map.scss";
   @import "stylesheets/decidim/redesigned_filters.scss";
   @import "stylesheets/decidim/redesigned_tags.scss";
   @import "stylesheets/decidim/redesigned_tabs_x.scss";
@@ -65,6 +66,7 @@
 @import "stylesheets/decidim/redesigned_notifications.scss";
 @import "stylesheets/decidim/redesigned_profile.scss";
 @import "stylesheets/decidim/redesigned_conversations.scss";
+@import "stylesheets/decidim/redesigned_versions.scss";
 
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.

@@ -12,7 +12,9 @@ edit_link(
   <% if promoted_assemblies.any? %>
     <section id="highlighted-assemblies" class="row section">
       <h1 class="section-heading"><%= t("assemblies.index.promoted_assemblies", scope: "layouts.decidim") %></h1>
-      <%= render partial: "promoted_assembly", collection: promoted_assemblies, as: :promoted_assembly %>
+      <% promoted_assemblies.each do |promoted_assembly| %>
+        <%= card_for promoted_assembly, highlight: true, size: :g %>
+      <% end %>
     </section>
   <% end %>
 

@@ -40,6 +40,11 @@ Decidim.configure do |config|
   # Enable the service worker. By default is disabled in development and enabled in the rest of environments
   config.service_worker_enabled = Rails.application.secrets.decidim[:service_worker_enabled].present?
 
+  # Sets the list of static pages' slugs that can include content blocks.
+  # By default is only enabled in the terms-and-conditions static page to allow a summary to be added and include
+  # sections with a two-pane view
+  config.page_blocks = Rails.application.secrets.decidim[:page_blocks].presence || %w(terms-and-conditions)
+
   # Map and Geocoder configuration
   #
   # == HERE Maps ==

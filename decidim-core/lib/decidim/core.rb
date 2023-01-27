@@ -16,6 +16,7 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
+  autoload :RedesignedFilterFormBuilder, "decidim/redesigned_filter_form_builder"
   autoload :ComponentManifest, "decidim/component_manifest"
   autoload :NotificationSettingManifest, "decidim/notification_setting_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
@@ -508,6 +509,11 @@ module Decidim
   # Enable/Disable the service worker
   config_accessor :service_worker_enabled do
     Rails.env.exclude?("development")
+  end
+
+  # List of static pages' slugs that can include content blocks
+  config_accessor :page_blocks do
+    %w(terms-and-conditions)
   end
 
   # Public: Registers a global engine. This method is intended to be used
