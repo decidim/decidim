@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user destroys an Answer
       # from the admin panel.
       class DestroyAnswer < Decidim::Command
-        include ::Decidim::AttachmentMethods
+        # include ::Decidim::AttachmentMethods
         include ::Decidim::GalleryMethods
 
         def initialize(answer, current_user)

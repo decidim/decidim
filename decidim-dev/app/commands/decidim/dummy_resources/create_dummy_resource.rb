@@ -3,7 +3,7 @@
 module Decidim
   module DummyResources
     class CreateDummyResource < Decidim::Command
-      include Decidim::AttachmentMethods
+      # include Decidim::AttachmentMethods
       include Decidim::GalleryMethods
 
       def initialize(form)
