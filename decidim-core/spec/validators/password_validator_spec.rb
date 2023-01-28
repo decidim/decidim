@@ -67,7 +67,7 @@ describe PasswordValidator do
 
         it "is blacklisted" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is blacklisted"])
+          expect(record.errors[attribute]).to eq(["is denied"])
         end
       end
 
@@ -76,7 +76,7 @@ describe PasswordValidator do
 
         it "does not validate" do
           expect(validator).to be(false)
-          expect(record.errors[attribute]).to eq(["is blacklisted"])
+          expect(record.errors[attribute]).to eq(["is denied"])
         end
       end
 
