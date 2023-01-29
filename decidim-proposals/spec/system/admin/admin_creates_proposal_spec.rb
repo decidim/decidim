@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Admin creates proposals", type: :system do
   let(:manifest_name) { "proposals" }
+  let(:creation_enabled?) { true }
   let!(:component) do
     create(:proposal_component,
            :with_creation_enabled,
@@ -15,6 +16,17 @@ describe "Admin creates proposals", type: :system do
   let(:new_body) { "This is my proposal new body" }
 
   include_context "when managing a component as an admin"
+
+  before do
+    component.update!(
+      settings: { official_proposals_enabled: true, attachments_allowed: true, creation_enabled: true },
+      step_settings: {
+        component.participatory_space.active_step.id => {
+          creation_enabled: creation_enabled?
+        }
+      }
+    )
+  end
 
   it "can attach a file" do
     visit_component_admin
