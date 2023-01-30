@@ -19,8 +19,6 @@ sk:
         title: Akcie
       admin:
         models:
-          components:
-            body: Telo textu
           post:
             name: Príspevok
         posts:
