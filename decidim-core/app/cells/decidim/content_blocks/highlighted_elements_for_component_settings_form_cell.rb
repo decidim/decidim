@@ -13,6 +13,10 @@ module Decidim
         components.map { |component| [translated_attribute(component.name), component.id] }.prepend([I18n.t("all", scope: translations_scope), nil])
       end
 
+      def include_order_setting?
+        form.object.settings.attribute_names.include? "order"
+      end
+
       private
 
       def components
