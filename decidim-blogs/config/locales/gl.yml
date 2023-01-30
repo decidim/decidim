@@ -18,8 +18,6 @@ gl:
         user_group_id: Crear publicación como
       admin:
         models:
-          components:
-            body: Corpo
           post:
             name: Publicación
         posts:
