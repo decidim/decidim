@@ -84,9 +84,9 @@ module Decidim
           content_block.default!
         end
 
-        [:participatory_process_homepage, :participatory_process_group_homepage].product((1..3).to_a).each do |scope, index|
-          Decidim.content_blocks.register(scope, :"html_#{index}") do |content_block|
-            content_block.cell = "decidim/content_blocks/html"
+        (1..3).each do |index|
+          Decidim.content_blocks.register(:participatory_process_group_homepage, :"html_#{index}") do |content_block|
+            content_block.cell = "decidim/participatory_process_groups/content_blocks/html"
             content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.html_#{index}.name"
             content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
 
@@ -95,6 +95,17 @@ module Decidim
             end
             content_block.default!
           end
+        end
+
+        Decidim.content_blocks.register(:participatory_process_homepage, :html) do |content_block|
+          content_block.cell = "decidim/participatory_process_groups/content_blocks/html"
+          content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.html.name"
+          content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :html_content, type: :text, translated: true
+          end
+          content_block.default!
         end
 
         Decidim.content_blocks.register(:participatory_process_homepage, :main_data) do |content_block|

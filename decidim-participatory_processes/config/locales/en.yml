@@ -378,6 +378,8 @@ en:
         related_assemblies: Related assemblies
     participatory_process_groups:
       content_blocks:
+        html:
+          name: HTML block
         html_1:
           name: First HTML block
         html_2:
