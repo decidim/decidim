@@ -1,5 +1,8 @@
 ro:
   activemodel:
+    attributes:
+      post:
+        body: Conținut
     models:
       decidim/blogs/create_post_event: Postare nouă pe blog
   activerecord:
@@ -19,8 +22,6 @@ ro:
         user_group_id: Creează postare ca
       admin:
         models:
-          components:
-            body: Conținut
           post:
             name: Postează
         posts:
