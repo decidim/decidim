@@ -249,7 +249,7 @@ fr:
           votes:
             one: vote
             other: votes
-          you_voted: Vous avez voté pour
+          you_voted: Vous avez voté pour ceci
         project_budget_button:
           add: Ajouter à votre vote
           add_descriptive: Ajouter le projet %{resource_name} à votre vote
