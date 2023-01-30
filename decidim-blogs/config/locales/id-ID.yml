@@ -16,8 +16,6 @@ id:
         title: Tindakan
       admin:
         models:
-          components:
-            body: Tubuh
           post:
             name: Pos
         posts:
