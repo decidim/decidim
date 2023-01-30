@@ -8,8 +8,8 @@ eu:
         description: Deskribapena
         end_date: Bukaera-data
         progress: Aurrerapena
-        project_ids: Proiektu barne
-        proposals: Proposamen sortak
+        project_ids: Barne dauden proiektuak
+        proposals: Barne dauden proposamenak
         start_date: Hasiera-data
         title: Izenburua
         updated_at: Noiz eguneratua
@@ -19,7 +19,7 @@ eu:
         name: Izena
         progress: Aurrerapena
       timeline_entry:
-        description: Descripción
+        description: Deskribapena
         entry_date: Data
     models:
       decidim/accountability/proposal_linked_event: Emaitza batean sartutako proposamena
@@ -48,6 +48,7 @@ eu:
           results: Emaitzak
         import_results:
           new:
+            download_export: Deskargatu esportatutakoa CSV formatuan
             import: Inportatu
             info: |
               <p>Ondoko urrats hauek ematea gomendatzen dizugu:</p>
