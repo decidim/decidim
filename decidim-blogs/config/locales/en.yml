@@ -52,6 +52,7 @@ en:
           update: "%{user_name} updated the %{resource_name} blog post in %{space_name}"
       content_blocks:
         highlighted_posts:
+          name: Posts
           see_all: See all posts
       last_activity:
         new_post: 'New post:'

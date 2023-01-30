@@ -167,6 +167,17 @@ module Decidim
           end
         end
 
+        Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_posts) do |content_block|
+          content_block.cell = "decidim/blogs/content_blocks/highlighted_posts"
+          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+          content_block.public_name_key = "decidim.blogs.content_blocks.highlighted_posts.name"
+          content_block.component_manifest_name = "blogs"
+
+          content_block.settings do |settings|
+            settings.attribute :component_id, type: :select, default: nil
+          end
+        end
+
         Decidim.content_blocks.register(:participatory_process_group_homepage, :metadata) do |content_block|
           content_block.cell = "decidim/participatory_process_groups/content_blocks/metadata"
           content_block.public_name_key = "decidim.participatory_process_groups.content_blocks.metadata.name"
