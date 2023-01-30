@@ -1,7 +1,6 @@
 <%# NOTE: Since this call can be called from outside decidim-meetings, frontend assets are required %>
 
-<%= stylesheet_pack_tag "decidim_meetings", media: "all" %>
-<%= javascript_pack_tag "decidim_meetings" %>
+<%= apply_meetings_pack_tags %>
 
 <section id="<%= section_id %>" class="content-block">
   <div class="content-block__title">
