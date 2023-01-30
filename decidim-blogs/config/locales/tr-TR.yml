@@ -17,8 +17,6 @@ tr:
         title: Eylemler
       admin:
         models:
-          components:
-            body: Vücut
           post:
             name: posta
         posts:
