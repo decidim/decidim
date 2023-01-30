@@ -19,8 +19,6 @@ lv:
         title: Darbības
       admin:
         models:
-          components:
-            body: Pamatteksts
           post:
             name: Ziņa
         posts:
@@ -47,7 +45,6 @@ lv:
             author: Autors
             body: Pamatteksts
             created_at: Izveidots plkst.
-            title: nosaukums
       posts:
         show:
           back: Atpakaļ uz sarakstu
