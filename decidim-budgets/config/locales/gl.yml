@@ -203,7 +203,6 @@ gl:
           votes:
             one: voto
             other: votos
-          you_voted: Votaches isto
         project_budget_button:
           add: Engadir ao teu voto
           add_descriptive: Engadir o proxecto %{resource_name} ao teu voto
