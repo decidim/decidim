@@ -39,7 +39,6 @@ fr-CA:
         end_time: Le vote se termine
         introductory_image: Image d'introduction
         promoted: Mis en avant
-        scope_id: Secteur
         show_check_census: Afficher la page "Vérifier le recensement"
         start_time: Le vote commence le
         title: Titre
@@ -844,11 +843,20 @@ fr-CA:
           published: Publié
         landing_page:
           content_blocks:
+            create:
+              error: Un problème est survenu lors de la création de ce bloc de contenu
+              success: Le bloc de contenu a été créé avec succès
+            destroy:
+              error: Un problème est survenu lors de la suppression de ce bloc de contenu
+              success: Le bloc de contenu a été supprimé avec succès
             edit:
               update: Mettre à jour
           edit:
             active_content_blocks: Blocs de contenu actifs
+            add: Ajouter un bloc de contenu
+            destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
             inactive_content_blocks: Blocs de contenu inactifs
+            title: Contenus de la page
         menu:
           votings: Élections
           votings_submenu:
