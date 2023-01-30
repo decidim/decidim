@@ -177,8 +177,17 @@ es-PY:
       participatory_process_group_landing_page:
         edit:
           active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           inactive_content_blocks: Bloques de contenido inactivos
+          title: Contenidos de la página
       participatory_process_group_landing_page_content_blocks:
+        create:
+          error: Se ha producido un error al intentar crear este bloque de contenido
+          success: Bloque de contenido creado con éxito
+        destroy:
+          error: Se ha producido un error al intentar crear este bloque de contenido
+          success: Bloque de contenido eliminado con éxito
         edit:
           update: Actualizar
       participatory_process_groups:
