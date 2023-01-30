@@ -245,7 +245,7 @@ ja:
           view: 表示
           votes:
             other: 投票
-          you_voted: 投票済
+          you_voted: あなたの投票
         project_budget_button:
           add: 投票に追加
           add_descriptive: プロジェクト %{resource_name} をあなたの投票に追加
