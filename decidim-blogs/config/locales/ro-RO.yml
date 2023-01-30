@@ -1,6 +1,12 @@
 ---
 ro:
   activemodel:
+    attributes:
+      post:
+        body: Conținut
+        decidim_author_id: Autor
+        published_at: Publicat la
+        title: Titlu
     models:
       decidim/blogs/create_post_event: Postare nouă pe blog
   activerecord:
@@ -20,8 +26,6 @@ ro:
         title: Acțiuni
       admin:
         models:
-          components:
-            body: Conținut
           post:
             name: Postează
         posts:
@@ -55,7 +59,7 @@ ro:
             body: Conținut
             created_at: Creat la
             official_blog_post: Postare oficială
-            title: titlu
+            title: Titlu
       posts:
         show:
           back: Înapoi la listă
