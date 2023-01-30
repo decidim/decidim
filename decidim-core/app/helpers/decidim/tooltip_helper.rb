@@ -4,7 +4,7 @@ module Decidim
   # This helper includes some methods to help with the inclusion of tooltips
   # on the layout.
   module TooltipHelper
-    # deprecated
+    # redesign deprecated
     def with_tooltip(title, &)
       content_tag(:span, data: { tooltip: true, disable_hover: false, keep_on_hover: true, click_open: false },
                          title:, &)
