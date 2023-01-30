@@ -309,6 +309,7 @@ ja:
           update: "%{user_name} が %{space_name} カンファレンスのパートナー %{resource_name} を更新しました"
         registration_type:
           create: "%{user_name} が %{resource_name} カンファレンスで %{space_name} の登録タイプを作成しました"
+          delete: "%{user_name} が %{space_name} カンファレンスから %{resource_name} 登録タイプを削除しました"
           publish: "%{user_name} が %{resource_name} カンファレンスで %{space_name} 登録タイプを公開しました"
           unpublish: "%{user_name} が %{resource_name} カンファレンス内の %{space_name} 登録タイプを非公開にしました"
           update: "%{user_name} が %{resource_name} カンファレンスの %{space_name} 登録タイプを更新しました"
