@@ -20,8 +20,6 @@ lt:
         user_group_id: Sukurti įrašą kaip
       admin:
         models:
-          components:
-            body: Pagrindinė dalis
           post:
             name: Publikacija
         posts:
