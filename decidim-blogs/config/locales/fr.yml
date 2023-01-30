@@ -1,5 +1,8 @@
 fr:
   activemodel:
+    attributes:
+      post:
+        body: Corps du texte
     models:
       decidim/blogs/create_post_event: Nouvel article
   activerecord:
@@ -18,8 +21,6 @@ fr:
         user_group_id: Créer un article en tant que
       admin:
         models:
-          components:
-            body: Corps du texte
           post:
             name: Publier
         posts:
