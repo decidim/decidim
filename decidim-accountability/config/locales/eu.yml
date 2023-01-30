@@ -9,8 +9,8 @@ eu:
         description: Deskribapena
         end_date: Bukaera-data
         progress: Aurrerapena
-        project_ids: Proiektu barne
-        proposals: Proposamen sortak
+        project_ids: Barne dauden proiektuak
+        proposals: Barne dauden proposamenak
         start_date: Hasiera-data
         title: Izenburua
         updated_at: Noiz eguneratua
@@ -20,8 +20,9 @@ eu:
         name: Izena
         progress: Aurrerapena
       timeline_entry:
-        description: Descripción
+        description: Deskribapena
         entry_date: Data
+        title: Izena
     models:
       decidim/accountability/proposal_linked_event: Emaitza batean sartutako proposamena
       decidim/accountability/result_progress_updated_event: Emaitzen aurrerapena eguneratu da
@@ -49,6 +50,7 @@ eu:
           results: Emaitzak
         import_results:
           new:
+            download_export: Deskargatu esportatutakoa CSV formatuan
             import: Inportatu
             info: |
               <p>Ondoko urrats hauek ematea gomendatzen dizugu:</p>
@@ -141,6 +143,10 @@ eu:
           create: "%{user_name} emaitza sortu da %{resource_name} en %{space_name}"
           delete: "%{user_name} %{resource_name} %{space_name} emaitza ezabatu da"
           update: "%{user_name} emaitza eguneratu %{resource_name} en %{space_name}"
+        status:
+          create: "%{user_name} k %{resource_name} egoera sortu du"
+          delete: "%{user_name} k %{resource_name} egoera ezabatu du"
+          update: "%{user_name} k %{resource_name} egoera eguneratu du"
         value_types:
           parent_presenter:
             not_found: 'Gurasoa ez zen datu-basean aurkitu (ID: %{id})'
@@ -179,6 +185,7 @@ eu:
         timeline_entry:
           fields:
             entry_date: Data
+            title: Izena
       result_m:
         executed: Burutua
         view: Ikusi
