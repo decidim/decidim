@@ -1,5 +1,8 @@
 ja:
   activemodel:
+    attributes:
+      post:
+        body: 本文
     models:
       decidim/blogs/create_post_event: 新しいブログ投稿
   activerecord:
@@ -17,8 +20,6 @@ ja:
         user_group_id: 次のように投稿を作成
       admin:
         models:
-          components:
-            body: 本文
           post:
             name: 投稿
         posts:
