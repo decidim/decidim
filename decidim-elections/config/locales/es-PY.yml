@@ -39,7 +39,6 @@ es-PY:
         end_time: La votación finaliza
         introductory_image: Imagen de presentación
         promoted: Destacada
-        scope_id: Ámbito
         show_check_census: Mostrar la página de "comprobar censo"
         start_time: La votación empieza
         title: Título
@@ -844,11 +843,20 @@ es-PY:
           published: Publicada
         landing_page:
           content_blocks:
+            create:
+              error: Se ha producido un error al intentar crear este bloque de contenido
+              success: Bloque de contenido creado con éxito
+            destroy:
+              error: Se ha producido un error al intentar crear este bloque de contenido
+              success: Bloque de contenido eliminado con éxito
             edit:
               update: Actualizar
           edit:
             active_content_blocks: Bloques de contenido activos
+            add: Añadir bloque de contenido
+            destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
             inactive_content_blocks: Bloques de contenido inactivos
+            title: Contenidos de la página
         menu:
           votings: Votaciones
           votings_submenu:
