@@ -15,17 +15,24 @@ cs:
         description: Popis
         file: Soubor
         title: Název přílohy nebo obrázku
+        weight: Pozice v řazení
       attachment_collection:
         description: Popis
         name: Název
+        weight: Pozice v řazení
       category:
         description: Popis
         name: Název
         parent_id: Nadřazená
+        weight: Pozice v řazení
       component:
         name: Název
         published_at: Publikováno v
         weight: Pozice v řazení
+      external_domain:
+        value: Hodnota
+      help_section:
+        content: Obsah
       id: ID
       import:
         user_group_id: Vytvořit importy jako
@@ -93,6 +100,9 @@ cs:
         welcome_notification_body: Tělo uvítacího oznámení
         welcome_notification_subject: Předmět uvítacího oznámení
         youtube_handler: YouTube handler
+      participatory_space_private_user:
+        email: E-mail
+        name: Název
       scope:
         code: Kód
         name: Název
@@ -114,6 +124,7 @@ cs:
         show_in_footer: Zobrazit v zápatí
         slug: URL slug
         title: Titul
+        topic_id: Téma
         weight: Pozice v řazení
       static_page_topic:
         description: Popis
