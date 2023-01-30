@@ -48,6 +48,7 @@ ca:
         import: Importa propostes a projectes
         new: Nou %{name}
         preview: Previsualitzar
+        send_voting_reminders: Enviar recordatoris de votació
         title: Accions
       admin:
         budgets:
