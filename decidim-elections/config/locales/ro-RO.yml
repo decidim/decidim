@@ -12,13 +12,14 @@ ro:
         end_time: Votarea se încheie la
         start_time: Votarea începe la
         title: Titlu
+      polling_station:
+        title: Titlu
       question:
         max_selections: Numărul maxim de selecții
         min_selections: Niciuna dintre opțiunile de mai sus
         title: Titlu
       voting:
         end_time: Votarea se încheie
-        scope: Domeniu de interes
         start_time: Votarea începe
         title: Titlu
     errors:
