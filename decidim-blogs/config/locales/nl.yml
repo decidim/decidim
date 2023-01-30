@@ -19,8 +19,6 @@ nl:
         title: acties
       admin:
         models:
-          components:
-            body: Tekstgedeelte
           post:
             name: Post
         posts:
@@ -54,7 +52,6 @@ nl:
             body: Tekstgedeelte
             created_at: Aangemaakt op
             official_blog_post: Officiële blogpost
-            title: titel
       posts:
         show:
           back: Terug naar het overzicht
