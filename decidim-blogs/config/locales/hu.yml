@@ -19,8 +19,6 @@ hu:
         title: Műveletek
       admin:
         models:
-          components:
-            body: Szöveg
           post:
             name: Bejegyzés
         posts:
@@ -54,7 +52,6 @@ hu:
             body: Szöveg
             created_at: 'Létrehozva:'
             official_blog_post: Hivatalos bejegyzés
-            title: cím
       posts:
         show:
           back: Vissza a listához
