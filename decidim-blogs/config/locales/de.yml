@@ -18,8 +18,6 @@ de:
         user_group_id: Beitrag erstellen als
       admin:
         models:
-          components:
-            body: Haupttext
           post:
             name: Post
         posts:
