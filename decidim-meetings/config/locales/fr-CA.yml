@@ -33,7 +33,7 @@ fr-CA:
         registration_type: Type d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
-        reserved_slots: Places disponibles pour cette rencontre
+        reserved_slots: Places réservées pour cette rencontre
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
