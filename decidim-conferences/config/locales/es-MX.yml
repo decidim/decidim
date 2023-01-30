@@ -312,6 +312,7 @@ es-MX:
           update: "%{user_name} actualizó la colaboradora %{resource_name} de la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          delete: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
