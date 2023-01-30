@@ -73,7 +73,8 @@ describe Decidim::UploadModal, type: :cell do
 
   context "when attachment is present" do
     let(:filename) { "Exampledocument.pdf" }
-    let(:attachments) { [upload_test_file(Decidim::Dev.test_file(filename, "application/pdf"))] }
+    let(:file) { Decidim::Dev.test_file(filename, "application/pdf") }
+    let(:attachments) { [upload_test_file(file)] }
 
     it "renders the attachments" do
       expect(subject).to have_css(".attachment-details")
@@ -85,6 +86,25 @@ describe Decidim::UploadModal, type: :cell do
 
       it "renders preview" do
         expect(subject).to have_selector("img[alt='#{attribute}']")
+      end
+    end
+
+    context "when attachment is titled" do
+      let(:attachments) { [create(:attachment, file: file)] }
+      let(:titled) { true }
+
+      before do
+        allow(form).to receive(:hidden_field).and_return(
+          %(<input type="hidden" name="#{attribute}[]" value="#{attachments[0].id}">)
+        )
+      end
+
+      it "renders the attachments" do
+        expect(subject).to have_css(".attachment-details")
+        expect(subject).to have_selector("[data-filename='#{filename}']")
+
+        details = subject.find(".attachment-details")
+        expect(details).to have_content("#{attachments[0].title["en"]} (#{filename})")
       end
     end
   end
