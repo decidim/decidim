@@ -1,6 +1,12 @@
 ---
 cs:
   activemodel:
+    attributes:
+      post:
+        body: Tělo zprávy
+        decidim_author_id: Autor
+        published_at: Čas zveřejnění
+        title: Název
     models:
       decidim/blogs/create_post_event: Nový blogový příspěvek
   activerecord:
@@ -21,8 +27,6 @@ cs:
         title: Akce
       admin:
         models:
-          components:
-            body: Tělo
           post:
             name: Příspěvek
         posts:
@@ -56,7 +60,7 @@ cs:
             body: Tělo
             created_at: Vytvořeno v
             official_blog_post: Oficiální příspěvek
-            title: titulek
+            title: Název
       posts:
         show:
           back: Zpět na seznam
