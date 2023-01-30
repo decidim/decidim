@@ -9,8 +9,8 @@ eu:
         end_date: Bukaera-data
         meetings_ids: Honekin lotutako topaketak
         progress: Aurrerapena
-        project_ids: Proiektu barne
-        proposals: Proposamen sortak
+        project_ids: Barne dauden proiektuak
+        proposals: Barne dauden proposamenak
         start_date: Hasiera-data
         title: Izenburua
         updated_at: Noiz eguneratua
@@ -20,8 +20,9 @@ eu:
         name: Izena
         progress: Aurrerapena
       timeline_entry:
-        description: Descripción
+        description: Deskribapena
         entry_date: Data
+        title: Izena
     models:
       decidim/accountability/proposal_linked_event: Emaitza batean sartutako proposamena
       decidim/accountability/result_progress_updated_event: Emaitzen aurrerapena eguneratu da
@@ -38,6 +39,7 @@ eu:
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
+        import: Inportatu proiektuak emaitzetara
         import_csv: Inportatu CSV
         new: '%{name} berria'
         preview: Aurreikusi
@@ -49,6 +51,7 @@ eu:
           results: Emaitzak
         import_results:
           new:
+            download_export: Deskargatu esportatutakoa CSV formatuan
             import: Inportatu
             info: |
               <p>Ondoko urrats hauek ematea gomendatzen dizugu:</p>
@@ -82,6 +85,15 @@ eu:
             name: Egoera
           timeline_entry:
             name: Denbora-lerroko sarrera
+        projects_import:
+          create:
+            invalid: Arazo bat gertatu da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
+          new:
+            create: Inportatu
+            import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
+            no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
+            origin_component_id: Jatorrizko osagaia
+            select_component: Aukeratu osagaia
         results:
           create:
             invalid: Arazo bat izan da emaitza hau sortzean.
@@ -141,6 +153,10 @@ eu:
           create: "%{user_name} emaitza sortu da %{resource_name} en %{space_name}"
           delete: "%{user_name} %{resource_name} %{space_name} emaitza ezabatu da"
           update: "%{user_name} emaitza eguneratu %{resource_name} en %{space_name}"
+        status:
+          create: "%{user_name} k %{resource_name} egoera sortu du"
+          delete: "%{user_name} k %{resource_name} egoera ezabatu du"
+          update: "%{user_name} k %{resource_name} egoera eguneratu du"
         value_types:
           parent_presenter:
             not_found: 'Gurasoa ez zen datu-basean aurkitu (ID: %{id})'
@@ -156,6 +172,10 @@ eu:
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
+      import_projects_mailer:
+        import:
+          subject: Proiektuak zuzen inportatu dira
+          success: Zuzen inportatu dira proiektuak emaitzetara %{component_name} osagaian. Emaitza administrazio-interfacean ikus dezakezu.
       last_activity:
         new_result: '<span> %{link}</span>emaitza berrian'
       models:
@@ -179,6 +199,7 @@ eu:
         timeline_entry:
           fields:
             entry_date: Data
+            title: Izena
       result_m:
         executed: Burutua
         view: Ikusi
