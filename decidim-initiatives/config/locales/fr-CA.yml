@@ -5,7 +5,7 @@ fr-CA:
         answer: Réponse
         answer_url: URL de la réponse
         area_id: Périmètre d'assemblée
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Secteur
         decidim_user_group_id: Auteur
         description: Description
         hashtag: Hashtag
@@ -46,8 +46,8 @@ fr-CA:
         undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
         validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature
       initiatives_type_scope:
-        decidim_scopes_id: Périmètres d’application
-        supports_required: Soutiens requis
+        decidim_scopes_id: Secteurs
+        supports_required: Signatures requises
       initiatives_vote:
         date_of_birth: Date de naissance
         document_number: Numéro de document
