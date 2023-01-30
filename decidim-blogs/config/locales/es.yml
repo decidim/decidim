@@ -1,5 +1,8 @@
 es:
   activemodel:
+    attributes:
+      post:
+        body: Cuerpo del texto
     models:
       decidim/blogs/create_post_event: Nueva publicación en el blog
   activerecord:
@@ -10,7 +13,7 @@ es:
   decidim:
     blogs:
       actions:
-        confirm_destroy: '¿Estás segura que quieres eliminar esta publicación?'
+        confirm_destroy: '¿Seguro que quieres eliminar esta publicación?'
         destroy: Borrar
         edit: Editar
         new: Nueva publicación
@@ -18,8 +21,6 @@ es:
         user_group_id: Crear publicación como
       admin:
         models:
-          components:
-            body: Cuerpo
           post:
             name: Publicar
         posts:
