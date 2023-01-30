@@ -2,10 +2,6 @@
 "no":
   activemodel:
     attributes:
-      agenda:
-        description: Beskrivelse
-        duration: Varighet
-        title: Tittel
       close_meeting:
         attendees_count: Antall deltagere
         attending_organizations: Liste over organisasjoner som deltok
@@ -23,7 +19,6 @@
         decidim_scope_id: Tema
         decidim_user_group_id: Brukergruppe
         description: Beskrivelse
-        end_time: Sluttid
         id: ID
         location: Plassering
         location_hints: Plasseringstips
@@ -35,11 +30,11 @@
         registration_terms: Registrerings vilkår
         registration_url: Link til registrering
         registrations_enabled: Registreringer aktivert
-        show_embedded_iframe: Vis innebygd iframe for denne nettadressen
-        start_time: Start-Tid
         title: Tittel
         transparent: Privat
         type_of_meeting: Type møte
+      meeting_agenda_items:
+        duration: Varighet
     errors:
       models:
         meeting:
