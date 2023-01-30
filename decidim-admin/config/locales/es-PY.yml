@@ -845,9 +845,21 @@ es-PY:
           add: Añadir a la lista blanca
           title: Lista blanca de dominios externos
       organization_homepage:
+        content_blocks:
+          create:
+            error: Hubo un problema al intentar crear este bloque de contenido
+            success: Bloque de contenido creado correctamente
+          destroy:
+            error: Se ha producido un error al tratar de eliminar este bloque de contenido
+            success: Bloque de contenido eliminado con éxito
+          edit:
+            update: Actualizar
         edit:
           active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           inactive_content_blocks: Bloques de contenido inactivos
+          title: Contenidos de la página
       participatory_space_private_users:
         create:
           error: Hubo un error al agregar un usuario privado para este espacio participativo.
@@ -966,6 +978,16 @@ es-PY:
           view: Ver la página pública
         content_blocks:
           active_content_blocks: Bloques de contenido activos
+          add: Añadir bloque de contenido
+          create:
+            error: Se ha producido un error al intentar crear este bloque de contenido
+            success: Bloque de contenido creado con éxito
+          destroy:
+            error: Se ha producido un error al intentar crear este bloque de contenido
+            success: Bloque de contenido eliminado con éxito
+          destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
+          edit:
+            update: Actualizar
           inactive_content_blocks: Bloques de contenido inactivos
           title: Contenido de la página
         create:
