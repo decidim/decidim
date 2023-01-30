@@ -263,7 +263,6 @@ sv:
           votes:
             one: röst
             other: röster
-          you_voted: Det här är din röst
         project_budget_button:
           add: Lägg till i din röst
           add_descriptive: Lägg till projekt %{resource_name} till din röst
