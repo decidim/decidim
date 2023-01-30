@@ -5,7 +5,7 @@
 </div>
 
 <div class="field">
-  <%= form.editor :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description) %>
+  <%= text_editor_for(form, :description, toolbar: :full, lines: 8, disabled: !allowed_to?(:update, :initiative, initiative: current_initiative), value: translated_attribute(@form.description)) %>
 </div>
 
 <div class="field">
