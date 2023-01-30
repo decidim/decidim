@@ -29,6 +29,8 @@ module Decidim
 
       def data; end
 
+      def block_id; end
+
       def prefixed_class(name)
         [classes_prefix, name].compact.join("__")
       end
