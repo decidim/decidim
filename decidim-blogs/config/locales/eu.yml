@@ -19,8 +19,6 @@ eu:
         title: Ekintzak
       admin:
         models:
-          components:
-            body: Gorputzeko
           post:
             name: Post
         posts:
@@ -48,7 +46,6 @@ eu:
             author: Egilea
             body: Gorputzeko
             created_at: Sortutako at
-            title: Izenburua
       posts:
         show:
           back: Itzuli zerrendara
