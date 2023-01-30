@@ -1,5 +1,8 @@
 es-PY:
   activemodel:
+    attributes:
+      post:
+        body: Cuerpo del texto
     models:
       decidim/blogs/create_post_event: Nueva publicación del blog
   activerecord:
@@ -18,8 +21,6 @@ es-PY:
         user_group_id: Crear publicación como
       admin:
         models:
-          components:
-            body: Cuerpo
           post:
             name: Enviar
         posts:
