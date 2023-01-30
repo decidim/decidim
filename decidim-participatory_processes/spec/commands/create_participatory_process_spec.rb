@@ -140,6 +140,19 @@ module Decidim::ParticipatoryProcesses
           linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
           expect(linked_processes).to match_array([another_process])
         end
+
+        context "when sorting by weight" do
+          let!(:process_one) { create :participatory_process, organization: organization, weight: 2 }
+          let!(:process_two) { create :participatory_process, organization: organization, weight: 1 }
+          let(:related_process_ids) { [process_one.id, process_two.id] }
+
+          it "links processes in right way" do
+            subject.call
+
+            linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
+            expect(linked_processes.first).to eq(process_two)
+          end
+        end
       end
     end
   end
