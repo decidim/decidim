@@ -32,7 +32,6 @@ sv:
         banner_image: Bannerbild
         end_time: Omröstningen avslutas
         promoted: Annonserad
-        scope_id: Omfång
         start_time: Omröstningen börjar
         title: Titel
     errors:
