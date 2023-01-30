@@ -16,7 +16,7 @@
   <% else %>
     <%= link_to_if(item[:url].present? && !is_active_link?(item[:url], :exclusive), item_label, item[:url], class:"menu-bar__breadcrumb-desktop__dropdown-trigger#{' font-bold' if item[:active]}") do %>
       <%# alternative template %>
-      <%= content_tag :span, item_label, class:"menu-bar__breadcrumb-desktop__dropdown-trigger#{' font-bold' if item[:active]}", tabindex: "0" %>
+      <%= content_tag :span, item_label, class:"menu-bar__breadcrumb-desktop__dropdown-trigger no-interactive#{' font-bold' if item[:active]}", tabindex: "0" %>
     <% end %>
   <% end %>
 <% end %>
