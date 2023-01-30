@@ -48,6 +48,7 @@ en:
         import: Import proposals to projects
         new: New %{name}
         preview: Preview
+        send_voting_reminders: Send voting reminders
         title: Actions
       admin:
         budgets:
