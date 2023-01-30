@@ -315,6 +315,7 @@ ro:
           update: "%{user_name} a actualizat vorbitorul %{resource_name} în conferința %{space_name}"
         registration_type:
           create: "%{user_name} a creat tipul de înregistrare %{resource_name} în conferința %{space_name}"
+          delete: "%{user_name} a eliminat tipul de înregistrare %{resource_name} din conferința %{space_name}"
           publish: "%{user_name} a publicat tipul de înregistrare %{resource_name} în conferința %{space_name}"
           unpublish: "%{user_name} nu a publicat tipul de înregistrare %{resource_name} în conferința %{space_name}"
           update: "%{user_name} a actualizat tipul de înregistrare %{resource_name} în conferința %{space_name}"
