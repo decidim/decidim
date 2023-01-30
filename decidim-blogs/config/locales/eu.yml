@@ -18,8 +18,6 @@ eu:
         user_group_id: Sortu argitalpena hau bezala
       admin:
         models:
-          components:
-            body: Gorputzeko
           post:
             name: Post
         posts:
