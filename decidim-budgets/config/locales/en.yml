@@ -250,7 +250,7 @@ en:
           votes:
             one: vote
             other: votes
-          you_voted: You voted this
+          you_voted: You voted for this
         project_budget_button:
           add: Add to your vote
           add_descriptive: Add project %{resource_name} to your vote
