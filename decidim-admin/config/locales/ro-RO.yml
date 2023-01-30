@@ -24,7 +24,7 @@ ro:
       component:
         name: Nume
         published_at: Publicat în
-        weight: Ordinea în poziționare
+        weight: Poziție
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -113,12 +113,12 @@ ro:
         show_in_footer: Afișează în subsol
         slug: URL slug
         title: Titlu
-        weight: Ordinea în poziționare
+        weight: Poziție
       static_page_topic:
         description: Descriere
         show_in_footer: Afișează în subsol
         title: Titlu
-        weight: Ordinea în poziționare
+        weight: Poziție
       user_group_csv_verification:
         file: Fişier
     errors:
