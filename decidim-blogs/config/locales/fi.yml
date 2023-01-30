@@ -1,5 +1,8 @@
 fi:
   activemodel:
+    attributes:
+      post:
+        body: Sisältöteksti
     models:
       decidim/blogs/create_post_event: Uusi blogiartikkeli
   activerecord:
@@ -18,8 +21,6 @@ fi:
         user_group_id: Luo artikkeli käyttäjänä
       admin:
         models:
-          components:
-            body: Leipäteksti
           post:
             name: Artikkeli
         posts:
