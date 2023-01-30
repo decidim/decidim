@@ -22,8 +22,6 @@ ar:
         user_group_id: إنشاء مشاركة كـ
       admin:
         models:
-          components:
-            body: الجسم
           post:
             name: بريد
         posts:
