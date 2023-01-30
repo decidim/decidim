@@ -1,5 +1,8 @@
 cs:
   activemodel:
+    attributes:
+      post:
+        body: Tělo zprávy
     models:
       decidim/blogs/create_post_event: Nový blogový příspěvek
   activerecord:
@@ -20,8 +23,6 @@ cs:
         user_group_id: Vytvořit příspěvek jako
       admin:
         models:
-          components:
-            body: Tělo
           post:
             name: Příspěvek
         posts:
