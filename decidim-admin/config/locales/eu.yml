@@ -15,17 +15,24 @@ eu:
         description: Descripción
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
+        weight: Kokapenaren hurrenkera
       attachment_collection:
         description: Deskribapena
         name: Izena
+        weight: Kokapenaren hurrenkera
       category:
         description: Descripción
         name: Izena
         parent_id: Nagusia
+        weight: Kokapenaren hurrenkera
       component:
         name: Izena
         published_at: Argitaratu at
         weight: Kokapenaren hurrenkera
+      external_domain:
+        value: Balioa
+      help_section:
+        content: Edukia
       id: NAN
       import:
         user_group_id: Inportatu hau bezala
@@ -93,6 +100,9 @@ eu:
         welcome_notification_body: Ongietorri-jakinarazpenaren mezuaren atala
         welcome_notification_subject: Ongietorri-jakinarazpenaren mezuaren gaia
         youtube_handler: YouTube kudeatzailea
+      participatory_space_private_user:
+        email: Helbide elektronikoa
+        name: Izena
       scope:
         code: Kodea
         name: Izena
@@ -114,6 +124,7 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
+        topic_id: Gaia
         weight: Kokapenaren hurrenkera
       static_page_topic:
         description: Deskribapena
