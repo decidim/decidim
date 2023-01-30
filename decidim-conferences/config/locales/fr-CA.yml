@@ -312,6 +312,7 @@ fr-CA:
           update: "%{user_name} a mis à jour le partenaire %{resource_name} dans la conférence %{space_name}"
         registration_type:
           create: "%{user_name} créé le type d'inscription %{resource_name} dans la conférence %{space_name}"
+          delete: "%{user_name} a supprimé le type d'inscription %{resource_name} de la conférence %{space_name}"
           publish: "%{user_name} publié le %{resource_name} type d'inscription dans la %{space_name} conférence"
           unpublish: "%{user_name} non publié le type d'inscription %{resource_name} dans la conférence %{space_name}"
           update: "%{user_name} mis à jour le type d'inscription %{resource_name} dans la conférence %{space_name}"
