@@ -1,5 +1,8 @@
 eu:
   activemodel:
+    attributes:
+      post:
+        body: Testua
     models:
       decidim/blogs/create_post_event: Blogeko post berria
   activerecord:
@@ -43,14 +46,14 @@ eu:
         post:
           fields:
             author: Egilea
-            body: Gorputzeko
+            body: Testua
             created_at: Sortutako at
             title: Izenburua
       posts:
         show:
           back: Itzuli zerrendara
           comments: Iruzkinak
-          view: ikusi
+          view: Ikusi
         sidebar_blog:
           comments: iruzkinak
           most_commented_posts: Gehien iruzkinatutako mezu
@@ -64,18 +67,18 @@ eu:
         name: Bloga
         settings:
           global:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
           step:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
             endorsements_blocked: Atxikimenduak blokeatuta
             endorsements_enabled: Atxikimenduak gaituta
     events:
       blogs:
         post_created:
-          email_intro: '"%{resource_title}" mezua "%{participatory_space_title}" argitaratzen ari zarela jarraitzen ari zara.'
+          email_intro: '"%{resource_title}" argitalpena jarraitzen ari zaren "%{participatory_space_title}" espazioan argitaratu da.'
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
           email_subject: '%{participatory_space_title} argitaratutako mezu berria'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
