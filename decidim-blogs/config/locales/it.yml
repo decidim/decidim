@@ -18,8 +18,6 @@ it:
         user_group_id: Crea post come
       admin:
         models:
-          components:
-            body: Corpo
           post:
             name: Inviare
         posts:
