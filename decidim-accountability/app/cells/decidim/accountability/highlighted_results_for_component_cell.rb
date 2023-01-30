@@ -27,9 +27,8 @@ module Decidim
                      when "recent"
                        Decidim::Accountability::Result.where(component: model).order_by_most_recent
                      else
-                       Decidim::Accountability::Result.where(component: model).order_randomly((rand * 2) - 1)
+                       Decidim::Accountability::Result.where(component: model).order_randomly(random_seed)
                      end
-
       end
 
       def single_component?
@@ -37,7 +36,7 @@ module Decidim
       end
 
       def results_to_render
-        @results_to_render ||= results.includes(:component, :status).limit(4)
+        @results_to_render ||= results.includes(:component, :status).limit(limit)
       end
 
       def results_count
@@ -54,6 +53,14 @@ module Decidim
 
       def cache_expiry_time
         10.minutes
+      end
+
+      def limit
+        4
+      end
+
+      def random_seed
+        (rand * 2) - 1
       end
     end
   end
