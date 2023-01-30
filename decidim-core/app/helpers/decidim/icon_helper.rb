@@ -20,12 +20,28 @@ module Decidim
       "Decidim::ParticipatoryProcess" => "treasure-map-line",
       "Decidim::Category" => "price-tag-3-line",
       "Decidim::Scope" => "scan-line",
-      "other" => "question-line",
+      "Decidim::Conference" => "question-mark", # REDESIGN_PENDING: icon unknown
+      "Decidim::Consultation" => "question-mark", # REDESIGN_PENDING: icon unknown
+      "Decidim::Votings::Voting" => "check-double-fill",
+      "Decidim::Accountability::Result" => "treasure-map-line",
+      "comments_count" => "wechat-line",
+      "upcoming" => "calendar-2-line",
+      "past" => "calendar-check-line",
+      "in_person" => "community-line",
+      "online" => "webcam-line",
+      "hybrid" => "home-wifi-line",
+      "official" => "star-line",
+      "participants" => "open-arm-line",
+      "user_group" => "team-line",
+      "user_groups" => "team-line",
+      "images" => "image-line",
+      "documents" => "file-text-line",
       "like" => "heart-add-line",
       "dislike" => "dislike-line",
       "follow" => "notification-3-line",
       "unfollow" => "notification-3-fill",
-      "share" => "share-line"
+      "share" => "share-line",
+      "other" => "question-line"
     }.freeze
 
     # Public: Returns an icon given an instance of a Component. It defaults to

@@ -2,7 +2,7 @@
   @apply space-y-2 text-gray-2;
 
   &__container{
-    @apply flex items-start gap-1;
+    @apply flex items-start gap-1 [&>svg]:flex-none;
   }
 
   &__location{

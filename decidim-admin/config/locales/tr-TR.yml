@@ -655,9 +655,6 @@ tr:
         edit:
           active_content_blocks: Aktif içerik blokları
           inactive_content_blocks: Etkin olmayan içerik blokları
-      organization_homepage_content_blocks:
-        edit:
-          update: Güncelleştirme
       participatory_space_private_users:
         create:
           error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.

@@ -4,6 +4,8 @@ module Decidim
   # A Helper to find and render the author of a version.
   module TraceabilityHelper
     include Decidim::SanitizeHelper
+    include Decidim::ApplicationHelper
+
     # Renders the avatar and author name of the author of the last version of the given
     # resource.
     #
@@ -20,7 +22,7 @@ module Decidim
     #
     # Returns an HTML-safe String representing the HTML to render the author.
     def render_resource_editor(version)
-      cell "decidim/version_author", Decidim.traceability.version_editor(version)
+      cell "decidim/version_author", present(Decidim.traceability.version_editor(version)), context_actions: [:date], layout: :compact, has_actions: true, from: version
     end
   end
 end
