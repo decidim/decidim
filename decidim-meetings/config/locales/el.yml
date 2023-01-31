@@ -24,8 +24,6 @@ el:
         registrations_enabled: Οι εγγραφές ενεργοποιήθηκαν
         title: Τίτλος
         transparent: Διαφανής
-      meeting_agenda_items:
-        duration: Διάρκεια
     errors:
       models:
         meeting_agenda:
