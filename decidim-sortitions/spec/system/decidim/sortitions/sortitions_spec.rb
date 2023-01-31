@@ -47,4 +47,29 @@ describe "sortitions", type: :system do
       it_behaves_like "a paginated resource"
     end
   end
+
+  describe "filters" do
+    context "when filtering by text" do
+      it "updates the current URL" do
+        create(:sortition, component: component, title: { en: "Foobar sortition" })
+        create(:sortition, component: component, title: { en: "Another sortition" })
+        visit_component
+
+        within "form.new_filter" do
+          fill_in("filter[search_text]", with: "foobar")
+          click_button "Search"
+        end
+
+        within ".state_collection_radio_buttons_filter" do
+          find("label", text: "All").click
+        end
+
+        expect(page).not_to have_content("Another sortition")
+        expect(page).to have_content("Foobar sortition")
+
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(filter_params["filter[search_text]"]).to eq(["foobar"])
+      end
+    end
+  end
 end
