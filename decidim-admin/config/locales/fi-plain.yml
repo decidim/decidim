@@ -651,6 +651,7 @@ fi-pl:
             created_at: Luonnin ajankohta
             document_number: Dokumentin numero
             name: Nimi
+            nickname: Nimimerkki
             phone: Puhelinnumero
             state: Tila
             users_count: Käyttäjämäärä
@@ -844,9 +845,21 @@ fi-pl:
           add: Lisää sallittujen listalle
           title: Sallittujen ulkoisten verkkotunnusten lista
       organization_homepage:
+        content_blocks:
+          create:
+            error: Sisältölohkon luonti epäonnistui
+            success: Sisältölohkon luonti onnistui
+          destroy:
+            error: Sisältölohkon poisto epäonnistui
+            success: Sisältölohkon poisto onnistui
+          edit:
+            update: Päivitä
         edit:
           active_content_blocks: Aktiiviset sisältöblokit
+          add: Lisää sisältölohko
+          destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
           inactive_content_blocks: Ei-aktiiviset sisältöblokit
+          title: Sivun sisältö
       participatory_space_private_users:
         create:
           error: Yksityisen käyttäjän lisäämisessä tähän osallisuustilaan tapahtui virhe.
@@ -965,6 +978,16 @@ fi-pl:
           view: Näytä julkinen sivu
         content_blocks:
           active_content_blocks: Aktiiviset sisältölohkot
+          add: Lisää sisältölohko
+          create:
+            error: Sisältölohkon luonti epäonnistui
+            success: Sisältölohkon luonti onnistui
+          destroy:
+            error: Sisältölohkon poisto epäonnistui
+            success: Sisältölohkon poisto onnistui
+          destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
+          edit:
+            update: Päivitä
           inactive_content_blocks: Käytöstä poistetut sisältölohkot
           title: Sivun sisältö
         create:
@@ -1095,12 +1118,15 @@ fi-pl:
       models:
         moderation:
           fields:
+            created_at: Ilmoituksen ajankohta
             deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
+            report_count: Ilmoitusten määrä
             reportable_id: ID
             reportable_type: Tyyppi
             reported_content_url: Raportoidun sisällön URL
+            reports: Syy
             visit_url: Vieraile URL-osoitteessa
         report:
           fields:
