@@ -24,8 +24,6 @@ ar:
         registrations_enabled: تم تمكين التسجيلات
         title: عنوان
         transparent: شفاف
-      meeting_agenda_items:
-        duration: المدة الزمنية
     errors:
       models:
         meeting_agenda:
