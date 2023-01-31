@@ -221,7 +221,7 @@ eu:
           success: Area mota behar bezala suntsitu da
         edit:
           title: Editatu eremu mota
-          update: Eguneratzearen
+          update: Onartu
         new:
           create: Sortu eremu mota
           title: Area mota berria
@@ -237,7 +237,7 @@ eu:
           success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua
-          update: Eguneratzearen
+          update: Onartu
         new:
           create: Sortu eremua
           title: Area berria
@@ -253,7 +253,7 @@ eu:
           success: Karpeta ondo suntsitu da.
         edit:
           title: Editatu karpeta
-          update: Eguneratzearen
+          update: Onartu
         index:
           attachment_collection_used: Karpeta hau ezin da ezabatu erabiltzen ari delako.
           attachment_collections_title: Eranskinen karpetak
@@ -323,7 +323,7 @@ eu:
           success: Osagaia zuzen ezabatu da.
         edit:
           title: Editatu osagaia
-          update: Eguneratzearen
+          update: Onartu
         form:
           default_step_settings: Urratsen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
@@ -451,7 +451,7 @@ eu:
       help_sections:
         error: Errore bat gertatu da laguntza-atalak eguneratuz
         form:
-          save: Save
+          save: Gorde
         success: Laguntza atalak behar bezala eguneratu dira
       impersonatable_users:
         index:
@@ -819,7 +819,7 @@ eu:
           inactive_content_blocks: Eduki eduki gabeko blokeak
       organization_homepage_content_blocks:
         edit:
-          update: Eguneratzearen
+          update: Onartu
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
