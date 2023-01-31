@@ -135,6 +135,10 @@ eu:
         file: file
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Aukeratu parte hartzeko espazio bat gutxienez
         organization:
           attributes:
             official_img_footer:
@@ -192,6 +196,8 @@ eu:
         permissions: Baimenak
         reject: Ukatu
         share: Partekatu
+        user:
+          new: Administratzaile berria
         verify: Egiaztatu
       admin_terms_of_use:
         accept:
@@ -274,6 +280,8 @@ eu:
         update:
           error: Errorea gertatu da fitxategi erantsi bat eguneratzean.
           success: Fitxategi erantsia zuzen eguneratu da.
+      attachments_privacy_warning:
+        message: Kontuz ibili fitxategi erantsiekin espazio pribatu batean lan egiten duzunean, edozein parte-hartzailek parteka dezake dokumentu hau beste pertsona batzuekin.
       autocomplete:
         no_results: Ez da emaitzarik aurkitu
         search_prompt: Idatzi bilaketak gutxienez hiru karaktere
