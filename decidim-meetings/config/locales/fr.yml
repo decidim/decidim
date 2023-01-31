@@ -44,6 +44,7 @@ fr:
         visible: Visible
       meeting_agenda_items:
         description: Description
+        duration: Durée
         title: Titre
       meeting_registration_invite:
         email: Email
