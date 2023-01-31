@@ -11,13 +11,16 @@ sv:
         decidim_area_id: Område
         description: Beskrivning
         developer_group: Kampanjgrupp
+        document: Dokument
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
         hero_image: Hembild
+        import_steps: Importera steg
         local_area: Område
         meta_scope: Omfångets metadata
         participatory_process_group_id: Dialoggrupp
+        participatory_process_type_id: Dialogtyp
         participatory_scope: Vad som bestäms
         participatory_structure: Hur det bestäms
         promoted: Annonserad
