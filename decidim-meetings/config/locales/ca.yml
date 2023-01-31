@@ -43,7 +43,6 @@ ca:
         visible: Visible
       meeting_agenda_items:
         description: Descripció
-        duration: Durada
         title: Títol
       meeting_registration_invite:
         email: Correu electrònic
