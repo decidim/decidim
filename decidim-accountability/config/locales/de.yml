@@ -50,6 +50,7 @@ de:
           results: Ergebnisse
         import_results:
           new:
+            download_export: Export im CSV-Format herunterladen
             import: Importieren
             title: Ergebnisse von CSV importieren
         imports:
