@@ -37,11 +37,13 @@ de:
         date: Datum
         link: Link
         title: Titel
+        weight: Reihenfolge
       conference_partner:
         link: Link
         logo: Logo
         name: Name
         partner_type: Partnertyp
+        weight: Reihenfolge
       conference_registration_invite:
         email: E-Mail
         name: Name
@@ -51,6 +53,7 @@ de:
         description: Beschreibung
         price: Preis
         title: Titel
+        weight: Reihenfolge
       conference_speaker:
         affiliation: Zugehörigkeit
         avatar: Profilbild
@@ -241,7 +244,7 @@ de:
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
-            weight: Bestellposition
+            weight: Reihenfolge
           name: Registrierungstyp
       partners:
         create:
