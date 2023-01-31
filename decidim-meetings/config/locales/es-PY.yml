@@ -44,7 +44,6 @@ es-PY:
         visible: Visible
       meeting_agenda_items:
         description: Descripción
-        duration: Duración
         title: Título
       meeting_registration_invite:
         email: Correo electrónico
