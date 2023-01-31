@@ -6,17 +6,38 @@ cs:
         image: Obrázek
         proposals: Související návrhy
         title: Název
+      ballot_style:
+        code: Kód
       election:
         description: Popis
         end_time: Hlasování končí v
         start_time: Hlasování začíná v
         title: Název
+      monitoring_committee_member:
+        email: E-mail
+        name: Jméno
+      polling_officer:
+        email: E-mail
+        name: Jméno
+      polling_station:
+        address: Adresa
+        location: Poloha
+        location_hints: Nápověda k poloze
+        polling_station_managers: Manažeři
+        polling_station_president_id: Předseda
+        title: Název
       question:
         max_selections: Maximální počet výběrů
         min_selections: Žádná z výše uvedených možností
         title: Název
+      trustees_participatory_space:
+        user_id: Účastník
       voting:
         end_time: Hlasování končí
+        introductory_image: Úvodní obrázek
+        promoted: Propagováno
+        scope_id: Oblast působnosti
+        show_check_census: Zobrazit stránku "zkontrolovat rejstřík"
         start_time: Hlasování začíná
     errors:
       models:
