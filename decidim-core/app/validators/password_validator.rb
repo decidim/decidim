@@ -131,7 +131,7 @@ class PasswordValidator < ActiveModel::EachValidator
   end
 
   def denied?
-    Array(Decidim.password_blacklist).each do |expression|
+    Array(Decidim.denied_passwords).each do |expression|
       return true if expression.is_a?(Regexp) && value.match?(expression)
       return true if expression.to_s == value
     end

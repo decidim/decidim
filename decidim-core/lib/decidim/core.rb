@@ -477,7 +477,7 @@ module Decidim
   end
 
   # Blacklisted passwords. Array may contain strings and regex entries.
-  config_accessor :password_blacklist do
+  config_accessor :denied_passwords do
     []
   end
 
