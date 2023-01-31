@@ -45,7 +45,6 @@ sk:
             author: Autor
             body: Telo textu
             created_at: Vytvorené
-            title: názov
       posts:
         show:
           back: Späť na zoznam
