@@ -17,6 +17,9 @@ lt:
         title: Pavadinimas
       voting:
         end_time: Balsavimas baigiasi
+        introductory_image: Įvadinis paveikslėlis
+        promoted: Paremta
+        show_check_census: Rodyti "patikrinti surašymą" puslapį
         start_time: Balsavimas prasideda
     errors:
       models:
