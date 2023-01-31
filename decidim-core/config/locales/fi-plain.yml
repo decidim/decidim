@@ -512,9 +512,16 @@ fi-pl:
       metrics:
         name: Organisaation mittarit
       static_page:
+        section:
+          name: Osio
+          section_content: Sisältö
         summary:
           name: Lyhyt kuvaus
           summary_content: Sisältö
+        two_pane_section:
+          left_column: Vasen sarake
+          name: Kaksisarakkeinen osio
+          right_column: Oikea sarake
       stats:
         name: Organisaation tilastot
       sub_hero:
