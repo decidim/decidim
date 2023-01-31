@@ -6,6 +6,7 @@ module Decidim
   class CardMetadataCell < Decidim::ViewModel
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
+    include Decidim::SanitizeHelper
 
     alias resource model
 
@@ -28,7 +29,7 @@ module Decidim
       return unless show_space?
 
       {
-        text: translated_attribute(participatory_space.title),
+        text: decidim_html_escape(translated_attribute(participatory_space.title)),
         icon: resource_type_icon_key(participatory_space.class),
         url: Decidim::ResourceLocatorPresenter.new(participatory_space).path
       }
