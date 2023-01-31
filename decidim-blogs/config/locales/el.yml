@@ -45,7 +45,6 @@ el:
             author: Συντάκτης
             body: Σώμα
             created_at: Δημιουργήθηκε στις
-            title: τίτλος
       posts:
         show:
           back: Επιστροφή στη λίστα
