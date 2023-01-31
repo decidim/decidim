@@ -2,10 +2,6 @@
 en:
   activemodel:
     attributes:
-      agenda:
-        description: Description
-        duration: Duration
-        title: Title
       close_meeting:
         attendees_count: Number of attendees
         attending_organizations: List of organizations that attended
@@ -23,8 +19,9 @@ en:
         decidim_scope_id: Scope
         decidim_user_group_id: User group
         description: Description
-        end_time: End Time
+        end_time: End time
         id: ID
+        iframe_embed_type: Iframe embed type
         location: Location
         location_hints: Location hints
         online_meeting_url: Online meeting URL
@@ -34,13 +31,26 @@ en:
         registration_email_custom_content: Registration email custom content
         registration_form_enabled: Registration form enabled
         registration_terms: Registration terms
+        registration_type: Registration type
         registration_url: Registration URL
         registrations_enabled: Registrations enabled
-        show_embedded_iframe: Show embedded iframe for this URL
-        start_time: Start Time
+        reserved_slots: Reserved slots for this meeting
+        start_time: Start time
         title: Title
         transparent: Transparent
         type_of_meeting: Type
+      meeting_agenda:
+        title: Title
+        visible: Visible
+      meeting_agenda_items:
+        description: Description
+        duration: Duration
+        title: Title
+      meeting_registration_invite:
+        email: Email
+        name: Name
+      validate_registration_code:
+        code: Code
     errors:
       models:
         meeting:
