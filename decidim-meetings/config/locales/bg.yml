@@ -1,9 +1,5 @@
 ---
 bg:
-  activemodel:
-    attributes:
-      meeting_agenda_items:
-        duration: Продължителност
   decidim:
     meetings:
       actions:
