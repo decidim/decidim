@@ -1,5 +1,8 @@
 lt:
   activemodel:
+    attributes:
+      post:
+        published_at: Paskelbimo laikas
     models:
       decidim/blogs/create_post_event: Naujas tinklaraščio įrašas
   activerecord:
@@ -47,7 +50,6 @@ lt:
             author: Autorė(-ius)
             body: Pagrindinė dalis
             created_at: Sukurta
-            title: pavadinimas
       posts:
         show:
           back: Grįžti į sąrašą
