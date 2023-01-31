@@ -34,8 +34,6 @@ it:
         title: Titolo
         transparent: Trasparente
         type_of_meeting: Tipo
-      meeting_agenda_items:
-        duration: Durata
     errors:
       models:
         meeting_agenda:
