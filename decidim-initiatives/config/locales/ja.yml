@@ -2,9 +2,13 @@ ja:
   activemodel:
     attributes:
       initiative:
+        answer: 回答
+        answer_url: 回答URL
         area_id: エリア
+        decidim_scope_id: スコープ
         decidim_user_group_id: 作成者
         description: 説明
+        hashtag: ハッシュタグ
         offline_votes: In-personal 署名
         offline_votes_for_scope: '%{scope_name} の In-personal 署名'
         scope_id: スコープ
@@ -17,6 +21,7 @@ ja:
           online: オンライン
         state: ステータス
         title: タイトル
+        type_id: タイプ
       initiatives_committee_member:
         user: 委員会メンバー
       initiatives_settings:
@@ -39,6 +44,9 @@ ja:
         title: タイトル
         undo_online_signatures_enabled: 参加者がオンライン署名を取り消すことを有効にする
         validate_sms_code_on_votes: 署名プロセスにSMSコード検証ステップを追加
+      initiatives_type_scope:
+        decidim_scopes_id: スコープ
+        supports_required: 必要サポート数
       initiatives_vote:
         date_of_birth: 誕生日
         document_number: ドキュメント番号
