@@ -44,7 +44,6 @@ tr:
             author: Yazar
             body: Vücut
             created_at: Adresinde düzenlendi
-            title: Başlık
       posts:
         show:
           back: Listeye geri dön
