@@ -1,10 +1,6 @@
 eu:
   activemodel:
     attributes:
-      agenda:
-        description: Deskribapena
-        duration: Iraupena
-        title: Titulua
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
@@ -22,7 +18,6 @@ eu:
         decidim_scope_id: Esparrua
         decidim_user_group_id: Erabiltzaile-taldea
         description: Deskribapena
-        end_time: Amaiera-ordua
         id: ID
         location: Kokapena
         location_hints: Kokapen-argibideak
@@ -35,8 +30,6 @@ eu:
         registration_terms: Izen-emateak
         registration_url: Izena ematearen URLa
         registrations_enabled: Erregistroak gaituta
-        show_embedded_iframe: Erakutsi iframe txertatua URL honentzat
-        start_time: Hasiera-ordua
         title: Titulua
         transparent: gardena
         type_of_meeting: Mota
