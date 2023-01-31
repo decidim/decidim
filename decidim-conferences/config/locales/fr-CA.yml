@@ -28,7 +28,7 @@ fr-CA:
         show_statistics: Montrer les statistiques
         sign_date: Date de signature
         signature: Signature
-        signature_name: nom de la signature
+        signature_name: Nom de la signature
         slogan: Slogan
         slug: Slug URL
         start_date: Date de début
@@ -134,7 +134,7 @@ fr-CA:
           title: Mettre à jour l'administrateur de la conférence.
           update: Mettre à jour
         index:
-          conference_admins_title: administrateurs de la conférence
+          conference_admins_title: Administrateurs de conférence
         new:
           create: Créer
           title: Nouvel administrateur de conférence.
