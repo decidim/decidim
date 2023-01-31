@@ -43,7 +43,6 @@ ja:
         visible: 表示
       meeting_agenda_items:
         description: 説明
-        duration: 持続期間
         title: タイトル
       meeting_registration_invite:
         email: Eメールアドレス
