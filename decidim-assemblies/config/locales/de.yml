@@ -53,7 +53,7 @@ de:
         target: Wer nimmt teil?
         title: Titel
         twitter: Twitter
-        weight: Bestellposition
+        weight: Reihenfolge
         youtube: Youtube
       assembly_member:
         birthday: Geburtstag
@@ -65,6 +65,7 @@ de:
         non_user_avatar: Profilbild
         position: Position
         user_id: User
+        weight: Reihenfolge
       assembly_user_role:
         email: Email
         name: Name
