@@ -33,8 +33,6 @@ nl:
         title: Titel
         transparent: Transparant
         type_of_meeting: Type
-      meeting_agenda_items:
-        duration: Duur
     errors:
       models:
         meeting:
