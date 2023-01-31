@@ -30,8 +30,6 @@ tr:
         title: Başlık
         transparent: Şeffaf
         type_of_meeting: Tür
-      meeting_agenda_items:
-        duration: süre
     errors:
       models:
         meeting_agenda:
