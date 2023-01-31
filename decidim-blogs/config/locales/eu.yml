@@ -4,6 +4,7 @@ eu:
       post:
         body: Testua
         decidim_author_id: Egilea
+        title: Izena
     models:
       decidim/blogs/create_post_event: Blogeko post berria
   activerecord:
@@ -34,6 +35,7 @@ eu:
             save: eguneratzearen
             title: Editatu argitalpena
           index:
+            not_published_yet: Oraindik argitaratu gabe
             title: Mezuak
           new:
             create: Sortu
@@ -64,6 +66,7 @@ eu:
           comment: Iruzkindu
           create: Sortu
           destroy: Ezabatu
+          endorse: Atxiki
           update: Eguneratu
         name: Bloga
         settings:
