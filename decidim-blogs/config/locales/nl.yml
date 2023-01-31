@@ -45,7 +45,6 @@ nl:
             author: Auteur
             body: Tekstgedeelte
             created_at: Aangemaakt op
-            title: titel
       posts:
         show:
           back: Terug naar het overzicht
