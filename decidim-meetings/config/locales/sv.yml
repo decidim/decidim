@@ -38,7 +38,6 @@ sv:
         title: Titel
         visible: Synlig
       meeting_agenda_items:
-        duration: Varaktighet
         title: Titel
       meeting_registration_invite:
         email: E-post
