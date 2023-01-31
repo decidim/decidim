@@ -1352,7 +1352,7 @@ es:
     reports:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
-        success: El contenido se ha denunciado con éxtio y será revisado por una administradora.
+        success: El contenido se ha denunciado con éxito y será revisado por una administradora.
     resource_endorsements:
       create:
         error: Se ha producido un error durante la acción de adhesión.
