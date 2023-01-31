@@ -39,6 +39,7 @@ cs:
         end_time: Hlasování končí
         introductory_image: Úvodní obrázek
         promoted: Propagováno
+        scope_id: Oblast působnosti
         show_check_census: Zobrazit stránku "zkontrolovat rejstřík"
         start_time: Hlasování začíná
         title: Název
