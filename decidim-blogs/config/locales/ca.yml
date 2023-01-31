@@ -3,6 +3,9 @@ ca:
     attributes:
       post:
         body: Cos del text
+        decidim_author_id: Autoria
+        published_at: Hora de publicació
+        title: Títol
     models:
       decidim/blogs/create_post_event: Nova publicació al blog
   activerecord:
@@ -48,7 +51,7 @@ ca:
             author: Autora
             body: Cos
             created_at: Creat el
-            title: títol
+            title: Títol
       posts:
         show:
           back: Tornar al llistat
@@ -61,8 +64,10 @@ ca:
     components:
       blogs:
         actions:
+          comment: Comentar
           create: Crear
           destroy: Esborrar
+          endorse: Adherir-se
           update: Actualitzar
         name: Blog
         settings:
