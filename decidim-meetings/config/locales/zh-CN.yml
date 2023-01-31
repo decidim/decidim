@@ -25,8 +25,6 @@ zh-CN:
         registrations_enabled: 注册已启用
         title: 标题
         transparent: 透明的
-      meeting_agenda_items:
-        duration: 期限
     errors:
       models:
         meeting_agenda:
