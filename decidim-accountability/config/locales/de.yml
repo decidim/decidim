@@ -38,6 +38,7 @@ de:
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
         destroy: Löschen
         edit: Bearbeiten
+        import: Projekte zu Ergebnissen importieren
         import_csv: CSV importieren
         new: Neu %{name}
         preview: Vorschau
@@ -49,6 +50,7 @@ de:
           results: Ergebnisse
         import_results:
           new:
+            download_export: Export im CSV-Format herunterladen
             import: Importieren
             title: Ergebnisse von CSV importieren
         imports:
@@ -61,6 +63,12 @@ de:
             name: Status
           timeline_entry:
             name: Zeitachseneintrag
+        projects_import:
+          new:
+            new_items:
+              one: 1 ausgewähltes Projekt wird importiert
+              other: "%{count} ausgewählte Projekte werden importiert"
+            select_component: Komponente auswählen
         results:
           create:
             invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten
