@@ -33,8 +33,6 @@ pt-BR:
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
-      meeting_agenda_items:
-        duration: Duração
     errors:
       models:
         meeting_agenda:
