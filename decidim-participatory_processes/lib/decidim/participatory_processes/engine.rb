@@ -187,6 +187,11 @@ module Decidim
           end
         end
 
+        Decidim.content_blocks.register(:participatory_process_homepage, :related_documents) do |content_block|
+          content_block.cell = "decidim/participatory_processes/content_blocks/documents"
+          content_block.public_name_key = "decidim.application.documents.documents"
+        end
+
         Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_posts) do |content_block|
           content_block.cell = "decidim/blogs/content_blocks/highlighted_posts"
           content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
