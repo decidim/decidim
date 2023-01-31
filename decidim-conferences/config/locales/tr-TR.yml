@@ -22,12 +22,6 @@ tr:
         slogan: Slogan
         slug: URL özel bilgisi
         title: Başlık
-      conference_media_link:
-        weight: Ağırlık
-      conference_partner:
-        weight: Ağırlık
-      conference_registration_type:
-        weight: Ağırlık
       conference_speaker:
         full_name: Ad Soyad
       conference_user_role:
@@ -99,8 +93,6 @@ tr:
         edit:
           title: Konferans yöneticisi güncelle.
           update: Güncelle
-        index:
-          conference_admins_title: konferans yöneticileri
         new:
           create: Oluştur
           title: Yeni konferans yöneticisi
