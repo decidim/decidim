@@ -11,15 +11,22 @@ es-MX:
         decidim_area_id: Área
         description: Descripción
         developer_group: Grupo promotor
+        document: Documento
         domain: Dominio
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
+        import_attachments: Importar archivos adjuntos
+        import_categories: Importar categorias
+        import_components: Importar componentes
+        import_steps: Importar fases
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
+        participatory_process_type_id: Tipo de proceso
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
+        private_space: Proceso privado
         promoted: Destacado
         published_at: Publicado en
         related_process_ids: Procesos relacionados
