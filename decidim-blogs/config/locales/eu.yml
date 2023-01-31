@@ -3,6 +3,7 @@ eu:
     attributes:
       post:
         body: Testua
+        decidim_author_id: Egilea
     models:
       decidim/blogs/create_post_event: Blogeko post berria
   activerecord:
@@ -61,6 +62,7 @@ eu:
     components:
       blogs:
         actions:
+          comment: Iruzkindu
           create: Sortu
           destroy: Ezabatu
           update: Eguneratu
@@ -80,7 +82,7 @@ eu:
         post_created:
           email_intro: '"%{resource_title}" argitalpena jarraitzen ari zaren "%{participatory_space_title}" espazioan argitaratu da.'
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
-          email_subject: '%{participatory_space_title} argitaratutako mezu berria'
+          email_subject: Argitalpen berria %{participatory_space_title} espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
     statistics:
       posts_count: Argitalpenak
