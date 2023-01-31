@@ -33,8 +33,18 @@ de:
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
+      meeting_agenda:
+        title: Titel
+        visible: Sichtbar
       meeting_agenda_items:
+        description: Beschreibung
         duration: Dauer
+        title: Titel
+      meeting_registration_invite:
+        email: E-Mail
+        name: Name
+      validate_registration_code:
+        code: Code
     errors:
       models:
         meeting_agenda:
