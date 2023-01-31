@@ -28,8 +28,6 @@ gl:
         registrations_enabled: Rexistros habilitados
         title: Título
         transparent: Transparente
-      meeting_agenda_items:
-        duration: Duración
     errors:
       models:
         meeting_agenda:
