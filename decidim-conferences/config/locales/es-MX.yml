@@ -28,7 +28,7 @@ es-MX:
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
         signature: Firma
-        signature_name: nombre de firma
+        signature_name: Nombre de la firma
         slogan: Eslogan
         slug: URL amigable
         start_date: Fecha de inicio
@@ -37,13 +37,13 @@ es-MX:
         date: Fecha
         link: Enlace
         title: Título
-        weight: Peso
+        weight: Orden de posición
       conference_partner:
         link: Enlace
         logo: Logo
         name: Nombre
         partner_type: Tipo de colaboración
-        weight: Peso
+        weight: Orden de posición
       conference_registration_invite:
         email: Correo electrónico
         name: Nombre
@@ -53,7 +53,7 @@ es-MX:
         description: Descripción
         price: Coste
         title: Título
-        weight: Peso
+        weight: Orden de posición
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
@@ -134,7 +134,7 @@ es-MX:
           title: Actualizar usuario de la conferencia.
           update: Actualizar
         index:
-          conference_admins_title: usuarios de la conferencia
+          conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
           title: Nuevo usuario de la conferencia.
