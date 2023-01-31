@@ -45,7 +45,6 @@ hu:
             author: Szerző
             body: Szöveg
             created_at: 'Létrehozva:'
-            title: cím
       posts:
         show:
           back: Vissza a listához
