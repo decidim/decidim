@@ -33,8 +33,6 @@
         title: Tittel
         transparent: Privat
         type_of_meeting: Type møte
-      meeting_agenda_items:
-        duration: Varighet
     errors:
       models:
         meeting:
