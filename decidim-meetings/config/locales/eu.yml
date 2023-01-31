@@ -33,8 +33,6 @@ eu:
         title: Titulua
         transparent: gardena
         type_of_meeting: Mota
-      meeting_agenda_items:
-        duration: Iraupena
     errors:
       models:
         meeting_agenda:
