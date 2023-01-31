@@ -23,8 +23,6 @@ lv:
         registrations_enabled: Reģistrācijas ir iespējotas
         title: Nosaukums
         transparent: Caurskatāms
-      meeting_agenda_items:
-        duration: Ilgums
     errors:
       models:
         meeting_agenda:
