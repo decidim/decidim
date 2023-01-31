@@ -45,7 +45,6 @@ ru:
             author: Автор
             body: Основной текст
             created_at: 'Создано:'
-            title: заголовок
       posts:
         show:
           view: Посмотреть
