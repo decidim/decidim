@@ -56,10 +56,7 @@ module Decidim
       end
 
       def activities
-        @activities ||= ActionLog.where(
-          organization: current_organization,
-          visibility: %w(public-only all)
-        ).with_new_resource_type("all").order(created_at: :desc).limit(activities_to_show * 6)
+        @activities ||= LastActivity.new(current_organization).query.limit(activities_to_show * 6)
       end
 
       def activities_to_show

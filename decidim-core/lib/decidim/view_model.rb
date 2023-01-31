@@ -16,6 +16,7 @@ module Decidim
     include Cell::Caching::Notifications
     include Decidim::MarkupHelper
     include ::Webpacker::Helper
+    include Decidim::LayoutHelper
 
     delegate :current_organization, to: :controller
 

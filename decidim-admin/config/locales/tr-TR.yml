@@ -143,7 +143,6 @@ tr:
           error: Yönetici kullanım şartlarını kabul ederken bir hata oluştu.
           success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
         actions:
-          accept: Aşağıdaki şartları kabul ediyorum
           refuse: Yönetici şartlarını reddedin
           title: Kullanım şartlarını ve koşullarını kabul edin
         required_review:
@@ -373,9 +372,6 @@ tr:
           impersonate_existing_managed_user: Yönetilen kullanıcı "%{name}" kimliğine bürün
           impersonate_existing_user: '"%{name}" kullanıcı kimliğine bürün'
           impersonate_new_managed_user: Yeni yönetilen kullanıcıyı taklit et
-      logs:
-        logs_list:
-          no_logs_yet: Henüz kayıt yok
       managed_users:
         promotion:
           error: Yönetilen kullanıcıyı tanıtan bir hata oluştu.
@@ -659,9 +655,6 @@ tr:
         edit:
           active_content_blocks: Aktif içerik blokları
           inactive_content_blocks: Etkin olmayan içerik blokları
-      organization_homepage_content_blocks:
-        edit:
-          update: Güncelleştirme
       participatory_space_private_users:
         create:
           error: Bu katılımcı alan için özel bir kullanıcı eklenirken bir hata oluştu.
@@ -677,10 +670,8 @@ tr:
           title: Yeni Katılımcı Uzay özel kullanıcısı.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: CSV dosyasını okurken bir hata oluştu.
           success: CSV dosyası başarıyla yüklendi, katılımcılara bir davetiye e-postası gönderiyoruz. Bu biraz zaman alabilir.
         new:
-          explanation: 'CSV dosyanızı yükleyin. Başlıksız, katılımcı alanına eklemek istediğiniz kullanıcıların dosyanın ilk sütununda e-posta ve dosyanın son sütununda (e-posta, ad) bulunan iki sütunu olmalıdır. Kullanıcı adında "<>?% & ^ * # @ () [] = +:;" {} \ | "gibi geçersiz karakterler kullanmaktan kaçının.'
           title: CSV dosyası yükle
           upload: Yükle
       resource_permissions:

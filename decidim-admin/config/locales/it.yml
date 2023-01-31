@@ -177,7 +177,6 @@ it:
           error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
           success: Ottimo! Hai accettato i termini d'uso dell'amministratrice/tore.
         actions:
-          accept: Sono d'accordo con i seguenti termini
           are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo dell'amministratore?
           refuse: Rifiuta i termini di amministrazione
           title: Accetta i termini e le condizioni di utilizzo
@@ -463,9 +462,6 @@ it:
           file_legend: Aggiungi un file da importare che verrà analizzato.
           import: Importazione
         notice: "%{number} %{resource_name} importati con successo"
-      logs:
-        logs_list:
-          no_logs_yet: Non ci sono ancora i log
       managed_users:
         promotion:
           error: Si è verificato un problema nella promozione del partecipante gestito.
@@ -770,9 +766,6 @@ it:
         edit:
           active_content_blocks: Blocchi di contenuto attivo
           inactive_content_blocks: Blocchi di contenuto inattivo
-      organization_homepage_content_blocks:
-        edit:
-          update: Aggiornare
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
@@ -788,10 +781,8 @@ it:
           title: Nuovo utente privato dello spazio partecipativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Si è verificato un errore durante la lettura del file CSV.
           success: File CSV caricato con successo, stiamo inviando un'email di invito ai partecipanti. Potrebbe richiedere un po' di tempo.
         new:
-          explanation: 'Carica il file CSV. Il file deve contenere due colonne (e-mail e nome) senza intestazioni: nella prima sono elencati gli indirizzi e-mail degli utenti che si desidera aggiungere allo spazio partecipativo, nella seconda i loro nomi. Evita di usare caratteri non validi come `<>?%&^*#@()[]=+:;"{}\|` nella colonna dei nomi.'
           title: Carica il tuo file CSV
           upload: Carica File
       reminders:

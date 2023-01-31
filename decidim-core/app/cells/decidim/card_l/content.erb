@@ -1,0 +1,7 @@
+<%= render :image if has_image? %>
+<div class="card__list-content">
+  <%= render :title %>
+  <%= render :description if has_description? %>
+  <%= render details_template if details_template.present? %>
+</div>
+<%= render :extra_data if render_extra_data? %>

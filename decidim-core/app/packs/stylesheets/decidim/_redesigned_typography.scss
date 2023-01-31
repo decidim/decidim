@@ -7,7 +7,7 @@
 }
 
 .h3{
-  @apply font-sans font-bold text-2xl;
+  @apply font-sans font-semibold text-2xl;
 }
 
 .h4{
@@ -28,5 +28,5 @@
 
 /* default styles for those dynamic text blocks */
 .editor-content{
-  @apply prose max-w-full text-black text-lg;
+  @apply prose max-w-prose text-black text-lg;
 }

@@ -443,7 +443,6 @@ zh-CN:
     errors:
       internal_server_error:
         title: 服务器出现问题
-        try_later: 请稍后再试。
       not_found:
         back_home: 返回首页
         content_doesnt_exist: 此地址不正确或已被删除。
@@ -652,18 +651,6 @@ zh-CN:
           how: 你如何赚钱
           page_description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。 这里是徽章列表和您可以赚取它们的某些方式。
           title: 徽章
-        invitations:
-          conditions:
-            - 使用您用户页面上的“邀请好友”链接来邀请您的朋友
-            - 自定义，如果您想要，您正在发送的消息
-            - 您将通过发送邀请和注册来提高等级。
-          description: 当您已经邀请了一些人并且他们花了一些时间在 %{organization_name} 注册并成为参与者时，这个徽章将被授予。 感谢您向其他人宣传了 %{organization_name} 并帮助扩展社区！
-          description_another: 此参与者已邀请了 %{score} 人。
-          description_own: 您已邀请了 %{score} 人。
-          name: 邀请
-          next_level_in: 邀请更多 %{score} 人到达下一个关卡！
-          unearned_another: 此参与者尚未邀请任何人。
-          unearned_own: 你还没有邀请任何人。
       description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。
       level: 等级 %{level}
       reached_top: 你已经达到了这个徽章的顶级了。
@@ -840,8 +827,6 @@ zh-CN:
           modal_title: 新建对话
           no_results: 没有结果
           participant_with_disabled_message_reception: 此参与者已禁用消息接收功能
-        conversation:
-          show: 显示与 %{sender} 的对话
         create:
           error: 对话未开始，请稍后再试
         error_modal:
@@ -851,25 +836,16 @@ zh-CN:
           ok: 好的
         index:
           ago: 前
-          close: 关闭模式
-          from: 来自
-          groups: 我的群组
-          last_message: 最后一条消息
           new_conversation: 新建对话
           next: 下一个
           no_conversations: 您还没有对话
           title: 对话
-        reply:
-          placeholder: 您的回复...
-          send: 发送
-          title: 答复
         show:
           back: 回到所有对话
           chat_with: 对话
           title: 与 %{usernames} 的对话
         start:
           send: 发送
-          title: 开始对话
         update:
           error: 消息因错误而未发送
     metrics:
@@ -981,7 +957,6 @@ zh-CN:
         sub_hero:
           register: 注册
       index:
-        read_more: 阅读更多
         standalone_pages: 页 次
         subheading: 浏览 %{name} 的帮助页面
         title: 帮助
@@ -1024,7 +999,6 @@ zh-CN:
         groups: 群組
         members: 成员
         officialized: 官方参与者
-        timeline: 时间表
         view_full_profile: 查看完整资料
       sidebar:
         badges:
@@ -1340,15 +1314,6 @@ zh-CN:
       updated_not_active: 您的密码已成功更改。
     registrations:
       destroyed: 您的帐户已成功取消。我们希望很快再见到您。
-      edit:
-        are_you_sure: 您确定吗？
-        cancel_my_account: 取消我的帐户
-        currently_waiting_confirmation_for_email: '正在等待确认: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 如果您不想更改它，请留空
-        title: 编辑 %{resource}
-        unhappy: 不愉快？
-        update: 更新
-        we_need_your_current_password_to_confirm_your_changes: 我们需要您当前的密码来确认您的更改
       new:
         sign_up: 注册
       signed_up: 欢迎！您已成功注册。
@@ -1401,7 +1366,6 @@ zh-CN:
         other: '处理您的请求时发生多个错误：'
       too_many_marks: 正在使用太多连续标点符号(例如! 和 ?)
       too_much_caps: 正在使用太多大写字母(超过25%文本)
-      too_short: 太短(低于15个字符)
   forms:
     correct_errors: 表单上有错误，请更正以继续。
     required: 必填字段
@@ -1458,8 +1422,8 @@ zh-CN:
       widget:
         see_more: 查看更多
   locale:
-    name: Distr.
-    name_with_error: 英文(错误!)
+    name: 中文
+    name_with_error: 中文(错误!)
   password_validator:
     domain_included_in_password: 与这个域名太近了
     email_included_in_password: 与您的电子邮件太相似了
@@ -1522,14 +1486,8 @@ zh-CN:
       option_unified: 统一的
   views:
     pagination:
-      first: "&laquo; 前"
-      first_title: 链接到第一页
-      last: 最后 &raquo;
-      last_title: 链接到最后一页
-      next: 下一个 &rsaquo;
       next_title: 链接到下一页
       pagination: 分页
-      previous: "&lsaquo; 上一个"
       previous_title: 链接到前一页
       title: '页面号码： '
       truncate: "&hellip;"

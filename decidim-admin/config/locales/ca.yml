@@ -77,7 +77,7 @@ ca:
         organization_admin_name: Nom de l'administradora de l'organització
         organization_locales: Idiomes de l'organització
         primary_color: Primària
-        reference_prefix: prefix de referència
+        reference_prefix: Prefix de referència
         rich_text_editor_in_public_views: Habilitar l'editor de text enriquit
         secondary_color: Secundari
         secondary_hosts: Hosts secundaris
@@ -133,6 +133,14 @@ ca:
               allowed_file_content_types: Fitxer d'imatge no vàlid
             official_img_header:
               allowed_file_content_types: Fitxer d'imatge no vàlid
+        participatory_space_private_user_csv_import:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
+        user_group_csv_verification:
+          attributes:
+            file:
+              malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
       new_import:
         attributes:
           file:
@@ -184,7 +192,7 @@ ca:
           error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
-          accept: Estic d'acord amb els termes següents
+          accept: Estic d'acord amb els termes
           are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
           refuse: Rebutjar els termes
           title: Accepto els Termes i Condicions d'Administració
@@ -509,8 +517,13 @@ ca:
           import: Importar
         notice: "%{count} %{resource_name} importat correctament"
       logs:
+        filters:
+          participatory_space: Trobar espai de participació
+          text: Cerca per correu electrònic, nom o àlies.
+          user: Usuària
         logs_list:
-          no_logs_yet: Encara no hi ha cap registre d'activitat
+          no_logs_yet: Encara no hi ha cap registre d'activitat.
+          no_matching_logs: No hi ha cap registre d'activitat amb els filtres de cerca seleccionats. Prova de canviar-los i intenta-ho de nou.
       managed_users:
         promotion:
           error: S'ha produït un error en promoure aquesta participant.
@@ -816,9 +829,6 @@ ca:
         edit:
           active_content_blocks: Blocs de contingut actiu
           inactive_content_blocks: Blocs de contingut inactiu
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualitza
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
@@ -834,7 +844,7 @@ ca:
           title: Nova participant de l'espai de participació privat.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: S'ha produït un error en llegir el fitxer CSV.
+          invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
           success: Arxiu CSV carregat correctament, s'està enviant un missatge de correu electrònic d'invitació als participants. Pot tardar una mica.
         new:
           destroy:
@@ -843,7 +853,11 @@ ca:
             empty: No hi ha participants privades.
             explanation: Hi ha %{count} participant/s privada/ades.
             title: Esborrar les participants privades
-          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona (adreça electrònica, nom) dels usuaris que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcter invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuari.'
+          example_file: 'Fitxer d''exemple:'
+          explanation: 'Carrega el teu arxiu CSV. Ha de tenir dues columnes amb l''adreça de correu electrònic a la primera columna i el nom a la segona de les participants que vulguis afegir a l''espai de participació, sense capçaleres. Evita emprar caràcters invàlids com `<>?%&^*#@()[]=+:;"{}\|` al nom d''usuària.'
+          explanation_example: |
+            john.doe@example.org%{csv_col_sep}John Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Puja el fitxer CSV
           upload: Carrega
       reminders:
@@ -992,7 +1006,11 @@ ca:
           verify_via_csv: Verifica mitjançant CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Fitxer d''exemple:'
           explanation: Puja el fitxer CSV. Ha de tenir els correus electrònics oficials dels grups de la vostra organització a la primera columna del fitxer, sense encapçalaments. Només es validaran els grups que hagin confirmat el seu correu electrònic i que tinguin un correu electrònic que aparegui al fitxer CSV.
+          explanation_example: |
+            acme@example.org
+            bubba.gump@example.org
           title: Puja el fitxer CSV
           upload: Pujar
       users:
@@ -1056,6 +1074,7 @@ ca:
         moderation:
           fields:
             created_at: Data de creació
+            deleted_resource: Elimina el recurs
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
             report_count: Recompte

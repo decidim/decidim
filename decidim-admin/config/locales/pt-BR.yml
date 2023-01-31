@@ -176,7 +176,6 @@ pt-BR:
           error: Ocorreu um erro ao aceitar os termos de uso do administrador.
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
-          accept: Concordo com os seguintes termos
           refuse: Recusar os termos do admin
           title: Concorde com os termos e condições de uso
         required_review:
@@ -452,9 +451,6 @@ pt-BR:
           file_legend: Adicionar um arquivo de importação que será analisado.
           import: Importar
         notice: "%{number} %{resource_name} importado com sucesso"
-      logs:
-        logs_list:
-          no_logs_yet: Ainda não há registros
       managed_users:
         promotion:
           error: Ocorreu um erro ao promover o usuário gerenciado.
@@ -755,9 +751,6 @@ pt-BR:
         edit:
           active_content_blocks: Blocos de conteúdo ativo
           inactive_content_blocks: Blocos de conteúdo inativo
-      organization_homepage_content_blocks:
-        edit:
-          update: Atualizar
       participatory_space_private_users:
         create:
           error: Ocorreu um erro ao adicionar um usuário privado para este espaço participativo.
@@ -773,10 +766,8 @@ pt-BR:
           title: Novo usuário particular do Espaço Participativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Ocorreu um erro ao ler o arquivo CSV.
           success: Arquivo CSV enviado com sucesso, estamos enviando um e-mail de convite para os participantes. Isso pode demorar um pouco.
         new:
-          explanation: 'Envie seu arquivo CSV. Deve ter duas colunas com e-mail na primeira coluna do arquivo e nome na última coluna do arquivo (email, nome) dos usuários que você deseja adicionar ao espaço participativo, sem cabeçalhos. Evite usar caracteres inválidos como `<>?%&^*#@()[]=+:;"{}\├` no nome de usuário.'
           title: Envie seu arquivo CSV
           upload: Upload
       resource_permissions:

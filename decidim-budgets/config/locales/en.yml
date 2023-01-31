@@ -48,6 +48,7 @@ en:
         import: Import proposals to projects
         new: New %{name}
         preview: Preview
+        send_voting_reminders: Send voting reminders
         title: Actions
       admin:
         budgets:
@@ -289,7 +290,7 @@ en:
           votes:
             one: vote
             other: votes
-          you_voted: You voted this
+          you_voted: You voted for this
         project_budget_button:
           add: Add to your vote
           add_descriptive: Add project %{resource_name} to your vote

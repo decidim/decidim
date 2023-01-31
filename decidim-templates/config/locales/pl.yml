@@ -17,7 +17,6 @@ pl:
           success: Szablon został usunięty
         empty: Brak szablonów.
         update:
-          error: Wystąpił błąd podczas aktualizowania szablonu.
           success: Szablon został zaktualizowany
       titles:
         template_types:

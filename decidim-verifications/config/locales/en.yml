@@ -24,6 +24,12 @@ en:
       postal_letter_postage:
         full_address: Full address
         verification_code: Verification code
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Malformed import file, please read through the instructions carefully and make sure the file is UTF-8 encoded.
   decidim:
     admin:
       menu:
@@ -109,15 +115,17 @@ en:
           verify_with_these_options: 'These are the available options to verify your identity:'
         index:
           expired_verification: Verification expired
+          granted_verification: Granted verification
+          introduce_code: Introduce code
           pending_verification: Pending verification
           show_renew_info: Click to renew verification
-          unauthorized_verification: New verification
+          subscribe: Subscribe
+          unauthorized_methods: Verification methods
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}
         renew_modal:
           cancel: Cancel
-          close: close
           continue: Continue
           info_renew: If you want to update the data, continue with the renewal
           title: Renew Verification
@@ -142,6 +150,9 @@ en:
             body: To do this you must enter system administration and add the csv_census authorizations to the organization
             title: You need to activate the CSV census for this organization
           new:
+            example: |
+              john.doe@example.org
+              jane.doe@example.org
             file: ".csv file with emails data"
             info: 'Must be a file in CSV format with only one column with the email address:'
             submit: Upload file

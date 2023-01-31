@@ -10,6 +10,7 @@ cs:
         end_time: Končí v
         information_updates: Aktualizace informací
         instructions: Pokyny k účasti
+        scope_id: Oblast působnosti
         start_time: Začíná v
         title: Titul
         user_group_id: Vytvořte debatu jako
@@ -163,7 +164,7 @@ cs:
           groups_count: Skupiny
           last_comment_by: Poslední komentář od
           no_comments_yet: Zatím žádné komentáře
-          open: Otevřít diskusi
+          open: Otevřená diskuse
           participants_count: Účastníci
         update:
           invalid: Při aktualizaci rozpravy došlo k chybě.
@@ -176,8 +177,8 @@ cs:
         versions_list:
           back_to_resource: Přejít zpět k debatě
       last_activity:
-        debate_updated_at_html: "<span>Debata byla aktualizována na %{link}</span>"
-        new_debate_at_html: "<span>Nová debata na %{link}</span>"
+        debate_updated: 'Debata aktualizována:'
+        new_debate: 'Nová debata:'
       models:
         debate:
           fields:

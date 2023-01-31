@@ -159,7 +159,6 @@ ar:
         accept:
           success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
-          accept: أوافق على شروط الإستخدام التالية
           refuse: ارفض شروط المدير
           title: وافق على شروط وأحكام الإستخدام
         required_review:
@@ -455,9 +454,6 @@ ar:
           file_legend: إضافة ملف استيراد سيتم تحليله.
           import: استيراد
         notice: "تم استيراد %{count} %{resource_name} بنجاح"
-      logs:
-        logs_list:
-          no_logs_yet: لا توجد سجلات حتى الآن
       managed_users:
         promotion:
           error: كانت هناك مشكلة في تعزيز المشارك المُدار.
@@ -725,9 +721,6 @@ ar:
         edit:
           active_content_blocks: كتل المحتوى النشط
           inactive_content_blocks: كتل المحتوى غير النشطة
-      organization_homepage_content_blocks:
-        edit:
-          update: تحديث
       participatory_space_private_users:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
@@ -741,8 +734,6 @@ ar:
           create: إنشاء
           title: مشارك جديد الفضاء الخاص المشارك.
       participatory_space_private_users_csv_imports:
-        create:
-          invalid: حدثت مشكلة أثناء قراءة ملف CSV.
         new:
           destroy:
             button: حذف جميع المشاركين الخاصين

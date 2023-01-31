@@ -179,7 +179,6 @@ gl:
           error: Produciuse un erro ao aceptar os termos de uso do panel de administración.
           success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
-          accept: Concordo con seguintes termos
           refuse: Rexeitar os termos de uso
           title: Concordo cos termos e condicións de uso
         required_review:
@@ -495,9 +494,6 @@ gl:
           file_legend: Engadir un ficheiro de importación para o análise.
           import: Importar
         notice: "%{number}%{resource_name} importados con éxito"
-      logs:
-        logs_list:
-          no_logs_yet: Aínda non hai rexistros
       managed_users:
         promotion:
           error: Produciuse un erro ao promover o usuario xestor.
@@ -794,9 +790,6 @@ gl:
         edit:
           active_content_blocks: Bloques de contido activo
           inactive_content_blocks: Bloques de contido inactivo
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualización
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -812,10 +805,8 @@ gl:
           title: Novo usuario privado do espazo participativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Produciuse un erro ao ler o ficheiro CSV.
           success: Ficheiro CSV subido con éxito, estamos a enviar un correo de invitación aos participantes. Isto pode levar un pouco de tempo.
         new:
-          explanation: 'Sube o teu ficheiro CSV. Ten de ter dúas columnas co correo electrónico na primeira e o nome na última (correo, nome) dos usuarios que desexes engadir ao espazo de participación, sen cabeceiras. Evita empregar os seguintes caracteres `<>?%&^*#@()[]=+:;"{}\|` no nome de usuario.'
           title: Sube o teu ficheiro CSV
           upload: Subir
       reminders:

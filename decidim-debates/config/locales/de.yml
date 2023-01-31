@@ -17,6 +17,7 @@ de:
       decidim/debates/close_debate_event: Debatte beendet
       decidim/debates/create_debate_event: Debatte
       decidim/debates/creation_disabled_event: Debatten deaktiviert
+      decidim/debates/creation_enabled_event: Erstellung von Debatten aktiviert
   activerecord:
     models:
       decidim/debates/debate:
@@ -26,6 +27,7 @@ de:
     components:
       debates:
         actions:
+          comment: Kommentar
           create: Erstellen
           endorse: Bestätigen
         name: Debatten
@@ -39,6 +41,7 @@ de:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
+            creation_enabled: Teilnehmer können Debatten erstellen
             endorsements_blocked: Bestätigungen blockiert
             endorsements_enabled: Bestätigungen aktiviert
     debates:
@@ -118,6 +121,7 @@ de:
           my_debates: Meine Debatten
           official: Offiziell
           origin: Ursprung
+          participants: Teilnehmer
           scope: Bereich
           search: Suche
           state: Status
@@ -167,9 +171,6 @@ de:
             title: Versionen
         versions_list:
           back_to_resource: Zurück zur Debatte
-      last_activity:
-        debate_updated_at_html: "<span>Debatte aktualisiert unter %{link}</span>"
-        new_debate_at_html: "<span>Neue Debatte bei %{link}</span>"
       models:
         debate:
           fields:

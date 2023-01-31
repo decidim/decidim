@@ -18,12 +18,15 @@ de:
         title: Titel
       initiatives_committee_member:
         user: Ausschussmitglied
+      initiatives_settings:
+        initiatives_order: Reihenfolge
       initiatives_type:
         area_enabled: Die Auswahl des Bereichs von Initiativen für Autoren freigeben
         attachments_enabled: Anhänge freigeben
         banner_image: Banner-Bild
         child_scope_threshold_enabled: Unterschriften von Unterbereichen aktivieren
         collect_user_extra_fields: Sammeln Sie persönliche Daten des Benutzers bei der Unterschrift
+        comments_enabled: Kommentare aktivieren
         custom_signature_end_date_enabled: Die Auswahl des Enddatums der Unterschriftensammlung für Autoren freigeben
         description: Beschreibung
         document_number_authorization_handler: Berechtigung zur Überprüfung der Belegnummer bei Abstimmungen
@@ -84,12 +87,17 @@ de:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
+      initiatives_settings:
+        update:
+          error: Ein Fehler ist aufgetreten
+          success: Die Einstellungen für Initiativen wurden erfolgreich aktualisiert
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
         components: Komponenten
         information: Information
         initiatives: Initiativen
+        initiatives_settings: Einstellungen
         initiatives_types: Arten von Initiativen
         moderations: Moderationen
       models:
@@ -241,6 +249,16 @@ de:
           update:
             error: Ein Fehler ist aufgetreten
             success: Die Bürgerinitiative wurde erfolgreich aktualisiert
+        initiatives_settings:
+          edit:
+            update: Aktualisieren
+          form:
+            comments: Am meisten kommentiert
+            date: Neuste
+            publication_date: Zuletzt veröffentlicht
+            random: Zufällig
+            signatures: Am häufigsten unterzeichnet
+            title: Einstellungen für Initiativen
         initiatives_type_scopes:
           create:
             error: Ein Fehler ist aufgetreten
@@ -288,6 +306,12 @@ de:
           send_to_technical_validation: "%{user_name} hat die Initiative %{resource_name} zur technischen Validierung gesendet"
           unpublish: "%{user_name} hat die Initiative %{resource_name} verworfen"
           update: "%{user_name} hat die Initiative %{resource_name} aktualisiert"
+        initiatives_settings:
+          update: "%{user_name} hat die Einstellungen für Initiativen aktualisiert"
+        initiatives_type:
+          create: "%{user_name} hat den Initiativentyp %{resource_name} erstellt"
+          delete: "%{user_name} hat den Initiativentyp %{resource_name} gelöscht"
+          update: "%{user_name} hat den Initiativentyp %{resource_name} aktualisiert"
       admin_states:
         accepted: Ausreichend Unterschriften
         created: Erstellt
@@ -404,6 +428,7 @@ de:
           notification_title: <a href="%{applicant_profile_url}">%{applicant_nickname}</a> hat sich für das Promoter-Komittee Ihrer Initiative <a href="%{resource_url}">%{resource_title}</a> beworben. Um anzunehmen oder abzulehnen, klicken Sie <a href="%{resource_url}/edit">hier</a>.
       form:
         add_attachments: Dokumente
+        attachment_legend: "(Optional) Anhang hinzufügen"
         delete_attachment: Löschen
       index:
         title: Initiativen
@@ -468,11 +493,6 @@ de:
           unfold: Entfalten
         index_header:
           new_initiative: Neue Initiative
-          not_authorized:
-            authorizations_page: Autorisierungen anzeigen
-            close: Schließen
-            explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
-            title: Autorisierung erforderlich
         initiatives:
           closed_initiatives_warning: Derzeit gibt es keine offenen Initiativen, aber hier finden Sie alle abgeschlossenen Initiativen aufgelistet.
           no_initiatives_warning: Keine Initiativen entsprechen Ihren Suchkriterien.
@@ -546,8 +566,12 @@ de:
         promotal_committee_help: Denken Sie daran, dass Sie mindestens %{member_count} Personen zum Promoter-Komitee einladen müssen. Leiten Sie den folgenden Link weiter, um Personen zum Promoter-Komitee einzuladen
         status_change_body_for: 'Die Initiative %{title} hat ihren Status geändert in: %{state}'
         status_change_for: Die Initiative %{title} hat ihren Status geändert
-      last_activity:
-        new_initiative: Neue Initiative
+      modal:
+        not_authorized:
+          authorizations_page: Autorisierungen anzeigen
+          close: Schließen
+          explanation: Sie müssen überprüft werden, um eine neue Initiative zu schaffen.
+          title: Autorisierung erforderlich
       pages:
         home:
           highlighted_initiatives:
@@ -561,6 +585,8 @@ de:
           published: Veröffentlicht
           rejected: Ungenügend Unterschriften
           validating: Technische Validierung
+      signature_interval:
+        title: Zeitraum der Unterschriftensammlung
       states:
         accepted: Akzeptiert
         expired: Abgelaufen
@@ -574,6 +600,9 @@ de:
     menu:
       initiatives: Initiativen
     resources:
+      initiative:
+        actions:
+          comment: Kommentar
       initiatives_type:
         actions:
           title: Aktionen
@@ -605,7 +634,7 @@ de:
         title: Zeichen %{initiative_title}
       initiatives:
         initiative:
-          check: Hör zu
+          check: Mehr erfahren
           check_and_support: Überprüfe es und unterschreibe es
         no_initiatives_yet:
           no_initiatives_yet: Keine Initiativen bisher!

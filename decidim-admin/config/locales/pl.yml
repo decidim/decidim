@@ -184,7 +184,6 @@ pl:
           error: Wystąpił błąd podczas akceptowania warunków użytkowania dla administratorów.
           success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
-          accept: Zgadzam się z warunkami użytkowania
           are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
           title: Akceptuję warunki użytkowania
@@ -514,8 +513,8 @@ pl:
           import: Importuj
         notice: "Zaimportowano %{resource_name} %{number}"
       logs:
-        logs_list:
-          no_logs_yet: Nie ma jeszcze logów
+        filters:
+          user: Użytkownik
       managed_users:
         promotion:
           error: Podczas awansowania zarządzanego użytkownika wystąpił błąd.
@@ -612,7 +611,7 @@ pl:
           fields:
             created_at: Data utworzenia
             email: E-mail
-            last_sign_in_at: Ostatni dzień rejestracji
+            last_sign_in_at: Ostatnie logowanie
             name: Imię
             role: Rola
             roles:
@@ -821,9 +820,6 @@ pl:
         edit:
           active_content_blocks: Aktywne bloki treści
           inactive_content_blocks: Bloki nieaktywnych treści
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualizuj
       participatory_space_private_users:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej przestrzeni partycypacyjnej.
@@ -839,13 +835,12 @@ pl:
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Wystąpił błąd podczas odczytu pliku CSV.
           success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
           destroy:
             button: Usuń wszystkich prywatnych uczestników
             title: Usuń prywatnych uczestników
-          explanation: 'Prześlij swój plik CSV. Plik musi składać się z dwóch kolumn: w pierwszej kolumnie adresy e-mail, w drugiej kolumnie imiona (adres e-mail, imię) użytkowników, których chcesz dodać do przestrzeni partycypacyjnej; bez nagłówków. Unikaj używania niepoprawnych znaków takich jak `<>?%&^*#@()[]=+:;"{}\|` w imieniu użytkownika.'
+          example_file: 'Przykładowy plik:'
           title: Prześlij swój plik CSV
           upload: Prześlij
       reminders:
@@ -945,7 +940,7 @@ pl:
           title: Edytuj stronę
           update: Aktualizuj
         form:
-          none: Żadna
+          none: Bez tematu
           slug_help: 'Wpisz tutaj tylko to, co ma znaleźć się na końcu po znaku „/”, a nie pełny adres URL. Można użyć liter, cyfr i myślników. Musi zaczynać się od litery. Przykład: %{url}'
         index:
           last_notable_change: Ostatnia istotna zmiana
@@ -996,6 +991,7 @@ pl:
           verify_via_csv: Zweryfikuj za pomocą CSV
       user_groups_csv_verifications:
         new:
+          example_file: 'Przykładowy plik:'
           explanation: 'Prześlij swój plik CSV. Plik musi zawierać: w pierwszej kolumnie oficjalne adresy e-mail grup w organizacji, bez nagłówków. Tylko grupy, które potwierdziły swój adres e-mail i których adres e-mail znajduje się w pliku CSV, zostaną zweryfikowane.'
           title: Prześlij swój plik CSV
           upload: Prześlij
@@ -1060,6 +1056,7 @@ pl:
         moderation:
           fields:
             created_at: Data utworzenia
+            deleted_resource: Usunięty zasób
             hidden_at: Ukryto
             participatory_space: Przestrzeń partycypacyjna
             report_count: Liczba

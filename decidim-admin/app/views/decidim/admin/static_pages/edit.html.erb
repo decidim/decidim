@@ -5,9 +5,12 @@
     </div>
     <div class="card-section">
       <%= render partial: "form", object: f %>
+
+      <div class="button--double form-general-submit">
+        <%= f.submit t(".update") %>
+      </div>
     </div>
   </div>
-  <div class="button--double form-general-submit">
-    <%= f.submit t(".update") %>
-  </div>
 <% end %>
+
+<%= render partial: "decidim/admin/shared/landing_page/content_blocks" if content_blocks? %>

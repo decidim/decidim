@@ -18,7 +18,14 @@ module Decidim
       "Decidim::Budgets::Order" => "check-double-line",
       "Decidim::Assembly" => "government-line",
       "Decidim::ParticipatoryProcess" => "treasure-map-line",
-      "other" => "question-line"
+      "Decidim::Category" => "price-tag-3-line",
+      "Decidim::Scope" => "scan-line",
+      "other" => "question-line",
+      "like" => "heart-add-line",
+      "dislike" => "dislike-line",
+      "follow" => "notification-3-line",
+      "unfollow" => "notification-3-fill",
+      "share" => "share-line"
     }.freeze
 
     # Public: Returns an icon given an instance of a Component. It defaults to
@@ -40,7 +47,7 @@ module Decidim
     #
     # Returns an HTML tag with the icon.
     def manifest_icon(manifest, options = {})
-      if manifest.icon
+      if manifest.respond_to?(:icon) && manifest.icon.present?
         external_icon manifest.icon, options
       else
         icon "question-mark", options
@@ -58,9 +65,9 @@ module Decidim
     def resource_icon(resource, options = {})
       if resource.instance_of?(Decidim::Comments::Comment)
         icon "comment-square", options
-      elsif resource.respond_to?(:component)
+      elsif resource.respond_to?(:component) && resource.component.present?
         component_icon(resource.component, options)
-      elsif resource.respond_to?(:manifest)
+      elsif resource.respond_to?(:manifest) && resource.manifest.present?
         manifest_icon(resource.manifest, options)
       elsif resource.is_a?(Decidim::User)
         icon "person", options
@@ -70,8 +77,11 @@ module Decidim
     end
 
     def resource_type_icon(resource_type, options = {})
-      key = DEFAULT_RESOURCE_TYPE_ICONS.has_key?(resource_type.to_s) ? resource_type.to_s : "other"
-      icon DEFAULT_RESOURCE_TYPE_ICONS[key], options
+      icon resource_type_icon_key(resource_type), options
+    end
+
+    def resource_type_icon_key(resource_type)
+      DEFAULT_RESOURCE_TYPE_ICONS[resource_type.to_s] || DEFAULT_RESOURCE_TYPE_ICONS["other"]
     end
   end
 end

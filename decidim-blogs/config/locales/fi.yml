@@ -1,5 +1,8 @@
 fi:
   activemodel:
+    attributes:
+      post:
+        published_at: Julkaisuaika
     models:
       decidim/blogs/create_post_event: Uusi blogiartikkeli
   activerecord:
@@ -32,6 +35,7 @@ fi:
             save: Päivitä
             title: Muokkaa artikkelia
           index:
+            not_published_yet: Ei vielä julkaistu
             title: Artikkelit
           new:
             create: Luo
@@ -45,24 +49,19 @@ fi:
           delete: "%{user_name} poisti blogikirjoituksen %{resource_name} tilasta %{space_name}"
           update: "%{user_name} päivitti blogikirjoitusta %{resource_name} tilassa %{space_name}"
       last_activity:
-        new_post_at_html: "<span>Uusi artikkeli osoitteessa %{link}</span>"
+        new_post: 'Uusi artikkeli:'
       models:
         post:
           fields:
             author: Laatija
             body: Leipäteksti
-            created_at: Luotu
             official_blog_post: Virallinen artikkeli
+            published_at: Julkaisuaika
             title: otsikko
       posts:
         show:
-          back: Takaisin listaan
           comments: Kommentit
           view: Näytä
-        sidebar_blog:
-          comments: kommentit
-          most_commented_posts: Eniten kommentoidut artikkelit
-      read_more: Lue lisää
     components:
       blogs:
         actions:

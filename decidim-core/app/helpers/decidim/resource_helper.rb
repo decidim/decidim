@@ -27,6 +27,14 @@ module Decidim
       end)
     end
 
+    def redesigned_linked_resources_for(resource, type, link_name)
+      linked_resources = resource.linked_resources(type, link_name).group_by { |linked_resource| linked_resource.class.name }
+
+      safe_join(linked_resources.map do |klass, resources|
+        render(partial: klass.constantize.resource_manifest.template, locals: { resources: })
+      end)
+    end
+
     # Gets the classes linked to the given class for the `current_component`, and formats
     # them in a nice way so that they can be used in a form. Resulting format looks like
     # this, considering the given class is related to `Decidim::Meetings::Meeting`:

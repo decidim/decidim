@@ -315,8 +315,6 @@ ar:
         working_group: فريق العمل
       index:
         title: الجمعيات
-      last_activity:
-        new_assembly: جمعية جديدة
       pages:
         home:
           highlighted_assemblies:

@@ -311,8 +311,6 @@ zh-CN:
           index:
             meetings: 会议
             space_type: 参与空间
-      last_activity:
-        new_meeting_at_html: "<span>在 %{link}的新会议</span>"
       mailer:
         invite_join_meeting_mailer:
           invite:

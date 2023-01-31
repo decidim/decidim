@@ -3,8 +3,13 @@ en:
   activemodel:
     attributes:
       initiative:
+        answer: Answer
+        answer_url: Answer URL
+        area_id: Area
+        decidim_scope_id: Scope
         decidim_user_group_id: Author
         description: Description
+        hashtag: Hashtag
         offline_votes: In-person signatures
         offline_votes_for_scope: In-person signatures for %{scope_name}
         scope_id: Scope
@@ -17,8 +22,11 @@ en:
           online: Online
         state: Status
         title: Title
+        type_id: Type
       initiatives_committee_member:
         user: Committee member
+      initiatives_settings:
+        initiatives_order: Order
       initiatives_type:
         area_enabled: Enable authors to choose the area for their initiative
         attachments_enabled: Enable attachments
@@ -34,9 +42,13 @@ en:
         online_signature_enabled: Online signature enabled
         only_global_scope_enabled: Only allow global scope initiatives creation
         promoting_committee_enabled: Enable promoting committee
+        signature_type: Signature type
         title: Title
         undo_online_signatures_enabled: Enable participants to undo their online signatures
         validate_sms_code_on_votes: Add SMS code validation step to signature process
+      initiatives_type_scope:
+        decidim_scopes_id: Scopes
+        supports_required: Supports required
       initiatives_vote:
         date_of_birth: Date of birth
         document_number: Document number

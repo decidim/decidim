@@ -184,7 +184,6 @@ sv:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
-          accept: Jag godkänner villkoren
           are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
           refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
@@ -508,9 +507,6 @@ sv:
           file_legend: Lägg till en fil som kommer importeras.
           import: Importera
         notice: "%{number} %{resource_name} har importerats"
-      logs:
-        logs_list:
-          no_logs_yet: Det finns inga loggar än
       managed_users:
         promotion:
           error: Det gick inte att befordra den hanterade användaren.
@@ -816,9 +812,6 @@ sv:
         edit:
           active_content_blocks: Block med aktivt innehåll
           inactive_content_blocks: Block med inaktivt innehåll
-      organization_homepage_content_blocks:
-        edit:
-          update: Uppdatera
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
@@ -834,7 +827,6 @@ sv:
           title: Ny privat deltagare i deltagarutrymme.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Det gick inte att läsa CSV-filen.
           success: CSV-filen har skickats in och vi skickar inbjudningar via e-brev till deltagarna. Det kan ta en stund.
         new:
           destroy:
@@ -843,7 +835,6 @@ sv:
             empty: Det finns inga privata deltagare.
             explanation: Det finns %{count} privata deltagare.
             title: Radera privata deltagare
-          explanation: 'Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen (e-post, namn). Undvik olämpliga karaktärer som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
           title: Skicka CSV-fil
           upload: Skicka
       reminders:

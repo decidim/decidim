@@ -3,8 +3,10 @@
 # This is a temporary fix to ignore some HTML/CSS validation issues with the
 # Decidim HTML validation process.
 #
-# See: https://github.com/decidim/decidim/issues/8596
-# Related: https://github.com/w3c/css-validator/issues/355
+# See: https://github.com/decidim/decidim/pull/10014
+# Related:
+# - https://github.com/rails/rails/issues/46405
+# - https://github.com/foundation/foundation-sites/pull/12496
 module W3CValidators
   class NuValidator
     protected
@@ -17,15 +19,8 @@ module W3CValidators
 
     def ignore_errors
       @ignore_errors ||= [
-        "CSS: “min-height”: One operand must be a number.",
-        "CSS: “grid-template-columns”: One operand must be a number.",
-        "CSS: “grid-auto-rows”: One operand must be a number.",
-        "CSS: “--emoji-area-height”: One operand must be a number.",
-        "CSS: “--picker-width”: One operand must be a number.",
-        "CSS: “height”: The types are incompatible.",
-        "CSS: “--emoji-preview-height”: The types are incompatible.",
-        "CSS: “--emoji-preview-height-full”: Invalid type: “var(--emoji-preview-height) + var(--emoji-preview-margin)”.",
-        "CSS: “--search-height-full”: Invalid type: “var(--search-height) + var(--search-margin)”."
+        "An “input” element with a “type” attribute whose value is “hidden” must not have an “autocomplete” attribute whose value is “on” or “off”.",
+        "An “input” element with a “type” attribute whose value is “hidden” must not have any “aria-*” attributes."
       ]
     end
 

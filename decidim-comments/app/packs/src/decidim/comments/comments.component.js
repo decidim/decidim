@@ -17,6 +17,7 @@ import Rails from "@rails/ujs";
 import { createCharacterCounter } from "src/decidim/input_character_counter"
 import ExternalLink from "src/decidim/redesigned_external_link"
 import updateExternalDomainLinks from "src/decidim/external_domain_warning"
+import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -43,7 +44,10 @@ export default class CommentsComponent {
       this.mounted = true;
       this._initializeComments(this.$element);
       if (!this.singleComment) {
-        this._fetchComments();
+        $(".add-comment textarea", this.$element).prop("disabled", true);
+        this._fetchComments(() => {
+          $(".add-comment textarea", this.$element).prop("disabled", false);
+        });
       }
 
       $(".order-by__dropdown .is-submenu-item a", this.$element).on("click.decidim-comments", () => this._onInitOrder());
@@ -137,6 +141,8 @@ export default class CommentsComponent {
         this._stopPolling();
       });
 
+      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
+
       if ($text.length && $text.get(0) !== null) {
         // Attach event to the DOM node, instead of the jQuery object
         $text.get(0).addEventListener("emoji.added", this._onTextInput);
@@ -212,10 +218,11 @@ export default class CommentsComponent {
    * Sends an ajax request based on current
    * params to get comments for the component
    * @private
+   * @param {Function} successCallback A callback that is called after a
+   *   successful fetch
    * @returns {Void} - Returns nothing
    */
-  _fetchComments() {
-    $(".add-comment textarea", this.$element).prop("disabled", true);
+  _fetchComments(successCallback = null) {
     Rails.ajax({
       url: this.commentsUrl,
       type: "GET",
@@ -228,7 +235,9 @@ export default class CommentsComponent {
         ...(this.lastCommentId && { "after": this.lastCommentId })
       }),
       success: () => {
-        $(".add-comment textarea", this.$element).prop("disabled", false);
+        if (successCallback) {
+          successCallback();
+        }
         this._pollComments();
       }
     });

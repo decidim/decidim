@@ -346,9 +346,6 @@ zh-CN:
           impersonate_existing_managed_user: 管理参与者 "%{name}"
           impersonate_existing_user: 管理参与者 "%{name}"
           impersonate_new_managed_user: 管理新参与者
-      logs:
-        logs_list:
-          no_logs_yet: 还没有日志
       managed_users:
         promotion:
           error: 在促进管理下的参与者方面存在问题。
@@ -591,9 +588,6 @@ zh-CN:
         edit:
           active_content_blocks: 活动内容块
           inactive_content_blocks: 非活动内容块
-      organization_homepage_content_blocks:
-        edit:
-          update: 更新
       participatory_space_private_users:
         create:
           error: 在这种参与空间中添加私人参与者时出现了问题。
@@ -608,10 +602,8 @@ zh-CN:
           title: 新的参与性空间活动私人参与者。
       participatory_space_private_users_csv_imports:
         create:
-          invalid: 读取CSV文件时出现问题。
           success: CSV 文件上传成功，我们正在向参与者发送邀请邮件。这可能需要一段时间。
         new:
-          explanation: '上传您的 CSV 文件。 它必须在文件的第一列中包含两列电子邮件，文件的最后一列中的名字(电子邮件)， 您想要添加到参与性空间的用户，没有标题。 避免在用户名中使用无效字符，例如`<>?%&^*#@()[]=+:;"{}\|`。'
           title: 上传您的 CSV 文件
           upload: 上传
       resource_permissions:

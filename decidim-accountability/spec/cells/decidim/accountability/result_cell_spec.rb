@@ -11,7 +11,7 @@ module Decidim::Accountability
     context "when rendering" do
       it "renders the card" do
         html = cell("decidim/accountability/result", result).call
-        expect(html).to have_css(".card--result")
+        expect(html).to have_css(".card__list")
       end
     end
   end

@@ -261,7 +261,11 @@ cs:
             success: Otázka byla úspěšně aktualizována
         steps:
           create_election:
+            census: Rejstřík obyvatel
             errors:
+              census_codes_generated: Přístupové kódy pro rejstřík osob nejsou vygenerovány.
+              census_frozen: Přístupové kódy pro rejstřík osob nejsou exportovány.
+              census_uploaded: Pro tyto volby není nahrán žádný rejstřík obyvatel.
               component_published: Volební složka <strong>není publikována</strong>.
               max_selections: Otázky nemají <strong>správnou hodnotu pro množství odpovědí</strong>
               minimum_answers: Otázky musí mít <strong>alespoň dvě odpovědi</strong>.
@@ -276,7 +280,10 @@ cs:
               'false': nemá <strong>veřejný klíč</strong>
               'true': má <strong>veřejný klíč</strong>
             requirements:
-              component_published: Vilební složka je <strong>publikována</strong>.
+              census_codes_generated: Vygenerované přístupové kódy pro rejstřík osob.
+              census_frozen: Přístupové kódy pro rejstřík osob jsou exportovány a sčítání je zmrazeno.
+              census_uploaded: Rejstřík obyvatel je nahrán.
+              component_published: Volební komponenta je <strong>publikována</strong>.
               max_selections: Všechny otázky mají správnou hodnotu pro <strong>maximum odpovědí</strong>.
               minimum_answers: Každá otázka má <strong>alespoň 2 odpovědi</strong>.
               minimum_questions: Volba má <strong>alespoň jednu otázku</strong>.
@@ -389,6 +396,13 @@ cs:
           update: "%{user_name} aktualizoval volbu %{resource_name} z %{space_name}"
         trustee:
           create: "%{user_name} přiřadil uživatele %{trustee_user} jako důvěrníka"
+      connection:
+        failed:
+          modal:
+            close: Zavřít‏
+            communication_lost: Bohužel se zdá, že komunikace s hlasovacím serverem (Bulletin Board) je ztracena.<br>Může se stát, že připojení k internetu je přerušeno nebo že cílový server je příliš zaneprázdněný.<br>Pokud tento problém přetrvává, můžete to zkusit později nebo se obraťte na podporu.
+            generic_error: Bohužel došlo k neznámé chybě. Je pravděpodobné, že váš prohlížeč není podporován nebo že používáte "incognito" nebo "privátní" režim, který není podporován.
+            title: Něco se pokazilo
       election_m:
         badge_name:
           finished: Dokončeno
@@ -645,7 +659,7 @@ cs:
           back: Zahájit proces hlasování znovu
           ballot_hash: 'Identifikátor vašeho hlasování:'
           cast: Uložte hlasování, abyste dokončili vaše hlasování
-          description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečnení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
+          description: Zde máte možnost odevzdat hlasovací lístek tak, aby byl správně spočítán, nebo případně můžete kontrolovat, zda je vaše hlasování správně šifrované. Z důvodů porušeného zabezpečení to váš hlasovací lístek může zrušit. To znamená, že abyste mohli hlasovat, budete muset znovu zahájit hlasovací proces.
           header: 'Hlasovací lístek je šifrovaný: zahlasujte s ním nebo jej auditujte'
         casting:
           header: Hlasování...
@@ -675,10 +689,6 @@ cs:
         failed:
           header: Hlasování se nezdařilo
           lead: Váš hlas nebyl odeslán!
-          modal:
-            close: Zavřít‏
-            communication_lost: Bohužel se zdá, že komunikace s hlasovacím serverem (Bulletin Board) je ztracena.<br>Může se stát, že připojení k internetu je přerušeno nebo že cílový server je příliš zaneprázdněný.<br>Pokud tento problém přetrvává, můžete to zkusit později nebo se obraťte na podporu.
-            title: Něco se pokazilo
           text: Něco se pokazilo, zkuste to prosím znovu.
           try_again: Zkuste to znovu
         header:
@@ -752,7 +762,7 @@ cs:
             notification_title: Jste důvěrník pro <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
-            email_intro: 'Váš hlas byl přijat! Pomocí tvého hlasovacího tokenu: %{encrypted_vote_hash}, můžete ověřit svůj hlas <a href="%{verify_url}">zde</a>.'
+            email_intro: 'Váš hlas byl přijat! Pomocí vašeho hlasovacího tokenu: %{encrypted_vote_hash}, můžete ověřit svůj hlas <a href="%{verify_url}">zde</a>.'
             email_outro: Obdrželi jste toto oznámení, protože jste hlasovali pro hlasování %{resource_name}.
             email_subject: Váš hlas pro %{resource_name} byl přijat.
             notification_title: 'Váš hlas byl přijat. Ověřte svůj hlas <a href="%{verify_url}">zde</a> pomocí hlasovacího tokenu: %{encrypted_vote_hash}'
@@ -1043,7 +1053,7 @@ cs:
             select_a_voting_type: Vyberte prosím typ hlasování
             show_check_census_help: Zda zobrazit odkaz "Mohu hlasovat?" v nabídce veřejného hlasování
             slug: Slug
-            slug_help: 'URL slugů se používají k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            slug_help: 'URL slug se používá k generování URL, které odkazují na toto hlasování. přijímá pouze písmena, čísla a pomlčky a musí začínat písmenem. Příklad: %{url}'
             title: Název
             voting_type:
               hybrid: Hybridní
@@ -1090,7 +1100,7 @@ cs:
               invalid: Při nahrávání seznamu osob došlo k chybě, opakujte akci později.
               invalid_csv_header: Hlavičky CSV chybí nebo nejsou správné - přečtěte si prosím pečlivě pokyny
             creating_data:
-              info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file}."
+              info_message: "<strong>Počkejte prosím</strong>, zpracováno %{processed_count} z %{raw_count} řádků ze souboru %{file} (to může trvat několik minut)."
             delete:
               button: Odstranit všechna data ze seznamu obyvatel
               confirm: Odstranění všech dat z rejstříku osob nelze vrátit zpět. Opravdu chcete pokračovat?
@@ -1105,9 +1115,13 @@ cs:
               launch_error: Problém se spuštěním exportu přístupových kódů
               launch_success: Export přístupových kódů byl spuštěn. Brzy obdržíte e-mail na %{email}
             exporting_access_codes:
-              info_message: "<strong>Počkejte prosím</strong>, export se připravuje, brzy ho obdržíte na %{email}"
+              info_message: "<strong>Počkejte prosím</strong>, export se připravuje, obdržíte ho brzy na %{email} (to může trvat několik minut)."
             freeze:
               callout: Seznam osob je zmrazen a nelze jej upravit.
+              help_html: |
+                Data z registru obyvatel byla nahrána, kódy byly úspěšně vygenerovány a exportovány.<br>
+                <strong>Nyní jste připraveni zahájit volbu.</strong><br>
+                Použijte exportovaný CSV s individuálními kódy k distribuci ve vašem sčítání pomocí vlastních prostředků nebo aktivujte záložku "Můžu hlasovat", aby kdokoliv mohl tento kód načíst pomocí vlastních dat ze sčítání.
             generate_access_codes:
               button: Generovat hlasovací přístupové kódy
               callout: Nyní můžete přejít k vygenerování přístupových kódů. Pamatujte, že po vygenerování přístupových kódů již nebudete moci měnit seznam osob.
@@ -1116,8 +1130,9 @@ cs:
               info_message_warn: Zkontrolujte, že žádná data nechybí, protože byly vytvořeno %{data_count} záznamů a nahraný soubor %{file} měl %{raw_count} řádků.
               launch_error: Problém při spuštění generování přístupových kódů
               launch_success: Vytváření kódů bylo spuštěno.
+              start_over: Vymažte prosím aktuální rejstřík obyvatel a začněte znovu se správným CSV souborem s platnými řádky.
             generating_access_codes:
-              info_message: "<strong>Počkejte prosím</strong>, přístupové kódy hlasování jsou generovány..."
+              info_message: "<strong>Počkejte prosím</strong>, přístupové kódy pro hlasování jsou vytvářeny (toto může trvat několik minut)..."
             new:
               file_help:
                 explanation: 'Pokyny pro soubor:'

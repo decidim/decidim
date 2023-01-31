@@ -11,7 +11,7 @@ describe "Admin verifies user groups via CSV", type: :system do
     create(
       :user_group,
       :confirmed,
-      email: "my_usergroup@example.org", # hardcoded in the CSV file
+      email: "acme@example.org", # hardcoded in the CSV file
       organization:,
       users: [create(:user, organization:)]
     )
