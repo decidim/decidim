@@ -103,9 +103,9 @@ describe Decidim::SendPushNotification do
             private_key: "private_key"
           )
         }
-        expect(Webpush).to receive(:payload_send).with(first_notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
-        expect(Webpush).to receive(:payload_send).with(second_notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
-        expect(Webpush).to receive(:payload_send).with(third_notification_payload).ordered.and_raise(Webpush::Error)
+        expect(WebPush).to receive(:payload_send).with(first_notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
+        expect(WebPush).to receive(:payload_send).with(second_notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
+        expect(WebPush).to receive(:payload_send).with(third_notification_payload).ordered.and_raise(WebPush::Error)
 
         responses = subject.perform(notification)
         expect(responses.size).to eq(2)
@@ -138,7 +138,7 @@ describe Decidim::SendPushNotification do
           )
         }
 
-        allow(Webpush).to receive(:payload_send).with(notification_payload).and_return(double("result", message: "Created", code: "201"))
+        allow(WebPush).to receive(:payload_send).with(notification_payload).and_return(double("result", message: "Created", code: "201"))
 
         responses = subject.perform(notification)
         expect(responses.all? { |response| response.code == "201" }).to be(true)
@@ -160,7 +160,7 @@ describe Decidim::SendPushNotification do
                                   })
 
           notification_payload = a_hash_including(message:)
-          expect(Webpush).to receive(:payload_send).with(notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
+          expect(WebPush).to receive(:payload_send).with(notification_payload).ordered.and_return(double("result", message: "Created", code: "201"))
         end
 
         responses = subject.perform(notification)
