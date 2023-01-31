@@ -3,12 +3,10 @@
     <%= icon item[:icon] if item[:icon].present? %>
     <% if item[:text].present? %>
       <%= link_to_if enable_links? && item.has_key?(:url), item[:text], item[:url] %>
+    <% elsif item[:cell].present? && item[:args].is_a?(Enumerable) %>
+      <%= cell(item[:cell], *item[:args]) %>
     <% elsif item[:cell].present? %>
-      <% if item[:args].is_a?(Enumerable) %>
-        <%= cell(item[:cell], *item[:args]) %>
-      <% else %>
-        <%= cell(item[:cell], item[:args]) %>
-      <% end %>
+      <%= cell(item[:cell], item[:args]) %>
     <% end %>
   </span>
 <% end %>
