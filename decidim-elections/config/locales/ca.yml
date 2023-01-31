@@ -6,17 +6,38 @@ ca:
         image: Imatge
         proposals: Propostes relacionades
         title: Títol
+      ballot_style:
+        code: Codi
       election:
         description: Descripció
         end_time: La votació finalitza el
         start_time: La votació comença el
         title: Títol
+      monitoring_committee_member:
+        email: Correu electrònic
+        name: Nom
+      polling_officer:
+        email: Correu electrònic
+        name: Nom
+      polling_station:
+        address: Adreça
+        location: Ubicació
+        location_hints: Detalls d'ubicació
+        polling_station_managers: Gestores
+        polling_station_president_id: Presidència
+        title: Títol
       question:
         max_selections: Número màxim d'opcions
         min_selections: Cap de les opcions anteriors
         title: Títol
+      trustees_participatory_space:
+        user_id: Participant
       voting:
         end_time: La votació finalitza
+        introductory_image: Imatge de presentació
+        promoted: Destacada
+        scope_id: Àmbit
+        show_check_census: Mostrar la pàgina de "comprovar el cens"
         start_time: La votació comença
     errors:
       models:
