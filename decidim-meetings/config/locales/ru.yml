@@ -24,8 +24,6 @@ ru:
         registrations_enabled: Регистрация включена
         title: Название
         transparent: Прозрачная
-      meeting_agenda_items:
-        duration: Длительность
     errors:
       models:
         meeting_agenda:
