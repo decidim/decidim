@@ -14,17 +14,24 @@ ro:
         description: Descriere
         file: Fişier
         title: Numele fișierului sau al imaginii atașate
+        weight: Poziție
       attachment_collection:
         description: Descriere
         name: Nume
+        weight: Poziție
       category:
         description: Descriere
         name: Nume
         parent_id: Categoria mamă
+        weight: Poziție
       component:
         name: Nume
         published_at: Publicat în
         weight: Poziție
+      external_domain:
+        value: Valoare
+      help_section:
+        content: Conținut
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -92,6 +99,9 @@ ro:
         welcome_notification_body: Conținutul notificării de bun venit
         welcome_notification_subject: Subiectul notificării de bun venit
         youtube_handler: Responsabil YouTube
+      participatory_space_private_user:
+        email: E-mail
+        name: Nume
       scope:
         code: Cod
         name: Nume
@@ -113,6 +123,7 @@ ro:
         show_in_footer: Afișează în subsol
         slug: URL slug
         title: Titlu
+        topic_id: Subiect
         weight: Poziție
       static_page_topic:
         description: Descriere
