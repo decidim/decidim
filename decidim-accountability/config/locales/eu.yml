@@ -174,6 +174,9 @@ eu:
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
       import_projects_mailer:
         import:
+          added_projects:
+            one: Emaitza bat inportatu da proiektuetatik.
+            other: "%{count} emaitza inportatu dira proiektuetatik."
           subject: Proiektuak zuzen inportatu dira
           success: Zuzen inportatu dira proiektuak emaitzetara %{component_name} osagaian. Emaitza administrazio-interfacean ikus dezakezu.
       last_activity:
