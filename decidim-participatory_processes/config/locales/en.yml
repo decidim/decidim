@@ -451,6 +451,8 @@ en:
       content_blocks:
         highlighted_processes:
           name: Highlighted processes
+        related_processes:
+          name: Related processes
       index:
         title: Participatory processes
       last_activity:
