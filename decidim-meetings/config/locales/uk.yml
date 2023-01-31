@@ -23,8 +23,6 @@ uk:
         registrations_enabled: Реєстрацію відкрито
         title: Назва
         transparent: Прозора
-      meeting_agenda_items:
-        duration: Тривалість
     errors:
       models:
         meeting_agenda:
