@@ -21,7 +21,7 @@ export default function(node) {
   trigger.setAttribute("aria-describedby", tooltip.id)
 
   // keyboard listener is at root-level
-  window.addEventListener("keyup", (event) => event.key === "Escape" && hide())
+  window.addEventListener("keydown", (event) => event.key === "Escape" && hide())
 
   trigger.addEventListener("mouseenter", show)
   trigger.addEventListener("focus", show)
