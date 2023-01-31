@@ -43,7 +43,6 @@ uk:
             author: Автор
             body: Основний текст
             created_at: 'Створено:'
-            title: заголовок
       posts:
         show:
           view: Переглянути
