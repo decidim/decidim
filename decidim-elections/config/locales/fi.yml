@@ -39,6 +39,7 @@ fi:
         end_time: Äänestyksen päättymisaika
         introductory_image: Esittelykuva
         promoted: Korostettu
+        scope_id: Teema
         show_check_census: Näytä "tarkasta henkilötietorekisterin tiedot" -sivu
         start_time: Äänestyksen alkamisaika
         title: Otsikko
@@ -843,11 +844,20 @@ fi:
           published: Julkaistu
         landing_page:
           content_blocks:
+            create:
+              error: Sisältölohkon luonti epäonnistui
+              success: Sisältölohkon luonti onnistui
+            destroy:
+              error: Sisältölohkon poisto epäonnistui
+              success: Sisältölohkon poisto onnistui
             edit:
               update: Päivitä
           edit:
             active_content_blocks: Aktiiviset sisältölohkot
+            add: Lisää sisältölohko
+            destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
             inactive_content_blocks: Käytöstä poistetut sisältölohkot
+            title: Sivun sisältö
         menu:
           votings: Äänestykset
           votings_submenu:
