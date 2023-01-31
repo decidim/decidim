@@ -22,6 +22,10 @@ env:
   NODE_VERSION: 16.9.1
   RAILS_ENV: development
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   main:
     name: Tests
@@ -45,10 +49,6 @@ jobs:
       DATABASE_HOST: localhost
       RUBYOPT: '-W:no-deprecated'
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
-        if: "github.ref != 'refs/heads/develop'"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - uses: actions/checkout@v2.0.0
         with:
           fetch-depth: 1

@@ -774,9 +774,6 @@ lb:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
           inactive_content_blocks: Inaktive Inhaltsblöcke
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualisieren
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
