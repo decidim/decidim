@@ -1,10 +1,6 @@
 "no":
   activemodel:
     attributes:
-      agenda:
-        description: Beskrivelse
-        duration: Varighet
-        title: Tittel
       close_meeting:
         attendees_count: Antall deltagere
         attending_organizations: Liste over organisasjoner som deltok
@@ -22,7 +18,6 @@
         decidim_scope_id: Tema
         decidim_user_group_id: Brukergruppe
         description: Beskrivelse
-        end_time: Sluttid
         id: ID
         location: Plassering
         location_hints: Plasseringstips
@@ -34,8 +29,6 @@
         registration_terms: Registrerings vilkår
         registration_url: Link til registrering
         registrations_enabled: Registreringer aktivert
-        show_embedded_iframe: Vis innebygd iframe for denne nettadressen
-        start_time: Start-Tid
         title: Tittel
         transparent: Privat
         type_of_meeting: Type møte
@@ -277,9 +270,6 @@
           edit:
             close: Lukk
             title: Lukk møte
-        meeting_copies:
-          form:
-            select_a_meeting_type: Vennligst velg en møtetype
         meetings:
           close:
             invalid: Det oppstod et problem med å avslutte dette møtet
