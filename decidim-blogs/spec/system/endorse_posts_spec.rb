@@ -15,14 +15,14 @@ describe "endorse posts", type: :system do
     click_link "Blog post title"
   end
 
-  context "when liking the post without belonging to a user group" do
-    it "likes the post" do
+  context "when endorsing the post without belonging to a user group" do
+    it "endorses the post" do
       click_button("Endorse")
       expect(page).to have_content("ENDORSED")
     end
   end
 
-  context "when liking the post while being a part of a group" do
+  context "when endorsing the post while being a part of a group" do
     let!(:user_group) do
       create(
         :user_group,
@@ -43,11 +43,12 @@ describe "endorse posts", type: :system do
       expect(page).to have_content("Tester")
     end
 
-    def add_likes
+    def add_endorsements
       click_button "Endorse"
       within "#user-identities" do
         find("li", text: /\ATester's Organization\z/).click
         find("li", text: /\ATester\z/).click
+        expect(page).to have_css(".selected", count: 2)
         click_button "Done"
       end
       visit current_path
@@ -55,10 +56,10 @@ describe "endorse posts", type: :system do
     end
 
     context "when both identities picked" do
-      it "likes the post as a group and a user" do
+      it "endorses the post as a group and a user" do
         visit page.current_path
 
-        add_likes
+        add_endorsements
 
         within "#user-identities" do
           expect(page).to have_css(".selected", count: 2)
@@ -66,13 +67,16 @@ describe "endorse posts", type: :system do
       end
     end
 
-    context "when like cancelled as a user" do
-      it "doesn't cancel group like" do
+    context "when endorsement cancelled as a user" do
+      it "doesn't cancel group endorsement" do
         visit page.current_path
 
-        add_likes
-        find(".selected", match: :first).click
-        click_button "Done"
+        add_endorsements
+        within "#user-identities" do
+          find(".selected", match: :first).click
+          expect(page).to have_css(".selected", count: 1)
+          click_button "Done"
+        end
         visit current_path
         click_button "Endorse"
 
@@ -85,13 +89,15 @@ describe "endorse posts", type: :system do
       end
     end
 
-    context "when like cancelled as a group" do
-      it "doesn't cancel user like" do
+    context "when endorsement cancelled as a group" do
+      it "doesn't cancel user endorsement" do
         visit page.current_path
 
-        add_likes
-        page.all(".selected")[1].click
-        click_button "Done"
+        add_endorsements
+        within "#user-identities" do
+          page.all(".selected")[1].click
+          click_button "Done"
+        end
         visit current_path
         click_button "Endorse"
 
