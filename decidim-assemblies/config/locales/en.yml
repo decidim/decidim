@@ -348,6 +348,8 @@ en:
       content_blocks:
         highlighted_assemblies:
           name: Highlighted assemblies
+        related_assemblies:
+          name: Related assemblies
       created_by:
         city_council: City Council
         others: Others

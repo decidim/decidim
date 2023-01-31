@@ -177,6 +177,16 @@ module Decidim
           end
         end
 
+        Decidim.content_blocks.register(:participatory_process_homepage, :related_assemblies) do |content_block|
+          content_block.cell = "decidim/assemblies/content_blocks/related_assemblies"
+          content_block.settings_form_cell = "decidim/assemblies/content_blocks/highlighted_assemblies_settings_form"
+          content_block.public_name_key = "decidim.assemblies.content_blocks.related_assemblies.name"
+
+          content_block.settings do |settings|
+            settings.attribute :max_results, type: :integer, default: 4
+          end
+        end
+
         Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_posts) do |content_block|
           content_block.cell = "decidim/blogs/content_blocks/highlighted_posts"
           content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
