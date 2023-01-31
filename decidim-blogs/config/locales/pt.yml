@@ -45,7 +45,6 @@ pt:
             author: Autor
             body: Corpo
             created_at: Criado em
-            title: título
       posts:
         show:
           back: Retroceder à lista
