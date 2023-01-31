@@ -6,16 +6,31 @@ sv:
         image: Bild
         proposals: Relaterade förslag
         title: Titel
+      ballot_style:
+        code: Kod
       election:
         description: Beskrivning
         end_time: Omröstningen slutar vid
         start_time: Röstningsstart vid
+        title: Titel
+      monitoring_committee_member:
+        email: E-post
+        name: Namn
+      polling_officer:
+        email: E-post
+        name: Namn
+      polling_station:
+        address: Adress
+        location: Plats
+        location_hints: Detaljer om platsen
+        polling_station_managers: Koordinatorer
         title: Titel
       question:
         max_selections: Maximalt antal val
         title: Titel
       voting:
         end_time: Omröstningen avslutas
+        promoted: Annonserad
         start_time: Omröstningen börjar
     errors:
       models:
