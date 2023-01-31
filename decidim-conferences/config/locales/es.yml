@@ -28,7 +28,7 @@ es:
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
         signature: Firma
-        signature_name: nombre de firma
+        signature_name: Nombre de la firma
         slogan: Eslogan
         slug: URL amigable
         start_date: Fecha de inicio
@@ -134,7 +134,7 @@ es:
           title: Actualizar administradora de la jornada.
           update: Actualizar
         index:
-          conference_admins_title: administradoras de la jornada
+          conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
           title: Nueva administradora de la jornada.
