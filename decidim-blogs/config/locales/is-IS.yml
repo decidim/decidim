@@ -28,7 +28,6 @@ is-IS:
             author: Höfundur
             body: Líkami
             created_at: Búið til á
-            title: titill
       posts:
         sidebar_blog:
           comments: athugasemdir
