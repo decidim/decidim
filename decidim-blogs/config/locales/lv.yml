@@ -44,7 +44,6 @@ lv:
             author: Autors
             body: Pamatteksts
             created_at: Izveidots plkst.
-            title: nosaukums
       posts:
         show:
           back: Atpakaļ uz sarakstu
