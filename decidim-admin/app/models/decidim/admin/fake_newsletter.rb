@@ -45,6 +45,18 @@ module Decidim
         true
       end
 
+      def url(**_)
+        "#"
+      end
+
+      def notifications_settings_url(**_)
+        "#"
+      end
+
+      def unsubscribe_newsletters_url(**_)
+        "#"
+      end
+
       private
 
       attr_reader :organization, :manifest

@@ -33,5 +33,32 @@ module Decidim
         expect(newsletter).not_to be_valid
       end
     end
+
+    describe "#url" do
+      subject { newsletter.url }
+
+      let(:newsletter) { create(:newsletter) }
+      let(:organization) { newsletter.organization }
+
+      it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/newsletters/#{newsletter.id}") }
+    end
+
+    describe "#notifications_settings_url" do
+      subject { newsletter.notifications_settings_url }
+
+      let(:newsletter) { create(:newsletter) }
+      let(:organization) { newsletter.organization }
+
+      it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/notifications_settings") }
+    end
+
+    describe "#unsubscribe_newsletters_url" do
+      subject { newsletter.unsubscribe_newsletters_url }
+
+      let(:newsletter) { create(:newsletter) }
+      let(:organization) { newsletter.organization }
+
+      it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/newsletters/unsubscribe") }
+    end
   end
 end

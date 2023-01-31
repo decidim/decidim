@@ -1,28 +1,16 @@
 <%= decidim_sanitize_newsletter cell.to_s %>
 
 <% content_for :note do %>
-  <% if @newsletter.try(:draft?) %>
-    <%== t ".note", organization_name: h(@organization.name), link: "#" %>
-  <% else %>
-    <%== t ".note", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>
-  <% end %>
+  <%== t ".note", organization_name: h(@organization.name), link: @newsletter.notifications_settings_url %>
 <% end %>
 
 <% content_for :unsubscribe do %>
-  <% if @newsletter.try(:draft?) %>
-    <%== t ".unsubscribe", link: "#" %>
-  <% else %>
-    <%== t ".unsubscribe", link: decidim.unsubscribe_newsletters_url(host: @organization.host, u: @encrypted_token ) %>
-  <% end %>
+  <%== t ".unsubscribe", link: @newsletter.unsubscribe_newsletters_url(u: @encrypted_token) %>
 <% end %>
 
 <% content_for :see_on_website do %>
   <center style="display: none">
     <%== CGI.unescapeHTML truncate(cell.body, max_length: 50) %>
   </center>
-  <% if @newsletter.try(:draft?) %>
-    <%== t ".see_on_website", link: "#" %>
-  <% else %>
-    <%== t ".see_on_website", link: decidim.newsletter_url(host: @organization.host, id: @newsletter) %>
-  <% end %>
+  <%== t ".see_on_website", link: @newsletter.url %>
 <% end %>
