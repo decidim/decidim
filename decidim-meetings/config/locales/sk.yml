@@ -24,8 +24,6 @@ sk:
         registrations_enabled: Registrácia povolené
         title: Názov
         transparent: Transparentné
-      meeting_agenda_items:
-        duration: Čas trvania
     errors:
       models:
         meeting_agenda:
