@@ -34,8 +34,6 @@ lb:
         title: Titel
         transparent: Transparent
         type_of_meeting: Zort
-      meeting_agenda_items:
-        duration: Dauer
     errors:
       models:
         meeting_agenda:
