@@ -14,8 +14,6 @@ ga:
         location: Suíomh
         title: Teideal
         type_of_meeting: Cineál
-      meeting_agenda_items:
-        duration: Fad
     models:
       decidim/meetings/create_meeting_event: Cruinniú
   decidim:
