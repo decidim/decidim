@@ -37,7 +37,6 @@ ro:
       meeting_agenda:
         title: Titlu
       meeting_agenda_items:
-        duration: Durată
         title: Titlu
     errors:
       models:
