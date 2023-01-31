@@ -20,7 +20,7 @@ module Decidim
         describe "when both dates are present" do
           it "returns the formatted dates" do
             result = helper.step_dates(participatory_process)
-            expect(result).to eq("2016-01-01 - 2016-02-05")
+            expect(result).to eq("01/01/2016 - 05/02/2016")
           end
         end
 
@@ -29,7 +29,7 @@ module Decidim
 
           it "fills it in with an interrogation mark" do
             result = helper.step_dates(participatory_process)
-            expect(result).to eq("? - 2016-02-05")
+            expect(result).to eq("? - 05/02/2016")
           end
         end
 
@@ -38,7 +38,7 @@ module Decidim
 
           it "fills it in with an interrogation mark" do
             result = helper.step_dates(participatory_process)
-            expect(result).to eq("2016-01-01 - ?")
+            expect(result).to eq("01/01/2016 - ?")
           end
         end
       end
