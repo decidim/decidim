@@ -24,8 +24,6 @@ id:
         registrations_enabled: Pendaftaran diaktifkan
         title: Judul
         transparent: Transparan
-      meeting_agenda_items:
-        duration: Lamanya
     errors:
       models:
         meeting_agenda:
