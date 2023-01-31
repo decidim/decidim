@@ -45,7 +45,6 @@ de:
             author: Autor
             body: Haupttext
             created_at: Hergestellt in
-            title: Titel
       posts:
         show:
           back: Zurück zur Liste
