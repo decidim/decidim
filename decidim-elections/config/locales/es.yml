@@ -6,17 +6,37 @@ es:
         image: Imagen
         proposals: Propuestas relacionadas
         title: Título
+      ballot_style:
+        code: Código
       election:
         description: Descripción
         end_time: La votación acaba el
         start_time: La votación empieza el
         title: Título
+      monitoring_committee_member:
+        email: Correo electrónico
+        name: Nombre
+      polling_officer:
+        email: Correo electrónico
+        name: Nombre
+      polling_station:
+        address: Dirección
+        location: Ubicación
+        location_hints: Detalles de ubicación
+        polling_station_managers: Gestors
+        polling_station_president_id: Presidencia
+        title: Título
       question:
         max_selections: Número máximo de opciones
         min_selections: Ninguna de las opciones anteriores
         title: Título
+      trustees_participatory_space:
+        user_id: Participante
       voting:
         end_time: La votación finaliza
+        introductory_image: Imagen de presentación
+        promoted: Destacada
+        show_check_census: Mostrar la página de "comprobar censo"
         start_time: La votación empieza
     errors:
       models:
