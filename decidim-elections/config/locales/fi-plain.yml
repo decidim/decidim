@@ -6,17 +6,38 @@ fi-pl:
         image: Kuva
         proposals: Liittyvät ehdotukset
         title: Otsikko
+      ballot_style:
+        code: Koodi
       election:
         description: Kuvaus
         end_time: Äänestys päättyy
         start_time: Äänestys alkaa
         title: Otsikko
+      monitoring_committee_member:
+        email: Sähköpostiosoite
+        name: Nimi
+      polling_officer:
+        email: Sähköpostiosoite
+        name: Nimi
+      polling_station:
+        address: Osoite
+        location: Sijainti
+        location_hints: Paikan tarkemmat tiedot
+        polling_station_managers: Virkailijat
+        polling_station_president_id: Esimies
+        title: Otsikko
       question:
         max_selections: Valintojen enimmäismäärä
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
+      trustees_participatory_space:
+        user_id: Osallistuja
       voting:
         end_time: Äänestyksen päättymisaika
+        introductory_image: Esittelykuva
+        promoted: Korostettu
+        scope_id: Teema
+        show_check_census: Näytä "tarkasta henkilötietorekisterin tiedot" -sivu
         start_time: Äänestyksen alkamisaika
     errors:
       models:
