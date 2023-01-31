@@ -17,6 +17,7 @@ de:
         title: Titel
       voting:
         end_time: Abstimmung endet
+        promoted: Hervorgehoben
         start_time: Abstimmung beginnt
     errors:
       models:
