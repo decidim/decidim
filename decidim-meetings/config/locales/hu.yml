@@ -34,8 +34,6 @@ hu:
         title: Cím
         transparent: Átlátszó
         type_of_meeting: Típus
-      meeting_agenda_items:
-        duration: Időtartam
     errors:
       models:
         meeting:
