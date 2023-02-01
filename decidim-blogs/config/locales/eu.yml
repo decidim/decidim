@@ -28,21 +28,21 @@ eu:
             name: Post
         posts:
           create:
-            invalid: Arazo bat izan da post hau sortzeko
+            invalid: Arazo bat izan da sarrera hau sortzeko
             success: Mezua ondo sortu da
           destroy:
             success: Mezua ondo ezabatu da
           edit:
-            save: eguneratzearen
+            save: Gorde
             title: Editatu argitalpena
           index:
-            title: Mezuak
+            title: Argitalpenak
           new:
             create: Sortu
             title: Sortu mezua
           update:
-            invalid: Erroreak gertatu dira mezua gordetzean.
-            success: Mezua ondo gorde da
+            invalid: Akatsen bat gertatu da mezua gordetzean.
+            success: Sarrera ondo gorde da
       admin_log:
         post:
           create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
