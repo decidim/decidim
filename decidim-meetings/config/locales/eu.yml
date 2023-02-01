@@ -12,8 +12,8 @@ eu:
         video_url: Bideoaren URLa
       meeting:
         address: Helbidea
-        available_slots: Bilera honetarako zirrikitu erabilgarriak
-        customize_registration_email: Pertsonalizatu izena emateko e-maila
+        available_slots: Bilera honetarako toki erabilgarriak
+        customize_registration_email: Pertsonalizatu izena emateko helbide elektronikoa
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         decidim_user_group_id: Erabiltzaile-taldea
@@ -219,7 +219,7 @@ eu:
             success: Egutegia modu egokian sortu da
           edit:
             title: Editatu agenda
-            update: eguneratzearen
+            update: Gorde
           form:
             add_agenda_item: Gehitu agenda item
             agenda_items: Agenda itemak
