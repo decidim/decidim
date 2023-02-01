@@ -73,6 +73,12 @@ describe UploaderImageDimensionsValidator do
       let(:content_type) { "image/vnd.microsoft.icon" }
 
       it_behaves_like "valid image type"
+
+      context "without an extension" do
+        let(:blob_filename) { "icon_ico" }
+
+        it_behaves_like "valid image type"
+      end
     end
   end
 
@@ -98,6 +104,7 @@ describe UploaderImageDimensionsValidator do
     subject { record }
 
     let(:record) { validatable.new(upload: blob) }
+    let(:blob_filename) { filename }
     let(:validatable) do
       Class.new(base_validatable) do
         attr_reader :upload_blob
@@ -114,7 +121,7 @@ describe UploaderImageDimensionsValidator do
     let(:blob) do
       ActiveStorage::Blob.create_and_upload!(
         io: File.open(Decidim::Dev.asset(filename)),
-        filename:,
+        filename: blob_filename,
         content_type:
       )
     end

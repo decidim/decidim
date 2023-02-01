@@ -39,7 +39,7 @@ class UploaderImageDimensionsValidator < ActiveModel::Validations::FileContentTy
     elsif file.is_a?(ActiveStorage::Attached) && file.blob.persisted?
       MiniMagick::Image.read(file.blob.download, File.extname(file.blob.filename.to_s))
     end
-  rescue ActiveStorage::FileNotFoundError
+  rescue ActiveStorage::FileNotFoundError, MiniMagick::Invalid
     # Although the blob is persisted, the file is not available to download and analyze
     # after committing the record
     nil
