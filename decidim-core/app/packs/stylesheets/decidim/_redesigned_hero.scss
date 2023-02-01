@@ -1,7 +1,10 @@
 .hero{
-  @apply h-[370px] md:h-[656px] py-24 flex flex-col justify-center items-center gap-12 md:gap-16;
+  @apply aspect-video container px-4 md:px-24 flex flex-col justify-center items-center gap-8 md:gap-16;
 
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 21.88%, rgba(0, 0, 0, 0.46421) 60.94%, rgba(0, 0, 0, 0.105) 100%);
+  &__container{
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 21.88%, rgba(0, 0, 0, 0.46421) 60.94%, rgba(0, 0, 0, 0.105) 100%), var(--hero-image);
+    background-size: cover;
+  }
 
   &__title{
     @apply text-center text-white text-2xl md:text-5xl font-bold;
