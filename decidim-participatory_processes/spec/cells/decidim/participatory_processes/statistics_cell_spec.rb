@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-# REDESIGN_PENDING: This file is repeated in decidim-participatory_processes/spec/cells/decidim/participatory_processes/statistics_cell_spec.rb
+# REDESIGN_PENDING: This file is repeated in decidim-assemblies/spec/cells/decidim/assemblies/statistics_cell_spec.rb
 # Both should be removed and merge in the core
 
 module Decidim::ParticipatoryProcesses
