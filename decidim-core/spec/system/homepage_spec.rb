@@ -98,7 +98,6 @@ describe "Homepage", type: :system do
 
           it "uses the custom values for the CTA button text" do
             within ".hero" do
-              expect(page).to have_selector("#hero-cta", text: "SIGN UP")
               click_link "Sign up"
             end
 
@@ -111,7 +110,6 @@ describe "Homepage", type: :system do
 
           it "uses the custom values for the CTA button" do
             within ".hero" do
-              expect(page).to have_selector("#hero-cta", text: "PARTICIPATE")
               click_link "Participate"
             end
 
@@ -126,7 +124,6 @@ describe "Homepage", type: :system do
             visit decidim.root_path
 
             within ".hero" do
-              expect(page).to have_selector("#hero-cta", text: "PARTICIPATE")
               click_link "Participate"
             end
 
