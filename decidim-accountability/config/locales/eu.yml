@@ -94,6 +94,7 @@ eu:
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Aukeratu osagaia
+            title: Inportatu proiektuak jarraipenera
         results:
           create:
             invalid: Arazo bat izan da emaitza hau sortzean.
