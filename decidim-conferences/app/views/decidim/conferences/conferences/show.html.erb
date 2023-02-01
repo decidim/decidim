@@ -102,7 +102,10 @@ edit_link(
     <%= cell("decidim/conferences/linked_participatory_spaces", current_participatory_space) %>
 
     <% if current_participatory_space.show_statistics? %>
-      <%= cell("decidim/statistics", stats.highlighted) %>
+      <section class="content-block">
+        <h2 class="h2 decorator"><%= t("decidim.statistics.headline") %></h2>
+        <%= cell("decidim/statistics", stats.highlighted) %>
+      </section>
     <% end %>
 
   <% end %>
