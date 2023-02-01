@@ -1,6 +1,3 @@
 var $activities = $('#activities');
 
 $activities.html('<%= j(render partial: "activities").strip.html_safe %>');
-
-var $dropdownMenu = $('.dropdown.menu', $activities);
-$dropdownMenu.foundation();

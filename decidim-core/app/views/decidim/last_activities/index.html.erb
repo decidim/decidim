@@ -1,18 +1,41 @@
-<% add_decidim_page_title(t(".last_activity")) %>
+<% add_decidim_page_title(t("last_activity", scope: "decidim.last_activities.index")) %>
 
-<div class="wrapper">
-  <div class="row">
-    <h1 class="section-heading"><%= t(".last_activity") %></h1>
+<%# NOTE: this page does not use a regular layout %>
+<main class="container">
+  <h1 class="h3 md:h1 decorator my-12"><%= t("last_activity", scope: "decidim.last_activities.index") %></h1>
 
-    <div class="columns mediumlarge-4 large-3">
-      <div class="card card--secondary show-for-mediumlarge">
+  <div class="grid md:grid-cols-8 items-start gap-4 md:gap-12 md:first:[&>*]:col-span-2 md:last:[&>*]:col-span-6">
+    <div class="filter-container">
+      <% if false %>
         <%= filter_form_for filter, last_activities_path do |form| %>
-          <%= form.collection_radio_buttons :with_resource_type, resource_types, :first, :last, legend_title: t(".resource_type") %>
+          <%= form.collection_radio_buttons :with_resource_type, resource_types, :first, :last, legend_title: t("resource_type", scope: "decidim.last_activities.index") %>
         <% end %>
-      </div>
+      <% end %>
+
+      <% decorated_resource_types = resource_types.map { |e| OpenStruct.new(e.merge(text: text_for(e[:name], e[:translation]))) } %>
+
+      <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+        <% decorated_resource_types.each_with_index do |filter, i| %>
+          <span class="<%= "is-active" if (params.dig(:filter, :resource_type)) == filter[:name] %>">
+            <%= resource_type_icon(filter[:name]) %><%= filter[:translation] %>
+          </span>
+        <% end %>
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+      </button>
+      <%= redesigned_filter_form_for filter, last_activities_path, class: "new_filter", id: "dropdown-menu" do |form| %>
+        <%= form.collection_radio_buttons(
+              :with_resource_type,
+              decorated_resource_types,
+              :name,
+              :text
+            ) do |builder|
+                builder.label { builder.radio_button(class: "reset-defaults", hidden: true) + content_tag(:div, builder.text, class: "filter") }
+          end %>
+      <% end %>
     </div>
-    <div id="activities" class="columns mediumlarge-8 large-9">
+    <div id="activities">
       <%= render partial: "activities" %>
     </div>
   </div>
-</div>
+</main>

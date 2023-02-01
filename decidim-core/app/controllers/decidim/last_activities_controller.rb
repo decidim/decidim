@@ -5,6 +5,9 @@ module Decidim
   class LastActivitiesController < Decidim::ApplicationController
     include FilterResource
     include Paginable
+    include ::Webpacker::Helper
+    include ::ActionView::Helpers::AssetUrlHelper
+    include IconHelper
 
     helper Decidim::ResourceHelper
     helper Decidim::FiltersHelper
@@ -25,6 +28,14 @@ module Decidim
       end
 
       @resource_types << ["all", I18n.t("decidim.last_activities.all")]
+
+      @resource_types.map do |resource_type|
+        {
+          name: resource_type[0],
+          translation: resource_type[1],
+          filter: { resource_type: }
+        }
+      end
     end
 
     def activities
