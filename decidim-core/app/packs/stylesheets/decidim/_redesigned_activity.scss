@@ -21,6 +21,14 @@
     }
   }
 
+  &__date{
+    @apply w-1/4 text-sm text-gray-2 flex-none;
+  }
+
+  &__text{
+    @apply flex flex-col grow space-y-1 text-sm;
+  }
+
   &__author{
     @apply ml-auto overflow-hidden w-6 h-6 rounded-full flex-none;
   }

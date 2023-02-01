@@ -88,11 +88,16 @@ module Decidim
     delegate :action, to: :model
 
     def element_id
-      "action-#{model.id}"
+      "#{id_prefix}-#{model.id}"
+    end
+
+    def id_prefix
+      @id_prefix ||= context[:id_prefix].presence || "action"
     end
 
     def cache_hash
       hash = []
+      hash << id_prefix
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
       hash << model.cache_key_with_version

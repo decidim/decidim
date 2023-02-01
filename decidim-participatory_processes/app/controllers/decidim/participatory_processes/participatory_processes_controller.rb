@@ -68,6 +68,18 @@ module Decidim
         ).first!
       end
 
+      def current_participatory_space_breadcrumb_item
+        return if current_participatory_space.blank?
+
+        {
+          label: current_participatory_space.title,
+          url: participatory_process_path(current_participatory_space),
+          active: true,
+          dropdown_cell: "decidim/participatory_processes/process_dropdown_metadata",
+          resource: current_participatory_space
+        }
+      end
+
       def published_processes
         @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user)
       end
