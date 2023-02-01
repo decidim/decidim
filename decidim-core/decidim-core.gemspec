@@ -61,11 +61,14 @@ Gem::Specification.new do |s|
   s.add_dependency "pg", "~> 1.4.0", "< 2"
   s.add_dependency "pg_search", "~> 2.2"
   s.add_dependency "premailer-rails", "~> 1.10"
-  # psych 4 has a breaking change, see https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
-  s.add_dependency "psych", "< 4"
+  # We need psych 4+ in order to use the `aliases: true` option,
+  # see https://stackoverflow.com/questions/71191685/visit-psych-nodes-alias-unknown-alias-default-psychbadalias
+  # Also note that we need Rails 6.1.5+,
+  # see https://gist.github.com/yahonda/2776d8d7b6ea7045359f38c10449937b
+  s.add_dependency "psych", "~> 4.0"
   s.add_dependency "rack", "~> 2.2", ">= 2.2.3"
   s.add_dependency "rack-attack", "~> 6.0"
-  s.add_dependency "rails", "~> 6.1.0"
+  s.add_dependency "rails", "~> 6.1.5"
   s.add_dependency "rails-i18n", "~> 6.0"
   s.add_dependency "ransack", "~> 3.2.1"
   s.add_dependency "redis", "~> 4.1"
