@@ -161,7 +161,7 @@ describe "Conferences", type: :system do
       end
 
       it "renders the stats for those components that are visible" do
-        within "[data-statistics]" do
+        within "[data-statistic]" do
           expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "3")
           expect(page).to have_no_css(".statistic__title", text: "Meetings")
