@@ -44,6 +44,7 @@ cs:
         visible: Viditelné
       meeting_agenda_items:
         description: Popis
+        duration: Doba trvání
         title: Název
       meeting_registration_invite:
         email: E-mail
