@@ -6,17 +6,11 @@
 
   <div class="profile__activity pb-16">
     <div class="filter-container">
-      <% if false %>
-        <%= filter_form_for filter, last_activities_path do |form| %>
-          <%= form.collection_radio_buttons :with_resource_type, resource_types, :first, :last, legend_title: t("resource_type", scope: "decidim.last_activities.index") %>
-        <% end %>
-      <% end %>
-
       <% decorated_resource_types = resource_types.map { |e| OpenStruct.new(e.merge(text: text_for(e[:name], e[:translation]))) } %>
 
       <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
         <% decorated_resource_types.each_with_index do |filter, i| %>
-          <span class="<%= "is-active" if (params.dig(:filter, :resource_type)) == filter[:name] %>">
+          <span data-value="<%= filter[:name] %>" class="<%= "is-active" if (params.dig(:filter, :with_resource_type)) == filter[:name] %>">
             <%= resource_type_icon(filter[:name]) %><%= filter[:translation] %>
           </span>
         <% end %>
