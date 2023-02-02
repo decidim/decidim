@@ -1131,7 +1131,7 @@ ca:
               info_message_warn: Si us plau, comprova que no s'hagi perdut cap dada, s'han creat %{data_count} registres i el fitxer pujat %{file} té %{raw_count} fileres.
               launch_error: Hi ha hagut un error en generar els codis d'accés
               launch_success: S'ha iniciat la generació dels codis.
-              start_over: Si us plau, elimineu el cens actual i tornar a començar amb un arxiu CSV apropiat amb files vàlides.
+              start_over: Si us plau, elimina el cens actual i torna a començar amb un arxiu CSV apropiat amb files vàlides.
             generating_access_codes:
               info_message: "<strong>Si us plau, espera</strong>, els codis d'accés a la votació s'estan generant (això pot trigar uns minuts)..."
             new:
