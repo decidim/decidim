@@ -1119,7 +1119,7 @@ ca:
         moderation:
           fields:
             created_at: Denunciat el
-            deleted_resource: Elimina el recurs
+            deleted_resource: Recurs eliminat
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
             report_count: Número de denúncies
