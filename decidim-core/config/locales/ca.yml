@@ -1124,7 +1124,7 @@ ca:
         title: Participants
     newsletter_mailer:
       newsletter:
-        no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
+        no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de correu de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
         note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
         see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <a href="%{link}" target="_blank"> versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
@@ -1314,10 +1314,10 @@ ca:
           create_user_group: Crear un grup
           edit_profile: Editar el perfil
           edit_user_group: Editar el perfil del grup
-          invite_user: Convidar a una participant
+          invite_user: Convidar participant
           join_user_group: Sol·licitar unir-se al grup
-          manage_user_group_admins: Gestionar les administradores
-          manage_user_group_users: Gestionar les membres
+          manage_user_group_admins: Gestionar administradores
+          manage_user_group_users: Gestionar membres
           message: Missatge
         confirmation_instructions_sent: Instruccions de confirmació de correu electrònic enviades
         create_user_group: Crea un grup
