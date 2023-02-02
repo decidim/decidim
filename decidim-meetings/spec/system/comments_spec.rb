@@ -3,7 +3,7 @@
 require "spec_helper"
 
 # REDESIGN_PENDING - The comments tests should pass once integrated comments
-# in drawers
+# in redesigned layout
 # describe "Comments", type: :system do
 #   let!(:component) { create(:component, manifest_name: :meetings, organization:) }
 #   let!(:participatory_space) { component.participatory_space }

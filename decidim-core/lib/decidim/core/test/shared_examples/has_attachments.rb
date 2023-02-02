@@ -45,7 +45,7 @@ shared_examples_for "has attachments" do
   end
 end
 
-shared_examples_for "has drawer attachments" do
+shared_examples_for "has redesigned attachments" do
   context "when it has attachments" do
     let!(:document) { create(:attachment, :with_pdf, attached_to:) }
 

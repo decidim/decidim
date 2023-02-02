@@ -568,7 +568,7 @@ describe "Explore meetings", :slow, type: :system do
       end
     end
 
-    it_behaves_like "has drawer attachments" do
+    it_behaves_like "has redesigned attachments" do
       let(:attached_to) { meeting }
     end
 

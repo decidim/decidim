@@ -2,7 +2,7 @@
 
 module Decidim
   # This cell is used to render the documents panel of a resource
-  # inside a tab of a drawer
+  # inside a tab of a show view
   #
   # The `model` must be a resource to get the documents from.and is expected to
   # respond to documents method
