@@ -24,7 +24,7 @@ es:
         address: Dirección
         location: Ubicación
         location_hints: Detalles de ubicación
-        polling_station_managers: Gestors
+        polling_station_managers: Gestoras
         polling_station_president_id: Presidencia
         title: Título
       question:
@@ -40,6 +40,7 @@ es:
         end_time: La votación finaliza
         introductory_image: Imagen de presentación
         promoted: Destacada
+        scope_id: Ámbito
         show_check_census: Mostrar la página de "comprobar censo"
         start_time: La votación empieza
         title: Título
@@ -279,7 +280,7 @@ es:
               'false': no tiene una <strong>clave pública</strong>
               'true': tiene una <strong> clave pública</strong>
             requirements:
-              census_codes_generated: Se han generador los códigos de acceso al censo.
+              census_codes_generated: Se han generado los códigos de acceso al censo.
               census_frozen: Se han exportado los códgos para el censo y el censo ha quedado congelado.
               census_uploaded: El censo está subido.
               component_published: La elección está <strong>publicada</strong>.
@@ -1124,7 +1125,7 @@ es:
               launch_success: Se ha iniciado la generación de códigos.
               start_over: Por favor, elimine el censo actual y vuelva a empezar con un archivo CSV apropiado con filas válidas.
             generating_access_codes:
-              info_message: "<strong>Por favor<</strong>, los códigos de acceso a la votación se están generando (esto puede tardar unos minutos)..."
+              info_message: "<strong>Espera, por favor<</strong>, los códigos de acceso a la votación se están generando (esto puede tardar unos minutos)..."
             new:
               file_help:
                 explanation: 'Instrucciones para el archivo:'
