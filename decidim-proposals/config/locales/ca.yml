@@ -410,7 +410,7 @@ ca:
               <li><b>answer/ca</b> Resposta en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
               </ul>
             proposals: |
-              El document ha de contindre els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
+              El document ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
               <ul>
               <li><b>title/ca:</b> Títol en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
               <li><b>body/ca:</b> Descripció en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
