@@ -121,7 +121,7 @@ es:
           update_selected:
             invalid:
               selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{projects}.'
-              unselected: 'Estos proyectos han sido fueron deseleccionados de ser implementados: %{projects}.'
+              unselected: 'Estos proyectos ya han sido deseleccionados de ser implementados: %{projects}.'
             select_a_project: Por favor, selecciona un proyecto
             select_a_selection: Por favor, seleccione un estado de implementación
             success:
