@@ -828,9 +828,6 @@ lt:
         edit:
           active_content_blocks: Aktyvūs turinio blokai
           inactive_content_blocks: Neaktyvūs turinio blokai
-      organization_homepage_content_blocks:
-        edit:
-          update: Atnaujinti
       participatory_space_private_users:
         create:
           error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
