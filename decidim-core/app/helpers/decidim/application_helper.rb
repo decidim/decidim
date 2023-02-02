@@ -100,8 +100,9 @@ module Decidim
     # Renders the cell contents.
     def cell(name, model, options = {}, &)
       options = { context: { current_user: } }.deep_merge(options)
+      name = redesigned_cell_name(name) unless name.include?("redesigned_")
 
-      super(redesigned_cell_name(name), model, options, &)
+      super(name, model, options, &)
     end
 
     # Public: Builds the URL for the step Call To Action. Takes URL params
