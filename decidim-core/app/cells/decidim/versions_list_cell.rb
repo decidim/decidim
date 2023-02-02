@@ -28,10 +28,6 @@ module Decidim
       @total ||= versions.count
     end
 
-    def turbo_frame
-      options[:turbo_frame]
-    end
-
     def reverse_ordered_versions
       @reverse_ordered_versions ||= relation? ? versions.reverse_order : versions.reverse
     end

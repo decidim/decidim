@@ -5,10 +5,10 @@
     <div>
       <ul class="prose prose-a:text-secondary">
         <li>
-          <%= link_to t("outlook", scope: "decidim.meetings.meetings.calendar_modal"), ics_url, data: { turbo: false } %>
+          <%= link_to t("outlook", scope: "decidim.meetings.meetings.calendar_modal"), ics_url %>
         </li>
         <li>
-          <%= link_to t("apple", scope: "decidim.meetings.meetings.calendar_modal"), ics_url, data: { turbo: false } %>
+          <%= link_to t("apple", scope: "decidim.meetings.meetings.calendar_modal"), ics_url %>
         </li>
         <li>
           <%= link_to t("google", scope: "decidim.meetings.meetings.calendar_modal"), google_url, target: "_blank" %>
