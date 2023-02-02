@@ -9,9 +9,9 @@ eu:
         body: Gorputza
       group:
         about: Honi buruz
-        avatar: Avatar
+        avatar: Abatar
         document_number: Dokumentuaren zenbakia
-        email: E-maila
+        email: Helbide elektronikoa
         name: Izena
         nickname: Goitizena
         phone: Telefonoa
@@ -20,7 +20,7 @@ eu:
       report:
         details: Iruzkin gehigarriak
       user:
-        about: About
+        about: Honi buruz
         email: Zure helbide elektronikoa
         name: Zure izena
         nickname: Ezizena
@@ -30,7 +30,7 @@ eu:
         remove_avatar: Kendu avatar-a
     models:
       decidim/attachment_created_event: eranskina
-      decidim/component_published_event: Osagai aktiboa
+      decidim/component_published_event: Osagai erabilgarria
       decidim/demoted_membership: Ez da talde admin gehiago
       decidim/gamification/badge_earned_event: Badge irabazi
       decidim/gamification/level_up_event: Berdindu duzu
@@ -458,6 +458,7 @@ eu:
           already_have_an_account?: Baduzu kontu bat?
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
+          password_help: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
           sign_in: Sartu
           sign_up: Erregistratu
           sign_up_as:
@@ -1328,7 +1329,7 @@ eu:
       show:
         my_interests: Nire interesak
         no_scopes: Antolakuntza honek ez du inongo esparrurik!
-        select_your_interests: Aukeratu interesatzen zaizkizun gaiak zure profileko Timeline fitxan erlazionatutako gertaerak jasotzeko.
+        select_your_interests: Aukeratu interesatzen zaizkizun gaiak zure profileko denbora lerroan.
         update_my_interests: Eguneratu nire interesak
       update:
         error: Errore bat gertatu da zure interesak eguneratzean.
@@ -1467,6 +1468,7 @@ eu:
         change_your_password: Aldatu zure pasahitza
         confirm_new_password: Berretsi pasahitz berria
         new_password: Pasahitza
+        password_help: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
       new:
         forgot_your_password: Zure pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali berrezarri pasahitzaren argibideak
@@ -1521,7 +1523,7 @@ eu:
       expired: iraungi egin da, eskatu beste bat
       file_size_is_less_than_or_equal_to: fitxategiaren pisuak %{count} izan behar du, edo gutxiago
       invalid_time_zone: ordu-zona ez da baliozkoa
-      long_words: luzeegia daukaten hitzak (35 karaktere baino gehiago)
+      long_words: luzeegiak diren hitzak ditu (35 karaktere baino gehiago)
       must_start_with_caps: letra maiuskulaz hasi behar da
       nesting_too_deep: ezin da egon azpikategoria batean
       not_found: ezin izan da aurkitu. Aldez aurretik erregistratu zara?
