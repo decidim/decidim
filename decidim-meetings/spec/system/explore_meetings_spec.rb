@@ -466,14 +466,16 @@ describe "Explore meetings", :slow, type: :system do
       expect(page).to have_i18n_content(meeting.title)
       expect(page).to have_i18n_content(meeting.description, strip_tags: true)
       expect(page).to have_i18n_content(meeting.location)
-      # expect(page).to have_i18n_content(meeting.location, upcase: !redesign_enabled_by_configuration?)
+      expect(page).to have_i18n_content(meeting.location)
       expect(page).to have_i18n_content(meeting.location_hints)
       expect(page).to have_content(meeting.address)
       expect(page).to have_content(meeting.reference)
 
-      within "#meetings__meeting_#{meeting.id}" do
+      within ".meeting__calendar-day" do
         expect(page).to have_content(date.day)
-        # expect(page).to have_content(redesign_enabled_by_configuration? ? "00:00\n-\n23:59" : "00:00 - 23:59")
+      end
+      within ".meeting__calendar-time" do
+        expect(page).to have_content("00:00 - 23:59")
       end
     end
 
