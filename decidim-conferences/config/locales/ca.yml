@@ -432,7 +432,7 @@ ca:
         create:
           invalid: S'ha produït un error en inscriure't a aquesta jornada.
           success: T'has inscrit a la jornada correctament.
-          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la conferència.
+          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la jornada.
         decline_invitation:
           invalid: S'ha produït un error en rebutjar la invitació.
           success: Has rebutjat la invitació correctament.
