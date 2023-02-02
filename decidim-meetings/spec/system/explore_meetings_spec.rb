@@ -593,7 +593,7 @@ describe "Explore meetings", :slow, type: :system do
       it_behaves_like "a closing report page"
 
       it "does not show contributions count" do
-        within "#drawer_content_frame" do
+        within "[data-content]" do
           expect(page).to have_no_css(".meeting__aside-block", text: "Contributions count\n0")
         end
       end
@@ -605,7 +605,7 @@ describe "Explore meetings", :slow, type: :system do
       it_behaves_like "a closing report page"
 
       it "shows contributions count" do
-        within "#drawer_content_frame" do
+        within "[data-content]" do
           expect(page).to have_css(".meeting__aside-block", text: "Contributions count\n1")
         end
       end
