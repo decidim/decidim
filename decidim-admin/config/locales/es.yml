@@ -859,7 +859,7 @@ es:
         new:
           destroy:
             button: Borrar todas las participantes privadas
-            confirm: '¿Seguro que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recupararlas.'
+            confirm: '¿Seguro que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recuperarlas.'
             empty: No hay participantes privadas.
             explanation: Hay %{count} participante/s privada/s.
             title: Borrar las participantes privadas
@@ -1076,7 +1076,7 @@ es:
         moderation:
           fields:
             created_at: Fecha de creación
-            deleted_resource: Eliminar recurso
+            deleted_resource: Recurso eliminado
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Recuento
