@@ -4,7 +4,7 @@
 <main class="container">
   <h1 class="h3 md:h1 decorator my-12"><%= t("last_activity", scope: "decidim.last_activities.index") %></h1>
 
-  <div class="grid md:grid-cols-8 items-start gap-4 md:gap-12 md:first:[&>*]:col-span-2 md:last:[&>*]:col-span-6">
+  <div class="profile__activity pb-16">
     <div class="filter-container">
       <% if false %>
         <%= filter_form_for filter, last_activities_path do |form| %>
