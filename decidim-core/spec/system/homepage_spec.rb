@@ -48,7 +48,7 @@ describe "Homepage", type: :system do
 
       context "when having homepage anchors" do
         %w(hero sub_hero highlighted_content_banner how_to_participate footer_sub_hero).each do |anchor|
-          it { expect(page).to have_selector("##{anchor}", visible: :all) }
+          it { expect(page).to have_selector("[id^=#{anchor}]", visible: :all) }
         end
       end
 
