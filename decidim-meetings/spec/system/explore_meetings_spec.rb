@@ -582,7 +582,7 @@ describe "Explore meetings", :slow, type: :system do
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(meeting.closing_report)
 
-        within "#drawer_content_frame" do
+        within "[data-content]" do
           expect(page).to have_css(".meeting__aside-block", text: "Attendees count\n#{meeting.attendees_count}")
           expect(page).to have_css(".meeting__aside-block", text: "Attending organizations\n#{meeting.attending_organizations}")
         end
