@@ -137,4 +137,148 @@ header{
       @apply last-of-type:[&>svg]:block;
     }
   }
+
+  .menu-bar{
+    @apply container h-full flex justify-between items-center lg:relative;
+
+    &__container{
+      @apply bg-primary relative h-14;
+    }
+
+    &__breadcrumb-desktop{
+      @apply hidden lg:flex justify-between items-center gap-2.5 [&>*]:text-lg [&>*]:text-white;
+
+      &__dropdown-trigger{
+        @apply flex rounded overflow-hidden px-2 py-1 relative;
+
+        &:not(.no-interactive){
+          @apply cursor-pointer hover:backdrop-brightness-75 focus:backdrop-brightness-75 focus:outline-none;
+        }
+
+        svg{
+          @apply w-6 h-6 fill-current;
+        }
+      }
+
+      &__dropdown-content{
+        @apply absolute z-20 top-full left-8 cursor-auto;
+
+        &-secondary{
+          @apply absolute z-20 top-[calc(100%+12px)] left-0;
+        }
+      }
+
+      /* overwrite default dropdown styles */
+      [id*="dropdown-menu"][aria-hidden="true"]{
+        @apply md:hidden;
+      }
+
+      [data-target*="dropdown"]{
+        @apply w-auto last-of-type:[&>svg]:block;
+
+        > svg{
+          @apply text-white;
+        }
+      }
+    }
+
+    &__breadcrumb-mobile{
+      @apply block lg:hidden w-full z-10;
+
+      &__dropdown-trigger{
+        @apply flex items-center justify-between text-white;
+
+        span{
+          @apply flex flex-wrap md:flex-nowrap gap-x-2.5 overflow-hidden text-white;
+        }
+
+        svg{
+          @apply w-6 h-6 fill-current;
+        }
+      }
+
+      /* overwrite default dropdown styles */
+      [id*="dropdown-menu"]{
+        @apply mx-0 py-0 border-0;
+      }
+
+      [data-target*="dropdown"]{
+        @apply w-auto last-of-type:[&>svg]:block;
+
+        > svg{
+          @apply text-white;
+        }
+      }
+    }
+
+    &__actions{
+      @apply hidden lg:flex justify-between items-center gap-6;
+    }
+
+    &__main-dropdown{
+      @apply bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1200px];
+
+      &__bottom,
+      &__top{
+        @apply flex flex-col md:flex-row justify-between p-4 md:p-8 gap-x-8;
+
+        &-left{
+          @apply w-full md:w-1/2;
+        }
+
+        &-left{
+          @apply hidden md:block md:w-1/2;
+        }
+      }
+
+      &__title{
+        @apply h4 md:h3;
+      }
+
+      &__subtitle{
+        @apply text-md md:text-lg text-gray-2 mt-5;
+      }
+
+      &__menu{
+        @apply w-full md:w-1/2 mt-8 md:mt-0 grid md:grid-cols-2 gap-x-6 text-secondary;
+
+        > *{
+          @apply py-3 md:py-3.5 border-b border-gray-3;
+
+          /* since the grid has 2 columns, remove the border for these last 2 columns */
+          &:nth-last-child(-n+2){
+            @apply border-0;
+          }
+        }
+      }
+    }
+
+    &__secondary-dropdown{
+      @apply absolute top-full left-0 lg:relative flex justify-between bg-white rounded-b shadow-lg text-black w-full lg:w-[1000px];
+
+      &__left{
+        @apply hidden md:block w-3/4 p-8 text-md;
+      }
+
+      &__title{
+        @apply h4 md:h3;
+      }
+
+      &__menu{
+        @apply w-full md:w-1/4 bg-primary px-4 md:px-8 pt-0 pb-3 md:py-3 divide-y divide-gray-3 text-white;
+
+        > *{
+          @apply py-3 md:py-3.5;
+        }
+      }
+
+      &__metadata{
+        @apply flex items-center text-sm space-x-6 py-8;
+
+        > span{
+          @apply flex items-center space-x-2;
+        }
+      }
+    }
+  }
 }

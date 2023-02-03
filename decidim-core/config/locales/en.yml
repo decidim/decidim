@@ -1854,8 +1854,13 @@ en:
         cc_by_license: Creative Commons License
         data_consent_settings: Cookie settings
         decidim_logo: Decidim Logo
+        decidim_title: Decidim
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        resources: Resources
+        sign_in: Sign In
+        sign_up: Sign Up
+        terms_and_conditions: Terms and Conditions
       header:
         close_menu: Close menu
         main_menu: Main menu
@@ -1890,6 +1895,7 @@ en:
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
+        configuration: Configuration
         conversations: Conversations
         notifications: Notifications
         profile: My account

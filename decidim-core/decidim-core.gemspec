@@ -76,7 +76,7 @@ Gem::Specification.new do |s|
   s.add_dependency "turbo-rails", "~> 1.3.0"
   s.add_dependency "valid_email2", "~> 4.0"
   s.add_dependency "webpacker", "= 6.0.0.rc.5"
-  s.add_dependency "webpush", "~> 1.1"
+  s.add_dependency "web-push", "~> 3.0"
   s.add_dependency "wisper", "~> 2.0"
 
   s.add_dependency "decidim-api", Decidim::Core.version
