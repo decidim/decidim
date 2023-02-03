@@ -5,7 +5,7 @@
   <h1 class="h3 md:h1 decorator my-12"><%= t("last_activity", scope: "decidim.last_activities.index") %></h1>
 
   <div class="profile__activity pb-16">
-    <div class="filter-container">
+    <div id="filters" class="filter-container">
       <% decorated_resource_types = resource_types.map { |e| OpenStruct.new(e.merge(text: text_for(e[:name], e[:translation]))) } %>
 
       <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
