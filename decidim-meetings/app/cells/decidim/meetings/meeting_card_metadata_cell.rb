@@ -23,6 +23,22 @@ module Decidim
         [type, category_item, duration, comments_count_item, official, withdrawn_item]
       end
 
+      def meeting_items_for_map
+        [dates, type, official].compact_blank.map do |item|
+          {
+            text: item[:text],
+            icon: icon(item[:icon]).html_safe
+          }
+        end
+      end
+
+      def dates
+        {
+          text: "#{start_time.strftime("%H:%M")} - #{end_time.strftime("%H:%M")}",
+          icon: resource_type_icon_key(type_of_meeting)
+        }
+      end
+
       def type
         {
           text: t(type_of_meeting, scope: "decidim.meetings.meetings.filters.type_values"),
