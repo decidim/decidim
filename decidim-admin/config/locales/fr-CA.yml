@@ -522,7 +522,7 @@ fr-CA:
           text: Recherche par adresse e-mail, nom ou pseudonyme.
           user: Utilisateur
         logs_list:
-          no_logs_yet: Il n'y a pas encore de journaux d'activité. 
+          no_logs_yet: Il n'y a pas encore de journaux d'activité.
           no_matching_logs: Il n'y a pas de journaux avec les filtres de recherche fournis. Essayez de les modifier et réessayez.
       managed_users:
         promotion:
@@ -829,9 +829,6 @@ fr-CA:
         edit:
           active_content_blocks: Blocs de contenu actif
           inactive_content_blocks: Blocs de contenu inactif
-      organization_homepage_content_blocks:
-        edit:
-          update: Mettre à jour
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.

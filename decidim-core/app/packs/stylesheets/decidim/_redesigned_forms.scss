@@ -25,6 +25,11 @@
         @apply pr-1 pl-6 py-0.5 text-sm;
       }
     }
+
+    /* read-only can be applied only to input and textarea, otherwise selects will be set as readonly */
+    &:not(select){
+      @apply read-only:bg-background read-only:border-0 read-only:text-gray-2;
+    }
   }
 
   /* option-like inputs */
@@ -61,7 +66,7 @@
   @apply flex flex-col py-10 gap-10;
 
   &-block{
-    @apply py-10 border-t-2 border-background flex flex-col py-10 gap-4 only:[&_button]:ml-auto [&_p]:text-gray-2;
+    @apply py-10 border-t-2 border-background flex flex-col gap-4 only:[&_button]:ml-auto [&_p]:text-gray-2;
   }
 
   &-checkbox-label{
@@ -77,10 +82,20 @@
     @apply mt-4;
   }
 
-  input[type="text"],
+  input[type="date"],
+  input[type="datetime-local"],
   input[type="email"],
+  input[type="month"],
+  input[type="number"],
   input[type="password"],
-  select{
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  select,
+  textarea{
     @apply w-full block mt-4;
   }
 }

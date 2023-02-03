@@ -97,7 +97,7 @@
   }
 
   &__footer{
-    @apply flex flex-col gap-10 py-10 border-t-4 border-background text-gray-2;
+    @apply flex flex-col gap-10 py-10 border-t-4 border-background text-gray-2 only:border-t-0;
   }
 
   &__tos{

@@ -13,7 +13,7 @@ edit_link(
     <section id="highlighted-processes" class="row section">
       <h1 class="section-heading"><%= t("participatory_processes.index.promoted_processes", scope: "layouts.decidim") %></h1>
       <% promoted_collection.each do |promoted_item| %>
-        <%= render_highlighted_partial_for promoted_item %>
+        <%= card_for promoted_item, highlight: true, size: :g %>
       <% end %>
     </section>
   <% end %>

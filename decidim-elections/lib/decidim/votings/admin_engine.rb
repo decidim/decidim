@@ -19,7 +19,7 @@ module Decidim
           end
 
           resource :landing_page, only: [:edit, :update], controller: "votings_landing_page" do
-            resources :content_blocks, only: [:edit, :update], controller: "votings_landing_page_content_blocks"
+            resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "votings_landing_page_content_blocks"
           end
 
           resources :polling_stations

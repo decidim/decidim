@@ -1,0 +1,40 @@
+[data-tooltip]{
+  @apply relative;
+
+  [role=tooltip]{
+    @apply absolute bg-black p-4 z-10 w-max max-w-xs rounded text-left text-white transition-all ease-in delay-300;
+
+    & > *{
+      @apply relative z-20;
+    }
+
+    &:not(.is-hidden){
+      @apply visible opacity-100 transition-all ease-in;
+    }
+
+    &.is-hidden{
+      @apply invisible hover:visible hover:opacity-100 opacity-0;
+    }
+
+    /*
+      NOTE: the calculated value is the sum of the arrow offset position plus the half of the arrow size:
+      - offset position: 20%
+      - arrow size: 24px
+    */
+    &.top{
+      @apply -top-3 right-1/2 mb-3 translate-x-[calc(20%+12px)] -translate-y-full before:content-[''] before:absolute before:-z-10 before:right-[20%] before:-bottom-2 before:w-6 before:h-6 before:rotate-45 before:bg-black before:rounded;
+    }
+
+    &.right{
+      @apply top-1/2 -right-3 ml-3 translate-x-full -translate-y-[calc(20%+12px)] before:content-[''] before:absolute before:-z-10 before:top-[20%] before:-left-2 before:w-6 before:h-6 before:rotate-45 before:bg-black before:rounded;
+    }
+
+    &.bottom{
+      @apply top-full right-1/2 mt-3 translate-x-[calc(20%+12px)] before:content-[''] before:absolute before:-z-10 before:right-[20%] before:-top-2 before:w-6 before:h-6 before:rotate-45 before:bg-black before:rounded;
+    }
+
+    &.left{
+      @apply top-1/2 -left-3 mr-3 -translate-x-full -translate-y-[calc(20%+12px)] before:content-[''] before:absolute before:-z-10 before:top-[20%] before:-right-2 before:w-6 before:h-6 before:rotate-45 before:bg-black before:rounded;
+    }
+  }
+}

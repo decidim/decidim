@@ -11,6 +11,7 @@ module Decidim
     include Decidim::CardHelper
     include Decidim::LayoutHelper
     include Decidim::SearchesHelper
+    include Decidim::TurboHelper
 
     alias resource model
 
@@ -24,8 +25,18 @@ module Decidim
       "#{class_base_name}_#{resource.id}"
     end
 
+    def item_list_class
+      return "card__list" if extra_class.blank?
+
+      "card__list #{extra_class}"
+    end
+
     def extra_class
       ""
+    end
+
+    def html_options
+      @html_options ||= (options[:html_options] || {}).deep_merge(turbo_frame_options(options[:turbo_frame]))
     end
 
     def presented_resource

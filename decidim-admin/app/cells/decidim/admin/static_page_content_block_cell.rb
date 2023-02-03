@@ -3,12 +3,18 @@
 module Decidim
   module Admin
     class StaticPageContentBlockCell < ContentBlockCell
+      delegate :scoped_resource, to: :controller
+
       def edit_content_block_path
-        decidim_admin.edit_static_page_content_block_path(static_page_id, manifest_name)
+        decidim_admin.edit_static_page_content_block_path(scoped_resource, model)
       end
 
-      def static_page_id
-        model.try(:scoped_resource_id) || options[:scoped_resource_id]
+      def content_block_path
+        decidim_admin.static_page_content_block_path(scoped_resource, model)
+      end
+
+      def decidim_admin
+        Decidim::Admin::Engine.routes.url_helpers
       end
     end
   end
