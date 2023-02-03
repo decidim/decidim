@@ -537,8 +537,6 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows related proposals" do
-        skip_unless_redesign_enabled("this test pass with drawers enabled")
-
         visit_component
         click_link translated(meeting.title)
         proposals.each do |proposal|
@@ -560,8 +558,6 @@ describe "Explore meetings", :slow, type: :system do
       end
 
       it "shows related resources" do
-        skip_unless_redesign_enabled("this test pass with drawers enabled")
-
         visit_component
         click_link translated(meeting.title)
         results.each do |result|
@@ -576,8 +572,6 @@ describe "Explore meetings", :slow, type: :system do
 
     shared_examples_for "a closing report page" do
       it "shows the closing report" do
-        skip_unless_redesign_enabled
-
         visit_component
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(meeting.closing_report)

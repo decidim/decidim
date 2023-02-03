@@ -56,8 +56,6 @@ shared_examples_for "has redesigned attachments" do
     end
 
     it "shows them" do
-      skip_unless_redesign_enabled
-
       find("li [data-controls='panel-documents']").click
       within "#panel-documents" do
         expect(page).to have_content(/#{translated(document.title, locale: :en)}/i)
@@ -81,8 +79,6 @@ shared_examples_for "has redesigned attachments" do
     end
 
     it "shows them ordered" do
-      skip_unless_redesign_enabled
-
       find("li [data-controls='panel-documents']").click
       within "#panel-documents" do
         expect(translated(first_document.title, locale: :en)).to appear_before(translated(last_document.title, locale: :en))
