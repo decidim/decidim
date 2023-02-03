@@ -44,7 +44,7 @@ import "./append_redirect_url_to_modals"
 import "./form_attachments"
 import "./form_remote"
 // import "./conferences" -- deprecated
-import "./tooltip_keep_on_hover"
+// import "./tooltip_keep_on_hover" -- deprecated
 // import "./diff_mode_dropdown" -- deprecated
 import "./delayed"
 import "./vizzs"
@@ -80,6 +80,7 @@ import markAsReadNotifications from "./notifications"
 import RemoteModal from "./redesigned_ajax_modals"
 import setHeadingTag from "./redesigned_heading_tag"
 import selectActiveIdentity from "./redesigned_identity_selector_dialog"
+import createTooltip from "./redesigned_tooltips"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -256,6 +257,9 @@ const initializer = (element = document) => {
 
   // Add event listeners to identity modal
   element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
+
+  // Initialize data-tooltips
+  element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
 }
 
 if ("Turbo" in window) {

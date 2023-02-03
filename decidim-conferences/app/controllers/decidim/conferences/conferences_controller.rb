@@ -42,6 +42,18 @@ module Decidim
         ).first!
       end
 
+      def current_participatory_space_breadcrumb_item
+        return if current_participatory_space.blank?
+
+        {
+          label: current_participatory_space.title,
+          url: conference_path(current_participatory_space),
+          active: true,
+          dropdown_cell: "decidim/conferences/conference_dropdown_metadata",
+          resource: current_participatory_space
+        }
+      end
+
       def published_conferences
         @published_conferences ||= OrganizationPublishedConferences.new(current_organization, current_user)
       end
