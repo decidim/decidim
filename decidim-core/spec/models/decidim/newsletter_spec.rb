@@ -37,28 +37,46 @@ module Decidim
     describe "#url" do
       subject { newsletter.url }
 
-      let(:newsletter) { create(:newsletter) }
+      let(:newsletter) { create(:newsletter, :sent) }
       let(:organization) { newsletter.organization }
 
       it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/newsletters/#{newsletter.id}") }
+
+      context "when the newsletter is not sent" do
+        let(:newsletter) { create(:newsletter) }
+
+        it { is_expected.to eq("#") }
+      end
     end
 
     describe "#notifications_settings_url" do
       subject { newsletter.notifications_settings_url }
 
-      let(:newsletter) { create(:newsletter) }
+      let(:newsletter) { create(:newsletter, :sent) }
       let(:organization) { newsletter.organization }
 
       it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/notifications_settings") }
+
+      context "when the newsletter is not sent" do
+        let(:newsletter) { create(:newsletter) }
+
+        it { is_expected.to eq("#") }
+      end
     end
 
     describe "#unsubscribe_newsletters_url" do
       subject { newsletter.unsubscribe_newsletters_url }
 
-      let(:newsletter) { create(:newsletter) }
+      let(:newsletter) { create(:newsletter, :sent) }
       let(:organization) { newsletter.organization }
 
       it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/newsletters/unsubscribe") }
+
+      context "when the newsletter is not sent" do
+        let(:newsletter) { create(:newsletter) }
+
+        it { is_expected.to eq("#") }
+      end
     end
   end
 end

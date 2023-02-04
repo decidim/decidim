@@ -77,6 +77,8 @@ module Decidim
     end
 
     def proxy_url(method, **kwargs)
+      return "#" unless sent?
+
       router.public_send(method, host: organization.host, **kwargs)
     end
 
