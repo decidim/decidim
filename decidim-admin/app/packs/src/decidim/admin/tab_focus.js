@@ -12,8 +12,6 @@ $(() => {
     // Detect if inside the tabs-panel have an input
     } else {
       $content = $container.find("input:first");
-      console.log($container);
-      console.log($content);
       if ($content.length > 0) {
         $content.focus();
       }
