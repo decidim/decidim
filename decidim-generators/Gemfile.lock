@@ -748,7 +748,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
-    stringio (3.0.4)
+    stringio (3.0.5)
     strscan (3.0.3)
     temple (0.8.2)
     terminal-table (3.0.2)
