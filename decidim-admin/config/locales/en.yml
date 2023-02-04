@@ -375,8 +375,8 @@ en:
         form:
           domain_too_short: Domain too short
         update:
-          error: Failed to update domain allowlist
-          success: Domain allowlist updated successfully
+          error: Failed to update domain whitelist
+          success: Domain whitelist updated successfully
       exports:
         export_as: "%{name} as %{export_format}"
         formats:
@@ -843,8 +843,8 @@ en:
           remove: Remove
           up: Up
         form:
-          add: Add to allowlist
-          title: External domain allowlist
+          add: Add to whitelist
+          title: External domain whitelist
       organization_homepage:
         content_blocks:
           create:
