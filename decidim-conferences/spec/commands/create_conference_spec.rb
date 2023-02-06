@@ -166,7 +166,7 @@ module Decidim::Conferences
           expect(linked_processes.first).to eq(consultation_two)
         end
 
-        it "sorts by weigth" do
+        it "sorts by weight" do
           subject.call
 
           linked_processes = conference.linked_participatory_space_resources(:participatory_process, "included_participatory_processes")
@@ -182,20 +182,12 @@ module Decidim::Conferences
         let!(:consultation_two) { create :consultation, organization: }
         let(:related_consultation_ids) { [consultation_one.id, consultation_two.id] }
 
-        it "sorts by created at" do
+        it "does not include unpublished meetings" do
           subject.call
 
           linked_processes = conference.linked_participatory_space_resources("Consultations", "included_consultations")
           expect(linked_processes.first).to eq(consultation_two)
           expect(linked_processes.size).to eq(1)
-        end
-
-        it "sorts by weigth" do
-          subject.call
-
-          linked_processes = conference.linked_participatory_space_resources(:participatory_process, "included_participatory_processes")
-          expect(linked_processes.size).to eq(1)
-          expect(linked_processes.first).to eq(process_two)
         end
       end
     end
