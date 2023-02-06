@@ -4,21 +4,22 @@ eu:
       post:
         body: Testua
         decidim_author_id: Egilea
+        published_at: Argitaratze data
         title: Izena
     models:
       decidim/blogs/create_post_event: Blogeko post berria
   activerecord:
     models:
       decidim/blogs/post:
-        one: Post
-        other: Mezuak
+        one: Argitalpena
+        other: Argitalpen
   decidim:
     blogs:
       actions:
         confirm_destroy: Ziur mezua ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        new: Post berria
+        new: Argitalpe berria
         title: Ekintzak
         user_group_id: Sortu argitalpena hau bezala
       admin:
@@ -43,13 +44,13 @@ eu:
             invalid: Akatsen bat gertatu da mezua gordetzean.
             success: Sarrera ondo gorde da
       last_activity:
-        new_post_at_html: "<span>Post berria %{link}</span>"
+        new_post_at_html: "<span>Post berria %{link}-ean</span>"
       models:
         post:
           fields:
             author: Egilea
             body: Testua
-            created_at: Sortutako at
+            created_at: Sortze-data
             title: Izenburua
       posts:
         show:
@@ -59,7 +60,7 @@ eu:
         sidebar_blog:
           comments: iruzkinak
           most_commented_posts: Gehien iruzkinatutako mezu
-      read_more: Irakurri gehiago
+      read_more: Geihago irakurri
     components:
       blogs:
         actions:
