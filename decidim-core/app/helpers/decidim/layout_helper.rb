@@ -25,10 +25,11 @@ module Decidim
     end
 
     def legacy_favicon
-      icon_image = current_organization.attached_uploader(:favicon).variant_url(:small, host: current_organization.host)
+      variant = :favicon if current_organization.favicon.content_type != "image/vnd.microsoft.icon"
+      icon_image = current_organization.attached_uploader(:favicon).variant_url(variant, host: current_organization.host)
       return unless icon_image
 
-      favicon_link_tag(icon_image.gsub(".png", ".ico"), rel: "icon", sizes: "any", type: nil)
+      favicon_link_tag(icon_image, rel: "icon", sizes: "any", type: nil)
     end
 
     # Outputs an SVG-based icon.
