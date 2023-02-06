@@ -74,8 +74,11 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - run: ./.github/upload_coverage.sh decidim-proposals-system-admin $GITHUB_EVENT_PATH
+      - uses: codecov/codecov-action@v3
         name: Upload coverage
+        with:
+          name: decidim-proposals-system-admin
+          directory: ${{ env.DECIDIM_MODULE }}
       - uses: actions/upload-artifact@v2
         if: always()
         with:

@@ -76,5 +76,8 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+      - uses: codecov/codecov-action@v3
         name: Upload coverage
+        with:
+          name: decidim-generators-flags
+          directory: ${{ env.DECIDIM_MODULE }}
