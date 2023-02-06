@@ -376,28 +376,16 @@ en:
           member_of:
             member_of: Member of
       show:
-        area: Area
         assembly_type: Assembly type
         children: Assemblies
-        closing_date: Closing date
-        created_by: Created by
-        creation_date: Date created
-        developer_group: Promoter group
         duration: Duration
-        included_at: Included at
-        indefinite_duration: Indefinite
         is_transparent:
           'false': opaque
           'true': transparent
-        local_area: Organization area
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
         private_space: This is a private assembly
         related_participatory_processes: Related participatory processes
-        scope: Scope
         social_networks: Social Networks
         social_networks_title: Visit assembly on
-        target: Who participates
     assembly_members:
       assembly_member:
         designated_on: Designated on
