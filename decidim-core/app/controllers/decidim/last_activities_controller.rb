@@ -27,7 +27,7 @@ module Decidim
         [klass, klass.constantize.model_name.human]
       end
 
-      @resource_types << ["all", I18n.t("decidim.last_activities.all")]
+      @resource_types.unshift(["all", I18n.t("decidim.last_activities.all")])
 
       @resource_types.map do |resource_type|
         {
