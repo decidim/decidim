@@ -74,9 +74,9 @@ jobs:
           DISPLAY: ":99"
       - uses: codecov/codecov-action@v3
         name: Upload coverage
-        working-directory: ${{ env.DECIDIM_MODULE }}
         with:
           name: decidim-core-system
+          working-directory: ${{ env.DECIDIM_MODULE }}
       - uses: actions/upload-artifact@v2
         if: always()
         with:
