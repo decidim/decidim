@@ -76,6 +76,7 @@ jobs:
         name: Upload coverage
         with:
           name: decidim-meetings-system-admin
+          flags: decidim-meetings-system-admin
       - uses: actions/upload-artifact@v2
         if: always()
         with:

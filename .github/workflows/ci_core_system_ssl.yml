@@ -76,6 +76,7 @@ jobs:
         name: Upload coverage
         with:
           name: decidim-core-system-ssl
+          flags: decidim-core-system-ssl
       - uses: actions/upload-artifact@v2
         if: always()
         with:

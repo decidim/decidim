@@ -80,3 +80,4 @@ jobs:
         name: Upload coverage
         with:
           name: decidim-generators-rest
+          flags: decidim-generators-rest

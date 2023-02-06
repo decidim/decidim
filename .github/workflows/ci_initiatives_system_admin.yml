@@ -75,6 +75,7 @@ jobs:
         name: Upload coverage
         with:
           name: decidim-initiatives-system-admin
+          flags: decidim-initiatives-system-admin
       - uses: actions/upload-artifact@v2
         if: always()
         with:

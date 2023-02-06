@@ -83,3 +83,4 @@ jobs:
         name: Upload coverage
         with:
           name: ${{ env.DECIDIM_MODULE }}
+          flags: ${{ env.DECIDIM_MODULE }}
