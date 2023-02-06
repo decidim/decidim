@@ -37,6 +37,11 @@ module Decidim
         let(:attachment_path) { Decidim::Dev.asset("malicious.jpg") }
 
         it { is_expected.not_to be_valid }
+
+        it "shows the correct error" do
+          expect(subject.valid?).to be(false)
+          expect(subject.errors[:file]).to match_array(["File cannot be processed"])
+        end
       end
     end
 

@@ -78,6 +78,7 @@ en:
     'true': 'Yes'
   carrierwave:
     errors:
+      file_cannot_be_processed: File cannot be processed
       file_resolution_too_large: File resolution is too large
       file_size_too_large: File size is too large
       not_inside_organization: The file is not attached to any organization
