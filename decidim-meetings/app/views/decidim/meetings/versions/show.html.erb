@@ -7,6 +7,7 @@
   ) %>
 <% end %>
 
+<%# REDESIGN_PENDING - Replace this layout with other not using drawers %>
 <%= render layout: "layouts/decidim/shared/drawer", locals: { close_url: meetings_path } do %>
   <%= cell(
     "decidim/version",
