@@ -76,7 +76,7 @@ jobs:
         name: Upload coverage
         working-directory: ${{ env.DECIDIM_MODULE }}
         with:
-          name: ${{ env.DECIDIM_MODULE }}
+          name: decidim-core-system-ssl
       - uses: actions/upload-artifact@v2
         if: always()
         with:
