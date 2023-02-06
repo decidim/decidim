@@ -93,7 +93,7 @@ describe Decidim::ParticipatoryProcesses::Permissions do
         "access for roles",
         org_admin: true,
         admin: true,
-        collaborator: true,
+        collaborator: false,
         moderator: true,
         valuator: false
       )
