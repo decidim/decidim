@@ -332,6 +332,7 @@ ignore_unused:
   - ransack.predicates.*
   - decidim.profiles.user.actions.*
   - decidim.forms.questionnaires.show.answer_questionnaire.*
+  - decidim.forms.upload_help.explanation
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
