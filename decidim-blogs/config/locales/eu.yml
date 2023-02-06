@@ -4,6 +4,7 @@ eu:
       post:
         body: Testua
         decidim_author_id: Egilea
+        published_at: Argitaratze data
         title: Izena
     models:
       decidim/blogs/create_post_event: Blogeko post berria
@@ -56,6 +57,7 @@ eu:
             author: Egilea
             body: Testua
             official_blog_post: Blogeko argitalpen ofiziala
+            published_at: Argitaratze data
             title: Izenburua
       posts:
         show:
