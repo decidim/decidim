@@ -188,7 +188,7 @@ eu:
         reject: Ukatu
         share: Partekatu
         user:
-          new: Beste erabiltzaile bat
+          new: Erabiltzaile berria
         verify: Egiaztatu
       admin_terms_of_use:
         accept:
@@ -353,7 +353,7 @@ eu:
       dashboard:
         show:
           view_more_logs: Ikusi gehiago erregistroak
-          welcome: Ongi etorri Decidim Admin Panelera.
+          welcome: Ongi etorri Decidim Administrazio Panelera.
       domain_whitelist:
         form:
           domain_too_short: Domeinu laburregia
@@ -526,7 +526,7 @@ eu:
         moderation: Moderazio globalak
         newsletters: Buletinak
         participants: Parte-hartzaileak
-        reported_users: Erabiltzaile erreportatuak
+        reported_users: Erabiltzaile informatuak
         scope_types: Esparru motak
         scopes: Esparruak
         settings: Ezarpenak
@@ -625,7 +625,7 @@ eu:
           nickname: Ezizena
           reason: Arrazoia
           reports: Salaketa kopurua
-          title: Erreportatutako erabiltzaileen zerrenda
+          title: Informatutako erabiltzaileen zerrenda
         report:
           reasons:
             does_not_belong: Ez da bidezkoa
