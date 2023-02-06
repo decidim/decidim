@@ -883,7 +883,7 @@ eu:
           see_steps: ikusi urratsak
           step_1: Sortu zure proposamena
           step_2: konparatu
-          step_3: osoa
+          step_3: Osatuta
           step_4: Argitaratu zure proposamena
           step_of: '%{total_steps} urratsetik %{current_step_num} eginda'
           title: Proposamen bat sortzeko urratsak
