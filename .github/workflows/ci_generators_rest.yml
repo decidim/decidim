@@ -80,4 +80,3 @@ jobs:
         name: Upload coverage
         with:
           name: decidim-generators-rest
-          working-directory: ${{ env.DECIDIM_MODULE }}

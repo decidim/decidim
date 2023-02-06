@@ -83,4 +83,3 @@ jobs:
         name: Upload coverage
         with:
           name: ${{ env.DECIDIM_MODULE }}
-          working-directory: ${{ env.DECIDIM_MODULE }}

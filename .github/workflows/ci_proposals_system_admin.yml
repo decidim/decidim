@@ -78,7 +78,6 @@ jobs:
         name: Upload coverage
         with:
           name: decidim-proposals-system-admin
-          working-directory: ${{ env.DECIDIM_MODULE }}
       - uses: actions/upload-artifact@v2
         if: always()
         with:
