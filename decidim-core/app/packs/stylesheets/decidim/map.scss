@@ -1,3 +1,38 @@
 @import "stylesheets/decidim/plugins/leaflet";
 @import "stylesheets/decidim/plugins/MarkerCluster";
 @import "stylesheets/decidim/plugins/MarkerCluster.Default";
+
+/* overwrite leaflet and card styles */
+.leaflet-popup-content-wrapper{
+  @apply bg-black w-fit rounded text-left text-white transition-all ease-in delay-300;
+
+  .card__list{
+    @apply border-tertiary focus:outline-none;
+
+    &-metadata{
+      @apply gap-4 flex-nowrap;
+    }
+
+    &-metadata span{
+      @apply md:px-0 md:border-0;
+    }
+
+    &-metadata span,
+    &-metadata svg,
+    &-title{
+      @apply font-sans text-white;
+    }
+
+    &:focus &-title{
+      @apply underline;
+    }
+  }
+}
+
+.leaflet-popup-tip{
+  @apply bg-black transition-all ease-in delay-300;
+}
+
+.leaflet-div-icon{
+  @apply text-4xl text-secondary -translate-x-1/2 -translate-y-1/2 border-0 bg-transparent;
+}
