@@ -722,13 +722,23 @@ module Decidim
           let(:file) { nil }
           let(:uploader) { Decidim::AvatarUploader }
 
-          it "renders an image with the default url" do
-            expect(parsed.css("img[src=\"#{resource.attached_uploader.default_url}\"]")).not_to be_empty
+          # REDESIGN_PENDING: Merge this with upload-modal in another branch
+          # and remove if necessary
+          it "renders the 'Default image' label" do
+            skip "This example will be deprecated once merged the feature/redesign-upload-modal branch"
+            expect(output).to include("Default image")
           end
         end
 
         context "and it is present" do
           let(:present?) { true }
+
+          # REDESIGN_PENDING: Merge this with upload-modal in another branch
+          # and remove if necessary
+          it "renders the 'Current image' label" do
+            skip "This example will be deprecated once merged the feature/redesign-upload-modal branch"
+            expect(output).to include("Current image")
+          end
 
           it "renders an image with the current file url" do
             expect(parsed.css("img[src=\"#{url}\"]")).not_to be_empty
@@ -777,6 +787,31 @@ module Decidim
         it "renders help message" do
           html = output
           expect(html).to include("<li>This image will be resized to fit 100 x 100 px.</li>")
+        end
+
+        context "and it contains multiple values incorrectly ordered" do
+          let(:attributes) do
+            {
+              dimensions_info: {
+                medium: { processor: :resize_to_fit, dimensions: [100, 100] },
+                smaller: { processor: :resize_and_pad, dimensions: [99, 99] },
+                small: { processor: :resize_to_fit, dimensions: [32, 32] },
+                tiny: { processor: :resize_and_pad, dimensions: [33, 33] }
+              }
+            }
+          end
+
+          it "renders the correctly sorted values" do
+            html = output
+            expect(html).to include(
+              [
+                "<li>This image will be resized and padded to 33 x 33 px.</li>",
+                "<li>This image will be resized and padded to 99 x 99 px.</li>",
+                "<li>This image will be resized to fit 32 x 32 px.</li>",
+                "<li>This image will be resized to fit 100 x 100 px.</li>"
+              ].join("\n      \n        ")
+            )
+          end
         end
       end
 

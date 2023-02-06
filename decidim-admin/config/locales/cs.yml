@@ -836,9 +836,6 @@ cs:
         edit:
           active_content_blocks: Bloky aktivního obsahu
           inactive_content_blocks: Neaktivní bloky obsahu
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualizace
       participatory_space_private_users:
         create:
           error: Při přidávání soukromého uživatele pro tento participační prostor došlo k chybě.

@@ -75,10 +75,6 @@ module Decidim
       options[:resource_name]
     end
 
-    def actions_wrapper_class
-      has_title? ? "actions-wrapper titled" : "actions-wrapper"
-    end
-
     def attribute
       options[:attribute]
     end
@@ -154,11 +150,7 @@ module Decidim
     end
 
     def file_name_for(attachment)
-      filename = determine_filename(attachment)
-
-      return "(#{filename})" if has_title?
-
-      filename
+      determine_filename(attachment)
     end
 
     def determine_filename(attachment)

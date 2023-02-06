@@ -22,6 +22,7 @@ module Decidim
           if Decidim.sms_gateway_service
             Decidim::Verifications.register_workflow(:sms) do |workflow|
               workflow.engine = Decidim::Verifications::Sms::Engine
+              workflow.icon = "message-3-line"
             end
           end
         end

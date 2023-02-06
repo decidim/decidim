@@ -9,7 +9,6 @@ describe "Report Proposal", type: :system do
   let!(:proposals) { create_list(:proposal, 3, component:) }
   let(:reportable) { proposals.first }
   let(:reportable_path) { resource_locator(reportable).path }
-  let!(:user) { create :user, :confirmed, organization: }
 
   let!(:component) do
     create(:proposal_component,
@@ -45,5 +44,5 @@ describe "Report Proposal", type: :system do
     end
   end
 
-  include_examples "reports"
+  include_examples "reports by user type"
 end

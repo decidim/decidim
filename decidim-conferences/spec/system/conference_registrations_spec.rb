@@ -54,8 +54,8 @@ describe "Conference registrations", type: :system do
     it "the registration button is not visible" do
       visit_conference
 
-      within ".hero__container" do
-        expect(page).not_to have_button("REGISTER")
+      within "[data-conference-hero]", match: :first do
+        expect(page).not_to have_button("Register")
       end
     end
   end
@@ -71,11 +71,8 @@ describe "Conference registrations", type: :system do
       it "the registration button is disabled" do
         visit_conference_registration_types
 
-        expect(page).to have_css(".conference-registration", count: registration_types_count)
-
-        within ".wrapper" do
-          expect(page).to have_css("button[disabled]", text: "NO SLOTS AVAILABLE", count: 5)
-        end
+        expect(page).to have_css("[data-conference-registration]", count: registration_types_count)
+        expect(page).to have_css("button[disabled]", text: "No slots available", count: 5)
       end
     end
 
@@ -84,9 +81,7 @@ describe "Conference registrations", type: :system do
         it "they have the option to sign in" do
           visit_conference_registration_types
 
-          within ".wrapper" do
-            first(:button, "Registration").click
-          end
+          first(:button, "Registration").click
 
           expect(page).to have_css("#loginModal", visible: :visible)
         end
@@ -107,15 +102,13 @@ describe "Conference registrations", type: :system do
 
         within "#conference-registration-confirm-#{registration_type.id}" do
           expect(page).to have_content "A legal text"
-          page.find(".button.expanded").click
+          click_button "Confirm"
         end
 
         expect(page).to have_content("successfully")
 
-        within ".wrapper" do
-          expect(page).to have_css(".button", text: "ATTENDING")
-          expect(page).to have_css("button[disabled]", text: "REGISTRATION", count: 4)
-        end
+        expect(page).to have_css(".button", text: "Attending")
+        expect(page).to have_css("button[disabled]", text: "Registration", count: 4)
       end
     end
   end
@@ -134,10 +127,7 @@ describe "Conference registrations", type: :system do
       end
 
       expect(page).to have_content("successfully")
-
-      within ".wrapper" do
-        expect(page).to have_css(".button", text: "REGISTRATION", count: registration_types_count)
-      end
+      expect(page).to have_css(".button", text: "Registration", count: registration_types_count)
     end
   end
 

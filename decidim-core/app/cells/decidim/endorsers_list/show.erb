@@ -1,11 +1,11 @@
-<div class="flex -space-x-2">
-  <% visible_endorsers.each do |visible_endorser| %>
-    <span class="rounded-full overflow-hidden border border-white inline-block w-6 h-6">
-      <%= cell "decidim/author", visible_endorser, layout: :avatar, skip_profile_link: true %>
-    </span>
-  <% end %>
-
-  <span class="rounded-full overflow-hidden border border-white w-6 h-6 bg-background inline-grid place-items-center text-secondary text-xs font-semibold">
-    <%= endorsers_count %>
+<% visible_endorsers.each do |visible_endorser| %>
+  <span class="endorsers-list__avatar">
+    <%= cell "decidim/author", visible_endorser, layout: :avatar, skip_profile_link: true %>
   </span>
-</div>
+<% end %>
+
+<% if full_endorsers.length > MAX_ITEMS_STACKED %>
+  <span class="endorsers-list__counter">
+    <%= "+" + (endorsers_count - MAX_ITEMS_STACKED).to_s %>
+  </span>
+<% end %>

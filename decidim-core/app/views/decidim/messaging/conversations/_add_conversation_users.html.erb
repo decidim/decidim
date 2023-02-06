@@ -1,7 +1,7 @@
 <div data-dialog-container>
   <%= icon "question-answer-line" %>
+  <h2 id="dialog-title-conversation" tabindex="-1" data-dialog-title><%= t(".modal_title") %></h2>
   <div>
-    <h2 id="dialog-title-conversation" data-dialog-title><%= t(".modal_title") %></h2>
     <div class="form__wrapper gap-1 js-multiple-mentions" data-name="recipient_id[]" data-multiple="true">
       <label for="add_conversation_users">
         <%= t("decidim.metrics.participants.title") %>
