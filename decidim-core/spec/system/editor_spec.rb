@@ -11,6 +11,7 @@ describe "Editor", type: :system do
 
   let(:redesigned) { true }
   let(:editor_content) { "" }
+  let(:editor_options) { {} }
   let(:record) { OpenStruct.new(body: editor_content) }
   let(:form) { Decidim::FormBuilder.new(:record, record, template, {}) }
   let(:template_class) do
@@ -29,7 +30,7 @@ describe "Editor", type: :system do
         selfxssWarning: I18n.t("decidim.security.selfxss_warning")
       }
     }
-    editor_wrapper = form.editor(:body, toolbar: features, image_upload: { redesigned: })
+    editor_wrapper = form.editor(:body, toolbar: features, image_upload: { redesigned: }, **editor_options)
     pack_prefix = ""
     content_wrapper = ""
     if redesigned
@@ -681,6 +682,42 @@ describe "Editor", type: :system do
     it "creates a blockquote" do
       prosemirror.native.send_keys "> Hello, world!"
       expect_value("<blockquote><p>Hello, world!</p></blockquote>")
+    end
+  end
+
+  context "with hashtags, mentions and emojis" do
+    let(:editor_options) { { hashtaggable: true, mentionable: true, emojiable: true } }
+
+    let!(:user1) { create :user, :confirmed, name: "John Doe", nickname: "doe_john", organization: }
+    let!(:user2) { create :user, :confirmed, name: "Jon Doe", nickname: "doe_jon", organization: }
+    let!(:user3) { create :user, :confirmed, name: "Jane Doe", nickname: "doe_jane", organization: }
+
+    let!(:hashtag1) { create :hashtag, name: "nature", organization: }
+    let!(:hashtag2) { create :hashtag, name: "nation", organization: }
+    let!(:hashtag3) { create :hashtag, name: "native", organization: }
+
+    it "allows selecting hashtags" do
+      prosemirror.native.send_keys "#na"
+
+      expect(page).to have_selector(".editor-suggestions-item", text: "nature")
+      expect(page).to have_selector(".editor-suggestions-item", text: "nation")
+      expect(page).to have_selector(".editor-suggestions-item", text: "native")
+
+      find(".editor-suggestions-item", text: "nature").click
+
+      expect_value(%(<p><span data-type="hashtag" data-label="#nature">#nature</span> a</p>))
+    end
+
+    it "allows selecting mentions" do
+      prosemirror.native.send_keys "@doe"
+
+      expect(page).to have_selector(".editor-suggestions-item", text: "@doe_john (John Doe)")
+      expect(page).to have_selector(".editor-suggestions-item", text: "@doe_jon (Jon Doe)")
+      expect(page).to have_selector(".editor-suggestions-item", text: "@doe_jane (Jane Doe)")
+
+      find(".editor-suggestions-item", text: "@doe_john (John Doe)").click
+
+      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="John Doe">@doe_john (John Doe)</span> e</p>))
     end
   end
 
