@@ -190,14 +190,13 @@ module Decidim
       label_text = options[:label].to_s
       label_text = label_for(name) if label_text.blank?
       options.delete(:required)
-      hashtaggable = options.delete(:hashtaggable)
       editor_image = Decidim::EditorImage.new
       editor_options = editor_options(editor_image, options)
       hidden_options = extract_validations(name, options).merge(options)
 
       content_tag(
         :div,
-        class: "editor #{"hashtags__container" if hashtaggable}",
+        class: "editor #{"hashtags__container" if editor_options[:editor]["class"].include?("js-hashtags")}",
         id: "#{sanitize_for_dom_selector(@object_name)}_#{sanitize_for_dom_selector(name)}"
       ) do
         template = ""
@@ -206,7 +205,7 @@ module Decidim
         template += content_tag(
           :div,
           nil,
-          class: "editor-container #{"js-hashtags" if hashtaggable}",
+          class: editor_options[:editor].delete("class").join(" "),
           data: {
             toolbar:,
             disabled: options[:disabled],
@@ -968,7 +967,17 @@ module Decidim
       upload_options = options.delete(:image_upload) || {}
       upload_options[:modal_id] ||= "upload_#{SecureRandom.uuid}"
 
+      hashtaggable = options.delete(:hashtaggable)
+      mentionable = options.delete(:mentionable)
+      emojiable = options.delete(:emojiable)
+
+      editor_classes = ["editor-container"]
+      editor_classes << "js-hashtags" if hashtaggable
+      editor_classes << "js-mentions" if mentionable
+      editor_classes << "js-emojis" if emojiable
+
       editor_options = {
+        class: editor_classes,
         content_types: {
           image: editor_image.attached_uploader(:file).content_type_allowlist
         },
