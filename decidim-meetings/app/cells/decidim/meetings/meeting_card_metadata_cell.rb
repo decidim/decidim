@@ -33,9 +33,17 @@ module Decidim
       end
 
       def dates
+        text = if start_time.year != end_time.year
+                 "#{start_time.strftime("%d %b %Y")} - #{end_time.strftime("%d %b %Y")}"
+               elsif start_time.month != end_time.month || start_time.day != end_time.day
+                "#{start_time.strftime("%d %b")} - #{end_time.strftime("%d %b")}"
+               else
+                 "#{start_time.strftime("%H:%M")} - #{end_time.strftime("%H:%M")}"
+               end
+
         {
-          text: "#{start_time.strftime("%H:%M")} - #{end_time.strftime("%H:%M")}",
-          icon: resource_type_icon_key(type_of_meeting)
+          text: ,
+          icon: "timer-2-line"
         }
       end
 
