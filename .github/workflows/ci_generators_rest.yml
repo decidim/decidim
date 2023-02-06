@@ -78,6 +78,6 @@ jobs:
           SIMPLECOV: "true"
       - uses: codecov/codecov-action@v3
         name: Upload coverage
+        working-directory: ${{ env.DECIDIM_MODULE }}
         with:
           name: decidim-generators-rest
-          directory: ${{ env.DECIDIM_MODULE }}
