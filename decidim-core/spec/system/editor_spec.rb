@@ -803,10 +803,6 @@ describe "Editor", type: :system do
         )
       end
     end
-
-    # it "displays the editor" do
-    #   expect(page).to have_content("FOOBAR")
-    # end
   end
 
   def expect_value(html)
