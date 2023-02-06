@@ -881,7 +881,7 @@ eu:
           step_2: konparatu
           step_3: osoa
           step_4: Argitaratu zure proposamena
-          step_of: Urratsa %{current_step_num} de %{total_steps}
+          step_of: '%{total_steps} urratsetik %{current_step_num} eginda'
           title: Proposamen bat sortzeko urratsak
       proposals_picker:
         choose_proposals: Hautatu proposamenak
