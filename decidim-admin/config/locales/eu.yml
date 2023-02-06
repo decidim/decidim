@@ -536,7 +536,7 @@ eu:
         moderation: Moderazio globalak
         newsletters: Buletinak
         participants: Parte-hartzaileak
-        reported_users: Erabiltzaile erreportatuak
+        reported_users: Erabiltzaile informatuak
         scope_types: Esparru motak
         scopes: Esparruak
         settings: Ezarpenak
@@ -635,7 +635,7 @@ eu:
           nickname: Ezizena
           reason: Arrazoia
           reports: Salaketa kopurua
-          title: Erreportatutako erabiltzaileen zerrenda
+          title: Informatutako erabiltzaileen zerrenda
         report:
           reasons:
             does_not_belong: Ez da bidezkoa
