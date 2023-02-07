@@ -51,4 +51,10 @@ describe Decidim::Admin::FakeNewsletter do
 
     it { is_expected.to eq("#") }
   end
+
+  describe "#organization_official_url" do
+    subject { newsletter.organization_official_url }
+
+    it { is_expected.to eq("#") }
+  end
 end

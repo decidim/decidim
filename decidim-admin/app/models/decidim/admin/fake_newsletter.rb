@@ -57,6 +57,10 @@ module Decidim
         "#"
       end
 
+      def organization_official_url
+        "#"
+      end
+
       private
 
       attr_reader :organization, :manifest
