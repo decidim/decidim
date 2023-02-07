@@ -946,7 +946,6 @@ lb:
     newsletter_mailer:
       newsletter:
         note: Du hues dës email kritt, well s'du den Newsletter vun %{organization_name} abonnéiert hues. Du kanns d'Astellungen op denger <a href="%{link}">Benachrichtigungen Seite</a> änneren.
-        see_on_website: Dës Email gëtt dir net richteg ugewisen? Klick w. e. g. hei dran <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Fir dës Zort Email ofzebestellen, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
       basic_only_text:
