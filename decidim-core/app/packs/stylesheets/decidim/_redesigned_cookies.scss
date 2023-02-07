@@ -16,7 +16,7 @@
     @apply w-full md:w-1/5 flex flex-col gap-2;
   }
 
-  @keyframes slideInUp {
+  @keyframes slideInUp{
     from {
       transform: translate3d(0, 100%, 0);
       visibility: visible;

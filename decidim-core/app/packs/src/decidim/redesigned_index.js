@@ -59,6 +59,7 @@ import "./impersonation"
 // import "./start_conversation_dialog" -- deprecated
 import "./gallery"
 import "./direct_uploads/redesigned_upload_field"
+import "./data_consent"
 
 // local deps that require initialization
 import formDatePicker from "./form_datepicker"

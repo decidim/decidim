@@ -1,11 +1,12 @@
-import ConsentManager from "src/decidim/data_consent/consent_manager";
+import ConsentManager from "./consent_manager";
 
 const initDialog = (manager) => {
   if (Object.keys(manager.state).length > 0) {
     return;
   }
+
   const dialogWrapper = document.querySelector("#dc-dialog-wrapper");
-  dialogWrapper.classList.remove("hide");
+  dialogWrapper.hidden = false
 
   const acceptAllButton = dialogWrapper.querySelector("#dc-dialog-accept");
   const rejectAllButton = dialogWrapper.querySelector("#dc-dialog-reject");
@@ -13,16 +14,16 @@ const initDialog = (manager) => {
 
   acceptAllButton.addEventListener("click", () => {
     manager.acceptAll();
-    dialogWrapper.style.display = "none";
+    dialogWrapper.hidden = true;
   });
 
   rejectAllButton.addEventListener("click", () => {
     manager.rejectAll();
-    dialogWrapper.style.display = "none";
+    dialogWrapper.hidden = true;
   });
 
   settingsButton.addEventListener("click", () => {
-    dialogWrapper.style.display = "none";
+    dialogWrapper.hidden = true;
   });
 }
 
