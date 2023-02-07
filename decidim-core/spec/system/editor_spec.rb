@@ -112,14 +112,23 @@ describe "Editor", type: :system do
     # context.
     final_html = html_document
     Rails.application.routes.draw do
-      # Core routes for the image uploads
+      # Core routes for the image uploads and API
       mount Decidim::Core::Engine => "/"
 
-      # Necessary ActiveStorage routes for the image uploads
+      # Necessary ActiveStorage routes for the image uploads and displaying user
+      # avatars through the API
       scope ActiveStorage.routes_prefix do
         get "/blobs/redirect/:signed_id/*filename" => "active_storage/blobs/redirect#show", as: :rails_service_blob
+        get "/representations/redirect/:signed_blob_id/:variation_key/*filename" => "active_storage/representations/redirect#show", as: :rails_blob_representation
         get "/disk/:encoded_key/*filename" => "active_storage/disk#show", as: :rails_disk_service
         post "/direct_uploads" => "active_storage/direct_uploads#create", as: :rails_direct_uploads
+      end
+      direct :rails_representation do |representation, options|
+        signed_blob_id = representation.blob.signed_id
+        variation_key = representation.variation.key
+        filename = representation.blob.filename
+
+        route_for(:rails_blob_representation, signed_blob_id, variation_key, filename, options)
       end
       direct :rails_blob do |blob, options|
         route_for(ActiveStorage.resolve_model_to_route, blob, options)
@@ -740,7 +749,7 @@ describe "Editor", type: :system do
 
       find(".editor-suggestions-item", text: "@doe_john (John Doe)").click
 
-      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="John Doe">@doe_john (John Doe)</span> e</p>))
+      expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> e</p>))
     end
   end
 
