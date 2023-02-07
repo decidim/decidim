@@ -934,7 +934,6 @@ tr:
     newsletter_mailer:
       newsletter:
         note: Bu e-postayı, %{organization_name} bültenlere abone olduğunuz için aldınız. Eğer ayarlarınızı değiştirebilirsiniz <a href="%{link}">bildirimleri sayfa</a>.
-        see_on_website: Bu e-postayı doğru göremiyor musunuz? Onu <a href="%{link}" target="_blank">web sitesinde görüntüle</a>.
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
     newsletter_templates:
       basic_only_text:
