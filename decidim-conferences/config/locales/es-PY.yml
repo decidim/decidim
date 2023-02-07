@@ -312,7 +312,7 @@ es-PY:
           update: "%{user_name} actualizó la colaboradora %{resource_name} de la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
-          delete: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
+          delete: "%{user_name} ha eliminado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
@@ -432,7 +432,7 @@ es-PY:
         create:
           invalid: Ha habido un problema al unirse a esta conferencia.
           success: Te has unido a la conferencia con éxito.
-          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la conferencia.
+          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la jornada.
         decline_invitation:
           invalid: Ha habido un problema al rechazar la invitación.
           success: Has rechazado la invitación con éxito.
