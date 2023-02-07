@@ -770,6 +770,29 @@ describe "Editor", type: :system do
     end
   end
 
+  context "with character counter" do
+    let(:editor_options) { { maxlength: 13 } }
+
+    it "counts the characters" do
+      prosemirror.native.send_keys "Hello, w"
+
+      within ".input-character-counter__text" do
+        expect(page).to have_content("5 characters left")
+      end
+    end
+
+    context "when the character limit is reached" do
+      before do
+        prosemirror.native.send_keys "Hello, world!"
+      end
+
+      it "does not allow new paragraph breaks" do
+        prosemirror.native.send_keys [:enter]
+        expect_value("<p>Hello, world!</p>")
+      end
+    end
+  end
+
   # Note that the legacy design is necessary to maintain as long as we have
   # the admin panel using the legacy design. This is also why we test that.
   context "with legacy design" do
