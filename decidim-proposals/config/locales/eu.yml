@@ -424,6 +424,7 @@ eu:
             accepted: Onartuta
             answer_proposal: Erantzuna
             evaluating: Ebaluatzen
+            not_answered: Erantzun gabe
             rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
         proposal_notes:
