@@ -853,7 +853,6 @@ zh-CN:
     newsletter_mailer:
       newsletter:
         note: 您收到这封邮件是因为您订阅了 %{organization_name}的新闻通讯。您可以在您的 <a href="%{link}">通知页面</a> 更改您的设置。
-        see_on_website: 找不到正确的电子邮件？在 <a href="%{link}" target="_blank">网站</a> 上查看。
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
     newsletter_templates:
       basic_only_text:
