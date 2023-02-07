@@ -23,7 +23,7 @@ es-PY:
         address: Dirección
         location: Ubicación
         location_hints: Detalles de ubicación
-        polling_station_managers: Gestors
+        polling_station_managers: Gestoras
         polling_station_president_id: Presidencia
         title: Título
       question:
@@ -36,6 +36,7 @@ es-PY:
         end_time: La votación finaliza
         introductory_image: Imagen de presentación
         promoted: Destacada
+        scope_id: Ámbito
         show_check_census: Mostrar la página de "comprobar censo"
         start_time: La votación empieza
     errors:
@@ -269,7 +270,7 @@ es-PY:
               'false': no tiene una <strong>clave pública</strong>
               'true': tiene una <strong> clave pública</strong>
             requirements:
-              census_codes_generated: Se han generador los códigos de acceso al censo.
+              census_codes_generated: Se han generado los códigos de acceso al censo.
               census_frozen: Se han exportado los códgos para el censo y el censo ha quedado congelado.
               census_uploaded: El censo está subido.
               component_published: La elección está <strong>publicada</strong>.
