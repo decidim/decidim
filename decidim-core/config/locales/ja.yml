@@ -1112,7 +1112,6 @@ ja:
       newsletter:
         no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
         note: '%{organization_name}でニュースレターを購読しているため、このメールを受信しました。 <a href="%{link}">通知ページ</a> で設定を変更できます。'
-        see_on_website: このメールは正しく表示されませんか？ <a href="%{link}" target="_blank">ウェブサイト</a> で確認してください。
         unsubscribe: この種類のメールの受信を拒否するには、 <a href="%{link}" target="_blank" class="unsubscribe">購読解除</a>.
     newsletter_templates:
       basic_only_text:
