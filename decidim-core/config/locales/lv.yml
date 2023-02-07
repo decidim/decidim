@@ -831,7 +831,6 @@ lv:
     newsletter_mailer:
       newsletter:
         note: Jūs saņēmāt šo e-pasta ziņojumu, jo esat abonējis informatīvos biļetenus vietnē %{organization_name}. Iestatījumus var mainīt jūsu <a href="%{link}"> paziņojumu lapā </a>.
-        see_on_website: Vai nevarat pareizi redzēt šo e-pastu? Skatiet to <a href="%{link}" target="_blank"> tīmekļvietnē </a>.
         unsubscribe: Lai atteiktos no šāda veida e-pasta saņemšanas, <a href="%{link}" target="_blank" class="unsubscribe"> Anulēt abonementu</a>.
     newsletter_templates:
       basic_only_text:
