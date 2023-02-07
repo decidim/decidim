@@ -204,6 +204,20 @@ module Decidim::Assemblies
           expect(linked_processes.first).to eq(process_two)
         end
       end
+
+      context "when linking draft processes" do
+        let!(:process_one) { create :participatory_process, :unpublished, organization: organization, weight: 2 }
+        let!(:process_two) { create :participatory_process, organization: organization, weight: 1 }
+        let(:related_process_ids) { [process_one.id, process_two.id] }
+
+        it "links processes in right way" do
+          subject.call
+
+          linked_processes = assembly.linked_participatory_space_resources(:participatory_process, "included_participatory_processes")
+          expect(linked_processes.size).to eq(1)
+          expect(linked_processes.first).to eq(process_two)
+        end
+      end
     end
   end
 end
