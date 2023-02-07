@@ -471,6 +471,29 @@ describe "Editor", type: :system do
         HTML
       )
     end
+
+    it "allows adding images through clicking the dropzone" do
+      click_toggle("image")
+      within "[data-dialog][aria-hidden='false']" do
+        add_file("city.jpeg", "[data-dropzone]", "select")
+        fill_in "Alternative text for the image", with: "City landscape"
+
+        within "[data-dialog-actions]" do
+          find("button[data-dropzone-save]").click
+        end
+      end
+      expect(Decidim::EditorImage.count).to be(1)
+
+      src = Decidim::EditorImage.last.attached_uploader(:file).path
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <div class="editor-content-image" data-image="">
+            <img src="#{src}" alt="City landscape">
+          </div>
+        HTML
+      )
+    end
   end
 
   context "with keyboard" do
@@ -839,15 +862,11 @@ describe "Editor", type: :system do
           HTML
         )
       end
-    end
 
-    context "when adding an attachment by clicking dropzone" do
-      let(:features) { "full" }
-
-      it "image" do
+      it "allows adding images through clicking the dropzone" do
         click_toggle("image")
         within "[data-reveal][aria-hidden='false']" do
-          add_file("city.jpeg", ".dropzone-container .dropzone", "change")
+          add_file("city.jpeg", ".dropzone-container .dropzone", "select")
           fill_in "Alternative text for the image", with: "City landscape"
 
           find("button.add-file-file").click
@@ -857,6 +876,7 @@ describe "Editor", type: :system do
         src = Decidim::EditorImage.last.attached_uploader(:file).path
         expect_value(
           <<~HTML
+            <p>Hello, world!</p>
             <div class="editor-content-image" data-image="">
               <img src="#{src}" alt="City landscape">
             </div>
@@ -907,14 +927,16 @@ describe "Editor", type: :system do
           var dt = new DataTransfer();
           dt.items.add(file);
 
-          var ev = new Event("#{event}");
-          if("#{event}" === "drop") {
+          if ("#{event}" === "drop") {
+            var ev = new Event("drop");
             ev.dataTransfer = dt;
+            dropzone.dispatchEvent(ev);
           } else {
-            dropzone.files = dt.files;
+            // Simulates selecting the file through the browser's file selector
+            var input = dropzone.querySelector("input[type='file']");
+            input.files = dt.files;
+            input.dispatchEvent(new Event("change", { bubbles: true }));
           }
-
-          dropzone.dispatchEvent(ev);
         });
       JS
     )
