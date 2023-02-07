@@ -98,8 +98,8 @@ es-MX:
             origin_component_id: Componente de origen
             select_component: Selecciona un componente
             success:
-              one: Hay 1 proyecto en la cola de importación. Serás notificado por correo electrónico, cuando se complete la importación
-              other: "Hay %{count} proyectos para ser importado. Serás notificado por correo electrónico, cuando se complete la importación"
+              one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación
+              other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación"
             title: Importar Proyectos a Seguimiento
         results:
           create:
@@ -186,7 +186,7 @@ es-MX:
       import_projects_mailer:
         import:
           added_projects:
-            one: Se ha importado un proyecto desde proyectos.
+            one: Se ha importado un resultado desde proyectos.
             other: "Se han importado %{count} resultados desde proyectos."
           subject: Los proyectos se han importado correctamente
           success: Los proyectos importados como resultados con éxito al componente %{component_name}. Puedes revisar los resultados en el tablero de administración.
