@@ -42,7 +42,12 @@ const defaultEditorConfig = {
 // with Jest without configuration changes.
 jest.mock("@picmo/popup-picker",
   () => ({
-    createPopup: () => {}
+    createPopup: () => {
+      return {
+        addEventListener: () => {},
+        closeButton: {}
+      }
+    }
   })
 );
 
