@@ -451,7 +451,7 @@ describe "Editor", type: :system do
     it "image" do
       click_toggle("image")
       within "[data-dialog][aria-hidden='false']" do
-        drop_file("city.jpeg", "[data-dropzone]")
+        add_file("city.jpeg", "[data-dropzone]", "drop")
         fill_in "Alternative text for the image", with: "City landscape"
 
         within "[data-dialog-actions]" do
@@ -785,7 +785,7 @@ describe "Editor", type: :system do
       it "image" do
         click_toggle("image")
         within "[data-reveal][aria-hidden='false']" do
-          drop_file("city.jpeg", ".dropzone-container .dropzone")
+          add_file("city.jpeg", ".dropzone-container .dropzone", "drop")
           fill_in "Alternative text for the image", with: "City landscape"
 
           find("button.add-file-file").click
@@ -804,6 +804,29 @@ describe "Editor", type: :system do
       end
     end
 
+    context "when adding an attachment by clicking dropzone" do
+      let(:features) { "full" }
+
+      it "image" do
+        click_toggle("image")
+        within "[data-reveal][aria-hidden='false']" do
+          add_file("city.jpeg", ".dropzone-container .dropzone", "change")
+          fill_in "Alternative text for the image", with: "City landscape"
+
+          find("button.add-file-file").click
+        end
+        expect(Decidim::EditorImage.count).to be(1)
+
+        src = Decidim::EditorImage.last.attached_uploader(:file).path
+        expect_value(
+          <<~HTML
+            <div class="editor-content-image" data-image="">
+              <img src="#{src}" alt="City landscape">
+            </div>
+          HTML
+        )
+      end
+    end
     # it "displays the editor" do
     #   expect(page).to have_content("FOOBAR")
     # end
@@ -837,7 +860,7 @@ describe "Editor", type: :system do
     }
   end
 
-  def drop_file(filename, target_selector)
+  def add_file(filename, target_selector, event)
     file = file_to_frontend(filename)
 
     page.execute_script(
@@ -845,14 +868,18 @@ describe "Editor", type: :system do
         var dataUrl = "#{file[:data_url]}";
         fetch(dataUrl).then(function(res) { return res.arrayBuffer(); }).then(function (buffer) {
           var file = new File([buffer], "#{filename}", { type: "#{file[:mime_type]}" });
+          var dropzone = document.querySelector("#{target_selector}");
 
           var dt = new DataTransfer();
           dt.items.add(file);
 
-          var ev = new Event("drop");
-          ev.dataTransfer = dt;
+          var ev = new Event("#{event}");
+          if("#{event}" === "drop") {
+            ev.dataTransfer = dt;
+          } else {
+            dropzone.files = dt.files;
+          }
 
-          var dropzone = document.querySelector("#{target_selector}");
           dropzone.dispatchEvent(ev);
         });
       JS
