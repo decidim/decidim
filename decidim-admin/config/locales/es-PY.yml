@@ -875,7 +875,7 @@ es-PY:
           title: Nuevo usuario privado en el espacio participativo.
       participatory_space_private_users_csv_imports:
         create:
-          invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrese de haber seguido las instrucciones.
+          invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrate de haber seguido las instrucciones.
           success: Archivo CSV subido correctamente, estamos enviando un correo electrónico de invitación a las participantes. Esto puede tardar un tiempo.
         new:
           destroy:
@@ -885,7 +885,7 @@ es-PY:
             explanation: Hay %{count} participante/s privada/s.
             title: Borrar las participantes privadas
           example_file: 'Fichero de ejemplo:'
-          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio participativo, sin encabezados. Evitar usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
+          explanation: 'Sube tu archivo CSV. Debe tener dos columnas con correo electrónico en la primera columna del archivo y el nombre en la última columna del archivo de las participantes que deseas añadir al espacio participativo, sin encabezados. Evita usar caracteres no válidos como `<>?%&^*#@()[]=+:;"{}\|` en el nombre de usuaria.'
           explanation_example: |
             john.doe@example.org%{csv_col_sep}John Doe
             jane.doe@example.org%{csv_col_sep}Jane Doe
@@ -1119,7 +1119,7 @@ es-PY:
         moderation:
           fields:
             created_at: Denunciado el
-            deleted_resource: Eliminar recurso
+            deleted_resource: Recurso eliminado
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Número de denuncias
