@@ -90,6 +90,18 @@ header{
       &__dropdown{
         @apply absolute top-full left-0 z-20;
       }
+
+      & > a{
+        @apply flex flex-col items-center relative;
+
+        svg{
+          @apply w-8 h-8 fill-current;
+        }
+
+        svg + span{
+          @apply text-sm first-letter:uppercase;
+        }
+      }
     }
 
     &__dropdown{
@@ -105,22 +117,22 @@ header{
 
       &-trigger{
         @apply flex flex-col items-center text-secondary relative px-2 py-1;
+      }
+    }
 
-        &__notification{
-          @apply w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary;
-        }
+    &__notification{
+      @apply w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary;
+    }
 
-        &__avatar{
-          @apply block w-8 h-8 rounded-full border border-secondary overflow-hidden;
+    &__avatar{
+      @apply block w-8 h-8 rounded-full border border-secondary overflow-hidden;
 
-          span{
-            @apply w-full h-full rounded-full overflow-hidden;
-          }
+      span{
+        @apply w-full h-full rounded-full overflow-hidden;
+      }
 
-          img{
-            @apply object-cover w-full h-full;
-          }
-        }
+      img{
+        @apply object-cover w-full h-full;
       }
     }
 
