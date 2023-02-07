@@ -82,6 +82,23 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       )
     end
 
+    context "when accessing global moderation" do
+      subject { Decidim::Admin::Permissions.new(user, permission_action, context).permissions.allowed? }
+
+      let(:action) do
+        { scope: :admin, action: :read, subject: :global_moderation }
+      end
+
+      it_behaves_like(
+        "access for roles",
+        org_admin: true,
+        admin: true,
+        collaborator: false,
+        moderator: true,
+        valuator: false
+      )
+    end
+
     context "when reading a process" do
       let(:action) do
         { scope: :public, action: :read, subject: :process }

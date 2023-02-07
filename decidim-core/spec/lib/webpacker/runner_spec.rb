@@ -14,7 +14,7 @@ module Webpacker
       let(:runtime_config_path) do
         Rails.application.root.join("tmp/webpacker_runtime.yml")
       end
-      let(:runtime_config) { YAML.load_file(runtime_config_path) }
+      let(:runtime_config) { YAML.load_file(runtime_config_path, aliases: true) }
 
       it "generates the runtime configuration" do
         create_instance

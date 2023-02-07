@@ -90,6 +90,24 @@ describe "Admin edits proposals", type: :system do
         find("a.action-icon--edit-proposal").click
         expect(page).to have_no_content("Current file")
       end
+
+      it "can attach a file" do
+        visit_component_admin
+        find("a.action-icon--edit-proposal").click
+        fill_in :proposal_attachment_title, with: "FOO BAR"
+
+        find("input#proposal_attachment_delete_file").set(true)
+        click_button("Replace")
+        click_button("× Remove")
+        click_button("Save")
+        dynamically_attach_file(:proposal_attachment_file, Decidim::Dev.asset("city.jpeg"))
+
+        click_button("Update")
+        find("a.action-icon--edit-proposal").click
+
+        expect(page).to have_content("city.jpeg")
+        expect(page).to have_content("FOO BAR")
+      end
     end
   end
 
