@@ -1,16 +1,16 @@
 .activity{
-  @apply flex flex-col-reverse md:flex-row gap-2 md:gap-12 py-4 first:pt-0 last:pb-0;
+  @apply grid grid-cols-2 md:grid-cols-[calc(100%/6)_1fr_25%] items-center md:items-start gap-2 md:gap-12 py-4 first:pt-0 last:pb-0;
 
   &__container{
     @apply divide-y divide-gray-3;
   }
 
   &__time{
-    @apply w-full md:w-1/6 flex-none text-sm text-gray-2;
+    @apply w-full flex-none text-sm text-gray-2;
   }
 
   &__content{
-    @apply space-y-2;
+    @apply col-span-2 md:col-span-1 order-first md:order-none space-y-2;
 
     > span:first-child a{
       @apply text-secondary font-semibold hover:underline;
@@ -23,14 +23,6 @@
         @apply w-3.5 h-3.5 text-gray fill-current;
       }
     }
-  }
-
-  &__date{
-    @apply w-1/4 text-sm text-gray-2 flex-none;
-  }
-
-  &__text{
-    @apply flex flex-col grow space-y-1 text-sm;
   }
 
   &__author{
