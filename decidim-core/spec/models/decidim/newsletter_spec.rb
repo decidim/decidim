@@ -78,5 +78,26 @@ module Decidim
         it { is_expected.to eq("#") }
       end
     end
+
+    describe "#organization_official_url" do
+      subject { newsletter.organization_official_url }
+
+      let(:newsletter) { create(:newsletter, :sent, organization:) }
+      let(:organization) { create(:organization, official_url: "https://example.org") }
+
+      it { is_expected.to eq("https://example.org") }
+
+      context "when the newsletter is not sent" do
+        let(:newsletter) { create(:newsletter) }
+
+        it { is_expected.to eq("#") }
+      end
+
+      context "when the official URL is not set for the organization" do
+        let(:organization) { create(:organization, official_url: nil) }
+
+        it { is_expected.to eq("http://#{organization.host}:#{Capybara.server_port}/") }
+      end
+    end
   end
 end

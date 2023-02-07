@@ -68,6 +68,12 @@ module Decidim
       proxy_url(__method__, **kwargs)
     end
 
+    def organization_official_url
+      return "#" unless sent?
+
+      organization.official_url || proxy_url(:root_url)
+    end
+
     private
 
     def author_belongs_to_organization
