@@ -1051,7 +1051,6 @@ pl:
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
-        see_on_website: Nie widzisz tego e-maila poprawnie? Wyświetl go w <a href="%{link}" target="_blank">przeglądarce</a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
