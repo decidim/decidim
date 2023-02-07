@@ -28,7 +28,7 @@ module Decidim
       def preview
         enforce_permission_to :read, :newsletter, newsletter: newsletter
 
-        email = NewsletterMailer.newsletter(current_user, newsletter)
+        email = NewsletterMailer.newsletter(current_user, newsletter, preview: true)
         Premailer::Rails::Hook.perform(email)
         render html: email.html_part.body.decoded.html_safe
       end
