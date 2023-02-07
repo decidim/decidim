@@ -751,6 +751,23 @@ describe "Editor", type: :system do
 
       expect_value(%(<p><span data-type="mention" data-id="@doe_john" data-label="@doe_john (John Doe)">@doe_john (John Doe)</span> e</p>))
     end
+
+    it "allows selecting emojis" do
+      within ".editor-container .editor-input" do
+        expect(page).to have_selector(".emoji__container")
+        expect(page).to have_selector(".emoji__trigger .emoji__button")
+        find(".emoji__trigger .emoji__button").click
+      end
+
+      within ".picmo__popupContainer .picmo__picker .picmo__content" do
+        categories = page.all(".picmo__emojiCategory")
+        within categories[1] do
+          click_button "😀"
+        end
+      end
+
+      expect_value("<p> 😀 </p>")
+    end
   end
 
   # Note that the legacy design is necessary to maintain as long as we have
