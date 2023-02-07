@@ -1076,7 +1076,7 @@ es-PY:
         moderation:
           fields:
             created_at: Fecha de creación
-            deleted_resource: Eliminar recurso
+            deleted_resource: Recurso eliminado
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Recuento
