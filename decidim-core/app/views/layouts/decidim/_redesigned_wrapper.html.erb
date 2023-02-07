@@ -1,5 +1,6 @@
 <div class="layout-container">
   <header>
+    <%= link_to t("skip_button", scope: "decidim.accessibility"), url_for(anchor: "content"), class: "layout-container__skip" %>
     <%= render partial: "layouts/decidim/admin_links" if current_user&.admin %>
     <%= render partial: "layouts/decidim/header/redesigned_main" %>
     <%= render partial: "layouts/decidim/header/redesigned_menu" %>
@@ -9,7 +10,7 @@
     <%= display_flash_messages %>
   </div>
 
-  <div data-content>
+  <div id="content" data-content>
     <%= yield %>
   </div>
 
