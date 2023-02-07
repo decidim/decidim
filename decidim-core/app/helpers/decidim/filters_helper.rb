@@ -55,14 +55,6 @@ module Decidim
 
     private
 
-    # REDESIGN_PENDING: generalize method
-    def text_for(name, translation)
-      text = ""
-      text += resource_type_icon name
-      text += content_tag :span, translation
-      text.html_safe
-    end
-
     # Creates a unique namespace for a filter form to prevent dupliacte IDs in
     # the DOM when multiple filter forms are rendered with the same fields (e.g.
     # for desktop and mobile).

@@ -5,29 +5,7 @@
   <h1 class="h3 md:h1 decorator my-12"><%= t("last_activity", scope: "decidim.last_activities.index") %></h1>
 
   <div class="profile__activity pb-16">
-    <div id="filters" class="filter-container">
-      <% decorated_resource_types = resource_types.map { |e| OpenStruct.new(e.merge(text: text_for(e[:name], e[:translation]))) } %>
-
-      <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
-        <% decorated_resource_types.each_with_index do |filter, i| %>
-          <span data-value="<%= filter[:name] %>" class="<%= "is-active" if (params.dig(:filter, :with_resource_type)) == filter[:name] %>">
-            <%= resource_type_icon(filter[:name]) %><%= filter[:translation] %>
-          </span>
-        <% end %>
-        <%= icon "arrow-down-s-line" %>
-        <%= icon "arrow-up-s-line" %>
-      </button>
-      <%= redesigned_filter_form_for filter, last_activities_path, class: "new_filter", id: "dropdown-menu" do |form| %>
-        <%= form.collection_radio_buttons(
-              :with_resource_type,
-              decorated_resource_types,
-              :name,
-              :text
-            ) do |builder|
-                builder.label { builder.radio_button(class: "reset-defaults", hidden: true) + content_tag(:div, builder.text, class: "filter") }
-          end %>
-      <% end %>
-    </div>
+    <%= cell "decidim/resource_types_filter", resource_types, form_path: last_activities_path, filter_param_key: :with_resource_type, filter: %>
     <div id="activities">
       <%= render partial: "activities" %>
     </div>
