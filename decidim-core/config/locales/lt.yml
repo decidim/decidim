@@ -1125,7 +1125,6 @@ lt:
       newsletter:
         no_reply_notice: Šis el. laiškas išsiųstas iš pranešimų el. pašto adreso, kuris negali priimti gaunamų el. laiškų. Prašome neatsakyti į šį pranešimą.
         note: Šį el. laišką gavote, nes užsiprenumeravote %{organization_name} naujienlaiškius. Galite pakeisti nuostatas savo <a href="%{link}">pranešimų puslapyje</a>.
-        see_on_website: Negalite teisingai matyti šio el. laiško? Peržiūrėkite jį <a href="%{link}" target="_blank">interneto svetainėje</a>.
         unsubscribe: Jei nenorite gauti tokio tipo el. laiško, <a href="%{link}" target="_blank" class="unsubscribe">Atsisakykite prenumeratos</a>.
     newsletter_templates:
       basic_only_text:
