@@ -1037,7 +1037,6 @@ sv:
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-brevet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">meddelandesidan</a>.
-        see_on_website: Visa inte e-brevet som det ska? Läs det på <a href="%{link}" target="_blank">webbplatsen</a>.
         unsubscribe: Välj att <a href="%{link}" target="_blank" class="unsubscribe">Avprenumerera</a> om du inte vill få denna typ av brev.
     newsletter_templates:
       basic_only_text:
