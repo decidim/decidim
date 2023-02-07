@@ -11,7 +11,7 @@ module Decidim
     let(:organization) { create(:organization) }
 
     let(:resource) do
-      klass = Class.new do
+      class DummyClass
         cattr_accessor :current_organization
 
         def self.model_name
@@ -67,8 +67,10 @@ module Decidim
           current_organization
         end
       end
+
+      klass = DummyClass.new
       klass.current_organization = organization
-      klass.new
+      klass
     end
 
     let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
@@ -788,7 +790,8 @@ module Decidim
 
         it "renders calls I18n.t() with the correct scope" do
           # Upload help messages
-          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: :image)
+          allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+          expect(I18n).to receive(:t).with("explanation", scope: "custom.scope", attribute: "Image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
           expect(I18n).to receive(:t).with("message_1", scope: "custom.scope")
@@ -805,7 +808,8 @@ module Decidim
           # Upload help messages
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.add_image")
           expect(I18n).to receive(:t).with("decidim.forms.upload.labels.replace")
-          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
+          allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+          expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: "Image")
           expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
           expect(I18n).to receive(:t).with("message_3", scope: "decidim.forms.file_help.file")
@@ -819,7 +823,8 @@ module Decidim
           it "renders calls I18n.t() with the correct messages" do
             # Upload help messages
 
-            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: :image)
+            allow(I18n).to receive(:t).with(:image, scope: "activemodel.attributes.dummy").and_return("Image")
+            expect(I18n).to receive(:t).with("explanation", scope: "decidim.forms.upload_help", attribute: "Image")
             expect(I18n).to receive(:t).with("message_1", scope: "decidim.forms.file_help.file")
             expect(I18n).not_to receive(:t).with("message_2", scope: "decidim.forms.file_help.file")
             output
