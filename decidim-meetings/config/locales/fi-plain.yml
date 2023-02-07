@@ -44,6 +44,7 @@ fi-pl:
         visible: Näkyvissä
       meeting_agenda_items:
         description: Kuvaus
+        duration: Kesto
         title: Otsikko
       meeting_registration_invite:
         email: Sähköpostiosoite
