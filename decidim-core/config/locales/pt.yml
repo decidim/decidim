@@ -949,7 +949,6 @@ pt:
     newsletter_mailer:
       newsletter:
         note: Recebeu este e-mail porque está inscrito em boletins informativos de %{organization_name}. Pode alterar as suas configurações na sua <a href="%{link}">página de notificações</a>.
-        see_on_website: Não consegue ver este e-mail corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Para optar por não receber este tipo de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Cancele a subscrição</a>.
     newsletter_templates:
       basic_only_text:
