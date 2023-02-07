@@ -42,7 +42,7 @@ module Decidim
     end
 
     def all_resource_types_option
-      [all_types_key, I18n.t(all_types_key, scope: "decidim.last_activities")]
+      [all_types_key, I18n.t("all", scope: "decidim.last_activities")]
     end
 
     def all_types_key
