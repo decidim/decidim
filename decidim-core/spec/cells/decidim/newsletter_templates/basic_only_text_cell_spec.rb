@@ -22,13 +22,13 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
 
   controller Decidim::PagesController
 
-  context "when the organization has no logo setted" do
+  context "when the organization has no logo set" do
     it "shows the custom body" do
       expect(subject).to have_text(body)
     end
   end
 
-  context "when the organization has a logo setted" do
+  context "when the organization has a logo set" do
     let(:logo) do
       Rack::Test::UploadedFile.new(
         Decidim::Dev.test_file("city.jpeg", "image/jpeg"),
@@ -43,6 +43,27 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
 
     it "renders the organization logo" do
       expect(subject.to_s).to include(logo_url)
+    end
+
+    it "renders an anchor URL with the logo before the newsletter is sent" do
+      expect(subject).to have_css(".decidim-bar a[href='#'] img[class='float-right']")
+    end
+
+    context "when the newsletter is sent" do
+      let(:newsletter) { create :newsletter, :sent, organization: organization }
+
+      it "renders the organization's official URL" do
+        expect(subject).to have_css(".decidim-bar a[href='#{organization.official_url}'] img[class='float-right']")
+      end
+
+      context "when the organization does not have an official URL" do
+        let(:organization) { create(:organization, official_url: nil) }
+        let(:newsletter) { create :newsletter, :sent, organization: organization }
+
+        it "renders the URL to Decidim instead" do
+          expect(subject).to have_css(".decidim-bar a[href='http://#{organization.host}/'] img[class='float-right']")
+        end
+      end
     end
   end
 end

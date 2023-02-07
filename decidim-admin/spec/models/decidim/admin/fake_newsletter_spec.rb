@@ -3,8 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Admin::FakeNewsletter do
-  subject { described_class.new(organization, manifest) }
+  subject { newsletter }
 
+  let(:newsletter) { described_class.new(organization, manifest) }
   let(:organization) { create :organization }
   let(:manifest) do
     Decidim
@@ -31,5 +32,29 @@ describe Decidim::Admin::FakeNewsletter do
       expect(subject.template).not_to be_persisted
       expect(subject.template.settings.body).to include("Dummy text for body")
     end
+  end
+
+  describe "#url" do
+    subject { newsletter.url }
+
+    it { is_expected.to eq("#") }
+  end
+
+  describe "#notifications_settings_url" do
+    subject { newsletter.notifications_settings_url }
+
+    it { is_expected.to eq("#") }
+  end
+
+  describe "#unsubscribe_newsletters_url" do
+    subject { newsletter.unsubscribe_newsletters_url }
+
+    it { is_expected.to eq("#") }
+  end
+
+  describe "#organization_official_url" do
+    subject { newsletter.organization_official_url }
+
+    it { is_expected.to eq("#") }
   end
 end
