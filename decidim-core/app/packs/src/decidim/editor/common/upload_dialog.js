@@ -69,6 +69,12 @@ export default class UploadDialog {
       this.exitMode = "cancel";
     });
 
+    this.dropZone.addEventListener("change", (event) => {
+      event.preventDefault();
+      const files = event.target.files;
+      Array.from(files).forEach((file) => this.uploadFile(file));
+    })
+
     const toggleDragover = (active) => {
       if (active) {
         this.dropZone.classList.add("is-dragover");
