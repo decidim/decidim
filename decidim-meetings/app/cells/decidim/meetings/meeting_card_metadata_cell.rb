@@ -34,11 +34,11 @@ module Decidim
 
       def dates
         text = if start_time.year != end_time.year
-                 "#{start_time.strftime("%d %b %Y")} - #{end_time.strftime("%d %b %Y")}"
+                 "#{l(start_time.to_date, format: :decidim_short_with_month_name_short)} - #{l(end_time.to_date, format: :decidim_short_with_month_name_short)}"
                elsif start_time.month != end_time.month || start_time.day != end_time.day
-                "#{start_time.strftime("%d %b")} - #{end_time.strftime("%d %b")}"
+                 "#{l(start_time.to_date, format: :decidim_with_month_name_short)} - #{l(end_time.to_date, format: :decidim_with_month_name_short)}"
                else
-                 "#{start_time.strftime("%H:%M")} - #{end_time.strftime("%H:%M")}"
+                 "#{l(start_time, format: :time_of_day)} - #{l(end_time, format: :time_of_day)}"
                end
 
         {
