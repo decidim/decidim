@@ -1030,7 +1030,6 @@ ro:
     newsletter_mailer:
       newsletter:
         note: Ați primit acest e-mail deoarece sunteți abonat la buletinele informative de pe %{organization_name}. Puteți modifica setările de pe pagina <a href="%{link}">de notificări</a>.
-        see_on_website: Nu se poate vedea corect acest e-mail? Vizualizați-l pe <a href="%{link}" target="_blank">site-ul</a>.
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
     newsletter_templates:
       basic_only_text:
@@ -1360,9 +1359,6 @@ ro:
       help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
       show_original: Afișați textul original
       show_translated: Arată textul tradus automat
-    user_activity:
-      index:
-        no_activities_warning: Acest participant nu a avut încă nicio activitate.
     user_contact_disabled: Acest participant nu acceptă mesaje directe.
     user_conversations:
       create:
