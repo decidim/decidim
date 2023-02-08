@@ -692,13 +692,6 @@ describe "Editor", type: :system do
     end
 
     def drag(selector, mode: "mouse", direction: nil, amount: 0)
-      events =
-        if mode == "touch"
-          { start: "touchstart", move: "touchmove", end: "touchend" }
-        else
-          { start: "mousedown", move: "mousemove", end: "mouseup" }
-        end
-
       move =
         case direction
         when "left"
@@ -711,6 +704,26 @@ describe "Editor", type: :system do
           "y += #{amount}"
         end
 
+      events =
+        if mode == "touch"
+          <<~JS
+            var evStart = new Event("touchstart");
+            evStart.touches = [{ pageX: rect.x, pageY: rect.y }];
+            var evMove = new Event("touchmove");
+            evMove.touches = [{ pageX: x, pageY: y }];
+
+            element.dispatchEvent(evStart);
+            document.dispatchEvent(evMove);
+            document.dispatchEvent(new Event("touchend"));
+          JS
+        else
+          <<~JS
+            element.dispatchEvent(new MouseEvent("mousedown", { clientX: rect.x, clientY: rect.y }));
+            document.dispatchEvent(new MouseEvent("mousemove", { clientX: x, clientY: y }));
+            document.dispatchEvent(new MouseEvent("mouseup"));
+          JS
+        end
+
       page.execute_script(
         <<~JS
           var element = document.querySelector("#{selector}");
@@ -720,9 +733,7 @@ describe "Editor", type: :system do
           var y = rect.y;
           #{move};
 
-          element.dispatchEvent(new MouseEvent("#{events[:start]}", { clientX: rect.x, clientY: rect.y }));
-          document.dispatchEvent(new MouseEvent("#{events[:move]}", { clientX: x, clientY: y }));
-          document.dispatchEvent(new MouseEvent("#{events[:end]}"));
+          #{events}
         JS
       )
     end
