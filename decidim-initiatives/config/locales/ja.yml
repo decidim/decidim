@@ -66,8 +66,6 @@ ja:
               title: タイトルは空にしないでください
   activerecord:
     models:
-      decidim/initiative:
-        other: イニシアチブ
       decidim/initiative_comittee:
         other: 委員
       decidim/initiative_vote:
