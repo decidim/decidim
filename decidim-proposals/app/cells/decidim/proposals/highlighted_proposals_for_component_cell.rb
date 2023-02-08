@@ -15,6 +15,10 @@ module Decidim
         render unless proposals_count.zero?
       end
 
+      def proposals_count
+        @proposals_count ||= base_relation.count
+      end
+
       private
 
       def proposals
@@ -42,10 +46,6 @@ module Decidim
 
       def proposals_to_render
         @proposals_to_render ||= proposals.includes([:amendable, :category, :component, :scope]).limit(Decidim::Proposals.config.participatory_space_highlighted_proposals_limit)
-      end
-
-      def proposals_count
-        @proposals_count ||= base_relation.count
       end
 
       def cache_hash

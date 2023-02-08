@@ -12,12 +12,14 @@ describe "Proposals in process home", type: :system do
     allow(Decidim::Proposals.config)
       .to receive(:participatory_space_highlighted_proposals_limit)
       .and_return(highlighted_proposals)
+
+    create(:content_block, organization:, scope_name: :participatory_process_homepage, manifest_name: :highlighted_proposals, scoped_resource_id: participatory_process.id)
   end
 
   context "when there are no proposals" do
     it "does not show the highlighted proposals section" do
       visit resource_locator(participatory_process).path
-      expect(page).not_to have_css(".highlighted_proposals")
+      expect(page).to have_no_css("#participatory-process-homepage-highlighted-proposals")
     end
   end
 
