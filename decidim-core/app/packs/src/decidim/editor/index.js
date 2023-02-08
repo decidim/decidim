@@ -42,7 +42,7 @@ export default function createEditor(container) {
   const i18nUpload = getDictionary("editor.upload");
   const features = container.dataset?.toolbar || "basic";
   const options = JSON.parse(container.dataset.options);
-  const { uploadImagesPath, uploadDialogSelector, contentTypes } = options;
+  const { context, uploadImagesPath, uploadDialogSelector, contentTypes } = options;
   const uploadDialog = new UploadDialog(
     document.querySelector(uploadDialogSelector),
     {
@@ -57,6 +57,11 @@ export default function createEditor(container) {
     characterCountOptions.limit = parseInt(input.getAttribute("maxlength"), 10);
   }
 
+  const linkOptions = { openOnClick: false };
+  if (context !== "participant") {
+    linkOptions.allowTargetControl = true;
+  }
+
   const extensions = [
     StarterKit.configure({
       heading: false,
@@ -69,7 +74,7 @@ export default function createEditor(container) {
     Indent,
     OrderedList,
     CodeBlock,
-    Link.configure({ openOnClick: false }),
+    Link.configure(linkOptions),
     Underline
   ];
   if (features === "full") {

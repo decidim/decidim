@@ -7,6 +7,7 @@ export default Link.extend({
   addOptions() {
     return {
       ...this.parent?.(),
+      allowTargetControl: false,
       HTMLAttributes: {
         target: "_blank",
         class: null
@@ -27,26 +28,29 @@ export default Link.extend({
           // the current selection getting the updated link URL.
           commands.extendMarkRange("link");
 
+          const { allowTargetControl } = this.options;
+
           let { href, target } = this.editor.getAttributes("link");
 
-          const linkDialog = new InputDialog(this.editor, {
-            inputs: {
-              href: { type: "text", label: i18n.hrefLabel },
-              target: {
-                type: "select",
-                label: i18n.targetLabel,
-                options: [
-                  { value: "", label: i18n["targets.default"] },
-                  { value: "_blank", label: i18n["targets.blank"] }
-                ]
-              }
-            },
-            removeButton: true
-          });
+          const inputs = { href: { type: "text", label: i18n.hrefLabel } };
+          if (allowTargetControl) {
+            inputs.target = {
+              type: "select",
+              label: i18n.targetLabel,
+              options: [
+                { value: "", label: i18n["targets.default"] },
+                { value: "_blank", label: i18n["targets.blank"] }
+              ]
+            }
+          }
+
+          const linkDialog = new InputDialog(this.editor, { inputs, removeButton: true });
           const dialogState = await linkDialog.toggle({ href, target });
           href = linkDialog.getValue("href");
           target = linkDialog.getValue("target");
-          if (!target || target.length < 1) {
+          if (!allowTargetControl) {
+            target = "_blank";
+          } else if (!target || target.length < 1) {
             target = null;
           }
 

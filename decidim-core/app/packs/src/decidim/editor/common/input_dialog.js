@@ -192,6 +192,10 @@ export default class InputDialog {
 
   getValue(key = "default") {
     const wrapper = this.element.querySelector(`[data-input="${key}"]`);
+    if (!wrapper) {
+      return null;
+    }
+
     const input = wrapper.querySelector("input, select");
     if (input) {
       return input.value;

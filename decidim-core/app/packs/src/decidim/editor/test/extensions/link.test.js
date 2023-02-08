@@ -10,7 +10,7 @@ describe("Link", () => {
   beforeEach(() => {
     document.body.innerHTML = "";
 
-    editor = createBasicEditor({ extensions: [Dialog, Link] })
+    editor = createBasicEditor({ extensions: [Dialog, Link.configure({ allowTargetControl: true })] })
     editorElement = editor.view.dom;
 
     // Append a dummy data-dialog element to the DOM so that the document is

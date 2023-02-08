@@ -978,6 +978,7 @@ module Decidim
 
       editor_options = {
         class: editor_classes,
+        context: options.delete(:context) || "admin",
         content_types: {
           image: editor_image.attached_uploader(:file).content_type_allowlist
         },
