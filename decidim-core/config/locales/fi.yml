@@ -240,7 +240,9 @@ fi:
         unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
+        block: "%{user_name} esti käyttäjän %{resource_name}"
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
+        unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
       user_moderation:
@@ -1106,7 +1108,7 @@ fi:
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
-        see_on_website: Etkö näe tätä sähköpostia oikein? Avaa sähköposti <a href="%{link}" target="_blank">selaimessasi</a>.
+        see_on_website: Etkö näe tätä sähköpostia oikein? Avaa sähköposti <a href="%{link}" target="_blank" class="see-on-website">selaimessasi</a>.
         unsubscribe: Voit lopettaa tämäntyyppisten sähköpostien vastaanottamisen <a href="%{link}" target="_blank" class="unsubscribe">poistumalla sähköpostilistalta</a>.
     newsletter_templates:
       basic_only_text:
@@ -1454,7 +1456,7 @@ fi:
       show_translated: Näytä automaattisesti käännetty teksti
     user_activity:
       index:
-        no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
+        no_activities_warning: Tällä osallistujalla ei ole vielä ollut toimintaa.
     user_contact_disabled: Tämä osallistuja ei ole sallinut yksityisviestejä muilta käyttäjiltä.
     user_conversations:
       create:
