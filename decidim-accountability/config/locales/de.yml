@@ -68,9 +68,13 @@ de:
           create:
             invalid: Es gab ein Problem beim Importieren der Projekte in Ergebnisse, bitte befolgen Sie die Anweisungen sorgfältig und stellen Sie sicher, dass Sie Projekte für die Umsetzung ausgewählt haben.
           new:
+            create: Importieren
+            import_all_selected_projects: Alle zur Umsetzung ausgewählten Projekte importieren
             new_items:
               one: 1 ausgewähltes Projekt wird importiert
               other: "%{count} ausgewählte Projekte werden importiert"
+            no_components: Es gibt keine weiteren Budgetkomponenten in diesem partizipativen Raum, um die Projekte in Ergebnisse zu importieren.
+            origin_component_id: Ursprungskomponente
             select_component: Komponente auswählen
         results:
           create:
