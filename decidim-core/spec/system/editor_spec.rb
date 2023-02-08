@@ -566,6 +566,43 @@ describe "Editor", type: :system do
         HTML
       )
     end
+
+    it "preserves list styling" do
+      content = <<~HTML
+        <ol>
+          <li>
+            <p>Item 1</p>
+            <ol type="a">
+              <li><p>Subitem 1.1</p></li>
+              <li><p>Subitem 1.2</p></li>
+            </ol>
+          </li>
+          <li>
+            <p>Item 2</p>
+            <ol type="A">
+              <li><p>Subitem 2.1</p></li>
+              <li><p>Subitem 2.2</p></li>
+            </ol>
+          </li>
+          <li>
+            <p>Item 3</p>
+            <ol type="i">
+              <li><p>Subitem 3.1</p></li>
+              <li><p>Subitem 3.2</p></li>
+            </ol>
+          </li>
+          <li>
+            <p>Item 4</p>
+            <ol type="I">
+              <li><p>Subitem 4.1</p></li>
+              <li><p>Subitem 4.2</p></li>
+            </ol>
+          </li>
+        </ol>
+      HTML
+      paste_content(content, prosemirror_selector)
+      expect_value(content)
+    end
   end
 
   context "with pointer device" do

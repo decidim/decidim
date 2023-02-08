@@ -7,6 +7,7 @@ import CharacterCount from "src/decidim/editor/extensions/character_count";
 import Dialog from "src/decidim/editor/extensions/dialog";
 import Hashtag from "src/decidim/editor/extensions/hashtag";
 import Heading from "src/decidim/editor/extensions/heading";
+import OrderedList from "src/decidim/editor/extensions/ordered_list";
 import Image from "src/decidim/editor/extensions/image";
 import Indent from "src/decidim/editor/extensions/indent";
 import Link from "src/decidim/editor/extensions/link";
@@ -59,12 +60,14 @@ export default function createEditor(container) {
   const extensions = [
     StarterKit.configure({
       heading: false,
+      orderedList: false,
       codeBlock: false
     }),
     Heading.configure({ levels: [2, 3, 4, 5, 6] }),
     CharacterCount.configure(characterCountOptions),
     Dialog,
     Indent,
+    OrderedList,
     CodeBlock,
     Link.configure({ openOnClick: false }),
     Underline
