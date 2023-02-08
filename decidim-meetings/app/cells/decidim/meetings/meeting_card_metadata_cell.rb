@@ -42,7 +42,7 @@ module Decidim
                end
 
         {
-          text: ,
+          text:,
           icon: "timer-2-line"
         }
       end
