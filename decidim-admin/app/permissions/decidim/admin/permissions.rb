@@ -29,7 +29,7 @@ module Decidim
         read_admin_dashboard_action?
         apply_newsletter_permissions_for_admin!
 
-        allow! if permission_action.subject == :global_moderation && admin_terms_accepted?
+        apply_global_moderations_permission_for_admin!
 
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
@@ -76,6 +76,23 @@ module Decidim
         return user_manager_permissions if user_manager?
 
         toggle_allow(user.admin? || space_allows_admin_access_to_current_action?)
+      end
+
+      def apply_global_moderations_permission_for_admin!
+        return unless admin_terms_accepted?
+        return unless permission_action.subject == :global_moderation
+        return allow! if user.admin?
+
+        return allow! if Decidim.participatory_space_manifests.flat_map.any? do |manifest|
+          Decidim
+                         .find_participatory_space_manifest(manifest.name)
+                         .participatory_spaces
+                         .call(user.organization)&.any? do |space|
+            space.respond_to?(:user_roles) && space.user_roles(:admin).where(user: user).or(space.user_roles(:moderator).where(user: user)).any?
+          end
+        end
+
+        disallow!
       end
 
       def apply_newsletter_permissions_for_admin!
