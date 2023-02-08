@@ -11,6 +11,13 @@ describe "Meetings in process home", type: :system do
     create(:content_block, organization:, scope_name: :participatory_process_homepage, manifest_name: :highlighted_meetings, scoped_resource_id: participatory_process.id)
   end
 
+  context "when there are no meetings" do
+    it "does not show the highlighted meetings section" do
+      visit resource_locator(participatory_process).path
+      expect(page).to have_no_css("#participatory-process-homepage-highlighted-meetings")
+    end
+  end
+
   context "when there are only past meetings" do
     let!(:moderated_meeting) { create(:meeting, :moderated, :published, :past, component:, end_time: 5.hours.ago) }
     let!(:past_meetings) do

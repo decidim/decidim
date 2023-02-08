@@ -19,6 +19,10 @@ module Decidim
         render unless meetings_count.zero?
       end
 
+      def meetings_count
+        @meetings_count ||= meetings.count
+      end
+
       private
 
       def base_relation
@@ -61,10 +65,6 @@ module Decidim
 
       def upcoming_meetings
         @upcoming_meetings ||= base_relation.upcoming.order(:start_time, :end_time)
-      end
-
-      def meetings_count
-        @meetings_count ||= meetings.count
       end
 
       def single_component?
