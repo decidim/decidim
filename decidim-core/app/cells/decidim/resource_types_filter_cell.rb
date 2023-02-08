@@ -16,9 +16,11 @@ module Decidim
     def resource_types
       return @resource_types if defined?(@resource_types)
 
-      @resource_types = model.map do |klass|
-        [klass, klass.constantize.model_name.human]
-      end.sort_by(&:last)
+      @resource_types = model.map do |klass_name|
+        next if (klass = klass_name.safe_constantize).blank?
+
+        [klass_name, klass.model_name.human]
+      end.compact.sort_by(&:last)
 
       @resource_types.unshift(all_resource_types_option)
     end
