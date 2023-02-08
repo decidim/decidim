@@ -4,6 +4,64 @@
 
 Nothing.
 
+## [0.26.5](https://github.com/decidim/decidim/tree/v0.26.5)
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-core**: Backport 'Fix: The i18n locales selector is showing a dropdown with 3 languages' to v0.26 [\#10086](https://github.com/decidim/decidim/pull/10086)
+- Backport 'Lock GitHub actions to Ubuntu 20.04 due to OpenSSL 3.0 issues' to v0.26 [\#10226](https://github.com/decidim/decidim/pull/10226)
+- **decidim-api**, **decidim-core**: Backport 'Fix machine translations at the API' to v0.26 [\#10292](https://github.com/decidim/decidim/pull/10292)
+- **decidim-budgets**: Backport 'Correct the "voted for this" string in the budgets component' to v0.26 [\#10301](https://github.com/decidim/decidim/pull/10301)
+- **decidim-conferences**, **decidim-core**: Backport 'Fix translations missing on admin log' to v0.26 [\#10293](https://github.com/decidim/decidim/pull/10293)
+- **decidim-conferences**: Backport 'Add correct call for conference speaker' to v0.26 [\#10294](https://github.com/decidim/decidim/pull/10294)
+- **decidim-meetings**: Backport 'Fix missing fields on duplicate meetings functionality' to v0.26 [\#10295](https://github.com/decidim/decidim/pull/10295)
+- **decidim-core**: Backport 'Fix resource_icon with component or manifest nil' to v0.26 [\#10296](https://github.com/decidim/decidim/pull/10296)
+- **decidim-core**: Backport 'Add missing logs for UserGroup block and unblock actions' to v0.26 [\#10313](https://github.com/decidim/decidim/pull/10313)
+- **decidim-admin**, **decidim-core**: Backport 'Don't show the 'unreport' action when user is blocked' to v0.26 [\#10300](https://github.com/decidim/decidim/pull/10300)
+- **decidim-core**: Backport 'Add order by in linked_participatory_space_resources' to v0.26 [\#10303](https://github.com/decidim/decidim/pull/10303)
+- **decidim-blogs**: Backport 'Move i18n attribute key of Post's body' to v0.26 [\#10298](https://github.com/decidim/decidim/pull/10298)
+- **decidim-core**: Improve link handling of the redirect engine (#10306) [\#10306](https://github.com/decidim/decidim/pull/10306)
+- **decidim-proposals**: Backport 'Removed "disabled" status from proposals' main categories' to v0.26 [\#10305](https://github.com/decidim/decidim/pull/10305)
+- **decidim-initiatives**: Backport 'Respect "rich text editor" setting in Initiatives' to v0.26 [\#10304](https://github.com/decidim/decidim/pull/10304)
+- **decidim-proposals**: Backport 'Prevent sending proposal create event until is commited' to v0.26 [\#10309](https://github.com/decidim/decidim/pull/10309)
+- **decidim-initiatives**: Backport 'Fix initiatives count in initiatives index page' to v0.26 [\#10310](https://github.com/decidim/decidim/pull/10310)
+- **decidim-blogs**: Backport 'Remove unused permissions on Blogs' to v0.26 [\#10299](https://github.com/decidim/decidim/pull/10299)
+- **decidim-admin**, **decidim-assemblies**, **decidim-elections**, **decidim-initiatives**, **decidim-pages**, **decidim-participatory processes**: Backport 'Fix wrong capitalization in i18n values and add missing keys' to v0.26 [\#10302](https://github.com/decidim/decidim/pull/10302)
+- **decidim-accountability**, **decidim-initiatives**, **decidim-participatory processes**: Backport 'Added missing localizations' to v0.26 [\#10308](https://github.com/decidim/decidim/pull/10308)
+- **decidim-core**: Backport 'Allow blocking a UserGroup' to v0.26 [\#10315](https://github.com/decidim/decidim/pull/10315)
+- **decidim-budgets**, **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-proposals**, **decidim-sortitions**: Backport 'Fix filter URL not updated with the text search input' to v0.26 [\#10297](https://github.com/decidim/decidim/pull/10297)
+- **decidim-admin**, **decidim-core**: Backport 'Fix bug when blocking two UserGroups' to v0.26 [\#10312](https://github.com/decidim/decidim/pull/10312)
+- **decidim-core**: Backport 'Fix bug regarding user group moderation action logs' to v0.26 [\#10314](https://github.com/decidim/decidim/pull/10314)
+- **decidim-core**: Backport 'User's group endorsement no longer disappears after personal endorsement removed' to v0.26 [\#10311](https://github.com/decidim/decidim/pull/10311)
+- **decidim-assemblies**, **decidim-conferences**, **decidim-participatory processes**: Backport 'Do not display unpublished spaces in linked spaces' to v0.26 [\#10345](https://github.com/decidim/decidim/pull/10345)
+- **decidim-assemblies**, **decidim-meetings**: Backport 'Display Published meetings in Assembly cell' to v0.26 [\#10341](https://github.com/decidim/decidim/pull/10341)
+- **decidim-admin**, **decidim-core**: Backport 'Fix newsletters unwanted CSS and 404 page on preview' to v0.26 [\#10355](https://github.com/decidim/decidim/pull/10355)
+- **decidim-admin**: Backport 'A Valuator should not be able to access Global Moderation' to v0.26 [\#10349](https://github.com/decidim/decidim/pull/10349)
+- **decidim-initiatives**: Backport 'Fixing some typos in the english translations' to v0.26 [\#10362](https://github.com/decidim/decidim/pull/10362)
+
+### Removed
+
+Nothing.
+
+### Internal
+
+- Backport 'Lock GitHub actions to Ubuntu 20.04 due to OpenSSL 3.0 issues' to v0.26 [\#10226](https://github.com/decidim/decidim/pull/10226)
+
+### Developer improvements
+
+Nothing.
+
+### Unsorted
+
+Nothing.
+
 ## [0.26.4](https://github.com/decidim/decidim/tree/v0.26.4)
 
 ### Added
