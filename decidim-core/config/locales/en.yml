@@ -1358,7 +1358,7 @@ en:
       show_translated: Show automatically-translated text
     user_activity:
       index:
-        no_activities_warning: This participant hasn't had any activity yet.
+        no_activities_warning: This participant does not have any activity yet.
     user_contact_disabled: This participant does not accept direct messages.
     user_conversations:
       create:
