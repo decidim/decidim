@@ -48,7 +48,9 @@ module Decidim
       end
 
       def title
-        t(show_upcoming_meetings? ? "upcoming_meetings" : "past_meetings", scope: "decidim.participatory_spaces.highlighted_meetings")
+        return t("upcoming_meetings", scope: "decidim.participatory_spaces.highlighted_meetings") if show_upcoming_meetings?
+
+        t("past_meetings", scope: "decidim.participatory_spaces.highlighted_meetings")
       end
 
       def show_upcoming_meetings?
