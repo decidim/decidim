@@ -20,6 +20,10 @@ module Decidim
         render unless results_count.zero?
       end
 
+      def results_count
+        @results_count ||= results.count
+      end
+
       private
 
       def results
@@ -37,10 +41,6 @@ module Decidim
 
       def results_to_render
         @results_to_render ||= results.includes(:component, :status).limit(limit)
-      end
-
-      def results_count
-        @results_count ||= results.count
       end
 
       def cache_hash
