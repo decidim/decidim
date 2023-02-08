@@ -730,7 +730,7 @@ en:
           title: Create your collaborative draft
       content_blocks:
         highlighted_proposals:
-          proposals: Proposals
+          name: Proposals
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
