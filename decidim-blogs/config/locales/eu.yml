@@ -48,7 +48,7 @@ eu:
         post:
           create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
           delete: "%{user_name} k %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
-          update: "%{user_name} k %{resource_name} blogeko argitalpena eguneratu du %{space_name} espazioan"
+          update: "%{user_name} k %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
       last_activity:
         new_post: 'Argitalpen berria blogean:'
       models:
