@@ -7,6 +7,7 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         end_date: Enddatum
+        meetings_ids: Enthaltene Sitzungen
         progress: Fortschritt
         project_ids: Enthaltene Projekte
         proposals: Enthaltene Vorschläge
@@ -64,6 +65,8 @@ de:
           timeline_entry:
             name: Zeitachseneintrag
         projects_import:
+          create:
+            invalid: Es gab ein Problem beim Importieren der Projekte in Ergebnisse, bitte befolgen Sie die Anweisungen sorgfältig und stellen Sie sicher, dass Sie Projekte für die Umsetzung ausgewählt haben.
           new:
             new_items:
               one: 1 ausgewähltes Projekt wird importiert
