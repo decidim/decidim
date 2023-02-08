@@ -40,13 +40,6 @@ ar:
         name: اكمل الاسم
   activerecord:
     models:
-      decidim/initiative:
-        zero: بعض المبادرات
-        one: بالمبادرة
-        two: بعض المبادرات
-        few: بعض المبادرات
-        many: بعض المبادرات
-        other: بعض المبادرات
       decidim/initiative_comittee:
         zero: Comittees
         one: إحداث الهيئة
