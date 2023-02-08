@@ -2,10 +2,6 @@
 de:
   activemodel:
     attributes:
-      agenda:
-        description: Beschreibung
-        duration: Dauer
-        title: Titel
       close_meeting:
         attendees_count: Anzahl der Teilnehmer
         attending_organizations: Liste der Organisationen, die teilgenommen haben
@@ -23,7 +19,6 @@ de:
         decidim_scope_id: Umfang
         decidim_user_group_id: Benutzergruppe
         description: Beschreibung
-        end_time: Endzeit
         id: ID
         location: Ort
         location_hints: Standorthinweise
@@ -36,11 +31,21 @@ de:
         registration_terms: Registrierungsbedingungen
         registration_url: Registrierungs-URL
         registrations_enabled: Registrierungen aktiviert
-        show_embedded_iframe: Eingebetteten Iframe für diese URL anzeigen
-        start_time: Startzeit
         title: Titel
         transparent: Transparent
         type_of_meeting: Art
+      meeting_agenda:
+        title: Titel
+        visible: Sichtbar
+      meeting_agenda_items:
+        description: Beschreibung
+        duration: Dauer
+        title: Titel
+      meeting_registration_invite:
+        email: E-Mail
+        name: Name
+      validate_registration_code:
+        code: Code
     errors:
       models:
         meeting_agenda:

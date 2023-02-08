@@ -2,10 +2,6 @@
 eu:
   activemodel:
     attributes:
-      agenda:
-        description: deskribapena
-        duration: Iraupena
-        title: Izenburua
       close_meeting:
         attendees_count: Bertaratuen kopurua
         attending_organizations: 'Parte hartu duten erakundeen zerrenda:'
@@ -17,30 +13,43 @@ eu:
         video_url: Bideoaren URLa
       meeting:
         address: Helbidea
-        available_slots: Bilera honetarako zirrikitu erabilgarriak
-        customize_registration_email: Pertsonalizatu izena emateko e-maila
+        available_slots: Bilera honetarako toki erabilgarriak
+        customize_registration_email: Pertsonalizatu izena emateko helbide elektronikoa
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         decidim_user_group_id: Erabiltzaile-taldea
         description: Deskribapena
-        end_time: Amaiera-ordua
+        end_time: Bukaera ordua
         id: ID
+        iframe_embed_type: Txertatutako iframe mota
         location: Kokapena
         location_hints: Kokapen-argibideak
-        online_meeting_url: Lineako topaketaren URLa
-        organizer_gid: Honela sortua
+        online_meeting_url: Lineako topaketaren URL helbidea
+        organizer_gid: Sortze-data
         organizer_id: Antolatzailea
         private_meeting: Bilera pribatua
         registration_email_custom_content: Izena emateko e-mailaren eduki pertsonalizatua
         registration_form_enabled: Izena emateko inprimakia gaituta
         registration_terms: Izen-emateak
+        registration_type: Erregistro mota
         registration_url: Izena ematearen URLa
         registrations_enabled: Erregistroak gaituta
-        show_embedded_iframe: Erakutsi iframe txertatua URL honentzat
-        start_time: Hasiera-ordua
+        reserved_slots: Bilera honetarako toki erabilgarriak
+        start_time: Hasiera ordua
         title: Titulua
         transparent: gardena
         type_of_meeting: Mota
+      meeting_agenda:
+        title: Izenburua
+        visible: Ikusgai
+      meeting_agenda_items:
+        description: Deskribapena
+        title: Izenburua
+      meeting_registration_invite:
+        email: Helbide elektronikoa
+        name: Izena
+      validate_registration_code:
+        code: Kodea
     errors:
       models:
         meeting_agenda:
@@ -89,12 +98,17 @@ eu:
           scope_id_eq:
             label: Eremua
           with_any_origin:
+            label: Jatorria
             values:
+              official: Ofiziala
+              participants: Parte-hartzailea
               user_group: Erabiltzaile-taldeak
           with_any_type:
             label: Topaketa mota
             values:
+              hybrid: Hibridoa
               in_person: Aurrez aurre
+              online: Lineakoa
       meeting_copies:
         create:
           error: Akatsa gertatu da bilera hau bikoiztea.
@@ -183,7 +197,7 @@ eu:
           description_another: Erabiltzaile honek %{score} bileratan parte hartu du.
           description_own: '%{score} bileretan parte hartu duzu.'
           name: Bilera parte hartzera
-          next_level_in: '%{score} topaketa gehiago parte hartzeko hurrengo mailara iristeko!'
+          next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
           unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
           unearned_own: Oraindik ez duzu bilerarako parte hartu.
     meetings:
@@ -223,7 +237,7 @@ eu:
             success: Egutegia modu egokian sortu da
           edit:
             title: Editatu agenda
-            update: eguneratzearen
+            update: Gorde
           form:
             add_agenda_item: Gehitu agenda item
             agenda_items: Agenda itemak
@@ -271,6 +285,9 @@ eu:
           edit:
             close: Itxi
             title: Itxi topaketa
+        meeting_copies:
+          form:
+            select_a_meeting_type: Mesedez, hautatu topaketa mota bat
         meetings:
           close:
             invalid: Arazo bat izan da topaketa hau ixtean.
@@ -381,6 +398,9 @@ eu:
         copy_calendar_url_description: Argitaratutako batzar guztiak zure egutegi-aplikazioan edo hornitzailean ikus ditzakezu. Kopiatu eta itsatsi URL hau "Egutegi berria gehitu URL batetik" aukera erabiliz
         copy_calendar_url_explanation: Kontuan izan aukeratutako batzar multzo bat esportatzen ari zarela, eta iragazkiak aktibatuta daudela. Denak esportatu nahi badituzu kendu irakazkiak lehenengo.
         export_calendar: Esportatu egutegia
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          hello: Kaixo, %{username},
       conference_venues: Hitzaldi aretoak
       content_blocks:
         upcoming_meetings:
@@ -390,6 +410,10 @@ eu:
           index:
             meetings: Bilerak
             space_type: Partaidetza espazioa
+      iframe_access_level:
+        all: Bisitari guztiak
+      iframe_embed_type:
+        none: Bat ere ez
       last_activity:
         meeting_updated_at_html: "<span>eztabaida ordu honetan %{link}</span> eguneratuta"
         new_meeting_at_html: "<span>Bilera berria %{link}</span>"
@@ -445,12 +469,14 @@ eu:
           origin_values:
             all: Denak
             official: Ofiziala
+            participants: Parte-hartzaileak
             user_groups: Taldeak
           scope: Eremua
           search: Bilatu
           type: Mota
           type_values:
             all: Denak
+            hybrid: Hibridoa
             in_person: Aurrez aurre
             online: Lineakoa
         filters_small_view:
@@ -549,6 +575,7 @@ eu:
             empty_questions: Topaketa honetan zehar, galdera batzuk bidaliko dira eta erantzun ahal izango dituzu. Hemen erakutsiko dira.
           index_admin:
             admin_dashboard: Administrazio-panela
+            edit: Editatu administrazio-panelean
             question: Galdera
             received_answer: jasotako erantzuna
             received_answers: jasotako erantzunak
@@ -562,6 +589,9 @@ eu:
             reply_question: Erantzun galdera
       public_participants_list:
         attending_participants: Bertaratutako parte-hartzaileak
+        hidden_participants_count:
+          one: eta %{count} pertsona gehiago
+          other: eta %{count} pertsona gehiago
       read_more: "(geihago irakurri)"
       registration_mailer:
         confirmation:
@@ -583,6 +613,7 @@ eu:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.
       type_of_meeting:
+        hybrid: Hibridoa
         in_person: Aurrez aurre
         online: Lineakoa
       types:

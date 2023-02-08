@@ -4,7 +4,7 @@ eu:
     attributes:
       area:
         area_type: Eremu mota
-        name: Izena
+        name: izena
         organization: Erakundea
       area_type:
         name: Izena
@@ -15,17 +15,24 @@ eu:
         description: Descripción
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
+        weight: Kokapenaren hurrenkera
       attachment_collection:
         description: Deskribapena
         name: Izena
+        weight: Kokapenaren hurrenkera
       category:
         description: Descripción
         name: Izena
         parent_id: Nagusia
+        weight: Kokapenaren hurrenkera
       component:
         name: Izena
         published_at: Argitaratu at
         weight: Kokapenaren hurrenkera
+      external_domain:
+        value: Balioa
+      help_section:
+        content: Edukia
       id: NAN
       import:
         user_group_id: Inportatu hau bezala
@@ -93,6 +100,9 @@ eu:
         welcome_notification_body: Ongietorri-jakinarazpenaren mezuaren atala
         welcome_notification_subject: Ongietorri-jakinarazpenaren mezuaren gaia
         youtube_handler: YouTube kudeatzailea
+      participatory_space_private_user:
+        email: Helbide elektronikoa
+        name: Izena
       scope:
         code: Kodea
         name: Izena
@@ -114,6 +124,7 @@ eu:
         show_in_footer: Erakutsi orri-oinean
         slug: URL laburra
         title: Titulua
+        topic_id: Gaia
         weight: Kokapenaren hurrenkera
       static_page_topic:
         description: Deskribapena
@@ -124,6 +135,10 @@ eu:
         file: file
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Aukeratu parte hartzeko espazio bat gutxienez
         organization:
           attributes:
             official_img_footer:
@@ -181,6 +196,8 @@ eu:
         permissions: Baimenak
         reject: Ukatu
         share: Partekatu
+        user:
+          new: Administratzaile berria
         verify: Egiaztatu
       admin_terms_of_use:
         accept:
@@ -204,7 +221,7 @@ eu:
           success: Area mota behar bezala suntsitu da
         edit:
           title: Editatu eremu mota
-          update: Eguneratzearen
+          update: Onartu
         new:
           create: Sortu eremu mota
           title: Area mota berria
@@ -220,7 +237,7 @@ eu:
           success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua
-          update: Eguneratzearen
+          update: Onartu
         new:
           create: Sortu eremua
           title: Area berria
@@ -236,7 +253,7 @@ eu:
           success: Karpeta ondo suntsitu da.
         edit:
           title: Editatu karpeta
-          update: Eguneratzearen
+          update: Onartu
         index:
           attachment_collection_used: Karpeta hau ezin da ezabatu erabiltzen ari delako.
           attachment_collections_title: Eranskinen karpetak
@@ -263,6 +280,8 @@ eu:
         update:
           error: Errorea gertatu da fitxategi erantsi bat eguneratzean.
           success: Fitxategi erantsia zuzen eguneratu da.
+      attachments_privacy_warning:
+        message: Kontuz ibili fitxategi erantsiekin espazio pribatu batean lan egiten duzunean, edozein parte-hartzailek parteka dezake dokumentu hau beste pertsona batzuekin.
       autocomplete:
         no_results: Ez da emaitzarik aurkitu
         search_prompt: Idatzi bilaketak gutxienez hiru karaktere
@@ -304,7 +323,7 @@ eu:
           success: Osagaia zuzen ezabatu da.
         edit:
           title: Editatu osagaia
-          update: Eguneratzearen
+          update: Onartu
         form:
           default_step_settings: Urratsen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
@@ -432,7 +451,7 @@ eu:
       help_sections:
         error: Errore bat gertatu da laguntza-atalak eguneratuz
         form:
-          save: Save
+          save: Gorde
         success: Laguntza atalak behar bezala eguneratu dira
       impersonatable_users:
         index:
@@ -517,7 +536,7 @@ eu:
         moderation: Moderazio globalak
         newsletters: Buletinak
         participants: Parte-hartzaileak
-        reported_users: Erabiltzaile erreportatuak
+        reported_users: Erabiltzaile informatuak
         scope_types: Esparru motak
         scopes: Esparruak
         settings: Ezarpenak
@@ -616,7 +635,7 @@ eu:
           nickname: Ezizena
           reason: Arrazoia
           reports: Salaketa kopurua
-          title: Erreportatutako erabiltzaileen zerrenda
+          title: Informatutako erabiltzaileen zerrenda
         report:
           reasons:
             does_not_belong: Ez da bidezkoa
@@ -800,7 +819,7 @@ eu:
           inactive_content_blocks: Eduki eduki gabeko blokeak
       organization_homepage_content_blocks:
         edit:
-          update: Eguneratu
+          update: Onartu
       participatory_space_private_users:
         create:
           error: Errore bat gertatu da partaidetza espazio honen erabiltzaile pribatua gehitzean.
@@ -1026,7 +1045,7 @@ eu:
             report_count: Zenbaketa
             reportable_type: Mota
             reported_content_url: Emandako edukiaren URLa
-            reports: Salaketak
+            reports: Txostenak
             visit_url: Bisitatu URLa
         report:
           fields:

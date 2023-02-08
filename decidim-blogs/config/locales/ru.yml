@@ -20,8 +20,6 @@ ru:
         title: Действия
       admin:
         models:
-          components:
-            body: Основной текст
           post:
             name: Пост
         posts:
@@ -48,7 +46,6 @@ ru:
             author: Автор
             body: Основной текст
             created_at: 'Создано:'
-            title: заголовок
       posts:
         show:
           view: Посмотреть

@@ -2,10 +2,6 @@
 gl:
   activemodel:
     attributes:
-      agenda:
-        description: Descrición
-        duration: Duración
-        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Listaxe de organizacións que asistiron
@@ -22,7 +18,6 @@ gl:
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
-        end_time: Hora de finalización
         location: Localización
         location_hints: Consellos de localización
         organizer_id: Organizador
@@ -31,7 +26,6 @@ gl:
         registration_form_enabled: Formulario de rexistro habilitado
         registration_terms: Termos de rexistro
         registrations_enabled: Rexistros habilitados
-        start_time: Hora de inicio
         title: Título
         transparent: Transparente
     errors:

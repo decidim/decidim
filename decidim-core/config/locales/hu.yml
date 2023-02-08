@@ -416,7 +416,7 @@ hu:
           request_confirmation_instructions: Kérjen megerősítési utasítást
           title: Erősítsd meg az e-mail címed
       show:
-        close_modal: Felugró ablak bezárása
+        close_modal: Modal bezárása
     block_user_mailer:
       notify:
         body_1: A fiókod zárolva van.
@@ -923,6 +923,9 @@ hu:
       index:
         last_activity: Utolsó bejelentkezés, utolsó használat
         resource_type: típus
+    links:
+      warning:
+        close_modal: Modal bezárása
     log:
       base_presenter:
         create: "%{user_name} létrehozta ezt: %{resource_name}"

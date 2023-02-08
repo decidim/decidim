@@ -21,8 +21,6 @@ pl:
         title: Działania
       admin:
         models:
-          components:
-            body: Treść
           post:
             name: Wpis
         posts:
@@ -50,7 +48,6 @@ pl:
             author: Autor
             body: Treść
             created_at: Utworzono
-            title: Tytuł
       posts:
         show:
           back: Powrót do listy

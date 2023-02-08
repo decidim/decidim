@@ -23,12 +23,6 @@ lv:
         slogan: Sauklis
         slug: URL sadaļas adrese (slug)
         title: Nosaukums
-      conference_media_link:
-        weight: Svarīgums
-      conference_partner:
-        weight: Svarīgums
-      conference_registration_type:
-        weight: Svarīgums
       conference_speaker:
         full_name: Vārds, uzvārds
       conference_user_role:
@@ -103,8 +97,6 @@ lv:
         edit:
           title: Atjaunināt konferences administratoru.
           update: Atjaunināt
-        index:
-          conference_admins_title: konferences administratori
         new:
           create: Izveidot
           title: Jauns konferences administrators.
@@ -377,7 +369,6 @@ lv:
       conference_program:
         program_meeting:
           content: Saturs
-          location: Atrašanās vieta
           speakers: Runātāji
           streaming: Straumēšana
         show:

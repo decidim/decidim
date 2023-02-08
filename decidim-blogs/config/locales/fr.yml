@@ -1,6 +1,12 @@
 ---
 fr:
   activemodel:
+    attributes:
+      post:
+        body: Corps du texte
+        decidim_author_id: Auteur
+        published_at: Date de publication
+        title: Titre
     models:
       decidim/blogs/create_post_event: Nouvel article
   activerecord:
@@ -19,8 +25,6 @@ fr:
         title: Actions
       admin:
         models:
-          components:
-            body: Corps du texte
           post:
             name: Publier
         posts:
@@ -54,7 +58,7 @@ fr:
             body: Corps du texte
             created_at: Créé à
             official_blog_post: Article officiel
-            title: titre
+            title: Titre
       posts:
         show:
           back: Retour à la liste

@@ -29,7 +29,6 @@ eu:
         show_statistics: Erakutsi estatistikak
         sign_date: Sinatze-data
         signature: Sinadura
-        signature_name: sinaduraren izena
         slogan: Leloa
         slug: URL laburra
         start_date: Hasiera-data
@@ -38,13 +37,11 @@ eu:
         date: Data
         link: Lotura
         title: Izenburua
-        weight: Pisua
       conference_partner:
         link: Lotura
         logo: Logoa
         name: Izena
         partner_type: Lankidetza mota
-        weight: Pisua
       conference_registration_invite:
         email: Helbide elektronikoa
         name: Izena
@@ -54,7 +51,6 @@ eu:
         description: Deskribapena
         price: Prezioa
         title: Izenburua
-        weight: Pisua
       conference_speaker:
         affiliation: Kidetza
         avatar: Avatarra
@@ -132,8 +128,6 @@ eu:
         edit:
           title: Eguneratu konferentzia erabiltzaileak.
           update: eguneratzearen
-        index:
-          conference_admins_title: konferentzia erabiltzaileak
         new:
           create: Sortu
           title: Konferentzia erabiltzaile berria.
@@ -410,7 +404,7 @@ eu:
       conference_program:
         program_meeting:
           content: Edukia
-          location: Kokalekua
+          location: Kokapena
           speakers: Hizlariak
           streaming: Streaming
         show:

@@ -1,6 +1,12 @@
 ---
 ja:
   activemodel:
+    attributes:
+      post:
+        body: 本文
+        decidim_author_id: 作成者
+        published_at: 公開時刻
+        title: タイトル
     models:
       decidim/blogs/create_post_event: 新しいブログ投稿
   activerecord:
@@ -18,8 +24,6 @@ ja:
         title: アクション
       admin:
         models:
-          components:
-            body: 本文
           post:
             name: 投稿
         posts:

@@ -753,6 +753,9 @@ zh-CN:
       index:
         last_activity: 上次活动
         resource_type: 类型
+    links:
+      warning:
+        close_modal: 关闭模式
     log:
       base_presenter:
         create: "%{user_name} 创建了 %{resource_name}"

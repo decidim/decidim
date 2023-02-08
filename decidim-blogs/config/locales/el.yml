@@ -19,8 +19,6 @@ el:
         title: Ενέργειες
       admin:
         models:
-          components:
-            body: Σώμα
           post:
             name: Δημοσίευση
         posts:
@@ -48,7 +46,6 @@ el:
             author: Συντάκτης
             body: Σώμα
             created_at: Δημιουργήθηκε στις
-            title: τίτλος
       posts:
         show:
           back: Επιστροφή στη λίστα
