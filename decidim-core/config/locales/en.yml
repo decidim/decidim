@@ -517,13 +517,13 @@ en:
       highlighted_content_banner:
         name: Highlighted content banner
       highlighted_elements_settings_form:
+        components:
+          all: All
+          label: 'Select component:'
         orders:
           label: 'Sort elements by:'
           random: Random
           recent: Most recent
-        components:
-          all: All
-          label: 'Select component:'
       how_to_participate:
         name: How to participate
       html:
