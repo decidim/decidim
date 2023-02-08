@@ -32,19 +32,19 @@ ar:
         value: القيمة
       help_section:
         content: المحتوى
-      id: هوية شخصية
+      id: المعرف ID
       import:
-        user_group_id: إنشاء واردات ك
+        user_group_id: إنشاء الاستيرادات ك
       newsletter:
-        body: المحتوى
+        body: النص
         subject: الموضوع
       organization:
         admin_terms_of_use_body: نص شروط الاستخدام للمدير
         alert_color: تنبيه
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
-        comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال للقيمة الافتراضية)
-        cta_button_path: دعوة إلى العمل مسار زر
+        comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
+        cta_button_path: مسار زر دعوة إلى العمل call to action
         cta_button_text: نص زر Call To Action
         customize_welcome_notification: تخصيص إشعار الترحيب
         default_locale: اللغة الافتراضية
