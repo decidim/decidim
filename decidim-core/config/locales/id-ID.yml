@@ -723,7 +723,6 @@ id:
     newsletter_mailer:
       newsletter:
         note: Anda menerima email ini karena Anda berlangganan nawala pada %{organization_name}. Anda dapat mengubah pengaturan Anda pada <a href="%{link}">halaman pemberitahuan</a>.
-        see_on_website: Tidak bisa melihat email ini dengan benar? Lihat di situs web <a href="%{link}" target="_blank"></a>.
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
     newsletters:
       unsubscribe:
@@ -940,9 +939,6 @@ id:
         share_link: Membagikan tautan
     statistics:
       comments_count: Komentar
-    user_activity:
-      index:
-        no_activities_warning: Pengguna ini belum memiliki aktivitas apa pun.
     user_conversations:
       update:
         error: Pesan tidak terkirim. Coba lagi nanti
