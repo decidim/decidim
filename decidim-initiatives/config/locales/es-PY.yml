@@ -66,9 +66,6 @@ es-PY:
               title: El título no puede estar vacío
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciativa
-        other: Iniciativas
       decidim/initiative_comittee:
         one: Comité
         other: Comités
