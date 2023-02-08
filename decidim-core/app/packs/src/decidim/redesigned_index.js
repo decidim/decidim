@@ -238,3 +238,6 @@ const initializer = (element = document) => {
 // mentions stops working
 // document.addEventListener("DOMContentLoaded", () => {
 $(() => initializer());
+
+// Run initializer action over the new DOM elements
+document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
