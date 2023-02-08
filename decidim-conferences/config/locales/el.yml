@@ -28,7 +28,6 @@ el:
         show_statistics: Εμφάνιση στατιστικών
         sign_date: Ημερομηνία υπογραφής
         signature: Υπογραφή
-        signature_name: όνομα υπογραφής
         slogan: Σύνθημα
         slug: Slug διεύθυνσης URL
         start_date: Ημερομηνία έναρξης
@@ -37,13 +36,11 @@ el:
         date: Ημερομηνία
         link: Σύνδεσμος
         title: Τίτλος
-        weight: Βάρος
       conference_partner:
         link: Σύνδεσμος
         logo: Λογότυπο
         name: Όνομα
         partner_type: Τύπος εταίρου
-        weight: Βάρος
       conference_registration_invite:
         name: Όνομα
         registration_type_id: Τύπος εγγραφής
@@ -52,7 +49,6 @@ el:
         description: Περιγραφή
         price: Τιμή
         title: Τίτλος
-        weight: Βάρος
       conference_speaker:
         affiliation: Δεσμός
         avatar: Εικόνα Χρήστη
@@ -130,8 +126,6 @@ el:
         edit:
           title: Ενημέρωση διαχειριστή διάσκεψης.
           update: Ενημέρωση
-        index:
-          conference_admins_title: διαχειριστές διάσκεψης
         new:
           create: Δημιουργία
           title: Νέος διαχειριστής διάσκεψης.

@@ -14,17 +14,24 @@ sv:
         description: Beskrivning
         file: Fil
         title: Bilaga eller bildnamn
+        weight: Ordning
       attachment_collection:
         description: Beskrivning
         name: Namn
+        weight: Ordning
       category:
         description: Beskrivning
         name: Namn
         parent_id: Överordnad
+        weight: Ordning
       component:
         name: Namn
         published_at: Publicerad
-        weight: Vikt
+        weight: Ordning
+      external_domain:
+        value: Värde
+      help_section:
+        content: Innehåll
       id: ID
       import:
         user_group_id: Skapa import som
@@ -92,6 +99,9 @@ sv:
         welcome_notification_body: Välkomstmeddelandets brödtext
         welcome_notification_subject: Välkomstmeddelandets ämnesrad
         youtube_handler: YouTube-hanterare
+      participatory_space_private_user:
+        email: E-post
+        name: Namn
       scope:
         code: Kod
         name: Namn
@@ -113,12 +123,13 @@ sv:
         show_in_footer: Visa i sidfoten
         slug: URL slug
         title: Titel
-        weight: Vikt
+        topic_id: Ämne
+        weight: Ordning
       static_page_topic:
         description: Beskrivning
         show_in_footer: Visa i sidfoten
         title: Titel
-        weight: Vikt
+        weight: Ordning
       user_group_csv_verification:
         file: Fil
     errors:
@@ -184,6 +195,7 @@ sv:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
+          accept: Jag godkänner villkoren
           are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
           refuse: Avvisa villkoren för administratörer
           title: Godkänn användarvillkoren
@@ -1038,6 +1050,7 @@ sv:
         moderation:
           fields:
             created_at: Skapandedatum
+            deleted_resource: Borttagen resurs
             hidden_at: Dold
             participatory_space: Deltagarutrymme
             report_count: Antal

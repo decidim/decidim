@@ -226,7 +226,6 @@ pl:
             few: głosów
             many: głosów
             other: głosów
-          you_voted: Zagłosowałeś na
         project_budget_button:
           add: Dodaj do swojego głosu
           add_descriptive: Dodaj projekt %{resource_name} do swojego głosu

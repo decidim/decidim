@@ -28,7 +28,7 @@ fr:
         show_statistics: Montrer les statistiques
         sign_date: Date de signature
         signature: Signature
-        signature_name: nom de la signature
+        signature_name: Nom de la signature
         slogan: Slogan
         slug: Slug URL
         start_date: Date de début
@@ -134,7 +134,7 @@ fr:
           title: Mettre à jour l'administrateur de la conférence.
           update: Mettre à jour
         index:
-          conference_admins_title: administrateurs de la conférence
+          conference_admins_title: Administrateurs de conférence
         new:
           create: Créer
           title: Nouvel administrateur de conférence.
@@ -312,6 +312,7 @@ fr:
           update: "%{user_name} a mis à jour le partenaire %{resource_name} dans la conférence %{space_name}"
         registration_type:
           create: "%{user_name} créé le type d'inscription %{resource_name} dans la conférence %{space_name}"
+          delete: "%{user_name} a supprimé le type d'inscription %{resource_name} de la conférence %{space_name}"
           publish: "%{user_name} publié le %{resource_name} type d'inscription dans la %{space_name} conférence"
           unpublish: "%{user_name} non publié le type d'inscription %{resource_name} dans la conférence %{space_name}"
           update: "%{user_name} mis à jour le type d'inscription %{resource_name} dans la conférence %{space_name}"

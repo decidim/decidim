@@ -28,7 +28,6 @@ gl:
         show_statistics: Amosar estatísticas
         sign_date: Data de sinatura
         signature: Sinatura
-        signature_name: nome da sinatura
         slogan: Eslogan
         slug: URL slug
         start_date: Data de inicio
@@ -37,13 +36,11 @@ gl:
         date: Data
         link: Ligazón
         title: Título
-        weight: Peso
       conference_partner:
         link: Ligazón
         logo: Logotipo
         name: Nome
         partner_type: Tipo de socio
-        weight: Peso
       conference_registration_invite:
         email: Correo electrónico
         name: Nome
@@ -53,7 +50,6 @@ gl:
         description: Descrición
         price: Prezo
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
@@ -131,8 +127,6 @@ gl:
         edit:
           title: Actualiza o usuario da conferencia.
           update: Actualización
-        index:
-          conference_admins_title: usuarios de conferencias
         new:
           create: Crear
           title: Novo usuario da conferencia.

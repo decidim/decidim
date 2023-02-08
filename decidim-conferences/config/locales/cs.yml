@@ -28,7 +28,7 @@ cs:
         show_statistics: Zobrazit statistiky
         sign_date: Datum podpisu
         signature: Podpis
-        signature_name: podpisové jméno
+        signature_name: Podpisové jméno
         slogan: Motto
         slug: URL slug
         start_date: Datum zahájení
@@ -37,13 +37,13 @@ cs:
         date: Datum
         link: Odkaz
         title: Název
-        weight: Váha
+        weight: Pozice v řazení
       conference_partner:
         link: Odkaz
         logo: Logo
         name: Název
         partner_type: Typ partnera
-        weight: Váha
+        weight: Pozice v řazení
       conference_registration_invite:
         email: E-mail
         name: Jméno
@@ -53,7 +53,7 @@ cs:
         description: Popis
         price: Cena
         title: Oslovení
-        weight: Váha
+        weight: Pozice v řazení
       conference_speaker:
         affiliation: Příslušnost
         avatar: Avatar
@@ -140,7 +140,7 @@ cs:
           title: Aktualizovat uživatele konference.
           update: Aktualizace
         index:
-          conference_admins_title: administrátoři konference
+          conference_admins_title: Administrátoři konference
         new:
           create: Vytvořit
           title: Nový administrátor konference.
@@ -318,6 +318,7 @@ cs:
           update: "%{user_name} aktualizoval partnera %{resource_name} na konferenci %{space_name}"
         registration_type:
           create: "%{user_name} vytvořil typ registrace %{resource_name} na konferenci %{space_name}"
+          delete: "%{user_name} odstranil typ registrace %{resource_name} z konference %{space_name}"
           publish: "%{user_name} publikoval %{resource_name} typ registrace na %{space_name} konferencích"
           unpublish: "%{user_name} nepublikováno %{resource_name} typ registrace na %{space_name} konferencích"
           update: "%{user_name} aktualizoval typ registrace %{resource_name} na konferenci %{space_name}"
@@ -420,7 +421,7 @@ cs:
       conference_program:
         program_meeting:
           content: Obsah
-          location: Umístění
+          location: Lokalita
           speakers: Řečníci
           streaming: Streamování
         show:

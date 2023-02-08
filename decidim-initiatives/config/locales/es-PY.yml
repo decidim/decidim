@@ -2,9 +2,13 @@ es-PY:
   activemodel:
     attributes:
       initiative:
+        answer: Respuesta
+        answer_url: URL de la respuesta
         area_id: Área
+        decidim_scope_id: Ámbito
         decidim_user_group_id: Autor
         description: Descripción
+        hashtag: Etiqueta (hashtag)
         offline_votes: Apoyo cara a cara
         offline_votes_for_scope: Firmas en persona para %{scope_name}
         scope_id: Alcance
@@ -17,6 +21,7 @@ es-PY:
           online: En línea
         state: Estado
         title: Título
+        type_id: Tipo
       initiatives_committee_member:
         user: Miembro del Comité
       initiatives_settings:
@@ -39,6 +44,9 @@ es-PY:
         title: Título
         undo_online_signatures_enabled: Permitir a los usuarios deshacer sus firmas en línea
         validate_sms_code_on_votes: Añadir paso de validación de código SMS al proceso de firma
+      initiatives_type_scope:
+        decidim_scopes_id: Ámbitos
+        supports_required: Se requieren apoyos
       initiatives_vote:
         date_of_birth: Fecha de nacimiento
         document_number: Número del Documento

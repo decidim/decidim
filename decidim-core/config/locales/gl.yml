@@ -282,6 +282,8 @@ gl:
           explanation_html: Para realizar esta acción necesitas estar autorizado, antes de facer isto necesitas confirmar o teu correo <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucións de confirmación
           title: Confirma o teu correo electrónico
+      show:
+        close_modal: Pechar modal
     collapsible_list:
       hidden_elements_count:
         one: e %{count} máis

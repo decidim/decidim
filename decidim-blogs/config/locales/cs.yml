@@ -1,5 +1,11 @@
 cs:
   activemodel:
+    attributes:
+      post:
+        body: Tělo zprávy
+        decidim_author_id: Autor
+        published_at: Čas zveřejnění
+        title: Název
     models:
       decidim/blogs/create_post_event: Nový blogový příspěvek
   activerecord:
@@ -20,8 +26,6 @@ cs:
         user_group_id: Vytvořit příspěvek jako
       admin:
         models:
-          components:
-            body: Tělo
           post:
             name: Příspěvek
         posts:
@@ -49,7 +53,7 @@ cs:
             author: Autor
             body: Tělo
             created_at: Vytvořeno v
-            title: titulek
+            title: Název
       posts:
         show:
           back: Zpět na seznam
@@ -62,8 +66,10 @@ cs:
     components:
       blogs:
         actions:
+          comment: Komentář
           create: Vytvořit
           destroy: Smazat
+          endorse: Schválit
           update: Aktualizovat
         name: Blog
         settings:

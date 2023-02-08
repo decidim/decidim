@@ -3,7 +3,10 @@ ja:
     attributes:
       assemblies_setting:
         enable_organization_chart: 組織図を有効化
+      assemblies_type:
+        title: タイトル
       assembly:
+        announcement: お知らせ
         area_id: エリア
         assembly_type: 参加スペース種別
         assembly_type_other: その他（参加スペース）
@@ -22,12 +25,16 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         developer_group: プロモーターグループ
+        document: ドキュメント
         domain: ドメイン
         duration: 持続期間
         facebook: Facebook
         github: GitHub
         hashtag: ハッシュタグ
         hero_image: ホーム画像
+        import_attachments: 添付ファイルをインポート
+        import_categories: カテゴリをインポート
+        import_components: コンポーネントをインポート
         included_at: 含まれた日
         instagram: Instagram
         internal_organisation: 内部組織
@@ -64,6 +71,7 @@ ja:
         non_user_avatar: アバター
         position: ポジション
         user_id: ユーザー
+        weight: 並び順の位置
       assembly_user_role:
         email: Eメールアドレス
         name: 名前

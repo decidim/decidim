@@ -28,7 +28,6 @@ ar:
         show_statistics: عرض الإحصائيات
         sign_date: تاريخ التوقيع
         signature: التوقيع
-        signature_name: اسم التوقيع
         slogan: شعار
         slug: سبيكة العنوان الشبكي
         start_date: تاريخ البداية
@@ -37,13 +36,11 @@ ar:
         date: التاريخ
         link: الرابط
         title: العنوان
-        weight: وزن
       conference_partner:
         link: الرابط
         logo: الشعار
         name: الإسم
         partner_type: نوع الشريك
-        weight: وزن
       conference_registration_invite:
         email: البريد الإلكتروني
         name: الإسم
@@ -53,7 +50,6 @@ ar:
         description: الوصف
         price: السعر
         title: العنوان
-        weight: وزن
       conference_speaker:
         affiliation: الانتساب
         avatar: الصورة الرمزية
@@ -143,8 +139,6 @@ ar:
         edit:
           title: تحديث مسؤول المؤتمر.
           update: تحديث
-        index:
-          conference_admins_title: مدراء المؤتمر
         new:
           create: إنشاء
           title: مشرف المؤتمر الجديد.
@@ -425,7 +419,7 @@ ar:
       conference_program:
         program_meeting:
           content: المحتوى
-          location: موقعك
+          location: الموقع
           speakers: مكبرات الصوت
           streaming: تدفق
         show:

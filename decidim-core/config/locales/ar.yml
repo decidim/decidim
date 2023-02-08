@@ -302,6 +302,8 @@ ar:
           title: غير مخوّل
         unconfirmed:
           title: تأكيد البريد الإلكتروني
+      show:
+        close_modal: إغلاق مشروط
     block_user_mailer:
       notify:
         hello: مرحبًا،
@@ -737,6 +739,7 @@ ar:
     links:
       warning:
         cancel: إلغاء
+        close_modal: إغلاق مشروط
     log:
       base_presenter:
         create: "%{user_name} تم الإنشاء %{resource_name}"
@@ -958,7 +961,9 @@ ar:
       report:
         content_original_language: لغة المحتوى الأصلية
         hello: مرحبا %{name}،
+        reason: السبب
         report_html: <p>تم الإبلاغ عن المحتوى <a href="%{url}">التالي</a> .</p>
+        see_report: معاينة التقرير
         subject: تم الإبلاغ عن مورد
     reports:
       create:

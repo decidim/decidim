@@ -1,10 +1,6 @@
 sk:
   activemodel:
     attributes:
-      agenda:
-        description: Popis
-        duration: Čas trvania
-        title: Názov
       close_meeting:
         attendees_count: Počet účastníkov
         attending_organizations: Zoznam organizácií, ktoré sa zúčastnili
@@ -18,7 +14,6 @@ sk:
         decidim_category_id: Kategória
         decidim_scope_id: Rozsah
         description: Popis
-        end_time: Čas ukončenia
         location: Umiestnenie
         location_hints: Tipy pre umiestnenie
         organizer_id: Organizátor
@@ -26,7 +21,6 @@ sk:
         registration_form_enabled: Registračný formulár je povolený
         registration_terms: Podmienky registrácie
         registrations_enabled: Registrácia povolené
-        start_time: Čas začatia
         title: Názov
         transparent: Transparentné
     errors:

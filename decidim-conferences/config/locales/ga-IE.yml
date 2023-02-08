@@ -16,12 +16,10 @@ ga:
         date: Dáta
         link: Nasc
         title: Teideal
-        weight: Meáchan
       conference_partner:
         link: Nasc
         logo: Lógó
         name: Ainm
-        weight: Meáchan
       conference_registration_invite:
         email: Seoladh ríomhphoist
         name: Ainm
@@ -29,7 +27,6 @@ ga:
       conference_registration_type:
         price: Praghas
         title: Teideal
-        weight: Meáchan
       conference_speaker:
         avatar: Abhatár
         user_id: Úsáideoir

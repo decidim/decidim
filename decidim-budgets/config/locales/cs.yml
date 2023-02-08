@@ -257,7 +257,7 @@ cs:
             few: hlasy
             many: hlasů
             other: hlasů
-          you_voted: Hlasovali jste
+          you_voted: Hlasoval jste pro toto
         project_budget_button:
           add: Přidat do vašeho hlasování
           add_descriptive: Přidat k hlasování projekt %{resource_name}

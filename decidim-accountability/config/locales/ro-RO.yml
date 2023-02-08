@@ -49,6 +49,7 @@ ro:
           results: Rezultate
         import_results:
           new:
+            download_export: Descarcă Export cu format CSV
             import: Importă
             title: Importați rezultate de la CSV
         imports:

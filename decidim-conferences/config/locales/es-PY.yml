@@ -28,7 +28,7 @@ es-PY:
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
         signature: Firma
-        signature_name: nombre de firma
+        signature_name: Nombre de la firma
         slogan: Eslogan
         slug: URL amigable
         start_date: Fecha de inicio
@@ -37,13 +37,13 @@ es-PY:
         date: Fecha
         link: Enlace
         title: Título
-        weight: Peso
+        weight: Orden de posición
       conference_partner:
         link: Enlace
         logo: Logo
         name: Nombre
         partner_type: Tipo de colaboración
-        weight: Peso
+        weight: Orden de posición
       conference_registration_invite:
         email: Correo electrónico
         name: Nombre
@@ -53,7 +53,7 @@ es-PY:
         description: Descripción
         price: Coste
         title: Título
-        weight: Peso
+        weight: Orden de posición
       conference_speaker:
         affiliation: Afiliación
         avatar: Avatar
@@ -134,7 +134,7 @@ es-PY:
           title: Actualizar el usuario de la conferencia.
           update: Actualizar
         index:
-          conference_admins_title: usuarios de la conferencia
+          conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
           title: Nuevo usuario de la conferencia.
@@ -312,6 +312,7 @@ es-PY:
           update: "%{user_name} actualizó la colaboradora %{resource_name} de la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
+          delete: "%{user_name} ha eliminado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
@@ -412,7 +413,7 @@ es-PY:
       conference_program:
         program_meeting:
           content: Contenido
-          location: Ubicación
+          location: Localización
           speakers: Ponentes
           streaming: Transmisión
         show:
@@ -431,7 +432,7 @@ es-PY:
         create:
           invalid: Ha habido un problema al unirse a esta conferencia.
           success: Te has unido a la conferencia con éxito.
-          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la conferencia.
+          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la jornada.
         decline_invitation:
           invalid: Ha habido un problema al rechazar la invitación.
           success: Has rechazado la invitación con éxito.
@@ -453,7 +454,7 @@ es-PY:
           go_to_twitter: Ir a twitter
       conference_speakers:
         index:
-          speakers: Altavoces
+          speakers: Ponentes
       conferences:
         partners:
           collaborators: Fogonadura

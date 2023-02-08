@@ -18,8 +18,6 @@ gl:
         user_group_id: Crear publicación como
       admin:
         models:
-          components:
-            body: Corpo
           post:
             name: Publicación
         posts:
@@ -47,7 +45,6 @@ gl:
             author: Autor
             body: Corpo
             created_at: Creado o
-            title: título
       posts:
         show:
           back: Volver á listaxe

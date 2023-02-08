@@ -32,6 +32,8 @@ tr:
   decidim:
     accountability:
       actions:
+        attachment_collections: Klasörler 
+        attachments: Ekler 
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
@@ -46,7 +48,29 @@ tr:
           results: Sonuçlar
         import_results:
           new:
+            download_export: '  İhracat i CSV formatında indirin '
             import: İçe aktar
+            info: |
+              <p>bu adımları uygulamanızı öneririz <p>
+              <ol>
+              <li><a herf='%{link_new_status}'
+              target='_bank`>eklemek istediğniz sonuçlar için durumlar oluşturun</a>istediğnizi ekleyiniz</li><li><a herf=%{link_new_result}`target=`_blank`>manuell olarak en az bir sonuç oluşturun</a> İçe aktarmayı kullanmadan önce, formatı ve doldurmanız gerekenleri daha iyi anlamak için bu yönetici paneli uygulayın </li><li>%{link_export_csv}<li>
+              <li>değişiklikleri yerel olarak yapın. CSV` nin yalnızca aşağıdaki sütunlarını değiştirebilirsiniz:
+              <ul>
+              <li><b>kategori/ID:</b>kategorisinin kimliği</li>
+              <li><><b>kapsam/kimlik:</b>kapsam kimliği</li>
+              <li><b>ebeveyn/ID:</b>ebeveyin kimliği(ilgili sonuçlar için).isteğe bağlı</li>
+              <li><b>başlık/en:</b>başlık inglizce olarak.Bu platformunuzdaki dil yapılandırmasına bağlı dır.<li>
+              <li><b>açıklama/en:</b>ingluzce olarak açıklama. Bu platformunuza bağlı olarak dır</li>
+              <li><b>başlangıç_tarihi:</b>sonucun yürütme ye başladığı tarih(format YYYY-AA-GG)</li>
+              <li><b>bitiş_tarihi:</b>sonucun yürütmeyi bitirdiği tarih(format YYY-AA-GG)<li>
+              <li><b>durum/kimlik:</b>bu sonuç için durumun kimliği<li>
+              <li><b>ilerleme:</b>yürütme yüzdesı(0'dan 100'e)<li>
+              <li><b>fikir_önerisi:</b>ilgılı tekliflerin dahili kimliği(virgüle ayrılmış ). Otomatik olarak biçimine dönüşüyor<span class='atttibute-name'>proposal_url</span>
+              </li>
+              </ul>
+              </li>
+              </ol>
             title: Sonuçları CSV'den içe aktar
         imports:
           create:

@@ -47,7 +47,29 @@ ja:
           results: 結果
         import_results:
           new:
+            download_export: CSV形式でエクスポートをダウンロード
             import: インポート
+            info: |
+              <p>以下の手順をお勧めします:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>追加したい結果のステータスを作成する</a></li>
+              <li><a href='%{link_new_result}' target='_blank'>インポートを使用する前に、この管理パネルから少なくとも1つの結果を手動で作成し、フォーマットと必要事項をよりよく理解できるようにしてください。</a></li>
+              <li>%{link_export_csv}</li>
+              <li>ローカルで変更します。変更できるのは、CSVの以下の列のみです:
+                <ul>
+                <li><b>category/id:</b> カテゴリのID</li>
+                <li><b>scope/id:</b> スコープのID</li>
+                <li><b>parent/id:</b> 関連する結果の親ID. (オプション)</li>
+                <li><b>title/en:</b> 英語のタイトル これはプラットフォームの言語設定に依存します.</li>
+                <li><b>description/en:</b> 英語の説明. これはプラットフォームの言語設定に依存します.</li>
+                <li><b>start_date:</b> 結果の実行開始日 (YYYY-MM-DD形式)</li>
+                <li><b>end_date:</b> 結果の実行終了日 (YYYY-MM-DD形式)</li>
+                <li><b>status/id:</b> 結果のステータスID</li>
+                <li><b>progress:</b> 進行のパーセンテージ(0 〜 100)</li>
+                <li><b>proposals_ids:</b> 関連する提案の内部ID（カンマ区切り）. 自動的に<span class='attribute-name'>proposal_url</span>に変換されます</li>
+                </ul>
+              </li>
+              </ol>
             title: CSVから結果をインポート
         imports:
           create:

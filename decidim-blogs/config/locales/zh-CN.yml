@@ -16,8 +16,6 @@ zh-CN:
         title: 行动
       admin:
         models:
-          components:
-            body: 正文内容
           post:
             name: 帖子
         posts:
@@ -44,7 +42,6 @@ zh-CN:
             author: 作者
             body: 正文内容
             created_at: 创建于
-            title: 标题
       posts:
         show:
           back: 返回列表

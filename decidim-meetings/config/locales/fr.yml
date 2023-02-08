@@ -1,10 +1,6 @@
 fr:
   activemodel:
     attributes:
-      agenda:
-        description: Description
-        duration: Durée
-        title: Titre
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
@@ -22,8 +18,9 @@ fr:
         decidim_scope_id: Périmètre d'application
         decidim_user_group_id: Groupe d'utilisateurs
         description: Description
-        end_time: Date de fin
+        end_time: Heure de fin
         id: ID
+        iframe_embed_type: Type d'Iframe encapsulée
         location: Lieu
         location_hints: Indicateurs d’emplacement
         online_meeting_url: URL de la rencontre
@@ -33,13 +30,26 @@ fr:
         registration_email_custom_content: Contenu personnalisé de l'e-mail d'inscription
         registration_form_enabled: Formulaire d'inscription activé
         registration_terms: Conditions d'inscription
+        registration_type: Type d'inscription
         registration_url: URL d'inscription
         registrations_enabled: Inscriptions ouvertes
-        show_embedded_iframe: Montrer l'iframe intégrée pour cette URL
+        reserved_slots: Places réservées pour cette rencontre
         start_time: Heure de début
         title: Titre
         transparent: Visible par les non-membres
         type_of_meeting: Type
+      meeting_agenda:
+        title: Titre
+        visible: Visible
+      meeting_agenda_items:
+        description: Description
+        duration: Durée
+        title: Titre
+      meeting_registration_invite:
+        email: Email
+        name: Nom
+      validate_registration_code:
+        code: Code
     errors:
       models:
         meeting:
@@ -282,9 +292,6 @@ fr:
           edit:
             close: Clore
             title: Clore la rencontre
-        meeting_copies:
-          form:
-            select_a_meeting_type: Veuillez sélectionner un type de rencontre
         meetings:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre

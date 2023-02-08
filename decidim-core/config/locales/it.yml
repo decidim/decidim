@@ -863,7 +863,7 @@ it:
         body_1: Stai per visitare un collegamento esterno e vorremmo che tu sia cauto riguardo al contenuto del sito esterno.
         body_2: Per favore controlla il link che stai per visitare e assicurati di riconoscerlo come un sito sicuro prima di procedere.
         cancel: Annulla
-        close_modal: Chiudi finestra
+        close_modal: Chiudi modalità
         proceed: Procedi
         title: Apri collegamento esterno
     log:

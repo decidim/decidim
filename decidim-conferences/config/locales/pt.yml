@@ -28,7 +28,6 @@ pt:
         show_statistics: Mostrar estatísticas
         sign_date: Data de assinatura
         signature: Assinatura
-        signature_name: nome da assinatura
         slogan: Slogan
         slug: Campo de dados dinâmicos de URL
         start_date: Data de início
@@ -37,13 +36,11 @@ pt:
         date: Datas
         link: Hiperligação
         title: Título
-        weight: Peso
       conference_partner:
         link: Hiperligação
         logo: Logótipo
         name: Nome
         partner_type: Tipo de parceiro
-        weight: Peso
       conference_registration_invite:
         email: E-Mail
         name: Nome
@@ -53,7 +50,6 @@ pt:
         description: Descrição
         price: Preço
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliação
         avatar: Avatar
@@ -131,8 +127,6 @@ pt:
         edit:
           title: Atualizar administrador da conferência.
           update: Atualizar
-        index:
-          conference_admins_title: administradores da conferência
         new:
           create: Criar
           title: Novo administrador da conferência.

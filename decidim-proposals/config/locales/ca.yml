@@ -403,14 +403,14 @@ ca:
         imports:
           help:
             answers: |
-              El document d'importació ha de contindre els següents noms de columna i en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
+              El document d'importació ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
               <ul>
               <li><b>id:</b> ID de la proposta a responder</li>
               <li>state<b>:</b> Un d'aquests "acceptada", "en avaluació" o "rebutjada"</li>
-              <li><b>answer/en</b> Resposta en idioma inglés. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
+              <li><b>answer/ca</b> Resposta en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
               </ul>
             proposals: |
-              El document ha de contindre els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
+              El document ha d'incloure els següents noms de columna en cas d'arxius CSV o Excel o noms de claus en el cas d'arxius JSON:
               <ul>
               <li><b>title/ca:</b> Títol en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
               <li><b>body/ca:</b> Descripció en català. Això dependrà de la configuració d'idioma predeterminat a la teva plataforma.</li>
@@ -796,7 +796,7 @@ ca:
           title: Edita proposta
         edit_draft:
           discard: Descarta aquest esborrany
-          discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta proposta?
+          discard_confirmation: Segur que vols descartar l'esborrany d'aquesta proposta?
           send: Vista prèvia
           title: Edició l'esborrany de proposta
         filters:

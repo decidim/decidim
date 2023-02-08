@@ -6,7 +6,7 @@ sv:
         description: Beskrivning
         title: Titel
         total_budget: Total budget
-        weight: Vikt
+        weight: Ordning
       project:
         budget_amount: Belopp
         decidim_category_id: Kategori
@@ -167,10 +167,13 @@ sv:
           title: Bekräfta röst
         budget_excess:
           budget_excess:
+            description: Detta projekt överstiger den maximala budgeten och kan inte tilläggas. Du måste först ta bort ett projekt innan du lägger till ett nytt.
             title: Maximal budget överskriden
           close: Stäng
+          description: Detta projekt överstiger den maximala budgeten och kan inte tilläggas. Du måste först ta bort ett projekt innan du lägger till ett nytt.
           ok: OK
           projects_excess:
+            description: Du har valt för många projekt. Du måste först ta bort ett projekt innan du lägger till ett nytt.
             title: Maximalt antal projekt överskridet
         budget_summary:
           are_you_sure: Vill du dra tillbaka din röst?
@@ -243,7 +246,6 @@ sv:
           votes:
             one: röst
             other: röster
-          you_voted: Det här är din röst
         project_budget_button:
           add: Lägg till i din röst
           add_descriptive: Lägg till projekt %{resource_name} till din röst

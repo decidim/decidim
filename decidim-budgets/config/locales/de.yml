@@ -6,7 +6,7 @@ de:
         description: Beschreibung
         title: Titel
         total_budget: Gesamtbudget
-        weight: Bestellposition
+        weight: Reihenfolge
       project:
         budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
@@ -245,7 +245,6 @@ de:
           votes:
             one: Abstimmung
             other: Abstimmungen
-          you_voted: Du hast für dieses gestimmt
         project_budget_button:
           add: Zur Abstimmung hinzufügen
           add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen

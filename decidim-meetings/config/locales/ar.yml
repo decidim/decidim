@@ -1,10 +1,6 @@
 ar:
   activemodel:
     attributes:
-      agenda:
-        description: وصف
-        duration: المدة الزمنية
-        title: عنوان
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
@@ -18,7 +14,6 @@ ar:
         decidim_category_id: الفئة
         decidim_scope_id: نطاق
         description: وصف
-        end_time: وقت النهاية
         location: موقعك
         location_hints: تلميحات الموقع
         organizer_id: منظم
@@ -26,7 +21,6 @@ ar:
         registration_form_enabled: تم تمكين نموذج التسجيل
         registration_terms: شروط التسجيل
         registrations_enabled: تم تمكين التسجيلات
-        start_time: وقت البدء
         title: عنوان
         transparent: شفاف
     errors:

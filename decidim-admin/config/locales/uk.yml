@@ -457,6 +457,9 @@ uk:
         edit:
           active_content_blocks: Блоки діючого вмісту
           inactive_content_blocks: Блоки недіючого вмісту
+      organization_homepage_content_blocks:
+        edit:
+          update: Оновити
       participatory_space_private_users:
         create:
           error: При спробі додати приватного учасника до цього простору співучасті сталася помилка.
@@ -579,10 +582,10 @@ uk:
       models:
         moderation:
           fields:
+            created_at: Дата створення
             hidden_at: 'Приховано:'
             report_count: Кількість
             reported_content_url: Веб-адреса оскарженого вмісту
-            reports: Скарги
             visit_url: Відвідайте веб-адресу
   errors:
     messages:

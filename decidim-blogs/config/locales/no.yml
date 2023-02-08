@@ -18,8 +18,6 @@
         user_group_id: Opprett innlegg som
       admin:
         models:
-          components:
-            body: Tekst
           post:
             name: Innlegg
         posts:
@@ -47,7 +45,6 @@
             author: Forfatter
             body: Tekst
             created_at: Opprettet på
-            title: tittel
       posts:
         show:
           back: Tilbake til listen

@@ -14,17 +14,24 @@ es-PY:
         description: Descripción
         file: Archivo
         title: Nombre del adjunto o imagen
+        weight: Orden de posición
       attachment_collection:
         description: Descripción
         name: Nombre
+        weight: Orden de posición
       category:
         description: Descripción
         name: Nombre
         parent_id: Superior
+        weight: Orden de posición
       component:
         name: Nombre
         published_at: Publicado en
         weight: Orden de posición
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contenido
       id: ID
       import:
         user_group_id: Importar como
@@ -92,6 +99,9 @@ es-PY:
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
         welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
         youtube_handler: Nombre de YouTube
+      participatory_space_private_user:
+        email: Correo electrónico
+        name: Nombre
       scope:
         code: Código
         name: Nombre
@@ -113,6 +123,7 @@ es-PY:
         show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
+        topic_id: Asunto
         weight: Orden de posición
       static_page_topic:
         description: Descripción
@@ -1039,14 +1050,14 @@ es-PY:
         moderation:
           fields:
             created_at: Fecha de creación
-            deleted_resource: Eliminar recurso
+            deleted_resource: Recurso eliminado
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Recuento
             reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
-            reports: Denuncias
+            reports: Informes
             visit_url: Visita la URL
         report:
           fields:

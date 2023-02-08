@@ -997,7 +997,7 @@ pt-BR:
     decidim:
       admin:
         global_moderations:
-          title: Moderações globais
+          title: Moderadores globais
         newsletters:
           title: Boletins informativos
         settings:

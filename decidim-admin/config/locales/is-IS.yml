@@ -445,6 +445,9 @@ is-IS:
           homepage_highlighted_content_banner_title: Hápunktur efni borði
           images:
             layout_appearance_title: Breyta útliti útlits
+      organization_homepage_content_blocks:
+        edit:
+          update: Uppfæra
       participatory_space_private_users:
         new:
           create: Búa til
@@ -533,10 +536,10 @@ is-IS:
       models:
         moderation:
           fields:
+            created_at: Sköpunardegi
             hidden_at: Falinn á
             report_count: Telja
             reported_content_url: Tilkynnt efni vefslóð
-            reports: Skýrslur
             visit_url: Heimsókn vefslóð
   errors:
     messages:

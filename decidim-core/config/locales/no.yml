@@ -362,7 +362,7 @@
           request_confirmation_instructions: Be om bekreftels instruksjoner
           title: Bekreft e-posten din
       show:
-        close_modal: Lukk vinduet
+        close_modal: Lukk modal
     block_user_mailer:
       notify:
         body_1: Kontoen din ble blokkert.
@@ -887,7 +887,7 @@
         body_1: Du er i ferd med å besøke en ekstern lenke, og vi vil at du skal være forsiktig med hensyn til innholdet på det eksterne nettstedet.
         body_2: Vennligst sjekk linken du er i ferd med å besøke og sørg for at du anser den som et sikkert nettsted før du fortsetter.
         cancel: Avbryt
-        close_modal: Lukk dialogboks
+        close_modal: Lukk modal
         proceed: Fortsett
         title: Åpne ekstern lenke
     log:

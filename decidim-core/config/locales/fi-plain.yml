@@ -907,8 +907,10 @@ fi-pl:
         create_with_space: "%{user_name} loi %{resource_name} tilassa %{space_name}"
         delete: "%{user_name} poisti %{resource_name}"
         delete_with_space: "%{user_name} poisti %{resource_name} tilassa %{space_name}"
+        publish_with_space: "%{user_name} julkaisi %{resource_name} osallistumistilassa %{space_name}"
         unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} tilassa %{space_name}"
+        unpublish_with_space: "%{user_name} lopetti %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update: "%{user_name} päivitti %{resource_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} tilassa %{space_name}"
       value_types:

@@ -14,17 +14,24 @@ fi-pl:
         description: Kuvaus
         file: Tiedosto
         title: Liitetiedoston tai kuvan nimi
+        weight: Järjestysnumero
       attachment_collection:
         description: Kuvaus
         name: Nimi
+        weight: Järjestysnumero
       category:
         description: Kuvaus
         name: Nimi
         parent_id: Yläaihepiiri
+        weight: Järjestysnumero
       component:
         name: Nimi
         published_at: Julkaistu osoitteessa
         weight: Järjestysnumero
+      external_domain:
+        value: Arvo
+      help_section:
+        content: Sisältö
       id: ID
       import:
         user_group_id: Tuo käyttäjänä
@@ -92,6 +99,9 @@ fi-pl:
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
         youtube_handler: YouTube-käsittelijä
+      participatory_space_private_user:
+        email: Sähköpostiosoite
+        name: Nimi
       scope:
         code: Koodi
         name: Nimi
@@ -113,6 +123,7 @@ fi-pl:
         show_in_footer: Näytä alatunnisteessa
         slug: URL-tunniste
         title: Otsikko
+        topic_id: Aihe
         weight: Järjestysnumero
       static_page_topic:
         description: Kuvaus
@@ -1038,7 +1049,7 @@ fi-pl:
       models:
         moderation:
           fields:
-            created_at: Luonnin ajankohta
+            created_at: Luontipäivämäärä
             deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
@@ -1046,7 +1057,7 @@ fi-pl:
             reportable_id: ID
             reportable_type: Tyyppi
             reported_content_url: Raportoidun sisällön URL
-            reports: Raportit
+            reports: Ilmoitukset
             visit_url: Vieraile URL-osoitteessa
         report:
           fields:

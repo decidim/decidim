@@ -249,7 +249,6 @@ nl:
           votes:
             one: stem
             other: stemmen
-          you_voted: Je stemde hiervoor
         project_budget_button:
           add: Voeg toe aan je stem
           add_descriptive: Voeg project %{resource_name} toe aan je stem

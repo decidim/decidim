@@ -28,7 +28,7 @@ ca:
         show_statistics: Mostrar estadístiques
         sign_date: Data de signatura
         signature: Signatura
-        signature_name: nom de la signatura
+        signature_name: Nom de la signatura
         slogan: Eslògan
         slug: URL amigable
         start_date: Data d'inici
@@ -53,7 +53,7 @@ ca:
         description: Descripció
         price: Cost
         title: Títol
-        weight: Odre de posició
+        weight: Ordre de posició
       conference_speaker:
         affiliation: Afiliació
         avatar: Imatge de perfil
@@ -134,7 +134,7 @@ ca:
           title: Actualitzar administradora de la jornada.
           update: Actualitzar
         index:
-          conference_admins_title: administradores de la jornada
+          conference_admins_title: Administradores de la jornada
         new:
           create: Crear
           title: Nova administradora de jornada.
@@ -312,6 +312,7 @@ ca:
           update: "%{user_name} ha actualitzat la col·laboradora %{resource_name} a la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+          delete: "%{user_name} ha eliminat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
           publish: "%{user_name} ha publicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
           unpublish: "%{user_name} ha despublicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
           update: "%{user_name} ha actualitzat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
@@ -431,7 +432,7 @@ ca:
         create:
           invalid: S'ha produït un error en inscriure't a aquesta jornada.
           success: T'has inscrit a la jornada correctament.
-          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la conferència.
+          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la jornada.
         decline_invitation:
           invalid: S'ha produït un error en rebutjar la invitació.
           success: Has rebutjat la invitació correctament.

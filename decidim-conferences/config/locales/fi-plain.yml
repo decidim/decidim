@@ -28,7 +28,7 @@ fi-pl:
         show_statistics: Näytä tilastot
         sign_date: Allekirjoituksen päivämäärä
         signature: Allekirjoitus
-        signature_name: allekirjoituksen nimi
+        signature_name: Allekirjoituksen nimi
         slogan: Iskulause
         slug: URL-tunniste
         start_date: Alkamispäivä
@@ -37,13 +37,13 @@ fi-pl:
         date: Päivämäärä
         link: Linkki
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_partner:
         link: Linkki
         logo: Logo
         name: Nimi
         partner_type: Kumppanin tyyppi
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_registration_invite:
         email: Sähköposti
         name: Nimi
@@ -53,7 +53,7 @@ fi-pl:
         description: Kuvaus
         price: Hinta
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_speaker:
         affiliation: Jäsenyys
         avatar: Avatar
@@ -134,7 +134,7 @@ fi-pl:
           title: Päivitä konferenssin käyttäjä.
           update: Päivitä
         index:
-          conference_admins_title: konferenssin käyttäjät
+          conference_admins_title: Konferenssin ylläpitäjät
         new:
           create: Luo
           title: Uusi konferenssin käyttäjä.
@@ -312,6 +312,7 @@ fi-pl:
           update: "%{user_name} päivitti yhteistyökumppania %{resource_name} konferenssissa %{space_name}"
         registration_type:
           create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
+          delete: "%{user_name} poisti ilmoittautumistyypin %{resource_name} konferenssista %{space_name}"
           publish: "%{user_name} julkaisi ilmoittautumistyypin %{resource_name} konferenssissa %{space_name}"
           unpublish: "%{user_name} lopetti ilmoittautumistyypin %{resource_name} julkaisun konferenssissa %{space_name}"
           update: "%{user_name} päivitti ilmoittautumistyyppiä %{resource_name} konferenssissa %{space_name}"

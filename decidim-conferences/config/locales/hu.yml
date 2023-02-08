@@ -22,12 +22,6 @@ hu:
         slogan: Szlogen
         slug: URL slug
         title: Cím
-      conference_media_link:
-        weight: Súly
-      conference_partner:
-        weight: Súly
-      conference_registration_type:
-        weight: Súly
       conference_speaker:
         full_name: Teljes név
       conference_user_role:
@@ -99,8 +93,6 @@ hu:
         edit:
           title: A konferencia felhasználó frissítése.
           update: frissítés
-        index:
-          conference_admins_title: konferencia felhasználók számára
         new:
           create: Teremt
           title: Új konferencia felhasználó.
@@ -372,7 +364,6 @@ hu:
       conference_program:
         program_meeting:
           content: Tartalom
-          location: Helyszín
           speakers: Előadók
           streaming: Élő közvetítés
         show:
@@ -410,7 +401,7 @@ hu:
           go_to_twitter: Menjen a Twitterre
       conference_speakers:
         index:
-          speakers: Hangszórók
+          speakers: Előadók
       conferences:
         partners:
           collaborators: Partnerek
@@ -475,7 +466,7 @@ hu:
       registration_types:
         index:
           choose_an_option: 'Válassza ki a regisztrációs lehetőséget:'
-          login_as: '%{name} <%{email}> -ként jelentkezett be'
+          login_as: '%{name} <%{email}> -ként jelentkeztél be'
           register: Regisztráció
           title: Regisztrációs típusok
       shared:

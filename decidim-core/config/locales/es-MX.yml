@@ -373,7 +373,7 @@ es-MX:
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
       show:
-        close_modal: Cerrar el modal
+        close_modal: Cerrar modal
     block_user_mailer:
       notify:
         body_1: Tu cuenta ha sido bloqueda.
@@ -899,7 +899,7 @@ es-MX:
         body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
         body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
         cancel: Cancelar
-        close_modal: Cerrar ventana
+        close_modal: Cerrar modal
         proceed: Continuar
         title: Abrir enlace externo
     log:
@@ -908,8 +908,10 @@ es-MX:
         create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
         delete: "%{user_name} eliminó %{resource_name}"
         delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        publish_with_space: "%{user_name} ha publicado %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
+        unpublish_with_space: "%{user_name} ha despublicado %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
@@ -1591,7 +1593,7 @@ es-MX:
         other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: Es demasiado corto (menos %{count} caracteres)
+      too_short: es demasiado corto (menos %{count} caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:

@@ -22,12 +22,6 @@ zh-CN:
         slogan: 斯洛根文
         slug: URL 名称
         title: 标题
-      conference_media_link:
-        weight: 权重
-      conference_partner:
-        weight: 权重
-      conference_registration_type:
-        weight: 权重
       conference_speaker:
         full_name: 全名
       conference_user_role:
@@ -96,8 +90,6 @@ zh-CN:
         edit:
           title: 更新会议管理员。
           update: 更新
-        index:
-          conference_admins_title: 会议管理员
         new:
           create: 创建
           title: 新的会议管理员。
@@ -368,7 +360,6 @@ zh-CN:
       conference_program:
         program_meeting:
           content: 内容
-          location: 地点
           speakers: 发言者：
           streaming: 流流
         show:

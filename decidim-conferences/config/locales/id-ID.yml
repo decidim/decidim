@@ -22,12 +22,6 @@ id:
         slogan: Slogan
         slug: Siput URL
         title: Judul
-      conference_media_link:
-        weight: Berat
-      conference_partner:
-        weight: Berat
-      conference_registration_type:
-        weight: Berat
       conference_speaker:
         full_name: Nama lengkap
       conference_user_role:
@@ -96,8 +90,6 @@ id:
         edit:
           title: Perbarui pengguna konferensi.
           update: Memperbarui
-        index:
-          conference_admins_title: pengguna konferensi
         new:
           create: Membuat
           title: Pengguna konferensi baru.
@@ -367,7 +359,6 @@ id:
       conference_program:
         program_meeting:
           content: Konten
-          location: Lokasi
           speakers: Pembicara
           streaming: Streaming
         show:

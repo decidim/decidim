@@ -1,10 +1,6 @@
 fi-pl:
   activemodel:
     attributes:
-      agenda:
-        description: Kuvaus
-        duration: Kesto
-        title: Otsikko
       close_meeting:
         attendees_count: Osallistujien määrä
         attending_organizations: Osallistuvien organisaatioiden lista
@@ -22,8 +18,9 @@ fi-pl:
         decidim_scope_id: Teema
         decidim_user_group_id: Käyttäjäryhmä
         description: Kuvaus
-        end_time: Lopetusaika
+        end_time: Päättymisaika
         id: ID
+        iframe_embed_type: Iframe-upotuksen tyyppi
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
         online_meeting_url: Verkkotapaamisen osoite (URL)
@@ -33,13 +30,26 @@ fi-pl:
         registration_email_custom_content: Ilmoittautumisten sähköpostivastauksen muokattu sisältö
         registration_form_enabled: Ilmoittautumislomake on käytössä
         registration_terms: Ilmoittautumisehdot
+        registration_type: Ilmoittautumistyyppi
         registration_url: Ilmoittautumisosoite (URL)
         registrations_enabled: Ilmoittautumiset ovat käytössä
-        show_embedded_iframe: Näytä upotettu iframe tälle osoitteelle
-        start_time: Aloitusaika
+        reserved_slots: Varatut paikat tälle tapaamiselle
+        start_time: Alkamisaika
         title: Otsikko
         transparent: Läpinäkyvä
         type_of_meeting: Tyyppi
+      meeting_agenda:
+        title: Otsikko
+        visible: Näkyvissä
+      meeting_agenda_items:
+        description: Kuvaus
+        duration: Kesto
+        title: Otsikko
+      meeting_registration_invite:
+        email: Sähköpostiosoite
+        name: Nimi
+      validate_registration_code:
+        code: Koodi
     errors:
       models:
         meeting:
@@ -282,9 +292,6 @@ fi-pl:
           edit:
             close: Sulje
             title: Sulje tapahtuma
-        meeting_copies:
-          form:
-            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
             invalid: Tapahtuman sulkemisessa tapahtui virhe

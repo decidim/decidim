@@ -18,8 +18,6 @@ lb:
         user_group_id: Beitrag erstellen als
       admin:
         models:
-          components:
-            body: Haupttext
           post:
             name: Post
         posts:
@@ -47,7 +45,6 @@ lb:
             author: Autor
             body: Haupttext
             created_at: Hergestellt in
-            title: Titel
       posts:
         show:
           back: Zurück zur Liste

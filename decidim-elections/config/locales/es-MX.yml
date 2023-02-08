@@ -6,17 +6,38 @@ es-MX:
         image: Imagen
         proposals: Propuestas relacionadas
         title: Título
+      ballot_style:
+        code: Código
       election:
         description: Descripción
         end_time: La votación termina en
         start_time: La votación comienza a las
         title: Título
+      monitoring_committee_member:
+        email: Correo electrónico
+        name: Nombre
+      polling_officer:
+        email: Correo electrónico
+        name: Nombre
+      polling_station:
+        address: Dirección
+        location: Ubicación
+        location_hints: Detalles de ubicación
+        polling_station_managers: Gestoras
+        polling_station_president_id: Presidencia
+        title: Título
       question:
         max_selections: Número máximo de opciones
         min_selections: Ninguna de las anteriores
         title: Título
+      trustees_participatory_space:
+        user_id: Participante
       voting:
         end_time: La votación finaliza
+        introductory_image: Imagen de presentación
+        promoted: Destacada
+        scope_id: Ámbito
+        show_check_census: Mostrar la página de "comprobar censo"
         start_time: La votación empieza
     errors:
       models:
@@ -249,7 +270,7 @@ es-MX:
               'false': no tiene una <strong>clave pública</strong>
               'true': tiene una <strong> clave pública</strong>
             requirements:
-              census_codes_generated: Se han generador los códigos de acceso al censo.
+              census_codes_generated: Se han generado los códigos de acceso al censo.
               census_frozen: Se han exportado los códgos para el censo y el censo ha quedado congelado.
               census_uploaded: El censo está subido.
               component_published: La elección está <strong>publicada</strong>.

@@ -14,17 +14,24 @@ fr-CA:
         description: Description
         file: Fichier
         title: Nom de la pièce jointe ou de l'image
+        weight: Rang d'affichage
       attachment_collection:
         description: Description
         name: Titre
+        weight: Rang d'affichage
       category:
         description: Description
         name: Titre
         parent_id: Parent
+        weight: Rang d'affichage
       component:
         name: Titre
         published_at: Publiée à
         weight: Rang
+      external_domain:
+        value: Valeur
+      help_section:
+        content: Contenu
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -92,6 +99,9 @@ fr-CA:
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Nom
       scope:
         code: Code
         name: Titre
@@ -113,6 +123,7 @@ fr-CA:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
+        topic_id: Sujet
         weight: Rang
       static_page_topic:
         description: La description
@@ -1046,7 +1057,7 @@ fr-CA:
             reportable_id: ID
             reportable_type: Type
             reported_content_url: URL
-            reports: Motif
+            reports: Signalements
             visit_url: Visitez l'URL
         report:
           fields:

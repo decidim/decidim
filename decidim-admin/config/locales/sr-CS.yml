@@ -556,6 +556,9 @@ sr:
           images:
             preview: Pregled
           omnipresent_banner_appearance_title: Izmeni sveprisutni baner
+      organization_homepage_content_blocks:
+        edit:
+          update: Ažuriraj
       shared:
         gallery:
           add_images: Dodaj slike
@@ -571,3 +574,8 @@ sr:
           last_month: Poslednji mesec
           last_week: Poslednje nedelje
           no_users_count_statistics_yet: Još nema statistike o broju korisnika
+    moderations:
+      models:
+        moderation:
+          fields:
+            created_at: Datum kreiranja

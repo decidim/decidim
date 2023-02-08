@@ -1,10 +1,6 @@
 lt:
   activemodel:
     attributes:
-      agenda:
-        description: Aprašymas
-        duration: Trukmė
-        title: Pavadinimas
       close_meeting:
         attendees_count: Dalyvių skaičius
         attending_organizations: Dalyvavusių organizacijų sąrašas
@@ -22,7 +18,6 @@ lt:
         decidim_scope_id: Apimtis
         decidim_user_group_id: Naudotojų grupė
         description: Aprašymas
-        end_time: Pabaigos laikas
         id: ID
         location: Vieta
         location_hints: Vietos užuomina
@@ -35,8 +30,6 @@ lt:
         registration_terms: Registracijos sąlygos
         registration_url: Registracijos URL
         registrations_enabled: Registracijos įjungtos
-        show_embedded_iframe: Rodyti šiame URL įterptąjį „iframe“
-        start_time: Pradžios Laikas
         title: Pavadinimas
         transparent: Skaidrus
         type_of_meeting: Tipas
@@ -290,9 +283,6 @@ lt:
           edit:
             close: Uždaryti
             title: Baigti susirinkimą
-        meeting_copies:
-          form:
-            select_a_meeting_type: Prašome pasirinkti susirinkimo tipą
         meetings:
           close:
             invalid: Užbaigiant šį susirinkimą iškilo problema

@@ -2,9 +2,13 @@ fi:
   activemodel:
     attributes:
       initiative:
+        answer: Vastaus
+        answer_url: Vastaa URL-osoite
         area_id: Alue
+        decidim_scope_id: Teema
         decidim_user_group_id: Laatija
         description: Kuvaus
+        hashtag: Aihetunniste (hashtag)
         offline_votes: Palvelun ulkopuolella kerätyt kannatukset
         offline_votes_for_scope: Fyysisesti kerätyt allekirjoitukset kohteelle %{scope_name}
         scope_id: Teema
@@ -17,8 +21,11 @@ fi:
           online: Verkossa
         state: Tila
         title: Otsikko
+        type_id: Tyyppi
       initiatives_committee_member:
         user: Komitean jäsen
+      initiatives_settings:
+        initiatives_order: Järjestys
       initiatives_type:
         area_enabled: Salli alueen valinta aloitteille
         attachments_enabled: Salli liitteet
@@ -37,6 +44,9 @@ fi:
         title: Otsikko
         undo_online_signatures_enabled: Verkossa tehtyjen allekirjoitusten peruuttaminen käytössä
         validate_sms_code_on_votes: Lisää tekstiviestikoodin validointivaihe allekirjoitusprosessiin
+      initiatives_type_scope:
+        decidim_scopes_id: Teemat
+        supports_required: Kannatuksia vaaditaan
       initiatives_vote:
         date_of_birth: Syntymäaika
         document_number: Asiakirjan numero

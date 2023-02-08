@@ -257,7 +257,6 @@ lt:
             few: balsai
             many: balsai
             other: balsai
-          you_voted: Balsavote už
         project_budget_button:
           add: Pridėti prie balsų
           add_descriptive: Pridėti projektą %{resource_name} prie balsų

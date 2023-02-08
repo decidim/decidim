@@ -11,15 +11,22 @@ fr:
         decidim_area_id: Périmètre d'assemblée
         description: Description
         developer_group: Organisateur
+        document: Document
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
+        import_attachments: Importer les pièces jointes
+        import_categories: Importer les catégories
+        import_components: Importer les fonctionnalités
+        import_steps: Importer les étapes
         local_area: Espace d'organisation
         meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
+        participatory_process_type_id: Type de processus
         participatory_scope: Objectifs
         participatory_structure: Modalités de décision
+        private_space: Processus privé
         promoted: Mis en avant
         published_at: Publiée à
         related_process_ids: Concertations liées

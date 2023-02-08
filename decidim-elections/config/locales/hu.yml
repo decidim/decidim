@@ -17,6 +17,7 @@ hu:
         title: Cím
       voting:
         end_time: Szavazás vége
+        promoted: Támogatott
         start_time: Szavazás kezdete
     errors:
       models:
