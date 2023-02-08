@@ -830,7 +830,6 @@ sk:
     newsletter_mailer:
       newsletter:
         note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
-        see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
     newsletter_templates:
       basic_only_text:
@@ -1072,9 +1071,6 @@ sk:
         share_link: Zdieľať odkaz
     statistics:
       comments_count: Komentáre
-    user_activity:
-      index:
-        no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
     user_conversations:
       update:
