@@ -32,7 +32,7 @@ describe "Proposals in process home", type: :system do
     it "shows the highlighted proposals section" do
       visit resource_locator(participatory_process).path
 
-      within ".highlighted_proposals" do
+      within "#participatory-process-homepage-highlighted-proposals" do
         expect(page).to have_css(".card--proposal", count: proposals_count)
 
         proposals_titles = proposals.map(&:title).map { |title| translated(title) }
@@ -54,7 +54,7 @@ describe "Proposals in process home", type: :system do
       it "shows the amount of proposals configured" do
         visit resource_locator(participatory_process).path
 
-        within ".highlighted_proposals" do
+        within "#participatory-process-homepage-highlighted-proposals" do
           expect(page).to have_css(".card--proposal", count: highlighted_proposals)
 
           proposals_titles = proposals.map(&:title).map { |title| translated(title) }
