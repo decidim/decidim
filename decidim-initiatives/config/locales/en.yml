@@ -68,8 +68,8 @@ en:
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
-        other: Initatives
+        one: Initiative
+        other: Initiatives
       decidim/initiative_comittee:
         one: Comittee
         other: Comittees
