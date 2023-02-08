@@ -40,7 +40,7 @@ eu:
         destroy: Ezabatu
         edit: Editatu
         import: Inportatu proiektuak emaitzetara
-        import_csv: Inportatu CSV
+        import_csv: Inportatu CSV fichategia
         new: '%{name} berria'
         preview: Aurreikusi
         timeline_entries: Proiektuen bilakaera
