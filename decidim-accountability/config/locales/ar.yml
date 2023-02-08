@@ -10,7 +10,7 @@ ar:
         meetings_ids: الاجتماعات ذات الصلة
         progress: تقدم
         project_ids: المشاريع المدرجة
-        proposals: وشملت المقترحات
+        proposals: المقترحات المدرجة
         start_date: تاريخ البدء
         title: عنوان
         updated_at: تم التحديث في
@@ -24,8 +24,8 @@ ar:
         entry_date: تاريخ
         title: العنوان
     models:
-      decidim/accountability/proposal_linked_event: اقتراح المدرجة في النتيجة
-      decidim/accountability/result_progress_updated_event: نتيجة التقدم المحدث
+      decidim/accountability/proposal_linked_event: الاقتراح المدرج في نتيجة
+      decidim/accountability/result_progress_updated_event: النتائج المحدثة
   activerecord:
     models:
       decidim/accountability/result:
