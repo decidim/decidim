@@ -557,6 +557,7 @@ ro:
         area_types: Tipuri de zone
         areas: Zone
         configuration: Configurare
+        content: Conținut
         dashboard: Panou de administrare
         external_domain_whitelist: Domenii externe permise
         help_sections: Secțiuni de ajutor
@@ -855,6 +856,7 @@ ro:
         edit:
           active_content_blocks: Blocuri de conținut active
           add: Adaugă bloc de conținut
+          destroy_confirmation: Sunteţi sigur că doriţi să ştergeţi acest bloc de conţinut?
           inactive_content_blocks: Blocuri de conținut inactive
           title: Conţinutul paginii
       participatory_space_private_users:
@@ -1113,6 +1115,7 @@ ro:
             hidden_at: Ascuns la
             participatory_space: Spațiu participativ
             report_count: Număr de raportări
+            reportable_id: ID
             reportable_type: Tip
             reported_content_url: URL-ul conținutului raportat
             reports: Motiv
