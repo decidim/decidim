@@ -54,11 +54,6 @@ lt:
               title: Pavadinimo laukas neturėtų būti tuščias
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciatyva
-        few: Iniciatyvos
-        many: Iniciatyvos
-        other: Iniciatyvos
       decidim/initiative_comittee:
         one: Komitetas
         few: Komitetai
