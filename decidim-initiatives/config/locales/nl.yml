@@ -51,9 +51,6 @@ nl:
               title: Titel mag niet leeg zijn
   activerecord:
     models:
-      decidim/initiative:
-        one: Initatief
-        other: Initatief
       decidim/initiative_comittee:
         one: Commissie
         other: Commissies
