@@ -4,18 +4,18 @@ eu:
     attributes:
       collaborative_draft:
         address: Helbidea
-        body: Gorputzeko
+        body: Gorputza
         category_id: Kategoria
         decidim_scope_id: esparrua
         has_address: Helbidea du
         scope_id: Eremua
-        state: Estatu
+        state: Egoera
         title: Izenburua
         user_group_id: Lankidetza zirriborroa sortu
       proposal:
         address: Helbidea
         answer: Erantzuna
-        answered_at: Erantzuna at
+        answered_at: '-k erantzuna'
         automatic_hashtags: Hashtags automatikoki gehitu da
         body: Testua
         category_id: Kategoria
@@ -206,7 +206,7 @@ eu:
             endorsements_blocked: Onarpen blokeatuak
             endorsements_enabled: Onarpen gaituak
             proposal_answering_enabled: Proposamena erantzutea gaituta dago
-            publish_answers_immediately: Argitaratu berehala erantzunak proposamenei
+            publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             suggested_hashtags: Hashtag-ek erabiltzaileei proposamen berriak proposatu dizkie
             votes_blocked: Botoak blokeatuta
             votes_enabled: Botoak gaituta
@@ -256,7 +256,7 @@ eu:
           follower:
             email_intro: '"%{resource_title}" proposamena onartu da. Orri honetan erantzun dezakezu:'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
-            email_subject: Ondorengo proposamen bat onartu da
+            email_subject: Jarraitzen ari zaren proposamen bat onartu da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena onartu da.
         proposal_evaluating:
           affected_user:
@@ -350,8 +350,8 @@ eu:
         object: proposamenak
         title: Onartutako proposamenak
       endorsements:
-        description: Proposamenetan sortutako babesle kopurua
-        object: abalak
+        description: Proposamenekiko abalen kopurua
+        object: oniritziak
         title: Oniritziak
       proposals:
         description: Sortutako proposamen kopurua
