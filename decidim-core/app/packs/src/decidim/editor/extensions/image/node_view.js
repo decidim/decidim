@@ -147,7 +147,7 @@ export default (self) => {
       const handleStart = (ev, device) => {
         // Only allow mouse events to start the resize on the primary button
         // click.
-        if (ev instanceof MouseEvent && ev.button !== 0) {
+        if (device === "mouse" && ev.button !== 0) {
           return;
         }
         if (!editor.isEditable || activeResizeControl) {
