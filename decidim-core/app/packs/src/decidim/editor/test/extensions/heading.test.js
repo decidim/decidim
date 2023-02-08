@@ -22,7 +22,7 @@ const createBasicEditor = () => {
   });
 };
 
-describe("Emoji", () => {
+describe("Heading", () => {
   let editor = null;
   let editorElement = null;
 
