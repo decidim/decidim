@@ -4,6 +4,8 @@ module Decidim
   # This cell is used to generate a filter of activities types
   # Model is expected to be a list of types
   class ResourceTypesFilterCell < Decidim::ViewModel
+    ALL_TYPES_KEY = "all"
+
     include ActionView::Helpers::FormOptionsHelper
     include Decidim::FiltersHelper
     include Decidim::LayoutHelper
@@ -22,7 +24,7 @@ module Decidim
     end
 
     def id
-      @id ||= options[:id] || "filters"
+      options[:id] || "filters"
     end
 
     def form_path
@@ -46,7 +48,7 @@ module Decidim
     end
 
     def all_types_key
-      @all_types_key ||= "all"
+      ALL_TYPES_KEY
     end
   end
 end
