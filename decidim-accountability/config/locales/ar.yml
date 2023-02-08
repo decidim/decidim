@@ -9,7 +9,7 @@ ar:
         end_date: تاريخ الانتهاء
         progress: تقدم
         project_ids: المشاريع المدرجة
-        proposals: وشملت المقترحات
+        proposals: المقترحات المدرجة
         start_date: تاريخ البدء
         title: عنوان
         updated_at: تم التحديث في
@@ -22,8 +22,8 @@ ar:
         description: وصف
         entry_date: تاريخ
     models:
-      decidim/accountability/proposal_linked_event: اقتراح المدرجة في النتيجة
-      decidim/accountability/result_progress_updated_event: نتيجة التقدم المحدث
+      decidim/accountability/proposal_linked_event: الاقتراح المدرج في نتيجة
+      decidim/accountability/result_progress_updated_event: النتائج المحدثة
   activerecord:
     models:
       decidim/accountability/result:
@@ -36,13 +36,13 @@ ar:
   decidim:
     accountability:
       actions:
-        attachment_collections: المجلدات
+        attachment_collections: الحافظات
         attachments: المرفقات
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
         destroy: حذف
         edit: تعديل
         import_csv: استيراد CSV
-        new: جديد %{name}
+        new: '%{name} جديد'
         preview: معاينة
         timeline_entries: تطور المشروع
         title: الإجراءات
