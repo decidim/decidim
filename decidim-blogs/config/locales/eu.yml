@@ -68,7 +68,7 @@ eu:
           create: Sortu
           destroy: Ezabatu
           endorse: Atxiki
-          update: Eguneratu
+          update: Gorde
         name: Bloga
         settings:
           global:
