@@ -10,21 +10,28 @@ ar:
         organization: المنظمة
         plural: صيغة الجمع
       attachment:
-        attachment_collection_id: المجلد
+        attachment_collection_id: الحافظة
         description: الوصف
         file: ملف
         title: المُرفق أو اسم الصورة
+        weight: موضع الطلب
       attachment_collection:
         description: الوصف
         name: اسم
+        weight: موضع الطلب
       category:
         description: الوصف
         name: اسم
-        parent_id: الأبوين
+        parent_id: الأصل
+        weight: موضع الطلب
       component:
         name: اسم
-        published_at: نشرت في
+        published_at: نشر في
         weight: موضع الطلب
+      external_domain:
+        value: القيمة
+      help_section:
+        content: المحتوى
       id: هوية شخصية
       import:
         user_group_id: إنشاء واردات ك
