@@ -38,14 +38,14 @@ ar:
   decidim:
     accountability:
       actions:
-        attachment_collections: المجلدات
+        attachment_collections: الحافظات
         attachments: المرفقات
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
         destroy: حذف
         edit: تعديل
-        import: إيراد نتائج المشاريع
+        import: استيراد المشاريع للنتائج
         import_csv: استيراد CSV
-        new: جديد %{name}
+        new: '%{name} جديد'
         preview: معاينة
         timeline_entries: تطور المشروع
         title: الإجراءات
@@ -90,20 +90,20 @@ ar:
             name: دخول الجدول الزمني
         projects_import:
           create:
-            invalid: كان هناك مشكله فى توريد المشاريع إلى نتائج, من فضلك إتبع التعليمات بعنايه و تأكد من أنك قد أخترت مشاريع للتنفيذ.
+            invalid: كان هناك مشكله فى استيراد المشاريع إلى النتائج, يرجى اتباع التعليمات بعناية و التأكد من اختيار مشاريع للتنفيذ.
           new:
-            create: وارد
+            create: استيراد
             import_all_selected_projects: استيراد جميع المشاريع المحددة للتنفيذ
             new_items:
-              zero: "مشروع واحد محدد سوف يتم إستيرادة"
-              one: مشروع واحد محدد سوق يتم إستيرادة
-              two: "مشروع واحد محدد سوف يتم إستيرادة"
-              few: "سيتم استيراد 1 مشروع محدد"
-              many: "سيتم استيراد 1 مشروع محدد"
-              other: "%{count} المشاريع المحددة سيتم استيرادها"
+              zero: "%{count} مشروع محدد سوف يتم إستيراده"
+              one: مشروع واحد محدد سوف يتم إستيراده
+              two: "مشروع واحد محدد سوف يتم إستيراده"
+              few: "مشروع واحد محدد سوف يتم إستيراده"
+              many: "مشروع واحد محدد سوف يتم إستيراده"
+              other: "%{count} مشروع محدد سوف يتم إستيراده"
             no_components: لا توجد أى مقومات فى الميزانيه فى هذا الحيز لتوريد المشاريع إلى نتائج.
             origin_component_id: عنصر أساسى
-            select_component: حدد العنصر
+            select_component: اختيار المكون
             success:
               zero: "يوجد 1 مشروع مصطف للتوريد . سوف نقوم بإعلامك عن طريق البريد الإلكترونى فى حال إكتماله."
               one: يوجد 1 مشروع مصطف للتوريد . سوف نقوم بإعلامك عن طريق البريد الإلكترونى فى حال إكتماله.
@@ -111,7 +111,7 @@ ar:
               few: "يوجد 1 مشروع مصطف للتوريد . سوف نقوم بإعلامك عن طريق البريد الإلكترونى فى حال إكتماله."
               many: "يوجد 1 مشروع مصطف للتوريد . سوف نقوم بإعلامك عن طريق البريد الإلكترونى فى حال إكتماله."
               other: "يوجد 1 مشروع مصطف للتوريد . سوف نقوم بإعلامك عن طريق البريد الإلكترونى فى حال إكتماله."
-            title: توريد المحاسبه
+            title: استيراد المشاريع إلى المساءلة
         results:
           create:
             invalid: كانت هناك مشكلة في إنشاء هذه النتيجة
@@ -131,7 +131,7 @@ ar:
             success: تم تحديث النتيجة بنجاح
         shared:
           subnav:
-            statuses: الأوضاع
+            statuses: الحالات
         statuses:
           create:
             invalid: كانت هناك مشكلة في إنشاء هذه الحالة
@@ -142,7 +142,7 @@ ar:
             title: تحرير الحالة
             update: تحديث الحالة
           index:
-            title: الأوضاع
+            title: الحالات
           new:
             create: إنشاء الحالة
             title: حالة جديدة
@@ -156,25 +156,29 @@ ar:
           destroy:
             success: تم حذف الإدخال بنجاح
           edit:
-            title: تحرير دخول
+            title: تحرير الإدخال
             update: تحديث الإدخال
           index:
             title: إدخالات الجدول الزمني للمشروع
           new:
-            create: إنشاء دخول
-            title: دخول جديد
+            create: إنشاء الإدخال
+            title: إدخال جديد
           update:
             invalid: حدثت مشكلة أثناء تحديث هذا الإدخال
             success: تم تحديث الإدخال بنجاح
       admin_log:
         result:
-          create: "%{user_name} نتيجة تم إنشاؤها %{resource_name} في %{space_name}"
+          create: "%{user_name} أنشأ النتيجة %{resource_name} في %{space_name}"
           delete: "%{user_name} حذف النتيجة %{resource_name} في %{space_name}"
-          update: "%{user_name} نتيجة محدثة %{resource_name} في %{space_name}"
+          update: "%{user_name} حدث النتيجة %{resource_name} في %{space_name}"
         status:
-          create: "شريط المنشأ\n(إسم المستخدم)  إنشاء مصدر (الإسم الحاله)"
-          delete: "شريط المنشأ\n(إسم المستخدم)  إنشاء مصدر (الإسم الحاله)"
-          update: "شريط المنشأ\n(إسم المستخدم)  إنشاء مصدر (الإسم الحاله)"
+          create: "%{user_name} أنشأ حالة %{resource_name}"
+          delete: "%{user_name} حذف حالة %{resource_name}"
+          update: "%{user_name} حدث حالة %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} أنشأ إدخال الجدول الزمني %{resource_name}"
+          delete: "%{user_name} حذف إدخال الجدول الزمني %{resource_name}"
+          update: "%{user_name} حدث إدخال الجدول الزمني %{resource_name}"
         value_types:
           parent_presenter:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (الرقم-المُعرف: %{id})'
@@ -190,11 +194,17 @@ ar:
           row_number: الصف
           subject: استيراد النتائج بنجاح
           success: نجاح استيراد النتائج. يمكنك مراجعة النتائج في واجهة الإدارة.
+      import_projects_mailer:
+        import:
+          subject: استيراد المشاريع بنجاح
+          success: النتائج المستوردة إلى النتائج في مكون %{component_name}. يمكن معاينة النتائج في واجهة الإدارة.
+      last_activity:
+        new_result: 'النتيجة الجديدة:'
       models:
         result:
           fields:
             category: الفئة
-            created_at: أنشئ
+            created_at: تم الإنشاء
             end_date: تاريخ الانتهاء
             id: المعرف ID
             progress: تقدم
@@ -227,7 +237,7 @@ ar:
         filters:
           all: الكل
         home:
-          categories_label: الاقسام
+          categories_label: الفئات
           subcategories_label: الفئات الفرعية
         home_header:
           global_status: حالة التنفيذ العالمي
@@ -237,7 +247,7 @@ ar:
           search: البحث عن الإجراءات
         show:
           stats:
-            attendees: الحاضرين
+            attendees: الحضور
             back_to_resource: العودة إلى النتيجة
             comments: تعليقات
             contributions: مساهمات
@@ -281,16 +291,16 @@ ar:
         proposal_linked:
           email_intro: 'تم تضمين الاقتراح "%{proposal_title}" في النتيجة. يمكنك أن ترى ذلك من هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{proposal_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تحديث إلى %{proposal_title}
+          email_subject: تحديث حول %{proposal_title}
           notification_title: تم إدراج الاقتراح <a href="%{proposal_path}">%{proposal_title}</a> في النتيجة <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
           email_intro: 'النتيجة "%{resource_title}" ، التي تتضمن الاقتراح "%{proposal_title}" ، اكتملت الآن بنسبة %{progress}٪. يمكنك أن ترى ذلك من هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{proposal_title}" ، ويتم تضمين هذا الاقتراح في النتيجة "%{resource_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تحديث إلى %{resource_title} التقدم
+          email_subject: تحديث حول تقدم %{resource_title}
           notification_title: النتيجة <a href="%{resource_path}">%{resource_title}</a>، التي تتضمن الاقتراح <a href="%{proposal_path}">%{proposal_title}</a>، اكتملت الآن بنسبة %{progress}٪.
     metrics:
       results:
-        description: عدد النتائج التي تم إنشاؤها
+        description: عدد النتائج التي تم توليدها
         object: النتائج
         title: النتائج
     participatory_spaces:
@@ -300,6 +310,6 @@ ar:
       included_projects:
         result_project: المشاريع المدرجة في هذه النتيجة
       included_proposals:
-        result_proposal: المقترحات المدرجة في هذه النتيجة
+        result_proposal: الاقتراحات المدرجة في هذه النتيجة
     statistics:
       results_count: النتائج
