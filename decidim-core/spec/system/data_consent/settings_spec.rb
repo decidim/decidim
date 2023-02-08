@@ -49,14 +49,14 @@ describe "Data consent", type: :system do
     it "shows cookie" do
       expect(page).not_to have_content("decidim-consent")
       expect(page).not_to have_content("Stores information about the cookies allowed by the user on this website")
-      find(".category-wrapper[data-id='essential']").find("button.dc-title").click
+      find("[data-id='essential']").find("button").click
       expect(page).to have_content("decidim-consent")
       expect(page).to have_content("Stores information about the cookies allowed by the user on this website")
     end
 
     it "modal remembers users selection" do
       within "[data-id='analytics']" do
-        find(".switch-paddle").click
+        find("label").click
       end
       click_button "Save settings"
 
