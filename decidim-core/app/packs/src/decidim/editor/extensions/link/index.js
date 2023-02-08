@@ -1,4 +1,5 @@
 import Link from "@tiptap/extension-link";
+import { Plugin } from "prosemirror-state";
 
 import { getDictionary } from "src/decidim/i18n";
 import InputDialog from "src/decidim/editor/common/input_dialog";
@@ -20,6 +21,19 @@ export default Link.extend({
 
     return {
       ...this.parent?.(),
+
+      toggleLinkDialog: () => ({ dispatch, commands, chain }) => {
+        if (dispatch) {
+          if (this.editor.isActive("link")) {
+            return chain().focus(null, { scrollIntoView: false }).unsetLink().run();
+          }
+
+          return commands.linkDialog();
+        }
+
+        return true;
+      },
+
       linkDialog: () => async ({ dispatch, commands }) => {
         if (dispatch) {
           // If the cursor is within the link but the link is not selected, the
@@ -44,7 +58,7 @@ export default Link.extend({
             }
           }
 
-          const linkDialog = new InputDialog(this.editor, { inputs, removeButton: true });
+          const linkDialog = new InputDialog(this.editor, { inputs });
           const dialogState = await linkDialog.toggle({ href, target });
           href = linkDialog.getValue("href");
           target = linkDialog.getValue("target");
@@ -54,7 +68,12 @@ export default Link.extend({
             target = null;
           }
 
-          if (dialogState !== "save" || !href || href.trim().length < 1) {
+          if (dialogState !== "save") {
+            this.editor.commands.focus(null, { scrollIntoView: false });
+            return false;
+          }
+
+          if (!href || href.trim().length < 1) {
             return this.editor.chain().focus(null, { scrollIntoView: false }).unsetLink().run();
           }
 
@@ -64,5 +83,25 @@ export default Link.extend({
         return true;
       }
     }
+  },
+
+  addProseMirrorPlugins() {
+    const editor = this.editor;
+
+    return [
+      ...this.parent?.(),
+      new Plugin({
+        props: {
+          handleDoubleClick() {
+            if (!editor.isActive("link")) {
+              return false;
+            }
+
+            editor.chain().focus().linkDialog().run();
+            return true;
+          }
+        }
+      })
+    ];
   }
 });

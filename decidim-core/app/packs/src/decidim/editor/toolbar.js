@@ -155,7 +155,7 @@ export default function createEditorToolbar(editor) {
           type: "link",
           icon: "link",
           label: i18n["control.link"],
-          action: () => editor.commands.linkDialog()
+          action: () => editor.commands.toggleLinkDialog()
         }).render(supported.marks.includes("link")),
         createEditorToolbarToggle(editor, {
           type: "common:eraseStyles",

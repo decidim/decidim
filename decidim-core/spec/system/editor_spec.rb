@@ -303,7 +303,9 @@ describe "Editor", type: :system do
         HTML
       )
 
-      click_toggle("link")
+      within prosemirror_selector do
+        find("a").double_click
+      end
       within "[data-dialog][aria-hidden='false']" do
         fill_in "Link URL", with: "https://docs.decidim.org"
         select "Default (same tab)", from: "Target"
@@ -317,9 +319,6 @@ describe "Editor", type: :system do
       )
 
       click_toggle("link")
-      within "[data-dialog][aria-hidden='false']" do
-        find("button[data-action='remove']").click
-      end
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -868,7 +867,9 @@ describe "Editor", type: :system do
           HTML
         )
 
-        click_toggle("link")
+        within prosemirror_selector do
+          find("a").double_click
+        end
         within "[data-reveal][aria-hidden='false']" do
           fill_in "Link URL", with: "https://docs.decidim.org"
           select "Default (same tab)", from: "Target"
@@ -882,9 +883,6 @@ describe "Editor", type: :system do
         )
 
         click_toggle("link")
-        within "[data-reveal][aria-hidden='false']" do
-          find("button[data-action='remove']").click
-        end
         expect_value(
           <<~HTML
             <p>Hello, world!</p>
