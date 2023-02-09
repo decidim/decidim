@@ -97,6 +97,7 @@ ro:
             change_selected: Schimbă starea selectată
             finished_orders: Voturi terminate
             pending_orders: Voturi în așteptare
+            select_for_implementation: Ales pentru implementare
             selected: Selectate
             title: Proiecte
             update: Actualizare
