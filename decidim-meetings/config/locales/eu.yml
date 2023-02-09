@@ -365,7 +365,7 @@ eu:
             title: Erregistroak
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
-            success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
+            success: Topaketaren izen-ematearen erregistro-ezarpenak ondo gorde dira.
           validate_registration_code:
             invalid: Izena emateko kode hau baliogabea da.
             success: Izen-ematearen kodea behar bezala balioztatu da.
