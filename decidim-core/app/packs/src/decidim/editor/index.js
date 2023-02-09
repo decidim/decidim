@@ -4,6 +4,7 @@ import CodeBlock from "@tiptap/extension-code-block";
 import Underline from "@tiptap/extension-underline";
 
 import CharacterCount from "src/decidim/editor/extensions/character_count";
+import Bold from "src/decidim/editor/extensions/bold";
 import Dialog from "src/decidim/editor/extensions/dialog";
 import Hashtag from "src/decidim/editor/extensions/hashtag";
 import Heading from "src/decidim/editor/extensions/heading";
@@ -65,16 +66,18 @@ export default function createEditor(container) {
   const extensions = [
     StarterKit.configure({
       heading: false,
+      bold: false,
       orderedList: false,
       codeBlock: false
     }),
     Heading.configure({ levels: [2, 3, 4, 5, 6] }),
     CharacterCount.configure(characterCountOptions),
+    Link.configure(linkOptions),
+    Bold,
     Dialog,
     Indent,
     OrderedList,
     CodeBlock,
-    Link.configure(linkOptions),
     Underline
   ];
   if (features === "full") {
