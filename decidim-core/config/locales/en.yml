@@ -535,6 +535,8 @@ en:
         view_all: View all
       main_data:
         name: Main data
+      metadata:
+        name: Metadata
       metrics:
         name: Organization metrics
       participatory_space_main_data:

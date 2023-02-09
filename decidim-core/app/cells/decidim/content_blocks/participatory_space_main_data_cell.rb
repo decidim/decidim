@@ -20,10 +20,6 @@ module Decidim
       def nav_items
         []
       end
-
-      def metadata_items
-        []
-      end
     end
   end
 end
