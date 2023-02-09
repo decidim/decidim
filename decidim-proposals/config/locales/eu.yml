@@ -16,24 +16,24 @@ eu:
         address: Helbidea
         answer: Erantzuna
         answered_at: '-k erantzuna'
-        automatic_hashtags: Hashtags automatikoki gehitu da
+        automatic_hashtags: Traola automatikoki gehitu da
         body: Testua
         category_id: Kategoria
         decidim_scope_id: Eremua
         has_address: Helbidea du
         scope_id: Eremua
         state: Estatu
-        suggested_hashtags: Iradokitako hashtagak
+        suggested_hashtags: Iradokitako traolak
         title: Titulua
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
       proposal_answer:
         answer: Erantzuna
         cost: Kostua
         cost_report: Kostuaren txostena
-        execution_period: Exekuzioaldia
+        execution_period: Gauzatzeko epea
       proposals_copy:
-        copy_proposals: Honek hautatutako osagaiaren unekoaren proposamen guztiak inportatuko ditu eta ekintza hori ezin da alderantzikatu.
-        origin_component_id: Proposamenen kopia egiteko osagaia
+        copy_proposals: Ulertzen dut honek aukeratutako osagaiaren proposamen guztiak ekarriko dituela gaur egunera eta ekintza hau ezin dela atzera bota.
+        origin_component_id: Proposamenak kopiatzeko osagaia
       proposals_import:
         import_proposals: Inportatu proposamenak
         keep_answers: Mantendu egoera eta erantzunak
@@ -55,9 +55,9 @@ eu:
               needs_to_be_reattached: Artxiboa berriro erantsi behar da
             body:
               cant_be_equal_to_template: ezin da plantillaren berdina izan
-              identical: ETA izenburua ezin da berdinak izan
+              identical: ETA izenburua ezin da berdina izan
             title:
-              identical: ETA gorputzak ezin du berdinak izan
+              identical: ETA testua ezin du berdinak izan
         proposals_merge:
           attributes:
             base:
@@ -482,7 +482,7 @@ eu:
             amendments_count: Zuzenketa kopurua
             assigned_valuators: Ebaluatzaileak esleituta
             authors: Egileak
-            body: Gorputzeko
+            body: Testua
             comments_count: Iruzkin kopurua
             comments_negative_count: Aurka
             comments_neutral_count: Neutrala
