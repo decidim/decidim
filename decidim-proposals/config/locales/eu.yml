@@ -66,7 +66,7 @@ eu:
             base:
               not_official: Ez dira ofizialak
     models:
-      decidim/proposals/accepted_proposal_event: Onartutako proposamena
+      decidim/proposals/accepted_proposal_event: Poposamena onartura
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
       decidim/proposals/admin/update_proposal_scope_event: Proposamen-eremua aldatuta
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
@@ -80,16 +80,16 @@ eu:
     models:
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
-        other: Lankidetza zirriborroak
+        other: Zirriborro kolaboratzaileak
       decidim/proposals/proposal:
         one: Proposamen
-        other: proposamenak
+        other: Proposamenak
       decidim/proposals/proposal_note:
         one: Ohar
         other: Oharrak
       decidim/proposals/proposal_vote:
-        one: Bozkatu
-        other: Botoak
+        one: Bozka
+        other: Bozkak
   decidim:
     admin:
       filters:
@@ -126,17 +126,17 @@ eu:
           amend: Zuzendu
           comment: Iruzkina
           create: Sortu
-          endorse: gatoz
+          endorse: Atxikitu
           vote: Bozkatu
           vote_comment: Bozkatu iruzkina
           withdraw: Erretiratuko
         name: proposamenak
         settings:
           global:
-            amendments_enabled: Emendakinak gaituta
+            amendments_enabled: Zuzenketak baimenduta
             amendments_enabled_help: Aktibo badago, konfiguratu zuzenketen aukerak urrats bakoitzerako.
             amendments_wizard_help_text: Zuzenketen testu-laguntzailea
-            announcement: Anuntzio
+            announcement: Iragarpena
             attachments_allowed: Onartu eranskinak
             can_accumulate_supports_beyond_threshold: Atalasetik haratago doazen euskarriak pilatu ditzakezu
             collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
@@ -165,7 +165,7 @@ eu:
             proposal_edit_time_choices:
               infinite: Utzi proposamenak editatzen epe mugagabe batean
               limited: Utzi proposamenak editatzen epe zehatz baten barruan
-            proposal_length: Proposamen maximoa gorputzaren luzera
+            proposal_length: Proposamen maximoa testuaren luzera
             proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
@@ -355,14 +355,14 @@ eu:
       proposals:
         description: Sortutako proposamen kopurua
         object: proposamenak
-        title: proposamenak
+        title: Proposamenak
       votes:
         description: Erabiltzaileek proposatutako sortutako boto kopurua
-        object: boto
+        object: botoak
         title: Botoak
     participatory_spaces:
       highlighted_proposals:
-        see_all: Ikusi dena (%{count})
+        see_all: Ikusi (%{count}) proposamenak
     proposals:
       actions:
         answer_proposal: Erantzun proposamenari
@@ -379,6 +379,15 @@ eu:
           proposal_comments: Iruzkinak
           proposals: Proposamenak
         imports:
+          help:
+            proposals: |
+              Fitxategiak zutabeko izen hauek izan behar ditu CSV edo Excel fitxategien kasuan, edo gako-izenak JSON fitxategien kasuan:
+              <ul>
+              <li><b>Izenburua/en:</b>Ingelesari buruzko titulua. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da..</li>
+              <li><b>Testua/en:</b>Testua ingelesez. Zure plataformaren hizkuntzaren konfigurazioaren araberakoa izango da.</li>
+              <li><b>Eremua/id:</b> Eremauren ID-a</li>
+              <li><b>Kategoria/id:</b> Kategoriaren ID-a</li>
+              </ul>
           label:
             answers: Inportatu erantzunak errenkada batetik
             proposals: Inportatu proposamenak errenkada batetik
@@ -401,7 +410,7 @@ eu:
           index:
             info_1: Ondorengo atalak inportatutako dokumentutik aztertu dira, proposamen bihurtu dira. Orain argitalpenaren aurretik behar duzun guztia berrikusi eta egokitu dezakezu.
             publish_document: Argitaratu dokumentua
-            save_draft: Aurreztu zirriborroa
+            save_draft: Zirriborroa gorde
             title: PREVIEW PARTICIPATORIO TEXT
           new_import:
             accepted_mime_types:
@@ -432,7 +441,7 @@ eu:
             error: Arazo bat izan da proposamen ohar hau sortzeko
             success: Proposatutako oharra zuzen sortu da
           form:
-            note: Ohar
+            note: Oharra
             submit: Bidali
           leave_your_note: Utzi zure oharra
           title: Ohar pribatuak
@@ -444,8 +453,8 @@ eu:
             invalid: Arazo bat izan da proposamen hau sortzean.
             success: Proposamena zuzen sortu da.
           edit:
-            title: Eguneratze proposamena
-            update: eguneratzearen
+            title: Eguneratu proposamena
+            update: Eguneratu
           form:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             created_in_meeting: Proposamen hau bilera batetik dator
@@ -459,7 +468,7 @@ eu:
             cancel: Utzi
             change_category: Aldatu kategoria
             change_scope: Aldatu eremua
-            merge: Bateratu berri bat sartu
+            merge: Beste batean fusionatu
             merge_button: Batu
             publish: Argitaratu
             publish_answers: Argitaratu erantzunak
@@ -492,7 +501,7 @@ eu:
             endorsements_count: Atxikimendu kopurua
             endorsements_ranking: Sailkapena atxikimenduen arabera
             endorsers: Atxiki dira
-            link: Lotura
+            link: Esteka
             n_more_endorsers:
               one: eta 1 gehiago
               other: eta %{count} gehiago
@@ -567,13 +576,13 @@ eu:
         filter_scope_values:
           all: guztiak
         filter_state_values:
-          accepted: Onartu
-          all: guztiak
-          evaluating: ebaluatzea
+          accepted: Onartuta
+          all: Guztiak
+          evaluating: Ebaluatzen
           not_answered: Erantzun gabe
           rejected: Baztertuta
         filter_type_values:
-          all: guztiak
+          all: Guztiak
           amendments: Aldaketak
           proposals: proposamenak
       collaborative_drafts:
@@ -603,24 +612,24 @@ eu:
           success: Kolaborazio zirriborroa sortu da.
         edit:
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
-          back: Back
+          back: Atzera
           select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Editatu lankidetza zirriborroa
         filters:
-          all: guztiak
+          all: Guztiak
           amendment: Aldaketak
           category: Kategoria
-          open: Open
-          published: Argitaratutako
+          open: Zabalik
+          published: Argitaratuta
           related_to: Lotutako gaiak
           scope: esparrua
-          search: Search
-          state: Estatu
-          withdrawn: kendu
+          search: Bilatu
+          state: Egoera
+          withdrawn: Baztertu
         filters_small_view:
-          close_modal: Itxi modal
-          filter: Filter
+          close_modal: Itxi leihoa
+          filter: Iragazi
           filter_by: Iragazi arabera
           unfold: Zabaldu
         new:
@@ -778,7 +787,7 @@ eu:
         linked_proposals:
           proposal_votes:
             one: proiektuaren alde egin
-            other: euskarriak
+            other: babesak
         new:
           send: Jarraitu
         orders:
@@ -871,9 +880,9 @@ eu:
           vote_limit:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'
             left: Emateke
-            votes: Euskarriak
+            votes: Babesak
         wizard_aside:
-          back: Back
+          back: Atzera
           back_from_step_1: Itzuli proposamenetara
           back_from_step_2: Itzuli proposamenetara
           back_from_step_3: Alderatu berriro proposamenak
@@ -908,7 +917,7 @@ eu:
         collaborative_drafts:
           back_to_resource: Itzuli lankidetza zirriborrora
         index:
-          title: bertsioak
+          title: Bertsioak
         proposals:
           back_to_resource: Joan proposamenari
       withdraw:
