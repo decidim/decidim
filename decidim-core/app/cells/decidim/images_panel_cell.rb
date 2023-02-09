@@ -2,7 +2,7 @@
 
 module Decidim
   # This cell is used to render the images panel of a resource inside
-  # a tab of a drawer
+  # a tab of a show view
   #
   # The `model` must be a resource to get the images from and is expected to
   # respond to photos method

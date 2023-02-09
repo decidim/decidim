@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-# REDESIGN_PENDING - Integrate flag in drawers
+# REDESIGN_PENDING - Integrate flag in meeting show
 # describe "Report Meeting", type: :system do
 #   include_context "with a component"
 
