@@ -448,6 +448,12 @@ ro:
       conference_speaker_cell:
         personal_url:
           personal_website: Website personal
+      conference_speakers:
+        index:
+          speakers:
+            one: Vorbitor
+            few: Vorbitori
+            other: Vorbitori
       conferences:
         partners:
           collaborators: Parteneri
