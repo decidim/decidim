@@ -68,6 +68,9 @@ ca:
               title: El títol no pot quedar buit
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniciativa
+        other: Iniciatives
       decidim/initiative_comittee:
         one: Comitè
         other: Comitès
