@@ -36,6 +36,7 @@ ro:
       meeting_agenda:
         title: Titlu
       meeting_agenda_items:
+        duration: Durată
         title: Titlu
     errors:
       models:
@@ -312,6 +313,7 @@ ro:
             select_a_meeting_type: Te rugăm să selectezi un tip de ședință
             select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
             select_an_iframe_access_level: Vă rugăm să selectați un nivel de acces iframe
+            show_embedded_iframe_help: Doar câteva servicii permit încorporarea în întâlniri sau evenimente live (YouTube, Twitch și Jitsi)
           index:
             title: Întâlniri
           new:
@@ -495,6 +497,7 @@ ro:
           select_a_category: Te rugăm să selectezi o categorie
           select_a_meeting_type: Te rugăm să selectezi un tip de ședință
           select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
+          show_embedded_iframe_help: Doar câteva servicii permit încorporarea în întâlniri sau evenimente live (YouTube, Twitch și Jitsi)
         index:
           click_here: Vezi toate întâlnirile
           new_meeting: Întâlnire nouă
