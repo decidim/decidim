@@ -93,6 +93,22 @@ And define your own services in the environment variable `DECIDIM_SOCIAL_SHARE_S
 
 With this change you can also define your own services. See [documentation for social share services customization](https://docs.decidim.org/en/customize/social_shares/).
 
+### 4.3. Password validator configuration
+
+Decidim implements several password strength checks that ensure the platforms participants and admins are not using weak passwords. One of these validation rules includes checking the user's password against the domain parts of the website, such as `foo.example.org`. The validation ensures that in this case the user's password does not contain the words `foo` or `example`.
+
+This check turned out to be problematic for short subdomains, such as the one in the presented example. Because of this, a new configuration was added to configure the minimum length of a domain part to match against the user's password. The default configuration for this is four characters meaning any domain part shorter than this limit will not be included in this validation rule.
+
+The default value is 4 characters, to change this value you can change the configuration:
+
+```ruby
+# In decidim-core/lib/decidim/core.rb
+
+  config_accessor :password_similarity_length do
+    4
+  end
+```
+
 ## 5. Changes in APIs
 
 ### 5.1. Tailwind CSS instead of Foundation
