@@ -113,7 +113,7 @@ eu:
             success: Galdetegia zuzen gorde da.
       errors:
         answer:
-          body: Gorputza ezin da hutsik egon
+          body: Testua ezin da hutsik egon
       files:
         extension_allowlist: 'Onartutako formatuak:'
       images:
@@ -156,6 +156,8 @@ eu:
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
             title: Javascript desaktibatuta dago
+          questionnaire_not_published:
+            body: Argitalpen hau oraindik ez da argitaratu.
           tos_agreement: Zerbitzu-baldintzak onartzen dituzunean parte hartuz
       step_navigation:
         show:
