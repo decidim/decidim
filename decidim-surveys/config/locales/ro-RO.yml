@@ -32,6 +32,7 @@ ro:
           step:
             allow_answers: Permite răspunsuri
             allow_unregistered: Permite utilizatorilor neînregistrați să răspundă la sondaj
+            allow_unregistered_help: Dacă este activ, nu va fi necesară nicio autentificare pentru a răspunde la chestionar. Acest lucru poate duce la date slabe sau nefiabile și va fi mai vulnerabil la atacuri automate. Utilizați cu prudență! Rețineți că un participant poate răspunde aceluiași sondaj de mai multe ori, utilizând diferite browsere sau funcția de "navigare privată" a browser-ului său web.
             announcement: Anunţ
     events:
       surveys:
