@@ -155,14 +155,21 @@ export default function createEditorToolbar(editor) {
           type: "link",
           icon: "link",
           label: i18n["control.link"],
-          action: () => editor.commands.toggleLinkDialog()
+          action: () => editor.commands.linkDialog()
         }).render(supported.marks.includes("link")),
         createEditorToolbarToggle(editor, {
           type: "common:eraseStyles",
           icon: "eraser-line",
           label: i18n["control.common.eraseStyles"],
           activatable: false,
-          action: () => editor.chain().focus().clearNodes().unsetAllMarks().run()
+          action: () => {
+            if (editor.isActive("link") && editor.view.state.selection.empty) {
+              const originalPos = editor.view.state.selection.anchor;
+              editor.chain().focus().extendMarkRange("link").unsetLink().setTextSelection(originalPos).run();
+            } else {
+              editor.chain().focus().clearNodes().unsetAllMarks().run();
+            }
+          }
         }).render(
           supported.nodes.includes("heading") ||
           supported.marks.includes("bold") ||

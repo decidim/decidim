@@ -22,18 +22,6 @@ export default Link.extend({
     return {
       ...this.parent?.(),
 
-      toggleLinkDialog: () => ({ dispatch, commands, chain }) => {
-        if (dispatch) {
-          if (this.editor.isActive("link")) {
-            return chain().focus(null, { scrollIntoView: false }).unsetLink().run();
-          }
-
-          return commands.linkDialog();
-        }
-
-        return true;
-      },
-
       linkDialog: () => async ({ dispatch, commands }) => {
         if (dispatch) {
           // If the cursor is within the link but the link is not selected, the

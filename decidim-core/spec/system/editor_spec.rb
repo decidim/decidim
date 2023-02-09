@@ -318,7 +318,21 @@ describe "Editor", type: :system do
         HTML
       )
 
+      # Test that editing works also when re-clicking the link toolbar button
       click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        fill_in "Link URL", with: "https://try.decidim.org"
+        select "New tab", from: "Target"
+        find("button[data-action='save']").click
+      end
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <p>Another <a target="_blank" href="https://try.decidim.org">paragraph.</a></p>
+        HTML
+      )
+
+      click_toggle("common:eraseStyles")
       expect_value(
         <<~HTML
           <p>Hello, world!</p>
@@ -882,7 +896,21 @@ describe "Editor", type: :system do
           HTML
         )
 
+        # Test that editing works also when re-clicking the link toolbar button
         click_toggle("link")
+        within "[data-reveal][aria-hidden='false']" do
+          fill_in "Link URL", with: "https://try.decidim.org"
+          select "New tab", from: "Target"
+          find("button[data-action='save']").click
+        end
+        expect_value(
+          <<~HTML
+            <p>Hello, world!</p>
+            <p>Another <a target="_blank" href="https://try.decidim.org">paragraph.</a></p>
+          HTML
+        )
+
+        click_toggle("common:eraseStyles")
         expect_value(
           <<~HTML
             <p>Hello, world!</p>
