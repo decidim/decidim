@@ -323,35 +323,50 @@ describe "Participatory Processes", type: :system do
     end
 
     context "when requesting the participatory process path" do
+      let(:blocks_manifests) { [] }
+
       before do
+        blocks_manifests.each do |manifest_name|
+          create(:content_block, organization:, scope_name: :participatory_process_homepage, manifest_name:, scoped_resource_id: participatory_process.id)
+        end
         visit decidim_participatory_processes.participatory_process_path(participatory_process)
       end
 
       context "when requesting the process path" do
-        it "shows the details of the given process" do
-          within "[data-content]" do
-            expect(page).to have_content(translated(participatory_process.title, locale: :en))
-            expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
-            expect(page).to have_content(translated(participatory_process.description, locale: :en))
-            expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
-            expect(page).to have_content(translated(participatory_process.meta_scope, locale: :en))
-            expect(page).to have_content(translated(participatory_process.developer_group, locale: :en))
-            expect(page).to have_content(translated(participatory_process.local_area, locale: :en))
-            expect(page).to have_content(translated(participatory_process.target, locale: :en))
-            expect(page).to have_content(translated(participatory_process.participatory_scope, locale: :en))
-            expect(page).to have_content(translated(participatory_process.participatory_structure, locale: :en))
-            expect(page).to have_content(I18n.l(participatory_process.end_date, format: :long))
-            expect(page).to have_content(participatory_process.hashtag)
+        context "when main_data and metadata blocks enabled" do
+          let(:blocks_manifests) { [:main_data, :metadata] }
+
+          it "shows the details of the given process" do
+            within "[data-content]" do
+              expect(page).to have_content(translated(participatory_process.title, locale: :en))
+              expect(page).to have_content(translated(participatory_process.subtitle, locale: :en))
+              expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
+              expect(page).to have_content(I18n.l(participatory_process.end_date, format: :decidim_short_with_month_name_short))
+              expect(page).to have_content(participatory_process.hashtag)
+
+              # REDESIGN_PENDING - These contents are not shown by the main data or metadata blocks, remove if correct
+              # expect(page).to have_content(translated(participatory_process.description, locale: :en))
+              # expect(page).to have_content(translated(participatory_process.meta_scope, locale: :en))
+              # expect(page).to have_content(translated(participatory_process.developer_group, locale: :en))
+              # expect(page).to have_content(translated(participatory_process.local_area, locale: :en))
+              # expect(page).to have_content(translated(participatory_process.target, locale: :en))
+              # expect(page).to have_content(translated(participatory_process.participatory_scope, locale: :en))
+              # expect(page).to have_content(translated(participatory_process.participatory_structure, locale: :en))
+            end
           end
         end
 
-        it_behaves_like "has attachments" do
-          let(:attached_to) { participatory_process }
-        end
+        context "when attachments blocks enabled" do
+          let(:blocks_manifests) { [:related_documents, :related_images] }
 
-        it_behaves_like "has attachment collections" do
-          let(:attached_to) { participatory_process }
-          let(:collection_for) { participatory_process }
+          it_behaves_like "has attachments" do
+            let(:attached_to) { participatory_process }
+          end
+
+          it_behaves_like "has attachment collections" do
+            let(:attached_to) { participatory_process }
+            let(:collection_for) { participatory_process }
+          end
         end
 
         context "and it belongs to a group" do
