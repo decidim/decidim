@@ -1326,6 +1326,9 @@ ro:
       help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
       show_original: Afișați textul original
       show_translated: Arată textul tradus automat
+    user_activity:
+      index:
+        no_activities_warning: Acest participant nu are nicio activitate încă.
     user_contact_disabled: Acest participant nu acceptă mesaje directe.
     user_conversations:
       create:
