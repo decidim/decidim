@@ -399,6 +399,7 @@ eu:
         export_calendar: Esportatu egutegia
       close_meeting_reminder_mailer:
         close_meeting_reminder:
+          body: <a href="%{meeting_path}">"%{meeting_title}"</a> bilera ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
           hello: Kaixo, %{username},
       conference_venues: Hitzaldi aretoak
       content_blocks:
