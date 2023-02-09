@@ -304,9 +304,7 @@ describe "Participatory Process Groups", type: :system do
     it "shows no data if there are no components or followers in depending participatory processes" do
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
-      within("[data-statistics]") do
-        expect(page).to have_content("There are no statistics yet")
-      end
+      expect(page).to have_content("There are no statistics yet")
     end
 
     context "when there are components and depending resources" do
@@ -331,18 +329,19 @@ describe "Participatory Process Groups", type: :system do
       end
 
       it "shows unique participants count from both participatory processes" do
-        within("[data-statistics]") do
-          expect(page).to have_css("h2.h2", text: "Statistics")
+        within("[data-statistic][class*=participants]") do
           expect(page).to have_css(".statistic__title", text: "Participants")
           expect(page).to have_css(".statistic__number", text: "1")
         end
       end
 
       it "shows accumulated resources from components of both participatory processes" do
-        within("[data-statistics]") do
-          expect(page).to have_css("h2.h2", text: "Statistics")
+        within("[data-statistic][class*=proposals]") do
           expect(page).to have_css(".statistic__title", text: "Proposals")
           expect(page).to have_css(".statistic__number", text: "10")
+        end
+
+        within("[data-statistic][class*=meetings]") do
           expect(page).to have_css(".statistic__title", text: "Meetings")
           expect(page).to have_css(".statistic__number", text: "4")
         end

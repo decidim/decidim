@@ -51,7 +51,7 @@ module Decidim
       def panels
         panels = []
         if result.children.any?
-          panels << { id: "list", method: :cell, args: ["decidim/accountability/results", result.children, { turbo_frame: "drawer_content_frame" }] }
+          panels << { id: "list", method: :cell, args: ["decidim/accountability/results", result.children] }
         else
           panels << { id: "project_timeline", method: :render, args: [:timeline] } if timeline_entries.any?
           panels += [

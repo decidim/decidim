@@ -99,5 +99,12 @@ module Decidim
     def resource_type_icon_key(resource_type)
       DEFAULT_RESOURCE_TYPE_ICONS[resource_type.to_s] || DEFAULT_RESOURCE_TYPE_ICONS["other"]
     end
+
+    def text_with_resource_icon(resource_name, text)
+      output = ""
+      output += resource_type_icon resource_name
+      output += content_tag :span, text
+      output.html_safe
+    end
   end
 end
