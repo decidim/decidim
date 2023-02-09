@@ -12,7 +12,7 @@ ro:
         proposals: Propuneri incluse
         start_date: Data de început
         title: Titlu
-        updated_at: Actualizat la
+        updated_at: Ultima actualizare
       status:
         description: Descriere
         key: Cheie
@@ -35,7 +35,7 @@ ro:
       actions:
         attachment_collections: Dosare
         attachments: Atașamente
-        confirm_destroy: Sigur dorești să ștergi acest %{name}?
+        confirm_destroy: Sunteți sigur că doriți să ștergeți %{name}?
         destroy: Ștergere
         edit: Editare
         import_csv: Importă CSV
@@ -49,7 +49,7 @@ ro:
           results: Rezultate
         import_results:
           new:
-            download_export: Descarcă Export cu format CSV
+            download_export: Descarcați Export cu format CSV
             import: Importă
             title: Importați rezultate de la CSV
         imports:
