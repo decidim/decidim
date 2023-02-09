@@ -20,9 +20,8 @@ export default CharacterCount.extend({
       new Plugin({
         props: {
           handleKeyDown(view, event) {
-            const currentCount = storage.characterCount.characters();
             if (event.key === "Enter") {
-              return currentCount >= limit;
+              return storage.characterCount.characters() >= limit;
             }
 
             return false;
