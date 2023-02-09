@@ -249,7 +249,7 @@ describe "Participatory Processes", type: :system do
         end
 
         it "shows a highligted processes section" do
-          expect(page).to have_content("HIGHLIGHTED PROCESSES")
+          expect(page).to have_content("Highlighted processes")
         end
 
         it "lists only promoted groups" do
