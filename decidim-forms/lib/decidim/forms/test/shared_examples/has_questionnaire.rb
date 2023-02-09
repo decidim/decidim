@@ -538,12 +538,13 @@ shared_examples_for "has questionnaire" do
       end
     end
 
-    context "when question type is sorting" do
+    context "when question type is sorting and mandatory" do
       let!(:question) do
         create(
           :questionnaire_question,
           questionnaire: questionnaire,
           question_type: "sorting",
+          mandatory: true,
           options: [
             { "body" => { "en" => "chocolate" } },
             { "body" => { "en" => "like" } },
