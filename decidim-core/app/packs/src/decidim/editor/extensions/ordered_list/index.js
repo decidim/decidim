@@ -2,6 +2,23 @@ import OrderedList from "@tiptap/extension-ordered-list";
 
 const allowedListTypes = ["a", "A", "i", "I"];
 
+const covertListStyleToType = (style) => {
+  switch (style) {
+  case "lower-alpha":
+  case "lower-latin":
+    return "a";
+  case "upper-alpha":
+  case "upper-latin":
+    return "A";
+  case "lower-roman":
+    return "i";
+  case "upper-roman":
+    return "I";
+  default:
+    return "1";
+  }
+};
+
 /**
  * This extension is customized in order to support the different styles of
  * ordered lists, such as the following.
@@ -33,10 +50,20 @@ export default OrderedList.extend({
       type: {
         default: null,
         parseHTML: (element) => {
-          const type = element.getAttribute("type");
+          let type = element.getAttribute("type");
           if (allowedListTypes.includes(type)) {
             return type;
           }
+
+          // Google Docs
+          const listItem = element.querySelector("li");
+          if (listItem) {
+            type = covertListStyleToType(listItem.style.listStyleType);
+            if (allowedListTypes.includes(type)) {
+              return type;
+            }
+          }
+
           return null;
         }
       }
