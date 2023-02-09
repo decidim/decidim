@@ -67,6 +67,7 @@ ro:
         projects_import:
           new:
             create: Importă
+            select_component: Selectați componenta
         results:
           create:
             invalid: A apărut o problemă la crearea acestui rezultat
