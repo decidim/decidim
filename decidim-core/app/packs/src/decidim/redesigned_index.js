@@ -211,6 +211,9 @@ const initializer = (element = document) => {
       })
     });
 
+    // in order to use the Dialog object somewhere else
+    window.Decidim.currentDialogs = { ...window.Decidim.currentDialogs, [dialog]: modal }
+
     // NOTE: when a remote modal is open, the contents are empty
     // once they're in the DOM, we append the ARIA attributes
     // otherwise they could not exist yet
