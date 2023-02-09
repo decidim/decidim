@@ -5,7 +5,6 @@ module Decidim
     include Decidim::TraceabilityHelper
     include Decidim::LayoutHelper
     include Decidim::SanitizeHelper
-    include Decidim::TurboHelper
 
     def resource_title
       decidim_html_escape(translated_attribute(versioned_resource.title))
@@ -76,7 +75,7 @@ module Decidim
     end
 
     def html_options
-      @html_options ||= (options[:html_options] || {}).deep_merge(turbo_frame_options(options[:turbo_frame]))
+      @html_options ||= options[:html_options] || {}
     end
   end
 end
