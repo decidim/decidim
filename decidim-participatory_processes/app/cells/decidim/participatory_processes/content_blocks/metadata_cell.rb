@@ -21,6 +21,8 @@ module Decidim
         end
 
         def step_metadata_item
+          return if active_step.blank?
+
           {
             title: t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process"),
             icon: "direction-line",

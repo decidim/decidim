@@ -18,7 +18,7 @@ module Decidim
       private
 
       def step_title
-        translated_attribute process.active_step.title
+        translated_attribute process.active_step&.title
       end
 
       def hashtag
