@@ -32,6 +32,7 @@ const createTippy = (editorElement, content) => {
     placement: "bottom",
     hideOnClick: "toggle",
     appendTo: editorElement.parentElement,
+    aria: { expanded: null },
     content
   });
 };
