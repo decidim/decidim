@@ -27,8 +27,8 @@
   @mixin loop-colors-types($color, $max: 12){
     @for $i from 0 through ($max - 1){
       $interval: ($i % 4) * 24 + 1;
-      $tints: tint($color, $interval);
-      $shades: shade($color, $interval);
+      $tints: tint($color, $interval * 1%);
+      $shades: shade($color, $interval * 1%);
       $adjusts: adjust-color($color, $lightness: $interval * 1%, $hue: -$interval);
 
       .type-#{$i}{
