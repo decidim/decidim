@@ -573,6 +573,9 @@ ro:
           description: Vrei să creezi un cont nou în Decidim? Veţi putea participa la procese şi să fiţi o parte activă a organizaţiei.
           no_account: Nu, mulțumesc.
           title: Nou în Decidem?
+        verify:
+          form:
+            back: Înapoi la Decidim
         voting_step:
           back: Înapoi
           continue: Următoarea
@@ -689,8 +692,14 @@ ro:
           census:
             create:
               invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
+            creating_data:
+              info_message: "<strong>Vă rugăm să așteptați</strong>, au fost procesate un număr de %{processed_count} din %{raw_count} rânduri disponibile în fișierul %{file}."
             destroy:
               error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
+            exporting_access_codes:
+              info_message: "<strong>Vă rugăm să așteptați</strong>, exportul este pregătit, îl veți primi în scurt timp la %{email}"
+            generating_access_codes:
+              info_message: "<strong>Vă rugăm să așteptați</strong>, codurile de acces la vot sunt generate..."
             new:
               has_ballot_styles_message: Ai configurat Ballot Stiluri. Te rugăm să te asiguri că câmpul "%{ballot_style_code_header}" din CSV corespunde codului dorit al Stilului Balt.
               missing_ballot_styles_message: 'Încă nu există un stil de votare pentru acest vot. Dacă doriți să aveți întrebări condiționate (i..: prezintă alegătorului întrebări diferite, în funcţie de exemplu: districtul/regiunea de reședință), trebuie să setezi <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>înainte de</strong> importul recensământului. Dacă doriţi să le adresaţi tuturor alegătorilor aceleaşi întrebări, puteţi continua cu procedura de import de recensământ.'
@@ -717,6 +726,7 @@ ro:
               text_area_placeholder: Te rugăm să îți scrii mesajul
         in_person_votes:
           complete_voting:
+            census_verified: Participantul nu a votat încă.
             questions_title: 'Are drept de vot pentru umătoarele întrebări:'
             questions_title_voted: 'Participantul a votat deja online și are drept de vot pentru următoarele întrebări:'
           in_person_form:
