@@ -170,7 +170,7 @@ eu:
       user_moderation:
         unreport: "%{user_name} desegin du %{resource_type} - %{unreported_user_name} erreportea"
     admin_terms_of_use:
-      default_body: "<h2>TÉRMINOS ADMIN DE USO</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Besteen pribatutasuna errespetatzea.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
+      default_body: "<h2>TERABILTZEKO ADMINISTRAZIOAREN BALDINTZAK</h2><p>Sistemaren tokiko administratzailearen ohiko azalpena jaso duzulakoan gaude. Oro har, hiru gauza hauetara mugatzen da:</p><ol><li>Besteen pribatutasuna errespetatzea.</li><li>Klikatu aurretik pentsatu.</li><li>Botere handiak erantzukizun handia dakar.</li></ol>"
     alert:
       dismiss: Baztertu jakinarazpena
     amendments:
@@ -850,7 +850,7 @@ eu:
     links:
       invalid_url: URL baliogabea
       warning:
-        body_1: Kanpoko lotura bat bisitatuko duzu eta eskatzen dizugu zuhurra izatea kanpoko orrialdeen edukiarekin.
+        body_1: Kanpoko lesteka bat bisitatuko duzu eta eskatzen dizugu zuhurra izatea kanpoko orrialdeen edukiarekin.
         body_2: Mesedez, jarraitu aurretik, egiaztatu bisitatuko duzun lotura leku seguru batena dela.
         cancel: Utzi
         close_modal: Itxi modal
@@ -986,18 +986,18 @@ eu:
         unsubscribe: Mezu mota hau jasotzeko ez onartzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
     newsletter_templates:
       basic_only_text:
-        body_preview: 'Alegiazko testua gorputzerako: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu".'
+        body_preview: 'Alegiazko testua: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu".'
         name: Oinarrizkoa (testua soilik)
       basic_only_text_settings_form:
-        body: Gorputza
+        body: Testua
         interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu gaiaren edo testuaren edozein tokitan, eta horren ordez hartzailearen izena agertuko da.'
       image_text_cta:
-        body_preview: 'Alegiazko testua gorputzerako: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
+        body_preview: 'Alegiazko testua: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Ekintza-botoiaren testua
         introduction_preview: 'Alegiazko testua sarrerarako: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu".'
         name: Irudia, testua eta ekintza-botoia
       image_text_cta_settings_form:
-        body: Gorputza
+        body: Testua
         cta_text: Ekintza-botoiaren testua
         cta_url: Ekintza-botoiaren URLa
         interpolations_hint: 'Iradokizuna: "%{name}" erabil dezakezu sarreraren, gorputzaren, ekintza-botoiaren testuaren edo gaiaren edozein lekutan, eta horren ordez erabiltzailearen izena agertuko da.'
@@ -1019,7 +1019,7 @@ eu:
       notify:
         body_1: Datu pertsonalen tratamendua eta babesak gero eta garrantzi handiagoa hartzen ari dira guztiontzat. 2018ko maiatzaren 25eko Datuen Babeserako Datu Orokor berriaren (GDPR) datu pertsonalak hobeto kontrolatzen ditu. Horregatik, "OK" behar dugu, %{organization_name}jardueren inguruko informazio garrantzitsua bidaltzen jarraitzeko.
         body_2: 'Nola eman dezakezun zure baimena? Egin klik botoi honetan:'
-        body_3: Baimen honekin plataformaren zerbitzuei buruzko informazioa jasotzen jarraitu ahal izango duzu. Aitzitik, ez badugu baieztapen positiboa jasoko, zure mezuak bidaltzen jarraituko dugu. Jakinarazten jarraitu nahi duzula baieztatzen baduzu, edonoiz bertan behera uzteko aukera izango duzu beti.
+        body_3: Baimen honekin plataformako zerbitzuei buruzko informazioa jasotzen jarraitu ahal izango duzu. Aitzitik, zure baieztapena jasotzen ez badugu, gure mezuak bidaltzeari utziko diogu. Informatuta egon nahi duzula baieztatzen baduzu, edozein unetan ezeztatzeko aukera izango duzu.
         button: Bai, informazio garrantzitsua jasotzen jarraitu nahi dut
         greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo,
@@ -1333,7 +1333,7 @@ eu:
         success: Zure interesak ondo eguneratu dira.
     user_report_mailer:
       notify:
-        body_1: '%{user} erabiltzailea %{token} k erreportatu du'
+        body_1: '%{user} erabiltzailea %{token}-ek erreportatu du'
         body_2: 'Arrazoia: %{reason}'
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo, %{admin},
