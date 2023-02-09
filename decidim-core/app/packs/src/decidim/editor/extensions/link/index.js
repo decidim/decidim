@@ -3,8 +3,26 @@ import { Plugin } from "prosemirror-state";
 
 import { getDictionary } from "src/decidim/i18n";
 import InputDialog from "src/decidim/editor/common/input_dialog";
+import BubbleMenu from "src/decidim/editor/extensions/link/bubble_menu";
 
 export default Link.extend({
+  addStorage() {
+    return { bubbleMenu: null };
+  },
+
+  onCreate() {
+    this.parent?.();
+
+    this.storage.bubbleMenu = new BubbleMenu(this.editor);
+  },
+
+  onDestroy() {
+    this.parent?.();
+
+    this.storage.bubbleMenu.destroy();
+    this.storage.bubbleMenu = null;
+  },
+
   addOptions() {
     return {
       ...this.parent?.(),
@@ -22,6 +40,20 @@ export default Link.extend({
     return {
       ...this.parent?.(),
 
+      toggleLinkBubble: () => ({ dispatch }) => {
+        if (dispatch) {
+          console.log(this);
+          if (this.editor.isActive("link")) {
+            this.storage.bubbleMenu.show();
+            return true;
+          }
+
+          this.storage.bubbleMenu.hide();
+          return false;
+        }
+        return this.editor.isActive("link");
+      },
+
       linkDialog: () => async ({ dispatch, commands }) => {
         if (dispatch) {
           // If the cursor is within the link but the link is not selected, the
@@ -29,6 +61,8 @@ export default Link.extend({
           // link is selected, the link would be split to separate links, only
           // the current selection getting the updated link URL.
           commands.extendMarkRange("link");
+
+          this.storage.bubbleMenu.hide();
 
           const { allowTargetControl } = this.options;
 
@@ -57,7 +91,8 @@ export default Link.extend({
           }
 
           if (dialogState !== "save") {
-            this.editor.commands.focus(null, { scrollIntoView: false });
+            // this.editor.commands.focus(null, { scrollIntoView: false });
+            this.editor.chain().focus(null, { scrollIntoView: false }).toggleLinkBubble().run();
             return false;
           }
 
@@ -65,7 +100,7 @@ export default Link.extend({
             return this.editor.chain().focus(null, { scrollIntoView: false }).unsetLink().run();
           }
 
-          return this.editor.chain().focus(null, { scrollIntoView: false }).setLink({ href, target }).run();
+          return this.editor.chain().focus(null, { scrollIntoView: false }).setLink({ href, target }).toggleLinkBubble().run();
         }
 
         return true;

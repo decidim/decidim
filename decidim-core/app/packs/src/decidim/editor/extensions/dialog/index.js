@@ -10,6 +10,7 @@ export default Extension.create({
 
   addCommands() {
     return {
+      isDialogOpen: () => () => this.storage.open,
       toggleDialog: (open) => () => (this.storage.open = open)
     };
   },

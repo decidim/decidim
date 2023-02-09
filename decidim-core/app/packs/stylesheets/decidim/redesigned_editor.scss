@@ -2,6 +2,8 @@
   --editor-active-color: #487bda;
   --editor-border-color: #ccc;
   --editor-disabled-color: #eee;
+  --editor-bubble-border-color: #ccc;
+  --editor-bubble-shadow-color: #333;
 }
 
 .editor-suggestions-props{
@@ -69,6 +71,18 @@
 
   .editor-input{
     @apply relative flex-auto overflow-y-auto;
+
+    [data-linkbubble]{
+      @apply px-2 py-1 border border-solid border-[var(--editor-bubble-border-color)] bg-white shadow-md shadow-[var(--editor-bubble-shadow-color)];
+
+      [data-linkbubble-content]{
+        @apply pr-4;
+      }
+
+      button{
+        @apply mr-1 cursor-pointer text-[var(--editor-active-color)];
+      }
+    }
 
     .ProseMirror{
       @apply relative p-2.5 outline-0 min-h-full prose max-w-none prose-headings:first:mt-0 prose-p:first:mt-0 prose-ul:first:mt-0 prose-ol:first:mt-0 prose-blockquote:first:mt-0 prose-pre:first:mt-0;

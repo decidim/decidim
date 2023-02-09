@@ -1737,6 +1737,10 @@ en:
               topRight: top right corner
         uploadError: Uploading the file failed.
       link:
+        bubbleMenu:
+          edit: Edit
+          remove: Remove
+          url: URL
         hrefLabel: Link URL
         targetLabel: Target
         targets:
