@@ -12,13 +12,13 @@ eu:
   activerecord:
     models:
       decidim/blogs/post:
-        one: Post
-        other: Mezuak
+        one: Argitalpena
+        other: Argitalpenak
   decidim:
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
-        confirm_destroy: Ziur mezua ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude post hau argitalpen ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         new: Post berria
@@ -26,21 +26,21 @@ eu:
       admin:
         models:
           post:
-            name: Post
+            name: Argitalpena
         posts:
           create:
             invalid: Arazo bat izan da sarrera hau sortzeko
-            success: Mezua ondo sortu da
+            success: Argitalpena ondo sortu da
           destroy:
             success: Mezua ondo ezabatu da
           edit:
-            save: Gorde
+            save: Eguneratu
             title: Editatu argitalpena
           index:
             title: Argitalpenak
           new:
             create: Sortu
-            title: Sortu mezua
+            title: Sortu argitalpena
           update:
             invalid: Akatsen bat gertatu da mezua gordetzean.
             success: Sarrera ondo gorde da
