@@ -4,7 +4,7 @@ eu:
       result:
         decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         description: Deskribapena
         end_date: Bukaera-data
         meetings_ids: Honekin lotutako topaketak
@@ -91,9 +91,15 @@ eu:
           new:
             create: Inportatu
             import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
+            new_items:
+              one: Aukeratutako proiektu bat inportatuko da
+              other: "Hautatutako %{count} proiektu inportatuko dira"
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Aukeratu osagaia
+            success:
+              one: Inportatzeko proiektu bat hilaran. Posta elektronikoz jakinaraziko dizute, amaitutakoan
+              other: "%{count} proiektu hilaran inportatzeko zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu"
             title: Inportatu proiektuak jarraipenera
         results:
           create:
@@ -203,7 +209,7 @@ eu:
         timeline_entry:
           fields:
             entry_date: Data
-            title: Izena
+            title: Izenburua
       result_m:
         executed: Burutua
         view: Ikusi
