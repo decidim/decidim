@@ -6,11 +6,11 @@ eu:
       common:
         created_at: Sortze-data
       conversation:
-        body: Gorputza
+        body: Testua
       group:
         about: Honi buruz
-        avatar: Abatar
-        document_number: Dokumentuaren zenbakia
+        avatar: Abatarra
+        document_number: Dokumentu-zenbakia
         email: Helbide elektronikoa
         name: Izena
         nickname: Goitizena
@@ -34,6 +34,7 @@ eu:
       decidim/demoted_membership: Ez da talde admin gehiago
       decidim/gamification/badge_earned_event: Badge irabazi
       decidim/gamification/level_up_event: Berdindu duzu
+      decidim/invited_to_group_event: Taldera gonbidatuta
       decidim/join_request_accepted_event: Erregistratu eskaera onartua
       decidim/join_request_rejected_event: Erregistratu eskaera baztertu da
       decidim/profile_updated_event: Profila eguneratu da
