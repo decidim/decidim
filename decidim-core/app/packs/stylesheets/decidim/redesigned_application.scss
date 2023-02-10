@@ -37,6 +37,7 @@
   @import "stylesheets/decidim/redesigned_tos.scss";
   @import "stylesheets/decidim/redesigned_vertical_tabs.scss";
   @import "stylesheets/decidim/redesigned_flash.scss";
+  @import "stylesheets/decidim/redesigned_map.scss";
   @import "stylesheets/decidim/redesigned_filters.scss";
   @import "stylesheets/decidim/redesigned_tags.scss";
   @import "stylesheets/decidim/redesigned_tabs_x.scss";
@@ -54,9 +55,13 @@
   @import "stylesheets/decidim/redesigned_documents.scss";
   @import "stylesheets/decidim/redesigned_floating_help.scss";
   @import "stylesheets/decidim/redesigned_cards.scss";
+  @import "stylesheets/decidim/redesigned_floating_help.scss";
+  @import "stylesheets/decidim/redesigned_metrics.scss";
   @import "stylesheets/decidim/redesigned_order-by.scss";
   @import "stylesheets/decidim/redesigned_photos.scss";
   @import "stylesheets/decidim/redesigned_endorsers_list.scss";
+  @import "stylesheets/decidim/redesigned_activity.scss";
+  @import "stylesheets/decidim/redesigned_tooltip.scss";
 }
 
 // On the other hand, the following styles match with specific routes
@@ -66,6 +71,8 @@
 @import "stylesheets/decidim/redesigned_notifications.scss";
 @import "stylesheets/decidim/redesigned_profile.scss";
 @import "stylesheets/decidim/redesigned_conversations.scss";
+@import "stylesheets/decidim/redesigned_versions.scss";
+@import "stylesheets/decidim/redesigned_hero.scss";
 
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.

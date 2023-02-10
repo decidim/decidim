@@ -7,10 +7,9 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "jquery"
 import "quill"
-import Rails from "@rails/ujs"
-import "@hotwired/turbo-rails"
 
 // external deps that require initialization
+import Rails from "@rails/ujs"
 import svg4everybody from "svg4everybody"
 import morphdom from "morphdom"
 import Accordions from "a11y-accordion-component";
@@ -31,7 +30,6 @@ import "./input_tags"
 import "./input_hashtags"
 import "./input_mentions"
 import "./input_multiple_mentions"
-// import "./input_character_counter" --deprecated
 import "./input_autojump"
 import "./history"
 import "./callout"
@@ -44,17 +42,16 @@ import "./append_redirect_url_to_modals"
 import "./form_attachments"
 import "./form_remote"
 // import "./conferences" -- deprecated
-import "./tooltip_keep_on_hover"
-import "./diff_mode_dropdown"
+// import "./tooltip_keep_on_hover" -- deprecated
+// import "./diff_mode_dropdown" -- deprecated
 import "./delayed"
 import "./vizzs"
 import "./responsive_horizontal_tabs"
 import "./security/selfxss_warning"
 import "./session_timeouter"
-import "./floating_help"
 import "./confirm"
 import "./results_listing"
-import "./represent_user_group"
+// import "./represent_user_group" -- deprecated
 import "./impersonation"
 // import "./start_conversation_dialog" -- deprecated
 import "./gallery"
@@ -71,14 +68,16 @@ import scrollToLastChild from "./scroll_to_last_child"
 import InputCharacterCounter, { createCharacterCounter } from "./redesigned_input_character_counter"
 import FormValidator from "./form_validator"
 import DataPicker from "./data_picker"
-import FormFilterComponent from "./form_filter"
+import FormFilterComponent from "./redesigned_form_filter"
 import addInputEmoji, { EmojiButton } from "./input_emoji"
 import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
+import addFloatingHelp from "./redesigned_floating_help"
 import RemoteModal from "./redesigned_ajax_modals"
 import selectActiveIdentity from "./redesigned_identity_selector_dialog"
+import createTooltip from "./redesigned_tooltips"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -225,28 +224,23 @@ const initializer = (element = document) => {
     })
   });
 
-  element.querySelectorAll("[data-drawer]").forEach(
-    ({ dataset: { drawer } }) =>
-      new Dialogs(`[data-drawer="${drawer}"]`, {
-        openingSelector: `[data-drawer-open="${drawer}"]`,
-        closingSelector: `[data-drawer-close="${drawer}"]`,
-        backdropSelector: "[data-drawer]"
-      })
-  );
+  // Initialize the floating help blocks for the participatory processes
+  document.querySelectorAll("[data-floating-help]").forEach((elem) => addFloatingHelp(elem))
 
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
 
   // Add event listeners to identity modal
   element.querySelectorAll("[data-user-identity]").forEach((elem) => selectActiveIdentity(elem))
+
+  // Initialize data-tooltips
+  element.querySelectorAll("[data-tooltip]").forEach((elem) => createTooltip(elem))
 }
 
-if ("Turbo" in window) {
-  document.addEventListener("turbo:load", () => initializer());
-  document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
-} else {
-  // If no jQuery is used the Tribute feature used in comments to autocomplete
-  // mentions stops working
-  // document.addEventListener("DOMContentLoaded", () => {
-  $(() => initializer());
-}
+// If no jQuery is used the Tribute feature used in comments to autocomplete
+// mentions stops working
+// document.addEventListener("DOMContentLoaded", () => {
+$(() => initializer());
+
+// Run initializer action over the new DOM elements
+document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));

@@ -300,7 +300,7 @@ shared_examples "proposals wizards" do |options|
         expect(page).to have_content(proposal_body)
 
         expect(page).to have_content("ADDRESS")
-        expect(page).to have_css(".card__content.address")
+        expect(page).to have_css(".static-map__container")
       end
 
       it "shows a publish button" do

@@ -1,0 +1,10 @@
+<div id="breadcrumb-secondary-dropdown-<%= model.id %>" class="menu-bar__secondary-dropdown">
+  <div class="menu-bar__secondary-dropdown__left">
+    <%= render :metadata %>
+    <%# REDESIGN_PENDING: Show last activity related whit participatory space only %>
+    <%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", model, hide_participatory_space: true %>
+  </div>
+  <ul class="menu-bar__secondary-dropdown__menu">
+    <%= render :links %>
+  </ul>
+</div>

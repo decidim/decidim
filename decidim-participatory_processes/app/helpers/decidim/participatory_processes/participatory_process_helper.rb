@@ -12,14 +12,14 @@ module Decidim
       include Decidim::ResourceReferenceHelper
 
       # Public: Returns the dates for a step in a readable format like
-      # "2016-01-01 - 2016-02-05".
+      # "01/01/2016 - 05/02/2016".
       #
       # participatory_process_step - The step to format to
       #
       # Returns a String with the formatted dates.
       def step_dates(participatory_process_step)
         dates = [participatory_process_step.start_date, participatory_process_step.end_date]
-        dates.map { |date| date ? localize(date.to_date, format: :default) : "?" }.join(" - ")
+        dates.map { |date| date ? l(date.to_date, format: :decidim_short) : "?" }.join(" - ")
       end
 
       # Public: Returns the path for the participatory process cta button
@@ -57,15 +57,24 @@ module Decidim
         )
       end
 
-      # Public: Invokes the appropriate partial for a promoted
-      # participatory process or group based on the type name
-      #
-      # promoted_item - Can be a Decidim::ParticipatoryProcess or
-      #                 Decidim::ParticipatoryProcessGroup
-      def render_highlighted_partial_for(promoted_item)
-        name = promoted_item.class.name.demodulize.underscore.gsub("participatory_", "promoted_")
+      # Items to display in the navigation of a process
+      def process_nav_items
+        components = current_participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
-        render partial: name, locals: { name => promoted_item }.symbolize_keys
+        [
+          {
+            name: t("process_menu_item", scope: "layouts.decidim.process_navigation"),
+            url: decidim_participatory_processes.participatory_process_path(current_participatory_space),
+            active: is_active_link?(decidim_participatory_processes.participatory_process_path(current_participatory_space), :exclusive) ||
+              is_active_link?(decidim_participatory_processes.all_metrics_participatory_process_path(current_participatory_space), :exclusive)
+          }
+        ] + components.map do |component|
+          {
+            name: translated_attribute(component.name),
+            url: main_component_path(component),
+            active: is_active_link?(main_component_path(component), :inclusive)
+          }
+        end
       end
     end
   end

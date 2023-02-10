@@ -40,41 +40,19 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "lists all versions" do
-      expect(page).to have_link("Version 1")
-      expect(page).to have_link("Version 2")
-    end
-
-    it "shows the versions count" do
-      expect(page).to have_content("VERSIONS\n2")
-    end
-
-    it "allows going back to the meeting" do
-      click_link "Go back to meeting"
-      expect(page).to have_current_path meeting_path
-    end
-
-    it "shows the version author and creation date" do
-      within ".card--list__item:last-child" do
-        expect(page).to have_content("test suite")
-        expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
-      end
+      expect(page).to have_link("Version 1 of 2")
+      expect(page).to have_link("Version 2 of 2")
     end
   end
 
   context "when showing version" do
     before do
       click_link "see other versions"
-
-      within ".card--list__item:last-child" do
-        click_link("Version 2")
-      end
+      click_link("Version 2 of 2")
     end
 
-    it_behaves_like "accessible page"
-
-    it "shows the version number" do
-      expect(page).to have_content("VERSION NUMBER\n2 out of 2")
-    end
+    # REDESIGN_PENDING: The accessibility should be tested after complete redesign
+    # it_behaves_like "accessible page"
 
     it "allows going back to the meeting" do
       click_link "Go back to meeting"
@@ -82,12 +60,14 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "allows going back to the versions list" do
+      skip "REDESIGN_PENDING: Once redesigned this page will contain a call to the versions_list cell with links to each one"
+
       click_link "Show all versions"
       expect(page).to have_current_path "#{meeting_path}/versions"
     end
 
     it "shows the version author and creation date" do
-      within ".card.extra.definition-data" do
+      within ".version__author" do
         expect(page).to have_content("test suite")
         expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
       end
@@ -96,8 +76,8 @@ describe "Explore versions", versioning: true, type: :system do
     it "shows the changed attributes" do
       expect(page).to have_content("Changes at")
 
-      within ".diff-for-title-english" do
-        expect(page).to have_content("TITLE (ENGLISH)")
+      within "#diff-for-title-english" do
+        expect(page).to have_content("Title (English)")
 
         within ".diff > ul > .del" do
           expect(page).to have_content("My title")

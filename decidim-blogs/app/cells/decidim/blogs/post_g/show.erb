@@ -1,0 +1,26 @@
+<%= link_to resource_path, class: "card__grid" do %>
+  <% if resource_image_path.present? %>
+    <div class="card__grid-img">
+      <%= image_tag resource_image_path, alt: title %>
+    </div>
+  <% end %>
+
+  <div class="card__grid-text">
+    <h3 class="h4 text-secondary">
+      <%= title %>
+    </h3>
+    <div>
+      <%= description %>
+    </div>
+    <%# REDESIGN_PENDING: replace static fields %>
+    <div class="card__grid-metadata">
+      <div>
+        <%= cell "decidim/author", present(Decidim::User.first), from: model, skip_profile_link: true %>
+      </div>
+      <div>
+        <%= icon "comment-line" %>
+        2345 comments
+      </div>
+    </div>
+  </div>
+<% end %>

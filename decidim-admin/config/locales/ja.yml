@@ -824,9 +824,6 @@ ja:
         edit:
           active_content_blocks: アクティブなコンテンツブロック
           inactive_content_blocks: 非アクティブコンテンツブロック
-      organization_homepage_content_blocks:
-        edit:
-          update: 更新
       participatory_space_private_users:
         create:
           error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
