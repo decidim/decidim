@@ -873,6 +873,10 @@ ro:
       reminders:
         create:
           error: A apărut o eroare la crearea de memento-uri.
+          success:
+            one: "I se va reaminti utilizatorului."
+            few: "Se va reaminti celor %{count} utilizatori."
+            other: "Se va reaminti celor %{count} utilizatori."
         new:
           submit: Trimite
       resource_permissions:
