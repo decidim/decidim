@@ -12,7 +12,12 @@ module Decidim
       private
 
       def card_size
-        "decidim/blogs/post_m"
+        case @options[:size]
+        when :g
+          "decidim/blogs/post_g"
+        else
+          "decidim/blogs/post_m"
+        end
       end
     end
   end
