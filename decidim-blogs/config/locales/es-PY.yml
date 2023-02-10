@@ -71,8 +71,10 @@ es-PY:
     components:
       blogs:
         actions:
+          comment: Comentar
           create: Crear
           destroy: Borrar
+          endorse: Adherirse
           update: Actualizar
         name: Blog
         settings:
