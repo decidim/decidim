@@ -8,12 +8,12 @@
     animation-duration: 500ms;
 
     @keyframes slideInUp{
-      from {
+      from{
         transform: translate3d(0, 100%, 0);
         visibility: visible;
       }
 
-      to {
+      to{
         transform: translate3d(0, 0, 0);
       }
     }
