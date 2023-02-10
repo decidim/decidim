@@ -108,8 +108,8 @@ describe "Assemblies", type: :system do
       end
 
       it "lists the parent assemblies" do
-        within "#parent-assemblies" do
-          within "#parent-assemblies h3" do
+        within "#assemblies-grid" do
+          within "#assemblies-grid h2" do
             expect(page).to have_content("2")
           end
 
@@ -127,18 +127,6 @@ describe "Assemblies", type: :system do
         first(".card__link", text: translated(assembly.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
-      end
-
-      it "shows the organizational chart" do
-        within "#assemblies-chart" do
-          within ".js-orgchart" do
-            expect(page).to have_selector(".svg-chart-container")
-
-            within ".svg-chart-container" do
-              expect(page).to have_selector("g.node", count: 2)
-            end
-          end
-        end
       end
     end
   end

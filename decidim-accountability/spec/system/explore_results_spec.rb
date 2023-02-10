@@ -340,7 +340,7 @@ describe "Explore results", versioning: true, type: :system do
       end
 
       it "the result is mentioned in the meeting page" do
-        skip_unless_redesign_enabled("this test pass with drawers enabled")
+        skip_unless_redesign_enabled("this test pass with redesign enabled because the panel containing the result is visible")
 
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(result.title)

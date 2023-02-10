@@ -12,7 +12,6 @@ module Decidim
       include Decidim::SanitizeHelper
       include Decidim::CheckBoxesTreeHelper
       include Decidim::RichTextEditorHelper
-      include Decidim::TurboHelper
 
       def filter_origin_values
         origin_keys = %w(official participants)
