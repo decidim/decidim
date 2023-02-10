@@ -35,18 +35,18 @@
     @apply border-4 border-background rounded p-4 my-2 first:mt-0 last:mb-0;
 
     &-trigger{
-      @apply flex justify-between items-center;
-
-      > :first-child{
-        @apply grow flex items-center gap-2;
-      }
+      @apply flex justify-between items-center gap-2;
 
       > :last-child{
+        @apply grow flex items-center gap-2 [&>button]:ml-auto;
+      }
+
+      > :first-child{
         @apply flex-none;
       }
 
       &-title{
-        @apply h4 text-secondary hover:underline;
+        @apply h4 text-secondary;
       }
 
       &-snippet{

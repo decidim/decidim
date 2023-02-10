@@ -1,28 +1,29 @@
 <div class="cookies__category" data-id="<%= category[:slug] %>">
   <div class="cookies__category-trigger">
-    <div>
-      <label for="dc-<%= category[:slug] %>" class="cookies__category-toggle">
-        <input
-          <%= %(checked="checked") if category[:mandatory] %>
-          id="dc-<%= category[:slug] %>"
-          type="checkbox"
-          name="<%= category[:slug] %>"
-          <%= "disabled" if category[:mandatory] %>>
-        <span class="sr-only"><%= t("layouts.decidim.data_consent.modal.toggle", consent_category: category[:title]) %></span>
-        <span class="cookies__category-toggle-content"></span>
-        <%= icon "check-line", class: "cookies__category-toggle-icon" %>
-        <%= icon "close-line", class: "cookies__category-toggle-icon" %>
-      </label>
+    <label for="dc-<%= category[:slug] %>" class="cookies__category-toggle">
+      <input
+        <%= %(checked="checked") if category[:mandatory] %>
+        id="dc-<%= category[:slug] %>"
+        type="checkbox"
+        name="<%= category[:slug] %>"
+        <%= "disabled" if category[:mandatory] %>>
+      <span class="sr-only"><%= t("layouts.decidim.data_consent.modal.toggle", consent_category: category[:title]) %></span>
+      <span class="cookies__category-toggle-content"></span>
+      <%= icon "check-line", class: "cookies__category-toggle-icon" %>
+      <%= icon "close-line", class: "cookies__category-toggle-icon" %>
+    </label>
 
+    <div id="accordion-trigger-<%= category[:slug] %>" data-controls="accordion-panel-<%= category[:slug] %>" aria-labelledby="accordion-title-<%= category[:slug] %>">
       <h3 id="accordion-title-<%= category[:slug] %>" class="cookies__category-trigger-title">
         <%= category[:title] %>
       </h3>
+
+      <button>
+        <%= icon "arrow-down-s-line", class: "cookies__category-trigger-arrow" %>
+        <%= icon "arrow-up-s-line", class: "cookies__category-trigger-arrow" %>
+      </button>
     </div>
 
-    <button id="accordion-trigger-<%= category[:slug] %>" data-controls="accordion-panel-<%= category[:slug] %>" aria-labelledby="accordion-title-<%= category[:slug] %>">
-      <%= icon "arrow-down-s-line", class: "cookies__category-trigger-arrow" %>
-      <%= icon "arrow-up-s-line", class: "cookies__category-trigger-arrow" %>
-    </button>
   </div>
 
   <div id="accordion-panel-<%= category[:slug] %>" class="cookies__category-panel" aria-hidden="true">
