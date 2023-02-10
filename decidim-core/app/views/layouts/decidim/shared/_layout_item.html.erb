@@ -1,0 +1,15 @@
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 10, main_enabled: false } do %>
+  <div class="layout-2col-grid">
+    <main>
+      <% if local_assigns.has_key?(:back_path) %>
+        <%= link_to back_path, class: "layout-2col-grid__back" do %>
+          <%= icon "arrow-left-line" %>
+          <span><%= t("back", scope: "devise.shared.links")%></span>
+        <% end %>
+      <% end %>
+
+      <%= yield %>
+    </main>
+    <aside><%= yield :aside %></aside>
+  </div>
+<% end %>

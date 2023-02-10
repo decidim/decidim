@@ -47,3 +47,11 @@
     @apply pl-0 md:pr-16;
   }
 }
+
+.layout-2col-grid{
+  @apply grid grid-cols-10 gap-12 py-16 md:py-32 [&>main]:col-span-8 [&>aside]:col-span-2 [&>main]:relative;
+
+  &__back{
+    @apply button button__text-secondary absolute -left-[1em] -top-8 -translate-y-full;
+  }
+}
