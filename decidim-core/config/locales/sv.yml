@@ -1052,7 +1052,6 @@ sv:
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-brevet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">meddelandesidan</a>.
-        see_on_website: Visa inte e-brevet som det ska? Läs det på <a href="%{link}" target="_blank">webbplatsen</a>.
         unsubscribe: Välj att <a href="%{link}" target="_blank" class="unsubscribe">Avprenumerera</a> om du inte vill få denna typ av brev.
     newsletter_templates:
       basic_only_text:
@@ -1373,9 +1372,6 @@ sv:
       help_text: "<strong>OBS:</strong> Innehåll översattes kanske automatiskt och inte är 100% korrekt."
       show_original: Visa originaltexten
       show_translated: Visa maskinöversatt texten
-    user_activity:
-      index:
-        no_activities_warning: Den här användaren har inte haft någon aktivitet än.
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_conversations:
       create:

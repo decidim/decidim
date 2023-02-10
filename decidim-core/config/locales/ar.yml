@@ -835,7 +835,6 @@ ar:
     newsletter_mailer:
       newsletter:
         note: لقد تلقيت هذه الرسالة الإلكترونية لأنك مشترك في الرسائل الإخبارية على %{organization_name}. يمكنك تغيير الإعدادات الخاصة بك على هاتفك <a href="%{link}">الصفحة إخطارات</a>.
-        see_on_website: لا يمكن عرض هذا البريد الإلكتروني بشكل صحيح؟ اطلع عليه على <a href="%{link}" target="_blank">الموقع</a>.
         unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
     newsletter_templates:
       image_text_cta_settings_form:
@@ -1071,9 +1070,6 @@ ar:
       pages_count: صفحات
       participants_count: المشاركون
       users_count: المشاركون
-    user_activity:
-      index:
-        no_activities_warning: هذا المشارك لم يقم بأي نشاط حتى الآن.
     user_conversations:
       index:
         add_users_placeholder: البحث…

@@ -15,7 +15,7 @@ eu:
         description: Descripción
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
-        selected: Hautatua inplementatzeko
+        selected: Ezarpenerako hautatuak
         title: Titulua
       proposals_import:
         scope_id: Eremua

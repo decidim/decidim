@@ -10,7 +10,7 @@ eu:
         max_choices: Gehienezko aukera kopurua
         question_type: Mota
       questionnaire_question:
-        mandatory: derrigorrezko
+        mandatory: Derrigorrezkoa
         max_characters: Karaktereen muga (utzi 0 mugarik ez badago)
     errors:
       models:
@@ -114,7 +114,7 @@ eu:
             success: Galdetegia zuzen gorde da.
       errors:
         answer:
-          body: Gorputza ezin da hutsik egon
+          body: Testua ezin da hutsik egon
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
@@ -151,6 +151,8 @@ eu:
           questionnaire_js_disabled:
             body: Galdetegi honen ezaugarri batzuk desaktibatu egingo dira. Zure esperientzia hobetzeko, gaitu JavaScript zure nabigatzailean.
             title: Javascript desaktibatuta dago
+          questionnaire_not_published:
+            body: Argitalpen hau oraindik ez da argitaratu.
           tos_agreement: Zerbitzu-baldintzak onartzen dituzunean parte hartuz
       step_navigation:
         show:

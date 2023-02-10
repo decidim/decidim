@@ -40,9 +40,6 @@ gl:
         name: Nome completo
   activerecord:
     models:
-      decidim/initiative:
-        one: Initativo
-        other: Iniciais
       decidim/initiative_comittee:
         one: Comite
         other: Comités
