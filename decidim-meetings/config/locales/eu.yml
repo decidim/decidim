@@ -59,7 +59,7 @@ eu:
           attributes:
             base:
               too_many_minutes: Elementuen iraupena %{count} minutuko iraupena gainditzen du
-              too_many_minutes_child: Elementuaren haurraren iraupena "%{parent_title}" gurasoaren iraupena gainditzen du %{count} minutuko agendako elementua
+              too_many_minutes_child: '"%{parent_title}" bileraren gaiak %{count} minutu baino gehiago irauten du'
         meeting_registration_invite:
           attributes:
             email:
@@ -268,7 +268,7 @@ eu:
         invites:
           create:
             error: Arazo bat izan da erabiltzaileak bileran sartzeko gonbita emanda.
-            success: Erabiltzailea behar bezala gonbidatu bilera batera.
+            success: Erabiltzailea behar bezala gonbidatu topaketa batera.
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Parte-hartzailea badago
@@ -384,7 +384,7 @@ eu:
           create: "%{user_name} %{resource_name} bilera sortu zen %{space_name} espazioan"
           delete: "%{user_name} %{resource_name} topaketa ezabatu da %{space_name} espazioan"
           export_registrations: "%{user_name} %{resource_name} bilera erregistratu dira %{space_name} espazioan"
-          update: "%{user_name} %{resource_name} topaketa %{space_name} espazioan eguneratu zen"
+          update: "%{user_name} %{resource_name} topaketa %{space_name} espazioan eguneratu da"
           value_types:
             organizer_presenter:
               not_found: 'Antolatzailea ez da aurkitu datu-basean (ID: %{id})'
