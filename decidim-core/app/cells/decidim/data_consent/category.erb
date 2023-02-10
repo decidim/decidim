@@ -13,7 +13,7 @@
       <%= icon "close-line", class: "cookies__category-toggle-icon" %>
     </label>
 
-    <button id="accordion-trigger-<%= category[:slug] %>" data-controls="accordion-panel-<%= category[:slug] %>" aria-labelledby="accordion-title-<%= category[:slug] %>">
+    <div id="accordion-trigger-<%= category[:slug] %>" data-controls="accordion-panel-<%= category[:slug] %>" aria-labelledby="accordion-title-<%= category[:slug] %>">
       <h3 id="accordion-title-<%= category[:slug] %>" class="cookies__category-trigger-title">
         <%= category[:title] %>
       </h3>
@@ -22,7 +22,7 @@
         <%= icon "arrow-down-s-line", class: "cookies__category-trigger-arrow" %>
         <%= icon "arrow-up-s-line", class: "cookies__category-trigger-arrow" %>
       </span>
-    </button>
+    </div>
 
   </div>
 
