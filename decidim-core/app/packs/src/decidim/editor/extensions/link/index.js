@@ -42,7 +42,6 @@ export default Link.extend({
 
       toggleLinkBubble: () => ({ dispatch }) => {
         if (dispatch) {
-          console.log(this);
           if (this.editor.isActive("link")) {
             this.storage.bubbleMenu.show();
             return true;
