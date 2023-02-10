@@ -172,7 +172,7 @@ eu:
           email_subject: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiago dira.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako slot okupatuak %{percentage} baino gehiagokoak dira.
         meeting_updated:
-          email_intro: '"%{resource_title}" bilera eguneratu da. Bertsio berria irakur dezakezu bere orritik:'
+          email_intro: '"%{resource_title}" topaketa eguneratu da. Bertsio berria irakur dezakezu bere orrian:'
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" topaketa eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
