@@ -11,7 +11,6 @@ module Decidim
     include Decidim::CardHelper
     include Decidim::LayoutHelper
     include Decidim::SearchesHelper
-    include Decidim::TurboHelper
 
     alias resource model
 
@@ -36,7 +35,7 @@ module Decidim
     end
 
     def html_options
-      @html_options ||= (options[:html_options] || {}).deep_merge(turbo_frame_options(options[:turbo_frame]))
+      @html_options ||= options[:html_options] || {}
     end
 
     def presented_resource
@@ -95,7 +94,7 @@ module Decidim
     end
 
     def title
-      translated_attribute resource.title
+      decidim_html_escape(translated_attribute(resource.title))
     end
 
     def title_tag

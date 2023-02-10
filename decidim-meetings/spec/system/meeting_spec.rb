@@ -39,7 +39,7 @@ describe "Meeting", type: :system, download: true do
     it "they show it" do
       visit_meeting
 
-      within "#drawer_content_frame" do
+      within "[data-content]" do
         expect(page).to have_selector(".meeting__aside-block", count: meeting.services.size)
 
         services_titles = meeting.services.map { |service| service.title["en"] }

@@ -14,6 +14,8 @@ module Decidim
       include Decidim::LayoutHelper
       include Cell::ViewModel::Partial
 
+      delegate :snippets, to: :controller
+
       def show
         render unless results_count.zero?
       end
