@@ -267,9 +267,6 @@
           edit:
             close: Lukk
             title: Lukk møte
-        meeting_copies:
-          form:
-            select_a_meeting_type: Vennligst velg en møtetype
         meetings:
           close:
             invalid: Det oppstod et problem med å avslutte dette møtet
