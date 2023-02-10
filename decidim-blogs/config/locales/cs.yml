@@ -73,8 +73,10 @@ cs:
     components:
       blogs:
         actions:
+          comment: Komentář
           create: Vytvořit
           destroy: Smazat
+          endorse: Schválit
           update: Aktualizovat
         name: Blog
         settings:
