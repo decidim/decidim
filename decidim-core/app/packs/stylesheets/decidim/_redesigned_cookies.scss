@@ -38,7 +38,7 @@
       @apply flex justify-between items-center gap-2;
 
       > :last-child{
-        @apply grow flex items-center gap-2 [&>button]:ml-auto;
+        @apply grow flex items-center gap-2 last:[&>*]:ml-auto;
       }
 
       > :first-child{
