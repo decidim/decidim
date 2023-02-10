@@ -71,8 +71,10 @@ eu:
     components:
       blogs:
         actions:
+          comment: Iruzkindu
           create: Sortu
           destroy: Ezabatu
+          endorse: Atxiki
           update: Eguneratu
         name: Bloga
         settings:
