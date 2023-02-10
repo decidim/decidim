@@ -200,7 +200,7 @@ eu:
         attended_meetings:
           conditions:
             - Parte hartu nahi duzun topaketan izena eman
-          description: Idazmahaia hainbat aurpegi bileretara joaten zarenean ematen da.
+          description: Idazmahaia hau aurrez aurreko topaketa batzuetara joaten zarenean ematen da.
           description_another: Erabiltzaile honek %{score} topeketetan parte hartu du.
           description_own: '%{score} topaketetan parte hartu duzu.'
           name: Parte hartu den topkaetak
@@ -264,7 +264,7 @@ eu:
         invite_join_meeting_mailer:
           invite:
             decline: Deuseztatu gonbidapena
-            invited_you_to_join_a_meeting: "%{invited_by} gonbidatu zaitu %{application} bileran. Beheko estekan onartu dezakezu."
+            invited_you_to_join_a_meeting: "%{invited_by} gonbidatu zaitu %{application} topaketan. Beheko estekan onartu dezakezu."
             join: Erregistratu topaketa'%{meeting_title}'
         invites:
           create:
@@ -286,7 +286,7 @@ eu:
             filter_by: Iragazi arabera
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
-            registrations_disabled: Ezin duzu parte-hartzaile bat gonbidatu erregistrazioek desgaituta egon direlako.
+            registrations_disabled: Ezin duzu inor gonbidatu izne-emateak desgaituta daudelako.
             search: Bilatu
         meeting_closes:
           edit:
@@ -381,13 +381,13 @@ eu:
       admin_log:
         invite:
           create: "%{user_name} gonbidatua izan da %{attendee_name} batzeko %{resource_name} buruzko topaketa %{space_name} espazioan"
-          deleted: "%{user_name} gabeko %{attendee_name} batu batetik %{resource_name} bileraren on %{space_name} espazio"
-          update: "%{user_name} gonbidatu %{attendee_name} batzeko %{resource_name} buruzko bilera %{space_name} espazio"
+          deleted: "%{user_name}-ek %{attendee_name}-ri gonbidapena egiteari utzi zion %{space_name} espazioan parte hartzeko"
+          update: "%{user_name}-ek %{attendee_name}-ri gonbidatu %{space_name} espazioan parte hartzeko"
         meeting:
-          close: "%{user_name} %{resource_name} bilera %{space_name} espazioan itxi zen"
-          create: "%{user_name} %{resource_name} bilera sortu zen %{space_name} espazioan"
-          delete: "%{user_name} %{resource_name} topaketa ezabatu da %{space_name} espazioan"
-          export_registrations: "%{user_name} %{resource_name} bilera erregistratu dira %{space_name} espazioan"
+          close: "%{user_name}-k %{resource_name} topaketa %{space_name} espazioan itxi zen"
+          create: "%{user_name}-k %{resource_name} topaketa sortu da %{space_name} espazioan"
+          delete: "%{user_name}-k %{resource_name} topaketa ezabatu da %{space_name} espazioan"
+          export_registrations: "%{user_name} -k %{resource_name} topaketarako erregistroak esportatu ditu %{space_name} espazioan"
           update: "%{user_name} %{resource_name} topaketa %{space_name} espazioan eguneratu da"
           value_types:
             organizer_presenter:
