@@ -293,9 +293,6 @@ fi-pl:
           edit:
             close: Sulje
             title: Sulje tapahtuma
-        meeting_copies:
-          form:
-            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
             invalid: Tapahtuman sulkemisessa tapahtui virhe
