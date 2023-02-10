@@ -94,7 +94,7 @@ module Decidim
     end
 
     def title
-      translated_attribute resource.title
+      decidim_html_escape(translated_attribute(resource.title))
     end
 
     def title_tag
