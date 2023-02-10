@@ -284,9 +284,6 @@ lt:
           edit:
             close: Uždaryti
             title: Baigti susirinkimą
-        meeting_copies:
-          form:
-            select_a_meeting_type: Prašome pasirinkti susirinkimo tipą
         meetings:
           close:
             invalid: Užbaigiant šį susirinkimą iškilo problema
