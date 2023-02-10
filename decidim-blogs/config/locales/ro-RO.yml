@@ -72,8 +72,10 @@ ro:
     components:
       blogs:
         actions:
+          comment: Comentariu
           create: Creează
           destroy: Șterge
+          endorse: Susține
           update: Actualizează
         name: Blog
         settings:
