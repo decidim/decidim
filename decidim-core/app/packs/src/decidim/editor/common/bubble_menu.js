@@ -1,20 +1,20 @@
 import { isNodeSelection, posToDOMRect } from "@tiptap/core";
 import { Plugin } from "prosemirror-state";
-import tippy from "tippy.js";
 
-const createTippy = (editorElement, content) => {
-  return tippy(editorElement, {
-    duration: 0,
-    getReferenceClientRect: null,
-    interactive: true,
-    trigger: "manual",
-    placement: "bottom",
-    hideOnClick: "toggle",
-    appendTo: editorElement.parentElement,
-    aria: { expanded: null },
-    content
-  });
-};
+const createBubbleRoot = (content) => {
+  const root = document.createElement("div");
+  root.style.cssText = `
+    z-index: 9999;
+    position: absolute;
+    visibility: hidden;
+    inset: 0 auto auto 0;
+    margin: 0;
+  `;
+  root.dataset.bubbleMenu = "";
+  root.append(content);
+
+  return root;
+}
 
 const createProseMirrorPlugin = (pluginKey, bubbleMenu) => {
   return new Plugin({
@@ -64,22 +64,34 @@ export default class BubbleMenu {
       });
     });
 
-    this.tippy = createTippy(this.editor.view.dom, this.element);
+    this.bubble = createBubbleRoot(this.element);
+    this.bubbleShown = false;
 
     this.plugin = createProseMirrorPlugin(pluginKey, this);
     this.editor.registerPlugin(this.plugin);
   }
 
   show() {
-    this.tippy.show();
+    if (this.bubbleShown) {
+      return;
+    }
+    this.editor.view.dom.parentElement.append(this.bubble);
+    this.bubble.style.visibility = "visible";
+    this.bubbleShown = true;
   }
 
   hide() {
-    this.tippy.hide();
+    if (!this.bubbleShown) {
+      return;
+    }
+    this.bubble.style.visibility = "hidden";
+    this.bubble.remove();
+    this.bubbleShown = false;
   }
 
   destroy() {
-    this.tippy.destroy();
+    this.hide();
+    this.bubble = null;
     this.editor.unregisterPlugin(this.plugin.key);
   }
 
@@ -89,33 +101,51 @@ export default class BubbleMenu {
       return;
     }
     if (this.shouldDisplay(view)) {
-      this.updatePosition(view);
       this.display(view);
-
       this.show();
+      this.updatePosition(view);
+
       return;
     }
     this.hide();
   }
 
-  updatePosition(view) {
+  getReferenceRect(view) {
     const { state } = view;
     const { ranges } = state.selection;
     const from = Math.min(...ranges.map((range) => range.$from.pos));
     const to = Math.max(...ranges.map((range) => range.$to.pos));
 
-    this.tippy.setProps({
-      getReferenceClientRect: () => {
-        if (isNodeSelection(state.selection)) {
-          const node = view.nodeDOM(from);
-          if (node) {
-            return node.getBoundingClientRect();
-          }
-        }
-
-        return posToDOMRect(view, from, to);
+    if (isNodeSelection(state.selection)) {
+      const node = view.nodeDOM(from);
+      if (node) {
+        return node.getBoundingClientRect();
       }
-    });
+    }
+
+    return posToDOMRect(view, from, to);
+  }
+
+  updatePosition(view) {
+    const editorRect = view.dom.getBoundingClientRect();
+    const referenceRect = this.getReferenceRect(view);
+
+    const xDiff = referenceRect.left - editorRect.left;
+    const yDiff = referenceRect.top - editorRect.top;
+    const width = this.bubble.clientWidth;
+    const height = this.bubble.clientHeight;
+
+    let xPos = Math.round(xDiff - width / 2);
+    if (xPos < 5) {
+      xPos = 5;
+    }
+
+    let yPos = Math.round(yDiff + height - 5);
+    if (yPos < 5) {
+      yPos = 5;
+    }
+
+    this.bubble.style.transform = `translate(${xPos}px, ${yPos}px)`;
   }
 
   shouldDisplay() {
