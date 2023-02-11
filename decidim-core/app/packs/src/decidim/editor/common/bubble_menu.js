@@ -98,19 +98,6 @@ export default class BubbleMenu {
     this.hide();
   }
 
-  shouldDisplay() {
-    // This can be overridden by the implementation
-    return false;
-  }
-
-  display() {
-    // This can be overridden by the implementation
-  }
-
-  handleAction() {
-    // This can be overridden by the implementation
-  }
-
   updatePosition(view) {
     const { state } = view;
     const { ranges } = state.selection;
@@ -129,5 +116,18 @@ export default class BubbleMenu {
         return posToDOMRect(view, from, to);
       }
     });
+  }
+
+  shouldDisplay() {
+    // This can be overridden by the implementation
+    return false;
+  }
+
+  display() {
+    // This can be overridden by the implementation
+  }
+
+  handleAction() {
+    // This can be overridden by the implementation
   }
 }
