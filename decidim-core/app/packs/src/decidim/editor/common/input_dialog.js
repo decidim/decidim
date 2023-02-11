@@ -72,7 +72,7 @@ export default class InputDialog {
         setTimeout(() => this.focusFirstInput(), 0);
       });
       $(this.element).on("closed.zf.reveal", () => {
-        setTimeout(() => this.destroy(), 0);
+        setTimeout(() => this.handleClose(), 0);
       });
     } else {
       const uniq = this.element.dataset.dialog;
@@ -102,7 +102,7 @@ export default class InputDialog {
           setTimeout(() => this.focusFirstInput(), 0);
         },
         onClose: () => {
-          setTimeout(() => this.destroy(), 0);
+          setTimeout(() => this.handleClose(), 0);
         }
       });
     }
@@ -116,13 +116,8 @@ export default class InputDialog {
     this.element.querySelectorAll("button[data-action]").forEach((button) => {
       button.addEventListener("click", (ev) => {
         ev.preventDefault();
-        const action = button.dataset.action;
-
+        this.action = button.dataset.action;
         this.close();
-        if (this.callback) {
-          this.callback(action);
-          this.callback = null;
-        }
       });
     });
   }
@@ -140,6 +135,7 @@ export default class InputDialog {
       });
 
       this.callback = resolve;
+      this.action = null;
 
       this.editor.commands.toggleDialog(true);
 
@@ -153,8 +149,6 @@ export default class InputDialog {
   }
 
   close() {
-    this.editor.chain().toggleDialog(false).focus(null, { scrollIntoView: false }).run()
-
     if (this.legacyDesign) {
       // Foundation needs jQuery
       $(this.element).foundation("close");
@@ -173,6 +167,26 @@ export default class InputDialog {
       this.element.remove();
       Reflect.deleteProperty(this, "dialog");
     }
+  }
+
+  /**
+   * This is fired when the dialog is actually closed. The `close()` method only
+   * initiates the closing of the dialog.
+   *
+   * @returns {void}
+   */
+  handleClose() {
+    this.editor.chain().toggleDialog(false).focus(null, { scrollIntoView: false }).run();
+
+    if (this.callback) {
+      this.callback(this.action);
+      this.callback = null;
+    }
+    if (this.action) {
+      this.action = null;
+    }
+
+    this.destroy();
   }
 
   focusFirstInput() {
