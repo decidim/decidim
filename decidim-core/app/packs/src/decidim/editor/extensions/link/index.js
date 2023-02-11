@@ -90,7 +90,6 @@ export default Link.extend({
           }
 
           if (dialogState !== "save") {
-            // this.editor.commands.focus(null, { scrollIntoView: false });
             this.editor.chain().focus(null, { scrollIntoView: false }).toggleLinkBubble().run();
             return false;
           }
