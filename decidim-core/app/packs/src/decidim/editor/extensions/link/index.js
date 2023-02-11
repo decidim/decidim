@@ -3,7 +3,7 @@ import { Plugin } from "prosemirror-state";
 
 import { getDictionary } from "src/decidim/i18n";
 import InputDialog from "src/decidim/editor/common/input_dialog";
-import BubbleMenu from "src/decidim/editor/extensions/link/bubble_menu";
+import createBubbleMenu from "src/decidim/editor/extensions/link/bubble_menu";
 
 export default Link.extend({
   addStorage() {
@@ -13,7 +13,7 @@ export default Link.extend({
   onCreate() {
     this.parent?.();
 
-    this.storage.bubbleMenu = new BubbleMenu(this.editor);
+    this.storage.bubbleMenu = createBubbleMenu(this.editor);
   },
 
   onDestroy() {
