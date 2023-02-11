@@ -23,10 +23,10 @@ export default (ctx) => {
       // `data-reveal` attribute.
       if (dialog.querySelector("[data-reveal]")) {
         dialog.querySelector("button[data-action='save']").click();
+        $(dialog.querySelector("[data-reveal]")).trigger("closed.zf.reveal");
       } else {
         dialog.querySelector("[data-dialog-actions] button[data-action='save']").click();
       }
-
 
       // Wait for the next event loop as this is when the dialog closing is
       // handled

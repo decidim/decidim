@@ -8,6 +8,8 @@ import { createEditorContainer, sleep, updateContent, selectContent, dropFixture
 import contextHelpers from "./shared/context";
 import itBehavesLikeBasicToolbar from "./shared/behaves_like_basic";
 
+// global.$ = $; // eslint-disable-line id-length
+
 describe("full toolbar", () => {
   const ctx = {
     editorContainer: null
@@ -49,6 +51,7 @@ describe("full toolbar", () => {
         dialog.querySelector("[data-input='src'] input").value = "https://www.youtube.com/watch?v=f6JMgJAQ2tc";
         dialog.querySelector("[data-input='title'] input").value = "Decidim";
         dialog.querySelector("button[data-action='save']").click();
+        $(dialog.querySelector("[data-reveal]")).trigger("closed.zf.reveal");
 
         // Wait for the next event loop as this is when the dialog closing is
         // handled
@@ -92,6 +95,7 @@ describe("full toolbar", () => {
         srcInput.value = "https://www.youtube.com/watch?v=zhMMW0TENNA";
         titleInput.value = "Free Open-Source participatory democracy";
         dialog.querySelector("button[data-action='save']").click();
+        $(dialog.querySelector("[data-reveal]")).trigger("closed.zf.reveal");
 
         // Wait for the next event loop as this is when the dialog closing is
         // handled
