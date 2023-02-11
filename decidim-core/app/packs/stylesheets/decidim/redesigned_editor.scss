@@ -76,11 +76,15 @@
       @apply px-2 py-1 border border-solid border-[var(--editor-bubble-border-color)] bg-white shadow-md shadow-[var(--editor-bubble-shadow-color)];
 
       [data-linkbubble-content]{
-        @apply pr-4;
+        @apply inline-flex;
+
+        [data-linkbubble-value]{
+          @apply truncate ml-2 max-w-[185px];
+        }
       }
 
       button{
-        @apply mr-1 cursor-pointer text-[var(--editor-active-color)];
+        @apply mx-1 cursor-pointer text-[var(--editor-active-color)];
       }
     }
 
