@@ -3,7 +3,7 @@ eu:
     attributes:
       area:
         area_type: Eremu mota
-        name: izena
+        name: Izena
         organization: Erakundea
       area_type:
         name: Izena
@@ -481,6 +481,9 @@ eu:
         data_errors:
           duplicate_headers:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
+            message:
+              one: Bikoiztu zutabeak %{columns}.
+              other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
               detail: "\nEgiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela."
@@ -1035,6 +1038,7 @@ eu:
             hidden_at: Ezkutatze-data
             participatory_space: Parte hartzeko esparrua
             report_count: Zenbaketa
+            reportable_id: ID
             reportable_type: Mota
             reported_content_url: Emandako edukiaren URLa
             reports: Txostenak

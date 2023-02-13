@@ -196,7 +196,9 @@ es-PY:
         unblock: "%{user_name} desoficializó a la usuaria %{resource_name}"
         unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloqueado al grup de usuarias %{resource_name}"
         reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
+        unblock: "%{user_name} ha desbloqueado el grupo de usuarias %{resource_name}"
         verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
       user_moderation:
@@ -1033,7 +1035,7 @@ es-PY:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank" class="see-on-website">versión web</a>.'
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletter_templates:
       basic_only_text:
@@ -1351,7 +1353,7 @@ es-PY:
       show_translated: Mostrar el texto traducido automáticamente
     user_activity:
       index:
-        no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
+        no_activities_warning: Esta participante no ha tenido ninguna actividad todavía.
     user_contact_disabled: Esta participante no acepta mensajes directos.
     user_conversations:
       create:

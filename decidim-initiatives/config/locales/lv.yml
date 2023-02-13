@@ -51,10 +51,6 @@ lv:
               title: Virsrakstam nevajadzētu būt tukšam
   activerecord:
     models:
-      decidim/initiative:
-        zero: Iniciatīvas
-        one: Iniciatīva
-        other: Iniciatīvas
       decidim/initiative_comittee:
         zero: Komitejas
         one: Komiteja

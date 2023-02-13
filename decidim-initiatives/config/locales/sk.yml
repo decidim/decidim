@@ -40,11 +40,6 @@ sk:
         name: Kompletné meno
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciatíva
-        few: Iniciatívy
-        many: Iniciatívy
-        other: Iniciatívy
       decidim/initiative_comittee:
         one: Komisia
         few: Komisie

@@ -981,7 +981,6 @@ pt-BR:
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
-        see_on_website: Não é possível ver este email corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -1289,9 +1288,6 @@ pt-BR:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
       show_translated: Mostrar texto traduzido automaticamente
-    user_activity:
-      index:
-        no_activities_warning: Este usuário ainda não possui nenhuma atividade.
     user_contact_disabled: Este usuário não aceita mensagens diretas.
     user_conversations:
       create:

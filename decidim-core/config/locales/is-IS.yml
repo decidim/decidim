@@ -274,7 +274,6 @@ is-IS:
     newsletter_mailer:
       newsletter:
         note: Þú fékkst þennan tölvupóst vegna þess að þú ert áskrifandi að fréttabréfinu á %{organization_name}. Þú getur breytt stillingum þínum á <a href="%{link}">tilkynningarsíðunni þinni</a>.
-        see_on_website: Get ekki séð þetta netfang rétt? Skoðaðu það á <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Til að hætta við að fá þessa tegund af tölvupósti, <a href="%{link}" target="_blank" class="unsubscribe">Afskráðu</a>.
     newsletters:
       unsubscribe:

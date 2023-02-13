@@ -61,9 +61,6 @@ sv:
               title: Titeln bör inte vara tom
   activerecord:
     models:
-      decidim/initiative:
-        one: Intitiativ
-        other: Initiativ
       decidim/initiative_comittee:
         one: Kommitté
         other: Kommittéer

@@ -992,7 +992,6 @@ nl:
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
-        see_on_website: Wordt deze e-mail niet correct worden weergegeven? Bekijk hem via deze link <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Om je uit te schrijven, <a href="%{link}" target="_blank" class="unsubscribe">Uitschrijven</a>.
     newsletter_templates:
       basic_only_text:
@@ -1292,9 +1291,6 @@ nl:
     tags:
       filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
       filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'
-    user_activity:
-      index:
-        no_activities_warning: Deze deelnemer heeft nog geen activiteit gehad.
     user_contact_disabled: Deze gebruiker accepteert geen directe berichten.
     user_conversations:
       create:

@@ -57,10 +57,6 @@ ro:
               title: Titlul nu ar trebui să fie gol
   activerecord:
     models:
-      decidim/initiative:
-        one: Inițiativă
-        few: Initații
-        other: Initații
       decidim/initiative_comittee:
         one: Comitet
         few: Grupuri

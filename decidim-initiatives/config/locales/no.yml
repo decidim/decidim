@@ -54,9 +54,6 @@
               title: Tittelen bør ikke være tom
   activerecord:
     models:
-      decidim/initiative:
-        one: Initiativ
-        other: Initiativer
       decidim/initiative_comittee:
         one: Komité
         other: Komitér

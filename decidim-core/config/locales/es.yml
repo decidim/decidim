@@ -196,7 +196,9 @@ es:
         unblock: "%{user_name} desoficializó a la usuaria %{resource_name}"
         unofficialize: "%{user_name} ha desoficializado a la participante %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloqueado al grup de usuarias %{resource_name}"
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
+        unblock: "%{user_name} ha desbloqueado el grupo de usuarias %{resource_name}"
         verify: "%{user_name} verificó el grupo %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
       user_moderation:
@@ -1030,7 +1032,7 @@ es:
     newsletter_mailer:
       newsletter:
         note: Has recibido este correo electrónico porque estás suscrita a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank" class="see-on-website">versión web</a>.'
         unsubscribe: Para desactivar la recepción este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletter_templates:
       basic_only_text:
