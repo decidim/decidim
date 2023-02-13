@@ -23,8 +23,8 @@ describe "Proposals", type: :system do
   end
 
   matcher :have_author do |name|
-    match { |node| node.has_selector?(".author-data", text: name) }
-    match_when_negated { |node| node.has_no_selector?(".author-data", text: name) }
+    match { |node| node.has_selector?("[data-author]", text: name) }
+    match_when_negated { |node| node.has_no_selector?("[data-author]", text: name) }
   end
 
   context "when creating a new proposal" do

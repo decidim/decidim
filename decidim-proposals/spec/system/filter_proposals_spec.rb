@@ -472,7 +472,7 @@ describe "Filter Proposals", :slow, type: :system do
         it "lists the filtered proposals" do
           find('input[name="filter[type]"][value="all"]').click
 
-          expect(page).to have_css(".item-list.proposal-list-item", count: 2)
+          expect(page).to have_css(".card__list.proposal-list-item", count: 2)
           expect(page).to have_content("2 PROPOSALS")
           expect(page).to have_content("Amendment", count: 2)
         end
@@ -484,7 +484,7 @@ describe "Filter Proposals", :slow, type: :system do
             choose "Proposals"
           end
 
-          expect(page).to have_css(".item-list.proposal-list-item", count: 1)
+          expect(page).to have_css(".card__list.proposal-list-item", count: 1)
           expect(page).to have_content("1 PROPOSAL")
           expect(page).to have_content("Amendment", count: 1)
         end
@@ -496,7 +496,7 @@ describe "Filter Proposals", :slow, type: :system do
             choose "Amendments"
           end
 
-          expect(page).to have_css(".item-list.proposal-list-item", count: 1)
+          expect(page).to have_css(".card__list.proposal-list-item", count: 1)
           expect(page).to have_content("1 PROPOSAL")
           expect(page).to have_content("Amendment", count: 2)
         end
@@ -539,7 +539,7 @@ describe "Filter Proposals", :slow, type: :system do
                 within ".filters" do
                   choose "Amendments"
                 end
-                expect(page).to have_css(".item-list.proposal-list-item", count: 1)
+                expect(page).to have_css(".card__list.proposal-list-item", count: 1)
                 expect(page).to have_content("1 PROPOSAL")
                 expect(page).to have_content("Amendment", count: 2)
                 expect(page).to have_content(translated(new_emendation.title))
@@ -612,7 +612,7 @@ describe "Filter Proposals", :slow, type: :system do
                 within ".filters" do
                   choose "Amendments"
                 end
-                expect(page).to have_css(".item-list.proposal-list-item", count: 2)
+                expect(page).to have_css(".card__list.proposal-list-item", count: 2)
                 expect(page).to have_content("2 PROPOSAL")
                 expect(page).to have_content("Amendment", count: 3)
                 expect(page).to have_content(translated(new_emendation.title))
@@ -665,11 +665,11 @@ describe "Filter Proposals", :slow, type: :system do
         check "Rejected"
       end
 
-      expect(page).to have_css(".item-list.proposal-list-item", count: 8)
+      expect(page).to have_css(".card__list.proposal-list-item", count: 8)
 
       page.go_back
 
-      expect(page).to have_css(".item-list.proposal-list-item", count: 6)
+      expect(page).to have_css(".card__list.proposal-list-item", count: 6)
     end
 
     it "recover filters from previous pages" do
@@ -689,19 +689,19 @@ describe "Filter Proposals", :slow, type: :system do
         check "Accepted"
       end
 
-      expect(page).to have_css(".item-list.proposal-list-item", count: 2)
+      expect(page).to have_css(".card__list.proposal-list-item", count: 2)
 
       page.go_back
 
-      expect(page).to have_css(".item-list.proposal-list-item", count: 6)
+      expect(page).to have_css(".card__list.proposal-list-item", count: 6)
 
       page.go_back
 
-      expect(page).to have_css(".item-list.proposal-list-item", count: 8)
+      expect(page).to have_css(".card__list.proposal-list-item", count: 8)
 
       page.go_forward
 
-      expect(page).to have_css(".item-list.proposal-list-item", count: 6)
+      expect(page).to have_css(".card__list.proposal-list-item", count: 6)
     end
   end
 
@@ -716,18 +716,18 @@ describe "Filter Proposals", :slow, type: :system do
     end
 
     it "saves and restores the filtering" do
-      expect(page).to have_css(".item-list.proposal-list-item", count: 6)
+      expect(page).to have_css(".card__list.proposal-list-item", count: 6)
 
       within ".filters .with_any_state_check_boxes_tree_filter" do
         check "Rejected"
       end
 
-      expect(page).to have_css(".item-list.proposal-list-item", count: 8)
+      expect(page).to have_css(".card__list.proposal-list-item", count: 8)
 
-      page.find(".item-list.proposal-list-item a", match: :first).click
+      page.find(".card__list.proposal-list-item a", match: :first).click
       click_link "Back to list"
 
-      expect(page).to have_css(".item-list.proposal-list-item", count: 8)
+      expect(page).to have_css(".card__list.proposal-list-item", count: 8)
     end
   end
 end
