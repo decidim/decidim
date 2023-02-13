@@ -377,6 +377,7 @@ describe "Participatory Processes", type: :system do
 
         context "and it belongs to a group" do
           let!(:group) { create :participatory_process_group, participatory_processes: [participatory_process], organization: }
+          let(:blocks_manifests) { [:metadata] }
 
           it "has a link to the group the process belongs to" do
             visit decidim_participatory_processes.participatory_process_path(participatory_process)
