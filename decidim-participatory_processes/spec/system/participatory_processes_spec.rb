@@ -378,6 +378,7 @@ describe "Participatory Processes", type: :system do
         context "when it has some linked processes" do
           let(:published_process) { create :participatory_process, :published, organization: }
           let(:unpublished_process) { create :participatory_process, :unpublished, organization: }
+          let(:blocks_manifests) { [:related_processes] }
 
           it "only shows the published linked processes" do
             participatory_process
@@ -487,6 +488,7 @@ describe "Participatory Processes", type: :system do
           let!(:unpublished_assembly) { create(:assembly, :unpublished, organization:) }
           let!(:private_assembly) { create(:assembly, :published, :private, :opaque, organization:) }
           let!(:transparent_assembly) { create(:assembly, :published, :private, :transparent, organization:) }
+          let(:blocks_manifests) { [:related_assemblies] }
 
           before do
             published_assembly.link_participatory_space_resources(participatory_process, "included_participatory_processes")
@@ -497,7 +499,7 @@ describe "Participatory Processes", type: :system do
           end
 
           it "display related assemblies" do
-            expect(page).to have_content("RELATED ASSEMBLIES")
+            expect(page).to have_content("Related assemblies")
             expect(page).to have_content(translated(published_assembly.title))
             expect(page).to have_content(translated(transparent_assembly.title))
             expect(page).to have_no_content(translated(unpublished_assembly.title))
