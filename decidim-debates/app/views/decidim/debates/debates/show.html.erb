@@ -14,8 +14,7 @@ edit_link(
 %>
 
 
-<button class="button button__secondary button__lg" data-drawer-open>open version</button>
-<%= render layout: "layouts/decidim/shared/drawer" , locals: { close_url: debate_path } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: debate_path } do %>
   <h2 class="h2 decorator mb-8">
     <%== present(debate).title(links: true, html_escape: true) %>
   </h2>
@@ -57,7 +56,7 @@ edit_link(
   <div class="mt-8">
     <ul class="drawer-metadata__container" data-metadata-footer>
       <%= content_tag :li, resource_reference(debate), class: "drawer-metadata__item" %>
-      <%#= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count), **turbo_frame_options(:drawer_content_frame)), class: "drawer-metadata__item" %>
+      <%#= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count)), class: "drawer-metadata__item" %>
     </ul>
   </div>
 
