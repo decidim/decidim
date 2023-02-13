@@ -403,10 +403,12 @@ describe "Participatory Processes", type: :system do
         end
 
         context "and the process has some components" do
+          let(:blocks_manifests) { [:main_data] }
+
           it "shows the components" do
-            within ".process-nav" do
-              expect(page).to have_content(translated(proposals_component.name, locale: :en).upcase)
-              expect(page).to have_no_content(translated(meetings_component.name, locale: :en).upcase)
+            within ".process__nav-container" do
+              expect(page).to have_content(translated(proposals_component.name, locale: :en))
+              expect(page).to have_no_content(translated(meetings_component.name, locale: :en))
             end
           end
 
