@@ -33,7 +33,7 @@ describe "Filter Participatory Processes", type: :system do
     let!(:past_process2) { create :participatory_process, :past, title: { en: "Ended 1 month ago" }, end_date: 1.month.ago, organization: }
     let!(:upcoming_process) { create :participatory_process, :upcoming, title: { en: "Starts 1 week from now" }, organization: }
     let!(:upcoming_process2) { create :participatory_process, :upcoming, title: { en: "Starts 1 year from now" }, start_date: 1.year.from_now, organization: }
-    let(:titles) { page.all(".card__title") }
+    let(:titles) { page.all(".card__grid-text h3") }
 
     before do
       visit decidim_participatory_processes.participatory_processes_path
@@ -41,8 +41,8 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing 'active' processes" do
       it "lists the active processes ordered by start_date (descendingly)" do
-        within "#processes-grid h3" do
-          expect(page).to have_content("2 ACTIVE PROCESSES")
+        within "#processes-grid h2" do
+          expect(page).to have_content("2 active processes")
         end
 
         within "#processes-grid" do
@@ -228,8 +228,8 @@ describe "Filter Participatory Processes", type: :system do
 
         context "and choosing 'active' processes" do
           it "lists all active processes" do
-            within "#processes-grid h3" do
-              expect(page).to have_content("8 ACTIVE PROCESSES")
+            within "#processes-grid h2" do
+              expect(page).to have_content("8 active processes")
             end
           end
 
@@ -255,7 +255,7 @@ describe "Filter Participatory Processes", type: :system do
           end
 
           it "lists past processes" do
-            within "#processes-grid h3" do
+            within "#processes-grid h2" do
               expect(page).to have_content("2 PAST PROCESSES")
             end
           end
@@ -310,7 +310,7 @@ describe "Filter Participatory Processes", type: :system do
 
         context "and choosing 'active' processes" do
           it "lists all active processes inside the group" do
-            within "#processes-grid h3" do
+            within "#processes-grid .processes-grid-order-by h3" do
               expect(page).to have_content("3 ACTIVE PROCESSES")
             end
 
