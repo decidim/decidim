@@ -26,6 +26,10 @@ module Decidim
 
         metrics.redesigned_charts Decidim.metrics_registry.filtered(highlight: true, scope:)
       end
+
+      def data
+        { metrics: "" }
+      end
     end
   end
 end
