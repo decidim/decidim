@@ -1,7 +1,7 @@
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: meetings_path } do %>
   <div class="meeting__container">
 
-    <h1 class="h2 decorator" data-heading-tag><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+    <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
 
     <%= cell "decidim/meetings/dates_and_map", meeting %>
 

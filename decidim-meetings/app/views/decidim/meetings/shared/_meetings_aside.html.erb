@@ -1,6 +1,6 @@
 <% title = component.present? ? translated_attribute(component.name) : t("decidim.components.meetings.name") %>
 <% if local_assigns[:main_action] %>
-  <h1 class="h3 md:h1 decorator" data-heading-tag><%= title %></h1>
+  <h1 class="h3 md:h1 decorator"><%= title %></h1>
 <% else %>
   <h2 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h2>
 <% end %>
