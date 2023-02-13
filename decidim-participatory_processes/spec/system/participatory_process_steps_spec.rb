@@ -42,6 +42,9 @@ describe "Participatory Process Steps", type: :system do
     end
 
     it "does not show a CTA button" do
+      # REDESIGN_PENDING - The CTA is ignored in the redesign. Remove this
+      # test if it's correct
+
       visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
 
       within ".process-header__phase" do
@@ -55,6 +58,9 @@ describe "Participatory Process Steps", type: :system do
       end
 
       it "shows a CTA button" do
+        # REDESIGN_PENDING - The CTA is ignored in the redesign. Remove this
+        # test if it's correct
+
         visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
 
         within ".process-header__phase" do
