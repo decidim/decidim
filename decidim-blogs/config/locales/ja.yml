@@ -70,8 +70,10 @@ ja:
     components:
       blogs:
         actions:
+          comment: コメント
           create: 作成
           destroy: 削除
+          endorse: オススメ
           update: 更新
         name: ブログ
         settings:

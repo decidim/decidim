@@ -71,8 +71,10 @@ ca:
     components:
       blogs:
         actions:
+          comment: Comentar
           create: Crear
           destroy: Esborrar
+          endorse: Adherir-se
           update: Actualitzar
         name: Blog
         settings:

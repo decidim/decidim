@@ -71,8 +71,10 @@ fr:
     components:
       blogs:
         actions:
+          comment: Commenter
           create: Créer
           destroy: Supprimer
+          endorse: Soutenir
           update: Mettre à jour
         name: Actualités
         settings:

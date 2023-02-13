@@ -71,8 +71,10 @@ fi-pl:
     components:
       blogs:
         actions:
+          comment: Kommentointi
           create: Luo
           destroy: Poista
+          endorse: Suosittelu
           update: Päivitä
         name: Blogi
         settings:

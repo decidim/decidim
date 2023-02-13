@@ -170,27 +170,27 @@ eu:
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiagokoak dira.'
           email_outro: Topaketako espazio parte-hartzailearen administratzaile zarelako jaso duzu jakinarazpen hau.
-          email_subject: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiago dira.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako slot okupatuak %{percentage} baino gehiagokoak dira.
+          email_subject: '"%{resource_title}" topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.
         meeting_updated:
           email_intro: '"%{resource_title}" topaketa eguneratu da. Bertsio berria irakur dezakezu bere orrian:'
-          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_outro: Jjakinarazpen hau "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan baja eman daiteke.
           email_subject: '"%{resource_title}" topaketa eguneratu da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa eguneratu da.
         registration_code_validated:
-          email_intro: Zure izen-emate kodea "%{registration_code}" bilera "%{resource_title}" egiteko baliozkoa izan da.
+          email_intro: Zure erregistro-kodea " "%{registration_code}" "%{resource_title}" topakerarako baliozkotu da.
           email_outro: Jakinarazpen hau jaso duzu zure erregistro-kodea baliozkotu delako "%{resource_title}" topaketarako.
           email_subject: Zure izen-emate kodea "%{registration_code}" "%{resource_title}" topaketarako baliozkotu egin da
-          notification_title: Zure erregistro-kodea "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> bilerako balioztatu da.
+          notification_title: Zure erregistro-kodea "%{registration_code}" <a href="%{resource_path}">%{resource_title}</a> topaketarako balioztatu da.
         registrations_enabled:
-          email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure burua erregistratu dezakezu bere orrialdean:'
+          email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure izena eman dezakezu bere orrialdean:'
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" topaketak erregistroak gaitu ditu.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera erregistratzeak gaitu du.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketaren izen-emateak zabalik.
         upcoming_meeting:
-          email_intro: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
-          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
+          email_intro: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" topaketa jarraitzen duzulako. Aurreko estekan baja eman daiteke.
+          email_subject: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
     forms:
       meetings:
@@ -200,9 +200,9 @@ eu:
         attended_meetings:
           conditions:
             - Parte hartu nahi duzun topaketan izena eman
-          description: Idazmahaia hainbat aurpegi bileretara joaten zarenean ematen da.
-          description_another: Erabiltzaile honek %{score} bileratan parte hartu du.
-          description_own: '%{score} bileretan parte hartu duzu.'
+          description: Idazmahaia hau aurrez aurreko topaketa batzuetara joaten zarenean ematen da.
+          description_another: Erabiltzaile honek %{score} topeketetan parte hartu du.
+          description_own: '%{score} topaketetan parte hartu duzu.'
           name: Parte hartu den topkaetak
           next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
           unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
@@ -264,11 +264,11 @@ eu:
         invite_join_meeting_mailer:
           invite:
             decline: Deuseztatu gonbidapena
-            invited_you_to_join_a_meeting: "%{invited_by} gonbidatu zaitu %{application} bileran. Beheko estekan onartu dezakezu."
+            invited_you_to_join_a_meeting: "%{invited_by} gonbidatu zaitu %{application} topaketan. Beheko estekan onartu dezakezu."
             join: Erregistratu topaketa'%{meeting_title}'
         invites:
           create:
-            error: Arazo bat izan da erabiltzaileak bileran sartzeko gonbita emanda.
+            error: Arazo bat zegoen parte-hartzailea topaketara gonbidatzeko.
             success: Erabiltzailea behar bezala gonbidatu topaketa batera.
           form:
             attendee_type: Parte-hartzaile mota
@@ -286,15 +286,12 @@ eu:
             filter_by: Iragazi arabera
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
-            registrations_disabled: Ezin duzu parte-hartzaile bat gonbidatu erregistrazioek desgaituta egon direlako.
+            registrations_disabled: Ezin duzu inor gonbidatu izne-emateak desgaituta daudelako.
             search: Bilatu
         meeting_closes:
           edit:
             close: Itxi
             title: Itxi topaketa
-        meeting_copies:
-          form:
-            select_a_meeting_type: Mesedez, hautatu topaketa mota bat
         meetings:
           close:
             invalid: Arazo bat izan da topaketa hau ixtean.
@@ -381,13 +378,13 @@ eu:
       admin_log:
         invite:
           create: "%{user_name} gonbidatua izan da %{attendee_name} batzeko %{resource_name} buruzko topaketa %{space_name} espazioan"
-          deleted: "%{user_name} gabeko %{attendee_name} batu batetik %{resource_name} bileraren on %{space_name} espazio"
-          update: "%{user_name} gonbidatu %{attendee_name} batzeko %{resource_name} buruzko bilera %{space_name} espazio"
+          deleted: "%{user_name}-ek %{attendee_name}-ri gonbidapena egiteari utzi zion %{space_name} espazioan parte hartzeko"
+          update: "%{user_name}-ek %{attendee_name}-ri gonbidatu %{space_name} espazioan parte hartzeko"
         meeting:
-          close: "%{user_name} %{resource_name} bilera %{space_name} espazioan itxi zen"
-          create: "%{user_name} %{resource_name} bilera sortu zen %{space_name} espazioan"
-          delete: "%{user_name} %{resource_name} topaketa ezabatu da %{space_name} espazioan"
-          export_registrations: "%{user_name} %{resource_name} bilera erregistratu dira %{space_name} espazioan"
+          close: "%{user_name}-k %{resource_name} topaketa %{space_name} espazioan itxi zen"
+          create: "%{user_name}-k %{resource_name} topaketa sortu da %{space_name} espazioan"
+          delete: "%{user_name}-k %{resource_name} topaketa ezabatu da %{space_name} espazioan"
+          export_registrations: "%{user_name} -k %{resource_name} topaketarako erregistroak esportatu ditu %{space_name} espazioan"
           update: "%{user_name} %{resource_name} topaketa %{space_name} espazioan eguneratu da"
           value_types:
             organizer_presenter:
