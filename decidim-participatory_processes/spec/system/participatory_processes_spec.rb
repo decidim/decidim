@@ -5,8 +5,6 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes", type: :system do
   let(:organization) { create(:organization) }
-  let(:show_metrics) { true }
-  let(:show_statistics) { true }
   let(:hashtag) { true }
   let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:base_process) do
@@ -15,9 +13,7 @@ describe "Participatory Processes", type: :system do
       :active,
       organization:,
       description: base_description,
-      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" },
-      show_metrics:,
-      show_statistics:
+      short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
     )
   end
 
