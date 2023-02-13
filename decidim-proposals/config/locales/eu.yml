@@ -264,7 +264,7 @@ eu:
           notification_title: <a href="%{resource_path}">proposamen berriak</a>proposamen berriak <a href="%{participatory_space_url}">%{participatory_space_title}</a> parte hartze espazioan
         endorsing_enabled:
           email_intro: 'Proposamenak egin ditzakezu %{participatory_space_title} parte hartze espazioan! Hasi orri honetan parte hartzen:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu aurreko estekari jarraituz.
           email_subject: Onarpen proposamenak %{participatory_space_title}-an hasi dira
           notification_title: Orain has zaitezke <a href="%{resource_path}">proposamenak onartze</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>-ean
         proposal_accepted:
@@ -281,7 +281,7 @@ eu:
         proposal_evaluating:
           affected_user:
             email_intro: 'Zure proposamena "%{resource_title}" ari da ebaluatzen. Orri honetan erantzun dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilearena delako.
+            email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egile zarelako.
             email_subject: Zure proposamena ebaluatzen ari da
             notification_title: Zure proposamena <a href="%{resource_path}">%{resource_title}</a> ebaluatzen ari da.
           follower:
@@ -293,15 +293,15 @@ eu:
           email_intro: Zure proposamen hau "%{mentioned_proposal_title}" aipatu da <a href="%{resource_url}"> iruzkinen</a> espazioan.
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" egilea zarelako.
           email_subject: Zure proposamena "%{mentioned_proposal_title}" aipatu da
-          notification_title: '"%{mentioned_proposal_title}" zure proposamena <a href="%{resource_path}"></a> espazio honetan aipatu da iruzkinetan.'
+          notification_title: '"%{mentioned_proposal_title}" zure proposamena <a href="%{resource_path}"></a> espazio honetako iruzkinetan apiatu da.'
         proposal_published:
-          email_intro: '%{author_name} %{author_nickname}, jarraitzen ari zarenean, "%{resource_title}" izeneko proposamen berri bat argitaratu du. Begiratu eta lagundu:'
+          email_intro: '%{author_name} %{author_nickname}, nor jarraitzen duzun, proposamen berri bat argitaratu du, "%{resource_title}" izenekoa. Begiratu eta ekarri:'
           email_outro: Jakinarazpen hau jaso duzu %{author_nickname} jarraitzen duzulako. Jakinarazpenak jasotzeari utz diezaiokezu, aurreko estekaren arabera.
           email_subject: Proposamen berria "%{resource_title}" %{author_nickname}-ek eginda
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> argitaratu zen.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> argitaratu da.
         proposal_published_for_space:
-          email_intro: '"%{resource_title}" proposamena ondorengo "%{participatory_space_title}" erantsi zaizu.'
-          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+          email_intro: '"%{resource_title}" proposamena ondorengo "%{participatory_space_title}" parte hartze espazioan erantsi zaizu.'
+          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenlako. Aurreko estekan jarrai dezakezu.
           email_subject: Proposamen berria "%{resource_title}" %{participatory_space_title}gehitu da
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena %{participatory_space_title}-era gehitu da %{author}-ren bidez
           notification_title_official: "Proposamen ofizialari <a href=\"%{resource_path}\">%{resource_title}</a> gehitu zaio \n-ŕi"
@@ -341,7 +341,7 @@ eu:
           description_another: Parte-hartzaile honek %{score} proposamen onartu zituen.
           description_own: '%{score} proposamen onartu dituzu.'
           name: Onartutako proposamenak
-          next_level_in: Talde %{score} proposamen gehiago hurrengo mailara iristeko onartu!
+          next_level_in: Lortu %{score} proposamen gehiago onartuak hurrengo mailara iristeko!
           unearned_another: Parte-hartzaile honek ez du oraindik proposamen onarturik izan.
           unearned_own: Oraindik ez duzu onartutako proposamenik.
         proposal_votes:
