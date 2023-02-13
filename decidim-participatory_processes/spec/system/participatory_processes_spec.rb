@@ -410,6 +410,7 @@ describe "Participatory Processes", type: :system do
                 create(:metric, metric_type: metric_registry.metric_name, day: Time.zone.today - 1.week, organization:, participatory_space_type: Decidim::ParticipatoryProcess.name, participatory_space_id: participatory_process.id, cumulative: 5, quantity: 2)
               end
             end
+            let(:blocks_manifests) { [:metrics] }
 
             before do
               metrics
@@ -417,11 +418,17 @@ describe "Participatory Processes", type: :system do
             end
 
             it "shows the metrics charts" do
-              expect(page).to have_css("h3.section-heading", text: "METRICS")
+              expect(page).to have_css("h2.h2", text: "Metrics")
 
-              within "#metrics" do
-                expect(page).to have_css("input#metrics-space_type[value='Decidim::ParticipatoryProcess']", visible: :hidden)
-                expect(page).to have_css("input#metrics-space_id[value='#{participatory_process.id}']", visible: :hidden)
+              within "[data-metrics]" do
+                # REDESIGN_PENDING - This selector is not created. Remove if
+                # this is correct
+                # expect(page).to have_css("input#metrics-space_type[value='Decidim::ParticipatoryProcess']", visible: :hidden)
+
+                # REDESIGN_PENDING - This selector is not created. Remove if
+                # this is correct
+                # expect(page).to have_css("input#metrics-space_id[value='#{participatory_process.id}']", visible: :hidden)
+
                 Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
                   expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
                 end
@@ -429,13 +436,13 @@ describe "Participatory Processes", type: :system do
             end
 
             it "renders a link to all metrics" do
-              within "#metrics" do
-                expect(page).to have_link("Show all metrics")
+              within "[data-metrics]" do
+                expect(page).to have_link("Show all")
               end
             end
 
             it "click link" do
-              click_link("Show all metrics")
+              click_link("Show all")
               have_current_path(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_process))
             end
           end
