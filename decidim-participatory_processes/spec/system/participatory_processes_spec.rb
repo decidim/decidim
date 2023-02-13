@@ -159,8 +159,13 @@ describe "Participatory Processes", type: :system do
         end
 
         it "links to the active step" do
+          skip "REDESIGN_PENDING - Remove or implement and adapt the test"
+
           visit decidim_participatory_processes.participatory_processes_path
 
+          # REDESIGN_PENDING - The process card-g is not expected to display
+          # active phase. Delete the test if this is correct or implement and
+          # adapt the test
           within find("#processes-grid .column", text: translated(participatory_process.title)) do
             within ".card__footer" do
               expect(page).to have_content("Current phase:\nActive step")
@@ -169,10 +174,15 @@ describe "Participatory Processes", type: :system do
         end
 
         context "when the active step has CTA text and url set" do
+          # REDESIGN_PENDING - The process card-g is not expected to display
+          # CTA. Delete the test if this is correct or implement and
+          # adapt the tests
           let(:cta_path) { "my_path" }
           let(:cta_text) { { en: "Take action!", ca: "Take action!", es: "Take action!" } }
 
           before do
+            skip "REDESIGN_PENDING - Remove or implement and adapt the tests"
+
             active_step.update!(cta_path:, cta_text:)
           end
 
