@@ -41,6 +41,15 @@ eu:
         name: Txantiloia
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Gorde
+            template_title: Txantiloiaren informazioa
+          index:
+            confirm_delete: Ziur zaude txantiloi hau ezabatu nahi duzula?
+            title: Blokeatutako mezuak
+          template_chooser:
+            select_template: Hautatu txantiloi-fitxategi bat
         questionnaire_templates:
           choose:
             create_from_template: Sortu txantiloitik
@@ -63,5 +72,12 @@ eu:
             current_step: '%{step} urratsa'
             of_total_steps: '%{total_steps} etik'
             tos_agreement: Parte hartzean erabilera-irizpideak eta baldintzak onartzen dituzu
+      admin_log:
+        template:
+          create: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
+          delete: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
+          duplicate: "%{user_name} -k%{resource_name} galdetegia bikoiztu du"
+          update: "%{user_name} -k%{resource_name} galdetegia eguneratu du"
       template_types:
+        block_user: Blokeatutako mezuak
         questionnaires: Galdetegiak
