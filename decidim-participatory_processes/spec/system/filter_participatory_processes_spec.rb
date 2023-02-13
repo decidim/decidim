@@ -54,6 +54,8 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing 'past' processes" do
       before do
+        skip "REDESIGN PENDING - Filter integration in processes index pending"
+
         within ".order-by__tabs" do
           click_link "Past"
         end
@@ -73,6 +75,8 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing 'upcoming' processes" do
       before do
+        skip "REDESIGN PENDING - Filter integration in processes index pending"
+
         within ".order-by__tabs" do
           click_link "Upcoming"
         end
@@ -94,6 +98,8 @@ describe "Filter Participatory Processes", type: :system do
       let(:time_zone) { Time.zone } # UTC
 
       before do
+        skip "REDESIGN PENDING - Filter integration in processes index pending"
+
         past_process.update(title: { en: "Started 2 weeks ago" })
         past_process2.update(title: { en: "Started 3 weeks ago" }, start_date: 3.weeks.ago)
         allow(Time).to receive(:zone).and_return(time_zone)
@@ -140,6 +146,8 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing an area" do
       before do
+        skip "REDESIGN PENDING - Filter integration in processes index pending"
+
         select translated(area.name), from: "filter[with_area]"
       end
 
@@ -175,6 +183,8 @@ describe "Filter Participatory Processes", type: :system do
         end
 
         it "doesn't show the participatory process types filter" do
+          skip "REDESIGN PENDING - Filter integration in processes index pending"
+
           expect(page).to have_no_css("#process-type-filter")
         end
       end
@@ -234,6 +244,8 @@ describe "Filter Participatory Processes", type: :system do
           end
 
           it "only shows process types with active processes" do
+            skip "REDESIGN PENDING - Filter integration in processes index pending"
+
             within "#process-type-filter" do
               click_button "All types"
               expect(page).to have_content("Awesome Type")
@@ -248,6 +260,8 @@ describe "Filter Participatory Processes", type: :system do
 
         context "and choosing 'past' processes" do
           before do
+            skip "REDESIGN PENDING - Filter integration in processes index pending"
+
             within ".order-by__tabs" do
               click_link "Past"
             end
@@ -275,6 +289,8 @@ describe "Filter Participatory Processes", type: :system do
 
         context "and filtering by a process type" do
           before do
+            skip "REDESIGN PENDING - Filter integration in processes index pending"
+
             within "#process-type-filter" do
               click_button "All types"
               click_link "The West Type"
@@ -283,7 +299,9 @@ describe "Filter Participatory Processes", type: :system do
           end
 
           it "lists process type processes" do
-            within "#processes-grid h3" do
+            skip "REDESIGN PENDING - Filter integration in processes index pending"
+
+            within "#processes-grid h2" do
               expect(page).to have_content("3 ACTIVE PROCESSES")
             end
 
