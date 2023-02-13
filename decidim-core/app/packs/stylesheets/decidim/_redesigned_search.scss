@@ -1,0 +1,5 @@
+.search{
+  &__result{
+    @apply py-10 first:pt-0 last:pb-0 border-b-2 last:border-0 border-background space-y-8;
+  }
+}
