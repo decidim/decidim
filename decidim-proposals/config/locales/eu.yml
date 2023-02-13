@@ -197,7 +197,9 @@ eu:
             automatic_hashtags: Traola proposamen guztiei gehitu zaie
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
+            creation_enabled_readonly: Aukera hori desaktibatu egiten da Testuen Parte-hartzaile funtzionaltasuna aktibatzean. Testu parte-hartzaile gisa proposamenak kargatzeko, egin klik Testu parte-hartzaileak botoian eta jarraitu jarraibideak.
             default_sort_order: Proposamenen hurrenkera lehenetsia
+            default_sort_order_help: Besterik adierazi ezean, botoak gaituta badaude, proposamenak ausaz ordenatuta agertuko dira, eta botoak blokeatuta badaude, bozkatuenaren arabera ordenatuko dira.
             default_sort_order_options:
               default: Lehenetsita
               most_commented: Iruzkin gehien dituztenak
@@ -225,20 +227,28 @@ eu:
             email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
             notification_title: Norbaitek ohar bat utzi du <a href="%{resource_path}">%{resource_title}</a> proposamenean. Berrikusi orain honen bidez <a href="%{admin_proposal_info_path}">panel de administración</a>
         collaborative_draft_access_accepted:
+          email_intro: '%{requester_name} onartu da <a href="%{resource_url}">%{resource_title}</a> zirriborro koloboratiboan laguntzaile gisa sartzeko.'
+          email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
           email_subject: "%{requester_name} izan da onartu %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> izan da <strong>sarbidea onartu kolaboratzaile gisa</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
         collaborative_draft_access_rejected:
+          email_intro: '%{requester_name} baztertu egin da <a href="%{resource_url}">%{resource_title}</a>-an laguntzaile gisa sartzeko.'
+          email_outro: Jakinarazpen hau jaso duzu<a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
           email_subject: "%{requester_name} ez da onartu du kolaboratzaile gisa sartzeko %{resource_title} elkarlanerako zirriborroa."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> izan da <strong>baztertutako <a href="%{resource_path}">%{resource_title}</a> lankidetza zirriborroaren</strong> laguntzaile gisa sartzeko.
         collaborative_draft_access_requested:
+          email_intro: '%{requester_name} -k eskatu du laguntzaile gisa sartzeko. <strong>onartu edo baztertu egin dezakezu </strong> <a href="%{resource_url}">%{resource_title}</a> testu kolaboratibo ziriborroan.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
           email_subject: "%{requester_name} eskatutako sarbidea izateko %{resource_title}laguntzera."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> eskatutako sarbidea <a href="%{resource_path}">%{resource_title}</a> lankidetza proiektuari laguntzea. <strong>Onartu edo ezetsi eskaera</strong>.
         collaborative_draft_access_requester_accepted:
+          email_intro: "<a href=\"%{resource_url}\">%{resource_title}</a> testu kolaboratiboan laguntzaile gisa sartzeko onartu zaituzte.\n</a>."
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzaile izatea eskatu duzulako.
           email_subject: '%{resource_title}laguntzaile gisa onartzen duzu.'
           notification_title: Izan zara <strong>onartu laguntzaile gisa sartzeko</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
         collaborative_draft_access_requester_rejected:
+          email_intro: "<a href=\"%{resource_url}\">%{resource_title}</a> testu kolaboratiboan laguntzaile gisa sartzeko onartu zaituzte.\n</a>."
+          email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzaile izatea eskatu duzulako.
           email_subject: Baztertu zara %{resource_title}laguntzaile gisa.
           notification_title: Izan zara <strong>baztertu laguntzaile gisa sartzeko</strong> de <a href="%{resource_path}">%{resource_title}</a> elkarlanerako zirriborroa.
         collaborative_draft_withdrawn:
@@ -433,6 +443,7 @@ eu:
               md: Markdown
               odt: ODT
             bottom_hint: "(Dokumentuko atalen aurrebista eta ordenazioa ahal izango duzu)"
+            document_legend: 'Gehitu 2MB baino gutxiagoko dokumentu bat. Atal bakoitza 3 sakontasun-mailaraino, proposamenetan aztertuko da.. Formatu suportatuak hauek dira: %{valid_mime_types}'
             title: ADD DOCUMENT
             upload_document: Kargatu dokumentua
           publish:
