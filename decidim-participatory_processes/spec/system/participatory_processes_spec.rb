@@ -127,14 +127,14 @@ describe "Participatory Processes", type: :system do
 
       it "lists the active processes" do
         within "#processes-grid" do
-          within "#processes-grid h3" do
-            expect(page).to have_content("3 ACTIVE PROCESSES")
+          within "#processes-grid h2" do
+            expect(page).to have_content("3 active processes")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(promoted_process.title, locale: :en))
           expect(page).to have_content(translated(group.title, locale: :en))
-          expect(page).to have_selector(".card", count: 3)
+          expect(page).to have_selector("a.card__grid", count: 3)
 
           expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
           expect(page).to have_no_content(translated(past_process.title, locale: :en))
@@ -144,7 +144,7 @@ describe "Participatory Processes", type: :system do
       end
 
       it "links to the individual process page" do
-        first(".card__link", text: translated(participatory_process.title, locale: :en)).click
+        first(".card__grid h3", text: translated(participatory_process.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
       end
