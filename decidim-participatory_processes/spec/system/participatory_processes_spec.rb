@@ -448,7 +448,7 @@ describe "Participatory Processes", type: :system do
           end
 
           context "and the process statistics are enabled" do
-            let(:show_statistics) { true }
+            let(:blocks_manifests) { [:stats] }
 
             it "the stats for those components are visible" do
               expect(page).to have_css("[data-statistic]", count: 3)
@@ -456,10 +456,10 @@ describe "Participatory Processes", type: :system do
           end
 
           context "and the process statistics are not enabled" do
-            let(:show_statistics) { false }
+            let(:blocks_manifests) { [] }
 
             it "the stats for those components are not visible" do
-              expect(page).to have_no_css("h2.h2", text: "Statistics")
+              expect(page).to have_no_css("[data-statistics]", count: 3)
               expect(page).to have_no_css(".statistic__title", text: "Proposals")
               expect(page).to have_no_css(".statistic__number", text: "3")
             end
