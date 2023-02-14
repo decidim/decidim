@@ -7,6 +7,7 @@ module Decidim
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
+    include ActionView::Helpers::DateHelper
 
     alias resource model
 
