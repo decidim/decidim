@@ -147,7 +147,7 @@ module Decidim
     def progress_value
       return if dates_blank?
 
-      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date).to_i if current_date <= end_date
+      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date) if current_date <= end_date
     end
 
     def progress_span
