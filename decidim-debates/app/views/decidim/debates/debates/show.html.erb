@@ -47,20 +47,17 @@ edit_link(
 
   <%= render partial: "decidim/shared/tags", locals: { resource: debate, tags_class_extra: "tags--debate" } %>
 
-  <%= cell "decidim/comments_button", nil %>
+  <div class="my-4">
+    <%= cell "decidim/comments_button", nil %>
+  </div>
   <%= cell "decidim/endorsers_list", debate %>
 
 
-  <%= comments_for debate %>
-
-  <div class="mt-8">
-    <ul class="drawer-metadata__container" data-metadata-footer>
-      <%= content_tag :li, resource_reference(debate), class: "drawer-metadata__item" %>
-      <%#= content_tag :li, resource_version(debate, versions_path: debate_version_path(debate, debate.versions.count)), class: "drawer-metadata__item" %>
-    </ul>
+  <div class="my-4">
+    <%= comments_for debate %>
   </div>
 
-  <% content_for :drawer_aside do %>
+  <% content_for :aside do %>
 
     <% if allowed_to?(:edit, :debate, debate: debate) %>
       <%= link_to t("edit_debate", scope: "decidim.debates.debates.show"), edit_debate_path(debate), class: "button button__secondary button__xl w-full mb-4" %>
@@ -116,7 +113,7 @@ edit_link(
       </div>
     </div>
 
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-2">
       <%= follow_button_for(debate) %>
       <%= cell "decidim/share_button", nil %>
     </div>
