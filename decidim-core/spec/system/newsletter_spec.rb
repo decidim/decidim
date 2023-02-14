@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe "Newsletters (view in web)", type: :system do
-  let(:organization) { newsletter.organization }
-  let!(:newsletter) { create :newsletter, :sent }
+  let(:organization) { create(:organization) }
+  let!(:newsletter) { create :newsletter, :sent, organization: }
   let!(:content_block) do
     content_block = Decidim::ContentBlock.find_by(organization:, scope_name: :newsletter_template, scoped_resource_id: newsletter.id)
     content_block.destroy!
@@ -36,6 +36,20 @@ describe "Newsletters (view in web)", type: :system do
     it "renders the correct template" do
       within ".content" do
         expect(page).to have_link(translated(content_block.settings.cta_text), href: translated(content_block.settings.cta_url))
+      end
+    end
+
+    context "when the organization has a primary color defined" do
+      let(:organization) { create(:organization, colors: { primary: "#6500ff" }) }
+      let(:cta_text) { translated(content_block.settings.cta_text) }
+
+      it "shows the CTA button in correct color" do
+        color = find("table.button table td", text: cta_text).native.css_value("background-color")
+        expect(color).to eq("rgba(101, 0, 255, 1)")
+      end
+
+      it "does not scrub the <style> tag on the page when the organization has a color setting" do
+        expect(page).to have_css("style", visible: :hidden)
       end
     end
   end
