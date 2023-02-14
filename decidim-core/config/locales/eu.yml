@@ -66,6 +66,7 @@ eu:
   carrierwave:
     errors:
       file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
+      file_size_too_large: Fitxategiaren taimaina handiegia da
       not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
     formats:
@@ -467,6 +468,8 @@ eu:
           register: Sortu zure kontua
           sign_in_disabled: Kanpoko kontu batekin sar zaitezke
           sign_up_disabled: Erregistratu ezgaituta dago, lehendik dagoen erabiltzaile bat erabil dezakezu sartzeko
+        user:
+          timed_out: Denbora gehiegi egon zara lanik egin gabe, eta automatikoki bidali zaituzte zerbitzutik. Zerbitzua erabiltzen jarraitu nahi baduzu, sinatu berriro.
       shared:
         newsletter_modal:
           buttons:
@@ -530,12 +533,12 @@ eu:
           affected_user:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
-            email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
+            email_subject: Aldaketa onartuta %{amendable_title} %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
+            email_subject: Aldaketa onartuta %{amendable_title} %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
@@ -644,6 +647,8 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
           email_subject: Talde batek bere profila eguneratu du
           notification_title: '%{user_group_name} taldeak bere profila eguneratu du egiaztapena galduz. Berriro egiaztatu ahal duzu honen bidez <a href="%{groups_admin_path}">panel de administración</a>.'
+      nickname_event:
+        notification_body: Ezizenak erabiltzeko modua zuzendu dugu bikoiztasunik egon ez dadin, eta horregatik kendu dugu kasu sentikorra. Zure ezizena izen bera duen beste baten ondoren sortu da, eta automatikoki aldatu dugu. Alda dezakezu <a href="%{link_to_account_settings}"> >zure kontuaren konfigurazioan </a>.
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
@@ -665,6 +670,9 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
+        user_officialized:
+          email_intro: Parte-hartzailea %{name} (%{nickname}) ofizializatu da.
+          notification_title: Parte-hartzailea %{name} (%{nickname}) ofizializatu da.
     export_mailer:
       download_your_data_export:
         click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
@@ -723,6 +731,8 @@ eu:
       upload:
         labels:
           add_file: Gehitu fitxategiak
+          error: Akatsa!
+          file_size_too_large: 'Fitxategiaren tamaina handiegia da! Maximun fitxategiaren tamaina: %{megabytes}} MB'
           filename: Fitxategiaren izena
           remove: Kendu
           replace: Ordezkatu
@@ -810,7 +820,7 @@ eu:
         email_help: Zure erakundearen, elkarte, talde, taldeen eta abarren posta elektronikoa.
         fill_in_for_verification: 'Eremu hauek bete behar dituzu zure taldea egiaztatu nahi baduzu:'
         name_help: Zure erakundearen izena, elkartea, kolektiboa, taldea, eta abar.
-        nickname_help: Zure erakundearen izena, elkartea, taldea, taldea ... Ez erabili espazioak eta azentuak.
+        nickname_help: Zure erakunde, elkarte, kolektibo, talde eta abarren ezizena. Ez erabili ez espaziorik ez azenturik.
         phone_help: Ez erabili marratuak eta ez espazioak
       join:
         error: Taldean sartzeko arazorik izan da
@@ -1388,6 +1398,7 @@ eu:
     invitations:
       edit:
         header: Amaitu zure kontua sortzea
+        nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
         submit_button: Gorde
         subtitle: Gonbidapena onartzen baduzu, ezarri zure ezizena eta pasahitza.
       invitation_removed: Zure gonbidapena kendu egin da.
@@ -1567,6 +1578,8 @@ eu:
         continue_session: Jarraitu saioa
         sign_out: Itxi saioa
         title: Saioan jarraitu nahi duzu?
+      upload_modal:
+        close_modal: Itxi leihoa
       user_menu:
         account: '%{name} erabiltzailearen kontua'
         admin_dashboard: Administrazioko aginte-mahaia
@@ -1595,6 +1608,7 @@ eu:
     email_included_in_password: zure posta elektronikoaren antzekoa da
     fallback: ez da baliozkoa
     name_included_in_password: zure izenaren antzekoa da
+    nickname_included_in_password: zure ezizenaren antzekoegia da
     not_enough_unique_characters: ez da nahikoa karaktere berezirik
     password_not_allowed: ez da onartzen
     password_too_common: oso ohikoa da
