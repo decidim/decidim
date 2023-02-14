@@ -422,14 +422,6 @@ describe "Participatory Processes", type: :system do
               expect(page).to have_css("h2.h2", text: "Metrics")
 
               within "[data-metrics]" do
-                # REDESIGN_PENDING - This selector is not created. Remove if
-                # this is correct
-                # expect(page).to have_css("input#metrics-space_type[value='Decidim::ParticipatoryProcess']", visible: :hidden)
-
-                # REDESIGN_PENDING - This selector is not created. Remove if
-                # this is correct
-                # expect(page).to have_css("input#metrics-space_id[value='#{participatory_process.id}']", visible: :hidden)
-
                 Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process").each do |metric_registry|
                   expect(page).to have_css(%(##{metric_registry.metric_name}_chart))
                 end
