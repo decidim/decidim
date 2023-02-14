@@ -11,7 +11,7 @@ checks:
     enabled: false
 
   identical-code:
-    enabled: false
+    enabled: true
 
   method-complexity:
     enabled: false
@@ -29,7 +29,7 @@ checks:
     enabled: false
 
   similar-code:
-    enabled: false
+    enabled: true
 
 plugins:
   bundler-audit:
