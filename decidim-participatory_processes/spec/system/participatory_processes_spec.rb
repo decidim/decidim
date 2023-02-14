@@ -349,15 +349,6 @@ describe "Participatory Processes", type: :system do
               expect(page).to have_content(translated(participatory_process.short_description, locale: :en))
               expect(page).to have_content(I18n.l(participatory_process.end_date, format: :decidim_short_with_month_name_short))
               expect(page).to have_content(participatory_process.hashtag)
-
-              # REDESIGN_PENDING - These contents are not shown by the main data or metadata blocks, remove if correct
-              # expect(page).to have_content(translated(participatory_process.description, locale: :en))
-              # expect(page).to have_content(translated(participatory_process.meta_scope, locale: :en))
-              # expect(page).to have_content(translated(participatory_process.developer_group, locale: :en))
-              # expect(page).to have_content(translated(participatory_process.local_area, locale: :en))
-              # expect(page).to have_content(translated(participatory_process.target, locale: :en))
-              # expect(page).to have_content(translated(participatory_process.participatory_scope, locale: :en))
-              # expect(page).to have_content(translated(participatory_process.participatory_structure, locale: :en))
             end
           end
         end
