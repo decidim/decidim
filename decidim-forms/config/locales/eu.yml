@@ -97,15 +97,15 @@ eu:
             add_matrix_row: Gehitu errenkada
             any: Edozein
             collapse: Bildu
-            description: deskribapena
-            down: Down
+            description: Deskribapena
+            down: Behera
             expand: Zabaldu
             question: Galdera
             remove: Kendu
-            statement: adierazpena
-            up: up
+            statement: Adierazpena
+            up: Gora
           separator:
-            down: Jaitsi
+            down: Behera
             remove: Kendu
             separator: Bereizlea
             up: Igo
