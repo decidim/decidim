@@ -115,6 +115,7 @@ ignore_missing:
   - decidim.budgets.projects_helper.current_rule_explanation.*
   - decidim.budgets.projects_helper.current_rule_description.*
   - decidim.debates.debate_m.footer.commented_time_ago
+  - explanation
 
 # Consider these keys used:
 ignore_unused:
@@ -332,6 +333,7 @@ ignore_unused:
   - ransack.predicates.*
   - decidim.profiles.user.actions.*
   - decidim.forms.questionnaires.show.answer_questionnaire.*
+  - decidim.forms.upload_help.explanation
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:
