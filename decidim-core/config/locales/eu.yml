@@ -56,7 +56,7 @@ eu:
         other: Aldaketak
       decidim/user:
         one: Ez dago erabiltzailerik
-        other: erabiltzaileak
+        other: Erabiltzaileak
       decidim/user_group:
         one: Erabiltzaile taldea
         other: Erabiltzaile taldeak
@@ -160,7 +160,7 @@ eu:
         promote: "%{user_name} k %{resource_name} sustatu du"
         remove_from_admin: "%{user_name} erabiltzaileak kendu %{resource_name} rolarekin: %{role}"
         show_email: "%{user_name} k %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
-        transfer: "%{user_name} k %{resource_name} parte-hartzailea transferitu du"
+        transfer: "%{user_name} erabiltzaileak parte-hartzailea transferitu du %{resource_name}-era"
         unblock: "%{user_name} k desofizializatu zuen %{resource_name} erabiltzailea"
         unofficialize: "%{user_name} erabiltzaile ez ofiziala %{resource_name}"
       user_group:
@@ -290,7 +290,7 @@ eu:
           document_number: Dokumentuaren zenbakia
           postal_code: Posta kodea
           scope_id: Eremua
-        name: Adibidez baimena
+        name: Baimen-adibidea
       dummy_authorization_workflow:
         name: Dummy baimena eragiketa
       errors:
@@ -451,6 +451,7 @@ eu:
           email_already_exists: Beste kontu batek erabiltzen du helbide elektroniko bera.
         new:
           complete_profile: Osatu profila
+          nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete inprimaki hau izen-ematea osatzeko
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
@@ -459,6 +460,7 @@ eu:
           already_have_an_account?: Baduzu kontu bat?
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
+          nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           password_help: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
           sign_in: Sartu
           sign_up: Erregistratu
@@ -475,6 +477,8 @@ eu:
           register: Sortu zure kontua
           sign_in_disabled: Kanpoko kontu batekin sar zaitezke
           sign_up_disabled: Erregistratu ezgaituta dago, lehendik dagoen erabiltzaile bat erabil dezakezu sartzeko
+        user:
+          timed_out: Denbora gehiegi egon zara lanik egin gabe, eta automatikoki bidali zaituzte zerbitzutik. Zerbitzua erabiltzen jarraitu nahi baduzu, sinatu berriro.
       shared:
         newsletter_modal:
           buttons:
@@ -535,12 +539,12 @@ eu:
           affected_user:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}delako egileak zarelako.
-            email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
+            email_subject: Aldaketa onartuta %{amendable_title} %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Zuzenketa bat bertan bera onartu %{amendable_title}. Orrialde hau ikusi dezakezu:'
             email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-            email_subject: Aldaketa onartzen %{amendable_title} %{emendation_author_nickname}
+            email_subject: Aldaketa onartuta %{amendable_title} %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da onartu <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
@@ -670,6 +674,9 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: "%{nickname} profilean eguneratu dute"
           notification_title: <a href="%{resource_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
+        user_officialized:
+          email_intro: Parte-hartzailea %{name} (%{nickname}) ofizializatu da.
+          notification_title: Parte-hartzailea %{name} (%{nickname}) ofizializatu da.
     export_mailer:
       data_portability_export:
         click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
@@ -809,7 +816,7 @@ eu:
         email_help: Zure erakundearen, elkarte, talde, taldeen eta abarren posta elektronikoa.
         fill_in_for_verification: 'Eremu hauek bete behar dituzu zure taldea egiaztatu nahi baduzu:'
         name_help: Zure erakundearen izena, elkartea, kolektiboa, taldea, eta abar.
-        nickname_help: Zure erakundearen izena, elkartea, taldea, taldea ... Ez erabili espazioak eta azentuak.
+        nickname_help: Zure erakunde, elkarte, kolektibo, talde eta abarren ezizena. Ez erabili ez espaziorik ez azenturik.
         phone_help: Ez erabili marratuak eta ez espazioak
       join:
         error: Taldean sartzeko arazorik izan da
@@ -868,9 +875,9 @@ eu:
         update_with_space: "%{user_name} eguneratu zuen %{resource_name} hemen %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Area ez zen datu-basean aurkitu (ID: %{id})'
+          not_found: 'Eremua ez zen datu-basean aurkitu (ID: %{id})'
         area_type_presenter:
-          not_found: 'Area mota ez da datu basean aurkitu (ID: %{id})'
+          not_found: 'Eremu mota ez da datu basean aurkitu (ID: %{id})'
         scope_presenter:
           not_found: 'Esparrua ez da aurkitu datu-basean (ID: %{id})'
         scope_type_presenter:
@@ -880,7 +887,7 @@ eu:
     map:
       dynamic:
         screen_reader_explanation: Hurrengo elementua orri honetako osagaiak mapan puntu gisa erakusten dituen mapa da. Elementua pantaila-irakurgailu batez erabil daiteke, baina ulergaitza izan daiteke.
-        skip_button: Saltatu mapa
+        skip_button: Mapa hau ez erabili
       static:
         latlng_text: 'latitudea: %{latitude}, longitudea: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1223,7 +1230,7 @@ eu:
         unfold: Zabaldu
       filter_form_help:
         help: Bilaketa-baldintzak aldatzen direnean, hurrengo formularioak dinamikoki iragazten ditu bilaketa-emaitzak.
-        skip: Saltatu emaitzetara
+        skip: Joan emaitzetara
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
@@ -1271,7 +1278,7 @@ eu:
         copy_share_link: Kopia
         copy_share_link_clarification: Kopiatu arbelera partekatzeko lotura
         copy_share_link_copied: Kopiatuta!
-        copy_share_link_message: Lotura arbelera zuzen kopiatu da.
+        copy_share_link_message: Esteka arrakastaz kopiatu da arbelean.
         share: Partekatu
         share_link: Partekatu esteka
     statistics:
@@ -1380,7 +1387,7 @@ eu:
       confirmed: Zure helbide elektronikoa ondo egiaztatu da.
       new:
         resend_confirmation_instructions: Berrikusi berrespen-argibideak
-      send_instructions: Mezu elektroniko bat jasoko duzu jarraibideekin, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
+      send_instructions: Jarraibideak azaltzen dituen mezu elektroniko bat jasoko duzu, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
       send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, zure helbide elektronikoa berretsi ahal izateko gutxienez minutu bat jasoko duzu.
     failure:
       already_authenticated: Saioa hasi zara.
@@ -1606,6 +1613,7 @@ eu:
     email_included_in_password: zure posta elektronikoaren antzekoa da
     fallback: ez da baliozkoa
     name_included_in_password: zure izenaren antzekoa da
+    nickname_included_in_password: zure ezizenaren antzekoegia da
     not_enough_unique_characters: ez da nahikoa karaktere berezirik
     password_not_allowed: ez da onartzen
     password_too_common: oso ohikoa da
@@ -1654,7 +1662,7 @@ eu:
   versions:
     directions:
       left: Ezabapenak
-      right: Gehikuntza
+      right: Gehikuntzak
     dropdown:
       choose_diff_view_html: 'HTML ikusteko modua:'
       choose_diff_view_mode: 'Alderatu bistaratzeko modua:'
