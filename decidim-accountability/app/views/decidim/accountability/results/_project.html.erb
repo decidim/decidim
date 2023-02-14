@@ -1,4 +1,4 @@
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: results_path } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: results_path, prev_path: "", next_path: "" } do %>
   <%= cell("decidim/accountability/project", result) %>
 
   <div class="mt-8 accountability__project-actions">
