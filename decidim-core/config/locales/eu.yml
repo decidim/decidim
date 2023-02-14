@@ -56,7 +56,7 @@ eu:
         other: Aldaketak
       decidim/user:
         one: Ez dago erabiltzailerik
-        other: erabiltzaileak
+        other: Erabiltzaileak
       decidim/user_group:
         one: Erabiltzaile taldea
         other: Erabiltzaile taldeak
@@ -65,6 +65,7 @@ eu:
     'true': 'Bai'
   carrierwave:
     errors:
+      file_resolution_too_large: Fitxategiaren erresoluzioa handiegia da
       not_inside_organization: Artxiboa ez dago antolatzaile batekin erlazionatuta
   date:
     formats:
@@ -95,6 +96,8 @@ eu:
       download_your_data_export:
         file_no_exists: Fitxategia ez dago
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
+      email_change:
+        body1: Mezu elektroniko bat bidali dugu %{unconfirmed_email} postara zure helbide elektroniko berria egiaztatzeko.
       show:
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
@@ -115,6 +118,11 @@ eu:
         delete: "%{user_name} %{resource_name} osagai %{space_name} espaziotik kendu da"
         publish: "%{user_name} %{resource_name} osagaia %{space_name} espazioan argitaratu zen"
         unpublish: "%{user_name} %{resource_name} osagaia %{space_name} espaziotik argitaratu gabe"
+      helpers:
+        answers: erantzunak
+        comments: iruzkinak
+        projects: proiektuak
+        results: emaitzak
       impersonation_log:
         manage: "%{user_name} k %{resource_name} kudeatu du arrazoi honengatik %{reason}"
       moderation:
@@ -153,7 +161,7 @@ eu:
         promote: "%{user_name} k %{resource_name} sustatu du"
         remove_from_admin: "%{user_name} erabiltzaileak kendu %{resource_name} rolarekin: %{role}"
         show_email: "%{user_name} k %{resource_name} parte-hartzailearen korreo elektronikoa berreskuratu du"
-        transfer: "%{user_name} k %{resource_name} parte-hartzailea transferitu du"
+        transfer: "%{user_name} erabiltzaileak parte-hartzailea transferitu du %{resource_name}-era"
         unblock: "%{user_name} k desofizializatu zuen %{resource_name} erabiltzailea"
         unofficialize: "%{user_name} erabiltzaile ez ofiziala %{resource_name}"
       user_group:
@@ -279,7 +287,7 @@ eu:
           document_number: Dokumentuaren zenbakia
           postal_code: Posta kodea
           scope_id: Eremua
-        name: Adibidez baimena
+        name: Baimen-adibidea
       dummy_authorization_workflow:
         name: Dummy baimena eragiketa
       errors:
@@ -434,6 +442,7 @@ eu:
           email_already_exists: Beste kontu batek erabiltzen du helbide elektroniko bera.
         new:
           complete_profile: Osatu profila
+          nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete inprimaki hau izen-ematea osatzeko
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
@@ -442,6 +451,7 @@ eu:
           already_have_an_account?: Baduzu kontu bat?
           newsletter: Jaso nahi dut noizbehinka informazio garrantzitsua duen buletina
           newsletter_title: Harremanetarako baimena
+          nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
           sign_in: Sartu
           sign_up: Erregistratu
           sign_up_as:
@@ -714,6 +724,10 @@ eu:
         labels:
           add_file: Gehitu fitxategiak
           filename: Fitxategiaren izena
+          remove: Kendu
+          replace: Ordezkatu
+          save: Gorde
+          title: Izenburua
         select_file: Fitxategi bat aukeratu
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
@@ -815,6 +829,7 @@ eu:
       no_user_groups: Oraindik ez da talde batekoa.
       roles:
         admin: Administrator
+        creator: Administratzailea
         member: kidea
       update:
         error: Arazo bat izan da taldea eguneratzean
@@ -853,9 +868,9 @@ eu:
         update_with_space: "%{user_name} eguneratu zuen %{resource_name} hemen %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'Area ez zen datu-basean aurkitu (ID: %{id})'
+          not_found: 'Eremua ez zen datu-basean aurkitu (ID: %{id})'
         area_type_presenter:
-          not_found: 'Area mota ez da datu basean aurkitu (ID: %{id})'
+          not_found: 'Eremu mota ez da datu basean aurkitu (ID: %{id})'
         scope_presenter:
           not_found: 'Esparrua ez da aurkitu datu-basean (ID: %{id})'
         scope_type_presenter:
@@ -865,7 +880,7 @@ eu:
     map:
       dynamic:
         screen_reader_explanation: Hurrengo elementua orri honetako osagaiak mapan puntu gisa erakusten dituen mapa da. Elementua pantaila-irakurgailu batez erabil daiteke, baina ulergaitza izan daiteke.
-        skip_button: Saltatu mapa
+        skip_button: Mapa hau ez erabili
       static:
         latlng_text: 'latitudea: %{latitude}, longitudea: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -930,6 +945,8 @@ eu:
           next: Hurrengoa
           no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
+        reply_form:
+          send: Bidali
         show:
           back: Itzuli elkarrizketa guztietara
           chat_with: Elkarrizketa honekin
@@ -956,6 +973,7 @@ eu:
         title: erabiltzaileak
     newsletter_mailer:
       newsletter:
+        no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali zen, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
         unsubscribe: Mezu mota hau jasotzeko ez onartzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
     newsletter_templates:
@@ -1191,7 +1209,7 @@ eu:
         unfold: Zabaldu
       filter_form_help:
         help: Bilaketa-baldintzak aldatzen direnean, hurrengo formularioak dinamikoki iragazten ditu bilaketa-emaitzak.
-        skip: Saltatu emaitzetara
+        skip: Joan emaitzetara
       flag_modal:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
@@ -1242,7 +1260,7 @@ eu:
         copy_share_link: Kopia
         copy_share_link_clarification: Kopiatu arbelera partekatzeko lotura
         copy_share_link_copied: Kopiatuta!
-        copy_share_link_message: Lotura arbelera zuzen kopiatu da.
+        copy_share_link_message: Esteka arrakastaz kopiatu da arbelean.
         share: Partekatu
         share_link: Partekatu esteka
         share_to: 'Partekatu honekin: %{service}'
@@ -1355,7 +1373,7 @@ eu:
       confirmed: Zure helbide elektronikoa ondo egiaztatu da.
       new:
         resend_confirmation_instructions: Berrikusi berrespen-argibideak
-      send_instructions: Mezu elektroniko bat jasoko duzu jarraibideekin, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
+      send_instructions: Jarraibideak azaltzen dituen mezu elektroniko bat jasoko duzu, zure helbide elektronikoa berretsi ahal izateko minutu gutxi barru.
       send_paranoid_instructions: Zure helbide elektronikoa gure datu-basean badago, zure helbide elektronikoa berretsi ahal izateko gutxienez minutu bat jasoko duzu.
     failure:
       already_authenticated: Saioa hasi zara.
@@ -1625,7 +1643,7 @@ eu:
   versions:
     directions:
       left: Ezabapenak
-      right: Gehikuntza
+      right: Gehikuntzak
     dropdown:
       choose_diff_view_html: 'HTML ikusteko modua:'
       choose_diff_view_mode: 'Alderatu bistaratzeko modua:'
