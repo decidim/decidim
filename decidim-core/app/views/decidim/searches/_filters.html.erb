@@ -1,4 +1,3 @@
-<label class="text-medium mb-s"><%= t(".jump_to") %></label>
 <% if params.dig(:filter, :with_resource_type).present? %>
   <p class="text-secondary">
     <%= link_to main_search_path do %>
@@ -6,23 +5,38 @@
     <% end %>
   </p>
 <% end %>
-<%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_participant } %>
-<%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_participatory_space } %>
-<%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_component } %>
-<%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_comment } %>
-<div class="card card--secondary">
-  <%= filter_form_for filter do |form| %>
-    <%= scopes_picker_filter form, :decidim_scope_id_eq %>
-    <%= form.hidden_field :term %>
-  <% end %>
+
+<div class="filter-container">
+  <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+    <% @sections.each do |type, results| %>
+      <%= content_tag :span, class: "#{ 'is-active' if false}" do %>
+        <span><%= searchable_resource_human_name(type) %></span>
+      <% end %>
+    <% end %>
+    <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
+    <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
+  </button>
+  <ul id="dropdown-menu">
+    <% @sections.each do |type, results| %>
+      <li>
+        <%= link_to search_path_by_resource_type(type), class: "filter#{ ' is-active' if false}" do %>
+          <span><%= searchable_resource_human_name(type) %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>
-<div class="row collapse order-by">
-  <div class="text-right">
-    <span class="order-by__tabs">
-      <%= search_path_by_state_link(:past) %>
-      <%= search_path_by_state_link(:future) %>
-      <%= search_path_by_state_link(:active) %>
-      <%= search_path_by_state_link(nil) %>
-    </span>
+
+<% if false %>
+  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_participant } %>
+  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_participatory_space } %>
+  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_component } %>
+  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_comment } %>
+
+  <div class="card card--secondary">
+    <%= filter_form_for filter do |form| %>
+      <%= scopes_picker_filter form, :decidim_scope_id_eq %>
+      <%= form.hidden_field :term %>
+    <% end %>
   </div>
-</div>
+<% end %>
