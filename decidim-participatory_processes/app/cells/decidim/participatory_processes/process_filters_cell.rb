@@ -37,15 +37,14 @@ module Decidim
       end
 
       def filtered_processes(date_filter, filter_with_type: true)
-        query = ParticipatoryProcess.ransack(
+        query = ParticipatoryProcess.where(organization: current_organization).ransack(
           {
             with_date: date_filter,
             with_scope: get_filter(:with_scope),
             with_area: get_filter(:with_area),
             with_type: filter_with_type ? get_filter(:with_type) : nil
           },
-          current_user: current_user,
-          organization: current_organization
+          current_user: current_user
         ).result
 
         query.published.visible_for(current_user)
