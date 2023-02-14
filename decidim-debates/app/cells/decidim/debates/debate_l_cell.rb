@@ -12,11 +12,7 @@ module Decidim
 
       alias debate model
 
-      def item_list_class
-        "debate-list card__list"
-      end
-
-      def has_header?
+      def has_description?
         true
       end
 
