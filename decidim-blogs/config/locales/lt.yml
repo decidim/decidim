@@ -1,5 +1,8 @@
 lt:
   activemodel:
+    attributes:
+      post:
+        published_at: Paskelbimo laikas
     models:
       decidim/blogs/create_post_event: Naujas tinklaraščio įrašas
   activerecord:
@@ -20,8 +23,6 @@ lt:
         user_group_id: Sukurti įrašą kaip
       admin:
         models:
-          components:
-            body: Pagrindinė dalis
           post:
             name: Publikacija
         posts:
@@ -49,7 +50,6 @@ lt:
             author: Autorė(-ius)
             body: Pagrindinė dalis
             created_at: Sukurta
-            title: pavadinimas
       posts:
         show:
           back: Grįžti į sąrašą

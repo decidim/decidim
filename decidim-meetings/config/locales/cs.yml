@@ -1,10 +1,6 @@
 cs:
   activemodel:
     attributes:
-      agenda:
-        description: Popis
-        duration: Doba trvání
-        title: Název
       close_meeting:
         attendees_count: Počet účastníků
         attending_organizations: Seznam organizací, které se zúčastnily
@@ -24,6 +20,7 @@ cs:
         description: Popis
         end_time: Čas ukončení
         id: ID
+        iframe_embed_type: Typ vloženého rámu
         location: Umístění
         location_hints: Nápověda k poloze
         online_meeting_url: URL online schůzky
@@ -33,13 +30,26 @@ cs:
         registration_email_custom_content: Přizpůsobený obsah registračního e-mailu
         registration_form_enabled: Registrační formulář je povolen
         registration_terms: Podmínky registrace
+        registration_type: Typ registrace
         registration_url: URL registrace
         registrations_enabled: Registrace povoleny
-        show_embedded_iframe: Zobrazit vložený iframe pro tuto URL
+        reserved_slots: Rezervované sloty pro tuto schůzku
         start_time: Čas zahájení
         title: Název
         transparent: Transparentní
         type_of_meeting: Typ
+      meeting_agenda:
+        title: Název
+        visible: Viditelné
+      meeting_agenda_items:
+        description: Popis
+        duration: Doba trvání
+        title: Název
+      meeting_registration_invite:
+        email: E-mail
+        name: Jméno
+      validate_registration_code:
+        code: Kód
     errors:
       models:
         meeting:
@@ -290,9 +300,6 @@ cs:
           edit:
             close: Zavřít
             title: Zavřete schůzku
-        meeting_copies:
-          form:
-            select_a_meeting_type: Vyberte prosím typ schůzky
         meetings:
           close:
             invalid: Při setkání došlo k problému

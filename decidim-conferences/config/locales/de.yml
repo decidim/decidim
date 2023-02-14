@@ -28,7 +28,6 @@ de:
         show_statistics: Zeige Statistiken
         sign_date: Unterzeichnungsdatum
         signature: Unterschrift
-        signature_name: Signaturname
         slogan: Slogan
         slug: URL-Block
         start_date: Startdatum
@@ -37,13 +36,13 @@ de:
         date: Datum
         link: Link
         title: Titel
-        weight: Gewicht
+        weight: Reihenfolge
       conference_partner:
         link: Link
         logo: Logo
         name: Name
         partner_type: Partnertyp
-        weight: Gewicht
+        weight: Reihenfolge
       conference_registration_invite:
         email: E-Mail
         name: Name
@@ -53,7 +52,7 @@ de:
         description: Beschreibung
         price: Preis
         title: Titel
-        weight: Gewicht
+        weight: Reihenfolge
       conference_speaker:
         affiliation: Zugehörigkeit
         avatar: Profilbild
@@ -133,8 +132,6 @@ de:
         edit:
           title: Aktualisieren Sie den Konferenzbenutzer.
           update: Aktualisieren
-        index:
-          conference_admins_title: Konferenzbenutzer
         new:
           create: Erstellen
           title: Neuer Konferenzbenutzer
@@ -246,7 +243,7 @@ de:
             price: Preis
             registrations_count: Registrierungen zählen
             title: Titel
-            weight: Bestellposition
+            weight: Reihenfolge
           name: Registrierungstyp
       partners:
         create:

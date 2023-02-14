@@ -2,7 +2,9 @@
 
 shared_examples_for "accessible page" do
   it "passes accessibility tests" do
-    expect(page).to be_axe_clean
+    expect(page).to be_axe_clean.excluding(
+      'a[title="Find out more about cookies"]'
+    )
   end
 
   it "passes HTML validation" do

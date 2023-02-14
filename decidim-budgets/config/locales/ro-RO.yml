@@ -16,6 +16,8 @@ ro:
         proposals: Propuneri
         selected: Selectate pentru implementare
         title: Titlu
+      proposals_import:
+        scope_id: Domeniu de interes
   activerecord:
     models:
       decidim/budgets/project:
@@ -245,7 +247,6 @@ ro:
             one: vot
             few: voturi
             other: voturi
-          you_voted: Ai votat pentru
         project_budget_button:
           add: Adaugă la votul tău
           add_descriptive: Adaugă proiectul %{resource_name} la votul tău

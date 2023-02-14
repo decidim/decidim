@@ -2,9 +2,13 @@ cs:
   activemodel:
     attributes:
       initiative:
+        answer: Odpověď
+        answer_url: URL odpovědi
         area_id: Oblast
+        decidim_scope_id: Oblast působnosti
         decidim_user_group_id: Autor
         description: Popis
+        hashtag: Hashtag
         offline_votes: Osobní fyzické podpisy
         offline_votes_for_scope: Podepsané osoby pro %{scope_name}
         scope_id: Rozsah
@@ -17,6 +21,7 @@ cs:
           online: OnLine
         state: Stav
         title: Titul
+        type_id: Typ
       initiatives_committee_member:
         user: Člen výboru
       initiatives_settings:
@@ -39,6 +44,9 @@ cs:
         title: Titul
         undo_online_signatures_enabled: Povolit účastníkům vrátit zpět své online podpisy
         validate_sms_code_on_votes: Přidejte krok ověření SMS kódu do procesu podpisu
+      initiatives_type_scope:
+        decidim_scopes_id: Oblasti působnosti
+        supports_required: Potřebné podpory
       initiatives_vote:
         date_of_birth: Datum narození
         document_number: Číslo dokumentu
@@ -58,11 +66,6 @@ cs:
               title: Název nesmí být prázdný
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciativa
-        few: Iniciativy
-        many: Iniciativ
-        other: Iniciativy
       decidim/initiative_comittee:
         one: Výbor
         few: Výbory

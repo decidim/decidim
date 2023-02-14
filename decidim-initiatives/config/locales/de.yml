@@ -56,9 +56,6 @@ de:
               title: Der Titel sollte nicht leer sein
   activerecord:
     models:
-      decidim/initiative:
-        one: Initativ
-        other: Initiativen
       decidim/initiative_comittee:
         one: Komitee
         other: Ausschüsse

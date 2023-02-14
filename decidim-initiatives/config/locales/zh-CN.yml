@@ -54,8 +54,6 @@ zh-CN:
               title: 标题不能为空
   activerecord:
     models:
-      decidim/initiative:
-        other: Initatives
       decidim/initiative_comittee:
         other: 我好
       decidim/initiative_vote:

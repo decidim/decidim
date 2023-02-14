@@ -18,8 +18,6 @@ hu:
         user_group_id: Bejegyzés létrehozása
       admin:
         models:
-          components:
-            body: Szöveg
           post:
             name: Bejegyzés
         posts:
@@ -47,7 +45,6 @@ hu:
             author: Szerző
             body: Szöveg
             created_at: 'Létrehozva:'
-            title: cím
       posts:
         show:
           back: Vissza a listához

@@ -28,7 +28,7 @@ es:
         show_statistics: Mostrar estadísticas
         sign_date: Fecha de firma
         signature: Firma
-        signature_name: nombre de firma
+        signature_name: Nombre de la firma
         slogan: Eslogan
         slug: URL amigable
         start_date: Fecha de inicio
@@ -134,7 +134,7 @@ es:
           title: Actualizar administradora de la jornada.
           update: Actualizar
         index:
-          conference_admins_title: administradoras de la jornada
+          conference_admins_title: Administradoras de la jornada
         new:
           create: Crear
           title: Nueva administradora de la jornada.
@@ -312,6 +312,7 @@ es:
           update: "%{user_name} actualizó la colaboradora %{resource_name} de la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
+          delete: "%{user_name} ha eliminado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
           publish: "%{user_name} ha publicado el tipo de inscripción %{resource_name} en la conferencia %{space_name}"
           unpublish: "%{user_name} ha despublicado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
           update: "%{user_name} ha actualizado el tipo de inscripción %{resource_name} en la jornada %{space_name}"
@@ -412,7 +413,7 @@ es:
       conference_program:
         program_meeting:
           content: Contenido
-          location: Ubicación
+          location: Localización
           speakers: Ponentes
           streaming: Streaming
         show:
@@ -431,7 +432,7 @@ es:
         create:
           invalid: Se ha producido un error al inscribirte a esta jornada.
           success: Te has inscrito a la jornada correctamente.
-          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la conferencia.
+          unauthorized: Necesitas iniciar tu sesión antes de registrarse en la jornada.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has declinado la invitación correctamente.

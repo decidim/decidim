@@ -11,6 +11,8 @@ ro:
         end_time: Votarea se încheie la
         start_time: Votarea începe la
         title: Titlu
+      polling_station:
+        title: Titlu
       question:
         max_selections: Numărul maxim de selecții
         min_selections: Niciuna dintre opțiunile de mai sus
@@ -571,6 +573,9 @@ ro:
           description: Vrei să creezi un cont nou în Decidim? Veţi putea participa la procese şi să fiţi o parte activă a organizaţiei.
           no_account: Nu, mulțumesc.
           title: Nou în Decidem?
+        verify:
+          form:
+            back: Înapoi la Decidim
         voting_step:
           back: Înapoi
           continue: Următoarea
@@ -602,6 +607,9 @@ ro:
           index:
             actions:
               confirm_destroy: Sigur dorești asta?
+              destroy: Șterge
+              edit: Editare
+              title: Acțiuni
             associated_census_data: Intrări asociate recensământului
             explanation_callout: Un stil de votare specifică ce fel de întrebări va primi un alegător în cabina de vot. Poți alege ce întrebări aparțin votării din componeta alegeri. Codul stilului de vot este folosit pentru a potrivi un alegător de la recensământ cu buletinul de vot pe care îl vor primi în cabina de vot. Nu crea niciun stil de votare dacă vrei să prezinți mereu toate întrebările.
           new:
@@ -629,7 +637,16 @@ ro:
             monitoring_committee: Comitetul de monitorizare
             monitoring_committee_members: Membri
             monitoring_committee_verify_elections: Verifică alegerile
+        models:
+          polling_station:
+            fields:
+              title: Titlu
+          voting:
+            fields:
+              title: Titlu
         monitoring_committee_election_results:
+          actions:
+            title: Acțiuni
           results:
             bulletin_board: Panoul de afișare
           update:
@@ -643,6 +660,7 @@ ro:
         monitoring_committee_polling_station_closures:
           actions:
             title: Acțiuni
+            validate: Validează
         monitoring_committee_verify_elections:
           index:
             how_to_run_verifier: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
@@ -660,10 +678,13 @@ ro:
         votings:
           actions:
             confirm_destroy: Sigur dorești asta?
+            publish: Publică
+            unpublish: Anulează publicarea
           edit:
             add_election_component: Nu ai alegeri configurate pentru acest vot. Te rugăm să o adaugi în secțiunea Componente
           form:
             slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces de votare. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
+            title: Titlu
           new:
             create: Creează
       census:
@@ -671,8 +692,14 @@ ro:
           census:
             create:
               invalid: S-a produs o eroare la încărcarea recensământului, vă rugăm să încercați din nou mai târziu.
+            creating_data:
+              info_message: "<strong>Vă rugăm să așteptați</strong>, au fost procesate un număr de %{processed_count} din %{raw_count} rânduri disponibile în fișierul %{file}."
             destroy:
               error: S-a produs o eroare la ștergerea recensământului, vă rugăm să încercați din nou mai târziu.
+            exporting_access_codes:
+              info_message: "<strong>Vă rugăm să așteptați</strong>, exportul este pregătit, îl veți primi în scurt timp la %{email}"
+            generating_access_codes:
+              info_message: "<strong>Vă rugăm să așteptați</strong>, codurile de acces la vot sunt generate..."
             new:
               has_ballot_styles_message: Ai configurat Ballot Stiluri. Te rugăm să te asiguri că câmpul "%{ballot_style_code_header}" din CSV corespunde codului dorit al Stilului Balt.
               missing_ballot_styles_message: 'Încă nu există un stil de votare pentru acest vot. Dacă doriți să aveți întrebări condiționate (i..: prezintă alegătorului întrebări diferite, în funcţie de exemplu: districtul/regiunea de reședință), trebuie să setezi <a href=%{ballot_styles_admin_path}>Ballot Styles</a> <strong>înainte de</strong> importul recensământului. Dacă doriţi să le adresaţi tuturor alegătorilor aceleaşi întrebări, puteţi continua cu procedura de import de recensământ.'
@@ -691,6 +718,7 @@ ro:
       monitoring_committee_members:
         actions:
           confirm_destroy: Sigur dorești asta?
+          title: Acțiuni
       polling_officer_zone:
         closures:
           new:
@@ -698,6 +726,7 @@ ro:
               text_area_placeholder: Te rugăm să îți scrii mesajul
         in_person_votes:
           complete_voting:
+            census_verified: Participantul nu a votat încă.
             questions_title: 'Are drept de vot pentru umătoarele întrebări:'
             questions_title_voted: 'Participantul a votat deja online și are drept de vot pentru următoarele întrebări:'
           in_person_form:
@@ -717,13 +746,16 @@ ro:
       polling_officers:
         actions:
           confirm_destroy: Sigur dorești asta?
+          title: Acțiuni
       polling_stations:
         actions:
           confirm_destroy: Sigur dorești asta?
+          title: Acțiuni
       votings:
         check_census:
           check_status: Verifică starea
           form_title: 'Completează următorul formular pentru a verifica datele recensământului:'
+          title: Pot vota?
         check_fields:
           date_of_birth: Data naşterii
           day: Zi

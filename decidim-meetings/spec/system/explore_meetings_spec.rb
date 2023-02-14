@@ -122,6 +122,29 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "when filtering" do
+      context "when filtering by text" do
+        it "updates the current URL" do
+          create(:meeting, :published, component: component, title: { en: "Foobar meeting" })
+          create(:meeting, :published, component: component, title: { en: "Another meeting" })
+          visit_component
+
+          within "form.new_filter" do
+            fill_in("filter[search_text]", with: "foobar")
+            click_button "Search"
+          end
+
+          within ".category_id_check_boxes_tree_filter" do
+            uncheck "All"
+          end
+
+          expect(page).not_to have_content("Another meeting")
+          expect(page).to have_content("Foobar meeting")
+
+          filter_params = CGI.parse(URI.parse(page.current_url).query)
+          expect(filter_params["filter[search_text]"]).to eq(["foobar"])
+        end
+      end
+
       context "when filtering by origin" do
         let!(:component) do
           create(:meeting_component,

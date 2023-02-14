@@ -54,9 +54,6 @@ pt:
               title: O título não deve estar vazio
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciativa
-        other: Iniciativas
       decidim/initiative_comittee:
         one: Comité
         other: Comités

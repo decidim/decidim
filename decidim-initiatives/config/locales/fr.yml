@@ -2,9 +2,13 @@ fr:
   activemodel:
     attributes:
       initiative:
+        answer: Réponse
+        answer_url: URL de la réponse
         area_id: Périmètre d'assemblée
+        decidim_scope_id: Secteur
         decidim_user_group_id: Auteur
         description: Description
+        hashtag: Hashtag
         offline_votes: Votes en présentiel
         offline_votes_for_scope: Signatures en personne pour %{scope_name}
         scope_id: Secteur
@@ -17,6 +21,7 @@ fr:
           online: En ligne
         state: Etat
         title: Titre
+        type_id: Type
       initiatives_committee_member:
         user: Membre du Comité de promotion
       initiatives_settings:
@@ -39,6 +44,9 @@ fr:
         title: Titre
         undo_online_signatures_enabled: Autoriser les utilisateurs à annuler leurs signatures en ligne
         validate_sms_code_on_votes: Ajouter une étape de validation du code SMS au processus de signature
+      initiatives_type_scope:
+        decidim_scopes_id: Secteurs
+        supports_required: Signatures requises
       initiatives_vote:
         date_of_birth: Date de naissance
         document_number: Numéro de document
@@ -58,9 +66,6 @@ fr:
               title: Le titre ne doit pas être vide
   activerecord:
     models:
-      decidim/initiative:
-        one: Pétition
-        other: Pétitions
       decidim/initiative_comittee:
         one: Comité
         other: Comités

@@ -78,6 +78,30 @@ module Decidim
           end
         end
 
+        context "when the resource component and manifest are nil" do
+          let(:resource) { build :dummy_resource }
+
+          before do
+            allow(resource).to receive(:component).and_return(nil)
+          end
+
+          it "renders a generic icon" do
+            expect(result).to include("svg#icon-bell")
+          end
+        end
+
+        context "when the manifest icon is nil" do
+          let(:resource) { build(:component, manifest_name: :dummy) }
+
+          before do
+            allow(resource.manifest).to receive(:icon).and_return(nil)
+          end
+
+          it "renders a generic icon" do
+            expect(result).to include("svg#icon-question-mark")
+          end
+        end
+
         context "and in other cases" do
           let(:resource) { "Something" }
 

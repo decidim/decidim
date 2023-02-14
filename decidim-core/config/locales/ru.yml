@@ -227,6 +227,8 @@ ru:
           title: Не подтвердили свою личность
         unconfirmed:
           title: Подтвердите вашу электронную почту
+      show:
+        close_modal: Закрыть окошко
     collapsible_list:
       hidden_elements_count:
         one: и еще %{count}
@@ -466,6 +468,9 @@ ru:
       all: Все виды активности
       index:
         last_activity: Последняя активность
+    links:
+      warning:
+        close_modal: Закрыть окошко
     log:
       base_presenter:
         create: "%{user_name} добавил %{resource_name}"
@@ -515,7 +520,6 @@ ru:
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
-        see_on_website: Не удается толком прочитать это письмо? Прочитайте его на <a href="%{link}" target="_blank">сайте</a>.
         unsubscribe: Чтобы отказаться от получения таких сообщений, кликните <a href="%{link}" target="_blank" class="unsubscribe">Отменить подписку</a>.
     newsletters:
       unsubscribe:

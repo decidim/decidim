@@ -1,10 +1,6 @@
 ro:
   activemodel:
     attributes:
-      agenda:
-        description: Descriere
-        duration: Durată
-        title: Titlu
       close_meeting:
         attendees_count: Număr de participanți
         attending_organizations: Lista organizaţiilor care au participat
@@ -22,7 +18,6 @@ ro:
         decidim_scope_id: Domeniu de interes
         decidim_user_group_id: Grup de utilizatori
         description: Descriere
-        end_time: Ora de încheiere
         id: ID
         location: Locaţie
         location_hints: Sugestii de localizare
@@ -35,11 +30,14 @@ ro:
         registration_terms: Termeni de înregistrare
         registration_url: URL înregistrare
         registrations_enabled: Înregistrări activate
-        show_embedded_iframe: Arată iframe încorporat pentru acest URL
-        start_time: Ora de începere
         title: Titlu
         transparent: Transparentă
         type_of_meeting: Tip
+      meeting_agenda:
+        title: Titlu
+      meeting_agenda_items:
+        duration: Durată
+        title: Titlu
     errors:
       models:
         meeting:
@@ -286,9 +284,6 @@ ro:
           edit:
             close: Închide
             title: Închide ședința
-        meeting_copies:
-          form:
-            select_a_meeting_type: Te rugăm să selectezi un tip de ședință
         meetings:
           close:
             invalid: A apărut o problemă la închiderea acestei întâlniri
@@ -318,6 +313,7 @@ ro:
             select_a_meeting_type: Te rugăm să selectezi un tip de ședință
             select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
             select_an_iframe_access_level: Vă rugăm să selectați un nivel de acces iframe
+            show_embedded_iframe_help: Doar câteva servicii permit încorporarea în întâlniri sau evenimente live (YouTube, Twitch și Jitsi)
           index:
             title: Întâlniri
           new:
@@ -501,6 +497,7 @@ ro:
           select_a_category: Te rugăm să selectezi o categorie
           select_a_meeting_type: Te rugăm să selectezi un tip de ședință
           select_a_registration_type: Te rugăm să selectezi un tip de înregistrare
+          show_embedded_iframe_help: Doar câteva servicii permit încorporarea în întâlniri sau evenimente live (YouTube, Twitch și Jitsi)
         index:
           click_here: Vezi toate întâlnirile
           new_meeting: Întâlnire nouă

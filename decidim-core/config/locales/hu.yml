@@ -371,7 +371,7 @@ hu:
           request_confirmation_instructions: Kérjen megerősítési utasítást
           title: Erősítsd meg az e-mail címed
       show:
-        close_modal: Felugró ablak bezárása
+        close_modal: Modal bezárása
     block_user_mailer:
       notify:
         body_1: A fiókod zárolva van.
@@ -860,6 +860,9 @@ hu:
       index:
         last_activity: Utolsó bejelentkezés, utolsó használat
         resource_type: típus
+    links:
+      warning:
+        close_modal: Modal bezárása
     log:
       base_presenter:
         create: "%{user_name} létrehozta ezt: %{resource_name}"
@@ -989,7 +992,6 @@ hu:
     newsletter_mailer:
       newsletter:
         note: Ezt az emailt azért kapta meg, mert feliratkozott a(z) %{organization_name}hírlevelekre. Megváltoztathatja a beállításokat az <a href="%{link}">értesítések oldalon</a>.
-        see_on_website: Nem jelenik meg rendesen? Nézd meg a <a href="%{link}" target="_blank">honlapunkon</a>.
         unsubscribe: Az ilyen emailek fogadásának kikapcsolása, <a href="%{link}" target="_blank" class="unsubscribe">Leiratkozás</a>.
     newsletter_templates:
       basic_only_text:
@@ -1261,9 +1263,6 @@ hu:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
       show_translated: Automatikusan lefordított szöveg mutatása
-    user_activity:
-      index:
-        no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
     user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_conversations:
       create:

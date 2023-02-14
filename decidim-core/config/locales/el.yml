@@ -305,7 +305,7 @@ el:
           request_confirmation_instructions: Ζητήστε οδηγίες επιβεβαίωσης
           title: Επιβεβαίωση διεύθυνσης email
       show:
-        close_modal: Κλείσιμο παραθύρου
+        close_modal: Κλείσιμο βοηθητικού στοιχείου
     collapsible_list:
       hidden_elements_count:
         one: και %{count} ακόμη
@@ -779,6 +779,9 @@ el:
       index:
         last_activity: Τελευταία δραστηριότητα
         resource_type: Τύπος
+    links:
+      warning:
+        close_modal: Κλείσιμο βοηθητικού στοιχείου
     log:
       base_presenter:
         create: "Ο χρήστης %{user_name} δημιούργησε το στοιχείο %{resource_name}"
@@ -896,7 +899,6 @@ el:
     newsletter_mailer:
       newsletter:
         note: Λάβατε αυτό το email επειδή έχετε εγγραφεί σε ενημερωτικά δελτία στον οργανισμό %{organization_name}. Μπορείτε να αλλάξετε τις ρυθμίσεις σας στη <a href="%{link}">σελίδα ειδοποιήσεων</a>.
-        see_on_website: Δεν βλέπετε αυτό το email σωστά; Δείτε το στον <a href="%{link}" target="_blank">ιστότοπο</a>.
         unsubscribe: Για να εξαιρεθείτε από τη λήψη αυτού του τύπου email, πατήστε <a href="%{link}" target="_blank" class="unsubscribe">Κατάργηση εγγραφής</a>.
     newsletter_templates:
       basic_only_text:
@@ -1159,9 +1161,6 @@ el:
     tags:
       filter_results_for_category: 'Φιλτράρισμα αποτελεσμάτων για την κατηγορία: %{resource}'
       filter_results_for_scope: 'Φιλτράρισμα αποτελεσμάτων για το πεδίο εφαρμογής: %{resource}'
-    user_activity:
-      index:
-        no_activities_warning: Αυτός ο συμμετέχων δεν έχει ακόμη κάποια δραστηριότητα.
     user_contact_disabled: Αυτός ο συμμετέχων δεν δέχεται άμεσα μηνύματα.
     user_conversations:
       create:

@@ -28,7 +28,6 @@ lt:
         show_statistics: Rodyti statistiką
         sign_date: Pasirašymo data
         signature: Parašas
-        signature_name: parašo pavadinimas
         slogan: Šūkis
         slug: URL priedas
         start_date: Pradžios data
@@ -37,13 +36,11 @@ lt:
         date: Data
         link: Nuoroda
         title: Pavadinimas
-        weight: Svoris
       conference_partner:
         link: Nuoroda
         logo: Logotipas
         name: Vardas
         partner_type: Partnerio tipas
-        weight: Svoris
       conference_registration_invite:
         email: El. paštas
         name: Vardas
@@ -53,7 +50,6 @@ lt:
         description: Aprašymas
         price: Kaina
         title: Pavadinimas
-        weight: Svoris
       conference_speaker:
         affiliation: Organizacija
         avatar: Avataras
@@ -139,8 +135,6 @@ lt:
         edit:
           title: Atnaujinti konferencijos administratorių.
           update: Atnaujinti
-        index:
-          conference_admins_title: konferencijos administratoriai
         new:
           create: Sukurti
           title: Naujas konferencijos administratorius.
@@ -420,7 +414,7 @@ lt:
         program_meeting:
           content: Turinys
           location: Vieta
-          speakers: Kalbėtojai
+          speakers: Pranešėjai
           streaming: Transliuoti
         show:
           day: Diena

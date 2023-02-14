@@ -54,9 +54,6 @@ pt-BR:
               title: O título não pode ficar vazio
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciativa
-        other: Iniciativas
       decidim/initiative_comittee:
         one: Comissão
         other: Comissões

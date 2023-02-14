@@ -14,17 +14,24 @@ es:
         description: Descripción
         file: Archivo
         title: Nombre del adjunto o imagen
+        weight: Orden de posición
       attachment_collection:
         description: Descripción
         name: Nombre
+        weight: Orden de posición
       category:
         description: Descripción
         name: Nombre
         parent_id: Superior
+        weight: Orden de posición
       component:
         name: Nombre
         published_at: Publicado en
         weight: Orden de posición
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contenido
       id: ID
       import:
         user_group_id: Importar como
@@ -92,6 +99,9 @@ es:
         welcome_notification_body: Cuerpo del mensaje de notificación de bienvenida
         welcome_notification_subject: Asunto del mensaje de notificación de bienvenida
         youtube_handler: Nombre de YouTube
+      participatory_space_private_user:
+        email: Correo electrónico
+        name: Nombre
       scope:
         code: Código
         name: Nombre
@@ -113,6 +123,7 @@ es:
         show_in_footer: Mostrar en el pie de página
         slug: Texto corto de URL
         title: Título
+        topic_id: Asunto
         weight: Orden de posición
       static_page_topic:
         description: Descripción
@@ -689,7 +700,7 @@ es:
           all: todos
           all_users: 'Todos los usuarios '
           and: 'y '
-          confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
+          confirm_delete: '¿Seguro que quieres eliminar este boletín?'
           followers: 'seguidores '
           has_been_sent_to: 'Se ha enviado a: '
           no_scopes: Sin ámbitos
@@ -704,7 +715,7 @@ es:
         select_recipients_to_deliver:
           all_spaces: Todos
           all_users_help: Envía el boletín de noticias a todos las participantes confirmadas.
-          confirm_deliver: '¿Estás segura de que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_deliver: '¿Seguro que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           none: Ninguno
@@ -1039,14 +1050,14 @@ es:
         moderation:
           fields:
             created_at: Fecha de creación
-            deleted_resource: Eliminar recurso
+            deleted_resource: Recurso eliminado
             hidden_at: Fecha de ocultación
             participatory_space: Espacio participativo
             report_count: Recuento
             reportable_id: ID
             reportable_type: Tipo
             reported_content_url: URL del contenido reportado
-            reports: Denuncias
+            reports: Informes
             visit_url: Visita la URL
         report:
           fields:

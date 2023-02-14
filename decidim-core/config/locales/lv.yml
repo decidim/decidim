@@ -300,6 +300,8 @@ lv:
           explanation_html: Lai veiktu šo darbību, jums jābūt autorizētam, bet pirms tam jāapstiprina savs e-pasts <strong>%{email}</strong>.
           request_confirmation_instructions: Pieprasīt apstiprināšanas norādījumus
           title: Apstiprināt e-pastu
+      show:
+        close_modal: Aizvērt modal
     collapsible_list:
       hidden_elements_count:
         zero: un %{count} vēl
@@ -751,6 +753,9 @@ lv:
       index:
         last_activity: Pēdējā aktivitāte
         resource_type: Veids
+    links:
+      warning:
+        close_modal: Aizvērt modal
     log:
       base_presenter:
         create: "%{user_name} izveidoja %{resource_name}"
@@ -858,7 +863,6 @@ lv:
     newsletter_mailer:
       newsletter:
         note: Jūs saņēmāt šo e-pasta ziņojumu, jo esat abonējis informatīvos biļetenus vietnē %{organization_name}. Iestatījumus var mainīt jūsu <a href="%{link}"> paziņojumu lapā </a>.
-        see_on_website: Vai nevarat pareizi redzēt šo e-pastu? Skatiet to <a href="%{link}" target="_blank"> tīmekļvietnē </a>.
         unsubscribe: Lai atteiktos no šāda veida e-pasta saņemšanas, <a href="%{link}" target="_blank" class="unsubscribe"> Anulēt abonementu</a>.
     newsletter_templates:
       basic_only_text:
@@ -1100,9 +1104,6 @@ lv:
         share_link: Kopīgot saiti
     statistics:
       comments_count: Komentāri
-    user_activity:
-      index:
-        no_activities_warning: Šis dalībnieks vēl nav veicis nekādas aktivitātes
     user_contact_disabled: Šis dalībnieks nepieņem tiešās ziņas.
     user_conversations:
       create:

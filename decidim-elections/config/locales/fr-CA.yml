@@ -6,17 +6,38 @@ fr-CA:
         image: Image
         proposals: Propositions associées
         title: Titre
+      ballot_style:
+        code: Code
       election:
         description: Description
         end_time: Le vote se termine à
         start_time: Le vote commence à
         title: Titre
+      monitoring_committee_member:
+        email: Email
+        name: Nom
+      polling_officer:
+        email: Email
+        name: Nom
+      polling_station:
+        address: Adresse
+        location: Lieu
+        location_hints: Indication de lieu
+        polling_station_managers: Gestionnaires
+        polling_station_president_id: Président
+        title: Titre
       question:
         max_selections: Nombre maximum de sélections
         min_selections: Aucune des options ci-dessus
         title: Titre
+      trustees_participatory_space:
+        user_id: Participant
       voting:
         end_time: Le vote se termine
+        introductory_image: Image d'introduction
+        promoted: Mis en avant
+        scope_id: Périmètre d'application
+        show_check_census: Afficher la page "Vérifier le recensement"
         start_time: Le vote commence le
     errors:
       models:

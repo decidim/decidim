@@ -41,6 +41,7 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_endorsed_event: Resurs instämd
+      decidim/user_group_created_event: Användargrupp skapad
       decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
     attributes:
@@ -889,7 +890,7 @@ sv:
         body_1: Du är på väg att besöka en extern länk och vi vill att du ska vara försiktig med innehållet på den externa webbplatsen.
         body_2: Kontrollera länken du är på väg att besöka och se till att den är säker innan du fortsätter.
         cancel: Avbryt
-        close_modal: Stäng fönster
+        close_modal: Stäng modal
         proceed: Fortsätt
         title: Öppna extern länk
     log:
@@ -1021,7 +1022,6 @@ sv:
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-brevet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">meddelandesidan</a>.
-        see_on_website: Visa inte e-brevet som det ska? Läs det på <a href="%{link}" target="_blank">webbplatsen</a>.
         unsubscribe: Välj att <a href="%{link}" target="_blank" class="unsubscribe">Avprenumerera</a> om du inte vill få denna typ av brev.
     newsletter_templates:
       basic_only_text:
@@ -1335,9 +1335,6 @@ sv:
       help_text: "<strong>OBS:</strong> Innehåll översattes kanske automatiskt och inte är 100% korrekt."
       show_original: Visa originaltexten
       show_translated: Visa maskinöversatt texten
-    user_activity:
-      index:
-        no_activities_warning: Den här användaren har inte haft någon aktivitet än.
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_conversations:
       create:

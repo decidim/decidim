@@ -312,6 +312,8 @@ sk:
           explanation_html: Aby ste mohli vykonať túto akciu, musíte byť autorizovaní, pred tým musíte potvrdiť svoj email <strong>%{email} </strong>.
           request_confirmation_instructions: Požiadajte o pokyny pre potvrdenie
           title: Potvrdiť svoj email
+      show:
+        close_modal: Zatvoriť okno
     collapsible_list:
       hidden_elements_count:
         one: a %{count} ďalších
@@ -755,6 +757,9 @@ sk:
       index:
         last_activity: Posledná aktivita
         resource_type: Typ
+    links:
+      warning:
+        close_modal: Zatvoriť okno
     log:
       base_presenter:
         create: "%{user_name} vytvořeno %{resource_name}"
@@ -831,7 +836,6 @@ sk:
     newsletter_mailer:
       newsletter:
         note: Tento e-mail jste obdrželi, protože jste odběrateli bulletinů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
-        see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
         unsubscribe: Chcete-li odhlásit přijímání tento typ e-mailů, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit</a>.
     newsletter_templates:
       basic_only_text:
@@ -1076,9 +1080,6 @@ sk:
         share_link: Zdieľať odkaz
     statistics:
       comments_count: Komentáre
-    user_activity:
-      index:
-        no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
     user_conversations:
       update:

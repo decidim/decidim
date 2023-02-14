@@ -749,10 +749,10 @@ lv:
       models:
         moderation:
           fields:
+            created_at: Izveides datums
             hidden_at: Paslēpts plkst.
             report_count: Skaits
             reported_content_url: Paziņotā satura URL
-            reports: Ziņojumi
             visit_url: Apmeklēt URL
   errors:
     messages:

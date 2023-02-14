@@ -282,6 +282,8 @@ gl:
           explanation_html: Para realizar esta acción necesitas estar autorizado, antes de facer isto necesitas confirmar o teu correo <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucións de confirmación
           title: Confirma o teu correo electrónico
+      show:
+        close_modal: Pechar modal
     collapsible_list:
       hidden_elements_count:
         one: e %{count} máis
@@ -776,7 +778,6 @@ gl:
     newsletter_mailer:
       newsletter:
         note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
-        see_on_website: Non se pode ver este correo electrónico correctamente? Vénseo no <a href="%{link}" target="_blank"> sitio web</a>.
         unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
     newsletters:
       unsubscribe:
@@ -1014,9 +1015,6 @@ gl:
       pages_count: Páxinas
       participants_count: Participantes
       users_count: Participantes
-    user_activity:
-      index:
-        no_activities_warning: Este usuario aínda non tivo ningunha actividade.
     user_conversations:
       show:
         back: Amosar todas as conversas

@@ -1,85 +1,91 @@
 eu:
   activemodel:
+    attributes:
+      post:
+        body: Testua
+        decidim_author_id: Egilea
+        published_at: Argitaratze data
+        title: Izena
     models:
       decidim/blogs/create_post_event: Blogeko post berria
   activerecord:
     models:
       decidim/blogs/post:
-        one: Post
-        other: Mezuak
+        one: Argitalpena
+        other: Argitalpen
   decidim:
     blogs:
       actions:
-        confirm_destroy: Ziur mezua ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude post hau argitalpen ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        new: Post berria
+        new: Argitalpe berria
         title: Ekintzak
         user_group_id: Sortu argitalpena hau bezala
       admin:
         models:
-          components:
-            body: Gorputzeko
           post:
-            name: Post
+            name: Argitalpena
         posts:
           create:
-            invalid: Arazo bat izan da post hau sortzeko
-            success: Mezua ondo sortu da
+            invalid: Arazo bat izan da sarrera hau sortzeko
+            success: Argitalpena ondo sortu da
           destroy:
             success: Mezua ondo ezabatu da
           edit:
-            save: eguneratzearen
+            save: Eguneratu
             title: Editatu argitalpena
           index:
-            title: Mezuak
+            title: Argitalpenak
           new:
             create: Sortu
-            title: Sortu mezua
+            title: Sortu argitalpena
           update:
-            invalid: Erroreak gertatu dira mezua gordetzean.
-            success: Mezua ondo gorde da
+            invalid: Akatsen bat gertatu da mezua gordetzean.
+            success: Sarrera ondo gorde da
       last_activity:
-        new_post_at_html: "<span>Post berria %{link}</span>"
+        new_post_at_html: "<span>Post berria %{link}-ean</span>"
       models:
         post:
           fields:
             author: Egilea
-            body: Gorputzeko
-            created_at: Sortutako at
+            body: Testua
+            created_at: Sortze-data
             title: Izenburua
       posts:
         show:
           back: Itzuli zerrendara
           comments: Iruzkinak
-          view: ikusi
+          view: Ikusi
         sidebar_blog:
           comments: iruzkinak
           most_commented_posts: Gehien iruzkinatutako mezu
-      read_more: Irakurri gehiago
+      read_more: Geihago irakurri
     components:
       blogs:
         actions:
+          comment: Iruzkindu
           create: Sortu
           destroy: Ezabatu
-          update: Eguneratu
+          endorse: Atxiki
+          update: Gorde
         name: Bloga
         settings:
           global:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
           step:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
             endorsements_blocked: Atxikimenduak blokeatuta
             endorsements_enabled: Atxikimenduak gaituta
     events:
       blogs:
         post_created:
-          email_intro: '"%{resource_title}" mezua "%{participatory_space_title}" argitaratzen ari zarela jarraitzen ari zara.'
+          email_intro: '"%{resource_title}" argitalpena jarraitzen ari zaren "%{participatory_space_title}" espazioan argitaratu da.'
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
-          email_subject: '%{participatory_space_title} argitaratutako mezu berria'
+          email_subject: Argitalpen berria %{participatory_space_title} espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
     statistics:
       posts_count: Argitalpenak

@@ -501,6 +501,9 @@ ru:
         edit:
           active_content_blocks: Блоки действующего содержимого
           inactive_content_blocks: Блоки недействующего содержимого
+      organization_homepage_content_blocks:
+        edit:
+          update: Обновить
       participatory_space_private_users:
         create:
           error: При попытке добавить частного участника в это пространство соучастия произошла ошибка.
@@ -634,10 +637,10 @@ ru:
       models:
         moderation:
           fields:
+            created_at: Дата создания
             hidden_at: 'Скрыто:'
             report_count: Количество
             reported_content_url: Веб-адрес обжалованного содержимого
-            reports: Жалобы
             visit_url: Посетите веб-адрес
   errors:
     messages:

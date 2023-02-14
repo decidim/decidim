@@ -1,10 +1,6 @@
 nl:
   activemodel:
     attributes:
-      agenda:
-        description: Beschrijving
-        duration: Duur
-        title: Titel
       close_meeting:
         attendees_count: Aantal deelnemers
         attending_organizations: Lijst van organisaties die bijwoonden
@@ -22,7 +18,6 @@ nl:
         decidim_scope_id: Scope
         decidim_user_group_id: Gebruikers groep
         description: Beschrijving
-        end_time: Eindtijd
         id: ID
         location: Plaats
         location_hints: Locatie hints
@@ -35,8 +30,6 @@ nl:
         registration_terms: Registratievoorwaarden
         registration_url: Registratie URL
         registrations_enabled: Registraties geactiveerd
-        show_embedded_iframe: Toon embedded iframe voor deze URL
-        start_time: Starttijd
         title: Titel
         transparent: Transparant
         type_of_meeting: Type
@@ -282,9 +275,6 @@ nl:
           edit:
             close: Sluiten
             title: Vergadering sluiten
-        meeting_copies:
-          form:
-            select_a_meeting_type: Selecteer een vergaderingstype
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering

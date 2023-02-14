@@ -240,7 +240,6 @@
           votes:
             one: stem
             other: stemmer
-          you_voted: Du stemte dette
         project_budget_button:
           add: Legg til i stemmen din
           add_descriptive: Legg til prosjektet %{resource_name} til din stemme

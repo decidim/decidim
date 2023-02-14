@@ -439,6 +439,7 @@ sv:
             accepted: Accepterat
             answer_proposal: Svara
             evaluating: Utvärderas
+            not_answered: Ej besvarade
             rejected: Avvisat
             title: Svar på förslaget %{title}
         proposal_notes:

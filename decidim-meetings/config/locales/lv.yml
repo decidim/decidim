@@ -1,10 +1,6 @@
 lv:
   activemodel:
     attributes:
-      agenda:
-        description: Apraksts
-        duration: Ilgums
-        title: Nosaukums
       close_meeting:
         attendees_count: Apmeklētāju skaits
         attending_organizations: Organizāciju saraksts, kuras apmeklēja
@@ -18,7 +14,6 @@ lv:
         decidim_category_id: Kategorija
         decidim_scope_id: Darbības tvērums
         description: Apraksts
-        end_time: Beigu laiks
         location: Atrašanās vieta
         location_hints: Norādījumi par atrašanās vietu
         organizer_id: Organizators
@@ -26,7 +21,6 @@ lv:
         registration_form_enabled: Reģistrācijas veidlapa ir iespējota
         registration_terms: Reģistrācijas noteikumi
         registrations_enabled: Reģistrācijas ir iespējotas
-        start_time: Sākuma laiks
         title: Nosaukums
         transparent: Caurskatāms
     errors:

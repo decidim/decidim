@@ -19,8 +19,6 @@ uk:
         title: Дії
       admin:
         models:
-          components:
-            body: Основний текст
           post:
             name: Допис
         posts:
@@ -45,7 +43,6 @@ uk:
             author: Автор
             body: Основний текст
             created_at: 'Створено:'
-            title: заголовок
       posts:
         show:
           view: Переглянути

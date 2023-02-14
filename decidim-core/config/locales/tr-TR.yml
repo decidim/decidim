@@ -322,7 +322,7 @@ tr:
           request_confirmation_instructions: Onaylama talimatlarını tekrar gönder
           title: E-posta adresinizi doğrulayın
       show:
-        close_modal: Pencereyi kapat
+        close_modal: Yakın kalıcı
     block_user_mailer:
       notify:
         body_1: Hesabınız kilitlendi.
@@ -830,6 +830,9 @@ tr:
       index:
         last_activity: Son Aktivite
         resource_type: Türü
+    links:
+      warning:
+        close_modal: Yakın kalıcı
     log:
       base_presenter:
         create: "%{user_name}, %{resource_name} oluşturdu"
@@ -956,7 +959,6 @@ tr:
     newsletter_mailer:
       newsletter:
         note: Bu e-postayı, %{organization_name} bültenlere abone olduğunuz için aldınız. Eğer ayarlarınızı değiştirebilirsiniz <a href="%{link}">bildirimleri sayfa</a>.
-        see_on_website: Bu e-postayı doğru göremiyor musunuz? Onu <a href="%{link}" target="_blank">web sitesinde görüntüle</a>.
         unsubscribe: Bu tür bir e-posta almayı iptal etmek için, <a href="%{link}" target="_blank" class="unsubscribe">Abonelikten Ayrıl</a>.
     newsletter_templates:
       basic_only_text:
@@ -1247,9 +1249,6 @@ tr:
       help_text: "<strong> Uyarı: </strong> İçerik otomatik olarak çevrilebilir ve %100 doğru olmayabilir."
       show_original: Orijinal metni göster
       show_translated: Otomatik olarak çevrilmiş metni göster
-    user_activity:
-      index:
-        no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
     user_contact_disabled: Bu katılımcı doğrudan mesajları kabul etmiyor.
     user_conversations:
       create:

@@ -6,22 +6,24 @@ eu:
         closed_at: Amaiera-data
         conclusions: Ondorioak
         decidim_category_id: Kategoria
-        description: deskribapena
-        end_time: Amaitzen du
+        description: Deskribapena
+        end_time: Bukaera-data
         information_updates: Informazioaren eguneratzeak
         instructions: Parte hartzeko argibideak
+        scope_id: Eremua
         start_time: Hasi da
         title: Izenburua
         user_group_id: Sortu eztabaida gisa
     models:
       decidim/debates/close_debate_event: Eztabaida itxita
-      decidim/debates/create_debate_event: Debate
-      decidim/debates/creation_disabled_event: Debateak desgaituta daude
+      decidim/debates/create_debate_event: Eztabaida
+      decidim/debates/creation_disabled_event: Eztabaidak desgaituta daude
+      decidim/debates/creation_enabled_event: Eztabaidak sortzea gaituta
   activerecord:
     models:
       decidim/debates/debate:
-        one: Debate
-        other: eztabaidak
+        one: Eztabaida
+        other: Eztabaidak
   decidim:
     components:
       debates:
@@ -29,24 +31,25 @@ eu:
           comment: Iruzkina
           create: Sortu
           endorse: Atxiki
-        name: eztabaidak
+        name: Eztabaidak
         settings:
           global:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_enabled: Iruzkinak gaituta
-            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz)
+            comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
             scope_id: Eremua
             scopes_enabled: Esparruak gaituta
           step:
-            announcement: Anuntzio
+            announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
+            creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
             endorsements_blocked: Atxikimenduak blokeatuta
             endorsements_enabled: Atxikimenduak gaituta
     debates:
       actions:
         close: Itxi
         confirm_destroy: Ziur zaude?
-        destroy: ezabatu
+        destroy: Ezabatu
         edit: Editatu
         new: '%{name} berria'
         title: Ekintzak
@@ -57,10 +60,10 @@ eu:
             title: Itxi eztabaida
         debates:
           create:
-            invalid: Arazo bat izan da eztabaida sortzen ari den bitartean.
-            success: Debate sortu da behar bezala.
+            invalid: Arazo bat gertatu da eztabaida sortzean.
+            success: Eztabaida zuzen sortu da.
           destroy:
-            success: Debata zuzen ezabatu da.
+            success: Eztabaida zuzen ezabatu da.
           edit:
             title: Editatu eztabaida
             update: Eguneratu eztabaida

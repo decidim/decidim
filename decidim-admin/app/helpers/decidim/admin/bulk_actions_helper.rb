@@ -14,9 +14,8 @@ module Decidim
       # Returns a String.
       def bulk_categories_select(collection)
         categories = bulk_categories_for_select collection
-        disabled = bulk_disabled_categories_for collection
         prompt = t("decidim.proposals.admin.proposals.index.change_category")
-        select(:category, :id, options_for_select(categories, selected: [], disabled: disabled), prompt: prompt)
+        select(:category, :id, options_for_select(categories, selected: []), prompt: prompt)
       end
 
       def bulk_categories_for_select(scope)
@@ -37,10 +36,6 @@ module Decidim
 
           parent
         end
-      end
-
-      def bulk_disabled_categories_for(scope)
-        scope.first_class.joins(:subcategories).pluck(:id)
       end
 
       # Public: Generates a select field with the components.

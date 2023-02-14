@@ -54,11 +54,6 @@ pl:
               title: Tytuł nie może być pusty
   activerecord:
     models:
-      decidim/initiative:
-        one: Inicjatywa
-        few: Inicjatywy
-        many: Inicjatyw
-        other: Inicjatyw
       decidim/initiative_comittee:
         one: Komitet
         few: Komitety

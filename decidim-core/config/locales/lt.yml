@@ -1058,7 +1058,6 @@ lt:
     newsletter_mailer:
       newsletter:
         note: Šį el. laišką gavote, nes užsiprenumeravote %{organization_name} naujienlaiškius. Galite pakeisti nuostatas savo <a href="%{link}">pranešimų puslapyje</a>.
-        see_on_website: Negalite teisingai matyti šio el. laiško? Peržiūrėkite jį <a href="%{link}" target="_blank">interneto svetainėje</a>.
         unsubscribe: Jei nenorite gauti tokio tipo el. laiško, <a href="%{link}" target="_blank" class="unsubscribe">Atsisakykite prenumeratos</a>.
     newsletter_templates:
       basic_only_text:
@@ -1376,9 +1375,6 @@ lt:
       help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
       show_original: Rodyti teksto originalą
       show_translated: Rodyti automatiškai išverstą tekstą
-    user_activity:
-      index:
-        no_activities_warning: Šis dalyvis dar nesiėmė jokios veiklos.
     user_contact_disabled: Šis dalyvis nepriima tiesioginių žinučių.
     user_conversations:
       create:

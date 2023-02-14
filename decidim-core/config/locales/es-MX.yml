@@ -196,7 +196,9 @@ es-MX:
         unblock: "%{user_name} desoficializó a la usuaria %{resource_name}"
         unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloqueado al grup de usuarias %{resource_name}"
         reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
+        unblock: "%{user_name} ha desbloqueado el grupo de usuarias %{resource_name}"
         verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo de %{resource_name} usuario a través de un archivo CSV"
       user_moderation:
@@ -373,7 +375,7 @@ es-MX:
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
       show:
-        close_modal: Cerrar el modal
+        close_modal: Cerrar modal
     block_user_mailer:
       notify:
         body_1: Tu cuenta ha sido bloqueda.
@@ -899,7 +901,7 @@ es-MX:
         body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
         body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
         cancel: Cancelar
-        close_modal: Cerrar ventana
+        close_modal: Cerrar modal
         proceed: Continuar
         title: Abrir enlace externo
     log:
@@ -908,8 +910,10 @@ es-MX:
         create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
         delete: "%{user_name} eliminó %{resource_name}"
         delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        publish_with_space: "%{user_name} ha publicado %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
+        unpublish_with_space: "%{user_name} ha despublicado %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
@@ -1031,7 +1035,7 @@ es-MX:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank" class="see-on-website">versión web</a>.'
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletter_templates:
       basic_only_text:
@@ -1349,7 +1353,7 @@ es-MX:
       show_translated: Mostrar el texto traducido automáticamente
     user_activity:
       index:
-        no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
+        no_activities_warning: Esta participante no ha tenido ninguna actividad todavía.
     user_contact_disabled: Esta participante no acepta mensajes directos.
     user_conversations:
       create:
@@ -1591,7 +1595,7 @@ es-MX:
         other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: Es demasiado corto (menos %{count} caracteres)
+      too_short: es demasiado corto (menos %{count} caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:

@@ -6,16 +6,31 @@ sv:
         image: Bild
         proposals: Relaterade förslag
         title: Titel
+      ballot_style:
+        code: Kod
       election:
         description: Beskrivning
         end_time: Omröstningen slutar vid
         start_time: Röstningsstart vid
+        title: Titel
+      monitoring_committee_member:
+        email: E-post
+        name: Namn
+      polling_officer:
+        email: E-post
+        name: Namn
+      polling_station:
+        address: Adress
+        location: Plats
+        location_hints: Detaljer om platsen
+        polling_station_managers: Koordinatorer
         title: Titel
       question:
         max_selections: Maximalt antal val
         title: Titel
       voting:
         end_time: Omröstningen avslutas
+        promoted: Annonserad
         start_time: Omröstningen börjar
     errors:
       models:
@@ -101,6 +116,7 @@ sv:
         confirm_destroy: Är du säker?
         destroy: Förstör
         edit: Redigera
+        feedback: Väljarfeedback
         import: Importera förslag till svar
         manage_answers: Hantera svar
         manage_questions: Hantera frågor
@@ -197,7 +213,11 @@ sv:
             success: Frågan har uppdaterats
         steps:
           create_election:
+            census: Census
             not_used_trustee: "(används inte)"
+            submit: Sätta upp omröstning
+            title: Sätta upp omröstning
+            trustees: Omröstningsförvaltare
           created:
             title: Omröstningen skapades
             trustees: Förvaltare
@@ -214,9 +234,11 @@ sv:
             result: Resultat
             selected: Valda
             submit: Skicka in
+            title: Publicerade resultat
           tally:
             continue: Fortsätt
             mark_as_missing: Markera som saknad
+            title: Rösträkning
           tally_ended:
             answer: Svar
             not_selected: Inte vald
@@ -225,7 +247,10 @@ sv:
             selected: Valda
             submit: Publicera resultat
           vote:
+            submit: Avsluta röstningsperiod
             title: Röstningsperiod
+          vote_ended:
+            title: Röstningsperiod avslutad
           vote_stats:
             no_vote_statistics_yet: Ingen röstningsstatistik ännu
             title: Röstningsstatistik
@@ -240,7 +265,12 @@ sv:
           index:
             title: Förvaltare
           new:
+            create: Skapa förvaltare
             title: Ny förvaltare
+      connection:
+        failed:
+          modal:
+            close: Stäng
       election_m:
         badge_name:
           finished: Avslutad
@@ -265,6 +295,7 @@ sv:
           creation_title: Omröstningen skapades
           download: Ladda ner
           key_ceremony_title: Nyckelceremoni
+          not_available: Ännu inte publicerade
           not_created: Inte skapat
           not_published: Ej publicerat
           not_ready: Inte klart
@@ -272,6 +303,7 @@ sv:
           published: Publicerat
           results_title: Resultat
           started: Startad
+          tally_title: Rösträkning
           title: Omröstningslogg
           vote_title: Omröstningsprocess
         filters:
@@ -361,6 +393,8 @@ sv:
               completed: Slutförd
               pending: Avvaktande
               processing: Bearbetar
+        menu:
+          trustee_zone: Förvaltarzon
         trustees:
           show:
             elections:
@@ -430,6 +464,8 @@ sv:
             submit: Kontrollera
           header:
             title: Verifiera din röst
+          success:
+            header: Röst identifierad!
         voting_step:
           back: Tillbaka
           continue: Nästa
@@ -443,6 +479,12 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden via föregående länk.
           email_subject: Valet %{resource_title} är nu aktivt för %{participatory_space_title}.
           notification_title: Valet <a href="%{resource_path}">%{resource_title}</a> är nu aktivt för %{participatory_space_title}.
+    help:
+      participatory_spaces:
+        votings:
+          contextual: "<p>En <strong>omröstning</strong> är ett utrymme där du kan ställa en tydlig fråga till alla personer som bildar en organisation, där du kan be att få medverka i omröstningen, samt sätta igång och hantera debatten för eller emot ett svar. När omröstningsdatumet anländer kan du rösta och publicera resultatet.</p> <p>Exempel: Omröstningar kan handla om nästan allting som påverkar en organisation: till exempel att ändra organisationens namn eller logotyp med flera alternativa förslag, rösta ja eller nej om att bli en del av en större organisation, anta eller avvisa en ny strategisk plan eller resultatet från en arbetsgrupp, eller besluta om förtroendevalda ska kunna sitta högst en, två eller tre mandatperioder.</p>\n"
+          page: "<p>En <strong>omröstning</strong> är ett utrymme där du kan ställa en tydlig fråga till alla personer som bildar en organisation, där du kan be att få medverka i omröstningen, samt sätta igång och hantera debatten för eller emot ett svar. När omröstningsdatumet anländer kan du rösta och publicera resultatet.</p> <p>Exempel: Omröstningar kan handla om nästan allting som påverkar en organisation: till exempel att ändra organisationens namn eller logotyp med flera alternativa förslag, rösta ja eller nej om att bli en del av en större organisation, anta eller avvisa en ny strategisk plan eller resultatet från en arbetsgrupp, eller besluta om förtroendevalda ska kunna sitta högst en, två eller tre mandatperioder.</p>\n"
+          title: Vad är omröstningar?
     menu:
       votings: Omröstningar
     statistics:
@@ -452,6 +494,7 @@ sv:
       admin:
         ballot_styles:
           edit:
+            title: Redigera valtyp
             update: Uppdatera
           form:
             election: Omröstning
@@ -462,12 +505,17 @@ sv:
               edit: Redigera
               new: Ny
               title: Åtgärder
+            title: Valtyper
           new:
             create: Skapa
         content_blocks:
           landing_page:
+            header:
+              name: Omröstningsbanner
             metrics:
               name: Omröstningsmetrik
+            stats:
+              name: Omröstningsstatistik
             timeline:
               name: Omröstningstidslinje
         index:
@@ -483,6 +531,7 @@ sv:
             attachment_collections: Mappar
             attachment_files: Filer
             attachments: Bilagor
+            ballot_styles: Valtyper
             census: Census
             components: Komponenter
             info: Information
@@ -523,9 +572,11 @@ sv:
             title: Åtgärder
             view: Visa
           results:
+            bulletin_board: Anslagstavla
             result_types:
               blank_answers: Tomma svar
               blank_ballots: Tomma röstsedlar
+              null_ballots: Ogiltiga röstsedlar
               total_ballots: Totalt antal röstsedlar
               valid_ballots: Giltiga röstsedlar
             selected: Valda
@@ -552,6 +603,7 @@ sv:
         monitoring_committee_verify_elections:
           index:
             download: Ladda ner
+            not_available: Ännu inte tillgängliga
             title: Omröstningar
         polling_officers:
           form:
@@ -581,6 +633,7 @@ sv:
           edit:
             update: Uppdatera
           form:
+            banner_image: Bannerbild
             promoted: Annonserad
             slug: Slug
             title: Titel
@@ -592,6 +645,10 @@ sv:
             create: Skapa
             title: Ny omröstning
       census:
+        admin:
+          census:
+            new:
+              title: Skapa census
         document_types:
           dni: ID-kort
           nie: Personnummer
@@ -601,6 +658,8 @@ sv:
             download: Ladda ner
       content_blocks:
         landing_page:
+          description:
+            title: Om den här omröstningen
           metrics:
             heading: Metrik
           polling_stations:
@@ -626,13 +685,16 @@ sv:
             modal_ballots_results_count_error:
               close_modal: Stäng
             save_recount: Spara omräkning
+            total_ballots: Totalt antal röstsedlar
           new:
             election: 'Omröstning:'
             heading: Omräkning
             modal_ballots_count_error:
               close_modal: Stäng
+              total_ballots: 'Totalt antal röstsedlar:'
               total_people: 'Totala människor:'
             polling_station: 'Vallokal:'
+            total_ballots_count: Antal röstsedlar
           show:
             heading: Omräkning
           sign:
@@ -648,6 +710,7 @@ sv:
             document_number_placeholder: ID-nummer
             month: Månad
             month_placeholder: MM
+            validate_document: Validera dokument
             year: År
             year_placeholder: ÅÅÅÅ
           verify_document:
@@ -659,8 +722,10 @@ sv:
               address: Adress
               count_votes: Räkna röster
               election: Omröstning
+              identify_person: Identifiera en person
               name: Namn
               role: Din roll
+              show_closure: Visa avslutning
               title: Vallokaler
               voting: Omröstning
       polling_officers:
@@ -688,6 +753,8 @@ sv:
           title: Få behörighetskod
         check_census:
           check_status: Kontrollera status
+          success:
+            access_link_with_sms: via SMS eller e-post.
           title: Kan jag rösta?
         check_fields:
           date_of_birth: Födelsedatum

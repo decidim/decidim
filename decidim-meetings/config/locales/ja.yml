@@ -1,10 +1,6 @@
 ja:
   activemodel:
     attributes:
-      agenda:
-        description: 説明
-        duration: 持続期間
-        title: タイトル
       close_meeting:
         attendees_count: 出席者数
         attending_organizations: 参加した組織一覧
@@ -22,8 +18,9 @@ ja:
         decidim_scope_id: スコープ
         decidim_user_group_id: ユーザーグループ
         description: 説明
-        end_time: 終了時刻
+        end_time: 終了時間
         id: ID
+        iframe_embed_type: Iframe 埋め込みタイプ
         location: 場所
         location_hints: 位置情報のヒント
         online_meeting_url: オンラインミーティングURL
@@ -33,13 +30,26 @@ ja:
         registration_email_custom_content: 登録メールのカスタムコンテンツ
         registration_form_enabled: 登録フォームが有効
         registration_terms: 登録条件
+        registration_type: 登録種別
         registration_url: 登録URL
         registrations_enabled: 登録が有効
-        show_embedded_iframe: この URL の埋め込まれた iframe を表示
-        start_time: 開始時刻
+        reserved_slots: この会議の予約済みスロット
+        start_time: 開始日時
         title: タイトル
         transparent: 透明度
         type_of_meeting: 種別
+      meeting_agenda:
+        title: タイトル
+        visible: 表示
+      meeting_agenda_items:
+        description: 説明
+        duration: 期間
+        title: タイトル
+      meeting_registration_invite:
+        email: Eメールアドレス
+        name: 名前
+      validate_registration_code:
+        code: コード
     errors:
       models:
         meeting:
@@ -278,9 +288,6 @@ ja:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
-        meeting_copies:
-          form:
-            select_a_meeting_type: ミーティング種別を選択してください
         meetings:
           close:
             invalid: このミーティングを終了する際に問題が発生しました

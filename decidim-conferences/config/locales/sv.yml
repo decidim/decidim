@@ -28,7 +28,7 @@ sv:
         show_statistics: Visa statistik
         sign_date: Underskriftsdatum
         signature: Underskrift
-        signature_name: signaturnamn
+        signature_name: Signaturnamn
         slogan: Slogan
         slug: URL-slug
         start_date: Startdatum
@@ -37,13 +37,13 @@ sv:
         date: Datum
         link: Länk
         title: Titel
-        weight: Vikt
+        weight: Ordning
       conference_partner:
         link: Länk
         logo: Logga
         name: Namn
         partner_type: Typ av partner
-        weight: Vikt
+        weight: Ordning
       conference_registration_invite:
         email: E-post
         name: Namn
@@ -53,12 +53,13 @@ sv:
         description: Beskrivning
         price: Pris
         title: Titel
-        weight: Vikt
+        weight: Ordning
       conference_speaker:
         affiliation: Anknytning
         avatar: Avatar
         conference_meeting_ids: Relaterade möten
         full_name: Fullständigt namn
+        personal_url: Personlig URL
         position: Plats
         twitter_handle: Twitternamn
         user_id: Användare
@@ -131,8 +132,6 @@ sv:
         edit:
           title: Uppdatera konferensadministratör.
           update: Uppdatera
-        index:
-          conference_admins_title: konferensadministratörer
         new:
           create: Skapa
           title: Ny konferensadministratör.

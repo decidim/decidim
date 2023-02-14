@@ -33,5 +33,71 @@ module Decidim
         expect(newsletter).not_to be_valid
       end
     end
+
+    describe "#url" do
+      subject { newsletter.url }
+
+      let(:newsletter) { create(:newsletter, :sent) }
+      let(:organization) { newsletter.organization }
+
+      it { is_expected.to eq("http://#{organization.host}/newsletters/#{newsletter.id}") }
+
+      context "when the newsletter is not sent" do
+        let(:newsletter) { create(:newsletter) }
+
+        it { is_expected.to eq("#") }
+      end
+    end
+
+    describe "#notifications_settings_url" do
+      subject { newsletter.notifications_settings_url }
+
+      let(:newsletter) { create(:newsletter, :sent) }
+      let(:organization) { newsletter.organization }
+
+      it { is_expected.to eq("http://#{organization.host}/notifications_settings") }
+
+      context "when the newsletter is not sent" do
+        let(:newsletter) { create(:newsletter) }
+
+        it { is_expected.to eq("#") }
+      end
+    end
+
+    describe "#unsubscribe_newsletters_url" do
+      subject { newsletter.unsubscribe_newsletters_url }
+
+      let(:newsletter) { create(:newsletter, :sent) }
+      let(:organization) { newsletter.organization }
+
+      it { is_expected.to eq("http://#{organization.host}/newsletters/unsubscribe") }
+
+      context "when the newsletter is not sent" do
+        let(:newsletter) { create(:newsletter) }
+
+        it { is_expected.to eq("#") }
+      end
+    end
+
+    describe "#organization_official_url" do
+      subject { newsletter.organization_official_url }
+
+      let(:newsletter) { create(:newsletter, :sent, organization: organization) }
+      let(:organization) { create(:organization, official_url: "https://example.org") }
+
+      it { is_expected.to eq("https://example.org") }
+
+      context "when the newsletter is not sent" do
+        let(:newsletter) { create(:newsletter) }
+
+        it { is_expected.to eq("#") }
+      end
+
+      context "when the official URL is not set for the organization" do
+        let(:organization) { create(:organization, official_url: nil) }
+
+        it { is_expected.to eq("http://#{organization.host}/") }
+      end
+    end
   end
 end

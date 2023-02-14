@@ -4,12 +4,12 @@ eu:
       result:
         decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
-        decidim_scope_id: Esparrua
+        decidim_scope_id: Eremua
         description: Deskribapena
         end_date: Bukaera-data
         progress: Aurrerapena
-        project_ids: Proiektu barne
-        proposals: Proposamen sortak
+        project_ids: Barne dauden proiektuak
+        proposals: Barne dauden proposamenak
         start_date: Hasiera-data
         title: Izenburua
         updated_at: Noiz eguneratua
@@ -19,7 +19,7 @@ eu:
         name: Izena
         progress: Aurrerapena
       timeline_entry:
-        description: Descripción
+        description: Deskribapena
         entry_date: Data
     models:
       decidim/accountability/proposal_linked_event: Emaitza batean sartutako proposamena
@@ -37,7 +37,7 @@ eu:
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
-        import_csv: Inportatu CSV
+        import_csv: Inportatu CSV fichategia
         new: '%{name} berria'
         preview: Aurreikusi
         timeline_entries: Proiektuen bilakaera
@@ -48,7 +48,29 @@ eu:
           results: Emaitzak
         import_results:
           new:
+            download_export: Deskargatu esportatutakoa CSV formatuan
             import: Inportatu
+            info: |
+              <p>Ondoko urrats hauek ematea gomendatzen dizugu:</p>
+              <ol>
+              <li>Sortu egoerak erantsi nahi dituzun emaitzetarako (<a href='%{link_new_status}' target='_blank'> link </a>)</li>
+              <li>Sortu emaitza bat gutxienez eskuz administrazioaren panelaren bidez (<a href='%{link_new_result}' target='_blank'>link</a>) inportatu baino lehen, hobeto ulertzeko formatua eta nola bete.</li>
+              <li>Deskargatu CSV formatuko artxiboa (%{link_export_csv})</li>
+              <li>Egin aldaketak lokalean. CSVren ondoko zutabeak baino ezin dituzu aldatu:
+                <ul>
+                <li><b> id category/id:</b> ID kategoriarako </li>
+                <li><b>scope /id:</b> ID eremurako </li>
+                <li><b>parent /id:</b> ID aitarentzat (erlazionatutako emaitzetarako). Aukerakoa </li>
+                <li><b>title /I18N:</b> Izenburua hizkuntzan X</li>
+                <li><b> deskribapena /I18N:</b> deskribapena hizkuntzan X</li>
+                <li><b>start_date:</b> emaitza gauzatzen den hasiera-data (AAAA-MM-DD formatua)</li>
+                <li><b>end emaitza gauzatzen den amaiera-data (AAAA-MM-DD formatua) </li>
+                <li><b> status /id:</b> egoeraren ID emaitza honetarako </li>
+                <li><b>progress:</b> gauzatzearen ehunekoa (0tik 100era) </li>
+                <li><b>proposals_ids:</b>erlazionatutako proposamenen barneko ID (komez bidez bereizita). Automatikoki bihurtuko da:<span class = 'attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
             title: Inportatu emaitzak CSVtik
         imports:
           create:
@@ -135,7 +157,7 @@ eu:
           subject: Emaitzak zuzen inportatu dira
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
       last_activity:
-        new_result_at_html: "<span> %{link}</span>emaitza berrian"
+        new_result_at_html: "<span> %{link}</span>-ean emaitza berria"
       models:
         result:
           fields:

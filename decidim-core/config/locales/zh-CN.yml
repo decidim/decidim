@@ -757,6 +757,9 @@ zh-CN:
       index:
         last_activity: 上次活动
         resource_type: 类型
+    links:
+      warning:
+        close_modal: 关闭模式
     log:
       base_presenter:
         create: "%{user_name} 创建了 %{resource_name}"
@@ -881,7 +884,6 @@ zh-CN:
     newsletter_mailer:
       newsletter:
         note: 您收到这封邮件是因为您订阅了 %{organization_name}的新闻通讯。您可以在您的 <a href="%{link}">通知页面</a> 更改您的设置。
-        see_on_website: 找不到正确的电子邮件？在 <a href="%{link}" target="_blank">网站</a> 上查看。
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
     newsletter_templates:
       basic_only_text:
@@ -1158,9 +1160,6 @@ zh-CN:
       help_text: "<strong>警告：</strong> 内容可能会被自动翻译而不是100%的准确性。"
       show_original: 显示原始文本
       show_translated: 显示自动翻译的文本
-    user_activity:
-      index:
-        no_activities_warning: 此参与者尚未有任何活动。
     user_contact_disabled: 此参与者不接受私信。
     user_conversations:
       create:

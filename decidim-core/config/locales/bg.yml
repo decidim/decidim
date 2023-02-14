@@ -300,6 +300,8 @@ bg:
           explanation_html: За да изпълните това действие, първо се идентифицирайте, но преди това потвърдете вашата ел. поща <strong>%{email}</strong>.
           request_confirmation_instructions: Заявка на инструкции за потвърждение
           title: Потвърдете Вашата ел. поща
+      show:
+        close_modal: Затвори прозорчето
     collapsible_list:
       hidden_elements_count:
         one: и още %{count}
@@ -749,6 +751,9 @@ bg:
       index:
         last_activity: Последна активност
         resource_type: Тип
+    links:
+      warning:
+        close_modal: Затвори прозорчето
     log:
       base_presenter:
         create: "%{user_name} създаде %{resource_name}"
@@ -856,7 +861,6 @@ bg:
     newsletter_mailer:
       newsletter:
         note: Получихте това писмо, защото сте абонирани за бюлетини на %{organization_name}. Можете да промените вашите настройки на <a href="%{link}">страницата "известия"</a>.
-        see_on_website: Не виждате това писмо правилно? Вижте го на <a href="%{link}" target="_blank">сайта</a>.
         unsubscribe: За да се откажете от получаването на такъв тип писма <a href="%{link}" target="_blank" class="unsubscribe">Отпишете се</a>.
     newsletter_templates:
       basic_only_text:
@@ -1100,9 +1104,6 @@ bg:
         share_link: Сподели връзка
     statistics:
       comments_count: Коментари
-    user_activity:
-      index:
-        no_activities_warning: Този участник все още не е имал активност.
     user_contact_disabled: Този участник не приема директни съобщения.
     user_conversations:
       create:

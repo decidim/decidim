@@ -11,6 +11,16 @@ eu:
         end_time: Bozketaren amaiera-data
         start_time: Bozketaren hasiera-data
         title: Izenburua
+      monitoring_committee_member:
+        email: Helbide elektronikoa
+        name: Izena
+      polling_officer:
+        email: Helbide elektronikoa
+        name: Izena
+      polling_station:
+        address: Helbidea
+        location: Kokapena
+        title: Izenburua
       question:
         max_selections: Gehieneko aukera kopurua
         min_selections: Aurreko bat ere ez
@@ -181,6 +191,9 @@ eu:
         exports:
           elections: Bozketak
           feedback_form_answers: Erantzunen feedbacka
+        mailers:
+          trustee_mailer:
+            body: "< p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, konfiantzazko gisa.< p>"
         menu:
           trustees: Bermatzaileak
         models:
@@ -539,7 +552,7 @@ eu:
         menu:
           trustee_zone: Bermatzailearen gunea
         no_bulletin_board:
-          body: Iragarki Taula bat behar da, atal honetarako konfiguratua. Jarri harremanetan administratzailearekin xehetasun gehiago izateko.
+          body: Atal honetarako iragarki-taula konfiguratu bat behar da. Deitu administratzaileari xehetasun gehiago izateko.
           title: Sentitzen dugu, Iragarki Taula oraindik ez dago konfiguratuta.
         trustees:
           show:

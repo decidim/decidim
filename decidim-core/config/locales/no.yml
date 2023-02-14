@@ -362,7 +362,7 @@
           request_confirmation_instructions: Be om bekreftels instruksjoner
           title: Bekreft e-posten din
       show:
-        close_modal: Lukk vinduet
+        close_modal: Lukk modal
     block_user_mailer:
       notify:
         body_1: Kontoen din ble blokkert.
@@ -887,7 +887,7 @@
         body_1: Du er i ferd med å besøke en ekstern lenke, og vi vil at du skal være forsiktig med hensyn til innholdet på det eksterne nettstedet.
         body_2: Vennligst sjekk linken du er i ferd med å besøke og sørg for at du anser den som et sikkert nettsted før du fortsetter.
         cancel: Avbryt
-        close_modal: Lukk dialogboks
+        close_modal: Lukk modal
         proceed: Fortsett
         title: Åpne ekstern lenke
     log:
@@ -1019,7 +1019,6 @@
     newsletter_mailer:
       newsletter:
         note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
-        see_on_website: Kan ikke se denne e-posten riktig? Se den på <a href="%{link}" target="_blank">nettsiden</a>.
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
     newsletter_templates:
       basic_only_text:
@@ -1333,9 +1332,6 @@
       help_text: "<strong>Advarsel:</strong> Innhold kan automatisk bli oversatt og ikke alltid være 100 % nøyaktig."
       show_original: Vis originaltekst
       show_translated: Vis automatisk oversatt tekst
-    user_activity:
-      index:
-        no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
     user_contact_disabled: Denne deltakeren godtar ikke direktemeldinger.
     user_conversations:
       create:

@@ -40,6 +40,9 @@ ro:
       decidim/promote_to_admin: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
       decidim/resource_endorsed_event: Resursă susținută
+      decidim/resource_hidden_event: Resursă ascunsă
+      decidim/user_group_created_event: Grup de utilizatori creat
+      decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
     attributes:
       decidim/user:
@@ -877,7 +880,7 @@ ro:
         body_1: Ești pe cale de a vizita un link extern și am dori să fii precaut în ceea ce privește conținutul de pe site-ul extern.
         body_2: Te rugăm să verifici link-ul pe care urmează să îl vizitezi și să te asiguri că îl este un site sigur înainte de a continua.
         cancel: Anulare
-        close_modal: Închidere
+        close_modal: Închide fereastra
         proceed: Continuă
         title: Deschide link-ul extern
     log:
@@ -1009,7 +1012,6 @@ ro:
     newsletter_mailer:
       newsletter:
         note: Ați primit acest e-mail deoarece sunteți abonat la buletinele informative de pe %{organization_name}. Puteți modifica setările de pe pagina <a href="%{link}">de notificări</a>.
-        see_on_website: Nu se poate vedea corect acest e-mail? Vizualizați-l pe <a href="%{link}" target="_blank">site-ul</a>.
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
     newsletter_templates:
       basic_only_text:
@@ -1326,7 +1328,7 @@ ro:
       show_translated: Arată textul tradus automat
     user_activity:
       index:
-        no_activities_warning: Acest participant nu a avut încă nicio activitate.
+        no_activities_warning: Acest participant nu are nicio activitate încă.
     user_contact_disabled: Acest participant nu acceptă mesaje directe.
     user_conversations:
       create:

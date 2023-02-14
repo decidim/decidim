@@ -896,7 +896,7 @@ de:
         body_1: Sie sind dabei einen externen Link zu besuchen und wir möchten, dass Sie hinsichtlich der Inhalte auf der externen Seite vorsichtig sind.
         body_2: Bitte überprüfen Sie den Link und stellen Sie sicher, dass es sich um eine vertrauenswürdige Seite handelt, bevor Sie fortfahren.
         cancel: Abbrechen
-        close_modal: Dialog schließen
+        close_modal: Modal schließen
         proceed: Fortfahren
         title: Externen Link öffnen
     log:
@@ -905,6 +905,7 @@ de:
         create_with_space: "%{user_name} hat %{resource_name} in %{space_name} erstellt"
         delete: "%{user_name} hat %{resource_name} gelöscht"
         delete_with_space: "%{user_name} hat %{resource_name} in %{space_name} gelöscht"
+        publish_with_space: "%{user_name} veröffentlichte %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} hat eine Aktion an %{resource_name} ausgeführt"
         unknown_action_with_space: "%{user_name} hat eine Aktion an %{resource_name} in %{space_name} ausgeführt"
         update: "%{user_name} hat %{resource_name} aktualisiert"
@@ -1028,7 +1029,6 @@ de:
     newsletter_mailer:
       newsletter:
         note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
-        see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Klicken Sie bitte hier <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
       basic_only_text:
@@ -1342,9 +1342,6 @@ de:
       help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
       show_original: Originaltext anzeigen
       show_translated: Automatisch übersetzter Text anzeigen
-    user_activity:
-      index:
-        no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
     user_contact_disabled: Dieser Teilnehmer akzeptiert keine Direktnachrichten.
     user_conversations:
       create:

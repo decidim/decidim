@@ -28,7 +28,6 @@ it:
         show_statistics: Mostra statistiche
         sign_date: Firmato il
         signature: Firma
-        signature_name: nome firma
         slogan: Slogan
         slug: Slug URL
         start_date: Data di inizio
@@ -37,13 +36,11 @@ it:
         date: Data
         link: Collegamento
         title: Titolo
-        weight: Peso
       conference_partner:
         link: Collegamento
         logo: Logo
         name: Nome
         partner_type: Tipo di partner
-        weight: Peso
       conference_registration_invite:
         email: Email
         name: Nome
@@ -53,7 +50,6 @@ it:
         description: Descrizione
         price: Prezzo
         title: Titolo
-        weight: Peso
       conference_speaker:
         affiliation: Affiliazione
         avatar: Avatar
@@ -131,8 +127,6 @@ it:
         edit:
           title: Aggiorna l'amministratore della conferenza.
           update: Aggiornare
-        index:
-          conference_admins_title: amministratori della conferenza
         new:
           create: Creare
           title: Nuovo amministratore della conferenza.
@@ -409,7 +403,7 @@ it:
       conference_program:
         program_meeting:
           content: Soddisfare
-          location: Posizione
+          location: Luogo
           speakers: Relatori
           streaming: Streaming
         show:

@@ -28,7 +28,6 @@ pt-BR:
         show_statistics: Mostre estatisticas
         sign_date: Data de assinatura
         signature: Assinatura
-        signature_name: nome da assinatura
         slogan: Slogan
         slug: Lesma de URL
         start_date: Data de início
@@ -37,13 +36,11 @@ pt-BR:
         date: Data
         link: Link
         title: Título
-        weight: Peso
       conference_partner:
         link: Link
         logo: Logo
         name: Nome
         partner_type: Tipo de parceiro
-        weight: Peso
       conference_registration_invite:
         email: E-mail
         name: Nome
@@ -53,7 +50,6 @@ pt-BR:
         description: Descrição
         price: Preço
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliação
         avatar: Avatar
@@ -131,8 +127,6 @@ pt-BR:
         edit:
           title: Atualize o usuário da conferência.
           update: Atualizar
-        index:
-          conference_admins_title: usuários da conferência
         new:
           create: Crio
           title: Novo usuário da conferência.
@@ -410,7 +404,7 @@ pt-BR:
         program_meeting:
           content: Conteúdo
           location: Localização
-          speakers: Alto-falantes
+          speakers: caixas de som
           streaming: Transmissão
         show:
           day: Dia

@@ -1,6 +1,12 @@
 ---
 en:
   activemodel:
+    attributes:
+      post:
+        body: Body
+        decidim_author_id: Author
+        published_at: Publish time
+        title: Title
     models:
       decidim/blogs/create_post_event: New blog post
   activerecord:
@@ -19,8 +25,6 @@ en:
         user_group_id: Create post as
       admin:
         models:
-          components:
-            body: Body
           post:
             name: Post
         posts:
@@ -48,7 +52,7 @@ en:
             author: Author
             body: Body
             created_at: Created at
-            title: title
+            title: Title
       posts:
         show:
           back: Back to list
@@ -61,8 +65,10 @@ en:
     components:
       blogs:
         actions:
+          comment: Comment
           create: Create
           destroy: Delete
+          endorse: Endorse
           update: Update
         name: Blog
         settings:

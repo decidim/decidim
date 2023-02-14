@@ -14,17 +14,24 @@ ca:
         description: Descripció
         file: Arxiu
         title: Nom de l'adjunt o imatge
+        weight: Ordre de posició
       attachment_collection:
         description: Descripció
         name: Nom
+        weight: Ordre de posició
       category:
         description: Descripció
         name: Nom
         parent_id: Pare
+        weight: Ordre de posició
       component:
         name: Nom
         published_at: Publicat el
         weight: Ordre de posició
+      external_domain:
+        value: Valor
+      help_section:
+        content: Contingut
       id: ID
       import:
         user_group_id: Importar com
@@ -92,6 +99,9 @@ ca:
         welcome_notification_body: Cos de la notificació de benvinguda
         welcome_notification_subject: Assumpte de la notificació de benvinguda
         youtube_handler: Nom d'usuària de YouTube
+      participatory_space_private_user:
+        email: Correu electrònic
+        name: Nom
       scope:
         code: Codi
         name: Nom
@@ -113,6 +123,7 @@ ca:
         show_in_footer: Mostra al peu de pàgina
         slug: Nom curt d'URL
         title: Títol
+        topic_id: Assumpte
         weight: Ordre de posició
       static_page_topic:
         description: Descripció
@@ -704,7 +715,7 @@ ca:
         select_recipients_to_deliver:
           all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
-          confirm_deliver: Estàs segura que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           none: Cap
@@ -816,7 +827,7 @@ ca:
           inactive_content_blocks: Blocs de contingut inactiu
       organization_homepage_content_blocks:
         edit:
-          update: Actualitza
+          update: Actualitzar
       participatory_space_private_users:
         create:
           error: S'ha produït un error en afegir una participant privada a aquest espai de participació.
@@ -1039,14 +1050,14 @@ ca:
         moderation:
           fields:
             created_at: Data de creació
-            deleted_resource: Elimina el recurs
+            deleted_resource: Recurs eliminat
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
             report_count: Recompte
             reportable_id: ID
             reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
-            reports: Denúncies
+            reports: Informes
             visit_url: Visiteu l'URL
         report:
           fields:

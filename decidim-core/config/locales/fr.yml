@@ -196,7 +196,9 @@ fr:
         unblock: "%{user_name} a débloqué l'utilisateur %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
+        block: "%{user_name} a bloqué le groupe d'utilisateurs %{resource_name}"
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
+        unblock: "%{user_name} a débloqué le groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
       user_moderation:
@@ -373,7 +375,7 @@ fr:
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
       show:
-        close_modal: Fermer la fenêtre de dialogue
+        close_modal: Fermer la fenêtre
     block_user_mailer:
       notify:
         body_1: Votre compte a été bloqué.
@@ -894,7 +896,7 @@ fr:
         body_1: Vous êtes sur le point de visiter un lien externe et nous aimerions que vous soyez prudent quant au contenu du site externe.
         body_2: Veuillez vérifier le lien que vous êtes sur le point de visiter et assurez-vous de le reconnaître comme un site sûr avant de poursuivre.
         cancel: Annuler
-        close_modal: Fermer la fenêtre de dialogue
+        close_modal: Fermer la fenêtre
         proceed: Continuer
         title: Ouvrir le lien externe
     log:
@@ -903,8 +905,10 @@ fr:
         create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
         delete: "%{user_name} a supprimé %{resource_name}"
         delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        publish_with_space: "%{user_name} a publié %{resource_name} dans %{space_name}"
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
+        unpublish_with_space: "%{user_name} a dépublié %{resource_name} de %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
@@ -1342,9 +1346,6 @@ fr:
       help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
       show_original: Afficher le texte original
       show_translated: Afficher le texte automatiquement traduit
-    user_activity:
-      index:
-        no_activities_warning: Cet utilisateur n'a pas encore eu d'activité.
     user_contact_disabled: Cet utilisateur n'accepte pas les messages directs.
     user_conversations:
       create:

@@ -1,10 +1,6 @@
 hu:
   activemodel:
     attributes:
-      agenda:
-        description: Leírás
-        duration: Időtartam
-        title: Cím
       close_meeting:
         attendees_count: Résztvevők száma
         attending_organizations: Résztvevő szervezetek listája
@@ -22,7 +18,6 @@ hu:
         decidim_scope_id: Hatáskör
         decidim_user_group_id: Felhasználói csoport
         description: Leírás
-        end_time: Záró időpont
         id: ID
         location: Helye
         location_hints: Tippek a helyre
@@ -35,8 +30,6 @@ hu:
         registration_terms: Regisztrációs feltételek
         registration_url: Regisztrációs URL
         registrations_enabled: Regisztráció engedélyezve
-        show_embedded_iframe: Mutassa ennek az url-nek az iframe beágyazását
-        start_time: Kezdő időpont
         title: Cím
         transparent: Átlátszó
         type_of_meeting: Típus
@@ -281,9 +274,6 @@ hu:
           edit:
             close: Bezárás
             title: Ttalálkozó lezárása
-        meeting_copies:
-          form:
-            select_a_meeting_type: Válassza ki a találkozó típusát
         meetings:
           close:
             invalid: Probléma merült fel a találkozó lezárásakor

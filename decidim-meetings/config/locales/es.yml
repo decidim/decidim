@@ -1,10 +1,6 @@
 es:
   activemodel:
     attributes:
-      agenda:
-        description: Descripción
-        duration: Duración
-        title: Título
       close_meeting:
         attendees_count: Número de asistentes
         attending_organizations: Lista de organizaciones que han participado
@@ -22,8 +18,9 @@ es:
         decidim_scope_id: Ámbito
         decidim_user_group_id: Grupo
         description: Descripción
-        end_time: Hora de finalización
+        end_time: Día y hora de finalización
         id: ID
+        iframe_embed_type: Visualización de la sala de videoconferencia
         location: Ubicación
         location_hints: Detalles de ubicación
         online_meeting_url: URL del encuentro online
@@ -33,13 +30,26 @@ es:
         registration_email_custom_content: Contenido personalizado del email de inscripción
         registration_form_enabled: Formulario de inscripción habilitado
         registration_terms: Términos y condiciones de inscripción
+        registration_type: Tipo de inscripción
         registration_url: URL de inscripción
         registrations_enabled: Inscripciones abiertas
-        show_embedded_iframe: Mostrar iframe incrustado para esta URL
-        start_time: Hora de inicio
+        reserved_slots: Plazas reservadas para este encuentro
+        start_time: Día y hora de inicio
         title: Título
         transparent: Transparente
         type_of_meeting: Tipo
+      meeting_agenda:
+        title: Título
+        visible: Visible
+      meeting_agenda_items:
+        description: Descripción
+        duration: Duración
+        title: Título
+      meeting_registration_invite:
+        email: Correo electrónico
+        name: Nombre
+      validate_registration_code:
+        code: Código
     errors:
       models:
         meeting:
@@ -282,9 +292,6 @@ es:
           edit:
             close: Cerrar
             title: Cerrar encuentro
-        meeting_copies:
-          form:
-            select_a_meeting_type: Por favor, selecciona un tipo de encuentro
         meetings:
           close:
             invalid: Se ha producido un error al cerrar este encuentro

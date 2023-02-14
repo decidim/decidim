@@ -1,10 +1,6 @@
 ru:
   activemodel:
     attributes:
-      agenda:
-        description: Описание
-        duration: Длительность
-        title: Заголовок
       close_meeting:
         attendees_count: Количество участников
         attending_organizations: Список принявших участие организаций
@@ -18,7 +14,6 @@ ru:
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
-        end_time: Время окончания
         location: Место
         location_hints: Как добраться
         organizer_id: Организация
@@ -26,7 +21,6 @@ ru:
         registration_form_enabled: Регистрационная форма включена
         registration_terms: Условия регистрации
         registrations_enabled: Регистрация включена
-        start_time: Время начала
         title: Название
         transparent: Прозрачная
     errors:

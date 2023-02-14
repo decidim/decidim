@@ -1,10 +1,6 @@
 ca:
   activemodel:
     attributes:
-      agenda:
-        description: Descripció
-        duration: Durada
-        title: Títol
       close_meeting:
         attendees_count: Nombre d'assistents
         attending_organizations: Llista d'organitzacions que han participat
@@ -22,8 +18,9 @@ ca:
         decidim_scope_id: Àmbit
         decidim_user_group_id: Grup d'usuàries
         description: Descripció
-        end_time: Hora de finalització
+        end_time: Dia i hora de finalització
         id: ID
+        iframe_embed_type: Visualització de la sala de videoconferència
         location: Ubicació
         location_hints: Detalls d'ubicació
         online_meeting_url: URL de trobada en línia
@@ -33,13 +30,26 @@ ca:
         registration_email_custom_content: Contingut personalitzat del correu d'inscripció
         registration_form_enabled: Formulari d'inscripcions habilitat
         registration_terms: Termes i condicions d'inscripció
+        registration_type: Tipus d'inscripció
         registration_url: URL d'inscripció
         registrations_enabled: Inscripcions obertes
-        show_embedded_iframe: Mostrar iframe incrustat per aquesta URL
-        start_time: Hora d'inici
+        reserved_slots: Places reservades per aquesta trobada
+        start_time: Dia i hora d'inici
         title: Títol
         transparent: Transparent
         type_of_meeting: Tipus
+      meeting_agenda:
+        title: Títol
+        visible: Visible
+      meeting_agenda_items:
+        description: Descripció
+        duration: Durada
+        title: Títol
+      meeting_registration_invite:
+        email: Correu electrònic
+        name: Nom
+      validate_registration_code:
+        code: Codi
     errors:
       models:
         meeting:
@@ -282,9 +292,6 @@ ca:
           edit:
             close: Tancar
             title: Tancar trobada
-        meeting_copies:
-          form:
-            select_a_meeting_type: Si us plau, selecciona un tipus de trobada
         meetings:
           close:
             invalid: S'ha produït un error en tancar aquesta trobada

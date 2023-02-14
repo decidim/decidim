@@ -51,9 +51,6 @@ el:
               title: Ο τίτλος δεν πρέπει να είναι κενός
   activerecord:
     models:
-      decidim/initiative:
-        one: Πρωτοβουλία
-        other: Πρωτοβουλίες
       decidim/initiative_comittee:
         one: Επιτροπή
         other: Επιτροπές

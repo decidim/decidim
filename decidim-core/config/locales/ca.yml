@@ -196,7 +196,9 @@ ca:
         unblock: "%{user_name} ha desbloquejat a la usuària %{resource_name}"
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloquejat al grup d'usuàries %{resource_name}"
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
+        unblock: "%{user_name} ha desbloquejat al grup d'usuàries %{resource_name}"
         verify: "%{user_name} ha verificat el grup %{resource_name}"
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
       user_moderation:
@@ -230,7 +232,7 @@ ca:
         success: L'esborrany d'esmena s'ha eliminat correctament.
       edit_draft:
         discard: Descarta aquest esborrany
-        discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta esmena?
+        discard_confirmation: Segur que vols descartar l'esborrany d'aquesta esmena?
         send: Vista prèvia
         title: Edita l'esborrany d'esmena
       emendation:
@@ -370,7 +372,7 @@ ca:
           request_confirmation_instructions: Sol·licita instruccions de confirmació
           title: Confirma el teu correu electrònic
       show:
-        close_modal: Tancar el modal
+        close_modal: Tanca modal
     block_user_mailer:
       notify:
         body_1: El teu compte ha estat bloquejat.
@@ -516,9 +518,9 @@ ca:
             close_modal: Tanca modal
             uncheck: Deixa desmarcada
           notice: |-
-            <p>Hola, estàs segura que no vols rebre un butlletí?<br>
-            Si us plau, torna a marcar la casella de selecció de butlletí a continuació.<br>
-            Per a nosaltres és molt important que rebeu correus electrònics ocasionals per fer avisos importants, sempre podeu canviar-lo a la pàgina de configuració de les notificacions.</p>
+            <p>Hola, segur que no vols rebre un butlletí?<br>
+            Si us plau, pren en consideració marcar la casella de selecció de butlletí a continuació.<br>
+            Per a nosaltres és molt important que rebis correus electrònics ocasionals per fer avisos importants, sempre pots canviar-ho a la pàgina de configuració de les notificacions.</p>
             <p>Si no marques la casella, pot ser que et falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
             Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió.</p>
             <p>Gràcies per llegir això.</p>
@@ -689,7 +691,7 @@ ca:
         resource_hidden:
           email_intro: Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}.
           email_outro: Has rebut aquesta notificació perquè ets autora d'un contingut eliminat.
-          email_subject: S'ha eliminat el teu %{resource_type}
+          email_subject: S'ha eliminat el/la teu/teva %{resource_type}
           notification_title: |-
             Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}..</br>
             <i>%{resource_content}</i>
@@ -794,7 +796,7 @@ ca:
       reached_top: Has arribat al màxim nivell d'aquesta insígnia.
     group_admins:
       actions:
-        are_you_sure: Segura? Això no eliminarà la participant del grup.
+        are_you_sure: Segur? Això no eliminarà la participant del grup.
         demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta participant de la llista d'administradores
@@ -823,7 +825,7 @@ ca:
         error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació al grup
         success: Sol·licitud acceptada correctament
       actions:
-        are_you_sure: Estàs segur?
+        are_you_sure: Segur?
         promote_to_admin: Fer administrador
         remove_from_group: Eliminar participant
       index:
@@ -840,7 +842,7 @@ ca:
         success: La participant s'ha eliminat correctament del grup
     groups:
       actions:
-        are_you_sure: Estàs segur?
+        are_you_sure: Segur?
       create:
         error: S'ha produït un errot en crear el grup
         success: Grup creat correctament
@@ -896,7 +898,7 @@ ca:
         body_1: Estàs a punt de visitar un enllaç extern i et recomanem que siguis prudent pel que fa als continguts en pàgines externes.
         body_2: Assegura't que l'enllaç que visitaràs és d'un lloc segur abans de seguir.
         cancel: Cancel·lar
-        close_modal: Tancar finestra
+        close_modal: Tanca modal
         proceed: Continuar
         title: Obrir enllaç extern
     log:
@@ -905,8 +907,10 @@ ca:
         create_with_space: "%{user_name} ha creat %{resource_name} a %{space_name}"
         delete: "%{user_name} ha eliminat %{resource_name}"
         delete_with_space: "%{user_name} ha eliminat %{resource_name} en %{space_name}"
+        publish_with_space: "%{user_name} ha publicat %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
         unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
+        unpublish_with_space: "%{user_name} ha despublicat %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualitzat %{resource_name}"
         update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
       value_types:
@@ -1028,7 +1032,7 @@ ca:
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
-        see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <a href="%{link}" target="_blank"> versió web</a>.
+        see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <<a href="%{link}" target="_blank" class="see-on-website">versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
     newsletter_templates:
       basic_only_text:
@@ -1587,7 +1591,7 @@ ca:
         other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
-      too_short: És massa curt (menys %{count} caràcters)
+      too_short: és massa curt (menys %{count} caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:

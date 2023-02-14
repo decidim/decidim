@@ -22,8 +22,6 @@ ar:
         user_group_id: إنشاء مشاركة كـ
       admin:
         models:
-          components:
-            body: الجسم
           post:
             name: بريد
         posts:
@@ -51,7 +49,6 @@ ar:
             author: مؤلف
             body: الجسم
             created_at: أنشئت في
-            title: عنوان
       posts:
         show:
           back: العودة إلى القائمة

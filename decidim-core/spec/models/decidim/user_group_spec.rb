@@ -64,6 +64,28 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
+      context "when the name is taken" do
+        subject { another_user_group }
+
+        let(:another_user_group) { build :user_group, name: user_group.name, organization: user_group.organization }
+
+        it { is_expected.not_to be_valid }
+
+        context "when the user group is blocked" do
+          before do
+            user_group.name = "Blocked user"
+            user_group.blocked_at = Time.zone.now
+            user_group.save!
+          end
+
+          it "can use the same name" do
+            expect do
+              create(:user_group, :blocked, name: "Blocked user", organization: user_group.organization)
+            end.not_to raise_error
+          end
+        end
+      end
+
       context "when the file is too big" do
         before do
           expect(subject.avatar.blob).to receive(:byte_size).at_least(:once).and_return(11.megabytes)

@@ -1,10 +1,6 @@
 sv:
   activemodel:
     attributes:
-      agenda:
-        description: Beskrivning
-        duration: Varaktighet
-        title: Titel
       close_meeting:
         attendees_count: Antal deltagare
         attending_organizations: Lista över organisationer som deltog
@@ -35,11 +31,20 @@ sv:
         registration_terms: Registreringsvillkor
         registration_url: URL för anmälan
         registrations_enabled: Registreringar aktiverade
-        show_embedded_iframe: Visa integrerad iframe för denna URL
-        start_time: Starttid
         title: Titel
         transparent: Transparent
         type_of_meeting: Typ
+      meeting_agenda:
+        title: Titel
+        visible: Synlig
+      meeting_agenda_items:
+        duration: Varaktighet
+        title: Titel
+      meeting_registration_invite:
+        email: E-post
+        name: Namn
+      validate_registration_code:
+        code: Kod
     errors:
       models:
         meeting:
@@ -279,9 +284,6 @@ sv:
           edit:
             close: Stäng
             title: Stäng mötet
-        meeting_copies:
-          form:
-            select_a_meeting_type: Välj mötestyp
         meetings:
           close:
             invalid: Det gick inte att stänga mötet

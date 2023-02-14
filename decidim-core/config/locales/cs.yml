@@ -218,7 +218,9 @@ cs:
         unblock: "%{user_name} odblokoval uživatele %{resource_name}"
         unofficialize: "%{user_name} neoficiální uživatel %{resource_name}"
       user_group:
+        block: "%{user_name} zablokoval uživatelskou skupinu %{resource_name}"
         reject: "%{user_name} odmítl ověření skupiny %{resource_name} uživatelů"
+        unblock: "%{user_name} odblokoval uživatelskou skupinu %{resource_name}"
         verify: "%{user_name} ověřilo %{resource_name} uživatelskou skupinu"
         verify_via_csv: "%{user_name} ověřilo %{resource_name} skupinu uživatelů prostřednictvím souboru CSV"
       user_moderation:
@@ -935,7 +937,7 @@ cs:
         body_1: Chystáte se navštívit externí odkaz a chtěli bychom, abyste byli opatrní, pokud jde o obsah na externím webu.
         body_2: Zkontrolujte prosím odkaz, který se chystáte navštívit, a než budete pokračovat, ujistěte se, že jste jej rozpoznali jako bezpečný web.
         cancel: Zrušit
-        close_modal: Zavřít modal
+        close_modal: Zavřít okno
         proceed: Pokračovat
         title: Otevřít externí odkaz
     log:
@@ -944,8 +946,10 @@ cs:
         create_with_space: "%{user_name} vytvořil %{resource_name} v %{space_name}"
         delete: "%{user_name} odstraněno %{resource_name}"
         delete_with_space: "%{user_name} smazán %{resource_name} v %{space_name}"
+        publish_with_space: "%{user_name} publikoval %{resource_name} v %{space_name}"
         unknown_action: "%{user_name} provedla nějakou akci na %{resource_name}"
         unknown_action_with_space: "%{user_name} provedlo nějakou akci na %{resource_name} v %{space_name}"
+        unpublish_with_space: "%{user_name} zrušil publikaci %{resource_name} v %{space_name}"
         update: "%{user_name} aktualizováno %{resource_name}"
         update_with_space: "%{user_name} aktualizováno %{resource_name} v %{space_name}"
       value_types:
@@ -1067,7 +1071,6 @@ cs:
     newsletter_mailer:
       newsletter:
         note: Tento e-mail jste obdrželi, protože jste odběrateli zpravodajů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
-        see_on_website: Nelze vidět tento e-mail správně? Zobrazte jej na webu <a href="%{link}" target="_blank"></a>.
         unsubscribe: Chcete-li se odhlásit z příjmu tohoto typu e-mailu, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit se</a>.
     newsletter_templates:
       basic_only_text:
@@ -1387,7 +1390,7 @@ cs:
       show_translated: Zobrazit automaticky přeložený text
     user_activity:
       index:
-        no_activities_warning: Tento účastník zatím nemá žádnou aktivitu.
+        no_activities_warning: Tento uživatel zatím nemá žádnou aktivitu.
     user_contact_disabled: Tento uživatel nepřijímá přímé zprávy.
     user_conversations:
       create:

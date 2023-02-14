@@ -18,8 +18,6 @@ nl:
         user_group_id: Bericht aanmaken als
       admin:
         models:
-          components:
-            body: Tekstgedeelte
           post:
             name: Post
         posts:
@@ -47,7 +45,6 @@ nl:
             author: Auteur
             body: Tekstgedeelte
             created_at: Aangemaakt op
-            title: titel
       posts:
         show:
           back: Terug naar het overzicht

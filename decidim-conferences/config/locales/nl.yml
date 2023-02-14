@@ -28,7 +28,6 @@ nl:
         show_statistics: Toon statistieken
         sign_date: Datum ondertekenen
         signature: Handtekening
-        signature_name: naam van de handtekenaar
         slogan: Slogan
         slug: URL-slug
         start_date: Startdatum
@@ -37,13 +36,11 @@ nl:
         date: Datum
         link: Link
         title: Titel
-        weight: Gewicht
       conference_partner:
         link: Link
         logo: Logo
         name: Naam
         partner_type: Type partner
-        weight: Gewicht
       conference_registration_invite:
         email: E-mail
         name: Naam
@@ -53,7 +50,6 @@ nl:
         description: Omschrijving
         price: Prijs
         title: Titel
-        weight: Gewicht
       conference_speaker:
         affiliation: Aansluiting
         avatar: Profielfoto
@@ -131,8 +127,6 @@ nl:
         edit:
           title: Update conferentiebeheerder.
           update: Bijwerken
-        index:
-          conference_admins_title: conferentiebeheerders
         new:
           create: Creëren
           title: Nieuwe conferentiebeheerder.
@@ -409,7 +403,7 @@ nl:
       conference_program:
         program_meeting:
           content: Inhoud
-          location: Plaats
+          location: Locatie
           speakers: Sprekers
           streaming: Streaming
         show:
@@ -514,7 +508,7 @@ nl:
       registration_types:
         index:
           choose_an_option: 'Kies je registratieoptie:'
-          login_as: Je bent ingelogd als %{name} <%{email}>
+          login_as: U bent ingelogd als %{name} <%{email}>
           no_registrations: Geen inschrijvingen
           register: Registreren
           title: Registratie soorten

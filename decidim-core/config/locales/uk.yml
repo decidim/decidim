@@ -173,6 +173,8 @@ uk:
           invalid_field: "Для поля %{field} значення %{value} неприпустиме."
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
+      show:
+        close_modal: Закрити віконце
     collapsible_list:
       see_less: "(читати менше)"
       see_more: "(читати далі)"
@@ -343,6 +345,9 @@ uk:
       errors:
         error: У цьому полі є помилка.
       remove_this_file: Видалити цей файл
+    links:
+      warning:
+        close_modal: Закрити віконце
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
@@ -391,7 +396,6 @@ uk:
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
-        see_on_website: Не вдається до пуття переглянути це повідомлення? Перегляньте його на сайті <a href="%{link}" target="_blank"></a>.
         unsubscribe: Щоб відмовитися від отримання таких повідомлень, клацніть на <a href="%{link}" target="_blank" class="unsubscribe">Відмовитися</a>.
     newsletters:
       unsubscribe:

@@ -13,8 +13,11 @@ eu:
         decidim_scope_id: Esparrua
         description: Descripción
         proposal_ids: Honekin lotutako proposamenak
-        selected: Hautatua inplementatzeko
+        proposals: Proposamenak
+        selected: Ezarpenerako hautatuak
         title: Titulua
+      proposals_import:
+        scope_id: Eremua
   activerecord:
     models:
       decidim/budgets/project:
@@ -26,6 +29,8 @@ eu:
         projects:
           category_id_eq:
             label: Kategoria
+          scope_id_eq:
+            label: Eremua
           selected_at_null:
             label: Hautatua
             values:
@@ -236,7 +241,7 @@ eu:
           votes:
             one: Botoa
             other: botoak
-          you_voted: Hau bozkatu duzu
+          you_voted: Honen aldeko botoa eman duzu
         project_budget_button:
           add: Gehitu zure botoari
           add_descriptive: Gehitu %{resource_name} proiektua zure botoari

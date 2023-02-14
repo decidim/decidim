@@ -98,8 +98,8 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
         location_en: "Location (English)",
         location_hints_ca: "Location hints (Català)",
         location_hints_en: "Location hints (English)",
-        start_time: "Start Time",
-        end_time: "End Time",
+        start_time: "Start time",
+        end_time: "End time",
         decidim_scope_id: "Scope"
       }
       labels = subject.map { |attribute, data| [attribute.to_sym, data[:label]] }.to_h
@@ -128,8 +128,8 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
           location_en: "Location (English)",
           location_hints_ca: "Location hints (ca)",
           location_hints_en: "Location hints (English)",
-          start_time: "Start Time",
-          end_time: "End Time",
+          start_time: "Start time",
+          end_time: "End time",
           decidim_scope_id: "Scope"
         }
         labels = subject.map { |attribute, data| [attribute.to_sym, data[:label]] }.to_h

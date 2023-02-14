@@ -185,7 +185,9 @@ ja:
         unblock: "%{user_name} さんが %{resource_name} さんのブロックを解除しました"
         unofficialize: "%{user_name} が参加者 %{resource_name} を非公式にしました"
       user_group:
+        block: "%{user_name} がユーザーグループ %{resource_name} をブロックしました"
         reject: "%{user_name} が %{resource_name} グループの確認を拒否しました"
+        unblock: "%{user_name} がユーザーグループ %{resource_name} のブロックを解除しました"
         verify: "%{user_name} がグループ %{resource_name} を確認しました"
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
       user_moderation:
@@ -359,7 +361,7 @@ ja:
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
       show:
-        close_modal: ウィンドウを閉じる
+        close_modal: モーダルを閉じる
     block_user_mailer:
       notify:
         body_1: あなたのアカウントはブロックされました。
@@ -883,7 +885,7 @@ ja:
         body_1: あなたは外部リンクにアクセスしようとしています。外部サイトの内容にはご注意ください。
         body_2: サイトにアクセスする前に、訪問しようとしているリンクをチェックし、安全なサイトであるか確認してください。
         cancel: キャンセル
-        close_modal: 閉じる
+        close_modal: モーダルを閉じる
         proceed: 続行
         title: 外部リンクを開く
     log:
@@ -892,8 +894,10 @@ ja:
         create_with_space: "%{user_name} が %{resource_name} に %{space_name} を作成しました"
         delete: "%{user_name} が %{resource_name} を削除しました"
         delete_with_space: "%{user_name} が %{resource_name} で %{space_name} を削除しました"
+        publish_with_space: "%{user_name} が %{space_name} の %{resource_name} を公開しました"
         unknown_action: "%{user_name} が %{resource_name} にいくつかのアクションを実行しました"
         unknown_action_with_space: "%{user_name} が %{resource_name} で %{space_name} にアクションを実行しました"
+        unpublish_with_space: "%{user_name} が %{space_name} の %{resource_name} を非公開にしました"
         update: "%{user_name} が %{resource_name} を更新しました"
         update_with_space: "%{user_name} さんが %{resource_name} で %{space_name} を更新しました"
       value_types:
@@ -923,37 +927,37 @@ ja:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{manager} が %{group}という名前で新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{manager} が %{group} として新しい会話を開始しました"
         comanagers_new_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{manager} は、 %{group}という名前の新しいメッセージを会話に投稿しました。それらを表示するにはここをクリックしてください："
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{manager} は %{group} として新しいメッセージを送信しました"
         new_conversation:
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} があなたと新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{sender} があなたと会話を開始しました"
         new_group_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{sender} が %{group} と会話を開始しました"
         new_group_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との会話に新しいメッセージを投稿しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{group} に %{sender} からの新しいメッセージがあります"
         new_message:
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} さんがあなたの会話に新しいメッセージを投稿しました。こちらをクリックしてください："
-          outro: お楽しみください!
+          outro: ' '
           subject: '%{sender} からの新しいメッセージがあります'
       conversations:
         add_conversation_users:
@@ -1015,7 +1019,7 @@ ja:
     newsletter_mailer:
       newsletter:
         note: '%{organization_name}でニュースレターを購読しているため、このメールを受信しました。 <a href="%{link}">通知ページ</a> で設定を変更できます。'
-        see_on_website: このメールは正しく表示されませんか？ <a href="%{link}" target="_blank">ウェブサイト</a> で確認してください。
+        see_on_website: このメールは正しく表示されていませんか？ <a href="%{link}" target="_blank" class="see-on-website">ウェブサイト</a> でご確認ください。
         unsubscribe: この種類のメールの受信を拒否するには、 <a href="%{link}" target="_blank" class="unsubscribe">購読解除</a>.
     newsletter_templates:
       basic_only_text:
@@ -1332,7 +1336,7 @@ ja:
       show_translated: 機械翻訳されたテキストを表示する
     user_activity:
       index:
-        no_activities_warning: この参加者はまだアクティビティを行っていません。
+        no_activities_warning: この参加者にはまだアクティビティがありません。
     user_contact_disabled: この参加者はダイレクトメッセージを受け付けません。
     user_conversations:
       create:

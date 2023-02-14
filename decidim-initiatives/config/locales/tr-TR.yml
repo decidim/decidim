@@ -54,9 +54,6 @@ tr:
               title: Başlık boş olamaz
   activerecord:
     models:
-      decidim/initiative:
-        one: İnisiyatif
-        other: Initatives
       decidim/initiative_comittee:
         one: Komitesi
         other: Kurullar

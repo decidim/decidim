@@ -54,9 +54,6 @@ it:
               title: Il nome non dovrebbe essere vuoto
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniziativa
-        other: Iniziative
       decidim/initiative_comittee:
         one: Comitato di
         other: COMITATI

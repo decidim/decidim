@@ -196,7 +196,9 @@ es:
         unblock: "%{user_name} desoficializó a la usuaria %{resource_name}"
         unofficialize: "%{user_name} ha desoficializado a la participante %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloqueado al grup de usuarias %{resource_name}"
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
+        unblock: "%{user_name} ha desbloqueado el grupo de usuarias %{resource_name}"
         verify: "%{user_name} verificó el grupo %{resource_name}"
         verify_via_csv: "%{user_name} verificó el grupo %{resource_name} través de un archivo CSV"
       user_moderation:
@@ -370,7 +372,7 @@ es:
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
       show:
-        close_modal: Cerrar el modal
+        close_modal: Cierra modal
     block_user_mailer:
       notify:
         body_1: Tu cuenta ha sido bloqueda.
@@ -516,10 +518,10 @@ es:
             close_modal: Cierra modal
             uncheck: Mantener desmarcado
           notice: |-
-            <p>Hola, ¿estás segura de que no quieres recibir un boletín informativo?<br>
+            <p>Hola, ¿seguro que no quieres recibir un boletín informativo?<br>
             Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
             Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
-            <p>Si no marcas la casilla, es posible que se pierda información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
+            <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
             Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
             <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
@@ -794,7 +796,7 @@ es:
       reached_top: Has alcanzado el nivel superior para esta insignia.
     group_admins:
       actions:
-        are_you_sure: '¿Segura? Esto no eliminará a la participante del grupo.'
+        are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
         demote_admin: Eliminar permisos de administración
       demote:
         error: Se ha producido un error al eliminar esta participante de la lista de administradoras
@@ -823,7 +825,7 @@ es:
         error: Se ha producido un error al aceptar esta solicitud de incorporación al grupo
         success: Solicitud aceptada correctamente
       actions:
-        are_you_sure: '¿Estás seguro?'
+        are_you_sure: '¿Seguro?'
         promote_to_admin: Hacer administrador
         remove_from_group: Eliminar participante
       index:
@@ -840,7 +842,7 @@ es:
         success: Participante eliminada correctamente del grupo
     groups:
       actions:
-        are_you_sure: '¿Estás seguro?'
+        are_you_sure: '¿Seguro?'
       create:
         error: Se ha producido un error al crear el grupo
         success: Grupo creado correctamente
@@ -896,7 +898,7 @@ es:
         body_1: Estás a punto de visitar un enlace externo y te recomendamos que seas prudente respecto al contenido de páginas externas.
         body_2: Por favor, antes de seguir, comprueba que el enlace que estás a punto de visitar pertenece a un sitio seguro.
         cancel: Cancelar
-        close_modal: Cerrar ventana
+        close_modal: Cierra modal
         proceed: Continuar
         title: Abrir enlace externo
     log:
@@ -905,8 +907,10 @@ es:
         create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
         delete: "%{user_name} eliminó %{resource_name}"
         delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        publish_with_space: "%{user_name} ha publicado %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} realizó una acción en %{resource_name}"
         unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
+        unpublish_with_space: "%{user_name} ha despublicado %{resource_name} en %{space_name}"
         update: "%{user_name} actualizó %{resource_name}"
         update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
@@ -1028,7 +1032,7 @@ es:
     newsletter_mailer:
       newsletter:
         note: Has recibido este correo electrónico porque estás suscrita a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank" class="see-on-website">versión web</a>.'
         unsubscribe: Para desactivar la recepción este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletter_templates:
       basic_only_text:
@@ -1219,7 +1223,7 @@ es:
     reports:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
-        success: El contenido se ha denunciado con éxtio y será revisado por una administradora.
+        success: El contenido se ha denunciado con éxito y será revisado por una administradora.
     resource_endorsements:
       create:
         error: Se ha producido un error durante la acción de adhesión.
@@ -1587,7 +1591,7 @@ es:
         other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
-      too_short: Es demasiado corto (menos %{count} caracteres)
+      too_short: es demasiado corto (menos %{count} caracteres)
   forms:
     correct_errors: Hay errores en el formulario, por favor corrígelos para continuar.
     length_validator:

@@ -763,7 +763,7 @@ pl:
       create:
         button: Obserwuj
         error: Wystąpił błąd podczas próby obserwowania tego zasobu.
-        participatory_space: Obserwujesz <span class="show-for-sr">%{resource_name}</span>
+        participatory_space: Obserwuj <span class="show-for-sr">%{resource_name}</span>
       destroy:
         button: Przestań obserwować
         error: Nastąpił błąd podczas cofania obserwowania tego zasobu.
@@ -1040,7 +1040,6 @@ pl:
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
-        see_on_website: Nie widzisz tego e-maila poprawnie? Wyświetl go w <a href="%{link}" target="_blank">przeglądarce</a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
@@ -1346,9 +1345,6 @@ pl:
       help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
       show_original: Pokaż oryginalny tekst
       show_translated: Pokaż automatyczne tłumaczenie
-    user_activity:
-      index:
-        no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
     user_contact_disabled: Ten użytkownik nie przyjmuje bezpośrednich wiadomości.
     user_conversations:
       create:
@@ -1673,6 +1669,7 @@ pl:
     email_included_in_password: jest zbyt podobne do twojego adresu e-mail
     fallback: nie jest poprawne
     name_included_in_password: jest zbyt podobne do twojego imienia
+    nickname_included_in_password: jest zbyt podobne do twojego nicka
     not_enough_unique_characters: nie ma wystarczającej liczby unikalnych znaków
     password_not_allowed: nie jest dozwolone
     password_too_common: jest zbyt powszechne

@@ -54,9 +54,6 @@ hu:
               title: A cím nem lehet üres
   activerecord:
     models:
-      decidim/initiative:
-        one: Kezdeményezés
-        other: Kezdeményezések
       decidim/initiative_comittee:
         one: Bizottság
         other: Bizottságok

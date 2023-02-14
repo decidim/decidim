@@ -9,7 +9,7 @@ ar:
         end_date: تاريخ الانتهاء
         progress: تقدم
         project_ids: المشاريع المدرجة
-        proposals: وشملت المقترحات
+        proposals: المقترحات المدرجة
         start_date: تاريخ البدء
         title: عنوان
         updated_at: تم التحديث في
@@ -22,8 +22,8 @@ ar:
         description: وصف
         entry_date: تاريخ
     models:
-      decidim/accountability/proposal_linked_event: اقتراح المدرجة في النتيجة
-      decidim/accountability/result_progress_updated_event: نتيجة التقدم المحدث
+      decidim/accountability/proposal_linked_event: الاقتراح المدرج في نتيجة
+      decidim/accountability/result_progress_updated_event: النتائج المحدثة
   activerecord:
     models:
       decidim/accountability/result:
@@ -36,13 +36,13 @@ ar:
   decidim:
     accountability:
       actions:
-        attachment_collections: المجلدات
+        attachment_collections: الحافظات
         attachments: المرفقات
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
         destroy: حذف
         edit: تعديل
         import_csv: استيراد CSV
-        new: جديد %{name}
+        new: '%{name} جديد'
         preview: معاينة
         timeline_entries: تطور المشروع
         title: الإجراءات
@@ -52,7 +52,28 @@ ar:
           results: النتائج
         import_results:
           new:
+            download_export: تحميل التصدير بصيغه CSV
             import: استيراد
+            info: |
+              <p>نحن ننصح باتباع هذه الخطوات:</p>
+              <ol>
+               <li>قم بإنشاء حالات النتائج التي تريد إضافتها (<a href="%{link_new_status}" target="_blank">الرابط</a>)</li>
+               <li>قم بإنشاء نتيجة واحدة على الأقل يدويًا من خلال لوحة المدير هذه (<a href="%{link_new_result}" target="_blank">link</a>) قبل أستخدام الاستيراد, للحصول على فهم أفضل للتنسيق وما ستحتاج لملئه.</li>
+               <li>قم بتنزيل التصدير بتنسيق CSV(%{link_export_csv})</li>
+               <li>قم بإجراء التغييرات محليًا على جهازك. يمكنك فقط تغيير الأعمدة التالية من ملف CSV:</li>
+              </ol>
+              <ul>
+               <li><b>category/id:</b>رقم مٌعرف للفئه</li>
+               <li><b>scope/id:</b>رقم مٌعرف للمجال</li>
+               <li><b>parent/id:</b> رقم مٌعرف بالأب (للنتائج ذات الصلة). اختياري</li>
+               <li><b>title/I18N:</b> عنوان اللغه</li>
+               <li><b>description/I18N:</b> وصف اللغه</li>
+               <li><b>start_date:</b>التاريخ الذي يبدأ فيه تنفيذ النتيجة (التنسيق YYYY-MM-DD)</li>
+               <li><b>end_date:</b> التاريخ الذي ينتهى فيه تنفيذ النتيجة (التنسيق YYYY-MM-DD</li>
+               <li><b>status/id:</b> رقم مٌعرف لحالة النتيجة</li>
+               <li><b>progress:</b> النسبة المئوية (من 0 الى 100) للتنفيذ</li>
+               <li><b>proposals_ids:</b> رقم مُعرف داخلى للمقترحات ذات الصلة (مفصولاً بفاصلة). يتم تحويله تلقائيًا إلى <span class="attribute-name">رابط للمقترح</span></li>
+              </ul>
             title: استيراد النتائج من ملف CSV
         imports:
           create:
@@ -83,7 +104,7 @@ ar:
             success: تم تحديث النتيجة بنجاح
         shared:
           subnav:
-            statuses: الأوضاع
+            statuses: الحالات
         statuses:
           create:
             invalid: كانت هناك مشكلة في إنشاء هذه الحالة
@@ -94,7 +115,7 @@ ar:
             title: تحرير الحالة
             update: تحديث الحالة
           index:
-            title: الأوضاع
+            title: الحالات
           new:
             create: إنشاء الحالة
             title: حالة جديدة
@@ -108,21 +129,21 @@ ar:
           destroy:
             success: تم حذف الإدخال بنجاح
           edit:
-            title: تحرير دخول
+            title: تحرير الإدخال
             update: تحديث الإدخال
           index:
             title: إدخالات الجدول الزمني للمشروع
           new:
-            create: إنشاء دخول
-            title: دخول جديد
+            create: إنشاء الإدخال
+            title: إدخال جديد
           update:
             invalid: حدثت مشكلة أثناء تحديث هذا الإدخال
             success: تم تحديث الإدخال بنجاح
       admin_log:
         result:
-          create: "%{user_name} نتيجة تم إنشاؤها %{resource_name} في %{space_name}"
+          create: "%{user_name} أنشأ النتيجة %{resource_name} في %{space_name}"
           delete: "%{user_name} حذف النتيجة %{resource_name} في %{space_name}"
-          update: "%{user_name} نتيجة محدثة %{resource_name} في %{space_name}"
+          update: "%{user_name} حدث النتيجة %{resource_name} في %{space_name}"
         value_types:
           parent_presenter:
             not_found: 'لم يتم العثور على الأصل في قاعدة البيانات (الرقم-المُعرف: %{id})'
@@ -144,7 +165,7 @@ ar:
         result:
           fields:
             category: الفئة
-            created_at: أنشئ
+            created_at: تم الإنشاء
             end_date: تاريخ الانتهاء
             id: المعرف ID
             progress: تقدم
@@ -178,7 +199,7 @@ ar:
           all: الكل
           scopes: نطاقات
         home:
-          categories_label: الاقسام
+          categories_label: الفئات
           subcategories_label: الفئات الفرعية
         home_header:
           global_status: حالة التنفيذ العالمي
@@ -188,7 +209,7 @@ ar:
           search: البحث عن الإجراءات
         show:
           stats:
-            attendees: الحاضرين
+            attendees: الحضور
             back_to_resource: العودة إلى النتيجة
             comments: تعليقات
             contributions: مساهمات
@@ -232,16 +253,16 @@ ar:
         proposal_linked:
           email_intro: 'تم تضمين الاقتراح "%{proposal_title}" في النتيجة. يمكنك أن ترى ذلك من هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{proposal_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تحديث إلى %{proposal_title}
+          email_subject: تحديث حول %{proposal_title}
           notification_title: تم إدراج الاقتراح <a href="%{proposal_path}">%{proposal_title}</a> في النتيجة <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
           email_intro: 'النتيجة "%{resource_title}" ، التي تتضمن الاقتراح "%{proposal_title}" ، اكتملت الآن بنسبة %{progress}٪. يمكنك أن ترى ذلك من هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{proposal_title}" ، ويتم تضمين هذا الاقتراح في النتيجة "%{resource_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: تحديث إلى %{resource_title} التقدم
+          email_subject: تحديث حول تقدم %{resource_title}
           notification_title: النتيجة <a href="%{resource_path}">%{resource_title}</a>، التي تتضمن الاقتراح <a href="%{proposal_path}">%{proposal_title}</a>، اكتملت الآن بنسبة %{progress}٪.
     metrics:
       results:
-        description: عدد النتائج التي تم إنشاؤها
+        description: عدد النتائج التي تم توليدها
         object: النتائج
         title: النتائج
     participatory_spaces:
@@ -251,6 +272,6 @@ ar:
       included_projects:
         result_project: المشاريع المدرجة في هذه النتيجة
       included_proposals:
-        result_proposal: المقترحات المدرجة في هذه النتيجة
+        result_proposal: الاقتراحات المدرجة في هذه النتيجة
     statistics:
       results_count: النتائج

@@ -14,17 +14,24 @@ ro:
         description: Descriere
         file: Fişier
         title: Numele fișierului sau al imaginii atașate
+        weight: Poziție
       attachment_collection:
         description: Descriere
         name: Nume
+        weight: Poziție
       category:
         description: Descriere
         name: Nume
         parent_id: Categoria mamă
+        weight: Poziție
       component:
         name: Nume
         published_at: Publicat în
-        weight: Ordinea în poziționare
+        weight: Poziție
+      external_domain:
+        value: Valoare
+      help_section:
+        content: Conținut
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -92,6 +99,9 @@ ro:
         welcome_notification_body: Conținutul notificării de bun venit
         welcome_notification_subject: Subiectul notificării de bun venit
         youtube_handler: Responsabil YouTube
+      participatory_space_private_user:
+        email: E-mail
+        name: Nume
       scope:
         code: Cod
         name: Nume
@@ -113,12 +123,13 @@ ro:
         show_in_footer: Afișează în subsol
         slug: URL slug
         title: Titlu
-        weight: Ordinea în poziționare
+        topic_id: Subiect
+        weight: Poziție
       static_page_topic:
         description: Descriere
         show_in_footer: Afișează în subsol
         title: Titlu
-        weight: Ordinea în poziționare
+        weight: Poziție
       user_group_csv_verification:
         file: Fişier
     errors:
@@ -1047,6 +1058,7 @@ ro:
             hidden_at: Ascuns la
             participatory_space: Spațiu participativ
             report_count: Număr
+            reportable_id: ID
             reportable_type: Tip
             reported_content_url: URL-ul conținutului raportat
             reports: Rapoarte
@@ -1063,7 +1075,7 @@ ro:
     decidim:
       admin:
         global_moderations:
-          title: Moderare globală
+          title: Moderări globale
         newsletters:
           title: Buletine informative
         settings:

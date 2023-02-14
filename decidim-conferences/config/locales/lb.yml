@@ -28,7 +28,6 @@ lb:
         show_statistics: Zeige Statistiken
         sign_date: Datum der Unterschrift
         signature: Unterschrift
-        signature_name: Signaturname
         slogan: Slogan
         slug: URL-Block
         start_date: Startdatum
@@ -56,8 +55,6 @@ lb:
         edit:
           title: Aktualisieren Sie den Konferenzbenutzer.
           update: Aktualisieren
-        index:
-          conference_admins_title: Konferenzbenutzer
         new:
           create: Erstellen
           title: Neuer Konferenzbenutzer
@@ -329,7 +326,7 @@ lb:
       conference_program:
         program_meeting:
           content: Inhalt
-          location: Ort
+          location: Standort
           speakers: Lautsprecher
           streaming: Streaming
         show:
