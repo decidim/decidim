@@ -348,7 +348,7 @@ eu:
         body_2: 'Arrazoia: %{justification}'
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo,
-        subject: Zure kontua %{organization_name} k blokeatu du
+        subject: '%{organization_name} k zure kontua blokeatu du'
     collapsible_list:
       hidden_elements_count:
         one: eta %{count} gehiago
@@ -930,7 +930,7 @@ eu:
         new_message:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidimez!
+          outro: Disfrutatu Decidim-ekin!
           subject: '%{sender}-tik mezu berriak dituzu'
       conversations:
         add_conversation_users:
@@ -1031,6 +1031,9 @@ eu:
         greetings: Agurrak,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Kaixo,
         subject: '%{organization_name}inguruko informazio garrantzitsua jasotzen jarraitu nahi al duzu?'
+    notification_mailer:
+      event_received:
+        no_translation_available: 'Sentitzen dugu, itzulpen automatizatua ezin izan da berreskuratu posta elektronikoa bidali denean. Jatorrizko testuaren itzulpena ikus dezakezu esteka honetan: %{link}.'
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_settings:
@@ -1343,11 +1346,11 @@ eu:
         body_1: '%{user} erabiltzailea %{token}-ek erreportatu du'
         body_2: 'Arrazoia: %{reason}'
         greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
-        hello: Kaixo, %{admin},
+        hello: Kaixo %{admin},
         subject: Beste erabiltzaile bat erreportatu dute hemen %{organization_name}
     version:
       show:
-        back_to_resource: Joan atzera
+        back_to_resource: Atzera joan
         changes_at_title: Aldaketak hemen "%{title}"
         number_of_versions: Bertsioak
         show_all_versions: Erakutsi bertsio guztiak
@@ -1427,11 +1430,11 @@ eu:
       invitation_instructions:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
-        decline: Deuseztatu gonbidapena
+        decline: Deuseztatu gonbita
         hello: Kaixo, %{email},
         ignore: |-
-          Gonbidapena onartu nahi ez baduzu, ez ikusi mezu hau.<br />
-          Zure kontua ez da sortu goiko estekan sartzeko eta zure ezizena eta pasahitza ezartzeko.
+          Gonbidapena ez baduzu onartu nahi, ez ezazu mezu elektroniko hau kontuan hartu.<br />
+          Zure kontua ez da sortuko aurreko estekara sartu eta zure ezizena eta pasahitza ezarri arte.
         invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         invited_you_as_private_user: "%{invited_by} erabiltzaile gonbidatu zaitu %{application}erabiltzaile pribatu gisa. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
