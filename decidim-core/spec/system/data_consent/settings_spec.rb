@@ -21,7 +21,10 @@ describe "Data consent", type: :system do
     it "user accepts the cookies and dialog isn't shown anymore'" do
       expect(page).to have_content(cookies_description)
 
-      click_button "Accept all"
+      within "#dc-dialog-wrapper" do
+        click_button "Accept all"
+      end
+
       expect(page).not_to have_content(cookies_description)
 
       visit decidim.root_path
@@ -31,7 +34,10 @@ describe "Data consent", type: :system do
     it "user rejects the cookies and dialog isn't shown anymore'" do
       expect(page).to have_content(cookies_description)
 
-      click_button "Accept only essential"
+      within "#dc-dialog-wrapper" do
+        click_button "Accept only essential"
+      end
+
       expect(page).not_to have_content(cookies_description)
 
       visit decidim.root_path
