@@ -47,10 +47,13 @@ edit_link(
 
   <%= render partial: "decidim/shared/tags", locals: { resource: debate, tags_class_extra: "tags--debate" } %>
 
-  <div class="my-4">
+  <div class="my-4 flex gap-x-1">
+    <%= cell "decidim/endorsers_list", debate %>
+    <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
+      <%= endorsement_buttons_cell(debate) %>
+    <% end %>
     <%= cell "decidim/comments_button", nil %>
   </div>
-  <%= cell "decidim/endorsers_list", debate %>
 
 
   <div class="my-4">
@@ -102,14 +105,6 @@ edit_link(
     <div class="card__list extra">
       <div class="card__list-content">
         <%#= cell("decidim/date_range", { start: debate.start_time, end: debate.end_time }) %>
-
-        <%# if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
-          <!-- <div class="row collapse buttons__row">
-            <div class="column small-12 collapse">
-              <%#= endorsement_buttons_cell(debate) %>
-            </div>
-          </div> -->
-        <%# end %>
       </div>
     </div>
 
