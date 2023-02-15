@@ -32,7 +32,7 @@ describe("OrderedList", () => {
     editorElement = editor.view.dom;
   });
 
-  it("does not allow creating a first level heading with a markdown shortcut", async () => {
+  it("preserves the list types when manually updated content is processed", async () => {
     const listContent = `
       <ol>
         <li>
