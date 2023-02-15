@@ -68,5 +68,51 @@ export default OrderedList.extend({
         }
       }
     };
+  },
+
+  addCommands() {
+    return {
+      ...this.parent?.(),
+      setOrderedListType: (type) => ({ commands, dispatch }) => {
+        const listActive = this.editor.isActive("orderedList");
+        if (dispatch && listActive) {
+          return commands.updateAttributes("orderedList", { type });
+        }
+        return listActive;
+      }
+    };
+  },
+
+  addKeyboardShortcuts() {
+    const currentType = () => {
+      return this.editor.getAttributes("orderedList").type;
+    };
+    const determineType = (type, direction) => {
+      let idx = allowedListTypes.indexOf(type) + direction;
+      if (idx === -2) {
+        idx = allowedListTypes.length - 1;
+      } else if (idx < 0 || idx >= allowedListTypes.length) {
+        return null;
+      }
+      return allowedListTypes[idx];
+    };
+    const listTypeChange = (direction) => {
+      if (!this.editor.isActive("orderedList")) {
+        return false;
+      }
+
+      const type = determineType(currentType(), direction);
+      if (!this.editor.can().setOrderedListType(type)) {
+        return false;
+      }
+
+      return this.editor.commands.setOrderedListType(type);
+    }
+
+    return {
+      ...this.parent?.(),
+      "Alt-Shift-ArrowUp": () => listTypeChange(-1),
+      "Alt-Shift-ArrowDown": () => listTypeChange(1)
+    }
   }
 });
