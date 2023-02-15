@@ -29,6 +29,7 @@ describe("CharacterCount", () => {
   describe("with a defined character limit", () => {
     beforeEach(() => setupEditor(CharacterCount.configure({ limit: 13 })));
 
+    // See: https://github.com/ueberdosis/tiptap/issues/3721
     it("does not allow new paragraphs after reaching the characters limit", async () => {
       editorElement.focus();
       await updateContent(editorElement, "Hello, world!");

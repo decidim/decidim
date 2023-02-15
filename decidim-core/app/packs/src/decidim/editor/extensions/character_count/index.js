@@ -5,6 +5,8 @@ import CharacterCount from "@tiptap/extension-character-count";
 /**
  * Extends the character counter to prevent adding new paragraphs after the
  * character limit is reached. The original character counter allows that.
+ *
+ * See: https://github.com/ueberdosis/tiptap/issues/3721
  */
 export default CharacterCount.extend({
   addProseMirrorPlugins() {
