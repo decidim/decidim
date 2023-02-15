@@ -113,9 +113,10 @@ edit_link(
       </div>
     </div>
 
-    <div class="grid grid-cols-2">
+    <div class="flex flex-wrap justify-center gap-x-1 ">
       <%= follow_button_for(debate) %>
       <%= cell "decidim/share_button", nil %>
+      <%= cell "decidim/report_button", debate %>
     </div>
 
   <% end %>
