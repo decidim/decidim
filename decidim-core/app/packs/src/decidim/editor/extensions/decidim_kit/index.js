@@ -18,7 +18,7 @@ import VideoEmbed from "src/decidim/editor/extensions/video_embed";
 import Emoji from "src/decidim/editor/extensions/emoji";
 
 export default Extension.create({
-  name: "decidim",
+  name: "decidimKit",
 
   addOptions() {
     return {
