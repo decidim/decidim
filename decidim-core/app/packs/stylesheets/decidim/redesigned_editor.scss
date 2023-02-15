@@ -219,6 +219,15 @@
     @apply mb-0;
   }
 
+  // See the comments in the `renderHTML` method of the customized `OrderedList`
+  // extension.
+  //
+  // Details: https://github.com/tailwindlabs/tailwindcss-typography/issues/296
+  ol[data-type="a"]{ list-style-type: lower-alpha; }
+  ol[data-type="A"]{ list-style-type: upper-alpha; }
+  ol[data-type="i"]{ list-style-type: lower-roman; }
+  ol[data-type="I"]{ list-style-type: upper-roman; }
+
   .editor-content-videoEmbed{
     @apply max-w-screen-sm;
 

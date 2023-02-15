@@ -25,28 +25,28 @@ const formattedList = `
   <ol>
     <li>
       <p>Item 1</p>
-      <ol type="a">
+      <ol type="a" data-type="a">
         <li><p>Subitem 1.1</p></li>
         <li><p>Subitem 1.2</p></li>
       </ol>
     </li>
     <li>
       <p>Item 2</p>
-      <ol type="A">
+      <ol type="A" data-type="A">
         <li><p>Subitem 2.1</p></li>
         <li><p>Subitem 2.2</p></li>
       </ol>
     </li>
     <li>
       <p>Item 3</p>
-      <ol type="i">
+      <ol type="i" data-type="i">
         <li><p>Subitem 3.1</p></li>
         <li><p>Subitem 3.2</p></li>
       </ol>
     </li>
     <li>
       <p>Item 4</p>
-      <ol type="I">
+      <ol type="I" data-type="I">
         <li><p>Subitem 4.1</p></li>
         <li><p>Subitem 4.2</p></li>
       </ol>
@@ -123,7 +123,7 @@ describe("OrderedList", () => {
 
     ["a", "A", "i", "I"].forEach((type) => {
       editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown", shiftKey: true, altKey: true }))
-      expect(editor.getHTML()).toMatchHtml(`<ol type="${type}"><li><p>Item</p></li></ol>`);
+      expect(editor.getHTML()).toMatchHtml(`<ol type="${type}" data-type="${type}"><li><p>Item</p></li></ol>`);
     });
 
     editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown", shiftKey: true, altKey: true }))
@@ -138,7 +138,7 @@ describe("OrderedList", () => {
 
     ["I", "i", "A", "a"].forEach((type) => {
       editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp", shiftKey: true, altKey: true }))
-      expect(editor.getHTML()).toMatchHtml(`<ol type="${type}"><li><p>Item</p></li></ol>`);
+      expect(editor.getHTML()).toMatchHtml(`<ol type="${type}" data-type="${type}"><li><p>Item</p></li></ol>`);
     });
 
     editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp", shiftKey: true, altKey: true }))

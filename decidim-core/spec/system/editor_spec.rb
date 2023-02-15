@@ -540,7 +540,7 @@ describe "Editor", type: :system do
       it "allows changing the the list type with ALT+SHIFT+DOWN" do
         %w(a A i I).each do |type|
           prosemirror.native.send_keys [:alt, :shift, :down]
-          expect_value(%(<ol type="#{type}"><li><p>Item</p></li></ol>))
+          expect_value(%(<ol type="#{type}" data-type="#{type}"><li><p>Item</p></li></ol>))
         end
 
         prosemirror.native.send_keys [:alt, :shift, :down]
@@ -550,7 +550,7 @@ describe "Editor", type: :system do
       it "allows changing the the list type with ALT+SHIFT+UP" do
         %w(I i A a).each do |type|
           prosemirror.native.send_keys [:alt, :shift, :up]
-          expect_value(%(<ol type="#{type}"><li><p>Item</p></li></ol>))
+          expect_value(%(<ol type="#{type}" data-type="#{type}"><li><p>Item</p></li></ol>))
         end
 
         prosemirror.native.send_keys [:alt, :shift, :up]
@@ -610,28 +610,28 @@ describe "Editor", type: :system do
           <ol>
             <li>
               <p><strong>Item 1</strong></p>
-              <ol type="a">
+              <ol type="a" data-type="a">
                 <li><p>Subitem 1.1</p></li>
                 <li><p>Subitem 1.2</p></li>
               </ol>
             </li>
             <li>
               <p>Item 2</p>
-              <ol type="A">
+              <ol type="A" data-type="A">
                 <li><p>Subitem 2.1</p></li>
                 <li><p>Subitem 2.2</p></li>
               </ol>
             </li>
             <li>
               <p><strong>Item 3</strong></p>
-              <ol type="i">
+              <ol type="i" data-type="i">
                 <li><p>Subitem 3.1</p></li>
                 <li><p>Subitem 3.2</p></li>
               </ol>
             </li>
             <li>
               <p>Item 4</p>
-              <ol type="I">
+              <ol type="I" data-type="I">
                 <li><p>Subitem 4.1</p></li>
                 <li><p>Subitem 4.2</p></li>
               </ol>

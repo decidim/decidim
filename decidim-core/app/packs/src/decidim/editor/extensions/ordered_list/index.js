@@ -1,3 +1,4 @@
+import { mergeAttributes } from "@tiptap/core";
 import OrderedList from "@tiptap/extension-ordered-list";
 
 const allowedListTypes = ["a", "A", "i", "I"];
@@ -70,6 +71,43 @@ export default OrderedList.extend({
         }
       }
     };
+  },
+
+  /**
+   * Overridden render method to add the `data-type` attribute for the typed
+   * ordered lists as a workaround to style these lists properly. The following
+   * issue with the CSS attribute selectors for the `type` attribute prevents
+   * styling them properly otherwise: https://stackoverflow.com/q/53099708.
+   *
+   * The issue cannot be solved without this until the case sensitivity selector
+   * is implemented by browsers and widely available:
+   * https://caniuse.com/mdn-css_selectors_attribute_case_sensitive_modifier
+   *
+   * This has been already agreed by the CSS working group as per:
+   * https://github.com/w3c/csswg-drafts/commit/de57526
+   *
+   * For further details, see:
+   * https://github.com/tailwindlabs/tailwindcss-typography/issues/296
+   *
+   * @param {Object} attributes The attributes object containing the
+   *   `HTMLAttributes` key for the attributes to be rendered
+   * @returns {Array} The node definition array as defined by TipTap
+   */
+  renderHTML({ HTMLAttributes }) {
+    const { start, ...attributesWithoutStart } = HTMLAttributes
+
+    let attrs = null;
+    if (start === 1) {
+      attrs = mergeAttributes(this.options.HTMLAttributes, attributesWithoutStart);
+    } else {
+      attrs = mergeAttributes(this.options.HTMLAttributes, HTMLAttributes);
+    }
+
+    if (attrs.type) {
+      attrs["data-type"] ??= attrs.type;
+    }
+
+    return ["ol", attrs, 0]
   },
 
   addCommands() {
