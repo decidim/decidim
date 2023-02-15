@@ -604,41 +604,96 @@ describe "Editor", type: :system do
       )
     end
 
-    it "preserves list styling" do
-      content = <<~HTML
-        <ol>
-          <li>
-            <p>Item 1</p>
-            <ol type="a">
-              <li><p>Subitem 1.1</p></li>
-              <li><p>Subitem 1.2</p></li>
+    context "when pasting ordered lists" do
+      let(:properly_formatted) do
+        <<~HTML
+          <ol>
+            <li>
+              <p><strong>Item 1</strong></p>
+              <ol type="a">
+                <li><p>Subitem 1.1</p></li>
+                <li><p>Subitem 1.2</p></li>
+              </ol>
+            </li>
+            <li>
+              <p>Item 2</p>
+              <ol type="A">
+                <li><p>Subitem 2.1</p></li>
+                <li><p>Subitem 2.2</p></li>
+              </ol>
+            </li>
+            <li>
+              <p><strong>Item 3</strong></p>
+              <ol type="i">
+                <li><p>Subitem 3.1</p></li>
+                <li><p>Subitem 3.2</p></li>
+              </ol>
+            </li>
+            <li>
+              <p>Item 4</p>
+              <ol type="I">
+                <li><p>Subitem 4.1</p></li>
+                <li><p>Subitem 4.2</p></li>
+              </ol>
+            </li>
+          </ol>
+        HTML
+      end
+
+      # This is to test that the list elements preserve the `type` attribute as
+      # this carries information about the ordered list styling and is used by
+      # several desktop editors.
+      #
+      # See: https://github.com/ueberdosis/tiptap/issues/3726
+      it "preserves ordered list type and marks inside list elements" do
+        paste_content(properly_formatted, prosemirror_selector)
+        expect_value(properly_formatted)
+      end
+
+      # This is to test the weird markup produced by Google Docs that it is
+      # handled properly in the editor.
+      #
+      # See:
+      # https://github.com/ueberdosis/tiptap/issues/3726
+      # https://github.com/ueberdosis/tiptap/issues/3735
+      it "preserves CSS styled ordered list type and marks" do
+        content = <<~HTML
+          <b style="font-weight:normal;">
+            <ol>
+              <li style="list-style-type:decimal;">
+                <p><span style="font-weight:700;">Item 1</span></p>
+                <ol>
+                  <li style="list-style-type:lower-alpha;font-weight:400;"><p>Subitem 1.1</p></li>
+                  <li style="list-style-type:lower-alpha;font-weight:normal;"><p>Subitem 1.2</p></li>
+                </ol>
+              </li>
+              <li style="list-style-type:decimal;">
+                <p>Item 2</p>
+                <ol>
+                  <li style="list-style-type:upper-alpha;font-weight:400;"><p>Subitem 2.1</p></li>
+                  <li style="list-style-type:upper-alpha;font-weight:normal;"><p>Subitem 2.2</p></li>
+                </ol>
+              </li>
+              <li style="list-style-type:decimal;">
+                <p><span style="font-weight:bold;">Item 3</span></p>
+                <ol>
+                  <li style="list-style-type:lower-roman;font-weight:400;"><p>Subitem 3.1</p></li>
+                  <li style="list-style-type:lower-roman;font-weight:normal;"><p>Subitem 3.2</p></li>
+                </ol>
+              </li>
+              <li style="list-style-type:decimal;">
+                <p>Item 4</p>
+                <ol>
+                  <li style="list-style-type:upper-roman;font-weight:400;"><p>Subitem 4.1</p></li>
+                  <li style="list-style-type:upper-roman;font-weight:normal;"><p>Subitem 4.2</p></li>
+                </ol>
+              </li>
             </ol>
-          </li>
-          <li>
-            <p>Item 2</p>
-            <ol type="A">
-              <li><p>Subitem 2.1</p></li>
-              <li><p>Subitem 2.2</p></li>
-            </ol>
-          </li>
-          <li>
-            <p>Item 3</p>
-            <ol type="i">
-              <li><p>Subitem 3.1</p></li>
-              <li><p>Subitem 3.2</p></li>
-            </ol>
-          </li>
-          <li>
-            <p>Item 4</p>
-            <ol type="I">
-              <li><p>Subitem 4.1</p></li>
-              <li><p>Subitem 4.2</p></li>
-            </ol>
-          </li>
-        </ol>
-      HTML
-      paste_content(content, prosemirror_selector)
-      expect_value(content)
+          </b>
+        HTML
+        paste_content(content, prosemirror_selector)
+        expect_value(properly_formatted)
+      end
     end
   end
 
