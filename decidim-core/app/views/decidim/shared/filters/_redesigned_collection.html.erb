@@ -12,7 +12,7 @@
             :first,
             :last
         ) do |builder|
-            builder.label { builder.send(builder_type.singularize, class: "reset-defaults" , hidden: true) + content_tag(:div, builder.text, class: "filter" ) }
+            builder.label(class: "filter") { builder.send(builder_type.singularize, class: "reset-defaults") + builder.text }
         end %>
   </div>
 </div>

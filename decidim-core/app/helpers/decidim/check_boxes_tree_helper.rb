@@ -13,7 +13,8 @@ module Decidim
         include_hidden: false,
         label_options: {
           "data-children-checkbox": options[:parent_id] || "",
-          value:
+          value:,
+          class: "filter"
         }
       }
       options.merge!(checkbox_options)

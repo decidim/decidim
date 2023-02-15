@@ -3,15 +3,13 @@
 <% is_blank_root = leaf.value.blank? %>
 <% data = item.tree_node? && item.node.present? ? { checkboxes_tree: data_checkboxes_tree_id } : {} %>
 <% check_box_label = capture do %>
-  <div id="dropdown-title-<%= data_checkboxes_tree_id %>" class="filter">
-    <%= leaf.label %>
-    <% if !is_blank_root && item.tree_node? && item.node.present? %>
-      <button id="dropdown-trigger-<%= data_checkboxes_tree_id %>" data-controls="panel-dropdown-menu-<%= data_checkboxes_tree_id %>" aria-labelledby="dropdown-title-<%= data_checkboxes_tree_id %>" onclick="event.preventDefault()">
-        <%= icon "arrow-down-s-fill" %>
-        <%= icon "arrow-up-s-fill" %>
-      </button>
-    <% end %>
-  </div>
+  <%= leaf.label %>
+  <% if !is_blank_root && item.tree_node? && item.node.present? %>
+    <button id="dropdown-trigger-<%= data_checkboxes_tree_id %>" data-controls="panel-dropdown-menu-<%= data_checkboxes_tree_id %>" aria-labelledby="dropdown-title-<%= data_checkboxes_tree_id %>" onclick="event.preventDefault()">
+      <%= icon "arrow-down-s-fill" %>
+      <%= icon "arrow-up-s-fill" %>
+    </button>
+  <% end %>
 <% end %>
 
 <%= form.check_box(
@@ -23,7 +21,8 @@
         hidden: "hidden",
         data:,
         is_root_check_box: is_blank_root,
-        parent_id:
+        parent_id:,
+        id: "dropdown-title-#{data_checkboxes_tree_id}"
       ),
       leaf.value.to_s,
       nil
