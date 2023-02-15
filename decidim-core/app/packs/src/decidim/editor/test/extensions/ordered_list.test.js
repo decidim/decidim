@@ -71,4 +71,34 @@ describe("OrderedList", () => {
 
     expect(editor.getHTML()).toMatchHtml(listContent.replace(/\n( {2})+/g, ""));
   });
+
+  it("allows changing the list type with ALT+SHIFT+DOWN", async () => {
+    const listContent = "<ol><li><p>Item</p></li></ol>";
+
+    editorElement.focus();
+    await updateContent(editorElement, listContent);
+
+    ["a", "A", "i", "I"].forEach((type) => {
+      editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown", shiftKey: true, altKey: true }))
+      expect(editor.getHTML()).toMatchHtml(`<ol type="${type}"><li><p>Item</p></li></ol>`);
+    });
+
+    editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowDown", shiftKey: true, altKey: true }))
+    expect(editor.getHTML()).toMatchHtml("<ol><li><p>Item</p></li></ol>");
+  });
+
+  it("allows changing the list type with ALT+SHIFT+UP", async () => {
+    const listContent = "<ol><li><p>Item</p></li></ol>";
+
+    editorElement.focus();
+    await updateContent(editorElement, listContent);
+
+    ["I", "i", "A", "a"].forEach((type) => {
+      editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp", shiftKey: true, altKey: true }))
+      expect(editor.getHTML()).toMatchHtml(`<ol type="${type}"><li><p>Item</p></li></ol>`);
+    });
+
+    editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowUp", shiftKey: true, altKey: true }))
+    expect(editor.getHTML()).toMatchHtml("<ol><li><p>Item</p></li></ol>");
+  });
 });

@@ -533,6 +533,30 @@ describe "Editor", type: :system do
         expect_value("<p>Hello, world!</p>")
       end
     end
+
+    context "when managing an ordered list" do
+      let(:editor_content) { "<ol><li><p>Item</p></li></ol>" }
+
+      it "allows changing the the list type with ALT+SHIFT+DOWN" do
+        %w(a A i I).each do |type|
+          prosemirror.native.send_keys [:alt, :shift, :down]
+          expect_value(%(<ol type="#{type}"><li><p>Item</p></li></ol>))
+        end
+
+        prosemirror.native.send_keys [:alt, :shift, :down]
+        expect_value(editor_content)
+      end
+
+      it "allows changing the the list type with ALT+SHIFT+UP" do
+        %w(I i A a).each do |type|
+          prosemirror.native.send_keys [:alt, :shift, :up]
+          expect_value(%(<ol type="#{type}"><li><p>Item</p></li></ol>))
+        end
+
+        prosemirror.native.send_keys [:alt, :shift, :up]
+        expect_value(editor_content)
+      end
+    end
   end
 
   context "with clipboard" do
