@@ -173,7 +173,7 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.
         meeting_updated:
           email_intro: '"%{resource_title}" topaketa eguneratu da. Bertsio berria irakur dezakezu bere orrian:'
-          email_outro: Jjakinarazpen hau "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan baja eman daiteke.
+          email_outro: Jakinarazpen hau "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan baja eman daiteke.
           email_subject: '"%{resource_title}" topaketa eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa eguneratu da.
         registration_code_validated:
@@ -377,7 +377,7 @@ eu:
       admin_log:
         invite:
           create: "%{user_name} gonbidatua izan da %{attendee_name} batzeko %{resource_name} buruzko topaketa %{space_name} espazioan"
-          deleted: "%{user_name}-k %{attendee_name}-ri gonbidapena egiteari utzi zion %{space_name} espazioan parte hartzeko"
+          deleted: "%{user_name}-k %{attendee_name}-ri gonbidapena egiteari utzi dio %{space_name} espazioan parte hartzeko"
           update: "%{user_name}-ek %{attendee_name}-ri gonbidatuta %{space_name} espazioan parte hartzeko"
         meeting:
           close: "%{user_name}-k %{resource_name} topaketa %{space_name} espazioan itxi zen"
