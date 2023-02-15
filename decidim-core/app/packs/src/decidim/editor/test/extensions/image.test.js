@@ -181,7 +181,6 @@ describe("Image", () => {
     const behavesLikeImageResizer = (dragMode) => {
       const simulateDrag = (moveControl, { from, to }) => {
         if (dragMode === "touch") {
-          // var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
           moveControl.dispatchEvent(new TouchEvent("touchstart", { touches: [new Touch({ pageX: from, pageY: 0 })] }));
           document.dispatchEvent(new TouchEvent("touchmove", { touches: [new Touch({ pageX: to, pageY: 0 })] }));
           document.dispatchEvent(new TouchEvent("touchend"));
