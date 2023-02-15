@@ -7,11 +7,10 @@
   <div class="mb-24">
     <%= decidim_form_for(@form) do |form| %>
       <%= render partial: "form", locals: { form: form } %>
-
       <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-        <%= link_to decidim_verifications.authorizations_path, class: "button button__sm md:button__lg button__text-secondary" do %>
+        <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
           <%= icon "arrow-left-line", class: "fill-current" %>
-          <%= t("decidim.wizard_step_form.wizard_aside.back") %>
+          <%= t("back", scope: "decidim.debates.debates.new") %>
         <% end %>
         <%= form.submit t("create", scope: "decidim.debates.debates.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
         </div>
