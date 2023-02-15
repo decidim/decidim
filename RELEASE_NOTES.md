@@ -102,11 +102,11 @@ This check turned out to be problematic for short subdomains, such as the one in
 The default value is 4 characters, to change this value you can change the configuration:
 
 ```ruby
-# In decidim-core/lib/decidim/core.rb
+# In config/initializers/decidim.org
 
-  config_accessor :password_similarity_length do
-    4
-  end
+Decidim.configure do |config|
+  config.password_similarity_length = 4
+end
 ```
 
 ## 5. Changes in APIs

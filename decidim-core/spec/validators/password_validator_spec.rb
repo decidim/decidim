@@ -143,8 +143,8 @@ describe PasswordValidator do
 
     describe "parts of email domain included in password" do
       context "when less than 4 character parts" do
-        let(:email) { "john.doe@1.lvh.me" }
-        let(:value) { "Summer1Snowlvhme" }
+        let(:email) { "john.doe@1.example.org" }
+        let(:value) { "Summer1Snoworg" }
 
         it "ignores domain validation" do
           expect(validator).to be(true)
@@ -153,8 +153,8 @@ describe PasswordValidator do
       end
 
       context "when 4 or more character parts" do
-        let(:email) { "john.doe@decidim.com" }
-        let(:value) { "Decidim1945" }
+        let(:email) { "john.doe@example.org" }
+        let(:value) { "Example1945" }
 
         it "validates with domain" do
           expect(validator).to be(false)
