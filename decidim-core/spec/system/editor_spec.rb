@@ -662,32 +662,32 @@ describe "Editor", type: :system do
             <ol>
               <li style="list-style-type:decimal;">
                 <p><span style="font-weight:700;">Item 1</span></p>
-                <ol>
-                  <li style="list-style-type:lower-alpha;font-weight:400;"><p>Subitem 1.1</p></li>
-                  <li style="list-style-type:lower-alpha;font-weight:normal;"><p>Subitem 1.2</p></li>
-                </ol>
               </li>
+              <ol>
+                <li style="list-style-type:lower-alpha;font-weight:400;"><p>Subitem 1.1</p></li>
+                <li style="list-style-type:lower-alpha;font-weight:normal;"><p>Subitem 1.2</p></li>
+              </ol>
               <li style="list-style-type:decimal;">
                 <p>Item 2</p>
-                <ol>
-                  <li style="list-style-type:upper-alpha;font-weight:400;"><p>Subitem 2.1</p></li>
-                  <li style="list-style-type:upper-alpha;font-weight:normal;"><p>Subitem 2.2</p></li>
-                </ol>
               </li>
+              <ol>
+                <li style="list-style-type:upper-alpha;font-weight:400;"><p>Subitem 2.1</p></li>
+                <li style="list-style-type:upper-alpha;font-weight:normal;"><p>Subitem 2.2</p></li>
+              </ol>
               <li style="list-style-type:decimal;">
                 <p><span style="font-weight:bold;">Item 3</span></p>
-                <ol>
-                  <li style="list-style-type:lower-roman;font-weight:400;"><p>Subitem 3.1</p></li>
-                  <li style="list-style-type:lower-roman;font-weight:normal;"><p>Subitem 3.2</p></li>
-                </ol>
               </li>
+              <ol>
+                <li style="list-style-type:lower-roman;font-weight:400;"><p>Subitem 3.1</p></li>
+                <li style="list-style-type:lower-roman;font-weight:normal;"><p>Subitem 3.2</p></li>
+              </ol>
               <li style="list-style-type:decimal;">
                 <p>Item 4</p>
-                <ol>
-                  <li style="list-style-type:upper-roman;font-weight:400;"><p>Subitem 4.1</p></li>
-                  <li style="list-style-type:upper-roman;font-weight:normal;"><p>Subitem 4.2</p></li>
-                </ol>
               </li>
+              <ol>
+                <li style="list-style-type:upper-roman;font-weight:400;"><p>Subitem 4.1</p></li>
+                <li style="list-style-type:upper-roman;font-weight:normal;"><p>Subitem 4.2</p></li>
+              </ol>
             </ol>
           </b>
         HTML
