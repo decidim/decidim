@@ -9,7 +9,7 @@ module Decidim
 
       alias debate model
 
-      #REDESIGN PENDING: add new method to show calendar(start_time and end_time)
+      # REDESIGN PENDING: add new method to show calendar(start_time and end_time)
       delegate :type_of_meeting, :start_time, :end_time, :category, :withdrawn?, to: :debate
 
       def initialize(*)
@@ -39,7 +39,6 @@ module Decidim
           icon: "time-line"
         }
       end
-
     end
   end
 end
