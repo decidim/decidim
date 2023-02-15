@@ -18,7 +18,7 @@ module Decidim
         origin_keys << "user_group" if current_organization.user_groups_enabled?
 
         origin_values = flat_filter_values(*origin_keys, scope: "decidim.meetings.meetings.filters.origin_values")
-        origin_values.prepend(["", filter_text_for("all", t("all", scope: "decidim.meetings.meetings.filters.origin_values"))])
+        origin_values.prepend(["", filter_text_for(t("all", scope: "decidim.meetings.meetings.filters.origin_values"))])
 
         filter_tree_from_array(origin_values)
       end
@@ -29,7 +29,7 @@ module Decidim
         end
 
         TreeNode.new(
-          TreePoint.new("", filter_text_for(:all, t("decidim.meetings.meetings.filters.type_values.all"))),
+          TreePoint.new("", filter_text_for(t("decidim.meetings.meetings.filters.type_values.all"))),
           type_values
         )
       end
