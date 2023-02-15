@@ -72,8 +72,11 @@ export default class UploadDialog {
     this.dropZone.addEventListener("change", (event) => {
       event.preventDefault();
       const files = event.target.files;
-      Array.from(files).forEach((file) => this.uploadFile(file));
-    })
+      if (files.length < 1) {
+        return;
+      }
+      this.uploadFile(files[0]);
+    });
 
     const toggleDragover = (active) => {
       if (active) {

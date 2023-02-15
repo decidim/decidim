@@ -1,24 +1,8 @@
 import { Editor } from "@tiptap/core";
-import StarterKit from "@tiptap/starter-kit";
-import CodeBlock from "@tiptap/extension-code-block";
-import Underline from "@tiptap/extension-underline";
 
-import CharacterCount from "src/decidim/editor/extensions/character_count";
-import Bold from "src/decidim/editor/extensions/bold";
-import Dialog from "src/decidim/editor/extensions/dialog";
-import Hashtag from "src/decidim/editor/extensions/hashtag";
-import Heading from "src/decidim/editor/extensions/heading";
-import OrderedList from "src/decidim/editor/extensions/ordered_list";
-import Image from "src/decidim/editor/extensions/image";
-import Indent from "src/decidim/editor/extensions/indent";
-import Link from "src/decidim/editor/extensions/link";
-import Mention from "src/decidim/editor/extensions/mention";
-import VideoEmbed from "src/decidim/editor/extensions/video_embed";
-import Emoji from "src/decidim/editor/extensions/emoji";
+import DecidimKit from "src/decidim/editor/extensions/decidim_kit";
 
-import { getDictionary } from "src/decidim/i18n";
 import createEditorToolbar from "src/decidim/editor/toolbar";
-import UploadDialog from "src/decidim/editor/common/upload_dialog";
 import { uniqueId } from "src/decidim/editor/common/helpers";
 
 /**
@@ -39,70 +23,45 @@ export default function createEditor(container) {
     editorAttributes["aria-labelledby"] = labelId;
   }
 
-  let editor = null;
-  const i18nUpload = getDictionary("editor.upload");
   const features = container.dataset?.toolbar || "basic";
   const options = JSON.parse(container.dataset.options);
   const { context, uploadImagesPath, uploadDialogSelector, contentTypes } = options;
-  const uploadDialog = new UploadDialog(
-    document.querySelector(uploadDialogSelector),
-    {
-      i18n: i18nUpload,
-      onOpen: () => editor.commands.toggleDialog(true),
-      onClose: () => editor.chain().toggleDialog(false).focus(null, { scrollIntoView: false }).run()
-    }
-  );
 
-  const characterCountOptions = {};
-  if (input.hasAttribute("maxlength")) {
-    characterCountOptions.limit = parseInt(input.getAttribute("maxlength"), 10);
-  }
+  const decidimOptions = {};
 
-  const linkOptions = { openOnClick: false };
   if (context !== "participant") {
-    linkOptions.allowTargetControl = true;
+    decidimOptions.link = { allowTargetControl: true };
   }
 
-  const extensions = [
-    StarterKit.configure({
-      heading: false,
-      bold: false,
-      orderedList: false,
-      codeBlock: false
-    }),
-    Heading.configure({ levels: [2, 3, 4, 5, 6] }),
-    CharacterCount.configure(characterCountOptions),
-    Link.configure(linkOptions),
-    Bold,
-    Dialog,
-    Indent,
-    OrderedList,
-    CodeBlock,
-    Underline
-  ];
+  if (input.hasAttribute("maxlength")) {
+    decidimOptions.characterCount = { limit: parseInt(input.getAttribute("maxlength"), 10) };
+  }
+
   if (features === "full") {
-    extensions.push(...[
-      VideoEmbed,
-      Image.configure({ uploadDialog, uploadImagesPath, contentTypes: contentTypes.image })
-    ]);
+    decidimOptions.videoEmbed = true;
+    decidimOptions.image = {
+      uploadDialogSelector,
+      contentTypes: contentTypes.image,
+      uploadImagesPath
+    };
   }
 
   if (container.classList.contains("js-hashtags")) {
-    extensions.push(Hashtag);
+    decidimOptions.hashtag = true;
   }
   if (container.classList.contains("js-mentions")) {
-    extensions.push(Mention);
+    decidimOptions.mention = true;
   }
   if (container.classList.contains("js-emojis")) {
-    extensions.push(Emoji);
+    decidimOptions.emoji = true;
   }
 
-  editor = new Editor({
+  const editor = new Editor({
     element: editorContainer,
     editorProps: { attributes: editorAttributes },
     content: input.value,
     editable: !input.disabled,
-    extensions
+    extensions: [DecidimKit.configure(decidimOptions)]
   });
 
   const toolbar = createEditorToolbar(editor);

@@ -6,6 +6,20 @@ import { getDictionary } from "src/decidim/i18n";
 import { fileNameToTitle } from "src/decidim/editor/utilities/file";
 import createNodeView from "src/decidim/editor/extensions/image/node_view";
 
+import UploadDialog from "src/decidim/editor/common/upload_dialog";
+
+const createImageUploadDialog = (editor, { uploadDialogSelector }) => {
+  const i18nUpload = getDictionary("editor.upload");
+  return new UploadDialog(
+    document.querySelector(uploadDialogSelector),
+    {
+      i18n: i18nUpload,
+      onOpen: () => editor.commands.toggleDialog(true),
+      onClose: () => editor.chain().toggleDialog(false).focus(null, { scrollIntoView: false }).run()
+    }
+  );
+}
+
 const uploadImage = async (image, uploadUrl) => {
   const token = document.querySelector("meta[name='csrf-token']").getAttribute("content");
 
@@ -59,7 +73,7 @@ export default Image.extend({
       ...this.parent?.(),
       contentTypes: /^image\/(jpe?g|png|svg|webp)$/i,
       uploadImagesPath: null,
-      uploadDialog: null
+      uploadDialogSelector: null
     };
   },
 
@@ -72,12 +86,12 @@ export default Image.extend({
 
   addCommands() {
     const i18n = getDictionary("editor.extensions.image");
+    const uploadDialog = createImageUploadDialog(this.editor, this.options);
 
     return {
       ...this.parent?.(),
       imageDialog: () => async ({ dispatch }) => {
         if (dispatch) {
-          const { uploadDialog } = this.options;
           let { src, alt, width } = this.editor.getAttributes("image");
 
           this.editor.commands.toggleDialog(true);

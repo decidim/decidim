@@ -5,23 +5,12 @@ import { createBasicEditor, updateContent, sleep, pasteFixtureFile, dropFixtureF
 import Dialog from "../../extensions/dialog";
 import Image from "../../extensions/image";
 
-/**
- * Replaces the UploadDialog implementation as that is not relevant regarding
- * testing the image extension.
- */
 class DummyDialog {
-  constructor() {
-    this.dialogState = "save";
-    this.values = {};
-  }
+  constructor(element) { this.element = element; }
 
-  toggle() { return new Promise((resolve) => setTimeout(resolve(this.dialogState), 50)); }
+  open() { this.element.dataset.dialogOpen = true; }
 
-  setDialogState(state) {this.dialogState = state;}
-
-  getValue(key) { return this.values[key]; }
-
-  setValues(values) { this.values = values; }
+  close() { this.element.dataset.dialogOpen = null; }
 }
 
 // Not implemented in Jest
@@ -35,7 +24,9 @@ global.Touch = class Touch {
 describe("Image", () => {
   let editor = null;
   let editorElement = null;
-  let uploadDialog = new DummyDialog();
+  // let uploadDialog = new DummyDialog();
+  let uploadFilePath = "/path/to/image.jpg";
+  let uploadDialogElement = null;
   let editorInnerHTML = (dim, src, alt) => {
     return `
     <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
@@ -57,23 +48,41 @@ describe("Image", () => {
   `
   }
 
+  const updateFile = async (path, alt) => {
+    uploadFilePath = path;
+    const dz = uploadDialogElement.querySelector("[data-dropzone]");
+    dz.files = [{ name: "image.jpg" }];
+    dz.dispatchEvent(new CustomEvent("change"));
+    await sleep(0);
+
+    uploadDialogElement.querySelector("input[name='alt']").value = alt;
+
+    uploadDialogElement.querySelector("[data-dropzone-save]").click();
+    uploadDialogElement.dispatchEvent(new CustomEvent("close.dialog"));
+
+    await sleep(0);
+  }
+
   beforeEach(() => {
     document.body.innerHTML = "";
 
+    // Make the document recognized as "redesigned" through `data-dialog`
+    uploadDialogElement = document.createElement("div");
+    uploadDialogElement.id = "dummy_upload";
+    uploadDialogElement.dataset.dialog = "";
+    uploadDialogElement.innerHTML = `
+      <div data-dialog-title data-add-label="Add" data-edit-label="Edit"></div>
+      <div data-dropzone><div data-dropzone-items></div></div>
+      <div class="upload-modal__text"></div>
+      <button data-dropzone-save>Save</button><button data-dropzone-cancel>Cancel</button>
+    `;
+    uploadDialogElement.dialog = new DummyDialog(uploadDialogElement);
+    document.body.append(uploadDialogElement);
+
     editor = createBasicEditor({
-      extensions: [Dialog, Image.configure({
-        uploadDialog,
-        uploadImagesPath: "/editor_images",
-        contentTypes: ["image/png"]
-      })]
+      extensions: [Dialog, Image.configure({ uploadDialogSelector: "#dummy_upload", uploadImagesPath: "/editor_images", contentTypes: ["image/png"] })]
     });
     editorElement = editor.view.dom;
-
-    // Append a dummy data-dialog element to the DOM so that the document is
-    // recognized as "redesigned" by the input dialog.
-    const dummy = document.createElement("div");
-    dummy.dataset.dialog = "";
-    document.body.append(dummy);
 
     // Add a CSRF token for image uploads handling
     const csrf = document.createElement("meta");
@@ -82,22 +91,18 @@ describe("Image", () => {
     document.head.append(csrf);
 
     // Mocks the fetch method for the dynamic upload
-    global.fetch = jest.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve({ url: "/path/to/logo.png" }) }));
+    global.fetch = jest.fn(() => Promise.resolve({ ok: true, json: () => Promise.resolve({ url: uploadFilePath }) }));
   });
 
   afterEach(() => {
-    uploadDialog.setDialogState("save");
-    uploadDialog.setValues({});
-
+    uploadFilePath = "/path/to/image.jpg";
     jest.restoreAllMocks();
   });
 
   it("allows setting the image through the dialog", async () => {
-    uploadDialog.setValues({ src: "/path/to/image.jpg", alt: "Test text" });
-
     editor.commands.imageDialog();
     expect(editorElement.classList.contains("dialog-open")).toBe(true);
-    await sleep(55);
+    await updateFile("/path/to/image.jpg", "Test text")
     expect(editorElement.classList.contains("dialog-open")).toBe(false);
 
     expect(editorElement.innerHTML).toMatchHtml(editorInnerHTML("", "/path/to/image.jpg", "Test text"));
@@ -112,11 +117,9 @@ describe("Image", () => {
       '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
     );
 
-    uploadDialog.setValues({ src: "/path/to/image_updated.jpg", alt: "Updated text" });
-
     editor.commands.imageDialog();
     expect(editorElement.classList.contains("dialog-open")).toBe(true);
-    await sleep(55);
+    await updateFile("/path/to/image_updated.jpg", "Updated text")
     expect(editorElement.classList.contains("dialog-open")).toBe(false);
 
     expect(editorElement.innerHTML).toMatchHtml(editorInnerHTML("null", "/path/to/image_updated.jpg", "Updated text"));
@@ -131,17 +134,15 @@ describe("Image", () => {
       '<div class="editor-content-image" data-image=""><img src="/path/to/image.jpg" alt="Test text"></div>'
     );
 
-    uploadDialog.setValues({ src: "/path/to/image_updated.jpg", alt: "Updated text" });
-
-    jest.spyOn(uploadDialog, "toggle");
+    jest.spyOn(uploadDialogElement.dialog, "open");
 
     // Position calculations do not work with JSDom / Jest
     editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
     editorElement.dispatchEvent(new MouseEvent("mousedown", { button: 0, clientX: 10, clientY: 10 }));
     editorElement.dispatchEvent(new MouseEvent("mousedown", { button: 0, clientX: 10, clientY: 10 }));
-    await sleep(55);
+    await updateFile("/path/to/image_updated.jpg", "Updated text")
 
-    expect(uploadDialog.toggle).toHaveBeenCalled();
+    expect(uploadDialogElement.dialog.open).toHaveBeenCalled();
     expect(editor.getHTML()).toMatchHtml(`
       <div class="editor-content-image" data-image="">
         <img src="/path/to/image_updated.jpg" alt="Updated text">
@@ -151,6 +152,7 @@ describe("Image", () => {
 
   it("allows pasting an image", async () => {
     editorElement.focus();
+    uploadFilePath = "/path/to/logo.png";
     await pasteFixtureFile(editorElement, "logo.png");
 
     expect(editor.getHTML()).toMatchHtml(`
@@ -165,6 +167,7 @@ describe("Image", () => {
 
     // Position calculations do not work with JSDom / Jest
     editor.view.posAtCoords = jest.fn().mockReturnValue({ pos: 1, inside: -1 });
+    uploadFilePath = "/path/to/logo.png";
     await dropFixtureFile(editorElement, "logo.png");
 
     expect(editor.getHTML()).toMatchHtml(`
