@@ -42,6 +42,8 @@ const covertListStyleToType = (style) => {
  *   I) List item 1
  *   II) List item 2
  *   III) List item 3
+ *
+ * See: https://github.com/ueberdosis/tiptap/issues/3726
  */
 export default OrderedList.extend({
   addAttributes() {
