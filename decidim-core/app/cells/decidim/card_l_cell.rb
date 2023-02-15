@@ -24,8 +24,18 @@ module Decidim
       "#{class_base_name}_#{resource.id}"
     end
 
+    def item_list_class
+      return "card__list" if extra_class.blank?
+
+      "card__list #{extra_class}"
+    end
+
     def extra_class
       ""
+    end
+
+    def html_options
+      @html_options ||= options[:html_options] || {}
     end
 
     def presented_resource
@@ -84,7 +94,7 @@ module Decidim
     end
 
     def title
-      translated_attribute resource.title
+      decidim_html_escape(translated_attribute(resource.title))
     end
 
     def title_tag

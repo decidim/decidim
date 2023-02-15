@@ -103,13 +103,13 @@ describe "Assemblies", type: :system do
       it "lists all the highlighted assemblies" do
         within "#highlighted-assemblies" do
           expect(page).to have_content(translated(promoted_assembly.title, locale: :en))
-          expect(page).to have_selector(".card--full", count: 1)
+          expect(page).to have_selector("[id^='assembly_highlight']", count: 1)
         end
       end
 
       it "lists the parent assemblies" do
-        within "#parent-assemblies" do
-          within "#parent-assemblies h3" do
+        within "#assemblies-grid" do
+          within "#assemblies-grid h2" do
             expect(page).to have_content("2")
           end
 
@@ -127,18 +127,6 @@ describe "Assemblies", type: :system do
         first(".card__link", text: translated(assembly.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
-      end
-
-      it "shows the organizational chart" do
-        within "#assemblies-chart" do
-          within ".js-orgchart" do
-            expect(page).to have_selector(".svg-chart-container")
-
-            within ".svg-chart-container" do
-              expect(page).to have_selector("g.node", count: 2)
-            end
-          end
-        end
       end
     end
   end
@@ -197,8 +185,7 @@ describe "Assemblies", type: :system do
         let(:show_statistics) { true }
 
         it "renders the stats for those components are visible" do
-          within "[data-statistics]" do
-            expect(page).to have_css("h2.h2", text: "Statistics")
+          within "[data-statistic]" do
             expect(page).to have_css(".statistic__title", text: "Proposals")
             expect(page).to have_css(".statistic__number", text: "3")
             expect(page).to have_no_css(".statistic__title", text: "Meetings")

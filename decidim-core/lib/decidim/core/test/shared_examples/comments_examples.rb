@@ -347,11 +347,13 @@ shared_examples "comments" do
             end
 
             expect(page).not_to have_selector(".picmo-picker.picker")
-
             within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+            # REDESIGN PENDING: these lines come from develop
+            # expect(page).not_to have_selector(".picmo__picker.picmo__picker")
+            # within ".add-comment form" do
               find(".emoji__button").click
             end
-            expect(page).to have_selector(".picmo-picker.picker")
+            expect(page).to have_selector(".picmo__picker.picmo__picker")
           end
         end
 
@@ -366,7 +368,7 @@ shared_examples "comments" do
               field.native.send_keys("0123456789012345678901234567")
               find(".emoji__button").click
             end
-            expect(page).not_to have_selector(".picmo-picker.picker")
+            expect(page).not_to have_selector(".picmo__picker.picmo__picker")
           end
         end
       end

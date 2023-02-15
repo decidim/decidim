@@ -820,9 +820,6 @@ nl:
         edit:
           active_content_blocks: Actieve inhoudsblokken
           inactive_content_blocks: Inactieve inhoudsblokken
-      organization_homepage_content_blocks:
-        edit:
-          update: Bijwerken
       participatory_space_private_users:
         create:
           error: Er is een probleem opgetreden bij het toevoegen van een privédeelnemer aan deze deelruimte.

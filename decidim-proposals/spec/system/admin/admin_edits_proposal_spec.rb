@@ -59,7 +59,7 @@ describe "Admin edits proposals", type: :system do
       end
     end
 
-    context "when the proposal has attachement" do
+    context "when the proposal has attachment" do
       let!(:component) do
         create(:proposal_component,
                :with_creation_enabled,

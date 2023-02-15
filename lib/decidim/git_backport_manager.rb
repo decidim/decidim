@@ -69,6 +69,9 @@ module Decidim
     # @return [void]
     def create_backport_branch!
       `git checkout #{release_branch}`
+
+      diff_count = `git rev-list HEAD..#{remote}/#{release_branch} --count`.strip.to_i
+      `git pull #{remote} #{release_branch}` if diff_count.positive?
       `git checkout -b #{backport_branch}`
 
       error_message = <<-EOERROR

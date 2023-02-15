@@ -39,7 +39,6 @@ require "diffy"
 require "ransack"
 require "wisper"
 require "webpacker"
-require "turbo-rails"
 
 # Needed for the assets:precompile task, for configuring webpacker instance
 require "decidim/webpacker"
@@ -503,6 +502,31 @@ module Decidim
 
           content_block.settings do |settings|
             settings.attribute :summary, type: :text, translated: true
+          end
+
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:static_page, :section) do |content_block|
+          content_block.cell = "decidim/content_blocks/static_page/section"
+          content_block.settings_form_cell = "decidim/content_blocks/static_page/section_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.static_page.section.name"
+
+          content_block.settings do |settings|
+            settings.attribute :content, type: :text, translated: true
+          end
+
+          content_block.default!
+        end
+
+        Decidim.content_blocks.register(:static_page, :two_pane_section) do |content_block|
+          content_block.cell = "decidim/content_blocks/static_page/two_pane_section"
+          content_block.settings_form_cell = "decidim/content_blocks/static_page/two_pane_section_settings_form"
+          content_block.public_name_key = "decidim.content_blocks.static_page.two_pane_section.name"
+
+          content_block.settings do |settings|
+            settings.attribute :left_column, type: :text, translated: true
+            settings.attribute :right_column, type: :text, translated: true
           end
 
           content_block.default!

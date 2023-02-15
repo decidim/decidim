@@ -1,0 +1,20 @@
+<div class="meeting__calendar-container mt-8">
+  <div class="meeting__calendar meeting__calendar__lg">
+    <div class="meeting__calendar-month">
+      <span><%= l(start_time, format: !same_month? ? "%b" : "%B") %></span>
+      <span class="meeting__calendar-separator"><%= "-" if !same_month? %></span>
+      <span><%= l(end_time, format: "%b") if !same_month? %></span>
+    </div>
+    <div class="meeting__calendar-day">
+      <span><%= l(start_time, format: "%d") %></span>
+      <span class="meeting__calendar-separator"><%= "-" if !same_day? || !same_month? %></span>
+      <span><%= l(end_time, format: "%d") if !same_day? || !same_month? %></span>
+    </div>
+    <div class="meeting__calendar-time">
+      <span><%= l(start_time, format: "%H:%M") %></span>
+      <span class="meeting__calendar-separator"><%= "-" %></span>
+      <span><%= l(end_time, format: "%H:%M") %></span>
+    </div>
+  </div>
+  <%= static_map %>
+</div>
