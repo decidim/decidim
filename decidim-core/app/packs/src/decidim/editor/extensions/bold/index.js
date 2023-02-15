@@ -12,6 +12,8 @@ import Bold from "@tiptap/extension-bold";
  *      </ol>
  *   </ol>
  * </b>
+ *
+ * See: https://github.com/ueberdosis/tiptap/issues/3735
  */
 export default Bold.extend({
   parseHTML() {
