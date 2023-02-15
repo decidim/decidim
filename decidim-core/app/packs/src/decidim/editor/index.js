@@ -25,7 +25,7 @@ export default function createEditor(container) {
 
   const features = container.dataset?.toolbar || "basic";
   const options = JSON.parse(container.dataset.options);
-  const { context, uploadImagesPath, uploadDialogSelector, contentTypes } = options;
+  const { context, contentTypes } = options;
 
   const decidimOptions = {};
 
@@ -39,6 +39,8 @@ export default function createEditor(container) {
 
   if (features === "full") {
     decidimOptions.videoEmbed = true;
+
+    const { uploadImagesPath, uploadDialogSelector } = options;
     decidimOptions.image = {
       uploadDialogSelector,
       contentTypes: contentTypes.image,
