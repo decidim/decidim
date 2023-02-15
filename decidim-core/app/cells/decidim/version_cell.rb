@@ -3,6 +3,7 @@
 module Decidim
   class VersionCell < Decidim::ViewModel
     include Decidim::TraceabilityHelper
+    include Decidim::LayoutHelper
     include Decidim::SanitizeHelper
 
     def resource_title
@@ -15,6 +16,10 @@ module Decidim
 
     def versioned_resource
       options[:versioned_resource]
+    end
+
+    def path
+      options[:path]
     end
 
     def versions_path
@@ -67,6 +72,10 @@ module Decidim
 
     def resource_path
       resource_locator(versioned_resource).path
+    end
+
+    def html_options
+      @html_options ||= options[:html_options] || {}
     end
   end
 end

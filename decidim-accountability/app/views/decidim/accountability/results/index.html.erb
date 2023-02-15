@@ -7,43 +7,7 @@
 <% end %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= component_name %></h1>
-
-  <div class="accountability__status-container">
-    <%= cell(
-          "decidim/accountability/status",
-          nil,
-          url: root_path,
-          title: t("decidim.accountability.results.home_header.global_status"),
-          extra_classes: "accountability__status__parent",
-          render_blank: true
-        ) %>
-    <% categories_hierarchy.each do |category| %>
-      <%= cell(
-            "decidim/accountability/status",
-            category,
-            url: results_path(filter: { with_category: category, with_scope: current_scope }),
-            extra_classes: "accountability__status__parent",
-            render_count: false,
-            render_blank: true
-          ) %>
-    <% end %>
-    <% if category.present? %>
-      <div>
-        <%= external_icon "media/images/breadcrumb_arrow.svg" %>
-        <%= cell(
-              "decidim/accountability/status",
-              category,
-              extra_classes: "accountability__status__child",
-              url: results_path(filter: { with_category: category, with_scope: current_scope }),
-              render_blank: true
-            ) %>
-      </div>
-    <% end %>
-  </div>
-
-  <%= render partial: "scope_filters" if current_component.has_subscopes? %>
-
+  <%= render partial: "projects_aside", locals: { main_action: true } %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>

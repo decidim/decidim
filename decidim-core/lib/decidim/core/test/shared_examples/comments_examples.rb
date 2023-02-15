@@ -344,11 +344,11 @@ shared_examples "comments" do
             within ".add-comment form" do
               find(:css, "textarea:enabled").set("toto")
             end
-            expect(page).not_to have_selector(".picmo-picker.picker")
+            expect(page).not_to have_selector(".picmo__picker.picmo__picker")
             within ".add-comment form" do
               find(".emoji__button").click
             end
-            expect(page).to have_selector(".picmo-picker.picker")
+            expect(page).to have_selector(".picmo__picker.picmo__picker")
           end
         end
 
@@ -361,7 +361,7 @@ shared_examples "comments" do
               find(:css, "textarea:enabled").set("0123456789012345678901234567")
               find(".emoji__button").click
             end
-            expect(page).not_to have_selector(".picmo-picker.picker")
+            expect(page).not_to have_selector(".picmo__picker.picmo__picker")
           end
         end
       end

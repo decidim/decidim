@@ -1,0 +1,18 @@
+<div class="is-tip" data-floating-help="floating-help-<%= id %>">
+  <div id="floating-helper-tip" class="px-2">
+    <button class="button button__xs button__text-secondary">
+      <%= icon "question-line" %>
+      <span><%= t("help", scope: "decidim.shared.floating_help") %></span>
+    </button>
+  </div>
+
+  <div id="floating-helper-block">
+    <%= icon "question-line" %>
+    <div class="editor-content">
+      <%= content %>
+    </div>
+    <button aria-label="<%= t("close", scope: "decidim.shared.floating_help") %>">
+      <%= icon "close-line" %>
+    </button>
+  </div>
+</div>

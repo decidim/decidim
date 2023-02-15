@@ -1,0 +1,145 @@
+<%# REDESIGN_PENDING - Replace this layout with other not using drawers %>
+<%= render layout: "layouts/decidim/shared/drawer", locals: { close_url: meetings_path } do %>
+  <div class="meeting__container">
+
+    <h1 class="h2 decorator" data-heading-tag><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+
+    <%= cell "decidim/meetings/dates_and_map", meeting %>
+
+    <div class="meeting__author">
+      <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
+
+      <% if meeting.private_meeting? %>
+        <span class="<%= meeting_type_badge_css_class("private") %> label">
+          <%= t("private_meeting", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
+      <% if meeting.private_meeting? and meeting.transparent? %>
+        <span class="<%= meeting_type_badge_css_class("transparent") %> label">
+          <%= t("transparent", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
+      <% if meeting.withdrawn? %>
+        <span class="<%= meeting_type_badge_css_class("withdraw") %> label">
+          <%= t("withdraw", scope: "decidim.meetings.types") %>
+        </span>
+      <% end %>
+    </div>
+
+    <%= render_meeting_body(@meeting) %>
+
+    <% unless meeting.in_person_meeting? || meeting.withdrawn? %>
+      <%= cell "decidim/meetings/online_meeting_link", meeting %>
+    <% end %>
+
+    <%= cell "decidim/meetings/redesigned_meeting", meeting %>
+
+    <% if meeting.agenda.present? && meeting.agenda.visible? %>
+      <%= render "meeting_agenda" %>
+    <% end %>
+
+    <div class="meeting__actions">
+      <div>
+        <%# REDESING_PENDING: Usually this action block comes together, maybe a wrapper cell? %>
+        <%# REDESING_PENDING: Uncomment when available: https://github.com/decidim/decidim/pull/9852 %>
+        <%#= cell "decidim/endorsers_list_button", meeting %>
+        <%#= endorsement_buttons_cell(post) %>
+        <%#= cell "decidim/comments_button", nil %>
+      </div>
+      <%= cell "decidim/tags", meeting %>
+    </div>
+
+    <%= comments_for meeting %>
+    <%= pad_iframe_for meeting %>
+
+    <div class="mt-8">
+      <ul class="drawer-metadata__container" data-metadata-footer>
+        <%= content_tag :li, resource_reference(meeting), class: "drawer-metadata__item" %>
+        <%= content_tag :li, resource_version(meeting, versions_path: meeting_version_path(meeting, meeting.versions.count)), class: "drawer-metadata__item" %>
+        <%= content_tag :li, link_to(t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal"), nil, remote: true, data: { dialog_open: "calendarShare_#{meeting.id}" }), class: "drawer-metadata__item" %>
+      </ul>
+    </div>
+
+    <%# REDESIGN_PENDING: deprecated, now it's always in the layout %>
+    <%#= cell("decidim/flag_modal", meeting) %>
+  </div>
+
+  <% content_for :drawer_aside do %>
+
+    <div class="space-y-4">
+      <% if allowed_to?(:update, :meeting, meeting: meeting) %>
+        <%= link_to t("edit_meeting", scope: "decidim.meetings.meetings.meeting"), edit_meeting_path(meeting), class: "button button__xl button__secondary w-full" %>
+      <% end %>
+
+      <% if allowed_to?(:close, :meeting, meeting: meeting) %>
+        <% caption =  meeting.closed? ? t("edit_close_meeting", scope: "decidim.meetings.meetings.meeting") : t("close_meeting", scope: "decidim.meetings.meetings.meeting") %>
+        <%= link_to caption, edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button button__xl button__secondary w-full" %>
+      <% end %>
+
+      <% if meeting.withdrawable_by?(current_user) %>
+        <%= action_authorized_link_to(
+              :withdraw,
+              withdraw_meeting_path(meeting),
+              method: :put,
+              class: "button button__xl button__secondary w-full",
+              title: t("withdraw_btn_hint", scope: "decidim.meetings.meetings.show"),
+              data: { confirm: t("withdraw_confirmation_html", scope: "decidim.meetings.meetings.show") }
+            ) do %>
+            <%= t("withdraw_meeting", scope:"decidim.meetings.meetings.show") %>
+        <% end %>
+      <% end %>
+
+      <%= cell "decidim/meetings/join_meeting_button", meeting, show_remaining_slots: true %>
+    </div>
+
+    <% if meeting.closed? && meeting.closing_visible? %>
+      <% if meeting.has_contributions? %>
+        <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "add-box-line" } do %>
+          <h3 class="meeting__aside-block__title"><%= t("contributions", scope: "decidim.meetings.meetings.show") %></h3>
+          <div class="meeting__aside-block__large"><%= meeting.contributions_count %></div>
+        <% end %>
+      <% end %>
+
+      <% if meeting.has_attendees? %>
+        <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "group-line" } do %>
+          <h3 class="meeting__aside-block__title"><%= t("attendees", scope: "decidim.meetings.meetings.show") %></h3>
+          <div class="meeting__aside-block__large"><%= meeting.attendees_count %></div>
+        <% end %>
+      <% end %>
+
+      <% if meeting.attending_organizations.present? %>
+        <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "community-line" } do %>
+          <h3 class="meeting__aside-block__title"><%= t("organizations", scope: "decidim.meetings.meetings.show") %></h3>
+          <ul class="meeting__aside-block__list">
+            <% meeting.attending_organizations.split("\n").each do |organizations| %>
+            <li><%= organizations %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
+      <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "qr-code-line" } do %>
+        <h3 class="meeting__aside-block__title"><%= registration_code_help_text %></h3>
+        <div class="meeting__aside-block__large"><%= registration.code %></div>
+        <% if registration.validated? %>
+          <div class="label success"><%= t("validated", scope: "decidim.meetings.meetings.show.registration_state") %></div>
+          <% else %>
+          <div class="label warning"><%= t("validation_pending", scope: "decidim.meetings.meetings.show.registration_state") %></div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if meeting.services.any? %>
+      <% meeting.services.each do |service| %>
+        <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "star-line" } do %>
+          <h3 class="meeting__aside-block__title"><%= translated_attribute(service["title"]) %></h3>
+          <div class="meeting__aside-block__text"><%= translated_attribute(service["description"]) %></div>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= render partial: "redesigned_calendar_modal", locals: { ics_url: calendar_meeting_url(meeting), google_url: google_calendar_event_url(meeting), id: meeting.id } %>

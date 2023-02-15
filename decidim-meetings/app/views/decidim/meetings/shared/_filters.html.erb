@@ -1,0 +1,31 @@
+<%# = render partial: "decidim/shared/filter_form_help", locals: { skip_to_id: "meetings" } %>
+
+<%# REDESING_PENDING: processes/assemblees use this same layout for filters in a core's shared view. try to join %>
+<% filters = [].tap do |f|
+    f.append(method: :with_any_date, collection: filter_date_values, label_scope: "decidim.meetings.meetings.filters", id: "date", type: :radio_buttons) if filter_options[:date]
+    f.append(method: :with_any_type, collection: filter_type_values, label_scope: "decidim.meetings.meetings.filters", id: "type") if filter_options[:type]
+    f.append(method: :with_any_scope, collection: filter_scopes_values, label_scope: "decidim.meetings.meetings.filters", id: "scope") if filter_options[:scopes]
+    f.append(method: :with_any_scope, collection: directory_filter_scopes_values, label_scope: "decidim.meetings.meetings.filters", id: "scope") if filter_options[:directory_scopes]
+    f.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.meetings.meetings.filters", id: "category") if filter_options[:categories]
+    f.append(method: :with_any_global_category, collection: directory_filter_categories_values, label_scope: "decidim.meetings.meetings.filters", id: "category") if filter_options[:directory_categories]
+    f.append(method: :with_any_origin, collection: filter_origin_values, label_scope: "decidim.meetings.meetings.filters", id: "origin") if filter_options[:origin]
+    f.append(method: :with_any_space, collection: directory_meeting_spaces_values, label_scope: "decidim.meetings.directory.meetings.index", id: "space_type") if filter_options[:space_type]
+    f.append(method: :activity, collection: activity_filter_values, label_scope: "decidim.meetings.meetings.filters", id: "activity", type: :radio_buttons) if filter_options[:activity]
+  end %>
+
+<%= redesigned_filter_form_for filter, url_for, class: "new_filter meeting__filter-container", data: { filters: "", component: "accordion" } do |form| %>
+  <div class="filter-search filter-container">
+    <%= form.search_field search_variable,
+      label: false,
+      placeholder: t("decidim.meetings.meetings.filters.search"),
+      title: t("decidim.meetings.meetings.filters.search"),
+      "aria-label": t("decidim.meetings.meetings.filters.search") %>
+    <button type="submit" aria-controls="meetings" aria-label="<%= t("decidim.meetings.meetings.filters.search") %>">
+      <%= icon "search-line" %>
+    </button>
+  </div>
+
+  <% filters.each do |f| %>
+    <%= form.collection_filter(**f) %>
+  <% end %>
+<% end %>

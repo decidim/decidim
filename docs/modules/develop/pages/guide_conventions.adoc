@@ -58,7 +58,7 @@ We would like to have all branches following this namings:
 | When adding missing tests, refactoring tests, improving coverage, etc.
 
 | backport/
-| We only offer support for the last mayor version.
+| We only offer support for the last two mayor version. Learn more about xref:develop:backports.adoc[Backports].
 |===
 
 After the prefix we recommend to add some words that describe what the change is doing, like a summary of the Pull Request title. For instance, some good branch names are:
