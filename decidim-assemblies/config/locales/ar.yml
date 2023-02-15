@@ -2,7 +2,12 @@
 ar:
   activemodel:
     attributes:
+      assemblies_setting:
+        enable_organization_chart: تمكين الخريطة التنظيمية
+      assemblies_type:
+        title: العنوان
       assembly:
+        announcement: إعلان
         area_id: المنطقة
         assembly_type: نوع التجمع
         assembly_type_other: نوع آخر مِن الجمعيات
@@ -21,12 +26,16 @@ ar:
         decidim_scope_id: النطاق
         description: الوصف
         developer_group: مجموعة المروجين
+        document: وثيقة
         domain: النطاق
         duration: المدة الزمنية
         facebook: فيسبوك
         github: غِت‌ هَب
         hashtag: الوسم
         hero_image: الصورة الرئيسية
+        import_attachments: استيراد المرفقات
+        import_categories: استيراد الفئات
+        import_components: استيراد المكونات
         included_at: المدرجة في
         instagram: انستجرام
         internal_organisation: التنظيم الداخلي
@@ -51,6 +60,7 @@ ar:
         target: من يشارك
         title: العنوان
         twitter: تويتر
+        weight: موضع الطلب
         youtube: يوتيوب
       assembly_member:
         birthday: تاريخ الميلاد
@@ -62,10 +72,17 @@ ar:
         non_user_avatar: الصورة الرمزية
         position: الموقع
         user_id: مستخدم أو مجموعة
+        weight: موضع الطلب
       assembly_user_role:
         email: البريد الإلكتروني
         name: الاسم
         role: الوظيفة
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'نوع الوثيقة غير صالح. يسمح فقط بالملفات ذات الإضافات التالية: %{types}'
   activerecord:
     models:
       decidim/assembly:
