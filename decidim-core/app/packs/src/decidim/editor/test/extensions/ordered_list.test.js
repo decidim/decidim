@@ -21,6 +21,39 @@ const createBasicEditor = () => {
   });
 };
 
+const formattedList = `
+  <ol>
+    <li>
+      <p>Item 1</p>
+      <ol type="a">
+        <li><p>Subitem 1.1</p></li>
+        <li><p>Subitem 1.2</p></li>
+      </ol>
+    </li>
+    <li>
+      <p>Item 2</p>
+      <ol type="A">
+        <li><p>Subitem 2.1</p></li>
+        <li><p>Subitem 2.2</p></li>
+      </ol>
+    </li>
+    <li>
+      <p>Item 3</p>
+      <ol type="i">
+        <li><p>Subitem 3.1</p></li>
+        <li><p>Subitem 3.2</p></li>
+      </ol>
+    </li>
+    <li>
+      <p>Item 4</p>
+      <ol type="I">
+        <li><p>Subitem 4.1</p></li>
+        <li><p>Subitem 4.2</p></li>
+      </ol>
+    </li>
+  </ol>
+`;
+
 describe("OrderedList", () => {
   let editor = null;
   let editorElement = null;
@@ -33,43 +66,53 @@ describe("OrderedList", () => {
   });
 
   it("preserves the list types when manually updated content is processed", async () => {
+    editorElement.focus();
+    await updateContent(editorElement, formattedList);
+
+    expect(editor.getHTML()).toMatchHtml(formattedList.replace(/\n( {2})*/g, ""));
+  });
+
+  // See: https://github.com/ueberdosis/tiptap/issues/3726
+  it("preserves the list types when they are carried using inline styling", async () => {
     const listContent = `
-      <ol>
-        <li>
-          <p>Item 1</p>
-          <ol type="a">
-            <li><p>Subitem 1.1</p></li>
-            <li><p>Subitem 1.2</p></li>
+      <b style="font-weight:normal;">
+        <ol>
+          <li style="list-style-type:decimal;">
+            <p>Item 1</p>
+          </li>
+          <ol>
+            <li style="list-style-type:lower-alpha;font-weight:400;"><p>Subitem 1.1</p></li>
+            <li style="list-style-type:lower-alpha;font-weight:normal;"><p>Subitem 1.2</p></li>
           </ol>
-        </li>
-        <li>
-          <p>Item 2</p>
-          <ol type="A">
-            <li><p>Subitem 2.1</p></li>
-            <li><p>Subitem 2.2</p></li>
+          <li style="list-style-type:decimal;">
+            <p>Item 2</p>
+          </li>
+          <ol>
+            <li style="list-style-type:upper-alpha;font-weight:400;"><p>Subitem 2.1</p></li>
+            <li style="list-style-type:upper-alpha;font-weight:normal;"><p>Subitem 2.2</p></li>
           </ol>
-        </li>
-        <li>
-          <p>Item 3</p>
-          <ol type="i">
-            <li><p>Subitem 3.1</p></li>
-            <li><p>Subitem 3.2</p></li>
+          <li style="list-style-type:decimal;">
+            <p>Item 3</p>
+          </li>
+          <ol>
+            <li style="list-style-type:lower-roman;font-weight:400;"><p>Subitem 3.1</p></li>
+            <li style="list-style-type:lower-roman;font-weight:normal;"><p>Subitem 3.2</p></li>
           </ol>
-        </li>
-        <li>
-          <p>Item 4</p>
-          <ol type="I">
-            <li><p>Subitem 4.1</p></li>
-            <li><p>Subitem 4.2</p></li>
+          <li style="list-style-type:decimal;">
+            <p>Item 4</p>
+          </li>
+          <ol>
+            <li style="list-style-type:upper-roman;font-weight:400;"><p>Subitem 4.1</p></li>
+            <li style="list-style-type:upper-roman;font-weight:normal;"><p>Subitem 4.2</p></li>
           </ol>
-        </li>
-      </ol>
+        </ol>
+      </b>
     `;
 
     editorElement.focus();
     await updateContent(editorElement, listContent);
 
-    expect(editor.getHTML()).toMatchHtml(listContent.replace(/\n( {2})+/g, ""));
+    expect(editor.getHTML()).toMatchHtml(formattedList.replace(/\n( {2})*/g, ""));
   });
 
   it("allows changing the list type with ALT+SHIFT+DOWN", async () => {
