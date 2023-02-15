@@ -58,7 +58,7 @@ describe "Filter Assemblies", type: :system do
       end
 
       it "lists all processes belonging to that scope" do
-        within "#parent-assemblies" do
+        within "#assemblies-grid" do
           expect(page).to have_content(translated(assembly_with_scope.title))
           expect(page).not_to have_content(translated(assembly_without_scope.title))
         end
@@ -81,7 +81,7 @@ describe "Filter Assemblies", type: :system do
       end
 
       it "lists all processes belonging to that area" do
-        within "#parent-assemblies" do
+        within "#assemblies-grid" do
           expect(page).to have_content(translated(assembly_with_area.title))
           expect(page).not_to have_content(translated(assembly_without_area.title))
         end

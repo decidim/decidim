@@ -8,6 +8,7 @@ module Decidim
       include ParticipatorySpaceContext
       redesign_participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
+      include Paginable
 
       helper_method :collection,
                     :promoted_collection,
@@ -37,6 +38,8 @@ module Decidim
           render status: :not_found
         end
       end
+
+      def description; end
 
       private
 
@@ -94,7 +97,7 @@ module Decidim
       end
 
       def collection
-        @collection ||= participatory_processes + participatory_process_groups
+        @collection ||= paginate(Kaminari.paginate_array(participatory_processes + participatory_process_groups))
       end
 
       def filtered_processes

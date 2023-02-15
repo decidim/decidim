@@ -1015,12 +1015,9 @@ en:
         description: Read more about %{organization}
         title: General Help
     last_activities:
-      activities:
-        no_activities_warning: No activity
       all: All activity types
       index:
         last_activity: Last activity
-        resource_type: Type
     links:
       invalid_url: Invalid URL
       warning:

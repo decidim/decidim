@@ -6,11 +6,12 @@ module Decidim
     class AssembliesController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
 
-      participatory_space_layout only: :show
+      redesign_participatory_space_layout only: :show
 
       include FilterResource
+      include Paginable
 
-      helper_method :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes, :current_assemblies_settings
+      helper_method :collection, :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes, :current_assemblies_settings
 
       def index
         enforce_permission_to :list, :assembly
@@ -92,6 +93,10 @@ module Decidim
 
       def parent_assemblies
         search.result.parent_assemblies.order(weight: :asc, promoted: :desc)
+      end
+
+      def collection
+        @collection ||= paginate(Kaminari.paginate_array(parent_assemblies))
       end
 
       def stats

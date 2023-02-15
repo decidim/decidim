@@ -1,6 +1,12 @@
 <% items.each do |item| %>
   <span>
-    <%= icon item[:icon] %>
-    <%= link_to_if enable_links? && item.has_key?(:url), item[:text], item[:url] %>
+    <%= icon item[:icon] if item[:icon].present? %>
+    <% if item[:text].present? %>
+      <%= link_to_if enable_links? && item.has_key?(:url), item[:text], item[:url] %>
+    <% elsif item[:cell].present? && item[:args].is_a?(Enumerable) %>
+      <%= cell(item[:cell], *item[:args]) %>
+    <% elsif item[:cell].present? %>
+      <%= cell(item[:cell], item[:args]) %>
+    <% end %>
   </span>
 <% end %>

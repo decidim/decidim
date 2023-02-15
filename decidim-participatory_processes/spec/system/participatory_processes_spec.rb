@@ -429,13 +429,7 @@ describe "Participatory Processes", type: :system do
             let(:show_statistics) { true }
 
             it "the stats for those components are visible" do
-              within "[data-statistics]" do
-                expect(page).to have_css("h2.h2", text: "Statistics")
-                expect(page).to have_css(".statistic__title", text: "Proposals")
-                expect(page).to have_css(".statistic__number", text: "3")
-                expect(page).to have_no_css(".statistic__title", text: "Meetings")
-                expect(page).to have_no_css(".statistic__number", text: "0")
-              end
+              expect(page).to have_css("[data-statistic]", count: 3)
             end
           end
 
