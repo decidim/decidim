@@ -38,7 +38,7 @@
 
     /* 3 or more items spans the full width for mobile */
     & > *:first-child:nth-last-child(n + 3),
-    & > *:first-child:nth-last-child(n + 3) ~ * {
+    & > *:first-child:nth-last-child(n + 3) ~ *{
       @apply w-full md:w-auto;
     }
   }
