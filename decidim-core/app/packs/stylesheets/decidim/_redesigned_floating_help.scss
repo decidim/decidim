@@ -1,9 +1,9 @@
 [data-floating-help]{
   [id*="tip"]{
-    @apply absolute right-0 bg-background [&_button]:rounded-r-none [&_svg]:text-gray [&_svg]:fill-current;
+    @apply absolute z-10 right-0 bg-background [&_button]:rounded-r-none [&_svg]:text-gray [&_svg]:fill-current;
 
     &:hover{
-      @apply [&_svg]:text-secondary;
+      @apply [&_svg]:text-white;
     }
   }
 
@@ -11,7 +11,7 @@
     @apply p-4 flex items-start gap-3 border-4 border-background rounded;
 
     > svg{
-      @apply w-5 h-5 text-gray fill-current;
+      @apply w-5 h-5 text-gray fill-current flex-none;
     }
 
     > button{
