@@ -63,7 +63,7 @@ describe "Data consent", type: :system do
 
       # REDESIGN_PENDING: restore this within once redesign enabled
       # within "footer" do
-        click_link "Cookie settings"
+      click_link "Cookie settings"
       # end
 
       within "[data-id='analytics']" do
