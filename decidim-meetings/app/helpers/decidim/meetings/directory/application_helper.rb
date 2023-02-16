@@ -27,35 +27,6 @@ module Decidim
           %w(all upcoming past).map { |k| [k, filter_text_for(t(k, scope: "decidim.meetings.meetings.filters.date_values"))] }
         end
 
-        def directory_filter_scopes_values
-          main_scopes = current_organization.scopes.top_level
-
-          scopes_values = main_scopes.includes(:scope_type, :children).flat_map do |scope|
-            TreeNode.new(
-              TreePoint.new(scope.id.to_s, filter_text_for(translated_attribute(scope.name, current_organization))),
-              scope_children_to_tree(scope)
-            )
-          end
-
-          scopes_values.prepend(TreePoint.new("global", filter_text_for(t("decidim.scopes.global"))))
-
-          TreeNode.new(
-            TreePoint.new("", filter_text_for(t("decidim.meetings.application_helper.filter_scope_values.all"))),
-            scopes_values
-          )
-        end
-
-        def scope_children_to_tree(scope)
-          return unless scope.children.any?
-
-          scope.children.includes(:scope_type, :children).flat_map do |child|
-            TreeNode.new(
-              TreePoint.new(child.id.to_s, filter_text_for(translated_attribute(child.name, current_organization))),
-              scope_children_to_tree(child)
-            )
-          end
-        end
-
         def directory_meeting_spaces_values
           participatory_spaces = current_organization.public_participatory_spaces
 
