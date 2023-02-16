@@ -5,7 +5,7 @@ import { BulletList } from "@tiptap/extension-bullet-list";
 import { ListItem } from "@tiptap/extension-list-item";
 import { Text } from "@tiptap/extension-text";
 
-import { updateContent } from "../helpers";
+import { updateContent, pasteContent } from "../helpers";
 
 import OrderedList from "../../extensions/ordered_list";
 
@@ -111,6 +111,78 @@ describe("OrderedList", () => {
 
     editorElement.focus();
     await updateContent(editorElement, listContent);
+
+    expect(editor.getHTML()).toMatchHtml(formattedList.replace(/\n( {2})*/g, ""));
+  });
+
+  // See: https://github.com/ueberdosis/tiptap/issues/3751
+  it("preserves the list types when they are carried using inline styling from Office 365", async () => {
+    const listContent = `
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:decimal;">
+          <li data-listid="1" data-aria-level="1"><p><span>Item 1</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:lower-alpha;">
+          <li data-listid="1" data-aria-level="2"><p><span style="font-weight:400;">Subitem 1.1</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:lower-alpha;">
+          <li data-listid="1" data-aria-level="2"><p><span style="font-weight:normal;">Subitem 1.2</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:decimal;">
+          <li data-listid="1" data-aria-level="1"><p><span>Item 2</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:upper-alpha;">
+          <li data-listid="1" data-aria-level="2"><p><span style="font-weight:400;">Subitem 2.1</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:upper-alpha;">
+          <li data-listid="1" data-aria-level="2"><p><span style="font-weight:normal;">Subitem 2.2</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:decimal;">
+          <li data-listid="1" data-aria-level="1"><p><span>Item 3</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:lower-roman;">
+          <li data-listid="1" data-aria-level="2"><p><span style="font-weight:400;">Subitem 3.1</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:lower-roman;">
+          <li data-listid="1" data-aria-level="2"><p><span style="font-weight:normal;">Subitem 3.2</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:decimal;">
+          <li data-listid="1" data-aria-level="1"><p><span>Item 4</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:upper-roman;">
+          <li data-listid="1" data-aria-level="2"><p><span style="font-weight:400;">Subitem 4.1</span></p></li>
+        </ol>
+      </div>
+      <div class="ListContainerWrapper">
+        <ol style="list-style-type:upper-roman;">
+          <li data-listid="1" data-aria-level="2"><p><span style="font-weight:normal;">Subitem 4.2</span></p></li>
+        </ol>
+      </div>
+    `;
+
+    editorElement.focus();
+    // await updateContent(editorElement, listContent);
+    await pasteContent(editorElement, listContent);
 
     expect(editor.getHTML()).toMatchHtml(formattedList.replace(/\n( {2})*/g, ""));
   });

@@ -694,6 +694,81 @@ describe "Editor", type: :system do
         paste_content(content, prosemirror_selector)
         expect_value(properly_formatted)
       end
+
+      # This is to test the weird markup produced by Office 365 that it is
+      # handled properly in the editor.
+      #
+      # See:
+      # https://github.com/ueberdosis/tiptap/issues/3751
+      # https://github.com/ueberdosis/tiptap/issues/3735
+      # rubocop:disable Rspec/ExampleLength
+      it "preserves CSS styled ordered list type and marks from Office 365" do
+        content = <<~HTML
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:decimal;">
+              <li data-listid="1" data-aria-level="1"><p><span style="font-weight:700;">Item 1</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:lower-alpha;">
+              <li data-listid="1" data-aria-level="2"><p><span style="font-weight:400;">Subitem 1.1</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:lower-alpha;">
+              <li data-listid="1" data-aria-level="2"><p><span style="font-weight:normal;">Subitem 1.2</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:decimal;">
+              <li data-listid="1" data-aria-level="1"><p><span>Item 2</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:upper-alpha;">
+              <li data-listid="1" data-aria-level="2"><p><span style="font-weight:400;">Subitem 2.1</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:upper-alpha;">
+              <li data-listid="1" data-aria-level="2"><p><span style="font-weight:normal;">Subitem 2.2</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:decimal;">
+              <li data-listid="1" data-aria-level="1"><p><span style="font-weight:bold;">Item 3</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:lower-roman;">
+              <li data-listid="1" data-aria-level="2"><p><span style="font-weight:400;">Subitem 3.1</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:lower-roman;">
+              <li data-listid="1" data-aria-level="2"><p><span style="font-weight:normal;">Subitem 3.2</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:decimal;">
+              <li data-listid="1" data-aria-level="1"><p><span>Item 4</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:upper-roman;">
+              <li data-listid="1" data-aria-level="2"><p><span style="font-weight:400;">Subitem 4.1</span></p></li>
+            </ol>
+          </div>
+          <div class="ListContainerWrapper">
+            <ol style="list-style-type:upper-roman;">
+              <li data-listid="1" data-aria-level="2"><p><span style="font-weight:normal;">Subitem 4.2</span></p></li>
+            </ol>
+          </div>
+        HTML
+        paste_content(content, prosemirror_selector)
+        expect_value(properly_formatted)
+      end
+      # rubocop:enable Rspec/ExampleLength
     end
   end
 

@@ -1,5 +1,8 @@
 import { mergeAttributes } from "@tiptap/core";
 import OrderedList from "@tiptap/extension-ordered-list";
+import { Plugin } from "prosemirror-state";
+
+import transformPastedHTML from "src/decidim/editor/utilities/paste_transform";
 
 const allowedListTypes = ["a", "A", "i", "I"];
 
@@ -65,6 +68,12 @@ export default OrderedList.extend({
             if (allowedListTypes.includes(type)) {
               return type;
             }
+          }
+
+          // Office 365
+          type = covertListStyleToType(element.style.listStyleType);
+          if (allowedListTypes.includes(type)) {
+            return type;
           }
 
           return null;
@@ -154,5 +163,26 @@ export default OrderedList.extend({
       "Alt-Shift-ArrowUp": () => listTypeChange(-1),
       "Alt-Shift-ArrowDown": () => listTypeChange(1)
     }
+  },
+
+  /**
+   * Adds a plugin that modifies the pasted HTML before it is passed to the
+   * editor to fix some problems in the pasted content structure from different
+   * online and desktop editors.
+   *
+   * See: https://github.com/ueberdosis/tiptap/issues/3751
+   *
+   * @returns {Array} The ProseMirror plugins provided by this extension
+   */
+  addProseMirrorPlugins() {
+    return [
+      new Plugin({
+        props: {
+          transformPastedHTML(html) {
+            return transformPastedHTML(html);
+          }
+        }
+      })
+    ];
   }
 });
