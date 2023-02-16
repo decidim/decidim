@@ -10,6 +10,7 @@ module Decidim
       include Decidim::WidgetUrlsHelper
       include Decidim::SanitizeHelper
       include Decidim::ResourceReferenceHelper
+      include Decidim::CheckBoxesTreeHelper
 
       # Public: Returns the dates for a step in a readable format like
       # "01/01/2016 - 05/02/2016".
@@ -75,6 +76,13 @@ module Decidim
             active: is_active_link?(main_component_path(component), :inclusive)
           }
         end
+      end
+
+      def filter_sections
+        [
+          { method: :with_scope, collection: filter_global_scopes_values, label_scope: "decidim.meetings.meetings.filters", id: "scope" },
+          { method: :with_area, collection: filter_areas_values, label_scope: "decidim.initiatives.initiatives.filters", id: "area" }
+        ]
       end
     end
   end
