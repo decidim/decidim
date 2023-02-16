@@ -50,16 +50,17 @@ export const transformMsCould = (html) => {
         target.append(listElement);
         parent = listElement;
       } else {
-        if (level < currentLevel) {
-          while (level < documentCurrentLevel) {
-            documentCurrentLevel -= 1;
-            const candidate = parent.parentNode.closest("ol, ul");
-            if (candidate) {
-              currentLevel -= 1;
-              parent = candidate;
-            }
+        while (level < currentLevel) {
+          currentLevel -= 1;
+          const candidate = parent.parentNode.closest("ol, ul");
+          if (candidate) {
+            parent = candidate;
+          } else {
+            currentLevel = level;
+            break;
           }
         }
+        documentCurrentLevel = level;
         parent.append(...listElement.querySelectorAll("li"));
         listElement.remove();
       }
