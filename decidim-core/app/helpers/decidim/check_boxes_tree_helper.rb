@@ -77,7 +77,7 @@ module Decidim
 
     def resource_filter_scope_values(resource)
       if resource.is_a?(Scope)
-        filter_scopes_values_from([resource])
+        filter_scopes_values_from([resource], current_participatory_space)
       else
         filter_scopes_values
       end
@@ -88,7 +88,7 @@ module Decidim
 
       main_scopes = current_participatory_space.scopes.top_level
                                                .includes(:scope_type, :children)
-      filter_scopes_values_from(main_scopes)
+      filter_scopes_values_from(main_scopes, current_participatory_space)
     end
 
     def filter_scopes_values_from_parent(scope)
@@ -100,34 +100,38 @@ module Decidim
         end
         scopes_values << TreeNode.new(
           TreePoint.new(child.id.to_s, filter_text_for(translated_attribute(child.name, current_participatory_space.organization))),
-          scope_children_to_tree(child)
+          scope_children_to_tree(child, current_participatory_space)
         )
       end
 
       filter_tree_from(scopes_values)
     end
 
-    def filter_scopes_values_from(scopes)
+    def filter_scopes_values_from(scopes, participatory_space = nil)
+      organization = participatory_space&.organization || current_organization
+
       scopes_values = scopes.compact.flat_map do |scope|
         TreeNode.new(
-          TreePoint.new(scope.id.to_s, filter_text_for(translated_attribute(scope.name, current_participatory_space.organization))),
-          scope_children_to_tree(scope)
+          TreePoint.new(scope.id.to_s, filter_text_for(translated_attribute(scope.name, organization))),
+          scope_children_to_tree(scope, participatory_space)
         )
       end
 
-      scopes_values.prepend(TreePoint.new("global", filter_text_for(t("decidim.scopes.global")))) if current_participatory_space.scope.blank?
+      scopes_values.prepend(TreePoint.new("global", filter_text_for(t("decidim.scopes.global")))) if participatory_space&.scope.blank?
 
       filter_tree_from(scopes_values)
     end
 
-    def scope_children_to_tree(scope)
-      return if scope.scope_type && scope.scope_type == current_participatory_space.try(:scope_type_max_depth)
+    def scope_children_to_tree(scope, participatory_space = nil)
+      return if participatory_space.present? && scope.scope_type && scope.scope_type == current_participatory_space.try(:scope_type_max_depth)
       return unless scope.children.any?
+
+      organization = participatory_space&.organization || current_organization
 
       scope.children.includes(:scope_type, :children).flat_map do |child|
         TreeNode.new(
-          TreePoint.new(child.id.to_s, filter_text_for(translated_attribute(child.name, current_participatory_space.organization))),
-          scope_children_to_tree(child)
+          TreePoint.new(child.id.to_s, filter_text_for(translated_attribute(child.name, organization))),
+          scope_children_to_tree(child, participatory_space)
         )
       end
     end
