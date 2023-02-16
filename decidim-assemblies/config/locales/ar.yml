@@ -318,10 +318,14 @@ ar:
         assembly_imports:
           form:
             document_legend: إضافة وثيقة
+            slug_help: 'يتم استخدام سبائك URL لإنشاء عناوين URL التي تشير إلى هذا التجمع. تُقبل الحروف والأرقام والشرطات فقط، ويجب أن تبدأ بحرف. مثال: %{url}'
         assembly_members:
           form:
             existing_user: المشارك الحالي
+            explanation: 'إرشادات للصورة:'
+            image_guide: يفضل أن تكون صورة لا تحتوي على أي نص.
             non_user: غير مشارك
+            non_user_avatar_help: يجب أن تحصل على موافقة الأشخاص قبل نشرهم كأعضاء.
             select_a_position: اختر المنصب
             select_user: اختيار مشارك
             user_type: نوع المشارك
@@ -335,6 +339,12 @@ ar:
         content_blocks:
           highlighted_assemblies:
             max_results: أقصى قدر من العناصر لإظهارها
+        new_import:
+          accepted_types:
+            json: ملفات بصيغة (JSON)
+      assemblies:
+        show:
+          title: حول الجمعية
       assembly_members:
         index:
           members: الأعضاء
@@ -365,10 +375,13 @@ ar:
         working_group: فريق العمل
       index:
         title: الجمعيات
+      last_activity:
+        new_assembly: 'جمعية جديدة:'
       pages:
         home:
           highlighted_assemblies:
             active_assemblies: الجمعيات النشطة
+            assemblies_button_title: رابط إلى صفحة الجمعيات لاستعراض جميع الجمعيات
             see_all_assemblies: عرض كافة الجمعيات
         user_profile:
           member_of:
@@ -399,12 +412,26 @@ ar:
         related_participatory_processes: العمليات التشاركية ذات الصلة
         scope: نطاق
         social_networks: شبكات التواصل الاجتماعي
+        social_networks_title: زيارة التجمع على
         target: من يشارك
     assembly_members:
       assembly_member:
         designated_on: المعينة على
       index:
         title: الأعضاء
+    events:
+      assemblies:
+        create_assembly_member:
+          email_intro: قام مشرف في تجمع <a href="%{resource_url}">%{resource_name}</a> بإضافتك كأحد الأعضاء فيه.
+          email_outro: لقد تلقيت هذا الإشعار لأنك قد دُعيت إلى التجمع. تحقق من <a href="%{resource_url}">صفحة التجمع</a> من أجل المساهمة!
+          email_subject: لقد تمت دعوتك لتكون عضوا في جمعية %{resource_name}!
+          notification_title: لقد تم تسجيلك كعضو في التجمع <a href="%{resource_path}">%{resource_name}</a>. تحقق من <a href="%{resource_path}">صفحة التجميع</a> للمساهمة!
+      assembly:
+        role_assigned:
+          email_intro: تم إعطائك %{role} في تجمع %{resource_title}.
+          email_outro: تلقيت هذا الإبلاغ لأنك %{role} في تجمع %{resource_title}.
+          email_subject: تم إعطائك %{role} لِ %{resource_title}.
+          notification_title: تم تعيينك %{role} للتجمع <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -415,6 +442,8 @@ ar:
       value_types:
         assembly_presenter:
           not_found: 'لم يتم العثور على التجميع في قاعدة البيانات (المعرف: %{id})'
+        assembly_type_presenter:
+          not_found: 'لم يتم العثور على نوع التجمع في قاعدة البيانات (الرقم-المُعرف: %{id})'
     menu:
       assemblies: الجمعيات
     metrics:
@@ -422,6 +451,11 @@ ar:
         description: عدد الجمعيات التي تم إنشاؤها
         object: المجالس
         title: الجمعيات
+    participatory_processes:
+      show:
+        related_assemblies: التجمعات ذات الصلة
+    statistics:
+      assemblies_count: التجمعات
   errors:
     messages:
       cannot_be_blank: لا يمكن أن يكون فارغا
