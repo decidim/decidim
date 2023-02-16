@@ -23,12 +23,14 @@ eu:
       user:
         about: Honi buruz
         email: Zure helbide elektronikoa
+        locale: Tokikoa
         name: Zure izena
         nickname: Ezizena
         password: Pasahitza
         password_confirmation: Berretsi pasahitza
         personal_url: URL pertsonala
         remove_avatar: Kendu avatar-a
+        tos_agreement: Erabilera-baldintzak eta -baldintzak
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai erabilgarria
