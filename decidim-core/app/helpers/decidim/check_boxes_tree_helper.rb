@@ -95,6 +95,46 @@ module Decidim
       filter_scopes_values_from(current_organization.scopes.top_level.includes(:scope_type, :children))
     end
 
+    def filter_areas_values
+      areas_or_types = areas_for_select(current_organization)
+
+      areas_values = if areas_or_types.first.is_a?(Decidim::Area)
+                       filter_areas(areas_or_types)
+                     else
+                       filter_areas_and_types(areas_or_types)
+                     end
+
+      TreeNode.new(
+        TreePoint.new("", t("decidim.initiatives.application_helper.filter_area_values.all")),
+        areas_values
+      )
+    end
+
+    def filter_tree_from_array(array)
+      root_point = if array.first[0].blank?
+                     TreePoint.new(*array.shift)
+                   else
+                     TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_scope_values.all")))
+                   end
+      TreeNode.new(
+        root_point,
+        array.map { |values| TreePoint.new(*values) }
+      )
+    end
+
+    def flat_filter_values(*types, **options)
+      scope = options[:scope]
+      types.map do |type|
+        [type, filter_text_for(t(type, scope:))]
+      end
+    end
+
+    def filter_text_for(translation)
+      content_tag(:span, translation).html_safe
+    end
+
+    private
+
     def filter_scopes_values_from_parent(scope)
       scopes_values = []
       scope.children.each do |child|
@@ -147,27 +187,23 @@ module Decidim
       )
     end
 
-    def filter_tree_from_array(array)
-      root_point = if array.first[0].blank?
-                     TreePoint.new(*array.shift)
-                   else
-                     TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_scope_values.all")))
-                   end
-      TreeNode.new(
-        root_point,
-        array.map { |values| TreePoint.new(*values) }
-      )
-    end
-
-    def flat_filter_values(*types, **options)
-      scope = options[:scope]
-      types.map do |type|
-        [type, filter_text_for(t(type, scope:))]
+    def filter_areas(areas)
+      areas.map do |area|
+        TreeNode.new(
+          TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
+        )
       end
     end
 
-    def filter_text_for(translation)
-      content_tag(:span, translation).html_safe
+    def filter_areas_and_types(area_types)
+      area_types.map do |area_type|
+        TreeNode.new(
+          TreePoint.new(area_type.area_ids.join("_"), area_type.name[I18n.locale.to_s]),
+          area_type.areas.map do |area|
+            TreePoint.new(area.id.to_s, area.name[I18n.locale.to_s])
+          end
+        )
+      end
     end
   end
 end
