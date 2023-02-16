@@ -42,8 +42,11 @@ eu:
       decidim/join_request_rejected_event: Erregistratu eskaera baztertu da
       decidim/profile_updated_event: Profila eguneratu da
       decidim/promote_to_admin: Talde kudeatzaileari sustatua
+      decidim/promoted_to_admin_event: Taldeko administratzaile mailara igota
       decidim/removed_from_group: Taldea kendu da
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
+      decidim/resource_hidden_event: Ezkutuko baliabidea
+      decidim/user_group_created_event: Erabiltzaile-taldea sortuta
   activerecord:
     attributes:
       decidim/user:
@@ -56,7 +59,7 @@ eu:
     models:
       decidim/amendment:
         one: zuzenketa
-        other: Aldaketak
+        other: Zuzenketak
       decidim/user:
         one: Ez dago erabiltzailerik
         other: Erabiltzaileak
@@ -242,7 +245,7 @@ eu:
         error: Errore bat gertatu da aldaketa hori arbuiatzearekin. Saiatu berriro geroago
         success: Aldaketa ongi baztertu da
       review:
-        back: Back
+        back: Atzera
         heading: Aldaketa berrikustea
         help_text: '%{model_name}zuzenketa bat berrikusten ari zara'
         send: Onartu aldaketa
@@ -281,6 +284,7 @@ eu:
       endorsements:
         one: atxikimendua
         other: atxikimenduak
+      official_author: Ofiziala
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Egiaztatu pasaportearen zenbakia "A"
@@ -502,7 +506,7 @@ eu:
           cancel: Utzi
           connect_your_account_html: Konektatu kontua <strong>%{organization}</strong>-n sartzean
           publish_content: Argitaratu zure edukia
-          see_email: Ikusi zure posta elektronikoa
+          see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
           see_username: Ikusi zure erabiltzaile-izena
           this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
@@ -1050,10 +1054,12 @@ eu:
     notification_mailer:
       event_received:
         no_translation_available: 'Sentitzen dugu, itzulpen automatizatua ezin izan da berreskuratu posta elektronikoa bidali denean. Jatorrizko testuaren itzulpena ikus dezakezu esteka honetan: %{link}.'
+        original_text: 'Jatorrizko testua:'
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_digest_mailer:
       hello: Kaixo %{name},
+      see_more: Ikusi jakinarazpen gehiago
     notifications_settings:
       show:
         administrators: Administratzaileak
@@ -1063,13 +1069,20 @@ eu:
         newsletter_notifications: Buletinak jaso nahi ditut
         newsletters: Buletinak
         notifications_sending_frequencies:
+          daily: Egunerokoa
           none: Bat ere ez
+          real_time: Denbora erreala
+          weekly: Astero
         own_activity: Nire jarduera, norbaiti nire proposamena iruzkindu edo aipatzen dudanean
+        push_notifications: Jakinarazpena jarri
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
         update_notifications_settings: Gorde aldaketak
       update:
         error: Errore bat gertatu da jakinarazpenen konfigurazioa eguneratzean.
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
+    offline:
+      show:
+        retry: Saiatu berriro
     open_data:
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxian.
     own_user_groups:
@@ -1571,6 +1584,10 @@ eu:
         details:
           columns:
             name: Izena
+            service: Zerbitzua
+            type: Mota
+        dialog:
+          settings: Ezarpenak
       edit_link:
         edit: Editatu
       footer:
