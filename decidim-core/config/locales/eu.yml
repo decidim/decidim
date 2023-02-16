@@ -41,8 +41,11 @@ eu:
       decidim/join_request_rejected_event: Erregistratu eskaera baztertu da
       decidim/profile_updated_event: Profila eguneratu da
       decidim/promote_to_admin: Talde kudeatzaileari sustatua
+      decidim/promoted_to_admin_event: Taldeko administratzaile mailara igota
       decidim/removed_from_group: Taldea kendu da
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
+      decidim/resource_hidden_event: Ezkutuko baliabidea
+      decidim/user_group_created_event: Erabiltzaile-taldea sortuta
   activerecord:
     attributes:
       decidim/action_log:
@@ -57,7 +60,7 @@ eu:
     models:
       decidim/amendment:
         one: zuzenketa
-        other: Aldaketak
+        other: Zuzenketak
       decidim/user:
         one: Ez dago erabiltzailerik
         other: Erabiltzaileak
@@ -244,7 +247,7 @@ eu:
         error: Errore bat gertatu da aldaketa hori arbuiatzearekin. Saiatu berriro geroago
         success: Aldaketa ongi baztertu da
       review:
-        back: Back
+        back: Atzera
         heading: Aldaketa berrikustea
         help_text: '%{model_name}zuzenketa bat berrikusten ari zara'
         send: Onartu aldaketa
@@ -268,6 +271,9 @@ eu:
         related_documents: Honekin lotutako agiriak
       geocoding:
         geocoded_address: Helbidea
+      photo:
+        alt: Multimedia-irudia
+        title: Irudia
       photos:
         related_photos: Honekin lotutako argazkiak
     author:
@@ -279,6 +285,7 @@ eu:
       endorsements:
         one: atxikimendua
         other: atxikimenduak
+      official_author: Ofiziala
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Egiaztatu pasaportearen zenbakia "A"
@@ -313,6 +320,7 @@ eu:
       started_at: Hasi zen %{timestamp}
     authorization_modals:
       content:
+        close_modal: Itxi leihoa
         expired:
           authorize: Errebokatu "%{authorization}" rekin
           explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
@@ -431,8 +439,14 @@ eu:
       metrics:
         name: Erakundearen metrika
       static_page:
+        section:
+          name: Atala
+          section_content: Edukia
+        summary:
+          summary_content: Edukia
         two_pane_section:
           left_column: Ezkerreko zutabea
+          right_column: Eskubiko zutabea
       stats:
         name: Erakundearen estatistikak
       sub_hero:
@@ -500,7 +514,7 @@ eu:
           cancel: Utzi
           connect_your_account_html: Konektatu kontua <strong>%{organization}</strong>-n sartzean
           publish_content: Argitaratu zure edukia
-          see_email: Ikusi zure posta elektronikoa
+          see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
           see_username: Ikusi zure erabiltzaile-izena
           this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
@@ -521,6 +535,8 @@ eu:
     endorsable:
       endorsements: Oniritziak
       endorsements_count: Atxikimendu kopurua
+    endorsement_buttons_cell:
+      endorse: Atsegin dut
     endorsements:
       identities:
         done: Eginda
@@ -528,6 +544,7 @@ eu:
     errors:
       internal_server_error:
         date_and_time: Data eta ordua
+        reference: Erreferentzia
         title: Arazo bat izan da gure zerbitzariarekin
         url: URL-a
         user: Erabiltzaile ID-a
@@ -1040,10 +1057,12 @@ eu:
     notification_mailer:
       event_received:
         no_translation_available: 'Sentitzen dugu, itzulpen automatizatua ezin izan da berreskuratu posta elektronikoa bidali denean. Jatorrizko testuaren itzulpena ikus dezakezu esteka honetan: %{link}.'
+        original_text: 'Jatorrizko testua:'
     notifications:
       no_notifications: Oraindik ez dago jakinarazpenik.
     notifications_digest_mailer:
       hello: Kaixo %{name},
+      see_more: Ikusi jakinarazpen gehiago
     notifications_settings:
       show:
         administrators: Administratzaileak
@@ -1053,13 +1072,20 @@ eu:
         newsletter_notifications: Buletinak jaso nahi ditut
         newsletters: Buletinak
         notifications_sending_frequencies:
+          daily: Egunerokoa
           none: Bat ere ez
+          real_time: Denbora erreala
+          weekly: Astero
         own_activity: Nire jarduera, norbaiti nire proposamena iruzkindu edo aipatzen dudanean
+        push_notifications: Jakinarazpena jarri
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
         update_notifications_settings: Gorde aldaketak
       update:
         error: Errore bat gertatu da jakinarazpenen konfigurazioa eguneratzean.
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
+    offline:
+      show:
+        retry: Saiatu berriro
     open_data:
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxian.
     own_user_groups:
@@ -1146,6 +1172,9 @@ eu:
           info: Plataforman jarduera espezifikoak burutzeko doikuntzak lortzen dira.
           title: Badges
       user:
+        actions:
+          create_user_group: Sortu taldea
+          message: Mezu
         confirmation_instructions_sent: Posta elektroniko bidezko berrespena bidalitako argibideak
         create_user_group: Sortu taldea
         edit_profile: Editatu profila
@@ -1275,6 +1304,8 @@ eu:
           select_an_area: Hautatu eremu bat
       public_participation:
         public_participation: Erakutsi nire asistentzia publikoki
+      redesigned_login_modal:
+        sign_up: Izena eman
       reference:
         reference: 'Erreferentzia: %{reference}'
       represent_user_group:
@@ -1532,6 +1563,9 @@ eu:
   doorkeeper:
     scopes:
       public: Zure informazio publikoa.
+  emojis:
+    categories:
+      custom: Pertsonalizatu
   errors:
     messages:
       allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
@@ -1566,6 +1600,10 @@ eu:
         details:
           columns:
             name: Izena
+            service: Zerbitzua
+            type: Mota
+        dialog:
+          settings: Ezarpenak
       edit_link:
         edit: Editatu
       footer:
@@ -1636,6 +1674,10 @@ eu:
     password_too_common: oso ohikoa da
     password_too_long: luzeegia da
     password_too_short: oso laburra da
+  ransack:
+    predicates:
+      dtgt: ondoren
+      dtlt: aurretik
   social_share_button:
     delicious: Delicious
     douban: Douban
