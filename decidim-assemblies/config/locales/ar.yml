@@ -132,8 +132,13 @@ ar:
         create:
           error: حدثت مشكلة في تكرار هذا التجميع.
           success: الجمعية مكررة بنجاح.
+      assemblies_settings:
+        update:
+          error: طرأت مشكلة أثناء تحديث الإعدادات.
+          success: تم تحديث الإعدادات بنجاح.
       assemblies_types:
         create:
+          error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
           success: تم إنشاء نوع الجمعية بنجاح.
         destroy:
           success: تم حذف نوع الجمعية بنجاح.
@@ -149,8 +154,13 @@ ar:
           select: حدد البيانات التي ترغب في تكرارها
           title: نسخ الجمعية
       assembly_imports:
+        create:
+          error: حدثت مشكلة أثناء استيراد هذه الجمعية.
+          success: تم استيراد الجمعية بنجاح.
         new:
           import: استيراد
+          select: اختر البيانات التي ترغب في استيرادها
+          title: استيراد الجمعية
       assembly_members:
         create:
           error: حدثت مشكلة أثناء إضافة عضو لهذا التجميع.
@@ -192,6 +202,9 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث مشرفٍ على هذه الجمعية.
           success: تم تحديث المشرف على هذه الجمعية بنجاح.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: نوع الجمعية
       menu:
         assemblies: الجمعيات
         assemblies_settings: الإعدادات
@@ -242,12 +255,16 @@ ar:
             admin: مدير
             collaborator: متعاون
             moderator: مُشرف
+            valuator: مُقيِّم
       titles:
         assemblies: الجمعيات
         assemblies_types: أنواع التجمّعات
     admin_log:
       assembly:
         create: "%{user_name} أنشأ الجمعية %{resource_name}"
+        duplicate: "%{user_name} كرر جمعية %{resource_name}"
+        export: "%{user_name} قام بتصدير الجمعية %{resource_name}"
+        import: "%{user_name} قام باستيراد الجمعية %{resource_name}"
         publish: "%{user_name} قام بنشر %{resource_name} الجمعية"
         unpublish: "%{user_name} قام بإلغاء نشر الجمعية %{resource_name}"
         update: "%{user_name} قام بتحديث الجمعية %{resource_name}"
@@ -255,8 +272,14 @@ ar:
         create: "%{user_name} أنشأ العضو %{resource_name} في الجمعية %{space_name}"
         delete: "%{user_name} إزالة العضو %{resource_name} من الجمعية %{space_name}"
         update: "%{user_name} بتحديث العضو %{resource_name} في الجمعية %{space_name}"
+      assembly_setting:
+        update: "قام %{user_name} بتحديث إعدادات الجمعية"
       assembly_type:
         create: "قام %{user_name} بإنشاء نوع الجمعية %{resource_name}"
+        delete: "%{user_name} حذف نوع التجمع %{resource_name}"
+        publish: "%{user_name} نشر نوع الجمعية %{resource_name}"
+        unpublish: "%{user_name} قام بإلغاء نشر نوع الجمعية %{resource_name}"
+        update: "%{user_name} حدث نوع الجمعية %{resource_name}"
       assembly_user_role:
         create: "%{user_name} دعا %{resource_name} إلى %{space_name} الجمعية"
         delete: "%{user_name} أزال المشارك %{resource_name} من الجمعية %{space_name}"
@@ -265,10 +288,12 @@ ar:
       admin:
         assemblies:
           form:
+            announcement_help: سيظهر النص الذي أدخلته هنا للمستخدم مباشرة تحت معلومات الجمعية.
             duration: المدة الزمنية
             duration_help: إذا كانت مدة هذه الجمعية محدودة ، فحدد تاريخ الانتهاء. خلاف ذلك ، سوف يظهر على أنه غير مسمى.
             filters: مرشحات
             images: الصور
+            included_at_help: حدد التاريخ الذي تمت فيه إضافة هذه الجمعية إلى المنصة. ليس بالضرورة أن يكون هو نفسه تاريخ الإنشاء.
             metadata: البيانات الوصفية
             other: آخر
             select_a_created_by: حدد تم إنشاؤها بواسطة
@@ -279,12 +304,20 @@ ar:
             social_handlers: التواصل الاجتماعي
             title: معلومات عامة
             visbility: الرؤية
+        assemblies_settings:
+          edit:
+            update: تحديث
+          form:
+            title: إعدادات الجمعية
         assemblies_types:
           form:
             title: العنوان
         assembly_copies:
           form:
             slug_help: 'يتم استخدام slugs URL لإنشاء عناوين URL التي تشير إلى هذا التجميع. يقبل الحروف والأرقام والشرطات فقط ، ويجب أن يبدأ بحرف. مثال: %{url}'
+        assembly_imports:
+          form:
+            document_legend: إضافة وثيقة
         assembly_members:
           form:
             existing_user: المشارك الحالي
