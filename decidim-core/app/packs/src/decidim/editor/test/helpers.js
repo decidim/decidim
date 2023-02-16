@@ -13,13 +13,13 @@ import mime from "mime-types";
 import { printDiffOrStringify } from "jest-matcher-utils";
 
 import { Editor } from "@tiptap/core";
-import { Document } from "@tiptap/extension-document";
-import { Heading } from "@tiptap/extension-heading";
-import { Paragraph } from "@tiptap/extension-paragraph";
-import { BulletList } from "@tiptap/extension-bullet-list";
-import { OrderedList } from "@tiptap/extension-ordered-list";
-import { ListItem } from "@tiptap/extension-list-item";
-import { Text } from "@tiptap/extension-text";
+import Document from "@tiptap/extension-document";
+import Heading from "@tiptap/extension-heading";
+import Paragraph from "@tiptap/extension-paragraph";
+import BulletList from "@tiptap/extension-bullet-list";
+import OrderedList from "@tiptap/extension-ordered-list";
+import ListItem from "@tiptap/extension-list-item";
+import Text from "@tiptap/extension-text";
 
 import createEditor from "../index";
 
