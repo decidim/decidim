@@ -4,7 +4,7 @@ import Bold from "@tiptap/extension-bold";
  * Extends the bold extension to fix a bug with pasting the following kind of
  * content from Google docs (this is about how Google docs formats the content):
  *
- * <b>
+ * <b style="font-weight:normal;">
  *   <ol>
  *      <li><p><span style="font-weight:700;">Item 1</span></p></li>
  *      <ol>
