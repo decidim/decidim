@@ -91,6 +91,10 @@ module Decidim
       filter_scopes_values_from(main_scopes, current_participatory_space)
     end
 
+    def filter_global_scopes_values
+      filter_scopes_values_from(current_organization.scopes.top_level.includes(:scope_type, :children))
+    end
+
     def filter_scopes_values_from_parent(scope)
       scopes_values = []
       scope.children.each do |child|
