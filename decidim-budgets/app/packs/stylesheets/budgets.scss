@@ -68,15 +68,6 @@
   }
 }
 
-[data-drawer]{
-  .budget-summary{
-    @apply mx-0 mt-0;
-    + [data-drawer-content]{
-      @apply max-h-[75%];
-    }
-  }
-}
-
 .verification-modal .card__list .budget__card__list-project {
   @apply inline-block w-[25%] text-center;
 }

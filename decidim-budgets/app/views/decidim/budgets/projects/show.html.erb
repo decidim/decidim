@@ -21,17 +21,12 @@ edit_link(
 <% end %>
 
 <%= render partial: "exit_modal" %>
-
-<%# REDESIGN_PENDING: Use the drawer feature to implement this %>
-<!-- MOCK CONTENT -->
-<button class="button button__secondary button__lg" data-drawer-open>open version</button>
-<!-- END MOCK CONTENT -->
-<% content_for :drawer_header do %>
+<% content_for :item_header do %>
   <% unless voting_finished? %>
     <%= render partial: "budget_summary", locals: { include_heading: false } %>
   <% end %>
 <% end %>
-<%= render layout: "layouts/decidim/shared/drawer" do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budgets_path } do %>
   <%= cell("decidim/budgets/limit_announcement", budget) %>
   <% if component_settings.geocoding_enabled? && project.geocoded? %>
     <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
@@ -50,7 +45,7 @@ edit_link(
     <%# REDESIGN_PENDING: same cell as acountability, use the previous values %>
     <%#= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
   </div>
-  <% content_for :drawer_aside do %>
+  <% content_for :aside do %>
     <div class="view-header">
       <div id="project">
         <div class="card extra">
