@@ -1337,7 +1337,8 @@ describe "Editor", type: :system do
       let(:editor_content) { %(<p>Hello, <a href="https://decidim.org">world</a>!</p>) }
 
       before do
-        prosemirror.native.send_keys [:control, :right, :right], [:left, :left]
+        prosemirror.native.send_keys [:control, :right, :right]
+        prosemirror.native.send_keys [:left, :left]
       end
 
       it "shows the bubble menu" do
