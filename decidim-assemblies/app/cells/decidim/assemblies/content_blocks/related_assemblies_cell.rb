@@ -12,7 +12,7 @@ module Decidim
         end
 
         def total_count
-          related_assemblies.count
+          related_assemblies.size
         end
 
         private

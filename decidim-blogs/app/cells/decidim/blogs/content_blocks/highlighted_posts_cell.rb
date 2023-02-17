@@ -32,7 +32,7 @@ module Decidim
         end
 
         def posts_count
-          @posts_count ||= posts.count
+          @posts_count ||= posts.size
         end
 
         def cache_hash

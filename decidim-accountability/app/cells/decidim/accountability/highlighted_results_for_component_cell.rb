@@ -21,7 +21,7 @@ module Decidim
       end
 
       def results_count
-        @results_count ||= results.count
+        @results_count ||= results.size
       end
 
       private

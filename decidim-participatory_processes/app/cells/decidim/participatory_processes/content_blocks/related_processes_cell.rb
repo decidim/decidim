@@ -13,7 +13,7 @@ module Decidim
         end
 
         def total_count
-          related_processes.count
+          related_processes.size
         end
 
         private

@@ -20,7 +20,7 @@ module Decidim
       end
 
       def meetings_count
-        @meetings_count ||= meetings.count
+        @meetings_count ||= meetings.size
       end
 
       private

@@ -16,7 +16,7 @@ module Decidim
       end
 
       def proposals_count
-        @proposals_count ||= base_relation.count
+        @proposals_count ||= base_relation.size
       end
 
       private

@@ -9,7 +9,7 @@ module Decidim
       alias assemblies model
 
       def total_count
-        @total_count ||= options[:total_count] || assemblies.count
+        @total_count ||= options[:total_count] || assemblies.size
       end
 
       def show_all_path
