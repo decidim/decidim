@@ -139,7 +139,12 @@ const initializer = (element = document) => {
     window.createEditor(container);
   });
 
-  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => new ExternalLink(elem))
+  element.querySelectorAll("a[target=\"_blank\"]:not([data-external-link=\"false\"])").forEach((elem) => {
+    if (elem.closest(".editor-container")) {
+      return null;
+    }
+    return new ExternalLink(elem);
+  });
 
   // initialize character counter
   $("input[type='text'], textarea, .editor>input[type='hidden']").each((_i, elem) => {
