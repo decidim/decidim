@@ -61,6 +61,10 @@ module Decidim
         @show_calendar ||= show_upcoming_meetings? && collection.minimum(:start_time).before?(2.months.from_now.beginning_of_month)
       end
 
+      def calendar_months
+        [Date.current, Date.current.next_month]
+      end
+
       def past_meetings
         @past_meetings ||= base_relation.past.order(end_time: :desc, start_time: :desc)
       end
