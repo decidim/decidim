@@ -742,7 +742,7 @@ describe "Editor", type: :system do
       # See:
       # https://github.com/ueberdosis/tiptap/issues/3756
       # https://github.com/ueberdosis/tiptap/issues/3735
-      # rubocop:disable Rspec/ExampleLength
+      # rubocop:disable RSpec/ExampleLength
       it "preserves CSS styled ordered list type and marks from desktop Word" do
         content = <<~MARKUP
           <html>
@@ -1026,7 +1026,7 @@ describe "Editor", type: :system do
         paste_content(content, prosemirror_selector)
         expect_value(properly_formatted)
       end
-      # rubocop:enable Rspec/ExampleLength
+      # rubocop:enable RSpec/ExampleLength
 
       # This is to test the weird markup produced by Office 365 that it is
       # handled properly in the editor.
@@ -1034,7 +1034,7 @@ describe "Editor", type: :system do
       # See:
       # https://github.com/ueberdosis/tiptap/issues/3751
       # https://github.com/ueberdosis/tiptap/issues/3735
-      # rubocop:disable Rspec/ExampleLength
+      # rubocop:disable RSpec/ExampleLength
       it "preserves CSS styled ordered list type and marks from Office 365" do
         content = <<~HTML
           <div class="ListContainerWrapper">
@@ -1101,7 +1101,7 @@ describe "Editor", type: :system do
         paste_content(content, prosemirror_selector)
         expect_value(properly_formatted)
       end
-      # rubocop:enable Rspec/ExampleLength
+      # rubocop:enable RSpec/ExampleLength
     end
   end
 
