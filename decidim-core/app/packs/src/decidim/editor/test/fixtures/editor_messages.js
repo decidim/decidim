@@ -16,6 +16,7 @@ export default {
       }
     },
     link: {
+      bubbleMenu: { edit: "Edit", remove: "Remove", url: "URL" },
       hrefLabel: "Link URL",
       targetLabel: "Target",
       targets: { blank: "New tab", default: "Default (same tab)" }

@@ -1300,6 +1300,69 @@ describe "Editor", type: :system do
     end
   end
 
+  context "with bubble menu" do
+    context "when link is active" do
+      let(:editor_content) { %(<p>Hello, <a href="https://decidim.org">world</a>!</p>) }
+
+      before do
+        prosemirror.native.send_keys [:control, :right, :right], [:left, :left]
+      end
+
+      it "shows the bubble menu" do
+        within ".editor" do
+          expect(page).to have_selector("[data-bubble-menu] [data-linkbubble]")
+
+          within "[data-bubble-menu] [data-linkbubble]" do
+            expect(page).to have_content("URL:\nhttps://decidim.org")
+            expect(page).to have_selector("button", text: "Edit")
+            expect(page).to have_selector("button", text: "Remove")
+          end
+        end
+      end
+
+      it "opens the link editing dialog from the edit button" do
+        within ".editor [data-bubble-menu] [data-linkbubble]" do
+          click_button "Edit"
+        end
+        within "[data-dialog][aria-hidden='false']" do
+          fill_in "Link URL", with: "https://docs.decidim.org"
+          select "New tab", from: "Target"
+          find("button[data-action='save']").click
+        end
+        expect_value(%(<p>Hello, <a target="_blank" href="https://docs.decidim.org">world</a>!</p>))
+
+        # Should show the bubble menu after the link is closed
+        within ".editor" do
+          expect(page).to have_selector("[data-bubble-menu] [data-linkbubble]")
+        end
+      end
+
+      it "opens the bubble menu in case the link editing dialog is cancelled" do
+        within ".editor [data-bubble-menu] [data-linkbubble]" do
+          click_button "Edit"
+        end
+        within "[data-dialog][aria-hidden='false']" do
+          find("button[data-action='cancel']").click
+        end
+        within ".editor" do
+          expect(page).to have_selector("[data-bubble-menu] [data-linkbubble]")
+        end
+      end
+
+      it "removes the link from the the remove button" do
+        within ".editor [data-bubble-menu] [data-linkbubble]" do
+          click_button "Remove"
+        end
+
+        expect_value(%(<p>Hello, world!</p>))
+
+        within ".editor" do
+          expect(page).not_to have_selector("[data-bubble-menu] [data-linkbubble]")
+        end
+      end
+    end
+  end
+
   # Note that the legacy design is necessary to maintain as long as we have
   # the admin panel using the legacy design. This is also why we test that.
   context "with legacy design" do

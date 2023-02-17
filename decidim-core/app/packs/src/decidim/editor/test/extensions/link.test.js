@@ -63,4 +63,41 @@ describe("Link", () => {
       '<p>Hello, <a href="https://docs.decidim.org">world</a>!</p>'
     );
   });
+
+  describe("bubble menu", () => {
+    let bubbleMenu = null;
+
+    beforeEach(async () => {
+      editorElement.focus();
+      await updateContent(editorElement,
+        '<p>Hello, <a target="_blank" href="https://decidim.org">world</a>!</p>'
+      );
+
+      // Set the editor cursor inside the link
+      await selectRange(editorElement, editorElement.querySelector("p a").firstChild, { start: 3, end: 3 });
+
+      bubbleMenu = editorElement.parentNode.querySelector("[data-bubble-menu] [data-linkbubble]");
+    });
+
+    it("shows the bubble menu when the link element has the cursor", () => {
+      expect(bubbleMenu).toBeInstanceOf(HTMLElement);
+      expect(bubbleMenu.parentNode.style.visibility).toEqual("visible");
+      expect(bubbleMenu.textContent.replace(/^\s+/gm, "").trim()).toEqual("URL:\nhttps://decidim.org\nEdit\nRemove");
+    });
+
+    it("allows controlling the link through the bubble menu controls", async () => {
+      bubbleMenu.querySelector("[data-action='edit']").click();
+      expect(editorElement.classList.contains("dialog-open")).toBe(true);
+
+      const dialog = document.querySelector("[data-dialog][aria-hidden='false']");
+      expect(dialog).toBeInstanceOf(HTMLElement);
+
+      dialog.querySelector("[data-dialog-actions] button[data-action='cancel']").click();
+      await sleep(50);
+
+      bubbleMenu = editorElement.parentNode.querySelector("[data-bubble-menu] [data-linkbubble]");
+      bubbleMenu.querySelector("[data-action='remove']").click();
+      expect(editor.getHTML()).toEqual("<p>Hello, world!</p>");
+    });
+  });
 });
