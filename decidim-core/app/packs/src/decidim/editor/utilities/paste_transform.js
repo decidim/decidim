@@ -118,7 +118,9 @@ export const transformMsDesktop = (html) => {
     if (paragraph.classList.contains("MsoListParagraph") || paragraph.classList.contains("MsoListParagraphCxSpFirst")) {
       currentLevel = 1;
       currentList = document.createElement(tag);
-      currentList.setAttribute("type", type);
+      if (type) {
+        currentList.setAttribute("type", type);
+      }
 
       currentList.append(li);
       paragraph.replaceWith(currentList);
@@ -127,7 +129,9 @@ export const transformMsDesktop = (html) => {
         currentLevel += 1;
 
         const subList = document.createElement(tag);
-        subList.setAttribute("type", type);
+        if (type) {
+          subList.setAttribute("type", type);
+        }
         if (level === currentLevel) {
           subList.append(li);
         } else {
