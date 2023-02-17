@@ -71,50 +71,6 @@ const converMsoListStyleToHtml = (listStyle) => {
   return { tag, type };
 };
 
-/**
- * Separates the XML "meta" segments from the HTML pasted from Word, such as:
- *
- * ```html
- * <p>
- *  <![if !supportsLists]>...<![endif]>
- *  Some content outside of segment
- *  <![if fooBar]>...<![endif]>
- * </p>
- * ```
- *
- * Providing this content to this function would result to the following return
- * values in the object keys:
- * - `html`: `<p>Some content outside of segment</p>`
- * - `segments`: `["<![if !supportsLists]>...<![endif]>", "<![if fooBar]>...<![endif]>"]`
- *
- * @param {String} html The provided HTML string.
- * @returns {Object} An object containing the following keys:
- *   - `html`: The HTML string with the XML meta segments removed from it
- *   - `segments`: The segments that were removed from the HTML
- */
-export const separateMsMetaSegments = (html) => {
-  // Matches segments containing <![if nnn]>...<![endif]>
-  const matches = [...html.matchAll(/<!\[if\s+[^\]]+\]>((?!<!\[endif\])[\s\S])+<!\[endif\]>/g)];
-  if (matches.length < 1) {
-    return { html, segments: [] };
-  }
-
-  let contentParts = [];
-  let segments = [];
-
-  let currentIdx = 0;
-  matches.forEach((match, idx) => {
-    contentParts.push(html.substring(currentIdx, match.index));
-    currentIdx = match.index + match[0].length;
-    if (idx === matches.length - 1) {
-      contentParts.push(html.substring(currentIdx));
-    }
-    segments.push(match[0]);
-  });
-
-  return { html: contentParts.join(), segments }
-};
-
 export const removeMsMetaSegments = (html) => {
   return html.replace(/<!\[if\s+[^\]]+\]>((?!<!\[endif\])[\s\S])+<!\[endif\]>/g, "");
 }
