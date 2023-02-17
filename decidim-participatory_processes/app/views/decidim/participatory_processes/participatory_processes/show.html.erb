@@ -26,7 +26,7 @@
     <%= cell("decidim/announcement", current_participatory_space.announcement) %>
   </div>
 
-  <% Decidim::ContentBlock.published.for_scope(:participatory_process_homepage, organization: current_organization).where(scoped_resource_id: current_participatory_space.id).each do |content_block| %>
+  <% active_content_blocks.each do |content_block| %>
     <% next unless content_block.manifest %>
     <%= cell content_block.manifest.cell, content_block %>
   <% end %>
