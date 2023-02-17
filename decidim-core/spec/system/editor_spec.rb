@@ -332,19 +332,6 @@ describe "Editor", type: :system do
         HTML
       )
 
-      # Test that updating the link works using ENTER
-      click_toggle("link")
-      within "[data-dialog][aria-hidden='false']" do
-        fill_in "Link URL", with: "https://demo.decidim.org"
-        find("[data-input='href'] input").native.send_keys [:enter]
-      end
-      expect_value(
-        <<~HTML
-          <p>Hello, world!</p>
-          <p>Another <a target="_blank" href="https://demo.decidim.org">paragraph.</a></p>
-        HTML
-      )
-
       click_toggle("common:eraseStyles")
       expect_value(
         <<~HTML
@@ -587,6 +574,28 @@ describe "Editor", type: :system do
 
         prosemirror.native.send_keys [:alt, :shift, :up]
         expect_value(editor_content)
+      end
+    end
+
+    context "when managing a link" do
+      before do
+        prosemirror.native.send_keys "Hello, world!", [:enter], "Another paragraph."
+        prosemirror.native.send_keys [:shift, *Array.new(10).map { :left }]
+      end
+
+      it "allows saving the link using ENTER" do
+        # Test that updating the link works using ENTER
+        click_toggle("link")
+        within "[data-dialog][aria-hidden='false']" do
+          fill_in "Link URL", with: "https://demo.decidim.org"
+          find("[data-input='href'] input").native.send_keys [:enter]
+        end
+        expect_value(
+          <<~HTML
+            <p>Hello, world!</p>
+            <p>Another <a href="https://demo.decidim.org">paragraph.</a></p>
+          HTML
+        )
       end
     end
   end
@@ -1452,19 +1461,6 @@ describe "Editor", type: :system do
           HTML
         )
 
-        # Test that updating the link works using ENTER
-        click_toggle("link")
-        within "[data-reveal][aria-hidden='false']" do
-          fill_in "Link URL", with: "https://demo.decidim.org"
-          find("[data-input='href'] input").native.send_keys [:enter]
-        end
-        expect_value(
-          <<~HTML
-            <p>Hello, world!</p>
-            <p>Another <a target="_blank" href="https://demo.decidim.org">paragraph.</a></p>
-          HTML
-        )
-
         click_toggle("common:eraseStyles")
         expect_value(
           <<~HTML
@@ -1472,6 +1468,30 @@ describe "Editor", type: :system do
             <p>Another paragraph.</p>
           HTML
         )
+      end
+    end
+
+    context "with keyboard" do
+      context "when managing a link" do
+        before do
+          prosemirror.native.send_keys "Hello, world!", [:enter], "Another paragraph."
+          prosemirror.native.send_keys [:shift, *Array.new(10).map { :left }]
+        end
+
+        it "allows saving the link using ENTER" do
+          # Test that updating the link works using ENTER
+          click_toggle("link")
+          within "[data-reveal][aria-hidden='false']" do
+            fill_in "Link URL", with: "https://demo.decidim.org"
+            find("[data-input='href'] input").native.send_keys [:enter]
+          end
+          expect_value(
+            <<~HTML
+              <p>Hello, world!</p>
+              <p>Another <a href="https://demo.decidim.org">paragraph.</a></p>
+            HTML
+          )
+        end
       end
     end
 
