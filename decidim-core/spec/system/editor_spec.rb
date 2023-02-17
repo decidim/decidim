@@ -695,6 +695,298 @@ describe "Editor", type: :system do
         expect_value(properly_formatted)
       end
 
+      # This is to test the weird markup produced by desktop Word that it is
+      # handled properly in the editor.
+      #
+      # See:
+      # https://github.com/ueberdosis/tiptap/issues/3756
+      # https://github.com/ueberdosis/tiptap/issues/3735
+      # rubocop:disable Rspec/ExampleLength
+      it "preserves CSS styled ordered list type and marks from desktop Word" do
+        content = <<~MARKUP
+          <html>
+            <head>
+              <style>
+              <!--
+              @list l0
+                {mso-list-id:534201830;
+                mso-list-type:hybrid;
+                mso-list-template-ids:-1039500658 -1 536870939 -1 -1 -1 -1 -1 -1 -1;}
+              @list l0:level1
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l0:level2
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-18.0pt;}
+              @list l0:level3
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l0:level4
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l0:level5
+                {mso-level-number-format:alpha-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l0:level6
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l0:level7
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l0:level8
+                {mso-level-number-format:alpha-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l0:level9
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l1
+                {mso-list-id:1183862692;
+                mso-list-type:hybrid;
+                mso-list-template-ids:788409988 536870927 536870937 536870939 536870927 536870937 536870939 536870927 536870937 536870939;}
+              @list l1:level1
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l1:level2
+                {mso-level-number-format:alpha-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l1:level3
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l1:level4
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l1:level5
+                {mso-level-number-format:alpha-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l1:level6
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l1:level7
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l1:level8
+                {mso-level-number-format:alpha-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l1:level9
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l2
+                {mso-list-id:1811559425;
+                mso-list-type:hybrid;
+                mso-list-template-ids:1456757414 -1 536870933 -1 -1 -1 -1 -1 -1 -1;}
+              @list l2:level1
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l2:level2
+                {mso-level-number-format:alpha-upper;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l2:level3
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l2:level4
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l2:level5
+                {mso-level-number-format:alpha-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l2:level6
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l2:level7
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l2:level8
+                {mso-level-number-format:alpha-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l2:level9
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l3
+                {mso-list-id:1846362746;
+                mso-list-type:hybrid;
+                mso-list-template-ids:1432260902 -1 536870931 -1 -1 -1 -1 -1 -1 -1;}
+              @list l3:level1
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l3:level2
+                {mso-level-number-format:roman-upper;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-18.0pt;}
+              @list l3:level3
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l3:level4
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l3:level5
+                {mso-level-number-format:alpha-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l3:level6
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              @list l3:level7
+                {mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l3:level8
+                {mso-level-number-format:alpha-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:left;
+                text-indent:-18.0pt;}
+              @list l3:level9
+                {mso-level-number-format:roman-lower;
+                mso-level-tab-stop:none;
+                mso-level-number-position:right;
+                text-indent:-9.0pt;}
+              -->
+              </style>
+            </head>
+            <body lang=en-FI style='tab-interval:36.0pt;word-wrap:break-word'>
+              <p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><b><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'>1.<span
+              style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><![endif]><b><span
+              lang=EN-US style='mso-ansi-language:EN-US'>Item 1<o:p></o:p></span></b></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+              auto;text-indent:-18.0pt;mso-list:l1 level2 lfo1'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'>a.<span
+              style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+              lang=EN-US style='mso-ansi-language:EN-US'>Subitem 1.1<o:p></o:p></span></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+              auto;text-indent:-18.0pt;mso-list:l1 level2 lfo1'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'>b.<span
+              style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+              lang=EN-US style='mso-ansi-language:EN-US'>Subitem 1.2<o:p></o:p></span></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'>2.<span
+              style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+              lang=EN-US style='mso-ansi-language:EN-US'>Item 2<o:p></o:p></span></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+              auto;text-indent:-18.0pt;mso-list:l2 level2 lfo2'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'>A.<span
+              style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+              lang=EN-US style='mso-ansi-language:EN-US'>Subitem 2.1<o:p></o:p></span></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+              auto;text-indent:-18.0pt;mso-list:l2 level2 lfo2'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'>B.<span
+              style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+              lang=EN-US style='mso-ansi-language:EN-US'>Subitem 2.2<o:p></o:p></span></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><b><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'>3.<span
+              style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><![endif]><b><span
+              lang=EN-US style='mso-ansi-language:EN-US'>Item 3<o:p></o:p></span></b></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+              auto;text-indent:-72.0pt;mso-text-indent-alt:-18.0pt;mso-list:l0 level2 lfo3'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>i.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </span></span></span><![endif]><span lang=EN-US style='mso-ansi-language:EN-US'>Subitem
+              3.1<o:p></o:p></span></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+              auto;text-indent:-72.0pt;mso-text-indent-alt:-18.0pt;mso-list:l0 level2 lfo3'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>ii.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </span></span></span><![endif]><span lang=EN-US style='mso-ansi-language:EN-US'>Subitem
+              3.2<o:p></o:p></span></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt;mso-list:l1 level1 lfo1'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'>4.<span
+              style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+              lang=EN-US style='mso-ansi-language:EN-US'>Item 4<o:p></o:p></span></p>
+
+              <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+              auto;text-indent:-72.0pt;mso-text-indent-alt:-18.0pt;mso-list:l3 level2 lfo4'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>I.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </span></span></span><![endif]><span lang=EN-US style='mso-ansi-language:EN-US'>Subitem
+              4.1<o:p></o:p></span></p>
+
+              <p class=MsoListParagraphCxSpLast style='margin-left:72.0pt;mso-add-space:auto;
+              text-indent:-72.0pt;mso-text-indent-alt:-18.0pt;mso-list:l3 level2 lfo4'><![if !supportLists]><span
+              lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+              mso-ansi-language:EN-US'><span style='mso-list:Ignore'><span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </span>II.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              </span></span></span><![endif]><span lang=EN-US style='mso-ansi-language:EN-US'>Subitem
+              4.2<o:p></o:p></span></p>
+            </body>
+          </html>
+        MARKUP
+        paste_content(content, prosemirror_selector)
+        expect_value(properly_formatted)
+      end
+      # rubocop:enable Rspec/ExampleLength
+
       # This is to test the weird markup produced by Office 365 that it is
       # handled properly in the editor.
       #

@@ -1,13 +1,138 @@
-import { transformMsCould } from "../../utilities/paste_transform";
+import { transformMsDesktop, transformMsCould } from "../../utilities/paste_transform";
 
 import "../helpers";
 
 const uglifyHtml = (html) => html.replace(/[\r\n]+\s+/g, "");
 
+describe("transformMsDesktop", () => {
+  const transform = (html) => {
+    return uglifyHtml(transformMsDesktop(html));
+  };
+
+  it("transforms flat lists to correct list hierarchy", () => {
+    const content = `
+      <html>
+        <head>
+          <style>
+          <!--
+          @list l0
+            {mso-list-id:1209340216;
+            mso-list-type:hybrid;
+            mso-list-template-ids:-1431263748 536870927 536870937 536870939 536870927 536870937 536870939 536870927 536870937 536870939;}
+          @list l0:level1
+            {mso-level-tab-stop:none;
+            mso-level-number-position:left;
+            text-indent:-18.0pt;}
+          @list l0:level2
+            {mso-level-number-format:alpha-lower;
+            mso-level-tab-stop:none;
+            mso-level-number-position:left;
+            text-indent:-18.0pt;}
+          @list l0:level3
+            {mso-level-number-format:roman-lower;
+            mso-level-tab-stop:none;
+            mso-level-number-position:right;
+            text-indent:-9.0pt;}
+          @list l0:level4
+            {mso-level-tab-stop:none;
+            mso-level-number-position:left;
+            text-indent:-18.0pt;}
+          @list l0:level5
+            {mso-level-number-format:alpha-lower;
+            mso-level-tab-stop:none;
+            mso-level-number-position:left;
+            text-indent:-18.0pt;}
+          @list l0:level6
+            {mso-level-number-format:roman-lower;
+            mso-level-tab-stop:none;
+            mso-level-number-position:right;
+            text-indent:-9.0pt;}
+          @list l0:level7
+            {mso-level-tab-stop:none;
+            mso-level-number-position:left;
+            text-indent:-18.0pt;}
+          @list l0:level8
+            {mso-level-number-format:alpha-lower;
+            mso-level-tab-stop:none;
+            mso-level-number-position:left;
+            text-indent:-18.0pt;}
+          @list l0:level9
+            {mso-level-number-format:roman-lower;
+            mso-level-tab-stop:none;
+            mso-level-number-position:right;
+            text-indent:-9.0pt;}
+          -->
+          </style>
+        </head>
+        <body lang=en-FI style='tab-interval:36.0pt;word-wrap:break-word'>
+          <p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt;mso-list:l0 level1 lfo1'><![if !supportLists]><b><span
+          lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+          mso-ansi-language:EN-US'><span style='mso-list:Ignore'>1.<span
+          style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><![endif]><b><span
+          lang=EN-US style='mso-ansi-language:EN-US'>First item<o:p></o:p></span></b></p>
+
+          <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+          auto;text-indent:-18.0pt;mso-list:l0 level2 lfo1'><![if !supportLists]><span
+          lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+          mso-ansi-language:EN-US'><span style='mso-list:Ignore'>a.<span
+          style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+          lang=EN-US style='mso-ansi-language:EN-US'>Subitem 1.1<o:p></o:p></span></p>
+
+          <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+          auto;text-indent:-18.0pt;mso-list:l0 level2 lfo1'><![if !supportLists]><span
+          lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+          mso-ansi-language:EN-US'><span style='mso-list:Ignore'>b.<span
+          style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+          lang=EN-US style='mso-ansi-language:EN-US'>Subitem 1.2<o:p></o:p></span></p>
+
+          <p class=MsoListParagraphCxSpMiddle style='text-indent:-18.0pt;mso-list:l0 level1 lfo1'><![if !supportLists]><b><span
+          lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+          mso-ansi-language:EN-US'><span style='mso-list:Ignore'>2.<span
+          style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></b><![endif]><b><span
+          lang=EN-US style='mso-ansi-language:EN-US'>Second item<o:p></o:p></span></b></p>
+
+          <p class=MsoListParagraphCxSpMiddle style='margin-left:72.0pt;mso-add-space:
+          auto;text-indent:-18.0pt;mso-list:l0 level2 lfo1'><![if !supportLists]><span
+          lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+          mso-ansi-language:EN-US'><span style='mso-list:Ignore'>a.<span
+          style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+          lang=EN-US style='mso-ansi-language:EN-US'>Subitem 2.1<o:p></o:p></span></p>
+
+          <p class=MsoListParagraphCxSpLast style='margin-left:72.0pt;mso-add-space:auto;
+          text-indent:-18.0pt;mso-list:l0 level2 lfo1'><![if !supportLists]><span
+          lang=EN-US style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin;
+          mso-ansi-language:EN-US'><span style='mso-list:Ignore'>b.<span
+          style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span
+          lang=EN-US style='mso-ansi-language:EN-US'>Subitem 2.2<o:p></o:p></span></p>
+        </body>
+      </html>
+    `;
+
+    expect(transform(content)).toMatchHtml(`
+      <ol type="1">
+        <li>
+          <p><b><span lang="EN-US" style="mso-ansi-language:EN-US">First item<o:p></o:p></span></b></p>
+          <ol type="a">
+            <li><p><span lang="EN-US" style="mso-ansi-language:EN-US">Subitem 1.1<o:p></o:p></span></p></li>
+            <li><p><span lang="EN-US" style="mso-ansi-language:EN-US">Subitem 1.2<o:p></o:p></span></p></li>
+          </ol>
+        </li>
+        <li>
+          <p><b><span lang="EN-US" style="mso-ansi-language:EN-US">Second item<o:p></o:p></span></b></p>
+          <ol type="a">
+            <li><p><span lang="EN-US" style="mso-ansi-language:EN-US">Subitem 2.1<o:p></o:p></span></p></li>
+            <li><p><span lang="EN-US" style="mso-ansi-language:EN-US">Subitem 2.2<o:p></o:p></span></p></li>
+          </ol>
+        </li>
+      </ol>
+    `);
+  });
+});
+
 describe("transformMsCould", () => {
   const transform = (html) => {
     return uglifyHtml(transformMsCould(html));
-  }
+  };
 
   it("corrects the list hierarchy", () => {
     const content = `
