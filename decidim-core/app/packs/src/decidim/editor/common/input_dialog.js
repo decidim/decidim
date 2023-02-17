@@ -55,6 +55,7 @@ export default class InputDialog {
         <div>
           <form>
             ${inputsHTML}
+            <input type="submit" hidden>
           </form>
         </div>
         <div class="row columns">
@@ -84,6 +85,7 @@ export default class InputDialog {
               <div class="form__wrapper">
                 ${inputsHTML}
               </div>
+              <input type="submit" hidden>
             </form>
           </div>
           <div data-dialog-actions>

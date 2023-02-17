@@ -332,6 +332,19 @@ describe "Editor", type: :system do
         HTML
       )
 
+      # Test that updating the link works using ENTER
+      click_toggle("link")
+      within "[data-dialog][aria-hidden='false']" do
+        fill_in "Link URL", with: "https://demo.decidim.org"
+        find("[data-input='href'] input").native.send_keys [:enter]
+      end
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <p>Another <a target="_blank" href="https://demo.decidim.org">paragraph.</a></p>
+        HTML
+      )
+
       click_toggle("common:eraseStyles")
       expect_value(
         <<~HTML
@@ -465,6 +478,25 @@ describe "Editor", type: :system do
           <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=zhMMW0TENNA">
             <div>
               <iframe src="https://www.youtube-nocookie.com/embed/zhMMW0TENNA?cc_load_policy=1&amp;modestbranding=1" title="Free Open-Source" frameborder="0" allowfullscreen="true"></iframe>
+            </div>
+          </div>
+        HTML
+      )
+
+      # Test that updating the video works using ENTER
+      click_toggle("videoEmbed")
+      within "[data-dialog][aria-hidden='false']" do
+        fill_in "Video URL", with: "https://www.youtube.com/watch?v=ahVZLOlE3GE"
+        fill_in "Title", with: "La plataforma digital"
+        find("[data-input='src'] input").native.send_keys [:enter]
+      end
+
+      expect_value(
+        <<~HTML
+          <p>Hello, world!</p>
+          <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=ahVZLOlE3GE">
+            <div>
+              <iframe src="https://www.youtube-nocookie.com/embed/ahVZLOlE3GE?cc_load_policy=1&amp;modestbranding=1" title="La plataforma digital" frameborder="0" allowfullscreen="true"></iframe>
             </div>
           </div>
         HTML
@@ -1419,6 +1451,19 @@ describe "Editor", type: :system do
           HTML
         )
 
+        # Test that updating the link works using ENTER
+        click_toggle("link")
+        within "[data-reveal][aria-hidden='false']" do
+          fill_in "Link URL", with: "https://demo.decidim.org"
+          find("[data-input='href'] input").native.send_keys [:enter]
+        end
+        expect_value(
+          <<~HTML
+            <p>Hello, world!</p>
+            <p>Another <a target="_blank" href="https://demo.decidim.org">paragraph.</a></p>
+          HTML
+        )
+
         click_toggle("common:eraseStyles")
         expect_value(
           <<~HTML
@@ -1468,6 +1513,25 @@ describe "Editor", type: :system do
             <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=zhMMW0TENNA">
               <div>
                 <iframe src="https://www.youtube-nocookie.com/embed/zhMMW0TENNA?cc_load_policy=1&amp;modestbranding=1" title="Free Open-Source" frameborder="0" allowfullscreen="true"></iframe>
+              </div>
+            </div>
+          HTML
+        )
+
+        # Test that updating the video works using ENTER
+        click_toggle("videoEmbed")
+        within "[data-reveal][aria-hidden='false']" do
+          fill_in "Video URL", with: "https://www.youtube.com/watch?v=ahVZLOlE3GE"
+          fill_in "Title", with: "La plataforma digital"
+          find("[data-input='src'] input").native.send_keys [:enter]
+        end
+
+        expect_value(
+          <<~HTML
+            <p>Hello, world!</p>
+            <div class="editor-content-videoEmbed" data-video-embed="https://www.youtube.com/watch?v=ahVZLOlE3GE">
+              <div>
+                <iframe src="https://www.youtube-nocookie.com/embed/ahVZLOlE3GE?cc_load_policy=1&amp;modestbranding=1" title="La plataforma digital" frameborder="0" allowfullscreen="true"></iframe>
               </div>
             </div>
           HTML
