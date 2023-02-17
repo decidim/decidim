@@ -2,7 +2,7 @@ import { transformMsDesktop, transformMsCould } from "../../utilities/paste_tran
 
 import "../helpers";
 
-const uglifyHtml = (html) => html.replace(/[\r\n]+\s+/g, "");
+const uglifyHtml = (html) => html.replace(/[\r\n]+\s+/g, " ").replace(/>\s+</g, "><").trim();
 
 describe("transformMsDesktop", () => {
   const transform = (html) => {
@@ -125,6 +125,44 @@ describe("transformMsDesktop", () => {
           </ol>
         </li>
       </ol>
+    `);
+  });
+
+  it("transforms flat lists with a single item to a list", () => {
+    const content = `
+      <html>
+        <head>
+          <style>
+          <!--
+          @list l0
+            {mso-list-id:608706399;
+            mso-list-type:hybrid;
+            mso-list-template-ids:1914210008 536870927 536870937 536870939 536870927 536870937 536870939 536870927 536870937 536870939;}
+          @list l0:level1
+            {mso-level-number-format:bullet;
+            mso-level-text:;
+            mso-level-tab-stop:none;
+            mso-level-number-position:left;
+            text-indent:-18.0pt;
+            font-family:Symbol;}
+          -->
+          </style>
+        </head>
+        <body lang=en-FI style='tab-interval:36.0pt;word-wrap:break-word'>
+          <p class=MsoListParagraph style='text-indent:-18.0pt;mso-list:l0 level1 lfo1'><![if !supportLists]><span
+          lang=en-FI style='mso-bidi-font-family:Calibri;mso-bidi-theme-font:minor-latin'><span
+          style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </span></span></span><![endif]><span lang=EN-US style='mso-ansi-language:EN-US'>Single
+          item list</span><span lang=en-FI><o:p></o:p></span></p>
+        </body>
+      </html>
+    `;
+    expect(transform(content)).toMatchHtml(`
+      <ul>
+        <li>
+          <p><span lang="EN-US" style="mso-ansi-language:EN-US">Single item list</span><span lang="en-FI"><o:p></o:p></span></p>
+        </li>
+      </ul>
     `);
   });
 });
