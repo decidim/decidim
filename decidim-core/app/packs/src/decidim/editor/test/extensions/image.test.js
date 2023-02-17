@@ -4,6 +4,7 @@ import { createBasicEditor, updateContent, sleep, pasteFixtureFile, dropFixtureF
 
 import Dialog from "../../extensions/dialog";
 import Image from "../../extensions/image";
+import uploadTemplates from "../fixtures/upload_templates";
 
 class DummyDialog {
   constructor(element) { this.element = element; }
@@ -24,7 +25,6 @@ global.Touch = class Touch {
 describe("Image", () => {
   let editor = null;
   let editorElement = null;
-  // let uploadDialog = new DummyDialog();
   let uploadFilePath = "/path/to/image.jpg";
   let uploadDialogElement = null;
   let editorInnerHTML = (dim, src, alt) => {
@@ -66,21 +66,14 @@ describe("Image", () => {
   beforeEach(() => {
     document.body.innerHTML = "";
 
-    // Make the document recognized as "redesigned" through `data-dialog`
-    uploadDialogElement = document.createElement("div");
-    uploadDialogElement.id = "dummy_upload";
-    uploadDialogElement.dataset.dialog = "";
-    uploadDialogElement.innerHTML = `
-      <div data-dialog-title data-add-label="Add" data-edit-label="Edit"></div>
-      <div data-dropzone><div data-dropzone-items></div></div>
-      <div class="upload-modal__text"></div>
-      <button data-dropzone-save>Save</button><button data-dropzone-cancel>Cancel</button>
-    `;
+    const dialogWrapper = document.createElement("div");
+    dialogWrapper.innerHTML = uploadTemplates.redesign;
+    uploadDialogElement = dialogWrapper.firstElementChild;
     uploadDialogElement.dialog = new DummyDialog(uploadDialogElement);
     document.body.append(uploadDialogElement);
 
     editor = createBasicEditor({
-      extensions: [Dialog, Image.configure({ uploadDialogSelector: "#dummy_upload", uploadImagesPath: "/editor_images", contentTypes: ["image/png"] })]
+      extensions: [Dialog, Image.configure({ uploadDialogSelector: "#upload_dialog", uploadImagesPath: "/editor_images", contentTypes: ["image/png"] })]
     });
     editorElement = editor.view.dom;
 
