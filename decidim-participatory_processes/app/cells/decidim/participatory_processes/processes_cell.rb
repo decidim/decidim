@@ -13,7 +13,7 @@ module Decidim
       end
 
       def show_all_path
-        @show_all_path ||= options[:show_all_path].presence
+        @show_all_path ||= options[:show_all_path]
       end
     end
   end
