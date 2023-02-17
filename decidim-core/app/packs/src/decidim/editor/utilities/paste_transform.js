@@ -118,7 +118,7 @@ export const transformMsDesktop = (html) => {
     if (paragraph.classList.contains("MsoListParagraph") || paragraph.classList.contains("MsoListParagraphCxSpFirst")) {
       currentLevel = 1;
       currentList = document.createElement(tag);
-      if (type) {
+      if (tag === "ol" && type) {
         currentList.setAttribute("type", type);
       }
 
@@ -129,7 +129,7 @@ export const transformMsDesktop = (html) => {
         currentLevel += 1;
 
         const subList = document.createElement(tag);
-        if (type) {
+        if (tag === "ol" && type) {
           subList.setAttribute("type", type);
         }
         if (level === currentLevel) {
