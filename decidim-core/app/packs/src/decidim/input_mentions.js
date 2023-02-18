@@ -186,5 +186,4 @@ const mentionsInitializer = () => {
   }, 1000);
 }
 
-document.addEventListener("turbo:load", () => mentionsInitializer());
 $(() => mentionsInitializer());
