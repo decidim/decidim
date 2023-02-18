@@ -296,8 +296,8 @@ describe "Conversations", type: :system do
           click_button "New conversation"
           expect(page).to have_selector("#add_conversation_users")
           field = find("#add_conversation_users")
-          field.set " "
-          field.native.send_keys "@#{interlocutor2.nickname.chars.first}"
+          field.set ""
+          field.native.send_keys "@#{interlocutor2.nickname.slice(0, 3)}"
           expect(page).to have_selector("#autoComplete_list_1 li.disabled", wait: 5)
         end
       end
