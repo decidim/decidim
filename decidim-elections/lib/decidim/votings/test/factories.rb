@@ -4,7 +4,7 @@ require "decidim/core/test/factories"
 require "decidim/forms/test/factories"
 
 def format_birthdate(birthdate)
-  format("%04d%02d%02d", birthdate.year, birthdate.month, birthdate.day) # rubocop:disable Style/FormatStringToken
+  format("%04d%02d%02d", birthdate.year, birthdate.month, birthdate.day)
 end
 
 def hash_for(*data)
