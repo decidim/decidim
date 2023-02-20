@@ -1,6 +1,4 @@
-/* REDESIGN_PENDING: remove this full block once content-blocks were integrated in assemblies,
-  they are in decidim-core/app/packs/stylesheets/decidim/_redesigned_participatory_spaces.scss */
-.assembly{
+.participatory-space{
   &__hero{
     @apply backdrop-brightness-[30%];
 
@@ -26,18 +24,14 @@
   }
 
   &__content-block{
-    @apply grid items-start grid-cols-1 md:grid-cols-4 [&>*]:col-span-1;
+    @apply flex flex-col-reverse md:flex-row justify-between items-start [&>*]:w-full;
 
     & > :first-child{
-      @apply md:col-span-2 lg:col-span-3 md:[&+*]:col-span-2 lg:[&+*]:col-span-1;
+      @apply md:w-3/4;
     }
 
     & > :last-child{
-      @apply md:col-span-4;
-    }
-
-    &-span{
-      @apply text-gray-2 font-semibold uppercase;
+      @apply md:w-1/4;
     }
   }
 
@@ -62,7 +56,7 @@
   }
 
   &__metadata{
-    @apply border-t-0 md:border-t border-background py-6 flex flex-col md:flex-row items-start gap-8 md:gap-0;
+    @apply flex flex-col md:flex-row items-start gap-8 md:gap-0;
 
     &-item{
       @apply md:px-10 first:pt-0 md:first:pl-0 last:pb-0 md:last:pr-0 border-0 md:border-l-2 md:first:border-l-0 border-background-3 font-semibold text-md text-gray-2;
@@ -81,7 +75,7 @@
       @apply md:ml-auto flex flex-col items-center gap-1 font-semibold text-secondary hover:underline;
 
       &-endorsers{
-        @apply flex items-center justify-start -space-x-2;
+        @apply hidden md:flex items-center justify-start -space-x-2;
 
         > span{
           @apply rounded-full overflow-hidden border border-white inline-grid w-8 h-8;
@@ -96,7 +90,7 @@
         @apply space-y-6;
 
         &-container{
-          @apply mt-8 flex divide-background-3 divide-x [&>*]:px-10 first:[&>*]:pl-0 last:[&>*]:pr-0;
+          @apply mt-8 flex flex-col md:flex-row gap-6 md:gap-0 divide-background-3 md:divide-x md:[&>*]:px-10 first:[&>*]:pl-0 last:[&>*]:pr-0;
         }
       }
 
@@ -104,7 +98,7 @@
         @apply flex items-baseline gap-2 relative before:absolute before:w-px before:-z-10 before:left-[18px] before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-[36px] before:-top-[18px] first:before:top-[18px];
 
         > :first-child{
-          @apply w-9 h-9 rounded-full inline-grid place-items-center text-secondary bg-background-2;
+          @apply w-9 h-9 rounded-full inline-grid place-items-center text-secondary bg-background;
         }
 
         > :last-child{
@@ -123,10 +117,12 @@
           @apply absolute -translate-y-full italic text-sm invisible;
         }
 
+        &:hover > :first-child,
         &.is-active > :first-child{
           @apply text-white bg-secondary;
         }
 
+        &:hover &-title,
         &.is-active &-title{
           @apply font-semibold;
         }
