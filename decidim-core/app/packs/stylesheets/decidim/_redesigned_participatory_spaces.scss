@@ -118,12 +118,12 @@
         }
 
         &:hover > :first-child,
-        &.is-active > :first-child{
+        &[aria-expanded="true"] > :first-child{
           @apply text-white bg-secondary;
         }
 
         &:hover &-title,
-        &.is-active &-title{
+        &[aria-expanded="true"] &-title{
           @apply font-semibold;
         }
 
