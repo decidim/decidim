@@ -92,7 +92,7 @@
         @apply space-y-6;
 
         &-container{
-          @apply mt-8 flex divide-background-3 divide-x [&>*]:px-10 first:[&>*]:pl-0 last:[&>*]:pr-0;
+          @apply mt-8 flex flex-col md:flex-row gap-6 md:gap-0 divide-background-3 md:divide-x md:[&>*]:px-10 first:[&>*]:pl-0 last:[&>*]:pr-0;
         }
       }
 
@@ -100,7 +100,7 @@
         @apply flex items-baseline gap-2 relative before:absolute before:w-px before:-z-10 before:left-[18px] before:bg-gray-3 before:h-[calc(100%+1.5rem)] last:before:h-[36px] before:-top-[18px] first:before:top-[18px];
 
         > :first-child{
-          @apply w-9 h-9 rounded-full inline-grid place-items-center text-secondary bg-background-2;
+          @apply w-9 h-9 rounded-full inline-grid place-items-center text-secondary bg-background;
         }
 
         > :last-child{
@@ -119,10 +119,12 @@
           @apply absolute -translate-y-full italic text-sm invisible;
         }
 
+        &:hover > :first-child,
         &.is-active > :first-child{
           @apply text-white bg-secondary;
         }
 
+        &:hover &-title,
         &.is-active &-title{
           @apply font-semibold;
         }
