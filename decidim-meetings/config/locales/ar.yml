@@ -5,16 +5,22 @@ ar:
       close_meeting:
         attendees_count: عدد الحضور
         attending_organizations: قائمة المنظمات التي حضرت
+        audio_url: عنوان URL السمعي
         closing_report: الدقائق
         closing_visible: مرئي
         contributions_count: عدد المساهمات
         proposal_ids: المقترحات التي تم إنشاؤها في الاجتماع
+        video_url: عنوان URL الفيديو
       meeting:
         address: عنوان
         available_slots: فتحات المتاحة لهذا الاجتماع
+        customize_registration_email: تخصيص بريد التسجيل الإلكتروني
         decidim_category_id: الفئة
         decidim_scope_id: نطاق
+        decidim_user_group_id: مجموعة مستخدم
         description: وصف
+        end_time: وقت الانتهاء
+        id: المعرف ID
         location: موقعك
         location_hints: تلميحات الموقع
         organizer_id: منظم
