@@ -159,16 +159,11 @@ describe "Participatory Processes", type: :system do
         end
 
         it "links to the active step" do
-          skip "REDESIGN_PENDING - Remove or implement and adapt the test"
-
           visit decidim_participatory_processes.participatory_processes_path
 
-          # REDESIGN_PENDING - The process card-g is not expected to display
-          # active phase. Delete the test if this is correct or implement and
-          # adapt the test
-          within find("#processes-grid .column", text: translated(participatory_process.title)) do
-            within ".card__footer" do
-              expect(page).to have_content("Current phase:\nActive step")
+          within find("#processes-grid .card__grid", text: translated(participatory_process.title)) do
+            within ".card__grid-metadata" do
+              expect(page).to have_content("Active step")
             end
           end
         end
