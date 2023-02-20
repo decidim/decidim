@@ -1,14 +1,15 @@
-<div class="reveal" data-reveal id="budget-excess">
-  <div class="reveal__header">
-    <h3 class="reveal__title"><%= current_order.projects_rule? ? t(".projects_excess.title") : t(".budget_excess.title") %></h3>
-    <button class="close-button" data-close aria-label="<%= t(".close") %>" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <p><%= current_order.projects_rule? ? t(".projects_excess.description") : t(".budget_excess.description") %></p>
-  <div class="row">
-    <div class="columns medium-8 medium-offset-2">
-      <button data-close class="button expanded"><%= t(".ok") %></button>
+<%= decidim_modal id: "budget-excess-modal" do %>
+  <div class="form-defaults" id="budget-excess">
+    <h2 class="h2" data-dialog-title>
+      <%= current_order.projects_rule? ? t(".projects_excess.title") : t(".budget_excess.title") %>
+    </h2>
+    <div data-dialog-container>
+      <div class="form__wrapper gap-2">
+        <p><%= current_order.projects_rule? ? t(".projects_excess.description") : t(".budget_excess.description") %></p>
+      </div>
+    </div>
+    <div data-dialog-actions>
+      <button data-dialog-close="budget-excess-modal" class="button button__sm md:button__lg button__secondary"><%= t(".ok") %></button>
     </div>
   </div>
-</div>
+<% end %>

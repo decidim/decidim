@@ -288,9 +288,9 @@ es:
             other: votos
           you_voted: Has votado esto
         project_budget_button:
-          add: Añadir a tu voto
+          add: Añadir
           add_descriptive: Añadir proyecto %{resource_name} a tu voto
-          added: Añadido a tu voto
+          added: Añadido
           added_descriptive: El proyecto %{resource_name} se ha añadido a tu voto
         projects_for: Proyectos de %{name}
         show:
