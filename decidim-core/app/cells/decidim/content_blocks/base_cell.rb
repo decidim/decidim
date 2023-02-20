@@ -31,13 +31,7 @@ module Decidim
 
       def block_id; end
 
-      def prefixed_class(name)
-        [classes_prefix, name].compact.join("__")
-      end
-
       def extra_classes; end
-
-      def classes_prefix; end
     end
   end
 end

@@ -12,10 +12,6 @@ module Decidim
       def decidim_participatory_processes
         Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
       end
-
-      def classes_prefix
-        "process"
-      end
     end
   end
 end

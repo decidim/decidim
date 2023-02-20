@@ -28,10 +28,6 @@ module Decidim
         def nav_items
           process_nav_items(resource)
         end
-
-        def extra_classes
-          prefixed_class("content-block")
-        end
       end
     end
   end

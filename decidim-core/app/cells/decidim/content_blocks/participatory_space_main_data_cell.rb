@@ -11,6 +11,10 @@ module Decidim
 
       private
 
+      def extra_classes
+        "participatory-space__content-block"
+      end
+
       def title; end
 
       def description_text; end
