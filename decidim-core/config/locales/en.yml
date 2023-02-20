@@ -543,7 +543,6 @@ en:
         more_info: More info
       participatory_space_metrics:
         name: Metrics
-        show_all: Show all
       participatory_space_stats:
         name: Statistics
       static_page:
@@ -1307,7 +1306,7 @@ en:
       participatory_space:
         metrics:
           headline: Metrics
-          link: Show all metrics
+          link: Show all
       terms_and_conditions:
         accept:
           error: There was a problem accepting the terms and conditions.
