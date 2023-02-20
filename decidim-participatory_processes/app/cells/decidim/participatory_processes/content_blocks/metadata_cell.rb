@@ -56,10 +56,6 @@ module Decidim
             )
           }
         end
-
-        def extra_classes
-          prefixed_class("content-block")
-        end
       end
     end
   end
