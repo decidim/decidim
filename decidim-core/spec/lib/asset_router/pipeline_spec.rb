@@ -26,6 +26,16 @@ module Decidim::AssetRouter
         it { is_expected.to eq("//localhost#{correct_asset_path}") }
       end
 
+      context "when the asset URL is included in the assets manifest" do
+        let(:custom_url) { "https://example.org/decidim-packs/media/images/decidim-logo.svg" }
+
+        before do
+          allow(ActionController::Base.helpers).to receive(:asset_pack_path).with(asset).and_return(custom_url)
+        end
+
+        it { is_expected.to eq(custom_url) }
+      end
+
       context "when the system is configured to be served over HTTPS" do
         before do
           allow(Rails.application.config).to receive(:force_ssl).and_return(true)
