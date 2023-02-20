@@ -94,6 +94,9 @@ ar:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      half_a_minute: نصف دقيقة
   decidim:
     accessibility:
       external_link: الرابط الخارجي
@@ -101,7 +104,9 @@ ar:
       logo: "شعار %{organization} الرسمي"
       skip_button: تخطي إلى المحتوى الرئيسي
     account:
+      blocked: تم حظر هذا الحساب بسبب مخالفة الشروط والأحكام
       delete:
+        alert: لا يمكن إبطال أو التراجع عن هذا الإجراء. إذا قمت بحذف حسابك فلن تتمكن من تسجيل الدخول باستخدام بيانات الاعتماد الخاصة بك. سيؤدي حذف حسابك إلى إخفاء هوية مساهماتك. سوف تظل قادراً على إنشاء حساب جديد، ولكن هذه المساهمات لن تكون مرتبطة به.
         confirm:
           close: أغلق النافذة
           ok: نعم ، أريد حذف حسابي
