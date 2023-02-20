@@ -4,7 +4,7 @@
 
 /* overwrite leaflet and card styles */
 .leaflet-popup-content-wrapper{
-  @apply bg-black w-fit rounded text-left text-white transition-all ease-in delay-300;
+  @apply bg-black w-fit rounded text-left text-white;
 
   .card__list{
     @apply border-tertiary focus:outline-none;
@@ -30,7 +30,7 @@
 }
 
 .leaflet-popup-tip{
-  @apply bg-black transition-all ease-in delay-300;
+  @apply bg-black;
 }
 
 .leaflet-div-icon{
