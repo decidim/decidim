@@ -57,10 +57,17 @@ end
 
 shared_context "with frontend map elements" do
   let(:html_head) { "" }
-  let(:html_document) do
+  let(:builder_snippets) do
     builder = subject
+    <<~HTML.strip
+          #{builder.stylesheet_snippets}
+          #{builder.javascript_snippets}
+    HTML
+  end
+  let(:html_document) do
     document_inner = html_body
     head_extra = html_head
+    snippets = builder_snippets
     template.instance_eval do
       <<~HTML.strip
         <!doctype html>
@@ -69,8 +76,7 @@ shared_context "with frontend map elements" do
           <title>Map Test</title>
           #{stylesheet_pack_tag "decidim_core"}
           #{javascript_pack_tag "decidim_core", defer: false}
-          #{builder.stylesheet_snippets}
-          #{builder.javascript_snippets}
+          #{snippets}
           #{head_extra}
         </head>
         <body>
@@ -84,7 +90,7 @@ shared_context "with frontend map elements" do
           <script type="text/javascript">
             // This is just to indicate to Capybara that the page has fully
             // finished loading.
-            window.$(document).ready(function() {
+            document.addEventListener("DOMContentLoaded", function() {
               setTimeout(function() {
                 window.$("body").append('<div id="ready_indicator">Document ready</div>');
               }, 1000);

@@ -12,6 +12,8 @@ module Decidim
           # inspection in the rspec expectations.
           <<~HEAD
             <script type="text/javascript">
+
+            document.addEventListener("DOMContentLoaded", function() {
               window.mapIndex = 1;
               L.tileLayer = function(url, config) {
                 var urlId = "tile_layer_url" + window.mapIndex;
@@ -27,6 +29,7 @@ module Decidim
                 var mockLayer = { addTo: function(target) {} };
                 return mockLayer;
               };
+});
             </script>
           HEAD
         end
