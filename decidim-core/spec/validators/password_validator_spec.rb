@@ -11,7 +11,7 @@ describe PasswordValidator do
     let(:record) do
       double(
         name: ::Faker::Name.name,
-        email: ::Faker::Internet.email,
+        email:,
         nickname: ::Faker::Internet.username(specifier: 10..15),
         current_organization: organization,
         errors:,
@@ -22,6 +22,7 @@ describe PasswordValidator do
       )
     end
     let(:admin_record) { false }
+    let(:email) { ::Faker::Internet.email }
     let(:previous_passwords) { [] }
     let(:attribute) { "password" }
     let(:options) do
@@ -140,6 +141,28 @@ describe PasswordValidator do
       end
     end
 
+    describe "parts of email domain included in password" do
+      context "when less than 4 character parts" do
+        let(:email) { "john.doe@1.example.org" }
+        let(:value) { "Summer1Snoworg" }
+
+        it "ignores domain validation" do
+          expect(validator).to be(true)
+          expect(record.errors[attribute]).to be_empty
+        end
+      end
+
+      context "when 4 or more character parts" do
+        let(:email) { "john.doe@example.org" }
+        let(:value) { "Example1945" }
+
+        it "validates with domain" do
+          expect(validator).to be(false)
+          expect(record.errors[attribute]).to eq(["is too similar to your email"])
+        end
+      end
+    end
+
     describe "name included in password" do
       let(:value) { "foo#{record.name.delete(" ")}bar" }
 
@@ -164,6 +187,28 @@ describe PasswordValidator do
       it "is too similar with domain" do
         expect(validator).to be(false)
         expect(record.errors[attribute]).to eq(["is too similar to this domain name"])
+      end
+    end
+
+    describe "parts of organization host included in password" do
+      let(:organization) { create(:organization, host: "www.decidim.1.lvh.me") }
+
+      context "when less than 4 character parts" do
+        let(:value) { "Summer1Snowlvhme" }
+
+        it "ignores domain validation" do
+          expect(validator).to be(true)
+          expect(record.errors[attribute]).to be_empty
+        end
+      end
+
+      context "when 4 or more character parts" do
+        let(:value) { "Decidim1945" }
+
+        it "validates with domain" do
+          expect(validator).to be(false)
+          expect(record.errors[attribute]).to eq(["is too similar to this domain name"])
+        end
       end
     end
 

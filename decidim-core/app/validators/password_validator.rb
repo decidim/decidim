@@ -5,7 +5,7 @@ class PasswordValidator < ActiveModel::EachValidator
   MINIMUM_LENGTH = 10
   MAX_LENGTH = 256
   MIN_UNIQUE_CHARACTERS = 5
-  IGNORE_SIMILARITY_SHORTER_THAN = 4
+  IGNORE_SIMILARITY_SHORTER_THAN = Decidim.config.password_similarity_length
   ADMIN_MINIMUM_LENGTH = Decidim.config.admin_password_min_length
   ADMIN_REPETITION_TIMES = Decidim.config.admin_password_repetition_times
   VALIDATION_METHODS = [
@@ -106,22 +106,26 @@ class PasswordValidator < ActiveModel::EachValidator
     value.include?(record.nickname)
   end
 
+  def check_domain_length(domain)
+    domain.split(".").each do |part|
+      next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
+
+      return true if value.downcase.include?(part.downcase)
+    end
+
+    false
+  end
+
   def email_included_in_password?
     return false if !record.respond_to?(:email) || record.email.blank?
 
     name, domain, _whatever = record.email.split("@")
-    value.include?(name) || (domain && value.include?(domain.split(".").first))
+    value.include?(name) || (domain && check_domain_length(domain))
   end
 
   def domain_included_in_password?
     return false unless organization && organization.host
-    return true if value.include?(organization.host)
-
-    organization.host.split(".").each do |part|
-      next if part.length < IGNORE_SIMILARITY_SHORTER_THAN
-
-      return true if value.include?(part)
-    end
+    return true if value.include?(organization.host) || check_domain_length(organization.host)
 
     false
   end

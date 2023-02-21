@@ -639,6 +639,11 @@ Separate each item of the array with a comma AND a space, for instance:
 |
 |No
 
+|DECIDIM_PASSWORD_SIMILARITY_LENGTH
+|Amount of characters required by parts of a domain (site or email / separated by a dot) for them to be taken into account during a password validation
+|4
+|No
+
 |DECIDIM_SOCIAL_SHARE_SERVICES
 |The social networking services that will be available when using the "Share" feature on some resources.
 

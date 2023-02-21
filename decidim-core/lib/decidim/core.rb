@@ -481,6 +481,11 @@ module Decidim
     []
   end
 
+  # Ignores strings similar to email / domain on password validation if too short
+  config_accessor :password_similarity_length do
+    4
+  end
+
   # Defines if admins are required to have stronger passwords than other users
   config_accessor :admin_password_strong do
     true
