@@ -53,7 +53,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
 
     it "renders the card author" do
       expect(card_content).to have_content(collaborative_draft.authors.first.name)
-      expect(card_content).to have_css(".author__name", count: 1)
+      expect(card_content).to have_css("[data-author]", count: 1)
     end
 
     # collapsible lists uses javascript which is not available when testing cells without a real browser
@@ -61,7 +61,7 @@ describe Decidim::Proposals::CollaborativeDraftCell, type: :cell do
       let(:collaborative_draft) { create(:collaborative_draft, component:, users: authors) }
 
       it "renders the first three authors" do
-        expect(card_content).to have_css(".author__name", count: 5)
+        expect(card_content).to have_css("[data-author]", count: 5)
       end
 
       it "indicates number of hidden authors" do
