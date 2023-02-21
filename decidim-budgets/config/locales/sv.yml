@@ -6,7 +6,7 @@ sv:
         description: Beskrivning
         title: Titel
         total_budget: Total budget
-        weight: Vikt
+        weight: Ordning
       project:
         budget_amount: Belopp
         decidim_category_id: Kategori
@@ -89,11 +89,13 @@ sv:
           index:
             actions: Åtgärder
             cancel: Avbryt
+            change_category: Ändra kategori
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
             selected: Valda
             title: Projekt
             update: Uppdatera
+            update_scope_button: Uppdatera omfång
           new:
             create: Skapa
             title: Nytt projekt
@@ -177,10 +179,13 @@ sv:
           title: Bekräfta röst
         budget_excess:
           budget_excess:
+            description: Detta projekt överstiger den maximala budgeten och kan inte tilläggas. Du måste först ta bort ett projekt innan du lägger till ett nytt.
             title: Maximal budget överskriden
           close: Stäng
+          description: Detta projekt överstiger den maximala budgeten och kan inte tilläggas. Du måste först ta bort ett projekt innan du lägger till ett nytt.
           ok: OK
           projects_excess:
+            description: Du har valt för många projekt. Du måste först ta bort ett projekt innan du lägger till ett nytt.
             title: Maximalt antal projekt överskridet
         budget_summary:
           are_you_sure: Vill du dra tillbaka din röst?
@@ -230,6 +235,8 @@ sv:
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
+        index:
+          view_project: Visa projektet
         order_progress:
           vote: Rösta
         order_selected_projects:
@@ -253,7 +260,6 @@ sv:
           votes:
             one: röst
             other: röster
-          you_voted: Det här är din röst
         project_budget_button:
           add: Lägg till i din röst
           add_descriptive: Lägg till projekt %{resource_name} till din röst

@@ -20,8 +20,6 @@ pl:
         title: Działania
       admin:
         models:
-          components:
-            body: Treść
           post:
             name: Wpis
         posts:
@@ -46,10 +44,8 @@ pl:
           fields:
             author: Autor
             body: Treść
-            title: Tytuł
       posts:
         show:
-          comments: Komentarze
           view: Zobacz
     components:
       blogs:

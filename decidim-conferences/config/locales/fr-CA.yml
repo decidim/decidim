@@ -28,11 +28,12 @@ fr-CA:
         show_statistics: Montrer les statistiques
         sign_date: Date de signature
         signature: Signature
-        signature_name: nom de la signature
+        signature_name: Nom de la signature
         slogan: Slogan
         slug: Slug URL
         start_date: Date de début
         title: Titre
+        weight: Rang d'affichage
       conference_media_link:
         date: Date
         link: Lien
@@ -134,7 +135,7 @@ fr-CA:
           title: Mettre à jour l'administrateur de la conférence.
           update: Mettre à jour
         index:
-          conference_admins_title: administrateurs de la conférence
+          conference_admins_title: Administrateurs de conférence
         new:
           create: Créer
           title: Nouvel administrateur de conférence.
@@ -312,6 +313,7 @@ fr-CA:
           update: "%{user_name} a mis à jour le partenaire %{resource_name} dans la conférence %{space_name}"
         registration_type:
           create: "%{user_name} créé le type d'inscription %{resource_name} dans la conférence %{space_name}"
+          delete: "%{user_name} a supprimé le type d'inscription %{resource_name} de la conférence %{space_name}"
           publish: "%{user_name} publié le %{resource_name} type d'inscription dans la %{space_name} conférence"
           unpublish: "%{user_name} non publié le type d'inscription %{resource_name} dans la conférence %{space_name}"
           update: "%{user_name} mis à jour le type d'inscription %{resource_name} dans la conférence %{space_name}"
@@ -405,18 +407,11 @@ fr-CA:
           cancel: Annuler
           confirm: Confirmer
         show:
-          free: Libre
           going: Participe
           no_slots_available: Il ne reste plus de place
           registration: Inscription
       conference_program:
-        program_meeting:
-          content: Contenu
-          location: Lieu
-          speakers: Conférenciers
-          streaming: Diffusion
         show:
-          day: Jour
           program: Programme
       conference_registration_mailer:
         confirmation:
@@ -449,18 +444,18 @@ fr-CA:
       conference_speaker_cell:
         personal_url:
           personal_website: Site Web personnel
-        twitter_handle:
-          go_to_twitter: Aller sur Twitter
       conference_speakers:
         index:
-          speakers: Conférenciers
+          speakers:
+            one: Conférencier
+            other: Conférenciers
       conferences:
         partners:
           collaborators: Partenaires
           main_promotors: Organisateurs
         show:
           login_as: Vous êtes connecté en tant que %{name} <%{email}>
-          make_conference_registration: 'Inscrivez-vous à la conférence:'
+          make_conference_registration: Inscrivez-vous à la conférence
           register: S'inscrire
       content_blocks:
         highlighted_conferences:
@@ -506,29 +501,12 @@ fr-CA:
             active_conferences: Conférences actives
             conferences_button_title: Lien vers la page des conférences affichant toutes les conférences
             see_all_conferences: Voir toutes les conférences
-      photo:
-        image:
-          attributes:
-            alt: Image média
-        show:
-          close_modal: Fermer la fenêtre
-          photo: Photo
-      photos_list:
-        show:
-          related_photos: Photos
       registration_types:
         index:
           choose_an_option: 'Choisissez votre option d''inscription:'
-          login_as: Vous êtes connecté en tant que %{name} <%{email}>
           no_registrations: Pas d'inscriptions
           register: S'inscrire
           title: Types d'inscription
-      shared:
-        conference_user_login:
-          already_account: Avez-vous déjà un compte dans decidim?
-          new_user: Nouvel utilisateur ?
-          sign_in: Connectez-vous pour vous inscrire à la conférence
-          sign_up: Créez un compte dans decidim pour vous inscrire à la conférence
       show:
         details: Détails
         introduction: introduction

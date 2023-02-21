@@ -109,13 +109,11 @@ lt:
           expired_verification: Patvirtinimas baigė galioti
           pending_verification: Laukiama patvirtinimo
           show_renew_info: Spustelėkite, kad atnaujintumėte patvirtinimą
-          unauthorized_verification: Naujas patvirtinimas
         new:
           authorize: Siųsti
           authorize_with: Tikrinti %{authorizer}
         renew_modal:
           cancel: Atšaukti
-          close: uždaryti
           continue: Tęsti
           info_renew: Jei norite atnaujinti duomenis, tęskite atnaujinimą
           title: Atnaujinti patikrinimą

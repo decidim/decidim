@@ -4,6 +4,8 @@ module Decidim
   module Forms
     # This class holds a Form to answer a questionnaire from Decidim's public page.
     class QuestionnaireForm < Decidim::Form
+      include ActiveModel::Validations::Callbacks
+
       # as questionnaire uses "answers" for the database relationships is
       # important not to use the same word here to avoid querying all the entries, resulting in a high performance penalty
       attribute :responses, Array[AnswerForm]
@@ -11,6 +13,8 @@ module Decidim
       attribute :public_participation, Boolean, default: false
 
       attribute :tos_agreement, Boolean
+
+      before_validation :before_validation
 
       validates :tos_agreement, allow_nil: false, acceptance: true
       validate :session_token_in_context

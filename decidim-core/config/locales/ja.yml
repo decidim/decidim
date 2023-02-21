@@ -233,7 +233,9 @@ ja:
         unblock: "%{user_name} さんが %{resource_name} さんのブロックを解除しました"
         unofficialize: "%{user_name} が参加者 %{resource_name} を非公式にしました"
       user_group:
+        block: "%{user_name} がユーザーグループ %{resource_name} をブロックしました"
         reject: "%{user_name} が %{resource_name} グループの確認を拒否しました"
+        unblock: "%{user_name} がユーザーグループ %{resource_name} のブロックを解除しました"
         verify: "%{user_name} がグループ %{resource_name} を確認しました"
         verify_via_csv: "%{user_name} がCSVファイルを介してグループ %{resource_name} を確認しました"
       user_moderation:
@@ -323,15 +325,15 @@ ja:
           '4': 修正内容を公開
     anonymous_user: 匿名です
     application:
-      collection:
-        documents:
-          other: ドキュメント
       document:
         download: ファイルをダウンロード
       documents:
         related_documents: 関連ドキュメント
       geocoding:
         geocoded_address: 住所
+      photo:
+        alt: メディア画像
+        title: 画像
       photos:
         related_photos: 関連画像
     author:
@@ -370,13 +372,13 @@ ja:
           foo: Foo
         name: Foo 認証
       granted_at: '%{timestamp} で付与されます'
-      renew: 検証を更新する
       sms:
         explanation: 身分証を確認するために、携帯電話番号を提出してください。
         name: SMSによるコード
       started_at: '%{timestamp} に開始'
     authorization_modals:
       content:
+        close_modal: モーダルを閉じる
         expired:
           authorize: '「%{authorization} 」で再認証'
           explanation: 認証の有効期限が切れました。この操作を実行するには、"%{authorization}" で再認証する必要があります。
@@ -407,8 +409,6 @@ ja:
           explanation_html: この操作を行うには、承認が必要です。その前に、メールアドレス <strong>%{email}</strong> を確認する必要があります。
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
-      show:
-        close_modal: ウィンドウを閉じる
     block_user_mailer:
       notify:
         body_1: あなたのアカウントはブロックされました。
@@ -496,6 +496,17 @@ ja:
         view_all: すべて表示
       metrics:
         name: 組織の指標
+      static_page:
+        section:
+          name: セクション
+          section_content: コンテンツ
+        summary:
+          name: 概要
+          summary_content: コンテンツ
+        two_pane_section:
+          left_column: 左カラム
+          name: 2カラムセクション
+          right_column: 右カラム
       stats:
         name: 組織の統計
       sub_hero:
@@ -586,14 +597,13 @@ ja:
       endorsements: オススメ
       endorsements_count: オススメ数
     endorsement_buttons_cell:
-      already_endorsed: オススメ済み
-      endorse: オススメする
+      already_endorsed: 取り消し
+      endorse: いいね
     endorsements:
       identities:
         done: 完了
         select_identity: IDを選択
     endorsers_list:
-      close: 閉じる
       endorsed_by: オススメ
     errors:
       internal_server_error:
@@ -802,8 +812,6 @@ ja:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
     forms:
-      current_image: 現在の画像
-      default_image: デフォルトの画像
       errors:
         decidim/user:
           password: パスワードが短すぎます。
@@ -837,6 +845,7 @@ ja:
           edit_image: 画像を編集
           error: エラー
           file_size_too_large: 'ファイルサイズが大きすぎます！最大ファイルサイズ: %{megabytes}MB'
+          filename: ファイル名
           remove: 削除
           replace: 置換
           save: 保存
@@ -845,8 +854,9 @@ ja:
           uploaded: アップロード済
           validating: 検証中...
           validation_error: 検証エラー
+        select_file: ファイルを選択
       upload_help:
-        dropzone: ここにファイルをドロップするか、クリックしてアップロードします
+        dropzone: ここにファイルをドロップするか、ボタンをクリックしてアップロードします
         explanation: '%{attribute} のガイド'
     gamification:
       all_badges_link: 利用可能なバッジをすべて表示
@@ -975,7 +985,6 @@ ja:
         body_1: あなたは外部リンクにアクセスしようとしています。外部サイトの内容にはご注意ください。
         body_2: サイトにアクセスする前に、訪問しようとしているリンクをチェックし、安全なサイトであるか確認してください。
         cancel: キャンセル
-        close_modal: 閉じる
         proceed: 続行
         title: 外部リンクを開く
     log:
@@ -984,8 +993,10 @@ ja:
         create_with_space: "%{user_name} が %{resource_name} に %{space_name} を作成しました"
         delete: "%{user_name} が %{resource_name} を削除しました"
         delete_with_space: "%{user_name} が %{resource_name} で %{space_name} を削除しました"
+        publish_with_space: "%{user_name} が %{space_name} の %{resource_name} を公開しました"
         unknown_action: "%{user_name} が %{resource_name} にいくつかのアクションを実行しました"
         unknown_action_with_space: "%{user_name} が %{resource_name} で %{space_name} にアクションを実行しました"
+        unpublish_with_space: "%{user_name} が %{space_name} の %{resource_name} を非公開にしました"
         update: "%{user_name} が %{resource_name} を更新しました"
         update_permissions_with_space: "%{user_name} が %{space_name} の %{resource_name} の権限を更新しました"
         update_with_space: "%{user_name} さんが %{resource_name} で %{space_name} を更新しました"
@@ -1016,37 +1027,37 @@ ja:
       conversation_mailer:
         comanagers_new_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{manager} が %{group}という名前で新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{manager} が %{group} として新しい会話を開始しました"
         comanagers_new_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{manager} は、 %{group}という名前の新しいメッセージを会話に投稿しました。それらを表示するにはここをクリックしてください："
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{manager} は %{group} として新しいメッセージを送信しました"
         new_conversation:
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} があなたと新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{sender} があなたと会話を開始しました"
         new_group_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との新しい会話を開始しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{sender} が %{group} と会話を開始しました"
         new_group_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との会話に新しいメッセージを投稿しました。こちらをクリックしてください:"
-          outro: お楽しみください!
+          outro: ' '
           subject: "%{group} に %{sender} からの新しいメッセージがあります"
         new_message:
-          greeting: Hi, %{recipient}!
+          greeting: こんにちは、%{recipient}。
           intro: "%{sender} さんがあなたの会話に新しいメッセージを投稿しました。こちらをクリックしてください："
-          outro: お楽しみください!
+          outro: ' '
           subject: '%{sender} からの新しいメッセージがあります'
       conversations:
         add_conversation_users:
@@ -1101,7 +1112,7 @@ ja:
       newsletter:
         no_reply_notice: このメールは、メールを受信できない通知専用メールアドレスから送信されました。このメッセージには返信しないでください。
         note: '%{organization_name}でニュースレターを購読しているため、このメールを受信しました。 <a href="%{link}">通知ページ</a> で設定を変更できます。'
-        see_on_website: このメールは正しく表示されませんか？ <a href="%{link}" target="_blank">ウェブサイト</a> で確認してください。
+        see_on_website: このメールは正しく表示されていませんか？ <a href="%{link}" target="_blank" class="see-on-website">ウェブサイト</a> でご確認ください。
         unsubscribe: この種類のメールの受信を拒否するには、 <a href="%{link}" target="_blank" class="unsubscribe">購読解除</a>.
     newsletter_templates:
       basic_only_text:
@@ -1390,11 +1401,14 @@ ja:
         close: 閉じる
         description: このコンテンツは不適切ですか？
         does_not_belong: 違法行為、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
+        hide: 非表示
+        hide_content: このコンテンツを非表示
         offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
         reason: 理由
         report: 報告
         spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
         title: 不適切な内容を報告する
+        visit_profile: この参加者と残りの内容の部分もブロックしたい場合は、 %{user_link} プロフィールページにアクセスしてください。
       flag_user_modal:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
@@ -1421,6 +1435,9 @@ ja:
           select_an_area: エリアを選択
       public_participation:
         public_participation: 参加を公開する
+      redesigned_login_modal:
+        please_sign_in: ログインしてください
+        sign_up: 新規登録
       reference:
         reference: 'リファレンス： %{reference}'
       represent_user_group:
@@ -1907,6 +1924,7 @@ ja:
             accept_until_format: "%Y %B %d, %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%Y年%m月%d日 %H:%M"
       short: "%Y/%m/%d %H:%M"
       time_of_day: "%H:%M"
   versions:

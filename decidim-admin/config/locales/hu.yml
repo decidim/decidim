@@ -536,7 +536,6 @@ hu:
         moderation: Globális moderációk
         newsletters: Hírlevelek
         participants: Résztvevők
-        reported_users: Jelentett felhasználók
         scope_types: Hatáskör típusok
         scopes: Hatáskörök
         settings: Beállítások
@@ -635,7 +634,6 @@ hu:
           nickname: Felhasználónév
           reason: Indok
           reports: Jelentések száma
-          title: Jelentett felhasználók listája
         report:
           reasons:
             does_not_belong: Nem tartozik hozzá
@@ -1051,15 +1049,12 @@ hu:
       models:
         moderation:
           fields:
-            created_at: Létrehozás dátuma
             deleted_resource: Törölt erőforrás
             hidden_at: 'Rejtett itt:'
             participatory_space: Részvételi tér
-            report_count: Számol
             reportable_id: ID
             reportable_type: Típus
             reported_content_url: Jelentett URL tartalom
-            reports: Jelentések
             visit_url: URL meglátogatása
         report:
           fields:
@@ -1072,8 +1067,6 @@ hu:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globális moderációk
         newsletters:
           title: Hírlevelek
         settings:

@@ -1,10 +1,6 @@
 id:
   activemodel:
     attributes:
-      agenda:
-        description: Deskripsi
-        duration: Lamanya
-        title: Judul
       close_meeting:
         attendees_count: Jumlah peserta
         attending_organizations: Daftar organisasi yang hadir
@@ -18,7 +14,6 @@ id:
         decidim_category_id: Kategori
         decidim_scope_id: Cakupan
         description: Deskripsi
-        end_time: Akhir waktu
         location: Lokasi
         location_hints: Petunjuk lokasi
         organizer_id: Penyelenggara
@@ -26,7 +21,6 @@ id:
         registration_form_enabled: Formulir pendaftaran diaktifkan
         registration_terms: Ketentuan pendaftaran
         registrations_enabled: Pendaftaran diaktifkan
-        start_time: Waktu mulai
         title: Judul
         transparent: Transparan
     errors:

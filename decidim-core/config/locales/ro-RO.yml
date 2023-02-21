@@ -40,8 +40,14 @@ ro:
       decidim/promote_to_admin: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
       decidim/resource_endorsed_event: Resursă susținută
+      decidim/resource_hidden_event: Resursă ascunsă
+      decidim/user_group_created_event: Grup de utilizatori creat
+      decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: Timp
+        with_participatory_space: Spaţiu participativ
       decidim/user:
         current_password: Parola curentă
         email: E-mail
@@ -71,6 +77,8 @@ ro:
     'true': 'Da'
   carrierwave:
     errors:
+      file_resolution_too_large: Rezoluția fișierului este prea mare
+      file_size_too_large: Mărimea fișierului este prea mare
       not_inside_organization: Fișierul nu este atașat niciunei organizații
   date:
     formats:
@@ -103,6 +111,9 @@ ro:
       download_your_data_export:
         file_no_exists: Fișierul nu există
         notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
+      email_change:
+        cancel: anulare
+        send_again: Trimite din nou
       show:
         change_password: Schimbă parola
         update_account: Actualizați contul
@@ -110,6 +121,8 @@ ro:
         error: A apărut o eroare la actualizarea contului tău.
         success: Contul tău fost actualizat cu succes.
         success_with_email_confirmation: Contul tău a fost actualizat cu succes. Vei primi un e-mail pentru a confirma noua ta adresă de e-mail.
+    activity:
+      time_ago: "În urmă cu %{time}"
     admin:
       actions:
         cancel: Anulează
@@ -123,6 +136,11 @@ ro:
         delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul %{space_name}"
         publish: "%{user_name} a publicat componenta %{resource_name} în spațiul %{space_name}"
         unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul %{space_name}"
+      helpers:
+        answers: răspunsuri
+        comments: comentarii
+        projects: proiecte
+        results: rezultate
       impersonation_log:
         manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
@@ -255,17 +273,15 @@ ro:
           '4': Publică amendamentul tău
     anonymous_user: Anonim
     application:
-      collection:
-        documents:
-          one: Document
-          few: Documente
-          other: Documente
       document:
         download: Descarcă fișier
       documents:
         related_documents: Documente asociate
       geocoding:
         geocoded_address: Adresă
+      photo:
+        alt: Imagine media
+        title: Imagine
       photos:
         related_photos: Imagini asociate
     author:
@@ -279,6 +295,7 @@ ro:
         one: susținere
         few: susțineri
         other: susțineri
+      official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”
@@ -307,13 +324,13 @@ ro:
           foo: Foo
         name: Autorizare foo
       granted_at: Acordată la %{timestamp}
-      renew: Reînnoire verificare
       sms:
         explanation: Trimite numărul tău de telefon mobil pentru a-ți putea verifica identitatea.
         name: Cod prin SMS
       started_at: Început la %{timestamp}
     authorization_modals:
       content:
+        close_modal: Închide fereastra
         expired:
           authorize: Reautorizează cu "%{authorization}"
           explanation: Autorizarea ta expirat. Pentru a efectua această acțiune, trebuie să fii reautorizat cu "%{authorization}".
@@ -344,8 +361,6 @@ ro:
           explanation_html: Pentru a efectua această acțiune, trebuie să fii autorizat, înainte de a face acest lucru, trebuie să confirmi adresa ta de e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Cere instrucțiunile de confirmare
           title: Confirmați e-mailul tău
-      show:
-        close_modal: Închide fereastra
     block_user_mailer:
       notify:
         body_1: Contul tău a fost blocat.
@@ -434,6 +449,16 @@ ro:
         view_all: Vezi toate
       metrics:
         name: Valorile organizației
+      static_page:
+        section:
+          name: Secţiune
+          section_content: Conţinut
+        summary:
+          name: Rezumat
+          summary_content: Conţinut
+        two_pane_section:
+          left_column: Coloana stângă
+          right_column: Coloana dreaptă
       stats:
         name: Statisticile organizației
       sub_hero:
@@ -527,15 +552,19 @@ ro:
       endorsements: Susținători
       endorsements_count: Număr de susțineri
     endorsement_buttons_cell:
-      already_endorsed: Susținut
-      endorse: Susține
+      already_endorsed: Nu-mi place
+      endorse: Îmi place
     endorsements:
       identities:
         done: Finalizat
         select_identity: Selectare identitate
     errors:
       internal_server_error:
+        copied: Text copiat!
+        copy_to_clipboard: Copiază în clipboard
+        date_and_time: Data și ora
         title: A apărut o problemă cu serverul nostru
+        unknown: Necunoscut
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
@@ -723,8 +752,6 @@ ro:
         button: Nu doresc să mai urmăresc
         error: A apărut o problemă la anularea urmăririi acestei resurse.
     forms:
-      current_image: Imaginea curentă
-      default_image: Imagine implicită
       errors:
         decidim/user:
           password: Parola este prea scurtă.
@@ -734,6 +761,8 @@ ro:
         file:
           explanation: 'Orientări pentru fișier:'
           message_1: Are o imagine sau un document.
+        icon:
+          explanation: 'Îndrumare pentru imagine:'
         image:
           explanation: 'Orientări pentru imagine:'
           message_1: De preferință o imagine landscape care să nu conțină vreun text.
@@ -741,6 +770,23 @@ ro:
       file_validation:
         allowed_file_extensions: 'Extensii de fișiere permise: %{extensions}'
         max_file_size: 'Dimensiunea maximă a fișierului: %{megabytes}MB'
+      upload:
+        labels:
+          add_attachment: Adaugă atașament
+          add_file: Adaugă fișier
+          add_image: Adaugă imagine
+          edit_image: Schimbă imaginea
+          error: Eroare!
+          filename: Nume fișier
+          remove: Șterge
+          replace: Înlocuiește
+          save: Salvează
+          title: Titlu
+          title_required: Titlul este obligatoriu!
+        select_file: Selectaţi fişierul
+      upload_help:
+        dropzone: Trage fişierele aici sau apasă pe buton pentru a încărca
+        explanation: Îndrumare pentru %{attribute}
     gamification:
       all_badges_link: Vezi toate insignele disponibile.
       badges:
@@ -762,6 +808,7 @@ ro:
       description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne.
       level: Nivelul %{level}
       reached_top: Ai atins nivelul maxim pentru această insignă.
+      title: Ce sunt insignele?
     group_admins:
       actions:
         are_you_sure: Sigur dorești asta? Acest lucru nu va elimina participantul din grup.
@@ -841,6 +888,7 @@ ro:
       no_user_groups: Încă nu aparține niciunui grup.
       roles:
         admin: Administrator
+        creator: Administrator
         member: Membru
       update:
         error: A apărut o eroare la actualizarea grupului
@@ -865,7 +913,6 @@ ro:
         body_1: Ești pe cale de a vizita un link extern și am dori să fii precaut în ceea ce privește conținutul de pe site-ul extern.
         body_2: Te rugăm să verifici link-ul pe care urmează să îl vizitezi și să te asiguri că îl este un site sigur înainte de a continua.
         cancel: Anulare
-        close_modal: Închidere
         proceed: Continuă
         title: Deschide link-ul extern
     log:
@@ -957,6 +1004,9 @@ ro:
           next: Următoarea
           no_conversations: Încă nu aveți conversații
           title: Conversații
+        reply_form:
+          placeholder: Răspunsul tău...
+          send: Trimite
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
@@ -964,6 +1014,7 @@ ro:
           not_allowed: Acest participant nu acceptă mesaje directe.
           title: Conversație cu %{usernames}
         start:
+          placeholder: Mesajul tău...
           send: Trimite
         update:
           error: Mesajul nu a fost trimis din cauza unei erori
@@ -985,7 +1036,6 @@ ro:
     newsletter_mailer:
       newsletter:
         note: Ați primit acest e-mail deoarece sunteți abonat la buletinele informative de pe %{organization_name}. Puteți modifica setările de pe pagina <a href="%{link}">de notificări</a>.
-        see_on_website: Nu se poate vedea corect acest e-mail? Vizualizați-l pe <a href="%{link}" target="_blank">site-ul</a>.
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
     newsletter_templates:
       basic_only_text:
@@ -1035,6 +1085,14 @@ ro:
         translated_text: 'Text tradus automat:'
     notifications:
       no_notifications: Nici o notificare încă.
+    notifications_digest_mailer:
+      header:
+        daily: Rezumat notificare zilnică
+        weekly: Rezumat notificări săptămânale
+      hello: Salut %{name},
+      intro:
+        daily: 'Acestea sunt notificările din ultima zi în funcție de activitatea pe care o dețineți:'
+      see_more: Vezi mai multe notificări
     notifications_settings:
       show:
         administrators: Administratori
@@ -1043,7 +1101,14 @@ ro:
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
         newsletters: Newslettere
+        notifications_sending_frequencies:
+          daily: Zilnic
+          none: Nimic
+          real_time: În timp real
+          weekly: Săptămânal
         own_activity: Propria mea activitate, ca atunci când cineva comentează în propunerea mea sau mă menționează
+        push_notifications: Notificări Instant
+        push_notifications_reminder: Pentru a primi notificări de pe platformă, trebuie să le permiteți mai întâi în setările browser-ului.
         receive_notifications_about: Vreau să primesc notificări despre
         update_notifications_settings: Salvează modificările
       update:
@@ -1139,6 +1204,11 @@ ro:
           info: Insignele sunt câștigate prin desfășurarea de activități specifice pe platformă.
           title: Insigne
       user:
+        actions:
+          create_user_group: Creează grup
+          invite_user: Invită un participant
+          manage_user_group_users: Gestionare participanți
+          message: Mesaj
         confirmation_instructions_sent: Instrucțiuni de confirmare e-mail trimise
         create_user_group: Creează grup
         edit_profile: Editare profil
@@ -1237,6 +1307,8 @@ ro:
         close: Inchide
         description: Este acest conținut neadecvat?
         does_not_belong: Conține activitate ilegală, amenințări la sinucidere, informații personale sau altceva credeți că nu aparțin de %{organization_name}.
+        hide: Ascunde
+        hide_content: Ascunde conţinutul
         offensive: Conține rasism, sexism, slurbii, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
         reason: Motiv
         report: Raport

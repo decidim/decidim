@@ -18,8 +18,6 @@ de:
         title: Aktionen
       admin:
         models:
-          components:
-            body: Haupttext
           post:
             name: Post
         posts:
@@ -50,10 +48,8 @@ de:
             author: Autor
             body: Haupttext
             official_blog_post: Offizieller Post
-            title: Titel
       posts:
         show:
-          comments: Kommentare
           view: Anzeigen
     components:
       blogs:

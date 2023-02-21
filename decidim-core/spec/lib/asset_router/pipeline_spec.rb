@@ -17,13 +17,23 @@ module Decidim::AssetRouter
 
       it { is_expected.to eq("//localhost:#{Capybara.server_port}#{correct_asset_path}") }
 
-      context "when using the default HTTP port" do
+      context "when using the default HTTP port 80" do
         before do
           allow(ENV).to receive(:fetch).and_call_original
-          allow(ENV).to receive(:fetch).with("PORT", Capybara.server_port).and_return(80)
+          allow(ENV).to receive(:fetch).with("HTTP_PORT", Capybara.server_port).and_return(80)
         end
 
-        it { is_expected.to eq("//localhost:#{Capybara.server_port}#{correct_asset_path}") }
+        it { is_expected.to eq("//localhost#{correct_asset_path}") }
+      end
+
+      context "when the asset URL is included in the assets manifest" do
+        let(:custom_url) { "https://example.org/decidim-packs/media/images/decidim-logo.svg" }
+
+        before do
+          allow(ActionController::Base.helpers).to receive(:asset_pack_path).with(asset).and_return(custom_url)
+        end
+
+        it { is_expected.to eq(custom_url) }
       end
 
       context "when the system is configured to be served over HTTPS" do
@@ -36,10 +46,10 @@ module Decidim::AssetRouter
         context "and using the default HTTPS port" do
           before do
             allow(ENV).to receive(:fetch).and_call_original
-            allow(ENV).to receive(:fetch).with("PORT", Capybara.server_port).and_return(443)
+            allow(ENV).to receive(:fetch).with("HTTP_PORT", Capybara.server_port).and_return(443)
           end
 
-          it { is_expected.to eq("https://localhost:#{Capybara.server_port}#{correct_asset_path}") }
+          it { is_expected.to eq("https://localhost#{correct_asset_path}") }
         end
       end
 

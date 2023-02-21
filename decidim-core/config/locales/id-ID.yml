@@ -173,9 +173,6 @@ id:
           '4': Publish your amendment
     anonymous_user: Anonim
     application:
-      collection:
-        documents:
-          other: Dokumen
       documents:
         related_documents: Dokumen yang berkaitan
       photos:
@@ -522,8 +519,6 @@ id:
         button: Berhenti mengikuti
         error: Terjadi kesalahan saat berhenti mengikuti sumber daya ini.
     forms:
-      current_image: Gambar saat ini
-      default_image: Gambar default
       errors:
         error: Ada kesalahan di bidang ini.
     gamification:
@@ -708,7 +703,6 @@ id:
     newsletter_mailer:
       newsletter:
         note: Anda menerima email ini karena Anda berlangganan nawala pada %{organization_name}. Anda dapat mengubah pengaturan Anda pada <a href="%{link}">halaman pemberitahuan</a>.
-        see_on_website: Tidak bisa melihat email ini dengan benar? Lihat di situs web <a href="%{link}" target="_blank"></a>.
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
     newsletters:
       unsubscribe:

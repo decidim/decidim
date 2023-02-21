@@ -2,7 +2,10 @@ ca:
   activemodel:
     attributes:
       post:
+        body: Cos del text
+        decidim_author_id: Autoria
         published_at: Hora de publicació
+        title: Títol
     models:
       decidim/blogs/create_post_event: Nova publicació al blog
   activerecord:
@@ -14,15 +17,13 @@ ca:
     blogs:
       actions:
         author_id: Crear publicació com
-        confirm_destroy: Estàs segura que vols eliminar aquesta publicació?
+        confirm_destroy: Segur que vols eliminar aquesta publicació?
         destroy: Suprimeix
         edit: Edita
         new: Nova publicació
         title: Accions
       admin:
         models:
-          components:
-            body: Cos
           post:
             name: Publicar
         posts:
@@ -57,16 +58,17 @@ ca:
             body: Cos
             official_blog_post: Post oficial
             published_at: Hora de publicació
-            title: títol
+            title: Títol
       posts:
         show:
-          comments: Comentaris
           view: Veure
     components:
       blogs:
         actions:
+          comment: Comentar
           create: Crear
           destroy: Esborrar
+          endorse: Adherir-se
           update: Actualitzar
         name: Blog
         settings:

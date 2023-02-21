@@ -248,10 +248,6 @@ lb:
           '4': Verëffentlech deng Ännerungsvirschléi
     anonymous_user: Anonym
     application:
-      collection:
-        documents:
-          one: Dokument
-          other: Unterlagen
       document:
         download: Datei erof lueden
       documents:
@@ -297,7 +293,6 @@ lb:
           foo: Foo
         name: Foo Berechtegung
       granted_at: Bewëllegt den %{timestamp}
-      renew: Iwwerpréiwung erneieren
       sms:
         explanation: Gëff w. e. g. deng Handy-Nummer an, dass mir deng Identitéit iwwerpréiwen kënnen.
         name: Code iwwer SMS
@@ -334,8 +329,6 @@ lb:
           explanation_html: Fir dës Aktioun duerch ze féieren muss du eng Berechtegung hunn, fir dass déi gülteg ass muss du fir d'éischt deng Email-Adress bestätegen <strong>%{email}</strong>.
           request_confirmation_instructions: Instruktiounen fir d'Bestätegung ufroen
           title: Email bestätegen
-      show:
-        close_modal: Modal zou maachen
     block_user_mailer:
       notify:
         body_1: Däin Kont ass gespaart.
@@ -507,9 +500,6 @@ lb:
     endorsable:
       endorsements: Ennerstëtzungen
       endorsements_count: Zuel vun den Ënnerstëtzer
-    endorsement_buttons_cell:
-      already_endorsed: Ënnerstëtzt
-      endorse: Ënnerstëtzen
     endorsements:
       identities:
         done: Erleedegt
@@ -698,8 +688,6 @@ lb:
         button: Net méi nogoen
         error: Et gouf e Problem beim Un-Followen vun dëser Ressource.
     forms:
-      current_image: Aktuellt Bild
-      default_image: Standard-Bild
       errors:
         decidim/user:
           password: D'Passwuert ass ze kuerz.
@@ -840,7 +828,6 @@ lb:
         body_1: Du kënns elo op en externen Link an mir bieden dech, virsiichteg mam Inhalt vun externen Säiten ëmzegoen.
         body_2: W. e. g. iwwerpréif de Link den s'de besiche wëlls an iwwerpréif ob et eng sécher Säit ass, éier s'de weider méchs.
         cancel: Ofbriechen
-        close_modal: Modal zou maachen
         proceed: Weidermaachen
         title: Externen Link op maachen
     log:
@@ -959,7 +946,6 @@ lb:
     newsletter_mailer:
       newsletter:
         note: Du hues dës email kritt, well s'du den Newsletter vun %{organization_name} abonnéiert hues. Du kanns d'Astellungen op denger <a href="%{link}">Benachrichtigungen Seite</a> änneren.
-        see_on_website: Dës Email gëtt dir net richteg ugewisen? Klick w. e. g. hei dran <a href="%{link}" target="_blank">website</a>.
         unsubscribe: Fir dës Zort Email ofzebestellen, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
       basic_only_text:

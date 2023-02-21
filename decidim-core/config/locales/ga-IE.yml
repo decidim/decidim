@@ -54,13 +54,6 @@ ga:
       review:
         back: Ar Ais
     application:
-      collection:
-        documents:
-          one: Cáipéis
-          two: Cáipéisí
-          few: Cáipéisí
-          many: Cáipéisí
-          other: Cáipéisí
       geocoding:
         geocoded_address: Seoladh
     authorization_handlers:
@@ -126,9 +119,6 @@ ga:
         ready: Réidh
     endorsable:
       endorsements: Formhuinithe
-    endorsement_buttons_cell:
-      already_endorsed: Formhuinithe
-      endorse: Formhuinigh
     endorsements:
       identities:
         done: Críochnaithe
