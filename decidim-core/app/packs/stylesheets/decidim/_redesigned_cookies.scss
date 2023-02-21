@@ -86,7 +86,7 @@
       }
 
       &-content{
-        @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-alert/10 rounded-full transition duration-300 before:content-[''] before:absolute before:w-5 before:h-5 before:bottom-0.5 before:left-0.5 before:rounded-full before:bg-alert before:duration-300;
+        @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-alert/10 rounded-full before:content-[''] before:absolute before:w-5 before:h-5 before:bottom-0.5 before:left-0.5 before:rounded-full before:bg-alert before:transition before:duration-300;
       }
 
       input:focus ~ &-content{
