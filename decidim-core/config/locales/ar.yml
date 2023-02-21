@@ -30,18 +30,24 @@ ar:
         password_confirmation: أكد كلمتك السرية
         personal_url: العنوان الشبكي الشخصي
         remove_avatar: إزالة الصورة الرمزية
+        tos_agreement: شروط وأحكام اتفاقية الاستخدام
     models:
       decidim/attachment_created_event: المرفق
       decidim/component_published_event: العنصر النشط
       decidim/demoted_membership: لم يعد مشرف المجموعة
       decidim/gamification/badge_earned_event: شارة المكتسبة
       decidim/gamification/level_up_event: لقد استعدت
+      decidim/invited_to_group_event: تمت دعوتك لمجموعة
       decidim/join_request_accepted_event: انضمام طلب مقبول
       decidim/join_request_rejected_event: طلب الانضمام مرفوض
       decidim/profile_updated_event: تحديث الملف الشخصي
       decidim/promote_to_admin: تمت ترقيته إلى مسؤول المجموعة
+      decidim/promoted_to_admin_event: تمت ترقيتك لمدير مجموعة
       decidim/removed_from_group: تمت إزالته من المجموعة
       decidim/resource_endorsed_event: المورد المدعُوم
+      decidim/resource_hidden_event: تم إخفاء المورد
+      decidim/user_group_created_event: تم إنشاء مجموعة المستخدم
+      decidim/welcome_notification_event: رسالة ترحيب
   activerecord:
     attributes:
       decidim/user:
@@ -76,6 +82,11 @@ ar:
   booleans:
     'false': 'لا'
     'true': 'نعم'
+  carrierwave:
+    errors:
+      file_resolution_too_large: دقة الملف أكبر من المسموح به
+      file_size_too_large: حجم الملف أكبر من المسموح به
+      not_inside_organization: لم يتم إرفاق الملف بأي منظمة
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -83,6 +94,9 @@ ar:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      half_a_minute: نصف دقيقة
   decidim:
     accessibility:
       external_link: الرابط الخارجي
@@ -90,7 +104,9 @@ ar:
       logo: "شعار %{organization} الرسمي"
       skip_button: تخطي إلى المحتوى الرئيسي
     account:
+      blocked: تم حظر هذا الحساب بسبب مخالفة الشروط والأحكام
       delete:
+        alert: لا يمكن إبطال أو التراجع عن هذا الإجراء. إذا قمت بحذف حسابك فلن تتمكن من تسجيل الدخول باستخدام بيانات الاعتماد الخاصة بك. سيؤدي حذف حسابك إلى إخفاء هوية مساهماتك. سوف تظل قادراً على إنشاء حساب جديد، ولكن هذه المساهمات لن تكون مرتبطة به.
         confirm:
           close: أغلق النافذة
           ok: نعم ، أريد حذف حسابي

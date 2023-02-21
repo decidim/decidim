@@ -803,6 +803,10 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذا النطاق.
           success: تم تحديث المجال بنجاح
+      share_tokens:
+        actions:
+          destroy: حذف
+          share: مشاركة
       shared:
         gallery:
           delete_image: احذف الصورة
