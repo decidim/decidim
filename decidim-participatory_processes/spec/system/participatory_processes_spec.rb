@@ -498,7 +498,9 @@ describe "Participatory Processes", type: :system do
           end
         end
 
-        it_behaves_like "has embedded video in description", :base_description
+        # REDESIGN_PENDING - These examples have to be moved to the details
+        # page
+        # it_behaves_like "has embedded video in description", :base_description
       end
     end
   end
