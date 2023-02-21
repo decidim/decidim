@@ -3,7 +3,10 @@ tr:
     attributes:
       assemblies_setting:
         enable_organization_chart: Organizasyon şemasını etkinleştir
+      assemblies_type:
+        title: Başlik / Unvani 
       assembly:
+        announcement: Duyuru
         area_id: Alan
         assembly_type: Kurul türü
         assembly_type_other: Diğer montaj türü
@@ -22,12 +25,16 @@ tr:
         decidim_scope_id: kapsam
         description: Açıklama
         developer_group: Tanıtım grubu
+        document: Belge 
         domain: domain
         duration: süre
         facebook: Facebook
         github: GitHub
         hashtag: Başlık etiketi
         hero_image: Ana resim
+        import_attachments: Eki içe aktar 
+        import_categories: Kategorileri içe aktar 
+        import_components: Bireşenleri içe aktar 
         included_at: Dahil
         instagram: Instagram
         internal_organisation: İç organizasyon
@@ -52,6 +59,7 @@ tr:
         target: Katılanlar
         title: Başlık
         twitter: Twitter
+        weight: Sipariş pozisyonu
         youtube: YouTube
       assembly_member:
         birthday: Doğum günü
@@ -60,8 +68,10 @@ tr:
         designation_date: Atama tarihi
         full_name: Ad Soyad
         gender: Cinsiyet
+        non_user_avatar: Profil resmi
         position: Pozisyon
         user_id: Kullanıcı
+        weight: Sipatiş pozisyonu
       assembly_user_role:
         email: E-posta
         name: Adı
@@ -180,6 +190,9 @@ tr:
         update:
           error: Bu kurul için bir yönetici güncellenirken bir sorun oluştu.
           success: Yönetici bu kurul için başarıyla güncellendi.
+      filters:
+        decidim_assemblies_type_id_eq:
+          label: Montaj tipi
       menu:
         assemblies: Kurullar
         assemblies_settings: Ayarlar

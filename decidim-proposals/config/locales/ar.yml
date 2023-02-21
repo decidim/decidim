@@ -349,6 +349,7 @@ ar:
           form:
             attachment_legend: "(اختياري) إضافة مرفق"
             created_in_meeting: هذا الاقتراح يأتي من اجتماع
+            delete_attachment: حذف المرفق
             select_a_category: اختر تصنيف
             select_a_meeting: اختيار اجتماع
           index:
