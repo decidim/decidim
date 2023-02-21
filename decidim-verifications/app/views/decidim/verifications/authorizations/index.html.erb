@@ -3,7 +3,7 @@
 <% url_params = (redirect_url.present? ? { redirect_url: redirect_url } : {}) %>
 
 <% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_verifications" %>
+  <%= append_javascript_pack_tag "decidim_verifications" %>
 <% end %>
 
 <% content_for :css_content do %>
