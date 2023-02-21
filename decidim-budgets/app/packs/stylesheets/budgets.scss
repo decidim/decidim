@@ -2,8 +2,13 @@
   &-summary{
     @apply bg-tertiary py-10;
 
+    &__cols{
+      @apply col-span-12 lg:col-start-2 lg:col-span-10;
+    }
+
     &__container{
       @apply -mt-12 -my-16 mb-8;
+
       .budget-summary{
         @apply -ml-16 -mr-[8.5rem];
       }
@@ -14,23 +19,29 @@
     }
 
     &__progressbar{
-      @apply my-4;
+      @apply my-4 relative;
 
       .budget-progress{
         @apply bg-white rounded;
       }
+
+      &--minimum .progress-meter--minimum-mark{
+        @apply h-[20px] absolute left-[77%] w-[2px] bg-black;
+      }
+
       &--meter{
         background-color: var(--success);
+
         @apply h-[20px] rounded;
-       }
+      }
     }
 
     &__progressbar-marks{
-      @apply grid grid-cols-3 mt-2;
+      @apply grid grid-cols-[70%_1fr_1fr] mt-2;
     }
 
     &__progressbar-marks_center{
-      @apply justify-self-center;
+      @apply text-center;
     }
 
     &__progressbar-marks_right{
@@ -72,12 +83,17 @@
 
   &-list{
     @apply my-4;
+
     .card__list{
       @apply pr-0;
     }
   }
 }
 
-.verification-modal .card__list .budget__card__list-project {
+.verification-modal .card__list .budget__card__list-project{
   @apply inline-block w-[25%] text-center;
+}
+
+.voting-wrapper .budget-summary .budget-summary__cols{
+  @apply col-span-12;
 }
