@@ -1,21 +1,18 @@
 <% if current_user && current_component.current_settings.votes == "enabled" && !current_workflow.voted?(budget) %>
-  <%= decidim_modal id: "budget-exit-modal" do %>
-    <div class="form-defaults" id="budget-excess">
-      <h2 class="h2" data-dialog-title>
+  <%= decidim_modal id: "budget-exit" do %>
+    <div data-dialog-container>
+      <h3 class="h3" id="dialog-title-budget-exit" tabindex="-1" data-dialog-title>
         <%= current_order.projects_rule? ? t("title", scope: "decidim.budgets.projects.budget_excess.projects_excess") : t("title", scope: "decidim.budgets.projects.budget_excess.budget_excess") %>
-      </h2>
-      <%=  %>
-      <div data-dialog-container>
-        <div class="form__wrapper gap-2">
-          <p><%= t("message", scope: "decidim.budgets.projects.exit_modal") %></p>
-        </div>
-      </div>
-      <div data-dialog-actions>
-        <button data-dialog-close="budget-exit-modal" class="button button__sm md:button__lg button__secondary">
-          <p><%= t("cancel", scope: "decidim.budgets.projects.exit_modal") %></p>
-        </button>
-        <%= link_to t("exit", scope: "decidim.budgets.projects.exit_modal"), budget_projects_path, id: "exit-notification-link", class: "button button__sm md:button__lg button__secondary" %>
-      </div>
+      </h3>
+      <p id="dialog-desc-budget-modal">
+        <%= t("message", scope: "decidim.budgets.projects.exit_modal") %>
+      </p>
+    </div>
+    <div data-dialog-actions>
+      <button data-dialog-close="budget-exit" class="button button__sm md:button__lg button__secondary">
+        <p><%= t("cancel", scope: "decidim.budgets.projects.exit_modal") %></p>
+      </button>
+      <%= link_to t("exit", scope: "decidim.budgets.projects.exit_modal"), budget_projects_path, id: "exit-notification-link", class: "button button__sm md:button__lg button__secondary" %>
     </div>
   <% end %>
 <% end %>
