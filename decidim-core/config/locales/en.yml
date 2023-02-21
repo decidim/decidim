@@ -1407,6 +1407,7 @@ en:
       filters:
         back: Back to results
         jump_to: 'Jump to:'
+        search: Search
         state:
           active: Active
           all: All
