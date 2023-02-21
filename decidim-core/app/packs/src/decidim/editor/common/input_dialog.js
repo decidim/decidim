@@ -41,15 +41,6 @@ export default class InputDialog {
 
     const i18n = getDictionary("editor.inputDialog");
 
-    let buttonsHTML = "";
-    if (this.legacyDesign) {
-      buttonsHTML += `<button type="button" class="button mr-xs mb-none" data-action="save">${i18n["buttons.save"]}</button>`;
-      buttonsHTML += `<button type="button" class="button clear mb-none" data-action="cancel">${i18n["buttons.cancel"]}</button>`;
-    } else {
-      buttonsHTML += `<button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-action="cancel">${i18n["buttons.cancel"]}</button>`;
-      buttonsHTML += `<button type="button" class="button button__sm md:button__lg button__secondary" data-action="save">${i18n["buttons.save"]}</button>`;
-    }
-
     if (this.legacyDesign) {
       this.element.innerHTML = `
         <div>
@@ -60,7 +51,8 @@ export default class InputDialog {
         </div>
         <div class="row columns">
           <div class="text-center">
-            ${buttonsHTML}
+            <button type="button" class="button mr-xs mb-none" data-action="save">${i18n["buttons.save"]}</button>
+            <button type="button" class="button clear mb-none" data-action="cancel">${i18n["buttons.cancel"]}</button>
           </div>
         </div>
       `;
@@ -89,7 +81,8 @@ export default class InputDialog {
             </form>
           </div>
           <div data-dialog-actions>
-            ${buttonsHTML}
+            <button type="button" class="button button__sm md:button__lg button__transparent-secondary" data-action="cancel">${i18n["buttons.cancel"]}</button>
+            <button type="button" class="button button__sm md:button__lg button__secondary" data-action="save">${i18n["buttons.save"]}</button>
           </div>
         </div>
       `;
