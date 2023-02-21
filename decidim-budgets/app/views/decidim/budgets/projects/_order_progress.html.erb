@@ -4,7 +4,7 @@
       <div class="budget-summary__content">
         <div class="budget-summary__progressbox" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
           <% if include_heading && !current_order_checked_out? %>
-            <p><%== current_rule_description %></p>
+            <p><%= current_rule_description %></p>
           <% end %>
           <div class="budget-summary__progressbar">
             <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
@@ -17,7 +17,7 @@
 
             <div class="budget-summary__progressbar-marks">
               <span class="budget-summary__progressbar-legend" style="width: <%= current_order_budget_percent_minimum %>%;">
-                <%= t("assigned", scope: "decidim.budgets.projects.budget_summary") %>
+                <%= t("assigned", scope: "decidim.budgets.projects.order_progress") %>
                 <strong id="order-total-budget" class="budget-summary__progressbar-legend-strong">
                   <% if current_order.projects_rule? %>
                     <%= current_order.projects.count %> / <%= current_order.maximum_projects %>
@@ -28,14 +28,14 @@
               </span>
               <% if current_order.minimum_budget > 0 %>
                 <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_center">
-                  <%= t(".minimum") %>
+                  <%= t("minimum", scope: "decidim.budgets.projects.order_progress") %>
                   <strong class="budget-summary__progressbar-legend-strong">
                     <%= budget_to_currency(current_order.minimum_budget) %>
                   </strong>
                 </span>
               <% end %>
               <span class="budget-summary__progressbar-legend budget-summary__progressbar-marks_right" data-total-allocation="<%= current_order.available_allocation %>">
-                <%= t(".budget") %>
+                <%= t("budget", scope: "decidim.budgets.projects.order_progress") %>
                 <strong class="budget-summary__progressbar-legend-strong">
                   <% if current_order.projects_rule? %>
                     <%= current_order.maximum_projects %>
