@@ -2,7 +2,7 @@
 <% search_label = t("decidim.searches.filters.search") unless local_assigns.has_key?(:search_label) %>
 
 <% if filter_sections.present? || local_assigns.has_key?(:search_variable) %>
-  <%= redesigned_filter_form_for filter, url_for, class: "self-stretch", data: { filters: "", component: "accordion" } do |form| %>
+  <%= redesigned_filter_form_for filter, url_for, class: "new_filter self-stretch", data: { filters: "", component: "accordion" } do |form| %>
 
     <% if local_assigns.has_key?(:search_variable) %>
       <div class="filter-search filter-container">
