@@ -265,6 +265,9 @@ es:
           view_project: Ver proyecto
         order_progress:
           vote: Vota
+          minimum: Mínimo
+          budget: Presupuesto
+          assigned: Asignado
         order_selected_projects:
           remove: Eliminar
           selected_projects:
