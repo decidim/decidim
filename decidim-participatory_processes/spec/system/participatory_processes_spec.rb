@@ -334,8 +334,8 @@ describe "Participatory Processes", type: :system do
       end
 
       context "when requesting the process path" do
-        context "when main_data and metadata blocks enabled" do
-          let(:blocks_manifests) { [:main_data, :metadata] }
+        context "when hero, main_data and metadata blocks are enabled" do
+          let(:blocks_manifests) { [:hero, :main_data, :metadata] }
 
           it "shows the details of the given process" do
             within "[data-content]" do
