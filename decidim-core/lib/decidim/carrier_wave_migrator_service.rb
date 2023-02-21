@@ -84,17 +84,17 @@ module Decidim
             cw_checksum = downloaded_file_checksum(file)
             as_checksum = destination.blob.checksum
 
-            logger.info "#{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
-                        " Migrated Decidim::ContentBlock##{block.id} attachment #{image_config[:name]}" \
-                        " from CW attribute #{image_config[:name]} to AS" \
-                        " in Decidim::ContentBlockAttachment##{destination.record.id} file attribute"
+            logger.info "#{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"} " \
+                        "Migrated Decidim::ContentBlock##{block.id} attachment #{image_config[:name]} " \
+                        "from CW attribute #{image_config[:name]} to AS " \
+                        "in Decidim::ContentBlockAttachment##{destination.record.id} file attribute"
           else
-            logger.info "[SKIP] Pending migration of Decidim::ContentBlock##{block.id} attachment #{image_config[:name]}" \
-                        " from CW attribute #{image_config[:name]} to AS" \
+            logger.info "[SKIP] Pending migration of Decidim::ContentBlock##{block.id} attachment #{image_config[:name]} " \
+                        "from CW attribute #{image_config[:name]} to AS" \
           end
         rescue StandardError
-          logger.info "[ERROR] Exception checking Decidim::ContentBlock##{block.id} attachment #{image_config[:name]}" \
-                      " from CW attribute #{image_config[:name]} to AS file attribute in a Decidim::ContentBlockAttachment instance #{$ERROR_INFO}"
+          logger.info "[ERROR] Exception checking Decidim::ContentBlock##{block.id} attachment #{image_config[:name]} " \
+                      "from CW attribute #{image_config[:name]} to AS file attribute in a Decidim::ContentBlockAttachment instance #{$ERROR_INFO}"
         end
       end
     end
@@ -107,9 +107,9 @@ module Decidim
           destination = block.images_container.send(image_config[:name])
 
           if destination.attached?
-            logger.info "[SKIP] Migrated Decidim::ContentBlock##{block.id} attachment #{image_config[:name]}" \
-                        " from CW attribute #{image_config[:name]} to AS" \
-                        " in Decidim::ContentBlockAttachment##{destination.record.id} file attribute"
+            logger.info "[SKIP] Migrated Decidim::ContentBlock##{block.id} attachment #{image_config[:name]} " \
+                        "from CW attribute #{image_config[:name]} to AS " \
+                        "in Decidim::ContentBlockAttachment##{destination.record.id} file attribute"
             next
           end
 
@@ -131,18 +131,18 @@ module Decidim
           cw_checksum = downloaded_file_checksum(file)
           as_checksum = destination.blob.checksum
 
-          logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
-                      " Decidim::ContentBlock##{block.id} attachment #{image_config[:name]}" \
-                      " from CW attribute #{image_config[:name]} to AS" \
-                      " in Decidim::ContentBlockAttachment##{destination.record.id} file attribute" \
+          logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"} " \
+                      "Decidim::ContentBlock##{block.id} attachment #{image_config[:name]} " \
+                      "from CW attribute #{image_config[:name]} to AS " \
+                      "in Decidim::ContentBlockAttachment##{destination.record.id} file attribute" \
 
           routes_mappings << { instance: "Decidim::ContentBlock##{block.id}",
                                attachment_origin_attribute: image_config[:name],
                                origin_path:,
                                destination_path: Rails.application.routes.url_helpers.rails_blob_url(destination.blob, only_path: true) }
         rescue StandardError
-          logger.info "[ERROR] Exception migrating Decidim::ContentBlock##{block.id} attachment #{image_config[:name]}" \
-                      " from CW attribute #{image_config[:name]} to AS file attribute in a Decidim::ContentBlockAttachment instance #{$ERROR_INFO}"
+          logger.info "[ERROR] Exception migrating Decidim::ContentBlock##{block.id} attachment #{image_config[:name]} " \
+                      "from CW attribute #{image_config[:name]} to AS file attribute in a Decidim::ContentBlockAttachment instance #{$ERROR_INFO}"
         end
       end
     end
@@ -176,8 +176,8 @@ module Decidim
         cw_checksum = downloaded_file_checksum(file)
         as_checksum = copy.send(as_attribute).blob.checksum
 
-        logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
-                    " #{klass}##{item.id} from CW attribute #{cw_attribute} to AS #{as_attribute} attribute"
+        logger.info "[OK] Migrated - #{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"} " \
+                    "#{klass}##{item.id} from CW attribute #{cw_attribute} to AS #{as_attribute} attribute"
 
         routes_mappings << {
           instance: "#{klass}##{item.id}",
@@ -207,9 +207,9 @@ module Decidim
           cw_checksum = downloaded_file_checksum(file)
           as_checksum = copy.send(as_attribute).blob.checksum
 
-          logger.info "#{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"}" \
-                      " Migrated #{klass}##{item.id} from CW attribute #{cw_attribute}" \
-                      " to AS #{as_attribute} attribute"
+          logger.info "#{cw_checksum == as_checksum ? "[OK] Checksum identical:" : "[KO] Checksum different:"} " \
+                      "Migrated #{klass}##{item.id} from CW attribute #{cw_attribute} " \
+                      "to AS #{as_attribute} attribute"
         else
           logger.info "[SKIP] Pending migration of #{klass}##{item.id} from CW attribute #{cw_attribute} to AS #{as_attribute} attribute"
         end
