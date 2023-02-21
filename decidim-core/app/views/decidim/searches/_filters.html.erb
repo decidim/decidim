@@ -1,15 +1,15 @@
 <% if params.dig(:filter, :with_resource_type).present? %>
-  <p class="text-secondary">
-    <%= link_to main_search_path do %>
-      <%= icon "caret-left", class: "icon--small", role: "img", "aria-hidden": true %>&nbsp;<%= t(".back") %>
-    <% end %>
-  </p>
+  <%= link_to main_search_path, class: "button button__sm button__text-secondary" do %>
+    <%= icon "arrow-left-line" %>
+    <span><%= t(".back") %></span>
+  <% end %>
 <% end %>
 
-<div class="filter-container">
+<div class="filter-container self-stretch">
   <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+    <%= content_tag :span, t("decidim.searches.filters.jump_to"), class: "#{ 'is-active' if params.dig(:filter, :with_resource_type) == nil}" %>
     <% @sections.each do |type, results| %>
-      <%= content_tag :span, class: "#{ 'is-active' if false}" do %>
+      <%= content_tag :span, class: "#{ 'is-active' if params.dig(:filter, :with_resource_type) == type}" do %>
         <span><%= searchable_resource_human_name(type) %></span>
       <% end %>
     <% end %>
@@ -19,24 +19,11 @@
   <ul id="dropdown-menu">
     <% @sections.each do |type, results| %>
       <li>
-        <%= link_to search_path_by_resource_type(type), class: "filter#{ ' is-active' if false}" do %>
+        <%= link_to search_path_by_resource_type(type), class: "filter#{ ' is-active' if params.dig(:filter, :with_resource_type) == type}" do %>
+          <%= resource_type_icon(type) %>
           <span><%= searchable_resource_human_name(type) %></span>
         <% end %>
       </li>
     <% end %>
   </ul>
 </div>
-
-<% if false %>
-  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_participant } %>
-  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_participatory_space } %>
-  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_component } %>
-  <%= render partial: "resources_filter_block", locals: { sections: @sections, types: Decidim::Searchable.searchable_resources_of_type_comment } %>
-
-  <div class="card card--secondary">
-    <%= filter_form_for filter do |form| %>
-      <%= scopes_picker_filter form, :decidim_scope_id_eq %>
-      <%= form.hidden_field :term %>
-    <% end %>
-  </div>
-<% end %>
