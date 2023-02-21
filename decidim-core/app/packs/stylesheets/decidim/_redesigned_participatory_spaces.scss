@@ -12,14 +12,12 @@
   }
 
   &__container{
-    @apply mt-6 md:mt-12 mb-16 md:mb-24;
-
-    > :not([id^="html-block"]){
+    > :not([id^="html-block"]):not([data-process-hero]){
       @apply container;
     }
 
     > [id^="html-block"]{
-      @apply prose [&+*]:border-t-0;
+      @apply w-full prose max-w-none [&+*]:border-t-0;
     }
   }
 
