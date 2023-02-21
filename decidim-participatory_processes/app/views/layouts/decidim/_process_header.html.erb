@@ -1,0 +1,17 @@
+<section style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');" data-process-hero>
+  <div class="process__hero">
+    <div class="process__hero-text">
+      <h1 class="h1 text-5xl">
+        <%= translated_attribute(current_participatory_space.title) %>
+      </h1>
+      <p class="process__hero-slogan">
+        <% if current_participatory_space.hashtag.present? %>
+          <span>
+            <%= link_to "##{decidim_html_escape(current_participatory_space.hashtag)}", twitter_hashtag_url(decidim_html_escape(current_participatory_space.hashtag)), target: "_blank" %>
+          </span>
+        <% end %>
+        <%= translated_attribute(current_participatory_space.subtitle) %>
+      </p>
+    </div>
+  </div>
+</section>
