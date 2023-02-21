@@ -102,13 +102,11 @@ gl:
           expired_verification: Verificación caducada
           pending_verification: Verificación pendente
           show_renew_info: Premer para anovar a verificación
-          unauthorized_verification: Nova verificación
         new:
           authorize: Enviar
           authorize_with: Verifica con %{authorizer}
         renew_modal:
           cancel: Cancelar
-          close: pechar
           continue: Continuar
           info_renew: Se queres actualizar a data, continua coa anovación
           title: Anovar verificación

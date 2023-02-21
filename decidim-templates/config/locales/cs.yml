@@ -41,6 +41,15 @@ cs:
         name: Šablona
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Uložit
+            template_title: Informace o šabloně
+          index:
+            confirm_delete: Opravdu chcete tuto šablonu odstranit?
+            title: Blokovat zprávy uživatele
+          template_chooser:
+            select_template: Vyberte šablonu odpovědi
         questionnaire_templates:
           choose:
             create_from_template: Vytvořit ze šablony
@@ -70,4 +79,5 @@ cs:
           duplicate: "%{user_name} zkopíroval šablonu dotazníku %{resource_name}"
           update: "%{user_name} aktualizoval šablonu dotazníku %{resource_name}"
       template_types:
+        block_user: Blokovat zprávy uživatele
         questionnaires: Dotazníky

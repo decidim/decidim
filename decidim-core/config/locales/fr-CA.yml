@@ -245,7 +245,9 @@ fr-CA:
         unblock: "%{user_name} a débloqué l'utilisateur %{resource_name}"
         unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
+        block: "%{user_name} a bloqué le groupe d'utilisateurs %{resource_name}"
         reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
+        unblock: "%{user_name} a débloqué le groupe d'utilisateurs %{resource_name}"
         verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
         verify_via_csv: "%{user_name} vérifié le groupe %{resource_name} utilisateur via un fichier CSV"
       user_moderation:
@@ -335,16 +337,15 @@ fr-CA:
           '4': Publier votre amendement
     anonymous_user: Anonyme
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documents
       document:
         download: Télécharger le fichier
       documents:
         related_documents: Documents à consulter
       geocoding:
         geocoded_address: Adresse
+      photo:
+        alt: Image média
+        title: Image
       photos:
         related_photos: Photos associées
     author:
@@ -385,13 +386,13 @@ fr-CA:
           foo: Truc
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
-      renew: Renouveler la vérification
       sms:
         explanation: Indiquez votre numéro de téléphone portable pour que nous puissions vérifier votre identité.
         name: Code par SMS
       started_at: Commencé à %{timestamp}
     authorization_modals:
       content:
+        close_modal: Fermer la fenêtre de dialogue
         expired:
           authorize: Autoriser de nouveau avec "%{authorization}"
           explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
@@ -422,8 +423,6 @@ fr-CA:
           explanation_html: Pour pouvoir effectuer cette action, vous devez être autorisé. Vous devez d'abord confirmer votre adresse électronique <strong>%{email}</strong>.
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
-      show:
-        close_modal: Fermer la fenêtre modale
     block_user_mailer:
       notify:
         body_1: Votre compte a été bloqué.
@@ -512,6 +511,17 @@ fr-CA:
         view_all: Voir tout
       metrics:
         name: Historique des statistiques de participation
+      static_page:
+        section:
+          name: Section
+          section_content: Contenu
+        summary:
+          name: Résumé
+          summary_content: Contenu
+        two_pane_section:
+          left_column: Colonne de gauche
+          name: Section à deux volets
+          right_column: Colonne de droite
       stats:
         name: Statistiques de l'organisation
       sub_hero:
@@ -597,14 +607,13 @@ fr-CA:
       endorsements: Soutiens
       endorsements_count: Nombre de soutiens
     endorsement_buttons_cell:
-      already_endorsed: Soutenue
-      endorse: Soutenir
+      already_endorsed: Je n'aime pas
+      endorse: J’aime
     endorsements:
       identities:
         done: Terminé
         select_identity: Sélectionner une identité
     endorsers_list:
-      close: Fermer
       endorsed_by: Soutenu par …
     errors:
       internal_server_error:
@@ -815,8 +824,6 @@ fr-CA:
         button: Ne plus suivre
         error: Une erreur s'est produite lors du traitement de votre demande de ne plus suivre ce contenu.
     forms:
-      current_image: Image actuelle
-      default_image: Image par défaut
       errors:
         decidim/user:
           password: Le mot de passe est trop court.
@@ -850,6 +857,7 @@ fr-CA:
           edit_image: Modifier l'Image
           error: Erreur !
           file_size_too_large: 'Le fichier est trop volumineux ! Poids de fichier maximum : %{megabytes}Mo'
+          filename: Nom du fichier
           remove: Supprimer
           replace: Remplacer
           save: Sauvegarder
@@ -858,8 +866,9 @@ fr-CA:
           uploaded: Téléchargé
           validating: Validation en cours...
           validation_error: Erreur de validation !
+        select_file: Sélectionnez un fichier
       upload_help:
-        dropzone: Déposez les fichiers ici ou cliquez pour télécharger
+        dropzone: Déposez des fichiers ici ou cliquez sur le bouton pour télécharger
         explanation: Explication pour %{attribute}
     gamification:
       all_badges_link: Voir tous les badges disponibles.
@@ -988,7 +997,6 @@ fr-CA:
         body_1: Vous êtes sur le point de visiter un lien externe et nous aimerions que vous soyez prudent quant au contenu du site externe.
         body_2: Veuillez vérifier le lien que vous êtes sur le point de visiter et assurez-vous de le reconnaître comme un site sûr avant de poursuivre.
         cancel: Annuler
-        close_modal: Fermer la fenêtre de dialogue
         proceed: Continuer
         title: Ouvrir le lien externe
     log:
@@ -997,8 +1005,10 @@ fr-CA:
         create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
         delete: "%{user_name} a supprimé %{resource_name}"
         delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        publish_with_space: "%{user_name} a publié %{resource_name} dans %{space_name}"
         unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
         unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
+        unpublish_with_space: "%{user_name} a dépublié %{resource_name} de %{space_name}"
         update: "%{user_name} a mis à jour %{resource_name}"
         update_permissions_with_space: "%{user_name} a mis à jour les permissions de %{resource_name} dans %{space_name}"
         update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
@@ -1404,11 +1414,14 @@ fr-CA:
         close: Fermer
         description: Ce contenu est-il inapproprié ?
         does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
+        hide: Masquer
+        hide_content: Masquer ce contenu
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
         reason: Motif
         report: Signaler
         spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
         title: Signaler un problème
+        visit_profile: Si vous voulez également bloquer le participant et le reste de son contenu, allez sur la page de profil de %{user_link}.
       flag_user_modal:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
@@ -1435,6 +1448,9 @@ fr-CA:
           select_an_area: Sélectionnez une zone d'application
       public_participation:
         public_participation: Afficher ma présence publiquement
+      redesigned_login_modal:
+        please_sign_in: Veuillez vous connecter
+        sign_up: Inscription
       reference:
         reference: 'Référence : %{reference}'
       represent_user_group:
@@ -1924,6 +1940,7 @@ fr-CA:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%A %d %B %Y %H h %M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%d %B %Y à %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

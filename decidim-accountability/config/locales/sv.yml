@@ -39,6 +39,7 @@ sv:
         confirm_destroy: Vill du radera detta %{name}?
         destroy: Radera
         edit: Redigera
+        import: Importera projekt till resultat
         import_csv: Importera CSV
         new: Ny %{name}
         preview: Förhandsvisa
@@ -50,7 +51,29 @@ sv:
           results: Resultat
         import_results:
           new:
+            download_export: Ladda ner exporten som CSV
             import: Importera
+            info: |
+              <p>Vi rekommenderar att du följer dessa steg:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Skapa statusarna för de resultat</a> som du vill lägga till</li>
+              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> via denna administratörspanel innan du använder Import, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
+              <li>%{link_export_csv}</li>
+              <li>Genomför ändringarna lokalt. Du kan endast ändra följande kolumner i CSV-filen:
+              <ul>
+              <li><b>category/id:</b> ID för kategorin</li>
+              <li><b>scope/id:</b> ID för tillämpningsområdet</li>
+              <li><b>parent/id:</b> ID för överordnad (för relaterade resultat). Alternativ</li>
+              <li><b>title/I18N:</b> Titel på X språk</li>
+              <li><b>description/I18N:</b> Beskrivning av X språk</li>
+              <li><b>start_date:</b> datum då resultatet börjar genomföras (format ÅÅÅÅ-MM-DD)</li>
+              <li><b>end_date:</b> datum då resultatet slutar genomföras (format ÅÅÅÅ-MM-DD)</li>
+              <li><b>status/id:</b> ID för statusen för detta resultat</li>
+              <li><b>progress:</b> Procent (från 0 till 100) av genomförandet</li>
+              <li><b>proposals_ids:</b>internt ID för relaterade förslag (kommaseparerade). Omvandlas automatiskt till <span class='attribute-name'>proposal_url</span></li>
+              </ul>
+              </li>
+              </ol>
             title: Importera resultat från CSV
         imports:
           create:
@@ -62,6 +85,22 @@ sv:
             name: Status
           timeline_entry:
             name: Post i tidslinje
+        projects_import:
+          create:
+            invalid: Det gick inte att importera projekten till resultat, följ instruktionerna noga och se till att du har valt projekt för genomförande.
+          new:
+            create: Importera
+            import_all_selected_projects: Importera alla projekt som valts för genomförande
+            new_items:
+              one: 1 valt projekt kommer att importeras
+              other: "%{count} valda projekt kommer att importeras"
+            no_components: Det finns inga budgetkomponenter i detta deltagande utrymme för att exportera projekt till resultat.
+            origin_component_id: Ursprungskomponent
+            select_component: Välj en komponent
+            success:
+              one: 1 projekt köas för att importeras. Du kommer att meddelas via e-post när det är klart
+              other: "%{count} projekt köas för att importeras. Du kommer att meddelas via e-post när det är klart"
+            title: Importera projekt till resultat
         results:
           create:
             invalid: Det gick inte att skapa det här resultatet
@@ -125,6 +164,10 @@ sv:
           create: "%{user_name} skapade statusen %{resource_name}"
           delete: "%{user_name} raderade statusen %{resource_name}"
           update: "%{user_name} uppdaterade statusen %{resource_name}"
+        timeline_entry:
+          create: "%{user_name} skapade steget %{resource_name} för tidslinjen"
+          delete: "%{user_name} raderade steget %{resource_name} i tidslinjen"
+          update: "%{user_name} uppdaterade steget %{resource_name} i tidslinjen"
         value_types:
           parent_presenter:
             not_found: 'Föräldraposten hittades inte i databasen (ID: %{id})'
@@ -140,6 +183,15 @@ sv:
           row_number: Rad
           subject: Lyckad import av resultat
           success: Lyckad import av resultat. Du kan granska resultaten i administrationsgränssnittet.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Ett resultat importerades från projekt.
+            other: "%{count} resultat importerades från projekt."
+          subject: Projekten har importerats
+          success: Projekten har importerats till resultat. Du kan se resultaten i administrationsgränssnittet.
+      last_activity:
+        new_result: 'Nytt resultat:'
       models:
         result:
           fields:

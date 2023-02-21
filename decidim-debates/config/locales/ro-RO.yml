@@ -10,6 +10,7 @@ ro:
         end_time: Se termină la
         information_updates: Actualizări informații
         instructions: Instrucţiuni de participare
+        scope_id: Domeniu de interes
         start_time: Începe la
         title: Titlu
         user_group_id: Creați o dezbatere în calitate de
@@ -173,6 +174,9 @@ ro:
             title: Versiuni
         versions_list:
           back_to_resource: Înapoi la dezbatere
+      last_activity:
+        debate_updated: 'Dezbatere actualizată:'
+        new_debate: 'Dezbatere nouă:'
       models:
         debate:
           fields:

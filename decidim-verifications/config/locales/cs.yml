@@ -114,15 +114,17 @@ cs:
           verify_with_these_options: 'Jsou to dostupné možnosti k ověření totožnosti:'
         index:
           expired_verification: Ověření vypršelo
+          granted_verification: Udělené ověření
+          introduce_code: Úvodní kód
           pending_verification: Čekající na ověření
           show_renew_info: Kliknutím obnovíte ověření
-          unauthorized_verification: Nové ověření
+          subscribe: Odebírat
+          unauthorized_methods: Metody ověřování
         new:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
         renew_modal:
           cancel: Zrušit
-          close: zavřít
           continue: Pokračovat
           info_renew: Pokud chcete aktualizovat data, pokračujte obnovením
           title: Obnovit ověření

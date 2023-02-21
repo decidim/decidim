@@ -3,7 +3,10 @@ ca:
     attributes:
       assemblies_setting:
         enable_organization_chart: Habilitar organigrama
+      assemblies_type:
+        title: Títol
       assembly:
+        announcement: Avís
         area_id: Àrea
         assembly_type: Tipus d'assemblea
         assembly_type_other: Altre tipus d'assemblea
@@ -22,12 +25,16 @@ ca:
         decidim_scope_id: Àmbit
         description: Descripció
         developer_group: Grup promotor
+        document: Document
         domain: Domini
         duration: Durada
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Imatge de portada
+        import_attachments: Importar arxius adjunts
+        import_categories: Importar categories
+        import_components: Importar components
         included_at: Inclòs a
         instagram: Instagram
         internal_organisation: Organització interna
@@ -64,6 +71,7 @@ ca:
         non_user_avatar: Avatar
         position: Posició
         user_id: Participant o grup
+        weight: Ordre de posició
       assembly_user_role:
         email: Correu electrònic
         name: Nom

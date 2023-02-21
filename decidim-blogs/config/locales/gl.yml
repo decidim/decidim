@@ -18,8 +18,6 @@ gl:
         title: Accións
       admin:
         models:
-          components:
-            body: Corpo
           post:
             name: Publicación
         posts:
@@ -44,10 +42,8 @@ gl:
           fields:
             author: Autor
             body: Corpo
-            title: título
       posts:
         show:
-          comments: Comentarios
           view: Ver
     components:
       blogs:

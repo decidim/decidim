@@ -2,7 +2,10 @@ fi:
   activemodel:
     attributes:
       post:
+        body: Sisältöteksti
+        decidim_author_id: Laatija
         published_at: Julkaisuaika
+        title: Otsikko
     models:
       decidim/blogs/create_post_event: Uusi blogiartikkeli
   activerecord:
@@ -21,8 +24,6 @@ fi:
         title: Toiminnot
       admin:
         models:
-          components:
-            body: Leipäteksti
           post:
             name: Artikkeli
         posts:
@@ -57,16 +58,17 @@ fi:
             body: Leipäteksti
             official_blog_post: Virallinen artikkeli
             published_at: Julkaisuaika
-            title: otsikko
+            title: Otsikko
       posts:
         show:
-          comments: Kommentit
           view: Näytä
     components:
       blogs:
         actions:
+          comment: Kommentointi
           create: Luo
           destroy: Poista
+          endorse: Suosittelu
           update: Päivitä
         name: Blogi
         settings:

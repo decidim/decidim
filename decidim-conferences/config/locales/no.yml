@@ -28,7 +28,6 @@
         show_statistics: Vis statistikk
         sign_date: Underskriftsdato
         signature: Underskrift
-        signature_name: signaturnavn
         slogan: Slagord
         slug: URL slug
         start_date: Startdato
@@ -37,13 +36,11 @@
         date: Dato
         link: Lenke
         title: Tittel
-        weight: Vekt
       conference_partner:
         link: Lenke
         logo: Logo
         name: Navn
         partner_type: Type partner
-        weight: Vekt
       conference_registration_invite:
         email: E-post
         name: Navn
@@ -53,7 +50,6 @@
         description: Beskrivelse
         price: Pris
         title: Tittel
-        weight: Vekt
       conference_speaker:
         affiliation: Tilknytning
         avatar: Profilbilde
@@ -131,8 +127,6 @@
         edit:
           title: Oppdater konferanse administrator.
           update: Oppdater
-        index:
-          conference_admins_title: konferanse administratorer
         new:
           create: Opprett
           title: Ny konferanse administrator.
@@ -402,18 +396,11 @@
           cancel: Avbryt
           confirm: Bekreft
         show:
-          free: Fri
           going: Møtende
           no_slots_available: Ingen plasser tilgjengelig
           registration: Registrering
       conference_program:
-        program_meeting:
-          content: Innhold
-          location: Plassering
-          speakers: Talere
-          streaming: Strømming
         show:
-          day: Dag
           program: Program
       conference_registration_mailer:
         confirmation:
@@ -444,18 +431,12 @@
       conference_speaker_cell:
         personal_url:
           personal_website: Personlig nettside
-        twitter_handle:
-          go_to_twitter: Gå til Twitter
-      conference_speakers:
-        index:
-          speakers: Talere
       conferences:
         partners:
           collaborators: Partnere
           main_promotors: Planleggere
         show:
           login_as: Du er innlogget som %{name} <%{email}>
-          make_conference_registration: 'Foreta din registrering til denne konferansen:'
           register: Registrer
       content_blocks:
         highlighted_conferences:
@@ -501,29 +482,12 @@
             active_conferences: Aktive konferanser
             conferences_button_title: Lenke til konferansesiden som viser alle konferansene
             see_all_conferences: Se alle konferanser
-      photo:
-        image:
-          attributes:
-            alt: Media bilde
-        show:
-          close_modal: Lukk modal
-          photo: Bilde
-      photos_list:
-        show:
-          related_photos: Bilder
       registration_types:
         index:
           choose_an_option: 'Velg ditt registrerings alternativ:'
-          login_as: Du er innlogget som %{name} <%{email}>
           no_registrations: Ingen påmeldinger
           register: Registrer
           title: Registreringstyper
-      shared:
-        conference_user_login:
-          already_account: Har du allerede en konto i decidim?
-          new_user: Ny bruker?
-          sign_in: Logg inn for å registrere deg på konferansen
-          sign_up: Opprett en konto i decidim for å registrere deg på konferansen
       show:
         details: Detaljer
         introduction: Introduksjon

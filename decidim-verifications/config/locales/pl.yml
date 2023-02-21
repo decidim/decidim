@@ -102,13 +102,11 @@ pl:
           expired_verification: Weryfikacja wygasła
           pending_verification: Oczekująca weryfikacja
           show_renew_info: Kliknij, aby odnowić weryfikację
-          unauthorized_verification: Nowa weryfikacja
         new:
           authorize: Wyślij
           authorize_with: Zweryfikuj przy pomocy %{authorizer}
         renew_modal:
           cancel: Anuluj
-          close: zamknij
           continue: Dalej
           info_renew: Jeśli chcesz zaktualizować dane, przejdź do przedłużenia
           title: Przedłuż weryfikację

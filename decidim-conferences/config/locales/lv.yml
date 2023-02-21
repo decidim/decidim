@@ -22,12 +22,6 @@ lv:
         slogan: Sauklis
         slug: URL sadaļas adrese (slug)
         title: Nosaukums
-      conference_media_link:
-        weight: Svarīgums
-      conference_partner:
-        weight: Svarīgums
-      conference_registration_type:
-        weight: Svarīgums
       conference_speaker:
         full_name: Vārds, uzvārds
       conference_user_role:
@@ -102,8 +96,6 @@ lv:
         edit:
           title: Atjaunināt konferences administratoru.
           update: Atjaunināt
-        index:
-          conference_admins_title: konferences administratori
         new:
           create: Izveidot
           title: Jauns konferences administrators.
@@ -369,18 +361,11 @@ lv:
           cancel: Atcelt
           confirm: Apstiprināt
         show:
-          free: Bez maksas
           going: Apmeklē
           no_slots_available: Nav pieejama laika runāšanai
           registration: Reģistrācija
       conference_program:
-        program_meeting:
-          content: Saturs
-          location: Atrašanās vieta
-          speakers: Runātāji
-          streaming: Straumēšana
         show:
-          day: Diena
           program: Programma
       conference_registration_mailer:
         confirmation:
@@ -410,18 +395,12 @@ lv:
       conference_speaker_cell:
         personal_url:
           personal_website: Personīgā tīmekļvietne
-        twitter_handle:
-          go_to_twitter: Dodieties uz Twitter
-      conference_speakers:
-        index:
-          speakers: Runātāji
       conferences:
         partners:
           collaborators: Partneri
           main_promotors: Organizatori
         show:
           login_as: Jūs esat pierakstījies kā %{name} <%{email}>
-          make_conference_registration: 'Reģistrējieties konferencē:'
           register: Reģistrēties
       content_blocks:
         highlighted_conferences:
@@ -466,28 +445,11 @@ lv:
           highlighted_conferences:
             active_conferences: Aktīvās konferences
             see_all_conferences: Skatīt visas konferences
-      photo:
-        image:
-          attributes:
-            alt: Mediju attēls
-        show:
-          close_modal: Aizvērt modal
-          photo: Attēls
-      photos_list:
-        show:
-          related_photos: Attēli
       registration_types:
         index:
           choose_an_option: 'Izvēlieties savu reģistrācijas iespēju:'
-          login_as: Jūs esat pierakstījies kā %{name} <%{email}>
           register: Reģistrēties
           title: Reģistrācijas veidi
-      shared:
-        conference_user_login:
-          already_account: Vai jums jau ir decidim konts?
-          new_user: Jauns lietotājs?
-          sign_in: Piesakieties, lai reģistrētos konferencei
-          sign_up: Izveidojiet decidim kontu, lai reģistrētos konferencei
       show:
         details: Sīkāka informācija
         introduction: Ievads

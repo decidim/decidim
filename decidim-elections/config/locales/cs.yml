@@ -6,15 +6,32 @@ cs:
         image: Obrázek
         proposals: Související návrhy
         title: Název
+      ballot_style:
+        code: Kód
       election:
         description: Popis
         end_time: Hlasování končí v
         start_time: Hlasování začíná v
         title: Název
+      monitoring_committee_member:
+        email: E-mail
+        name: Jméno
+      polling_officer:
+        email: E-mail
+        name: Jméno
+      polling_station:
+        address: Adresa
+        location: Poloha
+        location_hints: Nápověda k poloze
+        polling_station_managers: Manažeři
+        polling_station_president_id: Předseda
+        title: Název
       question:
         max_selections: Maximální počet výběrů
         min_selections: Žádná z výše uvedených možností
         title: Název
+      trustees_participatory_space:
+        user_id: Účastník
       voting:
         banner_image: Obrázek banneru
         census_contact_information: Kontaktní informace pro rejstřík obyvatel
@@ -22,7 +39,7 @@ cs:
         end_time: Hlasování končí
         introductory_image: Úvodní obrázek
         promoted: Propagováno
-        scope: Rozsah
+        scope_id: Oblast působnosti
         show_check_census: Zobrazit stránku "zkontrolovat rejstřík"
         start_time: Hlasování začíná
         title: Název
@@ -851,11 +868,20 @@ cs:
           published: Zveřejněno
         landing_page:
           content_blocks:
+            create:
+              error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém
+              success: Blok obsahu byl úspěšně vytvořen
+            destroy:
+              error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě
+              success: Blok obsahu byl úspěšně odstraněn
             edit:
               update: Aktualizovat
           edit:
             active_content_blocks: Aktivní bloky obsahu
+            add: Přidat blok obsahu
+            destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
             inactive_content_blocks: Neaktivní bloky obsahu
+            title: Obsah stránky
         menu:
           votings: Hlasování
           votings_submenu:

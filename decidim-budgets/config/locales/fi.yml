@@ -47,6 +47,7 @@ fi:
         import: Tuo ehdotuksia suunnitelmiksi
         new: Uusi %{name}
         preview: Esikatsele
+        send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
       admin:
         budgets:

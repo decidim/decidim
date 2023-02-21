@@ -28,11 +28,12 @@ ca:
         show_statistics: Mostrar estadístiques
         sign_date: Data de signatura
         signature: Signatura
-        signature_name: nom de la signatura
+        signature_name: Nom de la signatura
         slogan: Eslògan
         slug: URL amigable
         start_date: Data d'inici
         title: Títol
+        weight: Ordre de posició
       conference_media_link:
         date: Data
         link: Enllaç
@@ -53,7 +54,7 @@ ca:
         description: Descripció
         price: Cost
         title: Títol
-        weight: Odre de posició
+        weight: Ordre de posició
       conference_speaker:
         affiliation: Afiliació
         avatar: Imatge de perfil
@@ -134,7 +135,7 @@ ca:
           title: Actualitzar administradora de la jornada.
           update: Actualitzar
         index:
-          conference_admins_title: administradores de la jornada
+          conference_admins_title: Administradores de la jornada
         new:
           create: Crear
           title: Nova administradora de jornada.
@@ -312,6 +313,7 @@ ca:
           update: "%{user_name} ha actualitzat la col·laboradora %{resource_name} a la jornada %{space_name}"
         registration_type:
           create: "%{user_name} ha creat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
+          delete: "%{user_name} ha eliminat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
           publish: "%{user_name} ha publicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
           unpublish: "%{user_name} ha despublicat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
           update: "%{user_name} ha actualitzat el tipus d'inscripció %{resource_name} a la jornada %{space_name}"
@@ -405,18 +407,11 @@ ca:
           cancel: Cancel·lar
           confirm: Confirmar
         show:
-          free: Entrada lliure
           going: Assistiré
           no_slots_available: No hi ha places disponibles
           registration: Inscripció
       conference_program:
-        program_meeting:
-          content: Contingut
-          location: Ubicació
-          speakers: Ponents
-          streaming: Streaming
         show:
-          day: Dia
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -431,7 +426,7 @@ ca:
         create:
           invalid: S'ha produït un error en inscriure't a aquesta jornada.
           success: T'has inscrit a la jornada correctament.
-          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la conferència.
+          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la jornada.
         decline_invitation:
           invalid: S'ha produït un error en rebutjar la invitació.
           success: Has rebutjat la invitació correctament.
@@ -449,18 +444,18 @@ ca:
       conference_speaker_cell:
         personal_url:
           personal_website: Lloc web personal
-        twitter_handle:
-          go_to_twitter: Anar a Twitter
       conference_speakers:
         index:
-          speakers: Ponents
+          speakers:
+            one: Ponent
+            other: Ponents
       conferences:
         partners:
           collaborators: Col·laboradores
           main_promotors: Organitzadores
         show:
           login_as: Has iniciat la sessió com a %{name} <%{email}>
-          make_conference_registration: 'Inscriu-te a la jornada:'
+          make_conference_registration: Inscriu-te a la jornada
           register: Inscripcions
       content_blocks:
         highlighted_conferences:
@@ -506,29 +501,12 @@ ca:
             active_conferences: Jornades actives
             conferences_button_title: Enllaç a la pàgina de Conferències mostrant totes les conferències
             see_all_conferences: Veure totes les jornades
-      photo:
-        image:
-          attributes:
-            alt: Imatge
-        show:
-          close_modal: Tanca el modal
-          photo: Imatge
-      photos_list:
-        show:
-          related_photos: Imatges
       registration_types:
         index:
           choose_an_option: 'Tria el teu tipus d''inscripció:'
-          login_as: Has iniciat la sessió com a %{name} <%{email}>
           no_registrations: Sense insripcions
           register: Inscriu-te
           title: Tipus d'inscripció
-      shared:
-        conference_user_login:
-          already_account: Ja tens un compte a Decidim?
-          new_user: Nou usuari?
-          sign_in: Inicia sessió per inscriure't a la jornada
-          sign_up: Crea un compte de participant per inscriure't a la jornada
       show:
         details: Detalls
         introduction: Introducció
