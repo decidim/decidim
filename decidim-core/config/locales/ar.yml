@@ -122,9 +122,13 @@ ar:
       email_change:
         body1: لقد أرسلنا رسالة بريد إلكتروني إلى %{unconfirmed_email} للتحقق من عنوان بريدك الإلكتروني الجديد.
         body2: هل تحتاج إلينا لإرسال بريد إلكتروني للتحقق مرة أخرى؟ %{resend_link} أو %{cancel_link}.
+        cancel: حذف
         cancel_error: لا يمكن إلغاء طلب تغيير البريد الإلكتروني.
         cancel_successfully: تم إلغاء تغيير البريد الإلكتروني بنجاح.
+        resend_error: تعذرت إعادة إرسال بريد التأكيد الاكتروني.
+        resend_successfully: تمت إعادة إرسال بريد التأكيد الالكتروني بنجاح إلى %{unconfirmed_email}
         send_again: إرسل مجددا
+        title: التحقق من تغيير البريد الإلكتروني
       show:
         available_locales_helper: اختر اللغة التي تريد استخدامها لتصفح وتلقي الإشعارات على المنصة
         change_password: غير كلمة السر
