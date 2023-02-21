@@ -15,6 +15,10 @@ module Decidim
         "proposal-list-item"
       end
 
+      def title
+        present(proposal).title(html_escape: true)
+      end
+
       private
 
       def metadata_cell
