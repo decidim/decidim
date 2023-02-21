@@ -1,9 +1,12 @@
 .budget{
   &-summary{
-    @apply bg-tertiary py-10 px-16;
+    @apply bg-tertiary py-10;
 
     &__container{
       @apply -mt-12 -my-16 mb-8;
+      .budget-summary{
+        @apply -ml-16 -mr-[8.5rem];
+      }
     }
 
     &__content{
@@ -65,6 +68,13 @@
 
   &__filter__container{
     @apply my-4 rounded p-2 border-4 border-white;
+  }
+
+  &-list{
+    @apply my-4;
+    .card__list{
+      @apply pr-0;
+    }
   }
 }
 
