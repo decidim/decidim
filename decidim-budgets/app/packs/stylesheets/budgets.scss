@@ -1,9 +1,9 @@
 .budget{
   &-summary{
-    @apply bg-tertiary py-10;
+    @apply bg-tertiary py-4;
 
     &__cols{
-      @apply col-span-12 lg:col-start-2 lg:col-span-10;
+      @apply col-span-12 lg:col-start-2 ;
     }
 
     &__container{
@@ -50,6 +50,10 @@
 
     &__progressbar-legend{
       @apply text-sm block;
+
+      .mini-title__strong {
+        @apply block;
+      }
     }
 
     &__progressbar-legend-strong{

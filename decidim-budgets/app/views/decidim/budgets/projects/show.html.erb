@@ -23,7 +23,7 @@ edit_link(
 <%= render partial: "exit_modal" %>
 <% content_for :item_header do %>
   <% unless voting_finished? %>
-    <%= render partial: "budget_summary", locals: { include_heading: false } %>
+    <%= render partial: "budget_summary", locals: { include_heading: true } %>
   <% end %>
 <% end %>
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: budget_path(budget) } do %>
