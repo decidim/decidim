@@ -114,6 +114,12 @@ module Decidim
           content_block.default!
         end
 
+        Decidim.content_blocks.register(:participatory_process_homepage, :announcement) do |content_block|
+          content_block.cell = "decidim/participatory_processes/content_blocks/announcement"
+          content_block.public_name_key = "decidim.content_blocks.announcement.name"
+          content_block.default!
+        end
+
         Decidim.content_blocks.register(:participatory_process_homepage, :main_data) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/main_data"
           content_block.public_name_key = "decidim.content_blocks.main_data.name"

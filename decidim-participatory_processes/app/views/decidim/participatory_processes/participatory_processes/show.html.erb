@@ -18,14 +18,6 @@
 
   <%= participatory_space_floating_help %>
 
-  <div>
-    <% if current_participatory_space.private_space? %>
-      <%= cell("decidim/announcement", t("private_space", scope: "decidim.participatory_processes.show"), callout_class: "alert") %>
-    <% end %>
-
-    <%= cell("decidim/announcement", current_participatory_space.announcement) %>
-  </div>
-
   <% active_content_blocks.each do |content_block| %>
     <% next unless content_block.manifest %>
     <%= cell content_block.manifest.cell, content_block %>
