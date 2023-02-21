@@ -2,7 +2,7 @@
   <div data-dialog-container>
     <%= icon "check-double-line" %>
     <h3 class="h3" id="dialog-title-budget-confirm" data-dialog-title>
-      <%= t(".title") %>
+      <%= t("title", scope: "decidim.budgets.projects.budget_confirm") %>
     </h3>
     <div class="my-8" id="budget-confirm">
       <% if current_order.present? %>
@@ -28,12 +28,15 @@
     </div>
   </div>
   <div data-dialog-actions>
+
     <button class="button button__sm md:button__lg button__transparent-secondary" data-dialog-close="budget-confirm">
-      <%= t("renew_modal.cancel", scope: "decidim.verifications.authorizations") %>
+      <%= t("cancel", scope: "decidim.budgets.projects.budget_confirm") %>
     </button>
 
     <%= link_to checkout_budget_order_path(budget),class: "button button__sm md:button__lg button__secondary" do %>
-      <span><%= t(".confirm") %></span>
+      <span>
+        <%= t("confirm", scope: "decidim.budgets.projects.budget_confirm") %>
+      </span>
       <%= icon "arrow-right-line", class: "fill-current" %>
     <% end %>
   </div>
