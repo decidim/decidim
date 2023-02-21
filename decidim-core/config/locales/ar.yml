@@ -140,21 +140,46 @@ ar:
     admin:
       actions:
         cancel: إلغاء
+      password_change:
+        alert: عليك تغيير كلمة السر الخاصة بك من أجل المضي قدماً
+        notification: يجب على المستخدمين المدراء تغيير كلمة المرور الخاصة بهم كل %{days} أيام.
     admin_log:
       area:
         create: "%{user_name} خلق المنطقة %{resource_name}"
         delete: "%{user_name} حذف المنطقة %{resource_name}"
         update: "%{user_name} تحديث المنطقة %{resource_name}"
+      area_type:
+        create: "%{user_name} أنشأ نوع منطقة %{resource_name}"
+        delete: "%{user_name} حذف نوع منطقة %{resource_name}"
+        update: "%{user_name} حدث نوع منطقة %{resource_name}"
+      attachment:
+        create: "%{user_name} أنشأ مرفق %{resource_name}"
+        delete: "%{user_name} حذف مرفق %{resource_name}"
+        update: "%{user_name} حدث مرفق %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} أنشأ مجموعة المرفقات %{resource_name}"
+        delete: "%{user_name} حذف مجموعة المرفقات %{resource_name}"
+        update: "%{user_name} حدث مجموعة المرفقات %{resource_name}"
+      category:
+        create: "%{user_name} أضاف فئة %{resource_name} لمساحة %{space_name}"
+        delete: "%{user_name} حذف فئة %{resource_name} من مساحة %{space_name}"
+        update: "%{user_name} حدث فئة %{resource_name} في مساحة %{space_name}"
       component:
         create: "%{user_name} أضاف المكون %{resource_name} إلى الفضاء %{space_name}"
         delete: "%{user_name} إزالة المكون %{resource_name} من %{space_name} الفضاء"
+        export_component: "قام %{user_name} بتصدير %{resource_name} %{component_name} في %{space_name} ك %{format_name}"
         publish: "%{user_name} نشر المكون %{resource_name} في الفضاء %{space_name}"
         unpublish: "%{user_name} غير منشور المكون %{resource_name} من %{space_name} الفضاء"
+        update_permissions_with_space: "%{user_name} حدث أذونات %{resource_name} في %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} حدث قسم المساعدة %{resource_name}"
       helpers:
         answers: أجوبة
         comments: تعليقات
         projects: مشاريع
         results: نتائج
+      impersonation_log:
+        manage: "%{user_name} قام بإدارة %{resource_name} لأن %{reason}"
       moderation:
         hide: "%{user_name} اختبأ مورد من النوع %{resource_type} في الفضاء %{space_name}"
         unreport: "%{user_name} الإبلاغ عن مورد من النوع %{resource_type} في %{space_name} الفضاء"
@@ -169,8 +194,10 @@ ar:
         update: "%{user_name} بتحديث تطبيق %{resource_name} OAuth"
       organization:
         update: "قام %{user_name} بتحديث إعدادات المنظمة"
+        update_external_domain: "قام %{user_name} بتحديث النطاقات الخارجية للمنظمة external domains"
       participatory_space_private_user:
         create: "%{user_name} مدعو %{resource_name} ليكون مشاركًا خاصًا"
+        create_via_csv: "%{user_name} دعا %{resource_name} عبر CSV ليكون مشاركا خاصا"
         delete: "%{user_name} أزال المشارك %{resource_name} كمشارك خاص"
       scope:
         create: "%{user_name} خلق نطاق %{resource_name}"
@@ -179,19 +206,34 @@ ar:
         delete_with_parent: "%{user_name} حذف النطاق %{resource_name} داخل النطاق %{parent_scope}"
         update: "%{user_name} تحديث النطاق %{resource_name}"
         update_with_parent: "%{user_name} بتحديث النطاق %{resource_name} داخل النطاق %{parent_scope}"
+      scope_type:
+        create: "%{user_name} أنشأ نوع نطاق %{resource_name}"
+        delete: "%{user_name} حذف نوع نطاق %{resource_name}"
+        update: "%{user_name} حدث نوع نطاق %{resource_name}"
       static_page:
         create: "%{user_name} أنشأ الصفحة الثابتة %{resource_name}"
         delete: "%{user_name} حذف الصفحة الثابتة %{resource_name}"
         update: "%{user_name} تحديث الصفحة %{resource_name} ثابت"
       user:
+        block: "%{user_name} قام بحظر المستخدم %{resource_name}"
         invite: "%{user_name} دعا المشارك %{resource_name} مع الدور: %{role}"
         officialize: "%{user_name} رسمي للمشارك %{resource_name}"
+        promote: "%{user_name} قام بترقية %{resource_name}"
         remove_from_admin: "%{user_name} إزالة المشارك %{resource_name} مع الدور: %{role}"
+        show_email: "%{user_name} استرد البريد الالكتروني الخاص بالمشارك %{resource_name}"
+        transfer: "%{user_name} نقل المشارك %{resource_name}"
+        unblock: "%{user_name} رفع حظر المستخدم %{resource_name}"
         unofficialize: "%{user_name} غير رسمي المشارك %{resource_name}"
       user_group:
+        block: "%{user_name} حظر مجموعة المستخدم %{resource_name}"
         reject: "رفض %{user_name} التحقق من المجموعة %{resource_name}"
+        unblock: "%{user_name} رفع حظر مجموعة المستخدم %{resource_name}"
         verify: "%{user_name} التحقق من المجموعة %{resource_name}"
         verify_via_csv: "%{user_name} التحقق من المجموعة %{resource_name} عبر ملف CSV"
+      user_moderation:
+        unreport: "%{user_name} تراجع عن الإبلاغ عن %{resource_type} - %{unreported_user_name}"
+    alert:
+      dismiss: تجاهل الإشعار
     amendments:
       accepted:
         error: حدث خطأ أثناء قبول التعديل.
@@ -199,12 +241,15 @@ ar:
       amendable:
         amended_by: عدلت من قبل
         button: تعديل %{model_name}
+        error: طرأ خطأ خلال تصليح هذا المورد.
         help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
         promote_button: ترقية إلى صفة %{model_name}
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
+        promote_help_text: يمكنك الترويج لهذا التعديل ونشره كـ %{model_name} مستقل
         section_heading: التعديلات (%{count})
       compare_draft:
         continue: متابعة
+        no_similars_found: لم يتم العثور على أي تعديل مماثل.
       destroy_draft:
         success: تم حذف مسودة التعديل بنجاح.
       edit_draft:
@@ -343,7 +388,16 @@ ar:
     components:
       component_order_selector:
         order:
+          collaborative_draft: مسودة تعاونية مشتركة
+          comment: تعليق
+          debate: المناقشة
+          initiative: مبادرة
+          meeting: الاجتماع
+          order: تصويت الميزانية
+          post: منشور
+          proposal: اقتراح
           question: سؤال
+        title: 'عرض:'
       dummy:
         actions:
           bar: شريط
@@ -353,14 +407,18 @@ ar:
           global:
             amendments_enabled: تم تمكين التعديلات
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: الحد الأقصى لطول التعليقات
             dummy_global_attribute1: السمة الدمية 1
             dummy_global_attribute2: السمة الدمية 2
             dummy_global_translatable_text: نص افتراضي قابل للترجمة
             enable_pads_creation: تمكين إنشاء منصات
             resources_permissions_enabled: تم تمكين أذونات الموارد
+            scope_id: نطاق
+            scopes_enabled: النطاقات مفعلة
           step:
             amendment_creation_enabled: إنشاء التعديلات مُفعّلة
             amendment_promotion_enabled: ترقية التعديلات مُفعّلة
+            amendment_reaction_enabled: رد الفعل على التعديلات مُفعّلة
             amendments_visibility: طريقة عرض التعديلات
             comments_blocked: تم حظر التعليقات
             dummy_step_attribute1: الخطوة الدمية السمة 1
@@ -368,16 +426,27 @@ ar:
             dummy_step_translatable_text: نص افتراضي للخطوة قابل للترجمة
     contact: اتصل
     content_blocks:
+      cta:
+        name: زر الصورة، والنص والنداء من أجل العمل
       cta_settings_form:
+        background_image: الصورة الخلفية
+        button_text: نص الدعوة إلى العمل
+        button_url: رابط URL الدعوة إلى العمل
         description: الوصف
       footer_sub_hero:
         name: تذييل البطل الفرعي راية
       hero:
         name: صورة البطل
       hero_settings_form:
+        background_image: الصورة الخلفية
         welcome_text: نص الترحيب
       highlighted_content_banner:
         name: شعار المحتوى المميز
+      highlighted_elements_settings_form:
+        orders:
+          label: 'فرز العناصر حسب:'
+          random: عشوائي
+          recent: الأحدث
       how_to_participate:
         name: كيفية المشاركة
       html:
@@ -405,6 +474,7 @@ ar:
           email_already_exists: يستخدم حساب آخر عنوان البريد الإلكتروني نفسه
         new:
           complete_profile: الملف الشخصي الكامل
+          nickname_help: الاسم المستعار الخاص بك في %{organization}. يمكن أن يحتوي فقط على أحرف وأرقام '-' و '_'.
           sign_up: يرجى استكمال ملف التعريف الخاص بك
           subtitle: يرجى ملء النموذج التالي من أجل استكمال التسجيل
           username_help: الاسم العام الذي يظهر في مشاركاتك. بهدف ضمان عدم الكشف عن هويته ، يمكن أن يكون أي اسم.
@@ -413,6 +483,7 @@ ar:
           already_have_an_account?: هل لديك حساب؟
           newsletter: تلقي رسالة إخبارية من حين لآخر مع المعلومات ذات الصلة
           newsletter_title: الاتصال إذن
+          nickname_help: الاسم المستعار الخاص بك في %{organization}. يمكن أن يحتوي فقط على أحرف وأرقام، و '-' و '_'.
           sign_in: تسجيل الدخول
           sign_up: انشئ حسابًا
           sign_up_as:
@@ -428,11 +499,14 @@ ar:
           register: انشئ حساب
           sign_in_disabled: يمكنك الوصول باستخدام حساب خارجي
           sign_up_disabled: تم تعطيل التسجيل ، يمكنك استخدام حساب موجود للوصول
+        user:
+          timed_out: لقد كنت غير نشطاً لفترة طويلة للغاية وتم تسجيل خروجك تلقائياً من الخدمة. في حال تود مواصلة استخدام الخدمة يجب عليك إعادة تسجيل الدخول.
       shared:
         newsletter_modal:
           buttons:
             check: تحقق واستمر
             close_modal: إغلاق مشروط
+            uncheck: إبقاءه غير مختار
           notice: |-
             <p>مهلا ، هل أنت متأكد أنك لا تريد تلقي رسالة إخبارية؟<br>
             يرجى النظر مرة أخرى في تحديد خانة الاختيار النشرة الإخبارية أدناه.<br>
@@ -468,8 +542,18 @@ ar:
       show:
         download_data: قم بتنزيل البيانات
         request_data: طلب البيانات
+    editor_images:
+      create:
+        error: خطأ خلال تحميل الصورة
+        success: تم تحميل الصورة بنجاح
+      drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
     endorsable:
       endorsements: موافقات
+      endorsements_count: عد أصوات التأييدات
+    endorsements:
+      identities:
+        done: تم
+        select_identity: حدد الهوية
     errors:
       internal_server_error:
         title: كانت هناك مشكلة في الخادم الخاص بنا
