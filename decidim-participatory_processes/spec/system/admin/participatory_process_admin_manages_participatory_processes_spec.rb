@@ -5,7 +5,12 @@ require "spec_helper"
 describe "Participatory process admin manages participatory processes", type: :system do
   include_context "when admin administrating a participatory process"
 
+  let(:blocks_manifests) { [:hero, :main_data] }
+
   before do
+    blocks_manifests.each do |manifest_name|
+      create(:content_block, organization:, scope_name: :participatory_process_homepage, manifest_name:, scoped_resource_id: participatory_process.id)
+    end
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.participatory_processes_path
