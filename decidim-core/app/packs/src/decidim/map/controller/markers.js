@@ -43,7 +43,7 @@ export default class MapMarkersController extends MapController {
 
       $.tmpl(this.config.popupTemplateId, markerData).appendTo(node);
       marker.bindPopup(node, {
-        maxWidth: 640,
+        maxWidth: this.map.getSize().x,
         keepInView: true,
         closeButton: false
       }).openPopup();

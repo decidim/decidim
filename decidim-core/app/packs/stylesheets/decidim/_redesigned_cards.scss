@@ -101,7 +101,7 @@
     @apply mt-auto flex items-center justify-between text-sm text-gray-2 [&>*]:flex [&>*]:items-center [&>*]:gap-1 first:[&>*]:flex-none;
 
     svg{
-      @apply text-gray fill-current;
+      @apply flex-none text-gray fill-current;
     }
   }
 

@@ -10,7 +10,7 @@
     @apply border-tertiary focus:outline-none;
 
     &-metadata{
-      @apply gap-4 flex-nowrap;
+      @apply gap-1 md:gap-4 flex-wrap md:flex-nowrap;
     }
 
     &-metadata span{
