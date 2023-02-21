@@ -1,3 +1,5 @@
+<%#REDESIGN_PENDING_LINE_14: add a new condition to show modal when budget is exceeded.  %>
+
 <%= action_authorized_button_to "vote",
       budget_order_line_item_path(model.budget, project_id: model),
       method: vote_button_method,
@@ -9,12 +11,11 @@
         disable: true,
         budget: model.budget_amount,
         allocation: resource_allocation,
-        dialog_open: !resource_added? ? 'budget-excess-modal' : '',
+        dialog_open: !resource_added? ? '' : 'budget-excess',
         "redirect-url": resource_path
       },
       disabled: vote_button_disabled?,
       title: vote_button_label do %>
-  <%#REDESIGN_PENDING add locale %>
   <% if !resource_added? %>
     <span><%= t("add", scope: "decidim.budgets.projects.project_budget_button") %></span>
     <%= icon "add-fill", class: "inline-block" %>
