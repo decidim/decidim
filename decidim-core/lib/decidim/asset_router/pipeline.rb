@@ -28,6 +28,8 @@ module Decidim
       #   resolved, the asset path.
       def url(**options)
         path = ActionController::Base.helpers.asset_pack_path(asset, **options)
+        return path if path.match?(%r{\A(https?:)?//})
+
         "#{asset_host}#{path}"
       end
 
