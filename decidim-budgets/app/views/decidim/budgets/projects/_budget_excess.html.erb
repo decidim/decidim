@@ -1,15 +1,12 @@
-<%= decidim_modal id: "budget-excess-modal" do %>
-  <div class="form-defaults" id="budget-excess">
-    <h2 class="h2" data-dialog-title>
+<%= decidim_modal id: "budget-excess" do %>
+  <div data-dialog-container>
+    <%= icon "arrow-right-line" %>
+    <h3 class="h3" id="dialog-title-budget-excess" tabindex="-1" data-dialog-title>
       <%= current_order.projects_rule? ? t(".projects_excess.title") : t(".budget_excess.title") %>
-    </h2>
-    <div data-dialog-container>
-      <div class="form__wrapper gap-2">
-        <p><%= current_order.projects_rule? ? t(".projects_excess.description") : t(".budget_excess.description") %></p>
-      </div>
-    </div>
-    <div data-dialog-actions>
-      <button data-dialog-close="budget-excess-modal" class="button button__sm md:button__lg button__secondary"><%= t(".ok") %></button>
-    </div>
+    </h3>
+    <p id="dialog-desc-budget-excess"><%= current_order.projects_rule? ? t(".projects_excess.description") : t(".budget_excess.description") %></p>
+  </div>
+  <div data-dialog-actions>
+    <button data-dialog-close="budget-excess" class="button button__sm md:button__lg button__secondary"><%= t(".ok") %></button>
   </div>
 <% end %>
