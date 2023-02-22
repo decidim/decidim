@@ -268,6 +268,18 @@ es:
           minimum: Mínimo
           budget: Presupuesto
           assigned: Asignado
+          dynamic_help:
+            keep_adding_projects: Sigue añadiendo proyectos
+            minimum_reached: Has alcanzado el mínimo para poder votar
+            start_adding_projects: Empieza a añadir proyectos
+          minimum_projects_rule:
+            description: Selecciona como mínimo %{minimum_number} proyectos que desea y vote según sus preferencias para definir el presupuesto.
+          projects_rule:
+            description: Selecciona como mínimo %{minimum_number} y hasta %{maximum_number} projects you want and vote according to your preferences to define the budget.
+          projects_rule_maximum_only:
+            description: Selecciona como máximo %{maximum_number} proyectos que desea y vote según sus preferencias para definir el presupuesto.
+          vote_threshold_percent_rule:
+            description: Asigna al menos %{minimum_budget} a los proyectos que desea y vota según sus preferencias para definir el presupuesto.
         order_selected_projects:
           remove: Eliminar
           selected_projects:
