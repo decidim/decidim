@@ -81,8 +81,12 @@
     @apply justify-center flex flex-col w-1/4 bg-background p-8 bg-background font-bold text-gray-2 ml-auto;
   }
 
+  &__definition-project__title .ql-editor{
+    @apply text-4xl;
+  }
+
   &__definition-data__title{
-    @apply text-sm text-gray-2 mt-4 block;
+    @apply text-sm text-gray-2 mt-4 mb-2 block;
   }
 
   &__definition-data__number{
