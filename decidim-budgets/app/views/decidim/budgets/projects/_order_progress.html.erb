@@ -8,7 +8,7 @@
               <%= t("name", scope: "decidim.components.budgets") %>
             </span>
             /
-            <%= decidim_sanitize_editor translated_attribute project.title %>
+            <%= decidim_sanitize_editor translated_attribute budget.title %>
           </div>
         <% end %>
         <div class="budget-summary__progressbox" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
