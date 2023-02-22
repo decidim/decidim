@@ -18,8 +18,6 @@
   <%= render partial: "decidim/shared/component_announcement_with_truncate" %>
   <%= render partial: "exit_modal" %>
 
-  <%= cell("decidim/budgets/limit_announcement", budget) %>
-
   <div class="voting-wrapper">
     <div class="budget-summary__container">
       <% if component_settings.geocoding_enabled? %>
@@ -55,6 +53,8 @@
         <%= render partial: "budget_summary", locals: { include_heading: true } %>
       <% end %>
     </div>
+
+    <%= cell("decidim/budgets/limit_announcement", budget) %>
 
     <div class="row columns">
       <h2 class="section-heading">
