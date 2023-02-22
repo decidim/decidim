@@ -44,7 +44,7 @@ shared_examples_for "a new development application" do
     end
 
     # Check that important node modules were installed
-    expect(Pathname.new("#{test_app}/node_modules/@rails/webpacker")).to be_directory
+    expect(Pathname.new("#{test_app}/node_modules/shakapacker")).to be_directory
 
     # Check that the configuration tweaks are applied properly
     expect(File.read("#{test_app}/config/spring.rb")).to match(%r{^require "decidim/spring"})
