@@ -1573,6 +1573,10 @@ eu:
       too_short: laburregia da (gutxienez %{count} karaktere behar dira)
   forms:
     correct_errors: Akatsak daude galdetegian, mesedez, zuzendu jarraitu ahal izateko.
+    length_validator:
+      minimum:
+        one: Gutxienez %{count} karaktere
+        other: Gutxienez %{count} karaktere
     required: Nahitaezkoa da
     required_explanation: "Derrigorrezko eremuak * batez daude markatuta"
   invisible_captcha:
