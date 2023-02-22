@@ -5,25 +5,40 @@
   <% end %>
 <% end %>
 
-<div class="filter-container self-stretch">
+<%
+  types = [Decidim::Searchable.searchable_resources_of_type_participant, Decidim::Searchable.searchable_resources_of_type_participatory_space, Decidim::Searchable.searchable_resources_of_type_component, Decidim::Searchable.searchable_resources_of_type_comment]
+
+  blocks = types.map do |type|
+    @sections.select {|t, results| type.include?(t)}
+  end
+%>
+
+<div class="filter-container search__filter">
   <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
     <%= content_tag :span, t("decidim.searches.filters.jump_to"), class: "#{ 'is-active' if params.dig(:filter, :with_resource_type) == nil}" %>
-    <% @sections.each do |type, results| %>
-      <%= content_tag :span, class: "#{ 'is-active' if params.dig(:filter, :with_resource_type) == type}" do %>
-        <span><%= searchable_resource_human_name(type) %></span>
+    <% blocks.each do |elements| %>
+      <% elements.each do |type, results| %>
+        <%= content_tag :span, class: "#{ 'is-active' if params.dig(:filter, :with_resource_type) == type}" do %>
+          <span><%= searchable_resource_human_name(type) %></span>
+        <% end %>
       <% end %>
     <% end %>
     <%= icon "arrow-down-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
     <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
   </button>
   <ul id="dropdown-menu">
-    <% @sections.each do |type, results| %>
-      <li>
-        <%= link_to search_path_by_resource_type(type), class: "filter#{ ' is-active' if params.dig(:filter, :with_resource_type) == type}" do %>
-          <%= resource_type_icon(type) %>
-          <span><%= searchable_resource_human_name(type) %></span>
+    <% blocks.each do |elements| %>
+      <div>
+        <% elements.each do |type, results| %>
+          <li>
+            <%= link_to search_path_by_resource_type(type), class: "filter#{ ' is-active' if params.dig(:filter, :with_resource_type) == type}" do %>
+              <%= resource_type_icon(type) %>
+              <span><%= searchable_resource_human_name(type) %></span>
+              <span class="label ml-auto"><%= results[:count] %></span>
+            <% end %>
+          </li>
         <% end %>
-      </li>
+      </div>
     <% end %>
   </ul>
 </div>

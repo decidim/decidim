@@ -6,7 +6,8 @@
       id: "input-search",
       value: params[:term] || params.dig(:filter, :term),
       placeholder: t("decidim.search.term_input_placeholder"),
-      title: t("decidim.search.term_input_placeholder")
+      title: t("decidim.search.term_input_placeholder"),
+      "aria-label": t("decidim.search.term_input_placeholder")
     ) %>
     <button type="submit" aria-controls="results" aria-label="<%= t("decidim.search.term_input_placeholder") %>">
       <%= icon "search-line" %>
