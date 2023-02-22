@@ -11,7 +11,6 @@ shared_examples "comments_reports" do
       page.find(".comment__header details summary").click
       click_button "Report"
 
-
       expect(page).to have_css("#loginModal", visible: true)
     end
   end
