@@ -54,8 +54,8 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing 'past' processes" do
       before do
-        within ".order-by__tabs" do
-          click_link "Past"
+        within "#panel-dropdown-menu-date" do
+          click_filter_item "Past"
         end
       end
 
@@ -73,9 +73,10 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing 'upcoming' processes" do
       before do
-        within ".order-by__tabs" do
-          click_link "Upcoming"
+        within "#panel-dropdown-menu-date" do
+          click_filter_item "Upcoming"
         end
+        sleep 2
       end
 
       it "lists the upcoming processes ordered by start_date (ascendingly)" do
@@ -97,8 +98,8 @@ describe "Filter Participatory Processes", type: :system do
         past_process.update(title: { en: "Started 2 weeks ago" })
         past_process2.update(title: { en: "Started 3 weeks ago" }, start_date: 3.weeks.ago)
         allow(Time).to receive(:zone).and_return(time_zone)
-        within ".order-by__tabs" do
-          click_link "All"
+        within "#panel-dropdown-menu-date" do
+          click_filter_item "All"
         end
       end
 
@@ -140,7 +141,9 @@ describe "Filter Participatory Processes", type: :system do
 
     context "and choosing an area" do
       before do
-        select translated(area.name), from: "filter[with_area]"
+        within "#panel-dropdown-menu-area" do
+          click_filter_item translated(area.name)
+        end
       end
 
       it "lists all processes belonging to that area" do
@@ -234,8 +237,8 @@ describe "Filter Participatory Processes", type: :system do
           end
 
           it "only shows process types with active processes" do
-            within "#process-type-filter" do
-              click_button "All types"
+            within "#panel-dropdown-menu-type" do
+              click_filter_item "All types"
               expect(page).to have_content("Awesome Type")
               expect(page).to have_content("The East Type")
               expect(page).to have_content("The West Type")
@@ -248,8 +251,8 @@ describe "Filter Participatory Processes", type: :system do
 
         context "and choosing 'past' processes" do
           before do
-            within ".order-by__tabs" do
-              click_link "Past"
+            within "#panel-dropdown-menu-date" do
+              click_filter_item "Past"
             end
             sleep 2
           end
@@ -261,8 +264,8 @@ describe "Filter Participatory Processes", type: :system do
           end
 
           it "only shows process types with past processes" do
-            within "#process-type-filter" do
-              click_button "All types"
+            within "#panel-dropdown-menu-type" do
+              click_filter_item "All"
               expect(page).to have_no_content("Awesome Type")
               expect(page).to have_no_content("The East Type")
               expect(page).to have_no_content("The West Type")
@@ -275,9 +278,9 @@ describe "Filter Participatory Processes", type: :system do
 
         context "and filtering by a process type" do
           before do
-            within "#process-type-filter" do
-              click_button "All types"
-              click_link "The West Type"
+            within "#panel-dropdown-menu-type" do
+              click_filter_item "All"
+              click_filter_item "The West Type"
             end
             sleep 2
           end
@@ -336,4 +339,8 @@ describe "Filter Participatory Processes", type: :system do
       end
     end
   end
+end
+
+def click_filter_item(text)
+  find("label.filter", text:).click
 end
