@@ -7,9 +7,7 @@
   <%= stylesheet_pack_tag "decidim_forms", media: "all" %>
 <% end %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_forms" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_forms" %>
 
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
 
