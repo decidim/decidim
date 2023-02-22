@@ -1,10 +1,3 @@
-<% if params.dig(:filter, :with_resource_type).present? %>
-  <%= link_to main_search_path, class: "button button__sm button__text-secondary" do %>
-    <%= icon "arrow-left-line" %>
-    <span><%= t(".back") %></span>
-  <% end %>
-<% end %>
-
 <%
   types = [Decidim::Searchable.searchable_resources_of_type_participant, Decidim::Searchable.searchable_resources_of_type_participatory_space, Decidim::Searchable.searchable_resources_of_type_component, Decidim::Searchable.searchable_resources_of_type_comment]
 
@@ -27,14 +20,29 @@
     <%= icon "arrow-up-s-line", class: "w-8 h-8 flex-none text-secondary fill-current" %>
   </button>
   <ul id="dropdown-menu">
+    <li>
+      <%= link_to main_search_path, class: "filter#{ ' is-active' if params.dig(:filter, :with_resource_type) == nil}" do %>
+        <%= resource_type_icon("all") %>
+        <span><%= t("all", scope: "decidim.searches.filters.state") %></span>
+        <span class="label ml-auto"><%= @results_count %></span>
+      <% end %>
+    </li>
     <% blocks.each do |elements| %>
       <div>
         <% elements.each do |type, results| %>
           <li>
-            <%= link_to search_path_by_resource_type(type), class: "filter#{ ' is-active' if params.dig(:filter, :with_resource_type) == type}" do %>
-              <%= resource_type_icon(type) %>
-              <span><%= searchable_resource_human_name(type) %></span>
-              <span class="label ml-auto"><%= results[:count] %></span>
+            <% if results[:count].positive? %>
+              <%= link_to search_path_by_resource_type(type), class: "filter#{ ' is-active' if params.dig(:filter, :with_resource_type) == type}" do %>
+                <%= resource_type_icon(type) %>
+                <span><%= searchable_resource_human_name(type) %></span>
+                <span class="label ml-auto"><%= results[:count] %></span>
+              <% end %>
+            <% else %>
+              <%= content_tag :div, class: "filter#{ ' is-empty' if results[:count].zero? }" do %>
+                <%= resource_type_icon(type) %>
+                <span><%= searchable_resource_human_name(type) %></span>
+                <span class="label ml-auto"><%= results[:count] %></span>
+              <% end %>
             <% end %>
           </li>
         <% end %>
