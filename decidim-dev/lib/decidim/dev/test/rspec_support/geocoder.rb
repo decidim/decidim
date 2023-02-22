@@ -63,7 +63,7 @@ module Decidim::Map::Provider
 
       class Builder < Decidim::Map::Autocomplete::Builder
         def javascript_snippets
-          template.javascript_pack_tag("decidim_geocoding_provider_photon", defer: false)
+          template.append_javascript_pack_tag("decidim_geocoding_provider_photon")
         end
       end
     end
