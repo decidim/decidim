@@ -97,7 +97,7 @@ module Decidim
 
         GemfileEntry.version "shakapacker", "~> 6.5", "Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker"
       end
-      
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
