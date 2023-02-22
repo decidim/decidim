@@ -48,7 +48,7 @@ import "./delayed"
 import "./vizzs"
 import "./responsive_horizontal_tabs"
 import "./security/selfxss_warning"
-import "./session_timeouter"
+import "./redesigned_session_timeouter"
 import "./confirm"
 import "./results_listing"
 // import "./represent_user_group" -- deprecated
@@ -207,6 +207,9 @@ const initializer = (element = document) => {
         describedby: `dialog-desc-${dialog}`
       })
     });
+
+    // in order to use the Dialog object somewhere else
+    window.Decidim.currentDialogs = { ...window.Decidim.currentDialogs, [dialog]: modal }
 
     // NOTE: when a remote modal is open, the contents are empty
     // once they're in the DOM, we append the ARIA attributes
