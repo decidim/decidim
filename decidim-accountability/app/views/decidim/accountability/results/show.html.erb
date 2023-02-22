@@ -13,9 +13,7 @@ edit_link(
 )
 %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_accountability" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_accountability" %>
 
 <% content_for :css_content do %>
   <%= stylesheet_pack_tag "decidim_accountability", media: "all" %>
