@@ -13,9 +13,8 @@ module Decidim
 
           describe "#javascript_snippets" do
             it "returns the expected JavaScript assets" do
-              expect(subject.javascript_snippets).to match(
-                %r{<script src="/packs-test/js/decidim_geocoding_provider_photon(-[^.]*)?\.js"></script>}
-              )
+              expect(subject.send(:template)).to receive(:append_javascript_pack_tag).with("decidim_geocoding_provider_photon")
+              subject.javascript_snippets
             end
           end
         end

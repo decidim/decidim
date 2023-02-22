@@ -26,9 +26,8 @@ module Decidim
 
       describe "#javascript_snippets" do
         it "returns the expected JavaScript assets" do
-          expect(subject.javascript_snippets).to match(
-            %r{<script src="/packs-test/js/decidim_map_provider_default(-[^.]*)?\.js"></script>}
-          )
+          expect(subject.send(:template)).to receive(:append_javascript_pack_tag).with("decidim_map_provider_default")
+          subject.javascript_snippets
         end
       end
     end
