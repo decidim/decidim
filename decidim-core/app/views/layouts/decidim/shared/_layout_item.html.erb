@@ -2,7 +2,7 @@
   <div class="layout-2col-grid">
     <main>
       <% if local_assigns.has_key?(:back_path) %>
-        <%= link_to back_path, class: "layout-2col-grid__back" do %>
+        <%= link_to back_path, class: "layout-2col-grid__back button button__text-secondary" do %>
           <%= icon "arrow-left-line" %>
           <span><%= t("back", scope: "devise.shared.links") %></span>
         <% end %>

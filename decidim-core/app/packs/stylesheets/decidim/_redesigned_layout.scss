@@ -52,7 +52,7 @@
   @apply grid grid-cols-10 gap-12 md:gap-32 py-4 md:py-32 [&>main]:col-span-7 [&>aside]:col-span-3 [&>main]:relative;
 
   &__back{
-    @apply button button__sm button__text-secondary md:absolute md:-left-[1em] md:-top-8 md:-translate-y-full;
+    @apply md:absolute md:-left-[1em] md:-top-8 md:-translate-y-full;
   }
 
   &__arrow{
