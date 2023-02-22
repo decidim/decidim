@@ -71,6 +71,4 @@ edit_link(
 
 <%= comments_for project, polymorphic: [project.budget] %>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_budgets" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_budgets" %>
