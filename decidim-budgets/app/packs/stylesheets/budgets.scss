@@ -3,7 +3,7 @@
     @apply bg-tertiary py-4;
 
     &__cols{
-      @apply col-span-12 lg:col-start-2 ;
+      @apply col-span-12 lg:col-start-2;
     }
 
     &__container{
@@ -15,7 +15,19 @@
     }
 
     &__content{
-      @apply grid grid-cols-[70%_30%];
+      @apply grid grid-cols-[70%_30%] items-center;
+    }
+
+    &__content__header{
+      @apply col-span-2 text-2xl mb-2;
+
+      .ql-editor{
+        @apply inline-block text-2xl;
+      }
+    }
+
+    &__content__header--title{
+      @apply font-semibold;
     }
 
     &__progressbar{

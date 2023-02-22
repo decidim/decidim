@@ -2,6 +2,15 @@
   <div class="layout-1col pt-8">
     <div class="budget-summary__cols">
       <div class="budget-summary__content">
+        <% if budget_project %>
+          <div class="budget-summary__content__header">
+            <span class="budget-summary__content__header--title">
+              <%= t("name", scope: "decidim.components.budgets") %>
+            </span>
+            /
+            <%= decidim_sanitize_editor translated_attribute project.title %>
+          </div>
+        <% end %>
         <div class="budget-summary__progressbox" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
           <% if include_heading && !current_order_checked_out? %>
           <p>
