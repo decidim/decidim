@@ -1,6 +1,6 @@
 .budget{
   &-summary{
-    @apply bg-tertiary py-4;
+    @apply bg-tertiary;
 
     &__cols{
       @apply col-span-12 lg:col-start-2;
