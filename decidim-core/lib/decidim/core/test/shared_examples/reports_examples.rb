@@ -16,9 +16,9 @@ shared_examples "logged in user reports content" do
           page.find("button").click
         end
 
-        expect(page).to have_css(".flag-modal", visible: :visible)
+        expect(page).to have_css(".modal__report", visible: :visible)
 
-        within ".flag-modal" do
+        within ".modal__report" do
           click_button "Report"
         end
 
@@ -54,9 +54,9 @@ shared_examples "higher user role hides" do
         page.find("button").click
       end
 
-      expect(page).to have_css(".flag-modal", visible: :visible)
+      expect(page).to have_css(".modal__report", visible: :visible)
 
-      within ".flag-modal" do
+      within ".modal__report" do
         find(:css, "input[name='report[hide]']").set(true)
         click_button "Hide"
       end
@@ -81,9 +81,9 @@ shared_examples "higher user role does not have hide" do
         page.find("button").click
       end
 
-      expect(page).to have_css(".flag-modal", visible: :visible)
+      expect(page).to have_css(".modal__report", visible: :visible)
 
-      within ".flag-modal" do
+      within ".modal__report" do
         expect(page).not_to have_selector "input[name='report[hide]']"
       end
     end
@@ -121,7 +121,7 @@ shared_examples "reports" do
         page.find("button").click
       end
 
-      expect(page).to have_css(".flag-modal", visible: :visible)
+      expect(page).to have_css(".modal__report", visible: :visible)
 
       expect(page).to have_content "already reported"
     end

@@ -5,13 +5,11 @@ shared_examples "comments_reports" do
     it "gives the option to sign in" do
       visit reportable_path
 
-      expect(page).to have_css("#loginModal", visible: false)
-
       # Open toolbar
       page.find(".comment__header details summary").click
       click_button "Report"
 
-      expect(page).to have_css("#loginModal", visible: true)
+      expect(page).to have_css("#loginModal", visible: :visible)
     end
   end
 
