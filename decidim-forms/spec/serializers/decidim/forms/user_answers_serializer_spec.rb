@@ -158,10 +158,8 @@ module Decidim
 
           before do
             users.each do |user|
-              answers << [].tap do |user_answers|
-                questions.map do |question|
-                  user_answers << create(:answer, questionnaire:, question:, user:)
-                end
+              questions.each do |question|
+                create(:answer, questionnaire:, question:, user:)
               end
             end
           end
