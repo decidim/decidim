@@ -2,7 +2,7 @@
   <div data-dialog-container>
     <%= icon "newspaper-line" %>
     <h2 id="dialog-title-sign-up-newsletter-modal" data-dialog-title><%= t(".title") %></h2>
-    <div class="row">
+    <div id="dialog-desc-sign-up-newsletter-modal" class="space-y-4">
       <%= t(".notice").html_safe %>
     </div>
   </div>
@@ -10,7 +10,6 @@
     <button class="button button__sm md:button__lg button__transparent-secondary" data-check="false">
       <%= t(".buttons.uncheck") %>
     </button>
-
     <button class="button button__sm md:button__lg button__secondary" data-check="true">
       <%= t(".buttons.check") %>
     </button>
