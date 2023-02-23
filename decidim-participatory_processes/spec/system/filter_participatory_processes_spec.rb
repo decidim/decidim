@@ -344,7 +344,3 @@ describe "Filter Participatory Processes", type: :system do
     end
   end
 end
-
-def click_filter_item(text)
-  find("label.filter", text:).click
-end

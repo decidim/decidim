@@ -608,7 +608,3 @@ describe "Explore meetings", :slow, type: :system do
     end
   end
 end
-
-def click_filter_item(text)
-  find("div.filter", text:).click
-end
