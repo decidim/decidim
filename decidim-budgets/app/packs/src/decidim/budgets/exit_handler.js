@@ -66,7 +66,7 @@ $(() => {
 
     $exitLink.attr("href", url);
     $exitLink.html(exitLinkText);
-    $exitNotification.foundation("open");
+    window.Decidim.currentDialogs["exit-notification"].open();
   };
 
   $(document).on("click", "a", (event) => {
