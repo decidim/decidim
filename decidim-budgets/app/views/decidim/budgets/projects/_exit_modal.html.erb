@@ -1,6 +1,7 @@
 <% if current_user && current_component.current_settings.votes == "enabled" && !current_workflow.voted?(budget) %>
   <%= decidim_modal id: "exit-notification" do %>
     <div data-dialog-container>
+      <%= icon "information-line" %>
       <h3 class="h3" id="dialog-title-exit-notification" tabindex="-1" data-dialog-title>
         <%= current_order.projects_rule? ? t("title", scope: "decidim.budgets.projects.budget_excess.projects_excess") : t("title", scope: "decidim.budgets.projects.budget_excess.budget_excess") %>
       </h3>

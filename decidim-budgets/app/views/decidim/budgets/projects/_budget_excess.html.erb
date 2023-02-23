@@ -1,6 +1,6 @@
 <%= decidim_modal id: "budget-excess" do %>
   <div data-dialog-container>
-    <%= icon "arrow-right-line" %>
+    <%= icon "error-warning-line" %>
     <h3 class="h3" id="dialog-title-budget-excess" tabindex="-1" data-dialog-title>
       <%= current_order.projects_rule? ? t(".projects_excess.title") : t(".budget_excess.title") %>
     </h3>
