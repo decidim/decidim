@@ -397,8 +397,6 @@ en:
           all: All
         filter_meeting_space_values:
           all: All
-        filter_scope_values:
-          all: All
       calendar_modal:
         calendar_url: Calendar URL
         copy_calendar_url: Copy
