@@ -21,7 +21,6 @@
               <span class="card__text--status text-muted"><%= t(".not_created") %></span>
               <%= t(".creation_description.not_created") %>
             </span>
-            <span>
             <span class="election-created hide">
               <span class="card__text--status success"><%= t(".complete") %></span>
               <%= t(".creation_description.complete") %>
@@ -179,6 +178,4 @@
   </div>
 </div>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_elections_election_log" %>
-<% end %>
+<%= append_javascript_pack_tag "decidim_elections_election_log" %>
