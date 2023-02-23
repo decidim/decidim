@@ -7,6 +7,7 @@ describe "Participatory Process Steps", type: :system do
   let!(:participatory_process) do
     create(
       :participatory_process,
+      :with_content_blocks,
       organization:,
       description: { en: "Description", ca: "Descripció", es: "Descripción" },
       short_description: { en: "Short description", ca: "Descripció curta", es: "Descripción corta" }
@@ -41,14 +42,11 @@ describe "Participatory Process Steps", type: :system do
       end
     end
 
-    it "does not show a CTA button" do
-      # REDESIGN_PENDING - The CTA is ignored in the redesign. Remove this
-      # test if it's correct
+    it "does not show a CTA button in the process hero content block" do
+      visit decidim_participatory_processes.participatory_process_path(participatory_process)
 
-      visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
-
-      within ".process-header__phase" do
-        expect(page).to have_no_css(".process-header__button")
+      within "[data-process-hero]" do
+        expect(page).to have_no_css("[data-cta]")
       end
     end
 
@@ -57,13 +55,10 @@ describe "Participatory Process Steps", type: :system do
         participatory_process.steps.first.update!(cta_path: "my_path", cta_text: { en: "Take action!" })
       end
 
-      it "shows a CTA button" do
-        # REDESIGN_PENDING - The CTA is ignored in the redesign. Remove this
-        # test if it's correct
+      it "shows a CTA button in the process hero content block" do
+        visit decidim_participatory_processes.participatory_process_path(participatory_process)
 
-        visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
-
-        within ".process-header__phase" do
+        within "[data-process-hero]" do
           expect(page).to have_link("Take action!")
         end
       end
