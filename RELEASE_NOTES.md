@@ -37,6 +37,53 @@ You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generat
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
+### 3.2 Change Webpacker to Shakapacker
+
+Since the Rails team has retired the Webpacker in favour or importmap-rails or js-bundling, we got ouserlves in a situation where performance improvements could not be performed.
+In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
+
+In order to perform the update, you will need to make sure that you do not have webpacker in your Gemfile.
+If you have it, please remove it, or change it to
+```
+gem "shakapacker", "~> 6.5"
+```
+
+Please backup the following files, to make sure that you save any customizations you may have done to webpacker:
+```
+config/webpacker.yml
+config/webpack/*
+package.json
+postcss.config.js
+```
+
+After you have performed the backup, make sure you run:
+```
+bundle update decidim
+bin/rails decidim:upgrade
+bin/rails db:migrate
+```
+
+Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
+```
+bundle exec rake decidim:webpacker:install
+```
+This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
+
+#### Note for development
+
+Compiling the JS and CSS at the runtime is a very slow process. Additionally, compiling JS and CSS in the test suite will cause your pipeline to timeout.
+To avoid that, you could export the following env variable:
+```
+export WEBPACKER_RUNTIME_COMPILE="false"
+```
+Then use the command to watch and compile the javascript and css upon changes:
+
+```
+bundle exec bin/webpacker-dev-server
+```
+
+You can read more about this change on PR [\#10389](https://github.com/decidim/decidim/pull/10389).
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
