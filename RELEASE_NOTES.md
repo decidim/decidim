@@ -44,12 +44,14 @@ In order to continue having support for Webpacker like syntax, we have switched 
 
 In order to perform the update, you will need to make sure that you do not have webpacker in your Gemfile.
 If you have it, please remove it, or change it to
-```
+
+```ruby
 gem "shakapacker", "~> 6.5"
 ```
 
 Please backup the following files, to make sure that you save any customizations you may have done to webpacker:
-```
+
+```console
 config/webpacker.yml
 config/webpack/*
 package.json
@@ -57,28 +59,33 @@ postcss.config.js
 ```
 
 After you have performed the backup, make sure you run:
-```
+
+```console
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
 ```
 
 Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
-```
+
+```console
 bundle exec rake decidim:webpacker:install
 ```
+
 This will make the necessary changes in the `config/webpacker.yml`, but also in the `config/webpack/` folder.
 
 #### Note for development
 
 Compiling the JS and CSS at the runtime is a very slow process. Additionally, compiling JS and CSS in the test suite will cause your pipeline to timeout.
 To avoid that, you could export the following env variable:
-```
+
+```console
 export WEBPACKER_RUNTIME_COMPILE="false"
 ```
+
 Then use the command to watch and compile the javascript and css upon changes:
 
-```
+```console
 bundle exec bin/webpacker-dev-server
 ```
 
