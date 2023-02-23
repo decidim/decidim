@@ -478,7 +478,7 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_content(date.day)
       end
       within ".meeting__calendar-time" do
-        expect(page).to have_content("00:00 - 23:59")
+        expect(page).to have_content(/00:00\s-\s23:59/)
       end
     end
 
