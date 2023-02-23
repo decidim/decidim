@@ -20,10 +20,6 @@
   .cols-10{
     @apply col-span-12 lg:col-start-2 lg:col-span-10;
   }
-
-  .cols-12{
-    @apply col-span-12;
-  }
 }
 
 .layout-2col{
