@@ -35,4 +35,8 @@ RSpec.configure do |config|
 
   config.include ActionView::Helpers::SanitizeHelper
   config.include ERB::Util
+
+  config.before :all, type: :system do
+    ActiveStorage.service_urls_expire_in = 24.hours
+  end
 end
