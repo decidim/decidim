@@ -33,7 +33,7 @@
       <%= t("cancel", scope: "decidim.budgets.projects.budget_confirm") %>
     </button>
 
-    <%= link_to checkout_budget_order_path(budget),class: "button button__sm md:button__lg button__secondary" do %>
+    <%= button_to checkout_budget_order_path(budget), class: "button button__sm md:button__lg button__secondary", data: { disable: true } do %>
       <span>
         <%= t("confirm", scope: "decidim.budgets.projects.budget_confirm") %>
       </span>
