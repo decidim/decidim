@@ -197,7 +197,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
+    %w(en bg ar ca cs da de el eo es es-MX es-PY et eu fa fi-pl fi fr fr-CA ga gl hr hu id is it ja ko lb lt lv mt nl no pl pt pt-BR ro ru sk sl sr sv tr uk vi zh-CN zh-TW)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -481,6 +481,11 @@ module Decidim
     []
   end
 
+  # Ignores strings similar to email / domain on password validation if too short
+  config_accessor :password_similarity_length do
+    4
+  end
+
   # Defines if admins are required to have stronger passwords than other users
   config_accessor :admin_password_strong do
     true
@@ -508,6 +513,11 @@ module Decidim
   # Enable/Disable the service worker
   config_accessor :service_worker_enabled do
     Rails.env.exclude?("development")
+  end
+
+  # List of static pages' slugs that can include content blocks
+  config_accessor :page_blocks do
+    %w(terms-and-conditions)
   end
 
   # Public: Registers a global engine. This method is intended to be used

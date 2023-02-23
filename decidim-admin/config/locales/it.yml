@@ -478,6 +478,7 @@ it:
         area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
         configuration: Configurazione
+        content: Contenuto
         dashboard: Cruscotto (Dashboard)
         external_domain_whitelist: Consenti l'uso di domini esterni
         help_sections: Sezioni di Aiuto
@@ -486,7 +487,7 @@ it:
         moderation: Moderazione globale
         newsletters: Newsletters
         participants: Partecipanti
-        reported_users: Utenti Segnalati
+        reported_users: Partecipanti segnalati
         scope_types: Tipi di ambito
         scopes: Ambito tematico
         settings: Impostazioni
@@ -585,7 +586,7 @@ it:
           nickname: Nickname
           reason: Motivazione
           reports: Numero di segnalazioni
-          title: Elencando gli utenti segnalati
+          title: Lista dei partecipanti
         report:
           reasons:
             does_not_belong: Non appartiene
@@ -766,9 +767,6 @@ it:
         edit:
           active_content_blocks: Blocchi di contenuto attivo
           inactive_content_blocks: Blocchi di contenuto inattivo
-      organization_homepage_content_blocks:
-        edit:
-          update: Aggiornare
       participatory_space_private_users:
         create:
           error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
@@ -991,13 +989,10 @@ it:
       models:
         moderation:
           fields:
-            created_at: Data di creazione
             hidden_at: Nascosto a
             participatory_space: Spazio partecipativo
-            report_count: Conteggio
             reportable_type: Tipo
             reported_content_url: URL del contenuto riportato
-            reports: Report
             visit_url: Visita URL
         report:
           fields:
@@ -1011,7 +1006,7 @@ it:
     decidim:
       admin:
         global_moderations:
-          title: Moderazione globale
+          title: Moderazione dei contenuti
         newsletters:
           title: Newsletters
         settings:

@@ -486,7 +486,6 @@ pt:
         moderation: Moderações globais
         newsletters: Boletins informativos
         participants: Participantes
-        reported_users: Utilizadores denunciados
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -585,7 +584,6 @@ pt:
           nickname: Alcunha
           reason: Motivo
           reports: Contagem de denúncias
-          title: A listar utilizadores denunciados
         report:
           reasons:
             does_not_belong: Não pertence
@@ -766,9 +764,6 @@ pt:
         edit:
           active_content_blocks: Blocos de conteúdo activos
           inactive_content_blocks: Blocos de conteúdo inactivos
-      organization_homepage_content_blocks:
-        edit:
-          update: Atualizar
       participatory_space_private_users:
         create:
           error: Ocorreu um problema ao adicionar um participante privado neste espaço participativo.
@@ -986,13 +981,10 @@ pt:
       models:
         moderation:
           fields:
-            created_at: Data de criação
             hidden_at: Escondido em
             participatory_space: Espaço participativo
-            report_count: Contagem
             reportable_type: Tipo
             reported_content_url: URL de conteúdo reportado
-            reports: Relatórios
             visit_url: URL de visita
         report:
           fields:
@@ -1005,8 +997,6 @@ pt:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderações globais
         newsletters:
           title: Boletins Informativos
         settings:

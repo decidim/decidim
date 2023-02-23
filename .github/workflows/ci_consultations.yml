@@ -23,11 +23,16 @@ env:
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-consultations
   PARALLEL_TEST_PROCESSORS: 2
+  CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   main:
     name: Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
@@ -66,8 +71,12 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - run: ./.github/upload_coverage.sh $DECIDIM_MODULE $GITHUB_EVENT_PATH
+      - uses: codecov/codecov-action@v3
         name: Upload coverage
+        with:
+          token: ${{ env.CODECOV_TOKEN }}
+          name: ${{ env.DECIDIM_MODULE }}
+          flags: ${{ env.DECIDIM_MODULE }}
       - uses: actions/upload-artifact@v2
         if: always()
         with:

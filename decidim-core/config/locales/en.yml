@@ -247,7 +247,9 @@ en:
         unblock: "%{user_name} unblocked user %{resource_name}"
         unofficialize: "%{user_name} unofficialized the participant %{resource_name}"
       user_group:
+        block: "%{user_name} blocked user group %{resource_name}"
         reject: "%{user_name} rejected the %{resource_name} group verification"
+        unblock: "%{user_name} unblocked user group %{resource_name}"
         verify: "%{user_name} verified the group %{resource_name}"
         verify_via_csv: "%{user_name} verified the group %{resource_name} via a CSV file"
       user_moderation:
@@ -337,16 +339,15 @@ en:
           '4': Publish your amendment
     anonymous_user: Anonymous
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documents
       document:
         download: Download file
       documents:
         related_documents: Related documents
       geocoding:
         geocoded_address: Address
+      photo:
+        alt: Media picture
+        title: Image
       photos:
         related_photos: Related images
     author:
@@ -387,13 +388,13 @@ en:
           foo: Foo
         name: Foo authorization
       granted_at: Granted at %{timestamp}
-      renew: Renew verification
       sms:
         explanation: Submit your mobile phone number so we can check your identity.
         name: Code by SMS
       started_at: Started at %{timestamp}
     authorization_modals:
       content:
+        close_modal: Close modal
         expired:
           authorize: Reauthorize with "%{authorization}"
           explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
@@ -424,8 +425,6 @@ en:
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
-      show:
-        close_modal: Close modal
     block_user_mailer:
       notify:
         body_1: Your account was blocked.
@@ -515,9 +514,16 @@ en:
       metrics:
         name: Organization metrics
       static_page:
+        section:
+          name: Section
+          section_content: Content
         summary:
           name: Summary
           summary_content: Content
+        two_pane_section:
+          left_column: Left column
+          name: Two-pane section
+          right_column: Right column
       stats:
         name: Organization statistics
       sub_hero:
@@ -612,14 +618,13 @@ en:
       endorsements: Endorsements
       endorsements_count: Endorsements count
     endorsement_buttons_cell:
-      already_endorsed: Endorsed
-      endorse: Endorse
+      already_endorsed: Dislike
+      endorse: Like
     endorsements:
       identities:
         done: Done
         select_identity: Select identity
     endorsers_list:
-      close: Close
       endorsed_by: Liked by…
     errors:
       internal_server_error:
@@ -1003,7 +1008,6 @@ en:
         body_1: You are about to visit an external link and we would like you to be cautious regarding the content on the external site.
         body_2: Please check the link you are about to visit and make sure you recognize it as a safe site before proceeding.
         cancel: Cancel
-        close_modal: Close modal
         proceed: Proceed
         title: Open external link
     log:
@@ -1012,8 +1016,10 @@ en:
         create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
         delete: "%{user_name} deleted %{resource_name}"
         delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        publish_with_space: "%{user_name} published %{resource_name} in %{space_name}"
         unknown_action: "%{user_name} performed some action on %{resource_name}"
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
+        unpublish_with_space: "%{user_name} unpublished %{resource_name} from %{space_name}"
         update: "%{user_name} updated %{resource_name}"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
@@ -1129,7 +1135,7 @@ en:
       newsletter:
         no_reply_notice: This email was sent from a notification email address that cannot accept incoming email. Please do not reply to this message.
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
-        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
+        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank" class="see-on-website">website</a>.
         unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
     newsletter_templates:
       basic_only_text:
@@ -1419,11 +1425,14 @@ en:
         close: Close
         description: Is this content inappropriate?
         does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        hide: Hide
+        hide_content: Hide this content
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         reason: Reason
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report inappropriate content
+        visit_profile: If you want to also block the participant and the rest of its contents, go to %{user_link} profile page.
       flag_user_modal:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
@@ -1450,6 +1459,9 @@ en:
           select_an_area: Select an area
       public_participation:
         public_participation: Show my attendance publicly
+      redesigned_login_modal:
+        please_sign_in: Please sign in
+        sign_up: Sign up
       reference:
         reference: 'Reference: %{reference}'
       represent_user_group:
@@ -1485,7 +1497,7 @@ en:
       show_translated: Show automatically-translated text
     user_activity:
       index:
-        no_activities_warning: This participant hasn't had any activity yet.
+        no_activities_warning: This participant does not have any activity yet.
     user_contact_disabled: This participant does not accept direct messages.
     user_conversations:
       create:
@@ -1939,6 +1951,7 @@ en:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

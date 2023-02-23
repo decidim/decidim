@@ -477,7 +477,6 @@ el:
         moderation: Καθολικές εποπτεύσεις
         newsletters: Ενημερωτικά δελτία
         participants: Συμμετέχοντες
-        reported_users: Αναφερόμενοι χρήστες
         scope_types: Τύποι πεδίου εφαρμογής
         scopes: Πεδία εφαρμογής
         settings: Ρυθμίσεις
@@ -576,7 +575,6 @@ el:
           nickname: Ψευδώνυμο
           reason: Αιτία
           reports: Πλήθος αναφορών
-          title: Λίστα αναφερόμενων χρηστών
         report:
           reasons:
             does_not_belong: Δεν ανήκει
@@ -757,9 +755,6 @@ el:
         edit:
           active_content_blocks: Ενεργά μπλοκ περιεχομένου
           inactive_content_blocks: Ανενεργά μπλοκ περιεχομένου
-      organization_homepage_content_blocks:
-        edit:
-          update: Ενημέρωση
       participatory_space_private_users:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός ιδιωτικού συμμετέχοντα για αυτόν τον χώρο συμμετοχής.
@@ -977,13 +972,10 @@ el:
       models:
         moderation:
           fields:
-            created_at: Ημερομηνία δημιουργίας
             hidden_at: Αποκρύφτηκε στις
             participatory_space: Συμμετοχικός χώρος
-            report_count: Πλήθος
             reportable_type: Τύπος
             reported_content_url: Διεύθυνση URL περιεχομένου που έχει αναφερθεί
-            reports: Αναφορές
             visit_url: Διεύθυνση URL επίσκεψης
         report:
           fields:
@@ -996,8 +988,6 @@ el:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Καθολικές εποπτεύσεις
         newsletters:
           title: Ενημερωτικά δελτία
         settings:

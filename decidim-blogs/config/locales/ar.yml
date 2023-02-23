@@ -1,5 +1,11 @@
 ar:
   activemodel:
+    attributes:
+      post:
+        body: النص
+        decidim_author_id: المؤلف
+        published_at: موعد النشر
+        title: العنوان
     models:
       decidim/blogs/create_post_event: بلوق وظيفة جديدة
   activerecord:
@@ -22,8 +28,6 @@ ar:
         title: أفعال
       admin:
         models:
-          components:
-            body: الجسم
           post:
             name: بريد
         posts:
@@ -36,6 +40,7 @@ ar:
             save: تحديث
             title: تعديل المنشور
           index:
+            not_published_yet: لم يتم النشر بعد
             title: المشاركات
           new:
             create: إنشاء
@@ -43,21 +48,31 @@ ar:
           update:
             invalid: حدثت مشكلة في حفظ المشاركة.
             success: تم حفظ النشر بنجاح
+      admin_log:
+        post:
+          create: "%{user_name} أنشأ منشور المدونة %{resource_name} في %{space_name}"
+          delete: "%{user_name} حذف منشور المدونة%{resource_name} من %{space_name}"
+          update: "%{user_name} حدث منشور المدونة %{resource_name} في %{space_name}"
+      last_activity:
+        new_post: 'منشور جديد:'
       models:
         post:
           fields:
             author: مؤلف
             body: الجسم
-            title: عنوان
+            official_blog_post: المنشور الرسمي
+            published_at: موعد النشر
+            title: العنوان
       posts:
         show:
-          comments: التعليقات
           view: رأي
     components:
       blogs:
         actions:
+          comment: التعليق
           create: إنشاء
           destroy: حذف
+          endorse: تأييد
           update: تحديث
         name: مدونة
         settings:

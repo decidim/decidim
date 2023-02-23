@@ -484,7 +484,6 @@ lb:
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
-        reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -583,7 +582,6 @@ lb:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
-          title: Liste der gemeldeten Benutzer
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -764,9 +762,6 @@ lb:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
           inactive_content_blocks: Inaktive Inhaltsblöcke
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualisieren
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -984,13 +979,10 @@ lb:
       models:
         moderation:
           fields:
-            created_at: Erstellungsdatum
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
-            report_count: Anzahl
             reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
-            reports: Berichte
             visit_url: Besuchs-URL
         report:
           fields:
@@ -1003,8 +995,6 @@ lb:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:

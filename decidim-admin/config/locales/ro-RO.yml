@@ -14,17 +14,24 @@ ro:
         description: Descriere
         file: Fişier
         title: Numele fișierului sau al imaginii atașate
+        weight: Poziție
       attachment_collection:
         description: Descriere
         name: Nume
+        weight: Poziție
       category:
         description: Descriere
         name: Nume
         parent_id: Categoria mamă
+        weight: Poziție
       component:
         name: Nume
         published_at: Publicat în
-        weight: Ordinea în poziționare
+        weight: Poziție
+      external_domain:
+        value: Valoare
+      help_section:
+        content: Conținut
       id: ID
       import:
         user_group_id: Creează importuri ca
@@ -92,6 +99,9 @@ ro:
         welcome_notification_body: Conținutul notificării de bun venit
         welcome_notification_subject: Subiectul notificării de bun venit
         youtube_handler: Responsabil YouTube
+      participatory_space_private_user:
+        email: E-mail
+        name: Nume
       scope:
         code: Cod
         name: Nume
@@ -113,12 +123,13 @@ ro:
         show_in_footer: Afișează în subsol
         slug: URL slug
         title: Titlu
-        weight: Ordinea în poziționare
+        topic_id: Subiect
+        weight: Poziție
       static_page_topic:
         description: Descriere
         show_in_footer: Afișează în subsol
         title: Titlu
-        weight: Ordinea în poziționare
+        weight: Poziție
       user_group_csv_verification:
         file: Fişier
     errors:
@@ -350,6 +361,8 @@ ro:
         'true': 'Da'
         user_name: Utilizator
       dashboard:
+        pending_moderations:
+          title: Moderări în așteptare
         show:
           view_more_logs: Afișează mai multe înregistrări
           welcome: Bine ați venit în Panoul de administrare.
@@ -544,6 +557,7 @@ ro:
         area_types: Tipuri de zone
         areas: Zone
         configuration: Configurare
+        content: Conținut
         dashboard: Panou de administrare
         external_domain_whitelist: Domenii externe permise
         help_sections: Secțiuni de ajutor
@@ -552,7 +566,6 @@ ro:
         moderation: Moderări globale
         newsletters: Buletine informative
         participants: Participanți
-        reported_users: Utilizatori raportați
         scope_types: Tipuri de domenii
         scopes: Domenii de interes
         settings: Setări
@@ -637,6 +650,7 @@ ro:
             created_at: Creat la
             document_number: Număr document
             name: Nume
+            nickname: Pseudonim
             phone: Telefon
             state: Stadiu
             users_count: Numărul de participanți
@@ -651,7 +665,7 @@ ro:
           nickname: Pseudonim
           reason: Motiv
           reports: Număr de raportări
-          title: Listarea utilizatorilor raportați
+          title: Listarea participanţilor
         report:
           reasons:
             does_not_belong: Nu aparține
@@ -830,12 +844,21 @@ ro:
           add: Adaugă la lista albă
           title: Lista albă pentru domenii externe
       organization_homepage:
+        content_blocks:
+          create:
+            error: A apărut o problemă la crearea acestui bloc de conținut
+            success: Bloc de conținut creat cu succes
+          destroy:
+            error: A apărut o eroare la ștergerea acestui bloc de conținut
+            success: Bloc de conținut șters cu succes
+          edit:
+            update: Actualizare
         edit:
           active_content_blocks: Blocuri de conținut active
+          add: Adaugă bloc de conținut
+          destroy_confirmation: Sunteţi sigur că doriţi să ştergeţi acest bloc de conţinut?
           inactive_content_blocks: Blocuri de conținut inactive
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualizează
+          title: Conţinutul paginii
       participatory_space_private_users:
         create:
           error: A apărut o problemă la adăugarea unui participant privat pentru acest spațiu participativ.
@@ -948,6 +971,20 @@ ro:
       static_pages:
         actions:
           view: Vezi pagina publică
+        content_blocks:
+          active_content_blocks: Blocuri de conținut active
+          add: Adaugă conținut de bloc
+          create:
+            error: A apărut o problemă la crearea acestui bloc de conținut
+            success: Blocul de conținut creat cu succes
+          destroy:
+            error: A apărut o eroare la ștergerea acestui bloc de conținut
+            success: Bloc de conținut șters cu succes
+          destroy_confirmation: Sunteţi sigur că doriţi să ştergeţi acest bloc de conţinut?
+          edit:
+            update: Actualizare
+          inactive_content_blocks: Blocuri de conținut inactive
+          title: Conţinutul paginii
         create:
           error: A apărut o eroare la crearea unei pagini noi.
           success: Pagina a fost creată cu succes.
@@ -1073,14 +1110,15 @@ ro:
       models:
         moderation:
           fields:
-            created_at: Data creării
+            created_at: Raportat la
             deleted_resource: Resursă ștersă
             hidden_at: Ascuns la
             participatory_space: Spațiu participativ
-            report_count: Număr
+            report_count: Număr de raportări
+            reportable_id: ID
             reportable_type: Tip
             reported_content_url: URL-ul conținutului raportat
-            reports: Rapoarte
+            reports: Motiv
             visit_url: Vizitaţi URL-ul
         report:
           fields:
@@ -1094,7 +1132,7 @@ ro:
     decidim:
       admin:
         global_moderations:
-          title: Moderare globală
+          title: Moderări de conținut
         newsletters:
           title: Buletine informative
         settings:

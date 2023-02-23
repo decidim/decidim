@@ -562,9 +562,6 @@ sk:
         edit:
           active_content_blocks: Bloky aktívneho obsahu
           inactive_content_blocks: Bloky neaktívneho obsahu
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualizovať
       participatory_space_private_users:
         create:
           error: Pri pridávaní súkromného používateľa pre tento participačný priestor došlo k chybe.
@@ -750,9 +747,7 @@ sk:
         moderation:
           fields:
             hidden_at: Skryté
-            report_count: Počet
             reported_content_url: Nahlásiť URL obsahu
-            reports: Nahlásenia
             visit_url: Navštíviť URL
   errors:
     messages:

@@ -517,7 +517,6 @@ gl:
         moderation: Moderacións globais
         newsletters: Boletíns informativos
         participants: Participantes
-        reported_users: Usuarios denunciados
         scope_types: Tipos de alcance
         scopes: Ámbitos
         settings: Configuración
@@ -616,7 +615,6 @@ gl:
           nickname: Alcume
           reason: Motivo
           reports: Número de denuncias
-          title: Listando os usuarios reportados
         report:
           reasons:
             does_not_belong: Non pertence
@@ -790,9 +788,6 @@ gl:
         edit:
           active_content_blocks: Bloques de contido activo
           inactive_content_blocks: Bloques de contido inactivo
-      organization_homepage_content_blocks:
-        edit:
-          update: Actualización
       participatory_space_private_users:
         create:
           error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
@@ -1017,13 +1012,10 @@ gl:
       models:
         moderation:
           fields:
-            created_at: Data de creación
             hidden_at: Oculto en
             participatory_space: Espazo participativo
-            report_count: Conde
             reportable_type: Tipo
             reported_content_url: URL de contido reportado
-            reports: Informes
             visit_url: Visita o URL
         report:
           fields:
@@ -1036,8 +1028,6 @@ gl:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Moderacións globais
         newsletters:
           title: Boletíns informativos
         settings:

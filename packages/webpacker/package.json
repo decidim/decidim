@@ -38,7 +38,7 @@
     "postcss-loader": "^6.2.1",
     "postcss-preset-env": "^7.1.0",
     "postcss-scss": "^4.0.2",
-    "sass-embedded": "^1.49.9",
+    "sass-embedded": "^1.58.3",
     "source-map-loader": "^0.2.4",
     "style-loader": "^3.0.0",
     "tailwindcss": "^3.0.24",

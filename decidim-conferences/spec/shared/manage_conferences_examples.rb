@@ -43,6 +43,7 @@ shared_examples "manage conferences" do
           ca: "Descripció més llarga"
         )
 
+        fill_in :conference_weight, with: 1
         fill_in :conference_slug, with: "slug"
         fill_in :conference_hashtag, with: "#hashtag"
       end

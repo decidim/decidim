@@ -555,9 +555,6 @@ lv:
         edit:
           active_content_blocks: Aktīvie satura bloki
           inactive_content_blocks: Neaktīvie satura bloki
-      organization_homepage_content_blocks:
-        edit:
-          update: Atjaunināt
       participatory_space_private_users:
         create:
           error: Pievienojot privāto dalībnieku šai līdzdalības telpai, radās problēma.
@@ -743,9 +740,7 @@ lv:
         moderation:
           fields:
             hidden_at: Paslēpts plkst.
-            report_count: Skaits
             reported_content_url: Paziņotā satura URL
-            reports: Ziņojumi
             visit_url: Apmeklēt URL
   errors:
     messages:

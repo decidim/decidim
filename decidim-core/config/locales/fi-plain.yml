@@ -245,7 +245,9 @@ fi-pl:
         unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         unofficialize: "%{user_name} poisti käyttäjän %{resource_name} virallistamisen"
       user_group:
+        block: "%{user_name} esti käyttäjän %{resource_name}"
         reject: "%{user_name} hylkäsi käyttäjäryhmän %{resource_name} vahvistaminen"
+        unblock: "%{user_name} poisti eston käyttäjältä %{resource_name}"
         verify: "%{user_name} vahvisti käyttäjäryhmän %{resource_name}"
         verify_via_csv: "%{user_name} vahvisti käyttäjäryhmän %{resource_name} CSV-tiedoston avulla"
       user_moderation:
@@ -335,16 +337,15 @@ fi-pl:
           '4': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
-      collection:
-        documents:
-          one: Asiakirja
-          other: Asiakirjaa
       document:
         download: Lataa tiedosto
       documents:
         related_documents: Liittyvät dokumentit
       geocoding:
         geocoded_address: Osoite
+      photo:
+        alt: Mediakuva
+        title: Kuva
       photos:
         related_photos: Liittyvät kuvat
     author:
@@ -385,13 +386,13 @@ fi-pl:
           foo: Foo
         name: Foo-varmennus
       granted_at: Myönnetty %{timestamp}
-      renew: Vahvista uudestaan
       sms:
         explanation: Lähetä matkapuhelinnumerosi, jotta voimme tarkistaa henkilöllisyytesi.
         name: Koodi tekstiviestinä
       started_at: Aloitettu %{timestamp}
     authorization_modals:
       content:
+        close_modal: Sulje ikkuna
         expired:
           authorize: Varmenna varmennustavalla "%{authorization}"
           explanation: Varmennuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava varmennettava itsesi uudestaan varmennustavalla "%{authorization}".
@@ -422,8 +423,6 @@ fi-pl:
           explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
           request_confirmation_instructions: Pyydä vahvistusohjeita
           title: Vahvista sähköpostiosoitteesi
-      show:
-        close_modal: Sulje ikkuna
     block_user_mailer:
       notify:
         body_1: Tilisi on estettiin.
@@ -512,6 +511,17 @@ fi-pl:
         view_all: Näytä kaikki
       metrics:
         name: Organisaation mittarit
+      static_page:
+        section:
+          name: Osio
+          section_content: Sisältö
+        summary:
+          name: Lyhyt kuvaus
+          summary_content: Sisältö
+        two_pane_section:
+          left_column: Vasen sarake
+          name: Kaksisarakkeinen osio
+          right_column: Oikea sarake
       stats:
         name: Organisaation tilastot
       sub_hero:
@@ -602,14 +612,13 @@ fi-pl:
       endorsements: Suosituksia
       endorsements_count: Suositusten määrä
     endorsement_buttons_cell:
-      already_endorsed: Suositeltu
-      endorse: Suosittele
+      already_endorsed: Poista tykkäys
+      endorse: Tykkää
     endorsements:
       identities:
         done: Valmis
         select_identity: Valitse henkilöllisyys
     endorsers_list:
-      close: Sulje
       endorsed_by: He tykkäävät tästä…
     errors:
       internal_server_error:
@@ -819,8 +828,6 @@ fi-pl:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
     forms:
-      current_image: Nykyinen kuva
-      default_image: Oletuskuva
       errors:
         decidim/user:
           password: Salasana on liian lyhyt.
@@ -854,6 +861,7 @@ fi-pl:
           edit_image: Muokkaa kuvaa
           error: Virhe!
           file_size_too_large: 'Tiedoston koko on liian suuri! Suurin tiedostokoko: %{megabytes}MB'
+          filename: Tiedoston nimi
           remove: Poista
           replace: Korvaa
           save: Tallenna
@@ -862,8 +870,9 @@ fi-pl:
           uploaded: Ladattu
           validating: Validoidaan...
           validation_error: Validointivirhe!
+        select_file: Valitse tiedosto
       upload_help:
-        dropzone: Pudota tiedostot tähän tai napsauta ladataksesi
+        dropzone: Pudota tiedostot tähän tai paina viereistä nappia ladataksesi tiedostoja
         explanation: Ohjeita %{attribute} varten
     gamification:
       all_badges_link: Kaikki saatavilla olevat kunniamerkit.
@@ -992,7 +1001,6 @@ fi-pl:
         body_1: Olet siirtymässä ulkoiseen osoitteeseen ja haluaisimme varoittaa sinua ulkoisilla sivustoilla olevasta sisällöstä.
         body_2: Tarkasta osoite, jonne olet siirtymässä ja varmista, että tunnistat sen turvalliseksi sivustoksi ennen kuin jatkat eteenpäin.
         cancel: Peruuta
-        close_modal: Sulje ikkuna
         proceed: Jatka
         title: Avaa ulkoinen linkki
     log:
@@ -1001,8 +1009,10 @@ fi-pl:
         create_with_space: "%{user_name} loi %{resource_name} tilassa %{space_name}"
         delete: "%{user_name} poisti %{resource_name}"
         delete_with_space: "%{user_name} poisti %{resource_name} tilassa %{space_name}"
+        publish_with_space: "%{user_name} julkaisi %{resource_name} osallistumistilassa %{space_name}"
         unknown_action: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name}"
         unknown_action_with_space: "%{user_name} suoritti toimenpiteen koskien kohdetta %{resource_name} tilassa %{space_name}"
+        unpublish_with_space: "%{user_name} lopetti %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update: "%{user_name} päivitti %{resource_name}"
         update_permissions_with_space: "%{user_name} päivitti kohteen %{resource_name} oikeuksia tilassa %{space_name}"
         update_with_space: "%{user_name} päivitti %{resource_name} tilassa %{space_name}"
@@ -1118,7 +1128,7 @@ fi-pl:
       newsletter:
         no_reply_notice: Tämä sähköposti on lähetetty sähköpostiosoitteesta, joka ei voi ottaa vastaan sähköpostia. Älä vastaa tähän viestiin.
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
-        see_on_website: Etkö näe tätä sähköpostia oikein? Avaa sähköposti <a href="%{link}" target="_blank">selaimessasi</a>.
+        see_on_website: Etkö näe tätä sähköpostia oikein? Avaa sähköposti <a href="%{link}" target="_blank" class="see-on-website">selaimessasi</a>.
         unsubscribe: Voit lopettaa tämäntyyppisten sähköpostien vastaanottamisen <a href="%{link}" target="_blank" class="unsubscribe">poistumalla sähköpostilistalta</a>.
     newsletter_templates:
       basic_only_text:
@@ -1408,11 +1418,14 @@ fi-pl:
         close: Sulje
         description: Onko tämä sisältö epäasiallista?
         does_not_belong: Sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
+        hide: Piilota
+        hide_content: Piilota tämä sisältö
         offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
         reason: Syy
         report: Tee ilmoitus
         spam: Tämä ehdotus sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
         title: Ilmoita ongelmasta
+        visit_profile: Jos haluat myös estää osallistujan ja hänen lähettämän muun sisällön, siirry profiilisivulle %{user_link}.
       flag_user_modal:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         close: Sulje
@@ -1439,6 +1452,9 @@ fi-pl:
           select_an_area: Valitse alue
       public_participation:
         public_participation: Näytä läsnäoloni julkisesti
+      redesigned_login_modal:
+        please_sign_in: Kirjaudu sisään
+        sign_up: Rekisteröidy
       reference:
         reference: 'Viite: %{reference}'
       represent_user_group:
@@ -1928,6 +1944,7 @@ fi-pl:
             accept_until_format: "%B %d, %Y klo %k:%M"
       long: "%B %d., %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d., %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

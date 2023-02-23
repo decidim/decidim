@@ -14,17 +14,24 @@ fr:
         description: Description
         file: Fichier
         title: Nom de la pièce jointe ou de l'image
+        weight: Rang d'affichage
       attachment_collection:
         description: Description
         name: Titre
+        weight: Rang d'affichage
       category:
         description: Description
         name: Titre
         parent_id: Parent
+        weight: Rang d'affichage
       component:
         name: Titre
         published_at: Publiée à
         weight: Rang d'affichage
+      external_domain:
+        value: Valeur
+      help_section:
+        content: Contenu
       id: ID
       import:
         user_group_id: Créer des imports en tant que
@@ -92,6 +99,9 @@ fr:
         welcome_notification_body: Corps du mail de bienvenue
         welcome_notification_subject: Objet du mail de bienvenue
         youtube_handler: Gestionnaire YouTube
+      participatory_space_private_user:
+        email: Email
+        name: Nom
       scope:
         code: Code
         name: Titre
@@ -113,6 +123,7 @@ fr:
         show_in_footer: Montrer dans le pied de page
         slug: Identifiant
         title: Titre
+        topic_id: Sujet
         weight: Rang d'affichage
       static_page_topic:
         description: La description
@@ -350,6 +361,12 @@ fr:
         'true': 'Oui'
         user_name: Utilisateur
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Il y a %{count} modération en attente
+            other: Il y a %{count} modérations en attente
+          goto_moderation: Aller au panneau de modération global
+          title: Modérations en attente
         show:
           view_more_logs: Afficher plus
           welcome: Bienvenue dans l'espace d'administration.
@@ -540,6 +557,7 @@ fr:
         area_types: Types de périmètre d'assemblée
         areas: Périmètres d'assemblée
         configuration: Configuration
+        content: Contenu
         dashboard: Tableau de bord
         external_domain_whitelist: Domaines externes autorisés
         help_sections: Sections d'aide
@@ -548,7 +566,7 @@ fr:
         moderation: Modération globale
         newsletters: Bulletins d'information (newsletter)
         participants: Participants
-        reported_users: Utilisateurs signalés
+        reported_users: Participants signalés
         scope_types: Types de secteur
         scopes: Secteurs
         settings: Paramètres
@@ -633,6 +651,7 @@ fr:
             created_at: Créé le
             document_number: Numéro de document
             name: Nom
+            nickname: Pseudonyme
             phone: Téléphone
             state: État
             users_count: Nombre d'utilisateurs
@@ -647,7 +666,7 @@ fr:
           nickname: Pseudonyme
           reason: Raison du signalement
           reports: Nombre de signalements
-          title: Liste des utilisateurs signalés
+          title: Liste des participants
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -826,12 +845,21 @@ fr:
           add: Ajouter à la liste blanche
           title: Liste blanche du domaine externe
       organization_homepage:
+        content_blocks:
+          create:
+            error: Un problème est survenu lors de la création de ce bloc de contenu
+            success: Le bloc de contenu a été créé avec succès
+          destroy:
+            error: Un problème est survenu lors de la suppression de ce bloc de contenu
+            success: Le bloc de contenu a été supprimé avec succès
+          edit:
+            update: Mettre à jour
         edit:
           active_content_blocks: Blocs de contenu actif
+          add: Ajouter un bloc de contenu
+          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
           inactive_content_blocks: Blocs de contenu inactif
-      organization_homepage_content_blocks:
-        edit:
-          update: Mettre à jour
+          title: Contenus de la page
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
@@ -859,8 +887,8 @@ fr:
           example_file: 'Fichier d''exemple :'
           explanation: 'Téléchargez votre fichier CSV. Il doit avoir deux colonnes avec les emails dans la première colonne, et dans la seconde colonne les noms des utilisateurs que vous souhaitez ajouter à l''espace participatif, sans en-tête. Évitez les caractères spéciaux comme `<>?%&^*#@()[]=+:;"{}\|` dans les noms des utilisateurs.'
           explanation_example: |
-            john.doe@exemple.org%{csv_col_sep}John D'oe
-            jane.doe@exemple.org%{csv_col_sep}Jane D'oe
+            john.doe@example.org%{csv_col_sep}Jean Doe
+            jane.doe@example.org%{csv_col_sep}Jane Doe
           title: Téléchargez votre fichier CSV
           upload: Télécharger
       reminders:
@@ -948,6 +976,20 @@ fr:
       static_pages:
         actions:
           view: Voir la page publique
+        content_blocks:
+          active_content_blocks: Blocs de contenu actifs
+          add: Ajouter un bloc de contenu
+          create:
+            error: Un problème est survenu lors de la création de ce bloc de contenu
+            success: Le bloc de contenu a été créé avec succès
+          destroy:
+            error: Un problème est survenu lors de la suppression de ce bloc de contenu
+            success: Le bloc de contenu a été supprimé avec succès
+          destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
+          edit:
+            update: Mettre à jour
+          inactive_content_blocks: Blocs de contenu inactifs
+          title: Contenu de la page
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle page.
           success: Page créée avec succès.
@@ -1076,11 +1118,11 @@ fr:
       models:
         moderation:
           fields:
-            created_at: Date de création
+            created_at: Signalé le
             deleted_resource: Ressource supprimée
             hidden_at: Masqué le
             participatory_space: Espace participatif
-            report_count: Compteur
+            report_count: Nombre de signalements
             reportable_id: ID
             reportable_type: Type
             reported_content_url: URL
@@ -1098,7 +1140,7 @@ fr:
     decidim:
       admin:
         global_moderations:
-          title: Modération globale
+          title: Modération de contenu
         newsletters:
           title: Newsletters
         settings:

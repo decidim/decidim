@@ -374,13 +374,12 @@ module Decidim
       data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(Date)
       datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
+      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
 
       template = text_field(
         attribute,
         options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
-      template += error_and_help_text(attribute, options.merge(help_text:))
       template.html_safe
     end
 
@@ -399,13 +398,12 @@ module Decidim
       end
       datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
+      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
 
       template = text_field(
         attribute,
         options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
-      template += content_tag(:span, help_text, class: "help-text")
       template.html_safe
     end
 
@@ -859,7 +857,20 @@ module Decidim
     end
 
     def image_dimensions_help(dimensions_info)
-      dimensions_info.map do |_version, info|
+      sorted_info = dimensions_info.values.sort do |infoa, infob|
+        texta, textb = [infoa[:processor], infob[:processor]].map do |processor|
+          I18n.t("processors.#{processor}", scope: "decidim.forms.images", dimensions: "")
+        end
+        widtha, heighta = infoa[:dimensions]
+        widthb, heightb = infob[:dimensions]
+
+        [
+          texta <=> textb,
+          widtha <=> widthb,
+          heighta <=> heightb
+        ].find { |cmp| !cmp.zero? } || 0
+      end
+      sorted_info.map do |info|
         dimensions = I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last)
         I18n.t(
           "processors.#{info[:processor]}",

@@ -531,7 +531,6 @@
         moderation: Globale moderasjoner
         newsletters: Nyhetsbrev
         participants: Deltakere
-        reported_users: Rapporterte brukere
         scope_types: Tematyper
         scopes: Tema
         settings: Innstillinger
@@ -630,7 +629,6 @@
           nickname: Kallenavn
           reason: Årsak
           reports: Antall rapporter
-          title: Oppføring rapporterte brukere
         report:
           reasons:
             does_not_belong: Tilhører ikke
@@ -812,9 +810,6 @@
         edit:
           active_content_blocks: Aktive innholdsblokkerer
           inactive_content_blocks: Inaktivt innholdsblokkerer
-      organization_homepage_content_blocks:
-        edit:
-          update: Oppdater
       participatory_space_private_users:
         create:
           error: Det oppstod et problem med å legge til en privat deltaker for dette deltakerområdet.
@@ -1049,14 +1044,11 @@
       models:
         moderation:
           fields:
-            created_at: Opprettelsesdato
             hidden_at: Skjult på
             participatory_space: Deltakerrom
-            report_count: Antall
             reportable_id: ID
             reportable_type: Type
             reported_content_url: Rapportert innholds URL
-            reports: Rapporter
             visit_url: Besøk URL
         report:
           fields:
@@ -1069,8 +1061,6 @@
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globale moderasjoner
         newsletters:
           title: Nyhetsbrev
         settings:

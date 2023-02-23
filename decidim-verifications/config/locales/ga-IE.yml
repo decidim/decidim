@@ -19,7 +19,6 @@ ga:
           authorize: Seol
         renew_modal:
           cancel: Cealaigh
-          close: dún
           continue: Lean ar aghaidh
       id_documents:
         admin:

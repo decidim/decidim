@@ -483,9 +483,6 @@ id:
         edit:
           active_content_blocks: Blok konten aktif
           inactive_content_blocks: Blok konten tidak aktif
-      organization_homepage_content_blocks:
-        edit:
-          update: Memperbarui
       participatory_space_private_users:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna pribadi untuk ruang partisipatif ini.
@@ -653,9 +650,7 @@ id:
         moderation:
           fields:
             hidden_at: Tersembunyi di
-            report_count: Menghitung
             reported_content_url: URL konten yang dilaporkan
-            reports: Laporan
             visit_url: Kunjungi URL
   errors:
     messages:

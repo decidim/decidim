@@ -20,7 +20,7 @@ module Decidim
 
       def action_string
         case action
-        when "verify", "verify_via_csv", "reject"
+        when "verify", "verify_via_csv", "reject", "block", "unblock"
           "decidim.admin_log.user_group.#{action}"
         else
           super

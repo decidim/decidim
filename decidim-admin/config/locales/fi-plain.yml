@@ -14,17 +14,24 @@ fi-pl:
         description: Kuvaus
         file: Tiedosto
         title: Liitetiedoston tai kuvan nimi
+        weight: Järjestysnumero
       attachment_collection:
         description: Kuvaus
         name: Nimi
+        weight: Järjestysnumero
       category:
         description: Kuvaus
         name: Nimi
         parent_id: Yläaihepiiri
+        weight: Järjestysnumero
       component:
         name: Nimi
         published_at: Julkaistu osoitteessa
         weight: Järjestysnumero
+      external_domain:
+        value: Arvo
+      help_section:
+        content: Sisältö
       id: ID
       import:
         user_group_id: Tuo käyttäjänä
@@ -92,6 +99,9 @@ fi-pl:
         welcome_notification_body: Tervetuloilmoituksen runko
         welcome_notification_subject: Tervetuloilmoituksen otsikko
         youtube_handler: YouTube-käsittelijä
+      participatory_space_private_user:
+        email: Sähköpostiosoite
+        name: Nimi
       scope:
         code: Koodi
         name: Nimi
@@ -113,6 +123,7 @@ fi-pl:
         show_in_footer: Näytä alatunnisteessa
         slug: URL-tunniste
         title: Otsikko
+        topic_id: Aihe
         weight: Järjestysnumero
       static_page_topic:
         description: Kuvaus
@@ -350,6 +361,12 @@ fi-pl:
         'true': 'Kyllä'
         user_name: Käyttäjä
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: Yksi moderointi odottaa käsittelyä
+            other: '%{count} moderointia odottavat käsittelyä'
+          goto_moderation: Siirry yleisiin moderointeihin
+          title: Odottavat moderoinnit
         show:
           view_more_logs: Näytä lisää lokitietoja
           welcome: Tervetuloa hallintapaneeliin.
@@ -540,6 +557,7 @@ fi-pl:
         area_types: Aluetyypit
         areas: Alueet
         configuration: Asetukset
+        content: Sisältö
         dashboard: Hallintapaneeli
         external_domain_whitelist: Sallitut ulkoiset verkko-osoitteet
         help_sections: Ohjeosiot
@@ -548,7 +566,7 @@ fi-pl:
         moderation: Yleiset moderoinnit
         newsletters: Uutiskirjeet
         participants: Osallistujat
-        reported_users: Ilmoitetut käyttäjät
+        reported_users: Ilmoitetut osallistujat
         scope_types: Teematyypit
         scopes: Teemat
         settings: Asetukset
@@ -633,6 +651,7 @@ fi-pl:
             created_at: Luonnin ajankohta
             document_number: Dokumentin numero
             name: Nimi
+            nickname: Nimimerkki
             phone: Puhelinnumero
             state: Tila
             users_count: Käyttäjämäärä
@@ -647,7 +666,7 @@ fi-pl:
           nickname: Nimimerkki
           reason: Syy
           reports: Ilmoitusten määrä
-          title: Ilmoitettujen käyttäjien lista
+          title: Osallistujat
         report:
           reasons:
             does_not_belong: Ei kuulu
@@ -826,12 +845,21 @@ fi-pl:
           add: Lisää sallittujen listalle
           title: Sallittujen ulkoisten verkkotunnusten lista
       organization_homepage:
+        content_blocks:
+          create:
+            error: Sisältölohkon luonti epäonnistui
+            success: Sisältölohkon luonti onnistui
+          destroy:
+            error: Sisältölohkon poisto epäonnistui
+            success: Sisältölohkon poisto onnistui
+          edit:
+            update: Päivitä
         edit:
           active_content_blocks: Aktiiviset sisältöblokit
+          add: Lisää sisältölohko
+          destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
           inactive_content_blocks: Ei-aktiiviset sisältöblokit
-      organization_homepage_content_blocks:
-        edit:
-          update: Päivitä
+          title: Sivun sisältö
       participatory_space_private_users:
         create:
           error: Yksityisen käyttäjän lisäämisessä tähän osallisuustilaan tapahtui virhe.
@@ -948,6 +976,20 @@ fi-pl:
       static_pages:
         actions:
           view: Näytä julkinen sivu
+        content_blocks:
+          active_content_blocks: Aktiiviset sisältölohkot
+          add: Lisää sisältölohko
+          create:
+            error: Sisältölohkon luonti epäonnistui
+            success: Sisältölohkon luonti onnistui
+          destroy:
+            error: Sisältölohkon poisto epäonnistui
+            success: Sisältölohkon poisto onnistui
+          destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
+          edit:
+            update: Päivitä
+          inactive_content_blocks: Käytöstä poistetut sisältölohkot
+          title: Sivun sisältö
         create:
           error: Uuden sivun luonnissa tapahtui virhe.
           success: Sivu luotu onnistuneesti.
@@ -1076,15 +1118,15 @@ fi-pl:
       models:
         moderation:
           fields:
-            created_at: Luonnin ajankohta
+            created_at: Ilmoituksen ajankohta
             deleted_resource: Poistettu tietue
             hidden_at: Piilotuksen ajankohta
             participatory_space: Osallistumistila
-            report_count: Määrä
+            report_count: Ilmoitusten määrä
             reportable_id: ID
             reportable_type: Tyyppi
             reported_content_url: Raportoidun sisällön URL
-            reports: Raportit
+            reports: Syy
             visit_url: Vieraile URL-osoitteessa
         report:
           fields:
@@ -1098,7 +1140,7 @@ fi-pl:
     decidim:
       admin:
         global_moderations:
-          title: Yleiset moderoinnit
+          title: Sisällön moderointi
         newsletters:
           title: Uutiskirjeet
         settings:

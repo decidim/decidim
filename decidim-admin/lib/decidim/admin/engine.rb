@@ -30,17 +30,28 @@ module Decidim
 
       initializer "decidim_admin.global_moderation_menu" do
         Decidim.menu :admin_global_moderation_menu do |menu|
+          moderations_count = Decidim::Admin::ModerationStats.new(current_user).count_content_moderations
+
+          caption = I18n.t("menu.content", scope: "decidim.admin")
+          caption += content_tag(:span, moderations_count, class: moderations_count.zero? ? "component-counter component-counter--off" : "component-counter")
+
           menu.add_item :moderations,
-                        I18n.t("actions.not_hidden", scope: "decidim.moderations"),
+                        caption.html_safe,
                         decidim_admin.moderations_path,
                         position: 1,
-                        active: params[:hidden].blank?
+                        active: is_active_link?(decidim_admin.moderations_path),
+                        if: allowed_to?(:read, :global_moderation)
 
-          menu.add_item :hidden_moderations,
-                        I18n.t("actions.hidden", scope: "decidim.moderations"),
-                        decidim_admin.moderations_path(hidden: true),
-                        position: 2,
-                        active: params[:hidden].present?
+          user_reports = Decidim::Admin::ModerationStats.new(current_user).count_user_pending_reports
+
+          caption = I18n.t("menu.reported_users", scope: "decidim.admin")
+          caption += content_tag(:span, user_reports, class: user_reports.zero? ? "component-counter component-counter--off" : "component-counter")
+
+          menu.add_item :moderated_users,
+                        caption.html_safe,
+                        decidim_admin.moderated_users_path,
+                        active: is_active_link?(decidim_admin.moderated_users_path),
+                        if: allowed_to?(:index, :moderate_users)
         end
       end
 
@@ -89,10 +100,6 @@ module Decidim
                         if: allowed_to?(:index, :impersonatable_user),
                         submenu: { target_menu: :impersonate_menu }
 
-          menu.add_item :moderated_users,
-                        I18n.t("menu.reported_users", scope: "decidim.admin"), decidim_admin.moderated_users_path,
-                        active: is_active_link?(decidim_admin.moderated_users_path),
-                        if: allowed_to?(:index, :moderate_users)
           menu.add_item :authorization_workflows,
                         I18n.t("menu.authorization_workflows", scope: "decidim.admin"), decidim_admin.authorization_workflows_path,
                         active: is_active_link?(decidim_admin.authorization_workflows_path),
@@ -186,8 +193,9 @@ module Decidim
                         active: [%w(
                           decidim/admin/global_moderations
                           decidim/admin/global_moderations/reports
+                          decidim/admin/moderated_users
                         ), []],
-                        if: allowed_to?(:read, :global_moderation)
+                        if: allowed_to?(:read, :global_moderation) || allowed_to?(:index, :moderate_users)
 
           menu.add_item :static_pages,
                         I18n.t("menu.static_pages", scope: "decidim.admin"),
@@ -210,7 +218,6 @@ module Decidim
                           decidim/admin/officializations
                           decidim/admin/impersonatable_users
                           decidim/admin/conflicts
-                          decidim/admin/moderated_users
                           decidim/admin/managed_users/impersonation_logs
                           decidim/admin/managed_users/promotions
                           decidim/admin/authorization_workflows

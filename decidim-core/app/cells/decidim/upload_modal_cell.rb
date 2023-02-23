@@ -75,10 +75,6 @@ module Decidim
       options[:resource_name]
     end
 
-    def actions_wrapper_class
-      has_title? ? "actions-wrapper titled" : "actions-wrapper"
-    end
-
     def attribute
       options[:attribute]
     end
@@ -102,9 +98,18 @@ module Decidim
     end
 
     def explanation
-      return I18n.t("explanation", scope: options[:help_i18n_scope], attribute:) if options[:help_i18n_scope].present?
+      i18n_options = {
+        scope: options[:help_i18n_scope].presence || "decidim.forms.upload_help",
+        attribute: attribute_translation
+      }
 
-      I18n.t("explanation", scope: "decidim.forms.upload_help", attribute:)
+      I18n.t("explanation", **i18n_options)
+    end
+
+    def attribute_translation
+      I18n.t(attribute, scope: [:activemodel, :attributes, resource_class.constantize.model_name.param_key].join("."))
+    rescue NameError
+      I18n.t(attribute, scope: "activemodel.attributes")
     end
 
     def add_attribute
@@ -154,11 +159,7 @@ module Decidim
     end
 
     def file_name_for(attachment)
-      filename = determine_filename(attachment)
-
-      return "(#{filename})" if has_title?
-
-      filename
+      determine_filename(attachment)
     end
 
     def determine_filename(attachment)

@@ -7,7 +7,7 @@ module Decidim
     include LayoutHelper
     include Decidim::SanitizeHelper
 
-    def details
+    def show
       render
     end
 
@@ -33,6 +33,7 @@ module Decidim
 
     private
 
+    # deprecated
     def resource_icon
       icon "meetings", class: "icon--big", role: "img", "aria-hidden": true
     end

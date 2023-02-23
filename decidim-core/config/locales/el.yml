@@ -226,10 +226,6 @@ el:
           '4': Δημοσιεύστε την τροποποίησή σας
     anonymous_user: Ανώνυμη
     application:
-      collection:
-        documents:
-          one: Έγγραφο
-          other: Έγγραφα
       document:
         download: Λήψη αρχείου
       documents:
@@ -266,7 +262,6 @@ el:
           foo: Foo
         name: Εξουσιοδότηση Foo
       granted_at: Χορηγήθηκε στις %{timestamp}
-      renew: Ανανέωση επαλήθευσης
       sms:
         explanation: Υποβάλετε τον αριθμό κινητού τηλεφώνου σας, για να ελέγξουμε την ταυτότητά σας.
         name: Κωδικός μέσω SMS
@@ -301,8 +296,6 @@ el:
           explanation_html: Για να εκτελέσετε αυτήν την ενέργεια, θα πρέπει να είστε εξουσιοδοτημένοι. Για να το κάνετε αυτό, πρέπει να επιβεβαιώσετε τη διεύθυνση email σας <strong>%{email}</strong>.
           request_confirmation_instructions: Ζητήστε οδηγίες επιβεβαίωσης
           title: Επιβεβαίωση διεύθυνσης email
-      show:
-        close_modal: Κλείσιμο παραθύρου
     collapsible_list:
       hidden_elements_count:
         one: και %{count} ακόμη
@@ -450,9 +443,6 @@ el:
     endorsable:
       endorsements: Επιδοκιμασίες
       endorsements_count: Καταμέτρηση επιδοκιμασιών
-    endorsement_buttons_cell:
-      already_endorsed: Με επιδοκιμασία
-      endorse: Επιδοκιμασία
     endorsements:
       identities:
         done: Τέλος
@@ -635,8 +625,6 @@ el:
         button: Διακοπή παρακολούθησης
         error: Υπήρξε ένα πρόβλημα κατά τη διακοπή παρακολούθησης αυτού του πόρου.
     forms:
-      current_image: Τρέχουσα εικόνα
-      default_image: Προεπιλεγμένη εικόνα
       errors:
         decidim/user:
           password: Ο κωδικός πρόσβασης είναι πολύ μικρός.
@@ -877,7 +865,6 @@ el:
     newsletter_mailer:
       newsletter:
         note: Λάβατε αυτό το email επειδή έχετε εγγραφεί σε ενημερωτικά δελτία στον οργανισμό %{organization_name}. Μπορείτε να αλλάξετε τις ρυθμίσεις σας στη <a href="%{link}">σελίδα ειδοποιήσεων</a>.
-        see_on_website: Δεν βλέπετε αυτό το email σωστά; Δείτε το στον <a href="%{link}" target="_blank">ιστότοπο</a>.
         unsubscribe: Για να εξαιρεθείτε από τη λήψη αυτού του τύπου email, πατήστε <a href="%{link}" target="_blank" class="unsubscribe">Κατάργηση εγγραφής</a>.
     newsletter_templates:
       basic_only_text:

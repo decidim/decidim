@@ -114,15 +114,17 @@ es:
           verify_with_these_options: 'Estas son las opciones disponibles para verificar tu identidad:'
         index:
           expired_verification: La verificación ha caducado
+          granted_verification: Autorización concedida
+          introduce_code: Introduce el código
           pending_verification: Pendiente de verificación
           show_renew_info: Haz click aquí para renovar la verificación
-          unauthorized_verification: Nueva verificación
+          subscribe: Suscribirse
+          unauthorized_methods: Metodos de verificación
         new:
           authorize: Enviar
           authorize_with: Verificar con %{authorizer}
         renew_modal:
           cancel: Cancelar
-          close: cerrar
           continue: Continuar
           info_renew: Si quieres actualizar los datos, continua con la renovación
           title: Renovar la verificación

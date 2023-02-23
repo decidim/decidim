@@ -10,34 +10,41 @@ ar:
         organization: المنظمة
         plural: صيغة الجمع
       attachment:
-        attachment_collection_id: المجلد
+        attachment_collection_id: الحافظة
         description: الوصف
         file: ملف
         title: المُرفق أو اسم الصورة
+        weight: موضع الطلب
       attachment_collection:
         description: الوصف
         name: اسم
+        weight: موضع الطلب
       category:
         description: الوصف
         name: اسم
-        parent_id: الأبوين
+        parent_id: الأصل
+        weight: موضع الطلب
       component:
         name: اسم
-        published_at: نشرت في
+        published_at: نشر في
         weight: موضع الطلب
-      id: هوية شخصية
+      external_domain:
+        value: القيمة
+      help_section:
+        content: المحتوى
+      id: المعرف ID
       import:
-        user_group_id: إنشاء واردات ك
+        user_group_id: إنشاء الاستيرادات ك
       newsletter:
-        body: المحتوى
+        body: النص
         subject: الموضوع
       organization:
         admin_terms_of_use_body: نص شروط الاستخدام للمدير
         alert_color: تنبيه
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
-        comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال للقيمة الافتراضية)
-        cta_button_path: دعوة إلى العمل مسار زر
+        comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
+        cta_button_path: مسار زر دعوة إلى العمل call to action
         cta_button_text: نص زر Call To Action
         customize_welcome_notification: تخصيص إشعار الترحيب
         default_locale: اللغة الافتراضية
@@ -721,9 +728,6 @@ ar:
         edit:
           active_content_blocks: كتل المحتوى النشط
           inactive_content_blocks: كتل المحتوى غير النشطة
-      organization_homepage_content_blocks:
-        edit:
-          update: تحديث
       participatory_space_private_users:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك خاص لهذه المساحة التشاركية.
@@ -790,6 +794,10 @@ ar:
         update:
           error: حدثت مشكلة أثناء تحديث هذا النطاق.
           success: تم تحديث المجال بنجاح
+      share_tokens:
+        actions:
+          destroy: حذف
+          share: مشاركة
       shared:
         gallery:
           delete_image: احذف الصورة
@@ -927,13 +935,10 @@ ar:
       models:
         moderation:
           fields:
-            created_at: تاريخ الإنشاء
             hidden_at: مخبأة في
             participatory_space: الفضاء التشاركي
-            report_count: عد
             reportable_type: النوع
             reported_content_url: تم الإبلاغ عن عنوان URL للمحتوى
-            reports: تقارير
             visit_url: زيارة العنوان الشبكي
         report:
           fields:
@@ -946,8 +951,6 @@ ar:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: مُشرف عام
         newsletters:
           title: النشرات الإخبارية
         settings:

@@ -22,12 +22,6 @@ tr:
         slogan: Slogan
         slug: URL özel bilgisi
         title: Başlık
-      conference_media_link:
-        weight: Ağırlık
-      conference_partner:
-        weight: Ağırlık
-      conference_registration_type:
-        weight: Ağırlık
       conference_speaker:
         full_name: Ad Soyad
       conference_user_role:
@@ -99,8 +93,6 @@ tr:
         edit:
           title: Konferans yöneticisi güncelle.
           update: Güncelle
-        index:
-          conference_admins_title: konferans yöneticileri
         new:
           create: Oluştur
           title: Yeni konferans yöneticisi
@@ -365,18 +357,11 @@ tr:
           cancel: İptal etmek
           confirm: Onaylamak
         show:
-          free: Ücretsiz
           going: Gidiyor
           no_slots_available: Mevcut yuva yok
           registration: kayıt
       conference_program:
-        program_meeting:
-          content: içerik
-          location: yer
-          speakers: Hoparlörler
-          streaming: Yayın Akışı
         show:
-          day: Gün
           program: program
       conference_registration_mailer:
         confirmation:
@@ -407,18 +392,12 @@ tr:
       conference_speaker_cell:
         personal_url:
           personal_website: Kişisel web sitesi
-        twitter_handle:
-          go_to_twitter: Twitter'a git
-      conference_speakers:
-        index:
-          speakers: Hoparlörler
       conferences:
         partners:
           collaborators: Ortaklar
           main_promotors: Organizatörler
         show:
           login_as: '%{name} <%{email}> olarak giriş yaptınız'
-          make_conference_registration: 'Kaydınızı konferansta yapın:'
           register: Kayıt olmak
       content_blocks:
         highlighted_conferences:
@@ -463,29 +442,12 @@ tr:
           highlighted_conferences:
             active_conferences: Aktif konferanslar
             see_all_conferences: Tüm konferanslara bak
-      photo:
-        image:
-          attributes:
-            alt: Medya resmi
-        show:
-          close_modal: Yakın kalıcı
-          photo: Fotoğraf
-      photos_list:
-        show:
-          related_photos: Fotoğraflar
       registration_types:
         index:
           choose_an_option: 'Kayıt seçeneğinizi seçin:'
-          login_as: '%{name} <%{email}> olarak giriş yaptınız'
           no_registrations: Kayıt yok
           register: Kayıt olmak
           title: Kayıt türleri
-      shared:
-        conference_user_login:
-          already_account: Decidim'de hesabınız var mı?
-          new_user: Yeni kullanıcı?
-          sign_in: Konferansa kayıt olmak için giriş yapın
-          sign_up: Konferansa kayıt olmak için decidim'de bir hesap oluşturun
       show:
         details: ayrıntılar
         introduction: Giriş

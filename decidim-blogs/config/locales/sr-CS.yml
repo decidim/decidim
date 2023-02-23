@@ -1,9 +1,5 @@
 sr:
   decidim:
-    blogs:
-      posts:
-        show:
-          comments: Komentari
     components:
       blogs:
         settings:
