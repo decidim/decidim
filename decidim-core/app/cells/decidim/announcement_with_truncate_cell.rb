@@ -83,11 +83,11 @@ module Decidim
 
         line_breaks.each do |line_break|
           value_splitted = translated_value.split(line_break)
-          if value_splitted.size > 1
-            found = true
-            translated_value = value_splitted.first
-            break
-          end
+          next unless value_splitted.size.positive?
+
+          found = true
+          translated_value = value_splitted.first
+          break
         end
 
         # When not found the line break, do a truncate
