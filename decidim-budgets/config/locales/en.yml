@@ -173,6 +173,7 @@ en:
         finished_message: You've finished the voting process. Thanks for participating!
         highlighted_cta: Vote on %{name}
         if_change_opinion: If you've changed your mind, you can
+        my_budgets: My budgets
         progress: Finish voting
         projects_count:
           one: 1 project
