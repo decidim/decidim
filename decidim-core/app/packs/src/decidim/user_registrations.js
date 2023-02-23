@@ -17,7 +17,7 @@ $(() => {
   const checkNewsletter = (check) => {
     $userRegistrationForm.find(newsletterSelector).prop("checked", check);
     $newsletterModal.data("continue", true);
-    $newsletterModal.foundation("close");
+    window.Decidim.currentDialogs["sign-up-newsletter-modal"].close()
     $userRegistrationForm.submit();
   }
 
@@ -34,12 +34,12 @@ $(() => {
     if (!$newsletterModal.data("continue")) {
       if (!newsletterChecked.prop("checked")) {
         event.preventDefault();
-        $newsletterModal.foundation("open");
+        window.Decidim.currentDialogs["sign-up-newsletter-modal"].open()
       }
     }
   });
 
-  $newsletterModal.find(".check-newsletter").on("click", (event) => {
+  $newsletterModal.find("[data-check]").on("click", (event) => {
     checkNewsletter($(event.target).data("check"));
   });
 });
