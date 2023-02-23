@@ -83,7 +83,7 @@ module Decidim
 
         line_breaks.each do |line_break|
           value_splitted = translated_value.split(line_break)
-          next unless value_splitted.size.positive?
+          next unless value_splitted.size > 1
 
           found = true
           translated_value = value_splitted.first
