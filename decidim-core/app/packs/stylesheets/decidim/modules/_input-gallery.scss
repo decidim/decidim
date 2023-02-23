@@ -26,7 +26,8 @@
       top: 2px;
       width: 2rem;
       height: 2rem;
-      background: rgba(var(--primary-rgb), .8);
+      background: var(--primary);
+      opacity: .8;
       color: $white;
       border-radius: 50%;
     }
