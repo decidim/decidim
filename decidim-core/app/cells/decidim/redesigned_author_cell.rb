@@ -45,6 +45,10 @@ module Decidim
       true
     end
 
+    def raw_model
+      model.try(:__getobj__) || model
+    end
+
     def context_actions_options
       return unless options.has_key?(:context_actions)
       return [] if options[:context_actions].blank?
