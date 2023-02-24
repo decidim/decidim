@@ -1,8 +1,5 @@
 <%= render partial: "decidim/shared/component_announcement" %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_blogs", media: "all" %>
-<% end %>
+<%= append_stylesheet_pack_tag "decidim_blogs" %>
 
 <% content_for :aside do %>
   <h1 class="h1 decorator"><%= t("decidim.components.blogs.name") %></h1>

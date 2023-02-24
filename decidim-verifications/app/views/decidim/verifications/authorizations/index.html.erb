@@ -3,10 +3,7 @@
 <% url_params = (redirect_url.present? ? { redirect_url: redirect_url } : {}) %>
 
 <%= append_javascript_pack_tag "decidim_verifications" %>
-
-<% content_for :css_content do %>
-  <%= stylesheet_pack_tag "decidim_verifications", media: "all" %>
-<% end %>
+<%= append_stylesheet_pack_tag "decidim_verifications" %>
 
 <%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
   <section class="authorizations-list">
