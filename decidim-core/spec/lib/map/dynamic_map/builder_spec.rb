@@ -18,9 +18,8 @@ module Decidim
 
       describe "#stylesheet_snippets" do
         it "returns the expected stylesheet assets" do
-          expect(subject.stylesheet_snippets).to match(
-            %r{<link rel="stylesheet" media="screen" href="/packs-test/css/decidim_map(-[^.]*)?\.css" />}
-          )
+          expect(subject.send(:template)).to receive(:append_stylesheet_pack_tag).with("decidim_map")
+          subject.stylesheet_snippets
         end
       end
 

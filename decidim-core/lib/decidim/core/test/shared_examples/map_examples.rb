@@ -168,9 +168,16 @@ shared_examples "a page with geocoding input" do
     end
   end
 
+  let(:html_body) do
+    builder = subject
+    template.instance_eval do
+      builder.geocoding_field(:test, :address)
+    end
+  end
+
   it "displays the geocoding field element" do
     config = ERB::Util.html_escape(js_options.to_json)
-    expect(subject.geocoding_field(:test, :address)).to eq(
+    expect(html_body).to eq(
       %(<input autocomplete="off" data-decidim-geocoding="#{config}" type="text" name="test[address]" id="test_address" />)
     )
   end
