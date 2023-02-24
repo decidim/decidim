@@ -1,6 +1,6 @@
 <div class="p-xs flex--sbc">
   <%# REDESIGN_PENDING: try to pass locals to the render method inside the cell %>
-  <%#= render view: :profile_inline_compact, locals: { disable_tooltip: true } %>
+  <%= profile_inline_compact(disable_tooltip: true) %>
 
   <%#= text_link_to_current_or_new_conversation_with(model) %>
 

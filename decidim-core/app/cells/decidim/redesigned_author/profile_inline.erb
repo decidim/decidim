@@ -2,4 +2,6 @@
   <%= render :avatar_image %>
 </span>
 
-<%= render :name %>
+<%= with_tooltip render(:profile_minicard) do %>
+  <%= render :name %>
+<% end %>

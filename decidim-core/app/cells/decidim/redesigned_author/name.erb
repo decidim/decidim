@@ -1,7 +1,1 @@
-<% if try(:disable_tooltip) %>
-  <span><%= display_name %></span>
-<% else %>
-  <%= with_tooltip render(:profile_minicard) do %>
-    <span><%= display_name %></span>
-  <% end %>
-<% end %>
+<span><%= display_name %></span>

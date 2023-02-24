@@ -29,6 +29,10 @@ module Decidim
       model.deleted? ? t("decidim.profile.deleted") : decidim_sanitize(author_name)
     end
 
+    def profile_inline_compact(opts = {})
+      render locals: { disable_tooltip: opts[:disable_tooltip] }
+    end
+
     def show
       render layout
     end

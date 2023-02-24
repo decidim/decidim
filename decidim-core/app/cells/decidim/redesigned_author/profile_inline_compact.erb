@@ -3,7 +3,15 @@
 </div>
 
 <div>
-  <div class="author__name"><%= render :name %></div>
+  <div class="author__name">
+    <% if disable_tooltip %>
+      <%= render :name %>
+    <% else %>
+      <%= with_tooltip render(:profile_minicard) do %>
+        <%= render :name %>
+      <% end %>
+    <% end %>
+  </div>
   <% context_actions.each do |action| %>
     <%= render action %>
   <% end %>
