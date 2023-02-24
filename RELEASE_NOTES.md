@@ -42,14 +42,10 @@ You can read more about this change on PR [\#9480](https://github.com/decidim/de
 Since the Rails team has retired the Webpacker in favour or importmap-rails or js-bundling, we got ouserlves in a situation where performance improvements could not be performed.
 In order to continue having support for Webpacker like syntax, we have switched to Shakapacker.
 
-In order to perform the update, you will need to make sure that you do not have webpacker in your Gemfile.
-If you have it, please remove it, or change it to
+In order to perform the update, you will need to make sure that you **do not have webpacker in your Gemfile**.
+If you have it, please remove it, adn allow Decidim to handle the webpacker / shackapacker dependency.
 
-```ruby
-gem "shakapacker", "~> 6.5"
-```
-
-Please backup the following files, to make sure that you save any customizations you may have done to webpacker:
+In order to perform the migration to shakapacker, please backup the following files, to make sure that you save any customizations you may have done to webpacker:
 
 ```console
 config/webpacker.yml
@@ -58,14 +54,7 @@ package.json
 postcss.config.js
 ```
 
-After you have performed the backup, make sure you run:
-
-```console
-bundle update decidim
-bin/rails decidim:upgrade
-bin/rails db:migrate
-```
-
+After all the backups and changes mentioned above have been completed, follow the default upgrade steps, as mentioned above in the document.
 Then run the below command, and replace all the configuration with the one that Decidim is providing by default:
 
 ```console
