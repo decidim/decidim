@@ -37,10 +37,12 @@ edit_link(
     <%= render partial: "decidim/shared/static_map", locals: { icon_name: "projects", geolocalizable: project } %>
   <% end %>
   <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
-  <h1 class="h1 decorator budget__definition-project__title">
+  <h1 class="h1 decorator budget__definition-project__title editor-content">
     <%= decidim_sanitize_editor translated_attribute project.title %>
   </h1>
-  <%= decidim_sanitize_editor translated_attribute project.description %>
+  <div class="editor-content">
+    <%= decidim_sanitize_editor translated_attribute project.description %>
+  </div>
   <%= cell "decidim/budgets/project_tags", project, context: { extra_classes: ["tags--project"] } %>
   <%= attachments_for project %>
   <%= linked_resources_for project, :proposals, "included_proposals" %>
