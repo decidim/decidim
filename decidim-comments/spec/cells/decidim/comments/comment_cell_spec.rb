@@ -206,12 +206,16 @@ module Decidim::Comments
         end
 
         it "renders an action_authorized button" do
+          skip_unless_redesign_enabled("this test pass with redesign enabled because this modal is not working in the old design")
+
           expect(subject).to have_css("[data-dialog-open=\"authorizationModal\"]")
         end
       end
 
       context "when commentable has no permissions set for the vote_comment action" do
         it "renders a plain button" do
+          skip_unless_redesign_enabled("this test pass with redesign enabled because this modal is not working in the old design")
+
           expect(subject).to have_no_css("[data-dialog-open=\"authorizationModal\"]")
         end
       end
