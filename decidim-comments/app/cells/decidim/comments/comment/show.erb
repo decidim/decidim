@@ -1,4 +1,4 @@
-<%= content_tag :div, id: "comment_#{model.id}", class: "comment", data: { comment_id: model.id } do %>
+<%= content_tag :div, id: "comment_#{model.id}", class: "comment relative", data: { comment_id: model.id } do %>
   <% if model.hidden? %>
     <%= render :moderation_data %>
   <% elsif model.deleted? %>
@@ -16,12 +16,58 @@
           <%= t("decidim.components.comment.edited") %>
         </span>
       <% end %>
-      <%= render :utilities %>
+
+      <div class="relative ml-auto">
+        <!-- comment submenu trigger -->
+        <div id="dropdown-trigger-<%= context_menu_id %>" data-component="dropdown" data-target="dropdown-menu-<%= context_menu_id %>">
+          &#8230;
+        </div>
+
+        <!-- comment submenu content -->
+        <div id="dropdown-menu-<%= context_menu_id %>" aria-hidden="true">
+          <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
+            <% unless reloaded? %>
+              <li>
+                <button type="button" class="dropdown__item" data-dialog-open="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" title="<%= t("decidim.components.comment.report.action") %>" aria-controls="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" aria-haspopup="dialog" tabindex="0">
+                  <%= icon "flag-line" %>
+                  <span><%= t("decidim.components.comment.report.action") %></span>
+                </button>
+              </li>
+            <% end %>
+            <li>
+              <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title"), tabindex: 1 do %>
+                <%= icon "share-line" %>
+                <span><%= t("decidim.components.comment.single_comment_link_title") %></span>
+              <% end %>
+            </li>
+            <% unless reloaded? %>
+              <% if model.authored_by?(current_user) %>
+                <li>
+                  <button type="button" class="dropdown__item" data-dialog-open="<%= "editCommentModal#{model.id}" %>" title="<%= t("decidim.components.comment.edit") %>" aria-controls="<%= "editCommentModal#{model.id}" %>" aria-haspopup="dialog" tabindex="2">
+                    <%= icon "edit-line" %>
+                    <span><%= t("decidim.components.comment.edit") %></span>
+                  </button>
+                </li>
+              <% end %>
+            <% end %>
+            <% if model.authored_by?(current_user) %>
+              <li>
+                <%= link_to comment_path, remote: true, method: :delete, class: "dropdown__item", data: { confirm: t("decidim.components.comment.confirm_destroy") }, tabindex: 3 do %>
+                  <%= icon "delete-bin-line" %>
+                  <span><%= t("decidim.components.comment.delete") %></span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
     </div>
+
     <div class="comment__content">
       <%= alignment_badge %>
       <%= comment_body %>
     </div>
+
     <div class="comment__footer" data-component="accordion" id="accordion-<%= model.id %>">
       <div class="comment__footer-grid">
         <%= render :actions %>
