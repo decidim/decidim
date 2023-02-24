@@ -1,0 +1,31 @@
+.author{
+  @apply flex items-center [&>*:not(:first-child)]:pl-5 [&>*:not(:last-child)]:pr-6 divide-gray-3 divide-x text-sm text-gray-2;
+
+  &__container{
+    @apply flex items-center gap-2.5;
+  }
+
+  &__avatar{
+    @apply w-full h-full object-cover;
+
+    &-container{
+      @apply rounded-full overflow-hidden inline-block w-6 h-6;
+
+      &.is-compact{
+        @apply w-8 h-8;
+      }
+    }
+  }
+
+  &__name{
+    @apply text-secondary font-semibold;
+  }
+
+  &__metadata{
+    @apply flex items-center gap-1 text-gray-2 text-sm;
+
+    > svg{
+      @apply text-gray fill-current flex-none;
+    }
+  }
+}

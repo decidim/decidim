@@ -1,9 +1,9 @@
-<div class="rounded-full overflow-hidden inline-block w-8 h-8">
+<div class="author__avatar-container is-compact">
   <%= render :avatar_image %>
 </div>
 
 <div>
-  <div class="text-secondary font-semibold"><%= render :name %></div>
+  <div class="author__name"><%= render :name %></div>
   <% context_actions.each do |action| %>
     <%= render action %>
   <% end %>
