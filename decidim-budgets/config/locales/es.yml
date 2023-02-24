@@ -380,6 +380,8 @@ es:
       checkout:
         error: Se ha producido un error al procesar tu voto
         success: Tu voto se ha tramitado correctamente
+        success_html: Tu voto se ha tramitado correctamente. Puedes explorar <a href="%{rest_of_budgets_link}">el resto de presupuestos</a>.
+        success_no_left_budgets_html: Tu voto se ha tramitado correctamente.
       destroy:
         error: Se ha producido un error al cancelar tu voto
         success: Tu voto se ha cancelado correctamente

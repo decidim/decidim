@@ -39,8 +39,8 @@ $(() => {
   const $votedBudgets = $("#voted-budgets");
   const $flash = $(".flash.success");
   if (($budgetsToVote.length || $votedBudgets.length) && $flash.length) {
-    $("<div class=\"row\"></div>").prependTo($(".wrapper"));
-    $flash.prependTo($(".wrapper .row:eq(0)"));
+    $("<div class=\"row\"></div>").prependTo($(".layout-2col__main"));
+    $flash.prependTo($(".layout-2col__main .row:eq(0)"));
     $flash.css("margin-bottom", "1rem");
   }
 });
