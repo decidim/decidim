@@ -2,16 +2,22 @@
   <div class="layout-1col pt-8">
     <div class="budget-summary__cols">
       <div class="budget-summary__content">
-        <% if budget_project %>
-          <div class="budget-summary__content__header">
-            <span class="budget-summary__content__header--title">
-              <%= t("name", scope: "decidim.components.budgets") %>
-            </span>
-            /
-            <%= decidim_sanitize_editor translated_attribute budget.title %>
-          </div>
-        <% end %>
         <div class="budget-summary__progressbox" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
+          <% if include_heading %>
+            <% if current_order_checked_out? %>
+              <%= t("title", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
+              <div class="budget-summary__content__header">
+                <span class="budget-summary__content__header--title">
+                  <%= t("name", scope: "decidim.components.budgets") %>
+                </span>
+                /
+                <%= translated_attribute(budget.title) %>
+              <p class="budget-summary__content__header--description">
+                <%= t("description", scope: "decidim.budgets.projects.budget_summary.checked_out") %>
+              </p>
+              </div>
+            <% end %>
+          <% end %>
           <% if include_heading && !current_order_checked_out? %>
           <p>
             <%= current_rule_description %>
@@ -60,11 +66,20 @@
         </div>
         <div class="progressbox-fixed-wrapper justify-self-center justify-items-center" data-progressbox-fixed>
           <% if !current_order_checked_out? && voting_open? %>
-          <button class="button button__secondary button__xl" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
-            <span>
-              <%= t(".vote") %></span>
-            <%= icon "check-line" %>
-          </button>
+            <button class="button button__secondary button__xl" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
+              <span>
+                <%= t(".vote") %>
+              </span>
+              <%= icon "check-line" %>
+            </button>
+          <% end %>
+          <% if include_heading %>
+            <% if current_order_checked_out? %>
+              <%= link_to budget_order_path(return_to: "budget"), method: :delete, class: "button button__lg button__secondary cancel-order", data: { confirm: t("are_you_sure", scope: "decidim.budgets.projects.budget_confirm") } do %>
+                <span><%= t("cancel_order", scope: "decidim.budgets.projects.budget_summary") %></span>
+                <%= icon "delete-bin-line" %>
+              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>

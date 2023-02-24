@@ -216,9 +216,9 @@ es:
         budget_summary:
           are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
           assigned: 'Asignado:'
-          cancel_order: eliminar tu voto y empezar de nuevo
+          cancel_order: Eliminar voto
           checked_out:
-            description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.
+            description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes eliminar tu voto.
             title: Voto para los presupuestos completado
           minimum_projects_rule:
             description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona por lo menos %{minimum_number} y vota según tus preferencias para definir el presupuesto.'

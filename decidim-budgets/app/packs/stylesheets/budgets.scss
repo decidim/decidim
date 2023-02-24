@@ -30,6 +30,10 @@
       @apply font-semibold;
     }
 
+    &__content__header--description{
+      @apply text-sm;
+    }
+
     &__progressbar{
       @apply my-4 relative;
 
