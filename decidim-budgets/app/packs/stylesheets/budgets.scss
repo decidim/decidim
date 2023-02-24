@@ -125,3 +125,7 @@
 .voting-wrapper .budget-summary .budget-summary__cols{
   @apply col-span-12;
 }
+
+#budgets.card__highlight-container{
+  @apply mb-0;
+}

@@ -170,8 +170,12 @@ es:
         if_change_opinion: Si has cambiado de opinión, puedes
         my_budgets: Mis presupuestos
         progress: Finalizar votación
+        projects_count:
+          one: 1 proyecto
+          other: "%{count} proyectos"
         show: Ver proyectos
         vote: Votar
+        voted_budgets: Presupuestos votados
         voted_on: Has votado en %{links}
       last_activity:
         new_vote_at: Nueva votación presupuestaria en
