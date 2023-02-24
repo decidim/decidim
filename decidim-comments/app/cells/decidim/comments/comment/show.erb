@@ -18,12 +18,10 @@
       <% end %>
 
       <div class="relative ml-auto">
-        <!-- comment submenu trigger -->
         <div id="dropdown-trigger-<%= context_menu_id %>" data-component="dropdown" data-target="dropdown-menu-<%= context_menu_id %>">
           &#8230;
         </div>
 
-        <!-- comment submenu content -->
         <div id="dropdown-menu-<%= context_menu_id %>" aria-hidden="true">
           <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
             <% unless reloaded? %>

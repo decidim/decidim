@@ -164,7 +164,7 @@ export default class CommentsComponent {
     $container.foundation();
     this._initializeComments($container);
     $(".add-comment textarea", $container).each((_i, el) => createCharacterCounter($(el)));
-    $container.find('a[target="_blank"]').each((_i, elem) => new ExternalLink(elem));
+    $container.find('a[target="_blank"]:not([data-external-link="false"])').each((_i, elem) => new ExternalLink(elem));
     updateExternalDomainLinks($container)
   }
 
