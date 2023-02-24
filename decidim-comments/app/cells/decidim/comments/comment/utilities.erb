@@ -38,12 +38,3 @@
     <% end %>
   </ul>
 </details>
-
-<% unless reloaded? %>
-  <% if current_user.present? %>
-    <%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
-  <% end %>
-  <% if model.authored_by?(current_user) %>
-    <%= cell("decidim/comments/edit_comment_modal_form", model) %>
-  <% end %>
-<% end %>
