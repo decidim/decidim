@@ -250,10 +250,16 @@ ar:
       compare_draft:
         continue: متابعة
         no_similars_found: لم يتم العثور على أي تعديل مماثل.
+        title: تعديلات مشابهة
+      created:
+        error: حدث خطأ أثناء إنشاء مسودة التعديل.
+        success: تم إنشاء مسودة التعديل بنجاح.
       destroy_draft:
+        error: طرأت مشكلة خلال حذف مسودة التعديل.
         success: تم حذف مسودة التعديل بنجاح.
       edit_draft:
         discard: تجاهل هذه المسودة
+        discard_confirmation: هل ترغب حقًا في تجاهل مسودة التعديل هذه؟
         send: معاينة
         title: تحرير مسودة التعديل
       emendation:
@@ -298,6 +304,8 @@ ar:
       update_draft:
         error: حدثت هناك مشكلة أثناء تحديث مسودة التعديل.
         success: تم تحديث مسودة التعديل بنجاح.
+      withdraw:
+        error: حدث خطأ أثناء سحب التعديل
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك
