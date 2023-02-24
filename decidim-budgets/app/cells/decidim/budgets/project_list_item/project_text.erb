@@ -7,14 +7,13 @@
   <% end %>
 
   <div class="card__list-metadata">
+    <% if current_order_checked_out? && resource_added? %>
+      <span>
+        <%= icon "check-double-line" %>
+        <%= cell("decidim/budgets/project_votes_count", model, layout: :one_line) %>
+      </span>
+    <% end %>
     <%= cell "decidim/budgets/project_tags", model, context: { extra_classes: ["tags--project"] } %>
   </div>
-
-  <div class="budget-list__data__number budget-list__number hide-for-medium">
-    <%= cell("decidim/budgets/project_votes_count",
-    model,
-    layout: :one_line) %>
-
-    <%= cell("decidim/budgets/project_voted_hint", model, class: "margin-left-1") if current_order_checked_out? && resource_added? %>
-  </div>
+  <%= cell("decidim/budgets/project_voted_hint", model, class: "margin-left-1") if current_order_checked_out? && resource_added? %>
 </div>

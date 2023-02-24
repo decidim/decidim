@@ -18,11 +18,9 @@ module Decidim
 
       def content
         if options[:layout] == :one_line
-          safe_join([model.confirmed_orders_count, " ", label(t("decidim.budgets.projects.project.votes",
-                                                                count: model.confirmed_orders_count))])
+          safe_join([model.confirmed_orders_count, " ", label(t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count))])
         else
-          safe_join([number, label(t("decidim.budgets.projects.project.votes",
-                                     count: model.confirmed_orders_count))])
+          safe_join([number, label(t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count))])
         end
       end
 
