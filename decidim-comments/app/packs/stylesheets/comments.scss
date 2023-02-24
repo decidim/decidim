@@ -8,7 +8,7 @@
   }
 
   &__header{
-    @apply flex items-center gap-x-2 mb-4;
+    @apply flex flex-col md:flex-row md:items-center gap-x-2 mb-4;
   }
 
   .tribute-container{
@@ -57,7 +57,7 @@
   @apply rounded-lg border-2 border-background p-4 pl-6;
 
   &__header{
-    @apply flex items-center gap-x-2 mb-2 -ml-[calc(1.5rem+.75rem)] relative first:[&>span]:z-10;
+    @apply flex items-center gap-x-2 mb-2 -ml-[calc(1.5rem+.75rem)] relative first:[&_a[href^="/profile"]>span]:z-10;
   }
 
   /* overwrite default dropdown styles */
@@ -205,7 +205,7 @@
   }
 
   &-order-by{
-    @apply ml-auto grid grid-cols-4 mt-4 md:mt-0;
+    @apply ml-auto grid grid-cols-4 place-items-center mt-4 md:mt-0;
   }
 
   &__actions{
