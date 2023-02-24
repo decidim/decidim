@@ -263,6 +263,9 @@ ar:
       update_draft:
         error: حدثت هناك مشكلة أثناء تحديث مسودة التعديل.
         success: تم تحديث مسودة التعديل بنجاح.
+      withdraw:
+        error: حدث خطأ أثناء سحب التعديل
+        success: تم سحب تعديل المسودة بنجاح
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك
@@ -289,6 +292,7 @@ ar:
         related_photos: الصور ذات الصلة
     author:
       avatar: 'الصورة الرمزية: %{name}'
+      avatar_multiuser: الصورة الرمزية الافاتار لمستخدمين عدة
       comments:
         zero: تعليقات
         one: تعليق
