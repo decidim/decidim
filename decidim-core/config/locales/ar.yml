@@ -263,6 +263,7 @@ ar:
         success: تم حذف مسودة التعديل بنجاح.
       edit_draft:
         discard: تجاهل هذه المسودة
+        discard_confirmation: هل ترغب حقًا في تجاهل مسودة التعديل هذه؟
         send: معاينة
         title: تحرير مسودة التعديل
       emendation:
@@ -307,6 +308,9 @@ ar:
       update_draft:
         error: حدثت هناك مشكلة أثناء تحديث مسودة التعديل.
         success: تم تحديث مسودة التعديل بنجاح.
+      withdraw:
+        error: حدث خطأ أثناء سحب التعديل
+        success: تم سحب تعديل المسودة بنجاح
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك
@@ -321,10 +325,14 @@ ar:
         related_documents: الوثائق ذات الصلة
       geocoding:
         geocoded_address: العنوان
+      photo:
+        alt: صورة الوسائط
+        title: الصورة
       photos:
         related_photos: الصور ذات الصلة
     author:
       avatar: 'الصورة الرمزية: %{name}'
+      avatar_multiuser: الصورة الرمزية الافاتار لمستخدمين عدة
       comments:
         zero: تعليقات
         one: تعليق
@@ -332,6 +340,7 @@ ar:
         few: تعليقات
         many: تعليقات
         other: تعليقات
+      official_author: رسمي
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: الحصول على التحقق عن طريق إدخال رقم جواز سفر يبدأ بـ "A"
