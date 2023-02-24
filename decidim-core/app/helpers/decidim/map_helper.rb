@@ -45,16 +45,6 @@ module Decidim
         link: map_url
       }.merge(options))
 
-      unless snippets.any?(:map_styles) || snippets.any?(:map_scripts)
-        snippets.add(:map_styles, builder.stylesheet_snippets)
-        snippets.add(:map_scripts, builder.javascript_snippets)
-
-        # This will display the snippets in the <head> part of the page.
-        snippets.add(:head, snippets.for(:map_styles))
-        # This will display the snippets in the bottom part of the page.
-        snippets.add(:foot, snippets.for(:map_scripts))
-      end
-
       builder.map_element(
         { class: "static-map", tabindex: "0" }.merge(map_html_options),
         &
@@ -74,27 +64,6 @@ module Decidim
       end
 
       builder = map_utility_dynamic.create_builder(self, options)
-
-      # The map snippets are stored to the snippets utility in order to ensure
-      # that they are only loaded once during each page load. In case they were
-      # loaded multiple times, the maps would break. We store the map assets to
-      # a special "map" snippets category in order to avoid displaying them
-      # multiple times. Then we inject them to the "head" category during the
-      # first load which will actually display them in the <head> section of the
-      # view.
-      #
-      # Ideally we would use Rails' native content_for here (which is exactly
-      # for this purpose) but unfortunately it does not work in the cells which
-      # also need to display maps.
-      unless snippets.any?(:map_styles) || snippets.any?(:map_scripts)
-        snippets.add(:map_styles, builder.stylesheet_snippets)
-        snippets.add(:map_scripts, builder.javascript_snippets)
-
-        # This will display the snippets in the <head> part of the page.
-        snippets.add(:head, snippets.for(:map_styles))
-        # This will display the snippets in the bottom part of the page.
-        snippets.add(:foot, snippets.for(:map_scripts))
-      end
 
       map_html_options = { id: "map", class: "google-map" }.merge(html_options)
       bottom_id = "#{map_html_options[:id]}_bottom"

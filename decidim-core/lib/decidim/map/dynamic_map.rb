@@ -69,6 +69,8 @@ module Decidim
 
           content = template.capture { yield }.html_safe if block_given?
 
+          stylesheet_snippets
+          javascript_snippets
           template.content_tag(:div, map_html_options) do
             (content || "")
           end
@@ -76,7 +78,7 @@ module Decidim
 
         # @see Decidim::Map::View::Builder#stylesheet_snippets
         def stylesheet_snippets
-          template.stylesheet_pack_tag("decidim_map")
+          template.append_stylesheet_pack_tag("decidim_map")
         end
 
         # @see Decidim::Map::View::Builder#javascript_snippets
