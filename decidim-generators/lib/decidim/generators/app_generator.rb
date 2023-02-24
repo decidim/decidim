@@ -355,6 +355,20 @@ module Decidim
                   "config.machine_translation_service = 'Decidim::Dev::DummyTranslator'"
       end
 
+      def use_unlogged_tables_in_test_environment
+        unlogged_tables_configuration = <<~SNIPPET
+          Rails.application.configure do
+
+            config.to_prepare do
+              ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.create_unlogged_tables = true
+            end
+        SNIPPET
+
+        gsub_file "config/environments/test.rb",
+                  /Rails.application.configure do/,
+                  unlogged_tables_configuration
+      end
+
       def install
         Decidim::Generators::InstallGenerator.start(
           [
