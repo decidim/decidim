@@ -4,6 +4,7 @@ module Decidim
   module Budgets
     # This cell renders the budgets list of a Budget component
     class BudgetsListCell < BaseCell
+      include Decidim::CellsPaginateHelper
       alias current_workflow model
 
       delegate :allowed, :budgets, :highlighted, :voted, to: :current_workflow
@@ -33,6 +34,10 @@ module Decidim
 
       def i18n_scope
         "decidim.budgets.budgets_list"
+      end
+
+      def budget_paginate
+        @budget_paginate ||= Kaminari.paginate_array(budgets).page(params[:page]).per(10)
       end
     end
   end
