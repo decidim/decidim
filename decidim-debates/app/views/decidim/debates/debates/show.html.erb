@@ -27,7 +27,9 @@ edit_link(
     </span>
   <% end %>
 
-  <%= render_debate_description(debate) %>
+  <div class="editor-content">
+    <%= render_debate_description(debate) %>
+  </div>
 
   <% if debate.closed? %>
     <%= cell("decidim/announcement", { title: t("debate_conclusions_are", scope: "decidim.debates.debates.show", date: l(debate.closed_at, format: :decidim_short)), body: simple_format(translated_attribute(debate.conclusions)) }, callout_class: "success") %>

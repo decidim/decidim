@@ -37,7 +37,7 @@ module Decidim
     end
 
     def decidim_sanitize_editor(html, options = {})
-      content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor ql-reset-decidim editor-content))
+      content_tag(:div, decidim_sanitize(html, options), class: %w(ql-editor ql-reset-decidim))
     end
 
     def decidim_sanitize_editor_admin(html, options = {})
