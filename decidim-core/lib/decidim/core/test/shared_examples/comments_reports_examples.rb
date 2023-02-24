@@ -6,7 +6,7 @@ shared_examples "comments_reports" do
       visit reportable_path
 
       # Open toolbar
-      page.find(".comment__header details summary").click
+      page.find("[id^='dropdown-trigger']").click
       click_button "Report"
 
       expect(page).to have_css("#loginModal", visible: :visible)
@@ -23,7 +23,7 @@ shared_examples "comments_reports" do
         visit reportable_path
 
         # Open toolbar
-        page.find(".comment__header details summary").click
+        page.find("[id^='dropdown-trigger']").click
         within "details" do
           click_button "Report"
         end
@@ -48,7 +48,7 @@ shared_examples "comments_reports" do
         visit reportable_path
 
         # Open toolbar
-        page.find(".comment__header details summary").click
+        page.find("[id^='dropdown-trigger']").click
         click_button "Report"
 
         expect(page).to have_css(".modal__report", visible: :visible)

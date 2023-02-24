@@ -492,7 +492,7 @@ shared_examples "comments" do
 
         it "the context menu of the comment doesn't show a delete link" do
           within "#comment_#{comment.id}" do
-            page.find(".comment__header details summary").click
+            page.find("[id^='dropdown-trigger']").click
             expect(page).to have_no_link("Delete")
           end
         end
@@ -503,7 +503,7 @@ shared_examples "comments" do
 
         it "the context menu of the comment shows a delete link" do
           within "#comment_#{comment.id}" do
-            page.find(".comment__header details summary").click
+            page.find("[id^='dropdown-trigger']").click
             expect(page).to have_link("Delete")
           end
         end
@@ -512,7 +512,7 @@ shared_examples "comments" do
           expect(Decidim::Comments::Comment.not_deleted.count).to eq(4)
 
           within "#comment_#{comment.id}" do
-            page.find(".comment__header details summary").click
+            page.find("[id^='dropdown-trigger']").click
             click_link "Delete"
           end
 
@@ -548,7 +548,7 @@ shared_examples "comments" do
         it "the context menu of the comment doesn't show an edit button" do
           within "#comment_#{comment.id}" do
             # Toolbar
-            page.find(".comment__header details summary").click
+            page.find("[id^='dropdown-trigger']").click
             expect(page).to have_no_button("Edit")
           end
         end
@@ -560,7 +560,7 @@ shared_examples "comments" do
         it "the context menu of the comment show an edit button" do
           within "#comment_#{comment.id}" do
             # Toolbar
-            page.find(".comment__header details summary").click
+            page.find("[id^='dropdown-trigger']").click
             expect(page).to have_button("Edit")
           end
         end
@@ -569,7 +569,7 @@ shared_examples "comments" do
           before do
             within "#comment_#{comment.id}" do
               # Toolbar
-              page.find(".comment__header details summary").click
+              page.find("[id^='dropdown-trigger']").click
               click_button "Edit"
             end
             fill_in "edit_comment_#{comment.id}", with: " This comment has been fixed"
