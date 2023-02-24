@@ -126,6 +126,7 @@
   @apply col-span-12;
 }
 
-#budgets.card__highlight-container{
+#budgets.card__highlight-container,
+#budgets-to-vote.card__highlight-container{
   @apply mb-0;
 }
