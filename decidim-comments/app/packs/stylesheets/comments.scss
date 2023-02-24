@@ -202,6 +202,11 @@
     .button_to{
       @apply inline-block;
     }
+
+    /* override button default styles */
+    .button[disabled]{
+      @apply border-0 bg-transparent;
+    }
   }
 
   &-order-by{
