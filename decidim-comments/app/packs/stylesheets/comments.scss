@@ -74,12 +74,8 @@
     @apply grid grid-cols-2 items-center mt-2;
   }
 
-  &__reply{
-    @apply text-secondary mt-2;
-  }
-
   &-reply{
-    @apply rounded-lg border-2 border-background bg-background-2 p-4 pl-6 relative;
+    @apply rounded-lg border-2 border-background ml-3 relative;
   }
 
   &-reply:empty{
@@ -92,9 +88,9 @@
     content: "";
   }
 
-  &-reply .comment,
-  &-reply .comment-reply{
-    @apply border-0;
+  &-reply &,
+  & &-reply{
+    @apply border-0 pr-0;
   }
 
   &-thread{

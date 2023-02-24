@@ -28,7 +28,7 @@ module Decidim::Comments
         expect(subject).to have_content(comment.author.name)
 
         expect(subject).not_to have_css(".add-comment")
-        expect(subject).not_to have_css(".comment__reply")
+        expect(subject).not_to have_css(".comment-reply")
         expect(subject).not_to have_css("#flagModalComment#{comment.id}")
         expect(subject).not_to have_css(".label.alignment")
       end
@@ -47,7 +47,7 @@ module Decidim::Comments
           expect(subject).to have_no_content(comment.author.name)
 
           expect(subject).to have_no_css(".add-comment")
-          expect(subject).to have_no_css(".comment__reply")
+          expect(subject).to have_no_css(".comment-reply")
           expect(subject).to have_no_css("#flagModalComment#{comment.id}")
         end
       end
@@ -67,7 +67,7 @@ module Decidim::Comments
           expect(subject).to have_no_content(comment.author.name)
 
           expect(subject).to have_no_css(".add-comment")
-          expect(subject).to have_no_css(".comment__reply")
+          expect(subject).to have_no_css(".comment-reply")
           expect(subject).to have_no_css("#flagModalComment#{comment.id}")
         end
       end
@@ -89,7 +89,7 @@ module Decidim::Comments
           expect(subject).to have_content(comment.author.name)
 
           expect(subject).not_to have_css(".add-comment")
-          expect(subject).not_to have_css(".comment__reply")
+          expect(subject).not_to have_css(".comment-reply")
           expect(subject).not_to have_css(".label.alignment")
         end
       end
