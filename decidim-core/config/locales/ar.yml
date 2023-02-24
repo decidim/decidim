@@ -254,7 +254,12 @@ ar:
       compare_draft:
         continue: متابعة
         no_similars_found: لم يتم العثور على أي تعديل مماثل.
+        title: تعديلات مشابهة
+      created:
+        error: حدث خطأ أثناء إنشاء مسودة التعديل.
+        success: تم إنشاء مسودة التعديل بنجاح.
       destroy_draft:
+        error: طرأت مشكلة خلال حذف مسودة التعديل.
         success: تم حذف مسودة التعديل بنجاح.
       edit_draft:
         discard: تجاهل هذه المسودة
