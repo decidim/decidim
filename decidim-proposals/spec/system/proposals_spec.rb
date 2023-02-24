@@ -494,7 +494,7 @@ describe "Proposals", type: :system do
       before do
         visit_component
         within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_selector("div.order-by a", text: "Random")
           page.find("a", text: "Random").click
           click_link(selected_option)
         end

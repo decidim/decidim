@@ -30,17 +30,16 @@ describe "Sorting projects", type: :system do
     before do
       visit_budget
       within ".order-by" do
-        expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random order")
+        expect(page).to have_selector("div.order-by a", text: "Random order")
         page.find("a", text: "Random order").click
         click_link(selected_option)
       end
     end
 
     it "lists the projects ordered by selected option" do
-      # expect(page).to have_selector("#projects li.is-dropdown-submenu-parent a", text: selected_option)
-      within "#projects li.is-dropdown-submenu-parent a" do
-        expect(page).to have_no_content("Random order", wait: 20)
-        expect(page).to have_content(selected_option)
+      within "#projects div.order-by" do
+        expect(page).to have_no_selector("a.underline.font-bold", text: "Random order")
+        expect(page).to have_selector("a.underline.font-bold", text: selected_option)
       end
 
       expect(page).to have_selector("#projects .budget-list .budget-list__item:first-child", text: translated(first_project.title))
@@ -86,8 +85,8 @@ describe "Sorting projects", type: :system do
       it "automatically sorts by votes" do
         visit_budget
 
-        within "#projects li.is-dropdown-submenu-parent a" do
-          expect(page).to have_content("Most voted")
+        within "#projects div.order-by" do
+          expect(page).to have_selector("a.underline.font-bold", text: "Most voted")
         end
 
         expect(page).to have_selector("#projects .budget-list .budget-list__item:first-child", text: translated(project2.title))
@@ -99,8 +98,8 @@ describe "Sorting projects", type: :system do
 
         visit_budget
 
-        within "#projects li.is-dropdown-submenu-parent a" do
-          expect(page).to have_content("Most voted")
+        within "#projects div.order-by" do
+          expect(page).to have_selector("a.underline.font-bold", text: "Most voted")
         end
 
         # project2 on first page
