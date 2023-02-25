@@ -352,11 +352,16 @@ ar:
       dummy_authorization_handler:
         explanation: الحصول على التحقق من خلال إدخال رقم مستند ينتهي بـ "X"
         fields:
+          allowed_postal_codes: الرموز البريدية المسموح بها (مفصولة بفواصل)
+          allowed_scope_id: النطاق المسموح به
           document_number: رقم المستند
           postal_code: الكود البريدى
+          scope_id: نطاق
         name: مثال إذن
       dummy_authorization_workflow:
         name: سير العمل التخويل وهمية
+      errors:
+        duplicate_authorization: هناك مشارك مصرح له بنفس البيانات. سيقوم المدير بالاتصال بك للتحقق من بياناتك.
       expired_at: انتهت في %{timestamp}
       expires_at: تنتهي في %{timestamp}
       foo_authorization:
@@ -371,6 +376,9 @@ ar:
       started_at: بدأت في %{timestamp}
     authorization_modals:
       content:
+        expired:
+          authorize: إعادة التفويض مع "%{authorization}"
+          explanation: انتهت صلاحية الإذن الخاص بك. من أجل تنفيذ هذا الإجراء، تحتاج إلى إعادة الحصول على الإذن الإذن مع "%{authorization}".
         incomplete:
           cancel: إلغاء
           invalid_field: "%{field}"
