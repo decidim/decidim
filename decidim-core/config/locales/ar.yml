@@ -379,21 +379,42 @@ ar:
         expired:
           authorize: إعادة التفويض مع "%{authorization}"
           explanation: انتهت صلاحية الإذن الخاص بك. من أجل تنفيذ هذا الإجراء، تحتاج إلى إعادة الحصول على الإذن الإذن مع "%{authorization}".
+          title: انتهت مدة صلاحية الترخيص
         incomplete:
           cancel: إلغاء
+          explanation: 'على الرغم من أنك مخول حاليًا ب "%{authorization}"، نحن بحاجة إلى إعادة عملية التفويض لأننا نفتقر إلى البيانات التالية:'
           invalid_field: "%{field}"
+          reauthorize: تجديد التفويض
+          title: الرجاء إعادة التفويض
+        missing:
+          authorize: التفويض مع "%{authorization}"
+          explanation: من أجل تنفيذ هذا الإجراء، تحتاج إلى التفويض مع "%{authorization}".
+          title: التفويض مطلوب
+        ok:
+          title: لقد تم التفوبض لك أثناء وجودك على هذه الصفحة. يرجى إعادة تحميل الصفحة لتنفيذ الإجراء الخاص بك
         pending:
+          explanation: من أجل تنفيذ هذا الإجراء، تحتاج إلى التفويض مع "%{authorization}" ، ولكن تفويضك لا يزال قيد العمل
+          resume: تحقق من تقدم التفويض%{authorization} الخاص بك
           title: لا يزال الترخيص قيد انتظار التأكيد
         unauthorized:
+          explanation: عذراً، لا يمكنك تنفيذ هذا الإجراء لأن بعض بيانات التفويض الخاصة بك غير متطابقة.
+          invalid_field: "%{field} قيمة %{value} غير صالحة."
           ok: موافق
           title: غير مخوّل
         unconfirmed:
+          confirmation_instructions: 'في حال لم تستلم تعليمات التأكيد يمكنك طلبها مرة أخرى:'
+          explanation_html: من أجل تنفيذ هذا الإجراء، تحتاج إلى تفويض، وقبل القيام بذلك، تحتاج إلى تأكيد بريدك الإلكتروني <strong>%{email}</strong>.
+          request_confirmation_instructions: طلب تعليمات التأكيد
           title: تأكيد البريد الإلكتروني
       show:
         close_modal: إغلاق مشروط
     block_user_mailer:
       notify:
+        body_1: تم حظر الحساب الخاص بك.
+        body_2: 'السبب: %{justification}'
+        greetings: تحيات,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: مرحبًا،
+        subject: تم حظر حسابك من قبل %{organization_name}
     collapsible_list:
       hidden_elements_count:
         zero: و %{count} أخرى
@@ -406,7 +427,9 @@ ar:
       see_more: "(شاهد المزيد)"
     components:
       component_order_selector:
+        no_content: لم نتمكن من العثور على أي محتوى بهذه المعايير
         order:
+          all_types: جميع الأنواع
           collaborative_draft: مسودة تعاونية مشتركة
           comment: تعليق
           debate: المناقشة
@@ -691,8 +714,23 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك كنت عضوًا في هذه المجموعة.
           email_subject: لقد تمت إزالتك من المجموعة %{user_group_name}!
           notification_title: لقد تمت إزالتك من المجموعة <a href="%{resource_path}">%{user_group_name}</a>.
+        user_group_created:
+          email_intro: تم إنشاء مجموعة مستخدم جديدة بالاسم %{user_group_name}. يمكنك الآن التحقق من ذلك على <a href="%{groups_admin_url}">لوحة المدير</a>.
+          email_outro: تلقيت هذا الإشعار لأنك مدير في هذه المنصة.
+          email_subject: تم إنشاء مجموعة مستخدم جديدة
+          notification_title: تم إنشاء مجموعة المستخدم %{user_group_name}. يمكنك الآن التحقق منها وتأكيدها في <a href="%{groups_admin_path}">لوحة المشرف</a>.
+        user_group_updated:
+          email_intro: قامت مجموعة من المستخدمين تحمل اسم %{user_group_name} بتحديث الملف الشخصي الخاص بها، تاركة ذلك غير مؤكد. يمكنك الآن تأكيدها في لوحة <a href="%{groups_admin_url}">المشرف</a>.
+          email_outro: تلقيت هذا الإشعار لأنك مدير في هذه المنصة.
+          email_subject: قامت مجموعة من المستخدمين بتحديث ملفاتها الشخصية
+          notification_title: قامت مجموعة المستخدمين %{user_group_name} بتحديث الملف الشخصي الخاص بها، تاركة ذلك غير مؤكد. يمكنك الآن تأكيدها في لوحة <a href="%{groups_admin_path}">المشرف</a>.
+      nickname_event:
+        notification_body: لقد قمنا بتصحيح الطريقة التي تستخدم بها الأسماء المستعارة بحيث لا يوجد تكرار، ولهذا السبب قمنا بإزالة القاعدة الحساسة للحالة. <br/> تم إنشاء اسمك المستعار بعد اسم آخر بنفس الاسم، لذلك قمنا بإعادة تسميته تلقائيا. يمكنك تغييره من <a href="%{link_to_account_settings}">إعدادات حسابك</a>.
       notification_event:
         notification_title: حدث حدث ل <a href="%{resource_path}">%{resource_title}</a>.
+      reports:
+        resource_hidden:
+          email_intro: قام مسؤول بحذف %{resource_type} لأنه تم الإبلاغ عنه كـ %{report_reasons}.
       users:
         profile_updated:
           email_intro: و <a href="%{resource_url}">صفحة الملف الشخصي</a> من %{name} (%{nickname})، الذي كنت التالية، وقد تم تحديثها.
@@ -889,9 +927,12 @@ ar:
         create_with_space: "%{user_name} تم الإنشاء %{resource_name} في %{space_name}"
         delete: "%{user_name} حذف %{resource_name}"
         delete_with_space: "%{user_name} حذف %{resource_name} في %{space_name}"
+        publish_with_space: "%{user_name} نشر %{resource_name} في %{space_name}"
         unknown_action: "%{user_name} قام ببعض الإجراءات في %{resource_name}"
         unknown_action_with_space: "%{user_name} قام ببعض الإجراءات في %{resource_name} في %{space_name}"
+        unpublish_with_space: "%{user_name} حذف %{resource_name} من %{space_name}"
         update: "%{user_name} تحديث %{resource_name}"
+        update_permissions_with_space: "%{user_name} حدث أذونات %{resource_name} في %{space_name}"
         update_with_space: "%{user_name} محدث %{resource_name} في %{space_name}"
       value_types:
         area_presenter:
@@ -904,6 +945,13 @@ ar:
           not_found: 'لم يتم العثور على نوع النطاق في قاعدة البيانات (المعرف: %{id})'
     managed_users:
       expired_session: انتهت صلاحية جلسة الإدارة الحالية للمشارك.
+    map:
+      dynamic:
+        screen_reader_explanation: العنصر التالي هو خريطة تعرض الأشياء الموجودة في هذه الصفحة كنقاط للخريطة. يمكن استخدام العنصر مع قارئ الشاشة ولكن قد يكون من الصعب فهمه.
+        skip_button: تخطي الخريطة
+      static:
+        latlng_text: 'العرض: %{latitude}، الطول: %{longitude}'
+        map_service_brand: OpenStreetMap
     members:
       no_members: هذه المجموعة ليس لديها أي أعضاء حتى الآن.
     menu:
@@ -911,11 +959,35 @@ ar:
       home: الصفحة الرئيسية
     messaging:
       conversation_mailer:
+        comanagers_new_conversation:
+          admin_in_group: تتلقى هذا لأنك مدير في %{group}.
+          greeting: مرحباً، %{recipient}!
+          intro: "بدأ %{manager} محادثة جديدة باسم %{group}. انقر هنا لرؤيتها:"
+          outro: استمتع بDecidim!
+          subject: "بدأ %{manager} محادثة جديدة كـ %{group}"
+        comanagers_new_message:
+          admin_in_group: تتلقى هذا لأنك مدير في %{group}.
+          greeting: مرحباً، %{recipient}!
+          intro: "قام %{manager} بنشر رسائل جديدة في المحادثة ذات اسم %{group}. انقر هنا لرؤيتها:"
+          outro: استمتع بDecidim!
+          subject: "%{manager} أرسل رسائل جديدة كـ %{group}"
         new_conversation:
           greeting: مرحبًا ، %{recipient}!
           intro: "%{sender} بدأ محادثة جديدة معك. انقر هنا لرؤيتها:"
           outro: استمتع ديسيديم!
           subject: "%{sender} بدأ محادثة معك"
+        new_group_conversation:
+          admin_in_group: تتلقى هذا لأنك مدير في %{group}.
+          greeting: مرحباً، %{recipient}!
+          intro: "بدأ %{sender} محادثة جديدة مع المجموعة %{group}. انقر هنا لرؤيتها:"
+          outro: استمتع بDecidim!
+          subject: "بدأ %{sender} محادثة جديدة مع %{group}"
+        new_group_message:
+          admin_in_group: تتلقى هذا لأنك مدير في %{group}.
+          greeting: مرحباً، %{recipient}!
+          intro: "قام %{sender} بنشر رسائل جديدة في المحادثة مع المجوعة %{group}. انقر هنا لرؤيتها:"
+          outro: استمتع بDecidim!
+          subject: "%{group} لديها رسائل جديدة من %{sender}"
         new_message:
           greeting: مرحبًا ، %{recipient}!
           intro: "نشر %{sender} رسائل جديدة في محادثتك. انقر هنا لرؤيتها:"
@@ -923,12 +995,20 @@ ar:
           subject: لديك رسائل جديدة من %{sender}
       conversations:
         add_conversation_users:
+          add_max_users: 'يمكن إضافة مستخدمين إلى المحادثة: 9 مستخدمين كحد أقصى'
           add_users_placeholder: البحث…
           modal_title: محادثة جديدة
           no_results: لا توجد نتائج
+          participant_with_disabled_message_reception: قام هذا المشارك بتعطيل استقبال الرسائل
         create:
           error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
+        error_modal:
+          close: اغلاق النموذج
+          correct_errors: يرجى تصحيح الأخطاء والمحاولة مرة أخرى.
+          intro: 'حدثت الأخطاء التالية في رسالتك:'
+          ok: حسناً
         index:
+          ago: منذ
           close: إغلاق مشروط
           groups: فِرَقي
           last_message: آخر رسالة
@@ -939,10 +1019,18 @@ ar:
         reply:
           send: إرسال
         show:
+          back: العودة إلى جميع المحادثات
+          chat_with: محادثة مع
+          deleted_accounts: لا يمكن أن يكون لديك محادثة مع حسابات محذوفة.
+          not_allowed: هذا المشارك لا يقبل الرسائل المباشرة.
           title: المحادثة مع %{usernames}
         start:
           send: إرسال
+        update:
+          error: لم يتم إرسال الرسالة بسبب حدوث خطأ
     metrics:
+      download:
+        csv: تحميل البيانات (CSV)
       followers:
         description: عدد المشاركين الذين يتبعون مساحة المشاركة هذه
         object: متابعون
@@ -958,8 +1046,17 @@ ar:
     newsletter_mailer:
       newsletter:
         note: لقد تلقيت هذه الرسالة الإلكترونية لأنك مشترك في الرسائل الإخبارية على %{organization_name}. يمكنك تغيير الإعدادات الخاصة بك على هاتفك <a href="%{link}">الصفحة إخطارات</a>.
+        see_on_website: هل لا تستطيع رؤية هذا البريد الإلكتروني بشكل صحيح؟ اطلع عليه على <a href="%{link}" target="_blank">موقع</a>.
         unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
     newsletter_templates:
+      basic_only_text:
+        body_preview: 'نص وهمي للنص: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
+        name: أساسي (نص فقط)
+      basic_only_text_settings_form:
+        body: النص
+        interpolations_hint: 'تلميح: يمكنك استخدام "%{name}" في أي مكان في النص أو الموضوع وسيتم استبداله باسم المستلم.'
+      image_text_cta:
+        body_preview: 'نص وهمي للنص: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
       image_text_cta_settings_form:
         introduction: مقدمة
         main_image: الصورة الرئيسية
@@ -1099,8 +1196,14 @@ ar:
         report_html: <p>بعد <a href="%{url}">محتوى</a> تم إخفاء تلقائيا.</p>
         subject: تم إخفاء المورد تلقائيًا
       report:
+        authors: المؤلفون
+        content: محتوى تم الإبلاغ عنه
         content_original_language: لغة المحتوى الأصلية
+        date: تم الإبلاغ عنه
+        details: التفاصيل
         hello: مرحبا %{name}،
+        id: المعرف ID
+        participatory_space: المساحة التشاركية
         reason: السبب
         report_html: <p>تم الإبلاغ عن المحتوى <a href="%{url}">التالي</a> .</p>
         see_report: معاينة التقرير
@@ -1109,14 +1212,21 @@ ar:
       create:
         error: حدث خطأ أثناء إنشاء التقرير. من فضلك حاول مرة أخرى.
         success: تم إنشاء التقرير بنجاح وسيتم مراجعته بواسطة مسؤول.
+    resource_endorsements:
+      create:
+        error: كانت هناك مشكلة أثناء اجراء الدعم.
     scopes:
       global: النطاق العالمي
       picker:
         cancel: إلغاء
+        change: تغيير النطاق المحدد
         choose: تحديد
+        currently_selected: النطاق المحدد حالياً
         title: اختر %{field}
       prompt: حدد النطاق
       scopes: نطاقات
+      scopes_picker_input:
+        select_scope: 'يرجى تحديد نطاق (حالياً: %{current})'
     search:
       results: نتائج البحث
       results_found_for_term: '%{count} نتائج البحث: "%{term}"'
@@ -1144,9 +1254,15 @@ ar:
           many: "%{count} النتائج"
           other: "%{count} النتائج"
         view_all: عرض الكل (%{count})
+    security:
+      selfxss_warning:
+        description: ميزة المتصفح هذه مخصصة للمطورين، ولا ينبغي عليك لصق أي شيء هنا إذا طُلب منك القيام بذلك. لصق المحتوى في هذه النافذة يمكن أن يضر بخصوصيتك ويعطي القراصنة إمكانية الوصول إلى حسابك.
+        title: قف!
     shared:
       confirm_modal:
         cancel: إلغاء
+        close_modal: اغلاق النموذج
+        ok: حسناً
         title: تأكيد
       embed_modal:
         close_window: أغلق النافذة
@@ -1155,26 +1271,45 @@ ar:
       extended_navigation_bar:
         more: أكثر من
         unfold: كشف
+      filter_form_help:
+        help: النموذج أدناه يقوم بتصفية نتائج البحث بشكل دينامي عندما يتم تغيير شروط البحث.
+        skip: تخطي إلى النتائج
       flag_modal:
         already_reported: تم الإبلاغ عن هذا المحتوى بالفعل وسيتم مراجعته من قبل المشرف.
         close: قريب
         description: هل هذا المحتوى غير مناسب؟
         does_not_belong: يحتوي على نشاط غير قانوني أو تهديدات انتحارية أو معلومات شخصية أو أي شيء آخر تعتقد أنه لا ينتمي إلى %{organization_name}.
         offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
+        reason: السبب
         report: أبلغ عن
         spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
         title: الإبلاغ عن مشكلة
+      flag_user_modal:
+        already_reported: تم الإبلاغ عن هذا المحتوى وسيتم مراجعته من قبل مدير.
+        close: إغلاق
+        description: ما هو الأمر الغير مناسب بخصوص هذا المستخدم؟
+        does_not_belong: يحتوي على نشاط غير مشروع، تهديدات بالانتحار، معلومات شخصية، أو شيء آخر تعتقد أنه لا ينتمي إلى %{organization_name}.
+        offensive: يتضمن العنصرية أو التحيز الجنسي أو الشتائم أو الهجمات الشخصية أو التهديد بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
+        report: إبلاغ
+        spam: يحتوي على طعم النقر(clickbaiting) أو إعلان، أو احتيال، أو روبوتات سكريبتة.
+        title: الإبلاغ عن مستخدم مخل
       floating_help:
+        close: إغلاق المساعدة
         help: المساعدة
       follow_button:
         sign_in_before_follow: يرجى تسجيل الدخول قبل تنفيذ هذا الإجراء
       login_modal:
+        close_modal: اغلاق النموذج
         please_sign_in: الرجاء تسجيل الدخول
         sign_up: انشئ حسابًا
+      mentions_modal:
+        remove_recipient: إزالة المستلم %{name}
       participatory_space_filters:
         filters:
           areas: المناطق
           select_an_area: اختر المنطقة
+      public_participation:
+        public_participation: إبراز حضوري علنا
       reference:
         reference: 'المرجع: %{reference}'
       represent_user_group:
@@ -1182,19 +1317,39 @@ ar:
         select_user_group: اختر فريقا
       results_per_page:
         label: 'نتائج لكل صفحة:'
+        title: حدد عدد النتائج لكل صفحة
       share_modal:
         close_window: أغلق النافذة
         copy_share_link: انسخ
+        copy_share_link_clarification: نسخ رابط المشاركة إلى الحافظة
+        copy_share_link_copied: تم النسخ!
+        copy_share_link_message: تم نسخ الرابط الى الحافظة بنجاح.
         share: شارك
         share_link: مشاركة الرابط
     statistics:
       comments_count: تعليقات
+      endorsements_count: الدعم والتأييد
+      followers_count: المُتابِعون
       headline: الإحصائيات
+      no_stats: لا توجد إحصائيات بعد.
       pages_count: صفحات
       participants_count: المشاركون
       users_count: المشاركون
+    tags:
+      filter_results_for_category: 'تصفية نتائج التصنيف للفئة: %{resource}'
+      filter_results_for_scope: 'تصفية نتائج التصنيف للنطاق: %{resource}'
+    translation_bar:
+      help_text: "<strong>تحذير:</strong> المحتوى قد يتم ترجمته تلقائياً ولا يكون دقيقاً بنسبة 100%."
+      show_original: إظهار النص الأصلي
+      show_translated: إظهار النص المترجم تلقائياً
+    user_contact_disabled: هذا المشارك لا يقبل الرسائل المباشرة.
     user_conversations:
+      create:
+        error: تعذر إنشاء الرسالة. يرجى المحاولة مرة أخرى لاحقاً
+        existing_error: تعذر إنشاء الرسالة. المحادثة موجودة بالفعل، الرجاء المحاولة مرة أخرى الآن.
+        success: تم بدء المحادثة بنجاح!
       index:
+        add_max_users: 'يمكن إضافة مستخدمين إلى المحادثة: 9 مستخدمين كحد أقصى'
         add_users_placeholder: البحث…
         close: غلق
         last_message: آخر رسالة
@@ -1367,6 +1522,7 @@ ar:
       public: معلوماتك العامة.
   errors:
     messages:
+      allowed_file_content_types: 'يسمح فقط بالملفات ذات الإضافات التالية: %{types}'
       already_confirmed: تم التأكيد بالفعل ، يرجى محاولة تسجيل الدخول
       confirmation_period_expired: يحتاج إلى تأكيد خلال %{period}، يرجى طلب واحدة جديدة
       content_type_allowlist_error: نوع الملف غير صالح
@@ -1377,19 +1533,74 @@ ar:
       long_words: يحتوي على كلمات طويلة جدًا (أكثر من 35 حرفًا)
       must_start_with_caps: يجب أن تبدأ بحرف كبير
       nesting_too_deep: لا يمكن أن يكون داخل فئة فرعية
+      not_found: تعذر العثور عليه. هل قمت بالتسجيل سابقاً؟
       not_locked: لم يكن مغلقا
       too_many_marks: يستخدم الكثير من علامات الترقيم المتتالية (مثل! و؟)
       too_much_caps: يستخدم عددًا كبيرًا جدًا من الأحرف الكبيرة (أكثر من 25٪ من النص)
+      too_short: قصير للغاية (أقل من %{count} حروف)
   forms:
+    correct_errors: هناك أخطاء في النموذج، يرجى تصحيحها للمتابعة.
     required: مطلوب
+    required_explanation: "* الحقول المطلوبة موسومة بعلامة نجمية"
   invisible_captcha:
     sentence_for_humans: إذا كنت بشرًا ، فتجاهل هذا الحقل
     timestamp_error_message: آسف ، كان ذلك سريعًا جدًا! يرجى إعادة تقديم.
   layouts:
     decidim:
+      data_consent:
+        details:
+          columns:
+            description: وصف
+            name: اسم
+            service: الخدمة
+            type: النوع
+          items:
+            _session_id:
+              description: يسمح للمواقع بتذكر المستخدم داخل الموقع عندما ينتقل بين صفحات الويب.
+              service: هذا الموقع
+            decidim-consent:
+              description: يخزن معلومات حول ملفات تعريف الارتباط المسموح بها من قبل المستخدم على هذا الموقع.
+              service: هذا الموقع
+            pwaInstallPromptSeen:
+              description: يخزن الحالة إذا كان إشعار تثبيت التطبيق التصاعدي (PWA) قد شوهد بالفعل من قبل المستخدم.
+              service: هذا الموقع
+          types:
+            cookie: ملف تعريف ارتباط
+            local_storage: ذاكرة التخزين المحلية
+        dialog:
+          accept_all: قبولها كلها
+          accept_only_essential: قبول الضروري فقط
+          description: نستخدم ملفات تعريف الارتباط على موقعنا على الإنترنت لتحسين أداء الموقع ومحتوياته. تتيح لنا ملفات تعريف الارتباط توفير تجربة مستخدم فردية بشكل أكثر وقنوات التواصل الاجتماعي.
+          settings: الإعدادات
+          title: معلومات حول ملفات تعريف الارتباط المستخدمة على الموقع
+        modal:
+          accept_all: قبولها كلها
+          accept_only_essential: قبول الضروري فقط
+          analytics:
+            description: تستخدم ملفات تعريف الارتباط هذه لقياس وتحليل جمهور الموقع للمساعدة في تحسين الموقع.
+            title: تحليلات واحصائيات
+          description: نحن نستخدم ملفات تعريف الارتباط لضمان الوظائف الأساسية للموقع وتعزيز تجربتك عبر الإنترنت. يمكنك إعداد وقبول استخدام ملفات تعريف الارتباط، وتعديل خيارات الموافقة الخاصة بك، في أي وقت.
+          essential:
+            description: تتيح ملفات تعريف الارتباط هذه عمل وظائف رئيسية للموقع وتساعد على الحفاظ على أمن مستخدميه. يتم حفظها تلقائياً في المتصفح ولا يمكن تعطيلها.
+            title: أساسي
+          marketing:
+            description: ملفات تعريف الارتباط هذه تجمع معلومات عن كيفية استخدام الموقع ويمكن استخدامها لتزويدك بتسويق أكثر تخصيصاً عبر مختلف المواقع التي تستخدمها.
+            title: التسويق
+          preferences:
+            description: تمكن ملفات تعريف الارتباط هذه الموقع من تذكر الخيارات التي قمت بها في الماضي على هذا الموقع لتوفير تجربة أكثر تخصيصاً لمستخدمي الموقع.
+            title: التفضيلات
+          save_settings: حفظ الاعدادات
+          title: إعدادات ملفات تعريف الارتباط
+          toggle: تبديل %{consent_category}
+        warning:
+          all_categories: جميع ملفات تعريف الارتباط
+          change_settings: تغيير إعدادات ملفات تعريف الارتباط الخاصة بك
+          consent_required: تحتاج إلى تمكين %{categories} من أجل رؤية هذا المحتوى.
       edit_link:
         edit: تعديل
       footer:
+        cc_by_license: رخصة المشاع الإبداعي
+        data_consent_settings: إعدادات ملفات تعريف الارتباط
         decidim_logo: شعار Decidim
         download_open_data: تحميل ملفات البيانات المفتوحة
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
@@ -1408,17 +1619,31 @@ ar:
         choose_language: اختر اللغة
       notifications_dashboard:
         mark_all_as_read: اشر عليها بانها قرات
+        mark_as_read: تحديد كمقروء
+      offline_banner:
+        cache_version_page: عفواً! الشبكة الخاصة بك غير متصلة. هذه نسخة مخبأة سابقاً من الصفحة التي تزورها، قد يكون المحتوى غير محدث.
+      social_media_links:
+        facebook: "%{organization} على الفيسبوك"
+        github: "%{organization} في GitHub"
+        instagram: "%{organization} في إنستاجرام"
+        twitter: "%{organization} في تويتر"
+        youtube: "%{organization} على اليوتيوب"
       timeout_modal:
+        body: لقد كنت غير نشط لمدة %{minutes} دقائق. إذا استمريت في كونك غير نشط، سيتم تسجيل خروجك تلقائيًا من أجل الأمان الخاص بك.
         continue_session: متابعة الجلسة
         sign_out: تسجيل الخروج
         title: هل ترغب في متابعة جلستك؟
+      upload_modal:
+        close_modal: اغلاق النموذج
       user_menu:
+        account: 'حساب المستخدم: %{name}'
         admin_dashboard: لوحة القيادة الادارية
         conversations: المحادثات
         notifications: إخطارات
         profile: حسابي
         public_profile: ملفي الشخصي العام
         sign_out: خروج
+        title: روابط الملف الشخصي
       user_profile:
         account: الحساب
         authorizations: التراخيص
@@ -1432,13 +1657,17 @@ ar:
         see_more: شاهد المزيد
   locale:
     name: العربية
+    name_with_error: الإنجليزية (خطأ!)
   password_validator:
+    blacklisted: مدرج بالقائمة السوداء
     domain_included_in_password: مشابه جدًا لاسم النطاق هذا
     email_included_in_password: مشابه جدا لبريدك الالكتروني
     fallback: غير صالح
     name_included_in_password: مشابه جدا لاسمك
+    nickname_included_in_password: هذا شبيه جدا بالاسم المستعار الخاص بك
     not_enough_unique_characters: ليس لديه ما يكفي من الشخصيات الفريدة
     password_not_allowed: غير مسموح
+    password_repeated: لا يمكن إعادة استخدام كلمة المرور القديمة
     password_too_common: هو شائع جدا
     password_too_long: طويل جدا
     password_too_short: قصير جدا
@@ -1471,24 +1700,39 @@ ar:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
+      ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
+      default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d، %Y %I:%M %p"
+      long: "%B %d, %Y %H:%M"
+      long_dashed: "%Y-%m-%d %H:%M:%S"
+      short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:
     directions:
       left: المحذوفات
       right: الإضافات
     dropdown:
+      choose_diff_view_html: 'عرض HTML:'
+      choose_diff_view_mode: 'مقارنة وضع العرض:'
+      choose_diff_view_mode_menu: اختر وضع المقارنة
+      option_escaped: فالتة
       option_split: جنبًا ﺇﻟﻰ ﺟﻨﺐ
+      option_unescaped: غير فالتة
       option_unified: مُوَحَّدة
   views:
     pagination:
       first: "&laquo; أولاً"
       last: آخر &raquo;
       next: التالي &rsaquo;
+      next_title: رابط الصفحة التالية
+      pagination: ترقيم الصفحات
       previous: "&lsaquo; السابق"
+      previous_title: رابط الصفحة السابقة
+      title: 'رقم الصفحة: '
       truncate: "&hellip;"
