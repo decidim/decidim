@@ -46,6 +46,7 @@ eu:
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
       decidim/user_group_created_event: Erabiltzaile-taldea sortuta
+      decidim/welcome_notification_event: Ongi etorri mezua
   activerecord:
     attributes:
       decidim/user:
@@ -81,6 +82,15 @@ eu:
       decidim_with_month_name_short: "%d %b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: ordubete inguru
+        other: '%{count} ordu inguru'
+      about_x_months:
+        one: hilabete inguru
+        other: '%{count} hilabete inguru'
+      x_days:
+        one: Duela egun bat
+        other: "Duela %{count} egun"
       x_seconds:
         one: Orain dela segundu 1
         other: "Orain dela %{count} segundu"
