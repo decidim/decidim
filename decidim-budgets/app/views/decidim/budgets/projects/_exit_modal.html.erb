@@ -3,7 +3,7 @@
     <div data-dialog-container>
       <%= icon "information-line" %>
       <h3 class="h3" id="dialog-title-exit-notification" tabindex="-1" data-dialog-title>
-        <%= current_order.projects_rule? ? t("title", scope: "decidim.budgets.projects.budget_excess.projects_excess") : t("title", scope: "decidim.budgets.projects.budget_excess.budget_excess") %>
+        <%= t("title", scope: "decidim.budgets.projects.exit_modal") %>
       </h3>
       <p id="dialog-desc-budget-modal">
         <%= t("message", scope: "decidim.budgets.projects.exit_modal") %>
