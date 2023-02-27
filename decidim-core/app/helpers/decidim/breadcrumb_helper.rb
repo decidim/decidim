@@ -3,7 +3,7 @@
 module Decidim
   # This module includes helpers to manage breadcrumb in layout
   module BreadcrumbHelper
-    attr_reader :participatory_space_breadcrumb_items
+    attr_reader :context_breadcrumb_items
 
     def breadcrumb_items
       @breadcrumb_items ||= [].tap do |items|
@@ -15,7 +15,7 @@ module Decidim
           }
         end
 
-        items.append(*participatory_space_breadcrumb_items)
+        items.append(*context_breadcrumb_items)
       end
     end
   end
