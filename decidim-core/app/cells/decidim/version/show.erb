@@ -4,8 +4,3 @@
 </div>
 
 <%= cell("decidim/diff", current_version, path:) %>
-
-<%= link_to resource_path, class: "button button__sm button__text-secondary", **html_options do %>
-  <%= icon "arrow-left-line", class: "fill-current" %>
-  <span><%= i18n_back_to_resource %></span>
-<% end %>

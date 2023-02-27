@@ -70,10 +70,6 @@ module Decidim
       options[:index]
     end
 
-    def resource_path
-      resource_locator(versioned_resource).path
-    end
-
     def html_options
       @html_options ||= options[:html_options] || {}
     end
