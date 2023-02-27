@@ -54,8 +54,11 @@ edit_link(
 
   <%= comments_for project, polymorphic: [project.budget] %>
   <div class="mt-8">
-    <%# REDESIGN_PENDING: this value for the reference %>
-    <%= resource_reference(project) %>
+    <ul class="drawer-metadata__container" data-metadata-footer>
+      <%= content_tag :li, resource_reference(project), class: "drawer-metadata__item" %>
+      <%= content_tag :li, resource_version(project, versions_path: budget_projects_path(project)), class: "drawer-metadata__item" %>
+      <%= content_tag :li, link_to(t("add_to_calendar", scope: "decidim.meetings.meetings.calendar_modal"), nil, remote: true, data: { dialog_open: "calendarShare_#{project.id}" }), class: "drawer-metadata__item" %>
+    </ul>
   </div>
   <% content_for :aside do %>
     <% if voting_open? %>
