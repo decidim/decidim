@@ -1209,6 +1209,7 @@ ar:
           error: كانت هناك مشكلة في قبول الشروط والأحكام.
           success: عظيم! لقد قبلت الشروط والأحكام.
         form:
+          agreement: أوافق على هذه الشروط
           legend: توافق على شروط وأحكام الاستخدام
         refuse:
           modal_body: إذا رفضت ، فلن تتمكن من استخدام النظام الأساسي ، يمكنك <a href="%{data_portability_path}">تنزيل بياناتك</a> و / أو <a href="%{delete_path}">حذف حسابك</a>.
@@ -1225,6 +1226,7 @@ ar:
       not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
     profile:
       deleted: تم حذف المشارك
+      inaccessible_message: لا يمكن الوصول إلى هذا الملف الشخصي بسبب انتهاك الشروط والأحكام!
       view: رأي
     profiles:
       default_officialization_text_for_user_groups: تم التحقق من هذه المجموعة علنًا ، وتم التحقق من اسمها لتتوافق مع اسمه الحقيقي
@@ -1232,10 +1234,13 @@ ar:
       show:
         activity: نشاط
         badges: شارات
+        conversations: محادثات
         followers: متابعون
         following: يتبع
         groups: المجموعات
         members: أفراد
+        officialized: مشارك رسمي
+        send_private_message: ارسال رسالة خاصة
         timeline: الجدول الزمني
         view_full_profile: عرض الملف الشخصي الكامل
       sidebar:
@@ -1415,6 +1420,7 @@ ar:
         add_max_users: 'يمكن إضافة مستخدمين إلى المحادثة: 9 مستخدمين كحد أقصى'
         add_users_placeholder: البحث…
         close: غلق
+        conversations_info: المحادثات خاصة. لا يمكن لأحد آخر أن يراها. يمكن بدء محادثة مع أي مشارك أو مجموعة مسجلة على المنصة.
         from: من
         last_message: آخر رسالة
         modal_title: محادثة جديدة
