@@ -7,6 +7,7 @@ ar:
         category_id: الفئة
         decidim_scope_id: نطاق
         has_address: لديه عنوان
+        scope_id: نطاق
         state: حالة
         title: عنوان
         user_group_id: إنشاء مسودة تعاونية كـ
@@ -19,17 +20,22 @@ ar:
         category_id: الفئة
         decidim_scope_id: النطاق
         has_address: لديه عنوان
+        scope_id: نطاق
         state: حالة
         suggested_hashtags: الهاشتاج المقترحة
         title: عنوان
         user_group_id: إنشاء اقتراح باسم
       proposal_answer:
         answer: إجابة
+        cost: التكلفة
+        cost_report: تقرير التكلفة
+        execution_period: فترة التنفيذ
       proposals_copy:
         copy_proposals: أدرك أن هذا سيؤدي إلى استيراد جميع المقترحات من المكون المحدد إلى المكون الحالي وأنه لا يمكن عكس هذا الإجراء.
         origin_component_id: مكون لنسخ المقترحات من
       proposals_import:
         import_proposals: مقترحات الاستيراد
+        keep_answers: الاحتفاظ بالحالة والإجابات
         keep_authors: الحفاظ على المؤلفين الأصلي
       valuation_assignment:
         admin_log:
@@ -47,9 +53,20 @@ ar:
             add_photos:
               needs_to_be_reattached: يحتاج إلى إعادة ربط
             body:
+              cant_be_equal_to_template: لا يمكن أن يساوي القالب
               identical: لا يمكن أن يكون العنوان متطابقًا
             title:
               identical: و الجسم لا يمكن أن تكون متطابقة
+        proposals_merge:
+          attributes:
+            base:
+              not_official: غير رسمية
+              supported: قد تلقى الدعم أو المصادقة
+        proposals_split:
+          attributes:
+            base:
+              not_official: غير رسمية
+              supported: قد تلقى الدعم أو المصادقة
     models:
       decidim/proposals/accepted_proposal_event: تم قبول الاقتراح
       decidim/proposals/admin/update_proposal_category_event: تم تغيير فئة الاقتراح
