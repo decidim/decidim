@@ -47,6 +47,7 @@ eu:
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
       decidim/user_group_created_event: Erabiltzaile-taldea sortuta
+      decidim/welcome_notification_event: Ongi etorri mezua
   activerecord:
     attributes:
       decidim/user:
@@ -81,6 +82,17 @@ eu:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: ordubete inguru
+        other: '%{count} ordu inguru'
+      about_x_months:
+        one: hilabete inguru
+        other: '%{count} hilabete inguru'
+      x_days:
+        one: Duela egun bat
+        other: "Duela %{count} egun"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -748,6 +760,7 @@ eu:
       upload:
         labels:
           add_file: Gehitu fitxategiak
+          add_image: Argazki bat atxikutu
           edit_image: Irudia editatu
           error: Akatsa!
           file_size_too_large: 'Fitxategiaren tamaina handiegia da! Maximun fitxategiaren tamaina: %{megabytes}} MB'
