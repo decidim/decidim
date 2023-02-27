@@ -10,14 +10,13 @@ module Decidim
       include Withdrawable
       include FormFactory
       include Paginable
+      include BreadcrumbItem
 
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
 
       helper_method :meetings, :meeting, :registration, :search, :nav_paths
-
-      before_action :set_meeting_breadcrumb_item
 
       redesign active: true
 
@@ -192,17 +191,6 @@ module Decidim
           with_any_state: nil,
           with_any_origin: default_filter_origin_params,
           with_any_type: default_filter_type_params
-        }
-      end
-
-      def set_meeting_breadcrumb_item
-        return unless meeting
-
-        context_breadcrumb_items << {
-          label: meeting.title,
-          url: meeting_path(meeting),
-          active: true,
-          resource: meeting
         }
       end
     end
