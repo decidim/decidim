@@ -1289,6 +1289,10 @@ ar:
       update:
         error: حدثت مشكلة أثناء تحديث إعدادات الإشعارات.
         success: تم تحديث إعدادات الإشعارات بنجاح.
+    offline:
+      show:
+        message: يبدو أنك غير متصل حالياً. الرجاء المحاولة مرة أخرى لاحقاً.
+        retry: إعادة المحاولة
     open_data:
       not_available_yet: ملفات Open Data ليست متاحة بعد ، يرجى المحاولة مرة أخرى بعد بضع دقائق.
     own_user_groups:
@@ -1338,8 +1342,10 @@ ar:
           error: كانت هناك مشكلة في قبول الشروط والأحكام.
           success: عظيم! لقد قبلت الشروط والأحكام.
         form:
+          agreement: أوافق على هذه الشروط
           legend: توافق على شروط وأحكام الاستخدام
         refuse:
+          modal_body: إذا قمت بالرفض، لن تتمكن من استخدام المنصة، يمكنك <a href="%{download_your_data_path}">تنزيل بياناتك</a> و/أو <a href="%{delete_path}">حذف حسابك</a>.
           modal_btn_continue: قبول الشروط والمتابعة
           modal_btn_exit: سأراجعها لاحقًا
           modal_button: رفض الشروط
@@ -1351,8 +1357,13 @@ ar:
           title: 'مطلوب: مراجعة التحديثات لشروط الخدمة لدينا'
     participatory_space_private_users:
       not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
+    passwords:
+      update:
+        error: طرأت مشكلة خلال تحديث كلمة المرور
+        success: تم تحديث كلمة المرور بنجاح
     profile:
       deleted: تم حذف المشارك
+      inaccessible_message: لا يمكن الوصول إلى هذا الملف الشخصي بسبب انتهاك الشروط والأحكام!
       view: رأي
     profiles:
       default_officialization_text_for_user_groups: تم التحقق من هذه المجموعة علنًا ، وتم التحقق من اسمها لتتوافق مع اسمه الحقيقي
@@ -1360,16 +1371,28 @@ ar:
       show:
         activity: نشاط
         badges: شارات
+        conversations: محادثات
         followers: متابعون
         following: يتبع
         groups: المجموعات
         members: أفراد
+        officialized: مشارك رسمي
+        send_private_message: ارسال رسالة خاصة
         view_full_profile: عرض الملف الشخصي الكامل
       sidebar:
         badges:
           info: يتم الحصول على الشارات من خلال أداء نشاط معين في النظام الأساسي.
           title: شارات
       user:
+        actions:
+          create_user_group: إنشاء مجموعة
+          edit_profile: تعديل الملف الشخصي
+          edit_user_group: تعديل الملف الشخصي للمجموعة
+          invite_user: دعوة مشارك
+          join_user_group: طلب الانضمام للمجموعة
+          manage_user_group_admins: إدارة المدراء
+          manage_user_group_users: إدارة الاعضاء
+          message: الرسالة
         confirmation_instructions_sent: تم إرسال تعليمات تأكيد البريد الإلكتروني
         create_user_group: إنشاء مجموعة
         edit_profile: تعديل الملف الشخصي
@@ -1554,6 +1577,7 @@ ar:
         add_max_users: 'يمكن إضافة مستخدمين إلى المحادثة: 9 مستخدمين كحد أقصى'
         add_users_placeholder: البحث…
         close: غلق
+        conversations_info: المحادثات خاصة. لا يمكن لأحد آخر أن يراها. يمكن بدء محادثة مع أي مشارك أو مجموعة مسجلة على المنصة.
         from: من
         last_message: آخر رسالة
         modal_title: محادثة جديدة
