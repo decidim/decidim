@@ -41,8 +41,12 @@
         @apply bg-white rounded;
       }
 
-      &--minimum .progress-meter--minimum-mark{
-        @apply h-[20px] absolute left-[77%] w-[2px] bg-black;
+      &--minimum{
+        @apply absolute;
+
+        .progress-meter--minimum-mark{
+          @apply h-[20px] ml-auto w-[2px] bg-black block;
+        }
       }
 
       &--meter{
@@ -57,7 +61,7 @@
     }
 
     &__progressbar-marks_center{
-      @apply text-center;
+      @apply text-center -translate-x-2/4;
     }
 
     &__progressbar-marks_right{
