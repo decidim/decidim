@@ -34,15 +34,15 @@ eu:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai erabilgarria
       decidim/demoted_membership: Ez da talde admin gehiago
-      decidim/gamification/badge_earned_event: Badge irabazi
+      decidim/gamification/badge_earned_event: Irabazitako dominak
       decidim/gamification/level_up_event: Berdindu duzu
       decidim/invited_to_group_event: Taldera gonbidatuta
       decidim/join_request_accepted_event: Erregistratu eskaera onartua
       decidim/join_request_rejected_event: Erregistratu eskaera baztertu da
       decidim/profile_updated_event: Profila eguneratu da
-      decidim/promote_to_admin: Talde kudeatzaileari sustatua
+      decidim/promote_to_admin: Taldeko administratzaile mailara igota
       decidim/promoted_to_admin_event: Taldeko administratzaile mailara igota
-      decidim/removed_from_group: Taldea kendu da
+      decidim/removed_from_group: Taldetik kenduta
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
       decidim/user_group_created_event: Erabiltzaile-taldea sortuta
@@ -60,6 +60,9 @@ eu:
       decidim/amendment:
         one: zuzenketa
         other: Zuzenketak
+      decidim/endorsement:
+        one: Atxikimendua
+        other: Atxikimenduak
       decidim/user:
         one: Ez dago erabiltzailerik
         other: Erabiltzaileak
@@ -322,7 +325,7 @@ eu:
       sms:
         explanation: Bidali zure telefono mugikorraren zenbakia zure identitatea egiaztatzeko.
         name: Kodea SMS bidez
-      started_at: Hasi zen %{timestamp}
+      started_at: '%{timestamp} etan hasita'
     authorization_modals:
       content:
         expired:
@@ -715,7 +718,7 @@ eu:
       replicate_help: Hatz-marka hori SHA256 hashing algoritmo baten bidez kalkulatzen da. Zeure buruari errepikatu ahal izateko, %{online_calculator_link} erabil dezakezu eta kopiatu iturriaren datuak itsatsi.
       source: Iturria
       title: Hatz
-      value: Balio
+      value: Balioa
     followers:
       no_followers: Ez da jarraitzailerik oraindik.
     following:
