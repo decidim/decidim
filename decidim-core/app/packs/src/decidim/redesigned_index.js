@@ -107,7 +107,7 @@ Rails.start()
  */
 const initializer = (element = document) => {
   window.theDataPicker = new DataPicker($(".data-picker"));
-  window.focusGuard = new FocusGuard(element.querySelector("body"));
+  window.focusGuard = new FocusGuard(element === document ? document.querySelector("body") : element);
 
   $(element).foundation();
   $(element).on("open.zf.reveal", (ev) => {
