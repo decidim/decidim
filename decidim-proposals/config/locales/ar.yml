@@ -70,6 +70,7 @@ ar:
     models:
       decidim/proposals/accepted_proposal_event: تم قبول الاقتراح
       decidim/proposals/admin/update_proposal_category_event: تم تغيير فئة الاقتراح
+      decidim/proposals/admin/update_proposal_scope_event: تم تغيير نطاق الاقتراح
       decidim/proposals/creation_enabled_event: تمكين إنشاء الاقتراح
       decidim/proposals/endorsing_enabled_event: تمكين اقتراح الاقتراح
       decidim/proposals/evaluating_proposal_event: يجري تقييم الاقتراح
@@ -113,33 +114,77 @@ ar:
         proposals:
           category_id_eq:
             label: الفئة
+          is_emendation_true:
+            label: النوع
+            values:
+              'false': اقتراحات
+              'true': تعديلات
+          scope_id_eq:
+            label: نطاق
+          state_eq:
+            label: الحالة
+            values:
+              accepted: تم قبوله
+              evaluating: قيد التقييم
+              published: تم نشره
+              rejected: تم رفضه
+              validating: تحقق تقني
+              withdrawn: تم السحب
+          state_null:
+            label: الحالة
+            values:
+              'true': لم تتم الإجابة عليها
           valuator_role_ids_has:
             label: تم إسناده إلى مُقيِّم
+        search_placeholder:
+          id_string_or_title_cont: البحث عن %{collection} بحسب المعرف ID أو العنوان.
     components:
       proposals:
         actions:
           amend: تعديل
+          comment: تعليق
           create: إنشاء
           endorse: تأييد
           vote: الدعم
+          vote_comment: التصويت على التعليق
           withdraw: سحب
         name: اقتراحات
         settings:
           global:
             amendments_enabled: تم تمكين التعديلات
+            amendments_enabled_help: في حال كانت نشطة، يمكن إعداد ميزات التعديل لكل خطوة.
+            amendments_wizard_help_text: نص مساعدة معالج التعديلات
             announcement: إعلان
             attachments_allowed: السماح للمرفقات
             can_accumulate_supports_beyond_threshold: يمكن أن تتراكم الدعم وراء العتبة
             collaborative_drafts_enabled: تم تمكين المسودات التعاونية
             comments_enabled: تم تمكين التعليقات
+            comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
+            default_sort_order: التصنيف الافتراضي للاقتراح
+            default_sort_order_help: الافتراضي يعني أنه إذا تم تمكين الدعم، سيتم عرض المقترحات عشوائياً، وإذا تم حظر الدعم، فسيتم فرزها حسب الأكثر دعم.
+            default_sort_order_options:
+              default: الافتراضي
+              most_commented: صاحبة الأكثر تعليقات
+              most_endorsed: صاحبة أكثر تأييدات
+              most_followed: صاحبة أكثر متابعات
+              most_voted: صاحبة أكثر دعم
+              random: عشوائي
+              recent: الأخيرة
+              with_more_authors: مع المزيد من المؤلفين
             geocoding_enabled: تم تمكين الترميز الجغرافي
             minimum_votes_per_user: الحد الأدنى من الدعم لكل مستخدم
             new_proposal_body_template: نموذج جديد لمحتوى المُقتَرَح
+            new_proposal_body_template_help: يمكنكم تعريف النص المعبأ مسبقاً الذي سيدرج في المقترحات الجديدة
             new_proposal_help_text: نص مساعدة اقتراح جديد
             official_proposals_enabled: تم تمكين المقترحات الرسمية
             participatory_texts_enabled: تم تمكين النصوص التشاركية
+            participatory_texts_enabled_readonly: لا يمكن التفاعل مع هذا الإعداد إذا كانت هناك اقتراحات موجودة. الرجاء إنشاء "مكون مقترحات" جديد إذا كنت ترغب في تمكين هذه الميزة أو تجاهل كافة المقترحات المستوردة في قائمة "النصوص التشاركية" إذا كنت ترغب في تعطيلها.
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
             proposal_edit_before_minutes: يمكن تحرير المقترحات من قبل المؤلفين قبل مرور عدة دقائق
+            proposal_edit_time: تحرير المقترح
+            proposal_edit_time_choices:
+              infinite: السماح بتعديل المقترحات لفترة زمنية غير محدودة
+              limited: السماح بتحرير الاقتراحات ضمن إطار زمني محدد
             proposal_length: الحد الأقصى لطول الاقتراح المقترح
             proposal_limit: حد الاقتراح لكل مشارك
             proposal_wizard_step_1_help_text: اقتراح الاقتراح "إنشاء" نص مساعدة الخطوة
@@ -147,14 +192,30 @@ ar:
             proposal_wizard_step_3_help_text: نص اقتراح "إكمال" تعليمات نص المعالج
             proposal_wizard_step_4_help_text: اقتراح الاقتراح "نشر" نص تعليمات الخطوة
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اقتراح
+            scope_id: نطاق
+            scopes_enabled: النطاقات مفعلة
             threshold_per_proposal: عتبة لكل اقتراح
             vote_limit: حد الدعم لكل مشارك
           step:
+            amendment_creation_enabled: إنشاء التعديلات مُفعّلة
             amendment_creation_enabled_help: يمكن للمشارِك إدخال تعديلات على المقتَرَحات.
+            amendment_promotion_enabled: ترقية التعديلات مُفعّلة
+            amendment_promotion_enabled_help: وسيتمكن واضعو التصحيحات من ترقية التصحيح المرفوض إلى اقتراح.
+            amendment_reaction_enabled: رد الفعل على التعديلات مُفعّلة
+            amendment_reaction_enabled_help: وسيتمكن واضعو المقترحات من قبول أو رفض تصحيحات المشارك.
             amendments_visibility: رؤية التعديل
+            amendments_visibility_choices:
+              all: التعديلات مرئية وظاهرة للجميع
+              participants: التعديلات مرئية وظاهرة لمؤلّفيها فقط
+            amendments_visibility_help: وإذا وقع الاختيار على خيار "التعديلات لا تظهر إلا للمؤلفين فقط"، يجب أن يسجَّل المشارك للاطلاع على التعديلات المدخلة.
             announcement: إعلان
+            answers_with_costs: تمكين التكاليف على إجابات الاقتراح
             automatic_hashtags: علامات التصنيف المضافة إلى جميع المقترحات
             comments_blocked: تم حظر التعليقات
+            creation_enabled: يمكن للمشارِكين إنشاء اقتراحات
+            creation_enabled_readonly: يتم تعطيل هذا الإعداد عند تفعيل وظيفة النصوص التشاركية. لتحميل الاقتراحات كنص تشاركي، يرجى النقر على زر النصوص التشاركية واتباع التعليمات.
+            default_sort_order: التصنيف الافتراضي للاقتراح
+            default_sort_order_help: الافتراضي يعني أنه إذا تم تمكين الدعم، سيتم عرض المقترحات عشوائياً، وإذا تم حظر الدعم، فسيتم فرزها حسب الأكثر دعم.
             endorsements_blocked: المصادقة المحظورة
             endorsements_enabled: تم التصديق
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
@@ -304,6 +365,25 @@ ar:
           preview: معاينة
         exports:
           proposals: اقتراحات
+        imports:
+          resources:
+            answers:
+              zero: إجابات الاقتراحات
+              one: إجابات الاقتراح
+              two: إجابات الاقتراحين
+              few: إجابات الاقتراحات
+              many: إجابات الاقتراحات
+              other: إجابات الاقتراح
+            proposals:
+              zero: اقتراحات
+              one: اقتراح
+              two: اقتراحان
+              few: اقتراحات
+              many: اقتراحات
+              other: اقتراحات
+          title:
+            answers: استيراد إجابات الاقتراح
+            proposals: استيراد الاقتراحات
         models:
           proposal:
             name: اقتراح
@@ -316,6 +396,7 @@ ar:
             success: تم تجاهل جميع المسودات النصية التشاركية.
           import:
             invalid: النموذج غير صالح!
+            invalid_file: يحتوي الملف على خطأ ما، الرجاء محاولة تعديل محتوى الملف وإعادة تحميله مرة أخرى.
             success: مبروك ، تم تحويل الأقسام التالية إلى مقترحات. يمكنك الآن مراجعتها وضبطها قبل النشر.
           index:
             info_1: تم تحويل الأقسام التالية إلى مقترحات. يمكنك الآن مراجعتها وضبطها قبل النشر.
@@ -325,7 +406,9 @@ ar:
           new_import:
             accepted_mime_types:
               md: تخفيض السعر
+              odt: اوبن ديكومنت ODT
             bottom_hint: "(سوف تكون قادرًا على معاينة وفرز أقسام المستندات)"
+            document_legend: 'يمكن إضافة وثيقة أقل من 2MB، سيتم تحليل كل قسم حتى 3 مستويات عميقة في مقترحات. الصيغ المدعومة هي: %{valid_mime_types}'
             title: إضافة وثيقة
             upload_document: تحميل المستند
           publish:
@@ -342,6 +425,7 @@ ar:
             accepted: وافقت
             answer_proposal: إجابة
             evaluating: تقييم
+            not_answered: لم تتم الإجابة عليه
             rejected: مرفوض
             title: الإجابة على الاقتراح %{title}
         proposal_notes:
@@ -372,11 +456,14 @@ ar:
           index:
             actions: أفعال
             assign_to_valuator: أسنِده إلى مُقيِّم
+            assign_to_valuator_button: تعيين
             cancel: إلغاء
             change_category: تغيير الفئة
+            change_scope: تغيير النطاق
             merge: دمج في واحدة جديدة
             merge_button: دمج
             publish: نشر
+            publish_answers: نشر الإجابات
             select_component: حدد المكون
             selected: المحدد
             split: تقسيم المقترحات
@@ -385,13 +472,16 @@ ar:
             unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
             unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
+            update_scope_button: تحديث النطاق
           new:
             create: إنشاء
             title: إنشاء اقتراح
           publish_answers:
+            number_of_proposals: سيتم نشر إجابات %{number} الاقتراحات.
             select_a_proposal: يرجى اختيار الاقتراح
           show:
             amendments_count: تعداد التعديلات
+            assigned_valuators: المقيِّمون الذين تم تعيينهم
             authors: المؤلفون
             body: الجسم
             comments_count: تعداد التعليقات
@@ -400,7 +490,17 @@ ar:
             comments_positive_count: مع
             created_at: تاريخ الإنشاء
             documents: المستندات
+            endorsements_count: عد أصوات التأييدات
+            endorsements_ranking: الترتيب حسب التأييدات
+            endorsers: المؤيدون
             link: الرابط
+            n_more_endorsers:
+              zero: و%{count} آخرين
+              one: وواحد آخر
+              two: و%{count} آخرين
+              few: و%{count} آخرين
+              many: و%{count} آخرين
+              other: و%{count} آخرين
             photos: الصور
             proposals: اقتراحات
             ranking: "%{ranking} مِن %{total}"
