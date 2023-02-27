@@ -56,7 +56,15 @@ module Decidim
     #              dropdown cell, so it's mandatory if the dropdown cell is
     #              present.
     def current_participatory_space_breadcrumb_item
-      {}
+      return {} if current_participatory_space.blank?
+
+      {
+        label: current_participatory_space.title,
+        url: Decidim::ResourceLocatorPresenter.new(current_participatory_space).path,
+        active: true,
+        dropdown_cell: current_participatory_space_manifest.breadcrumb_cell,
+        resource: current_participatory_space
+      }
     end
 
     def current_participatory_space_manifest
