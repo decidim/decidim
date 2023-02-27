@@ -34,6 +34,14 @@ module Decidim
       t("of_versions", scope: "decidim.versions.resource_version", number: count)
     end
 
+    def nav_indexes(resource, index)
+      index = index.to_i
+      {}.tap do |indexes|
+        indexes.merge!(prev_path: index - 1) if index > 1
+        indexes.merge!(next_path: index + 1) if index < resource.versions.count
+      end
+    end
+
     def link_to_other_resource_versions(versions_path, options = {})
       link_to(
         t(
