@@ -34,6 +34,12 @@
   }
 
   [data-dialog-actions]{
-    @apply flex justify-between items-center mt-10 only:[&>*]:ml-auto;
+    @apply flex justify-between items-center gap-2 md:gap-4 flex-wrap mt-10 last:[&>*]:ml-auto;
+
+    /* 3 or more items spans the full width for mobile */
+    & > *:first-child:nth-last-child(n + 3),
+    & > *:first-child:nth-last-child(n + 3) ~ *{
+      @apply w-full md:w-auto;
+    }
   }
 }

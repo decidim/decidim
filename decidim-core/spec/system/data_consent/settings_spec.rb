@@ -21,7 +21,10 @@ describe "Data consent", type: :system do
     it "user accepts the cookies and dialog isn't shown anymore'" do
       expect(page).to have_content(cookies_description)
 
-      click_button "Accept all"
+      within "#dc-dialog-wrapper" do
+        click_button "Accept all"
+      end
+
       expect(page).not_to have_content(cookies_description)
 
       visit decidim.root_path
@@ -31,7 +34,10 @@ describe "Data consent", type: :system do
     it "user rejects the cookies and dialog isn't shown anymore'" do
       expect(page).to have_content(cookies_description)
 
-      click_button "Accept only essential"
+      within "#dc-dialog-wrapper" do
+        click_button "Accept only essential"
+      end
+
       expect(page).not_to have_content(cookies_description)
 
       visit decidim.root_path
@@ -40,29 +46,31 @@ describe "Data consent", type: :system do
   end
 
   context "when cookie modal is open" do
-    before do
-      within "#dc-dialog-wrapper" do
-        click_button "Settings"
-      end
-    end
+    # REDESIGN_PENDING: restore this block once redesign enabled
+    # before do
+    #   within "#dc-dialog-wrapper" do
+    #     click_button "Settings"
+    #   end
+    # end
 
     it "shows cookie" do
       expect(page).not_to have_content("decidim-consent")
       expect(page).not_to have_content("Stores information about the cookies allowed by the user on this website")
-      find(".category-wrapper[data-id='essential']").find("button.dc-title").click
+      find("[data-id='essential']").find("[id^='accordion-trigger']").click
       expect(page).to have_content("decidim-consent")
       expect(page).to have_content("Stores information about the cookies allowed by the user on this website")
     end
 
     it "modal remembers users selection" do
       within "[data-id='analytics']" do
-        find(".switch-paddle").click
+        find("label").click
       end
       click_button "Save settings"
 
-      within ".footer" do
-        click_link "Cookie settings"
-      end
+      # REDESIGN_PENDING: restore this within once redesign enabled
+      # within "footer" do
+      click_link "Cookie settings"
+      # end
 
       within "[data-id='analytics']" do
         expect(find("input", visible: :all).checked?).to be(true)
