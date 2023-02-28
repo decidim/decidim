@@ -6,6 +6,13 @@
         <% next if attachment.is_a? Array %>
 
         <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
+          <div>
+            <% if file_attachment_path(attachment) && blob(attachment).image? %>
+              <%= image_tag(file_attachment_path(attachment), alt: title_for(attachment) || file_name_for(attachment)) %>
+            <% elsif uploader_default_image_path(attribute).present? %>
+              <%= image_tag uploader_default_image_path(attribute) %>
+            <% end %>
+          </div>
           <% if has_title? %>
             <span><%= title_for(attachment) %> (<%= truncated_file_name_for(attachment) %>)</span>
             <%= form.hidden_field attribute, multiple: true, value: attachment.id, id: attachment.id %>

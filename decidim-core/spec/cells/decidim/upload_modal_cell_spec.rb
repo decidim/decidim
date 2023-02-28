@@ -83,9 +83,10 @@ describe Decidim::UploadModal, type: :cell do
 
     context "when attachment is image" do
       let(:filename) { "city.jpeg" }
+      let(:file) { Decidim::Dev.test_file(filename, "image/jpeg") }
 
       it "renders preview" do
-        expect(subject).to have_selector("img[alt='#{attribute}']")
+        expect(subject.find("img")["src"]).to match(%r{/city.jpeg$})
       end
     end
 
@@ -105,6 +106,32 @@ describe Decidim::UploadModal, type: :cell do
 
         details = subject.find(".attachment-details")
         expect(details).to have_content("#{attachments[0].title["en"]} (#{filename})")
+      end
+    end
+  end
+
+  context "when multiple attachments are present" do
+    let(:file1) { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+    let(:file2) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    let(:attachments) { [upload_test_file(file1), upload_test_file(file2)] }
+
+    it "renders the attachments" do
+      expect(subject).to have_css(".attachment-details", count: 2)
+      expect(subject).to have_selector("[data-filename='Exampledocument.pdf']")
+      expect(subject).to have_selector("[data-filename='city.jpeg']")
+      expect(subject).to have_css("img")
+      expect(subject.find("img")["src"]).to match(%r{/city.jpeg$})
+    end
+
+    context "when all attachments are images" do
+      let(:file1) { Decidim::Dev.test_file("city.jpeg", "application/pdf") }
+      let(:file2) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
+
+      it "renders preview" do
+        images = subject.all("img")
+        expect(images.count).to be(2)
+        expect(images[0]["src"]).to match(%r{/city.jpeg$})
+        expect(images[1]["src"]).to match(%r{/city2.jpeg$})
       end
     end
   end
