@@ -15,6 +15,7 @@ zh-CN:
   decidim:
     comments:
       comments_count: 评论计数
+      comments_title: 评论
       last_activity:
         new_comment_at_html: "<span>在 %{link}的新评论</span>"
       view: 查看
