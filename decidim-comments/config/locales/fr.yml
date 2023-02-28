@@ -31,7 +31,7 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour du commentaire.
       comments_count: Nombre de commentaires
-      comments_title: Commentaires
+      comments_title: commentaires
       last_activity:
         new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
       view: Voir
