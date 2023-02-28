@@ -31,7 +31,6 @@ ca:
         update:
           error: S'ha produït un error en actualitzar el comentari.
       comments_count: Número de comentaris
-      comments_title: Comentaris
       last_activity:
         new_comment_at_html: "<span>Nou comentari a %{link}</span>"
       view: Mostrar
@@ -84,7 +83,6 @@ ca:
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
           title: Notificar contingut inapropiat
-        show_replies: Mostra %{replies_count} respostes
         single_comment_link_title: Obtenir enllaç
       comment_order_selector:
         order:
