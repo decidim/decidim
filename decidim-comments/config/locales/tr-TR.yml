@@ -20,7 +20,6 @@ tr:
         create:
           error: Yorum oluşturulurken bir sorunla karşılaşıldı.
       comments_count: Yorum sayısı
-      comments_title: Yorumlar
       last_activity:
         new_comment_at_html: "<span> %{link}</span> yeni yorum"
       view: Görünüm
@@ -61,7 +60,6 @@ tr:
             offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya herhangi bir nefret söylemi içerir.
             spam: Clickbait, reklam, dolandırıcılık veya script botları içerir.
           title: Uygunsuz içerik bildir
-        show_replies: '%{replies_count} yanıtı göster'
       comment_order_selector:
         order:
           best_rated: En çok oy alan
