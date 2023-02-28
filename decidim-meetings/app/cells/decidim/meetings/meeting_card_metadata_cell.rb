@@ -11,6 +11,9 @@ module Decidim
 
       delegate :type_of_meeting, :start_time, :end_time, :category, :withdrawn?, to: :meeting
 
+      alias start_date start_time
+      alias end_date end_time
+
       def initialize(*)
         super
 
@@ -20,22 +23,22 @@ module Decidim
       private
 
       def meeting_items
-        [type, category_item, duration, comments_count_item, official, withdrawn_item]
+        [type, category_item, duration_item, comments_count_item, official, withdrawn_item]
+      end
+
+      def meeting_items_for_map
+        [dates_item, type, official].compact_blank.map do |item|
+          {
+            text: item[:text],
+            icon: icon(item[:icon]).html_safe
+          }
+        end
       end
 
       def type
         {
           text: t(type_of_meeting, scope: "decidim.meetings.meetings.filters.type_values"),
           icon: resource_type_icon_key(type_of_meeting)
-        }
-      end
-
-      def duration
-        return if [start_time, end_time].any?(&:blank?)
-
-        {
-          text: distance_of_time_in_words(start_time, end_time, scope: "datetime.distance_in_words.short"),
-          icon: "time-line"
         }
       end
 
