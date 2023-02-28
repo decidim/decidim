@@ -30,7 +30,6 @@ gl:
         update:
           error: Produciuse un problema ao actualizar o comentario.
       comments_count: Número de comentarios
-      comments_title: Comentarios
       last_activity:
         new_comment_at_html: "<span>Novo comentario en %{link}</span>"
       view: Ver
@@ -83,7 +82,6 @@ gl:
             offensive: Contén racismo, sexismo, abuso, ataques persoais, ameazas de morte, solicitudes de suicidio ou calquera tipo de discurso de odio.
             spam: Contén clic, publicidade, fraudes ou bots de script.
           title: Denunciar contido inapropiado
-        show_replies: Amosar %{replies_count} respostas
         single_comment_link_title: Obter ligazón
       comment_order_selector:
         order:
