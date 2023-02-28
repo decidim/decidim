@@ -15,7 +15,7 @@ module Decidim
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
 
-      helper_method :meetings, :meeting, :registration, :search
+      helper_method :meetings, :meeting, :registration, :search, :nav_paths
 
       redesign active: true
 
@@ -125,6 +125,36 @@ module Decidim
 
       def meeting
         @meeting ||= Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])
+      end
+
+      def next_meeting
+        return if search_collection.size < 2
+
+        search_collection.order(:start_time, :id).where(
+          Decidim::Meetings::Meeting.arel_table[:start_time].gt(meeting.start_time).or(
+            Decidim::Meetings::Meeting.arel_table[:start_time].eq(meeting.start_time).and(
+              Decidim::Meetings::Meeting.arel_table[:id].gt(meeting.id)
+            )
+          )
+        ).first
+      end
+
+      def prev_meeting
+        return if search_collection.size < 2
+
+        search_collection.order(:start_time, :id).where(
+          Decidim::Meetings::Meeting.arel_table[:start_time].lt(meeting.start_time).or(
+            Decidim::Meetings::Meeting.arel_table[:start_time].eq(meeting.start_time).and(
+              Decidim::Meetings::Meeting.arel_table[:id].lt(meeting.id)
+            )
+          )
+        ).last
+      end
+
+      def nav_paths
+        return if meeting.blank?
+
+        { prev_path: prev_meeting, next_path: next_meeting }.compact_blank.transform_values { |meeting| meeting_path(meeting) }.merge(back_path: meetings_path)
       end
 
       def meetings

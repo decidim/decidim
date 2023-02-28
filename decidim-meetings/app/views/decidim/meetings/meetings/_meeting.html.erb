@@ -1,4 +1,4 @@
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: meetings_path, prev_path: "", next_path: "" } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
   <div class="meeting__container">
 
     <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
