@@ -15,7 +15,7 @@
     }
 
     &__content{
-      @apply grid grid-cols-[70%_30%] items-center;
+      @apply grid grid-cols-[70%_30%] items-center gap-2;
     }
 
     &__content__header{
@@ -126,6 +126,16 @@
   }
 }
 
+#budgets-to-vote{
+  .card__highlight-text{
+    @apply w-[70%];
+  }
+
+  .card__highlight-container{
+    @apply mb-0;
+  }
+}
+
 .verification-modal .card__list .budget__card__list-project{
   @apply inline-block w-[25%] text-center;
 }
@@ -134,7 +144,6 @@
   @apply col-span-12;
 }
 
-#budgets.card__highlight-container,
-#budgets-to-vote.card__highlight-container{
+#budgets.card__highlight-container{
   @apply mb-0;
 }
