@@ -31,7 +31,6 @@ es-PY:
         update:
           error: Se ha producido un error al actualizar el comentario.
       comments_count: Número de comentarios
-      comments_title: Comentarios
       last_activity:
         new_comment_at_html: "<span>Nuevo comentario en %{link}</span>"
       view: Ver
@@ -84,7 +83,6 @@ es-PY:
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
           title: Notificar contenido inapropiado
-        show_replies: Mostrar %{replies_count} respuestas
         single_comment_link_title: Obtener enlace
       comment_order_selector:
         order:
