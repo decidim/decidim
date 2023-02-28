@@ -264,9 +264,12 @@ ar:
           notification_title: لقد تم قبول <strong>للدخول كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
           email_intro: تم رفض طلبك للمشاركة كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: لقد تلقيت هذا الإشعار لأنك طلبت أن تصبح مساهماً مع <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: لقد تم رفضك كمساهم بـ %{resource_title}.
           notification_title: لقد تم رفض دخولك <strong>كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
+          email_intro: <a href="%{author_url}">%{author_name} %{author_nickname}</a> سحب <a href="%{resource_url}">%{resource_title}</a> المسودة التعاونية.
+          email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{author_name} %{author_nickname} سحب المشروع %{resource_title} التعاوني."
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <strong>سحبت</strong> مشروع <a href="%{resource_path}">%{resource_title}</a> التعاوني.
         creation_enabled:
@@ -286,6 +289,9 @@ ar:
             email_subject: تم قبول الاقتراح الخاص بك
             notification_title: تم قبول اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
           follower:
+            email_intro: 'تم قبول الاقتراح "%{resource_title}". يمكنك قراءة الإجابة على هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إلغاء المتابعة على الرابط السابق.
+            email_subject: تم قبول اقتراح تتابعه
             notification_title: لقد تم قبول المُقتَرح <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           affected_user:
@@ -293,7 +299,13 @@ ar:
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
             email_subject: يتم تقييم الاقتراح الخاص بك
             notification_title: يتم تقييم الاقتراح الخاص بك <a href="%{resource_path}">%{resource_title}</a>.
+          follower:
+            email_intro: 'الاقتراح "%{resource_title}" قيد التقييم حاليا. يمكنك التحقق من وجود إجابة على هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إلغاء المتابعة على الرابط السابق.
+            email_subject: واحد من الاقتراحات التي تتبعها قيد التقييم الآن
+            notification_title: الاقتراح <a href="%{resource_path}">%{resource_title}</a> قيد التقييم الآن.
         proposal_mentioned:
+          email_intro: تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_url}">في هذا الفضاء</a> في التعليقات.
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
           email_subject: تم ذكر اقتراحك "%{mentioned_proposal_title}"
           notification_title: لقد تم ذكر اقتراحك "%{mentioned_proposal_title}" <a href="%{resource_path}">في هذه المساحة</a> في التعليقات.
@@ -306,18 +318,29 @@ ar:
           email_intro: تمت إضافة الاقتراح "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تمت إضافة اقتراح جديد "%{resource_title}" إلى %{participatory_space_title}
+          notification_title: تمت إضافة الاقتراح <a href="%{resource_path}">%{resource_title}</a> إلى %{participatory_space_title} من قبل %{author}
+          notification_title_official: الاقتراح الرسمي <a href="%{resource_path}">%{resource_title}</a> تمت إضافته إلى %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'تم رفض اقتراحك "%{resource_title}". يمكنك قراءة الإجابة في هذه الصفحة:'
             email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف "%{resource_title}".
+            email_subject: تم رفض اقتراحك
             notification_title: تم رفض اقتراحك <a href="%{resource_path}">%{resource_title}</a>.
+          follower:
+            email_intro: 'تم رفض الاقتراح %{resource_title}. يمكنك قراءة الإجابة على ذلك على هذه الصفحة:'
+            email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{resource_title}. يمكنك إلغاء المتابعة على الرابط السابق.
+            email_subject: واحد من الاقتراحات التي تتبعها تم رفضها
+            notification_title: تم رفض الاقتراح <a href="%{resource_path}">%{resource_title}</a>.
         proposal_update_category:
           email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
           email_subject: تم تحديث فئة %{resource_title} اقتراح
           notification_title: تم تحديث فئة اقتراح <a href="%{resource_path}">%{resource_title}</a> بواسطة مسؤول.
         proposal_update_scope:
+          email_intro: 'قام مدير بتحديث نطاق اقتراحك "%{resource_title}" ، يرجى التحقق منه على هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
+          email_subject: تم تحديث نطاق الاقتراح %{resource_title}
+          notification_title: نطاق الاقتراح <a href="%{resource_path}">%{resource_title}</a> تم تحديثه من قبل مدير.
         voting_enabled:
           email_intro: 'يمكنك دعم المقترحات في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
@@ -385,13 +408,34 @@ ar:
         import: استيراد من مكون آخر
         new: عرض جديد
         participatory_texts: النصوص التشاركية
+        show: عرض الاقتراح
         title: أفعال
       admin:
         actions:
           preview: معاينة
         exports:
+          proposal_comments: التعليقات
           proposals: اقتراحات
         imports:
+          help:
+            answers: |
+              ينبغي أن تحتوي وثيقة الاستيراد على أسماء الأعمدة التالية لدى وجود ملفات CSV أو Excel، أو الأسماء الرئيسية في حالة ملفات JSON:
+              <ul>
+              <li><b>معرف:</b> معرف الاقتراح من أجل الإجابة</li>
+              <li><b>حالة:</b> اما "مقبول"، أو "قيد التقييم"، أو "مرفوض"</li>
+              <li><b>إجابة/en:</b> الإجابة على اللغة الإنجليزية. سيعتمد هذا على إعداد لغة المنصة الخاصة بك.</li>
+              </ul>
+            proposals: |
+              يجب أن يحتوي الملف على أسماء الأعمدة التالية في حالة ملفات CSV أو Excel، أو الأسماء الرئيسية في حالة ملفات JSON:
+              <ul>
+              <li><b>عنوان/en:</b> عنوان اللغة الإنجليزية. سيعتمد هذا على إعداد لغة المنصة الخاصة بك.</li>
+              <li><b>نص/en:</b> نص اللغة الإنجليزية. سيعتمد هذا على إعداد لغة المنصة الخاصة بك.</li>
+              <li><b>النطاق/المعرف:</b> معرف النطاق</li>
+              <li><b>الفئة/المعرفة:</b> معرف الفئة</li>
+              </ul>
+          label:
+            answers: استيراد إجابات من ملف
+            proposals: استيراد اقتراحات من ملف
           resources:
             answers:
               zero: إجابات الاقتراحات
