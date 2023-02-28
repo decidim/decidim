@@ -1,33 +1,7 @@
 [data-floating-help]{
-  [id*="tip"]{
-    @apply absolute right-0 bg-background [&_button]:rounded-r-none [&_svg]:text-gray [&_svg]:fill-current;
+  @apply absolute z-10 top-5 right-0 [&_button]:bg-background [&_button]:px-2 [&_button]:rounded-r-none [&_svg]:text-gray [&_svg]:fill-current;
 
-    &:hover{
-      @apply [&_svg]:text-secondary;
-    }
-  }
-
-  [id*="block"]{
-    @apply p-4 flex items-start gap-3 border-4 border-background rounded;
-
-    > svg{
-      @apply w-5 h-5 text-gray fill-current;
-    }
-
-    > button{
-      @apply ml-auto [&_svg]:text-secondary [&_svg]:fill-current;
-    }
-  }
-
-  &.is-tip [id*="block"]{
-    @apply hidden;
-  }
-
-  &.is-block [id*="tip"]{
-    @apply hidden;
-  }
-
-  &.is-block + *{
-    @apply mt-10;
+  &:hover{
+    @apply [&_svg]:text-white [&_button]:text-white [&_button]:bg-secondary [&_button]:no-underline;
   }
 }

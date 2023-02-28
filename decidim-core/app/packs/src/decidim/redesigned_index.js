@@ -48,6 +48,7 @@ import "./delayed"
 import "./vizzs"
 import "./responsive_horizontal_tabs"
 import "./security/selfxss_warning"
+// import "./floating_help" --deprecated
 import "./redesigned_session_timeouter"
 import "./confirm"
 import "./results_listing"
@@ -75,7 +76,6 @@ import dialogMode from "./dialog_mode"
 import FocusGuard from "./focus_guard"
 import backToListLink from "./back_to_list"
 import markAsReadNotifications from "./notifications"
-import addFloatingHelp from "./redesigned_floating_help"
 import RemoteModal from "./redesigned_ajax_modals"
 import selectActiveIdentity from "./redesigned_identity_selector_dialog"
 import createTooltip from "./redesigned_tooltips"
@@ -227,9 +227,6 @@ const initializer = (element = document) => {
       }
     })
   });
-
-  // Initialize the floating help blocks for the participatory processes
-  document.querySelectorAll("[data-floating-help]").forEach((elem) => addFloatingHelp(elem))
 
   // Initialize available remote modals (ajax-fetched contents)
   element.querySelectorAll("[data-dialog-remote-url]").forEach((elem) => new RemoteModal(elem))
