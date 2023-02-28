@@ -85,7 +85,9 @@ en:
             offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
             spam: Contains clickbait, advertising, scams or script bots.
           title: Report inappropriate content
-        show_replies: Show %{replies_count} replies
+        show_replies:
+          one: Show reply
+          other: Show %{count} replies
         single_comment_link_title: Get link
       comment_order_selector:
         order:
