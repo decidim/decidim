@@ -55,7 +55,6 @@ zh-CN:
             offensive: 包括种族主义、性别主义、污泥、个人攻击、死亡威胁、自杀请求或任何形式的仇恨言论。
             spam: 包含点击、广告、骗子或脚本机器人。
           title: 报告不恰当的内容
-        show_replies: 显示 %{replies_count} 个回复
       comment_order_selector:
         order:
           best_rated: 最佳评分
