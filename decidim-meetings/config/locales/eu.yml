@@ -152,13 +152,13 @@ eu:
           affected_user:
             email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Bere orriko ondorioak irakur ditzakezu:'
             email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" topaketa antolatu duzulako.
-            email_subject: '"%{resource_title}" topaketa itxita zegoen'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxita zegoen.
+            email_subject: '"%{resource_title}" topaketa itxi da'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi da.
           follower:
-            email_intro: '"%{resource_title}" topaketa itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
+            email_intro: '"%{resource_title}" topaketa itxi da. Bere orriko ondorioak irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan jarrai dezakezu.
-            email_subject: '"%{resource_title}" topaketa itxita zegoen'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxita zegoen.
+            email_subject: '"%{resource_title}" topaketa itxi da'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi da.
         meeting_created:
           button_text: Eman izena topaketan
           email_intro: Topaketa "%{resource_title}" jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.
