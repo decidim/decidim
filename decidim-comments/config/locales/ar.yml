@@ -112,6 +112,13 @@ ar:
         loading: جارٍ تحميل التعليقات ...
         single_comment_warning: <a href="%{url}"> عرض جميع التعليقات</a>
         single_comment_warning_title: إنك ترى تعليقا واحدا
+        title:
+          zero: "%{count} تعليقات"
+          one: "%{count} تعليق"
+          two: "%{count} تعليقان"
+          few: "%{count} تعليقات"
+          many: "%{count} تعليقات"
+          other: "%{count} تعليقات"
       down_vote_button:
         text: أنا لا أوافق على هذا التعليق
       edit_comment_modal_form:
