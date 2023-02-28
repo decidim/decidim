@@ -575,14 +575,21 @@ ar:
             proposals: اقتراحات
             ranking: "%{ranking} مِن %{total}"
             related_meetings: ملتقيات ذات صلة
+            remove_assignment: إزالة التعيين
+            remove_assignment_confirmation: هل أنت متأكد من أنك تريد إزالة المُقيِّم من هذا الاقتراح؟
             valuators: المُقيِّمون
             votes_count: يدعم العد
             votes_ranking: ترتيب حسب الدّعم المتلقّى
           update_category:
+            invalid: 'هذه الاقتراحات تحتوي بالفعل على فئة %{subject_name}: %{proposals}.'
             select_a_category: الرجاء تحديد الفئة
             select_a_proposal: يرجى اختيار الاقتراح
+            success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{subject_name}: %{proposals}.'
           update_scope:
+            invalid: 'تحتوي الاقتراحات مسبقاً على نطاق %{subject_name}: %{proposals}.'
             select_a_proposal: يرجى اختيار الاقتراح
+            select_a_scope: يرجى اختيار نطاق
+            success: 'تم تحديث الاقتراحات بنجاح إلى نطاق %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: كانت هناك مشكلة في استيراد المقترحات
@@ -592,22 +599,33 @@ ar:
             no_components: لا توجد مكونات اقتراح أخرى في هذه المساحة التشاركية لاستيراد المقترحات منها.
             select_component: يرجى اختيار عنصر
             select_states: تحقق من حالة مقترحات الاستيراد
+            title: استيراد الاقتراحات
         proposals_merges:
           create:
+            invalid: 'طرأت مشكلة في دمج الاقتراحات المحددة لأن بعضها:'
             success: دمج المقترحات بنجاح في واحدة جديدة.
         proposals_splits:
           create:
+            invalid: 'طرأت مشكلة في فصل الاقتراحات المحددة لأن بعضها:'
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
         valuation_assignments:
           create:
+            invalid: طرأت مشكلة في تعيين الاقتراحات لأحد المُقيِّمين
             success: لقد تم إسناد المُقتَرحات إلى مُقيِّم بنجاح
+          delete:
+            invalid: طرأت مشكلة في سحب تعيين الاقتراحات من أحد المُقيِّمين
+            success: تم سحب تعيين المُقيِّم من الاقتراح بنجاح
       admin_log:
         proposal:
           answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
           create: "%{user_name} بإنشاء الاقتراح %{resource_name} على الحيز %{space_name} كمقترح رسمي"
+          publish_answer: "نشر %{user_name} الإجابة على اقتراح %{resource_name} على مساحة %{space_name}"
           update: "%{user_name} تحديث الاقتراح الرسمي %{resource_name} على %{space_name} الفضاء"
         proposal_note:
           create: "غادر %{user_name} ملاحظة خاصة على الاقتراح %{resource_name} على %{space_name} الفضاء"
+        valuation_assignment:
+          create: "قام %{user_name} بتعيين اقتراح %{resource_name} إلى مُقيِّم"
+          delete: "قام %{user_name} بسحب تعيين اقتراح %{resource_name} من مُقيِّم"
       answers:
         accepted: وافقت
         evaluating: تقييم
