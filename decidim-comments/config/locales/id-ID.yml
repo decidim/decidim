@@ -14,6 +14,7 @@ id:
         other: Voting
   decidim:
     comments:
+      comments_title: Komentar
       last_activity:
         new_comment_at_html: "<span>Komentar baru di %{link}</span>"
       votes:
