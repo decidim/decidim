@@ -32,7 +32,6 @@ pl:
         update:
           error: Wystąpił błąd podczas aktualizowania komentarza.
       comments_count: Liczba komentarzy
-      comments_title: Komentarze
       last_activity:
         new_comment_at_html: "<span>Nowy komentarz do %{link}</span>"
       view: Zobacz
@@ -84,7 +83,6 @@ pl:
             offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
             spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
           title: Zgłoś niewłaściwą treść
-        show_replies: Pokaż %{replies_count} odpowiedzi
         single_comment_link_title: Pobierz link
       comment_order_selector:
         order:
