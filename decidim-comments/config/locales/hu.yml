@@ -16,6 +16,7 @@ hu:
         other: Szavazatok
   decidim:
     comments:
+      comments_title: Hozzászólások
       last_activity:
         new_comment_at_html: "<span>Új megjegyzés: %{link}</span>"
       votes:
