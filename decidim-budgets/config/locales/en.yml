@@ -256,7 +256,7 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
-          back_to_project: back to project
+          back_to_budgets: back to budgets
           view_project: View project
         order_progress:
           assigned: Assigned
