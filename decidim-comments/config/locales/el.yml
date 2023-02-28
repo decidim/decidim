@@ -24,7 +24,6 @@ el:
         update:
           error: Υπήρξε ένα πρόβλημα στην ενημέρωση του σχολίου.
       comments_count: Αριθμός σχολίων
-      comments_title: Σχόλια
       last_activity:
         new_comment_at_html: "<span>Νέο σχόλιο στο %{link}</span>"
       view: Προβολή
@@ -76,7 +75,6 @@ el:
             offensive: Περιέχει ρατσισμό, σεξισμό, δυσφημίσεις, προσωπικές επιθέσεις, απειλές θανάτου, αιτήματα αυτοκτονίας ή οποιαδήποτε μορφή ρητορικής μίσους.
             spam: Περιέχει clickbait, διαφημίσεις, απάτες ή script bot.
           title: Αναφορά ακατάλληλου περιεχομένου
-        show_replies: Εμφάνιση %{replies_count} απαντήσεων
         single_comment_link_title: Αποκτήστε σύνδεσμο
       comment_order_selector:
         order:
