@@ -9,15 +9,17 @@
     @apply w-full h-full object-cover;
 
     &-container{
-      @apply rounded-full overflow-hidden inline-block w-6 h-6;
-
-      &.is-compact{
-        @apply w-8 h-8;
-      }
+      @apply rounded-full overflow-hidden inline-block w-6 h-6 align-top;
     }
   }
 
-  &__name{
+  /* matches elements NOT CHILDREN of author__tooltip */
+  &__container.is-compact &__avatar-container:not(&__tooltip *){
+    @apply w-8 h-8;
+  }
+
+  /* matches elements NOT CHILDREN of author__tooltip */
+  &__container.is-compact &__name:not(&__tooltip *){
     @apply text-secondary font-semibold;
   }
 
@@ -27,5 +29,21 @@
     > svg{
       @apply text-gray fill-current flex-none;
     }
+  }
+
+  &__tooltip{
+    @apply grid grid-cols-[1fr_min-content] gap-6 [&[role="tooltip"]]:max-w-sm odd:[&>*]:place-self-start even:[&>*]:place-self-end;
+
+    &-links{
+      @apply flex flex-col items-end justify-evenly h-full whitespace-nowrap hover:[&>*]:underline;
+    }
+  }
+
+  &__tooltip &__avatar-container{
+    @apply w-10 h-10 border-2 border-white hover:border-tertiary;
+  }
+
+  &__tooltip &__name{
+    @apply text-white text-lg font-bold hover:underline;
   }
 }

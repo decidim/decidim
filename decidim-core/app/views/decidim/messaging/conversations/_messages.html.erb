@@ -1,6 +1,6 @@
 <% messages.each do |message| %>
   <div class="conversation__message<%= " flex-row-reverse ml-auto" if sender_is_user?(sender) %>">
-    <div class="w-8 h-8 flex-none rounded-full overflow-hidden border border-white">
+    <div class="w-8 h-8 flex-none border border-white">
       <%= cell "decidim/author", present(sender), layout: :avatar %>
     </div>
 

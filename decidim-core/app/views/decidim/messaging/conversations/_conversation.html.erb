@@ -16,7 +16,7 @@
       <% if conversation.interlocutors(current_user).count > 1 %>
         <div class="flex -space-x-2">
           <% conversation.interlocutors(current_user).each do |interlocutor| %>
-            <span class="rounded-full overflow-hidden border border-white inline-block w-6 h-6">
+            <span class="rounded-full border border-white inline-block w-6 h-6">
               <%= cell "decidim/author", present(interlocutor), layout: :avatar, skip_profile_link: true %>
             </span>
           <% end %>
