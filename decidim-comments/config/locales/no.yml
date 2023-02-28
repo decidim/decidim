@@ -30,7 +30,6 @@
         update:
           error: Et problem oppstod med å oppdatere kommentaren.
       comments_count: Antall kommentarer
-      comments_title: Kommentarer
       last_activity:
         new_comment_at_html: "<span>Ny kommentar på %{link}</span>"
       view: Vis
@@ -82,7 +81,6 @@
             offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
             spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
           title: Rapporter upassende innhold
-        show_replies: Vis %{replies_count} svar
         single_comment_link_title: Få lenke
       comment_order_selector:
         order:
