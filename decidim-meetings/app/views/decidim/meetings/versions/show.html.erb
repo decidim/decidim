@@ -7,9 +7,7 @@
   ) %>
 <% end %>
 
-<% nav_paths = nav_indexes(versioned_resource, params[:id]).transform_values { |index| url_for(action: :show, id: index) } %>
-
-<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: meeting_path(versioned_resource) }.merge(nav_paths) do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: meeting_path(versioned_resource) } do %>
   <%= cell(
     "decidim/version",
     current_version,
