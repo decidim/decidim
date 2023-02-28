@@ -764,7 +764,7 @@ ja:
           not_officialized: 公式化されていない
           officialize: 公式化
           officialized: 公式化済み
-          reofficialize: Reofficize
+          reofficialize: 再公式化
           reports: 報告
           show_email: メールアドレスを表示
           status: ステータス
@@ -1054,7 +1054,7 @@ ja:
         hide: 非表示
         not_hidden: 表示
         title: アクション
-        unhide: Unhide
+        unhide: 非表示解除
         unreport: 報告解除
       admin:
         reportable:
