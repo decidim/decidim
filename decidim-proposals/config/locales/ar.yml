@@ -217,28 +217,54 @@ ar:
             creation_enabled_readonly: يتم تعطيل هذا الإعداد عند تفعيل وظيفة النصوص التشاركية. لتحميل الاقتراحات كنص تشاركي، يرجى النقر على زر النصوص التشاركية واتباع التعليمات.
             default_sort_order: التصنيف الافتراضي للاقتراح
             default_sort_order_help: الافتراضي يعني أنه إذا تم تمكين الدعم، سيتم عرض المقترحات عشوائياً، وإذا تم حظر الدعم، فسيتم فرزها حسب الأكثر دعم.
+            default_sort_order_options:
+              default: الافتراضي
+              most_commented: صاحبة الأكثر تعليقات
+              most_endorsed: صاحبة أكثر تأييدات
+              most_followed: صاحبة أكثر متابعات
+              most_voted: صاحبة أكثر دعم
+              random: عشوائي
+              recent: الأخيرة
+              with_more_authors: مع المزيد من المؤلفين
             endorsements_blocked: المصادقة المحظورة
             endorsements_enabled: تم التصديق
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
+            publish_answers_immediately: نشر إجابات الاقتراح على الفور
+            publish_answers_immediately_help_html: 'نشد الانتباه إلى أنه إذا قمت بالرد على أي اقتراح دون تمكين هذا، فستحتاج إلى نشره يدوياً عن طريق اختياره واستخدام الإجراء للنشر. للحصول على مزيد من المعلومات حول كيفية عمل هذا، راجع <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">صفحة توثيق إجابات الاقتراحات</a>.'
             suggested_hashtags: اقترح علامات التصنيف للمشاركين لتقديم مقترحات جديدة
             votes_blocked: يدعم المحظورة
             votes_enabled: يدعم تمكين
             votes_hidden: يدعم مخفي (إذا تم تمكين الدعم ، سيؤدي تحديد هذا إلى إخفاء عدد الدعم)
     events:
       proposals:
+        admin:
+          proposal_note_created:
+            email_intro: ترك شخص ملاحظة على المقترح "%{resource_title}". تحقق منها في <a href="%{admin_proposal_info_url}">لوحة المشرف</a>
+            email_outro: تلقيت هذا الإشعار لأنك تستطيع تقييم الاقتراح.
+            email_subject: ترك شخص ملاحظة على الاقتراح %{resource_title}.
+            notification_title: ترك شخص ملاحظة على الاقتراح <a href="%{resource_path}">%{resource_title}</a>. تحقق منها في <a href="%{admin_proposal_info_path}">لوحة المشرف</a>
         collaborative_draft_access_accepted:
+          email_intro: 'تم قبول %{requester_name} لأن يكون مسجلاً كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "تم قبول %{requester_name} للوصول كمساهم في %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> كان <strong>مقبولة للوصول كمساهم</strong> من <a href="%{resource_path}">%{resource_title}</a> مشروع تعاوني.
         collaborative_draft_access_rejected:
+          email_intro: 'تم رفض %{requester_name} لأن يكون مسجلاً كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "تم رفض %{requester_name} للوصول كمساهم في المسودة التعاونية %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> تم رفض الوصول إلى <strong>كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requested:
+          email_intro: 'طلب %{requester_name} إمكانية المشاركة كمساهم. يمكنك <strong>قبول أو رفض الطلب</strong> من صفحة المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
+          email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: "%{requester_name} طلب الوصول للمساهمة في %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> طلب الوصول للمساهمة في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a> . يرجى <strong>قبول أو رفض الطلب</strong>.
         collaborative_draft_access_requester_accepted:
+          email_intro: تم قبول طلبك للمشاركة كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.
+          email_outro: لقد تلقيت هذا الإشعار لأنك طلبت أن تصبح مساهماً مع <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: تم قبولك كمساهم بـ %{resource_title}.
           notification_title: لقد تم قبول <strong>للدخول كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_requester_rejected:
+          email_intro: تم رفض طلبك للمشاركة كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.
           email_subject: لقد تم رفضك كمساهم بـ %{resource_title}.
           notification_title: لقد تم رفض دخولك <strong>كمساهم</strong> في المسودة التعاونية <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_withdrawn:
