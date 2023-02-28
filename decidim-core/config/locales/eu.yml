@@ -34,16 +34,16 @@ eu:
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai erabilgarria
-      decidim/demoted_membership: Ez da talde admin gehiago
-      decidim/gamification/badge_earned_event: Badge irabazi
+      decidim/demoted_membership: Ez da talde administratzaile gehiagorik
+      decidim/gamification/badge_earned_event: Irabazitako dominak
       decidim/gamification/level_up_event: Berdindu duzu
       decidim/invited_to_group_event: Taldera gonbidatuta
       decidim/join_request_accepted_event: Erregistratu eskaera onartua
       decidim/join_request_rejected_event: Erregistratu eskaera baztertu da
       decidim/profile_updated_event: Profila eguneratu da
-      decidim/promote_to_admin: Talde kudeatzaileari sustatua
+      decidim/promote_to_admin: Taldeko administratzaile mailara igota
       decidim/promoted_to_admin_event: Taldeko administratzaile mailara igota
-      decidim/removed_from_group: Taldea kendu da
+      decidim/removed_from_group: Taldetik kenduta
       decidim/resource_endorsed_event: Baliabideari atxiki zaio
       decidim/resource_hidden_event: Ezkutuko baliabidea
       decidim/user_group_created_event: Erabiltzaile-taldea sortuta
@@ -61,6 +61,9 @@ eu:
       decidim/amendment:
         one: zuzenketa
         other: Zuzenketak
+      decidim/endorsement:
+        one: Atxikimendua
+        other: Atxikimenduak
       decidim/user:
         one: Ez dago erabiltzailerik
         other: Erabiltzaileak
@@ -109,7 +112,7 @@ eu:
           title: Ezabatu nire kontua
         explanation: Mesedez, zure kontu ezabatu nahi izateko arrazoia azaldu (aukerakoa).
       destroy:
-        error: Errore bat gertatu da zure kontua ezabatzean.
+        error: Akats bat gertatu da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
         file_no_exists: Fitxategia ez dago
@@ -122,7 +125,7 @@ eu:
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
       update:
-        error: Errorea gertatu da zure kontua eguneratzean.
+        error: Akats bat gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     admin:
@@ -329,7 +332,7 @@ eu:
       sms:
         explanation: Bidali zure telefono mugikorraren zenbakia zure identitatea egiaztatzeko.
         name: Kodea SMS bidez
-      started_at: Hasi zen %{timestamp}
+      started_at: '%{timestamp} etan hasita'
     authorization_modals:
       content:
         expired:
@@ -723,7 +726,7 @@ eu:
       replicate_help: Hatz-marka hori SHA256 hashing algoritmo baten bidez kalkulatzen da. Zeure buruari errepikatu ahal izateko, %{online_calculator_link} erabil dezakezu eta kopiatu iturriaren datuak itsatsi.
       source: Iturria
       title: Hatz
-      value: Balio
+      value: Balioa
     followers:
       no_followers: Ez da jarraitzailerik oraindik.
     following:
@@ -1600,11 +1603,17 @@ eu:
       data_consent:
         details:
           columns:
+            description: Deskribapena
             name: Izena
             service: Zerbitzua
             type: Mota
         dialog:
+          accept_all: Onartu dena
           settings: Ezarpenak
+        modal:
+          accept_all: Onartu dena
+          preferences:
+            title: Hobespenak
       edit_link:
         edit: Editatu
       footer:
