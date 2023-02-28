@@ -32,7 +32,7 @@ eu:
         update:
           error: Arazoa gertatu da iruzkina eguneratzean.
       comments_count: Iruzkin kopurua
-      comments_title: Iruzkinak
+      comments_title: Oharrak
       last_activity:
         new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
       view: Bistaratu
