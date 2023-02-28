@@ -31,7 +31,6 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour du commentaire.
       comments_count: Nombre de commentaires
-      comments_title: Commentaires
       last_activity:
         new_comment_at_html: "<span>Nouveau commentaire à %{link}</span>"
       view: Voir
@@ -84,7 +83,6 @@ fr:
             offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
             spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
           title: Signaler un contenu inapproprié
-        show_replies: Afficher %{replies_count} réponses
         single_comment_link_title: Obtenir le lien
       comment_order_selector:
         order:
