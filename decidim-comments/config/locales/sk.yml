@@ -20,6 +20,7 @@ sk:
         other: Hlasy
   decidim:
     comments:
+      comments_title: Komentáre
       last_activity:
         new_comment_at_html: "<span>Nový komentár na %{link}</span>"
       votes:
