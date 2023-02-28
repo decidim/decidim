@@ -33,7 +33,7 @@ eu:
     models:
       decidim/attachment_created_event: eranskina
       decidim/component_published_event: Osagai erabilgarria
-      decidim/demoted_membership: Ez da talde admin gehiago
+      decidim/demoted_membership: Ez da talde administratzaile gehiagorik
       decidim/gamification/badge_earned_event: Irabazitako dominak
       decidim/gamification/level_up_event: Berdindu duzu
       decidim/invited_to_group_event: Taldera gonbidatuta
@@ -115,7 +115,7 @@ eu:
         explanation: Mesedez, zure kontu ezabatu nahi izateko arrazoia azaldu (aukerakoa).
         leaving_authorizations_behind: Egiaztatze-prozesu honetako hainbat datu gorde egingo dira segurtasunagatik. Beste kontu bat sortu eta, berriz ere, egiaztatzeko prozesuari ekin nahi badiozu, datu horiek berreskuratu egingo dira.
       destroy:
-        error: Errore bat gertatu da zure kontua ezabatzean.
+        error: Akats bat gertatu da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
         file_no_exists: Fitxategia ez dago
@@ -128,7 +128,7 @@ eu:
         change_password: Aldatu pasahitza
         update_account: Eguneratu kontua
       update:
-        error: Errorea gertatu da zure kontua eguneratzean.
+        error: Akats bat gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     admin:
