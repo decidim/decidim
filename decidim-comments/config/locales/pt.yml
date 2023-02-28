@@ -30,7 +30,6 @@ pt:
         update:
           error: Ocorreu um problema ao actualizar a comentário.
       comments_count: Contagem de comentários
-      comments_title: Comentários
       last_activity:
         new_comment_at_html: "<span>Novo comentário em %{link}</span>"
       view: Visualizar
@@ -82,7 +81,6 @@ pt:
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou robots de scripts.
           title: Reportar conteúdo impróprio
-        show_replies: Mostrar %{replies_count} respostas
         single_comment_link_title: Obter ligação
       comment_order_selector:
         order:
