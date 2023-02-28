@@ -119,6 +119,10 @@
     .card__link{
       @apply mb-2 block;
     }
+
+    .tag-container{
+      @apply px-6;
+    }
   }
 }
 

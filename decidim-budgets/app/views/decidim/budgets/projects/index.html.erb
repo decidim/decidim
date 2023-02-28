@@ -37,7 +37,7 @@
                 </div>
                 <div class="map-info__button">
                   <a href="${link}" class="button button--sc">
-                    <%= t(".view_project") %>
+                    <%= t("view_project", scope: "decidim.budgets.projects.index") %>
                   </a>
                 </div>
               </div>
@@ -56,11 +56,9 @@
 
     <%= cell("decidim/budgets/limit_announcement", budget) %>
 
-    <div class="row columns">
-      <h2 class="section-heading">
-        <%= render partial: "count" %>
-      </h2>
-    </div>
+    <h3 class="h3">
+      <%= t("select_projects", scope: "decidim.budgets.projects") %>
+    </h3>
 
     <div id="projects" aria-live="polite">
       <%= render partial: "projects" %>

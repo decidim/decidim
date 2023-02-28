@@ -68,7 +68,7 @@
           <% if !current_order_checked_out? && voting_open? %>
             <button class="button button__secondary button__xl" data-dialog-open="budget-confirm" <%= budget_confirm_disabled_attr %>>
               <span>
-                <%= t(".vote") %>
+                <%= t("vote", scope: "decidim.budgets.projects.budget_summary") %>
               </span>
               <%= icon "check-line" %>
             </button>

@@ -2,7 +2,9 @@
 
   <%= link_to budgets_path, class: "mb-8 button button__sm button__text-secondary" do %>
     <%= icon "arrow-left-line" %>
-    <span><%= t("back_to", scope: "decidim.budgets.budget_information_modal") %></span>
+    <span>
+      <%= t("back_to_project", scope: "decidim.budgets.projects.index") %>
+    </span>
   <% end %>
 
   <div class="filter-search filter-container">

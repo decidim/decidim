@@ -225,11 +225,12 @@ en:
             title: Maximum projects exceeded
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
-          cancel_order: delete your vote and start over
+          cancel_order: delete your vote
           checked_out:
-            description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
+            description: You've already voted for the budget. If you've changed your mind, you can delete your vote.
             title: Budget vote completed
           title: You decide the budget
+          vote: Vote budget
         count:
           projects_count:
             one: 1 project
@@ -255,6 +256,7 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
+          back_to_project: back to project
           view_project: View project
         order_progress:
           assigned: Assigned
@@ -296,11 +298,12 @@ en:
             other: votes
           you_voted: You voted for this
         project_budget_button:
-          add: Add to your vote
+          add: Add
           add_descriptive: Add project %{resource_name} to your vote
-          added: Added to your vote
+          added: Added
           added_descriptive: Project %{resource_name} added to your vote
         projects_for: Projects for %{name}
+        select_projects: Select projects
         show:
           budget: Budget
           view_all_projects: View all projects
