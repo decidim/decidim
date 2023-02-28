@@ -1,9 +1,5 @@
-<% if profile_path? %>
-  <%= link_to profile_path, class: "author__container" do %>
-    <%= profile_inline_compact %>
-  <% end %>
-<% else %>
+<div class="author" data-author>
   <div class="author__container">
     <%= render :profile_inline_compact %>
   </div>
-<% end %>
+</div>

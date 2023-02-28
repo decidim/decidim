@@ -12,7 +12,7 @@ module Decidim
     private
 
     def button_classes
-      "button button__sm button__text-secondary only:m-auto"
+      options[:button_classes] || "button button__sm button__text-secondary only:m-auto"
     end
 
     def text

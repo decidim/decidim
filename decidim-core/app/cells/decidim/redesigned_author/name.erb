@@ -1,1 +1,12 @@
-<span><%= display_name %></span>
+<% data = !disable_tooltip && has_tooltip? ? { tooltip: "" } : nil %>
+<%= content_tag :div, data: do %>
+  <% if profile_path? %>
+    <%= link_to display_name, profile_path, class: "author__name" %>
+  <% else %>
+    <span class="author__name"><%= display_name %></span>
+  <% end %>
+
+  <% if !disable_tooltip && has_tooltip?  %>
+    <%= render :profile_minicard %>
+  <% end %>
+<% end %>

@@ -1,0 +1,26 @@
+<div class="author" data-author>
+  <div class="author__container <%= ' is-compact' if layout == :compact %>">
+    <% if layout == :compact %>
+      <%= avatar %>
+
+      <div>
+        <%= name %>
+
+        <% context_actions.each do |action| %>
+          <%= render action %>
+        <% end %>
+      </div>
+    <% elsif layout == :avatar %>
+      <%= avatar %>
+    <% else %>
+      <%= avatar %>
+      <%= name %>
+    <% end %>
+  </div>
+
+  <% if layout == :default %>
+    <% context_actions.each do |action| %>
+      <%= render action %>
+    <% end %>
+  <% end %>
+</div>

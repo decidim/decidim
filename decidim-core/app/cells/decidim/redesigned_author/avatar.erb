@@ -1,7 +1,16 @@
-<% if profile_path? %>
-  <%= link_to profile_path do %>
-    <%= render :avatar_image %>
+<% data = !disable_tooltip && has_tooltip? ? { tooltip: "" } : nil %>
+<%= content_tag :div, data: do %>
+  <span class="author__avatar-container">
+    <% if profile_path? %>
+      <%= link_to profile_path do %>
+        <%= render :avatar_image %>
+      <% end %>
+    <% else %>
+      <%= render :avatar_image %>
+    <% end %>
+  </span>
+
+  <% if !disable_tooltip && has_tooltip? %>
+    <%= render :profile_minicard %>
   <% end %>
-<% else %>
-  <%= render :avatar_image %>
 <% end %>

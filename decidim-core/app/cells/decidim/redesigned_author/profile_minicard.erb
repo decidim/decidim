@@ -1,22 +1,29 @@
-<div class="p-xs flex--sbc">
-  <%# REDESIGN_PENDING: try to pass locals to the render method inside the cell %>
-  <%= profile_inline_compact(disable_tooltip: true) %>
+<%# NOTE: included role=tooltip and .is-hidden class, to hide them out by default %>
+<div id="author-<%= model.id %>" class="is-hidden bottom author__tooltip" role="tooltip">
+  <div class="author__container">
+    <%= avatar(disable_tooltip: true) %>
 
-  <%#= text_link_to_current_or_new_conversation_with(model) %>
-
-  <div class="ml-s">
-    <%#= cell "decidim/follow_button", raw_model %>
     <div>
-      <%#= link_to decidim.profile_followers_path(raw_model.nickname), class: "card__link" do %>
-        <strong><%= model.followers_count %></strong> <%= t("decidim.profiles.show.followers") %>
-      <%# end %>
+      <%= name(disable_tooltip: true) %>
+      <span class="text-md"><%= model.nickname %></span>
     </div>
+  </div>
+
+  <div class="author__tooltip-links">
+    <%= link_to decidim.profile_followers_path(raw_model.nickname) do %>
+      <%= model.followers_count %> <%= t("decidim.profiles.show.followers") %>
+    <% end %>
     <% if model.can_follow? %>
-      <div>
-        <%#= link_to decidim.profile_following_path(raw_model.nickname), class: "card__link" do %>
-          <strong><%= model.following_count %></strong> <%= t("decidim.profiles.show.following") %>
-        <%# end %>
-      </div>
+      <%= link_to decidim.profile_following_path(raw_model.nickname) do %>
+        <%= model.following_count %> <%= t("decidim.profiles.show.following") %>
+      <% end %>
     <% end %>
   </div>
+
+  <%= link_to current_or_new_conversation_path_with(model), class: "button button__sm button__transparent" do %>
+    <span><%= t("decidim.profiles.show.send_private_message") %></span>
+    <%= icon "mail-send-line" %>
+  <% end %>
+
+  <%= follow_button_for(raw_model, false, button_classes: "button button__sm button__transparent") %>
 </div>

@@ -19,6 +19,7 @@ export default function(node) {
   // default behaviour
   hide()
   trigger.setAttribute("aria-describedby", tooltip.id)
+  tooltip.setAttribute("role", "tooltip")
 
   // keyboard listener is at root-level
   window.addEventListener("keydown", (event) => event.key === "Escape" && hide())
