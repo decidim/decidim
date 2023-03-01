@@ -7,6 +7,7 @@ module Decidim
     include Decidim::IconHelper
     include Decidim::ApplicationHelper
     include Decidim::SanitizeHelper
+    include ActionView::Helpers::DateHelper
 
     alias resource model
 
@@ -87,6 +88,31 @@ module Decidim
       }
     end
 
+    def dates_item
+      return if dates_blank?
+
+      format = [start_date.year, end_date.year].any? { |year| year != Date.current.year } ? :decidim_short_with_month_name_short : :decidim_with_month_name_short
+      text = if start_date.to_date == end_date.to_date
+               "#{l(start_date.to_date, format:)} #{l(start_date, format: :time_of_day)} - #{l(end_date, format: :time_of_day)}"
+             else
+               "#{l(start_date.to_date, format:)} - #{l(end_date.to_date, format:)}"
+             end
+
+      {
+        text:,
+        icon: "timer-2-line"
+      }
+    end
+
+    def duration_item
+      return if dates_blank?
+
+      {
+        text: distance_of_time_in_words(start_date, end_date, scope: "datetime.distance_in_words.short"),
+        icon: "time-line"
+      }
+    end
+
     def enable_links?
       return true unless options.has_key?(:links)
 
@@ -146,7 +172,7 @@ module Decidim
     def progress_value
       return if dates_blank?
 
-      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date).to_i if current_date <= end_date
+      @progress_value ||= (end_date - current_date).to_f / (end_date - start_date) if current_date <= end_date
     end
 
     def progress_span
