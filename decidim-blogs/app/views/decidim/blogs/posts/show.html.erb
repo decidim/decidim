@@ -38,9 +38,24 @@
     </div>
 
     <%= render partial: "actions" %>
+
+    <% if post.photos.present? %>
+      <section class="blog__section">
+        <h2 class="h4 md:h3 decorator"><%= t("decidim.application.photos.related_photos") %></h2>
+
+        <%= cell("decidim/photos_list", current_participatory_space.photos) %>
+      </section>
+    <% end %>
+
+    <% if post.attachments.any? %>
+      <section class="blog__section">
+        <h2 class="h4 md:h3 decorator"><%= t("decidim.application.documents.related_documents") %></h2>
+
+        <%= render partial: "decidim/application/documents", locals: { documents: current_participatory_space.documents } %>
+      </section>
+    <% end %>
   </div>
 
-  <%= attachments_for post %>
   <%= comments_for post %>
 
 <% end %>
