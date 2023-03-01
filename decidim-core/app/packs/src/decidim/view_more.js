@@ -1,4 +1,6 @@
-$(() => {
+/* eslint-disable require-jsdoc */
+
+export default function viewMore() {
   const $viewMoreComponent = $("[data-view-more]");
 
   if ($viewMoreComponent.length) {
@@ -20,4 +22,4 @@ $(() => {
       $showMore.hide();
     });
   }
-});
+}
