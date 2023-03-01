@@ -8,7 +8,7 @@
     <%= card_for result, { size: :l } %>
   <% end %>
 
-  <% if results_count > Decidim::Search::HIGHLIGHTED_RESULTS_COUNT %>
+  <% if results_count > Decidim::Search::HIGHLIGHTED_RESULTS_COUNT && !paginated? %>
     <%= link_to(
       search_path_by_resource_type(class_name),
       class: "button button__text-secondary"
@@ -16,5 +16,9 @@
       <span><%= t("decidim.searches.results.view_all", count: results_count) %></span>
       <%= icon "arrow-right-line" %>
     <% end %>
+  <% end %>
+
+  <% if paginated? %>
+    <%= decidim_paginate results %>
   <% end %>
 </section>

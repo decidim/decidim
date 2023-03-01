@@ -23,5 +23,9 @@ module Decidim
     def results
       @results ||= model.values.first[:results]
     end
+
+    def paginated?
+      options[:is_paginated]
+    end
   end
 end
