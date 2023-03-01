@@ -14,7 +14,7 @@
   }
 
   .cols-8{
-    @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-3 lg:col-span-8;
+    @apply col-span-12 md:col-start-2 md:col-span-10 lg:col-start-2 lg:col-span-10 grid grid-cols-8 [&>*]:col-span-8 lg:[&>*:not(.grow)]:col-start-2 lg:[&>*:not(.grow)]:col-span-6;
   }
 
   .cols-10{
