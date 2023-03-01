@@ -78,6 +78,7 @@ import addFloatingHelp from "./redesigned_floating_help"
 import RemoteModal from "./redesigned_ajax_modals"
 import selectActiveIdentity from "./redesigned_identity_selector_dialog"
 import createTooltip from "./redesigned_tooltips"
+import viewMore from "./view_more"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referrenced through a single Decidim.I18n object
@@ -169,6 +170,8 @@ const initializer = (element = document) => {
   markAsReadNotifications()
 
   scrollToLastChild()
+
+  viewMore()
 
   // https://github.com/jonathanlevaillant/a11y-accordion-component
   Accordions.init();
