@@ -21,8 +21,8 @@ module Decidim::Comments
         # An empty replies element is needed when dynamically adding replies
         expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
         expect(subject).to have_css(".comment__content")
-        expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']", visible: :hidden)
-        expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']", visible: :hidden)
+        expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
+        expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
         expect(subject).to have_content(comment.body.values.first)
         expect(subject).to have_content("less than a min.")
         expect(subject).to have_content(comment.author.name)
@@ -39,8 +39,8 @@ module Decidim::Comments
         it "renders the card with a deletion message and replies" do
           expect(subject).to have_css("#comment_#{comment.id}")
           expect(subject).to have_css(".comment__deleted")
-          expect(subject).to have_no_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']", visible: :hidden)
-          expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']", visible: :hidden)
+          expect(subject).to have_no_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
+          expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
           expect(subject).to have_no_content(comment.body.values.first)
           expect(subject).to have_no_content("less than a min.")
           expect(subject).to have_content(I18n.l(comment.deleted_at, format: :decidim_short))
@@ -59,8 +59,8 @@ module Decidim::Comments
         it "renders the card with a moderation message and replies" do
           expect(subject).to have_css("#comment_#{comment.id}")
           expect(subject).to have_css(".comment__moderated")
-          expect(subject).to have_no_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']", visible: :hidden)
-          expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']", visible: :hidden)
+          expect(subject).to have_no_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
+          expect(subject).to have_no_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
           expect(subject).to have_no_content(comment.body.values.first)
           expect(subject).to have_no_content("less than a min.")
           expect(subject).to have_content(I18n.l(moderation.hidden_at, format: :decidim_short))
@@ -81,8 +81,8 @@ module Decidim::Comments
           expect(subject).to have_css("#comment_#{comment.id}")
           expect(subject).to have_css("#comment-#{comment.id}-replies", text: "")
           expect(subject).to have_css(".comment__content")
-          expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']", visible: :hidden)
-          expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']", visible: :hidden)
+          expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
+          expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
           expect(subject).to have_content("Edited")
           expect(subject).to have_content(comment.body.values.first)
           expect(subject).to have_content("less than a min.")
@@ -166,7 +166,7 @@ module Decidim::Comments
         it "renders the reply form" do
           expect(subject).to have_css(".add-comment")
           expect(subject).to have_css(".comment__actions button")
-          expect(subject).to have_css("button[data-dialog-open='flagModalComment#{comment.id}']", visible: :hidden)
+          expect(subject).to have_css("button[data-dialog-open='flagModalComment#{comment.id}']")
           expect(subject).to have_css("#flagModalComment#{comment.id}")
         end
 
