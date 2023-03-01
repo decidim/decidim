@@ -98,6 +98,9 @@ eu:
       x_days:
         one: Duela egun bat
         other: "Duela %{count} egun"
+      x_minutes:
+        one: duela minutu bat
+        other: "duela %{count} minutu"
   decidim:
     accessibility:
       external_link: Kanpoko lotura
@@ -122,6 +125,7 @@ eu:
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       email_change:
         body1: Mezu elektroniko bat bidali dugu %{unconfirmed_email} postara zure helbide elektroniko berria egiaztatzeko.
+        cancel: utzi
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -131,6 +135,8 @@ eu:
         error: Akats bat gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
+    activity:
+      time_ago: "duela %{time}"
     admin:
       actions:
         cancel: Utzi
@@ -139,6 +145,9 @@ eu:
         create: "%{user_name} %{resource_name} eremua sortu zen"
         delete: "%{user_name} %{resource_name} eremua ezabatu da"
         update: "%{user_name} %{resource_name} eremua eguneratu du"
+      area_type:
+        create: "%{user_name} k %{resource_name} arlo mota sortu du"
+        delete: "%{user_name} k %{resource_name} arlo mota ezabatu du"
       component:
         create: "%{user_name} %{resource_name} osagaia %{space_name} espaziora gehitu da"
         delete: "%{user_name} %{resource_name} osagai %{space_name} espaziotik kendu da"
@@ -552,6 +561,7 @@ eu:
       endorsements: Oniritziak
       endorsements_count: Atxikimendu kopurua
     endorsement_buttons_cell:
+      already_endorsed: Desatsegiteak
       endorse: Atsegin dut
     endorsements:
       identities:
@@ -562,6 +572,7 @@ eu:
         date_and_time: Data eta ordua
         reference: Erreferentzia
         title: Arazo bat izan da gure zerbitzariarekin
+        unknown: Ezezaguna
         url: URL-a
         user: Erabiltzaile ID-a
       not_found:
@@ -724,7 +735,7 @@ eu:
     filters:
       linked_classes:
         all: Guztiak
-        collaborative_draft: Zirriborro kolaboratzailea
+        collaborative_draft: Zirriborro kolaboratiboa
         dummy_resource: Dummy baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
@@ -771,8 +782,10 @@ eu:
         extension_allowlist: 'Onartutako formatuak: %{extensions}'
       upload:
         labels:
+          add_attachment: Erantsi fitxategia
           add_file: Gehitu fitxategiak
           add_image: Argazki bat atxikutu
+          cancel: Utzi
           edit_image: Irudia editatu
           error: Akatsa!
           file_size_too_large: 'Fitxategiaren tamaina handiegia da! Maximun fitxategiaren tamaina: %{megabytes}} MB'
@@ -820,7 +833,7 @@ eu:
       accept_invitation: Onartu
       accept_or_reject_group_invitations: 'Talde hauek gonbidatu zaituzte. Eskaerak onartu edo ukatu:'
       index:
-        invite: gonbidatu
+        invite: Gonbit egin
         invite_user: Erabiltzaile bat gonbidatu
       invite:
         error: Errore bat gertatu da erabiltzaile hau gonbidatuz
@@ -881,9 +894,9 @@ eu:
         subtitle: Sortu talde bat eta gonbidatu beste erabiltzaileei talde kolektiboan parte hartzeko.
       no_user_groups: Oraindik ez da talde batekoa.
       roles:
-        admin: Administrator
+        admin: Administratzailea
         creator: Administratzailea
-        member: kidea
+        member: Kidea
       update:
         error: Arazo bat izan da taldea eguneratzean
         success: Taldeak behar bezala eguneratu du
@@ -1020,12 +1033,12 @@ eu:
         title: Jarraitzaileak
       participants:
         description: Erakundeko erabiltzaile aktiboen kopurua
-        object: Parte-hartzaile
+        object: parte-hartzaileak
         title: Parte-hartzaileak
       users:
         description: Erakundeko erabiltzaile kopurua
-        object: erabiltzaile
-        title: erabiltzaileak
+        object: parte-hartzaileak
+        title: Parte-hartzaileak
     newsletter_mailer:
       newsletter:
         no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali zen, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
@@ -1158,7 +1171,7 @@ eu:
           modal_btn_continue: Baldintzak onartu eta jarraitu
           modal_btn_exit: Berriro berrikusiko dut geroago
           modal_button: Ezetsi terminoak
-          modal_close: Itxi modal
+          modal_close: Itxi leihoa
           modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
         required_review:
           alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
@@ -1251,7 +1264,7 @@ eu:
         jump_to: 'Salto egin:'
         state:
           active: Aktiboak
-          all: guztiak
+          all: Guztiak
           future: Etorkizuna
           past: Iragana
       filters_small_view:
@@ -1279,7 +1292,7 @@ eu:
         embed: Mesedez, erantsi kode hau zure orrian
         embed_link: Kapsulatu
       extended_navigation_bar:
-        more: gehiago
+        more: Gehiago
         unfold: Zabaldu
       filter_form_help:
         help: Bilaketa-baldintzak aldatzen direnean, hurrengo formularioak dinamikoki iragazten ditu bilaketa-emaitzak.
@@ -1486,7 +1499,7 @@ eu:
       email_changed:
         greeting: Kaixo %{recipient}!
         message: Zurekin harremanetan ari gara zure posta elektronikoaren ari den aldatzen den jakinarazi nahi %{email}.
-        subject: Email aldatu da
+        subject: Helnbide elektronikoa aldatu da
       invitation_instructions:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
@@ -1533,9 +1546,10 @@ eu:
       edit:
         change_my_password: Aldatu nire pasahitza
         confirm_new_password: Berretsi pasahitz berria
-        new_password: Pasahitza
+        new_password: Pasahitz berria
         password_help: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456) eta zure ezizena eta posta elektronikoa desberdinak izan behar dira."
         password_help_admin: "%{minimun_characters} karaktere minimo, ez da oso arrunta izan behar (adibidez, 123456), zure ezizena eta posta elektronikoa desberdinak izan behar dira eta zure pasahitz zaharrak ez bezalakoak izan behar dute."
+        title: Pasahitza aldatu da
       new:
         forgot_your_password: Zure pasahitza ahaztu duzu?
         send_me_reset_password_instructions: Bidali berrezarri pasahitzaren argibideak
@@ -1562,7 +1576,7 @@ eu:
       signed_out: Sinatu arrakastaz.
     shared:
       links:
-        back: Back
+        back: Atzera
         didn_t_receive_confirmation_instructions: Ez dituzu jaso berresteko jarraibideak?
         didn_t_receive_unlock_instructions: Ez dituzu jaso desblokeatzeko jarraibideak?
         forgot_your_password: Zure pasahitza ahaztu duzu?
@@ -1582,9 +1596,13 @@ eu:
     scopes:
       public: Zure informazio publikoa.
   emojis:
+    button: Gehitu emojia
     categories:
+      activities: Jarduerak
+      animals-nature: Animaliak eta natura
       custom: Pertsonalizatu
       symbols: Ikurrak
+    retry: Saiatu berriro
   errors:
     messages:
       allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
@@ -1695,7 +1713,7 @@ eu:
   password_validator:
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da
-    fallback: ez da baliozkoa
+    fallback: ez da zuzena
     name_included_in_password: zure izenaren antzekoa da
     nickname_included_in_password: zure ezizenaren antzekoegia da
     not_enough_unique_characters: ez da nahikoa karaktere berezirik
@@ -1736,6 +1754,7 @@ eu:
       day_of_week: "%a"
       day_of_week_long: "%a %e"
       day_of_year: "%d.%m.%y"
+      ddmm: "%d.%m"
       decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
