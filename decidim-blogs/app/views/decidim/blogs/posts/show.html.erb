@@ -19,14 +19,13 @@
   <%= stylesheet_pack_tag "decidim_blogs", media: "all" %>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_center" do %>
+<%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
 
   <h1 class="h1 decorator my-12"><%= translated_attribute post.title %></h1>
 
-  <% if post.photo.present? %>
+  <% if post.photos.present? %>
     <div class="blog__image grow">
-      <%# REDESIGN_PENDING: currently post.photo has no url attribute. Uncomment next line then %>
-      <%#= image_tag post.photo.url %>
+      <%= image_tag post.photos[0].big_url, alt: t("alt", scope: "decidim.application.photo") %>
     </div>
   <% end %>
 
