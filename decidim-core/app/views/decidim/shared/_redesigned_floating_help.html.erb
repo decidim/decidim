@@ -1,18 +1,16 @@
-<div class="is-tip" data-floating-help="floating-help-<%= id %>">
-  <div id="floating-helper-tip" class="px-2">
-    <button class="button button__xs button__text-secondary">
-      <%= icon "question-line" %>
-      <span><%= t("help", scope: "decidim.shared.floating_help") %></span>
-    </button>
-  </div>
-
-  <div id="floating-helper-block">
+<div id="floating-helper-tip" data-floating-help>
+  <button class="button button__xs button__text-secondary" data-dialog-open="floating-helper-block">
     <%= icon "question-line" %>
+    <span><%= t("help", scope: "decidim.shared.floating_help") %></span>
+  </button>
+</div>
+
+<%= decidim_modal id: "floating-helper-block" do %>
+  <div data-dialog-container>
+    <%= icon "question-line" %>
+    <h3 id="dialog-title-floating-helper-block" data-dialog-title><%= t("help", scope: "decidim.shared.floating_help") %></h3>
     <div class="editor-content">
       <%= content %>
     </div>
-    <button aria-label="<%= t("close", scope: "decidim.shared.floating_help") %>">
-      <%= icon "close-line" %>
-    </button>
   </div>
-</div>
+<% end %>
