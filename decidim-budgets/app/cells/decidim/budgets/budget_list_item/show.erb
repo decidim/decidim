@@ -18,14 +18,12 @@
   </div>
 
   <div class="budget__card__highlight-vote">
-    <div class="h3 text-gray-2">
-    <span>
+    <span class="block text-sm text-gray-2 font-normal">
       <%= t("name", scope: "decidim.budgets.admin.models.budget") %>
     </span>
-      <strong>
+      <span class="text-xl font-semibold">
         <%= budget_to_currency(total_budget) %>
-      </strong>
-    </div>
+      </span>
     <%= link_to budget_path(budget), class: "button button__sm text-left mt-2 #{button_class} #{!voted? ? 'button__secondary' : 'button__transparent-secondary'}" do %>
       <span><%= button_text %></span>
       <%= icon "arrow-right-line" %>
