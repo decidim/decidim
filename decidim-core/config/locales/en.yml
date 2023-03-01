@@ -533,6 +533,7 @@ en:
         name: HTML block
       last_activity:
         name: Last activity
+        see_all_activity: See all the activity
         title: Last activity
         view_all: View all
       main_data:

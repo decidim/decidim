@@ -527,7 +527,6 @@ en:
           active_step: Current phase
           more_info: More info
           more_info_about: More info about process %{resource_name}
-          see_all_activity: See all the activity
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
       process_header_steps:
