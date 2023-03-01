@@ -47,7 +47,7 @@
       </section>
     <% end %>
 
-    <% if post.attachments.any? %>
+    <% if post.documents.present? %>
       <section class="blog__section">
         <h2 class="h4 md:h3 decorator"><%= t("decidim.application.documents.related_documents") %></h2>
 
