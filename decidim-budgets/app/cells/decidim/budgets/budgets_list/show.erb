@@ -4,6 +4,8 @@
       <%= t(:my_budgets, scope: i18n_scope) %>
     </h2>
 
+
+<%#= order_selector available_orders, i18n_scope: "decidim.budgets.projects.orders" %>
 <%= render :card_list %>
 
 <%= decidim_paginate budget_paginate %>
