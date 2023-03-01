@@ -7,7 +7,7 @@
 <% end %>
 
 <% content_for :aside do %>
-  <h1 class="h1 decorator"><%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %></h1>
+  <h3 class="h3 decorator"><%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %></h3>
 
   <%= render partial: "filters_small_view" %>
   <%= render partial: "filters" %>
@@ -55,9 +55,9 @@
 
     <%= cell("decidim/budgets/limit_announcement", budget) %>
 
-    <h3 class="h3">
+    <span class="text-xl font-semibold">
       <%= t("select_projects", scope: "decidim.budgets.projects") %>
-    </h3>
+    </span>
 
     <div id="projects" aria-live="polite">
       <%= render partial: "projects" %>
