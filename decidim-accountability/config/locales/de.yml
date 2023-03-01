@@ -76,6 +76,9 @@ de:
             no_components: Es gibt keine weiteren Budgetkomponenten in diesem partizipativen Raum, um die Projekte in Ergebnisse zu importieren.
             origin_component_id: Ursprungskomponente
             select_component: Komponente auswählen
+            success:
+              one: Ein Projekt wird importiert. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist
+              other: "%{count} Projekte werden importiert. Sie werden per E-Mail benachrichtigt, sobald der Import abgeschlossen ist"
         results:
           create:
             invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten
@@ -158,6 +161,15 @@ de:
           row_number: Zeile
           subject: Ergebnisse wurden erfolgreich importiert
           success: Ergebnisse wurden erfolgreich importiert. Sie können die Ergebnisse über die Administrationsoberfläche aufrufen.
+      import_projects_mailer:
+        import:
+          added_projects:
+            one: Ein Ergebnis wurde aus Projekten importiert.
+            other: "%{count} Ergebnisse wurden aus Projekten importiert."
+          subject: Projekte wurden erfolgreich importiert
+          success: Projekte wurden erfolgreich in die Ergebnisse der %{component_name}-Komponente importiert. Sie können die Ergebnisse in der Administrationsoberfläche überprüfen.
+      last_activity:
+        new_result: 'Neues Ergebnis:'
       models:
         result:
           fields:
