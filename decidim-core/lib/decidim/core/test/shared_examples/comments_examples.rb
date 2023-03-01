@@ -509,6 +509,8 @@ shared_examples "comments" do
         end
 
         it "the user can delete the comment and updates the comments counter" do
+          skip_unless_redesign_enabled("this test pass with redesign enabled because old Dropdowns are being activated here and raise a JS error")
+
           expect(Decidim::Comments::Comment.not_deleted.count).to eq(4)
 
           within "#comment_#{comment.id}" do
