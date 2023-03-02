@@ -7,6 +7,10 @@
     @apply inline-block align-middle text-sm;
   }
 
+  .add-comment .form__wrapper{
+    @apply pt-0;
+  }
+
   &__header{
     @apply flex flex-col md:flex-row md:items-center gap-x-2 mb-4;
   }

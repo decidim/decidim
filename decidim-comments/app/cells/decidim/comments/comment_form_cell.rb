@@ -42,6 +42,10 @@ module Decidim
         model.is_a?(Decidim::Comments::Comment)
       end
 
+      def alignment_enabled?
+        model.comments_have_alignment?
+      end
+
       def form_id
         "new_comment_for_#{commentable_type.demodulize}_#{model.id}"
       end

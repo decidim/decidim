@@ -3,6 +3,25 @@
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as_for(form) %>
   <div class="form__wrapper gap-2">
+    <% if alignment_enabled? %>
+      <div class="opinion-toggle button-group comment__opinion-container">
+        <span class="py-1.5"><%= t("decidim.components.add_comment_form.opinion.label") %></span>
+        <button aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ok" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.positive_selected") %>">
+          <%= icon "thumb-up-line" %>
+          <%= icon "thumb-up-fill" %>
+          <span class="sr-only"><%= t("decidim.components.add_comment_form.opinion.positive") %></span>
+        </button>
+        <button aria-pressed="true" class="button button__sm button__text-secondary opinion-toggle--meh is-active" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.neutral_selected") %>">
+          <span><%= t("decidim.components.add_comment_form.opinion.neutral") %></span>
+        </button>
+        <button aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ko" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.negative_selected") %>">
+          <%= icon "thumb-down-line" %>
+          <%= icon "thumb-down-fill" %>
+          <span class="sr-only"><%= t("decidim.components.add_comment_form.opinion.negative") %></span>
+        </button>
+        <div role="alert" aria-live="assertive" aria-atomic="true" class="selected-state sr-only"></div>
+      </div>
+    <% end %>
     <label class="text-gray-2" for="<%= add_comment_id %>">
       <%= t("decidim.components.add_comment_form.form.body.label") %>
     </label>
