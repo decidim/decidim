@@ -301,7 +301,3 @@
     @apply font-bold;
   }
 }
-
-a[href*="/users/sign_"]{
-  @apply text-secondary font-medium underline;
-}
