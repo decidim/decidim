@@ -7,8 +7,6 @@ module Decidim
     # This cell renders the List (:l) process card
     # for an instance of a ParricipatoryProcess
     class ProcessMetadataCell < Decidim::CardMetadataCell
-      include ActionView::Helpers::DateHelper
-
       delegate :active_step, to: :model
 
       def initialize(*)

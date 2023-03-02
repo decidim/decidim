@@ -611,8 +611,8 @@ en:
             close_modal: Close modal
             uncheck: Keep unchecked
           notice: |-
-            <p>Hey, are you sure you don't want to receive a newsletter?<br>
-            Please consider again ticking the newsletter checkbox below.<br>
+            <p>Hey, are you sure you don't want to receive a newsletter?
+            Please consider again ticking the newsletter checkbox below.
             It is very important for us that you can receive occasional emails
             to make important announcements, you can always change this on your
             notifications settings page.</p>
