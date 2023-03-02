@@ -936,7 +936,7 @@ eu:
           current_step: Oraingo urratsa
           see_steps: ikusi urratsak
           step_1: Sortu zure proposamena
-          step_2: konparatu
+          step_2: Alderatu
           step_3: Osatuta
           step_4: Argitaratu zure proposamena
           step_of: '%{total_steps} urratsetik %{current_step_num} eginda'
