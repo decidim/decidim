@@ -149,10 +149,10 @@ describe "Admin manages organization", type: :system do
             <p>Paragraph</p>
             <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
               <div data-image-resizer-wrapper="">
-                <button aria-label="Resize image (top left corner)" data-image-resizer-control="top-left"></button>
-                <button aria-label="Resize image (top right corner)" data-image-resizer-control="top-right"></button>
-                <button aria-label="Resize image (bottom left corner)" data-image-resizer-control="bottom-left"></button>
-                <button aria-label="Resize image (bottom right corner)" data-image-resizer-control="bottom-right"></button>
+                <button type="button" aria-label="Resize image (top left corner)" data-image-resizer-control="top-left"></button>
+                <button type="button" aria-label="Resize image (top right corner)" data-image-resizer-control="top-right"></button>
+                <button type="button" aria-label="Resize image (bottom left corner)" data-image-resizer-control="bottom-left"></button>
+                <button type="button" aria-label="Resize image (bottom right corner)" data-image-resizer-control="bottom-right"></button>
                 <div data-image-resizer-dimensions="">
                   <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="512"></span>
                   ×
