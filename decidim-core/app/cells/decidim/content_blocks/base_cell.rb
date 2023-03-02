@@ -5,6 +5,10 @@ module Decidim
     # Base cell to wrap each content block which identifies also the resource
     # the block belongs to
     class BaseCell < Decidim::ViewModel
+      # This constant contains the relation between the different scope names
+      # and the models to find the resource with the id stored in
+      # scoped_resource_id.For future associations with other participatory spaces
+      # extend this hash
       SCOPE_ASSOCIATIONS = {
         homepage: "Decidim::Organization",
         participatory_process_group_homepage: "Decidim::ParticipatoryProcessGroup",

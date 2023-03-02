@@ -6,6 +6,14 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        # This method allows us to detect the components related whith a
+        # content block. The content block can have different components
+        # associated depending on the scope_name. The scope names and their
+        # associated models are configured in Decidim::ContentBlocks::BaseCell
+        # and depending on the type of model there can be a single
+        # participatory space which can be obtained via manifest or
+        # multiple spaces which can be obtained by calling a function provided by
+        # the class
         def components_for(content_block)
           return if content_block.blank?
 
