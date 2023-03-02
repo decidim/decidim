@@ -177,10 +177,10 @@ describe("full toolbar", () => {
             <p>Hello, world!</p>
             <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
               <div data-image-resizer-wrapper="">
-                <button data-image-resizer-control="top-left"></button>
-                <button data-image-resizer-control="top-right"></button>
-                <button data-image-resizer-control="bottom-left"></button>
-                <button data-image-resizer-control="bottom-right"></button>
+                <button type="button" data-image-resizer-control="top-left"></button>
+                <button type="button" data-image-resizer-control="top-right"></button>
+                <button type="button" data-image-resizer-control="bottom-left"></button>
+                <button type="button" data-image-resizer-control="bottom-right"></button>
                 <div data-image-resizer-dimensions="">
                   <span data-image-resizer-dimension="width" data-image-resizer-dimension-value=""></span>
                   ×
@@ -221,10 +221,10 @@ describe("full toolbar", () => {
             <p>Hello, world!</p>
             <div data-image-resizer="" class="ProseMirror-selectednode" draggable="true">
               <div data-image-resizer-wrapper="">
-                <button data-image-resizer-control="top-left"></button>
-                <button data-image-resizer-control="top-right"></button>
-                <button data-image-resizer-control="bottom-left"></button>
-                <button data-image-resizer-control="bottom-right"></button>
+                <button type="button" data-image-resizer-control="top-left"></button>
+                <button type="button" data-image-resizer-control="top-right"></button>
+                <button type="button" data-image-resizer-control="bottom-left"></button>
+                <button type="button" data-image-resizer-control="bottom-right"></button>
                 <div data-image-resizer-dimensions="">
                   <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="null"></span>
                   ×
