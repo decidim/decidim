@@ -63,7 +63,8 @@ module Decidim
     # Returns nothing.
     def send_email_to(recipient, user_role:)
       return unless recipient
-      return unless recipient.notifications_sending_frequency == "real_time"
+      # With the following line welcome mails won't be sent anymore
+      # return unless recipient.notifications_sending_frequency == "real_time"
       return if resource.respond_to?(:can_participate?) && !resource.can_participate?(recipient)
 
       wait_time = 0
