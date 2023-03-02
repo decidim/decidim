@@ -3,19 +3,10 @@
 module Decidim
   module Meetings
     module ContentBlocks
-      class HighlightedMeetingsCell < Decidim::ContentBlocks::HighlightedElementsCell
-        def show
-          render unless meetings_cell.meetings_count.zero?
-        end
-
+      class HighlightedMeetingsCell < Decidim::ContentBlocks::HighlightedElementsWithCellForListCell
         private
 
-        def meetings_cell
-          @meetings_cell ||= cell(
-            "decidim/meetings/highlighted_meetings_for_component",
-            published_components.one? ? published_components.first : published_components
-          )
-        end
+        def list_cell_path = "decidim/meetings/highlighted_meetings_for_component"
       end
     end
   end

@@ -17,14 +17,18 @@ module Decidim
       delegate :snippets, to: :controller
 
       def show
-        render unless results_count.zero?
+        render unless items_blank?
       end
+
+      def items_blank?
+        results_count.zero?
+      end
+
+      private
 
       def results_count
         @results_count ||= results.size
       end
-
-      private
 
       def results
         @results ||= case options[:order]

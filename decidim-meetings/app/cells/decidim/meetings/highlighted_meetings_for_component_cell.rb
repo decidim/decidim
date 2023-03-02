@@ -16,14 +16,18 @@ module Decidim
       delegate :snippets, to: :controller
 
       def show
-        render unless meetings_count.zero?
+        render unless items_blank?
       end
+
+      def items_blank?
+        meetings_count.zero?
+      end
+
+      private
 
       def meetings_count
         @meetings_count ||= meetings.size
       end
-
-      private
 
       def base_relation
         @base_relation ||= Decidim::Meetings::Meeting.where(component: model)

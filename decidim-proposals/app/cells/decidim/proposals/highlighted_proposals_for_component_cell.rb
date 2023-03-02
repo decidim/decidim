@@ -12,14 +12,18 @@ module Decidim
       include Decidim::CardHelper
 
       def show
-        render unless proposals_count.zero?
+        render unless items_blank?
       end
+
+      def items_blank?
+        proposals_count.zero?
+      end
+
+      private
 
       def proposals_count
         @proposals_count ||= base_relation.size
       end
-
-      private
 
       def proposals
         @proposals ||= case options[:order]

@@ -3,20 +3,10 @@
 module Decidim
   module Accountability
     module ContentBlocks
-      class HighlightedResultsCell < Decidim::ContentBlocks::HighlightedElementsCell
-        def show
-          render unless results_cell.results_count.zero?
-        end
-
+      class HighlightedResultsCell < Decidim::ContentBlocks::HighlightedElementsWithCellForListCell
         private
 
-        def results_cell
-          @results_cell ||= cell(
-            "decidim/accountability/highlighted_results_for_component",
-            published_components.one? ? published_components.first : published_components,
-            order: model.settings.order
-          )
-        end
+        def list_cell_path = "decidim/accountability/highlighted_results_for_component"
       end
     end
   end
