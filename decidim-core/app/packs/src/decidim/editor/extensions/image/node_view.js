@@ -4,6 +4,7 @@ import { getDictionary } from "src/decidim/i18n";
 
 const createControl = (position, label) => {
   const el = document.createElement("button");
+  el.type = "button";
   el.ariaLabel = label;
   el.dataset.imageResizerControl = position;
   return el;

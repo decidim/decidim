@@ -43,7 +43,9 @@ describe "Editor", type: :system do
                 <h1 class="h1 decorator inline-block text-left">Editor test</h1>
               </div>
               <div class="page__container">
-                #{editor_wrapper}
+                <form action="/form_action" method="post">
+                  #{editor_wrapper}
+                </form>
               </div>
             </div>
           </main>
@@ -60,7 +62,9 @@ describe "Editor", type: :system do
               <div class="columns small-12">
                 <div class="card">
                   <div class="card__content">
-                    #{editor_wrapper}
+                    <form action="/form_action" method="post">
+                      #{editor_wrapper}
+                    </form>
                   </div>
                 </div>
               </div>
@@ -1189,6 +1193,22 @@ describe "Editor", type: :system do
       context "when touch" do
         it_behaves_like "resize controls", "touch"
       end
+
+      context "when the resize controls receive a click event" do
+        before do
+          # Focuses the image within the editor
+          prosemirror.native.send_keys [:left]
+        end
+
+        it "does not submit the form when resizing the image" do
+          page.find("[data-image-resizer-control='top-left']").click
+          page.find("[data-image-resizer-control='top-right']").click
+          page.find("[data-image-resizer-control='bottom-right']").click
+          page.find("[data-image-resizer-control='bottom-left']").click
+
+          expect(page).to have_current_path("/test_editor")
+        end
+      end
     end
 
     def drag(selector, mode: "mouse", direction: nil, amount: 0)
@@ -1491,6 +1511,38 @@ describe "Editor", type: :system do
               <p>Another <a href="https://demo.decidim.org">paragraph.</a></p>
             HTML
           )
+        end
+      end
+    end
+
+    context "with pointer device" do
+      let(:features) { "full" }
+
+      context "when resizing an image" do
+        let(:image) { create(:editor_image, organization:) }
+        let(:image_src) { image.attached_uploader(:file).path }
+        let(:editor_content) do
+          <<~HTML
+            <div class="editor-content-image" data-image="">
+              <img src="#{image_src}" alt="Test">
+            </div>
+          HTML
+        end
+
+        context "when the resize controls receive a click event" do
+          before do
+            # Focuses the image within the editor
+            prosemirror.native.send_keys [:left]
+          end
+
+          it "does not submit the form when resizing the image" do
+            page.find("[data-image-resizer-control='top-left']").click
+            page.find("[data-image-resizer-control='top-right']").click
+            page.find("[data-image-resizer-control='bottom-right']").click
+            page.find("[data-image-resizer-control='bottom-left']").click
+
+            expect(page).to have_current_path("/test_editor")
+          end
         end
       end
     end
