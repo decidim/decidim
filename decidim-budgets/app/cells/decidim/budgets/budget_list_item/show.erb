@@ -9,7 +9,7 @@
       <% end %>
     <% end %>
 
-    <%= decidim_sanitize html_truncate(translated_attribute(description), length: 140) %>
+    <%= decidim_sanitize html_truncate(translated_attribute(description), length: 200) %>
 
     <div class="divide-x-2 divide-gray-3">
       <%= render :projects_count %>
