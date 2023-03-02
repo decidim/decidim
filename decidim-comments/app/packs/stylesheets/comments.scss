@@ -62,6 +62,10 @@
 
   &__header{
     @apply flex items-center gap-x-2 mb-2 -ml-[calc(1.5rem+.75rem)] relative first:[&_a[href^="/profile"]>span]:z-10;
+
+    &--edited{
+      @apply text-sm font-semibold;
+    }
   }
 
   /* overwrite default dropdown styles */
@@ -263,8 +267,6 @@
     &--label{
       @apply inline-block mb-2;
     }
-
-
   }
 
   &__opinion-container{
