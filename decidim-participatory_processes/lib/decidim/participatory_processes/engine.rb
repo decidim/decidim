@@ -260,7 +260,7 @@ module Decidim
         Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_proposals) do |content_block|
           content_block.cell = "decidim/proposals/content_blocks/highlighted_proposals"
           content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
-          content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.proposals"
+          content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.name"
 
           content_block.settings do |settings|
             settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
