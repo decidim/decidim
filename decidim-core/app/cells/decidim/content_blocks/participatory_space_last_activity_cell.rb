@@ -36,7 +36,7 @@ module Decidim
       end
 
       def max_last_activity_users
-        DEFAULT_MAX_LAST_ACTIVITY_USERS
+        model.settings.try(:max_last_activity_users) || DEFAULT_MAX_LAST_ACTIVITY_USERS
       end
     end
   end

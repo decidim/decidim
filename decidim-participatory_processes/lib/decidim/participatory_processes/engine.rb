@@ -135,6 +135,10 @@ module Decidim
         Decidim.content_blocks.register(:participatory_process_homepage, :last_activity) do |content_block|
           content_block.cell = "decidim/participatory_processes/content_blocks/last_activity"
           content_block.public_name_key = "decidim.content_blocks.last_activity.name"
+          content_block.settings_form_cell = "decidim/content_blocks/last_activity_settings_form"
+          content_block.settings do |settings|
+            settings.attribute :max_last_activity_users, type: :integer, default: Decidim::ContentBlocks::ParticipatorySpaceLastActivityCell::DEFAULT_MAX_LAST_ACTIVITY_USERS
+          end
           content_block.default!
         end
 

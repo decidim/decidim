@@ -536,6 +536,8 @@ en:
         see_all_activity: See all the activity
         title: Last activity
         view_all: View all
+      last_activity_settings_form:
+        max_last_activity_users: Maximum number of user avatars with recent activity to show
       main_data:
         name: Main data
       metadata:
