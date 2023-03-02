@@ -38,10 +38,6 @@ module Decidim
       render locals: { disable_tooltip: opts[:disable_tooltip] || !has_tooltip? || options[:skip_profile_link] }
     end
 
-    def profile
-      render
-    end
-
     def flag_user
       render unless current_user == model
     end
