@@ -276,6 +276,7 @@ $(() => initializer());
 
 // Run initializer action over the new DOM elements
 document.addEventListener("remote-modal:loaded", ({ detail }) => initializer(detail));
+document.addEventListener("comments:loaded", ({ detail }) => initializer(detail));
 
 // Run initializer action over the new DOM elements (for example after comments polling)
 document.addEventListener("ajax:success", (event) => {

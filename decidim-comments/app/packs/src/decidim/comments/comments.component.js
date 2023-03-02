@@ -162,14 +162,8 @@ export default class CommentsComponent {
 
     $target.append($container);
 
-    /* REDESIGN_PENDING: this is a very bad approach, the following clauses are a set of actions we want to perform after a comment is in th DOM.
-      That's being done by the initializer function (decidim-core/app/packs/src/decidim/redesigned_index.js).
-      What we have to do here is to send an EVENT, in a very similar way to what "remote-modal:loaded" event does */
-    $container.foundation();
     this._initializeComments($container);
-    $(".add-comment textarea", $container).each((_i, el) => createCharacterCounter($(el)));
-    $container.find('a[target="_blank"]:not([data-external-link="false"])').each((_i, elem) => new ExternalLink(elem));
-    updateExternalDomainLinks($container)
+    document.dispatchEvent(new CustomEvent("comments:loaded", { detail: $target[0] }));
   }
 
   /**
