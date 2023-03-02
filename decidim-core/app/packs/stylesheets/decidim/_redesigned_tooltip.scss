@@ -1,40 +1,41 @@
-[data-tooltip]{
-  @apply relative;
+[role=tooltip]{
+  @apply absolute bg-black p-4 z-10 w-max max-w-xs rounded text-left text-white transition-all ease-in delay-300;
 
-  [role=tooltip]{
-    @apply absolute bg-black p-4 z-10 w-max max-w-xs rounded text-left text-white transition-all ease-in delay-300;
+  & > *{
+    @apply relative z-20;
+  }
 
-    & > *{
-      @apply relative z-20;
-    }
+  &[aria-hidden="false"]{
+    @apply visible opacity-100 transition-all ease-in;
+  }
 
-    &:not(.is-hidden){
-      @apply visible opacity-100 transition-all ease-in;
-    }
+  &[aria-hidden="true"]{
+    @apply invisible hover:visible hover:opacity-100 opacity-0;
+  }
 
-    &.is-hidden{
-      @apply invisible hover:visible hover:opacity-100 opacity-0;
-    }
+  /*
+    NOTE: the calculated value is the sum of the arrow offset position plus the half of the arrow size:
+    - offset position: 20%
+    - arrow size: 16px
+  */
+  --arrow-offset: 20%;
+  --arrow-size: 16px;
+  --arrow-visible-size: var(--arrow-size) * 0.5;
+  --arrow-margin: var(--arrow-visible-size) * 1.4142135623730951; // due to the rotation, the margin is SQRT2 times the visible size
 
-    /*
-      NOTE: the calculated value is the sum of the arrow offset position plus the half of the arrow size:
-      - offset position: 20%
-      - arrow size: 24px
-    */
-    &.top{
-      @apply -top-3 right-1/2 mb-3 translate-x-[calc(20%+12px)] -translate-y-full before:content-[''] before:absolute before:-z-10 before:right-[20%] before:-bottom-2 before:w-6 before:h-6 before:rotate-45 before:bg-black before:rounded;
-    }
+  &.top{
+    @apply -translate-x-[calc(100%-var(--arrow-offset)-var(--arrow-visible-size))] -translate-y-[calc(100%+var(--arrow-margin))] before:content-[''] before:absolute before:-z-10 before:right-[var(--arrow-offset)] before:-bottom-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-br;
+  }
 
-    &.right{
-      @apply top-1/2 -right-3 ml-3 translate-x-full -translate-y-[calc(20%+12px)] before:content-[''] before:absolute before:-z-10 before:top-[20%] before:-left-2 before:w-6 before:h-6 before:rotate-45 before:bg-black before:rounded;
-    }
+  &.right{
+    @apply translate-x-[calc(var(--arrow-margin))] -translate-y-[calc(var(--arrow-offset)+var(--arrow-visible-size))] before:content-[''] before:absolute before:-z-10 before:top-[var(--arrow-offset)] before:-left-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-bl;
+  }
 
-    &.bottom{
-      @apply top-full right-1/2 mt-3 translate-x-[calc(20%+12px)] before:content-[''] before:absolute before:-z-10 before:right-[20%] before:-top-2 before:w-6 before:h-6 before:rotate-45 before:bg-black before:rounded;
-    }
+  &.bottom{
+    @apply -translate-x-[calc(100%-var(--arrow-offset)-var(--arrow-visible-size))] translate-y-[calc(var(--arrow-margin))] before:content-[''] before:absolute before:-z-10 before:right-[var(--arrow-offset)] before:-top-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-tl;
+  }
 
-    &.left{
-      @apply top-1/2 -left-3 mr-3 -translate-x-full -translate-y-[calc(20%+12px)] before:content-[''] before:absolute before:-z-10 before:top-[20%] before:-right-2 before:w-6 before:h-6 before:rotate-45 before:bg-black before:rounded;
-    }
+  &.left{
+    @apply -translate-x-[calc(100%+var(--arrow-margin))] -translate-y-[calc(var(--arrow-offset)+var(--arrow-visible-size))] before:content-[''] before:absolute before:-z-10 before:top-[var(--arrow-offset)] before:-right-[var(--arrow-visible-size)] before:w-[var(--arrow-size)] before:h-[var(--arrow-size)] before:rotate-45 before:bg-black before:rounded-tr;
   }
 }

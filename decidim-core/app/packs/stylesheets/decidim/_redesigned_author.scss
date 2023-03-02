@@ -2,7 +2,7 @@
   @apply flex items-center [&>*:not(:first-child)]:pl-5 [&>*:not(:last-child)]:pr-6 divide-gray-3 divide-x text-sm text-gray-2;
 
   &__container{
-    @apply flex items-center gap-2.5;
+    @apply flex items-center gap-2.5 first:[&>*]:flex-none;
   }
 
   &__avatar{
@@ -32,7 +32,12 @@
   }
 
   &__tooltip{
-    @apply grid grid-cols-[1fr_min-content] gap-6 [&[role="tooltip"]]:max-w-sm odd:[&>*]:place-self-start even:[&>*]:place-self-end;
+    @apply grid grid-cols-[1fr_min-content] gap-6 odd:[&>*]:place-self-start even:[&>*]:place-self-end;
+
+    /* overwrite default styles */
+    &[role="tooltip"]{
+      @apply max-w-sm;
+    }
 
     &-links{
       @apply flex flex-col items-end justify-evenly h-full whitespace-nowrap hover:[&>*]:underline;

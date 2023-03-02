@@ -110,7 +110,7 @@ const initializer = (element = document) => {
   window.theDataPicker = new DataPicker($(".data-picker"));
   window.focusGuard = new FocusGuard(element.querySelector("body"));
 
-  $(element).foundation();
+  // $(element).foundation();
   $(element).on("open.zf.reveal", (ev) => {
     dialogMode($(ev.target));
   });
