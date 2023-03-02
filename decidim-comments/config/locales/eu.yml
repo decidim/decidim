@@ -159,7 +159,7 @@ eu:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> k aipatu zaitu hemen <a href="%{resource_path}">%{resource_title}</a> <a href="%{group_path}">%{group_name} %{group_nickname}</a> taldearen kide gisa
         user_mentioned:
           email_intro: Aipatu zaituzte
-          email_outro: Jakinarazpena jaso duzu %{resource_title} delakoan aipatu duzulako.
+          email_outro: Jakinarazpena jaso duzu %{resource_title} delakoan aipatu zaituztelako.
           email_subject: '%{resource_title} delakoan aipatu zaituzte'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
     metrics:
