@@ -608,7 +608,6 @@ en:
         newsletter_modal:
           buttons:
             check: Check and continue
-            close_modal: Close modal
             uncheck: Keep unchecked
           notice: |-
             <p>Hey, are you sure you don't want to receive a newsletter?
