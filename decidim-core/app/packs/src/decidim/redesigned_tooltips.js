@@ -70,11 +70,11 @@ export default function(node) {
   }
 
   tooltip.id = tooltip.id || `tooltip-${Math.random().toString(36).substring(7)}`
-  node.setAttribute("aria-describedby", tooltip.id)
 
   const append = () => {
     document.body.appendChild(tooltip)
 
+    node.setAttribute("aria-describedby", tooltip.id)
     tooltip.setAttribute("aria-hidden", false)
     tooltip.style.top = `${positionY}px`
     tooltip.style.left = `${positionX}px`
