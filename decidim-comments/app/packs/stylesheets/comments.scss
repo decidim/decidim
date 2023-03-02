@@ -255,14 +255,16 @@
     }
   }
 
-  &__content .user-mention{
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 600;
-    color: rgb(21 90 191 / var(--tw-text-opacity));
-    color: rgb(var(--secondary-rgb) / var(--tw-text-opacity));
+  &__content{
+    .user-mention{
+      @apply text-sm font-semibold text-secondary;
+    }
 
-    --tw-text-opacity: 1;
+    &--label{
+      @apply inline-block mb-2;
+    }
+
+
   }
 
   &__opinion-container{
