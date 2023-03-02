@@ -3,6 +3,10 @@
 
   &__container{
     @apply flex items-center gap-2.5 first:[&>*]:flex-none;
+
+    > :last-child{
+      @apply flex flex-col;
+    }
   }
 
   &__avatar{
@@ -36,11 +40,11 @@
 
     /* overwrite default styles */
     &[role="tooltip"]{
-      @apply max-w-sm;
+      @apply max-w-fit;
     }
 
     &-links{
-      @apply flex flex-col items-end justify-evenly h-full whitespace-nowrap hover:[&>*]:underline;
+      @apply flex flex-col items-end justify-evenly h-full whitespace-nowrap text-sm hover:[&>*]:underline;
     }
   }
 
