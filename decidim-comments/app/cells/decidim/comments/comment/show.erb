@@ -6,7 +6,7 @@
   <% else %>
     <div class="comment__header">
       <span class="font-bold">
-        <%== cell("decidim/redesigned_author", author_presenter).profile %>
+        <%== cell("decidim/redesigned_author", author_presenter) %>
       </span>
       <span class="text-gray-2 text-sm">
         <%= time_tag created_at, time_ago_in_words(created_at) %>
