@@ -40,7 +40,7 @@
 
     /* overwrite default styles */
     &[role="tooltip"]{
-      @apply max-w-fit;
+      @apply max-w-max;
     }
 
     &-links{
