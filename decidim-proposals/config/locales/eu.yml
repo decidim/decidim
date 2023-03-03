@@ -275,7 +275,7 @@ eu:
             notification_title: Zure proposamena <a href="%{resource_path}">%{resource_title}</a>-an onartu da.
           follower:
             email_intro: '"%{resource_title}" proposamena onartu da. Orri honetan erantzun dezakezu:'
-            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenalako. Aurrekoestekan jarrai dezakezu.
+            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarelako. Aurrekoestekan jarrai dezakezu.
             email_subject: Jarraitzen ari zaren proposamen bat onartu da
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena onartu da.
         proposal_evaluating:
@@ -938,7 +938,7 @@ eu:
           current_step: Oraingo urratsa
           see_steps: ikusi urratsak
           step_1: Sortu zure proposamena
-          step_2: konparatu
+          step_2: Alderatu
           step_3: Osatuta
           step_4: Argitaratu zure proposamena
           step_of: '%{total_steps} urratsetik %{current_step_num} eginda'
