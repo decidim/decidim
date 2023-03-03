@@ -39,15 +39,6 @@ module Decidim
         }
       end
 
-      def category_item
-        return if category.blank?
-
-        {
-          text: category.translated_name,
-          icon: resource_type_icon_key("Decidim::Category")
-        }
-      end
-
       def official
         return unless official?
 

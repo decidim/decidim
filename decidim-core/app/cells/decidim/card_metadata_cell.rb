@@ -96,6 +96,15 @@ module Decidim
       }
     end
 
+    def category_item
+      return unless resource.is_a?(Decidim::HasCategory) && resource.category.present?
+
+      {
+        text: resource.category.translated_name,
+        icon: resource_type_icon_key("Decidim::Category")
+      }
+    end
+
     def enable_links?
       return true unless options.has_key?(:links)
 
