@@ -57,10 +57,17 @@ export default function(node) {
   tooltip.id = tooltip.id || `tooltip-${Math.random().toString(36).substring(7)}`
 
   const append = () => {
+    // remove any previous tooltip from the DOM, in order to avoid overlaps
+    Array.from(document.body.children).map((child) => child.id.startsWith("tooltip") && child.remove())
+
     document.body.appendChild(tooltip)
+
     node.setAttribute("aria-describedby", tooltip.id)
     tooltip.setAttribute("aria-hidden", false)
 
+    // the position must be calculated once the event has been triggered
+    // in that way, we ensure the container position is that we want
+    // otherwise, the trigger could be hidden or misplaced
     const { topCenter, bottomCenter, middleRight, middleLeft } = getAbsolutePosition(node)
 
     let positionX = null;
