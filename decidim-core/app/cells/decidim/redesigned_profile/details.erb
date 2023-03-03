@@ -3,8 +3,8 @@
   <div class="profile__details-data">
     <% details_items.each do |detail| %>
       <div class="profile__details-item">
-        <%= icon detail[:icon], class: "w-3.5 h-3.5 text-gray fill-current" %>
-        <span class="text-sm text-gray-2 lowercase truncate max-w-xs"><%= detail[:text] %></span>
+        <%= icon detail[:icon] %>
+        <span><%= detail[:text] %></span>
       </div>
     <% end %>
   </div>

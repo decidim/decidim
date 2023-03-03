@@ -2,12 +2,20 @@
   &__avatar{
     @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
 
+    img{
+      @apply w-full h-full object-cover;
+    }
+
     &-container{
       @apply w-24 h-24 relative;
     }
 
     &-badge{
       @apply absolute top-full right-0 -translate-y-full grid place-items-center w-6 h-6 rounded-full overflow-hidden bg-primary border border-white;
+
+      svg{
+        @apply w-4 h-4 text-white fill-current;
+      }
     }
   }
 
@@ -20,6 +28,14 @@
 
     &-item{
       @apply flex items-center space-x-1.5 whitespace-nowrap;
+
+      svg{
+        @apply w-3.5 h-3.5 text-gray fill-current;
+      }
+
+      span{
+        @apply text-sm text-gray-2 lowercase truncate max-w-xs;
+      }
     }
   }
 
@@ -46,6 +62,10 @@
 
     &-item{
       @apply w-full h-full p-2.5 flex flex-col md:flex-row items-center justify-center gap-2;
+
+      svg{
+        @apply w-4 h-4 fill-current;
+      }
     }
   }
 
