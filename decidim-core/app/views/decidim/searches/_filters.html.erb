@@ -1,15 +1,7 @@
-<%
-  types = [Decidim::Searchable.searchable_resources_of_type_participant, Decidim::Searchable.searchable_resources_of_type_participatory_space, Decidim::Searchable.searchable_resources_of_type_component, Decidim::Searchable.searchable_resources_of_type_comment]
-
-  blocks = types.map do |type|
-    @sections.select {|t, results| type.include?(t)}
-  end
-%>
-
 <div class="filter-container search__filter">
   <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
     <%= content_tag :span, t("decidim.searches.filters_small_view.filter_by"), class: "#{ 'is-active' if params.dig(:filter, :with_resource_type) == nil}" %>
-    <% blocks.each do |elements| %>
+    <% @blocks.each do |elements| %>
       <% elements.each do |type, results| %>
         <%= content_tag :span, class: "#{ 'is-active' if params.dig(:filter, :with_resource_type) == type}" do %>
           <span><%= searchable_resource_human_name(type) %></span>
@@ -27,7 +19,7 @@
         <span class="label ml-auto"><%= @results_count %></span>
       <% end %>
     </li>
-    <% blocks.each do |elements| %>
+    <% @blocks.each do |elements| %>
       <div>
         <% elements.each do |type, results| %>
           <li>
