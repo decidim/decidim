@@ -56,44 +56,18 @@
   }
 
   &__arrow{
-    @apply fixed top-1/2 px-1 py-2 bg-background before:content-[''] before:block before:absolute before:-translate-y-1/2 before:w-96 before:h-96 before:rounded-full;
+    @apply fixed top-1/2 py-2 bg-background before:content-[''] before:block before:absolute before:-translate-y-1/2 before:w-96 before:h-96 before:rounded-full;
 
     &.prev{
-      @apply left-0 rounded-r before:-translate-x-1/2 hover:animate-[bounceLeft_1s_infinite];
+      @apply pl-4 pr-1 left-0 rounded-r before:-translate-x-1/4 hover:-translate-x-1/4 transition;
     }
 
     &.next{
-      @apply right-0 rounded-l before:-translate-x-1/2 hover:animate-[bounceRight_1s_infinite];
+      @apply pr-4 pl-1 right-0 rounded-l before:-translate-x-1/4 hover:translate-x-1/4 transition;
     }
 
     svg{
       @apply w-8 h-8 text-secondary fill-current;
-    }
-
-    @keyframes bounceLeft{
-      0%,
-      100%{
-        transform: translateX(-25%);
-        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-      }
-
-      50%{
-        transform: translateX(0);
-        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-      }
-    }
-
-    @keyframes bounceRight{
-      0%,
-      100%{
-        transform: translateX(25%);
-        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-      }
-
-      50%{
-        transform: translateX(0);
-        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-      }
     }
   }
 }
