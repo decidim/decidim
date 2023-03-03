@@ -5,7 +5,7 @@
     @apply flex items-center gap-2.5 first:[&>*]:flex-none;
 
     > :last-child{
-      @apply flex flex-col;
+      @apply flex flex-col [&>*]:grow;
     }
   }
 
