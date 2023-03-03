@@ -1,0 +1,4 @@
+<div class="card__list-metadata">
+  <%= cell metadata_cell, project %>
+</div>
+<%= cell("decidim/budgets/project_voted_hint", project, class: "margin-left-1") if current_order_checked_out? && resource_added? %>
