@@ -13,7 +13,7 @@
         <div class="callout alert">
           <%= raw t(".already_reported", link: new_user_block_path(user_id: user.id)) %>
         </div>
-      <% end  %>
+      <% end %>
 
       <% if defined?(Decidim::Templates) %>
         <%= render "decidim/templates/admin/block_user_templates/template_chooser", form: f %>
