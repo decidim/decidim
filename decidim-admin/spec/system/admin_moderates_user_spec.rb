@@ -37,6 +37,7 @@ describe "Admin reports user", type: :system do
       expect(page).to have_current_path(decidim_admin.new_user_block_path(user_id: reportable.id), ignore_query: true)
     end
   end
+
   context "when chooses to hide user" do
     it "is redirected to admin panel" do
       visit reportable_path
