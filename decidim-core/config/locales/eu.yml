@@ -627,10 +627,10 @@ eu:
             notification_title: The <a href="%{emendation_path}">zuzenketa</a> sortutako <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> izan da baztertzen <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}. Orrialde hau ikusi dezakezu:'
+          email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}-ri. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzulako %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{resource_title} eguneratzea'
-          notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}</a>
+          notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}-ri</a>
       components:
         component_published:
           email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
@@ -794,6 +794,7 @@ eu:
           replace: Ordezkatu
           save: Gorde
           title: Izenburua
+          validating: Balidatzen...
         select_file: Fitxategi bat aukeratu
     gamification:
       all_badges_link: Ikusi eskuragarri dauden txapak.
@@ -1204,6 +1205,7 @@ eu:
       user:
         actions:
           create_user_group: Sortu taldea
+          edit_profile: Fitxategia editatu
           message: Mezu
         confirmation_instructions_sent: Posta elektroniko bidezko berrespena bidalitako argibideak
         create_user_group: Sortu taldea
@@ -1602,7 +1604,10 @@ eu:
       animals-nature: Animaliak eta natura
       custom: Pertsonalizatu
       symbols: Ikurrak
+      travel-places: Bidaiak eta tokiak
     retry: Saiatu berriro
+    search:
+      clear: Garbitu bilaketa
   errors:
     messages:
       allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
