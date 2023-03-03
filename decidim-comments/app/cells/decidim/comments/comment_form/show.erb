@@ -6,15 +6,15 @@
     <% if alignment_enabled? %>
       <div class="opinion-toggle button-group comment__opinion-container">
         <span class="py-1.5"><%= t("decidim.components.add_comment_form.opinion.label") %></span>
-        <button aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ok" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.positive_selected") %>">
+        <button type="button" aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ok" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.positive_selected") %>">
           <%= icon "thumb-up-line" %>
           <%= icon "thumb-up-fill" %>
           <span class="sr-only"><%= t("decidim.components.add_comment_form.opinion.positive") %></span>
         </button>
-        <button aria-pressed="true" class="button button__sm button__text-secondary opinion-toggle--meh is-active" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.neutral_selected") %>">
+        <button type="button" aria-pressed="true" class="button button__sm button__text-secondary opinion-toggle--meh is-active" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.neutral_selected") %>">
           <span><%= t("decidim.components.add_comment_form.opinion.neutral") %></span>
         </button>
-        <button aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ko" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.negative_selected") %>">
+        <button type="button" aria-pressed="false" class="button button__sm button__text-secondary opinion-toggle--ko" data-selected-label="<%= t("decidim.components.add_comment_form.opinion.negative_selected") %>">
           <%= icon "thumb-down-line" %>
           <%= icon "thumb-down-fill" %>
           <span class="sr-only"><%= t("decidim.components.add_comment_form.opinion.negative") %></span>
