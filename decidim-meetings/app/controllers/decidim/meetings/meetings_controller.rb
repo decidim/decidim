@@ -10,7 +10,6 @@ module Decidim
       include Withdrawable
       include FormFactory
       include Paginable
-      include BreadcrumbItem
 
       helper Decidim::WidgetUrlsHelper
       helper Decidim::ResourceVersionsHelper
