@@ -17,13 +17,11 @@
     }
   }
 
-  /* matches elements NOT CHILDREN of author__tooltip */
-  &__container.is-compact &__avatar-container:not(&__tooltip *){
+  &__container.is-compact &__avatar-container{
     @apply w-8 h-8;
   }
 
-  /* matches elements NOT CHILDREN of author__tooltip */
-  &__container.is-compact &__name:not(&__tooltip *){
+  &__container.is-compact &__name{
     @apply text-secondary font-semibold;
   }
 
