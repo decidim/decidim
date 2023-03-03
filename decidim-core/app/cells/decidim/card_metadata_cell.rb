@@ -87,6 +87,15 @@ module Decidim
       }
     end
 
+    def scope_item
+      return unless resource.is_a?(Decidim::ScopableResource) && has_visible_scopes?(resource)
+
+      {
+        icon: resource_type_icon_key("Decidim::Scope"),
+        text: translated_attribute(resource.scope.name)
+      }
+    end
+
     def enable_links?
       return true unless options.has_key?(:links)
 
