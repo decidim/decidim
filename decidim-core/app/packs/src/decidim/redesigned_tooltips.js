@@ -54,28 +54,28 @@ export default function(node) {
   div.innerHTML = tooltipHtml
   const tooltip = div.firstElementChild
 
-  const { topCenter, bottomCenter, middleRight, middleLeft } = getAbsolutePosition(node)
-
-  let positionX = null;
-  let positionY = null;
-
-  if (tooltip.classList.contains("bottom")) {
-    [positionX, positionY] = bottomCenter
-  } else if (tooltip.classList.contains("left")) {
-    [positionX, positionY] = middleLeft
-  } else if (tooltip.classList.contains("right")) {
-    [positionX, positionY] = middleRight
-  } else if (tooltip.classList.contains("top")) {
-    [positionX, positionY] = topCenter
-  }
-
   tooltip.id = tooltip.id || `tooltip-${Math.random().toString(36).substring(7)}`
 
   const append = () => {
     document.body.appendChild(tooltip)
-
     node.setAttribute("aria-describedby", tooltip.id)
     tooltip.setAttribute("aria-hidden", false)
+
+    const { topCenter, bottomCenter, middleRight, middleLeft } = getAbsolutePosition(node)
+
+    let positionX = null;
+    let positionY = null;
+
+    if (tooltip.classList.contains("bottom")) {
+      [positionX, positionY] = bottomCenter
+    } else if (tooltip.classList.contains("left")) {
+      [positionX, positionY] = middleLeft
+    } else if (tooltip.classList.contains("right")) {
+      [positionX, positionY] = middleRight
+    } else if (tooltip.classList.contains("top")) {
+      [positionX, positionY] = topCenter
+    }
+
     tooltip.style.top = `${positionY}px`
     tooltip.style.left = `${positionX}px`
   }
