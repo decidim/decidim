@@ -34,7 +34,7 @@
   }
 
   &__tooltip{
-    @apply grid grid-cols-[1fr_min-content] gap-6 odd:[&>*]:place-self-start even:[&>*]:place-self-end;
+    @apply grid grid-cols-[1fr_max-content] gap-6 odd:[&>*]:place-self-start even:[&>*]:place-self-end;
 
     /* overwrite default styles */
     &[role="tooltip"]{
