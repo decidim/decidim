@@ -7,7 +7,7 @@
     @apply border-4 border-background rounded p-4;
 
     &-trigger{
-      @apply flex justify-between items-center cursor-pointer;
+      @apply flex justify-between items-center;
 
       > :first-child{
         @apply grow;
