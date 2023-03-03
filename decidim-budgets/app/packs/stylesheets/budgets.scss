@@ -123,6 +123,10 @@
     .tag-container{
       @apply [&:not(:first-child)]:px-6;
     }
+
+    .card__list__content{
+      @apply w-2/4 cursor-pointer;
+    }
   }
 }
 

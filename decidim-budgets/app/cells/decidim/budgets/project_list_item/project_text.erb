@@ -1,10 +1,8 @@
 <div class="card__list-text">
-  <%= link_to resource_path, class: "card__link" do %>
-    <h3 class="card__list-title">
-      <%= cell("decidim/budgets/project_selected_status", model) %>
-      <%= resource_title %>
-    </h3>
-  <% end %>
+  <h3 class="card__list-title">
+    <%= cell("decidim/budgets/project_selected_status", model) %>
+    <%= resource_title %>
+  </h3>
 
   <div class="card__list-metadata">
     <% if current_order_checked_out? && resource_added? %>
@@ -13,7 +11,7 @@
         <%= cell("decidim/budgets/project_votes_count", model, layout: :one_line) %>
       </span>
     <% end %>
-    <%= cell "decidim/budgets/project_tags", model, context: { extra_classes: ["tags--project"] } %>
+    <%#= cell "decidim/budgets/project_tags", model, context: { extra_classes: ["tags--project"] } %>
   </div>
   <%= cell("decidim/budgets/project_voted_hint", model, class: "margin-left-1") if current_order_checked_out? && resource_added? %>
 </div>
