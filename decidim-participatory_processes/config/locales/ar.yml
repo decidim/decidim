@@ -285,6 +285,8 @@ ar:
         title: العمليات التشاركية
     participatory_process_groups:
       content_blocks:
+        metadata:
+          name: البيانات الوصفية
         stats:
           name: نشاط
       show:
