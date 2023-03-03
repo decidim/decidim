@@ -561,6 +561,7 @@ ar:
             created_at: أنشئت في
             document_number: رقم المستند
             name: اسم
+            nickname: الاسم المستعار
             phone: هاتف
             state: حالة
             users_count: عدد المشاركين
