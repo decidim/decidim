@@ -18,9 +18,9 @@
       <% end %>
 
       <div class="relative ml-auto">
-        <div id="dropdown-trigger-<%= context_menu_id %>" data-component="dropdown" data-target="dropdown-menu-<%= context_menu_id %>">
+        <button id="dropdown-trigger-<%= context_menu_id %>" data-component="dropdown" data-target="dropdown-menu-<%= context_menu_id %>">
           &#8230;
-        </div>
+        </button>
 
         <div id="dropdown-menu-<%= context_menu_id %>" aria-hidden="true">
           <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
@@ -33,7 +33,7 @@
               </li>
             <% end %>
             <li>
-              <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title"), tabindex: 1 do %>
+              <%= link_to "#{commentable_path("commentId" => model.id)}#comment_#{model.id}", target: "_blank", data: { "external-link": "false" }, class: "dropdown__item", title: t("decidim.components.comment.single_comment_link_title") do %>
                 <%= icon "share-line" %>
                 <span><%= t("decidim.components.comment.single_comment_link_title") %></span>
               <% end %>
