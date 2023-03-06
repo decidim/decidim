@@ -341,7 +341,7 @@ eu:
             invalid: Arazo bat gertatu da topaketa hau desargitaratzean
             success: Topaketa zuzen desargitaratu da
           update:
-            invalid: Arazo bat zegoen topaketa eguneratzeko
+            invalid: Arazo bat egon da topaketa eguneratzeko
             success: Topaketa zuzen eguneratu da.
         meetings_poll:
           form:
@@ -632,7 +632,7 @@ eu:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu.
         decline_invitation:
-          invalid: Arazo bat zegoen gonbidapenari uko egiten.
+          invalid: Arazo bat egon da gonbidapenari uko egiten.
           success: Arrakastaz uko egin diozu gonbidapenari.
         destroy:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.
