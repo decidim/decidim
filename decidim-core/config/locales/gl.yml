@@ -1013,9 +1013,6 @@ gl:
       pages_count: Páxinas
       participants_count: Participantes
       users_count: Participantes
-    user_activity:
-      index:
-        no_activities_warning: Este usuario aínda non tivo ningunha actividade.
     user_conversations:
       show:
         back: Amosar todas as conversas
@@ -1244,7 +1241,6 @@ gl:
   locale:
     name: Galego
   password_validator:
-    blacklisted: na lista negra
     domain_included_in_password: é moi similar a este nome de dominio
     email_included_in_password: é demasiado semellante ao teu correo electrónico
     fallback: non é válido
