@@ -1124,9 +1124,6 @@ zh-CN:
       help_text: "<strong>警告：</strong> 内容可能会被自动翻译而不是100%的准确性。"
       show_original: 显示原始文本
       show_translated: 显示自动翻译的文本
-    user_activity:
-      index:
-        no_activities_warning: 此参与者尚未有任何活动。
     user_contact_disabled: 此参与者不接受私信。
     user_conversations:
       create:
