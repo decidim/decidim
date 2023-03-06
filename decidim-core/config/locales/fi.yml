@@ -1490,7 +1490,7 @@ fi:
       show_translated: Näytä automaattisesti käännetty teksti
     user_activity:
       index:
-        no_activities_warning: Tämä käyttäjä ei ole vielä ollut aktiivinen.
+        no_activities_warning: Tällä osallistujalla ei ole vielä ollut toimintaa.
     user_contact_disabled: Tämä osallistuja ei ole sallinut yksityisviestejä muilta käyttäjiltä.
     user_conversations:
       create:
@@ -1886,7 +1886,6 @@ fi:
     name: Suomi
     name_with_error: Suomi (virhe!)
   password_validator:
-    blacklisted: on mustalla listalla
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
     email_included_in_password: liian samankaltainen sähköpostisi kanssa
     fallback: ei ole hyväksytyn muotoinen
