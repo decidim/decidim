@@ -1491,7 +1491,7 @@ es-MX:
       show_translated: Mostrar el texto traducido automáticamente
     user_activity:
       index:
-        no_activities_warning: Este usuario no ha tenido ninguna actividad todavía.
+        no_activities_warning: Esta participante no ha tenido ninguna actividad todavía.
     user_contact_disabled: Esta participante no acepta mensajes directos.
     user_conversations:
       create:
@@ -1887,7 +1887,6 @@ es-MX:
     name: Español
     name_with_error: Español (¡error!)
   password_validator:
-    blacklisted: en la lista negra
     domain_included_in_password: Es muy similar a este nombre de dominio
     email_included_in_password: Es muy similar a tu correo electrónico
     fallback: No es válido
