@@ -1219,9 +1219,6 @@ tr:
       help_text: "<strong> Uyarı: </strong> İçerik otomatik olarak çevrilebilir ve %100 doğru olmayabilir."
       show_original: Orijinal metni göster
       show_translated: Otomatik olarak çevrilmiş metni göster
-    user_activity:
-      index:
-        no_activities_warning: Bu kullanıcının henüz herhangi bir etkinliği olmadı.
     user_contact_disabled: Bu katılımcı doğrudan mesajları kabul etmiyor.
     user_conversations:
       create:
