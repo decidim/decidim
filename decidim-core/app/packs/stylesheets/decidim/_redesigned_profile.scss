@@ -137,6 +137,10 @@
 
       &-badge{
         @apply absolute top-full right-0 -translate-y-full grid place-items-center w-4 h-4 rounded-full overflow-hidden bg-primary border border-white;
+
+        svg{
+          @apply w-2.5 h-2.5 text-white fill-current;
+        }
       }
     }
 
