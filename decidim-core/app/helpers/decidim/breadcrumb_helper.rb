@@ -16,6 +16,22 @@ module Decidim
         end
 
         items.append(*context_breadcrumb_items)
+
+        empty_path = [
+          "/",
+          "/users/sign_in",
+          "/users/sign_up",
+          "/users/password/new",
+          "/users/confirmation/new",
+          "/users/unlock/new"
+        ].any? { |path| is_active_link?(path, :exclusive) }
+
+        empty_path ||= [
+          "Decidim::Devise::InvitationsController",
+          "Decidim::ErrorsController"
+        ].any? { |controller_class_name| controller.class.to_s == controller_class_name }
+
+        raise "Missing breadcrumb, breadcrumb has only #{items.count} elements for controller #{controller.class.to_s}" if !empty_path && items.empty?
       end
     end
   end
