@@ -1259,7 +1259,7 @@ eu:
     search:
       results: Bilaketaren emaitzak
       results_found_for_term: '%{count} Bilaketaren emaitzak: "%{term}"'
-      term_input_placeholder: Search
+      term_input_placeholder: Bilatu
     searches:
       filters:
         back: Itzuli emaitzara
@@ -1605,6 +1605,7 @@ eu:
     retry: Saiatu berriro
     search:
       clear: Garbitu bilaketa
+      not_found: Ez da emaitzarik topatu
   errors:
     messages:
       allowed_file_content_types: 'soilik onartuko dira honako hedapenak: %{types}'
@@ -1713,6 +1714,7 @@ eu:
     name: Euskera
     name_with_error: Euskera (akatsa!)
   password_validator:
+    denied: ukatu egin da
     domain_included_in_password: domeinu izen honen antzekoa da
     email_included_in_password: zure posta elektronikoaren antzekoa da
     fallback: ez da zuzena
