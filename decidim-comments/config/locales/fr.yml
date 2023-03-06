@@ -84,6 +84,9 @@ fr:
             offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
             spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
           title: Signaler un contenu inapproprié
+        show_replies:
+          one: Afficher la réponse
+          other: Afficher %{count} réponses
         single_comment_link_title: Obtenir le lien
       comment_order_selector:
         order:
