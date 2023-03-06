@@ -1296,9 +1296,6 @@
       help_text: "<strong>Advarsel:</strong> Innhold kan automatisk bli oversatt og ikke alltid være 100 % nøyaktig."
       show_original: Vis originaltekst
       show_translated: Vis automatisk oversatt tekst
-    user_activity:
-      index:
-        no_activities_warning: Denne deltakeren har ikke hatt noe aktivitet ennå.
     user_contact_disabled: Denne deltakeren godtar ikke direktemeldinger.
     user_conversations:
       create:
@@ -1611,7 +1608,6 @@
     name: Engelsk
     name_with_error: Norsk (feil!)
   password_validator:
-    blacklisted: er svartelistet
     domain_included_in_password: er for lik dette domenenavnet
     email_included_in_password: er for lik e-postadressen din
     fallback: er ikke gyldig
