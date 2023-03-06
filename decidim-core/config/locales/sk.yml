@@ -1048,9 +1048,6 @@ sk:
         share_link: Zdieľať odkaz
     statistics:
       comments_count: Komentáre
-    user_activity:
-      index:
-        no_activities_warning: Tento účastník zatiaľ nemá žiadnu aktivitu.
     user_contact_disabled: Tento účastník nepovoľuje posielanie priamych správ.
     user_conversations:
       update:
