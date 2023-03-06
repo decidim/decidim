@@ -1251,9 +1251,6 @@ pt-BR:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
       show_translated: Mostrar texto traduzido automaticamente
-    user_activity:
-      index:
-        no_activities_warning: Este usuário ainda não possui nenhuma atividade.
     user_contact_disabled: Este usuário não aceita mensagens diretas.
     user_conversations:
       create:
