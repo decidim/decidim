@@ -1473,7 +1473,7 @@ ja:
       show_translated: 機械翻訳されたテキストを表示する
     user_activity:
       index:
-        no_activities_warning: この参加者はまだアクティビティを行っていません。
+        no_activities_warning: この参加者にはまだアクティビティがありません。
     user_contact_disabled: この参加者はダイレクトメッセージを受け付けません。
     user_conversations:
       create:
@@ -1866,7 +1866,6 @@ ja:
     name: 日本語
     name_with_error: 日本語 (エラー!)
   password_validator:
-    blacklisted: ブラックリストに登録済み
     domain_included_in_password: このドメイン名に似ています
     email_included_in_password: はあなたのメールアドレスに似ています
     fallback: 有効ではありません
