@@ -1247,9 +1247,6 @@ lb:
       help_text: "<strong>Warnung:</strong> Inhalt kéint automatesch iwwersetzt sinn an net 100% korrekt sinn."
       show_original: Originaltext weisen
       show_translated: Automatesch iwwersaten Text uweisen
-    user_activity:
-      index:
-        no_activities_warning: Dësen Benotzer huet bis elo nach keng Aktivitéit.
     user_contact_disabled: Dësen Teilnehmer refuséiert direkt Noriichten.
     user_conversations:
       create:
