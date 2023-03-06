@@ -1325,9 +1325,6 @@ hu:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
       show_translated: Automatikusan lefordított szöveg mutatása
-    user_activity:
-      index:
-        no_activities_warning: Ez a résztvevő még nem végzett tevékenységet.
     user_contact_disabled: Ez a résztvevő nem fogad el közvetlen üzeneteket.
     user_conversations:
       create:
@@ -1680,7 +1677,6 @@ hu:
     name: Magyar
     name_with_error: Angol (hiba!)
   password_validator:
-    blacklisted: tiltólistára került
     domain_included_in_password: túl hasonló a domain névhez
     email_included_in_password: túl hasonló az email címhez
     fallback: érvénytelen
