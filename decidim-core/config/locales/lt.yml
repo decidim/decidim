@@ -1479,9 +1479,6 @@ lt:
       help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
       show_original: Rodyti teksto originalą
       show_translated: Rodyti automatiškai išverstą tekstą
-    user_activity:
-      index:
-        no_activities_warning: Šis dalyvis dar nesiėmė jokios veiklos.
     user_contact_disabled: Šis dalyvis nepriima tiesioginių žinučių.
     user_conversations:
       create:
@@ -1856,7 +1853,6 @@ lt:
     name: Lietuvių
     name_with_error: Lietuvių (klaida!)
   password_validator:
-    blacklisted: yra įtrauktas į juodąjį sąrašą
     domain_included_in_password: per daug panašus į šio domeno vardą
     email_included_in_password: per daug panašus į jūsų el. pašto adresą
     fallback: negalioja
