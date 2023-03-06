@@ -1250,9 +1250,6 @@ pt:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não ser 100% fidedigno."
       show_original: Mostrar texto original
       show_translated: Mostrar texto traduzido automaticamente
-    user_activity:
-      index:
-        no_activities_warning: Este participante ainda não possui nenhuma atividade.
     user_contact_disabled: Este participante não aceita mensagens diretas.
     user_conversations:
       create:
