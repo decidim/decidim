@@ -1866,6 +1866,7 @@ ja:
     name: 日本語
     name_with_error: 日本語 (エラー!)
   password_validator:
+    denied: 拒否されました
     domain_included_in_password: このドメイン名に似ています
     email_included_in_password: はあなたのメールアドレスに似ています
     fallback: 有効ではありません
