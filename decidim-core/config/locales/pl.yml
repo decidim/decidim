@@ -1354,9 +1354,6 @@ pl:
       help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
       show_original: Pokaż oryginalny tekst
       show_translated: Pokaż automatyczne tłumaczenie
-    user_activity:
-      index:
-        no_activities_warning: Ten użytkownik nie ma jeszcze żadnej aktywności.
     user_contact_disabled: Ten użytkownik nie przyjmuje bezpośrednich wiadomości.
     user_conversations:
       create:
