@@ -1564,9 +1564,6 @@ ar:
       help_text: "<strong>تحذير:</strong> المحتوى قد يتم ترجمته تلقائياً ولا يكون دقيقاً بنسبة 100%."
       show_original: إظهار النص الأصلي
       show_translated: إظهار النص المترجم تلقائياً
-    user_activity:
-      index:
-        no_activities_warning: هذا المشارك لم يقم بأي نشاط حتى الآن.
     user_contact_disabled: هذا المشارك لا يقبل الرسائل المباشرة.
     user_conversations:
       create:
@@ -1974,7 +1971,6 @@ ar:
     name: العربية
     name_with_error: الإنجليزية (خطأ!)
   password_validator:
-    blacklisted: مدرج بالقائمة السوداء
     domain_included_in_password: مشابه جدًا لاسم النطاق هذا
     email_included_in_password: مشابه جدا لبريدك الالكتروني
     fallback: غير صالح
