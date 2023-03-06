@@ -131,6 +131,10 @@
     &-avatar{
       @apply w-full h-full rounded-full overflow-hidden drop-shadow-md border-2 border-white;
 
+      img{
+        @apply w-full h-full object-cover;
+      }
+
       &-container{
         @apply w-12 h-12 relative flex-none;
       }
