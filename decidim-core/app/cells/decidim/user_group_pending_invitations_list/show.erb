@@ -4,7 +4,6 @@
 
   <% invitations.each do |invitation| %>
     <div class="profile__group-pending__list">
-      <%#= cell "decidim/author", present(invitation.user_group) %>
       <%= card_for present(invitation.user_group) %>
 
       <%= link_to(

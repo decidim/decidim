@@ -27,7 +27,8 @@ module Decidim
     end
 
     def resource_path
-      decidim.profile_path(user.nickname)
+      # Exposes the same method, both Decidim::User and Decidim::UserGroup
+      user.try(:profile_url) || decidim.profile_path(user.nickname)
     end
 
     def presented_resource
