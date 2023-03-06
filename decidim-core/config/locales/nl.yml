@@ -1262,9 +1262,6 @@ nl:
     tags:
       filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
       filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'
-    user_activity:
-      index:
-        no_activities_warning: Deze deelnemer heeft nog geen activiteit gehad.
     user_contact_disabled: Deze gebruiker accepteert geen directe berichten.
     user_conversations:
       create:
@@ -1579,7 +1576,6 @@ nl:
     name: Nederlands
     name_with_error: Nederlands (fout!)
   password_validator:
-    blacklisted: staat op de zwarte lijst
     domain_included_in_password: lijkt te veel op deze domeinnaam
     email_included_in_password: lijkt te veel op uw e-mail
     fallback: is niet geldig
