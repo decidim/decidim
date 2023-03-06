@@ -125,7 +125,7 @@ eu:
           origin: Origin
           participants: Parte-hartzaileak
           scope: Eremua
-          search: Search
+          search: Bilatu
           state: Egoera
           state_values:
             closed: Itxita
