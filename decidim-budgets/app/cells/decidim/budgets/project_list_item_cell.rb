@@ -38,33 +38,6 @@ module Decidim
           list << "show-for-medium" if voting_finished? || (current_order_checked_out? && !resource_added?)
         end.join(" ")
       end
-
-      def vote_button_disabled?
-        current_user && !can_have_order?
-      end
-
-      def vote_button_class
-        return "success" if resource_added?
-
-        "hollow"
-      end
-
-      def vote_button_method
-        return :delete if resource_added?
-
-        :post
-      end
-
-      def vote_button_label
-        if resource_added?
-          return t(
-            "decidim.budgets.projects.project.remove",
-            resource_name: resource_title
-          )
-        end
-
-        t("decidim.budgets.projects.project.add", resource_name: resource_title)
-      end
     end
   end
 end
