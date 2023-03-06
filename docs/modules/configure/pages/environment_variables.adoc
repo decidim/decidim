@@ -631,8 +631,8 @@ This does not affect comments as its length can be configured by administrators 
 |1000
 |No
 
-|DECIDIM_PASSWORD_BLACKLIST
-|Blacklisted passwords. Array may contain strings and regex entries.
+|DECIDIM_DENIED_PASSWORDS
+|List of Denied passwords. Array may contain strings and regex entries.
 
 Separate each item of the array with a comma AND a space, for instance:
 `i-dont-like-this-password, i-dont-like-this-one-either, password123456`
