@@ -938,13 +938,13 @@ en:
         success: Invitation successfully accepted
       accept_invitation: Accept
       accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
-      pending_invitations: Pending requests
       index:
         invite: Invite
         invite_user: Invite a participant
       invite:
         error: There was a problem inviting this participant
         success: Participant successfully invited
+      pending_invitations: Pending requests
       reject:
         error: There was a problem rejecting this invitation
         success: Invitation successfully rejected
