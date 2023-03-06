@@ -1372,9 +1372,6 @@ eu:
       help_text: "<strong>Oharra:</strong> Edukia automatikoki itzul daiteke eta ez izan zuzena %100ean."
       show_original: Erakutsi jatorrizko testua
       show_translated: Erakutsi automatikoki itzulitako testua
-    user_activity:
-      index:
-        no_activities_warning: Erabiltzaile honek ez du oraindik jarduera izan.
     user_contact_disabled: Parte-hartzaile honek ez du mezu zuzenik onartzen.
     user_conversations:
       create:
