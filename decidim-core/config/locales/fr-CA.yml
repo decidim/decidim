@@ -1484,6 +1484,9 @@ fr-CA:
       help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
       show_original: Afficher le texte original
       show_translated: Afficher le texte automatiquement traduit
+    user_activity:
+      index:
+        no_activities_warning: Cet utilisateur n'a pas encore d'activité.
     user_contact_disabled: Cet utilisateur n'accepte pas les messages directs.
     user_conversations:
       create:
@@ -1879,6 +1882,7 @@ fr-CA:
     name: Français
     name_with_error: Français (erreur !)
   password_validator:
+    denied: est refusé
     domain_included_in_password: est trop similaire au nom de domaine de cette plateforme
     email_included_in_password: est trop similaire à votre email
     fallback: n'est pas valide
