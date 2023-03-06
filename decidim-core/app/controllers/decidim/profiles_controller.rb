@@ -5,6 +5,7 @@ module Decidim
   class ProfilesController < Decidim::ApplicationController
     include UserGroups
     include Flaggable
+    include HasProfileBreadcrumb
 
     helper Decidim::Messaging::ConversationHelper
 

@@ -1037,6 +1037,7 @@ en:
       all: All activity types
       index:
         last_activity: Last activity
+      name: Last activities
     links:
       invalid_url: Invalid URL
       warning:
@@ -1922,6 +1923,7 @@ en:
         my_data: My data
         my_interests: My interests
         notifications_settings: Notifications settings
+        profile: Profile
         title: Participant settings
         user_groups: Groups
       widget:
