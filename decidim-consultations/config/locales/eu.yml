@@ -252,7 +252,7 @@ eu:
         active: Aktiboak
         all: guztiak
         finished: Amaitu
-        search: Search
+        search: Bilatu
         upcoming: Datozen
       filters_small_view:
         close_modal: Itxi leihoa
