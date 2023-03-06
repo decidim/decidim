@@ -652,7 +652,7 @@ eu:
           back: Atzera
           continue: Hurrengoa
       warnings:
-        no_elections_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
+        no_elections_warning: Ez dago beren bilaketa-irizpideekin bat datorren hauteskunderik, edo ez dago hauteskunde programaturik.
         no_scheduled_elections_warning: Orain ez dago bozketa programaturik, baina aurrekoak ikus ditzakezu.
     events:
       elections:
