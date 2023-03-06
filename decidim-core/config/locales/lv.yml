@@ -1067,9 +1067,6 @@ lv:
         share_link: Kopīgot saiti
     statistics:
       comments_count: Komentāri
-    user_activity:
-      index:
-        no_activities_warning: Šis dalībnieks vēl nav veicis nekādas aktivitātes
     user_contact_disabled: Šis dalībnieks nepieņem tiešās ziņas.
     user_conversations:
       create:
