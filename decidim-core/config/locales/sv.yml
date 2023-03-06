@@ -1363,9 +1363,6 @@ sv:
       help_text: "<strong>OBS:</strong> Innehåll översattes kanske automatiskt och inte är 100% korrekt."
       show_original: Visa originaltexten
       show_translated: Visa maskinöversatt texten
-    user_activity:
-      index:
-        no_activities_warning: Den här användaren har inte haft någon aktivitet än.
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_conversations:
       create:
@@ -1714,7 +1711,6 @@ sv:
     name: Svenska
     name_with_error: Svenska (fel!)
   password_validator:
-    blacklisted: är svartlistad
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för likt din e-post
     fallback: är inte giltigt
