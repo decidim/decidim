@@ -1372,7 +1372,7 @@ ro:
       show_translated: Arată textul tradus automat
     user_activity:
       index:
-        no_activities_warning: Acest participant nu a avut încă nicio activitate.
+        no_activities_warning: Acest participant nu are nicio activitate încă.
     user_contact_disabled: Acest participant nu acceptă mesaje directe.
     user_conversations:
       create:
