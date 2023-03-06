@@ -1530,7 +1530,7 @@ cs:
       show_translated: Zobrazit automaticky přeložený text
     user_activity:
       index:
-        no_activities_warning: Tento účastník zatím nemá žádnou aktivitu.
+        no_activities_warning: Tento uživatel zatím nemá žádnou aktivitu.
     user_contact_disabled: Tento uživatel nepřijímá přímé zprávy.
     user_conversations:
       create:
@@ -1932,7 +1932,6 @@ cs:
     name: Čeština
     name_with_error: Čeština (chyba!)
   password_validator:
-    blacklisted: je na černé listině
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu
     fallback: není platný
