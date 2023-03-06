@@ -135,7 +135,7 @@ eu:
         comment_created:
           email_intro: "%{resource_title} iruzkindu da. Orri honetan iruzkina irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko estekan jarrai dezakezu.
-          email_subject: '%{author_name} (r) en %{resource_title} iruzkin berri bat dago'
+          email_subject: '%{author_name} ren %{resource_title} iruzkin berri bat dago'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago
         comment_downvoted:
           email_intro: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da. Orain %{upvotes} boto positibo eta %{downvotes} boto negatibo dituzu guztira.
