@@ -59,31 +59,31 @@ describe "User group manage members", type: :system do
 
     context "with pending requests" do
       it "lists the pending requests" do
-        within ".list-request" do
+        within "#list-request" do
           expect(page).to have_content("The following users have applied to join this group")
           expect(page).to have_content(requested_user.name)
         end
       end
 
       it "allows accepting a join request" do
-        within ".list-request" do
+        within "#list-request" do
           expect(page).to have_content(requested_user.name)
           click_link "Accept"
         end
 
-        expect(page).to have_no_css(".list-request")
+        expect(page).to have_no_css("#list-request")
         expect(page).to have_content("Join request successfully accepted")
         expect(page).to have_content(requested_user.name)
         expect(page).to have_content("Role: Member")
       end
 
       it "allows rejecting a join request" do
-        within ".list-request" do
+        within "#list-request" do
           expect(page).to have_content(requested_user.name)
           click_link "Reject"
         end
 
-        expect(page).to have_no_css(".list-request")
+        expect(page).to have_no_css("#list-request")
         expect(page).to have_content("Join request successfully rejected")
         expect(page).to have_no_content(requested_user.name)
       end

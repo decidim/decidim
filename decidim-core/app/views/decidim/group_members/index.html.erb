@@ -1,21 +1,16 @@
 <% add_decidim_page_title(t(".manage_members")) %>
 
-<div class="wrapper">
-  <div class="row">
-    <div class="columns medium-9 medium-offset-3">
-      <h5><%= t(".manage_members") %></h5>
-    </div>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-10">
+    <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
+      <%= t("manage_members", scope: "decidim.group_members.index") %>
+    </h1>
   </div>
-  <div class="row">
-    <div class="columns medium-3">
-      <%= cell "decidim/profile_sidebar", user_group %>
-    </div>
-    <div class="columns medium-9">
-      <%= cell "decidim/user_group_pending_requests_list", user_group %>
-      <div class="section">
-        <p><%= t(".current_members_without_admins") %></p>
-        <%= cell "decidim/members", user_group, role: "member", from_admin: true %>
-      </div>
-    </div>
-  </div>
-</div>
+
+  <%= cell "decidim/user_group_pending_requests_list", user_group %>
+
+  <p class="mb-8"><%= t("current_members_without_admins", scope: "decidim.group_members.index") %></p>
+
+  <%= cell "decidim/members", user_group, role: "member", from_admin: true %>
+
+<% end %>
