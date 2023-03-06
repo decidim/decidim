@@ -1122,9 +1122,6 @@ el:
     tags:
       filter_results_for_category: 'Φιλτράρισμα αποτελεσμάτων για την κατηγορία: %{resource}'
       filter_results_for_scope: 'Φιλτράρισμα αποτελεσμάτων για το πεδίο εφαρμογής: %{resource}'
-    user_activity:
-      index:
-        no_activities_warning: Αυτός ο συμμετέχων δεν έχει ακόμη κάποια δραστηριότητα.
     user_contact_disabled: Αυτός ο συμμετέχων δεν δέχεται άμεσα μηνύματα.
     user_conversations:
       create:
