@@ -1421,7 +1421,7 @@ de:
       show_translated: Automatisch übersetzter Text anzeigen
     user_activity:
       index:
-        no_activities_warning: Dieser Benutzer hat noch keine Aktivität gehabt.
+        no_activities_warning: Für diesen Teilnehmer gibt es bisher noch keine Aktivität.
     user_contact_disabled: Dieser Teilnehmer akzeptiert keine Direktnachrichten.
     user_conversations:
       create:
@@ -1806,7 +1806,6 @@ de:
     name: Deutsch
     name_with_error: Deutsch (Fehler!)
   password_validator:
-    blacklisted: ist gesperrt
     domain_included_in_password: ist diesem Domainnamen zu ähnlich
     email_included_in_password: ist Ihrer E-Mail zu ähnlich
     fallback: ist ungültig
