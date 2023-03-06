@@ -162,6 +162,18 @@
     }
   }
 
+  &__group-pending{
+    @apply pb-12 mb-14 border-b-2 border-gray-3;
+
+    p{
+      @apply mt-4 text-md text-gray-2;
+    }
+
+    &__list{
+      @apply my-6 md:my-10 first:mt-0 last:mb-0 flex justify-between items-center gap-4 [&>*:nth-child(2)]:ml-auto;
+    }
+  }
+
   &__scaffold{
     &__top{
       @apply bg-background;

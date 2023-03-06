@@ -938,6 +938,7 @@ en:
         success: Invitation successfully accepted
       accept_invitation: Accept
       accept_or_reject_group_invitations: 'The following groups have invited you to join them. Accept or reject their requests:'
+      pending_invitations: Pending requests
       index:
         invite: Invite
         invite_user: Invite a participant
