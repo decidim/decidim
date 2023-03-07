@@ -6,7 +6,7 @@ module Decidim
     class ProjectMetadataCell < Decidim::CardMetadataCell
       include Decidim::Budgets::ProjectsHelper
 
-      delegate :current_order, to: :parent_controller
+      delegate :current_order, :show_votes_count?, to: :parent_controller
 
       alias project model
 
@@ -23,7 +23,7 @@ module Decidim
       end
 
       def voted_item
-        return unless current_order_checked_out? && resource_added?
+        return unless show_votes_count? && model.confirmed_orders_count.positive?
 
         {
           cell: "decidim/budgets/project_votes_count",
