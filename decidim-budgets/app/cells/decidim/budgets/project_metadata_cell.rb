@@ -28,7 +28,7 @@ module Decidim
         {
           cell: "decidim/budgets/project_votes_count",
           args: [model, { layout: :one_line }],
-          icon: "check-double-line"
+          icon: current_order_checked_out? && resource_added? ? "check-double-line" : "check-line"
         }
       end
 
