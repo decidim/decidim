@@ -1,5 +1,5 @@
 <div class="layout-item">
-  <main>
+  <main class="layout-item__main">
     <% if local_assigns.has_key?(:back_path) %>
       <%= link_to back_path, class: "layout-item__back button button__text-secondary" do %>
         <%= icon "arrow-left-line" %>
@@ -23,5 +23,5 @@
 
     <%= yield %>
   </main>
-  <aside><%= yield :aside %></aside>
+  <aside class="layout-item__aside"><%= yield :aside %></aside>
 </div>
