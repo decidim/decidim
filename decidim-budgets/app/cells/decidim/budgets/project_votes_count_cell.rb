@@ -6,7 +6,6 @@ module Decidim
     # Two possible layouts: One or two lines
     class ProjectVotesCountCell < Decidim::ViewModel
       include Decidim::IconHelper
-      delegate :show_votes_count?, to: :controller
 
       def show
         return unless show_votes_count?
@@ -15,6 +14,10 @@ module Decidim
       end
 
       private
+
+      def show_votes_count?
+        model.component.current_settings.show_votes?
+      end
 
       def content
         if options[:layout] == :one_line

@@ -23,10 +23,6 @@ module Decidim
         current_settings.votes == "finished"
       end
 
-      def show_votes_count?
-        current_settings.show_votes?
-      end
-
       private
 
       def workflow_name

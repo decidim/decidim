@@ -10,8 +10,6 @@ module Decidim
       include ActiveSupport::NumberHelper
       include Decidim::Budgets::ProjectsHelper
 
-      delegate :current_order, to: :parent_controller
-
       alias project model
 
       private
@@ -22,6 +20,10 @@ module Decidim
 
       def resource_added?
         current_order && current_order.projects.include?(model)
+      end
+
+      def current_order
+        @current_order ||= controller.try(:current_order)
       end
 
       def resource_id = "project-#{project.id}-item"
