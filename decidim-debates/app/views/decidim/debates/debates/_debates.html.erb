@@ -1,5 +1,7 @@
 <%= order_selector available_orders, i18n_scope: "decidim.debates.debates.orders" %>
 
-<%= render paginated_debates %>
+<div class="card__grid-container">
+  <%= render paginated_debates %>
+</div>
 
 <%= decidim_paginate paginated_debates %>
