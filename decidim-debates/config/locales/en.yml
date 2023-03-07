@@ -132,9 +132,6 @@ en:
             open: Open
           user_groups: Groups
         filters_small_view:
-          close_modal: Close modal
-          filter: Filter
-          filter_by: Filter by
           unfold: Unfold
         form:
           select_a_category: Please select a category
@@ -151,7 +148,6 @@ en:
           recent: Most recent
           updated: Recently updated
         show:
-          back: Back to list
           close_debate: Close debate
           date: Date
           debate_closed: Closed
@@ -159,8 +155,6 @@ en:
           edit_conclusions: Edit conclusions
           edit_debate: Edit debate
           groups_count: Groups
-          last_comment_by: Last comment by
-          no_comments_yet: No comments yet
           open: Open debate
           participants_count: Participants
         update:
