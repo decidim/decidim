@@ -48,8 +48,8 @@
   }
 }
 
-.layout-2col-grid{
-  @apply grid grid-cols-1 md:grid-cols-10 gap-12 md:gap-32 py-4 md:py-32 md:[&>main]:col-span-7 md:[&>aside]:col-span-3 [&>main]:relative;
+.layout-item{
+  @apply container grid grid-cols-1 md:grid-cols-12 py-4 md:py-32 md:[&>main]:col-start-2 md:[&>main]:col-span-6 md:[&>aside]:col-start-9 md:[&>aside]:col-span-3 [&>main]:relative;
 
   &__back{
     @apply md:absolute md:-left-[1em] md:-top-8 md:-translate-y-full;
