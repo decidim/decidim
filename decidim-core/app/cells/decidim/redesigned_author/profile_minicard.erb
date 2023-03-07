@@ -10,7 +10,9 @@
 
   <div class="author__tooltip-links">
     <%= link_to decidim.profile_followers_path(raw_model.nickname) do %>
-      <%= model.followers_count %> <%= t("decidim.profiles.show.followers") %>
+      <%= content_tag(:span, id: dom_id(raw_model, :followers_count)) do %>
+        <%= model.followers_count %> <%= t("decidim.profiles.show.followers") %>
+      <% end %>
     <% end %>
     <% if model.can_follow? %>
       <%= link_to decidim.profile_following_path(raw_model.nickname) do %>
