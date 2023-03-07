@@ -8,65 +8,77 @@ module Decidim
     # It is intended to be used in the `participatory_space_highlighted_elements`
     # view hook.
     class HighlightedMeetingsForComponentCell < Decidim::ViewModel
+      include ApplicationHelper
       include Decidim::ComponentPathHelper
       include Decidim::CardHelper
       include Decidim::LayoutHelper
 
+      delegate :snippets, to: :controller
+
       def show
-        render unless meetings_count.zero?
+        render unless items_blank?
+      end
+
+      def items_blank?
+        meetings_count.zero?
       end
 
       private
 
-      def meetings
-        @meetings ||= Decidim::Meetings::Meeting.where(component: model)
-                                                .except_withdrawn
-                                                .published
-                                                .not_hidden
-                                                .visible_for(current_user)
+      def meetings_count
+        @meetings_count ||= meetings.size
+      end
+
+      def base_relation
+        @base_relation ||= Decidim::Meetings::Meeting.where(component: model)
+                                                     .except_withdrawn
+                                                     .published
+                                                     .not_hidden
+                                                     .visible_for(current_user)
       end
 
       def section_id
-        return "upcoming_meetings" if upcoming_meetings?
-        return "past_meetings" if past_meetings?
+        return "upcoming_meetings" if show_upcoming_meetings?
+
+        "past_meetings"
       end
 
       def collection
-        return upcoming_meetings if upcoming_meetings?
-        return past_meetings if past_meetings?
+        @collection ||= meetings.limit(limit)
+      end
+
+      def meetings
+        @meetings ||= show_upcoming_meetings? ? upcoming_meetings : past_meetings
       end
 
       def title
-        return t("upcoming_meetings", scope: "decidim.participatory_spaces.highlighted_meetings") if upcoming_meetings?
-        return t("past_meetings", scope: "decidim.participatory_spaces.highlighted_meetings") if past_meetings?
+        return t("upcoming_meetings", scope: "decidim.participatory_spaces.highlighted_meetings") if show_upcoming_meetings?
+
+        t("past_meetings", scope: "decidim.participatory_spaces.highlighted_meetings")
       end
 
-      def upcoming_meetings?
-        @upcoming_meetings_present ||= upcoming_meetings.present?
+      def show_upcoming_meetings?
+        @show_upcoming_meetings ||= options[:force_upcoming] || upcoming_meetings.present?
       end
 
-      def past_meetings?
-        @past_meetings_present ||= past_meetings.present?
+      def show_calendar?
+        @show_calendar ||= show_upcoming_meetings? && collection.minimum(:start_time).before?(2.months.from_now.beginning_of_month)
+      end
+
+      def calendar_months
+        [Date.current, Date.current.next_month]
       end
 
       def past_meetings
-        @past_meetings ||= meetings.past.order(end_time: :desc, start_time: :desc).limit(3)
+        @past_meetings ||= base_relation.past.order(end_time: :desc, start_time: :desc)
       end
 
       def upcoming_meetings
-        @upcoming_meetings ||= meetings.upcoming.order(:start_time, :end_time).limit(3)
+        @upcoming_meetings ||= base_relation.upcoming.order(:start_time, :end_time)
       end
 
-      def meetings_count
-        @meetings_count ||= meetings.count
-      end
-
-      def past_meetings_count
-        @past_meetings_count ||= meetings.past.count
-      end
-
-      def upcoming_meetings_count
-        @upcoming_meetings_count ||= meetings.upcoming.count
+      def single_component?
+        @single_component ||= model.is_a?(Decidim::Component)
       end
 
       def cache_hash
@@ -80,6 +92,10 @@ module Decidim
 
       def component_routes
         Decidim::EngineRouter.main_proxy(model)
+      end
+
+      def limit
+        3
       end
     end
   end
