@@ -4,12 +4,10 @@ module Decidim
   class FollowsController < Decidim::ApplicationController
     include FormFactory
     before_action :authenticate_user!
-    helper_method :resource
+    helper_method :resource, :button_options
 
     def destroy
       @form = form(Decidim::FollowForm).from_params(params)
-      @inline = params[:follow][:inline] == "true"
-      @button_classes = params[:follow][:button_classes]
       enforce_permission_to :delete, :follow, follow: @form.follow
 
       DeleteFollow.call(@form, current_user) do
@@ -25,8 +23,6 @@ module Decidim
 
     def create
       @form = form(Decidim::FollowForm).from_params(params)
-      @inline = params[:follow][:inline] == "true"
-      @button_classes = params[:follow][:button_classes]
       enforce_permission_to :create, :follow
 
       CreateFollow.call(@form, current_user) do
@@ -44,6 +40,12 @@ module Decidim
       @resource ||= GlobalID::Locator.locate_signed(
         params[:follow][:followable_gid]
       )
+    end
+
+    def button_options
+      # REDESIGN_PENDING - After removing the old follow button the inline
+      # param should also be removed
+      @button_options ||= params.require(:follow).permit(:button_classes, :inline).to_h.symbolize_keys
     end
   end
 end
