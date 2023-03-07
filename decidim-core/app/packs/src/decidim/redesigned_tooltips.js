@@ -55,6 +55,8 @@ export default function(node) {
   const tooltip = div.firstElementChild
 
   tooltip.id = tooltip.id || `tooltip-${Math.random().toString(36).substring(7)}`
+  // append to dom hidden, to apply css transitions
+  tooltip.setAttribute("aria-hidden", true)
 
   const append = () => {
     // remove any previous tooltip from the DOM, in order to avoid overlaps
@@ -63,7 +65,6 @@ export default function(node) {
     document.body.appendChild(tooltip)
 
     node.setAttribute("aria-describedby", tooltip.id)
-    tooltip.setAttribute("aria-hidden", false)
 
     // the position must be calculated once the event has been triggered
     // in that way, we ensure the container position is that we want
@@ -83,9 +84,18 @@ export default function(node) {
       [positionX, positionY] = topCenter
     }
 
+    // when the node is placed at the left side of the screen
+    // we translate the tooltip's arrow in order to fit inside the viewport
+    if (positionX < Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) * 0.5) {
+      tooltip.style.setProperty("--arrow-offset", "80%")
+    }
+
     tooltip.style.top = `${positionY}px`
     tooltip.style.left = `${positionX}px`
+
+    tooltip.setAttribute("aria-hidden", false)
   }
+
   const remove = () => tooltip.setAttribute("aria-hidden", true)
 
   // keyboard listener is at root-level
@@ -95,6 +105,6 @@ export default function(node) {
   node.addEventListener("mouseleave", remove)
   node.addEventListener("focus", append)
   node.addEventListener("blur", remove)
-  tooltip.addEventListener("mouseenter", append)
+  tooltip.addEventListener("mouseenter", () => tooltip.setAttribute("aria-hidden", false))
   tooltip.addEventListener("mouseleave", remove)
 }

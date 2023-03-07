@@ -1,16 +1,16 @@
 [role=tooltip]{
-  @apply absolute bg-black p-4 z-10 w-max max-w-xs rounded text-left text-white transition-all ease-in delay-300;
+  @apply absolute bg-black p-4 z-10 w-max max-w-xs rounded text-left text-white;
 
   & > *{
     @apply relative z-20;
   }
 
   &[aria-hidden="false"]{
-    @apply visible opacity-100 transition-all ease-in;
+    @apply opacity-100 transition-opacity duration-500;
   }
 
   &[aria-hidden="true"]{
-    @apply invisible hover:visible hover:opacity-100 opacity-0;
+    @apply opacity-0 transition-opacity duration-500 delay-500;
   }
 
   /*
