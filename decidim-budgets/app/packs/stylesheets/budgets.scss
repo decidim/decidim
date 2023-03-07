@@ -94,11 +94,19 @@
   }
 
   &__definition-data__title{
-    @apply text-sm text-gray-2 mt-4 mb-2 block;
+    @apply text-sm text-gray-2 mt-8 mb-2 block;
   }
 
   &__definition-data__number{
     @apply text-gray-2 font-bold text-3xl bg-background text-center py-2;
+  }
+
+  &__definition-data__grid{
+    @apply grid grid-cols-2 mt-72;
+
+    .button_to{
+      @apply text-center;
+    }
   }
 
   &__filter-title{
