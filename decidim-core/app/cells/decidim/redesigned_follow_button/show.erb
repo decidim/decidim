@@ -16,7 +16,7 @@
         resource: model,
         class: button_classes,
         title: t("decidim.shared.follow_button.sign_in_before_follow"),
-        params: { follow: { followable_gid: model.to_sgid.to_s, button_classes: } },
+        params: req_params,
         :'aria-haspopup' => true,
         remote: remote,
         id: dom_id(model, :follow)

@@ -24,7 +24,7 @@ module Decidim
     end
 
     def req_params
-      { follow: { followable_gid: model.to_sgid.to_s } }
+      { follow: { followable_gid: model.to_sgid.to_s, button_classes: } }
     end
 
     def method
