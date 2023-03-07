@@ -1,5 +1,18 @@
-<div class="collection-sort-controls card-grid">
-  <%= order_selector available_orders, i18n_scope: "decidim.budgets.projects.orders" %>
+<div class="budget__list--header">
+  <div>
+    <button class="button button__xs button__pill button__pill--left">
+      <%= t("all", scope: "decidim.budgets.projects.project_filter") %>
+    </button><button class="button button__xs button__pill button__pill--right button__pill--active">
+      <%= t("added", scope: "decidim.budgets.projects.project_filter") %>
+      <span class="button__pill--count">
+        2
+      </span>
+    </button>
+  </div>
+
+  <div class="collection-sort-controls card-grid">
+    <%= order_selector available_orders, i18n_scope: "decidim.budgets.projects.orders" %>
+  </div>
 </div>
 
 <div class="budget-list">

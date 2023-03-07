@@ -70,6 +70,29 @@
   &:hover{
     @apply text-white;
 
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), theme('colors.secondary');
+    background: linear-gradient(0deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), theme('colors.secondary');
+  }
+
+  &__pill{
+    @apply bg-gray-5 text-secondary mx-0;
+  }
+
+  &__pill--active{
+    @apply bg-secondary text-white;
+    .button__pill--count{
+      @apply bg-white text-secondary;
+    }
+  }
+
+  &__pill--left{
+    @apply rounded-l rounded-r-none;
+  }
+
+  &__pill--right{
+    @apply rounded-r rounded-l-none;
+  }
+
+  &__pill--count{
+    @apply rounded-full bg-white text-secondary inline-block h-[18px] w-[18px] ml-2;
   }
 }

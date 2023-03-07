@@ -109,6 +109,10 @@
     @apply my-4 rounded p-2 border-4 border-white;
   }
 
+  &__list--header{
+    @apply grid grid-cols-2 my-8;
+  }
+
   &-list{
     @apply my-4;
 

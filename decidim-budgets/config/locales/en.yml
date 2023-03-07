@@ -288,6 +288,9 @@ en:
           most_voted: Most voted
           random: Random order
           selected: Selected
+        project_filter:
+          all: All
+          added: Added
         project:
           add: Add project %{resource_name} to your vote
           remove: Remove project %{resource_name} from your vote
