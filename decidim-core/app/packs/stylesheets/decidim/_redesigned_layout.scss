@@ -1,5 +1,5 @@
 .layout-container{
-  @apply flex flex-col min-h-screen [&_[data-content]]:min-h-[50vh];
+  @apply flex flex-col min-h-screen [&_[data-content]]:min-h-[50vh] [&_[data-content]]:relative;
 
   &__skip{
     @apply absolute z-10 left-0 -translate-x-full py-1 px-4 bg-primary rounded-br-lg text-white cursor-pointer transition focus:translate-x-0;
