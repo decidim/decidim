@@ -1,9 +1,9 @@
 <div class="author__tooltip bottom" role="tooltip">
   <div class="author__container">
-    <%= avatar(disable_tooltip: true) %>
+    <%= render :avatar %>
 
     <div>
-      <%= name(disable_tooltip: true) %>
+      <%= render :name %>
       <span class="text-md"><%= model.nickname %></span>
     </div>
   </div>

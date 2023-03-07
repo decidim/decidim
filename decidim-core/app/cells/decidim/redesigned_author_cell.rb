@@ -30,14 +30,6 @@ module Decidim
       model.deleted? ? t("decidim.profile.deleted") : decidim_sanitize(author_name)
     end
 
-    def avatar(opts = {})
-      render locals: { disable_tooltip: opts[:disable_tooltip] || !has_tooltip? || options[:skip_profile_link] }
-    end
-
-    def name(opts = {})
-      render locals: { disable_tooltip: opts[:disable_tooltip] || !has_tooltip? || options[:skip_profile_link] }
-    end
-
     def flag_user
       render unless current_user == model
     end
