@@ -481,6 +481,8 @@ describe "Participatory Process Groups", type: :system do
           visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
           within ".order-by__tabs" do
             click_link "Past"
+
+            sleep 2
           end
         end
 
@@ -508,6 +510,7 @@ describe "Participatory Process Groups", type: :system do
           visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
           within ".order-by__tabs" do
             click_link "Upcoming"
+            sleep 2
           end
         end
 
