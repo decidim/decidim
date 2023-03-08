@@ -28,7 +28,7 @@
   <div class="meeting-list__container">
     <span class="meeting-list__block-list-title"><%= title %></span>
     <% collection.includes(:component).each do |meeting| %>
-      <%= cell "decidim/meetings/meeting_l", meeting, link_whole_card: true, title_tag: :h2 %>
+      <%= cell "decidim/meetings/meeting_l", meeting, link_whole_card: true, title_tag: :h3, **options.slice(:show_space) %>
     <% end %>
   </div>
 </div>
