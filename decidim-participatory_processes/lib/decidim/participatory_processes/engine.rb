@@ -261,6 +261,7 @@ module Decidim
           content_block.cell = "decidim/proposals/content_blocks/highlighted_proposals"
           content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
           content_block.public_name_key = "decidim.proposals.content_blocks.highlighted_proposals.name"
+          content_block.component_manifest_name = "proposals"
 
           content_block.settings do |settings|
             settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
@@ -272,6 +273,7 @@ module Decidim
           content_block.cell = "decidim/accountability/content_blocks/highlighted_results"
           content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
           content_block.public_name_key = "decidim.accountability.content_blocks.highlighted_results.results"
+          content_block.component_manifest_name = "accountability"
 
           content_block.settings do |settings|
             settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
@@ -283,6 +285,7 @@ module Decidim
           content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
           content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
           content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
+          content_block.component_manifest_name = "meetings"
           content_block.default!
 
           content_block.settings do |settings|
