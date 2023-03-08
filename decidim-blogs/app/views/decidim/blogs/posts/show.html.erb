@@ -23,14 +23,13 @@
 
   <h1 class="h1 decorator my-12"><%= translated_attribute post.title %></h1>
 
-  <% if post.photos.present? %>
+  <% if post.photo.present? %>
     <div class="blog__image grow">
-      <%= image_tag post.photos[0].big_url, alt: post.photos[0].description || post.photos[0].title || t("alt", scope: "decidim.application.photo") %>
+      <%= image_tag post.photo.big_url, alt: post.photo.description || post.photo.title || t("alt", scope: "decidim.application.photo") %>
     </div>
   <% end %>
 
   <div class="blog__container">
-    <% post_presenter = Decidim::Blogs::PostPresenter.new(post) %>
     <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
 
     <div class="blog__text">
@@ -39,7 +38,7 @@
 
     <%= render partial: "actions" %>
 
-    <% if post.photos.present? %>
+    <% if post.photos.any? %>
       <section class="blog__section">
         <h2 class="h4 md:h3 decorator"><%= t("decidim.application.photos.related_photos") %></h2>
 
@@ -47,7 +46,7 @@
       </section>
     <% end %>
 
-    <% if post.documents.present? %>
+    <% if post.documents.any? %>
       <section class="blog__section">
         <h2 class="h4 md:h3 decorator"><%= t("decidim.application.documents.related_documents") %></h2>
 

@@ -9,7 +9,7 @@ module Decidim
 
       redesign active: true
 
-      helper_method :posts, :post, :paginate_posts, :posts_most_commented
+      helper_method :posts, :post, :post_presenter, :paginate_posts, :posts_most_commented
 
       def index; end
 
@@ -25,6 +25,10 @@ module Decidim
 
       def post
         @post ||= posts.find(params[:id])
+      end
+
+      def post_presenter
+        @post_presenter ||= Decidim::Blogs::PostPresenter.new(post)
       end
 
       def posts
