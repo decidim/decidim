@@ -301,10 +301,10 @@ describe "Participatory Process Groups", type: :system do
       )
     end
 
-    it "shows no data if there are no components or followers in depending participatory processes" do
+    it "shows no statistics content block if there are no components or followers in depending participatory processes" do
       visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
 
-      expect(page).to have_content("There are no statistics yet")
+      expect(page).to have_no_css("section[data-statistics]")
     end
 
     context "when there are components and depending resources" do
@@ -326,6 +326,10 @@ describe "Participatory Process Groups", type: :system do
           proposal.coauthorships.create(author: user)
         end
         visit decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      end
+
+      it "shows the statistics content block" do
+        expect(page).to have_css("section[data-statistics]")
       end
 
       it "shows unique participants count from both participatory processes" do
