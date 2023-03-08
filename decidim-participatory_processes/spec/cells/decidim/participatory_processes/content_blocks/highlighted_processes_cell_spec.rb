@@ -20,7 +20,7 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
 
   context "when the content block has no settings" do
     it "shows 4 processes" do
-      expect(highlighted_processes).to have_selector("a.card--process", count: 4)
+      expect(highlighted_processes).to have_selector("a.card__grid", count: 4)
     end
   end
 
@@ -32,7 +32,7 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
     end
 
     it "shows up to 8 processes" do
-      expect(highlighted_processes).to have_selector("a.card--process", count: 5)
+      expect(highlighted_processes).to have_selector("a.card__grid", count: 5)
     end
   end
 end
