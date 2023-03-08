@@ -5,11 +5,11 @@
     @apply rounded border-4 border-background md:border-0;
 
     [id*="dropdown-menu"]{
-      @apply gap-2;
+      @apply gap-1;
     }
 
     [data-controls*="panel"]{
-      @apply flex items-center justify-start gap-2 p-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+      @apply flex items-center justify-start gap-2 p-1.5 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
       & > span{
         @apply text-gray-2 font-bold;
@@ -61,7 +61,7 @@
   }
 
   [data-controls*="panel"]{
-    @apply ml-auto p-0 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+    @apply ml-auto p-0 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden rounded hover:bg-gray-2 hover:[&>svg]:text-white transition-colors;
 
     &[aria-expanded="false"] > svg:last-of-type,
     &[aria-expanded="true"] > svg:first-of-type{
