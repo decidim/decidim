@@ -105,7 +105,26 @@ describe "Private Participatory Processes", type: :system do
         first(".card__grid-text", text: translated(private_participatory_process.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(private_participatory_process)
-        expect(page).to have_content "This is a private process"
+      end
+
+      context "when announcement content block is not added to landing page" do
+        it "doesn't show a private space announcement message" do
+          first(".card__grid-text", text: translated(private_participatory_process.title, locale: :en)).click
+
+          expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(private_participatory_process)
+          expect(page).to have_no_content "This is a private process"
+        end
+      end
+
+      context "when announcement content block is added to landing page" do
+        let!(:private_participatory_process) { create :participatory_process, :published, :with_content_blocks, organization:, private_space: true, blocks_manifests: [:announcement] }
+
+        it "shows a private space announcement message" do
+          first(".card__grid-text", text: translated(private_participatory_process.title, locale: :en)).click
+
+          expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(private_participatory_process)
+          expect(page).to have_content "This is a private process"
+        end
       end
     end
   end
