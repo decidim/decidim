@@ -46,13 +46,18 @@ const getAbsolutePosition = (node, relativeParent) => {
 export default function(node) {
   const { tooltip: tooltipHtml } = node.dataset
 
-  // in case of javascript disabled, the tooltip could use the title attribute as default behaviour
-  // once arrives here, title is no longer necessary
-  node.removeAttribute("title")
-
   const div = document.createElement("div")
   div.innerHTML = tooltipHtml
   const tooltip = div.firstElementChild
+
+  // only run this script when the tooltip content is html
+  if (!(tooltip instanceof HTMLElement)) {
+    return
+  }
+
+  // in case of javascript disabled, the tooltip could use the title attribute as default behaviour
+  // once arrives here, title is no longer necessary
+  node.removeAttribute("title")
 
   tooltip.id = tooltip.id || `tooltip-${Math.random().toString(36).substring(7)}`
   // append to dom hidden, to apply css transitions
