@@ -6,7 +6,7 @@
 
 <%= f.text_field :email, help_text: t(".email_help") %>
 
-<%= f.upload :avatar %>
+<%= f.upload :avatar, button_class: "button button__lg button__transparent-secondary w-full" %>
 
 <%= f.text_area :about, rows: 5 %>
 

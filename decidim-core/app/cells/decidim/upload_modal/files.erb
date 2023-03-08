@@ -2,8 +2,17 @@
   <div>
     <%= tag.label label %>
 
+    <%# NOTE: this block is about wrapping a default image for the avatar with the new styles,
+              when there's nothing uploaded yet. It's removed via javascript
+              at the time any image has been uploaded, but the form is still pending to submit %>
     <% if attachments.blank? && !has_title? && uploader_default_image_path(attribute).present? %>
-      <%= image_tag uploader_default_image_path(attribute) %>
+    <div id="default-active-upload" class="upload-modal__files">
+      <div class="attachment-details">
+        <div>
+          <%= image_tag uploader_default_image_path(attribute) %>
+        </div>
+      </div>
+    </div>
     <% end %>
 
     <div class="active-uploads upload-modal__files" data-active-uploads>
