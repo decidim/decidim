@@ -264,6 +264,7 @@ module Decidim
 
           content_block.settings do |settings|
             settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+            settings.attribute :show_space, type: :boolean, default: true
           end
         end
 
@@ -274,13 +275,19 @@ module Decidim
 
           content_block.settings do |settings|
             settings.attribute :order, type: :enum, default: "random", choices: %w(random recent)
+            settings.attribute :show_space, type: :boolean, default: true
           end
         end
 
         Decidim.content_blocks.register(:participatory_process_group_homepage, :highlighted_meetings) do |content_block|
           content_block.cell = "decidim/meetings/content_blocks/highlighted_meetings"
+          content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_settings_form"
           content_block.public_name_key = "decidim.meetings.content_blocks.upcoming_meetings.name"
           content_block.default!
+
+          content_block.settings do |settings|
+            settings.attribute :show_space, type: :boolean, default: true
+          end
         end
 
         Decidim.content_blocks.register(:participatory_process_group_homepage, :stats) do |content_block|
