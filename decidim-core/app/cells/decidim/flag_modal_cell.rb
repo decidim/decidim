@@ -15,6 +15,7 @@ module Decidim
       hash.push(model.reported_by?(current_user) ? 1 : 0)
       hash.push(model.class.name.gsub("::", ":"))
       hash.push(model.id)
+      hash.push(model.to_sgid.to_s)
       hash.join(Decidim.cache_key_separator)
     end
 
