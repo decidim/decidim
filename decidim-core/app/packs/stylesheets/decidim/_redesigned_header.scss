@@ -49,17 +49,17 @@ header{
 
     &__links-desktop,
     > *:last-child{
-      @apply col-span-1 xl:col-end-13 md:col-start-8 justify-self-end;
+      @apply col-span-1 md:col-start-8 lg:col-start-8 lg:col-span-5 justify-self-end;
     }
 
     &__links-desktop{
-      @apply hidden lg:flex items-center justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-6 first:[&>*]:pl-0 last:[&>*]:pr-0;
+      @apply hidden lg:flex items-center justify-between text-center divide-x-2 divide-gray-3 ml-auto [&>*]:px-4 xl:[&>*]:px-6 first:[&>*]:pl-0 last:[&>*]:pr-0;
 
       &__item{
         @apply flex flex-col items-center text-secondary px-2 py-1 rounded hover:underline hover:bg-background;
 
         &-wrapper{
-          @apply flex gap-x-6;
+          @apply flex gap-x-4 xl:gap-x-6;
         }
       }
 
