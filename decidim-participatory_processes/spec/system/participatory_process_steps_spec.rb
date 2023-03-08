@@ -40,33 +40,5 @@ describe "Participatory Process Steps", type: :system do
         expect(page).to have_content(/#{translated(step.title)}/i)
       end
     end
-
-    it "does not show a CTA button" do
-      # REDESIGN_PENDING - The CTA is ignored in the redesign. Remove this
-      # test if it's correct
-
-      visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
-
-      within ".process-header__phase" do
-        expect(page).to have_no_css(".process-header__button")
-      end
-    end
-
-    context "when the active step has CTA text and url set" do
-      before do
-        participatory_process.steps.first.update!(cta_path: "my_path", cta_text: { en: "Take action!" })
-      end
-
-      it "shows a CTA button" do
-        # REDESIGN_PENDING - The CTA is ignored in the redesign. Remove this
-        # test if it's correct
-
-        visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
-
-        within ".process-header__phase" do
-          expect(page).to have_link("Take action!")
-        end
-      end
-    end
   end
 end
