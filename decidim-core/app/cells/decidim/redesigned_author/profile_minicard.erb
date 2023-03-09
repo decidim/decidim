@@ -19,9 +19,11 @@
     <% end %>
   </div>
 
-  <%= link_to current_or_new_conversation_path_with(model), class: "button button__sm button__transparent" do %>
-    <span><%= t("decidim.profiles.show.send_private_message") %></span>
-    <%= icon "mail-send-line" %>
+  <% if model.direct_messages_enabled?(context) %>
+    <%= link_to current_or_new_conversation_path_with(model), class: "button button__sm button__transparent" do %>
+      <span><%= t("decidim.profiles.show.send_private_message") %></span>
+      <%= icon "mail-send-line" %>
+    <% end %>
   <% end %>
 
   <%= follow_button_for(raw_model, false, button_classes: "button button__sm button__transparent") %>
