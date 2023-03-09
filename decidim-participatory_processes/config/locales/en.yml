@@ -449,6 +449,8 @@ en:
             title: General Information
             visbility: Visibility
       content_blocks:
+        hero:
+          name: Hero image and CTA
         highlighted_processes:
           name: Highlighted processes
         related_processes:
