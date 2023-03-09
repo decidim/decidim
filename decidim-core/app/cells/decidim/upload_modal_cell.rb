@@ -44,7 +44,7 @@ module Decidim
     end
 
     def label
-      form.send(:custom_label, attribute, options[:label], { required: required? })
+      form.send(:custom_label, attribute, options[:label], { required: required?, for: nil })
     end
 
     def button_label
