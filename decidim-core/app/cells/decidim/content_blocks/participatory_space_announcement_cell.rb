@@ -3,7 +3,7 @@
 module Decidim
   module ContentBlocks
     class ParticipatorySpaceAnnouncementCell < BaseCell
-      delegate :announcement, :private_space?, to: :resource
+      delegate :announcement, to: :resource
 
       def show
         return if announcement_cell.blank_content?

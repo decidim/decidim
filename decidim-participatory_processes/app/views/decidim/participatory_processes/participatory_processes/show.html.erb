@@ -14,6 +14,12 @@
   )
 %>
 
+<% if current_participatory_space.private_space? %>
+  <div class="container">
+    <%= cell("decidim/announcement", t("private_space", scope: "decidim.participatory_processes.show"), callout_class: "alert") %>
+  </div>
+<% end %>
+
 <div class="participatory-space__container">
 
   <%= participatory_space_floating_help %>
