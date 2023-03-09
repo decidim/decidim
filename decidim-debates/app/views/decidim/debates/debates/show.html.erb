@@ -49,12 +49,12 @@ edit_link(
   <%= render partial: "decidim/shared/tags", locals: { resource: debate, tags_class_extra: "tags--debate" } %>
 
   <div class="my-4 flex gap-x-1">
-    <%= cell "decidim/endorsers_list", debate %>
     <% if endorsements_enabled? && allowed_to?(:endorse, :debate, debate: debate) %>
       <%= endorsement_buttons_cell(debate) %>
     <% end %>
     <%= cell "decidim/comments_button", nil %>
   </div>
+  <%= cell "decidim/endorsers_list", debate, layout: :full %>
 
   <div class="my-4">
     <%= comments_for debate %>
