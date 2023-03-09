@@ -31,6 +31,7 @@ fi:
         update:
           error: Kommentin päivittäminen epäonnistui.
       comments_count: Kommenttien määrä
+      comments_title: Kommentti
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
       view: Näytä
@@ -83,6 +84,9 @@ fi:
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita asiatonta sisältöä
+        show_replies:
+          one: Näytä vastaus
+          other: Näytä %{count} vastausta
         single_comment_link_title: Linkki kommenttiin
       comment_order_selector:
         order:
