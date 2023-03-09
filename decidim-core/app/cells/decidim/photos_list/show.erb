@@ -1,4 +1,4 @@
-<div class="photo__container">
+<div class="photo__container" data-gallery>
   <% model.each_with_index do |photo, index| %>
     <%= cell "decidim/photo", photo, index: index %>
   <% end %>
