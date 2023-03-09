@@ -10,6 +10,24 @@ module Decidim
       before_action :check_sign_in_enabled, only: :create
       # rubocop: enable Rails/LexicallyScopedActionFilter
 
+      def create
+        super do |user|
+          if user.admin?
+            # Check that the admin password passes the validation and clear the
+            # `password_updated_at` field when the password is weak to force a
+            # password update on the user.
+            #
+            # Handles a case when the user registers through the registration
+            # form and they are promoted to an admin after that. In this case,
+            # the newly promoted admin user would otherwise have to change their
+            # password straight away even if they originally registered with a
+            # strong password.
+            validator = PasswordValidator.new({ attributes: :password })
+            user.update!(password_updated_at: nil) unless validator.validate_each(user, :password, sign_in_params[:password])
+          end
+        end
+      end
+
       def destroy
         current_user.invalidate_all_sessions!
         if params[:translation_suffix].present?
