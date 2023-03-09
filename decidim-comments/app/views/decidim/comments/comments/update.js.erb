@@ -18,4 +18,10 @@ $(() => {
   component = new Decidim.CommentsComponent($comments, $comments.data("decidim-comments"));
   component.mountComponent();
   $comments.data("comments", component);
+
+  // Trigger ajax:success event to apply behaviour on the
+  // edited comment
+  Rails.fire(document, "ajax:success", {
+    commentsIds: [commentId]
+  });
 });
