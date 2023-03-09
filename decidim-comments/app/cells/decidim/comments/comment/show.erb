@@ -12,7 +12,7 @@
         <%= time_tag created_at, time_ago_in_words(created_at) %>
       </span>
       <% if edited? %>
-        <span class="comment__header--edited">
+        <span class="label">
           <%= t("decidim.components.comment.edited") %>
         </span>
       <% end %>
