@@ -33,7 +33,7 @@ shared_examples "manage landing page examples" do
         within ".edit_content_blocks" do
           find("button", text: "Add content block").click
           within ".add-components" do
-            find("a", text: "Hero image").click
+            find("a", text: "Hero image", exact_text: true).click
           end
         end
       end.to change(active_content_blocks, :count).by(1)
@@ -46,7 +46,7 @@ shared_examples "manage landing page examples" do
         within ".edit_content_blocks" do
           find("button", text: "Add content block").click
           within ".add-components" do
-            find("a", text: "Hero image").click
+            find("a", text: "Hero image", exact_text: true).click
           end
         end
 
