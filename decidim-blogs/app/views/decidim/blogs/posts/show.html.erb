@@ -38,21 +38,23 @@
 
     <%= render partial: "actions" %>
 
-    <% if post.photos.any? %>
-      <section class="blog__section">
-        <h2 class="h4 md:h3 decorator"><%= t("decidim.application.photos.related_photos") %></h2>
+    <div class="mt-8" data-component="accordion" data-multiselectable="false" data-collapsible="false">
+      <ul class="tab-x-container">
+        <% tabs.each_with_index do |tab, i| %>
+          <li>
+            <button id="trigger-<%= tab[:id] %>" class="tab-x" data-controls="panel-<%= tab[:id] %>" data-open="<%= "true" if i == 0 %>">
+              <%= icon tab[:icon], class: "text-gray fill-current" %><%= tab[:text] %>
+            </button>
+          </li>
+        <% end %>
+      </ul>
 
-        <%= cell("decidim/photos_list", post.photos) %>
-      </section>
-    <% end %>
-
-    <% if post.documents.any? %>
-      <section class="blog__section">
-        <h2 class="h4 md:h3 decorator"><%= t("decidim.application.documents.related_documents") %></h2>
-
-        <%= render partial: "decidim/application/documents", locals: { documents: post.documents } %>
-      </section>
-    <% end %>
+      <% panels.each do |panel| %>
+        <div id="panel-<%= panel[:id] %>" class="py-8">
+          <%= send(panel[:method], *panel[:args]) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <%= comments_for post %>
