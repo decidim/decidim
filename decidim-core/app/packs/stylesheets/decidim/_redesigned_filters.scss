@@ -94,3 +94,16 @@
     }
   }
 }
+
+/* overwrite default dropdowns */
+[data-target="dropdown-menu-filters"]{
+  @apply px-0 justify-start [&>span]:text-gray-2;
+
+  > svg{
+    @apply h-4 w-4 text-gray;
+  }
+
+  & + [id="dropdown-menu-filters"]{
+    @apply mx-0;
+  }
+}
