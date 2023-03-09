@@ -6,9 +6,7 @@ module Decidim
     class SessionsController < ::Devise::SessionsController
       include Decidim::DeviseControllers
 
-      # rubocop: disable Rails/LexicallyScopedActionFilter
       before_action :check_sign_in_enabled, only: :create
-      # rubocop: enable Rails/LexicallyScopedActionFilter
 
       def create
         super do |user|
