@@ -1886,6 +1886,7 @@ fi:
     name: Suomi
     name_with_error: Suomi (virhe!)
   password_validator:
+    denied: ei ole sallittu
     domain_included_in_password: liian samankaltainen palvelun verkko-osoitteen kanssa
     email_included_in_password: liian samankaltainen sähköpostisi kanssa
     fallback: ei ole hyväksytyn muotoinen
