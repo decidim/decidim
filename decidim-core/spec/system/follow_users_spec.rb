@@ -18,7 +18,7 @@ describe "Follow users", type: :system do
         visit decidim.profile_path(followable.nickname)
         expect do
           click_button "Follow"
-          expect(page).to have_content "Stop following"
+          expect(page).to have_content(/stop following/i)
         end.to change(Decidim::Follow, :count).by(1)
       end
     end
