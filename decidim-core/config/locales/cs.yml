@@ -1167,6 +1167,7 @@ cs:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
         note: Tento e-mail jste obdrželi, protože jste odběrateli zpravodajů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
+        see_on_website: E-mail se nezobrazuje správně? Zobrazit na <a href="%{link}" target="_blank">internetové stránce</a>.
         unsubscribe: Chcete-li se odhlásit z příjmu tohoto typu e-mailu, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit se</a>.
     newsletter_templates:
       basic_only_text:
@@ -1932,6 +1933,7 @@ cs:
     name: Čeština
     name_with_error: Čeština (chyba!)
   password_validator:
+    denied: je odepřen
     domain_included_in_password: je příliš podobné tomuto názvu domény
     email_included_in_password: je příliš podobný e-mailu
     fallback: není platný
