@@ -1,1 +1,185 @@
+---
 zh-TW:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: 狀態
+        decidim_category_id: 類別
+        decidim_scope_id: 範圍
+        description: 說明
+        end_date: 結束日期
+        progress: 進度
+        project_ids: 包含的專案
+        proposals: 包含的建議
+        start_date: 開始日期
+        title: 標題
+        updated_at: 更新時間
+      status:
+        description: 說明
+        key: 金鑰
+        name: 名稱
+        progress: 進度
+      timeline_entry:
+        description: 說明
+        entry_date: 日期
+        title: 標題
+    models:
+      decidim/accountability/proposal_linked_event: 在結果的建議
+      decidim/accountability/result_progress_updated_event: 結果程序已更新
+  activerecord:
+    models:
+      decidim/accountability/result:
+        other: 結果
+  decidim:
+    accountability:
+      actions:
+        attachment_collections: 資料夾
+        attachments: 附件
+        confirm_destroy: 確定要刪除 %{name} ？
+        destroy: 刪除
+        edit: 編輯
+        import_csv: 匯入CSV
+        new: 新增 %{name}
+        preview: 預覽
+        timeline_entries: 專案評估
+        title: 操作
+      admin:
+        exports:
+          result_comments: 評論
+          results: 結果
+        import_results:
+          new:
+            download_export: 匯出成 CSV
+            import: 匯入
+            info: |
+              <p>建議依照下面步驟：</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>為結果建立狀態</a> 到你想要新增的</li>
+              <li>在管理介面匯入前 <a href='%{link_new_result}' target='_blank'>至少手動建立一個結果</a> ，這樣才能確認要填寫的資料格式。</li>
+              <li>%{link_export_csv}</li>
+              <li>在自己電腦編輯，只能夠異動下面欄位：
+                <ul>
+                <li><b>category/id:</b> 類別代號</li>
+                <li><b>scope/id:</b> 範圍代號</li>
+                <li><b>parent/id:</b> 上一層代號 (相關結果)，選擇性的</li>
+                <li><b>title/en:</b> 英文標題，這要看你的平台語言設定。</li>
+                <li><b>description/en:</b> 英文介紹，這要看你的平台語言設定。</li>
+                <li><b>start_date:</b> 結果開始執行的日期 (格式 YYYY-MM-DD)</li>
+                <li><b>end_date:</b> 結果結束執行的日期 (格式 YYYY-MM-DD)</li>
+                <li><b>status/id:</b> 這個結果的狀態代號</li>
+                <li><b>progress:</b> 這次執行的比率 ( 0 到 100) </li>
+                <li><b>proposals_ids:</b> 相關建議的內部代號 (半形逗點分隔)，會自動轉換為 <span class='attribute-name'>proposal_url</span></li>
+                </ul>
+              </li>
+              </ol>
+            title: 從 CSV 匯入結果
+        imports:
+          create:
+            success: 檔案開始匯入，執行完成後會寄發 email 說明匯入結果
+        models:
+          result:
+            name: 結果
+          status:
+            name: 狀態
+          timeline_entry:
+            name: 輸入時間線
+        results:
+          create:
+            invalid: 建立結果時發生錯誤
+            success: 結果成功建立
+          destroy:
+            success: 結果成功刪除
+          edit:
+            title: 編輯結果
+            update: 更新結果
+          index:
+            title: 結果
+          new:
+            create: 建立結果
+            title: 新增結果
+          update:
+            invalid: 更新結果時發生錯誤
+            success: 結果成功更新
+        shared:
+          subnav:
+            statuses: 狀態
+        statuses:
+          create:
+            invalid: 建立狀態時發生錯誤
+            success: 狀態成功建立
+          destroy:
+            success: 狀態成功刪除
+          edit:
+            title: 編輯狀態
+            update: 更新狀態
+          index:
+            title: 狀態
+          new:
+            create: 新增狀態
+            title: 新狀態
+          update:
+            invalid: 更新狀態時發生錯誤
+            success: 狀態成功更新
+        timeline_entries:
+          create:
+            invalid: 建立資料時發生錯誤
+            success: 資料成功建立
+          destroy:
+            success: 資料成功刪除
+          edit:
+            title: 編輯資料
+            update: 更新資料
+          index:
+            title: 專案時程資料
+          new:
+            create: 建立資料
+            title: 新資料
+          update:
+            invalid: 更新資料時發生錯誤
+            success: 資料成功更新
+      admin_log:
+        result:
+          create: "%{user_name} 建立結果 %{resource_name} 在 %{space_name}"
+      results:
+        show:
+          stats:
+            last_updated_at: 更新時間
+            meetings: 會議
+            proposals: 提案
+            votes: 支援
+        timeline:
+          title: 專案評估
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: 類別
+          scope_id_eq:
+            label: 範圍
+          status_id_eq:
+            label: 狀態
+    components:
+      accountability:
+        actions:
+          comment: 評論
+        name: 問責
+        settings:
+          global:
+            categories_label: 類別名稱
+            comments_enabled: 已啟用留言
+            comments_max_length: 留言字數上限 (0 表示使用預設)
+            display_progress_enabled: 顯示進度
+            heading_leaf_level_results: 專案名稱
+            heading_parent_level_results: 結果名稱
+            intro: 介紹
+            scope_id: 範圍
+            scopes_enabled: 啟用的範圍
+            subcategories_label: 子類別名稱
+          step:
+            comments_blocked: 留言已封鎖
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: '提案 "%{proposal_title}" 已經包含在結果，可以在這個頁面檢視：'
+          email_outro: 收到這個提醒是因為訂閱了 "%{proposal_title}" ，透過上面連結可以停止訂閱。
+          email_subject: '%{proposal_title} 的更新'
