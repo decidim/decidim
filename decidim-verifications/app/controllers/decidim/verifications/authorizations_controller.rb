@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     # This controller allows users to create and destroy their authorizations. It
-    # shouldn't be necessary to expand it to add new authorization schemes.
+    # should not be necessary to expand it to add new authorization schemes.
     class AuthorizationsController < Verifications::ApplicationController
       helper_method :handler, :unauthorized_methods, :authorization_method, :authorization
       before_action :valid_handler, only: [:new, :create]
