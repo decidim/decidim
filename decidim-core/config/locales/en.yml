@@ -416,7 +416,7 @@ en:
           resume: Check your "%{authorization}" authorization progress
           title: Authorization is still in progress
         unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data ddoes notmatch.
+          explanation: Sorry, you can't perform this action as some of your authorization data does not match.
           invalid_field: "%{field} value %{value} isn't valid."
           ok: Ok
           title: Not authorized

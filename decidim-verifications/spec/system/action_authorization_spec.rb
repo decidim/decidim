@@ -111,7 +111,7 @@ describe "Action Authorization", type: :system do
           click_link "New proposal"
 
           expect(page).to have_content("Not authorized")
-          expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data ddoes notmatch.")
+          expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data does not match.")
           expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}, and your scope is #{other_scope.name["en"]}.")
         end
       end
@@ -131,7 +131,7 @@ describe "Action Authorization", type: :system do
             click_link "New proposal"
 
             expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data ddoes notmatch.")
+            expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data does not match.")
             expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
             expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}, and your scope is #{user_scope.name["en"]}.")
           end
@@ -144,7 +144,7 @@ describe "Action Authorization", type: :system do
             click_link "New proposal"
 
             expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data ddoes notmatch.")
+            expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data does not match.")
             expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
           end
         end
@@ -157,7 +157,7 @@ describe "Action Authorization", type: :system do
             click_link "New proposal"
 
             expect(page).to have_content("Not authorized")
-            expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data ddoes notmatch.")
+            expect(page).to have_content("Sorry, you can't perform this action as some of your authorization data does not match.")
             expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
             expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
           end
