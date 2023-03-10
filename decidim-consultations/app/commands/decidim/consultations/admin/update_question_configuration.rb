@@ -23,7 +23,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          # We don't have other question fields in this forms so any additional
+          # We do not have other question fields in this forms so any additional
           # validation error will be just shown in a flash message
           begin
             update_question!

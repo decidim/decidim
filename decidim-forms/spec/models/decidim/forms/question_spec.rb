@@ -59,7 +59,7 @@ module Decidim
         end
 
         describe "#not_conditioned" do
-          it "includes questions that don't have display conditions" do
+          it "includes questions that do not have display conditions" do
             expect(subject.class.not_conditioned).to contain_exactly(question_not_conditioned)
           end
 

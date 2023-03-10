@@ -29,7 +29,7 @@ export default class UploadModal {
       // - formObjectClass - Class of the current form object (e.g. Decidim::AccountForm)
       providedOptions = JSON.parse(button.dataset.upload);
     } catch (_e) {
-      // Don't care about the parse errors, just skip the provided options.
+      // Do not care about the parse errors, just skip the provided options.
     }
 
     this.options = Object.assign(providedOptions, options)

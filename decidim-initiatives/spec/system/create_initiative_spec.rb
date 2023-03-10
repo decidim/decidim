@@ -47,7 +47,7 @@ describe "Initiative", type: :system do
       let!(:other_initiative_type_scope) { nil }
 
       context "when the user is logged in" do
-        context "and they don't need to be verified" do
+        context "and they do not need to be verified" do
           it "they are taken to the initiative form" do
             click_link "New initiative"
             expect(page).to have_content("What does the initiative consist of")
@@ -126,7 +126,7 @@ describe "Initiative", type: :system do
           expect(page).to have_content("Please sign in")
         end
 
-        context "when they don't need to be verified" do
+        context "when they do not need to be verified" do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
@@ -197,7 +197,7 @@ describe "Initiative", type: :system do
 
     context "when there are multiples initiative type" do
       context "when the user is logged in" do
-        context "and they don't need to be verified" do
+        context "and they do not need to be verified" do
           it "they are taken to the initiative form" do
             click_link "New initiative"
             expect(page).to have_content("Which initiative do you want to launch")
@@ -278,7 +278,7 @@ describe "Initiative", type: :system do
           expect(page).to have_content("Please sign in")
         end
 
-        context "when they don't need to be verified" do
+        context "when they do not need to be verified" do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email

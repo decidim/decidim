@@ -270,7 +270,7 @@ Also some more refined configurations:
 |MAPS_API_KEY
 |For a simple geolocation and tile maps service configuration define this value in case the provider needs it (if you are using Here Maps, you will need an API key). See xref:services:maps.adoc[Maps].
 
-*Note that if you are using the `here` service you don't need to do anything else. If using `osm` however check the rest of env vars related to maps for a proper configuration*
+*Note that if you are using the `here` service you do not need to do anything else. If using `osm` however check the rest of env vars related to maps for a proper configuration*
 |
 |No
 
@@ -312,28 +312,28 @@ Also some more refined configurations:
 |MAPS_DYNAMIC_PROVIDER
 |For advanced cases, you can define this value instead or in combination of MAPS_PROVIDER (which will be the default). This allows to set up different providers for the static tile provider than the dynamic. See xref:services:maps.adoc[Maps].
 
-*Note that you don't need to define this variable for the most common, simple, one provider cases.*
+*Note that you do not need to define this variable for the most common, simple, one provider cases.*
 |
 |No
 
 |MAPS_STATIC_PROVIDER
 |For advanced cases, you can define this value instead or in combination of MAPS_PROVIDER (which will be the default). This allows to set up different providers for the static tile provider than the dynamic. See xref:services:maps.adoc[Maps].
 
-*Note that you don't need to define this variable for the most common, simple, one provider cases.*
+*Note that you do not need to define this variable for the most common, simple, one provider cases.*
 |
 |No
 
 |MAPS_STATIC_API_KEY
 |For advanced cases, you can define this value instead or in combination of MAPS_API_KEY (which will be the default). This allows to set up different providers for the static tile provider than the dynamic requiring different API KEYS. See xref:services:maps.adoc[Maps].
 
-*Note that you don't need to define this variable for the most common, simple, one provider cases.*
+*Note that you do not need to define this variable for the most common, simple, one provider cases.*
 |
 |No
 
 |MAPS_DYNAMIC_API_KEY
 |For advanced cases, you can define this value instead or in combination of MAPS_API_KEY (which will be the default). This allows to set up different providers for the static tile provider than the dynamic requiring different API KEYS. See xref:services:maps.adoc[Maps].
 
-*Note that you don't need to define this variable for the most common, simple, one provider cases.*
+*Note that you do not need to define this variable for the most common, simple, one provider cases.*
 |
 |No
 

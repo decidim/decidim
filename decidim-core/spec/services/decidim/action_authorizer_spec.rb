@@ -235,7 +235,7 @@ module Decidim
             end
           end
 
-          context "when custom action authorizer options are present and don't match the authorization" do
+          context "when custom action authorizer options are present and do not match the authorization" do
             let(:options) { { allowed_postal_codes: "2345,4567" } }
 
             it "returns an authorization status collection including unauthorized" do

@@ -110,7 +110,7 @@ describe "Account", type: :system do
         end
       end
 
-      context "when passwords don't match" do
+      context "when passwords do not match" do
         it "doesn't update the password" do
           within "form.edit_user" do
             page.find(".change-password").click

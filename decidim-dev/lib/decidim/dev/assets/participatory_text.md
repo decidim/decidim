@@ -16,7 +16,7 @@ Creations will require a consensus from all the participants. Depending on the C
 - consensus by enhanced majority: when a, b, c and also d appear in the creation.
 - consensus by absolute majority: when x, y and z appear in the creation.
 - consensus by imposing whatever the organization wants: to be used at will.
-- consensus by ignoring whatever resulted from the previous consensus: to be used when organization don't like the results of another consensus system.
+- consensus by ignoring whatever resulted from the previous consensus: to be used when organization do not like the results of another consensus system.
 
 It must be taken into account that using "consensus by ignoring whatever resulted from the previous consensus" will grant participants the right to produce a revolution and annihilate the organization.
 
@@ -46,6 +46,6 @@ Well, at the end we required one more paragraph and embedded an image, let's see
 
 # Summary
 
-We use here a main title again for the summary because we don't know what will happen when having many main titles in one document.
+We use here a main title again for the summary because we do not know what will happen when having many main titles in one document.
 
 Also, utf-8 characters should be supported. For example: "Cançó de Sangtraït".
