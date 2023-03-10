@@ -93,8 +93,10 @@ module Decidim
                              default: false,
                              desc: "Don't add Puma development SSL configuration options"
 
-      # we disable the webpacker instalation as we will use shakapacker
-      def webpacker_gemfile_entry; end
+      # we disable the webpacker installation as we will use shakapacker
+      def webpacker_gemfile_entry
+        []
+      end
 
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
