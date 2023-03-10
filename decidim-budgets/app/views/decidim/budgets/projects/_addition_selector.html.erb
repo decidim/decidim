@@ -1,0 +1,20 @@
+<%= redesigned_filter_form_for filter, url_for, class: "meeting__filter-container", data: { filters: "", component: "accordion" } do |form| %>
+  <%= form.collection_radio_buttons(
+        :addition_type,
+        filter_addition_type_values(added_count: search.result.with_order(current_order).size),
+        :first,
+        :last
+      ) do |builder|
+      builder.label(class: "filter") do %>
+      <button class="button button__xs button__pill button__pill--left<%= " button__pill--active" if filter.addition_type == builder.value %>">
+        <%= builder.radio_button(class: "reset-defaults") %>
+        <%= builder.text[:text] %>
+        <% if builder.text[:count].present? %>
+          <span class="button__pill--count">
+            <%= builder.text[:count] %>
+          </span>
+        <% end %>
+      </button>
+    <% end %>
+  <% end %>
+<% end %>
