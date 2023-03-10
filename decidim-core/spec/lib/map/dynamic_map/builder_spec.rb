@@ -16,17 +16,11 @@ module Decidim
         end
       end
 
-      describe "#stylesheet_snippets" do
-        it "returns the expected stylesheet assets" do
-          expect(subject.send(:template)).to receive(:append_stylesheet_pack_tag).with("decidim_map")
-          subject.stylesheet_snippets
-        end
-      end
-
-      describe "#javascript_snippets" do
-        it "returns the expected JavaScript assets" do
+      describe "#append_assets" do
+        it "returns the expected stylesheet and javascript assets" do
           expect(subject.send(:template)).to receive(:append_javascript_pack_tag).with("decidim_map_provider_default")
-          subject.javascript_snippets
+          expect(subject.send(:template)).to receive(:append_stylesheet_pack_tag).with("decidim_map")
+          subject.append_assets
         end
       end
     end

@@ -60,8 +60,7 @@ shared_context "with frontend map elements" do
   let(:builder_snippets) do
     builder = subject
     <<~HTML.strip
-      #{builder.stylesheet_snippets}
-      #{builder.javascript_snippets}
+      #{builder.append_assets}
     HTML
   end
   let(:html_document) do

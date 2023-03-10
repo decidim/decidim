@@ -11,10 +11,10 @@ module Decidim
             let(:options) { { apiKey: "key1234" } }
           end
 
-          describe "#javascript_snippets" do
+          describe "#append_assets" do
             it "returns the expected JavaScript assets" do
               expect(subject.send(:template)).to receive(:append_javascript_pack_tag).with("decidim_geocoding_provider_here")
-              subject.javascript_snippets
+              subject.append_assets
             end
           end
         end

@@ -20,8 +20,7 @@ module Decidim
         def geocoding_field(object_name, method, options = {})
           options[:autocomplete] ||= "off"
 
-          stylesheet_snippets
-          javascript_snippets
+          append_assets
           template.text_field(
             object_name,
             method,

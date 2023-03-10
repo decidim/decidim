@@ -8,8 +8,9 @@ module Decidim
         # autocompletion services which use the OpenStreetMap's (OSM) data.
         class Osm < ::Decidim::Map::Autocomplete
           class Builder < Decidim::Map::Autocomplete::Builder
-            # @see Decidim::Map::FrontendUtility::Builder#javascript_snippets
-            def javascript_snippets
+
+            # @see Decidim::Map::FrontendUtility::Builder#append_assets
+            def append_assets
               template.append_javascript_pack_tag("decidim_geocoding_provider_photon")
             end
           end
