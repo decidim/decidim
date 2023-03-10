@@ -126,7 +126,7 @@ In order to setup Decidim with SMS verification you need to:
 1. Create a class that accepts two parameters when initializing it (mobile phone and code) and a method named `deliver_code` that will send an SMS and return a truthy or falsey value if the delivery was OK or not.
 1. Set the `sms_gateway_service` configuration variable to the name of the class that you just created (use a String, not the actual class) at `config/initializers/decidim.rb`.
 
-Keep in mind that Decidim won't store a free text version of the mobile phone, only a hashed
+Keep in mind that Decidim will not store a free text version of the mobile phone, only a hashed
 version so we can avoid duplicates and guarantee the users' privacy.
 
 You can find an example [here][example SMS gateway].

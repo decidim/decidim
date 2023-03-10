@@ -240,14 +240,14 @@ module Decidim
     end
 
     # Public: Overrides scopes enabled flag available in other models like
-    # participatory space or assemblies. For initiatives it won't be directly
+    # participatory space or assemblies. For initiatives it will not be directly
     # managed by the user and it will be enabled by default.
     def scopes_enabled?
       true
     end
 
     # Public: Overrides scopes enabled attribute value.
-    # For initiatives it won't be directly
+    # For initiatives it will not be directly
     # managed by the user and it will be enabled by default.
     def scopes_enabled
       true

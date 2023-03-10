@@ -125,7 +125,7 @@ en:
     account:
       blocked: This account has been blocked due to Terms and Conditions violation
       delete:
-        alert: This action cannot be undone. If you delete your account you won't be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
+        alert: This action cannot be undone. If you delete your account you will not be able to log in with your credentials. The deletion of your account will result in the anonymization of your contributions. You will still be able to create a new account, but these contributions will not be associated with it.
         confirm:
           close: Close window
           ok: Yes, I want to delete my account
@@ -905,7 +905,7 @@ en:
       title: What are the badges?
     group_admins:
       actions:
-        are_you_sure: Are you sure? This won't remove the participant from the group.
+        are_you_sure: Are you sure? This will not remove the participant from the group.
         demote_admin: Remove admin
       demote:
         error: There was a problem removing this participant from the admins list
@@ -1280,7 +1280,7 @@ en:
           agreement: I agree with these terms
           legend: Agree to the terms and conditions of use
         refuse:
-          modal_body: If you refuse, you won't be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
+          modal_body: If you refuse, you will not be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms
@@ -1288,7 +1288,7 @@ en:
           modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
           alert: We've updated our Terms of Service, please review them.
-          body: Please take a moment to review updates to our Terms of Services. Otherwise you won't be able to use the platform.
+          body: Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.
           title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
@@ -1634,7 +1634,7 @@ en:
         hello: Hello %{email},
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />
-          Your account won't be created until you access the link above and set your nickname and password.
+          Your account will not be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
         invited_you_as_private_user: "%{invited_by} has invited you as a private participant of %{application}. You can accept it through the link below."
         someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
@@ -1658,7 +1658,7 @@ en:
         greeting: Hello %{recipient}!
         instruction: Someone has requested a link to change your password, and you can do this through the link below.
         instruction_2: If you didn't request this, please ignore this email.
-        instruction_3: Your password won't change until you access the link above and create a new one.
+        instruction_3: Your password will not change until you access the link above and create a new one.
         subject: Reset password instructions
       unlock_instructions:
         action: Unlock my account

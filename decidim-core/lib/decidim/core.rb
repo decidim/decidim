@@ -328,7 +328,7 @@ module Decidim
     30.minutes
   end
 
-  # If set to true, users have option to "remember me". Notice that expire_session_after won't take
+  # If set to true, users have option to "remember me". Notice that expire_session_after will not take
   # effect when the user wants to be remembered.
   config_accessor :enable_remember_me do
     true

@@ -490,7 +490,7 @@ Also some more refined configurations:
 
 `true`: Will redirect to HTTPS always
 
-`false`: Won't redirect to HTTPS
+`false`: Will not redirect to HTTPS
 
 |auto
 |No
@@ -608,7 +608,7 @@ Notice that this is also maximum time that user can idle before getting automati
 |DECIDIM_ENABLE_REMEMBER_ME
 |If set to true, users have option to "remember me".
 
-Notice that expire_session_after won't take effect when the user wants to be remembered.
+Notice that expire_session_after will not take effect when the user wants to be remembered.
 |true
 |No
 
