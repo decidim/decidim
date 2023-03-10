@@ -20,7 +20,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid, together with the collaborative_draft.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form was not valid and we couldn't proceed.
       #
       # Returns nothing.
       def call
