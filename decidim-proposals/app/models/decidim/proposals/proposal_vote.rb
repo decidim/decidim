@@ -15,7 +15,7 @@ module Decidim
       after_destroy :update_proposal_votes_count
 
       # Temporary votes are used when a minimum amount of votes is configured in
-      # a component. They aren't taken into account unless the amount of votes
+      # a component. They are not taken into account unless the amount of votes
       # exceeds a threshold - meanwhile, they're marked as temporary.
       def self.temporary
         where(temporary: true)

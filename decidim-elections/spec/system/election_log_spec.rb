@@ -155,7 +155,7 @@ describe "Election log", :slow, type: :system do
 
       it "does not show instructions to verify election" do
         expect(page).to have_content("Verify Election results")
-        expect(page).to have_content("The verifiable election file and SHA256 checksum aren't available yet")
+        expect(page).to have_content("The verifiable election file and SHA256 checksum are not available yet")
         expect(page).to have_content("NOT READY")
       end
     end
