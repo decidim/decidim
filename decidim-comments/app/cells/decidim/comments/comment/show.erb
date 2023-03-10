@@ -26,10 +26,7 @@
           <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
             <% unless reloaded? %>
               <li>
-                <button type="button" class="dropdown__item" data-dialog-open="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" title="<%= t("decidim.components.comment.report.action") %>" aria-controls="<%= current_user.present? ? "flagModalComment#{model.id}" : "loginModal" %>" aria-haspopup="dialog" tabindex="0">
-                  <%= icon "flag-line" %>
-                  <span><%= t("decidim.components.comment.report.action") %></span>
-                </button>
+                <%= cell("decidim/report_button", model, only_button: true, button_classes: "dropdown__item flex-row-reverse" ) %>
               </li>
             <% end %>
             <li>
@@ -83,7 +80,8 @@
   </div>
 
   <% if current_user.present? %>
-    <%= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
+    <%= cell("decidim/report_button", model).flag_modal %>
+    <%#= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
   <% end %>
   <% if model.authored_by?(current_user) %>
     <%= cell("decidim/comments/edit_comment_modal_form", model) %>
