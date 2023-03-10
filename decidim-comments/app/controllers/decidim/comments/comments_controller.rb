@@ -13,8 +13,7 @@ module Decidim
       before_action :set_commentable, except: [:destroy, :update]
       before_action :ensure_commentable!, except: [:destroy, :update]
 
-      helper_method :root_depth, :commentable, :order, :reply?, :reload?,
-                    :first_load?
+      helper_method :root_depth, :commentable, :order, :reply?, :reload?
 
       def index
         enforce_permission_to :read, :comment, commentable: commentable
@@ -179,10 +178,6 @@ module Decidim
 
       def root_depth
         params.fetch(:root_depth, 0).to_i
-      end
-
-      def first_load?
-        !params.has_key?(:after)
       end
 
       def commentable_path
