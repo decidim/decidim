@@ -1,6 +1,6 @@
 <div class="budget-summary" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
 
-  <%= render partial: "order_progress", locals: { include_heading: include_heading } %>
+  <%= render partial: "order_progress", locals: { include_heading: include_heading, project_item: project_item } %>
 
   <%= render partial: "order_selected_projects" %>
 </div>

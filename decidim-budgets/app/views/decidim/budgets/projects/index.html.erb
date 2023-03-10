@@ -49,7 +49,7 @@
           <%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %>
         </h2>
       <% else %>
-        <%= render partial: "budget_summary", locals: { include_heading: true } %>
+        <%= render partial: "budget_summary", locals: { include_heading: true, project_item: false } %>
       <% end %>
     </div>
 

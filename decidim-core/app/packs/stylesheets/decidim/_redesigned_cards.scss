@@ -15,7 +15,7 @@
     }
 
     &-text{
-      @apply w-full md:w-1/2 flex flex-col px-4 md:px-8 py-3 md:py-6 gap-y-2 md:gap-y-4 text-gray-2;
+      @apply w-full md:w-1/2 flex flex-col p-4 gap-y-2 md:gap-y-4 text-gray-2;
     }
 
     &:hover &-text h3{

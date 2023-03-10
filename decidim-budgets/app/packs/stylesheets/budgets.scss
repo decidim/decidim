@@ -2,8 +2,10 @@
   &-summary{
     @apply bg-tertiary;
 
+    box-shadow: 0 4px 6px 0 rgba(211, 211, 211, .25);
+
     &__cols{
-      @apply col-span-12 lg:col-start-2;
+      @apply col-span-10 lg:col-start-2;
     }
 
     &__container{
@@ -15,7 +17,7 @@
     }
 
     &__content{
-      @apply grid grid-cols-[70%_30%] items-center gap-2;
+      @apply grid grid-cols-[67.6%_30%] items-center gap-x-20 py-8;
     }
 
     &__content__header{
@@ -82,11 +84,27 @@
   }
 
   &__card__list-project{
-    @apply ml-auto rounded px-3 md:px-6 py-2 bg-background font-bold text-gray-2 text-xl w-[50%] min-w-[120px] grid grid-cols-2 place-items-center;
+    @apply ml-auto rounded px-3 md:px-6 py-2 bg-background font-bold text-gray-2 text-xl w-[40%] min-w-[120px] grid grid-cols-2 place-items-center;
   }
 
   &__card__highlight-vote{
-    @apply justify-center flex flex-col w-1/4 bg-background p-8 bg-background font-bold text-gray-2 ml-auto;
+    @apply justify-center flex flex-col w-1/4 bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
+  }
+
+  &__card__highlight-vote__header{
+    @apply place-items-start pb-2;
+  }
+
+  &__card__highlight-vote__text{
+    @apply block text-sm text-gray-2 font-normal;
+  }
+
+  &__card__highlight-vote__number{
+    @apply text-xl font-semibold;
+  }
+
+  &__card__highlight-vote__button{
+    @apply mt-auto;
   }
 
   &__definition-project__title .ql-editor{
@@ -157,7 +175,11 @@
 }
 
 .voting-wrapper .budget-summary .budget-summary__cols{
-  @apply col-span-12;
+  @apply col-span-10 pl-16;
+}
+
+.voting-wrapper .budget-summary .budget-summary__content{
+  @apply col-span-10 grid-cols-[57.6%_30%];
 }
 
 #budgets.card__highlight-container{
