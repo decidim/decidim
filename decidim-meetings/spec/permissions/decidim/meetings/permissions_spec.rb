@@ -318,7 +318,7 @@ describe Decidim::Meetings::Permissions do
         context "when meeting is not closed" do
           let(:closed_at) { nil }
 
-          context "when meeting didn't finish" do
+          context "when meeting did not finish" do
             before do
               allow(meeting).to receive(:past?).and_return(false)
             end

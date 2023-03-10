@@ -241,7 +241,7 @@ module Decidim
         end
       end
 
-      context "when user didn't accepted ToS" do
+      context "when user did not accepted ToS" do
         let(:accepted_tos_version) { nil }
 
         it { is_expected.to be_falsey }

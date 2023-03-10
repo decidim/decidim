@@ -1342,7 +1342,7 @@ en:
       votings:
         access_code_modal:
           email: Send by email to %{email}
-          info: You need an Access Code to participate. If you didn't get one by postal mail, we can send you a new one.
+          info: You need an Access Code to participate. If you did not get one by postal mail, we can send you a new one.
           no_email: No email available
           no_sms: No phone number available
           sms: Send by SMS to %{sms}
