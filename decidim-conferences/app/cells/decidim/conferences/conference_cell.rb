@@ -16,6 +16,8 @@ module Decidim
         case @options[:size]
         when :m
           "decidim/conferences/conference_m"
+        when :l
+          "decidim/conferences/conference_l"
         else
           "decidim/conferences/conference_g"
         end
