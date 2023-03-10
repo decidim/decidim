@@ -315,7 +315,7 @@ GEM
     charlock_holmes (0.7.7)
     childprocess (4.1.0)
     colorize (0.8.1)
-    commonmarker (0.23.5)
+    commonmarker (0.23.8)
     concurrent-ruby (1.2.2)
     crack (0.4.5)
       rexml
