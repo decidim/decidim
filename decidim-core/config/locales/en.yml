@@ -1740,7 +1740,7 @@ en:
       load: Failed to load emojis
     recents:
       clear: Clear recent emojis
-      none: You haven't selected any emojis yet.
+      none: You have not selected any emojis yet.
     retry: Try again
     search:
       _: Search emojis...
