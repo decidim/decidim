@@ -40,7 +40,7 @@ Lists will be parsed as one block:
 - consensus by enhanced majority: when a, b, c and also d appear in the creation.
 - consensus by absolute majority: when x, y and z appear in the creation.
 - consensus by imposing whatever the organization wants: to be used at will.
-- consensus by ignoring whatever resulted from the previous consensus: to be used when organization do not like the results of another consensus system.
+- consensus by ignoring whatever resulted from the previous consensus: to be used when organization don't like the results of another consensus system.
 
 Ordered lists will be parsed too:
 
