@@ -28,7 +28,7 @@ en:
         create:
           error: There was a problem creating the comment.
         delete:
-          error: The comment couldn't be deleted.
+          error: The comment could not be deleted.
         update:
           error: There was a problem updating the comment.
       comments_count: Comments count
