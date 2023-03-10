@@ -12,8 +12,8 @@
 
         <div class="attachment-details" data-title="<%= title_for(attachment) %>" data-filename="<%= file_name_for(attachment) %>" data-state="uploaded">
           <div>
-            <% if file_attachment_path(attachments.first) && blob(attachments.first).image? %>
-              <%= image_tag(file_attachment_path(attachments.first), alt: attribute) %>
+            <% if file_attachment_path(attachment) && blob(attachment).image? %>
+              <%= image_tag(file_attachment_path(attachment), alt: title_for(attachment) || file_name_for(attachment)) %>
             <% elsif uploader_default_image_path(attribute).present? %>
               <%= image_tag uploader_default_image_path(attribute) %>
             <% end %>
