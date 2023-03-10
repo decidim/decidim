@@ -1883,6 +1883,7 @@ ca:
     name: Català
     name_with_error: Català (error!)
   password_validator:
+    denied: no és vàlid
     domain_included_in_password: és massa semblant a aquest nom de domini
     email_included_in_password: és massa similar al teu correu electrònic
     fallback: no és vàlid
