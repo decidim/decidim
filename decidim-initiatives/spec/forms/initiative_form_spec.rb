@@ -80,7 +80,7 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when area is present but doesn't belong to organization" do
+        context "when area is present but does not belong to organization" do
           let(:area) { { area_id: decidim_area.id } }
           let(:decidim_area) { create(:area) }
 

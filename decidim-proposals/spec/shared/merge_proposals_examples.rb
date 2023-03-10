@@ -71,7 +71,7 @@ shared_examples "merge proposals" do
           context "when the proposals can't be merged" do
             let!(:proposals) { create_list :proposal, 3, :with_endorsements, :with_votes, component: current_component }
 
-            it "doesn't create a new proposal and displays a validation fail message" do
+            it "does not create a new proposal and displays a validation fail message" do
               expect(page).to have_css(".table-list tbody tr", count: 3)
               expect(page).to have_content("There has been a problem merging the selected proposals")
               expect(page).to have_content("Are not official")

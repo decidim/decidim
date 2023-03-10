@@ -37,7 +37,7 @@ module Decidim
     # Public: Returns a collection with all the public entities this user is following.
     #
     # This can't be done as with a `has_many :following, through: :following_follows`
-    # since it's a polymorphic relation and Rails doesn't know how to load it. With
+    # since it's a polymorphic relation and Rails does not know how to load it. With
     # this implementation we only query the database once for each kind of following.
     #
     # Returns an Array of Decidim::Followable

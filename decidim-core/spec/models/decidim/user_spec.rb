@@ -41,7 +41,7 @@ module Decidim
         end
       end
 
-      context "when it doesn't have a name" do
+      context "when it does not have a name" do
         let(:user) { build(:user, name: nil) }
 
         it "returns anonymous" do
@@ -178,7 +178,7 @@ module Decidim
           ["<", ">", "?", "%", "&", "^", "*", "#", "@", "(", ")", "[", "]", "=", "+", ":", ";", '"', "{", "}", " |"]
         end
 
-        it "doesn't allow them" do
+        it "does not allow them" do
           weird_characters.each do |character|
             user = build(:user)
             user.name.insert(rand(0..user.name.length), character)

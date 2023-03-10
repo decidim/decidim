@@ -156,7 +156,7 @@ describe "Participatory Process Groups", type: :system do
       context "when url is not configured" do
         let(:cta_settings) { nil }
 
-        it "doesn't show the block" do
+        it "does not show the block" do
           expect(page).to have_no_selector("div.hero__container")
         end
       end
@@ -433,7 +433,7 @@ describe "Participatory Process Groups", type: :system do
     end
 
     shared_examples "not showing processes belonging to other group" do
-      it "doesn't list process of other group" do
+      it "does not list process of other group" do
         within("#processes-grid") do
           expect(page).to have_no_content(translated(other_group_process.title, locale: :en))
         end

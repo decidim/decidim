@@ -64,7 +64,7 @@ module Decidim
     attr_reader :pull_request_id, :release_branch, :backport_branch, :working_dir
 
     # Create the backport branch based on a release branch
-    # Checks that this branch doesn't exist already, if it does then exits
+    # Checks that this branch does not exist already, if it does then exits
     #
     # @return [void]
     def create_backport_branch!

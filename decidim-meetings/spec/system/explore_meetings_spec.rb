@@ -48,7 +48,7 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_content(translated(upcoming_meeting.title))
       end
 
-      it "doesn't show past meetings" do
+      it "does not show past meetings" do
         visit_component
         within "#meetings" do
           expect(page).not_to have_content(translated(past_meeting.title))

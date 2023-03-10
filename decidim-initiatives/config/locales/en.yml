@@ -470,7 +470,7 @@ en:
         personal_data:
           invalid: Personal data is not consistent with data provided for authorization.
         sms_code:
-          invalid: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+          invalid: Your verification code does not match ours. Please double-check the SMS we sent you.
         sms_phone:
           invalid: The phone number is invalid or pending of authorization. Please, check your authorizations.
       initiatives:

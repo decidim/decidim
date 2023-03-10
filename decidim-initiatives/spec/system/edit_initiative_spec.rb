@@ -44,7 +44,7 @@ describe "Edit initiative", type: :system do
 
     it_behaves_like "manage update"
 
-    it "doesn't show the header's edit link" do
+    it "does not show the header's edit link" do
       visit initiative_path
 
       within ".topbar" do

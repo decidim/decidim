@@ -211,7 +211,7 @@ shared_examples_for "has questionnaire" do
       context "when max_characters value is 0" do
         let(:max_characters) { 0 }
 
-        it "doesn't show message indicating number of characters left" do
+        it "does not show message indicating number of characters left" do
           visit questionnaire_public_path
 
           expect(page).not_to have_content("characters left")
@@ -1394,7 +1394,7 @@ shared_examples_for "has questionnaire" do
             ]
           end
 
-          it "doesn't throw error" do
+          it "does not throw error" do
             visit questionnaire_public_path
 
             fill_in condition_question.body["en"], with: "My first answer"

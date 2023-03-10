@@ -60,7 +60,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
 
     before { task.execute }
 
-    it "doesn't update the status" do
+    it "does not update the status" do
       expect(vote.reload).to be_accepted
     end
   end

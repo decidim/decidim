@@ -445,7 +445,7 @@ module Decidim
 
     # Public: Checks if the type the initiative belongs to enables SMS code
     # verification step. Tis configuration is ignored if the organization
-    # doesn't have the sms authorization available
+    # does not have the sms authorization available
     #
     # Returns a Boolean
     def validate_sms_code_on_votes?
@@ -475,7 +475,7 @@ module Decidim
     private
 
     # Private: This is just an alias because the naming on InitiativeTypeScope
-    # is very confusing. The `scopes` method doesn't return Decidim::Scope but
+    # is very confusing. The `scopes` method does not return Decidim::Scope but
     # Decidim::InitiativeTypeScopes.
     #
     # ¯\_(ツ)_/¯

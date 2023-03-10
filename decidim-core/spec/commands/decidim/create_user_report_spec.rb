@@ -31,7 +31,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create the report" do
+        it "does not create the report" do
           expect { command.call }.not_to change(UserReport, :count)
         end
       end
@@ -96,7 +96,7 @@ module Decidim
             end
           end
 
-          it "doesn't create an additional moderation" do
+          it "does not create an additional moderation" do
             expect { command.call }.not_to change(UserModeration, :count)
 
             last_moderation = UserModeration.last

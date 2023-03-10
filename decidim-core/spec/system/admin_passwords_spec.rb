@@ -45,7 +45,7 @@ describe "Admin passwords", type: :system do
       click_button "Change my password"
       expect(page).to have_css("[data-alert-box].alert")
       expect(page).to have_content("There was a problem updating the password")
-      expect(page).to have_content("doesn't match Password")
+      expect(page).to have_content("does not match Password")
     end
 
     context "when user has strong password" do

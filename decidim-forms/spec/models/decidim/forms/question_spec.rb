@@ -38,7 +38,7 @@ module Decidim
         end
       end
 
-      context "when question type doesn't exists in allowed types" do
+      context "when question type does not exists in allowed types" do
         let(:question_type) { "foo" }
 
         it { is_expected.not_to be_valid }
@@ -53,7 +53,7 @@ module Decidim
             expect(subject.class.conditioned).to contain_exactly(question_conditioned)
           end
 
-          it "doesn't include questions without display conditions" do
+          it "does not include questions without display conditions" do
             expect(subject.class.conditioned).not_to include(question_not_conditioned)
           end
         end
@@ -63,7 +63,7 @@ module Decidim
             expect(subject.class.not_conditioned).to contain_exactly(question_not_conditioned)
           end
 
-          it "doesn't include questions that have display conditions" do
+          it "does not include questions that have display conditions" do
             expect(subject.class.not_conditioned).not_to include(question_conditioned)
           end
         end

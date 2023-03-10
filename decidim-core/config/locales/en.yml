@@ -416,7 +416,7 @@ en:
           resume: Check your "%{authorization}" authorization progress
           title: Authorization is still in progress
         unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          explanation: Sorry, you can't perform this action as some of your authorization data ddoes notmatch.
           invalid_field: "%{field} value %{value} isn't valid."
           ok: Ok
           title: Not authorized
@@ -824,7 +824,7 @@ en:
       following_count:
         one: "%{count} follow"
         other: "%{count} follows"
-      no_followings: Doesn't follow anyone or anything yet.
+      no_followings: Does not follow anyone or anything yet.
       non_public_followings: Some of the resources followed are not public.
     follows:
       create:
@@ -892,7 +892,7 @@ en:
           description_own: "%{score} people are following you."
           name: Followers
           next_level_in: Get %{score} more people to follow you to reach the next level!
-          unearned_another: This participant doesn't have any followers yet.
+          unearned_another: This participant does not have any followers yet.
           unearned_own: You've got no followers yet.
         index:
           badge_title: "%{name} badge"
@@ -980,7 +980,7 @@ en:
         create_user_group: Create group
         new_user_group: New group
         subtitle: Create a group and invite other users to join to participate in a collective level.
-      no_user_groups: Doesn't belong to any group yet.
+      no_user_groups: Does not belong to any group yet.
       roles:
         admin: Administrator
         creator: Administrator
@@ -1042,7 +1042,7 @@ en:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
     members:
-      no_members: This group doesn't have any members yet.
+      no_members: This group does not have any members yet.
     menu:
       help: Help
       home: Home
@@ -1424,7 +1424,7 @@ en:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
         description: Is this content inappropriate?
-        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
         hide: Hide
         hide_content: Hide this content
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
@@ -1437,7 +1437,7 @@ en:
         already_reported: This content is already reported and it will be reviewed by an admin.
         close: Close
         description: What is inappropriate about the user?
-        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think doesn't belong on %{organization_name}.
+        does_not_belong: Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.
         offensive: Contains racism, sexism, slurs, personal attacks, death threats, suicide requests or any form of hate speech.
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
@@ -1534,7 +1534,7 @@ en:
     user_interests:
       show:
         my_interests: My interests
-        no_scopes: This organization doesn't have any scope yet!
+        no_scopes: This organization does not have any scope yet!
         select_your_interests: Select the topics you're interested in to receive events related to them in your profile Timeline tab.
         update_my_interests: Update my interests
       update:

@@ -247,7 +247,7 @@ function () {
         return;
       }
 
-      this.currentMentionTextSnapshot = this.current.mentionText; // create the menu if it doesn't exist.
+      this.currentMentionTextSnapshot = this.current.mentionText; // create the menu if it does not exist.
 
       if (!this.menu) {
         this.menu = this.createMenu();

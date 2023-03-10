@@ -459,7 +459,7 @@ describe "Admin manages organization", type: :system do
 
   describe "welcome message" do
     context "when not customizing it" do
-      it "doesn't show the customization fields" do
+      it "does not show the customization fields" do
         visit decidim_admin.edit_organization_path
         check "Send welcome notification"
         expect(page).not_to have_content("Welcome notification subject")

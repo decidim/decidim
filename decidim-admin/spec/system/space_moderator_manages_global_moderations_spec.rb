@@ -30,7 +30,7 @@ describe "Space moderator manages global moderations", type: :system do
       user.update(admin_terms_accepted_at: nil)
     end
 
-    it "doesn't have the menu item in the main navigation" do
+    it "does not have the menu item in the main navigation" do
       visit participatory_space_path
 
       within ".main-nav" do

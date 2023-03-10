@@ -46,7 +46,7 @@ describe "Organizations", type: :system do
       end
 
       context "with invalid data" do
-        it "doesn't create an organization" do
+        it "does not create an organization" do
           fill_in "Name", with: "Bad"
           click_button "Create organization & invite admin"
 

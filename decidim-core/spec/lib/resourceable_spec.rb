@@ -87,7 +87,7 @@ module Decidim
             target_component.unpublish!
           end
 
-          it "doesn't return anything from that component" do
+          it "does not return anything from that component" do
             expect(resource.sibling_scope(:dummy)).to be_empty
           end
         end
@@ -101,7 +101,7 @@ module Decidim
           let!(:target_resource) { create(:dummy_resource, component: target_component) }
           let!(:moderation) { create(:moderation, reportable: target_resource, hidden_at: Time.current) }
 
-          it "doesn't return anything from that component" do
+          it "does not return anything from that component" do
             expect(resource.sibling_scope(:dummy)).to be_empty
           end
         end

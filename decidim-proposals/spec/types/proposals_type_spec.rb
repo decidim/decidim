@@ -55,7 +55,7 @@ module Decidim
           end
         end
 
-        context "when the proposal doesn't belong to the component" do
+        context "when the proposal does not belong to the component" do
           let!(:proposal) { create(:proposal, component: create(:proposal_component)) }
 
           it "returns null" do

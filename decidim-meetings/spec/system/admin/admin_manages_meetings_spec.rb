@@ -440,7 +440,7 @@ describe "Admin manages meetings", type: :system, serves_map: true, serves_geoco
       end
     end
 
-    it "doesn't display error message when opening meeting's create form" do
+    it "does not display error message when opening meeting's create form" do
       find(".card-title a.button").click
 
       within "label[for='meeting_registration_type']" do

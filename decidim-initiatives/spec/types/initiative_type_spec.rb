@@ -110,7 +110,7 @@ module Decidim
         %w(name nickname avatarUrl profilePath badge organizationName deleted).each do |field|
           describe field do
             let(:query) { "{ #{field} }" }
-            let(:msg) { "Field '#{field}' doesn't exist on type 'Initiative'" }
+            let(:msg) { "Field '#{field}' does not exist on type 'Initiative'" }
 
             it "has not have a #{field} field" do
               expect { response }.to raise_error(an_instance_of(StandardError).and(having_attributes(message: msg)))

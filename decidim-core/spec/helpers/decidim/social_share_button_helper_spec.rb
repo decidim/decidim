@@ -26,7 +26,7 @@ module Decidim
           allow(Decidim.config).to receive(:social_share_services).and_return([])
         end
 
-        it "doesn't render anything" do
+        it "does not render anything" do
           expect(result).to be_nil
         end
       end

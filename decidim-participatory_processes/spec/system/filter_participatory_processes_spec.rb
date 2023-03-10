@@ -174,7 +174,7 @@ describe "Filter Participatory Processes", type: :system do
           visit decidim_participatory_processes.participatory_processes_path
         end
 
-        it "doesn't show the participatory process types filter" do
+        it "does not show the participatory process types filter" do
           expect(page).to have_no_css("#process-type-filter")
         end
       end

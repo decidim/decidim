@@ -182,7 +182,7 @@ en:
               success: Configuration successfully updated
           confirmations:
             create:
-              error: Verification doesn't match. Please try again or reject the verification so the participant can amend it
+              error: Verification does not match. Please try again or reject the verification so the participant can amend it
               success: Participant successfully verified
             new:
               introduce_user_data: Introduce the data in the picture
@@ -190,7 +190,7 @@ en:
               verify: Verify
           offline_confirmations:
             create:
-              error: Verification doesn't match. Please try again or tell the participant to amend it
+              error: Verification does not match. Please try again or tell the participant to amend it
               success: Participant successfully verified
             new:
               cancel: Cancel
@@ -258,7 +258,7 @@ en:
             send: Send me a letter
             title: Request your verification code
           update:
-            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
+            error: Your verification code does not match ours. Please double-check the letter we sent to you
             success: Congratulations. You've been successfully verified
       sms:
         authorizations:
@@ -277,7 +277,7 @@ en:
             send: Send me an SMS
             title: Request your verification code
           update:
-            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+            error: Your verification code does not match ours. Please double-check the SMS we sent you.
             success: Congratulations. You've been successfully verified.
   errors:
     messages:

@@ -71,7 +71,7 @@ module Decidim
 
       class_option :force_ssl, type: :string,
                                default: "true",
-                               desc: "Doesn't force to use ssl"
+                               desc: "Does not force to use ssl"
 
       class_option :locales, type: :string,
                              default: "",

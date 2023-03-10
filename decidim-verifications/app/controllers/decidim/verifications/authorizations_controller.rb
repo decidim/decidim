@@ -90,7 +90,7 @@ module Decidim
         return true if handler
 
         msg = <<-MSG
-        Invalid authorization handler given: #{handler_name} doesn't
+        Invalid authorization handler given: #{handler_name} does not
         exist or you haven't added it to `Decidim.authorization_handlers.
 
         Make sure this name matches with your registrations:\n\n

@@ -28,7 +28,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create a newsletter" do
+        it "does not create a newsletter" do
           expect { command.call }.not_to(change { newsletter.reload.updated_at })
         end
       end

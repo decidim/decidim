@@ -73,7 +73,7 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesn't allow the user to see No Granted Authorizations info message" do
+      it "does not allow the user to see No Granted Authorizations info message" do
         within ".container" do
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.no_data"))
         end
@@ -93,7 +93,7 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesn't allow the user to see Authorization's revocation options" do
+      it "does not allow the user to see Authorization's revocation options" do
         within ".container" do
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.button"))
           expect(page).not_to have_content(t("decidim.admin.menu.authorization_revocation.before_date_info"))

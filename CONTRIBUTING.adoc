@@ -33,7 +33,7 @@ Do not open an issue on GitHub until you have collected positive feedback about 
 GitHub issues are primarily intended for bug reports, fixes and already discussed features on https://meta.decidim.barcelona/processes/roadmap[Metadecidim Roadmap Process].
 . Make the Pull Request.
 
-If your change doesn't need to make a Pull Request in this repository because is a Module, then you don't need to ask permission for it :D
+If your change does not need to make a Pull Request in this repository because is a Module, then you don't need to ask permission for it :D
 
 You can read in detail about this process in https://docs.decidim.org/en/governance/[Governance].
 

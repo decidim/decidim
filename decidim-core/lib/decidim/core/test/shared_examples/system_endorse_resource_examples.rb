@@ -36,7 +36,7 @@ shared_examples "Endorse resource system specs" do
     let(:component_traits) { [:with_votes_enabled, :with_endorsements_disabled] }
 
     context "when the user is not logged in" do
-      it "doesn't show the endorse resource button and counts" do
+      it "does not show the endorse resource button and counts" do
         visit_resource
         expect_page_not_to_include_endorsements
       end
@@ -47,7 +47,7 @@ shared_examples "Endorse resource system specs" do
         login_as user, scope: :user
       end
 
-      it "doesn't show the endorse resource button and counts" do
+      it "does not show the endorse resource button and counts" do
         visit_resource
         expect_page_not_to_include_endorsements
       end

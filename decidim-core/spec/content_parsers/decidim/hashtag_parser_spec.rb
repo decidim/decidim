@@ -28,7 +28,7 @@ module Decidim
 
     it_behaves_like "find and stores the hashtags references"
 
-    context "when content hashtag doesn't match existing case" do
+    context "when content hashtag does not match existing case" do
       let(:content) { "This text contains a hashtag present on DB: ##{hashtag.name.upcase}" }
       let(:parsed_content) { "This text contains a hashtag present on DB: #{hashtag.to_global_id}/#{hashtag.name.upcase}" }
 
@@ -101,7 +101,7 @@ module Decidim
       let(:content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path##{hashtag.name}" }
       let(:parsed_content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path#fragment" }
 
-      it "doesn't find the hashtag" do
+      it "does not find the hashtag" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::HashtagParser::Metadata)
         expect(parser.metadata.hashtags).to eq([])
       end
@@ -111,7 +111,7 @@ module Decidim
       let(:content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path/#fragment" }
       let(:parsed_content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path/#fragment" }
 
-      it "doesn't find the hashtag" do
+      it "does not find the hashtag" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::HashtagParser::Metadata)
         expect(parser.metadata.hashtags).to eq([])
       end

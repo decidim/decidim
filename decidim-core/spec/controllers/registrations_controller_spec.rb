@@ -44,7 +44,7 @@ module Decidim
           expect(controller).to receive(:sign_up).and_call_original
         end
 
-        it "doesn't ask the user to confirm the email" do
+        it "does not ask the user to confirm the email" do
           post :create, params: params
           expect(controller.flash.notice).not_to have_content("confirmation")
         end
@@ -86,7 +86,7 @@ module Decidim
                 "Nickname can't be blank",
                 "Nickname is invalid",
                 "Your email can't be blank",
-                "Confirm your password doesn't match Password",
+                "Confirm your password does not match Password",
                 "Password is too short",
                 "Password does not have enough unique characters",
                 "Terms and conditions of use agreement must be accepted"
