@@ -49,7 +49,7 @@
     }
 
     &-secondary{
-      @apply flex justify-center md:justify-between text-xs;
+      @apply flex justify-center md:justify-between text-xs gap-2;
     }
   }
 

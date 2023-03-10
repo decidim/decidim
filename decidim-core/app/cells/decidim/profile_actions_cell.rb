@@ -15,7 +15,8 @@ module Decidim
       manage_user_group_users: { icon: "user-settings-line", path: :group_manage_users_path },
       manage_user_group_admins: { icon: "user-star-line", path: :group_manage_admins_path },
       invite_user: { icon: "user-add-line", path: :group_invites_path },
-      join_user_group: { icon: "user-add-line", path: :group_join_requests_path, options: { method: :post } }
+      join_user_group: { icon: "user-add-line", path: :group_join_requests_path, options: { method: :post } },
+      leave_user_group: { icon: "logout-box-r-line", path: :leave_group_path, options: { method: :delete } },
     }.freeze
 
     private
@@ -64,6 +65,7 @@ module Decidim
         keys << :message if can_contact_user?
         keys.append(:manage_user_group_users, :manage_user_group_admins, :invite_user) if can_edit_user_group_profile?
         keys << :join_user_group if can_join_user_group?
+        keys << :leave_user_group if can_leave_group?
       end
       items.map { |key| action_item(key) }.compact
     end

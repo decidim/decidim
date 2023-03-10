@@ -1346,6 +1346,7 @@ en:
           edit_user_group: Edit group profile
           invite_user: Invite participant
           join_user_group: Request to join group
+          leave_user_group: Leave group
           manage_user_group_admins: Manage admins
           manage_user_group_users: Manage members
           message: Message
