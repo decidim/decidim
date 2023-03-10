@@ -24,6 +24,15 @@ module Decidim
       end
     end
 
+    # REDESIGN_PENDING: Only for debug purposes, remove once finished
+    def cards_debug
+      Search.call("", current_organization, filters, page_params) do
+        on(:ok) do |results|
+          expose(sections: results.transform_values { |v| v[:results].first(4) })
+        end
+      end
+    end
+
     private
 
     def default_filter_params
