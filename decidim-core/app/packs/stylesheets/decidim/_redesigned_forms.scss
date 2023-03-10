@@ -101,7 +101,7 @@
 }
 
 .input-character-counter{
-  @apply relative mt-4;
+  @apply relative mt-4 block;
 
   input[type="text"],
   input[type="email"],
