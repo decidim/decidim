@@ -33,8 +33,7 @@ module Decidim
             "additional_paths" => all_additional_paths,
             "entrypoints" => all_entrypoints,
             "stylesheet_imports" => all_stylesheet_imports,
-            "compile" => (ENV.fetch("WEBPACKER_RUNTIME_COMPILE", "true") == "true"),
-            "ensure_consistent_versioning" => true
+            "compile" => (ENV.fetch("WEBPACKER_RUNTIME_COMPILE", "true") == "true")
           )
         end
 

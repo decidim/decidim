@@ -41,6 +41,7 @@ module Decidim
           class Builder < Decidim::Map::DynamicMap::Builder
             # @see Decidim::Map::DynamicMap::Builder#append_assets
             def append_assets
+              template.append_stylesheet_pack_tag("decidim_map")
               template.append_javascript_pack_tag("decidim_map_provider_here")
             end
           end
