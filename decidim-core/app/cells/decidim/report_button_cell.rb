@@ -47,11 +47,7 @@ module Decidim
     end
 
     def button_classes
-<<<<<<< Updated upstream
-      "button button__sm button__text-secondary"
-=======
       options[:button_classes] || "button button__sm button__text button__text-secondary"
->>>>>>> Stashed changes
     end
 
     def text
