@@ -143,6 +143,10 @@
 
     &-reference{
       @apply py-4 bg-background text-center text-gray-2 text-xs font-normal;
+
+      &.alert{
+        @apply bg-alert/25;
+      }
     }
   }
 }

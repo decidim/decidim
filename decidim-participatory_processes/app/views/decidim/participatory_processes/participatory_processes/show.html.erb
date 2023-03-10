@@ -14,10 +14,11 @@
   )
 %>
 
+<%# NOTE: this elements goes outside of the .participatory-space__container block %>
 <% if current_participatory_space.private_space? %>
-  <div class="container">
-    <%= cell("decidim/announcement", t("private_space", scope: "decidim.participatory_processes.show"), callout_class: "alert") %>
-  </div>
+  <section class="participatory-space__block-reference alert">
+    <%= t("private_space", scope: "decidim.participatory_processes.show") %>
+  </section>
 <% end %>
 
 <div class="participatory-space__container">
@@ -31,7 +32,7 @@
 
 </div>
 
-<!-- this elements goes outside of the .participatory-space__container block -->
+<%# NOTE: this elements goes outside of the .participatory-space__container block %>
 <section class="participatory-space__block-reference">
   <%= resource_reference(current_participatory_space) %>
 </section>
