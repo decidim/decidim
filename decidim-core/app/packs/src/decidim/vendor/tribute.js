@@ -242,7 +242,7 @@ function () {
     value: function showMenuFor(element, scrollTo) {
       var _this2 = this;
 
-      // Only proceed if menu isn't already shown for the current element & mentionText
+      // Only proceed if menu is not already shown for the current element & mentionText
       if (this.isActive && this.current.element === element && this.current.mentionText === this.currentMentionTextSnapshot) {
         return;
       }

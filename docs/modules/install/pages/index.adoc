@@ -1,7 +1,7 @@
 = Getting started with Decidim
 :source-highlighter: highlightjs
 
-== What is and what isn't Decidim?
+== What is and what is not Decidim?
 
 Decidim is a set of Ruby on Rails engines to create a participatory democracy framework on top of a Ruby on Rails app. This system allows having Decidim code separated from custom code for each installation and still enabling easy updates.
 

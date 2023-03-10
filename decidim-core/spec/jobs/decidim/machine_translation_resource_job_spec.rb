@@ -70,7 +70,7 @@ module Decidim
       end
     end
 
-    describe "when default locale of translatable field isn't changed" do
+    describe "when default locale of translatable field is not changed" do
       before do
         updated_title = { en: "New Title", es: "título actualizado" }
         process.update(title: updated_title)
@@ -89,7 +89,7 @@ module Decidim
       end
     end
 
-    describe "if default locale isn't changed but locale changed is set to empty" do
+    describe "if default locale is not changed but locale changed is set to empty" do
       before do
         updated_title = { en: "New Title", es: "" }
         process.update(title: updated_title)

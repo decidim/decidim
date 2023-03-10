@@ -192,7 +192,7 @@ describe "Support Proposal", type: :system, slow: true do
           end
         end
 
-        context "when the proposal is not voted yet but the user isn't authorized" do
+        context "when the proposal is not voted yet but the user is not authorized" do
           before do
             permissions = {
               vote: {

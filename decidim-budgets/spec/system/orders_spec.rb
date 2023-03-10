@@ -263,7 +263,7 @@ describe "Orders", type: :system do
       end
     end
 
-    context "and isn't authorized" do
+    context "and is not authorized" do
       before do
         permissions = {
           vote: {

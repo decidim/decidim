@@ -99,7 +99,7 @@ describe "Private Assemblies", type: :system do
       end
 
       context "when user is logged in and is not an assembly private user" do
-        context "when the user isn't admin" do
+        context "when the user is not admin" do
           before do
             switch_to_host(organization.host)
             login_as user, scope: :user

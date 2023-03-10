@@ -417,7 +417,7 @@ en:
           title: Authorization is still in progress
         unauthorized:
           explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
-          invalid_field: "%{field} value %{value} isn't valid."
+          invalid_field: "%{field} value %{value} is not valid."
           ok: Ok
           title: Not authorized
         unconfirmed:

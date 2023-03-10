@@ -66,7 +66,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         it "shows an empty page with a message" do
-          expect(page).to have_content("No meetings match your search criteria or there isn't any meeting scheduled.")
+          expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
           within ".callout.warning", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
