@@ -45,7 +45,7 @@ module Decidim
                   it { is_expected.to eq account_path }
                 end
 
-                context "when the user hasn't confirmed their email" do
+                context "when the user has not confirmed their email" do
                   before do
                     user.confirmed_at = nil
                   end

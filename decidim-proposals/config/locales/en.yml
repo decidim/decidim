@@ -353,7 +353,7 @@ en:
           description_own: You have given support to %{score} proposals.
           name: Proposal supports
           next_level_in: Give support to %{score} more proposals to reach the next level!
-          unearned_another: This participant hasn't given support to any proposals yet.
+          unearned_another: This participant has not given support to any proposals yet.
           unearned_own: You have given support to no proposals yet.
         proposals:
           conditions:
@@ -364,7 +364,7 @@ en:
           description_own: You have created %{score} proposals.
           name: Proposals
           next_level_in: Create %{score} more proposals to reach the next level!
-          unearned_another: This participant hasn't created any proposals yet.
+          unearned_another: This participant has not created any proposals yet.
           unearned_own: You have created no proposals yet.
     metrics:
       accepted_proposals:

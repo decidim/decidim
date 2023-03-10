@@ -78,7 +78,7 @@ module Decidim
               expect(polling_officers.count).to eq 1
             end
 
-            it "resends the invitation if the user hasn't accepted it yet" do
+            it "resends the invitation if the user has not accepted it yet" do
               existing_user.invite!
 
               expect { subject.call }.to have_enqueued_job(ActionMailer::MailDeliveryJob)

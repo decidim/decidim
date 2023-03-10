@@ -25,7 +25,7 @@ shared_examples_for "add display conditions" do
       end
 
       context "when creating a new question" do
-        it "disables the add display condition button if the question hasn't been saved" do
+        it "disables the add display condition button if the question has not been saved" do
           within "form.edit_questionnaire" do
             click_button "Add question"
             expand_all_questions

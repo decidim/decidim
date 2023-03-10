@@ -26,7 +26,7 @@ describe Decidim::Admin::Permissions do
       it { is_expected.to be true }
     end
 
-    context "when admin hasn't accepted Terms of Use" do
+    context "when admin has not accepted Terms of Use" do
       let(:user) { build :user, :admin, admin_terms_accepted_at: nil, organization: }
 
       it_behaves_like "permission is not set"

@@ -206,7 +206,7 @@ en:
           description_own: You have attended %{score} meetings.
           name: Attended meetings
           next_level_in: Attend %{score} more meetings to reach the next level!
-          unearned_another: This participant hasn't attended any meeting yet.
+          unearned_another: This participant has not attended any meeting yet.
           unearned_own: You haven't attended any meeting yet.
     meetings:
       actions:
