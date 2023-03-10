@@ -46,7 +46,7 @@ en:
           body:
             label: Comment
             placeholder: What do you think about this?
-          form_error: The text is required and it can't be longer than %{length} characters.
+          form_error: The text is required and it cannot be longer than %{length} characters.
           submit: Send
           user_group_id:
             label: Comment as
@@ -168,4 +168,4 @@ en:
         title: Comments
   errors:
     messages:
-      cannot_have_comments: can't have comments
+      cannot_have_comments: cannot have comments

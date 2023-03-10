@@ -95,7 +95,7 @@ describe Decidim::Meetings::Permissions do
         .and_return(can_be_joined)
     end
 
-    context "when meeting can't be joined" do
+    context "when meeting cannot be joined" do
       let(:can_be_joined) { false }
 
       it { is_expected.to be false }
@@ -120,7 +120,7 @@ describe Decidim::Meetings::Permissions do
         .and_return(can_be_registered)
     end
 
-    context "when meeting can't be joined" do
+    context "when meeting cannot be joined" do
       let(:can_be_registered) { false }
 
       it { is_expected.to be false }

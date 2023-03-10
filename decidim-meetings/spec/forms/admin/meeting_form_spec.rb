@@ -224,7 +224,7 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when online meeting url is present and the meeting is embedded and the url can't be embedded" do
+    describe "when online meeting url is present and the meeting is embedded and the url cannot be embedded" do
       let(:online_meeting_url) { "https://meet.jit.si/decidim" }
       let(:iframe_embed_type) { "embed_in_meeting_page" }
 

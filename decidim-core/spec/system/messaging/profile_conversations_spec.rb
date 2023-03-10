@@ -305,7 +305,7 @@ describe "ProfileConversations", type: :system do
       context "when someone direct messages disabled" do
         let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
-        it "can't be selected on the mentioned list", :slow do
+        it "cannot be selected on the mentioned list", :slow do
           skip "REDESIGN_PENDING: The profile conversations functionality is going to be removed and it's not necessary to fix this because the modal used here will be deprecated" do
             visit_profile_inbox
             expect(page).to have_content("New conversation")
