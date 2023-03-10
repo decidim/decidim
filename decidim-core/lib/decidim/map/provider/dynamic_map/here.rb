@@ -39,7 +39,6 @@ module Decidim
           # A builder for the HERE maps which needs to be configured differently
           # than "normal" OSM based tile service providers.
           class Builder < Decidim::Map::DynamicMap::Builder
-
             # @see Decidim::Map::DynamicMap::Builder#append_assets
             def append_assets
               template.append_javascript_pack_tag("decidim_map_provider_here")

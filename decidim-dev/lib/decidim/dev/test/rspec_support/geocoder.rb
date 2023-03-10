@@ -62,7 +62,6 @@ module Decidim::Map::Provider
       end
 
       class Builder < Decidim::Map::Autocomplete::Builder
-
         def append_assets
           template.append_javascript_pack_tag("decidim_geocoding_provider_photon")
         end
