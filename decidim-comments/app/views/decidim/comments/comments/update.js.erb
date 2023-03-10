@@ -19,9 +19,7 @@ $(() => {
   component.mountComponent();
   $comments.data("comments", component);
 
-  // Trigger ajax:success event to apply behaviour on the
-  // edited comment
-  Rails.fire(document, "ajax:success", {
+  Rails.fire(document, "comments:loaded", {
     commentsIds: [commentId]
   });
 });

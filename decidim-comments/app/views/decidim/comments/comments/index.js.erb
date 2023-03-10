@@ -22,7 +22,7 @@
   }
 <% end %>
   if (commentsIds.length) {
-    Rails.fire(document, "ajax:success", {
+    Rails.fire(document, "comments:loaded", {
       commentsIds: commentsIds
     });
   }

@@ -12,7 +12,7 @@ $(() => {
   });
   $commentReply.remove();
   $content.replaceWith(deleteDataHtml);
-  Rails.fire(document, "ajax:success", {
+  Rails.fire(document, "comments:loaded", {
     commentsIds: [commentId]
   });
 

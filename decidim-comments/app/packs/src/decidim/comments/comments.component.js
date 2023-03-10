@@ -160,7 +160,7 @@ export default class CommentsComponent {
     $target.append($container);
 
     this._initializeComments($container);
-    document.dispatchEvent(new CustomEvent("comments:loaded", { detail: $target[0] }));
+    document.dispatchEvent(new CustomEvent("comments:loaded", { detail: {commentsIds: [this.lastCommentId] }}));
   }
 
   /**

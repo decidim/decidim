@@ -11,7 +11,7 @@
     component.addThread(commentHtml, true);
   }
 
-  Rails.fire(document, "ajax:success", {
+  Rails.fire(document, "comments:loaded", {
     commentsIds: [<%= @comment.id %>, <%= @comment.commentable.id %>]
   });
 
