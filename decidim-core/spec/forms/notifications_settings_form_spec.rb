@@ -175,7 +175,7 @@ module Decidim
         end
         let(:user) { create :user, organization: }
 
-        it "returns false when user isnt a moderator" do
+        it "returns false when user is not a moderator" do
           expect(subject.user_is_moderator?(user)).to be false
         end
 
