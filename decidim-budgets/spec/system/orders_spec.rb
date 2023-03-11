@@ -354,7 +354,7 @@ describe "Orders", type: :system do
         end
       end
 
-      context "and in project show page cant exceed the budget" do
+      context "and in project show page cannot exceed the budget" do
         let!(:expensive_project) { create(:project, budget:, budget_amount: 250_000_000) }
 
         it "cannot add the project" do

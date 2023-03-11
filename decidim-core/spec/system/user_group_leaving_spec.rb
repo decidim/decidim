@@ -16,7 +16,7 @@ describe "User group leaving", type: :system do
     context "when the user is the creator" do
       let!(:user_group) { create(:user_group, users: [user], organization: user.organization) }
 
-      it "cant leave group" do
+      it "cannot leave group" do
         accept_confirm { click_link "Leave group" }
 
         expect(page).to have_content("You cannot remove yourself from this group as you're the last administrator")
