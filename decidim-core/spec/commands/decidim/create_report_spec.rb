@@ -80,7 +80,7 @@ module Decidim
             .with(admin, last_report)
         end
 
-        it "doesnt send an email to the admin when he/she doesnt allow it" do
+        it "does not send an email to the admin when he/she does not allow it" do
           allow(ReportedMailer).to receive(:report).and_call_original
           command.call
           last_report = Report.last

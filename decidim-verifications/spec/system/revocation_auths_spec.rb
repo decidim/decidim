@@ -114,7 +114,7 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesnt appear revoke before confirmation dialog" do
+      it "does not appear revoke before confirmation dialog" do
         within ".container" do
           message = dismiss_confirm do
             click_link(t("decidim.admin.menu.authorization_revocation.button"))
@@ -134,7 +134,7 @@ describe "Authorizations revocation flow", type: :system do
         end
       end
 
-      it "doesnt appear revoke all confirmation dialog" do
+      it "does not appear revoke all confirmation dialog" do
         within ".container" do
           message = dismiss_confirm do
             click_button(t("decidim.admin.menu.authorization_revocation.button_before"))

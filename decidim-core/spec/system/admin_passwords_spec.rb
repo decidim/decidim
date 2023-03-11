@@ -38,7 +38,7 @@ describe "Admin passwords", type: :system do
       expect(page).to have_current_path(decidim.change_password_path)
     end
 
-    it "shows error when passwords doesnt match" do
+    it "shows error when passwords does not match" do
       manual_login(user.email, password)
       fill_in :password_user_password, with: new_password
       fill_in :password_user_password_confirmation, with: "decidim12345678"

@@ -117,7 +117,7 @@ module Decidim
         end
       end
 
-      context "when organization doesnt have authorization handler available" do
+      context "when organization does not have authorization handler available" do
         let(:permission) do
           {
             "authorization_handlers" => {

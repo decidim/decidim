@@ -179,7 +179,7 @@ describe "Meeting", type: :system, download: true do
           component.settings[:comments_enabled] = true
         end
 
-        it "fetching comments doesnt prevent timeout" do
+        it "fetching comments does not prevent timeout" do
           visit_meeting
           comment
           expect(page).to have_content(translated(comment.body), wait: 30)
