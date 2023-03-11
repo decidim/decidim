@@ -421,7 +421,7 @@ en:
           ok: Ok
           title: Not authorized
         unconfirmed:
-          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          confirmation_instructions: 'If you have not received the confirmation instructions you can request them again:'
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
