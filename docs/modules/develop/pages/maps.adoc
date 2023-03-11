@@ -278,7 +278,7 @@ $(document).on("ready", () => {
     // => This would print out what you returned for the `callback` as shown
     // above.
 
-    // NOTE: YOU DON'T NEED THIS IF YOUR RESPONSE OBJECTS ALREADY CONTAINED THE
+    // NOTE: YOU DO NOT NEED THIS IF YOUR RESPONSE OBJECTS ALREADY CONTAINED THE
     //       COORDINATES IN THE `coordinates` KEY OF EACH RESULT OBJECT!
     // Then, once you know the coordinates, you trigger the following event on
     // the same input (obviously, you need to query the API first):

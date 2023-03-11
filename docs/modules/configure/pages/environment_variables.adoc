@@ -39,7 +39,7 @@ The next tables show all the default Env Vars available when running a default D
 |No
 
 |*RAILS_ENV*
-|Environment for Ruby on Rails. If it's on your local machine for development, then it should be `development`. If it's on server it should be `production`. Please take care that this has security implications. You DON'T want to be running a production application on development mode.
+|Environment for Ruby on Rails. If it's on your local machine for development, then it should be `development`. If it's on server it should be `production`. Please take care that this has security implications. You DO NOT want to be running a production application on development mode.
 |development
 |No
 
