@@ -440,7 +440,7 @@ en:
       see_more: "(see more)"
     components:
       component_order_selector:
-        no_content: We couldn\'t find any content with this criteria
+        no_content: We could not find any content with this criteria
         order:
           all_types: All types
           collaborative_draft: Collaborative Draft
