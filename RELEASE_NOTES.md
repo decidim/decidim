@@ -44,6 +44,16 @@ You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generat
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
+### 3.2 User moderation panel changes
+
+In older Decidim installations, when blocking an user directly from the participants menu, without being previously reported, it will hide that user, making it unavailable in the Reported Participants section. You will need to run this command once to make sure there are no users or entities that got blocked, yet they are not visible in the participants listing.
+
+```console
+bundle exec rake decidim:upgrade:moderation:fix_blocked_user_panel
+```
+
+You can read more about this change on PR [\#10521](https://github.com/decidim/decidim/pull/10521).
+
 ## 4. Scheduled tasks
 
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
