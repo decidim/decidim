@@ -53,6 +53,7 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
+    let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:iframe_embed_type) { "none" }
     let(:attributes) do
@@ -73,6 +74,7 @@ module Decidim::Meetings
         registration_type:,
         available_slots:,
         registration_url:,
+        registrations_enabled:,
         type_of_meeting:,
         online_meeting_url:,
         iframe_embed_type:
