@@ -53,6 +53,7 @@ module Decidim
             transparent: form.transparent,
             author: form.current_organization,
             registration_terms: form.current_component.settings.default_registration_terms,
+            registrations_enabled: form.registrations_enabled,
             component: form.current_component,
             questionnaire: Decidim::Forms::Questionnaire.new,
             customize_registration_email: form.customize_registration_email,
