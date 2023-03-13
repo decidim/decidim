@@ -19,8 +19,6 @@ lb:
       comments:
         create:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
-        delete:
-          error: "Der Kommentar konnte nicht gelöscht werden.\n\n"
         update:
           error: Beim Aktualisieren des Kommentars ist ein Problem aufgetreten.
       comments_count: Kommentaranzahl
