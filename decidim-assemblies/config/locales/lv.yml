@@ -386,9 +386,6 @@ lv:
     participatory_processes:
       show:
         related_assemblies: Saistītās asamblejas
-  errors:
-    messages:
-      cannot_be_blank: nevar būt tukšs
   layouts:
     decidim:
       assemblies:
