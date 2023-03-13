@@ -660,8 +660,6 @@ tr:
         one: "%{count} takipçi"
         other: "%{count} takipçi"
       no_followers: Henüz takipçisi yok.
-    following:
-      no_followings: Henüz kimseyi takip etmiyor.
     follows:
       create:
         button: Takip et
@@ -697,7 +695,6 @@ tr:
           description_own: "%{score} kullanıcı sizi takip ediyor."
           name: İzleyiciler
           next_level_in: Bir sonraki seviyeye ulaşmak için sizi takip etmek için %{score} kullanıcı daha alın!
-          unearned_another: Bu kullanıcının henüz hiç takipçisi yok.
           unearned_own: Henüz takipçiniz yok.
         index:
           badge_title: "%{name} rozet"
@@ -783,7 +780,6 @@ tr:
         create_user_group: Grup oluştur
         new_user_group: Yeni grup
         subtitle: Bir grup oluşturun ve diğer kullanıcıları ortak bir düzeye katılmaya davet edin.
-      no_user_groups: Henüz herhangi bir gruba ait değil.
       roles:
         admin: Yönetici
         member: Üye
@@ -832,8 +828,6 @@ tr:
       static:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Bu kullanıcı grubunun henüz üye yok.
     menu:
       help: Yardım
       home: Ana Sayfa
@@ -1155,7 +1149,6 @@ tr:
         already_reported: Bu içerik zaten bildirilmiştir ve bir yönetici tarafından incelenecektir.
         close: Kapat
         description: Bu içerik uygunsuz mu?
-        does_not_belong: Yasadışı etkinlik, intihar tehditleri, kişisel bilgiler veya %{organization_name}ait olmadığını düşündüğünüz başka bir şey içeriyor.
         offensive: Irkçılığı, cinsiyetçiliği, sarsıntıları, kişisel saldırıları, ölüm tehditlerini, intihar isteklerini veya herhangi bir nefret söylemini içerir.
         report: Rapor
         spam: Tıklama, reklam, dolandırıcılık veya komut dosyası botları içerir.
@@ -1164,7 +1157,6 @@ tr:
         already_reported: Bu içerik zaten bildirildi ve bir yönetici tarafından incelenecek.
         close: Kapat
         description: Kullanıcı hakkında uygunsuz olan nedir?
-        does_not_belong: Yasadışı faaliyet, intihar tehditleri, kişisel bilgiler veya %{organization_name} kuruluşuna ait olmadığını düşündüğünüz başka bir şey içeriyor.
         offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya her türlü nefret söylemi içerir.
         report: Bildir
         spam: Tıklama tuzağı, reklam, dolandırıcılık veya komut dosyası botları içerir.
@@ -1237,7 +1229,6 @@ tr:
     user_interests:
       show:
         my_interests: İlgi alanlarım
-        no_scopes: Bu organizasyonun henüz bir kapsamı yok!
         select_your_interests: Profil Zaman Çizelgesi sekmesinde kendileriyle ilgili etkinlikleri almak için ilgilendiğiniz konuları seçin.
         update_my_interests: İlgi alanlarımı güncelle
       update:
