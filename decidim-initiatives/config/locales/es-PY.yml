@@ -64,6 +64,7 @@ es-PY:
             attachment:
               file: Este archivo es invalido
               needs_to_be_reattached: Es necesario volver a adjuntar el fichero
+              title: El título no puede estar vacío
   activerecord:
     models:
       decidim/initiative:
@@ -467,8 +468,6 @@ es-PY:
           success_html: '¡Felicidades! La iniciativa <strong> %{title}</strong> ha sido firmada correctamente.'
         personal_data:
           invalid: Los datos personales no son consistentes con los datos proporcionados para la autorización.
-        sms_code:
-          invalid: Su código de verificación no coincide con el nuestro. Por favor, vuelva a comprobar los SMS que le enviamos.
         sms_phone:
           invalid: El número de teléfono no es válido o está pendiente de autorización. Por favor, revise sus autorizaciones.
       initiatives:
