@@ -420,7 +420,6 @@ pl:
           resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
           title: Autoryzacja jest nadal w toku
         unauthorized:
-          explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych są nieprawidłowe.
           invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
           ok: Ok
           title: Nieautoryzowany
@@ -613,7 +612,6 @@ pl:
       not_found:
         back_home: Powrót na stronę główną
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
-        title: Szukana strona nie została znaleziona
     events:
       amendments:
         amendment_accepted:
@@ -1531,7 +1529,6 @@ pl:
       new:
         forgot_your_password: Zapomniałeś hasła?
         send_me_reset_password_instructions: Wyślij mi instrukcje resetowania hasła
-      no_token: Nie możesz uzyskać dostępu do tej strony bez linku służącego do resetowania hasła otrzymanego w wiadomości e-mail. Jeśli użyłeś linku z e-maila, upewnij się, że wpisałeś pełny adres URL.
       send_instructions: Za kilka minut otrzymasz wiadomość e-mail z instrukcjami, jak zresetować hasło.
       send_paranoid_instructions: Jeśli Twój adres e-mail znajduje się w naszej bazie danych, w ciągu kilku minut otrzymasz wiadomość z linkiem do odzyskiwania hasła na swój adres e-mail.
       updated: Twoje hasło zostało zmienione. Jesteś teraz zalogowany.
@@ -1580,13 +1577,11 @@ pl:
       already_confirmed: zostało już potwierdzone
       confirmation_period_expired: musi być potwierdzone w ciągu %{period}, proszę poprosić o nowy
       content_type_allowlist_error: typ pliku jest nieprawidłowy
-      cycle_detected: zakres podrzędny nie może być jednocześnie zakresem nadrzędnym
       expired: wygasł, proszę poprosić o nowy
       file_size_is_less_than_or_equal_to: rozmiar pliku musi być mniejszy lub równy %{count}
       invalid_time_zone: nie jest prawidłową strefą czasową
       long_words: zawiera słowa, które są zbyt długie (powyżej 35 znaków)
       must_start_with_caps: musi zaczynać się od dużej litery
-      nesting_too_deep: nie może być wewnątrz podkategorii
       not_found: nie został znaleziony. Czy zarejestrowałeś(-aś) się wcześniej?
       not_locked: nie był zablokowany
       not_saved:
