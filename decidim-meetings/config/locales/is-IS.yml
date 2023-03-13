@@ -125,7 +125,6 @@ is-IS:
             save: Vista
           form:
             available_slots_help: Leyfi það til 0 ef þú hefur ótakmarkaða rifa í boði.
-            reserved_slots_help: Leggðu það á 0 ef þú hefur ekki áskilinn rifa
             reserved_slots_less_than: Verður að vera minna en eða jafnt við %{count}
           update:
             success: Fundir skráningarstillingar voru vistaðar með góðum árangri.
