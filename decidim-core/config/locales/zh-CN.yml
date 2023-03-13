@@ -592,8 +592,6 @@ zh-CN:
       followers_count:
         other: "%{count} 位追随者"
       no_followers: 还没有关注者。
-    following:
-      no_followings: 尚未关注任何人或任何东西。
     follows:
       create:
         button: 关注
@@ -629,7 +627,6 @@ zh-CN:
           description_own: "%{score} 个人正在关注你。"
           name: 关注者
           next_level_in: 获得更多 %{score} 人跟随您进入下一个关卡！
-          unearned_another: 此参与者还没有任何关注者。
           unearned_own: 你还没有跟随者。
         index:
           badge_title: "%{name} 徽章"
@@ -715,7 +712,6 @@ zh-CN:
         create_user_group: 创建组
         new_user_group: 新建组
         subtitle: 创建一个小组并邀请其他用户加入集体级别。
-      no_user_groups: 尚不属于任何群组。
       roles:
         admin: 管理员
         member: 成员
@@ -764,8 +760,6 @@ zh-CN:
       static:
         latlng_text: '纬度: %{latitude}, 经度: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: 此组还没有任何成员。
     menu:
       help: 帮助
       home: 首页
@@ -1080,7 +1074,6 @@ zh-CN:
         already_reported: 此内容已经被报告，将由管理员审核。
         close: 关闭
         description: 这个内容是否不适当？
-        does_not_belong: 包含非法活动、自杀威胁、个人信息或你认为不属于 %{organization_name} 的其他东西。
         offensive: 包括种族主义、性别主义、污泥、个人攻击、死亡威胁、自杀请求或任何形式的仇恨言论。
         report: 报告
         spam: 包含点击、广告、骗子或脚本机器人。
@@ -1153,7 +1146,6 @@ zh-CN:
     user_interests:
       show:
         my_interests: 我的利益
-        no_scopes: 这个组织还没有任何范围！
         select_your_interests: 选择您感兴趣的主题，在您的配置文件时间线选项卡中接收与此相关的事件。
         update_my_interests: 更新我的兴趣
       update:
