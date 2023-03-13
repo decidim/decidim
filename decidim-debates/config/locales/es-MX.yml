@@ -231,7 +231,6 @@ es-MX:
           name: Debates
           next_level_in: '¡Participa en %{score} debates más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha participado en ningún debate.
-          unearned_own: Aún no has participado en ningún debate.
     metrics:
       debates:
         description: Número de debates creados
