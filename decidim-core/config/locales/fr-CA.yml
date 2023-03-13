@@ -418,6 +418,7 @@ fr-CA:
           ok: D'accord
           title: Non autorisé
         unconfirmed:
+          confirmation_instructions: 'Si vous n''avez pas reçu les instructions de confirmation, vous pouvez les demander à nouveau :'
           explanation_html: Pour pouvoir effectuer cette action, vous devez être autorisé. Vous devez d'abord confirmer votre adresse électronique <strong>%{email}</strong>.
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
@@ -436,6 +437,7 @@ fr-CA:
       see_more: "(voir plus)"
     components:
       component_order_selector:
+        no_content: "We could not find any content with this criteria\nNous n'avons trouvé aucun contenu répondant à ce critère"
         order:
           all_types: Tous types
           collaborative_draft: Brouillon collaboratif
@@ -568,6 +570,8 @@ fr-CA:
             check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
             uncheck: Garder décoché
+          notice: |-
+            La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
           title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
@@ -626,6 +630,7 @@ fr-CA:
       not_found:
         back_home: Retour à l'accueil
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
+        title: La page que vous cherchez est introuvable
     events:
       amendments:
         amendment_accepted:
@@ -807,7 +812,6 @@ fr-CA:
       following_count:
         one: "%{count} abonné"
         other: "%{count} abonnés"
-      no_followings: Aucun abonnement
       non_public_followings: Certaines des ressources suivies ne sont pas publiques.
     follows:
       create:
@@ -875,7 +879,6 @@ fr-CA:
           description_own: "%{score} utilisateurs vous suivent."
           name: Suiveurs
           next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
-          unearned_another: Cet utilisateur n'a pas encore de suiveurs.
           unearned_own: Vous n'avez pas encore de followers.
         index:
           badge_title: "%{name} badge"
@@ -953,6 +956,7 @@ fr-CA:
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
         error: Il y a eu un problème pour quitter le groupe
+        last_admin: "You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.\n\nVous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Pour quitter le groupe, vous devez nommer un autre membre administrateur."
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
@@ -962,7 +966,6 @@ fr-CA:
         create_user_group: Créer un groupe
         new_user_group: Nouveau groupe
         subtitle: Créez un groupe et invitez d'autres utilisateurs à se joindre pour participer à un niveau collectif.
-      no_user_groups: N'appartient à aucun groupe pour l'instant.
       roles:
         admin: Administrateur
         creator: Administrateur
@@ -1023,8 +1026,6 @@ fr-CA:
       static:
         latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
       help: Aide
       home: Accueil
@@ -1090,6 +1091,7 @@ fr-CA:
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
+          deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
           not_allowed: Cet utilisateur ne souhaite pas recevoir de messages directs.
           title: Conversation avec %{usernames}
         start:
@@ -1182,6 +1184,7 @@ fr-CA:
     notifications_settings:
       show:
         administrators: Administrateurs
+        allow_public_contact: "Allow anyone to send me a direct message, even if I do not follow them.\nAutoriser tout le monde à m'envoyer un message direct même si je ne les suis pas."
         allow_push_notifications: Recevez des notifications push pour savoir ce qui se passe lorsque vous n'êtes pas sur la plateforme. Vous pouvez les désactiver à tout moment.
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_moderations: Je veux recevoir un email chaque fois que quelqu'un ou qu'une ressource a été signalé à des fins de modérations.
@@ -1404,7 +1407,6 @@ fr-CA:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Ce contenu est-il inapproprié ?
-        does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
         hide: Masquer
         hide_content: Masquer ce contenu
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
@@ -1417,7 +1419,6 @@ fr-CA:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
-        does_not_belong: Rédige des contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
         offensive: Rédige des contenus racistes, sexistes, contenant des insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
         report: Signaler
         spam: Rédige des contenus de type publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
@@ -1506,6 +1507,7 @@ fr-CA:
         title_reply: Répondre
       show:
         back: Afficher toutes les conversations
+        deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
         not_allowed: Cet utilisateur n'accepte plus de messages directs.
         title: Conversation avec %{usernames}
       update:
@@ -1513,7 +1515,6 @@ fr-CA:
     user_interests:
       show:
         my_interests: Mes intérêts
-        no_scopes: Cette organisation n'a pas encore de secteurs !
         select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir des événements les concernant dans l'onglet Profil de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
@@ -1611,6 +1612,8 @@ fr-CA:
         accept_until: Cette invitation expirera le %{due_date}.
         decline: Refuser l'invitation
         hello: Bonjour %{email},
+        ignore: |-
+          Si vous n’acceptez pas l’invitation, veuillez ignorer ce courrier électronique.<br />Votre compte ne sera pas créé tant que vous n’aurez pas accédé au lien ci-dessus et que vous n’aurez pas configuré votre pseudo et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
@@ -1633,6 +1636,7 @@ fr-CA:
         action: Changer mon mot de passe
         greeting: Bonjour %{recipient}!
         instruction: Quelqu'un a demandé un lien pour changer votre mot de passe, et vous pouvez le faire via le lien ci-dessous.
+        instruction_2: Si vous n'êtes pas à l'origine de cette demande, merci d'ignorer ce courriel.
         instruction_3: Votre mot de passe ne changera pas jusqu'à ce que vous accédiez au lien ci-dessus et en créez un nouveau.
         subject: Réinitialiser les instructions de mot de passe
       unlock_instructions:
@@ -1655,6 +1659,7 @@ fr-CA:
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
+      no_token: Vous ne pouvez pas accéder à cette page sans venir d'un e-mail de réinitialisation de mot de passe. Si vous venez d'un courriel de réinitialisation de mot de passe, assurez-vous d'avoir utilisé l'URL complète fournie.
       send_instructions: Vous recevrez un e-mail avec des instructions pour réinitialiser votre mot de passe en quelques minutes.
       send_paranoid_instructions: Si votre adresse e-mail existe dans notre base de données, vous recevrez un lien de récupération de mot de passe à votre adresse e-mail dans quelques minutes.
       updated: Votre mot de passe a été changé avec succès. Vous êtes maintenant inscrit.
@@ -1678,6 +1683,8 @@ fr-CA:
     shared:
       links:
         back: Retour
+        didn_t_receive_confirmation_instructions: Vous n’avez pas reçu les instructions de confirmation?
+        didn_t_receive_unlock_instructions: Vous n’avez pas reçu les instructions de déverrouillage?
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
         sign_in_with_provider: Se connecter avec %{provider}
@@ -1712,6 +1719,7 @@ fr-CA:
       load: Impossible de charger la liste des émojis
     recents:
       clear: Effacer les émojis récents
+      none: Vous n'avez pas encore sélectionné d'emojis.
     retry: Réessayez
     search:
       _: Rechercher des émojis...
@@ -1722,13 +1730,18 @@ fr-CA:
     messages:
       allowed_file_content_types: 'seuls les fichiers avec les extensions suivantes sont autorisés : %{types}'
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
+      blank: "cannot be blank\nChamp obligatoire"
+      cannot_be_blank: "cannot be blank\nChamp obligatoire"
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_allowlist_error: le type de fichier n'est pas valide
+      cycle_detected: le parent d'une portée ne peut pas être l'un de ses descendants
+      empty: "cannot be empty\nChamp obligatoire"
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       invalid_time_zone: n'est pas un fuseau horaire valide
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
+      nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
       not_found: introuvable. Vous êtes-vous déjà inscrit ?
       not_locked: n'était pas verrouillé
       not_saved:
