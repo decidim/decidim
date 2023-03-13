@@ -77,7 +77,6 @@ eu:
           description: Eduki hau desegokia da?
           details: Iruzkin gehigarriak
           reasons:
-            does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
             offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Jakinarazi eduki desegokia
