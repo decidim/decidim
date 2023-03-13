@@ -373,7 +373,6 @@ sv:
           ok: OK
           title: Ej auktoriserad
         unconfirmed:
-          confirmation_instructions: 'Om du inte har fått bekräftelseanvisningar kan du begära dem igen:'
           explanation_html: För att kunna utföra denna åtgärd måste du vara auktoriserad, innan du gör det måste du bekräfta din e-postadress <strong>%{email}</strong>.
           request_confirmation_instructions: Begär bekräftelseanvisningar
           title: Bekräfta din e-postadress
@@ -392,7 +391,6 @@ sv:
       see_more: "(se mer)"
     components:
       component_order_selector:
-        no_content: Vi kunde inte hitta något innehåll med dessa kriterier
         order:
           all_types: Alla typer
           collaborative_draft: Gemensamt utkast
@@ -1516,7 +1514,6 @@ sv:
         action: Ändra mitt lösenord
         greeting: Hej %{recipient}!
         instruction: Någon har begärt en länk för att ändra ditt lösenord, och du kan göra det genom länken nedan.
-        instruction_2: Om du inte begärt detta, ignorerar du det här brevet.
         instruction_3: Ditt lösenord ändras inte förrän du följer länken ovan och skapar ett nytt.
         subject: Anvisningar om att återställa lösenord
       unlock_instructions:
@@ -1560,8 +1557,6 @@ sv:
     shared:
       links:
         back: Tillbaka
-        didn_t_receive_confirmation_instructions: Fick du inte anvisningar om bekräftelse?
-        didn_t_receive_unlock_instructions: Fick du inte anvisningar om att låsa upp?
         forgot_your_password: Glömt ditt lösenord?
         sign_in: Logga in
         sign_in_with_provider: Logga in med %{provider}
