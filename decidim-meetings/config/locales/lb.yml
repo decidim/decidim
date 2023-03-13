@@ -267,7 +267,6 @@ lb:
             registrations_count:
               one: Es wurde %{count} registriert.
               other: Es gab %{count} Registrierungen.
-            reserved_slots_help: Belassen Sie es auf 0, wenn Sie keine reservierten Slots haben
             reserved_slots_less_than: Muss kleiner oder gleich %{count}
             title: Anmeldungen
           update:
