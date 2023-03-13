@@ -879,7 +879,6 @@ ro:
         new:
           destroy:
             button: Șterge toți participanții privați
-            confirm: Sunteți sigur că doriți să ștergeți toți participanții privați? Această acțiune nu poate fi anulată, și nu îi veți putea recupera.
             empty: Nu aveți niciun participant privat.
             explanation: Aveți %{count} participanți privați.
             title: Ștergere participanți privați
