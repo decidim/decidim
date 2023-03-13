@@ -111,9 +111,6 @@ pl:
           update:
             invalid: Podczas zapisywania formularza wystąpił błąd.
             success: Formularz został zapisany.
-      errors:
-        answer:
-          body: Treść nie może być pusta
       images:
         dimensions: "%{width} × %{height} px"
       question_types:
