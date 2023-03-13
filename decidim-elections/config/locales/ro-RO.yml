@@ -31,12 +31,6 @@ ro:
           attributes:
             attachment:
               needs_to_be_reattached: Trebuie să fie reatașate
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: nu poate fi schimbat
-            public_key:
-              cant_be_changed: nu poate fi schimbat
   activerecord:
     errors:
       models:
@@ -270,7 +264,6 @@ ro:
           tally_started:
             invalid: A apărut o problemă la raportarea împuternicitului care lipsește
             mark_as_missing: Marcheză drept absent
-            mark_as_missing_description: Toți imputerniciții trebuie să ia parte la proces, dar dacă un împuternicit nu poate participa îl poți marca drept absent.
             success: Raportul privind împuternicitul absent a fost trimis cu succes către Panoul de afișare
             tally_completion: Procesul va fi finalizat cânt toți împuternicții sunt activi sau marcați drept absenți. Pentru a finaliza procesul sunt necesari cel puțin %{quorum} împuterniciți.
             undo_mark_as_missing: Un împuternicit marcat din greșeală drept absent va putea participa înainte de finalizarea procesului. Acesta poate proceda ca de obicei, iar marcarea drept absent va fi ingnorată.
@@ -511,8 +504,6 @@ ro:
               upload: Încărcați-vă cheile de identificare
               upload_error:
                 invalid_format: Fişierul încărcat nu conţine nici o cheie de identificare.
-                invalid_key: Tastele de identificare din fișierul încărcat nu pot fi încărcate.
-            not_supported_browser_description: Se pare că folosești un browser web care nu poate fi folosit pentru a acționa ca împuternicit. Asigură-te că folosești cea mai recentă versiune de browser, sau încercați să utilizați oricare dintre cele mai populare browsere pentru a putea finaliza sarcinile dvs. drept împuternicit.
             not_supported_browser_title: Actualizează browser-ul pentru a acționa ca împuternicit
             trustee_role_description: Ai fost desemnat drept împuternicit în unele dintre alegerile celebrate în această platformă.
           update:
