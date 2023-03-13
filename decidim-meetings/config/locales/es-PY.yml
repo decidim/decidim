@@ -202,7 +202,6 @@ es-PY:
           name: Reuniones asistidas
           next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
           unearned_another: Este usuario aún no ha asistido a ninguna reunión.
-          unearned_own: No has asistido a ninguna reunión todavía.
     meetings:
       actions:
         agenda: Orden del día
