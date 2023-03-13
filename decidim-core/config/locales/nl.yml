@@ -340,7 +340,6 @@ nl:
           ok: OK
           title: Niet geautoriseerd
         unconfirmed:
-          confirmation_instructions: 'Als u de bevestigingsinstructies nog niet hebt ontvangen, kunt u ze opnieuw aanvragen:'
           explanation_html: Om deze actie uit te voeren moet je geautoriseerd zijn, daarvoor moet je je e-mail bevestigen <strong>%{email}</strong>.
           request_confirmation_instructions: Bevestigingsinstructies aanvragen
           title: bevestig je email
@@ -358,7 +357,6 @@ nl:
       see_more: "(Bekijk meer)"
     components:
       component_order_selector:
-        no_content: We konden geen inhoud vinden met deze criteria
         order:
           all_types: Alle typen
           collaborative_draft: Samenwerkingsconcept
@@ -1407,7 +1405,6 @@ nl:
         action: Verander mijn wachtwoord
         greeting: Hallo %{recipient}!
         instruction: Iemand heeft om een ​​link gevraagd om uw wachtwoord te wijzigen en u kunt dit doen via de onderstaande link.
-        instruction_2: Als u dit niet heeft aangevraagd, negeert u deze e-mail.
         instruction_3: Uw wachtwoord verandert niet totdat u de bovenstaande link opent en een nieuwe maakt.
         subject: Reset wachtwoordinstructies
       unlock_instructions:
@@ -1451,8 +1448,6 @@ nl:
     shared:
       links:
         back: Terug
-        didn_t_receive_confirmation_instructions: Geen bevestigingsinstructies ontvangen?
-        didn_t_receive_unlock_instructions: Geen ontgrendelingsinstructies ontvangen?
         forgot_your_password: Uw wachtwoord vergeten?
         sign_in: Aanmelden
         sign_in_with_provider: Meld aan met %{provider}
