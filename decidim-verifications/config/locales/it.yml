@@ -55,7 +55,7 @@ it:
             - Gli utenti inseriscono le loro informazioni di identità e caricano una copia del loro documento.
             - Inserisci le informazioni presenti nell'immagine caricata.
             - Le informazioni dovrebbero corrispondere a quello que l'utente ha inserito.
-            - Se non riesci a vedere chiaramente le informazioni o non riesci a verificarle, puoi rifiutare la richiesta e l'utente sarà in grado di risolverlo.
+            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
             - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
