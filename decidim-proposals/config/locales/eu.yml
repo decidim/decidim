@@ -31,7 +31,6 @@ eu:
         cost_report: Kostuaren txostena
         execution_period: Gauzatzeko epea
       proposals_copy:
-        copy_proposals: Ulertzen dut honek aukeratutako osagaiaren proposamen guztiak ekarriko dituela gaur egunera eta ekintza hau ezin dela atzera bota.
         origin_component_id: Proposamenak kopiatzeko osagaia
       proposals_import:
         import_proposals: Inportatu proposamenak
@@ -760,8 +759,6 @@ eu:
             valuator: Ebaluatzailea
             valuators: Ebaluatzaileak
             votes: Botoak
-      new:
-        limit_reached: Ezin duzu proposamen berririk egin muga gainditu duzulako.
       participatory_text_proposal:
         alternative_title: Une honetan ez dago partaidetzazko testurik
         buttons:
