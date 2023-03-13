@@ -183,7 +183,6 @@ cs:
       last_activity:
         new_vote_at: Nový rozpočtový hlas v
       limit_announcement:
-        cant_vote: O tomto rozpočtu nelze hlasovat. <a href="%{landing_path}">Zkuste jiný rozpočet</a>.
         limit_reached: Máte aktivní hlasy v %{links}. Chcete-li hlasovat o tomto rozpočtu, musíte <a href="%{landing_path}">smazat svůj hlas a začít znovu</a>.
       models:
         budget:
