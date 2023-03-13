@@ -48,12 +48,8 @@ nl:
             attachment:
               file: Bestand is ongeldig
               needs_to_be_reattached: Moet opnieuw worden gekoppeld
-              title: Titel mag niet leeg zijn
   activerecord:
     models:
-      decidim/initiative:
-        one: Initatief
-        other: Initatief
       decidim/initiative_comittee:
         one: Commissie
         other: Commissies
