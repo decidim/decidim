@@ -64,7 +64,6 @@ es:
             attachment:
               file: Este archivo es invalido
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
-              title: El título no puede estar vacío
   activerecord:
     models:
       decidim/initiative:
