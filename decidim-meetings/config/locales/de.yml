@@ -277,15 +277,11 @@ de:
             filter_by: Filtern nach
             invite_attendee: Teilnehmer einladen
             invites: Lädt ein
-            registrations_disabled: Sie können keinen Teilnehmer einladen, da die Registrierungen deaktiviert sind.
             search: Suche
         meeting_closes:
           edit:
             close: Schließen
             title: Sitzung beenden
-        meeting_copies:
-          form:
-            select_a_meeting_type: Bitte eine Meeting-Typ auswählen
         meetings:
           close:
             invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
