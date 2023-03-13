@@ -26,6 +26,8 @@ es-MX:
       comments:
         create:
           error: Se ha producido un error al crear el comentario.
+        delete:
+          error: El comentario no se ha podido eliminar.
         update:
           error: Se ha producido un error al actualizar el comentario.
       comments_count: Número de comentarios
@@ -43,6 +45,7 @@ es-MX:
           body:
             label: Comentario
             placeholder: '¿Qué piensas sobre esto?'
+          form_error: El texto es necesario y no puede ser más largo de %{length}.
           submit: Enviar
           user_group_id:
             label: Comentar como
@@ -77,7 +80,6 @@ es-MX:
           description: '¿Es inapropiado este contenido?'
           details: Comentarios adicionales
           reasons:
-            does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
           title: Notificar contenido inapropiado
@@ -162,3 +164,6 @@ es-MX:
         description: Número de comentarios generados por los usuarios
         object: comentarios
         title: Comentarios
+  errors:
+    messages:
+      cannot_have_comments: no se pueden hacer comentarios
