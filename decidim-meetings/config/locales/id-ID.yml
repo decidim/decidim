@@ -130,7 +130,6 @@ id:
           name: Menghadiri pertemuan
           next_level_in: Hadiri %{score} pertemuan lagi untuk mencapai level berikutnya!
           unearned_another: Pengguna ini belum menghadiri rapat apa pun.
-          unearned_own: Anda belum menghadiri rapat apa pun.
     meetings:
       actions:
         agenda: Jadwal acara
