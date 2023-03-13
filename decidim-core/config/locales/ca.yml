@@ -415,7 +415,6 @@ ca:
           ok: D'acord
           title: Acció no autoritzada
         unconfirmed:
-          confirmation_instructions: 'Si no has rebut les instruccions de confirmació, pot tornar a demanar-les:'
           explanation_html: Per realitzar aquesta acció cal que estiguis autoritzada, abans de fer-ho, has de confirmar el teu correu electrònic <strong>%{email}</strong>.
           request_confirmation_instructions: Sol·licita instruccions de confirmació
           title: Confirma el teu correu electrònic
@@ -434,7 +433,6 @@ ca:
       see_more: "(veure més)"
     components:
       component_order_selector:
-        no_content: No hem pogut trobar cap contingut amb aquest criteri
         order:
           all_types: Tots els tipus
           collaborative_draft: Esborrany col·laboratiu
@@ -1642,7 +1640,6 @@ ca:
         action: Canvia la meva contrasenya
         greeting: Hola %{recipient}!
         instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, ho pots fer a través de l'enllaç següent.
-        instruction_2: Si no ho has sol·licitat, ignora aquest correu electrònic.
         instruction_3: La teva contrasenya no canviarà fins que accedeixis a l'enllaç de dalt i en creis una de nova.
         subject: Instruccions de regeneració de contrasenya
       unlock_instructions:
@@ -1688,8 +1685,6 @@ ca:
     shared:
       links:
         back: Torna
-        didn_t_receive_confirmation_instructions: No has rebut instruccions de confirmació?
-        didn_t_receive_unlock_instructions: No has rebut instruccions de desbloqueig?
         forgot_your_password: Has oblidat la teva contrasenya?
         sign_in: Iniciar sessió
         sign_in_with_provider: Inicia sessió amb %{provider}
@@ -1724,7 +1719,6 @@ ca:
       load: No s'ha pogut carregar la llista d'emojis
     recents:
       clear: Esborrar els emojis recents
-      none: Encara no heu seleccionat cap emoji.
     retry: Prova-ho de nou
     search:
       _: Cercar emojis...
