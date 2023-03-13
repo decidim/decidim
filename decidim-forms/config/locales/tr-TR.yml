@@ -106,9 +106,6 @@ tr:
           update:
             invalid: Formu kaydederken bir sorun oluştu.
             success: Başarıyla kaydedildi.
-      errors:
-        answer:
-          body: Vücut boş olamaz
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
