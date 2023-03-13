@@ -166,7 +166,6 @@ nl:
         vote: Stem
         voted_on: Je hebt gestemd op %{links}
       limit_announcement:
-        cant_vote: Je kunt niet stemmen op dit budget. <a href="%{landing_path}">Probeer een ander budget</a>.
         limit_reached: Je hebt actieve stemmen in %{links}. Om op deze begroting te stemmen, moet je <a href="%{landing_path}">je stem verwijderen en opnieuw beginnen</a>.
       models:
         budget:
