@@ -308,8 +308,6 @@ gl:
           success_html: Parabéns! A iniciativa <strong> %{title}</strong> asinouse correctamente
         personal_data:
           invalid: Os datos persoais non son consistentes cos datos proporcionados para a autorización.
-        sms_code:
-          invalid: O teu código de verificación non coincide coa nosa. Verifique os SMS que lle enviamos.
         sms_phone:
           invalid: O número de teléfono non é válido nin está en espera de autorización. Verifique as súas autorizacións.
       initiatives:
