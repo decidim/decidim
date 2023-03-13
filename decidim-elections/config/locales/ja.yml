@@ -783,7 +783,6 @@ ja:
               new: 新規作成
               title: アクション
             associated_census_data: 関連センサス項目
-            explanation_callout: 投票者がどのような質問をブースに提示するかは、投票スタイルで指定します。 投票スタイルでは、この投票の構成要素からどの質問が投票に属するかを選択できます。 投票コードは、センサスの投票者とブースで提示される投票用紙を一致させるために使用されます。 常にすべての質問を提示したい場合は、投票スタイルを作成しないでください。
             title: 投票スタイル
           new:
             create: 作成
@@ -1021,7 +1020,6 @@ ja:
             invalid: 投票の作成中に問題が発生しました
             success: 投票が正常に作成されました
           edit:
-            add_election_component: この投票用に設定された選挙がありません。コンポーネントセクションに追加してください。
             assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
             update: 更新
           form:
@@ -1329,7 +1327,6 @@ ja:
           success:
             access_link: メール経由
             access_link_with_sms: SMSまたは電子メールで
-            info: すでに郵便番号でアクセスコードを受け取っているはずです。持っていない場合は、ここでリクエストできます。
             title: あなたのセンサスデータは正しいです！
           title: 投票できますか？
         check_fields:
@@ -1374,7 +1371,6 @@ ja:
           access_code: アクセスコード
           access_code_placeholder: アクセスコード：
           ask_for_a_new_one: 新しいものを要求します。
-          dont_have_access_code: アクセスコードがありませんか？
           form_title: '投票にアクセスするには、次のフォームに入力してください:'
           start_voting: 投票の開始
           step: 識別
