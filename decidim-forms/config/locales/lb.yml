@@ -111,9 +111,6 @@ lb:
           update:
             invalid: Beim Speichern des Fragebogens sind Fehler aufgetreten.
             success: Formular erfolgreich gespeichert.
-      errors:
-        answer:
-          body: Körper kann nicht leer sein
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
