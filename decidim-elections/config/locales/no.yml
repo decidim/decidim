@@ -28,12 +28,6 @@
           attributes:
             attachment:
               needs_to_be_reattached: Må festes på nytt
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: kan ikke endres
-            public_key:
-              cant_be_changed: kan ikke endres
   activerecord:
     errors:
       models:
@@ -283,7 +277,6 @@
           tally_started:
             invalid: Kunne ikke rapportere manglende tillitsmann
             mark_as_missing: Marker som manglende
-            mark_as_missing_description: Alle tillitsmenn bør delta i denne prosessen, men dersom en tillitsmann ikke kan delta i prosessen, kan du merke det som manglende.
             success: Manglende tillitsmannrapport ble sendt til oppslagstavle
             tally_completion: Prosessen vil bli fullført når alle tillitsmenn er aktive eller merket som manglende. Minst %{quorum} tillitsmenn er nødvendig for å fullføre prosessen.
             undo_mark_as_missing: En tillitsmann merket som feilaktig merkes som manglende vil kunne delta før prosessen fullføres. De kan fortsette som vanlig og merket for "manglende" vil bli ignorert.
@@ -498,7 +491,6 @@
               upload: Last opp dine identifikasjonsnøkler
               upload_error:
                 invalid_format: Den opplastede filen inneholder ikke en identifikasjonsnøkkel.
-                invalid_key: Identifikasjonsnøklene i den opplastede filen kan ikke lastes.
       votes:
         confirm:
           answer: Svar
