@@ -70,7 +70,6 @@ sr:
         main_image: Glavna slika
     notifications_settings:
       show:
-        allow_public_contact: Dozvoli svakome da mi pošalje direktnu poruku, čak iako ih ne pratim.
         direct_messages: Primaj direktne poruke od svih bez ograničenja
     pages:
       home:
