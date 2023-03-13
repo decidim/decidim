@@ -628,7 +628,6 @@ fr:
               generate_legend: Vous devez générer une paire de clés d'identification pour participer aux élections en tant que garant.
               generate_legend_1: Après avoir cliqué sur le bouton, le téléchargement du fichier contenant les clés d'identification générées va commencer.
               generate_legend_2: Copiez le fichier téléchargé sur un périphérique USB fiable
-              generate_legend_3: Assurez-vous que votre ordinateur ne possède pas de copie du fichier (par exemple, vérifiez les dossiers Téléchargements et Bureau).
               generate_legend_4: Faites une autre copie du fichier sur un appareil externe et conservez-le dans un endroit très sûr.
               submit: Envoyer
               submit_legend: Après avoir suivi toutes les étapes expliquées ci-dessus, complétez le processus d'envoi de la clé d'identification publique au serveur.
@@ -636,10 +635,7 @@ fr:
               title: Clés d'identification du garant
               upload: Téléchargez vos clés d'identification
               upload_error:
-                invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
-                invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
-              upload_legend: Le serveur a vos clés d'identification publiques, mais votre navigateur ne les a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
             not_supported_browser_description: "It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your tasks.\nIl semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches."
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
@@ -1162,7 +1158,6 @@ fr:
             subject: L'export des codes d'accès au vote pour %{voting_title} est disponible
         vote_flow:
           already_voted_in_person: Ce participant a déjà voté en personne et n'a plus le droit de voter.
-          datum_not_found: Les données ne correspondent à aucun électeur.
       content_blocks:
         highlighted_votings:
           name: Élections mises en avant
@@ -1207,7 +1202,6 @@ fr:
             info_text: Veuillez introduire le nombre total de réponses pour chaque question.
             modal_ballots_results_count_error:
               close_modal: Fermer
-              info_text: Le nombre total de bulletins ne correspond pas au nombre total d'enveloppes. Veuillez vérifier le nombre total de bulletins.
               title: Le total des bulletins ne correspond pas
             save_recount: Enregistrer le comptage
             total_ballots: Total des votes
@@ -1222,7 +1216,6 @@ fr:
               btn_validate_total: Valider le nombre total de bulletins
               close_modal: Fermer
               info_explanation_text: 'Veuillez examiner le nombre total de bulletins de vote. Si le nombre total est incorrect, vous devez fournir une explication pour le comité de suivi :'
-              info_text: Le nombre total de bulletins de vote introduits ne correspond pas au nombre de personnes qui ont voté dans ce Bureau de vote.
               message_for_monitoring_committee: Message pour le comité de suivi
               review_recount: Revoir le comptage
               text_area_placeholder: Veuillez saisir votre message
