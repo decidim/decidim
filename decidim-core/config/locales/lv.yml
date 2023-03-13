@@ -283,7 +283,6 @@ lv:
           resume: Pārbaudiet savu "%{authorization}" autorizācijas apstrādes statusu.
           title: Autorizācija joprojām notiek
         unauthorized:
-          explanation: Diemžēl jūs šo darbību nevar veikt, jo daži jūsu autorizācijas dati nav atbilstīgi.
           invalid_field: "%{field} vērtība %{value} nav derīga."
           ok: Labi
           title: Nav autorizācijas
@@ -442,7 +441,6 @@ lv:
       not_found:
         back_home: Atpakaļ uz sākumu
         content_doesnt_exist: Šī adrese nav pareiza vai ir noņemta.
-        title: Jūsu meklēto lapu nevar atrast
     events:
       amendments:
         amendment_accepted:
@@ -1232,7 +1230,6 @@ lv:
       new:
         forgot_your_password: Aizmirsāt paroli?
         send_me_reset_password_instructions: Nosūtīt man paroles atiestatīšanas norādījumus
-      no_token: Jūs nevarat piekļūt šai lapai, ja nav saņemts paroles atiestatīšanas e-pasts. Ja jūs nākat no paroles atiestatīšanas e-pasta, pārliecinieties, vai esat izmantojis pilnu norādīto URL.
       send_instructions: Jūs dažu minūšu laikā saņemsiet e-pastu ar norādījumiem, kā atiestatīt savu paroli.
       send_paranoid_instructions: Ja jūsu e-pasta adrese atrodas mūsu datubāzē, jūs dažu minūšu laikā saņemsiet e-pastu paroles atiestatīšanai.
       updated: Jūsu parole ir veiksmīgi nomainīta. Tagad esat pierakstīts.
@@ -1280,13 +1277,11 @@ lv:
       already_confirmed: jau tika apstiprināts, lūdzu, mēģiniet pierakstīties
       confirmation_period_expired: jāapstiprina %{period} laikā, lūdzu, pieprasiet jaunu
       content_type_allowlist_error: faila tips nav derīgs
-      cycle_detected: tvēruma saistītais tvērums nevar būt viens no tā atvasinājumiem
       expired: ir beidzies derīguma termiņš, lūdzu, pieprasiet jaunu
       file_size_is_less_than_or_equal_to: Faila izmēram jābūt mazākam vai vienādam ar %{count}.
       invalid_time_zone: nav derīga laika josla
       long_words: satur vārdus, kas ir pārāk gari (vairāk nekā 35 rakstzīmes)
       must_start_with_caps: jāsākas ar lielo burtu
-      nesting_too_deep: nevar atrasties apakškategorijā
       not_found: netika atrasts. Vai jūs jau iepriekš reģistrējāties?
       not_locked: netika bloķēts
       not_saved:
