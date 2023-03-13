@@ -54,12 +54,6 @@ fi:
           attributes:
             attachment:
               needs_to_be_reattached: Liitettävä uudestaan
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: tietoa ei voi muuttaa
-            public_key:
-              cant_be_changed: tietoa ei voi muuttaa
         voting:
           attributes:
             voting_type:
@@ -333,7 +327,6 @@ fi:
             continue: Jatka
             invalid: Poissaolevan luottamushenkilön ilmoittaminen epäonnistui
             mark_as_missing: Merkitse poissaolevaksi
-            mark_as_missing_description: Kaikkien luottamushenkilöiden pitäisi osallistua tähän prosessiin, mutta jos luottamushenkilö ei voi osallistua prosessiin, voit merkitä kyseisen henkilön poissaolevaksi.
             success: Poissaolevan luottamushenkilön merkitseminen sähköiselle ääniuurnalle onnistui
             tally_completion: Prosessi valmistuu, kun kaikki luottamushenkilöt ovat aktiivisia tai merkitty poissaoleviksi. Vähintään %{quorum} luottamushenkilöä tarvitaan prosessin loppuun saattamiseksi.
             title: Ääntenlasku
@@ -638,10 +631,8 @@ fi:
               upload: Lataa tunnistusavaimet
               upload_error:
                 invalid_format: Ladattu tiedosto ei sisällä yhtään tunnistusavainta.
-                invalid_key: Ladatussa tiedostossa olevia tunnistusavaimia ei voida ladata.
                 invalid_public_key: Ladatun tiedoston tunnistusavaimet eivät vastaa tallennettua julkista tunnistusavainta.
               upload_legend: Julkiset tunnistusavaimet ovat palvelimella, mutta eivät selaimessasi. Sinun täytyy tuoda tunnistusavainten tiedosto omalle tietokoneellesi varmuuskopiosta, jonka tallensit avaimia luotaessa.
-            not_supported_browser_description: Näyttää siltä, että käytät selainta, jota ei voi käyttää luottamushenkilönä toimimiseen. Tarkasta, että käytät selaimesi viimeisintä versiota tai yritä käyttää jotain suosituimmista selaimista luottamushenkilön tehtävien suorittamiseksi.
             not_supported_browser_title: Päivitä selaimesi toimiaksesi luottamushenkilönä
             trustee_role_description: Sinulle on annettu luottamushenkilön tehtävä joissain vaaleissa tällä alustalla.
           update:
@@ -1243,10 +1234,8 @@ fi:
             confirm: Ok, jatka
             error: Tapahtui jokin virhe. Yritä uudestaan.
             heading: Äänten uudelleenlaskenta - Allekirjoita äänestyksen päättäminen
-            info_text: Jos jatkat, et voi enää muokata mitään tietoja. Tätä toimintoa ei voi peruuttaa.
             submit: Allekirjoita äänestyksen päättäminen
             success: Äänestyksen päättämisen allekirjoittaminen onnistui.
-            title: Toimintoa ei voi peruuttaa
           update:
             error: Äänestyksen päättämisen tulosten päivittäminen epäonnistui, yritä uudestaan myöhemmin.
             success: Äänestyksen päättämisne tulosten päivittäminen onnistui.
