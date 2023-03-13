@@ -890,7 +890,6 @@ cs:
         new:
           destroy:
             button: Odstranit všechny soukromé účastníky
-            confirm: Jste si jisti, že chcete odstranit všechny soukromé účastníky? Tuto akci nelze vrátit zpět, nebudete je moci obnovit.
             empty: Nemáte žádné soukromé účastníky.
             explanation: Máte %{count} soukromých účastníků.
             title: Odstranit soukromé účastníky
