@@ -63,6 +63,7 @@ cs:
       default_pages:
         placeholders:
           content: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
+          summary: Přidejte smysluplný obsah na statickou stránku %{page} na ovládacím panelu administrátora.
           title: Výchozí název pro %{page}
       menu:
         admins: Správci
@@ -179,6 +180,7 @@ cs:
         users_registration_mode:
           disabled: Přístup lze provádět pouze s externími účty
           enabled: Umožnit uživatelům registraci a přihlášení
+          existing: Neumožnit účastníkům registraci, ale umožnit stávajícím účastníkům přihlášení
       shared:
         notices:
           no_organization_warning_html: Abyste mohli začít, musíte vytvořit organizaci. Před pokračováním se ujistěte, že jste si přečetli %{guide}.
