@@ -255,7 +255,7 @@ describe "Authentication", type: :system do
         expect(page).not_to have_content("Sign Up")
       end
 
-      it "don't allow the user to sign up" do
+      it "do not allow the user to sign up" do
         find(".sign-in-link").click
         expect(page).not_to have_content("Create an account")
       end

@@ -400,7 +400,7 @@ shared_examples "manage proposals" do
         proposal.update!(
           state: "rejected",
           answer: {
-            "en" => "I don't like it"
+            "en" => "I do not like it"
           },
           answered_at: Time.current
         )
@@ -427,7 +427,7 @@ shared_examples "manage proposals" do
         proposal.update!(
           state: "rejected",
           answer: {
-            "en" => "I don't like it"
+            "en" => "I do not like it"
           },
           answered_at: Time.current
         )

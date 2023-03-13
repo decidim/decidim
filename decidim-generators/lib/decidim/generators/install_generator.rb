@@ -28,7 +28,7 @@ module Decidim
 
       class_option :skip_gemfile, type: :boolean,
                                   default: false,
-                                  desc: "Don't generate a Gemfile for the application"
+                                  desc: "Do not generate a Gemfile for the application"
 
       class_option :profiling, type: :boolean,
                                default: false,
@@ -40,7 +40,7 @@ module Decidim
 
       def add_seeds
         append_file "db/seeds.rb", <<~RUBY
-          # You can remove the 'faker' gem if you don't want Decidim seeds.
+          # You can remove the 'faker' gem if you do not want Decidim seeds.
           Decidim.seed!
         RUBY
       end

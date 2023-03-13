@@ -7,7 +7,7 @@ Decidim is a set of Ruby on Rails engines to create a participatory democracy fr
 
 These libraries are published to Rubygems.org, so you can add Decidim to your Ruby on Rails app as external dependencies.
 
-If you want to start your own installation of Decidim, you don't need to clone this repo. Keep reading to find out how to install Decidim.
+If you want to start your own installation of Decidim, you do not need to clone this repo. Keep reading to find out how to install Decidim.
 
 == Creating your Decidim app
 

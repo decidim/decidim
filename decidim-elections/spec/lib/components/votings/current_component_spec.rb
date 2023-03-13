@@ -24,7 +24,7 @@ module Decidim
           params["voting_slug"] = current_voting.id.to_s
         end
 
-        context "when the params don't contain a component id" do
+        context "when the params do not contain a component id" do
           it "doesn't match" do
             expect(subject.matches?(request)).to be(false)
           end
@@ -53,7 +53,7 @@ module Decidim
         end
       end
 
-      context "when the params don't contain an voting id" do
+      context "when the params do not contain an voting id" do
         it "doesn't match" do
           expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
         end
