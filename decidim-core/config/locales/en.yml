@@ -1751,9 +1751,9 @@ en:
     messages:
       allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
       already_confirmed: was already confirmed, please try signing in
-      confirmation: does not match %{attribute}
       blank: cannot be blank
       cannot_be_blank: cannot be blank
+      confirmation: does not match %{attribute}
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
       content_type_allowlist_error: the file type is not valid
       cycle_detected: a scope's parent cannot be one of its descendants
