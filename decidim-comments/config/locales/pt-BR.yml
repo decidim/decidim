@@ -37,7 +37,6 @@ pt-BR:
           body:
             label: Comente
             placeholder: O que você pensa sobre isso?
-          form_error: O texto é obrigatório e não pode ser maior que %{length} caracteres.
           submit: Enviar
           user_group_id:
             label: Comente como
@@ -75,6 +74,7 @@ pt-BR:
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou script bots.
           title: Reportar conteúdo impróprio
+        show_replies: Mostrar %{replies_count} respostas
         single_comment_link_title: Obter o link
       comment_order_selector:
         order:
@@ -154,6 +154,3 @@ pt-BR:
         description: Número de comentários gerados pelos usuários
         object: comentários
         title: Comentários
-  errors:
-    messages:
-      cannot_have_comments: não pode ter comentários
