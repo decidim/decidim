@@ -24,8 +24,6 @@ ja:
       comments:
         create:
           error: コメントの登録に問題がありました。
-        delete:
-          error: コメントを削除できませんでした。
         update:
           error: コメントの更新中に問題が発生しました。
       comments_count: コメント数
