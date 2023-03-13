@@ -816,7 +816,6 @@ lt:
         few: "%{count} sekėjai"
         many: "%{count} sekėjų"
         other: "%{count} sekėjai"
-      no_followings: Dar nieko neseka.
       non_public_followings: Kai kurie sekami ištekliai nėra vieši.
     follows:
       create:
@@ -879,7 +878,6 @@ lt:
           description_own: "Jus seka %{score} žmonės (-ių)."
           name: Sekėjai
           next_level_in: Būkite sekamas %{count} dalyvių, kad pasiekti kitą lygį!
-          unearned_another: Šis dalyvis dar neturi sekėjų.
           unearned_own: Jūs dar neturite sekėjų.
         index:
           badge_title: "%{name} ženklelis"
@@ -966,7 +964,6 @@ lt:
         create_user_group: Sukurti grupę
         new_user_group: Nauja grupė
         subtitle: Sukurti grupę ir pakviesti kitus naudotojus dalyvauti bendru lygmeniu.
-      no_user_groups: Dar nepriklauso nė vienai grupei.
       roles:
         admin: Administratorius
         creator: Administratorius
@@ -1025,8 +1022,6 @@ lt:
       static:
         latlng_text: 'platuma: %{latitude}, ilguma: %{longitude}'
         map_service_brand: 'OpenStreetMap: Žemėlapis'
-    members:
-      no_members: Šioje grupėje dar nėra narių.
     menu:
       help: Pagalba
       home: Pagrindinis
@@ -1403,7 +1398,6 @@ lt:
         already_reported: Šis turinys jau praneštas ir bus peržiūrėtas administratoriaus.
         close: Uždaryti
         description: Ar šis turinys netinkamas?
-        does_not_belong: Yra nelegalios veiklos, grasinimų nusižudyti, asmeninės informacijos arba kitokio, jūsų nuomone, %{organization_name} netinkamo turinio.
         offensive: Pateikiamame turinyje yra rasizmo, seksizmo, užgauliojimų, asmeninių išpuolių, grasinimų mirtimi, savižudybės prašymų ar bet kokios formos neapykantos kurstymo.
         reason: Priežastis
         report: Pranešti
@@ -1413,7 +1407,6 @@ lt:
         already_reported: Apie šį turinį jau pranešta ir jį peržiūrės administratorius.
         close: Uždaryti
         description: Kas netinka apie naudotoją?
-        does_not_belong: Pateikta informacija susijusi su neteisėta veikla, savižudybe, asmenine ar kita informacija netinkančia %{organization_name}.
         offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
         report: Pranešti
         spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
@@ -1502,7 +1495,6 @@ lt:
     user_interests:
       show:
         my_interests: Mano interesai
-        no_scopes: Organizacija dar neturi srities!
         select_your_interests: Pasirinkite jus dominančias temas, kad savo profilio kortelėje „Laiko juosta“ gautumėte su jomis susijusių renginių nuorodų.
         update_my_interests: Atnaujinti mane dominančias temas
       update:
