@@ -397,8 +397,6 @@ tr:
           success_html: Tebrikler! <strong> %{title}</strong> girişimi doğru imzalandı
         personal_data:
           invalid: Kişisel veriler, yetkilendirme için sağlanan verilerle tutarlı değildir.
-        sms_code:
-          invalid: Doğrulama kodunuz bizimkiyle eşleşmiyor. Lütfen size gönderdiğimiz SMS'i iki kez kontrol edin.
         sms_phone:
           invalid: Telefon numarası geçersiz veya yetki bekleniyor. Lütfen yetkilerinizi kontrol edin.
       initiatives:
