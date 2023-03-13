@@ -248,6 +248,7 @@ de:
           edit:
             confirm_destroy: Möchten Sie den Bestätigungscode wirklich zurücksetzen?
             destroy: Bestätigungscode zurücksetzen
+            resend: Sie haben den Bestätigungscode nicht erhalten?
             send: Bestätigen
             title: Geben Sie den Bestätigungscode ein, den Sie erhalten haben
           new:
