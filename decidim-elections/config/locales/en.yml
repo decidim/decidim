@@ -460,7 +460,7 @@ en:
           verifiable_results:
             checksum: 'File SHA256 checksum:'
             description:
-              not_ready: The verifiable election file and SHA256 checksum aren't available yet. As soon as the results are published, you'll be able to verify this election.
+              not_ready: The verifiable election file and SHA256 checksum are not available yet. As soon as the results are published, you'll be able to verify this election.
               ready: 'Here, you have the option to verify the election. First, you have to download the file and make sure it has not been corrupted. To do so, run the following command and check that the ouput matches the checksum:'
             how_to_verify: 'Once you downloaded the file and made sure it is ok, you can proceed to run the universal verifier. Clone <a href=''https://github.com/decidim/decidim-bulletin-board''>this repository</a> and, from the root folder, run the following command:'
             title: Verify Election results

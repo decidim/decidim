@@ -206,7 +206,7 @@ module Decidim
         end
       end
 
-      context "when the notifications requirements aren't met" do
+      context "when the notifications requirements are not met" do
         before do
           Rails.application.secrets[:vapid] = { enabled: false }
         end
