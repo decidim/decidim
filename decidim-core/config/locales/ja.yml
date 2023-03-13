@@ -404,7 +404,6 @@ ja:
           ok: OK
           title: 権限がありません
         unconfirmed:
-          confirmation_instructions: '確認手順を受け取っていない場合は、再度リクエストすることができます:'
           explanation_html: この操作を行うには、承認が必要です。その前に、メールアドレス <strong>%{email}</strong> を確認する必要があります。
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
@@ -422,7 +421,6 @@ ja:
       see_more: "(続きを参照)"
     components:
       component_order_selector:
-        no_content: この基準のコンテンツが見つかりませんでした
         order:
           all_types: すべてのタイプ
           collaborative_draft: 共同草案
@@ -1628,7 +1626,6 @@ ja:
         action: パスワードを変更する
         greeting: こんにちは、 %{recipient} さん!
         instruction: 誰かがあなたのパスワードを変更するためのリンクを要求しています、そしてあなたは下のリンクを介してこれを行うことができます。
-        instruction_2: これをリクエストしていない場合は、このメールを無視してください。
         instruction_3: 上記のリンクにアクセスして新しいパスワードを作成するまで、パスワードは変更されません。
         subject: パスワードリセットの手順
       unlock_instructions:
@@ -1674,8 +1671,6 @@ ja:
     shared:
       links:
         back: 戻る
-        didn_t_receive_confirmation_instructions: ユーザ登録確認メールが届かない方はこちら
-        didn_t_receive_unlock_instructions: ロック解除の手順を送信したい方はこちら
         forgot_your_password: パスワードをお忘れですか？
         sign_in: ログイン
         sign_in_with_provider: '%{provider} でログイン'
@@ -1709,7 +1704,6 @@ ja:
       load: 絵文字の読み込みに失敗しました
     recents:
       clear: 最近の絵文字を消去
-      none: 絵文字がまだ選択されていません。
     retry: やり直す
     search:
       _: 絵文字を検索...
