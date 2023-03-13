@@ -43,7 +43,6 @@ ja:
           body:
             label: コメント
             placeholder: これについてどう思いますか?
-          form_error: テキストは必須で、 %{length} 文字を超えることはできません。
           submit: 送信
           user_group_id:
             label: 'コメント:'
@@ -82,8 +81,7 @@ ja:
             offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
             spam: 本来の内容に関係が無い広告、詐欺や悪意のある処理などが含まれています。
           title: 不適切なコンテンツを報告する
-        show_replies:
-          other: '%{count} 件の返信を表示'
+        show_replies: '%{replies_count} 件の返信を表示'
         single_comment_link_title: リンク取得
       comment_order_selector:
         order:
@@ -163,6 +161,3 @@ ja:
         description: 出席者によって生成されたコメント数
         object: コメント
         title: コメント
-  errors:
-    messages:
-      cannot_have_comments: コメントを持つことはできません
