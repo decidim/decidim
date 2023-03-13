@@ -456,8 +456,6 @@ lt:
           success_html: Sveikiname! Iniciatyva <strong> %{title}</strong> pasirašyta
         personal_data:
           invalid: Asmens duomenys neatitinka leidimui gauti pateiktų duomenų.
-        sms_code:
-          invalid: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą SMS žinutę.
         sms_phone:
           invalid: Telefono numeris neteisingas arba laukiama leidimo. Patikrinkite savo leidimus.
       initiatives:
