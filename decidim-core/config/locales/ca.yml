@@ -1099,6 +1099,7 @@ ca:
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
+          deleted_accounts: No podeu tenir una conversa amb comptes eliminades.
           not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
@@ -1191,6 +1192,7 @@ ca:
     notifications_settings:
       show:
         administrators: Administradores
+        allow_public_contact: Permetre que qualsevol participant m'enviï missatges directes, encara que no la segueixi.
         allow_push_notifications: Mostrar notificacions emergents per a saber que passa mentre no estàs a la plataforma. Pots deshabilitar-les en qualsevol moment.
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
@@ -1515,6 +1517,7 @@ ca:
         title_reply: Respondre
       show:
         back: Mostra totes les converses
+        deleted_accounts: No podeu tenir una conversa amb comptes eliminades.
         not_allowed: Aquesta participant no accepta missatges directes.
         title: Conversa amb %{usernames}
       update:
@@ -1620,6 +1623,8 @@ ca:
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         decline: Declina la invitació
         hello: Hola %{email},
+        ignore: |-
+          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administradora de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a participant privada de %{application}. Pots acceptar a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
@@ -1642,6 +1647,7 @@ ca:
         action: Canvia la meva contrasenya
         greeting: Hola %{recipient}!
         instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, ho pots fer a través de l'enllaç següent.
+        instruction_2: Si no ho has sol·licitat, ignora aquest correu electrònic.
         instruction_3: La teva contrasenya no canviarà fins que accedeixis a l'enllaç de dalt i en creis una de nova.
         subject: Instruccions de regeneració de contrasenya
       unlock_instructions:
@@ -1664,6 +1670,7 @@ ca:
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
         send_me_reset_password_instructions: Envia'm les instruccions per restablir la contrasenya
+      no_token: No pots accedir a aquesta pàgina sense procedir d'un correu electrònic de restabliment de la contrasenya. Si hi has accedit des d'un correu electrònic de restabliment de la contrasenya, assegura't que has utilitzat la URL completa proporcionada.
       send_instructions: Rebràs un correu electrònic amb instruccions sobre com restablir la teva contrasenya en pocs minuts.
       send_paranoid_instructions: Si la teva adreça de correu electrònic existeix a la nostra base de dades, rebreu un enllaç de recuperació de la contrasenya a la teva adreça de correu electrònic en pocs minuts.
       updated: La teva contrasenya s'ha modificat correctament. Ja has iniciat la sessió.
@@ -1687,6 +1694,8 @@ ca:
     shared:
       links:
         back: Torna
+        didn_t_receive_confirmation_instructions: No has rebut instruccions de confirmació?
+        didn_t_receive_unlock_instructions: No has rebut les instruccions de desbloqueig?
         forgot_your_password: Has oblidat la teva contrasenya?
         sign_in: Iniciar sessió
         sign_in_with_provider: Inicia sessió amb %{provider}
@@ -1721,6 +1730,7 @@ ca:
       load: No s'ha pogut carregar la llista d'emojis
     recents:
       clear: Esborrar els emojis recents
+      none: Encara no has seleccionat cap emoji.
     retry: Prova-ho de nou
     search:
       _: Cercar emojis...
@@ -1731,13 +1741,18 @@ ca:
     messages:
       allowed_file_content_types: 'només s''accepten arxius amb les següents extensions: %{types}'
       already_confirmed: ja s'ha confirmat, si us plau intenta iniciar la sessió
+      blank: no pot estar en blanc
+      cannot_be_blank: no pot estar en blanc
       confirmation_period_expired: s'ha de confirmar dins de %{period}, si us plau sol·licita'n un de nou
       content_type_allowlist_error: el tipus de fitxer no és vàlid
+      cycle_detected: un àmbit pare no pot ser un dels seus descendents
+      empty: no pot estar buit
       expired: ha caducat, si us plau, sol·licita'n un de nou
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
       invalid_time_zone: no és una zona horària vàlida
       long_words: conté paraules massa llargues (més de 35 caràcters)
       must_start_with_caps: ha de començar amb una lletra majúscula
+      nesting_too_deep: no pot estar dins d'una subcategoria
       not_found: No es pot trobar. Us heu inscrit prèviament?
       not_locked: No estava bloquejat
       not_saved:
