@@ -185,9 +185,6 @@ gl:
           success: Paso de proceso participativo creouse con éxito.
         default_title: Introdución
         destroy:
-          error:
-            active_step: Non se pode eliminar o paso activo.
-            last_step: Non se pode eliminar o último paso dun proceso.
           success: Paso de proceso participativo eliminado con éxito.
         edit:
           title: Edita paso de proceso participativo
