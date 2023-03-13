@@ -310,7 +310,6 @@ tr:
           ok: Tamam
           title: Yetkili değil
         unconfirmed:
-          confirmation_instructions: 'Onay talimatlarını almadıysanız tekrar talep edebilirsiniz:'
           explanation_html: Bu eylemi gerçekleştirmek için yetkilendirilmeniz gerekir, bunu yapmadan önce e-postanızı doğrulamanız gerekir <strong>%{email}</strong>.
           request_confirmation_instructions: Onaylama talimatlarını tekrar gönder
           title: E-posta adresinizi doğrulayın
@@ -329,7 +328,6 @@ tr:
       see_more: "(daha fazla gör)"
     components:
       component_order_selector:
-        no_content: Bu kriterlere sahip herhangi bir içerik bulamadık
         order:
           all_types: Bütün türler
           collaborative_draft: İşbirlikçi Taslak
@@ -1371,7 +1369,6 @@ tr:
         action: Şifremi Değiştir
         greeting: Merhaba %{recipient}!
         instruction: Birisi şifrenizi değiştirmek için bir bağlantı istedi ve bunu aşağıdaki bağlantıdan yapabilirsiniz.
-        instruction_2: Bunu istemediyseniz, lütfen bu e-postayı yoksayın.
         instruction_3: Yukarıdaki bağlantıya erişip yeni bir tane oluşturana kadar şifreniz değişmeyecek.
         subject: Şifre talimatlarını sıfırla
       unlock_instructions:
@@ -1415,8 +1412,6 @@ tr:
     shared:
       links:
         back: Geri
-        didn_t_receive_confirmation_instructions: Onaylama talimatları almadı mı?
-        didn_t_receive_unlock_instructions: Kilit açma talimatları almadı mı?
         forgot_your_password: Parolanızı mı unuttunuz?
         sign_in: Oturum aç
         sign_in_with_provider: '%{provider}ile giriş yap'
