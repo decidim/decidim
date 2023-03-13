@@ -46,7 +46,6 @@ ro:
           body:
             label: Comentariu
             placeholder: Ce părere ai despre asta?
-          form_error: Textul este obligatoriu și nu poate fi mai lung de %{length} caractere.
           submit: Trimite
           user_group_id:
             label: Comentează în calitate de
@@ -85,6 +84,7 @@ ro:
             offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
             spam: Conține clickbait, publicitate, escrocherii sau script rulat de roboți.
           title: Raportează conținut nepotrivit
+        show_replies: Arată %{replies_count} răspunsuri
         single_comment_link_title: Obţine link
       comment_order_selector:
         order:
@@ -166,6 +166,3 @@ ro:
         description: Numărul de comentarii generate de participanți
         object: comentarii
         title: Comentarii
-  errors:
-    messages:
-      cannot_have_comments: nu poate fi comentat
