@@ -203,7 +203,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.minute.ago)
           end
 
-          it "can't be renewed yet" do
+          it "cannot be renewed yet" do
             visit_authorizations
 
             within ".authorizations-list" do
@@ -258,7 +258,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
         end
 
-        it "can't be renewed yet" do
+        it "cannot be renewed yet" do
           visit_authorizations
 
           within ".authorizations-list" do

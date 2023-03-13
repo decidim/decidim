@@ -76,7 +76,7 @@ system_admin.save
 Once you have your system admin setup you can also start managing the organizations in your deploy. To do it, login at the system dashboard and create a new organization
 following the form instructions. After creating it, a new admin user will be created and invited to start managing it.
 
-Remember that System admins and regular Admins are completely different users (they do not even share the same database table), so you can't use your
+Remember that System admins and regular Admins are completely different users (they do not even share the same database table), so you cannot use your
 system user to login in as an organization admin.
 
 ## Contributing

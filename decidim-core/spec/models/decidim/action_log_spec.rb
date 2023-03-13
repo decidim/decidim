@@ -108,7 +108,7 @@ describe Decidim::ActionLog do
       it { is_expected.to be_falsey }
     end
 
-    context "when the user can't participate" do
+    context "when the user cannot participate" do
       before do
         action_log.participatory_space.private_space = true
         action_log.participatory_space.save!
