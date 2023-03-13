@@ -89,7 +89,6 @@ lv:
         users_registration_mode:
           disabled: Piekļuvi var veikt tikai ar ārējiem kontiem
           enabled: Ļauj dalībniekiem reģistrēties un pierakstīties
-          existing: Neļauj dalībniekiem reģistrēties, bet ļauj esošajiem dalībniekiem pierakstīties
       shared:
         notices:
           no_organization_warning_html: Lai sāktu, jums ir jāizveido organizācija. Pirms turpināt, noteikti izlasiet %{guide}.
