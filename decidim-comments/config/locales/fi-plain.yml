@@ -31,6 +31,7 @@ fi-pl:
         update:
           error: Kommentin päivittäminen epäonnistui.
       comments_count: Kommenttien määrä
+      comments_title: Kommentti
       last_activity:
         new_comment_at_html: "<span>Uusi kommentti osoitteessa %{link}</span>"
       view: Näytä
@@ -44,7 +45,6 @@ fi-pl:
           body:
             label: Kommentti
             placeholder: Mitä mieltä olet tästä?
-          form_error: Teksti vaaditaan ja se ei voi olla pidempi kuin %{length} merkkiä.
           submit: Lähetä
           user_group_id:
             label: Kommentoi käyttäjänä
@@ -83,6 +83,7 @@ fi-pl:
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita asiatonta sisältöä
+        show_replies: Näytä %{replies_count} vastausta
         single_comment_link_title: Linkki kommenttiin
       comment_order_selector:
         order:
@@ -163,6 +164,3 @@ fi-pl:
         description: Käyttäjien kirjoittamien kommenttien määrä
         object: kommentit
         title: Kommentit
-  errors:
-    messages:
-      cannot_have_comments: ei voi sisältää kommentteja
