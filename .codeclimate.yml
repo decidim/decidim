@@ -97,6 +97,84 @@ plugins:
           severity: minor
           categories: Style
 
+        prefer_cannot:
+          pattern: can't
+          annotation: 'Prefer "cannot"'
+          severity: minor
+          categories: Style
+
+        prefer_does_not:
+          pattern: doesn't
+          annotation: 'Prefer "does not"'
+          severity: minor
+          categories: Style
+
+        prefer_have_not:
+          pattern: haven't
+          annotation: 'Prefer "have not"'
+          severity: minor
+          categories: Style
+
+        prefer_did_not:
+          pattern: didn't
+          annotation: 'Prefer "did not"'
+          severity: minor
+          categories: Style
+
+        prefer_could_not:
+          pattern: couldn't
+          annotation: 'Prefer "could not"'
+          severity: minor
+          categories: Style
+
+        prefer_will_not:
+          pattern: won't
+          annotation: 'Prefer "will not"'
+          severity: minor
+          categories: Style
+
+        prefer_has_not:
+          pattern: hasn't
+          annotation: 'Prefer "has not"'
+          severity: minor
+          categories: Style
+
+        prefer_should_not:
+          pattern: shouldn't
+          annotation: 'Prefer "should not"'
+          severity: minor
+          categories: Style
+
+        prefer_was_not:
+          pattern: wasn't
+          annotation: 'Prefer "was not"'
+          severity: minor
+          categories: Style
+
+        prefer_do_not:
+          pattern: don't
+          annotation: 'Prefer "do not"'
+          severity: minor
+          categories: Style
+
+        prefer_is_not:
+          pattern: isn't
+          annotation: 'Prefer "is not"'
+          severity: minor
+          categories: Style
+
+        prefer_are_not:
+          pattern: aren't
+          annotation: 'Prefer "are not"'
+          severity: minor
+          categories: Style
+
+        prefer_were_not:
+          pattern: weren't
+          annotation: 'Prefer "were not"'
+          severity: minor
+          categories: Style
+
     exclude_patterns:
       - "decidim_app-design/**/*"
       - "**/*/locales/*.yml"
