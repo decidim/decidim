@@ -269,6 +269,7 @@ fr:
           edit:
             confirm_destroy: Êtes-vous sûr de vouloir réinitialiser le code de vérification?
             destroy: Réinitialiser le code de vérification
+            resend: "Did not receive the verification code?\nVous n'avez pas reçu le code de sécurité ?"
             send: Confirmer
             title: Introduisez le code de vérification que vous avez reçu
           new:
