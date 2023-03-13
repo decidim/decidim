@@ -418,7 +418,6 @@ fr-CA:
           ok: D'accord
           title: Non autorisé
         unconfirmed:
-          confirmation_instructions: 'Si vous n''avez pas reçu les instructions de confirmation, vous pouvez les demander à nouveau:'
           explanation_html: Pour pouvoir effectuer cette action, vous devez être autorisé. Vous devez d'abord confirmer votre adresse électronique <strong>%{email}</strong>.
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
@@ -437,7 +436,6 @@ fr-CA:
       see_more: "(voir plus)"
     components:
       component_order_selector:
-        no_content: Nous n'avons pas trouvé de contenu avec ce critère
         order:
           all_types: Tous types
           collaborative_draft: Brouillon collaboratif
@@ -1641,7 +1639,6 @@ fr-CA:
         action: Changer mon mot de passe
         greeting: Bonjour %{recipient}!
         instruction: Quelqu'un a demandé un lien pour changer votre mot de passe, et vous pouvez le faire via le lien ci-dessous.
-        instruction_2: Si vous ne l'avez pas demandé, veuillez ignorer cet email.
         instruction_3: Votre mot de passe ne changera pas jusqu'à ce que vous accédiez au lien ci-dessus et en créez un nouveau.
         subject: Réinitialiser les instructions de mot de passe
       unlock_instructions:
@@ -1687,8 +1684,6 @@ fr-CA:
     shared:
       links:
         back: Retour
-        didn_t_receive_confirmation_instructions: Vous n'avez pas reçu d'instructions de confirmation?
-        didn_t_receive_unlock_instructions: Si la plateforme vous indique que votre compte est bloqué, cliquez ici pour recevoir les instructions de déblocage
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
         sign_in_with_provider: Se connecter avec %{provider}
@@ -1723,7 +1718,6 @@ fr-CA:
       load: Impossible de charger la liste des émojis
     recents:
       clear: Effacer les émojis récents
-      none: Vous n'avez pas encore sélectionné d'émoji.
     retry: Réessayez
     search:
       _: Rechercher des émojis...
