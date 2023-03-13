@@ -26,11 +26,6 @@ ru:
         name: Полное имя
   activerecord:
     models:
-      decidim/initiative:
-        one: Почин
-        few: Почина
-        many: Починов
-        other: Починов
       decidim/initiative_comittee:
         one: Рабочая группа
         few: Рабочих группы
