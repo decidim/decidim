@@ -55,7 +55,7 @@ lt:
             - Vartotojai užpildo savo tapatybės informaciją ir įkelia savo dokumento kopiją.
             - Jūs užpildote informaciją, esančią įkeltame paveikslėlyje.
             - Informacija turi atitikti tai, ką įvedė vartotojas.
-            - Jei nematote aiškiai informacijos arba negalite jos patikrinti, galite atmesti užklausą ir vartotojas galės ją ištaisyti.
+            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
             - Dalyviai prašo el. laišku jiems išsiųsti patvirtinimo kodą.
