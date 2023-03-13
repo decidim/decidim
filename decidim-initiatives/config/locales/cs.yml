@@ -64,14 +64,13 @@ cs:
             attachment:
               file: Soubor je neplatný
               needs_to_be_reattached: Potřebuje být znovu připojen
-              title: Název nesmí být prázdný
   activerecord:
     models:
       decidim/initiative:
         one: Iniciativa
         few: Iniciativy
         many: Iniciativ
-        other: Iniciativy
+        other: Iniciativ
       decidim/initiative_comittee:
         one: Výbor
         few: Výbory
