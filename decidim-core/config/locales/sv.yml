@@ -369,7 +369,6 @@ sv:
           resume: Se hur auktoriseringen med "%{authorization}" pågår
           title: Auktoriseringen pågår fortfarande
         unauthorized:
-          explanation: Du kan tyvärr inte utföra denna åtgärd eftersom vissa av dina auktoriseringsuppgifter inte överensstämmer.
           invalid_field: "%{field} värdet %{value} är inte giltigt."
           ok: OK
           title: Ej auktoriserad
@@ -570,7 +569,6 @@ sv:
       not_found:
         back_home: Tillbaka hem
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
-        title: Sidan som du söker kan inte hittas
     events:
       amendments:
         amendment_accepted:
@@ -877,7 +875,6 @@ sv:
         success: Förfrågan att gå med har skickats. En administratör granskar din förfrågan innan du blir godkänd i gruppen.
       leave:
         error: Det gick inte att lämna gruppen
-        last_admin: Du kan inte ta bort dig själv från denna grupp eftersom du är den sista administratören. Gör en annan medlem till administratör för att lämna gruppen.
         success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
@@ -1012,7 +1009,6 @@ sv:
         show:
           back: Tillbaka till alla konversationer
           chat_with: Konversation med
-          deleted_accounts: Du kan inte meddela raderade konton.
           not_allowed: Deltagaren tar inte emot direktmeddelanden.
           title: Samtal med %{usernames}
         start:
@@ -1391,7 +1387,6 @@ sv:
         title_reply: Svara
       show:
         back: Visa alla samtal
-        deleted_accounts: Du kan inte meddela raderade konton.
         not_allowed: Den här användaren accepterar inte fler direkta meddelanden.
         title: Konversation med %{usernames}
       update:
@@ -1542,7 +1537,6 @@ sv:
       new:
         forgot_your_password: Glömt ditt lösenord?
         send_me_reset_password_instructions: Skicka mig anvisningar om återställning av lösenord
-      no_token: Du kan inte komma åt den här sidan utan att komma från ett e-brev för återställning av lösenord. Om du kommer från ett e-brev för återställning av lösenord kontrollerar du att du använde hela URL:en.
       send_instructions: Du får ett e-brev med anvisningar om hur du återställer ditt lösenord om några minuter.
       send_paranoid_instructions: Om din e-postadress finns i vår databas, får du en länk för återställning av lösenord till din e-postadress om några minuter.
       updated: Lösenordet har ändrats. Du är nu inloggad.
@@ -1600,13 +1594,11 @@ sv:
       already_confirmed: var redan bekräftat, försök att logga in
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
       content_type_allowlist_error: ogiltig filtyp
-      cycle_detected: en omfattnings förälder kan inte vara ett av dess barn
       expired: har förfallit, men du kan begära en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
       invalid_time_zone: är inte en giltig tidszon
       long_words: innehåller ord som är för långa (över 35 tecken)
       must_start_with_caps: måste börja med en stor bokstav
-      nesting_too_deep: kan inte vara inuti en underkategori
       not_found: kunde inte hittas. Har du registrerat dig tidigare?
       not_locked: låstes inte
       not_saved:
