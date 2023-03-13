@@ -294,7 +294,6 @@ sk:
           resume: Skontrolujte autorizáciu "%{Authorization}"
           title: Autorizácia stále prebieha
         unauthorized:
-          explanation: Je nám ľúto, nemôžete túto akciu vykonať, pretože niektoré vaše údaje o autorizáciu nezodpovedajú.
           invalid_field: "%{field} hodnota %{value} nie je platná."
           ok: OK
           title: Neautorizovaný
@@ -452,7 +451,6 @@ sk:
       not_found:
         back_home: Späť na úvodnú stránku
         content_doesnt_exist: Táto adresa je nesprávna alebo bola odstránená.
-        title: Stránku, ktorú hľadáte, nemožno nájsť
     events:
       amendments:
         amendment_accepted:
@@ -1164,7 +1162,6 @@ sk:
       new:
         forgot_your_password: Zabudli ste heslo?
         send_me_reset_password_instructions: Pošlite mi pokyny na resetovanie hesla
-      no_token: Na túto stránku nemôžete pristupovať bez príchode e-mailu s obnovením hesla. Ak pochádzate z e-mailu s obnovením hesla, uistite sa, že ste použili úplnú adresu URL.
       send_instructions: Dostanete e-mail s pokynmi, ako obnoviť heslo priebehu niekoľkých minút.
       send_paranoid_instructions: Ak vaša e-mailová adresa existuje v našej databáze, dostanete odkaz na obnovenie hesla na vašu e-mailovú adresu v priebehu niekoľkých minút.
       updated: Vaše heslo bolo úspešne zmenené. Teraz ste prihlásení.
@@ -1213,13 +1210,11 @@ sk:
       already_confirmed: bolo už potvrdené, skúste prosím prihlásiť
       confirmation_period_expired: musí byť potvrdené v rámci %{period}, požiadajte o nový
       content_type_allowlist_error: typ súboru nie je platný
-      cycle_detected: rodič odbore nemôže byť jedným z jeho potomkov
       expired: uplynula, požiadajte o novú
       file_size_is_less_than_or_equal_to: veľkosť súboru musí byť menšia alebo rovná%{count}
       invalid_time_zone: nie je platná časová zóna
       long_words: obsahuje slová, ktoré sú príliš dlhé (cez 35 znakov)
       must_start_with_caps: musí začínať veľkým písmenom
-      nesting_too_deep: nemôže byť vnútri podkategórie
       not_found: nemôže byť nájdené. Zaregistrovali ste sa predtým?
       not_locked: nebola zamknutá
       not_saved:
