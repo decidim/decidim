@@ -602,7 +602,6 @@ ca:
               processing: Processant
             title: Recompte per %{election}
           update:
-            error: L'estat de l'elecció no s'havia actualitzat.
             success: 'L''estat de l''elecció és: %{status}'
         menu:
           trustee_zone: Zona de garants
