@@ -48,7 +48,6 @@ lt:
           body:
             label: Komentaras
             placeholder: Ką manote apie tai?
-          form_error: Tekstas būtinais ir negali viršyti %{length} simbolių.
           submit: Publikuoti
           user_group_id:
             label: Komentuoti kaip
@@ -87,6 +86,7 @@ lt:
             offensive: Pateikiamoje informacijoje yra rasizmo, seksizmo, keiksmažodžių, asmeninių atakų, grasinimų ar kitokios neapykantos kalbos.
             spam: Pateikiamoje informacijoje yra reklamos, antraščių mąsalo ar apgavysčių.
           title: Pranešti apie netinkamą turinį
+        show_replies: Rodyti %{replies_count} atsakymus
         single_comment_link_title: Gauti nuorodą
       comment_order_selector:
         order:
@@ -169,6 +169,3 @@ lt:
         description: Komentarų sugeneruotų dalyvių skaičius
         object: komentarai
         title: Komentarai
-  errors:
-    messages:
-      cannot_have_comments: negali būti komentuota
