@@ -267,7 +267,6 @@ zh-CN:
             registration_form: 报名表
             registrations_count:
               other: 有 %{count} 个注册。
-            reserved_slots_help: 如果您没有预留位置，请将它留给0
             reserved_slots_less_than: 必须小于或等于 %{count}
             title: 注册
           update:
