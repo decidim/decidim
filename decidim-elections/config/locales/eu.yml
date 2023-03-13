@@ -391,7 +391,6 @@ eu:
           verifiable_results:
             checksum: 'Artxiboaren SHA256 egiaztapenaren batuketa:'
             description:
-              not_ready: Hautapenaren artxibo egiaztagarria eta SHA256 egiaztatze-batura oraindik ez daude eskuragarri. Emaitzak argitaratu bezain laster, aukera hori egiaztatu ahal izango duzu.
               ready: 'Hemen duzu aukera egiaztatzeko aukera. Lehenik eta behin, fitxategia deskargatu behar duzu eta ziurtatu ez dela hondatu. Horretarako, exekutatu ondorengo komandoa eta egiaztatu irteera egiaztatze-baturarekin bat datorrela:'
             how_to_verify: 'Fitxategia deskargatu eta ondo dagoela ziurtatu ondoren, egiaztatzaile unibertsala exekuta dezakezu. Klona ezazu biltegi hau <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> eta, erro-karpetatik, exekuta ezazu ondoko komandoa:'
             title: Egiaztatu aukeraketaren emaitzak
@@ -1207,7 +1206,6 @@ eu:
       votings:
         access_code_modal:
           email: 'Bidali posta elektronikoz honi: %{email}'
-          info: Parte hartzeko sarbide-kodea behar duzu. Postaz bat jaso ez baduzu, beste bat bidali ahal dizugu.
           no_email: Posta elektronikoa ez erabilgarri
           no_sms: Telefono zenbakia ez erabilgarri
           sms: Bidali SMSz honi %{sms}
