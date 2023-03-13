@@ -462,13 +462,6 @@ lb:
             check: Iwwerpréiwen an weider maachen
             close_modal: Modal zou maachen
             uncheck: Ouni Kontakt-Erlabnis weidermaachen
-          notice: |-
-            <p>Hey, bass de sécher, dass de keen Newsletter wëlls?<br>
-            Iwwerlee der et nach emol, ob s'de den Newsletter net awer un-ticken wëlls.<br>
-            Fir ons ass et wichteg, d'Méiglechkeet ze hunn dir vun Zäit zu Zäit kënnen en Email ze schécken an dem mir dir all déi wichteg Annoncen matdeelen. Du kanns dat zu all Moment an dengen Astellungen fir Noriichten änneren.</p>
-            <p>Wann d'Kontroll-Këscht net aktivéiert ass, verpass du relevant Informatiounen iwwert Méiglechkeeten sech op der Plattform ze bedeelegen.<br>
-            Wann s'du trotz all dem keen Newsletter wëlls, respektéieren mir selbstverständlech deng Entscheedung.</p>
-            <p>Merci fri d'Liesen!</p>
           title: Newsletter Matdeelungen
         omniauth_buttons:
           or: Oder
@@ -988,7 +981,6 @@ lb:
     notifications_settings:
       show:
         administrators: Administrateuren
-        allow_public_contact: Allen erlaben, mir Direkt-Noriichten ze schécken, och vun deenen, deenen ech net nofollegen.
         direct_messages: Direkt-Noriichten vun jidderengem zougeschéckt kréien
         everything_followed: Vun jidderengem dem ech nofollegen
         newsletter_notifications: Ech well den Newsletter
@@ -1374,9 +1366,6 @@ lb:
         accept_until: Dës Invitatioun gëtt %{due_date} fälleg.
         decline: Invitatioun refuséieren
         hello: Moien %{email},
-        ignore: |-
-          Ignoréier dësen Email, wann s'du d'Invitatioun net unhuelen wëlls.<br />
-          De Kont gëtt réischt erstallt, wann s'du op de Link uewen gees an en Pseudonym an Passwuert festgeluecht hues.
         invited_you_as_admin: "%{invited_by} huet dech als Admin vun %{application} aglueden. Du kanns se unhuelen andeems op den Link ënnen gees."
         invited_you_as_private_user: "%{invited_by} huet dech als privaten Teilnehmer vun %{application} agelueden. Du déi kanns iwwer den folgenden Link unhuelen."
         someone_invited_you: Et huet een dech fir d' %{application} agelueden. Du kanns dat unhuelen andeems du op op den Link ënnen gees.
