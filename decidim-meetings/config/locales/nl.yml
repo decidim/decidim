@@ -35,10 +35,6 @@ nl:
         type_of_meeting: Type
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Deze URL kan niet worden ingesloten in vergadering of live evenement pagina
         meeting_agenda:
           attributes:
             base:
@@ -269,15 +265,11 @@ nl:
             filter_by: Filteren op
             invite_attendee: Nodig een deelnemer uit
             invites: Uitnodigingen
-            registrations_disabled: U kunt een deelnemer niet uitnodigen omdat de registraties zijn uitgeschakeld.
             search: Zoeken
         meeting_closes:
           edit:
             close: Sluiten
             title: Vergadering sluiten
-        meeting_copies:
-          form:
-            select_a_meeting_type: Selecteer een vergaderingstype
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
