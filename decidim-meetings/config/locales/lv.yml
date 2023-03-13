@@ -209,7 +209,6 @@ lv:
             filter_by: Filtrēt pēc
             invite_attendee: Uzaicināt apmeklētāju
             invites: Ielūgumi
-            registrations_disabled: Jūs nevarat uzaicināt apmeklētāju, jo reģistrācija ir atspējota.
             search: Meklēt
         meeting_closes:
           edit:
