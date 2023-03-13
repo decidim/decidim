@@ -52,10 +52,6 @@ ar:
         code: الرمز
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: لا يمكن تضمين عنوان URL هذا في صفحة الاجتماع أو الحدث المباشر
         meeting_agenda:
           attributes:
             base:
@@ -302,15 +298,11 @@ ar:
             filter_by: مصنف بواسطة
             invite_attendee: دعوة الحضور
             invites: تدعو
-            registrations_disabled: لا يمكنك دعوة أحد الحاضرين لأن التسجيلات معطلة.
             search: بحث
         meeting_closes:
           edit:
             close: قريب
             title: اجتماع قريب
-        meeting_copies:
-          form:
-            select_a_meeting_type: الرجاء تحديد نوع الاجتماع
         meetings:
           close:
             invalid: حدثت مشكلة أثناء اختتام هذا الاجتماع
