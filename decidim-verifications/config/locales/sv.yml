@@ -236,7 +236,6 @@ sv:
           edit:
             confirm_destroy: Är du säker på att du vill återställa verifieringskoden?
             destroy: Nollställ verifieringskod
-            resend: Fick du inte verifieringskoden?
             send: Bekräfta
             title: Ange verifieringskoden som du fick
           new:
