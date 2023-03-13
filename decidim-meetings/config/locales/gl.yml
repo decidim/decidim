@@ -149,7 +149,6 @@ gl:
           name: Reunións asistidas
           next_level_in: Asistir a %{score} reunións máis para alcanzar o seguinte nivel!
           unearned_another: Este usuario aínda non asistiu a ningunha reunión.
-          unearned_own: Aínda non asistiu a ningunha reunión.
     meetings:
       actions:
         agenda: Axenda
