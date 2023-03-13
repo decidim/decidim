@@ -248,7 +248,6 @@ gl:
           edit:
             confirm_destroy: '¿Estás seguro de que queres restablecer o código de verificación?'
             destroy: Restablecer o código de verificación
-            resend: Non recibiches o código de verificación?
             send: Confirmar
             title: Introduce o código de verificación que recibiches
           new:
