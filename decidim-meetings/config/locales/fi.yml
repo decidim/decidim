@@ -52,10 +52,6 @@ fi:
         code: Koodi
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
         meeting_agenda:
           attributes:
             base:
@@ -286,15 +282,11 @@ fi:
             filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
-            registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
             search: Hae
         meeting_closes:
           edit:
             close: Sulje
             title: Sulje tapaaminen
-        meeting_copies:
-          form:
-            select_a_meeting_type: Valitse tapaamisen tyyppi
         meetings:
           close:
             invalid: Tapaamisen sulkeminen epäonnistui
