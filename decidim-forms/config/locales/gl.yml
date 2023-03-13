@@ -57,9 +57,6 @@ gl:
             up: Arriba
           update:
             invalid: Produciuse un erro ao gardar o cuestionario.
-      errors:
-        answer:
-          body: O corpo non pode estar en branco
       images:
         processors:
           resize_and_pad: A imaxe axustarase para se encadrar a %{dimensions}.
