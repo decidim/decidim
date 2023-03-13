@@ -202,7 +202,6 @@ eu:
           name: Parte hartu den topkaetak
           next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
           unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
-          unearned_own: Oraindik ez zara topaketara joan.
     meetings:
       actions:
         agenda: Agenda
