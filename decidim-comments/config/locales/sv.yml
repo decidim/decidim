@@ -44,7 +44,6 @@ sv:
           body:
             label: Kommentera
             placeholder: Vad tycker du om detta?
-          form_error: Texten är obligatorisk och den kan inte vara längre än %{length} tecken.
           submit: Skicka
           user_group_id:
             label: Kommentera som
@@ -83,6 +82,7 @@ sv:
             offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera olämpligt innehåll
+        show_replies: Visa %{replies_count} svar
         single_comment_link_title: Hämta länk
       comment_order_selector:
         order:
@@ -163,6 +163,3 @@ sv:
         description: Antal kommentarer från deltagare
         object: kommentarer
         title: Kommentarer
-  errors:
-    messages:
-      cannot_have_comments: kan inte ha kommentarer
