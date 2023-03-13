@@ -68,7 +68,7 @@ shared_examples "merge proposals" do
           let!(:target_component) { current_component }
           let!(:proposal_ids) { proposals.map(&:id) }
 
-          context "when the proposals can't be merged" do
+          context "when the proposals cannot be merged" do
             let!(:proposals) { create_list :proposal, 3, :with_endorsements, :with_votes, component: current_component }
 
             it "does not create a new proposal and displays a validation fail message" do

@@ -135,7 +135,7 @@ describe Decidim::NotificationGenerator do
           end
         end
 
-        context "and the user can't participate" do
+        context "and the user cannot participate" do
           before do
             allow(resource).to receive(:can_participate?).with(kind_of(Decidim::User)).and_return(false)
           end

@@ -38,7 +38,7 @@ describe "Space moderator manages global moderations", type: :system do
       end
     end
 
-    it "can't access to the Global moderations page" do
+    it "cannot access to the Global moderations page" do
       visit decidim_admin.moderations_path
 
       within ".callout.alert" do
@@ -63,7 +63,7 @@ describe "Space moderator manages global moderations", type: :system do
       create :participatory_process, organization:
     end
 
-    it "can't see any moderation" do
+    it "cannot see any moderation" do
       visit decidim_admin.moderations_path
 
       within ".container" do

@@ -51,7 +51,7 @@ describe "Admin passwords", type: :system do
     context "when user has strong password" do
       let(:password) { new_password }
 
-      it "cant reuse old password" do
+      it "cannot reuse old password" do
         manual_login(user.email, password)
         expect(page).to have_content("Password change")
         fill_in :password_user_password, with: new_password

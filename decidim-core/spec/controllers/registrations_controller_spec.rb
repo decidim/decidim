@@ -59,7 +59,7 @@ module Decidim
 
         it "adds the flash message" do
           post :create, params: params
-          expect(controller.flash.now[:alert]).to have_content("Your email can't be blank")
+          expect(controller.flash.now[:alert]).to have_content("Your email cannot be blank")
         end
 
         context "when all params are invalid" do
@@ -82,10 +82,10 @@ module Decidim
             post :create, params: params
             expect(controller.flash.now[:alert]).to have_content(
               [
-                "Your name can't be blank",
-                "Nickname can't be blank",
+                "Your name cannot be blank",
+                "Nickname cannot be blank",
                 "Nickname is invalid",
-                "Your email can't be blank",
+                "Your email cannot be blank",
                 "Confirm your password does not match Password",
                 "Password is too short",
                 "Password does not have enough unique characters",

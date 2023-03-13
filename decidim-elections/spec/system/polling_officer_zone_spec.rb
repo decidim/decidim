@@ -31,7 +31,7 @@ describe "Polling Officer zone", type: :system do
   context "when the user is not a polling officer" do
     let(:polling_officers) { [create(:polling_officer)] }
 
-    it "can't access to the polling officer zone" do
+    it "cannot access to the polling officer zone" do
       visit decidim.account_path
 
       expect(page).not_to have_content("Polling Officer zone")

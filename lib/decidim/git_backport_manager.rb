@@ -46,7 +46,7 @@ module Decidim
     end
 
     # Switch to the develop branch
-    # In case that it can't do that, exits
+    # In case that it cannot do that, exits
     #
     # @return [void]
     def self.checkout_develop

@@ -87,6 +87,7 @@ module Decidim
               email: form.email,
               password: form.password,
               password_confirmation: form.password_confirmation,
+              password_updated_at: an_instance_of(ActiveSupport::TimeWithZone),
               tos_agreement: form.tos_agreement,
               newsletter_notifications_at: form.newsletter_at,
               organization:,
@@ -95,6 +96,11 @@ module Decidim
             ).and_call_original
 
             expect { command.call }.to change(User, :count).by(1)
+          end
+
+          it "sets the password_updated_at to the current time" do
+            expect { command.call }.to broadcast(:ok)
+            expect(User.last.password_updated_at).to be_between(2.seconds.ago, Time.current)
           end
 
           describe "when user keeps the newsletter unchecked" do
