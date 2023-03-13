@@ -55,13 +55,8 @@ ro:
             attachment:
               file: Fișierul nu este valid
               needs_to_be_reattached: Trebuie să fie reatașate
-              title: Titlul nu ar trebui să fie gol
   activerecord:
     models:
-      decidim/initiative:
-        one: Inițiativă
-        few: Initații
-        other: Initații
       decidim/initiative_comittee:
         one: Comitet
         few: Grupuri
