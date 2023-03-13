@@ -74,7 +74,11 @@
   }
 
   &__pill{
-    @apply bg-gray-5 text-secondary mx-0;
+    @apply bg-gray-5 text-secondary mx-0 rounded-l rounded-r-none;
+  }
+
+  &__pill:last-child{
+    @apply rounded-r rounded-l-none;
   }
 
   &__pill--active{
@@ -82,14 +86,6 @@
     .button__pill--count{
       @apply bg-white text-secondary;
     }
-  }
-
-  &__pill--left{
-    @apply rounded-l rounded-r-none;
-  }
-
-  &__pill--right{
-    @apply rounded-r rounded-l-none;
   }
 
   &__pill--count{
