@@ -585,7 +585,6 @@ ro:
               edit: Editare
               title: Acțiuni
             associated_census_data: Intrări asociate recensământului
-            explanation_callout: Un stil de votare specifică ce fel de întrebări va primi un alegător în cabina de vot. Poți alege ce întrebări aparțin votării din componeta alegeri. Codul stilului de vot este folosit pentru a potrivi un alegător de la recensământ cu buletinul de vot pe care îl vor primi în cabina de vot. Nu crea niciun stil de votare dacă vrei să prezinți mereu toate întrebările.
           new:
             create: Creează
             title: Creează stil de vot
@@ -654,8 +653,6 @@ ro:
             confirm_destroy: Sigur dorești asta?
             publish: Publică
             unpublish: Anulează publicarea
-          edit:
-            add_election_component: Nu ai alegeri configurate pentru acest vot. Te rugăm să o adaugi în secțiunea Componente
           form:
             slug_help: 'URL slugs sunt utilizate pentru a genera URL-urile care indică acest proces de votare. Acestea acceptă doar litere, numere și cratime și trebuie să înceapă cu o literă. Exemplu: %{url}'
             title: Titlu
@@ -741,7 +738,6 @@ ro:
           access_code: Cod de acces
           access_code_placeholder: Cod de acces
           ask_for_a_new_one: Cere unul nou.
-          dont_have_access_code: Nu ai un cod de acces?
           form_title: 'Completați următorul formular pentru a accesa votul:'
           start_voting: Începe să votezi
           step: Identificare
