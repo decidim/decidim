@@ -795,7 +795,6 @@ fi:
               new: Uusi
               title: Toiminnot
             associated_census_data: Liitetyt henkilötietorekisterin tiedot
-            explanation_callout: Äänestystyyli määrittelee, mitä kysymyksiä äänestäjälle esitetään äänestyskopissa. Voit valita äänestystyylille kysymykset äänestyslappuun tämän äänestyksen vaalikomponenteista. Äänestystyylin koodeja käytetään henkilötietorekisterissä olevien henkilöiden yhdistämiseksi äänestyslappuihin. Älä luo äänestystyylejä, jos haluat esittää kaikki kysymykset kaikille äänestäjille.
             title: Äänestystyylit
           new:
             create: Luo
@@ -1033,7 +1032,6 @@ fi:
             invalid: Äänestyksen luonti epäonnistui
             success: Äänestyksen luonti onnistui
           edit:
-            add_election_component: Tälle äänestykselle ei ole määritetty vaalia. Lisää vaali Komponentit-osiosta
             assign_missing_officers: Joillekin äänestyspaikoille ei ole määrätty esimiehiä ja/tai virkailijoita. Määritä virkailijat Äänestyspaikat-osiosta
             update: Päivitä
           form:
@@ -1342,7 +1340,6 @@ fi:
           success:
             access_link: sähköpostitse.
             access_link_with_sms: tekstiviestitse tai sähköpostitse.
-            info: Sinun olisi pitänyt saada tunnistautumiskoodisi paperipostissa. Jos sinulla ei ole koodia, voit pyytää sitä täältä
             title: Tietosi henkilötietorekisterissä ovat oikein!
           title: Voinko äänestää?
         check_fields:
@@ -1388,7 +1385,6 @@ fi:
           access_code: Tunnistautumiskoodi
           access_code_placeholder: Tunnistautumiskoodi
           ask_for_a_new_one: Pyydä uutta.
-          dont_have_access_code: Eikö sinulla ole tunnistautumiskoodia?
           form_title: 'Täytä seuraava lomake aloittaaksesi äänestyksen:'
           start_voting: Aloita äänestys
           step: Tunnistautuminen
