@@ -214,7 +214,6 @@ ar:
           name: حضور الاجتماعات
           next_level_in: حضور %{score} اجتماعات أخرى للوصول إلى المستوى التالي!
           unearned_another: هذا المشارك لم يحضر أي اجتماع حتى الآن.
-          unearned_own: لم تحضر أي اجتماع بعد.
     meetings:
       actions:
         agenda: جدول أعمال
