@@ -140,13 +140,68 @@ zh-TW:
           create: "%{user_name} 建立結果 %{resource_name} 在 %{space_name}"
           delete: "%{user_name} 刪除了 %{resource_name} 在 %{space_name} 的結果"
           update: "%{user_name} 更新了 %{resource_name} 在 %{space_name} 的結果"
+        value_types:
+          parent_presenter:
+            not_found: '資料庫中找不到上一層 (ID: %{id})'
+      content_blocks:
+        highlighted_results:
+          dates: 日期
+          results: 結果
+          unspecified: 未指定
+      import_mailer:
+        import:
+          errors: 錯誤
+          errors_present: 匯入結果時發生錯誤
+          row_number: 列
+          subject: 結果匯入成功
+          success: 結果匯入成功，在管理介面可以檢視。
       models:
+        result:
+          fields:
+            category: 類別
+            created_at: 建立時間
+            end_date: 結束日期
+            id: 編號
+            progress: 進度
+            scope: 範圍
+            start_date: 開始日期
+            status: 狀態
+            title: 標題
+        status:
+          fields:
+            description: 說明
+            key: 金鑰
+            name: 名稱
+            progress: 進度
         timeline_entry:
           fields:
             description: 說明
+            entry_date: 日期
+      result_m:
+        executed: 已執行
+        view: 檢視
       results:
+        count:
+          results_count:
+            other: "%{count} 個結果"
+        filters:
+          all: 全部
+        home:
+          categories_label: 類別
+          subcategories_label: 子類別
+        home_header:
+          global_status: 全域執行狀態
+        nav_breadcrumb:
+          global: 全域執行
+        search:
+          search: 搜尋操作
         show:
           stats:
+            attendees: 與會者
+            back_to_resource: 返回至結果
+            comments: 評論
+            contributions: 貢獻
+            last_edited_by: 最後編輯者
             last_updated_at: 更新時間
             meetings: 會議
             proposals: 提案
