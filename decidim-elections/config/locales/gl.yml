@@ -563,7 +563,6 @@ gl:
       votings:
         access_code_modal:
           email: Enviar a través de correo electrónico a %{email}
-          info: Precisas dun código de acceso para participar. Se non recibiches ningún por correo postal, podemos enviarche un de novo.
           no_email: Correo electrónico non dispoñíbel
           no_sms: Número de teléfono non dispoñíbel
           sms: Enviar a través de SMS a %{sms}
