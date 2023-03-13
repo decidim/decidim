@@ -28,12 +28,6 @@ pt-BR:
           attributes:
             attachment:
               needs_to_be_reattached: Precisa ser reanexado
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: não pode ser alterado
-            public_key:
-              cant_be_changed: não pode ser alterado
   activerecord:
     errors:
       models:
@@ -543,8 +537,6 @@ pt-BR:
               upload: Envie suas chaves de identificação
               upload_error:
                 invalid_format: O arquivo enviado não contém nenhuma chave de identificação.
-                invalid_key: As chaves de identificação no arquivo enviado não podem ser carregadas.
-            not_supported_browser_description: Parece que você está usando um navegador da web que não pode ser usado para atuar como um curador. Certifique-se de estar usando a versão mais recente do seu navegador, ou tente usar qualquer um dos navegadores mais populares para conseguir completar suas tarefas de confiança.
             not_supported_browser_title: Atualize o navegador para agir como um curador
             trustee_role_description: Você foi designado para agir como um curador em algumas das eleições realizadas nesta plataforma.
           update:
@@ -1087,10 +1079,8 @@ pt-BR:
             confirm: Ok, continuar
             error: Ocorreu um erro. Por favor, tente novamente.
             heading: Recontagem de votos - Assinatura de encerramento
-            info_text: Se você continuar, você não poderá mais modificar nenhuma das informações, esta ação não poderá ser desfeita.
             submit: Assine o fechamento
             success: Encerramento assinado com sucesso.
-            title: A ação não pode ser desfeita
           update:
             error: Ocorreu um erro ao atualizar o encerramento dos resultados, por favor tente novamente mais tarde.
             success: Fechamento de resultados atualizado com sucesso.
