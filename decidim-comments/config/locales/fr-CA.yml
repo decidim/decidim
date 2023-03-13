@@ -26,6 +26,8 @@ fr-CA:
       comments:
         create:
           error: Une erreur s'est produite lors de la création du commentaire.
+        delete:
+          error: Le commentaire n'a pas pu être supprimé.
         update:
           error: Une erreur s'est produite lors de la mise à jour du commentaire.
       comments_count: Nombre de commentaires
@@ -43,6 +45,7 @@ fr-CA:
           body:
             label: Commentaire
             placeholder: Que pensez-vous de cela ?
+          form_error: Le texte est requis et ne doit pas dépasser %{length} caractères.
           submit: Publier
           user_group_id:
             label: Commenter en tant que
@@ -77,7 +80,6 @@ fr-CA:
           description: Ce contenu est-il inapproprié ?
           details: Commentaires additionnels
           reasons:
-            does_not_belong: Contient d’autres types de contenus qui vous semblent inappropriés à %{organization_name} (activités illégales, menaces suicidaires, informations personnelles,...).
             offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
             spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
           title: Signaler un contenu inapproprié
@@ -162,3 +164,6 @@ fr-CA:
         description: Nombre de commentaires générés par les utilisateurs
         object: commentaires
         title: commentaires
+  errors:
+    messages:
+      cannot_have_comments: "cannot have comments\n\nNe peut faire l'objet d'un commentaire"
