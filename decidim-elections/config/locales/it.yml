@@ -543,14 +543,11 @@ it:
               generate_legend: Devi generare un paio di chiavi di identificazione per partecipare alle elezioni come Garante.
               generate_legend_1: Dopo aver premuto il pulsante dovresti scaricare il file con le chiavi di identificazione generate.
               generate_legend_2: Copia il file scaricato su un dispositivo USB pulito
-              generate_legend_3: Assicurati che sul computer non ci sia una copia del file (controlla anche le cartelle Download e Desktop).
               generate_legend_4: Fai un'altra copia del file su un altro dispositivo esterno e memorizzarlo in un luogo molto sicuro.
               submit: Invia
               submit_title: Invia la chiave di identificazione pubblica
               title: Codici di identificazione del Garante
               upload: Carica i tuoi codici di identificazione
-              upload_error:
-                invalid_format: Il file caricato non contiene alcun codice di identificazione.
             not_supported_browser_title: Aggiorna il browser per fungere da Garante
             trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
           update:
@@ -1033,7 +1030,6 @@ it:
             subject: L'esportazione dei codici di accesso della votazeion per %{voting_title} è disponibile
         vote_flow:
           already_voted_in_person: Questo partecipante ha già votato di persona e non ha diritto di voto.
-          datum_not_found: I dati forniti non corrispondono a nessun elettore.
       content_blocks:
         highlighted_votings:
           name: Votazioni evidenziate
@@ -1078,7 +1074,6 @@ it:
             info_text: Si prega di introdurre il numero totale di risposte per ogni domanda.
             modal_ballots_results_count_error:
               close_modal: Chiudi
-              info_text: Il numero totale di votazioni non corrisponde al numero totale di buste. Controlla il totale delle votazioni.
               title: Il totale delle urne non si sommano
             save_recount: Salva riconteggio
             total_ballots: Votazioni totali
@@ -1092,7 +1087,6 @@ it:
             modal_ballots_count_error:
               btn_validate_total: Convalida il totale delle votazioni
               close_modal: Chiudi
-              info_text: Il numero totale di schede (buste) introdotte non corrisponde al record di persone che hanno votato in questa Polling Station.
               message_for_monitoring_committee: Messaggio per il comitato di sorveglianza
               review_recount: Rivedi il conto
               text_area_placeholder: Digita il tuo messaggio
