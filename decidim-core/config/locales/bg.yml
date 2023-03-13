@@ -288,7 +288,6 @@ bg:
           ok: Добре
           title: Не сте идентифициран
         unconfirmed:
-          confirmation_instructions: 'Ако не сте получили инструкции за потвърждение, заявете ново изпращане:'
           explanation_html: За да изпълните това действие, първо се идентифицирайте, но преди това потвърдете вашата ел. поща <strong>%{email}</strong>.
           request_confirmation_instructions: Заявка на инструкции за потвърждение
           title: Потвърдете Вашата ел. поща
@@ -300,7 +299,6 @@ bg:
       see_more: "(покажи)"
     components:
       component_order_selector:
-        no_content: Няма съдържание, отговарящо на критерия
         order:
           all_types: Всички типове
           collaborative_draft: Съвместна чернова
@@ -1212,7 +1210,6 @@ bg:
         action: Промяна на паролата ми
         greeting: Здравейте %{recipient}!
         instruction: Някой е поискал връзка за промяна на паролата Ви и можете да я промените чрез връзката по-долу.
-        instruction_2: В случай, че не сте поискали това, моля игнорирайте това писмо.
         instruction_3: Вашата парола няма да се промени, докато не посетите връзката по-горе и не създадете нова.
         subject: Инструкции за възстановяване на паролата
       unlock_instructions:
@@ -1256,8 +1253,6 @@ bg:
     shared:
       links:
         back: Назад
-        didn_t_receive_confirmation_instructions: Не получихте инструкции за потвърждение?
-        didn_t_receive_unlock_instructions: Не получихте инструкции за отключване?
         forgot_your_password: Забравили сте паролата си?
         sign_in: Вход
         sign_in_with_provider: Влез със %{provider}
