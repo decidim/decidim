@@ -61,7 +61,7 @@ es:
             - Las participantes rellenan la información de su identidad y suben una copia de su documento.
             - Rellenas la información presente en la imagen subida.
             - La información tiene que coincidir con lo que haya rellenado la persona participante.
-            - Si no puedes ver la información con claridad o no la puedes verificar, puedes rechazar la solicitud para que la participante la pueda corregir.
+            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
             - Las participantes solicitan un código de verificación que se enviará a su dirección.
