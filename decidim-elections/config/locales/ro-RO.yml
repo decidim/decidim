@@ -494,14 +494,11 @@ ro:
               generate_legend: Trebuie să generați o pereche de chei pentru a participa la alegeri drept împuternicit.
               generate_legend_1: După ce apăsați pe buton, ar trebui să descărcați fișierul cu tastele de identificare generate.
               generate_legend_2: Copiaţi fişierul descărcat pe un dispozitiv USB curat
-              generate_legend_3: Asigură-te că nu există o copie a fișierului în calculatorul tău (de exemplu, verifică dosarele Descărcări și Desktop).
               generate_legend_4: Faceți o altă copie a fișierului pe un alt dispozitiv extern și păstrați-l într-un loc foarte sigur.
               submit: Trimiteți
               submit_title: Trimite cheia publică de identificare
               title: Chei de identificare împuternicit
               upload: Încărcați-vă cheile de identificare
-              upload_error:
-                invalid_format: Fişierul încărcat nu conţine nici o cheie de identificare.
             not_supported_browser_title: Actualizează browser-ul pentru a acționa ca împuternicit
             trustee_role_description: Ai fost desemnat drept împuternicit în unele dintre alegerile celebrate în această platformă.
           update:
@@ -677,8 +674,6 @@ ro:
           dni: CI
           nie: BI
           passport: Pașaport
-        vote_flow:
-          datum_not_found: Datele oferite nu se potrivesc cu nici un alegător.
       monitoring_committee_members:
         actions:
           confirm_destroy: Sigur dorești asta?
