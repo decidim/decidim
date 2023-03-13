@@ -411,10 +411,12 @@ es:
           resume: Comprueba el progreso de la autorización "%{authorization}"
           title: La autorización aún está en progreso
         unauthorized:
+          explanation: Lo sentimos, no puedes realizar esta acción porque algunos de tus datos de autorización no coinciden.
           invalid_field: "%{field} valor %{value} no es válido."
           ok: De acuerdo
           title: No autorizado
         unconfirmed:
+          confirmation_instructions: 'Si no has recibido las instrucciones de confirmación, puedes volver a solicitarlas:'
           explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
@@ -433,6 +435,7 @@ es:
       see_more: "(ver más)"
     components:
       component_order_selector:
+        no_content: No hemos podido encontrar ningún contenido con este criterio
         order:
           all_types: Todos los tipos
           collaborative_draft: Borrador colaborativo
@@ -565,6 +568,13 @@ es:
             check: Verifica y continúa
             close_modal: Cierra modal
             uncheck: Mantener desmarcado
+          notice: |-
+            <p>Hola, ¿seguro que no quieres recibir un boletín informativo?<br>
+            Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
+            Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
+            <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
+            Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
+            <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
           or: O
@@ -623,6 +633,7 @@ es:
       not_found:
         back_home: Volver al inicio
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
+        title: No se ha encontrado la página que buscas
     events:
       amendments:
         amendment_accepted:
@@ -950,6 +961,7 @@ es:
         success: La solicitud para formar parte se ha enviado correctamente. Una administradora revisará tu solicitud antes de aceptarte en el grupo.
       leave:
         error: Se ha producido un error al dejar el grupo
+        last_admin: No puedes abandonar este grupo porque eres la última administradora. Haz administradora a otra persona miembro para poder hacerlo.
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Las siguientes participantes han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
