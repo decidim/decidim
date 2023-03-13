@@ -124,7 +124,6 @@ pt:
         vote: Votar
         voted_on: Votou em %{links}
       limit_announcement:
-        cant_vote: Não pode votar este orçamento. <a href="%{landing_path}">Tente noutro orçamento</a>
         limit_reached: Tem votações activas em %{links}. Para votar neste orçamento precisa <a href="%{landing_path}">de apagar o seu voto e começar de novo</a>.
       models:
         budget:
