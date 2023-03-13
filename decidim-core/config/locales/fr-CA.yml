@@ -414,7 +414,6 @@ fr-CA:
           resume: Vérifiez votre progression d'autorisation "%{authorization}"
           title: L'autorisation est toujours en cours de validation
         unauthorized:
-          explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
           invalid_field: "%{field} valeur %{value} n'est pas valide."
           ok: D'accord
           title: Non autorisé
@@ -631,7 +630,6 @@ fr-CA:
       not_found:
         back_home: Retour à l'accueil
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
-        title: La page que vous recherchez ne peut être trouvée
     events:
       amendments:
         amendment_accepted:
@@ -959,7 +957,6 @@ fr-CA:
         success: Demande de jointure créée avec succès. Un administrateur examinera votre demande avant de vous accepter au groupe.
       leave:
         error: Il y a eu un problème pour quitter le groupe
-        last_admin: Vous ne pouvez pas vous retirer de ce groupe car vous êtes le dernier administrateur. Attribuez le rôle d'administrateur à un autre membre afin de pouvoir quitter le groupe.
         success: Le groupe est parti avec succès.
       members:
         accept_or_reject_join_requests: 'Les utilisateurs suivants ont demandé à rejoindre ce groupe. Accepter ou rejeter leurs demandes:'
@@ -1097,7 +1094,6 @@ fr-CA:
         show:
           back: Retour à toutes les conversations
           chat_with: Conversation avec
-          deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
           not_allowed: Cet utilisateur ne souhaite pas recevoir de messages directs.
           title: Conversation avec %{usernames}
         start:
@@ -1515,7 +1511,6 @@ fr-CA:
         title_reply: Répondre
       show:
         back: Afficher toutes les conversations
-        deleted_accounts: Vous ne pouvez pas avoir de conversation avec des comptes supprimés.
         not_allowed: Cet utilisateur n'accepte plus de messages directs.
         title: Conversation avec %{usernames}
       update:
@@ -1669,7 +1664,6 @@ fr-CA:
       new:
         forgot_your_password: Mot de passe oublié?
         send_me_reset_password_instructions: Envoyez-moi les instructions de réinitialisation du mot de passe
-      no_token: Vous ne pouvez pas accéder à cette page sans provenir d'un courrier électronique de réinitialisation de mot de passe. Si vous venez d'un courrier électronique de réinitialisation de mot de passe, assurez-vous d'avoir utilisé l'URL complète fournie.
       send_instructions: Vous recevrez un e-mail avec des instructions pour réinitialiser votre mot de passe en quelques minutes.
       send_paranoid_instructions: Si votre adresse e-mail existe dans notre base de données, vous recevrez un lien de récupération de mot de passe à votre adresse e-mail dans quelques minutes.
       updated: Votre mot de passe a été changé avec succès. Vous êtes maintenant inscrit.
@@ -1742,13 +1736,11 @@ fr-CA:
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_allowlist_error: le type de fichier n'est pas valide
-      cycle_detected: un périmètre d'application ne peut pas être du même niveau que ses descendants
       expired: a expiré, s'il vous plaît demander un nouveau
       file_size_is_less_than_or_equal_to: la taille du fichier doit être inférieure ou égale à %{count}
       invalid_time_zone: n'est pas un fuseau horaire valide
       long_words: contient des mots trop longs (plus de 35 caractères)
       must_start_with_caps: doit commencer par une majuscule
-      nesting_too_deep: ne peut pas être à l'intérieur d'une sous-catégorie
       not_found: introuvable. Vous êtes-vous déjà inscrit ?
       not_locked: n'était pas verrouillé
       not_saved:
