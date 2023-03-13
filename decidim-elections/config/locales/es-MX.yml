@@ -54,6 +54,12 @@ es-MX:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: no se puede cambiar
+            public_key:
+              cant_be_changed: no se puede cambiar
         voting:
           attributes:
             voting_type:
@@ -327,6 +333,7 @@ es-MX:
             continue: Continuar
             invalid: Hubo un problema al reportar la ausencia de la persona garante
             mark_as_missing: Marcar como ausente
+            mark_as_missing_description: Todos los garantes deberían participar en este proceso, pero si uno de ellos no puede tomar parte en él, puedes marcarlo como ausente.
             success: El reporte de ausencia de la persona garante fue enviada con éxito al estrado
             tally_completion: El proceso estará completo cuando todas las personas garantes estén registradas como activas o reportadas como ausentes. Se requiere un quorum de %{quorum} personas garantes para completar el proceso.
             title: Proceso de recuento
@@ -451,6 +458,7 @@ es-MX:
           verifiable_results:
             checksum: 'Suma de comprobación SHA256 del archivo:'
             description:
+              not_ready: El archivo verificable de la elección y la suma de comprobación SHA256 aún no están disponibles. En cuanto se publiquen los resultados, podrás verificar esta elección.
               ready: 'Aquí tienes la opción de verificar la elección. En primer lugar, tienes que descargar el archivo y asegurarte de que no se ha corrompido. Para ello, ejecuta el siguiente comando y comprueba que la salida coincide con la suma de comprobación:'
             how_to_verify: 'Una vez que hayas descargado el archivo y te hayas asegurado de que está bien, puedes proceder a ejecutar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositorio</a> y, desde la carpeta raíz, ejecuta el siguiente comando:'
             title: Verificar resultados de la elección
@@ -594,7 +602,6 @@ es-MX:
               processing: Procesando
             title: Recuento para %{election}
           update:
-            error: El estado de la elección no fue actualizado.
             success: 'El estado de la elección es: %{status}'
         menu:
           trustee_zone: Zona del garante
@@ -630,8 +637,10 @@ es-MX:
               upload: Sube tus claves de identificación
               upload_error:
                 invalid_format: El archivo subido no contiene ninguna clave de identificación.
+                invalid_key: Las claves de identificación en el archivo subido no se pueden cargar.
                 invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave pública de identificación almacenada.
               upload_legend: El servidor tiene sus claves públicas de identificación, pero su navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
+            not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta utilizar cualquier otro de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
             trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
           update:
@@ -795,6 +804,7 @@ es-MX:
               new: Nueva
               title: Acciones
             associated_census_data: Entradas asociadas al censo
+            explanation_callout: Un estilo de papeleta especifica qué preguntas se presentarán a las votantes en la cabina. En un estilo de papeleta, puedes elegir qué preguntas del componente de elecciones pertenecen a esa papeleta. El código de estilo de la papeleta se utiliza para hacer coincidir a una votante del censo con la papeleta que se le debe mostrar en la cabina. No crees ningún estilo de papeleta si quieres que simpre se muesten todas las preguntas.
             title: Estilos de papeleta
           new:
             create: Crear
@@ -1032,6 +1042,7 @@ es-MX:
             invalid: Hubo un problema al crear esta votación
             success: Votación creada con éxito
           edit:
+            add_election_component: No tienes ninguna elección configurada para esta votación. Por favor añádela en la sección de componentes
             assign_missing_officers: Hay puntos de votación sin presidente y/o administradores. Asígnalos desde la sección de puntos de votación
             update: Actualizar
           form:
@@ -1230,8 +1241,10 @@ es-MX:
             confirm: Ok, continuar
             error: Se ha producido un error, por favor inténtalo de nuevo.
             heading: Recuento de votos - Firmar cierre
+            info_text: Si continúas ya no podrás modificar ninguna información, esta acción no se puede deshacer.
             submit: Firmar el cierre
             success: Cierre firmado con éxito.
+            title: Esta acción no se puede deshacer
           update:
             error: Se ha producido un error al actualizar los resultados del cierre. Inténtalo de nuevo más tarde.
             success: Resultados de cierre actualizados correctamente.
@@ -1324,6 +1337,7 @@ es-MX:
       votings:
         access_code_modal:
           email: Enviar por correo electrónico a %{email}
+          info: Necesitas un código de acceso para participar. Si no recibiste uno por correo postal, podemos enviarte uno nuevo.
           no_email: Correo no disponible
           no_sms: Número de teléfono no disponible
           sms: Enviar por SMS a %{sms}
@@ -1339,6 +1353,7 @@ es-MX:
           success:
             access_link: por correo electrónico.
             access_link_with_sms: vía SMS o correo electrónico.
+            info: Deberías haber recibido tu código de acceso por correo postal ya. En caso de que no lo tengas, puedes solicitarlo aquí
             title: '¡Tus datos del censo son correctos!'
           title: '¿Puedo votar?'
         check_fields:
@@ -1384,6 +1399,7 @@ es-MX:
           access_code: Código de acceso
           access_code_placeholder: Código de acceso
           ask_for_a_new_one: Solicitar uno nuevo.
+          dont_have_access_code: '¿No tienes un código de acceso?'
           form_title: 'Rellena el siguiente formulario para acceder a la votación:'
           start_voting: Empezar a votar
           step: Identificación
