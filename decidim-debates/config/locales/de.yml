@@ -227,6 +227,7 @@ de:
           name: Debatten
           next_level_in: Nehmen Sie an %{score} weiteren Debatten teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch keine Diskussionen geführt.
+          unearned_own: Sie haben bisher an keiner Debatte teilgenommen.
     metrics:
       debates:
         description: Anzahl der erstellten Debatten
