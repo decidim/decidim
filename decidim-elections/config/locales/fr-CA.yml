@@ -54,6 +54,12 @@ fr-CA:
           attributes:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: "cannot be changed\nCela ne peut-être modifié"
+            public_key:
+              cant_be_changed: "cannot be changed\nCela ne peut-être modifié"
         voting:
           attributes:
             voting_type:
@@ -327,6 +333,7 @@ fr-CA:
             continue: Continuer
             invalid: Une erreur est survenue lors du signalement du garant absent
             mark_as_missing: Marquer comme absent
+            mark_as_missing_description: "All the trustees should participate in this process, but if a trustee cannot take part in the process, you can mark it as missing.\nTous les garants doivent participer à ce processus, toutefois, si l'un deux ne peut pas y participer, vous pouvez le marquer comme manquant."
             success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
             tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actif ou absent. Au moins %{quorum} garants sont requis pour compléter le processus.
             title: Dépouillement
@@ -451,6 +458,7 @@ fr-CA:
           verifiable_results:
             checksum: 'Somme de contrôle SHA256:'
             description:
+              not_ready: Le fichier de vérification électoral et la somme de contrôle SHA256 ne sont pas encore disponibles. Dès que les résultats seront publiés, vous serez en mesure de vérifier cette élection.
               ready: 'Ici, vous avez la possibilité de vérifier l''élection. D''abord, vous devez télécharger le fichier et vous assurer qu''il n''a pas été corrompu. Pour ce faire, exécutez la commande suivante et vérifiez que la sortie correspond à la somme de contrôle :'
             how_to_verify: 'Une fois le fichier téléchargé et vérifié qu''il est correct, vous pouvez exécuter le vérificateur universel. Clonez <a href=''https://github.com/decidim/decidim-bulletin-board''>ce dépôt</a> et, depuis le dossier racine, exécutez la commande suivante :'
             title: Vérifier les résultats de l'élection
@@ -594,7 +602,6 @@ fr-CA:
               processing: Traitement en cours
             title: Dépouillement pour %{election}
           update:
-            error: Le statut de l'élection n'a pas été mis à jour.
             success: 'Le statut de l''élection est : %{status}'
         menu:
           trustee_zone: Espace de garant
@@ -630,8 +637,10 @@ fr-CA:
               upload: Téléchargez vos clés d'identification
               upload_error:
                 invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
+                invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
                 invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
               upload_legend: Le serveur a vos clés d'identification publiques, mais votre navigateur ne les a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
+            not_supported_browser_description: "It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your tasks.\nIl semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches."
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
@@ -795,6 +804,7 @@ fr-CA:
               new: Nouveau
               title: Actions
             associated_census_data: Entrées de recensement associées
+            explanation_callout: Un style de bulletin spécifie quelles questions seront présentées aux électeurs dans le stand. Dans un style de bulletin, vous pouvez choisir quelles questions de la fonctionnalité Élection de ce vote appartiennent à un bulletin de vote. Le code de style de bulletin est utilisé pour faire correspondre un électeur du recensement avec le bulletin de vote qui lui sera présenté dans l'isoloir. Ne créez pas de style de vote si vous voulez présenter toutes les questions.
             title: Styles de bulletin
           new:
             create: Créer
@@ -1032,6 +1042,7 @@ fr-CA:
             invalid: Une erreur s'est produite lors de la création de cette élection
             success: Élection créée avec succès
           edit:
+            add_election_component: Vous n'avez aucune élection configurée pour ce vote. Veuillez en créer une dans la section Fonctionnalités
             assign_missing_officers: Il reste des bureaux de votes sans président et/ou accesseurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
@@ -1231,8 +1242,10 @@ fr-CA:
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
             heading: Recomptage des voix - Signer la fermeture
+            info_text: "If you continue you can no longer modify any of the information, this action cannot be undone.\nCette action est irréversible. Si vous continuez, vous ne pourrez plus modifier les informations."
             submit: Signer la fermeture
             success: Fermeture signée avec succès.
+            title: "Action cannot be undone\nCette action est irréversible"
           update:
             error: Une erreur s'est produite lors de la mise à jour des résultats de fermeture, veuillez réessayer plus tard.
             success: Résultats de fermeture mis à jour avec succès.
@@ -1325,6 +1338,7 @@ fr-CA:
       votings:
         access_code_modal:
           email: Envoyer par e-mail à %{email}
+          info: "You need an Access Code to participate. If you did not get one by postal mail, we can send you a new one.\nUn code d'accès est nécessaire pour participer. Si vous ne l'avez pas reçu par courrier, un nouveau code peut vous être envoyé."
           no_email: Aucun email disponible
           no_sms: Aucun numéro de téléphone disponible
           sms: Envoyer par SMS à %{sms}
@@ -1340,6 +1354,7 @@ fr-CA:
           success:
             access_link: par email.
             access_link_with_sms: par SMS ou e-mail.
+            info: "You should have received your Access Code by postal mail already. In case, you do not have it, you can request it here\nVous devriez avoir reçu votre code d'accès par courrier postal. Si vous ne l'avez pas reçu, vous pouvez le demander ici"
             title: Vos données de recensement sont correctes!
           title: Puis-je voter ?
         check_fields:
@@ -1385,6 +1400,7 @@ fr-CA:
           access_code: Code d'accès
           access_code_placeholder: Code d'accès
           ask_for_a_new_one: Demander un nouveau.
+          dont_have_access_code: Vous n'avez pas de code d'accès?
           form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
           start_voting: Commencer à voter
           step: Identification
