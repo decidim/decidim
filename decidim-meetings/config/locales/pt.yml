@@ -333,7 +333,6 @@ pt:
             registrations_count:
               one: Houve %{count} registo.
               other: Houve %{count} registos.
-            reserved_slots_help: Deixar a 0 se não tiver intervalos de tempo reservados
             reserved_slots_less_than: Deve ser menor ou igual a %{count}
             title: Registos
           update:
