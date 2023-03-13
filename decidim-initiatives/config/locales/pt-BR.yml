@@ -51,12 +51,8 @@ pt-BR:
             attachment:
               file: O arquivo é inválido
               needs_to_be_reattached: Precisa ser reanexado
-              title: O título não pode ficar vazio
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciativa
-        other: Iniciativas
       decidim/initiative_comittee:
         one: Comissão
         other: Comissões
