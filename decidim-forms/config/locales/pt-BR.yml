@@ -111,9 +111,6 @@ pt-BR:
           update:
             invalid: Houve erros ao salvar o questionário.
             success: Formulário salvo com sucesso.
-      errors:
-        answer:
-          body: O corpo não pode ficar em branco
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
