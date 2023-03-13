@@ -31,7 +31,6 @@ cs:
         cost_report: Přehled nákladů
         execution_period: Období provádění
       proposals_copy:
-        copy_proposals: Chápu, že to bude importovat všechny návrhy z vybrané komponenty na aktuální a že tato akce nemůže být zrušena.
         origin_component_id: Komponenta pro kopírování návrhů z
       proposals_import:
         import_proposals: Návrhy na dovoz
@@ -777,8 +776,6 @@ cs:
             valuator: Hodnotitel
             valuators: Hodnotitelé
             votes: Hlasy
-      new:
-        limit_reached: Nelze vytvořit nové návrhy, protože jste překročili limit.
       participatory_text_proposal:
         alternative_title: Momentálně nejsou k dispozici žádné příspěvky
         buttons:
