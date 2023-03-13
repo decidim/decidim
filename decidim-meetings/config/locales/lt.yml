@@ -177,9 +177,6 @@ lt:
           email_outro: Gavote šį pranešimą nes sekate "%{resource_title}" susirinkimą. Galite jo nebesekti paspaudę ant ankstesnės nuorodos.
           email_subject: '"%{resource_title}" susirinkimas prasidės už mažiau nei 48 val.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> Susirinkimas prasidės už mažiau nei 48 val.
-    forms:
-      meetings:
-        attendees_count_help_text: Nepamirškite įrašyti dalyvių susirinkime skaičiaus (tiek dalyvaujančių gyvai, tiek nuotoliniu būdu).
     gamification:
       badges:
         attended_meetings:
@@ -355,7 +352,6 @@ lt:
               few: Yra %{count} registracijų.
               many: Yra %{count} registracijų.
               other: Yra %{count} registracijų.
-            reserved_slots_help: Palikite 0, jei vietos nerezervuotos
             reserved_slots_less_than: Turi būti ne didesnis kaip %{count} arba jam lygus
             title: Registracijos
           update:
