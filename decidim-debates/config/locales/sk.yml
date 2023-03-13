@@ -144,7 +144,6 @@ sk:
           name: Debaty
           next_level_in: Podieľajte sa na ďalších %{score} debatách pre dosiahnutie ďalšej úrovne!
           unearned_another: Tento účastník sa nezúčastnil na žiadnej debate. 
-          unearned_own: ZatiaĽ ste sa nezúčastnili na žiadnej debate.
     metrics:
       debates:
         description: Počet vytvorených debát
