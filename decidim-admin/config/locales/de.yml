@@ -841,7 +841,6 @@ de:
         new:
           destroy:
             button: Alle private Teilnehmende auswählen
-            confirm: Sind Sie sicher, dass Sie alle private Teilnehmende entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden. Sie werden sie nicht wiederherstellen können.
             empty: Sie haben keine private Teilnehmende.
             explanation: Sie haben %{count} private Teilnehmende.
             title: Alle private Teilnehmende entfernen
