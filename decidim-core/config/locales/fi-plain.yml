@@ -418,6 +418,7 @@ fi-pl:
           ok: Ok
           title: Ei varmennettu
         unconfirmed:
+          confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää ne uudestaan:'
           explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
           request_confirmation_instructions: Pyydä vahvistusohjeita
           title: Vahvista sähköpostiosoitteesi
@@ -436,6 +437,7 @@ fi-pl:
       see_more: "(näytä enemmän)"
     components:
       component_order_selector:
+        no_content: Sisältöä ei löytynyt annetuilla hakuehdoilla
         order:
           all_types: Kaikki tyypit
           collaborative_draft: Yhteistyöluonnos
@@ -568,6 +570,13 @@ fi-pl:
             check: Hyväksy yhteydenotto ja jatka
             close_modal: Sulje ikkuna
             uncheck: En halua uutiskirjeitä
+          notice: |-
+            <p>Oletko varma, että et halua saada uutiskirjeitä?<br>
+            Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
+            Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
+            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallistumismahdollisuuksista.<br>
+            Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
+            <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
         omniauth_buttons:
           or: Tai
@@ -626,6 +635,7 @@ fi-pl:
       not_found:
         back_home: Takaisin kotisivulle
         content_doesnt_exist: Tämä osoite on virheellinen tai käytöstä poistunut.
+        title: Etsimääsi sivua ei löydy
     events:
       amendments:
         amendment_accepted:
@@ -806,7 +816,6 @@ fi-pl:
       following_count:
         one: "%{count} seuraaja"
         other: "%{count} seuraajaa"
-      no_followings: Ei vielä seuraa ketään tai mitään.
       non_public_followings: Osa seuratuista kohteista ei ole julkisia.
     follows:
       create:
@@ -874,7 +883,6 @@ fi-pl:
           description_own: "%{score} käyttäjää seuraa sinua."
           name: Seuraajat
           next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
-          unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
           unearned_own: Sinulla ei ole vielä seuraajia.
         index:
           badge_title: "%{name} kunniamerkki"
@@ -952,6 +960,7 @@ fi-pl:
         success: Liittymispyyntö luotu onnistuneesti. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
       leave:
         error: Ryhmästä poistuttaessa esiintyi ongelma
+        last_admin: Et voi poistaa itseäsi tästä ryhmästä, koska olet sen ainoa hallinnoija. Tee toisesta ryhmän jäsenestä hallinnoija, mikäli haluat poistua ryhmästä.
         success: Ryhmästä poistuminen onnistui.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
@@ -961,7 +970,6 @@ fi-pl:
         create_user_group: Luo ryhmä
         new_user_group: Uusi ryhmä
         subtitle: Luo ryhmä ja pyydä muita käyttäjiä osallistumaan yhteisöllisellä tasolla.
-      no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä
         creator: Hallinnoija
@@ -1022,8 +1030,6 @@ fi-pl:
       static:
         latlng_text: 'leveysaste: %{latitude}, pituusaste: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
       help: Tietoa
       home: Etusivu
@@ -1089,6 +1095,7 @@ fi-pl:
         show:
           back: Takaisin kaikkiin keskusteluihin
           chat_with: Keskustelu osallistujien kanssa
+          deleted_accounts: Et voi keskustella poistettujen käyttäjätilien kanssa.
           not_allowed: Tämä osallistuja ei halua vastaanottaa yksityisviestejä.
           title: 'Keskustelu: %{usernames}'
         start:
@@ -1181,6 +1188,7 @@ fi-pl:
     notifications_settings:
       show:
         administrators: Hallintakäyttäjät
+        allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
         allow_push_notifications: Vastaanota push-ilmoituksia, mikäli haluat tietää, mitä alustalla tapahtuu, kun et ole paikalla. Voit poistaa ne käytöstä milloin tahansa.
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
@@ -1403,7 +1411,6 @@ fi-pl:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
         description: Onko tämä sisältö epäasiallista?
-        does_not_belong: Sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
         hide: Piilota
         hide_content: Piilota tämä sisältö
         offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
@@ -1416,7 +1423,6 @@ fi-pl:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         close: Sulje
         description: Mikä tässä käyttäjässä on asiatonta?
-        does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
         offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
         report: Tee ilmoitus
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
@@ -1505,6 +1511,7 @@ fi-pl:
         title_reply: Vastaa
       show:
         back: Näytä kaikki keskustelut
+        deleted_accounts: Et voi keskustella poistettujen käyttäjätilien kanssa.
         not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
         title: 'Keskustelu: %{usernames}'
       update:
@@ -1512,7 +1519,6 @@ fi-pl:
     user_interests:
       show:
         my_interests: Omat kiinnostuksen kohteet
-        no_scopes: Tällä organisaatiolla ei ole vielä teemaa!
         select_your_interests: Valitse ne aiheet, joista olet kiinnostunut vastaanottamaan tapahtumia profiilisi aikajana-välilehdellä.
         update_my_interests: Päivitä omat kiinnostuksen kohteet
       update:
@@ -1610,6 +1616,9 @@ fi-pl:
         accept_until: Tämä kutsu erääntyy %{due_date}.
         decline: Hylkää kutsu
         hello: Hei %{email},
+        ignore: |-
+          Jos et halua hyväksyä kutsua, jätä tämä viesti huomioimatta.<br />
+          Sinulle ei luoda tiliä ennen kuin seuraat yllä olevaa linkkiä ja asetat käyttäjänimen sekä salasanan.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
@@ -1632,6 +1641,7 @@ fi-pl:
         action: Vaihda salasanani
         greeting: Hei %{recipient}!
         instruction: Joku on pyytänyt linkin käyttäjätilisi salasanan vaihtamiseen, ja voit tehdä sen alla olevan linkin kautta.
+        instruction_2: Jos et pyytänyt uutta salasanaa, jätä tämä sähköposti huomioimatta.
         instruction_3: Salasanasi ei muutu, ennen kuin klikkaat yllä olevaa linkkiä ja luot uuden.
         subject: Ohjeet salasanan nollaukseen
       unlock_instructions:
@@ -1654,6 +1664,7 @@ fi-pl:
       new:
         forgot_your_password: Unohditko salasanasi?
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
+      no_token: Et pääse sivulle, ellet käytä sähköpostiisi lähtettyä salasanan vaihtamiseen liittyvää linkkiä. Mikäli käytit sähköpostissa olevaa linkkiä, varmista, että käytät täysin samaa URL-osoitetta, joka näkyy lähetetyssä viestissä.
       send_instructions: Saat sähköpostitse ohjeet salasanan palauttamiseen muutaman minuutin kuluessa.
       send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy tietokannastamme, saat ohjeet salasanan vaihtamiseesi sähköpostiisi muutaman minuutin kuluessa.
       updated: Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään.
@@ -1677,6 +1688,8 @@ fi-pl:
     shared:
       links:
         back: Takaisin
+        didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
+        didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
         forgot_your_password: Unohditko salasanasi?
         sign_in: Kirjaudu sisään
         sign_in_with_provider: Kirjaudu sisään palvelulla %{provider}
@@ -1711,6 +1724,7 @@ fi-pl:
       load: Emojien lataus epäonnistui
     recents:
       clear: Tyhjennä viimeksi käytetyt emojit
+      none: Et ole vielä valinnut yhtään emojia.
     retry: Yritä uudestaan
     search:
       _: Etsi emojia...
@@ -1721,13 +1735,18 @@ fi-pl:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään
+      blank: ei voi olla tyhjä
+      cannot_be_blank: ei voi olla tyhjä
       confirmation_period_expired: on vahvistettava %{period} kuluessa, pyydä uutta
       content_type_allowlist_error: tiedostotyyppi ei kelpaa
+      cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
+      empty: ei voi olla tyhjä
       expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
       invalid_time_zone: virheellinen aikavyöhyke
       long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
       must_start_with_caps: tulee alkaa isolla kirjaimella
+      nesting_too_deep: ei voi olla ala-aihepiirin sisällä
       not_found: ei löydetty. Oletko jo rekisteröitynyt?
       not_locked: ei lukittu
       not_saved:
