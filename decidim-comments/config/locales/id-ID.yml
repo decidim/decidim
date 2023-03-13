@@ -26,7 +26,6 @@ id:
           body:
             label: Komentar
             placeholder: Apa yang Anda pikirkan tentang ini?
-          form_error: Teks diperlukan dan tidak boleh lebih dari %{length} karakter.
           submit: Kirim
           user_group_id:
             label: Beri komentar sebagai
@@ -94,6 +93,3 @@ id:
         description: Jumlah komentar yang dihasilkan oleh peserta
         object: komentar
         title: Komentar
-  errors:
-    messages:
-      cannot_have_comments: tidak dapat memiliki komentar
