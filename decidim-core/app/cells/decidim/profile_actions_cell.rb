@@ -16,7 +16,7 @@ module Decidim
       manage_user_group_admins: { icon: "user-star-line", path: :group_manage_admins_path },
       invite_user: { icon: "user-add-line", path: :group_invites_path },
       join_user_group: { icon: "user-add-line", path: :group_join_requests_path, options: { method: :post } },
-      leave_user_group: { icon: "logout-box-r-line", path: :leave_group_path, options: { method: :delete } },
+      leave_user_group: { icon: "logout-box-r-line", path: :leave_group_path, options: { method: :delete } }
     }.freeze
 
     private
