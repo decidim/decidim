@@ -257,7 +257,6 @@ pt:
             filter_by: Filtrar por
             invite_attendee: Convidar participante
             invites: Convites
-            registrations_disabled: Não pode convidar um participante porque os registos estão desativados.
             search: Pesquisar
         meeting_closes:
           edit:
