@@ -197,7 +197,6 @@ de:
           name: Besuchte Sitzungen
           next_level_in: Nimm an %{score} weiteren Sitzungen teil, um das nächste Level zu erreichen!
           unearned_another: Dieser Benutzer hat noch kein Sitzungen besucht.
-          unearned_own: Sie haben noch keine Sitzung besucht.
     meetings:
       actions:
         agenda: Agenda
