@@ -568,13 +568,6 @@ fi:
             check: Hyväksy yhteydenotto ja jatka
             close_modal: Sulje ikkuna
             uncheck: En halua uutiskirjeitä
-          notice: |-
-            <p>Hei, oletko varma, että et halua saada uutiskirjeitä?<br>
-            Ole hyvä ja harkitse uudelleen uutiskirjeiden tilausta.<br>
-            Meille on erittäin tärkeää, että voit vastaanottaa silloin tällöin ​​sähköposteja tärkeistä tiedoteluontoisista asioista. Voit aina muuttaa mieltäsi ja estää uutiskirjeet käyttäjäprofiilisi ilmoitusasetusten kautta.</p>
-            <p>Jos et hyväksy uutiskirjeiden vastaanottoa, voit jäädä paitsi olennaisesta tiedosta palvelun uusista osallistumismahdollisuuksista.<br>
-            Mikäli silti haluat estää uutiskirjeiden vastaanottamisen, ymmärrämme täysin päätöksesi.</p>
-            <p>Kiitos, että jaksoit lukea tämän ilmoituksen!</p>
           title: Uutiskirjeitä koskeva ilmoitus
         omniauth_buttons:
           or: Tai
@@ -1188,7 +1181,6 @@ fi:
     notifications_settings:
       show:
         administrators: Hallintakäyttäjät
-        allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
         allow_push_notifications: Vastaanota push-ilmoituksia, mikäli haluat tietää, mitä alustalla tapahtuu, kun et ole paikalla. Voit poistaa ne käytöstä milloin tahansa.
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
@@ -1618,9 +1610,6 @@ fi:
         accept_until: Tämä kutsu erääntyy %{due_date}.
         decline: Hylkää kutsu
         hello: Hei %{email},
-        ignore: |-
-          Jos et halua hyväksyä kutsua, jätä tämä viesti huomioimatta.<br />
-          Sinulle ei luoda tiliä ennen kuin seuraat yllä olevaa linkkiä ja asetat käyttäjänimen sekä salasanan.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
