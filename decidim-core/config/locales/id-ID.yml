@@ -228,7 +228,6 @@ id:
           resume: Periksa kemajuan otorisasi "%{authorization}" Anda
           title: Otorisasi masih berlangsung
         unauthorized:
-          explanation: Maaf, Anda tidak dapat melakukan tindakan ini karena sebagian data otorisasi Anda tidak cocok.
           invalid_field: "%{field} nilai %{value} tidak valid."
           ok: Baik
           title: Tidak diizinkan
@@ -365,7 +364,6 @@ id:
       not_found:
         back_home: Kembali ke rumah
         content_doesnt_exist: Alamat ini salah atau telah dihapus.
-        title: Halaman yang Anda cari tidak dapat ditemukan
     events:
       amendments:
         amendment_accepted:
@@ -1023,7 +1021,6 @@ id:
       new:
         forgot_your_password: lupa kata sandi Anda?
         send_me_reset_password_instructions: Kirimi saya ulang instruksi kata sandi
-      no_token: Anda tidak dapat mengakses halaman ini tanpa datang dari email pengaturan ulang kata sandi. Jika Anda datang dari email pengaturan ulang kata sandi, pastikan Anda menggunakan URL lengkap yang disediakan.
       send_instructions: Anda akan menerima email berisi instruksi tentang cara mereset kata sandi Anda dalam beberapa menit.
       send_paranoid_instructions: Jika alamat email Anda ada di basis data kami, Anda akan menerima tautan pemulihan kata sandi di alamat email Anda dalam beberapa menit.
       updated: Kata sandi Anda telah berhasil diubah. Anda sekarang masuk.
@@ -1069,12 +1066,10 @@ id:
       already_confirmed: sudah dikonfirmasi, silakan coba masuk
       confirmation_period_expired: perlu dikonfirmasi dalam %{period}, silakan minta yang baru
       content_type_allowlist_error: jenis file tidak valid
-      cycle_detected: orang tua ruang lingkup tidak bisa menjadi salah satu keturunannya
       expired: telah kedaluwarsa, silakan minta yang baru
       file_size_is_less_than_or_equal_to: ukuran file harus kurang dari atau sama dengan %{count}
       long_words: mengandung kata-kata yang terlalu panjang (lebih dari 35 karakter)
       must_start_with_caps: harus dimulai dengan huruf kapital
-      nesting_too_deep: tidak dapat berada di dalam suatu subkategori
       not_locked: tidak terkunci
       too_many_marks: menggunakan terlalu banyak tanda baca (misalnya! dan?)
       too_much_caps: menggunakan terlalu banyak huruf besar (lebih dari 25% dari teks)
