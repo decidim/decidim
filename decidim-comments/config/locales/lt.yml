@@ -30,8 +30,6 @@ lt:
       comments:
         create:
           error: Kuriant šį komentarą iškilo problema.
-        delete:
-          error: Komentaro ištrinti nepavyko.
         update:
           error: Atnaujinant šį komentarą iškilo problema.
       comments_count: Komentarų skaičius
