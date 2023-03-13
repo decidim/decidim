@@ -608,7 +608,6 @@ nl:
               new: Nieuw
               title: Acties
             associated_census_data: Gekoppelde kiezerslijst gegevens
-            explanation_callout: Een stembriefstijl geeft aan welke vragen een kiezer in het stemhokje zal worden voorgelegd. In een stembriefstijl kun je kiezen welke vragen uit de verkiezingsonderdelen van deze stemming tot een stembrief behoren. De code voor stembriefstijl wordt gebruikt om een kiezer van de kiezerslijst te matchen met de stembrief die in het stemhokje zal worden gepresenteerd. Maak geen stembriefstijl als je altijd alle vragen wilt voorleggen.
             title: Stembriefstijlen
           new:
             create: Creëren
@@ -816,7 +815,6 @@ nl:
             invalid: Er is een probleem opgetreden bij het aanmaken van deze stemronde
             success: Stemronde succesvol aangemaakt
           edit:
-            add_election_component: Er zijn geen verkiezingen geconfigureerd voor deze stemming. Voeg deze toe in de Componenten sectie
             assign_missing_officers: Er zijn stembureaus zonder voorzitter en/of manager. Duid deze aan in onderdeel Stembureau
             update: Bijwerken
           form:
@@ -1088,7 +1086,6 @@ nl:
           invalid: Er is een probleem opgetreden tijdens het controleren van de kiezerslijst.
           success:
             access_link_with_sms: via SMS of e-mail.
-            info: Je zou je toegangscode per post moeten hebben ontvangen. Als je ze niet hebt, kun je ze hier aanvragen
             title: Je gegevens op de kiezerslijst zijn juist!
           title: Kan ik stemmen?
         check_fields:
@@ -1125,7 +1122,6 @@ nl:
           access_code: Toegangscode
           access_code_placeholder: Toegangscode
           ask_for_a_new_one: Vraag om een nieuwe.
-          dont_have_access_code: Heb je geen toegangscode?
           form_title: 'Vul het onderstaande formulier in om toegang te krijgen tot de stemming:'
           start_voting: Begin met stemmen
           step: Identificatie
