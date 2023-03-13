@@ -64,6 +64,7 @@ fr-CA:
             attachment:
               file: Le fichier n'est pas valide
               needs_to_be_reattached: Doit être téléchargé de nouveau
+              title: "Title should not be empty\nChamp obligatoire"
   activerecord:
     models:
       decidim/initiative:
@@ -467,8 +468,6 @@ fr-CA:
           success_html: Toutes nos félicitations! L'initiative <strong> %{title}</strong> a été signée correctement
         personal_data:
           invalid: Les données personnelles ne correspondent pas aux données fournies pour autorisation.
-        sms_code:
-          invalid: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
         sms_phone:
           invalid: Le numéro de téléphone est invalide ou en attente d'autorisation. S'il vous plaît, vérifiez vos autorisations.
       initiatives:
