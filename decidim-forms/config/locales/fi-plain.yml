@@ -126,9 +126,6 @@ fi-pl:
       admin_log:
         questionnaire:
           update: "%{user_name} päivitti kyselyä %{resource_name}"
-      errors:
-        answer:
-          body: Runkoteksti ei voi olla tyhjä
       images:
         dimensions: "%{width} x %{height} pikseliä"
         processors:
