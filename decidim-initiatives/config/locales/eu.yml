@@ -53,12 +53,8 @@ eu:
             attachment:
               file: Fitxategi hau ez da baliozkoa
               needs_to_be_reattached: Artxiboa berriro erantsi behar da
-              title: Izenburua ezin da hutsik egon
   activerecord:
     models:
-      decidim/initiative:
-        one: Ekimena
-        other: Initatives
       decidim/initiative_comittee:
         one: Batzordea
         other: Comittees
