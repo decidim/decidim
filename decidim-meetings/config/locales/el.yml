@@ -206,7 +206,6 @@ el:
             filter_by: Φιλτράρισμα κατά
             invite_attendee: Πρόσκληση συμμετέχοντα
             invites: Προσκλήσεις
-            registrations_disabled: Δεν μπορείτε να προσκαλέσετε έναν συμμετέχοντα επειδή οι εγγραφές είναι απενεργοποιημένες.
             search: Αναζήτηση
         meeting_closes:
           edit:
