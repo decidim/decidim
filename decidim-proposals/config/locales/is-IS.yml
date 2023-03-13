@@ -13,7 +13,6 @@ is-IS:
       proposal_answer:
         answer: Svara
       proposals_copy:
-        copy_proposals: Ég skil að þetta mun flytja allar tillögur úr völdu hlutanum í núverandi og að þessi aðgerð geti ekki snúið við.
         origin_component_id: Hluti til að afrita tillögurnar frá
   decidim:
     components:
@@ -183,8 +182,6 @@ is-IS:
             scope: Umfang
             title: Titill
             votes: Atkvæði
-      new:
-        limit_reached: Þú getur ekki búið til nýjar tillögur þar sem þú hefur farið yfir mörkin.
       proposals:
         compare:
           no_similars_found: Vel gert! Engar svipaðar tillögur fundust
