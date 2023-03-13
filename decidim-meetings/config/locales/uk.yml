@@ -190,7 +190,6 @@ uk:
             filter_by: 'Відібрати за ознакою:'
             invite_attendee: Запросити учасника
             invites: Запрошення
-            registrations_disabled: Ви не можете запросити учасника, оскільки реєстрація відключена.
             search: Шукати
         meeting_closes:
           edit:
