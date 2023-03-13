@@ -179,7 +179,6 @@ ar:
         users_registration_mode:
           disabled: يمكن فقط الوصول باستخدام الحسابات الخارجية
           enabled: السماح للمشاركين بالتسجيل والدخول
-          existing: لا تسمح للمشاركين بالتسجيل ، لكن اسمح للمشاركين الحاليين بتسجيل الدخول
       shared:
         notices:
           no_organization_warning_html: يجب عليك إنشاء منظمة للبدء. تأكد من قراءة %{guide} قبل المتابعة.
