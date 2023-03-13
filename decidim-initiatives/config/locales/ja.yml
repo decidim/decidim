@@ -64,7 +64,6 @@ ja:
             attachment:
               file: ファイルが無効です
               needs_to_be_reattached: 再接続が必要
-              title: タイトルは空にしないでください
   activerecord:
     models:
       decidim/initiative:
