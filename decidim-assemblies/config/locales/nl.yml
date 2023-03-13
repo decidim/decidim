@@ -428,9 +428,6 @@ nl:
         related_assemblies: Verwante groepen
     statistics:
       assemblies_count: Groepen
-  errors:
-    messages:
-      cannot_be_blank: mag niet leeg zijn
   layouts:
     decidim:
       assemblies:
