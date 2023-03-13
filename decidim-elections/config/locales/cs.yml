@@ -819,6 +819,7 @@ cs:
               new: Nový
               title: Akce
             associated_census_data: Související záznamy ze seznamu obyvatel
+            explanation_callout: Styl hlasování specifikuje, jaké otázky budou předloženy u přítomného voliče za plentou. Ve stylu hlasování si můžete vybrat, jaké otázky z volebních složek tohoto hlasování patří k volbám. Kód stylu hlasování se používá k tomu, aby volič ze seznamu členů odpovídal na hlasování, které bude prezentováno za plentou. Pokud chcete vždy prezentovat všechny otázky, nevytvářejte žádný styl hlasování.
             title: Styly hlasování
           new:
             create: Vytvořit
