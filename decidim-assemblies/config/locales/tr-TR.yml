@@ -428,9 +428,6 @@ tr:
     participatory_processes:
       show:
         related_assemblies: İlgili kurullar
-  errors:
-    messages:
-      cannot_be_blank: boş bırakılamaz
   layouts:
     decidim:
       assemblies:
