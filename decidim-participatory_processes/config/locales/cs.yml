@@ -234,9 +234,6 @@ cs:
           success: Úspěšný krok procesu byl úspěšně vytvořen.
         default_title: Úvod
         destroy:
-          error:
-            active_step: Aktivní krok nelze odstranit.
-            last_step: Poslední krok procesu nelze odstranit.
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
           title: Úprava kroku procesu participace
