@@ -291,7 +291,6 @@ el:
           ok: ΟΚ
           title: Χωρίς εξουσιοδότηση
         unconfirmed:
-          confirmation_instructions: 'Εάν δεν έχετε λάβει τις οδηγίες επιβεβαίωσης, μπορείτε να τις ζητήσετε ξανά:'
           explanation_html: Για να εκτελέσετε αυτήν την ενέργεια, θα πρέπει να είστε εξουσιοδοτημένοι. Για να το κάνετε αυτό, πρέπει να επιβεβαιώσετε τη διεύθυνση email σας <strong>%{email}</strong>.
           request_confirmation_instructions: Ζητήστε οδηγίες επιβεβαίωσης
           title: Επιβεβαίωση διεύθυνσης email
@@ -303,7 +302,6 @@ el:
       see_more: "(προβολή περισσότερων)"
     components:
       component_order_selector:
-        no_content: Δεν ήταν δυνατή η εύρεση περιεχομένου με αυτά τα κριτήρια
         order:
           all_types: Όλοι οι τύποι
           collaborative_draft: Προσχέδιο συνεργασίας
@@ -1266,7 +1264,6 @@ el:
         action: Αλλαγή του κωδικού πρόσβασής μου
         greeting: Γεια σας %{recipient}!
         instruction: Κάποιος ζήτησε έναν σύνδεσμο για να αλλάξει τον κωδικό πρόσβασής σας και μπορείτε να το κάνετε μέσω του παρακάτω συνδέσμου.
-        instruction_2: Εάν δεν το ζητήσατε, αγνοήστε αυτό το email.
         instruction_3: Ο κωδικός πρόσβασής σας δεν θα αλλάξει μέχρι να αποκτήσετε πρόσβαση στον παραπάνω σύνδεσμο και να δημιουργήσετε έναν νέο.
         subject: Οδηγίες επαναφοράς κωδικού πρόσβασης
       unlock_instructions:
@@ -1310,8 +1307,6 @@ el:
     shared:
       links:
         back: Πίσω
-        didn_t_receive_confirmation_instructions: Δεν λάβατε οδηγίες επιβεβαίωσης;
-        didn_t_receive_unlock_instructions: Δεν λάβατε οδηγίες ξεκλειδώματος;
         forgot_your_password: Ξεχάσατε τον κωδικό πρόσβασής σας;
         sign_in: Σύνδεση
         sign_in_with_provider: Είσοδος με %{provider}
