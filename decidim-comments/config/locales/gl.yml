@@ -43,7 +43,6 @@ gl:
           body:
             label: Comentario
             placeholder: Que vos parece?
-          form_error: Requírese o texto e non pode ter máis de %{length} caracteres.
           submit: Enviar
           user_group_id:
             label: Comentar como
@@ -82,6 +81,7 @@ gl:
             offensive: Contén racismo, sexismo, abuso, ataques persoais, ameazas de morte, solicitudes de suicidio ou calquera tipo de discurso de odio.
             spam: Contén clic, publicidade, fraudes ou bots de script.
           title: Denunciar contido inapropiado
+        show_replies: Amosar %{replies_count} respostas
         single_comment_link_title: Obter ligazón
       comment_order_selector:
         order:
@@ -145,6 +145,3 @@ gl:
         description: Número de comentarios xerados polos usuarios
         object: comentarios
         title: Comentarios
-  errors:
-    messages:
-      cannot_have_comments: Non podo ter comentarios
