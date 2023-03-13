@@ -320,7 +320,6 @@ it:
           resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
           title: L'autorizzazione è ancora in corso
         unauthorized:
-          explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
           invalid_field: "%{field} valore %{value} non è valido."
           ok: Ok
           title: Non autorizzato
@@ -515,7 +514,6 @@ it:
       not_found:
         back_home: Torna alla homepage
         content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
-        title: La pagina che stai cercando non è stata trovata
     events:
       amendments:
         amendment_accepted:
@@ -931,7 +929,6 @@ it:
         show:
           back: Torna a tutte le conversazioni
           chat_with: Conversazione con
-          deleted_accounts: Non è possibile avere una conversazione con account eliminati.
           not_allowed: Questo partecipante non accetta messaggi diretti.
           title: Conversazione con %{usernames}
         start:
@@ -1441,7 +1438,6 @@ it:
       new:
         forgot_your_password: Hai dimenticato la password?
         send_me_reset_password_instructions: Inviami le istruzioni per reimpostare la password
-      no_token: Non è possibile accedere a questa pagina senza l'invio di un'email di reimpostazione della password. Se provieni da un'email di reimpostazione della password, assicurati di aver utilizzato l'URL completo fornito.
       send_instructions: Riceverai un'email con le istruzioni su come reimpostare la password in pochi minuti.
       send_paranoid_instructions: Se il tuo indirizzo e-mail esiste nel nostro database, riceverai un link per il recupero della password al tuo indirizzo e-mail in pochi minuti.
       updated: La tua password è stata cambiata con successo. Ora hai effettuato l'accesso.
@@ -1488,13 +1484,11 @@ it:
       already_confirmed: era già confermato, per favore prova ad accedere
       confirmation_period_expired: deve essere confermato entro %{period}, si prega di richiederne uno nuovo
       content_type_allowlist_error: il tipo di file non è valido
-      cycle_detected: Il genitore di un ambito non può essere uno dei suoi discendenti
       expired: è scaduto, si prega di richiederne uno nuovo
       file_size_is_less_than_or_equal_to: la dimensione del file deve essere inferiore o uguale a %{count}
       invalid_time_zone: non è un fuso orario valido
       long_words: contiene parole troppo lunghe (oltre 35 caratteri)
       must_start_with_caps: deve iniziare con una lettera maiuscola
-      nesting_too_deep: Non può stare all'interno di una subcategoria
       not_found: non è stato trovato. Ti sei iscritto in precedenza?
       not_locked: non era bloccato
       not_saved:
