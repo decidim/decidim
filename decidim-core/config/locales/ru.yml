@@ -748,8 +748,6 @@ ru:
     shared:
       links:
         back: Назад
-        didn_t_receive_confirmation_instructions: Не получили инструкцию по подтверждению?
-        didn_t_receive_unlock_instructions: Не получили инструкцию по разблокировке?
         forgot_your_password: Забыли пароль?
         sign_in: Войти
         sign_in_with_provider: Войти с помощью %{provider}
