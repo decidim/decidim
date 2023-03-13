@@ -52,6 +52,10 @@ es:
         code: Código
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Esta URL no puede ser incrustada en la página de encuentro o evento en directo
         meeting_agenda:
           attributes:
             base:
@@ -188,6 +192,9 @@ es:
           email_outro: Has recibido esta notificación porqué sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: En menos de 48 horas empezará el encuentro "%{resource_title}".
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> empezará en menos de 48 h.
+    forms:
+      meetings:
+        attendees_count_help_text: No te olvides de añadir el número total de asistentes a la reunión, ya sea en persona, en línea o híbrido.
     gamification:
       badges:
         attended_meetings:
@@ -199,6 +206,7 @@ es:
           name: Encuentros a los que has asistido
           next_level_in: '¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante aún no ha asistido a ningún encuentro.
+          unearned_own: No has asistido a ningún encuentro todavía.
     meetings:
       actions:
         agenda: Orden del día
@@ -278,6 +286,7 @@ es:
             filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitaciones
+            registrations_disabled: No puedes invitar a nadie porque las inscripciones están deshabilitadas.
             search: Buscar
         meeting_closes:
           edit:
@@ -357,6 +366,7 @@ es:
             registrations_count:
               one: Ha habido %{count} inscripción.
               other: Ha habido %{count} inscripciones.
+            reserved_slots_help: Déjalo a 0 si no tienes espacios reservados
             reserved_slots_less_than: Debe ser inferior o igual que %{count}
             title: Registros
           update:
