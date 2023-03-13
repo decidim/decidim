@@ -568,14 +568,11 @@ de:
               generate_legend: Sie müssen ein Schlüsselpaar generieren, um an Wahlen als Wahlhelfer teilzunehmen.
               generate_legend_1: Nach Drücken des Buttons sollten Sie die Datei mit den generierten Identifikationsschlüssel herunterladen.
               generate_legend_2: Kopiere die heruntergeladene Datei auf ein sauberen USB-Stick
-              generate_legend_3: Stellen Sie sicher, dass Ihr Computer keine Kopie der Datei hat (z.B. überprüfen Sie die Download- und Desktop-Ordner).
               generate_legend_4: Machen Sie eine weitere Kopie der Datei auf einem anderen externen Gerät und speichern Sie sie an einem sehr sicheren Ort.
               submit: Einreichen
               submit_title: Öffentlichen Identifikationsschlüssel einreichen
               title: Wahlhelfer-Identifikationsschlüssel
               upload: Lade deine Identifikationsschlüssel hoch
-              upload_error:
-                invalid_format: Die hochgeladene Datei enthält keinen Identifikationsschlüssel.
             not_supported_browser_title: Browser aktualisieren, um als Wahlhelfer zu agieren
             trustee_role_description: Sie wurden beauftragt, bei einigen der auf dieser Plattform gehaltenen Wahlen als Wahlhelfer zu agieren.
           update:
@@ -1027,7 +1024,6 @@ de:
             subject: Der Export der Zugangscodes für die Abstimmung %{voting_title} ist verfügbar
         vote_flow:
           already_voted_in_person: Dieser Teilnehmer hat bereits persönlich abgestimmt und hat kein Stimmrecht mehr.
-          datum_not_found: Zu den eingegebenen Daten wurde kein Wähler gefunden.
       content_blocks:
         highlighted_votings:
           name: Hervorgehobene Abstimmungen
@@ -1072,7 +1068,6 @@ de:
             info_text: Bitte geben Sie die Gesamtzahl der Antworten für jede Frage ein.
             modal_ballots_results_count_error:
               close_modal: Schließen
-              info_text: Die Gesamtzahl der Stimmzettel stimmt nicht mit der Gesamtzahl der Umschläge überein. Bitte überprüfen Sie die Anzahl der Stimmzettel.
               title: Gesamtzahl der Stimmzettel stimmt nicht
             save_recount: Neuzählung speichern
             total_ballots: Gesamtzahl der Stimmen
@@ -1087,7 +1082,6 @@ de:
               btn_validate_total: Neue Gesamtzahl der Stimmen überprüfen
               close_modal: Schließen
               info_explanation_text: 'Bitte überprüfen Sie die Gesamtzahl der Stimmzettel. Wenn die Gesamtzahl falsch ist, müssen Sie dem Wahlausschuss eine Erklärung abgeben:'
-              info_text: Die eingegebene Gesamtzahl der Umschläge stimmt nicht mit der Liste der Personen überein, welche in diesem Wahllokal abgestimmt haben.
               message_for_monitoring_committee: Nachricht für den Überwachungsausschuss
               review_recount: Neuzählung überprüfen
               text_area_placeholder: Bitte geben Sie Ihre Nachricht ein
