@@ -208,7 +208,6 @@ cs:
           name: Účastnily se setkání
           next_level_in: Zúčastněte se dalších %{score} setkání, abyste dosáhli další úrovně!
           unearned_another: Tento uživatel se ještě nezúčastnil žádné schůzky.
-          unearned_own: Zatím jste se ještě nezúčastnili.
     meetings:
       actions:
         agenda: Denní program
