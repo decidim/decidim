@@ -596,7 +596,6 @@ lt:
               processing: Apdorojama
             title: Balsai %{election}
           update:
-            error: Rinkimų būsena neatnaujinta.
             success: 'Rinkimų būsena yra: %{status}'
         menu:
           trustee_zone: Patikėtinių zona
