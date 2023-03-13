@@ -26,6 +26,8 @@ fi:
       comments:
         create:
           error: Kommentin luotaessa tapahtui virhe.
+        delete:
+          error: Kommenttia ei voitu poistaa.
         update:
           error: Kommentin päivittäminen epäonnistui.
       comments_count: Kommenttien määrä
@@ -43,6 +45,7 @@ fi:
           body:
             label: Kommentti
             placeholder: Mitä mieltä olet tästä?
+          form_error: Teksti vaaditaan ja se ei voi olla pidempi kuin %{length} merkkiä.
           submit: Lähetä
           user_group_id:
             label: Kommentoi käyttäjänä
@@ -162,3 +165,6 @@ fi:
         description: Käyttäjien kirjoittamien kommenttien määrä
         object: kommentit
         title: Kommentit
+  errors:
+    messages:
+      cannot_have_comments: ei voi sisältää kommentteja
