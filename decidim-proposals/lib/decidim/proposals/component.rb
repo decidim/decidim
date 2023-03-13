@@ -10,7 +10,7 @@ Decidim.register_component(:proposals) do |component|
   component.icon = "media/images/decidim_proposals.svg"
 
   component.on(:before_destroy) do |instance|
-    raise "Can't destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
+    raise "Cannot destroy this component when there are proposals" if Decidim::Proposals::Proposal.where(component: instance).any?
   end
 
   component.data_portable_entities = ["Decidim::Proposals::Proposal"]

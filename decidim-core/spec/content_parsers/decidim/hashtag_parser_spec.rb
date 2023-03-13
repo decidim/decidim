@@ -75,8 +75,8 @@ module Decidim
     end
 
     context "when content contains non-hash characters next to the hashtag name" do
-      let(:content) { "You can't add some characters to hashtags: ##{hashtag.name}+extra" }
-      let(:parsed_content) { "You can't add some characters to hashtags: #{hashtag.to_global_id}/#{hashtag.name}+extra" }
+      let(:content) { "You cannot add some characters to hashtags: ##{hashtag.name}+extra" }
+      let(:parsed_content) { "You cannot add some characters to hashtags: #{hashtag.to_global_id}/#{hashtag.name}+extra" }
 
       it_behaves_like "find and stores the hashtags references"
     end
@@ -98,8 +98,8 @@ module Decidim
     end
 
     context "when content contains an URL with a fragment (aka anchor link)" do
-      let(:content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path##{hashtag.name}" }
-      let(:parsed_content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path#fragment" }
+      let(:content) { "You can add an URL and this should not be parsed http://www.example.org/path##{hashtag.name}" }
+      let(:parsed_content) { "You can add an URL and this should not be parsed http://www.example.org/path#fragment" }
 
       it "doesn't find the hashtag" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::HashtagParser::Metadata)
@@ -108,8 +108,8 @@ module Decidim
     end
 
     context "when written with an slash before the fragment" do
-      let(:content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path/#fragment" }
-      let(:parsed_content) { "You can add an URL and this shouldn't be parsed http://www.example.org/path/#fragment" }
+      let(:content) { "You can add an URL and this should not be parsed http://www.example.org/path/#fragment" }
+      let(:parsed_content) { "You can add an URL and this should not be parsed http://www.example.org/path/#fragment" }
 
       it "doesn't find the hashtag" do
         expect(parser.metadata).to be_a(Decidim::ContentParsers::HashtagParser::Metadata)

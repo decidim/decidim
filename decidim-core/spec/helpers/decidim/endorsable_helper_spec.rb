@@ -65,7 +65,7 @@ module Decidim
       end
 
       context "when it's a user" do
-        context "and they haven't endorsed yet" do
+        context "and they have not endorsed yet" do
           it { is_expected.not_to include("is-selected") }
         end
 
@@ -82,7 +82,7 @@ module Decidim
         let!(:membership) { create(:user_group_membership, user_group:, user:, role: "admin") }
         let!(:another_membership) { create(:user_group_membership, user_group:, user: another_user, role: "admin") }
 
-        context "and they haven't endorsed yet" do
+        context "and they have not endorsed yet" do
           it { is_expected.not_to include("is-selected") }
         end
 

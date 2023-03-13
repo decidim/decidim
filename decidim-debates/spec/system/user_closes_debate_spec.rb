@@ -47,7 +47,7 @@ describe "User closes a debate", type: :system do
       )
     end
 
-    it "can't be edited" do
+    it "cannot be edited" do
       expect(page).to have_no_content("Edit debate")
     end
 

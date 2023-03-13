@@ -32,7 +32,7 @@ en:
         cost_report: Cost report
         execution_period: Execution period
       proposals_copy:
-        copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
+        copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.
         origin_component_id: Component to copy the proposals from
       proposals_import:
         import_proposals: Import proposals
@@ -761,7 +761,7 @@ en:
             valuators: Valuators
             votes: Votes
       new:
-        limit_reached: You can't create new proposals since you've exceeded the limit.
+        limit_reached: You cannot create new proposals since you've exceeded the limit.
       participatory_text_proposal:
         alternative_title: There are no participatory texts at the moment
         buttons:

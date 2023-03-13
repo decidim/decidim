@@ -65,7 +65,7 @@ module Decidim
     end
 
     # Renders the endorsements button but disabled.
-    # To be used to let the user know that endorsements are enabled but are blocked or cant participate.
+    # To be used to let the user know that endorsements are enabled but are blocked or cannot participate.
     def render_disabled_endorsements_button
       content_tag :span, class: "#{card_button_html_class} #{endorsement_button_classes(from_resourcess_list: false)} disabled", disabled: true, title: endorse_translated do
         endorse_translated + render_screen_reader_context_title

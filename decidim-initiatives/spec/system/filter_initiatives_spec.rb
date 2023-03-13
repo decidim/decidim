@@ -295,7 +295,7 @@ describe "Filter Initiatives", :slow, type: :system do
         visit decidim_initiatives.initiatives_path
       end
 
-      it "can't be filtered by author" do
+      it "cannot be filtered by author" do
         within "form.new_filter" do
           expect(page).not_to have_content(/Author/i)
         end
