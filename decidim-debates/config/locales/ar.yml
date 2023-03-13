@@ -155,7 +155,6 @@ ar:
           name: المناقشات
           next_level_in: شارك في %{score} مناقشات أخرى للوصول إلى المستوى التالي!
           unearned_another: هذا المشارك لم يشارك بعد في أي نقاش.
-          unearned_own: لم تشارك في أي مناقشات حتى الآن.
     metrics:
       debates:
         description: عدد المناقشات التي تم إنشاؤها
