@@ -57,8 +57,8 @@ module Decidim
       Decidim::UserGroups::ManageableUserGroups.for(current_user).include?(model)
     end
 
-    def profile_actions
-      items = [].tap do |keys|
+    def actions_keys
+      [].tap do |keys|
         keys << :edit_profile if own_profile?
         keys << :create_user_group if own_profile? && user_groups_enabled?
         keys << :edit_user_group if can_edit_user_group_profile?
@@ -67,7 +67,10 @@ module Decidim
         keys << :join_user_group if can_join_user_group?
         keys << :leave_user_group if can_leave_group?
       end
-      items.map { |key| action_item(key) }.compact
+    end
+
+    def profile_actions
+      actions_keys.map { |key| action_item(key) }.compact
     end
 
     def user_group?
