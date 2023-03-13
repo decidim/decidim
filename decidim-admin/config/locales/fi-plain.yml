@@ -880,7 +880,6 @@ fi-pl:
         new:
           destroy:
             button: Poista kaikki yksityiset osallistujat
-            confirm: Oletko varma, että haluat poistaa kaikki yksityiset osallistujat? Tätä toimintoa ei voi peruuttaa ja poistettuja osallistujia ei voi palauttaa.
             empty: Tässä osallistumistilassa ei ole yksityisiä osallistujia.
             explanation: Tässä osallistumistilassa on %{count} yksityistä osallistujaa.
             title: Poista kaikki yksityiset osallistujat
