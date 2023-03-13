@@ -91,7 +91,7 @@ module Decidim
 
         msg = <<-MSG
         Invalid authorization handler given: #{handler_name} doesn't
-        exist or you haven't added it to `Decidim.authorization_handlers.
+        exist or you have not added it to `Decidim.authorization_handlers.
 
         Make sure this name matches with your registrations:\n\n
         Decidim::Verifications.register_workflow(:#{handler_name}) do
