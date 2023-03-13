@@ -162,7 +162,6 @@ zh-CN:
         users_registration_mode:
           disabled: 只能通过外部帐户访问
           enabled: 允许参与者注册并登录
-          existing: 不允许参与者注册，但允许现有参与者登录
       shared:
         notices:
           no_organization_warning_html: 您必须创建一个组织才能启动。请确保您在继续之前阅读 %{guide}。
