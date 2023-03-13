@@ -598,6 +598,17 @@ cs:
             check: Zkontrolujte a pokračujte
             close_modal: Zavřít okno
             uncheck: Ponechat nezaškrtnuté
+          notice: |-
+            <p>Hej, jste si jisti, že nechcete dostávat zpravodaj?<br>
+            Zaškrtněte prosím zaškrtávací políčko níže.<br>
+            Pro nás je velmi důležité, abyste obdrželi příležitostné e-maily
+            abyste dostali důležitá oznámení, můžete to vždy změnit v
+            nastavení oznámení.</p>
+            <p>Pokud nezaškrtnete zaškrtávací políčko, může vám chybět relevantní informace
+            o nových příležitostech pro účast v rámci platformy.<br>
+            Pokud se chcete i nadále vyhýbat přijímání informačních zpravodajů, naprosto
+            rozumíme vašemu rozhodnutí.</p>
+            <p>Děkujeme, že jste si to přečetli!</p>
           title: Oznámení zpravodaje
         omniauth_buttons:
           or: Nebo
@@ -1216,6 +1227,7 @@ cs:
     notifications_settings:
       show:
         administrators: Správci
+        allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
         allow_push_notifications: Získejte oznámení a zjistěte, co se děje, když nejste na platformě. Kdykoli je můžete vypnout.
         direct_messages: Přijímat přímé zprávy od kohokoli
         email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno k moderování.
@@ -1647,6 +1659,9 @@ cs:
         accept_until: Této pozvánce vyprší platnost v %{due_date}.
         decline: Odmítnout pozvánku
         hello: Dobrý den %{email},
+        ignore: |-
+          Pokud pozvánku nechcete přijmout, ignorujte tento e-mail.<br />
+          Váš účet nebude vytvořen, dokud nekliknete na odkaz výše a nenastavíte si uživatelské jméno a heslo.
         invited_you_as_admin: "%{invited_by} vás pozval jako administrátora z %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
         invited_you_as_private_user: "%{invited_by} vás pozval jako soukromého uživatele %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
         someone_invited_you: Někdo vás pozval na %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu.
