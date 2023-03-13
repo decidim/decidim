@@ -700,7 +700,6 @@
         other: "%{count} følgere"
       no_followers: Ingen følgere ennå.
     following:
-      no_followings: Følger ikke noen eller noe ennå.
       non_public_followings: En del av ressursene som følges er ikke offentlige.
     follows:
       create:
@@ -738,7 +737,6 @@
           description_own: "%{score} folk følger deg."
           name: Følgere
           next_level_in: Få %{score} flere folk til å følge deg for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke noen følgere ennå.
           unearned_own: Du har ingen følgere ennå.
         index:
           badge_title: "%{name} merke"
@@ -824,7 +822,6 @@
         create_user_group: Opprett gruppe
         new_user_group: Ny gruppe
         subtitle: Opprett en gruppe og inviter andre brukere til å være med for å delta på et kollektivt nivå.
-      no_user_groups: Tilhører ikke en gruppe ennå.
       roles:
         admin: Administrator
         member: Medlem
@@ -881,8 +878,6 @@
       static:
         latlng_text: 'breddegrad: %{latitude}, lengdegrad: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Denne gruppen har ikke noen medlemmer ennå.
     menu:
       help: Hjelp
       home: Hjem
@@ -1217,7 +1212,6 @@
         already_reported: Dette innholdet er allerede rapportert, og det vil bli vurdert av en administrator.
         close: Lukk
         description: Er dette innholdet upassende?
-        does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
         offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
         reason: Årsak
         report: Rapport
@@ -1227,7 +1221,6 @@
         already_reported: Dette innholdet er allerede rapportert og vil bli vurdert av en administrator.
         close: Lukk
         description: Hva er upassende med brukeren?
-        does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
         offensive: Inneholder rasisme, sexisme, banning, personangrep, dødstrusler, selvmordsforespørsler eller andre former for hatefullt språk.
         report: Rapporter
         spam: Inneholder klikkeagn, reklame, svindel eller skriptbotter.
@@ -1314,7 +1307,6 @@
     user_interests:
       show:
         my_interests: Mine interesser
-        no_scopes: Denne organisasjonen har ikke noe tema ennå!
         select_your_interests: Velg emnene du er interessert i for å motta hendelser relatert til dem i fanen Profilens tidslinje.
         update_my_interests: Oppdater interessene mine
       update:
