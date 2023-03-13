@@ -48,12 +48,8 @@ el:
             attachment:
               file: Το αρχείο δεν είναι έγκυρο
               needs_to_be_reattached: Πρέπει να επισυναφθεί ξανά
-              title: Ο τίτλος δεν πρέπει να είναι κενός
   activerecord:
     models:
-      decidim/initiative:
-        one: Πρωτοβουλία
-        other: Πρωτοβουλίες
       decidim/initiative_comittee:
         one: Επιτροπή
         other: Επιτροπές
