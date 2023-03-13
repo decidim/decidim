@@ -83,12 +83,13 @@
 
   &__pill--active{
     @apply bg-secondary text-white;
+
     .button__pill--count{
       @apply bg-white text-secondary;
     }
   }
 
   &__pill--count{
-    @apply rounded-full bg-white text-secondary inline-block h-[18px] w-[18px] ml-2;
+    @apply rounded-full bg-secondary text-white inline-block h-[18px] w-[18px] ml-2 text-xs;
   }
 }

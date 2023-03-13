@@ -84,7 +84,7 @@
   }
 
   &__card__list-project{
-    @apply ml-auto rounded px-3 md:px-6 py-2 bg-background font-bold text-gray-2 text-xl w-[40%] min-w-[120px] grid grid-cols-2 place-items-center;
+    @apply ml-auto rounded px-3 md:px-6 py-2 bg-background font-bold text-gray-2 text-xl w-[35%] min-w-[120px] grid grid-cols-2 place-items-center;
   }
 
   &__card__highlight-vote{
@@ -154,8 +154,8 @@
       @apply [&:not(:first-child)]:px-6;
     }
 
-    .card__list__content{
-      @apply w-2/4 cursor-pointer;
+    .card__list-content{
+      @apply w-[65%] cursor-pointer;
     }
   }
 }
