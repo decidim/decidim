@@ -411,7 +411,6 @@ es:
           resume: Comprueba el progreso de la autorización "%{authorization}"
           title: La autorización aún está en progreso
         unauthorized:
-          explanation: Lo sentimos, no puedes realizar esta acción porque algunos de tus datos de autorización no coinciden.
           invalid_field: "%{field} valor %{value} no es válido."
           ok: De acuerdo
           title: No autorizado
@@ -815,7 +814,6 @@ es:
       following_count:
         one: "%{count} lo sigue"
         other: "%{count} lo siguen"
-      no_followings: No sigue a nadie ni a ninguna actividad.
       non_public_followings: Algunos de los recursos seguidos no son públicos.
     follows:
       create:
@@ -883,7 +881,6 @@ es:
           description_own: "%{score} personas te están siguiendo."
           name: Seguidores
           next_level_in: '¡Consigue que te sigan %{score} personas más para alcanzar el siguiente nivel!'
-          unearned_another: Esta participante todavía no tiene seguidoras.
           unearned_own: Aún no tienes seguidores.
         index:
           badge_title: "Insignia %{name}"
@@ -971,7 +968,6 @@ es:
         create_user_group: Crear un grupo
         new_user_group: Nuevo grupo
         subtitle: Crea un grupo e invita a otras participantes a unirse para participar a nivel colectivo.
-      no_user_groups: Aún no perteneces a ningún grupo.
       roles:
         admin: Administradora
         creator: Administradora
@@ -1032,8 +1028,6 @@ es:
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Este grupo aún no tiene ningún miembro.
     menu:
       help: Ayuda
       home: Inicio
@@ -1415,7 +1409,6 @@ es:
         already_reported: Este contenido ya fue denunciado y será revisado por una administradora.
         close: Cerrar
         description: Este contenido no es apropiado?
-        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa pienses que no pertenece en %{organization_name}.
         hide: Esconder
         hide_content: Esconder este contenido
         offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte o de suicidio o cualquier forma de discurso de odio.
@@ -1428,7 +1421,6 @@ es:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         close: Cerrar
         description: '¿Qué es inapropiado de la usuaria?'
-        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
         offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
         report: Reporte
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
@@ -1525,7 +1517,6 @@ es:
     user_interests:
       show:
         my_interests: Mis intereses
-        no_scopes: '¡Esta organización aún no tiene ningún ámbito!'
         select_your_interests: Selecciona los temas que te interesan para recibir eventos relacionados con ellos en la pestaña Timeline de tu perfil.
         update_my_interests: Actualiza mis intereses
       update:
