@@ -249,7 +249,6 @@ id:
             registration_form: Formulir pendaftaran
             registrations_count:
               other: Ada %{count} pendaftaran.
-            reserved_slots_help: Biarkan hingga 0 jika Anda tidak memiliki slot yang dipesan
             reserved_slots_less_than: Harus kurang dari atau sama dengan %{count}
           update:
             invalid: Terjadi masalah saat menyimpan pengaturan pendaftaran.
