@@ -200,9 +200,6 @@ ar:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع اجتماع "%{resource_title}". يمكنك إلغاء تتبعه من الرابط السابق.
           email_subject: سيبدأ الاجتماع "%{resource_title}" في أقل من 48 ساعة.
           notification_title: سيبدأ الاجتماع <a href="%{resource_path}">%{resource_title}</a> في أقل من 48 ساعة.
-    forms:
-      meetings:
-        attendees_count_help_text: لا تنسى أن تضمّن العدد الإجمالي للحضور في اجتماعك، سواء كانوا حاضرين شخصياً، أو على الإنترنت أو بطريقة هجينة.
     gamification:
       badges:
         attended_meetings:
@@ -384,7 +381,6 @@ ar:
               few: كان هناك %{count} التسجيلات.
               many: كان هناك %{count} التسجيلات.
               other: كان هناك %{count} التسجيلات.
-            reserved_slots_help: اتركه إلى 0 إذا لم يكن لديك فتحات محجوزة
             reserved_slots_less_than: يجب أن يكون أقل من أو يساوي %{count}
             title: التسجيلات
           update:
