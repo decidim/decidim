@@ -324,7 +324,6 @@ lb:
           ok: Ok
           title: Net berechtegt
         unconfirmed:
-          confirmation_instructions: 'Wann s''du Uweisungen fir d''Bestätegung nach kritt hues, kanns du se hei nei ufroen:'
           explanation_html: Fir dës Aktioun duerch ze féieren muss du eng Berechtegung hunn, fir dass déi gülteg ass muss du fir d'éischt deng Email-Adress bestätegen <strong>%{email}</strong>.
           request_confirmation_instructions: Instruktiounen fir d'Bestätegung ufroen
           title: Email bestätegen
@@ -343,7 +342,6 @@ lb:
       see_more: "(Mehr anzeigen)"
     components:
       component_order_selector:
-        no_content: Wir haben keine Inhalte anhand dieser Kriterien gefunden
         order:
           all_types: All Typen
           collaborative_draft: Gemeinsame Brouillon
@@ -1401,7 +1399,6 @@ lb:
         action: Mäin Passwuert änneren
         greeting: Moien %{recipient}!
         instruction: Et huet een e Link ugefrot fir däin Passwuert ze änneren, du kanns dat iwwer den Link ënnen maachen.
-        instruction_2: Ignoréier dësen Mail, wann s'du dëst net ugefrot hues.
         instruction_3: Däin Passwuert ännert eréischt, wann s'du op den Link uewen gees fir en neit ze erstellen.
         subject: Passwuert-Instruktiounen zeréck setzen
       unlock_instructions:
@@ -1445,8 +1442,6 @@ lb:
     shared:
       links:
         back: Zréck
-        didn_t_receive_confirmation_instructions: Du hues keng Instruktiounen kritt fir d'Bestätegung?
-        didn_t_receive_unlock_instructions: Du hues keng Instruktiounen kritt fir ze entspären?
         forgot_your_password: Passwuert vergiess?
         sign_in: Umellen
         sign_in_with_provider: Registréier dech iwwer %{provider}
