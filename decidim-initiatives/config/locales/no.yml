@@ -437,8 +437,6 @@
           success_html: Gratulerer! Initiativet <strong> %{title}</strong> er signert
         personal_data:
           invalid: Personopplysninger samsvar ikke med informasjonen som er gitt for autorisering.
-        sms_code:
-          invalid: Verifiseringskoden din samsvarer ikke med vår. Dobbel-sjekk SMS-en vi sendte deg.
         sms_phone:
           invalid: Telefonnummeret er ugyldig eller venter på godkjenning. Vennligst sjekk autorisasjonene dine.
       initiatives:
