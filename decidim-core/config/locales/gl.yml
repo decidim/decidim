@@ -358,13 +358,6 @@ gl:
           buttons:
             check: Comprobar e continuar
             close_modal: Pechar modal
-          notice: |-
-            <p>Ola, estás seguro de que non queres recibir un boletín informativo?<br>
-            Por favor, considere nuevamente marcar a caixa de verificación seguinte.<br>
-            É moi importante para nós que podes recibir correos electrónicos ocasionais para facer anuncios importantes, sempre podes cambiar isto na túa páxina de configuración das notificacións.</p>
-            <p>Se non marca a caixa, falla a información relevante sobre novas oportunidades participativas dentro da plataforma.<br>
-            Se aínda queres evitar recibir boletíns, entendemos perfectamente a túa decisión.</p>
-            <p>Grazas por ler isto!</p>
           title: Notificacións de boletín informativo
         omniauth_buttons:
           or: Ou
@@ -1080,9 +1073,6 @@ gl:
         accept_until: Esta invitación farase en %{due_date}.
         decline: Declina a invitación
         hello: Ola %{email},
-        ignore: |-
-          Se non queres aceptar a invitación, ignora este correo electrónico.<br />
-          súa conta non se creará ata que acceda á ligazón anterior e configure o seu alcume e contrasinal.
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
         invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
