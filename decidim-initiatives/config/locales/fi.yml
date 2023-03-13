@@ -64,7 +64,6 @@ fi:
             attachment:
               file: Tiedosto ei kelpaa
               needs_to_be_reattached: Liitettävä uudelleen
-              title: Otsikko ei voi olla tyhjä
   activerecord:
     models:
       decidim/initiative:
