@@ -248,7 +248,6 @@ pt-BR:
           edit:
             confirm_destroy: Tem certeza de que deseja redefinir o código de verificação?
             destroy: Redefinir código de verificação
-            resend: Não recebeu o código de verificação?
             send: confirme
             title: Introduza o código de verificação recebido
           new:
