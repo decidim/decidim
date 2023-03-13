@@ -35,10 +35,6 @@ hu:
         type_of_meeting: Típus
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Ez az URL nem ágyazható be az értekezlet vagy az élő esemény oldalába
         meeting_agenda:
           attributes:
             base:
@@ -269,15 +265,11 @@ hu:
             filter_by: 'Szűrés ez alapján:'
             invite_attendee: Résztvevő meghívása
             invites: Meghívottak
-            registrations_disabled: Nem hívhatsz meg résztvevőt, mert a regisztráció le van tiltva.
             search: Keresés
         meeting_closes:
           edit:
             close: Bezárás
             title: Ttalálkozó lezárása
-        meeting_copies:
-          form:
-            select_a_meeting_type: Válassza ki a találkozó típusát
         meetings:
           close:
             invalid: Probléma merült fel a találkozó lezárásakor
