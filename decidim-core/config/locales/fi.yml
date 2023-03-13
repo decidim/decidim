@@ -414,7 +414,6 @@ fi:
           resume: Tarkista "%{authorization}" vahvistuksen eteneminen
           title: Vahvistus on edelleen kesken
         unauthorized:
-          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska vahvistustietosi eivät täsmää.
           invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei vahvistettu
@@ -636,7 +635,6 @@ fi:
       not_found:
         back_home: Takaisin kotisivulle
         content_doesnt_exist: Tämä osoite on virheellinen tai käytöstä poistunut.
-        title: Etsimääsi sivua ei löydy
     events:
       amendments:
         amendment_accepted:
@@ -963,7 +961,6 @@ fi:
         success: Liittymispyynnön luonti onnistui. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
       leave:
         error: Ryhmästä poistuminen epäonnistui
-        last_admin: Et voi poistaa itseäsi tästä ryhmästä, koska olet sen ainoa hallinnoija. Tee toisesta ryhmän jäsenestä hallinnoija, mikäli haluat poistua ryhmästä.
         success: Ryhmästä poistuminen onnistui.
       members:
         accept_or_reject_join_requests: 'Seuraavat käyttäjät ovat tehneet liittymispyynnön tähän ryhmään. Hyväksy tai hylkää heidän pyyntönsä:'
@@ -1101,7 +1098,6 @@ fi:
         show:
           back: Takaisin kaikkiin keskusteluihin
           chat_with: Keskustelu osallistujien kanssa
-          deleted_accounts: Et voi keskustella poistettujen käyttäjätilien kanssa.
           not_allowed: Tämä osallistuja ei halua vastaanottaa yksityisviestejä.
           title: 'Keskustelu: %{usernames}'
         start:
@@ -1519,7 +1515,6 @@ fi:
         title_reply: Vastaa
       show:
         back: Näytä kaikki keskustelut
-        deleted_accounts: Et voi keskustella poistettujen käyttäjätilien kanssa.
         not_allowed: Tämä käyttäjä ei ole sallinut yksityisviestejä muilta käyttäjiltä.
         title: 'Keskustelu: %{usernames}'
       update:
@@ -1673,7 +1668,6 @@ fi:
       new:
         forgot_your_password: Unohditko salasanasi?
         send_me_reset_password_instructions: Lähetä minulle ohjeet salasanan vaihtamiseen
-      no_token: Et pääse sivulle, ellet käytä sähköpostiisi lähtettyä salasanan vaihtamiseen liittyvää linkkiä. Mikäli käytit sähköpostissa olevaa linkkiä, varmista, että käytät täysin samaa URL-osoitetta, joka näkyy lähetetyssä viestissä.
       send_instructions: Saat sähköpostitse ohjeet salasanan palauttamiseen muutaman minuutin kuluessa.
       send_paranoid_instructions: Jos sähköpostiosoitteesi löytyy tietokannastamme, saat ohjeet salasanan vaihtamiseesi sähköpostiisi muutaman minuutin kuluessa.
       updated: Salasanasi vaihtaminen onnistui. Olet nyt kirjautunut sisään.
@@ -1746,13 +1740,11 @@ fi:
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään
       confirmation_period_expired: on vahvistettava %{period} kuluessa, pyydä uutta
       content_type_allowlist_error: tiedostotyyppi ei kelpaa
-      cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
       expired: on vanhentunut, pyydä uutta
       file_size_is_less_than_or_equal_to: tiedoston koko tulee olla %{count} tai vähemmän
       invalid_time_zone: virheellinen aikavyöhyke
       long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
       must_start_with_caps: tulee alkaa isolla kirjaimella
-      nesting_too_deep: ei voi olla ala-aihepiirin sisällä
       not_found: ei löydetty. Oletko jo rekisteröitynyt?
       not_locked: ei lukittu
       not_saved:
