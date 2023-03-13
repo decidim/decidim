@@ -34,8 +34,6 @@ ar:
       comments:
         create:
           error: طرأت مشكلة خلال إنشاء التعليق.
-        delete:
-          error: حذف التعليق لم يكن ممكنا.
         update:
           error: طرأت مشكلة خلال تحديث التعليق.
       comments_count: تعداد التعليقات
