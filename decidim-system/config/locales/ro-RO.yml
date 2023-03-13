@@ -179,7 +179,6 @@ ro:
         users_registration_mode:
           disabled: Accesul se poate face doar cu conturi externe
           enabled: Permite participanților să se înregistreze și să se autentifice
-          existing: Nu permiteţi participanţilor să se înregistreze, dar permiteţi participanţilor existenţi să se autentifice
       shared:
         notices:
           no_organization_warning_html: Trebuie să creezi o organizație pentru a începe. Asigură-te că ai citit %{guide} înainte de a continua.
