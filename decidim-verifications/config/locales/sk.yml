@@ -235,7 +235,6 @@ sk:
           edit:
             confirm_destroy: Naozaj chcete obnoviť overovací kód?
             destroy: Obnoviť overovací kód
-            resend: Neprišiel Vám overovací kód?
             send: Potvrdiť
             title: Zadajte overovací kód, ktorý ste obdržali
           new:
