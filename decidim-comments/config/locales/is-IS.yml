@@ -27,7 +27,6 @@ is-IS:
           description: Er þetta efni óviðeigandi?
           details: Önnur athugasemdir
           reasons:
-            does_not_belong: Inniheldur ólöglega starfsemi, sjálfsvígshugmyndir, persónulegar upplýsingar eða eitthvað sem þér finnst ekki tilheyra %{organization_name}.
             offensive: Inniheldur kynþáttafordóma, kynhneigð, slurðir, persónulegar árásir, dauðarefsárásir, sjálfsvígstilraunir eða hvers konar hatursmál.
             spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
       comment_order_selector:
