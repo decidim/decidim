@@ -505,16 +505,6 @@ ro:
             check: Verifică și continuă
             close_modal: Închide fereastra
             uncheck: Mențineți nebifat
-          notice: |-
-            <p>Hei, sigur nu vrei să primești un buletin informativ?<br>
-            Te rugăm să reconsideri bifarea din nou a căsuței de selectare a buletinului informativ de mai jos.<br>
-            Este foarte important pentru noi să poți primi e-mailuri ocazionale
-            pentru a face anunţuri importante, poți schimba întotdeauna acest lucru pe pagina de setări pentru notificări.</p>
-            <p>Dacă nu bifezi căsuța, este posibil să nu ai acces la informații relevante
-            despre noile oportunități de participare din cadrul platformei.<br>
-            Dacă încă dorești să eviți primirea buletinelor informative, înțelegem perfect
-            decizia ta.</p>
-            <p>Mulțumim că ai citit asta!</p>
           title: Notificări newsletter
         omniauth_buttons:
           or: Sau
@@ -1091,7 +1081,6 @@ ro:
     notifications_settings:
       show:
         administrators: Administratori
-        allow_public_contact: Permiteți oricui să îmi trimită un mesaj direct, chiar dacă nu-l urmăresc.
         direct_messages: Primește mesaje directe de la oricine
         everything_followed: Tot ce urmăresc
         newsletter_notifications: Vreau să primesc buletine informative
@@ -1499,9 +1488,6 @@ ro:
         accept_until: Această invitație va fi scadentă în %{due_date}.
         decline: Refuzați invitația
         hello: Bună ziua %{email},
-        ignore: |-
-          Dacă nu doriți să acceptați invitația, vă rugăm să ignorați acest e-mail.<br />
-          Contul dvs. nu va fi creat până când nu accesați link-ul de mai sus și nu vă setați porecla și parola.
         invited_you_as_admin: "%{invited_by} te-a invitat ca administrator de %{application}. Poți să îl accepți prin link-ul de mai jos."
         invited_you_as_private_user: "%{invited_by} te-a invitat ca participant privat de %{application}. Îl poți accepta prin link-ul de mai jos."
         someone_invited_you: Cineva te-a invitat la %{application}. Îl poți accepta prin link-ul de mai jos.
