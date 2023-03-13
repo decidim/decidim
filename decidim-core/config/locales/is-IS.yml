@@ -171,7 +171,6 @@ is-IS:
       not_found:
         back_home: Heima
         content_doesnt_exist: Þetta netfang er rangt eða hefur verið fjarlægt.
-        title: Ekki er hægt að finna síðuna sem þú leitar að
     events:
       attachments:
         attachment_created:
@@ -361,9 +360,7 @@ is-IS:
       public: Opinberar upplýsingar þínar.
   errors:
     messages:
-      cycle_detected: foreldri umfangs getur ekki verið einn af niðjum hans
       file_size_is_less_than_or_equal_to: Skráarstærð verður að vera minni en eða jafnt við %{count}
-      nesting_too_deep: getur ekki verið inni í undirflokki
   forms:
     required: Nauðsynlegt
   invisible_captcha:
