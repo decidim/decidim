@@ -414,7 +414,6 @@ fi:
           resume: Tarkista "%{authorization}" vahvistuksen eteneminen
           title: Vahvistus on edelleen kesken
         unauthorized:
-          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
           invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei vahvistettu
@@ -817,7 +816,6 @@ fi:
       following_count:
         one: "%{count} seuraaja"
         other: "%{count} seuraajaa"
-      no_followings: Ei vielä seuraa ketään tai mitään.
       non_public_followings: Osa seuratuista kohteista ei ole julkisia.
     follows:
       create:
@@ -885,7 +883,6 @@ fi:
           description_own: "%{score} käyttäjää seuraa sinua."
           name: Seuraajat
           next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
-          unearned_another: Tällä käyttäjällä ei ole vielä seuraajia.
           unearned_own: Sinulla ei ole vielä seuraajia.
         index:
           badge_title: "%{name} kunniamerkki"
@@ -973,7 +970,6 @@ fi:
         create_user_group: Luo ryhmä
         new_user_group: Uusi ryhmä
         subtitle: Luo ryhmä ja pyydä muita käyttäjiä osallistumaan yhteisöllisellä tasolla.
-      no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä
         creator: Hallinnoija
@@ -1034,8 +1030,6 @@ fi:
       static:
         latlng_text: 'leveysaste: %{latitude}, pituusaste: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Tällä käyttäjäryhmällä ei ole vielä yhtään jäsentä.
     menu:
       help: Tietoa
       home: Etusivu
@@ -1417,7 +1411,6 @@ fi:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
         description: Onko tämä sisältö epäasiallista?
-        does_not_belong: Sisältää lain vastaista toimintaa, itsemurhauhkauksia, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
         hide: Piilota
         hide_content: Piilota tämä sisältö
         offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
@@ -1430,7 +1423,6 @@ fi:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         close: Sulje
         description: Mikä tässä käyttäjässä on asiatonta?
-        does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan organisaatioon %{organization_name}.
         offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
         report: Tee ilmoitus
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
@@ -1527,7 +1519,6 @@ fi:
     user_interests:
       show:
         my_interests: Omat kiinnostuksen kohteet
-        no_scopes: Tällä organisaatiolla ei ole vielä teemaa!
         select_your_interests: Valitse ne aiheet, joista olet kiinnostunut vastaanottamaan tapahtumia profiilisi aikajana-välilehdellä.
         update_my_interests: Päivitä omat kiinnostuksen kohteet
       update:
