@@ -26,8 +26,6 @@ ca:
       comments:
         create:
           error: S'ha produït un error en crear el comentari.
-        delete:
-          error: El comentari no s'ha pogut eliminar.
         update:
           error: S'ha produït un error en actualitzar el comentari.
       comments_count: Número de comentaris
