@@ -310,7 +310,6 @@ is-IS:
         already_reported: Þetta efni er þegar tilkynnt og það verður endurskoðað af stjórnanda.
         close: Loka
         description: Er þetta efni óviðeigandi?
-        does_not_belong: Inniheldur ólöglega starfsemi, sjálfsvígshugmyndir, persónulegar upplýsingar eða eitthvað sem þér finnst ekki tilheyra %{organization_name}.
         offensive: Inniheldur kynþáttafordóma, kynhneigð, slurðir, persónulegar árásir, dauðarefsárásir, sjálfsvígstilraunir eða hvers konar hatursmál.
         report: Skýrsla
         spam: Inniheldur clickbait, auglýsingar, óþekktarangi eða handritabots.
