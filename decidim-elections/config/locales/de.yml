@@ -401,6 +401,7 @@ de:
           verifiable_results:
             checksum: 'SHA256-Prüfsumme der Datei:'
             description:
+              not_ready: Die überprüfbare Wahl-Datei und ihre SHA-256-Prüfsumme sind noch nicht verfügbar. Sobald die Resultate veröffentlicht sind, werden Sie diese Wahl verifizieren können.
               ready: 'Hier können Sie die Wahl verifizieren. Zuerst müssen Sie die Datei herunterladen und sicherstellen, dass sie nicht beschädigt wurde. Führen Sie dazu den folgenden Befehl aus und überprüfen Sie dass die Ausgabe mit der Prüfsumme übereinstimmt:'
             how_to_verify: 'Wenn Sie die Datei heruntergeladen haben und sicher gestellt haben, dass sie in Ordnung ist, können Sie den universellen Überprüfer ausführen. Klonen Sie <a href=''https://github.com/decidim/decidim-bulletin-board''>dieses Repository</a> und führen Sie den folgenden Befehl im Root-Verzeichnis aus:'
             title: Wahlergebnisse überprüfen
@@ -718,7 +719,6 @@ de:
               new: Neu
               title: Aktionen
             associated_census_data: Zugehörige Erhebungseinträge
-            explanation_callout: Eine Wahlkategorie legt fest, welche Fragen einem Wähler bei der Abstimmung gestellt werden. In einer Wahlkategorie können Sie auswählen, welche Fragen aus den Wahlkomponenten dieser Wahl zu einer Wahlurne gehören. Anhand dem Wahlkategorie-Code aus den Erhebungsdaten des Wählers wird die Wahlkategorie ausgewählt, die einem Wähler angezeigt wird. Wenn Sie immer alle Fragen anzeigen wollen, erstellen Sie keine Wahlkategorien.
             title: Wahlkategorien
           new:
             create: Erstellen
@@ -946,7 +946,6 @@ de:
             invalid: Beim Erstellen dieser Abstimmung ist ein Problem aufgetreten
             success: Abstimmung erfolgreich erstellt
           edit:
-            add_election_component: Sie haben keine Wahl für diese Abstimmung konfiguriert. Bitte fügen Sie sie im Abschnitt Komponenten hinzu
             assign_missing_officers: Es gibt noch Wahllokale ohne Präsident und/oder Wahlleiter. Bitte ordnen Sie diese im Wahllokal-Abschnitt zu
             update: Aktualisieren
           form:
@@ -1202,6 +1201,7 @@ de:
       votings:
         access_code_modal:
           email: Per E-Mail an %{email} senden
+          info: Sie benötigen einen Zugangscode um teilzunehmen. Wenn Sie keinen per Briefpost bekommen haben, können wir Ihnen einen neuen senden.
           no_email: Keine E-Mail-Adresse verfügbar
           no_sms: Keine Telefonnummer verfügbar
           sms: Per SMS an %{sms} senden
@@ -1214,7 +1214,6 @@ de:
           success:
             access_link: per E-Mail.
             access_link_with_sms: via SMS oder E-Mail.
-            info: Sie sollten Ihren Zugangscode bereits via Briefpost bekommen haben. Falls nicht, können Sie ihn hier anfordern
             title: Ihre Erhebungsdaten sind korrekt!
           title: Kann ich abstimmen?
         check_fields:
@@ -1260,7 +1259,6 @@ de:
           access_code: Zugangscode
           access_code_placeholder: Zugangscode
           ask_for_a_new_one: Erneut anfordern.
-          dont_have_access_code: Haben Sie keinen Zugangscode?
           form_title: 'Füllen Sie das folgende Formular aus um auf die Abstimmung zuzugreifen:'
           start_voting: Jetzt abstimmen
           step: Identifikation
