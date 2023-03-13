@@ -323,7 +323,6 @@ pt:
           ok: Ok
           title: Não autorizado
         unconfirmed:
-          confirmation_instructions: 'Se não recebeu as instruções de confirmação, pode solicitá-las novamente:'
           explanation_html: De forma a executar esta ação precisa de estar autorizado, antes de fazer isso precisa de confirmar o seu e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instruções de confirmação
           title: Confirmar o seu e-mail
@@ -342,7 +341,6 @@ pt:
       see_more: "(ver mais)"
     components:
       component_order_selector:
-        no_content: Não foi possível encontrar qualquer conteúdo com este critério
         order:
           all_types: Todos os tipos
           collaborative_draft: Rascunho Colaborativo
@@ -1404,7 +1402,6 @@ pt:
         action: Modificar a minha palavra-passe
         greeting: Olá %{recipient}!
         instruction: Alguém solicitou uma hiperligação para alterar a sua palavra-passe e pode fazer isso através da hiperligação abaixo.
-        instruction_2: Se não solicitou isto, por favor ignore este e-mail.
         instruction_3: A sua palavra-passe não será alterada até que aceda à hiperligação acima e crie uma nova.
         subject: Instruções de reposição da palavra-passe
       unlock_instructions:
@@ -1448,8 +1445,6 @@ pt:
     shared:
       links:
         back: Retroceder
-        didn_t_receive_confirmation_instructions: Não recebeu as instruções de confirmação?
-        didn_t_receive_unlock_instructions: Não recebeu as instruções de desbloqueio?
         forgot_your_password: Esqueceu a sua palavra-passe?
         sign_in: Iniciar sessão
         sign_in_with_provider: Iniciar sessão com %{provider}
