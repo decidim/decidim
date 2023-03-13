@@ -54,12 +54,6 @@ es-MX:
           attributes:
             attachment:
               needs_to_be_reattached: Es necesario volver a adjuntar el archivo
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: no se puede cambiar
-            public_key:
-              cant_be_changed: no se puede cambiar
         voting:
           attributes:
             voting_type:
@@ -333,7 +327,6 @@ es-MX:
             continue: Continuar
             invalid: Hubo un problema al reportar la ausencia de la persona garante
             mark_as_missing: Marcar como ausente
-            mark_as_missing_description: Todas las personas garantes deben participar en este proceso, pero si una de ellas no puede, puedes marcarlo como ausente.
             success: El reporte de ausencia de la persona garante fue enviada con éxito al estrado
             tally_completion: El proceso estará completo cuando todas las personas garantes estén registradas como activas o reportadas como ausentes. Se requiere un quorum de %{quorum} personas garantes para completar el proceso.
             title: Proceso de recuento
@@ -638,10 +631,8 @@ es-MX:
               upload: Sube tus claves de identificación
               upload_error:
                 invalid_format: El archivo subido no contiene ninguna clave de identificación.
-                invalid_key: Las claves de identificación en el archivo subido no se pueden cargar.
                 invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave pública de identificación almacenada.
               upload_legend: El servidor tiene sus claves públicas de identificación, pero su navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
-            not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta usar cualquiera de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
             trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
           update:
@@ -1242,10 +1233,8 @@ es-MX:
             confirm: Ok, continuar
             error: Se ha producido un error, por favor inténtalo de nuevo.
             heading: Recuento de votos - Firmar cierre
-            info_text: Si continúas ya no podrás modificar ninguna información, esta acción no se puede deshacer.
             submit: Firmar el cierre
             success: Cierre firmado con éxito.
-            title: Esta acción no se puede deshacer
           update:
             error: Se ha producido un error al actualizar los resultados del cierre. Inténtalo de nuevo más tarde.
             success: Resultados de cierre actualizados correctamente.
