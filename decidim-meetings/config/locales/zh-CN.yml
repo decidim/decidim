@@ -214,7 +214,6 @@ zh-CN:
             filter_by: 筛选方式
             invite_attendee: 邀请参与者
             invites: 邀请
-            registrations_disabled: 您不能邀请参与者，因为注册已被禁用。
             search: 搜索
         meeting_closes:
           edit:
