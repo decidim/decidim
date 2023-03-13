@@ -605,7 +605,7 @@ en:
               processing: Processing
             title: Tally for %{election}
           update:
-            error: The election status wasn't updated.
+            error: The election status was not updated.
             success: 'The election status is: %{status}'
         menu:
           trustee_zone: Trustee zone

@@ -138,7 +138,7 @@ module Decidim
 
         it { is_expected.to eq(proposal.versions) }
 
-        context "when proposal has an answer that wasn't published yet" do
+        context "when proposal has an answer that was not published yet" do
           before do
             proposal.update!(answer: "an answer", state: "accepted", answered_at: Time.current)
           end
