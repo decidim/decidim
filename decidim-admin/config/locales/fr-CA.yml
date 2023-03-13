@@ -880,7 +880,6 @@ fr-CA:
         new:
           destroy:
             button: Supprimer tous les utilisateurs privés
-            confirm: Êtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action ne peut pas être annulée, vous ne pourrez pas les récupérer.
             empty: Vous n'avez aucun utilisateur privé.
             explanation: Vous avez %{count} utilisateurs privés.
             title: Supprimer les utilisateurs privés
