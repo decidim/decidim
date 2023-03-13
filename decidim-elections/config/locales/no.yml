@@ -455,7 +455,6 @@
                 share: Opptellingsandel
             title: Opptelling for %{election}
           update:
-            error: Valgstatusen ble ikke oppdatert.
             success: 'Valgstatus er: %{status}'
         menu:
           trustee_zone: Område for tillitsmenn
