@@ -628,7 +628,6 @@ ca:
               generate_legend: Has de generar un parell de claus d'identificació per participar en les eleccions com a garant.
               generate_legend_1: Després de prémer el botó has de descarregar l'arxiu amb les claus d'identificació generades.
               generate_legend_2: Copia l'arxiu descarregat a un dispositiu USB net
-              generate_legend_3: Assegura't de que el teu equip no tingui una còpia de l'arxiu (per exemple, comprova les carpetes de Baixades i Escriptori).
               generate_legend_4: Fes una altra copia de l'arxiu en un dispositiu extern diferent i guarda'l a un lloc molt segur.
               submit: Enviar
               submit_legend: Després de seguir tots els passos explicats anteriorment, completa el procés enviant la clau d'identificació pública al servidor.
@@ -636,10 +635,7 @@ ca:
               title: Claus d'identificació del garant
               upload: Puja les teves claus d'identificació
               upload_error:
-                invalid_format: L'arxiu pujat no conté cap clau d'identificació.
                 invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
-                invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada.
-              upload_legend: Decidim té les teves claus públiques d'identificació, però el teu navegador encara no les té. Necessites importar l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que vas crear després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador web que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta fer servir qualsevol altre dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
             trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
@@ -1161,7 +1157,6 @@ ca:
             subject: L'exportació dels codis d'accés a la votació de %{voting_title} està disponible
         vote_flow:
           already_voted_in_person: La participant ja ha votat de forma presencial i no té dret a vot.
-          datum_not_found: No hi ha cap votant amb aquestes dades.
       content_blocks:
         highlighted_votings:
           name: Votacions destacades
@@ -1206,7 +1201,6 @@ ca:
             info_text: Si us plau, introdueix el nombre total de respostes per a cada pregunta.
             modal_ballots_results_count_error:
               close_modal: Tancar
-              info_text: El nombre total de paperetes no coincideix amb el nombre total de sobres. Si us plau, revisa el total de paperetes.
               title: El total de paperetes no coincideix
             save_recount: Desar recompte
             total_ballots: Total de paperetes
@@ -1221,7 +1215,6 @@ ca:
               btn_validate_total: Validar recompte total de paperetes
               close_modal: Tancar
               info_explanation_text: 'Si us plau, revisa el nombre total de paperetes. Si el número total és incorrecte, has de proporcionar una explicació per al Comitè de Seguiment:'
-              info_text: El nombre total de paperetes (sobres) introduïdes no coincideix amb el registre de persones que han votat en aquest punt de votació.
               message_for_monitoring_committee: Missatge per al Comitè de Seguiment
               review_recount: Revisar el recompte
               text_area_placeholder: Si us plau, escriu el teu missatge
