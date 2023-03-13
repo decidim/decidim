@@ -209,9 +209,6 @@ hu:
           show:
             identification_keys:
               submit_legend: A fent ismertetett lépések végrehajtása után, a nyilvános azonosító kulcs szervernek való elküldésével fejezi be a folyamatot.
-              upload_error:
-                invalid_public_key: A feltöltött fájlban található azonosító kulcsok nem egyeznek a tárolt nyilvános azonosítókulccsal.
-              upload_legend: A szerver rendelkezik az nyilvános azonosító kulcsaiddal, de a böngésződ még mindig nem. Az azonosító kulcsaidat tartalmazó fájlt importálnod kell a számítógépére a generálás után létrehozott biztonsági másolatból.
       votes:
         onboarding_modal:
           description: Szeretnél új fiókot létrehozni a platformon? Képes leszel a folyamatokban részt venni, és aktív részese lehetsz a szervezetnek.
