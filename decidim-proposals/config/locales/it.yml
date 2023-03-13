@@ -31,7 +31,6 @@ it:
         cost_report: Relazione sui costi
         execution_period: Periodo di esecuzione
       proposals_copy:
-        copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
         origin_component_id: Componente per copiare le proposte da
       proposals_import:
         import_proposals: Importa proposte
@@ -679,8 +678,6 @@ it:
             valuator: Valutatore
             valuators: Valutatori
             votes: Voti
-      new:
-        limit_reached: Non è possibile creare nuove proposte dal momento che hai superato il limite.
       participatory_text_proposal:
         alternative_title: Al momento non ci sono testi di partecipazione
         buttons:
