@@ -542,7 +542,6 @@ de:
               pending: Ausstehend
             title: Stimmenzählung für %{election}
           update:
-            error: Der Wahlstatus wurde nicht aktualisiert.
             success: 'Der Wahlstatus ist: %{status}'
         menu:
           trustee_zone: Wahlhelfer Zone
