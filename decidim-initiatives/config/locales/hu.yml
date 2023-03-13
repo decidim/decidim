@@ -451,8 +451,6 @@ hu:
           success_html: Gratulálunk! A <strong> %{title}</strong> kezdeményezést helyesen írták alá
         personal_data:
           invalid: A személyes adatok nem egyeznek meg az engedélyezéshez megadott adatokkal.
-        sms_code:
-          invalid: Ellenőrző kódja nem megfelelő. Kérjük, ellenőrizze a küldött SMS-t.
         sms_phone:
           invalid: A telefonszám érvénytelen vagy függőben van. Kérjük, ellenőrizd az engedélyeket.
       initiatives:
