@@ -228,9 +228,6 @@ fr-CA:
           success: Étape de la concertation créée avec succès.
         default_title: Introduction
         destroy:
-          error:
-            active_step: Vous ne pouvez pas supprimer l'étape active de la concertation.
-            last_step: Vous ne pouvez pas supprimer la dernière étape de la concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
           title: Modifier l'étape de la concertation
