@@ -31,7 +31,6 @@
         cost_report: Kostnadsrapport
         execution_period: Utførelsesperiode
       proposals_copy:
-        copy_proposals: Jeg forstår at dette vil importere alle forslag fra den valgte komponenten til den nåværende, og at denne handlingen ikke kan reverseres.
         origin_component_id: Komponent å kopiere forslagene fra
       proposals_import:
         import_proposals: Importer forslag
@@ -668,8 +667,6 @@
             state: Status
             title: Tittel
             votes: Stemmer
-      new:
-        limit_reached: Du kan ikke opprette nye forslag fordi du har overstiger grensen.
       participatory_text_proposal:
         alternative_title: Det er ingen deltakende tekster for øyeblikket
         buttons:
