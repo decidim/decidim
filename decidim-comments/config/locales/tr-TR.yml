@@ -55,7 +55,6 @@ tr:
           description: Bu içerik uygunsuz mu?
           details: Ek Yorumlar
           reasons:
-            does_not_belong: Yasadışı faaliyet, intihar tehditleri, kişisel bilgiler veya %{organization_name} kuruluşuna ait olmadığını düşündüğünüz başka bir şey içeriyor.
             offensive: Irkçılık, cinsiyetçilik, hakaretler, kişisel saldırılar, ölüm tehditleri, intihar talepleri veya herhangi bir nefret söylemi içerir.
             spam: Clickbait, reklam, dolandırıcılık veya script botları içerir.
           title: Uygunsuz içerik bildir
