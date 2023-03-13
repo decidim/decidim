@@ -261,7 +261,6 @@ lv:
               zero: Ir notikušas %{count} reģistrācijas.
               one: Ir notikusi %{count} reģistrācija.
               other: Ir notikušas %{count} reģistrācijas.
-            reserved_slots_help: Atstājiet 0, ja jums nav rezervēts laiks runāšanai.
             reserved_slots_less_than: Jābūt mazāk vai vienādam ar %{count}
             title: Reģistrācija
           update:
