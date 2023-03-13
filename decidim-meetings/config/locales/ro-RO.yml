@@ -40,10 +40,6 @@ ro:
         title: Titlu
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Această adresă URL nu poate fi încorporată în ședință sau în pagina de evenimente live
         meeting_agenda:
           attributes:
             base:
@@ -278,15 +274,11 @@ ro:
             filter_by: Filtrare după
             invite_attendee: Invită participantul
             invites: Invitații
-            registrations_disabled: Nu poți invita un participant deoarece înregistrările sunt dezactivate.
             search: Caută
         meeting_closes:
           edit:
             close: Închide
             title: Închide ședința
-        meeting_copies:
-          form:
-            select_a_meeting_type: Te rugăm să selectezi un tip de ședință
         meetings:
           close:
             invalid: A apărut o problemă la închiderea acestei întâlniri
