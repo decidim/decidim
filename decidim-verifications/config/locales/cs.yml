@@ -273,7 +273,6 @@ cs:
           edit:
             confirm_destroy: Opravdu chcete obnovit ověřovací kód?
             destroy: Obnovit ověřovací kód
-            resend: Nezískal jste ověřovací kód?
             send: Potvrdit
             title: Zadejte ověřovací kód, který jste obdrželi
           new:
