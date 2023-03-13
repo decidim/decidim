@@ -61,7 +61,7 @@ ja:
             - ユーザーは自分の身元情報を入力し、自分の文書のコピーをアップロードします。
             - アップロードされた画像に含まれる情報を入力します。
             - 情報はユーザーが入力した情報と一致する必要があります。
-            - はっきりと情報を見ることができない、またはそれを検証することができない場合。 リクエストを拒否すると、ユーザーはそれを修正することができます。
+            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
             - 参加者は、確認コードを自分の住所に送信するように依頼します。
