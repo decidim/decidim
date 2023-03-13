@@ -34,10 +34,6 @@
         type_of_meeting: Type møte
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Denne URL-adressen kan ikke bygges inn i møte eller arrangementsside
         meeting_agenda:
           attributes:
             base:
@@ -260,15 +256,11 @@
             filter_by: Filtrer etter
             invite_attendee: Inviter deltaker
             invites: Invitasjoner
-            registrations_disabled: Du kan ikke invitere en deltaker fordi registreringene er deaktivert.
             search: Søk
         meeting_closes:
           edit:
             close: Lukk
             title: Lukk møte
-        meeting_copies:
-          form:
-            select_a_meeting_type: Vennligst velg en møtetype
         meetings:
           close:
             invalid: Det oppstod et problem med å avslutte dette møtet
