@@ -565,13 +565,6 @@ pl:
             check: Sprawdź i kontynuuj
             close_modal: Zamknij okno
             uncheck: Pozostaw niezaznaczone
-          notice: |-
-            <p>Hej, jesteś pewien, że nie chcesz otrzymywać newslettera?<br>
-            Proszę rozważyć ponownie zaznaczenie pola wyboru newslettera poniżej.<br>
-            Jest dla nas bardzo ważne, abyś mógł otrzymywać od czasu do czasu e-maile z ważnymi informacjami. Zawsze możesz to zmienić na stronie ustawień powiadomień.</p>
-            <p>Jeśli nie zaznaczysz tego pola, mogą Cię ominąć istotne informacje o nowych możliwościach uczestnictwa w procesach publikowanych na platformie.<br>
-            Jeśli mimo to nie chcesz otrzymywać newsletterów, doskonale rozumiemy Twoją decyzję.</p>
-            <p>Dziękujemy za przeczytanie tego komunikatu!</p>
           title: Powiadomienia newslettera
         omniauth_buttons:
           or: Lub
@@ -1097,7 +1090,6 @@ pl:
     notifications_settings:
       show:
         administrators: Administratorzy
-        allow_public_contact: Każdy może wysłać mi prywatną wiadomość, nawet jeśli go nie obserwuję.
         direct_messages: Przyjmuj prywatne wiadomości od każdego
         everything_followed: Dotyczące wszystkiego, co obserwuję
         newsletter_notifications: Chcę otrzymywać newslettery
@@ -1481,9 +1473,6 @@ pl:
         accept_until: To zaproszenie będzie aktywne do %{due_date}.
         decline: Odrzuć zaproszenie
         hello: Witaj %{email},
-        ignore: |-
-          Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br />
-          Twoje konto nie zostanie utworzone, dopóki nie klikniesz w powyższy link i nie ustawisz pseudonimu i hasła.
         invited_you_as_admin: "%{invited_by} zaprasza Cię jako administratora %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku."
         invited_you_as_private_user: "%{invited_by} zaprasza Cię jako prywatnego użytkownika %{application}. Możesz zaakceptować to zaproszenie za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz zaakceptować zaproszenie za pomocą poniższego linku.
