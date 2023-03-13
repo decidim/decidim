@@ -202,7 +202,6 @@ es:
           name: Encuentros a los que has asistido
           next_level_in: '¡Asiste a %{score} encuentros más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante aún no ha asistido a ningún encuentro.
-          unearned_own: No has asistido a ningún encuentro todavía.
     meetings:
       actions:
         agenda: Orden del día
