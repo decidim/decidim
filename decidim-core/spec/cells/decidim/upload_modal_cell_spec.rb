@@ -110,27 +110,6 @@ describe Decidim::UploadModalCell, type: :cell do
     end
   end
 
-  # @deprecated Remove after removing the `optional` option.
-  context "when file is not optional" do
-    let(:options) do
-      {
-        attribute:,
-        resource_name:,
-        attachments:,
-        optional: false,
-        titled:
-      }
-    end
-
-    it "renders hidden checkbox" do
-      expect(subject).to have_css("input[name='dummy[#{attribute}_validation]']")
-    end
-
-    it "renders the required field indicator" do
-      expect(subject).to have_css("label .label-required", text: "Required field")
-    end
-  end
-
   context "when attachment is present" do
     let(:filename) { "Exampledocument.pdf" }
     let(:file) { Decidim::Dev.test_file(filename, "application/pdf") }

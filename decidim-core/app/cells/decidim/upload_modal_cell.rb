@@ -83,16 +83,7 @@ module Decidim
       options[:multiple] || false
     end
 
-    # @deprecated Please use `required?` instead.
-    #
-    # NOTE: When this is removed, also the `optional` option should be removed.
-    def optional
-      !required?
-    end
-
     def required?
-      return !options[:optional] if options.has_key?(:optional)
-
       options[:required] == true
     end
 
