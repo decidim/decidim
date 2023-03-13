@@ -191,7 +191,6 @@ lt:
           name: Dalyvauta susirinkimuose
           next_level_in: Dalyvaukite dar %{score} susirinkimuose (-ų) ir pasiekite kitą lygį!
           unearned_another: Šis dalyvis dar nedalyvavo nė viename susirinkime.
-          unearned_own: Jūs dar nedalyvavote nė viename susirinkime.
     meetings:
       actions:
         agenda: Darbotvarkė
