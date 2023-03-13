@@ -173,7 +173,6 @@ tr:
         users_registration_mode:
           disabled: Erişim yalnızca harici hesaplarla yapılabilir
           enabled: Katılımcıların kaydolmasına ve giriş yapmasına izin ver
-          existing: Katılımcıların kaydolmasına izin verme, ancak mevcut katılımcıların giriş yapmasına izin ver
       shared:
         notices:
           no_organization_warning_html: Başlamak için bir organizasyon oluşturmanız gerekir. Devam etmeden önce %{guide} okuduğunuzdan emin olun.
