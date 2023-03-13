@@ -411,7 +411,6 @@ ca:
           resume: Comprova el progrés de l'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
-          explanation: No es pot realitzar aquesta acció ja que alguna de les teves dades d'autorització no coincideixen amb les requerides.
           invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
@@ -633,7 +632,6 @@ ca:
       not_found:
         back_home: Torna a l'inici
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
-        title: No s'ha trobat la pàgina que busques
     events:
       amendments:
         amendment_accepted:
@@ -961,7 +959,6 @@ ca:
         success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
         error: S'ha produït un error en abandonar el grup
-        last_admin: No et pots esborrar tu mateixa d'aquest grup perquè n'ets la darrera administradora. Fes a una altra membre administradora per a poder abandonar aquest grup.
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
@@ -1099,7 +1096,6 @@ ca:
         show:
           back: Tornar a totes les converses
           chat_with: Conversa amb
-          deleted_accounts: No podeu tenir una conversa amb un compte d'usuària eliminat.
           not_allowed: Aquesta participant no accepta missatges directes.
           title: Conversa amb %{usernames}
         start:
@@ -1517,7 +1513,6 @@ ca:
         title_reply: Respondre
       show:
         back: Mostra totes les converses
-        deleted_accounts: No podeu tenir una conversa amb un compte d'usuària eliminat.
         not_allowed: Aquesta participant no accepta missatges directes.
         title: Conversa amb %{usernames}
       update:
@@ -1670,7 +1665,6 @@ ca:
       new:
         forgot_your_password: Has oblidat la teva contrasenya?
         send_me_reset_password_instructions: Envia'm les instruccions per restablir la contrasenya
-      no_token: No pots accedir a aquesta pàgina sense procedir d'un correu electrònic de restabliment de la contrasenya. Si hi has accedit des d'un correu electrònic de restabliment de la contrasenya, assegura't que has utilitzat la URL completa proporcionada.
       send_instructions: Rebràs un correu electrònic amb instruccions sobre com restablir la teva contrasenya en pocs minuts.
       send_paranoid_instructions: Si la teva adreça de correu electrònic existeix a la nostra base de dades, rebreu un enllaç de recuperació de la contrasenya a la teva adreça de correu electrònic en pocs minuts.
       updated: La teva contrasenya s'ha modificat correctament. Ja has iniciat la sessió.
@@ -1743,13 +1737,11 @@ ca:
       already_confirmed: ja s'ha confirmat, si us plau intenta iniciar la sessió
       confirmation_period_expired: s'ha de confirmar dins de %{period}, si us plau sol·licita'n un de nou
       content_type_allowlist_error: el tipus de fitxer no és vàlid
-      cycle_detected: un dels pares de l'àmbit no pot ser un dels seus descendents
       expired: ha caducat, si us plau, sol·licita'n un de nou
       file_size_is_less_than_or_equal_to: la mida del fitxer ha de ser menor que o igual a %{count}
       invalid_time_zone: no és una zona horària vàlida
       long_words: conté paraules massa llargues (més de 35 caràcters)
       must_start_with_caps: ha de començar amb una lletra majúscula
-      nesting_too_deep: no pot estar dins d'una subcategoria
       not_found: No es pot trobar. Us heu inscrit prèviament?
       not_locked: No estava bloquejat
       not_saved:
