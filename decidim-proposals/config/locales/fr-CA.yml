@@ -31,6 +31,7 @@ fr-CA:
         cost_report: Rapport de coût
         execution_period: Période d'exécution
       proposals_copy:
+        copy_proposals: "I understand that this will import all proposals from the selected component to the current one and that this action cannot be reversed.\nJe comprends que cela importera toutes les propositions du composant sélectionné dans le composant actuel et que cette action ne peut être annulée."
         origin_component_id: Fonctionnalité dont on veut copier les propositions
       proposals_import:
         import_proposals: Importer des propositions
@@ -758,6 +759,8 @@ fr-CA:
             valuator: Évaluateur
             valuators: Évaluateurs
             votes: Votes
+      new:
+        limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé la limite.
       participatory_text_proposal:
         alternative_title: Il n'y a pas de textes participatifs pour le moment
         buttons:
