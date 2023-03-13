@@ -527,14 +527,11 @@ pt-BR:
               generate_legend: Você precisa gerar um par de chaves de identificação para participar das eleições como um Trustee.
               generate_legend_1: Depois de pressionar o botão, você deve baixar o arquivo com as chaves de identificação geradas.
               generate_legend_2: Copie o arquivo baixado para um dispositivo USB limpo
-              generate_legend_3: Certifique-se de que seu computador não tenha uma cópia do arquivo (por exemplo, verifique as pastas Downloads e Desktop).
               generate_legend_4: Faça outra cópia do arquivo em um dispositivo externo diferente e armazene-o em um lugar muito seguro.
               submit: Enviar
               submit_title: Enviar a chave de identificação pública
               title: Chaves de identificação de curadores
               upload: Envie suas chaves de identificação
-              upload_error:
-                invalid_format: O arquivo enviado não contém nenhuma chave de identificação.
             not_supported_browser_title: Atualize o navegador para agir como um curador
             trustee_role_description: Você foi designado para agir como um curador em algumas das eleições realizadas nesta plataforma.
           update:
@@ -998,7 +995,6 @@ pt-BR:
             subject: A exportação dos códigos de acesso à votação de %{voting_title} está disponível
         vote_flow:
           already_voted_in_person: Este usuário já votou e não tem direito a votar novamente.
-          datum_not_found: Os dados fornecidos não correspondem a nenhum eleitor.
       content_blocks:
         highlighted_votings:
           name: Destaque da votação
@@ -1041,7 +1037,6 @@ pt-BR:
             info_text: Por favor, introduza o número total de respostas para cada questão.
             modal_ballots_results_count_error:
               close_modal: Fechar
-              info_text: O número total de votos não corresponde ao número total de envelopes. Revise o total de votos.
               title: Total de cédulas não somados
             save_recount: Salvar recontagem
             total_ballots: Total de cédulas
@@ -1055,7 +1050,6 @@ pt-BR:
             modal_ballots_count_error:
               btn_validate_total: Validar a recontagem total de votos
               close_modal: Fechar
-              info_text: O número total de votos (envelopes) introduzidos não corresponde ao registro de pessoas que votaram nesta Estação.
               message_for_monitoring_committee: Mensagem para o Comitê de Monitoramento
               review_recount: Revisar a recontagem
               text_area_placeholder: Por favor, digite sua mensagem
