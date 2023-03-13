@@ -227,7 +227,6 @@
           name: Innspillstråder
           next_level_in: Delta i %{score} flere innspillstråder for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt i noen innspillstråder ennå.
-          unearned_own: Du har ikke deltatt i noen innspillstråder ennå.
     metrics:
       debates:
         description: Antall innspillstråder opprettet
