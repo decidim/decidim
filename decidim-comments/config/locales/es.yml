@@ -26,6 +26,8 @@ es:
       comments:
         create:
           error: Se ha producido un error al crear el comentario.
+        delete:
+          error: El comentario no se ha podido eliminar.
         update:
           error: Se ha producido un error al actualizar el comentario.
       comments_count: Número de comentarios
@@ -43,6 +45,7 @@ es:
           body:
             label: Comentario
             placeholder: '¿Qué piensas sobre ésto?'
+          form_error: El texto es necesario y no puede ser más largo de %{length}.
           submit: Enviar
           user_group_id:
             label: Comentar como
@@ -162,3 +165,6 @@ es:
         description: Número de comentarios generados por las participantes
         object: comentarios
         title: Comentarios
+  errors:
+    messages:
+      cannot_have_comments: no se pueden hacer comentarios
