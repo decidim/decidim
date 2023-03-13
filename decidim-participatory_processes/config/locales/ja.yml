@@ -225,9 +225,6 @@ ja:
           success: 参加型プロセスのフェーズが正常に作成されました。
         default_title: はじめに
         destroy:
-          error:
-            active_step: アクティブなフェーズは削除できません。
-            last_step: 参加型プロセスの最後のフェーズは削除できません。
           success: 参加型プロセスのフェーズが正常に削除されました。
         edit:
           title: 参加型プロセスのフェーズを編集
