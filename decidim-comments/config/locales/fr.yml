@@ -45,7 +45,6 @@ fr:
           body:
             label: Commentaire
             placeholder: Que pensez-vous de cela ?
-          form_error: Le texte est requis et ne peut pas dépasser %{length} caractères.
           submit: Publier
           user_group_id:
             label: Commenter en tant que
@@ -84,9 +83,7 @@ fr:
             offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
             spam: Contient des publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
           title: Signaler un contenu inapproprié
-        show_replies:
-          one: Afficher la réponse
-          other: Afficher %{count} réponses
+        show_replies: Afficher %{replies_count} réponses
         single_comment_link_title: Obtenir le lien
       comment_order_selector:
         order:
@@ -167,6 +164,3 @@ fr:
         description: Nombre de commentaires générés par les utilisateurs
         object: commentaires
         title: commentaires
-  errors:
-    messages:
-      cannot_have_comments: ne peut pas être commenté
