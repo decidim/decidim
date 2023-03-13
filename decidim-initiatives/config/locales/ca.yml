@@ -64,7 +64,6 @@ ca:
             attachment:
               file: Aquest arxiu és invàlid
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
-              title: El títol no pot quedar buit
   activerecord:
     models:
       decidim/initiative:
