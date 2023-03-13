@@ -55,9 +55,6 @@ ar:
             description: الوصف
           update:
             invalid: كانت هناك مشكلة في حفظ النموذج.
-      errors:
-        answer:
-          body: لا يمكن أن يكون الجسم فارغًا
       question_types:
         long_answer: اجابة طويلة
         multiple_option: خيار متعدد
