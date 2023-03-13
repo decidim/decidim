@@ -229,7 +229,6 @@ ja:
           name: ディベート
           next_level_in: さらに %{score} のディベートに参加して、次のレベルに到達しましょう！
           unearned_another: この参加者はまだディベートに参加していません。
-          unearned_own: まだディベートに参加していません。
     metrics:
       debates:
         description: 作成されたディベート数
