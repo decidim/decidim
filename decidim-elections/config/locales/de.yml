@@ -35,12 +35,6 @@ de:
           attributes:
             attachment:
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: kann nicht geändert werden
-            public_key:
-              cant_be_changed: kann nicht geändert werden
         voting:
           attributes:
             voting_type:
@@ -299,7 +293,6 @@ de:
             continue: Fortfahren
             invalid: Es ist ein Problem beim Melden des Stimmenzählers aufgetreten
             mark_as_missing: Als fehlend markieren
-            mark_as_missing_description: Alle Wahlhelfer sollten an diesem Prozess teilnehmen. Wenn ein Wahlhelfer nicht am Prozess teilnehmen kann, können Sie ihn als fehlend markieren.
             success: Eine Meldung über das Fehlen des Wahlhelfers wurde erfolgreich ans Forum gesendet
             tally_completion: Der Prozess wird abgeschlossen, wenn alle Wahlhelfer aktiv sind oder als fehlend markiert wurden. Mindestens %{quorum} Wahlhelfer sind erforderlich, um den Prozess abzuschließen.
             title: Stimmenzähl-Prozess
@@ -584,8 +577,6 @@ de:
               upload: Lade deine Identifikationsschlüssel hoch
               upload_error:
                 invalid_format: Die hochgeladene Datei enthält keinen Identifikationsschlüssel.
-                invalid_key: Die Identifikationsschlüssel in der hochgeladenen Datei können nicht geladen werden.
-            not_supported_browser_description: Es sieht so aus, als ob Sie einen Webbrowser verwenden, der als Wahlhelfer nicht verwendet werden kann. Stellen Sie sicher, dass Sie die neueste Version Ihres Browsers verwenden, oder versuchen Sie, einen der üblichen Browser zu verwenden, um Ihre Wahlhelfer-Aufgaben zu erfüllen.
             not_supported_browser_title: Browser aktualisieren, um als Wahlhelfer zu agieren
             trustee_role_description: Sie wurden beauftragt, bei einigen der auf dieser Plattform gehaltenen Wahlen als Wahlhelfer zu agieren.
           update:
@@ -1119,10 +1110,8 @@ de:
             confirm: OK, fortfahren
             error: Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
             heading: Neuzählung - Schliessung signieren
-            info_text: Wenn Sie fortfahren, können Sie keine der Informationen mehr ändern. Diese Aktion kann nicht rückgängig gemacht werden.
             submit: Schliessung signieren
             success: Schliessung erfolgreich signiert.
-            title: Aktion kann nicht rückgängig gemacht werden
           update:
             error: Beim Aktualisieren der Abschluss-Resultate ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
             success: Abschluss-Resultate erfolgreich aktualisiert.
