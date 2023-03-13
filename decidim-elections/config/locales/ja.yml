@@ -582,7 +582,6 @@ ja:
               processing: 処理中
             title: '%{election} の合計'
           update:
-            error: 選挙状況は更新されませんでした。
             success: '選挙の状態: %{status}'
         menu:
           trustee_zone: Trusteeゾーン
