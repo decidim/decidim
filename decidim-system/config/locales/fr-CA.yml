@@ -63,6 +63,7 @@ fr-CA:
       default_pages:
         placeholders:
           content: Ajoutez un contenu pertinent à la page %{page} en allant sur l'interface d'administration.
+          summary: Veuillez ajouter un contenu significatif à la page statique %{page} du tableau de bord de l’administrateur.
           title: Titre par défaut pour %{page}
       menu:
         admins: Administrateurs
@@ -179,6 +180,7 @@ fr-CA:
         users_registration_mode:
           disabled: L'accès n'est possible qu'avec des comptes externes
           enabled: Autoriser les utilisateurs à s'inscrire et à se connecter
+          existing: Ne pas autoriser les participants à s'inscrire, mais autoriser les participants existants à se connecter
       shared:
         notices:
           no_organization_warning_html: Vous devez créer une organisation pour démarrer. Assurez-vous de lire %{guide} avant de continuer.
