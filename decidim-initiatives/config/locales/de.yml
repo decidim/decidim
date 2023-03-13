@@ -455,8 +455,6 @@ de:
           success_html: Herzliche Glückwünsche! Die <strong> %{title}</strong> -Initiative wurde korrekt unterzeichnet
         personal_data:
           invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
-        sms_code:
-          invalid: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie noch einmal die SMS, die wir Ihnen gesendet haben.
         sms_phone:
           invalid: Die Telefonnummer ist ungültig oder muss noch autorisiert werden. Bitte überprüfen Sie Ihre Berechtigungen.
       initiatives:
