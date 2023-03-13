@@ -837,7 +837,6 @@ nl:
         new:
           destroy:
             button: Verwijder alle privé deelnemers
-            confirm: Weet je zeker dat je alle privédeelnemers wilt verwijderen? Deze actie kan niet ongedaan worden gemaakt, je kan ze achteraf niet herstellen.
             empty: Je hebt geen privé deelnemers.
             explanation: Je hebt %{count} privédeelnemers.
             title: Verwijder privé deelnemer
