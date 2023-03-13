@@ -269,7 +269,6 @@ es-PY:
           edit:
             confirm_destroy: '¿Seguro que quieres restablecer el código de verificación?'
             destroy: Restablecer código de verificación
-            resend: '¿No has recibido el código de verificación?'
             send: Confirmar
             title: Introduce el código de verificación que has recibido
           new:
