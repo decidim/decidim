@@ -352,7 +352,6 @@ ro:
           resume: Verifică progresul autorizării tale ”%{authorization}"
           title: În proces de autorizare
         unauthorized:
-          explanation: Ne pare rău, nu puteți efectua această acțiune deoarece unele dintre datele tale de autorizare nu se potrivesc.
           invalid_field: "Valoarea %{field} %{value} nu este validă."
           ok: Ok
           title: Neautorizat
@@ -568,7 +567,6 @@ ro:
       not_found:
         back_home: Înapoi acasă
         content_doesnt_exist: Această adresă este incorectă sau a fost eliminată.
-        title: Pagina pe care o cauţi nu a putut fi găsită
     events:
       amendments:
         amendment_accepted:
@@ -1010,7 +1008,6 @@ ro:
         show:
           back: Înapoi la toate conversațiile
           chat_with: Conversație cu
-          deleted_accounts: Nu poți avea o conversație cu conturi șterse.
           not_allowed: Acest participant nu acceptă mesaje directe.
           title: Conversație cu %{usernames}
         start:
@@ -1401,7 +1398,6 @@ ro:
         title_reply: Răspuns
       show:
         back: Arată toate conversațiile
-        deleted_accounts: Nu poți avea o conversație cu conturi șterse.
         not_allowed: Acest utilizator nu mai acceptă mesaje directe.
         title: Conversație cu %{usernames}
       update:
@@ -1551,7 +1547,6 @@ ro:
       new:
         forgot_your_password: Ți-ai uitat parola?
         send_me_reset_password_instructions: Trimite-mi instrucțiunile de resetare a parolei
-      no_token: Nu puteți accesa această pagină fără să veniți dintr-un e-mail de resetare a parolei. Dacă vii dintr-un e-mail de resetare a parolei, te rugăm să te asiguri că ai folosit URL-ul complet furnizat.
       send_instructions: Veţi primi un e-mail cu instrucţiuni despre cum să resetaţi parola în câteva minute.
       send_paranoid_instructions: Dacă adresa ta de e-mail există în baza noastră de date, vei primi în câteva minute un link de recuperare a parolei la adresa ta de e-mail.
       updated: Parola ta a fost schimbată cu succes. Acum ești conectat.
@@ -1599,13 +1594,11 @@ ro:
       already_confirmed: a fost deja confirmat, încercați să vă conectați
       confirmation_period_expired: trebuie să fie confirmat în %{period}, vă rugăm să solicitați unul nou
       content_type_allowlist_error: tipul de fișier nu este valid
-      cycle_detected: un părinte al unui domeniu nu poate fi unul dintre descendenții săi
       expired: a expirat, vă rugăm să solicitaţi unul nou
       file_size_is_less_than_or_equal_to: dimensiunea fişierului trebuie să fie mai mică sau egală cu %{count}
       invalid_time_zone: nu este un fus orar valid
       long_words: conține cuvinte care sunt prea lungi (peste 35 de caractere)
       must_start_with_caps: trebuie să înceapă cu o majusculă
-      nesting_too_deep: nu poate fi în interiorul unei subcategorii
       not_found: nu a putut fi găsit. V-ați înscris anterior?
       not_locked: nu a fost blocat
       not_saved:
