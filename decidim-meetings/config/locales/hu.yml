@@ -171,9 +171,6 @@ hu:
           email_outro: 'Ezt az értesítést azért kaptad, mert követed ezt a találkozót: "%{resource_title}". Leiratkozás az előző link segítségével.'
           email_subject: A(z) "%{resource_title}" találkozó kevesebb, mint 48 óra múlva kezdődik.
           notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> találkozó kevesebb, mint 48 óra múlva kezdődik.
-    forms:
-      meetings:
-        attendees_count_help_text: Ne felejtse el megadni a találkozón részt vevők teljes számát, akár személyesen, akár online, akár vegyesen.
     gamification:
       badges:
         attended_meetings:
@@ -343,7 +340,6 @@ hu:
             registrations_count:
               one: '%{count} regisztráció volt.'
               other: '%{count} regisztráció volt.'
-            reserved_slots_help: Hagyd "0" értéken, ha nincsenek foglalt helyek
             reserved_slots_less_than: 'Legalább ennyinek kell lennie: %{count}'
             title: Regisztrációk
           update:
