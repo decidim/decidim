@@ -64,12 +64,11 @@ fr-CA:
             attachment:
               file: Le fichier n'est pas valide
               needs_to_be_reattached: Doit être téléchargé de nouveau
-              title: Le titre ne doit pas être vide
   activerecord:
     models:
       decidim/initiative:
-        one: Initiative
-        other: Initiatives
+        one: Pétition
+        other: Pétitions
       decidim/initiative_comittee:
         one: Comité
         other: Comités
