@@ -65,7 +65,7 @@ en:
             attachment:
               file: File is invalid
               needs_to_be_reattached: Needs to be reattached
-              title: Title shouldn't be empty
+              title: Title should not be empty
   activerecord:
     models:
       decidim/initiative:

@@ -55,7 +55,7 @@ describe "Edit initiative", type: :system do
     context "when initiative is published" do
       let(:initiative) { create(:initiative, author: user, scoped_type:, organization:) }
 
-      it "can't be updated" do
+      it "cannot be updated" do
         visit decidim_initiatives.initiative_path(initiative)
 
         expect(page).not_to have_content "Edit initiative"
