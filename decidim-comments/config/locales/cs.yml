@@ -83,7 +83,7 @@ cs:
           description: Je tento obsah nevhodný?
           details: Další komentáře
           reasons:
-            does_not_belong: Obsahuje nezákonnou činnost, sebevražedné hrozby, osobní informace nebo něco jiného, o kterém si myslíte, že nepatří na %{organization_name}.
+            does_not_belong: Obsahuje nezákonnou činnost, hrozby sebevraždou, osobní informaci nebo cokoliv jiného, o čem si myslíte, že nepatří do %{organization_name}.
             offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
             spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
           title: Nahlásit nevhodný obsah
