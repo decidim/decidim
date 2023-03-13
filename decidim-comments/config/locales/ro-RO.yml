@@ -78,7 +78,6 @@ ro:
           description: Este acest conținut neadecvat?
           details: Comentarii suplimentare
           reasons:
-            does_not_belong: Conține activitate ilegală, amenințări cu sinuciderea, informații personale sau altceva ce consideri că nu aparține de %{organization_name}.
             offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
             spam: Conține clickbait, publicitate, escrocherii sau script rulat de roboți.
           title: Raportează conținut nepotrivit
