@@ -31,7 +31,6 @@ sv:
         cost_report: Kostnadsrapport
         execution_period: Genomförandesperiod
       proposals_copy:
-        copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan ångras.
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
         import_proposals: Importera förslag
@@ -721,8 +720,6 @@ sv:
             valuator: Värderare
             valuators: Värderare
             votes: Stöd
-      new:
-        limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       participatory_text_proposal:
         alternative_title: Det finns inga deltagartexter just nu
         buttons:
