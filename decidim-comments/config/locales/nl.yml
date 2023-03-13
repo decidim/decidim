@@ -26,8 +26,6 @@ nl:
       comments:
         create:
           error: Er is een probleem opgetreden bij het aanmaken van de reactie.
-        delete:
-          error: De reactie kon niet worden verwijderd.
         update:
           error: Er is een probleem opgetreden bij het bijwerken van de reactie.
       comments_count: Aantal reacties
