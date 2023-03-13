@@ -426,8 +426,6 @@ pt:
           success_html: Parabéns! A iniciativa <strong> %{title}</strong> foi assinada corretamente
         personal_data:
           invalid: Os dados pessoais não são consistentes com os dados fornecidos para autorização.
-        sms_code:
-          invalid: O seu código de verificação não corresponde ao nosso. Por favor, verifique novamente o SMS que lhe enviámos.
         sms_phone:
           invalid: O número de telefone é inválido ou está pendente de autorização. Por favor, verifique as suas autorizações.
       initiatives:
