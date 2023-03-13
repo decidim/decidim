@@ -461,13 +461,6 @@ pt:
             check: Verificar e continuar
             close_modal: Fechar modal
             uncheck: Manter não verificado
-          notice: |-
-            <p>Tem a certeza de que não deseja receber um boletim informativo?<br>
-            Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
-            É muito importante para nós que receba e-mails ocasionais para que possamos fazer anúncios importantes, pode sempre alterar isso na sua página de configurações de notificações.</p>
-            <p>Se não marcar a caixa, pode estar a perder informações relevantes sobre novas oportunidades participativas na plataforma.<br>
-            Se ainda assim quiser evitar receber boletins de notícias, entendemos perfeitamente a sua decisão.</p>
-            <p>Obrigado por ler isto!</p>
           title: Notificações do boletim informativo
         omniauth_buttons:
           or: Ou
@@ -991,7 +984,6 @@ pt:
     notifications_settings:
       show:
         administrators: Administradores
-        allow_public_contact: Permitir que qualquer pessoa me envie uma mensagem direta, mesmo que não a siga.
         direct_messages: Receber mensagens diretas de qualquer pessoa
         everything_followed: Tudo o que eu sigo
         newsletter_notifications: Quero receber boletins informativos
@@ -1377,9 +1369,6 @@ pt:
         accept_until: Este convite irá expirar em %{due_date}.
         decline: Recusar convite
         hello: Olá %{email},
-        ignore: |-
-          Se não quiser aceitar o convite, por favor ignore este e-mail.<br />
-          A sua conta não será criada até que aceda à hiperligação acima e defina a sua alcunha e palavra-passe.
         invited_you_as_admin: "%{invited_by} convidou-(a) como administrador(a) de %{application}. Pode aceitar através da hiperligação abaixo."
         invited_you_as_private_user: "%{invited_by} convidou-o(a) como participante privado de %{application}. Pode aceitar através da hiperligação abaixo."
         someone_invited_you: Alguém convidou-o(a) para %{application}. Pode aceitar através da hiperligação abaixo.
