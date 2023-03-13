@@ -51,12 +51,8 @@ lb:
             attachment:
               file: Datei ist ungültig
               needs_to_be_reattached: Der Anhang muss erneut angehängt werden
-              title: Der Titel sollte nicht leer sein
   activerecord:
     models:
-      decidim/initiative:
-        one: Initativ
-        other: Initiativen
       decidim/initiative_comittee:
         one: Komitee
         other: Ausschüsse
