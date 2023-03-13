@@ -52,10 +52,6 @@ fr:
         code: Code
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Cette URL ne peut pas être intégrée dans la page de rencontre ou d'événement en direct
         meeting_agenda:
           attributes:
             base:
@@ -286,15 +282,11 @@ fr:
             filter_by: Filtrer par
             invite_attendee: Inviter un participant
             invites: Invitations
-            registrations_disabled: Vous ne pouvez pas inviter un participant car les invitations sont désactivées.
             search: Chercher
         meeting_closes:
           edit:
             close: Clore
             title: Clore la rencontre
-        meeting_copies:
-          form:
-            select_a_meeting_type: Veuillez sélectionner un type de rencontre
         meetings:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre
