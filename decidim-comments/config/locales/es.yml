@@ -26,8 +26,6 @@ es:
       comments:
         create:
           error: Se ha producido un error al crear el comentario.
-        delete:
-          error: El comentario no pudo ser eliminado.
         update:
           error: Se ha producido un error al actualizar el comentario.
       comments_count: Número de comentarios
