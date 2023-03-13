@@ -565,13 +565,6 @@ ca:
             check: Marca i continua
             close_modal: Tanca modal
             uncheck: Deixa desmarcada
-          notice: |-
-            <p>Hola, segur que no vols rebre un butlletí?<br>
-            Si us plau, pren en consideració marcar la casella de selecció de butlletí a continuació.<br>
-            Per a nosaltres és molt important que rebis correus electrònics ocasionals per fer avisos importants, sempre pots canviar-ho a la pàgina de configuració de les notificacions.</p>
-            <p>Si no marques la casella, pot ser que et falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
-            Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió.</p>
-            <p>Gràcies per llegir això.</p>
           title: Notificacions de butlletins
         omniauth_buttons:
           or: O
@@ -1186,7 +1179,6 @@ ca:
     notifications_settings:
       show:
         administrators: Administradores
-        allow_public_contact: Permetre que qualsevol participant m'envïi missatges directes, encara que no la segueixi.
         allow_push_notifications: Mostrar notificacions emergents per a saber que passa mentre no estàs a la plataforma. Pots deshabilitar-les en qualsevol moment.
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
@@ -1616,8 +1608,6 @@ ca:
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         decline: Declina la invitació
         hello: Hola %{email},
-        ignore: |-
-          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administradora de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a participant privada de %{application}. Pots acceptar a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
