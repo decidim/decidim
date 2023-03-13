@@ -232,7 +232,6 @@ id:
           ok: Baik
           title: Tidak diizinkan
         unconfirmed:
-          confirmation_instructions: 'Jika Anda belum menerima instruksi konfirmasi, Anda dapat meminta mereka lagi:'
           explanation_html: Untuk melakukan tindakan ini Anda harus diotorisasi, sebelum melakukan itu Anda perlu mengkonfirmasi email Anda <strong>%{email}</strong>.
           request_confirmation_instructions: Meminta instruksi konfirmasi
           title: Konfirmasikan email Anda
@@ -1001,7 +1000,6 @@ id:
         action: Ubah kata sandi saya
         greeting: Halo %{recipient}!
         instruction: Seseorang telah meminta tautan untuk mengubah kata sandi Anda, dan Anda dapat melakukannya melalui tautan di bawah ini.
-        instruction_2: Jika Anda tidak meminta ini, silakan abaikan email ini.
         instruction_3: Kata sandi Anda tidak akan berubah sampai Anda mengakses tautan di atas dan membuat yang baru.
         subject: Setel ulang instruksi kata sandi
       unlock_instructions:
@@ -1044,8 +1042,6 @@ id:
     shared:
       links:
         back: Kembali
-        didn_t_receive_confirmation_instructions: Tidak menerima instruksi konfirmasi?
-        didn_t_receive_unlock_instructions: Tidak menerima instruksi buka kunci?
         forgot_your_password: lupa kata sandi Anda?
         sign_in: Masuk
         sign_in_with_provider: Masuk dengan %{provider}
