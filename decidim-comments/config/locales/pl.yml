@@ -27,8 +27,6 @@ pl:
       comments:
         create:
           error: Wystąpił błąd podczas tworzenia komentarza.
-        delete:
-          error: Komentarz nie może zostać usunięty.
         update:
           error: Wystąpił błąd podczas aktualizowania komentarza.
       comments_count: Liczba komentarzy
