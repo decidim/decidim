@@ -398,9 +398,6 @@ zh-CN:
     participatory_processes:
       show:
         related_assemblies: 相关的会议
-  errors:
-    messages:
-      cannot_be_blank: 不能为空
   layouts:
     decidim:
       assemblies:
