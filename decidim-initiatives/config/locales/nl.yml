@@ -380,8 +380,6 @@ nl:
           success_html: Proficiat! Het initiatief <strong> %{title}</strong> is correct ondertekend
         personal_data:
           invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
-        sms_code:
-          invalid: Uw verificatiecode komt niet overeen met de onze. Controleer nogmaals de sms die we u hebben gestuurd.
         sms_phone:
           invalid: Het telefoonnummer is ongeldig of in afwachting van autorisatie. Controleer alstublieft uw autorisaties.
       initiatives:
