@@ -127,7 +127,6 @@ pl:
         show: Zobacz projekty
         voted_on: Zagłosowałeś na %{links}
       limit_announcement:
-        cant_vote: Nie możesz głosować na ten budżet. <a href="%{landing_path}">Spróbuj zagłosować na inny</a>.
         limit_reached: 'Masz aktywne głosy: %{links}. Aby zagłosować na ten budżet, musisz <a href="%{landing_path}">usunąć swój głos i zacząć od nowa</a>.'
       models:
         budget:
