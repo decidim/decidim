@@ -16,7 +16,7 @@
       }
 
       > svg{
-        @apply w-4 h-4 text-gray-2 fill-current;
+        @apply w-3.5 h-3.5 text-gray-2 fill-current;
       }
 
       &[aria-expanded="false"] > svg:last-of-type,
@@ -28,6 +28,11 @@
       &[aria-expanded="false"] > svg:first-of-type{
         @apply block;
       }
+    }
+
+    input[type="checkbox"],
+    input[type="radio"]{
+      @apply w-3.5 h-3.5;
     }
 
     // nesting cases
