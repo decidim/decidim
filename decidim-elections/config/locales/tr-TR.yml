@@ -266,14 +266,11 @@ tr:
               generate_legend: Vekil olarak seçimlere katılmak için bir kimlik anahtarı çifti oluşturmanız gerekir.
               generate_legend_1: Düğmeye bastıktan sonra, oluşturulan tanımlama anahtarları ile dosyayı indirmelisiniz.
               generate_legend_2: İndirilen dosyayı temiz bir USB cihazına kopyalayın
-              generate_legend_3: Bilgisayarınızda dosyanın bir kopyası olmadığından emin olun (ör. İndirilenler ve Masaüstü klasörlerini kontrol edin).
               generate_legend_4: Dosyanın başka bir kopyasını farklı bir harici cihazda oluşturun ve çok güvenli bir yerde saklayın.
               submit: Gönder
               submit_title: Genel kimlik anahtarını gönderin
               title: Vekil kimlik anahtarları
               upload: Kimlik anahtarlarınızı yükleyin
-              upload_error:
-                invalid_format: Yüklenen dosya herhangi bir kimlik anahtarı içermiyor.
             not_supported_browser_title: Vekil kişi olarak hareket etmek için tarayıcıyı yükseltin
             trustee_role_description: Bu platformda kutlanan bazı seçimlerde Vekil olarak görev yapmakla görevlendirildiniz.
           update:
