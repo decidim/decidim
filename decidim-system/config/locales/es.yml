@@ -63,6 +63,7 @@ es:
       default_pages:
         placeholders:
           content: Por favor, agrega contenido significativo a la página estática de %{page} en el panel de administración.
+          summary: Por favor, agrega un resumen significativo a la página estática %{page} en el panel de administración.
           title: Título predeterminado para %{page}
       menu:
         admins: Administradoras
@@ -179,6 +180,7 @@ es:
         users_registration_mode:
           disabled: Solo se puede acceder desde cuentas externas
           enabled: Permitir a las participantes registrarse e iniciar sesión
+          existing: No permitir que se regustren nuevas participantes, pero permitir a las participantes existentes iniciar sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear una organización para comenzar. Asegúrate de leer %{guide} antes de continuar.
