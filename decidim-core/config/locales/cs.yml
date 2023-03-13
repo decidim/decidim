@@ -442,6 +442,7 @@ cs:
           resume: Zkontrolujte autorizaci "%{authorization}"
           title: Autorizace stále probíhá
         unauthorized:
+          explanation: Omlouváme se, tuto akci nelze provést, protože některá z vašich autorizačních dat se neshodují.
           invalid_field: "%{field} hodnota %{value} není platná."
           ok: OK
           title: Neautorizovaný
@@ -854,7 +855,6 @@ cs:
         few: "%{count} sledují"
         many: "%{count} sleduje"
         other: "%{count} sledujících"
-      no_followings: Nesleduje nikoho ani nic.
       non_public_followings: Některé z uvedených zdrojů nejsou veřejné.
     follows:
       create:
@@ -922,7 +922,6 @@ cs:
           description_own: "Uživatelé vás sledují %{score} uživatelů."
           name: Sledující
           next_level_in: Získejte %{score} dalších uživatelů, kteří vás budou následovat, abyste se dostali na další úroveň!
-          unearned_another: Tento uživatel ještě nemá žádné sledujících.
           unearned_own: Už nemáte žádné následovníky.
         index:
           badge_title: "%{name} odznak"
@@ -1009,7 +1008,6 @@ cs:
         create_user_group: Vytvořit skupinu
         new_user_group: Nová skupina
         subtitle: Vytvořte skupinu a pozvěte ostatní uživatele, aby se připojili, abyste se mohli podílet na kolektivní úrovni.
-      no_user_groups: Nepatří do žádné skupiny.
       roles:
         admin: Správce
         creator: Administrátor
@@ -1070,8 +1068,6 @@ cs:
       static:
         latlng_text: 'zeměpisná šířka: %{latitude}, zeměpisná délka: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Tato skupina uživatelů zatím nemá žádného člena.
     menu:
       help: Pomoc
       home: Úvod
@@ -1454,7 +1450,6 @@ cs:
         already_reported: Tento obsah je již nahlášen a bude kontrolován administrátorem.
         close: Zavřít
         description: Je tento obsah nevhodný?
-        does_not_belong: Obsahuje nezákonnou činnost, sebevražedné hrozby, osobní informace nebo něco jiného, o kterém si myslíte, že nepatří na %{organization_name}.
         hide: Skrýt
         hide_content: Skrýt tento obsah
         offensive: Obsahuje rasismus, sexismus, podvody, osobní útoky, hrozby smrti, žádosti o sebevraždu nebo jakoukoli formu projevy nenávisti.
@@ -1467,7 +1462,6 @@ cs:
         already_reported: Tento obsah je již nahlášen a bude přezkoumán administrátorem.
         close: Zavřít
         description: Co je s uživatelem nevhodné?
-        does_not_belong: Obsahuje nelegální aktivitu, sebevražedné hrozby, osobní informace nebo něco jiného podle vás nepatří k %{organization_name}.
         offensive: Obsahuje rasismus, sexismus, urážky, osobní útoky, hrozby smrti, sebevražedné žádosti nebo jakoukoliv formu nenávistného projevu.
         report: Nahlásit
         spam: Obsahuje clickbait, reklamu, podvody nebo škodlivé skripty.
@@ -1563,7 +1557,6 @@ cs:
     user_interests:
       show:
         my_interests: Mé zájmy
-        no_scopes: Tato organizace zatím nemá žádnou oblast působnosti!
         select_your_interests: Zvolte témata, která vás zajímají, abyste mohli přijímat události, které s nimi souvisejí, na kartě Časová osa profilu.
         update_my_interests: Aktualizujte své zájmy
       update:
