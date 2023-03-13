@@ -232,7 +232,6 @@ zh-CN:
           edit:
             confirm_destroy: 您确定要重置验证码吗？
             destroy: 重置验证码
-            resend: 没有收到验证码？
             send: 确认
             title: 介绍您收到的验证码
           new:
