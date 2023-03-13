@@ -179,7 +179,6 @@ cs:
         users_registration_mode:
           disabled: Přístup lze provádět pouze s externími účty
           enabled: Umožnit uživatelům registraci a přihlášení
-          existing: Nedovolte, aby se uživatelé registrovali, ale umožněte stávajícím uživatelům přihlášení
       shared:
         notices:
           no_organization_warning_html: Abyste mohli začít, musíte vytvořit organizaci. Před pokračováním se ujistěte, že jste si přečetli %{guide}.
