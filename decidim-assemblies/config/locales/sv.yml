@@ -432,9 +432,6 @@ sv:
         related_assemblies: Relaterade grupper
     statistics:
       assemblies_count: Grupper
-  errors:
-    messages:
-      cannot_be_blank: kan inte vara tomt
   layouts:
     decidim:
       assemblies:
