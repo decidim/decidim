@@ -52,10 +52,6 @@ cs:
         code: Kód
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Tato adresa URL nemůže být vložena do stránky schůzky nebo živé události
         meeting_agenda:
           attributes:
             base:
@@ -294,15 +290,11 @@ cs:
             filter_by: Filtrovat podle
             invite_attendee: Pozvat účastníka
             invites: Pozvánky
-            registrations_disabled: Nemůžete pozvat účastníka, protože registrace jsou zakázána.
             search: Vyhledávání
         meeting_closes:
           edit:
             close: Zavřít
             title: Zavřete schůzku
-        meeting_copies:
-          form:
-            select_a_meeting_type: Vyberte prosím typ schůzky
         meetings:
           close:
             invalid: Při setkání došlo k problému
