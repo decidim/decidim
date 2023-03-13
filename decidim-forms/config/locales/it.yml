@@ -111,9 +111,6 @@ it:
           update:
             invalid: Si sono verificati errori durante il salvataggio del questionario.
             success: Modulo salvato correttamente.
-      errors:
-        answer:
-          body: Il corpo non può essere vuoto
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
