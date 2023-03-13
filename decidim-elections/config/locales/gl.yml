@@ -239,9 +239,6 @@ gl:
                 bb_status: Estado
             identification_keys:
               submit: Enviar
-              upload_error:
-                invalid_public_key: As claves de identificación no ficheiro a subir non coinciden coas claves públicas almacenadas.
-              upload_legend: O servidor ten as túas claves públicas, mais o teu navegador aínda non. Precisas importar ao teu computador o ficheiro coas túas claves de identificación dende a copia de seguranza creada despois de xerar as chaves.
       votes:
         ballot_decision:
           audit: "( Auditar papeleta )"
@@ -442,8 +439,6 @@ gl:
             click_button: 'Fai clic na seguinte ligazón para descargar os datos dos códigos de acceso.<br/>O ficheiro estará dispoñíbel até o %{date}.<br/>É preciso que teñas <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para macOS) ou <a href="https://peazip.github.io">PeaZip</a> (para Linux). Contrasinal: %{password}'
             download: Descargar
             subject: A exportación dos códigos de acceso á votación de %{voting_title} xa están dispoñibles
-        vote_flow:
-          datum_not_found: Non hai ningún votante con estes datos.
       content_blocks:
         landing_page:
           description:
@@ -471,7 +466,6 @@ gl:
             info_text: Por favor, insire o número total de respostas por cada pregunta.
             modal_ballots_results_count_error:
               close_modal: Pechar
-              info_text: O número total de papeletas non coincide co número de sobres. Por favor, revisa o total de papeletas.
               title: O total de papeletas non coincide
             save_recount: Gardar reconto
             total_ballots: Total de papeletas
@@ -485,7 +479,6 @@ gl:
             modal_ballots_count_error:
               btn_validate_total: Validar o reconto total de papeletas
               close_modal: Pechar
-              info_text: O número total de papeletas (sobres) inseridas non coincide co rexistro de persoas que votaron neste punto de votación.
               message_for_monitoring_committee: Mensaxe para o comité de seguimento
               review_recount: Revisar o reconto
               text_area_placeholder: Por favor, escribe a túa mensaxe
