@@ -172,7 +172,6 @@ lt:
       last_activity:
         new_vote_at: Naujas balsavimas dėl biudžeto sudarymo
       limit_announcement:
-        cant_vote: Negalite balsuoti šito biudžeto. <a href="%{landing_path}"> Pabandykite kitą biudžetą.</a>
         limit_reached: Turite aktyvių balsų %{links}. Tam, kad balsuoti šiame biudžete turite <a href="%{landing_path}"> ištrinti balsus ir pradėti iš naujo</a>.
       models:
         budget:
