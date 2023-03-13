@@ -576,11 +576,6 @@ lt:
             check: Pažymėti ir tęsti
             close_modal: Uždaryti modalinį langą
             uncheck: Palikti nepažymėtą
-          notice: |-
-            <p>Ar tikrai nenorite gauti naujienlaiškio?<br>
-            <br>
-            Labai rekomenduojame pažymėti langelį - siunčiame tik svarbią infromaciją dalyvavimui.</p>
-            <p>Naujienlaiškių bet kada galite atsisakyti.</p>
           title: Pranešimai apie naujienlaiškį (-ius)
         omniauth_buttons:
           or: Arba
@@ -1184,7 +1179,6 @@ lt:
     notifications_settings:
       show:
         administrators: Administratoriai
-        allow_public_contact: Leiskite bet kam jums siųsti tiesiogines žinutes, net jeigu jų nesekate.
         allow_push_notifications: Gaukite tiesioginius pranešimus, kad sužinotumėte, kas vyksta, kai nesate platformoje. Galite bet kada juos išjungti.
         direct_messages: Gauti tiesioginius pranešimus iš bet kurio asmens
         email_on_moderations: Noriu gauti el. laišką kiekvieną kartą kai kažkas (turinys ar naudotojas) raportuojami.
@@ -1606,9 +1600,6 @@ lt:
         accept_until: Šis kvietimas turi būti priimtas iki %{due_date}.
         decline: Atmesti kvietimą
         hello: Sveiki %{email},
-        ignore: |-
-          Jei nenorite priimti kvietimo, nekreipkite dėmesio į šį el. laišką. <br />
-          Jūsų paskyra nebus sukurta tol, kol nespustelėsite anskčiau pateiktos nuorodos ir nenustatysite savo naudotojo vardo ir slaptažodžio.
         invited_you_as_admin: "%{invited_by} pakvietė jus kaip %{application} administratorių. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
         invited_you_as_private_user: "%{invited_by} pakvietė jus kaip %{application} privatų dalyvį. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą."
         someone_invited_you: Kažkas pakvietė jus į %{application}. Kvietimą galite priimti spustelėję toliau pateikiamą nuorodą.
