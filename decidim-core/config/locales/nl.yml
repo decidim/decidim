@@ -683,7 +683,6 @@ nl:
         other: "%{count} volgers"
       no_followers: Nog geen volgers.
     following:
-      no_followings: Volgt nog niets of niemand.
       non_public_followings: Sommige van de gevolgde bronnen zijn niet openbaar.
     follows:
       create:
@@ -721,7 +720,6 @@ nl:
           description_own: "%{score} gebruikers volgen jou."
           name: Volgers
           next_level_in: Ontvang nog %{score} mensen om je te volgen en het volgende niveau te bereiken!
-          unearned_another: Deze deelnemer heeft nog geen volgers.
           unearned_own: Je hebt nog geen volgers.
         index:
           badge_title: "%{name} badge"
@@ -807,7 +805,6 @@ nl:
         create_user_group: Maak een groep
         new_user_group: Nieuwe groep
         subtitle: Maak een groep en nodig andere gebruikers uit om deel te nemen aan een collectief niveau.
-      no_user_groups: Behoort nog niet tot een groep.
       roles:
         admin: Beheerder
         member: Lid
@@ -864,8 +861,6 @@ nl:
       static:
         latlng_text: 'breedte: %{latitude}, lengtegraad: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Deze groep heeft nog geen leden.
     menu:
       help: Help
       home: Home
@@ -1200,7 +1195,6 @@ nl:
         already_reported: Deze inhoud is al gemeld en zal worden beoordeeld door een beheerder.
         close: Sluit
         description: Is deze inhoud ongepast?
-        does_not_belong: Bevat illegale activiteit, dreiging met zelfmoord, persoonlijke gegevens, of iets anders dat u denkt dat niet thuis hoort op %{organization_name}.
         offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen, zelfmoord dreiging of haat zaaien.
         reason: Reden
         report: Rapporteren
@@ -1284,7 +1278,6 @@ nl:
     user_interests:
       show:
         my_interests: Mijn interesses
-        no_scopes: Deze organisatie heeft nog geen bereik!
         select_your_interests: Selecteer de onderwerpen waarin je interesse hebt en ontvang meldingen erover in het tabblad 'Tijdlijn' van 'Mijn profiel'.
         update_my_interests: Update mijn interesses
       update:
