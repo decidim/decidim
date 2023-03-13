@@ -185,7 +185,6 @@ hu:
           name: Részt vett az üléseken
           next_level_in: Vegyen részt %{score} további ülések, hogy elérjük a következő szintre!
           unearned_another: Ez a felhasználó még nem vett részt semmilyen találkozón.
-          unearned_own: Még nem vettél részt semmilyen találkozón.
     meetings:
       actions:
         agenda: Napirend
