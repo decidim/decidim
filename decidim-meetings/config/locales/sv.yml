@@ -47,10 +47,6 @@ sv:
         code: Kod
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Denna URL kan inte bäddas in på ett mötes- eller liveevenemangssida
         meeting_agenda:
           attributes:
             base:
@@ -278,15 +274,11 @@ sv:
             filter_by: Filtrera efter
             invite_attendee: Bjud in deltagare
             invites: Inbjudningar
-            registrations_disabled: Du kan inte bjuda in en deltagare eftersom registreringarna är inaktiverade.
             search: Sök
         meeting_closes:
           edit:
             close: Stäng
             title: Stäng mötet
-        meeting_copies:
-          form:
-            select_a_meeting_type: Välj mötestyp
         meetings:
           close:
             invalid: Det gick inte att stänga mötet
