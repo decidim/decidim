@@ -179,9 +179,6 @@ ro:
           email_outro: Ai primit această notificare deoarece te-ai înregistrate pentru întâlnirea „%{resource_title}”. O puteți anula de la link-ul anterior.
           email_subject: Întâlnirea „%{resource_title}” va începe în mai puțin de 48 de ore.
           notification_title: Ședința <a href="%{resource_path}">%{resource_title}</a> va începe în mai puțin de 48 de ore.
-    forms:
-      meetings:
-        attendees_count_help_text: Nu uitați să includeți numărul total de participanți la întâlnire, fie că este vorba de persoane fizice, online sau hibride.
     gamification:
       badges:
         attended_meetings:
@@ -353,7 +350,6 @@ ro:
               one: A existat %{count} înregistrări.
               few: Au fost %{count} înregistrări.
               other: Au fost %{count} înregistrări.
-            reserved_slots_help: Lasă la 0 dacă nu există locuri rezervate
             reserved_slots_less_than: Trebuie să fie mai mic sau egal cu %{count}
             title: Înregistrări
           update:
