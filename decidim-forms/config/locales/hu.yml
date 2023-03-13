@@ -63,9 +63,6 @@ hu:
             up: Fel
           update:
             invalid: Hiba történt a kérdőív mentésekor.
-      errors:
-        answer:
-          body: A szövegtörzs nem lehet üres
       images:
         processors:
           resize_to_fit: 'A kép át lesz méretezve erre a méretre: %{dimensions}.'
