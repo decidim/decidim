@@ -148,7 +148,6 @@ tr:
           name: Katıldığı toplantılar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} toplantıya katılın!
           unearned_another: Bu katılımcı henüz bir toplantıya katılmadı.
-          unearned_own: Henüz bir toplantıya katılmadın.
     meetings:
       actions:
         agenda: Gündem
