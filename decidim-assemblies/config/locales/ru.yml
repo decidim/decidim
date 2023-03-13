@@ -314,9 +314,6 @@ ru:
           not_found: 'Собрание не найдено в базе данных (ID: %{id})'
     menu:
       assemblies: Собрания
-  errors:
-    messages:
-      cannot_be_blank: не может быть пустым
   layouts:
     decidim:
       assemblies:
