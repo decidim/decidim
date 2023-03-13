@@ -108,7 +108,6 @@ zh-CN:
         my_budgets: 我的预算
         voted_on: 您已对 %{links} 投票
       limit_announcement:
-        cant_vote: 您不能对此预算进行投票。 <a href="%{landing_path}">请尝试另一个预算</a>。
         limit_reached: 您在 %{links}有活跃的投票。要对此预算进行投票，您必须 <a href="%{landing_path}">删除您的投票并开始于</a> 开始投票。
       models:
         budget:
