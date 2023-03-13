@@ -404,8 +404,6 @@ sv:
           success_html: Grattis! Du har skrivit under initiativet <strong> %{title}</strong>
         personal_data:
           invalid: Personuppgifterna överensstämmer inte med de uppgifter som lämnats för godkännande.
-        sms_code:
-          invalid: Verifieringskoden stämmer inte. Kontrollera det SMS som vi skickade till dig igen.
         sms_phone:
           invalid: Telefonnumret är ogiltigt eller har ännu inte godkänts. Kontrollera dina godkännanden.
       initiatives:
