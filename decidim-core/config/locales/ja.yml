@@ -791,7 +791,6 @@ ja:
     following:
       following_count:
         other: "{{count}} フォロワー"
-      no_followings: フォローしている人やコンテンツはありません
       non_public_followings: フォローしているリソースのいくつかは公開されていません。
     follows:
       create:
@@ -859,7 +858,6 @@ ja:
           description_own: "%{score} 人があなたをフォローしています。"
           name: フォロワー
           next_level_in: '%{score} 人があなたをフォローして次のレベルに到達しましょう！'
-          unearned_another: この参加者にはまだフォロワーがいません。
           unearned_own: フォロワーはまだいません。
         index:
           badge_title: "%{name} バッジ"
@@ -946,7 +944,6 @@ ja:
         create_user_group: グループを作成
         new_user_group: 新しいグループ
         subtitle: グループを作成し、グループレベルに参加するために他のユーザーを招待します。
-      no_user_groups: まだどのグループにも属していません。
       roles:
         admin: 管理者
         creator: 管理者
@@ -1007,8 +1004,6 @@ ja:
       static:
         latlng_text: '緯度: %{latitude}, 経度: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: このグループにはまだメンバーがいません。
     menu:
       help: ヘルプ
       home: ホーム
@@ -1387,7 +1382,6 @@ ja:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
         description: このコンテンツは不適切ですか？
-        does_not_belong: 違法行為、個人情報、または %{organization_name} に属していないと思われる内容が含まれています。
         hide: 非表示
         hide_content: このコンテンツを非表示
         offensive: 差別的な内容、誹謗中傷などの不適切な内容が含まれています。
@@ -1400,7 +1394,6 @@ ja:
         already_reported: このコンテンツはすでに報告されており、管理者が確認します。
         close: 閉じる
         description: ユーザーに不適切なのはどの点ですか？
-        does_not_belong: 違法な行為、自殺の脅威、個人情報、または %{organization_name} に属していないと思われる何かが含まれています。
         offensive: 人種差別、性差別、中傷、個人攻撃、死の脅威、自殺要求や何かしらの形態のヘイトスピーチが含まれています。
         report: 報告
         spam: 虚偽情報、広告、詐欺やスクリプトボットが含まれています。
@@ -1496,7 +1489,6 @@ ja:
     user_interests:
       show:
         my_interests: 興味のあるもの
-        no_scopes: この組織にはまだ範囲がありません！
         select_your_interests: 興味のあるトピックを選択すると、プロフィールのタイムラインタブで関連するイベントを受け取ることができます。
         update_my_interests: 興味を更新する
       update:
