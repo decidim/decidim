@@ -61,7 +61,7 @@ fr-CA:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
             - Vous remplissez les informations présentes dans l'image téléchargée.
             - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
+            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
             - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
