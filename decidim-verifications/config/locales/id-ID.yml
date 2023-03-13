@@ -206,7 +206,6 @@ id:
           edit:
             confirm_destroy: Anda yakin ingin mengatur ulang kode verifikasi?
             destroy: Setel ulang kode verifikasi
-            resend: Tidak menerima kode verifikasi?
             send: Memastikan
             title: Perkenalkan kode verifikasi yang Anda terima
           new:
