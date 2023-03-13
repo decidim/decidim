@@ -142,7 +142,6 @@
         vote: Stem
         voted_on: Du har stemt på %{links}
       limit_announcement:
-        cant_vote: Du kan ikke stemme på dette budsjettet. <a href="%{landing_path}">Prøv på et annet budsjett</a>.
         limit_reached: Du har aktive stemmer i %{links}. For å stemme på dette budsjettet må du <a href="%{landing_path}">slette stemmen din og starte på nytt</a>.
       models:
         budget:
