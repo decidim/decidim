@@ -205,9 +205,6 @@ hu:
           success: Részvételi folyamat lépés létrehozása sikeres.
         default_title: Bevezetés
         destroy:
-          error:
-            active_step: Az aktív lépést nem lehet törölni.
-            last_step: Folyamat utolsó lépését nem lehet törölni.
           success: Részvételi folyamat lépés törlése sikeres.
         edit:
           title: Részvételi folyamat lépés szerkesztése
