@@ -79,7 +79,6 @@ de:
           description: Ist dieser Inhalt unangemessen?
           details: Zusätzliche Kommentare
           reasons:
-            does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
             offensive: Enthält Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jegliche Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
           title: Ungeeigneten Inhalt melden
