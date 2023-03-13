@@ -326,7 +326,6 @@ nl:
           verifiable_results:
             checksum: 'Bestand SHA256-controlegetal:'
             description:
-              not_ready: Het verifieerbare verkiezingsbestand en SHA256 checksum zijn nog niet beschikbaar. Zodra de resultaten zijn gepubliceerd, kun je deze verkiezing verifiëren.
               ready: 'Hier heb je de mogelijkheid om de verkiezing te verifiëren. Eerst moet je het bestand downloaden en ervoor zorgen dat het niet beschadigd is. Voer het volgende commando uit en controleer of de output overeenkomt met de checksum:'
             how_to_verify: 'Nadat je het bestand gedownload hebt en zeker weet dat het in orde is, kan je doorgaan met de universele controle. Kopieer <a href=''https://github.com/decidim/decidim-bulletin-board''>deze repository</a> en voer vanuit de hoofdmap de volgende opdracht uit:'
             title: Verifieer verkiezingsuitslagen
@@ -1078,7 +1077,6 @@ nl:
       votings:
         access_code_modal:
           email: Via e-mail verzenden naar %{email}
-          info: Je hebt een toegangscode nodig om deel te nemen. Als je ze niet per post hebt gekregen, kunnen we een nieuwe sturen.
           no_email: Geen e-mail beschikbaar
           no_sms: Geen telefoonnummer beschikbaar
           sms: Via e-mail verzenden naar %{sms}
