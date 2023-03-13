@@ -324,7 +324,6 @@ pt-BR:
           ok: Ok
           title: Não autorizado
         unconfirmed:
-          confirmation_instructions: 'Se você não recebeu as instruções de confirmação, pode solicitá-las novamente:'
           explanation_html: A fim de executar esta ação que você precisa ser autorizado, antes de fazer isso você precisa confirmar o seu e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Reenviar instruções de confirmação
           title: Confirme seu e-mail
@@ -343,7 +342,6 @@ pt-BR:
       see_more: "(ver mais)"
     components:
       component_order_selector:
-        no_content: Não encontramos nenhum conteúdo com este critério
         order:
           all_types: Todos os tipos
           collaborative_draft: Rascunho colaborativo
@@ -1405,7 +1403,6 @@ pt-BR:
         action: Mudar minha senha
         greeting: Olá %{recipient}!
         instruction: Alguém solicitou um link para alterar sua senha, e você pode fazer isso através do link abaixo.
-        instruction_2: Se você não solicitou isso, ignore este e-mail.
         instruction_3: Sua senha não será alterada até que você acesse o link acima e crie um novo.
         subject: Redefinir instruções de senha
       unlock_instructions:
@@ -1449,8 +1446,6 @@ pt-BR:
     shared:
       links:
         back: Costas
-        didn_t_receive_confirmation_instructions: Não recebeu instruções de confirmação?
-        didn_t_receive_unlock_instructions: Não recebeu instruções de desbloqueio?
         forgot_your_password: Esqueceu sua senha?
         sign_in: Entrar
         sign_in_with_provider: Entrar com %{provider}
