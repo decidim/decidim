@@ -433,8 +433,6 @@ ro:
           success_html: Felicitări! Inițiativa <strong> %{title}</strong> a fost semnată cu succes
         personal_data:
           invalid: Datele cu caracter personal nu sunt compatibile cu datele furnizate pentru autorizare.
-        sms_code:
-          invalid: Codul de verificare nu se potrivește cu al nostru. Te rugăm să verifici din nou SMS-ul pe care ți l-am trimis.
         sms_phone:
           invalid: Numărul de telefon este invalid sau în aşteptarea autorizaţiei. Te rugăm să verific setările tale de autorizare.
       initiatives:
