@@ -51,11 +51,8 @@ zh-CN:
             attachment:
               file: 文件无效
               needs_to_be_reattached: 需要重新连接
-              title: 标题不能为空
   activerecord:
     models:
-      decidim/initiative:
-        other: Initatives
       decidim/initiative_comittee:
         other: 我好
       decidim/initiative_vote:
