@@ -445,9 +445,6 @@ ro:
         related_assemblies: Grupuri de lucru asociate
     statistics:
       assemblies_count: Grupuri de lucru
-  errors:
-    messages:
-      cannot_be_blank: nu poate fi gol
   layouts:
     decidim:
       assemblies:
