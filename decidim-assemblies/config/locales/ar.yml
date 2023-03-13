@@ -456,9 +456,6 @@ ar:
         related_assemblies: التجمعات ذات الصلة
     statistics:
       assemblies_count: التجمعات
-  errors:
-    messages:
-      cannot_be_blank: لا يمكن أن يكون فارغا
   layouts:
     decidim:
       assemblies:
