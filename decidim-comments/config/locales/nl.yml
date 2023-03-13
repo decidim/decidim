@@ -76,7 +76,6 @@ nl:
           description: Is deze inhoud ongepast?
           details: aanvullende opmerkingen
           reasons:
-            does_not_belong: Bevat illegale activiteit, zelfmoord bedreigingen, persoonlijke gegevens, of iets anders dat je denkt dat hoort niet op %{organization_name}.
             offensive: Bevat racisme, seksisme, laster, persoonlijke aanvallen, bedreigingen met de dood, zelfmoord verzoeken of enige vorm van haatzaaien.
             spam: Bevat clickbait, reclame, oplichting of script bots.
           title: Meld ongepaste inhoud
