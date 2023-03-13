@@ -45,7 +45,6 @@ eu:
           body:
             label: Iruzkina
             placeholder: Zer deritzozu honi?
-          form_error: Testua behar da, eta ezin du izan %{length} karaktere baino gehiago.
           submit: Bidali
           user_group_id:
             label: 'Egin iruzkina honako honen gisa:'
@@ -84,9 +83,7 @@ eu:
             offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Jakinarazi eduki desegokia
-        show_replies:
-          one: Erakutsi erantzuna
-          other: Erakutsi %{count} erantzun
+        show_replies: Erakutsi %{replies_count} erantzun
         single_comment_link_title: Lortu esteka
       comment_order_selector:
         order:
@@ -167,6 +164,3 @@ eu:
         description: Erabiltzaileek sortutako iruzkin kopurua
         object: iruzkinak
         title: Oharrak
-  errors:
-    messages:
-      cannot_have_comments: ezin zaio iruzkinik egin
