@@ -267,7 +267,6 @@ ja:
           edit:
             confirm_destroy: 確認コードをリセットしてもよろしいですか？
             destroy: 確認コードをリセット
-            resend: 確認コードを受け取っていませんか？
             send: 確認する
             title: 受信した確認コードを入力する
           new:
