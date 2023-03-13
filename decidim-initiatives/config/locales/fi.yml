@@ -468,8 +468,6 @@ fi:
           success_html: Onnittelut! Aloitteen <strong>%{title}</strong> allekirjoitus onnistui
         personal_data:
           invalid: Henkilötiedot eivät täsmää vahvistusta varten annettujen tietojen kanssa.
-        sms_code:
-          invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
           invalid: Puhelinnumero on virheellinen tai odottaa tarkastusta. Tarkista vahvistuksesi.
       initiatives:
