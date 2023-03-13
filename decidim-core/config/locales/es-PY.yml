@@ -418,6 +418,7 @@ es-PY:
           ok: De acuerdo
           title: No autorizado
         unconfirmed:
+          confirmation_instructions: 'Si no has recibido las instrucciones de confirmación, puedes volver a solicitarlas:'
           explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
@@ -436,6 +437,7 @@ es-PY:
       see_more: "(ver más)"
     components:
       component_order_selector:
+        no_content: No hemos podido encontrar ningún contenido con este criterio
         order:
           all_types: Todos los tipos
           collaborative_draft: Borrador colaborativo
@@ -568,6 +570,13 @@ es-PY:
             check: Verificar y continuar
             close_modal: Cerrar modal
             uncheck: Mantener desmarcado
+          notice: |-
+            <p>Hola, ¿seguro que no quieres recibir un boletín informativo?<br>
+            Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
+            Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
+            <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
+            Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
+            <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
           or: O
@@ -626,6 +635,7 @@ es-PY:
       not_found:
         back_home: Volver al inicio
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
+        title: No se ha encontrado la página que buscas
     events:
       amendments:
         amendment_accepted:
@@ -807,7 +817,6 @@ es-PY:
       following_count:
         one: "%{count} lo sigue"
         other: "%{count} lo siguen"
-      no_followings: No sigue a nadie ni a nada todavía.
       non_public_followings: Algunos de los recursos seguidos no son públicos.
     follows:
       create:
@@ -875,7 +884,6 @@ es-PY:
           description_own: "%{score} usuarios te están siguiendo."
           name: Seguidores
           next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
-          unearned_another: Este usuario no tiene seguidores todavía.
           unearned_own: Aún no tienes seguidores
         index:
           badge_title: "Distintivo %{name}"
@@ -953,6 +961,7 @@ es-PY:
         success: Únete a la solicitud creada con éxito. Un administrador revisará su solicitud antes de aceptarlo en el grupo.
       leave:
         error: Ha habido un problema al dejar el grupo.
+        last_admin: No puedes abandonar este grupo porque eres la última administradora. Haz administradora a otra persona miembro para poder hacerlo.
         success: Grupo salió con éxito.
       members:
         accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Aceptar o rechazar sus solicitudes:'
@@ -962,7 +971,6 @@ es-PY:
         create_user_group: Crea un grupo
         new_user_group: Nuevo grupo
         subtitle: Cree un grupo e invite a otros usuarios a unirse para participar en un nivel colectivo.
-      no_user_groups: Aún no pertenece a ningún grupo.
       roles:
         admin: Administrador
         creator: Administradora
@@ -1023,8 +1031,6 @@ es-PY:
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Este grupo de usuarios aún no tiene ningún miembro.
     menu:
       help: Ayuda
       home: Inicio
@@ -1090,6 +1096,7 @@ es-PY:
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
+          deleted_accounts: No puedes tener una conversación con cuentas eliminadas.
           not_allowed: Esta participante no acepta mensajes directos.
           title: Conversacion con %{usernames}
         start:
@@ -1182,6 +1189,7 @@ es-PY:
     notifications_settings:
       show:
         administrators: Administradoras
+        allow_public_contact: Permitir que cualquier participante me envíe un mensaje directo, incluso si no la sigo.
         allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
@@ -1404,7 +1412,6 @@ es-PY:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
         close: Cerrar
         description: Es inapropiado este contenido?
-        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
         hide: Esconder
         hide_content: Esconder este contenido
         offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
@@ -1417,7 +1424,6 @@ es-PY:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         close: Cerrar
         description: '¿Qué es inapropiado de la usuaria?'
-        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
         offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
         report: Reporte
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
@@ -1506,6 +1512,7 @@ es-PY:
         title_reply: Responder
       show:
         back: Ver todas las conversaciones
+        deleted_accounts: No puedes tener una conversación con cuentas eliminadas.
         not_allowed: Esta participante no acepta mensajes directos.
         title: Conversación con %{usernames}
       update:
@@ -1513,7 +1520,6 @@ es-PY:
     user_interests:
       show:
         my_interests: Mis intereses
-        no_scopes: '¡Esta organización aún no tiene ningún alcance!'
         select_your_interests: Seleccione los temas que le interesan para recibir eventos relacionados con ellos en la pestaña Línea de tiempo de su perfil.
         update_my_interests: Actualizar mis intereses
       update:
@@ -1611,6 +1617,8 @@ es-PY:
         accept_until: Esta invitación caducará el día %{due_date}.
         decline: Rechazar invitación
         hello: Hola %{email},
+        ignore: |-
+          Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br /> Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuaria y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
         invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
@@ -1633,6 +1641,7 @@ es-PY:
         action: Cambiar mi contraseña
         greeting: Hola %{recipient}!
         instruction: Alguien ha solicitado un enlace para cambiar su contraseña, y puede hacerlo a través del siguiente enlace.
+        instruction_2: Si no lo solicitaste, ignora este correo electrónico.
         instruction_3: Su contraseña no cambiará hasta que acceda al enlace de arriba y cree una nueva.
         subject: Restablecer instrucciones de contraseña
       unlock_instructions:
@@ -1655,6 +1664,7 @@ es-PY:
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Enviarme instrucciones para restablecer la contraseña
+      no_token: No puedes acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si vienes de un correo electrónico de restablecimiento de contraseña, asegúrate de haber utilizado la URL provista completa.
       send_instructions: Recibirá un correo electrónico con instrucciones sobre cómo restablecer su contraseña en unos minutos.
       send_paranoid_instructions: Si su dirección de correo electrónico existe en nuestra base de datos, recibirá un enlace de recuperación de contraseña en su dirección de correo electrónico en unos minutos.
       updated: Tu contraseña ha sido cambiada exitosamente. Ya has iniciado sesión.
@@ -1678,6 +1688,8 @@ es-PY:
     shared:
       links:
         back: Espalda
+        didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
+        didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones para desbloquear?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
         sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
@@ -1712,6 +1724,7 @@ es-PY:
       load: No se ha producido un error al cargar la lista de emojis
     recents:
       clear: Borra los emojis recientes
+      none: Aún no has seleccionado ningún emoji.
     retry: Inténtalo de nuevo
     search:
       _: Buscar emojis...
@@ -1722,13 +1735,18 @@ es-PY:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
       already_confirmed: ya fue confirmado, intente iniciar sesión
+      blank: no puede estar en blanco
+      cannot_be_blank: no puede estar en blanco
       confirmation_period_expired: necesita ser confirmado dentro de %{period}, por favor solicite uno nuevo
       content_type_allowlist_error: el tipo de archivo no es válido
+      cycle_detected: uno ámbito padre no puede ser uno de sus descendientes
+      empty: no puede estar vacío
       expired: ha expirado, solicite uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
       invalid_time_zone: no es una zona horaria válida
       long_words: contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
+      nesting_too_deep: no puede estar dentro de una subcategoría
       not_found: no se pudo encontrar. ¿Te has registrado previamente?
       not_locked: no estaba bloqueado
       not_saved:
