@@ -845,7 +845,6 @@ lt:
         new:
           destroy:
             button: Ištrinti visus privačius dalyvius
-            confirm: Ar tikrai norite ištrinti visus privačius dalyvius? Atlikus šį veiksmą nebebus įmanoma sugražinti šių dalyvių į platformą.
             empty: Neturite privačių dalyvių.
             explanation: Turite %{count} privačių dalyvių.
             title: Ištrinti privačius dalyvius
