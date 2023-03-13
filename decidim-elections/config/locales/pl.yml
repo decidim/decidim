@@ -729,7 +729,6 @@ pl:
               new: Nowy
               title: Działania
             associated_census_data: Powiązane wpisy z listy wyborców
-            explanation_callout: Rodzaj karty wyborczej określa, jakie pytania zostaną zaprezentowane danemu wyborcy w kabinie do głosowania. Konfigurując rodzaje kart wyborczych możesz wybrać, jakie pytania z z tego komponentu wyborczego należą do głosowania. Kod rodzaju karty wyborczej jest używany do dopasowania wyborcy z listy wyborców do karty wyborczej, która zostanie przedstawiona mu w kabinie do głosowania. Nie twórz rodzajów kart wyborczych, jeśli zawsze chcesz zadać wszystkie pytania.
             title: Rodzaje kart wyborczych
           new:
             create: Utwórz
@@ -957,7 +956,6 @@ pl:
             invalid: Podczas tworzenia głosowania wystąpił błąd
             success: Utworzono głosowanie
           edit:
-            add_election_component: Nie masz żadnych wyborów skonfigurowanych w tym głosowaniu. Dodaj je w sekcji Komponenty
             assign_missing_officers: Wciąż są lokale wyborcze bez przewodniczącego i/lub menedżerów. Proszę przydzielić ich w sekcji lokali wyborczych
             update: Aktualizuj
           form:
@@ -1215,7 +1213,6 @@ pl:
           invalid: Wystąpił błąd przy sprawdzaniu listy wyborców.
           success:
             access_link_with_sms: poprzez SMS lub e-mail.
-            info: Powinieneś był już otrzymać swój kod dostępu pocztą. Jeśli go nie posiadasz, możesz poprosić o to tutaj
             title: Twoje dane z listy wyborców nie są prawidłowe!
           title: Mogę głosować?
         check_fields:
@@ -1261,7 +1258,6 @@ pl:
           access_code: Kod dostępu
           access_code_placeholder: Kod dostępu
           ask_for_a_new_one: Poproś o nowe.
-          dont_have_access_code: Nie masz kodu dostępu?
           form_title: 'Wypełnij poniższy formularz, aby uzyskać dostęp do głosowania:'
           start_voting: Rozpocznij głosowanie
           step: Identyfikacja
