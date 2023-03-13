@@ -62,9 +62,6 @@ lv:
             up: Augšup
           update:
             invalid: Saglabājot veidlapu, radās problēma.
-      errors:
-        answer:
-          body: Pamatteksts nevar būt tukšs
       images:
         dimensions: "%{width} x %{height} pikseļi"
       question_types:
