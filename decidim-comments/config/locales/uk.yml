@@ -30,7 +30,6 @@ uk:
           body:
             label: Коментар
             placeholder: Що ви думаєте з цього приводу?
-          form_error: Тут обов'язково потрібно ввести текст, але не більше, ніж %{length} символів.
           submit: Надіслати
           user_group_id:
             label: Коментувати як
@@ -92,6 +91,3 @@ uk:
           email_outro: Ви отримали це сповіщення, оскільки вас згадали в %{resource_title}.
           email_subject: Вас згадали у %{resource_title}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> згадав вас у <a href="%{resource_path}">%{resource_title}</a>
-  errors:
-    messages:
-      cannot_have_comments: не підлягає коментуванню
