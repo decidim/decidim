@@ -202,7 +202,6 @@ fr-CA:
           name: Assister aux rencontres
           next_level_in: Assister à %{score} rencontres supplémentaires pour atteindre le prochain niveau!
           unearned_another: Cet utilisateur n'a encore assisté à aucune réunion.
-          unearned_own: Vous n'avez encore assisté à aucune réunion.
     meetings:
       actions:
         agenda: Ordre du jour
