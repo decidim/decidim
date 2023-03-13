@@ -858,7 +858,6 @@ sv:
         new:
           destroy:
             button: Radera alla privata deltagare
-            confirm: Är du säker på att du vill radera alla privata deltagare? Den här åtgärden kan inte ångras.
             empty: Det finns inga privata deltagare.
             explanation: Det finns %{count} privata deltagare.
             title: Radera privata deltagare
