@@ -31,7 +31,6 @@ lt:
         cost_report: Kaštų ataskaita
         execution_period: Vykdymo periodas
       proposals_copy:
-        copy_proposals: Suprantu, kad visi pasiūlymai bus perkelti iš pasirinkto komponento į dabartinį ir kad šio veiksmo negalima atšaukti.
         origin_component_id: Komponentas, skirtas kopijuoti pasiūlymams iš
       proposals_import:
         import_proposals: Importuoti pasiūlymus
@@ -755,8 +754,6 @@ lt:
             valuator: Vertintojas
             valuators: Vertintojai
             votes: Balsai
-      new:
-        limit_reached: Naujų pasiūlymų rengti negalite, nes viršijote nustatytą ribą.
       participatory_text_proposal:
         alternative_title: Šiuo metu dalyvaujamųjų tekstų nėra
         buttons:
