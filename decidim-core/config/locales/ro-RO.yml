@@ -356,7 +356,6 @@ ro:
           ok: Ok
           title: Neautorizat
         unconfirmed:
-          confirmation_instructions: 'Dacă nu ai primit instrucțiunile de confirmare le poți solicita din nou:'
           explanation_html: Pentru a efectua această acțiune, trebuie să fii autorizat, înainte de a face acest lucru, trebuie să confirmi adresa ta de e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Cere instrucțiunile de confirmare
           title: Confirmați e-mailul tău
@@ -376,7 +375,6 @@ ro:
       see_more: "(vezi mai mult)"
     components:
       component_order_selector:
-        no_content: Nu am putut găsi conținut cu acest criteriu
         order:
           all_types: Toate tipurile
           collaborative_draft: Ciornă colaborativă
@@ -1526,7 +1524,6 @@ ro:
         action: Schimbă-mi parola
         greeting: Bună ziua %{recipient}!
         instruction: Cineva a solicitat un link pentru a vă schimba parola, şi puteţi face acest lucru prin link-ul de mai jos.
-        instruction_2: Dacă nu ai solicitat acest lucru, ignoră acest e-mail.
         instruction_3: Parola dvs. nu se va schimba până când nu accesați link-ul de mai sus și nu creați una nouă.
         subject: Instrucțiuni resetare parolă
       unlock_instructions:
@@ -1570,8 +1567,6 @@ ro:
     shared:
       links:
         back: Înapoi
-        didn_t_receive_confirmation_instructions: Nu ai primit instrucțiuni de confirmare?
-        didn_t_receive_unlock_instructions: Nu ai primit instrucțiuni de deblocare?
         forgot_your_password: Ți-ai uitat parola?
         sign_in: Autentificare
         sign_in_with_provider: Conectează-te cu %{provider}
