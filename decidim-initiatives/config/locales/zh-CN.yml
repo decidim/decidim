@@ -366,8 +366,6 @@ zh-CN:
           success_html: 恭喜！ <strong> %{title}</strong> 倡议已成功签名
         personal_data:
           invalid: 个人资料与批准数据不一致。
-        sms_code:
-          invalid: 您的验证码与我们不匹配。请再次检查我们发送给您的短信。
         sms_phone:
           invalid: 电话号码无效或正在等待授权。请检查您的授权。
       initiatives:
