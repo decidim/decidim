@@ -31,7 +31,6 @@ es-PY:
         cost_report: Informe de coste
         execution_period: Período de ejecución
       proposals_copy:
-        copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
         origin_component_id: Componente para copiar las propuestas de
       proposals_import:
         import_proposals: Propuestas de importación
@@ -759,8 +758,6 @@ es-PY:
             valuator: Evaluadora
             valuators: Evaluadoras
             votes: Votos
-      new:
-        limit_reached: No puedes crear nuevas propuestas ya que has superado el límite.
       participatory_text_proposal:
         alternative_title: No hay textos participativos por el momento
         buttons:
