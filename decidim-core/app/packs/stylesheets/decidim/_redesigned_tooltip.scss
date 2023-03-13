@@ -1,16 +1,44 @@
 [role=tooltip]{
-  @apply absolute bg-black p-4 z-10 w-max max-w-xs rounded text-left text-white;
+  @apply absolute bg-black z-10 p-4 w-max max-w-xs rounded text-left text-white;
 
   & > *{
     @apply relative z-20;
   }
 
   &[aria-hidden="false"]{
-    @apply opacity-100 transition-opacity duration-500;
+    animation-name: fadeIn;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
   }
 
   &[aria-hidden="true"]{
-    @apply opacity-0 transition-opacity duration-500 delay-500;
+    animation-name: fadeOut;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeIn{
+    from{
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    to{
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @keyframes fadeOut{
+    from{
+      opacity: 1;
+      visibility: visible;
+    }
+
+    to{
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 
   /*

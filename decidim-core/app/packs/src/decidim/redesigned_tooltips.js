@@ -64,6 +64,11 @@ export default function(node) {
   tooltip.setAttribute("aria-hidden", true)
 
   const append = () => {
+    // do nothing if the tooltip is already present at the DOM
+    if (tooltip.getAttribute("aria-hidden") === "false") {
+      return
+    }
+
     // remove any previous tooltip from the DOM, in order to avoid overlaps
     Array.from(document.body.children).map((child) => child.id.startsWith("tooltip") && child.remove())
 
@@ -101,7 +106,14 @@ export default function(node) {
     tooltip.setAttribute("aria-hidden", false)
   }
 
-  const remove = () => tooltip.setAttribute("aria-hidden", true)
+  // in order to revoke the remove event when the mouse is over the trigger/tooltip
+  let cancelRemove = false
+
+  const remove = () => {
+    cancelRemove = false
+    // give some sleep time before hiding the element from the DOM
+    setTimeout(() => !cancelRemove && tooltip.setAttribute("aria-hidden", true), 500);
+  }
 
   // keyboard listener is at root-level
   window.addEventListener("keydown", (event) => event.key === "Escape" && remove())
@@ -112,4 +124,7 @@ export default function(node) {
   node.addEventListener("blur", remove)
   tooltip.addEventListener("mouseenter", () => tooltip.setAttribute("aria-hidden", false))
   tooltip.addEventListener("mouseleave", remove)
+
+  node.addEventListener("mouseover", () => (cancelRemove = true))
+  tooltip.addEventListener("mouseover", () => (cancelRemove = true))
 }
