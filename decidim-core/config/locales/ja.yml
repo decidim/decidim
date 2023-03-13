@@ -400,7 +400,6 @@ ja:
           resume: '「%{authorization}」認証の進行状況を確認してください'
           title: 認証はまだ進行中です
         unauthorized:
-          explanation: 一部の認証データが一致しないため、この操作は実行できません。
           invalid_field: "%{field} の値 %{value} は無効です。"
           ok: OK
           title: 権限がありません
@@ -621,7 +620,6 @@ ja:
       not_found:
         back_home: ホームに戻る
         content_doesnt_exist: このアドレスは正しくないか削除されています。
-        title: お探しのページが見つかりません。
     events:
       amendments:
         amendment_accepted:
@@ -947,7 +945,6 @@ ja:
         success: 参加リクエストは正常に作成されました。管理者はあなたをグループに承認する前にリクエストを確認します。
       leave:
         error: グループから脱退中に問題が発生しました
-        last_admin: あなたが最後の管理者であるため、このグループから自分自身を削除することはできません。グループから脱退するためには、別のメンバーを管理者にしてください。
         success: グループを放棄しました。
       members:
         accept_or_reject_join_requests: '次のユーザーがこのグループに参加するために申請しました。リクエストを承認または拒否します。'
@@ -1085,7 +1082,6 @@ ja:
         show:
           back: すべての会話に戻る
           chat_with: 会話
-          deleted_accounts: 削除されたアカウントと会話することはできません。
           not_allowed: この参加者はダイレクトメッセージを受け付けません。
           title: '%{usernames} との会話'
         start:
@@ -1502,7 +1498,6 @@ ja:
         title_reply: 返信
       show:
         back: すべての会話を表示
-        deleted_accounts: 削除されたアカウントと会話することはできません。
         not_allowed: このユーザーはこれ以上のダイレクトメッセージを受け付けません。
         title: '%{usernames} との会話'
       update:
@@ -1656,7 +1651,6 @@ ja:
       new:
         forgot_your_password: パスワードをお忘れですか？
         send_me_reset_password_instructions: パスワードリセット手順を送信してください
-      no_token: このページにアクセスするには、パスワードリセットメールからアクセスします。 パスワードリセットメールからの場合は、提供されたURLを使用したことを確認してください。
       send_instructions: 数分でパスワードをリセットする方法が記載されたメールが届きます。
       send_paranoid_instructions: 当社のデータベースにあなたのメールアドレスが存在する場合、数分後にあなたのメールアドレスにパスワード回復リンクが届きます。
       updated: パスワードが正常に変更されました。ログインしています。
@@ -1728,13 +1722,11 @@ ja:
       already_confirmed: が確認されました。ログインしてみてください
       confirmation_period_expired: '%{period}以内に確認する必要があります。新しいものをリクエストしてください'
       content_type_allowlist_error: ファイルの種類が無効です
-      cycle_detected: スコープの親は子孫ではありえません
       expired: 有効期限が切れています。新しいものをリクエストしてください
       file_size_is_less_than_or_equal_to: ファイルサイズは %{count} 以下でなければなりません
       invalid_time_zone: 有効なタイムゾーンではありません
       long_words: には長すぎる単語が含まれています（35文字以上）
       must_start_with_caps: 先頭は大文字でなければなりません
-      nesting_too_deep: サブカテゴリの中にあることはできません
       not_found: 見つかりませんでした。以前に登録しましたか？
       not_locked: ロックされていません
       not_saved:
