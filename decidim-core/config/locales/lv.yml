@@ -287,7 +287,6 @@ lv:
           ok: Labi
           title: Nav autorizācijas
         unconfirmed:
-          confirmation_instructions: 'Ja neesat saņēmis apstiprināšanas norādījumus, varat tos pieprasīt vēlreiz:'
           explanation_html: Lai veiktu šo darbību, jums jābūt autorizētam, bet pirms tam jāapstiprina savs e-pasts <strong>%{email}</strong>.
           request_confirmation_instructions: Pieprasīt apstiprināšanas norādījumus
           title: Apstiprināt e-pastu
@@ -300,7 +299,6 @@ lv:
       see_more: "(skatīt vairāk)"
     components:
       component_order_selector:
-        no_content: Mēs nevarējām atrast šiem kritērijiem atbilstīgu saturu
         order:
           all_types: Visi veidi
           collaborative_draft: Sadarbības projekts
@@ -1209,7 +1207,6 @@ lv:
         action: Nomainīt manu paroli
         greeting: Sveiki, %{recipient}!
         instruction: Kāds ir pieprasījis saiti, lai mainītu jūsu paroli, un jūs to varat izdarīt, izmantojot turpmāk esošo saiti.
-        instruction_2: Ja jūs to nepieprasījāt, lūdzu, ignorējiet šo e-pasta vēstuli.
         instruction_3: Jūsu parole nemainīsies, kamēr neizmantosiet iepriekš norādīto saiti un neizveidosiet jaunu paroli.
         subject: Norādījumi paroles atiestatīšanai.
       unlock_instructions:
@@ -1253,8 +1250,6 @@ lv:
     shared:
       links:
         back: Atpakaļ
-        didn_t_receive_confirmation_instructions: Nesaņēmāt apstiprināšanas norādījumus?
-        didn_t_receive_unlock_instructions: Nesaņēmāt atbloķēšanas norādījumus?
         forgot_your_password: Aizmirsāt paroli?
         sign_in: Pieteikties
         sign_in_with_provider: Pierakstīties, izmantojot %{provider}
