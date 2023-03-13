@@ -236,7 +236,6 @@ tr:
           edit:
             confirm_destroy: Doğrulama kodunu sıfırlamak istediğinizden emin misiniz?
             destroy: Doğrulama kodunu sıfırla
-            resend: Doğrulama kodunu alamadınız mı?
             send: Onayla
             title: Lütfen size gönderilen onay kodunu giriniz
           new:
