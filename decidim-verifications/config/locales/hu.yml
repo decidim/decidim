@@ -245,7 +245,6 @@ hu:
           edit:
             confirm_destroy: Biztosan vissza szeretné állítani az ellenőrző kódot?
             destroy: Ellenőrző kód visszaállítása
-            resend: Nem kapta meg az ellenőrző kódot?
             send: Megerősítés
             title: Vigye be a kapott ellenőrző kódot
           new:
