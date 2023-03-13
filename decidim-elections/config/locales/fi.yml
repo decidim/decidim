@@ -451,7 +451,6 @@ fi:
           verifiable_results:
             checksum: 'Tiedoston SHA256 tarkistussumma:'
             description:
-              not_ready: Vahvistettava vaalin tiedosto ja SHA256-tarkistesumma eivät ole vielä käytettävissä. Heti kun tulokset julkistetaan, voit tarkistaa nämä vaalit.
               ready: 'Täällä voit vahvistaa vaalin. Ensin sinun täytyy ladata tiedosto ja tarkastaa, että se ei ole korruptoitunut. Tarkastaaksesi tiedoston, aja seuraava komento ja tarkasta, että komennon näyttämä lopputulos vastaa tarkistussummaa:'
             how_to_verify: 'Kun olet ladannut tiedoston ja tarkastanut sen olevan eheä, voit ajaa yleisen tarkastuksen. Kloonaa <a href=''https://github.com/decidim/decidim-bulletin-board''>tämä repositorio</a> ja aja seuraava komento sen juurihakemistossa:'
             title: Vahvista vaalin tulokset
@@ -1328,7 +1327,6 @@ fi:
       votings:
         access_code_modal:
           email: Lähetä sähköpostitse osoitteeseen %{email}
-          info: Tarvitset tunnistautumiskoodin osallistuaksesi. Jos et saanut sitä paperipostissa, voimme lähettää sinulle uuden koodin.
           no_email: Sähköpostiosoitetta ei ole käytettävissä
           no_sms: Puhelinnumeroa ei ole käytettävissä
           sms: Lähetä tekstiviestinä numeroon %{sms}
