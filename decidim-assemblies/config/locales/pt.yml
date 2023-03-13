@@ -419,9 +419,6 @@ pt:
         related_assemblies: Reuniões relacionadas
     statistics:
       assemblies_count: Reuniões
-  errors:
-    messages:
-      cannot_be_blank: não pode estar em branco
   layouts:
     decidim:
       assemblies:
