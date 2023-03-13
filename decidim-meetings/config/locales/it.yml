@@ -257,7 +257,6 @@ it:
             filter_by: Filtra per
             invite_attendee: Invita il partecipante
             invites: Inviti
-            registrations_disabled: Non puoi invitare un partecipante perché le registrazioni sono disabilitate.
             search: Ricerca
         meeting_closes:
           edit:
