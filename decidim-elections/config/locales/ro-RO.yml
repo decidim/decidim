@@ -382,7 +382,6 @@ ro:
           verifiable_results:
             checksum: 'Sumă de control pentru fișierul SHA256:'
             description:
-              not_ready: Fișierul verificabil electoral și suma de control pentru SHA256 nu sunt disponibile încă. Imediat ce vor fi publicate rezutatele, vei putea verifica aceste alegeri.
               ready: 'Aici ai opțiunea de a verifica alegerile. Întâi, trebuie să descarci fișierul și să te asiguri că nu a fost corupt. Pentru a face asta, execută următoarea comandă și verifică dacă rezultatul corespunde cu suma de control:'
             how_to_verify: 'Odată ce ai descărcat fișierul și te-ai asigurat că este în regulă, poți continua pornind verificatorul universal. Clonează <a href=''https://github.com/decidim/decidim-bulletin-board''>acestă arhivă</a> și, din dosarul rădăcină, rulează comanda următoare:'
             title: Verifică rezultatele alegerilor
