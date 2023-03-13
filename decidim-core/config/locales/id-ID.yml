@@ -495,8 +495,6 @@ id:
       value: Nilai
     followers:
       no_followers: Belum ada pengikut.
-    following:
-      no_followings: Tidak mengikuti siapa pun atau apa pun.
     follows:
       create:
         button: Mengikuti
@@ -518,7 +516,6 @@ id:
           description_own: "%{score} pengguna mengikuti Anda."
           name: Pengikut
           next_level_in: Dapatkan %{score} lebih banyak pengguna untuk mengikuti Anda untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum memiliki pengikut.
           unearned_own: Anda belum punya pengikut.
         index:
           badge_title: "%{name} lencana"
@@ -604,7 +601,6 @@ id:
         create_user_group: Membuat grup
         new_user_group: Grup baru
         subtitle: Buat grup dan undang pengguna lain untuk bergabung untuk berpartisipasi dalam tingkat kolektif.
-      no_user_groups: Belum menjadi anggota grup apa pun.
       roles:
         admin: Administrator
         member: Anggota
@@ -646,8 +642,6 @@ id:
           not_found: 'Jenis ruang lingkup tidak ditemukan di database (ID: %{id})'
     managed_users:
       expired_session: Sesi peniruan saat ini telah kedaluwarsa.
-    members:
-      no_members: Kelompok pengguna ini belum memiliki anggota.
     menu:
       help: Membantu
       home: Rumah
@@ -871,7 +865,6 @@ id:
         already_reported: Konten ini sudah dilaporkan dan akan ditinjau oleh admin.
         close: Dekat
         description: Apakah konten ini tidak pantas?
-        does_not_belong: Berisi aktivitas ilegal, ancaman bunuh diri, informasi pribadi, atau hal lain yang menurut Anda bukan milik %{organization_name}.
         offensive: Berisi rasisme, seksisme, penghinaan, serangan pribadi, ancaman pembunuhan, permintaan bunuh diri atau segala bentuk pidato kebencian.
         report: Melaporkan
         spam: Berisi clickbait, iklan, penipuan, atau bot skrip.
@@ -906,7 +899,6 @@ id:
     user_interests:
       show:
         my_interests: Minat saya
-        no_scopes: Organisasi ini belum memiliki ruang lingkup!
         select_your_interests: Pilih topik yang Anda minati untuk menerima acara yang terkait dengan mereka di tab Kronologi profil Anda.
         update_my_interests: Perbarui minat saya
       update:
