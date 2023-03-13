@@ -473,6 +473,7 @@ cs:
           verifiable_results:
             checksum: 'Kontrolní součet SHA256 souboru:'
             description:
+              not_ready: Ověřitelný volební soubor a kontrolní součet SHA256 ještě nejsou k dispozici. Jakmile budou výsledky zveřejněny, budete moci tuto volbu ověřit.
               ready: 'Zde máte možnost ověřit volby. Nejprve musíte stáhnout soubor a ujistěte se, že nebyl poškozen. Chcete-li tak učinit, spusťte následující příkaz a zkontrolujte, zda se výstup shoduje s kontrolním součtem:'
             how_to_verify: 'Jakmile stáhnete soubor a ujistíte se, že je v pořádku, můžete pokračovat ve spuštění univerzálního ověřovače. Klonujte <a href=''https://github.com/decidim/decidim-bulletin-board''>tento repozitář</a> a z kořenové složky spusťte následující příkaz:'
             title: Ověřit výsledky voleb
@@ -1351,6 +1352,7 @@ cs:
       votings:
         access_code_modal:
           email: Poslat e-mailem na %{email}
+          info: K účasti potřebujete přístupový kód. Pokud jste ho nedostali poštou, můžeme Vám poslat nový.
           no_email: E-mail není k dispozici
           no_sms: Žádné telefonní číslo není k dispozici
           sms: Poslat SMS do %{sms}
