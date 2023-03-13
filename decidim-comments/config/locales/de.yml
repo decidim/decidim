@@ -45,7 +45,6 @@ de:
           body:
             label: Kommentar
             placeholder: Was denken Sie darüber?
-          form_error: Der Text ist erforderlich und darf nicht länger als %{length} Zeichen sein.
           submit: Senden
           user_group_id:
             label: Kommentieren als
@@ -84,9 +83,7 @@ de:
             offensive: Enthält Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jegliche Form von Hassreden.
             spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
           title: Ungeeigneten Inhalt melden
-        show_replies:
-          one: Antwort anzeigen
-          other: '%{count} Antworten anzeigen'
+        show_replies: '%{replies_count} Antworten anzeigen'
         single_comment_link_title: Link erhalten
       comment_order_selector:
         order:
@@ -167,6 +164,3 @@ de:
         description: Anzahl der von Benutzern generierten Kommentare
         object: Bemerkungen
         title: Bemerkungen
-  errors:
-    messages:
-      cannot_have_comments: kann keine Kommentare haben
