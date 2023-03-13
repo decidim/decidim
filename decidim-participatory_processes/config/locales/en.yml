@@ -378,6 +378,8 @@ en:
         related_assemblies: Related assemblies
     participatory_process_groups:
       content_blocks:
+        html:
+          name: HTML block
         html_1:
           name: First HTML block
         html_2:
@@ -449,6 +451,8 @@ en:
       content_blocks:
         highlighted_processes:
           name: Highlighted processes
+        related_processes:
+          name: Related processes
       index:
         title: Participatory processes
       last_activity:
@@ -525,7 +529,6 @@ en:
           active_step: Current phase
           more_info: More info
           more_info_about: More info about process %{resource_name}
-          see_all_activity: See all the activity
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
       process_header_steps:

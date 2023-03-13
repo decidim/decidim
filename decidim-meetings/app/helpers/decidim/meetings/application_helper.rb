@@ -77,6 +77,13 @@ module Decidim
       def iframe_embed_or_live_event_page?(meeting)
         %w(embed_in_meeting_page open_in_live_event_page).include? meeting.iframe_embed_type
       end
+
+      def apply_meetings_pack_tags
+        return unless respond_to?(:snippets)
+
+        snippets.add(:head, stylesheet_pack_tag("decidim_meetings", media: "all"))
+        snippets.add(:foot, javascript_pack_tag("decidim_meetings"))
+      end
     end
   end
 end

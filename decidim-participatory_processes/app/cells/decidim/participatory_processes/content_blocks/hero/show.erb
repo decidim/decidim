@@ -1,0 +1,17 @@
+<section <%= "style=\"background-image:url('#{image_path}');\"" if image_path.present? %> data-process-hero>
+  <div class="participatory-space__hero">
+    <div class="participatory-space__hero-text">
+      <h1 class="h1 text-5xl">
+        <%= title_text %>
+      </h1>
+      <p class="participatory-space__hero-slogan">
+        <% if has_hashtag? %>
+          <span>
+            <%= link_to "##{escaped_hashtag}", twitter_hashtag_url(escaped_hashtag), target: "_blank" %>
+          </span>
+        <% end %>
+        <%= subtitle_text %>
+      </p>
+    </div>
+  </div>
+</section>

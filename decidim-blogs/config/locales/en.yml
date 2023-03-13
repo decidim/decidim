@@ -50,6 +50,11 @@ en:
           create: "%{user_name} created the %{resource_name} blog post in %{space_name}"
           delete: "%{user_name} deleted the %{resource_name} blog post from %{space_name}"
           update: "%{user_name} updated the %{resource_name} blog post in %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Last published
+          name: Posts
+          see_all: See all posts
       last_activity:
         new_post: 'New post:'
       models:
