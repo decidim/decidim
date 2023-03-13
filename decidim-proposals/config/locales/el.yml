@@ -28,7 +28,6 @@ el:
       proposal_answer:
         answer: Απάντηση
       proposals_copy:
-        copy_proposals: Κατανοώ ότι αυτή η ενέργεια θα εισαγάγει όλες τις προτάσεις από το επιλεγμένο στοιχείο στο τρέχον και ότι αυτή η ενέργεια δεν μπορεί να αναιρεθεί.
         origin_component_id: Στοιχείο από το οποίο θα αντιγραφούν οι προτάσεις
       proposals_import:
         import_proposals: Εισαγωγή προτάσεων
@@ -622,8 +621,6 @@ el:
             valuator: Εκτιμητής
             valuators: Εκτιμητές
             votes: Ψήφοι
-      new:
-        limit_reached: Δεν μπορείτε να δημιουργήσετε νέες προτάσεις επειδή έχετε υπερβεί το όριο.
       participatory_text_proposal:
         alternative_title: Δεν υπάρχουν κείμενα συμμετοχής προς το παρόν
         buttons:
