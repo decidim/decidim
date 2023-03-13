@@ -257,7 +257,6 @@ el:
             registrations_count:
               one: Πραγματοποιήθηκε %{count} εγγραφή.
               other: Πραγματοποιήθηκαν %{count} εγγραφές.
-            reserved_slots_help: Αφήστε το στο 0 εάν δεν έχετε δεσμευμένες θέσεις
             reserved_slots_less_than: Πρέπει να είναι μικρότερο ή ίσο με %{count}
             title: Εγγραφές
           update:
