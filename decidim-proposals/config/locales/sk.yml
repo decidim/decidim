@@ -29,7 +29,6 @@ sk:
         cost_report: Výkazy nákladov
         execution_period: Časový rámec realizácie
       proposals_copy:
-        copy_proposals: Rozumiem, že toto importuje všetky návrhy z vybranej súčasti do aktuálnej, a že táto akcia nemôže byť vrátená.
         origin_component_id: Súčasť, z ktorej sa skopírujú návrhy
       proposals_import:
         import_proposals: Importovať návrhy
@@ -627,8 +626,6 @@ sk:
             valuator: Hodnotiteľ
             valuators: Hodnotitelia
             votes: Hlasy
-      new:
-        limit_reached: Nie je možné vytvoriť nové návrhy, pretože ste prekročili limit.
       participatory_text_proposal:
         alternative_title: Momentálne nie sú k dispozícii žiadne príspevky
         buttons:
