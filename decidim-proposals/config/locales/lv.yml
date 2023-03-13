@@ -26,7 +26,6 @@ lv:
       proposal_answer:
         answer: Atbilde
       proposals_copy:
-        copy_proposals: Es saprotu, ka tas importēs visus priekšlikumus no atlasītā komponenta uz pašreizējo un ka šo darbību nevar atsaukt.
         origin_component_id: Komponents, lai kopētu priekšlikumus no
       proposals_import:
         import_proposals: Importēt priekšlikumus
@@ -620,8 +619,6 @@ lv:
             valuator: Vērtētājs
             valuators: Vērtētāji
             votes: Balsis
-      new:
-        limit_reached: Jūs nevarat izveidot jaunus priekšlikumus, jo esat pārsniedzis limitu.
       participatory_text_proposal:
         alternative_title: Pašlaik nav neviena līdzdalības teksta
         buttons:
