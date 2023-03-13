@@ -13,7 +13,7 @@ module Decidim
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid.
-    # - :invalid if the form wasn't valid and we couldn't proceed.
+    # - :invalid if the form wasn't valid and we could not proceed.
     #
     # Returns nothing.
     def call
@@ -41,6 +41,7 @@ module Decidim
         nickname: form.nickname,
         password: form.password,
         password_confirmation: form.password_confirmation,
+        password_updated_at: Time.current,
         organization: form.current_organization,
         tos_agreement: form.tos_agreement,
         newsletter_notifications_at: form.newsletter_at,

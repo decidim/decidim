@@ -22,7 +22,7 @@ describe "Elections component" do # rubocop:disable RSpec/DescribeClass
       it "raises an error" do
         expect { subject.manifest.run_hooks(:before_destroy, subject) }.to raise_error(
           StandardError,
-          "Can't remove this component"
+          "Cannot remove this component"
         )
       end
     end
