@@ -669,8 +669,6 @@ pt:
         one: "%{count} seguidor"
         other: "%{count} seguidores"
       no_followers: Ainda não há seguidores.
-    following:
-      no_followings: Ainda não segue alguém ou algo.
     follows:
       create:
         button: Seguir
@@ -707,7 +705,6 @@ pt:
           description_own: "%{score} pessoas seguem-no(a)."
           name: Seguidores
           next_level_in: Obtenha mais %{score} pessoas para segui-lo(a) para alcançar o próximo nível!
-          unearned_another: Este participante ainda não possui seguidores.
           unearned_own: Ainda não tem seguidores.
         index:
           badge_title: "Distintivo %{name}"
@@ -793,7 +790,6 @@ pt:
         create_user_group: Criar grupo
         new_user_group: Novo grupo
         subtitle: Crie um grupo e convide outros utilizadores a aderir para participarem a um nível coletivo.
-      no_user_groups: Ainda não pertence a nenhum grupo.
       roles:
         admin: Administrador
         member: Membro
@@ -850,8 +846,6 @@ pt:
       static:
         latlng_text: 'latitude: %{latitude}, longitude: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Este grupo ainda não possui nenhum membro.
     menu:
       help: Ajuda
       home: Inicio
@@ -1176,7 +1170,6 @@ pt:
         already_reported: Este conteúdo já foi reportado e será revisto por um administrador.
         close: Fechar
         description: Este conteúdo é impróprio?
-        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que pense não pertencer a %{organization_name}.
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         reason: Motivo
         report: Reportar
@@ -1186,7 +1179,6 @@ pt:
         already_reported: Este conteúdo já foi denunciado e será revisto por um administrador.
         close: Fechar
         description: O que é inapropriado acerca do utilizador?
-        does_not_belong: Contém actividade ilegal, ameaças de suicídio, informações pessoais ou algo que acha que não pertence a %{organization_name}.
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer forma de discurso de ódio.
         report: Denuncie
         spam: Contém clickbait, publicidade, golpes ou bots de script.
@@ -1273,7 +1265,6 @@ pt:
     user_interests:
       show:
         my_interests: Os meus interesses
-        no_scopes: Esta organização ainda não possui nenhum âmbito!
         select_your_interests: Selecione os tópicos em que está interessado para receber eventos relacionados com eles no separador Cronograma do seu perfil.
         update_my_interests: Atualizar os meus interesses
       update:
