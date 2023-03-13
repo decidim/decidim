@@ -1,29 +1,31 @@
-<section id="highlighted_proposals" class="content-block">
-  <div class="content-block__title">
-    <h2 class="h2 decorator">
-      <%= translated_attribute(model.name) %>
-    </h2>
-    <div class="label text-lg"><%= proposals_count %></div>
-    <%= link_to main_component_path(model), class: "button button__sm button__text-secondary" do %>
+<div class="content-block__title">
+  <h2 class="h2 decorator">
+    <%= single_component? ? translated_attribute(model.name) : t("decidim.components.proposals.name") %>
+  </h2>
+  <div class="label text-lg"><%= proposals_count %></div>
+  <% if single_component? %>
+    <%= link_to decidim_proposals.root_path, class: "button button__sm button__text-secondary" do %>
       <span><%= t("decidim.participatory_spaces.highlighted_proposals.see_all") %></span>
       <%= icon "arrow-right-line" %>
     <% end %>
+  <% end %>
+</div>
+
+<div class="flex items-start justify-between">
+  <div class="grow space-y-6">
+    <span class="content-block__span">
+      <%= t("decidim.participatory_spaces.highlighted_proposals.last") %>
+    </span>
+
+    <% proposals_to_render.each do |p| %>
+      <%= card_for p %>
+    <% end %>
   </div>
 
-  <div class="flex items-start justify-between">
-    <div class="grow space-y-6">
-      <span class="content-block__span">
-        <%= t("decidim.participatory_spaces.highlighted_proposals.last") %>
-      </span>
-
-      <% proposals_to_render.each do |p| %>
-        <%= card_for p %>
-      <% end %>
-    </div>
-
-    <%= link_to main_component_path(model), class: "button button__sm md:button__lg button__secondary" do %>
+  <% if single_component? %>
+    <%= link_to decidim_proposals.new_proposal_path, class: "button button__sm md:button__lg button__secondary" do %>
       <span><%= t("decidim.proposals.actions.new") %></span>
       <%= icon "add-line" %>
     <% end %>
-  </div>
-</section>
+  <% end %>
+</div>

@@ -12,7 +12,7 @@ module Decidim::ParticipatoryProcesses
 
     context "when rendering" do
       it "renders the card" do
-        expect(subject).to have_css(".card--process")
+        expect(subject).to have_css(".card__grid")
       end
     end
   end

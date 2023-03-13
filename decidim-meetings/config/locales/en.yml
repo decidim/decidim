@@ -565,8 +565,6 @@ en:
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.
-      meetings_map:
-        view_meeting: View meeting
       models:
         invite:
           fields:

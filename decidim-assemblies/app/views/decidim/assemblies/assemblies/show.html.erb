@@ -24,6 +24,16 @@ edit_link(
     <% end %>
 
     <%= cell("decidim/announcement", current_participatory_space.announcement) %>
+
+    <%# REDESIGN_PENDING - This part requires a redesign and maybe moved to the metadata content block %>
+    <% if current_participatory_space.parent.present? %>
+      <div class="row">
+        <div class="small-12 columns">
+          <%= render partial: "decidim/assemblies/assemblies/nav_breadcrumb",
+            locals: { assemblies: current_participatory_space.ancestors.to_a } %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <section class="content-block assembly__content-block">
@@ -91,7 +101,9 @@ edit_link(
   <% end %>
 
   <% if current_participatory_space.show_statistics? %>
-    <%= cell "decidim/statistics", stats.collection %>
+    <section class="content-block" data-statistics>
+      <%= cell "decidim/statistics", stats.collection %>
+    </section>
   <% end %>
 
   <section class="content-block">
