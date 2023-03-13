@@ -74,7 +74,6 @@ pt:
           description: Este conteúdo é impróprio?
           details: Comentários adicionais
           reasons:
-            does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence a %{organization_name}.
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou robots de scripts.
           title: Reportar conteúdo impróprio
