@@ -301,8 +301,6 @@ id:
           success_html: Selamat! Inisiatif <strong> %{title}</strong> telah ditandatangani dengan benar
         personal_data:
           invalid: Data pribadi tidak konsisten dengan data yang diberikan untuk otorisasi.
-        sms_code:
-          invalid: Kode verifikasi Anda tidak cocok dengan kode kami. Harap periksa ulang SMS yang kami kirimkan kepada Anda.
         sms_phone:
           invalid: Nomor telepon tidak valid atau menunggu otorisasi. Silakan periksa otorisasi Anda.
       initiatives:
