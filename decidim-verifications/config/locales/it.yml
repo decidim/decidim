@@ -248,7 +248,6 @@ it:
           edit:
             confirm_destroy: Sei sicuro di voler resettare il codice di verifica?
             destroy: Reimposta il codice di verifica
-            resend: Non hai ricevuto il codice di verifica?
             send: Confermare
             title: Inserisci il codice di verifica che hai ricevuto
           new:
