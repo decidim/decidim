@@ -31,7 +31,6 @@ ar:
         cost_report: تقرير التكلفة
         execution_period: فترة التنفيذ
       proposals_copy:
-        copy_proposals: أدرك أن هذا سيؤدي إلى استيراد جميع المقترحات من المكون المحدد إلى المكون الحالي وأنه لا يمكن عكس هذا الإجراء.
         origin_component_id: مكون لنسخ المقترحات من
       proposals_import:
         import_proposals: مقترحات الاستيراد
@@ -795,8 +794,6 @@ ar:
             valuator: مُقيِّم
             valuators: المُقيِّمون
             votes: الأصوات
-      new:
-        limit_reached: لا يمكنك إنشاء مقترحات جديدة لأنك تجاوزت الحد.
       participatory_text_proposal:
         alternative_title: لا توجد نصوص تشاركية في الوقت الحالي
         buttons:
