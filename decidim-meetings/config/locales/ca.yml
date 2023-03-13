@@ -52,10 +52,6 @@ ca:
         code: Codi
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Aquesta adreça URL no es pot incrustar a la pàgina de la trobada o de l'esdeveniment en directe
         meeting_agenda:
           attributes:
             base:
@@ -286,15 +282,11 @@ ca:
             filter_by: Filtra per
             invite_attendee: Convidar assistent
             invites: Invitacions
-            registrations_disabled: No pots convidar a una assistent perquè les inscripcions estan inhabilitades.
             search: Cerca
         meeting_closes:
           edit:
             close: Tancar
             title: Tancar trobada
-        meeting_copies:
-          form:
-            select_a_meeting_type: Si us plau, selecciona un tipus de trobada
         meetings:
           close:
             invalid: S'ha produït un error en tancar aquesta trobada
