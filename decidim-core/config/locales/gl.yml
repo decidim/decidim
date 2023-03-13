@@ -544,7 +544,6 @@ gl:
     followers:
       no_followers: Aínda non hai seguidores.
     following:
-      no_followings: Aínda non segue a ninguén nin a nada.
       non_public_followings: Algúns dos recursos seguidos non son públicos.
     follows:
       create:
@@ -585,7 +584,6 @@ gl:
           description_own: "%{score} seguidores están seguindo."
           name: Seguidores
           next_level_in: Obteña máis de %{score} usuarios que che sigan para chegar ao seguinte nivel.
-          unearned_another: Este usuario aínda non ten ningún seguidor.
           unearned_own: Aínda non tes followers.
         index:
           badge_title: "%{name} insignia"
@@ -671,7 +669,6 @@ gl:
         create_user_group: Crear grupo
         new_user_group: Novo grupo
         subtitle: Crea un grupo e invita a outros usuarios a participar para participar a nivel colectivo.
-      no_user_groups: Aínda non pertence a ningún grupo.
       roles:
         admin: Administrador
         member: Membro
@@ -721,8 +718,6 @@ gl:
           not_found: 'Non se atopou o tipo de alcance na base de datos (ID: %{id})'
     managed_users:
       expired_session: A sesión de suplantación actual caducou.
-    members:
-      no_members: Este grupo de usuarios aínda non ten ningún membro.
     menu:
       help: Axuda
       home: Inicio
@@ -957,7 +952,6 @@ gl:
         already_reported: Este contido xa se informou e será revisado por un administrador.
         close: Pechar
         description: Este contido é inapropiado?
-        does_not_belong: Contén actividades ilegais, ameazas de suicidio, información persoal ou outra cousa que pensas que non pertence a %{organization_name}.
         offensive: Contén racismo, sexismo, abuso, ataques persoais, ameazas de morte, solicitudes de suicidio ou calquera tipo de discurso de odio.
         reason: Motivo
         report: Informe
@@ -1010,7 +1004,6 @@ gl:
     user_interests:
       show:
         my_interests: Os meus intereses
-        no_scopes: Esta organización aínda non ten ningún alcance.
         select_your_interests: Selecciona os temas que che interesan para recibir eventos relacionados con eles na pestana Timeline do teu perfil.
         update_my_interests: Actualiza os meus intereses
       update:
