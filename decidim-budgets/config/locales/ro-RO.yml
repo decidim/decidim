@@ -157,7 +157,6 @@ ro:
         vote: Votează
         voted_on: Ai votat pentru %{links}
       limit_announcement:
-        cant_vote: Nu poți vota pentru acest buget. <a href="%{landing_path}">Încearcă un alt buget</a>.
         limit_reached: Ai voturi active în %{links}. Pentru a vota în acest buget, trebuie <a href="%{landing_path}">să ștergi votul și să reiei procesul</a>.
       models:
         budget:
