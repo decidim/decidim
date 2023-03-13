@@ -228,9 +228,6 @@ ca:
           success: La fase del procés participatiu s'ha creat correctament.
         default_title: Introducció
         destroy:
-          error:
-            active_step: No es pot eliminar la fase activa.
-            last_step: No es pot eliminar l'última fase d'un procés.
           success: La fase del procés participatiu s'ha eliminat correctament.
         edit:
           title: Edita fase de procés participatiu
