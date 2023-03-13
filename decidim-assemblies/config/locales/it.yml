@@ -422,9 +422,6 @@ it:
         related_assemblies: Assemblee collegate
     statistics:
       assemblies_count: Assemblee
-  errors:
-    messages:
-      cannot_be_blank: non può essere vuoto
   layouts:
     decidim:
       assemblies:
