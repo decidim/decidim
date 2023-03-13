@@ -179,7 +179,6 @@ ja:
         users_registration_mode:
           disabled: 外部アカウントでのみアクセスできます
           enabled: 参加者に登録とログインを許可する
-          existing: 参加者が登録することはできませんが、既存の参加者がログインできるようにします
       shared:
         notices:
           no_organization_warning_html: 開始するには組織を作成する必要があります。先に進む前に %{guide} を読んでください。
