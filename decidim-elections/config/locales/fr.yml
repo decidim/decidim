@@ -795,7 +795,6 @@ fr:
               new: Nouveau
               title: Actions
             associated_census_data: Entrées de recensement associées
-            explanation_callout: Un style de bulletin spécifie quelles questions seront présentées aux électeurs dans le stand. Dans un style de bulletin, vous pouvez choisir quelles questions de la fonctionnalité Élection de ce vote appartiennent à un bulletin de vote. Le code de style de bulletin est utilisé pour faire correspondre un électeur du recensement avec le bulletin de vote qui lui sera présenté dans l'isoloir. Ne créez pas de style de vote si vous voulez présenter toutes les questions.
             title: Styles de bulletin
           new:
             create: Créer
@@ -1033,7 +1032,6 @@ fr:
             invalid: Une erreur s'est produite lors de la création de cette élection
             success: Élection créée avec succès
           edit:
-            add_election_component: Vous n'avez aucune élection configurée pour ce vote. Veuillez en créer une dans la section Fonctionnalités
             assign_missing_officers: Il reste des bureaux de votes sans président et/ou directeurs. Veuillez lier ces derniers à partir de la section Bureaux de votes
             update: Mettre à jour
           form:
@@ -1342,7 +1340,6 @@ fr:
           success:
             access_link: par email.
             access_link_with_sms: par SMS ou e-mail.
-            info: Vous devriez déjà avoir reçu votre code d'accès par courrier postal. Si vous ne l'avez pas, vous pouvez le demander ici
             title: Vos données de recensement sont correctes!
           title: Puis-je voter ?
         check_fields:
@@ -1388,7 +1385,6 @@ fr:
           access_code: Code d'accès
           access_code_placeholder: Code d'accès
           ask_for_a_new_one: Demander un nouveau.
-          dont_have_access_code: Vous n'avez pas de code d'accès?
           form_title: 'Remplissez le formulaire suivant pour accéder au vote :'
           start_voting: Commencer à voter
           step: Identification
