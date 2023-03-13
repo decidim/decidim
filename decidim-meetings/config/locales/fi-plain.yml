@@ -52,6 +52,10 @@ fi-pl:
         code: Koodi
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Tätä URL-osoitetta ei voi upottaa tapaamisen sivulle tai reaaliaikaisen tapahtuman sivulle
         meeting_agenda:
           attributes:
             base:
@@ -188,6 +192,9 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat tapahtumaa "%{resource_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: Tapahtuman "%{resource_title}" alkuun on alle 48 tuntia.
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
+    forms:
+      meetings:
+        attendees_count_help_text: Älä unohda merkitä tapaamisesi osallistujien kokonaismäärää, olipa kyse fyysisestä, verkko- tai hybriditapaamisesta.
     gamification:
       badges:
         attended_meetings:
@@ -199,6 +206,7 @@ fi-pl:
           name: Tapahtumiin osallistuminen
           next_level_in: Osallistu %{score} uuteen tapahtumaan seuraavan tason saavuttamiseksi!
           unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapahtumaan.
+          unearned_own: Et ole vielä osallistunut yhteenkään tapaamiseen.
     meetings:
       actions:
         agenda: Esityslista
@@ -278,6 +286,7 @@ fi-pl:
             filter_by: Rajaa hakua
             invite_attendee: Kutsu osallistuja
             invites: Kutsut
+            registrations_disabled: Et voi kutsua osallistujaa, koska ilmoittautumiset on poistettu käytöstä.
             search: Hae
         meeting_closes:
           edit:
@@ -357,6 +366,7 @@ fi-pl:
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
               other: Tapahtumaan on %{count} ilmoittautumista.
+            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
             title: Rekisteröitymiset
           update:
