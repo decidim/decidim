@@ -548,14 +548,11 @@ eu:
               generate_legend: Bozketan bermatzaile gisa parte hartzeko, identifikatzeko gako pare bat sortu behar duzu.
               generate_legend_1: Botoia sakatu ondoren sortutako identifikatzeko gakoak dituen artxiboa deskargatu behar duzu.
               generate_legend_2: Kopiatu deskargatutako artxiboa USB gailu garbi batean
-              generate_legend_3: Ziurtatu zure ekipoak ez duela fitxategiaren kopiarik (adibidez, egiaztatu Deskargak eta Mahaigaina karpetak).
               generate_legend_4: Egin beste kopia bat kanpoko beste gailu batean, eta gorde oso leku seguruan.
               submit: Bidali
               submit_title: Bidali identifikatzeko gako publikoa
               title: Bermatzailearen identifikazio-gakoak
               upload: Igo zure identifikazio-gakoak
-              upload_error:
-                invalid_format: Igotako artxiboak ez du identifikazio-gakorik.
             not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
             trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
           update:
@@ -1035,7 +1032,6 @@ eu:
             subject: Bozketan sartzeko kodeen esportazioa %{voting_title} rako prest dago
         vote_flow:
           already_voted_in_person: Parte-hartzaile honek jada eman du botoa aurrez aurre eta ez du bozkatzeko eskubiderik.
-          datum_not_found: Sartutako datuak ez datoz bat parte-hartzaile batekin ere ez.
       content_blocks:
         highlighted_votings:
           name: Bozketa nabarmenduak
@@ -1078,7 +1074,6 @@ eu:
             info_text: Mesedez, sartu erantzun kopurua galdera bakoitzerako.
             modal_ballots_results_count_error:
               close_modal: Itxi
-              info_text: Boto-paperen kopuru osoa ez dator bat gutun-azalen kopuru osoarekin. Mesedez, berrikusi boto-txartel guztiak.
               title: Boto-paperen kopuru osoa ez dator bat
             save_recount: Gorde zenbaketa
             total_ballots: Boto-paperak, guztira
@@ -1092,7 +1087,6 @@ eu:
             modal_ballots_count_error:
               btn_validate_total: Baliozkotu boto-paperen zenbaketa osoa
               close_modal: Itxi
-              info_text: Sartutako boto-paperen kopurua (gutun-azalak) gutira, ez dator bat bozketa-gune honetan botoa eman duten pertsonen erregistroarekin.
               message_for_monitoring_committee: Mezua Jarraipen Batzordearentzat
               review_recount: Berrikusi zenbaketa
               text_area_placeholder: Mesedez, idatzi zure mezua
