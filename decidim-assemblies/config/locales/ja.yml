@@ -441,9 +441,6 @@ ja:
         related_assemblies: 関連する参加スペース
     statistics:
       assemblies_count: 参加スペース
-  errors:
-    messages:
-      cannot_be_blank: 空白にできません
   layouts:
     decidim:
       assemblies:
