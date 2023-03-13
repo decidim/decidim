@@ -126,6 +126,9 @@ es-PY:
       admin_log:
         questionnaire:
           update: "%{user_name} actualizó el cuestionario %{resource_name}"
+      errors:
+        answer:
+          body: El campo no puede estar en blanco
       images:
         dimensions: "%{width} x %{height} px"
         processors:
