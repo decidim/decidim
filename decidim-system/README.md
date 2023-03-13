@@ -27,9 +27,9 @@ When using Decidim as multi-tenant, you should keep these in mind:
 
 * All organizations share the same database.
 * Each organization must have a different hostname.
-* Users aren't shared between each organization (the same email can be registered in different organizations and it will be considered as different users).
+* Users are not shared between each organization (the same email can be registered in different organizations and it will be considered as different users).
 * All configuration related to Decidim (`Decidim.config`) is shared between the organizations.
-* Stylesheets aren't customizable per-tenant so UI styles (colors and other variables) are shared.
+* Stylesheets are not customizable per-tenant so UI styles (colors and other variables) are shared.
 
 ## Glossary
 

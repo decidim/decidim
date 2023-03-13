@@ -270,7 +270,7 @@ en:
           edit:
             confirm_destroy: Are you sure you want to reset the verification code?
             destroy: Reset verification code
-            resend: Didn't receive the verification code?
+            resend: Did not receive the verification code?
             send: Confirm
             title: Introduce the verification code you received
           new:
