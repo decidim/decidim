@@ -235,7 +235,6 @@ cs:
           name: Debaty
           next_level_in: Zúčastněte se dalších %{score} debat, abyste dosáhli další úrovně!
           unearned_another: Tento účastník se dosud nezúčastnil žádné debaty.
-          unearned_own: Zatím jste se nezúčastnili žádné debaty.
     metrics:
       debates:
         description: Počet vytvořených debat
