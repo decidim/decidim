@@ -597,8 +597,6 @@ sk:
       value: Hodnota
     followers:
       no_followers: Zatiaľ žiadni sledujúci.
-    following:
-      no_followings: Nesleduje nikoho ani nič.
     follows:
       create:
         button: Sledovať
@@ -623,7 +621,6 @@ sk:
           description_own: "%{score} ľudí Vás sleduje."
           name: Sledujúci
           next_level_in: Pre dosiahnutie ďalšej úrovne Vás musí sledovať o %{score} ľudí viac!
-          unearned_another: Tento účastník zatiaľ nemá žiadnych sledovateľov.
           unearned_own: Zatiaľ nemáte žiadnych sledovateľov.
         index:
           badge_title: "%{name} odznak"
@@ -709,7 +706,6 @@ sk:
         create_user_group: Vytvořit skupinu
         new_user_group: Nová skupina
         subtitle: Vytvořte skupinu a pozvěte ostatní uživatele, aby se připojili, abyste se mohli podílet na kolektivní úrovni.
-      no_user_groups: Nepatří do žádné skupiny.
       roles:
         admin: Správca
         member: Člen
@@ -751,8 +747,6 @@ sk:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
     managed_users:
       expired_session: Aktuálna platnosť zosúhlasenia už vypršala.
-    members:
-      no_members: Táto skupina užívateľov zatiaľ nemá žiadneho člena.
     menu:
       help: Pomoc
       home: Domov
@@ -1011,7 +1005,6 @@ sk:
         already_reported: Tento obsah je už nahlásený a bude kontrolovaný administrátorom.
         close: Zavrieť
         description: Je tento obsah nevhodný?
-        does_not_belong: Obsahuje nezákonnú činnosť, samovražedné hrozby, osobné informácie alebo niečo iné, o ktorom si myslíte, že nepatrí na%{organization_name}.
         offensive: Obsahuje rasizmus, sexizmus, podvody, osobné útoky, hrozby smrti, žiadosti o samovraždu alebo akúkoľvek formu prejavy nenávisti.
         report: Správa
         spam: Obsahuje clickbait, reklama, podvody alebo skripty.
@@ -1048,7 +1041,6 @@ sk:
     user_interests:
       show:
         my_interests: Moje záujmy
-        no_scopes: Táto organizácia ešte nemá priestor.
         select_your_interests: Vyberte témy, ktoré vás zaujímajú, aby ste mohli prijímať udalosti, ktoré s nimi súvisia, na karte Časová os profilu.
         update_my_interests: Aktualizujte svoje záujmy
       update:
