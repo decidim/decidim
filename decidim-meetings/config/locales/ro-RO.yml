@@ -193,7 +193,6 @@ ro:
           name: Întâlniri la care ai participat
           next_level_in: Participă la încă %{score} întâlniri pentru a atinge următorul nivel!
           unearned_another: Acest participant nu a participat încă la nicio întâlnire.
-          unearned_own: Încă nu ai participat la nicio ședință.
     meetings:
       actions:
         agenda: Agendă
