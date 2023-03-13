@@ -248,7 +248,6 @@ nl:
           edit:
             confirm_destroy: Weet je zeker dat je de verificatiecode opnieuw wilt instellen?
             destroy: Verificatiecode opnieuw instellen
-            resend: Geen verificatiecode ontvangen?
             send: Bevestigen
             title: Voer de verificatiecode in die u heeft ontvangen
           new:
