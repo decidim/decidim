@@ -54,12 +54,6 @@ fr:
           attributes:
             attachment:
               needs_to_be_reattached: Doit être téléchargé de nouveau
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: ne peut pas être modifié
-            public_key:
-              cant_be_changed: ne peut être modifiée
         voting:
           attributes:
             voting_type:
@@ -333,7 +327,6 @@ fr:
             continue: Continuer
             invalid: Une erreur est survenue lors du signalement du garant absent
             mark_as_missing: Marquer comme absent
-            mark_as_missing_description: Tout les garants doivent participer au processus, mais si un garant ne peut y prendre part, vous pouvez le marquer comme absent.
             success: Le signalement du garant absent a été envoyé avec succès sur le Tableau d'Affichage
             tally_completion: Le processus sera terminé lorsque tout les garants seront marqués comme actifs ou absents. Au moins %{quorum} garants sont requis pour compléter le processus.
             title: Dépouillement
@@ -638,10 +631,8 @@ fr:
               upload: Téléchargez vos clés d'identification
               upload_error:
                 invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
-                invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
                 invalid_public_key: Les clés d'identification dans le fichier téléchargé ne correspondent pas à la clé d'identification publique stockée.
               upload_legend: Le serveur a vos clés d'identification publiques, mais votre navigateur ne les a toujours pas. Vous devez importer le fichier avec vos clés d'identification sur votre ordinateur à partir de la sauvegarde que vous avez créée après leur génération.
-            not_supported_browser_description: On dirait que vous utilisez un navigateur Web qui ne peut pas être utilisé pour agir en tant que garant. Assurez-vous d'utiliser la version la plus récente de votre navigateur, ou essayez d'utiliser l'un des navigateurs les plus populaires pour accomplir vos tâches de garant.
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
             trustee_role_description: Vous avez été assigné à agir en tant que garant lors de certaines des élections mises en place sur cette plateforme.
           update:
@@ -1243,10 +1234,8 @@ fr:
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
             heading: Recomptage des voix - Signer la fermeture
-            info_text: Si vous continuez, vous ne pouvez plus modifier aucune des informations, cette action ne peut pas être annulée.
             submit: Signer la fermeture
             success: Fermeture signée avec succès.
-            title: Cette action ne peut pas être annulée
           update:
             error: Une erreur s'est produite lors de la mise à jour des résultats de fermeture, veuillez réessayer plus tard.
             success: Résultats de fermeture mis à jour avec succès.
