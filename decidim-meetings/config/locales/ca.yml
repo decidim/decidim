@@ -52,6 +52,10 @@ ca:
         code: Codi
     errors:
       models:
+        meeting:
+          attributes:
+            iframe_embed_type:
+              not_embeddable: Aquesta adreça URL no es pot incrustar a la pàgina de la trobada o de l'esdeveniment en directe
         meeting_agenda:
           attributes:
             base:
@@ -188,6 +192,9 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
           notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
+    forms:
+      meetings:
+        attendees_count_help_text: No t'oblidis d'afegir el número total d'assistents a la trobada, sigui presencial, en línia o híbrida.
     gamification:
       badges:
         attended_meetings:
@@ -199,6 +206,7 @@ ca:
           name: Trobades a les que has assistit
           next_level_in: Assisteix a més de %{score} reunions per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha assistit a cap trobada.
+          unearned_own: Encara no has assistit a cap reunió.
     meetings:
       actions:
         agenda: Ordre del dia
@@ -278,6 +286,7 @@ ca:
             filter_by: Filtra per
             invite_attendee: Convidar assistent
             invites: Invitacions
+            registrations_disabled: No pots convidar a cap persona perquè les inscripcions estan inhabilitades.
             search: Cerca
         meeting_closes:
           edit:
@@ -357,6 +366,7 @@ ca:
             registrations_count:
               one: Hi ha hagut %{count} inscripció.
               other: Hi ha hagut %{count} inscripcions.
+            reserved_slots_help: Deixar a 0 si no hi ha espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
             title: Inscripcions
           update:
