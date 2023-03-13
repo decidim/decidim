@@ -404,6 +404,7 @@ ja:
           ok: OK
           title: 権限がありません
         unconfirmed:
+          confirmation_instructions: '確認手順を受け取っていない場合は、再度要求することができます:'
           explanation_html: この操作を行うには、承認が必要です。その前に、メールアドレス <strong>%{email}</strong> を確認する必要があります。
           request_confirmation_instructions: 確認手順をリクエストする
           title: メールアドレスを確認してください
@@ -553,13 +554,6 @@ ja:
             check: 確認して続ける
             close_modal: モーダルを閉じる
             uncheck: チェックを外してください
-          notice: |-
-            <p>本当にニュースレターを購読しなくて良いですか？<br>
-            ニュースレターのチェックボックスを是非オンにしてください。<br>
-            重要なお知らせメールを受け取ってもらうことは、私たちにとって非常に重要なことです。通知設定ページでいつでもこれを変更することができます。</p>
-            <p>ボックスにチェックを入れないと、プラットフォーム内での新しい参加機会についての関連情報を見逃してしまう可能性があります。<br>
-            それでもニュースレターの受信を避けたい場合は、私たちはその決定を尊重します。 </p>
-            <p>読んでくれてありがとうございます！</p>
           title: ニュースレター通知
         omniauth_buttons:
           or: または
@@ -1172,7 +1166,6 @@ ja:
     notifications_settings:
       show:
         administrators: 管理者
-        allow_public_contact: フォローしていない人からもダイレクトメッセージを受信する
         allow_push_notifications: プッシュ通知を取得して、プラットフォームにいないときの動作を確認します。いつでもオフにすることができます。
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
@@ -1601,9 +1594,6 @@ ja:
         accept_until: この招待は %{due_date}後に期限が切れます。
         decline: 招待を拒否
         hello: こんにちは、 %{email} さん。
-        ignore: |-
-          招待を受け入れたくない場合は、このメールを無視してください。<br />
-          上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
         invited_you_as_private_user: "%{invited_by} が %{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。"
         someone_invited_you: 誰かが %{application}にあなたを招待しました。以下のリンクから受け入れることができます。
