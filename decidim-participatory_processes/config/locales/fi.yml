@@ -228,6 +228,9 @@ fi:
           success: Osallistumisprosessin vaiheen luonti onnistui.
         default_title: Johdanto
         destroy:
+          error:
+            active_step: Aktiivista vaihetta ei voi poistaa.
+            last_step: Prosessin viimeistä vaihetta ei voi poistaa.
           success: Osallistumisprosessin vaiheen poisto onnistui.
         edit:
           title: Muokkaa osallistumisprosessin vaihetta
