@@ -24,7 +24,7 @@ describe "Space admin manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
-  context "when the user didn't accepted the admin ToS" do
+  context "when the user did not accepted the admin ToS" do
     before do
       user.update(admin_terms_accepted_at: nil)
       visit decidim_admin.moderations_path

@@ -54,7 +54,7 @@ module Decidim
         end
       end
 
-      context "when there aren't any changes" do
+      context "when there are not any changes" do
         let(:previously_allowing_creation) { true }
         let(:currently_allowing_creation) { true }
 

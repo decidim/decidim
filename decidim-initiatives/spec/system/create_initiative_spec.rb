@@ -67,7 +67,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they need to verify" do
@@ -118,7 +118,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when they aren't logged in" do
+      context "when they are not logged in" do
         let(:login) { false }
 
         it "they need to login in" do
@@ -153,7 +153,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they are shown an error" do
@@ -216,7 +216,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they need to verify" do
@@ -270,7 +270,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when they aren't logged in" do
+      context "when they are not logged in" do
         let(:login) { false }
 
         it "they need to login in" do
@@ -305,7 +305,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they are shown an error" do
