@@ -138,6 +138,8 @@ zh-TW:
       admin_log:
         result:
           create: "%{user_name} 建立結果 %{resource_name} 在 %{space_name}"
+          delete: "%{user_name} 刪除了 %{resource_name} 在 %{space_name} 的結果"
+          update: "%{user_name} 更新了 %{resource_name} 在 %{space_name} 的結果"
       models:
         timeline_entry:
           fields:
