@@ -226,7 +226,6 @@ tr:
             filter_by: Tarafından filtre
             invite_attendee: Katılımcı davet et
             invites: Davetler
-            registrations_disabled: Kayıtları devre dışı bırakıldığı için bir katılımcı davet edemezsiniz.
             search: Arama
         meeting_closes:
           edit:
