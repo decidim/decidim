@@ -194,9 +194,6 @@ cs:
           email_outro: Toto upozornění jste obdrželi, protože postupujete po schůzce "%{resource_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Schůzka "%{resource_title}" začne za méně než 48 hodin.
           notification_title: Setkání <a href="%{resource_path}">%{resource_title}</a> bude zahájeno za méně než 48 hodin.
-    forms:
-      meetings:
-        attendees_count_help_text: Nezapomeňte uvést celkový počet účastníků na vaší schůzce, ať už osobní, online nebo smíšené.
     gamification:
       badges:
         attended_meetings:
@@ -372,7 +369,6 @@ cs:
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
-            reserved_slots_help: Nechte ji na 0, pokud nemáte vyhrazené sloty
             reserved_slots_less_than: Musí být menší nebo rovno %{count}
             title: Registrace
           update:
