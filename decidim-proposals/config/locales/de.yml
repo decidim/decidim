@@ -31,7 +31,6 @@ de:
         cost_report: Kostenbericht
         execution_period: Ausführungszeitraum
       proposals_copy:
-        copy_proposals: Ich verstehe, dass dies alle Vorschläge von der ausgewählten Komponente in die aktuelle Komponente importiert und dass diese Aktion nicht rückgängig gemacht werden kann.
         origin_component_id: Komponente zum Kopieren der Vorschläge aus
       proposals_import:
         import_proposals: Vorschläge importieren
@@ -708,8 +707,6 @@ de:
             valuator: Schätzer
             valuators: Schätzer
             votes: Stimmen
-      new:
-        limit_reached: Sie können keine neuen Vorschläge erstellen, da Sie das Maximum erreicht haben.
       participatory_text_proposal:
         alternative_title: Momentan gibt es keine Mitmachtexte
         buttons:
