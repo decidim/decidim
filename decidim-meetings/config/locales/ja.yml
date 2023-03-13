@@ -52,10 +52,6 @@ ja:
         code: コード
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: このURLはミーティングまたはライブイベントページに埋め込むことができません
         meeting_agenda:
           attributes:
             base:
@@ -282,15 +278,11 @@ ja:
             filter_by: フィルター
             invite_attendee: 参加者を招待
             invites: 招待
-            registrations_disabled: 登録が無効になっているため、参加者を招待することはできません。
             search: 検索
         meeting_closes:
           edit:
             close: 閉じる
             title: ミーティングを閉じる
-        meeting_copies:
-          form:
-            select_a_meeting_type: ミーティング種別を選択してください
         meetings:
           close:
             invalid: このミーティングを終了する際に問題が発生しました
