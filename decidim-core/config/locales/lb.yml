@@ -666,8 +666,6 @@ lb:
       value: Wäert
     followers:
       no_followers: Bis elo keng Follower.
-    following:
-      no_followings: Geet bis elo kenger Ressource no.
     follows:
       create:
         button: Nogoen
@@ -704,7 +702,6 @@ lb:
           description_own: "%{score} Benotzer ginn dir no."
           name: Unhänger
           next_level_in: Kréi méi %{score} Benotzer dozou dir nozegoen, fir den nächsten Level ze erreechen!
-          unearned_another: Dësen Benotzer huet bis elo nach keng Unhänger.
           unearned_own: Du hues bis elo nach keng Follower.
         index:
           badge_title: "%{name} Ofzeechen"
@@ -790,7 +787,6 @@ lb:
         create_user_group: Grupp erstellen
         new_user_group: Neien Grupp
         subtitle: Erstell e Grupp a luet aner Benotzer an, op engem kollektiven Level matzemaachen.
-      no_user_groups: Gehéiert nach kengem Grupp un.
       roles:
         admin: Administrateur
         member: Member
@@ -847,8 +843,6 @@ lb:
       static:
         latlng_text: 'Breedegrad:%{latitude}, Längegrad:%{longitude}'
         map_service_brand: Stroosse-Kaart opmaachen
-    members:
-      no_members: Dëse Grupp huet nach keng Memberen.
     menu:
       help: Hëllef
       home: Startsäit
@@ -1173,7 +1167,6 @@ lb:
         already_reported: Dësen Inhalt gouf scho gemellt an gëtt duerch en Admin nogekuckt.
         close: Zoumaachen
         description: Ass dësen Inhalt net zoulässeg?
-        does_not_belong: Enthält illegal Aktivitéit, Selbstmord-Dreeung, perséinlech Informatiounen oder soss Inhalter déi net an Verbindung zu %{organization_name} stinn.
         offensive: Enthält Rassismus, Sexismus, Verleumdung, perséinlechen Ugrëff, Doudesdreeung, Opfuerderung zu Selbstmord oder aner Formen vun Haassrieden.
         reason: Grond
         report: Bericht
@@ -1183,7 +1176,6 @@ lb:
         already_reported: Dësen Inhalt gouf scho gemellt an gëtt duerch en Admin nogekuckt.
         close: Zoumaachen
         description: Wat huet dësen Benotzer gemaach, wat net zoulässeg ass?
-        does_not_belong: Enthält illegal Aktivitéit, Selbstmord-Dreeung, perséinlech Informatiounen oder soss Inhalter déi net an Verbindung zu %{organization_name} stinn.
         offensive: Enthält Rassismus, Sexismus, Verleumdung, perséinlechen Ugrëff, Doudesdreeung, Opfuerderung zu Selbstmord oder aner Formen vun Haassrieden.
         report: Bericht
         spam: Enthält Klickbait, Reklamm, Bedruch oder Script-Bots.
@@ -1270,7 +1262,6 @@ lb:
     user_interests:
       show:
         my_interests: Meng Interessen
-        no_scopes: Dës Organisatioun huet nach keen Beräich!
         select_your_interests: Wiel Themen, déi dech interesséieren fir entspriechend Evenementer op denger Profil-Timeline ze kréien.
         update_my_interests: Interessen aktualiséieren
       update:
