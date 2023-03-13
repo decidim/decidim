@@ -749,8 +749,6 @@ hu:
       value: Érték
     followers:
       no_followers: Még nincs követőd.
-    following:
-      no_followings: Még nem követi senkit és semmit.
     follows:
       create:
         button: Követés
@@ -799,7 +797,6 @@ hu:
           description_own: "%{score} felhasználó követi Önt."
           name: Követő
           next_level_in: Szerezzen %{score} további embert, hogy kövesse Önt, így érheti el a következő szintet!
-          unearned_another: Ennek a felhasználónak még nincsenek követői.
           unearned_own: Még nincsenek követői.
         index:
           badge_title: "%{name} jelvény"
@@ -885,7 +882,6 @@ hu:
         create_user_group: Csoport létrehozása
         new_user_group: Új csoport
         subtitle: Hozz létre egy csoportot, és hívd meg a többi felhasználót, hogy vegyél részt közöségi szinten.
-      no_user_groups: Még nem tartozik semmiféle csoporthoz.
       roles:
         admin: Adminisztrátor
         member: Tag
@@ -935,8 +931,6 @@ hu:
       static:
         latlng_text: 'földrajzi szélesség: %{latitude}, földrajzi hosszúság: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Ennek a felhasználói csoportnak még nincs tagja.
     menu:
       help: Segítség
       home: Kezdőlap
@@ -1270,7 +1264,6 @@ hu:
         already_reported: Ezt a tartalmat már jelentették, az adminisztrátor éppen felülvizsgálja.
         close: Bezárás
         description: Sértő a tartalom?
-        does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, ami nem tartozik ide: %{organization_name}.'
         offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
         report: Jelentés
         spam: Klikkvadászat, reklám, átverés vagy script bot.
@@ -1343,7 +1336,6 @@ hu:
     user_interests:
       show:
         my_interests: Érdeklődési köreim
-        no_scopes: Ennek a szervezetnek még nincs hatóköre!
         select_your_interests: Válaszd ki a téged érdeklő témákat, hogy hozzájuss a hozzájuk kapcsolódó eseményekhez a profilod Idővonal lapján.
         update_my_interests: Érdeklődési köreim frissítése
       update:
