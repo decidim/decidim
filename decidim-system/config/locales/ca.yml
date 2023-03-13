@@ -179,7 +179,6 @@ ca:
         users_registration_mode:
           disabled: Només es port accedir amb comptes externs
           enabled: Permetre a les participants registrar-se i iniciar sessió
-          existing: No permetre que es registrin noves participants, però permetre que les participants existents iniciïn sessió
       shared:
         notices:
           no_organization_warning_html: Has de crear una organització per començar. Assegura't de llegir %{guide} abans de continuar.
