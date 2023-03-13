@@ -298,7 +298,6 @@ sk:
           ok: OK
           title: Neautorizovaný
         unconfirmed:
-          confirmation_instructions: 'Ak ste nedostali pokyny na potvrdenie, môžete ich požiadať znova:'
           explanation_html: Aby ste mohli vykonať túto akciu, musíte byť autorizovaní, pred tým musíte potvrdiť svoj email <strong>%{email} </strong>.
           request_confirmation_instructions: Požiadajte o pokyny pre potvrdenie
           title: Potvrdiť svoj email
@@ -312,7 +311,6 @@ sk:
       see_more: "(pozri ďalšie)"
     components:
       component_order_selector:
-        no_content: Nemôžeme nájsť žiadny obsah, ktorý by vyhovovali kritériám.
         order:
           all_types: Všetky typy
           collaborative_draft: Spoločný návrh
@@ -1141,7 +1139,6 @@ sk:
         action: Zmeňte heslo
         greeting: Dobrý deň, %{recipient}!
         instruction: Niekto požiadal o odkaz na zmenu hesla a môžete to vykonať pomocou nižšie uvedeného odkazu.
-        instruction_2: Ak ste o to nepožiadali, ignorujte tento e-mail.
         instruction_3: Vaše heslo sa nezmení, kým nevstúpite do vyššie uvedeného odkazu a vytvoríte nový.
         subject: Resetujte pokyny na zadanie hesla
       unlock_instructions:
@@ -1185,8 +1182,6 @@ sk:
     shared:
       links:
         back: Späť
-        didn_t_receive_confirmation_instructions: Nedostali ste pokyny na potvrdenie?
-        didn_t_receive_unlock_instructions: Nezískali ste pokyny k odomknutiu?
         forgot_your_password: Zabudli ste heslo?
         sign_in: Prihlásiť sa
         sign_in_with_provider: Prihlásiť sa cez%{provider}
