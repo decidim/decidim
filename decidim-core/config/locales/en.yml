@@ -416,7 +416,7 @@ en:
           resume: Check your "%{authorization}" authorization progress
           title: Authorization is still in progress
         unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          explanation: Sorry, you cannot perform this action as some of your authorization data doesn't match.
           invalid_field: "%{field} value %{value} is not valid."
           ok: Ok
           title: Not authorized
@@ -642,7 +642,7 @@ en:
       not_found:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.
-        title: The page you're looking for can't be found
+        title: The page you're looking for cannot be found
     events:
       amendments:
         amendment_accepted:
@@ -970,7 +970,7 @@ en:
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
         error: There was a problem leaving the group
-        last_admin: You can't remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
+        last_admin: You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
@@ -1108,7 +1108,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
-          deleted_accounts: You can't have a conversation with deleted accounts.
+          deleted_accounts: You cannot have a conversation with deleted accounts.
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
@@ -1526,7 +1526,7 @@ en:
         title_reply: Reply
       show:
         back: Show all conversations
-        deleted_accounts: You can't have a conversation with deleted accounts.
+        deleted_accounts: You cannot have a conversation with deleted accounts.
         not_allowed: This user does not accept any more direct messages.
         title: Conversation with %{usernames}
       update:
@@ -1680,7 +1680,7 @@ en:
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
-      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      no_token: You cannot access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
       send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
       send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
       updated: Your password has been successfully changed. You are now signed in.
@@ -1751,15 +1751,18 @@ en:
     messages:
       allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
       already_confirmed: was already confirmed, please try signing in
+      blank: cannot be blank
+      cannot_be_blank: cannot be blank
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
       content_type_allowlist_error: the file type is not valid
-      cycle_detected: a scope's parent can't be one of its descendants
+      cycle_detected: a scope's parent cannot be one of its descendants
+      empty: cannot be empty
       expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
       invalid_time_zone: is not a valid time zone
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
-      nesting_too_deep: can't be inside of a subcategory
+      nesting_too_deep: cannot be inside of a subcategory
       not_found: could not be found. Did you sign up previously?
       not_locked: was not locked
       not_saved:

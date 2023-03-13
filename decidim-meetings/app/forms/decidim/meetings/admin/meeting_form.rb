@@ -13,6 +13,7 @@ module Decidim
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
         attribute :registration_type, String
+        attribute :registrations_enabled, Boolean, default: false
         attribute :registration_url, String
         attribute :customize_registration_email, Boolean
         attribute :iframe_embed_type, String, default: "none"
@@ -130,6 +131,10 @@ module Decidim
               type
             ]
           end
+        end
+
+        def registrations_enabled
+          on_this_platform?
         end
 
         def embeddable_meeting_url

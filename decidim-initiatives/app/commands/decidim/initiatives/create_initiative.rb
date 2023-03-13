@@ -111,7 +111,7 @@ module Decidim
 
       def initialize_pages(component)
         Decidim::Pages::CreatePage.call(component) do
-          on(:invalid) { raise "Can't create page" }
+          on(:invalid) { raise "Cannot create page" }
         end
       end
 

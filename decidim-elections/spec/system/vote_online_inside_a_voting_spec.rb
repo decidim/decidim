@@ -130,7 +130,7 @@ describe "Vote online in an election inside a Voting", type: :system do
   end
 
   context "when the census data is not right" do
-    it "can't vote", :slow do
+    it "cannot vote", :slow do
       visit_component
       click_link translated(election.title)
       click_link "Start voting"

@@ -54,7 +54,7 @@ shared_examples "split proposals" do
         context "when splitting to the same component" do
           let!(:target_component) { current_component }
 
-          context "and the proposals can't be splitted" do
+          context "and the proposals cannot be splitted" do
             let!(:proposals) { create_list :proposal, 3, :with_endorsements, :with_votes, component: current_component }
 
             it "doesn't create a new proposal and displays a validation fail message" do

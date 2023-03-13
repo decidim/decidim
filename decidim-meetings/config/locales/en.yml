@@ -56,7 +56,7 @@ en:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: This URL can't be embedded in meeting or live event page
+              not_embeddable: This URL cannot be embedded in meeting or live event page
         meeting_agenda:
           attributes:
             base:
@@ -287,7 +287,7 @@ en:
             filter_by: Filter by
             invite_attendee: Invite attendee
             invites: Invites
-            registrations_disabled: You can't invite an attendee because the registrations are disabled.
+            registrations_disabled: You cannot invite an attendee because the registrations are disabled.
             search: Search
         meeting_closes:
           edit:

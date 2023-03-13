@@ -37,7 +37,7 @@ module Decidim
     #
     # It returns false when the resource or any element in the chain is a
     # `Decidim::Publicable` and it is not published or participatory_space
-    # is a `Decidim::Participable` and the user can't participate.
+    # is a `Decidim::Participable` and the user cannot participate.
     def notifiable?
       return false if resource.is_a?(Decidim::Publicable) && !resource.published?
       return false if participatory_space.is_a?(Decidim::Publicable) && !participatory_space&.published?

@@ -11,7 +11,7 @@ Decidim.register_component(:accountability) do |component|
   component.query_type = "Decidim::Accountability::AccountabilityType"
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Accountability::Result.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Accountability::Result.where(component: instance).any?
   end
 
   # These actions permissions can be configured in the admin panel
