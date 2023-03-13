@@ -31,7 +31,6 @@ nl:
         cost_report: Kostenrapport
         execution_period: Uitvoeringsperiode
       proposals_copy:
-        copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal verplaatsen naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
         origin_component_id: Onderdeel om de voorstellen te kopiëren van
       proposals_import:
         import_proposals: Voorstellen importeren
@@ -693,8 +692,6 @@ nl:
             valuator: Beoordelaar
             valuators: Beoordelaars
             votes: Stemmen
-      new:
-        limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.
       participatory_text_proposal:
         alternative_title: Er zijn op dit moment geen participatieve teksten
         buttons:
