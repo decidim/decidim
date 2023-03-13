@@ -31,6 +31,7 @@ fi:
         cost_report: Kustannusraportti
         execution_period: Toteutusjakso
       proposals_copy:
+        copy_proposals: Ymmärrän, että tämä tuo kaikki ideat valitusta komponentista tähän komponenttiin ja tätä toimintoa ei voi peruuttaa.
         origin_component_id: Osio josta ehdotukset kopioidaan
       proposals_import:
         import_proposals: Tuo ehdotuksia
@@ -757,6 +758,8 @@ fi:
             valuator: Arvioija
             valuators: Arvioijat
             votes: Äänet
+      new:
+        limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
       participatory_text_proposal:
         alternative_title: Ei osallistuvia tekstejä tällä hetkellä
         buttons:
