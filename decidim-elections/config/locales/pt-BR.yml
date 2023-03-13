@@ -370,7 +370,6 @@ pt-BR:
           verifiable_results:
             checksum: 'Verificação de arquivo SHA256:'
             description:
-              not_ready: O arquivo eleitoral verificável e o checksum SHA256 ainda não estão disponíveis. Assim que os resultados forem publicados, você poderá verificar esta eleição.
               ready: 'Aqui, você tem a opção de verificar as eleições. Primeiro, você precisa baixar o arquivo e ter certeza de que ele não foi corrompido. Para fazer isso, execute o seguinte comando e verifique se a saída corresponde ao checksum:'
             how_to_verify: 'Uma vez que você baixou o arquivo e tenha certeza que tudo está correto, você pode prosseguir para executar o verificador universal. Clonar <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositório</a> e, na pasta raiz, execute o seguinte comando:'
             title: Verificar resultados da eleição
@@ -1170,7 +1169,6 @@ pt-BR:
       votings:
         access_code_modal:
           email: Enviar por e-mail para %{email}
-          info: Você precisa de um Código de Acesso para participar. Se você não recebeu um por correio postal, podemos enviar um novo para você.
           no_email: Nenhum e-mail disponível
           no_sms: Nenhum número de telefone disponível
           sms: Enviar por SMS para %{sms}
