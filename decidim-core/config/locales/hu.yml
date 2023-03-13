@@ -409,7 +409,6 @@ hu:
           ok: Rendben
           title: Nem engedélyezett
         unconfirmed:
-          confirmation_instructions: 'Ha még nem kapta meg a megerősítési utasítást, kérheti újra őket:'
           explanation_html: Annak érdekében, hogy ezt a műveletet elvégezhesse, engedélyeznie kell, mielőtt ezt elvégezné, meg kell erősítenie az e-mail címét <strong>%{email}</strong>.
           request_confirmation_instructions: Kérjen megerősítési utasítást
           title: Erősítsd meg az e-mail címed
@@ -428,7 +427,6 @@ hu:
       see_more: "(tovább)"
     components:
       component_order_selector:
-        no_content: Nem találtunk a feltételeknek megfelelő tartalmat
         order:
           all_types: Minden típus
           collaborative_draft: Közös vázlat
@@ -1475,7 +1473,6 @@ hu:
         action: A jelszó megváltoztatása
         greeting: Hello %{recipient}!
         instruction: Valaki felkért egy linket a jelszó megváltoztatására, és ezt az alábbi linken keresztül teheti meg.
-        instruction_2: Ha nem kérte ezt, kérjük, figyelmen kívül hagyja ezt az e-mailt.
         instruction_3: A jelszavát addig nem változtatják meg, amíg nem érjük el a fenti linket, és nem hozunk létre újat.
         subject: Jelszó-visszaállító utasítások visszaállítása
       unlock_instructions:
@@ -1521,8 +1518,6 @@ hu:
     shared:
       links:
         back: Hát
-        didn_t_receive_confirmation_instructions: Nem kapott megerősítési utasítást?
-        didn_t_receive_unlock_instructions: Nem kapott feloldási utasítást?
         forgot_your_password: Elfelejtette a jelszavát?
         sign_in: Belépés
         sign_in_with_provider: Jelentkezzen be %{provider}
