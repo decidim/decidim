@@ -140,6 +140,15 @@ zh-TW:
       admin_log:
         result:
           create: "%{user_name} 建立結果 %{resource_name} 在 %{space_name}"
+          delete: "%{user_name} 刪除了 %{resource_name} 在 %{space_name} 的結果"
+          update: "%{user_name} 更新了 %{resource_name} 在 %{space_name} 的結果"
+        status:
+          create: "%{user_name} 建立了 %{resource_name} 狀態"
+          delete: "%{user_name} 刪除了 %{resource_name} 狀態"
+          update: "%{user_name} 更新了 %{resource_name} 狀態"
+        timeline_entry:
+          create: "%{user_name} 建立了 %{resource_name} 時間表資料"
+          delete: "%{user_name} 刪除了 %{resource_name} 時間表資料"
       results:
         show:
           stats:
