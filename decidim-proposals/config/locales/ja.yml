@@ -31,7 +31,6 @@ ja:
         cost_report: コストレポート
         execution_period: 実行期間
       proposals_copy:
-        copy_proposals: 選択したコンポーネントからのすべての提案を現在のものにインポートし、このアクションを元に戻すことができないことを理解しています。
         origin_component_id: 提案をコピーするコンポーネント
       proposals_import:
         import_proposals: 提案をインポート
@@ -750,8 +749,6 @@ ja:
             valuator: 評価者
             valuators: 評価者
             votes: 投票
-      new:
-        limit_reached: 制限を超えたため、新しい提案を作成することはできません。
       participatory_text_proposal:
         alternative_title: 現在参加型テキストはありません
         buttons:
