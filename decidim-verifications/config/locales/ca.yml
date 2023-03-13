@@ -269,7 +269,6 @@ ca:
           edit:
             confirm_destroy: Segur que vols restablir el codi de verificació?
             destroy: Restableix el codi de verificació
-            resend: No has rebut el codi de verificació?
             send: Confirmar
             title: Introdueix el codi de verificació que has rebut
           new:
