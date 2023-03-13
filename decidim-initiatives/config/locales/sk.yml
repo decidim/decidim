@@ -288,8 +288,6 @@ sk:
           success_html: Gratulujeme! Iniciatíva <strong>%{title} </strong> bola správne podpísaná
         personal_data:
           invalid: Osobné údaje nie sú v súlade s údajmi poskytnutými na autorizáciu.
-        sms_code:
-          invalid: Váš overovací kód nezodpovedá nášmu. Prosím, skontrolujte SMS, ktorý sme vám poslali.
         sms_phone:
           invalid: Telefónne číslo je neplatné alebo čaká na autorizáciu. Skontrolujte prosím vaše oprávnenie.
       initiatives:
