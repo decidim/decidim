@@ -185,9 +185,6 @@ ja:
           email_outro: '「%{resource_title}」ミーティングをフォローしているため、この通知を受け取りました．前のリンクからフォローを解除することができます．'
           email_subject: '"%{resource_title}" のミーティングは48時間以内に開始されます．'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> のミーティングは48時間以内に開始されます．
-    forms:
-      meetings:
-        attendees_count_help_text: 会議に出席者の総数に、対面・オンライン・ハイブリッドを含めることを忘れないでください
     gamification:
       badges:
         attended_meetings:
@@ -354,7 +351,6 @@ ja:
             registration_form: 登録フォーム
             registrations_count:
               other: '%{count} 件の登録がありました。'
-            reserved_slots_help: 予約スロットがない場合は0にしてください
             reserved_slots_less_than: '%{count} 以下にしてください'
             title: 登録
           update:
