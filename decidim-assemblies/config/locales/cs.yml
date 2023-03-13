@@ -450,9 +450,6 @@ cs:
         related_assemblies: Související shromáždění
     statistics:
       assemblies_count: Shromáždění
-  errors:
-    messages:
-      cannot_be_blank: nemůže být prázdný
   layouts:
     decidim:
       assemblies:
