@@ -24,7 +24,7 @@ module Decidim
           params["conference_slug"] = current_conference.id.to_s
         end
 
-        context "when the params don't contain a component id" do
+        context "when the params do not contain a component id" do
           it "does not match" do
             expect(subject.matches?(request)).to be(false)
           end
@@ -53,7 +53,7 @@ module Decidim
         end
       end
 
-      context "when the params don't contain an conference id" do
+      context "when the params do not contain an conference id" do
         it "does not match" do
           expect { subject.matches?(request) }.to raise_error(ActiveRecord::RecordNotFound)
         end

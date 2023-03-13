@@ -59,7 +59,7 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
     context "and there are 2 hours left in the day" do
       before { allow(Time.zone).to receive(:now).and_return(Time.zone.now.end_of_day - 2.hours) }
 
-      it "we dont know that ending is ending soon" do
+      it "we do not know that ending is ending soon" do
         expect(subject.voting_ends_soon?).to be(false)
       end
     end

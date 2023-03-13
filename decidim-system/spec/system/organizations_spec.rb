@@ -89,7 +89,7 @@ describe "Organizations", type: :system do
         fill_in "Name", with: "Citizens Rule!"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foobar.example.org\n\rbar.example.org"
-        choose "Don't allow participants to register, but allow existing participants to login"
+        choose "Do not allow participants to register, but allow existing participants to login"
         check "Example authorization (Direct)"
 
         click_button "Show advanced settings"

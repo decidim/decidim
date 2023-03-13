@@ -78,7 +78,7 @@ module Decidim::Admin
         end
       end
 
-      it "don't invite the user again" do
+      it "do not invite the user again" do
         subject.call
         user.reload
 

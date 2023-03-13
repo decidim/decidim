@@ -54,7 +54,7 @@ module Decidim
 
       error_message = <<-EOERROR
       Could not checkout the develop branch.
-      Please make sure you don't have any uncommitted changes in the current branch.
+      Please make sure you do not have any uncommitted changes in the current branch.
       EOERROR
       exit_with_errors(error_message) unless $CHILD_STATUS.exitstatus.zero?
     end

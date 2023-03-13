@@ -63,7 +63,7 @@ Capybara.register_driver :pwa_chrome do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
   options.args << "--explicitly-allowed-ports=#{Capybara.server_port}"
   options.args << "--no-sandbox"
-  # Don't limit browser resources
+  # Do not limit browser resources
   options.args << "--disable-dev-shm-usage"
   # Add pwa.lvh.me host as a secure origin
   options.args << "--unsafely-treat-insecure-origin-as-secure=http://pwa.lvh.me:#{Capybara.server_port}"

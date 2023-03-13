@@ -29,7 +29,7 @@ Reminders consist of the following database objects:
 
 - Reminder which holds the main reminder object that is attached to a user to be reminded about and the component for which the reminder is created for. The reminder can have many deliveries and many records to be reminded about.
 - ReminderDelivery which holds a log of all deliveries sent to the user. This may be useful in cases where we need to audit the system or solve a user support request asking why they were reminded for a specific thing at a specific time. In the backend, this also lets us do conditional logic based on how many times the user has been reminded and when the last reminder was sent.
-- ReminderRecord which holds information about the records the reminder is related to. This lets us combine reminders that are related to multiple records at a time, so that we don't need to send mulitple emails for each record. For example, the budgeting reminders will contain information about in which budgets the user has pending votes which allows us to combine this information in a single email, instead of sending one email per pending order in each budget.
+- ReminderRecord which holds information about the records the reminder is related to. This lets us combine reminders that are related to multiple records at a time, so that we do not need to send mulitple emails for each record. For example, the budgeting reminders will contain information about in which budgets the user has pending votes which allows us to combine this information in a single email, instead of sending one email per pending order in each budget.
 
 ==== ReminderRecord states
 

@@ -574,12 +574,12 @@ en:
             close_modal: Close modal
             uncheck: Keep unchecked
           notice: |-
-            <p>Hey, are you sure you don't want to receive a newsletter?<br>
+            <p>Hey, are you sure you do not want to receive a newsletter?<br>
             Please consider again ticking the newsletter checkbox below.<br>
             It is very important for us that you can receive occasional emails
             to make important announcements, you can always change this on your
             notifications settings page.</p>
-            <p>If you don't tick the box you might be missing relevant information
+            <p>If you do not tick the box you might be missing relevant information
             about new participatory opportunities within the platform.<br>
             If you still want to avoid receiving newsletters, we perfectly
             understand your decision.</p>
@@ -1201,7 +1201,7 @@ en:
     notifications_settings:
       show:
         administrators: Administrators
-        allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        allow_public_contact: Allow anyone to send me a direct message, even if I do not follow them.
         allow_push_notifications: Get push notifications to find out what's going on when you're not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
@@ -1633,7 +1633,7 @@ en:
         decline: Decline invitation
         hello: Hello %{email},
         ignore: |-
-          If you don't want to accept the invitation, please ignore this email.<br />
+          If you do not want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
         invited_you_as_private_user: "%{invited_by} has invited you as a private participant of %{application}. You can accept it through the link below."

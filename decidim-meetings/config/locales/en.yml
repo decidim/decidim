@@ -195,7 +195,7 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     forms:
       meetings:
-        attendees_count_help_text: Don't forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
+        attendees_count_help_text: Do not forget to include the total number of attendees at your meeting, whether in person, online or hybrid.
     gamification:
       badges:
         attended_meetings:
@@ -367,7 +367,7 @@ en:
             registrations_count:
               one: There has been %{count} registration.
               other: There has been %{count} registrations.
-            reserved_slots_help: Leave it to 0 if you don't have reserved slots
+            reserved_slots_help: Leave it to 0 if you do not have reserved slots
             reserved_slots_less_than: Must be less than or equal to %{count}
             title: Registrations
           update:

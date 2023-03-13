@@ -68,7 +68,7 @@ module Decidim
         it { is_expected.to have_initiative_types %w(Aaaa Aabb) }
       end
 
-      context "when don't find results" do
+      context "when do not find results" do
         let(:query) { "Dd" }
 
         it { is_expected.to be_empty }
