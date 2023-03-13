@@ -795,7 +795,6 @@ es-MX:
               new: Nueva
               title: Acciones
             associated_census_data: Entradas asociadas al censo
-            explanation_callout: Un estilo de papeleta especifica qué preguntas se presentarán al votante en la cabina. En un estilo de papeleta, puedes elegir qué preguntas del componente de elecciones pertenecen a esa papeleta. El código de estilo de la papeleta se utiliza para hacer coincidir a un votante del censo con la papeleta que se presentará en la cabina. No crees ningún estilo de papeleta si quieres mostrar siempre todas las preguntas.
             title: Estilos de papeleta
           new:
             create: Crear
@@ -1033,7 +1032,6 @@ es-MX:
             invalid: Hubo un problema al crear esta votación
             success: Votación creada con éxito
           edit:
-            add_election_component: No tienes ninguna elección configurada para esta votación. Por favor añádela en la sección de componentes
             assign_missing_officers: Hay puntos de votación sin presidente y/o administradores. Asígnalos desde la sección de puntos de votación
             update: Actualizar
           form:
@@ -1341,7 +1339,6 @@ es-MX:
           success:
             access_link: por correo electrónico.
             access_link_with_sms: vía SMS o correo electrónico.
-            info: Deberías haber recibido tu código de acceso por correo postal ya. En caso de que no lo tengas, puedes solicitarlo aquí
             title: '¡Tus datos del censo son correctos!'
           title: '¿Puedo votar?'
         check_fields:
@@ -1387,7 +1384,6 @@ es-MX:
           access_code: Código de acceso
           access_code_placeholder: Código de acceso
           ask_for_a_new_one: Solicitar uno nuevo.
-          dont_have_access_code: '¿No tienes un código de acceso?'
           form_title: 'Rellena el siguiente formulario para acceder a la votación:'
           start_voting: Empezar a votar
           step: Identificación
