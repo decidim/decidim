@@ -451,7 +451,6 @@ lt:
           verifiable_results:
             checksum: 'SHA256 suma:'
             description:
-              not_ready: Paikrinama rinkim7 rinkmena ir SHA256 suma dar nėra prieinami. Kai tik rezultatai bus publikuoti galėsite patikrinti šiuos rinkimus.
               ready: 'Čia turite galimybę patikrinti rinkimus. Pirmiausia parsisiųskite rinkmeną ir įsitikinkite, kad ji pilna. Tam, kad tai padaryti naudokite šią komandą ir patikrinkite ar išeitis sutampa su suma:'
             how_to_verify: 'Parsisiuntus rinkimeną galite pradėti naudoti universalų tikrintoją. Klonuokite <a href=''https://github.com/decidim/decidim-bulletin-board''>šią repozitoriją</a> ir iš šakninio aplanko paleiskite šią komandą:'
             title: Tikrinti rinkimų rezultatus
@@ -1319,7 +1318,6 @@ lt:
       votings:
         access_code_modal:
           email: Siųsti el. paštu į %{email}
-          info: Norėdami dalyvauti turite turėti prieigos kodą. Jei jo negavote paštu, galime atsiųsti kitą.
           no_email: Nėra galimo el. pašto
           no_sms: Nėra galimo tel. nr
           sms: Siųsti SMS žinute į %{sms}
