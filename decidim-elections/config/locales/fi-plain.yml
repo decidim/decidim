@@ -54,6 +54,12 @@ fi-pl:
           attributes:
             attachment:
               needs_to_be_reattached: Liitettävä uudestaan
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: tietoa ei voi muuttaa
+            public_key:
+              cant_be_changed: tietoa ei voi muuttaa
         voting:
           attributes:
             voting_type:
@@ -327,6 +333,7 @@ fi-pl:
             continue: Jatka
             invalid: Poissaolevan luottamushenkilön ilmoittaminen epäonnistui
             mark_as_missing: Merkitse poissaolevaksi
+            mark_as_missing_description: Kaikkien luottamushenkilöiden pitäisi osallistua tähän prosessiin, mutta jos luottamushenkilö ei voi osallistua prosessiin, voit merkitä kyseisen henkilön poissaolevaksi.
             success: Poissaolevan luottamushenkilön merkitseminen sähköiselle ääniuurnalle onnistui
             tally_completion: Prosessi valmistuu, kun kaikki luottamushenkilöt ovat aktiivisia tai merkitty poissaoleviksi. Vähintään %{quorum} luottamushenkilöä tarvitaan prosessin loppuun saattamiseksi.
             title: Ääntenlasku
@@ -451,6 +458,7 @@ fi-pl:
           verifiable_results:
             checksum: 'Tiedoston SHA256 tarkistussumma:'
             description:
+              not_ready: Vahvistettava vaalin tiedosto ja SHA256-tarkistesumma eivät ole vielä käytettävissä. Heti kun tulokset julkistetaan, voit tarkistaa nämä vaalit.
               ready: 'Täällä voit vahvistaa vaalin. Ensin sinun täytyy ladata tiedosto ja tarkastaa, että se ei ole korruptoitunut. Tarkastaaksesi tiedoston, aja seuraava komento ja tarkasta, että komennon näyttämä lopputulos vastaa tarkistussummaa:'
             how_to_verify: 'Kun olet ladannut tiedoston ja tarkastanut sen olevan eheä, voit ajaa yleisen tarkastuksen. Kloonaa <a href=''https://github.com/decidim/decidim-bulletin-board''>tämä repositorio</a> ja aja seuraava komento sen juurihakemistossa:'
             title: Vahvista vaalin tulokset
@@ -594,7 +602,6 @@ fi-pl:
               processing: Käsitellään
             title: Ääntenlaskenta vaaleille %{election}
           update:
-            error: Vaalin tilaa ei päivitetty.
             success: 'Vaalin tila on: %{status}'
         menu:
           trustee_zone: Luottamushenkilön alue
@@ -630,8 +637,10 @@ fi-pl:
               upload: Lataa tunnistusavaimet
               upload_error:
                 invalid_format: Ladattu tiedosto ei sisällä yhtään tunnistusavainta.
+                invalid_key: Ladatussa tiedostossa olevia tunnistusavaimia ei voida ladata.
                 invalid_public_key: Ladatun tiedoston tunnistusavaimet eivät vastaa tallennettua julkista tunnistusavainta.
               upload_legend: Julkiset tunnistusavaimet ovat palvelimella, mutta eivät selaimessasi. Sinun täytyy tuoda tunnistusavainten tiedosto omalle tietokoneellesi varmuuskopiosta, jonka tallensit avaimia luotaessa.
+            not_supported_browser_description: Näyttää siltä, että käytät selainta, jota ei voi käyttää luottamushenkilönä toimimiseen. Tarkasta, että käytät selaimesi viimeisintä versiota tai yritä käyttää jotain suosituimmista selaimista luottamushenkilön tehtävien suorittamiseksi.
             not_supported_browser_title: Päivitä selaimesi toimiaksesi luottamushenkilönä
             trustee_role_description: Sinulle on annettu luottamushenkilön tehtävä joissain vaaleissa tällä alustalla.
           update:
@@ -795,6 +804,7 @@ fi-pl:
               new: Uusi
               title: Toiminnot
             associated_census_data: Liitetyt henkilötietorekisterin tiedot
+            explanation_callout: Äänestystyyli määrittelee, mitä kysymyksiä äänestäjälle esitetään äänestyskopissa. Voit valita äänestystyylille kysymykset äänestyslappuun tämän äänestyksen vaalikomponenteista. Äänestystyylin koodeja käytetään henkilötietorekisterissä olevien henkilöiden yhdistämiseksi äänestyslappuihin. Älä luo äänestystyylejä, jos haluat esittää kaikki kysymykset kaikille äänestäjille.
             title: Äänestystyylit
           new:
             create: Luo
@@ -1032,6 +1042,7 @@ fi-pl:
             invalid: Äänestyksen luonti epäonnistui
             success: Äänestyksen luonti onnistui
           edit:
+            add_election_component: Tälle äänestykselle ei ole määritetty vaalia. Lisää vaali Komponentit-osiosta
             assign_missing_officers: Joillekin äänestyspaikoille ei ole määrätty esimiehiä ja/tai virkailijoita. Määritä virkailijat Äänestyspaikat-osiosta
             update: Päivitä
           form:
@@ -1231,8 +1242,10 @@ fi-pl:
             confirm: Ok, jatka
             error: Tapahtui jokin virhe. Yritä uudestaan.
             heading: Äänten uudelleenlaskenta - Allekirjoita äänestyksen päättäminen
+            info_text: Jos jatkat, et voi enää muokata mitään tietoja. Tätä toimintoa ei voi peruuttaa.
             submit: Allekirjoita äänestyksen päättäminen
             success: Äänestyksen päättämisen allekirjoittaminen onnistui.
+            title: Toimintoa ei voi peruuttaa
           update:
             error: Äänestyksen päättämisen tulosten päivittäminen epäonnistui, yritä uudestaan myöhemmin.
             success: Äänestyksen päättämisne tulosten päivittäminen onnistui.
@@ -1325,6 +1338,7 @@ fi-pl:
       votings:
         access_code_modal:
           email: Lähetä sähköpostitse osoitteeseen %{email}
+          info: Tarvitset tunnistautumiskoodin osallistuaksesi. Jos et saanut sitä paperipostissa, voimme lähettää sinulle uuden koodin.
           no_email: Sähköpostiosoitetta ei ole käytettävissä
           no_sms: Puhelinnumeroa ei ole käytettävissä
           sms: Lähetä tekstiviestinä numeroon %{sms}
@@ -1340,6 +1354,7 @@ fi-pl:
           success:
             access_link: sähköpostitse.
             access_link_with_sms: tekstiviestitse tai sähköpostitse.
+            info: Sinun olisi pitänyt saada tunnistautumiskoodisi paperipostissa. Jos sinulla ei ole koodia, voit pyytää sitä täältä
             title: Tietosi henkilötietorekisterissä ovat oikein!
           title: Voinko äänestää?
         check_fields:
@@ -1385,6 +1400,7 @@ fi-pl:
           access_code: Tunnistautumiskoodi
           access_code_placeholder: Tunnistautumiskoodi
           ask_for_a_new_one: Pyydä uutta.
+          dont_have_access_code: Eikö sinulla ole tunnistautumiskoodia?
           form_title: 'Täytä seuraava lomake aloittaaksesi äänestyksen:'
           start_voting: Aloita äänestys
           step: Tunnistautuminen
