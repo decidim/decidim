@@ -619,7 +619,6 @@ cs:
               processing: Zpracovávání
             title: Volební přepočítání pro %{election}
           update:
-            error: Stav voleb nebyl aktualizován.
             success: 'Stav voleb je: %{status}'
         menu:
           trustee_zone: Zóna důvěrníků
