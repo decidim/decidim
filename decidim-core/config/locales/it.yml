@@ -675,8 +675,6 @@ it:
         one: "%{count} sostenitori"
         other: "%{count} sostenitori"
       no_followers: Nessun follower ancora.
-    following:
-      no_followings: Non segue nessuno o niente ancora.
     follows:
       create:
         button: Segui
@@ -713,7 +711,6 @@ it:
           description_own: "%{score} utenti ti stanno seguendo."
           name: Followers
           next_level_in: Ottieni altri %{score} utenti che ti seguono per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora follower.
           unearned_own: Non hai ancora follower.
         index:
           badge_title: "%{name} distintivo"
@@ -799,7 +796,6 @@ it:
         create_user_group: Crea un gruppo
         new_user_group: Nuovo gruppo
         subtitle: Crea un gruppo e invita altri utenti a partecipare per partecipare a un livello collettivo.
-      no_user_groups: Non appartiene ancora a nessun gruppo.
       roles:
         admin: Amministratore
         member: Membro
@@ -856,8 +852,6 @@ it:
       static:
         latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
         map_service_brand: Mappa OpenStreet
-    members:
-      no_members: Questo gruppo di utenti non ha ancora nessun membro.
     menu:
       help: Aiuto
       home: Home
@@ -1189,7 +1183,6 @@ it:
         already_reported: Questo contenuto è già stato riportato e sarà revisionato da un amministratore.
         close: Chiudi
         description: Questo contenuto è inappropriato?
-        does_not_belong: Contiene attività illegali, istigazione al suicidio, informazioni personali o riservate, o altre cose che tu credi che non sono appropriato per %{organization_name}.
         offensive: Contiene contenuti razzisti, diffamatori, sessisti, insulti o attacchi personali, minacce di morte, istigazioni al suicidio o altre forme di odio verbale.
         reason: Motivazione
         report: Rapporto
@@ -1199,7 +1192,6 @@ it:
         already_reported: Questo contenuto è già stato segnalato e sarà esaminato da un amministratore.
         close: Chiudi
         description: Che cosa è inappropriato riguardo all'utente?
-        does_not_belong: Contiene attività illegali, istigazione al suicidio, informazioni personali o riservate, o altre cose che tu credi che non sono appropriato per %{organization_name}.
         offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
         report: Segnala
         spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
@@ -1286,7 +1278,6 @@ it:
     user_interests:
       show:
         my_interests: I miei interessi
-        no_scopes: Questa organizzazione non ha ancora alcun scopo!
         select_your_interests: Seleziona gli argomenti a cui sei interessato per ricevere eventi correlati a loro nella scheda Cronologia del profilo.
         update_my_interests: Aggiorna i miei interessi
       update:
