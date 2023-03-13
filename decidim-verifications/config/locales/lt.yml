@@ -259,7 +259,6 @@ lt:
           edit:
             confirm_destroy: Ar tikrai norite iš naujo nustatyti tikrinimo kodą?
             destroy: Tikrinimo kodą nustatyti iš naujo
-            resend: Negavote patvirtinimo kodo?
             send: Patvirtinti
             title: Įveskite gautą patvirtinimo kodą
           new:
