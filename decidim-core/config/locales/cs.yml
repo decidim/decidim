@@ -1686,6 +1686,7 @@ cs:
         action: Změňte heslo
         greeting: Dobrý den %{recipient}!
         instruction: Někdo požádal o odkaz na změnu hesla a můžete to provést pomocí níže uvedeného odkazu.
+        instruction_2: Pokud jste o změnu hesla nežádali, prosím ignorujte tento e-mail.
         instruction_3: Vaše heslo se nezmění, dokud nevstoupíte do výše uvedeného odkazu a vytvoříte nový.
         subject: Resetujte pokyny k zadání hesla
       unlock_instructions:
@@ -1731,6 +1732,8 @@ cs:
     shared:
       links:
         back: Zpět
+        didn_t_receive_confirmation_instructions: Neobdrželi jste pokyny pro potvrzení?
+        didn_t_receive_unlock_instructions: Nepřišly vám instrukce k odemknutí?
         forgot_your_password: Zapomněli jste heslo?
         sign_in: Přihlásit se
         sign_in_with_provider: Přihlásit se přes %{provider}
@@ -1767,6 +1770,7 @@ cs:
       load: Nepodařilo se načíst emoje
     recents:
       clear: Vymazat nedávné emoji
+      none: Zatím jste nevybrali žádné emoji.
     retry: Zkuste to znovu
     search:
       _: Hledat emoji...
