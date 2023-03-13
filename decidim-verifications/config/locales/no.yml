@@ -248,7 +248,6 @@
           edit:
             confirm_destroy: Er du sikker på at du vil tilbakestille verifikasjonskoden?
             destroy: Tilbakestill verifiseringskode
-            resend: Mottok ikke verifiseringskoden?
             send: Bekreft
             title: Introduser verifiseringskoden du mottok
           new:
