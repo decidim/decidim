@@ -1057,6 +1057,7 @@ cs:
             invalid: Při vytváření tohoto hlasování došlo k chybě
             success: Hlasování bylo úspěšně vytvořeno
           edit:
+            add_election_component: Pro toto hlasování nemáte nakonfigurovány žádné volby. Přidejte jej prosím do sekce Komponenty
             assign_missing_officers: Existují volební místnosti bez předsedy a/nebo manažerů. Prosím, přiřaďte je ze sekce volebních místností
             update: Aktualizovat
           form:
@@ -1365,6 +1366,7 @@ cs:
           success:
             access_link: e-mailem.
             access_link_with_sms: prostřednictvím SMS nebo e-mailu.
+            info: Váš přístupový kód jste již měli obdržet poštou. V případě, že ho nemáte k dispozici, můžete o něj požádat zde
             title: Vaše data seznamu osob jsou nesprávná!
           title: Mohu hlasovat?
         check_fields:
@@ -1412,6 +1414,7 @@ cs:
           access_code: Přístupový kód
           access_code_placeholder: Přístupový kód
           ask_for_a_new_one: Požádejte o nový.
+          dont_have_access_code: Nemáte přístupový kód?
           form_title: 'Pro přístup k hlasování vyplňte následující formulář:'
           start_voting: Zahájit hlasování
           step: Identifikace
