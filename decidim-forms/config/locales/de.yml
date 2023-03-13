@@ -124,9 +124,6 @@ de:
       admin_log:
         questionnaire:
           update: "%{user_name} hat die Umfrage %{resource_name} aktualisiert"
-      errors:
-        answer:
-          body: Körper kann nicht leer sein
       images:
         dimensions: "%{width} x %{height} px"
         processors:
