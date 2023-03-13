@@ -501,7 +501,6 @@ pt-BR:
                 share: Compartilhar apuração
             title: Apuração para %{election}
           update:
-            error: O status da eleição não foi atualizado.
             success: 'O status da eleição é: %{status}'
         menu:
           trustee_zone: Zona dos curadores
