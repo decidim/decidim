@@ -31,7 +31,6 @@ pl:
         cost_report: Raport kosztów
         execution_period: Okres wykonawczy
       proposals_copy:
-        copy_proposals: Rozumiem, że spowoduje to zaimportowanie wszystkich propozycji z wybranego komponentu do bieżącego i że tego działania nie można cofnąć.
         origin_component_id: Komponent z którego kopiuję propozycję
       proposals_import:
         import_proposals: Importuj propozycje
@@ -695,8 +694,6 @@ pl:
             valuator: Weryfikator
             valuators: Weryfikatorzy
             votes: Głosy
-      new:
-        limit_reached: Nie możesz tworzyć nowych propozycji, ponieważ przekroczyłeś limit.
       participatory_text_proposal:
         alternative_title: W tej chwili nie ma żadnych kolektywnych legislacji
         buttons:
