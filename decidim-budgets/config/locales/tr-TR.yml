@@ -113,7 +113,6 @@ tr:
         my_budgets: Bütçelerim
         voted_on: '%{links} linkinden oy verdiniz'
       limit_announcement:
-        cant_vote: Bu bütçeye oy veremezsiniz. <a href="%{landing_path}"> Başka bir bütçe deneyin </a>.
         limit_reached: '%{links} alanında aktif oylarınız var. Bu bütçeye oy vermek için <a href="%{landing_path}"> oyunuzu silmeli ve baştan başlamalısınız </a>.'
       models:
         budget:
