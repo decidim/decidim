@@ -115,9 +115,6 @@ nl:
           update:
             invalid: Er zijn fouten opgetreden bij het opslaan van de vragenlijst.
             success: Formulier succesvol opgeslagen.
-      errors:
-        answer:
-          body: Lichaam mag niet leeg zijn
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
