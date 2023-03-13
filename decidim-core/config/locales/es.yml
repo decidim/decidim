@@ -565,13 +565,6 @@ es:
             check: Verifica y continúa
             close_modal: Cierra modal
             uncheck: Mantener desmarcado
-          notice: |-
-            <p>Hola, ¿seguro que no quieres recibir un boletín informativo?<br>
-            Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
-            Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
-            <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
-            Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
-            <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
           or: O
@@ -1186,7 +1179,6 @@ es:
     notifications_settings:
       show:
         administrators: Administradoras
-        allow_public_contact: Permitir que cualquiera me envíe un mensaje directo, incluso si no le sigo.
         allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
@@ -1616,8 +1608,6 @@ es:
         accept_until: Esta invitación caducará el día %{due_date}.
         decline: Rechazar invitación
         hello: Hola %{email},
-        ignore: |-
-          Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br /> Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuaria y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administradora de %{application}. Puedes aceptarlo a través del siguiente enlace."
         invited_you_as_private_user: "%{invited_by} te ha invitado como participante privada de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
