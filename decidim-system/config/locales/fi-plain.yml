@@ -179,7 +179,6 @@ fi-pl:
         users_registration_mode:
           disabled: Pääsy alustalle ainoastaan ulkoisilla tileillä
           enabled: Salli rekisteröityminen ja sisäänkirjautuminen käyttäjille
-          existing: Älä salli käyttäjien rekisteröitymistä, mutta salli olemassaolevien käyttäjien kirjautuminen
       shared:
         notices:
           no_organization_warning_html: Sinun on luotava organisaatio päästäksesi alkuun. Muista lukea %{guide} ennen jatkamista.
