@@ -64,6 +64,7 @@ fi-pl:
             attachment:
               file: Tiedosto ei kelpaa
               needs_to_be_reattached: Liitettävä uudelleen
+              title: Otsikko ei voi olla tyhjä
   activerecord:
     models:
       decidim/initiative:
@@ -467,8 +468,6 @@ fi-pl:
           success_html: Onnittelut! Aloite <strong>%{title}</strong> on onnistuneesti allekirjoitettu
         personal_data:
           invalid: Henkilötiedot eivät täsmää varmennusta varten annettujen tietojen kanssa.
-        sms_code:
-          invalid: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan lähettämämme tekstiviesti.
         sms_phone:
           invalid: Puhelinnumero on virheellinen tai odottaa tarkastusta. Tarkista valtuutesi.
       initiatives:
