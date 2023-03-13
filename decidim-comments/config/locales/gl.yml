@@ -75,7 +75,6 @@ gl:
           description: Este contido é inapropiado?
           details: Comentarios adicionais
           reasons:
-            does_not_belong: Contén actividades ilegais, ameazas de suicidio, información persoal ou outra cousa que pensas que non pertence a %{organization_name}.
             offensive: Contén racismo, sexismo, abuso, ataques persoais, ameazas de morte, solicitudes de suicidio ou calquera tipo de discurso de odio.
             spam: Contén clic, publicidade, fraudes ou bots de script.
           title: Denunciar contido inapropiado
