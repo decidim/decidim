@@ -271,7 +271,6 @@ gl:
             registrations_count:
               one: Houbo un rexistro de %{count}.
               other: Houbo %{count} rexistros.
-            reserved_slots_help: Déixao a 0 se non tes slots reservados
             reserved_slots_less_than: Debe ser inferior ou igual a %{count}
           update:
             invalid: Produciuse un problema ao gardar a configuración de rexistro.
