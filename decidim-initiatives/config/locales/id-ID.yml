@@ -39,8 +39,6 @@ id:
         name: Nama lengkap
   activerecord:
     models:
-      decidim/initiative:
-        other: Initatives
       decidim/initiative_comittee:
         other: Komite-komite
       decidim/initiative_vote:
