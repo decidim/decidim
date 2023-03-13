@@ -880,6 +880,7 @@ fr:
         new:
           destroy:
             button: Supprimer tous les utilisateurs privés
+            confirm: "Are you sure you want to delete all private participants? This action cannot be undone, you will not be able to recover them.\n\nÊtes-vous sûr de vouloir supprimer tous les utilisateurs privés ? Cette action est irréversible, vous ne pourrez pas les récupérer."
             empty: Vous n'avez aucun utilisateur privé.
             explanation: Vous avez %{count} utilisateurs privés.
             title: Supprimer les utilisateurs privés
