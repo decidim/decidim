@@ -549,14 +549,11 @@ pt:
               generate_legend: Precisa de gerar um par de chaves de identificação para participar em eleições como curador.
               generate_legend_1: Depois de carregar no botão deve descarregar o ficheiro com as chaves de identificação geradas.
               generate_legend_2: Copie o ficheiro descarregado para um dispositivo USB limpo
-              generate_legend_3: Verifique se o seu computador não tem uma cópia do ficheiro (por exemplo verifique nas pastas Downloads ou Desktop).
               generate_legend_4: Faça uma cópia du ficheiro num dispositivo externo e guarde-o num local seguro.
               submit: Submeter
               submit_title: Submeter a chave de identificação pública
               title: Chaves de identificação de curador
               upload: Enviar as suas chaves de identificação
-              upload_error:
-                invalid_format: O ficheiro enviado não contém nenhuma chave de identificação.
             not_supported_browser_title: Actualize o seu navegador para poder agir como Curador
             trustee_role_description: Foi designado para agir como Curador em algumas eleições celebradas nesta plataforma.
           update:
@@ -1039,7 +1036,6 @@ pt:
             subject: Estão disponíveis para exportação os códigos de acesso À votação para %{voting_title}
         vote_flow:
           already_voted_in_person: Este participante já votou presencialmente e não tem o direito de votar.
-          datum_not_found: Os dados fornecidos não correspondem a nenhum eleitor.
       content_blocks:
         highlighted_votings:
           name: Votações realçadas
@@ -1082,7 +1078,6 @@ pt:
             info_text: Por favor introduza o número toral de respostas para cada questão.
             modal_ballots_results_count_error:
               close_modal: Fechar
-              info_text: O número total de boletins de voto não corresponde ao número total de envelopes. Por favor reveja o total de boletins de voto.
               title: A contagem de boletins de voto não está correcta
             save_recount: Guardar recontagem
             total_ballots: Total de boletins de voto
@@ -1096,7 +1091,6 @@ pt:
             modal_ballots_count_error:
               btn_validate_total: Validar total de recontagem de boletins de voto
               close_modal: Fechar
-              info_text: Número total de boletins de voto (envelopes) introduzido não corresponde ao registo de pessoas que votou nesta Secção de Voto.
               message_for_monitoring_committee: Mensagem da Comissão de Controlo
               review_recount: Rever a recontagem
               text_area_placeholder: Por favor escreva a sua mensagem
