@@ -765,7 +765,6 @@ de:
         other: "%{count} Follower"
       no_followers: Noch keine Follower.
     following:
-      no_followings: Folgt noch niemandem oder irgendetwas.
       non_public_followings: Einige der gefolgten Ressourcen sind nicht öffentlich.
     follows:
       create:
@@ -831,7 +830,6 @@ de:
           description_own: "%{score} Benutzer*innen folgen dir."
           name: Follower
           next_level_in: Erhalten Sie %{score} weitere Nutzer, die Ihnen folgen, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Follower.
           unearned_own: Sie haben noch keine Follower.
         index:
           badge_title: "%{name} Abzeichen"
@@ -917,7 +915,6 @@ de:
         create_user_group: Gruppe erstellen
         new_user_group: Neue Gruppe
         subtitle: Erstellen Sie eine Gruppe und laden Sie andere Benutzer ein, an einer kollektiven Ebene teilzunehmen.
-      no_user_groups: Gehört noch keiner Gruppe an.
       roles:
         admin: Administrator
         creator: Administrator
@@ -977,8 +974,6 @@ de:
       static:
         latlng_text: 'Breitengrad: %{latitude}, Längengrad: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Diese Benutzergruppe hat noch kein Mitglied.
     menu:
       help: Hilfe
       home: Start
@@ -1343,7 +1338,6 @@ de:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen
         description: Ist dieser Inhalt unangemessen?
-        does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name}.
         offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
         reason: Begründung
         report: Bericht
@@ -1353,7 +1347,6 @@ de:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
         close: Schließen
         description: Was ist unangebracht über den Benutzer?
-        does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder eine Form von Hassrede.
         report: Melden
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
@@ -1445,7 +1438,6 @@ de:
     user_interests:
       show:
         my_interests: Meine Interessen
-        no_scopes: Diese Organisation hat noch keinen Spielraum!
         select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um Ereignisse, die sich auf sie beziehen, auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
         update_my_interests: Aktualisieren Sie meine Interessen
       update:
