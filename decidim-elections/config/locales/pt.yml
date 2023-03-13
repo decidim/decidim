@@ -28,12 +28,6 @@ pt:
           attributes:
             attachment:
               needs_to_be_reattached: Necessita de ser reanexado
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: não pode ser alterado
-            public_key:
-              cant_be_changed: não pode ser alterado
   activerecord:
     errors:
       models:
@@ -283,7 +277,6 @@ pt:
           tally_started:
             invalid: Ouve um problema ao denunciar o curador ausente
             mark_as_missing: Assinalar como ausente
-            mark_as_missing_description: Todos os curadores devem participar neste processo, mas se um curador não pode tomar parte no processo pode ser assinalado como ausente.
             success: O curador ausente foi denunciado com êxito e enviado para o Quadro Informativo
             tally_completion: O processo será completo quando todos os curadores estiverem activos ou assinalados como ausentes. São necessários pelo menos %{quorum} curadores para completar o processo.
             undo_mark_as_missing: Um curador assinalado como ausente poderá participar antes do processo estar completo. Pode proceder como usualmente e o assinalar da ausência será ignorado.
@@ -566,8 +559,6 @@ pt:
               upload: Enviar as suas chaves de identificação
               upload_error:
                 invalid_format: O ficheiro enviado não contém nenhuma chave de identificação.
-                invalid_key: As chaves de identificação no ficheiro enviado não puderam ser carregadas.
-            not_supported_browser_description: Parece que está a utilizar um navegador web que não pode ser utilizado para agir como curador. Certifique-se que está a suar a versão mais recente do seu navegador, ou tente usar um dos navegadores mais populares para que seja possível as suas tarefas de Curador.
             not_supported_browser_title: Actualize o seu navegador para poder agir como Curador
             trustee_role_description: Foi designado para agir como Curador em algumas eleições celebradas nesta plataforma.
           update:
@@ -1129,10 +1120,8 @@ pt:
             confirm: Ok, continuar
             error: Ocorreu um erro, por favor tente de novo.
             heading: Recontagem de votos - Assine o encerramento
-            info_text: Se continuar já pode modificar nenhuma informação, esta acção não pode ser desfeita.
             submit: Assinar o encerramento
             success: Encerramento assinado com êxito
-            title: A acção não pode ser desfeita
           update:
             error: Ocorreu um erro ao actualizar os resultados do encerramento, por favor tente de novo.
             success: Resultados de encerramento actualizados com êxito
