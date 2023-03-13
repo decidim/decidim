@@ -401,6 +401,7 @@ de:
           ok: Ok
           title: Nicht berechtigt
         unconfirmed:
+          confirmation_instructions: 'Wenn Sie die Bestätigungsanweisungen nicht erhalten haben, können Sie sie erneut anfordern:'
           explanation_html: Um diese Aktion auszuführen, müssen Sie autorisiert sein, bevor Sie dies tun müssen, müssen Sie Ihre E-Mail bestätigen <strong>%{email}</strong>.
           request_confirmation_instructions: Bestätigungsanleitungen anfordern
           title: Bestätige deine E-Mail
@@ -419,6 +420,7 @@ de:
       see_more: "(Mehr anzeigen)"
     components:
       component_order_selector:
+        no_content: Wir haben keine Inhalte anhand dieser Kriterien gefunden
         order:
           all_types: Alle Typen
           collaborative_draft: Gemeinsamer Entwurf
@@ -539,13 +541,6 @@ de:
             check: Kontakterlaubnis erteilen und fortfahren
             close_modal: Modal schließen
             uncheck: Ohne Kontakterlaubnis fortfahren
-          notice: |-
-            <p>Hey, sind Sie sicher, dass Sie keinen Newsletter erhalten möchten?<br>
-            Bitte überlegen Sie sich noch einmal das Kontrollkästchen für den Newsletter doch anzukreuzen.<br>
-            Für uns ist es sehr wichtig, die Möglichkeit zu haben Ihnen gelegentlich E-Mails mit wichtigen Ankündigungen schicken zu können. Sie können dies jederzeit in den Benachrichtigungseinstellungen ändern.</p>
-            <p>Wenn Sie das Kontrollkästchen nicht ankreuzen, verpassen Sie möglicherweise relevante Informationen zu neuen Beteiligungsmöglichkeiten auf der Plattform.<br>
-            Wenn Sie nach wie vor keinen Newsletter erhalten möchten, verstehen wir natürlich Ihre Entscheidung.</p>
-            <p>Danke fürs Lesen!</p>
           title: Newsletter Benachrichtigungen
         omniauth_buttons:
           or: Oder
@@ -1130,7 +1125,6 @@ de:
     notifications_settings:
       show:
         administrators: Administratoren
-        allow_public_contact: Allen erlauben, mir Direktnachrichten zu senden, selbst wenn ich ihnen nicht folge.
         allow_push_notifications: Erhalten Sie Push-Benachrichtigungen, um herauszufinden, was vor sich geht, wenn Sie nicht auf der Plattform sind. Sie können diese jederzeit ausschalten.
         direct_messages: Direktnachrichten von allen erhalten
         email_on_moderations: Ich möchte jedes Mal, wenn etwas oder jemand zur Moderation gemeldet wird, eine E-Mail erhalten.
@@ -1548,9 +1542,6 @@ de:
         accept_until: Diese Einladung wird in %{due_date}fällig.
         decline: Einladung ablehnen
         hello: Hallo %{email},
-        ignore: |-
-          Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail.<br />
-          Ihr Konto wird erst erstellt, wenn Sie auf den obigen Link zugreifen und Ihren Benutzernamen und Ihr Passwort festlegen.
         invited_you_as_admin: "%{invited_by} hat dich als Admin von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         invited_you_as_private_user: "%{invited_by} hat dich als privaten Benutzer von %{application}eingeladen. Sie können es über den folgenden Link akzeptieren."
         someone_invited_you: Jemand hat dich zu %{application}eingeladen. Sie können es über den folgenden Link akzeptieren.
@@ -1573,6 +1564,7 @@ de:
         action: Ändere mein Passwort
         greeting: Hallo %{recipient}!
         instruction: Jemand hat einen Link angefordert, um Ihr Passwort zu ändern, und Sie können dies über den folgenden Link tun.
+        instruction_2: Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail.
         instruction_3: Ihr Passwort ändert sich erst, wenn Sie auf den obigen Link zugreifen und einen neuen erstellen.
         subject: Passwort-Anweisungen zurücksetzen
       unlock_instructions:
@@ -1617,6 +1609,8 @@ de:
     shared:
       links:
         back: Zurück
+        didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungs-Mail erhalten?
+        didn_t_receive_unlock_instructions: Anweisungen zum Entsperren nicht erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         sign_in: Einloggen
         sign_in_with_provider: Mit %{provider} anmelden
@@ -1651,6 +1645,7 @@ de:
       load: Fehler beim Laden von Emojis
     recents:
       clear: Zuletzt benutzte Emoji entfernen
+      none: Sie haben noch keine Emojis ausgewählt.
     retry: Erneut versuchen
     search:
       _: Emojis suchen...
