@@ -797,7 +797,6 @@ lt:
               new: Naujas
               title: Veiksmai
             associated_census_data: Susiję surašymo duomenys
-            explanation_callout: Biuletenio tipas numato kokie klausimai bus užduoti balsuotojui. Biuletenio tipe, galite pasirinkti kokie klausimai iš balsavimo komponento priklauso biuletenio tipui. Biuletenio tipo kodas naudojamas sujungti balsuotoją iš surašymo su biuleteniu, kuris jiems pateikiamas balsavimo kabinoje. Nekurkite biuletenio tipų jei norite, kad visi gautų visus klausimus.
             title: Biuletenio tipas
           new:
             create: Sukurti
@@ -1026,7 +1025,6 @@ lt:
             invalid: Kuriant šį balsavimą iškilo problema
             success: Balsavimas sukurtas sėkmingai
           edit:
-            add_election_component: Šiam balsavimui nėra sukonfigūruotų rinkimų. Pridėkite juos per Komponentų sekciją
             assign_missing_officers: Kai kurie balsavimo punktai neturi prezidento ir/arba vadybininkų. Prašome juos priskirti
             update: Atnaujinti
           form:
@@ -1333,7 +1331,6 @@ lt:
           success:
             access_link: el. paštu.
             access_link_with_sms: SMS ar el. paštu.
-            info: Turėjote gauti prieigos kodą per paštą. Jei negavote, išsiųskite užklausą čia
             title: Jūsų surašymo duomenys teisingi!
           title: Ar galiu balsuoti?
         check_fields:
@@ -1381,7 +1378,6 @@ lt:
           access_code: Prieigos kodas
           access_code_placeholder: Prieigos kodas
           ask_for_a_new_one: Prašyti naujo.
-          dont_have_access_code: Neturite prieigos kodo?
           form_title: 'Norėdami prisijungti prie balsavimo, užpildykite šią formą:'
           start_voting: Pradėti balsavimą
           step: Identifikacija
