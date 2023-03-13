@@ -35,10 +35,6 @@ lt:
         type_of_meeting: Tipas
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Šio URL negalima įterpti į susitikimo ar tiesioginio įvykio puslapį
         meeting_agenda:
           attributes:
             base:
@@ -277,15 +273,11 @@ lt:
             filter_by: Filtruoti pagal
             invite_attendee: Kviesti dalyvį
             invites: Pakvietimai
-            registrations_disabled: Negalite kviesti dalyvio, nes registracija išjungta.
             search: Ieškoti
         meeting_closes:
           edit:
             close: Uždaryti
             title: Baigti susirinkimą
-        meeting_copies:
-          form:
-            select_a_meeting_type: Prašome pasirinkti susirinkimo tipą
         meetings:
           close:
             invalid: Užbaigiant šį susirinkimą iškilo problema
