@@ -212,7 +212,6 @@ sk:
             filter_by: Filtrovať podľa
             invite_attendee: Pozvať účastníka
             invites: Pozvánky
-            registrations_disabled: Nemôžete pozvať účastníka, pretože registrácia sú zakázané.
             search: Vyhľadávanie
         meeting_closes:
           edit:
