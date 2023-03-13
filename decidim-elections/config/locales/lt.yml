@@ -36,12 +36,6 @@ lt:
           attributes:
             attachment:
               needs_to_be_reattached: Reikia pridėti iš naujo
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: negali būti pakeista
-            public_key:
-              cant_be_changed: negali būti pakeista
         voting:
           attributes:
             voting_type:
@@ -329,7 +323,6 @@ lt:
             continue: Tęsti
             invalid: Raportuojant trūkstantį patikėtinį iškilo problema
             mark_as_missing: Pažymėti neesančiu
-            mark_as_missing_description: Visi patikėtiniai turėtų dalyvauti procese, bet jei patikėtinis to padaryti negali, galite jį pažymėti kaip trūkstantį.
             success: Trūkstančio patikėtinio ataskaita išsiųsta į Skelbimų Lentą
             tally_completion: Šis procesas bus įvykdytas kai visi patikėtiniai bus aktyvūs arba pažymėti kaip trūkstantys. Reikia bent %{quorum} patikėtinių, kad įvykdyti šį procesą.
             title: Perskaičiavimo procesas
@@ -640,10 +633,8 @@ lt:
               upload: Įkelkite atpažinimo raktus
               upload_error:
                 invalid_format: Įkelta rinkmena neturi atpažinimo rakto.
-                invalid_key: Atpažinimo raktai negali būti įkelti.
                 invalid_public_key: Atpažinimo raktai įkeltoje rinkmenoje nesutampa su viešu apažinimo raktu.
               upload_legend: Serveris turi atpažinimo raktus, tačiau naršyklė jų neturi. Turite importuoti atpažinimo raktų rinkimeną į kompiuterį iš atsarginės saugyklos kurią sukūrėte sugeneravę raktus.
-            not_supported_browser_description: Regis naudojate patikėtinio rolei netinkamą naršyklę. Įsitikinkite, kad naršyklė atnaujinta arba pabandykite naudoti kitas naršykles.
             not_supported_browser_title: Atnaujinkite naršyklę
             trustee_role_description: Buvote priskirtas kaip patikėtinis šioje platformoje vyksiantiems rinkimams.
           update:
@@ -1234,10 +1225,8 @@ lt:
             confirm: Gerai, testi
             error: Įvyko klaida, pamėginkite dar kartą.
             heading: Balsų perskaičiavimas - Pasirašykite užbaigimą
-            info_text: Jeigu tęsite, nebegalėsite koreguoti jokios informacijos, šio veiksmo anuliuoti negalima.
             submit: Pasirašykite užbaigimą
             success: Užbaigimas pasirašytas sėkmingai.
-            title: Veiksmas negali būti anuliuotas
           update:
             error: Atliekant užbaigimo atnaujinimą kilo klaida, pabandykite dar kartą vėliau.
             success: Užbaigimo rezultatai sėkmingai atnaujinti.
