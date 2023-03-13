@@ -203,9 +203,6 @@ pl:
           success: Utworzono etap procesu partycypacyjnego.
         default_title: Wprowadzenie
         destroy:
-          error:
-            active_step: Nie można usunąć aktywnego etapu.
-            last_step: Nie można usunąć ostatniego etapu procesu.
           success: Etap procesu partycypacyjnego został usunięty.
         edit:
           title: Edytuj etap procesu partycypacyjnego
