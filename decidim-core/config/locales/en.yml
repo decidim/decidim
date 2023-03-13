@@ -1349,6 +1349,7 @@ en:
           leave_user_group: Leave group
           manage_user_group_admins: Manage admins
           manage_user_group_users: Manage members
+          manage_user_group: Manage group
           message: Message
         confirmation_instructions_sent: Email confirmation instructions sent
         create_user_group: Create group
