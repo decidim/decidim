@@ -727,7 +727,6 @@ ro:
         other: "%{count} urmăritori"
       no_followers: Nici un urmăritor încă.
     following:
-      no_followings: Încă nu urmărește pe nimeni sau nimic.
       non_public_followings: Unele dintre resursele urmărite nu sunt publice.
     follows:
       create:
@@ -784,7 +783,6 @@ ro:
           description_own: "%{score} persoane te urmăresc."
           name: Urmăritori
           next_level_in: Obțineți încă %{score} urmăritori pentru a atinge următorul nivel!
-          unearned_another: Acest participant nu are încă niciun urmăritor.
           unearned_own: Încă nu ai urmăritori.
         index:
           badge_title: "%{name} insignă"
@@ -871,7 +869,6 @@ ro:
         create_user_group: Creează grup
         new_user_group: Grup nou
         subtitle: Creează un grup și invită alți participanți să participe.
-      no_user_groups: Încă nu aparține niciunui grup.
       roles:
         admin: Administrator
         creator: Administrator
@@ -929,8 +926,6 @@ ro:
       static:
         latlng_text: 'latitudine: %{latitude}, longitudine: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Acest grup nu are încă niciun membru.
     menu:
       help: Ajutor
       home: Acasă
@@ -1290,7 +1285,6 @@ ro:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
         close: Inchide
         description: Este acest conținut neadecvat?
-        does_not_belong: Conține activitate ilegală, amenințări la sinucidere, informații personale sau altceva credeți că nu aparțin de %{organization_name}.
         hide: Ascunde
         hide_content: Ascunde conţinutul
         offensive: Conține rasism, sexism, slurbii, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
@@ -1302,7 +1296,6 @@ ro:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
         close: Inchide
         description: Ce este nepotrivit pentru utilizator?
-        does_not_belong: Conține activitate ilegală, amenințări de sinucidere, informații personale sau altceva care credeți că nu aparțin de %{organization_name}.
         offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
         report: Raportează
         spam: Conține clickbait, publicitate, escrocherii sau roboți script.
@@ -1392,7 +1385,6 @@ ro:
     user_interests:
       show:
         my_interests: Interesele mele
-        no_scopes: Această organizaţie nu are încă nici un scop!
         select_your_interests: Selectează subiectele pentru care vrei să primești evenimente asociate în cronologia profilului tău.
         update_my_interests: Actualizează-mi interesele
       update:
