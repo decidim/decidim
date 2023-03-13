@@ -26,7 +26,6 @@ hu:
       proposal_answer:
         answer: Válasz
       proposals_copy:
-        copy_proposals: Tudomásul veszem, hogy a kiválasztott elem összes javaslata importálva lesz a jelenlegibe, és ezt a műveletet nem lehet visszavonni.
         origin_component_id: Javaslatok másolásához szükséges elem
       proposals_import:
         import_proposals: Javaslatok importálása
@@ -640,8 +639,6 @@ hu:
             valuator: Értékelő
             valuators: Értékelők
             votes: Szavazatok
-      new:
-        limit_reached: Nem hozhatsz létre új javaslatokat, mert túllépted a maximumot.
       participatory_text_proposal:
         alternative_title: Jelenleg nincsenek részvételi szövegek
         buttons:
