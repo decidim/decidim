@@ -262,7 +262,6 @@ eu:
           edit:
             confirm_destroy: Ziur egiaztapen-kodea berrezarri nahi duzula?
             destroy: Berrezarri egiaztapen-kodea
-            resend: Ez al duzu egiaztapen-kodea jaso?
             send: Berretsi
             title: Jasotako egiaztapen-kodea sartu
           new:
