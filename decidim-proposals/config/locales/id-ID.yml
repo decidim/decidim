@@ -25,7 +25,6 @@ id:
       proposal_answer:
         answer: Menjawab
       proposals_copy:
-        copy_proposals: Saya memahami bahwa ini akan mengimpor semua proposal dari komponen yang dipilih ke komponen saat ini dan bahwa tindakan ini tidak dapat dibatalkan.
         origin_component_id: Komponen untuk menyalin proposal dari
       proposals_import:
         import_proposals: Impor proposal
@@ -520,8 +519,6 @@ id:
             state: Negara
             title: Judul
             votes: Suara
-      new:
-        limit_reached: Anda tidak dapat membuat proposal baru karena Anda telah melampaui batas.
       participatory_text_proposal:
         alternative_title: Tidak ada teks partisipatif saat ini
         buttons:
