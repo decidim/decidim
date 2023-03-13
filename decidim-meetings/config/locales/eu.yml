@@ -52,10 +52,6 @@ eu:
         code: Kodea
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: URL hau ezin da bileren edo ekitaldien orrian txertatu
         meeting_agenda:
           attributes:
             base:
@@ -286,15 +282,11 @@ eu:
             filter_by: Iragazi arabera
             invite_attendee: Gonbidatu
             invites: Gonbidapenak
-            registrations_disabled: Ezin duzu inor gonbidatu izne-emateak desgaituta daudelako.
             search: Bilatu
         meeting_closes:
           edit:
             close: Itxi
             title: Itxi topaketa
-        meeting_copies:
-          form:
-            select_a_meeting_type: Mesedez, hautatu topaketa mota bat
         meetings:
           close:
             invalid: Arazo bat izan da topaketa hau ixtean.
