@@ -205,9 +205,6 @@
           success: Medvirkningsfasen er blitt opprettet.
         default_title: Introduksjon
         destroy:
-          error:
-            active_step: Kan ikke slette den aktive fasen.
-            last_step: Kan ikke slette den siste fasen av en prosess.
           success: Medvirkningsfasen ble slettet.
         edit:
           title: Rediger medvirkningsfase
