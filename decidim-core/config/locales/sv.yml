@@ -512,13 +512,6 @@ sv:
             check: Kontrollera och fortsätt
             close_modal: Stäng modal
             uncheck: Behåll avmarkeringen
-          notice: |-
-            <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
-            Överväg gärna en gång till att markera kryssrutan för nyhetsbrev nedan.<br>
-            Det är viktigt för oss att vi kan skicka e-brev då och då med viktiga meddelanden. Du kan alltid ändra det senare på sidan Meddelandeinställningar.</p>
-            <p>Om du inte markerar rutan kanske du inte får relevant information om nya möjligheter till deltagande på plattformen.<br>
-            Om du fortfarande inte vill få några nyhetsbrev, förstår vi ditt beslut helt.</p>
-            <p>Tack så mycket!</p>
           title: Notiser till nyhetsbrev
         omniauth_buttons:
           or: Eller
@@ -1085,7 +1078,6 @@ sv:
     notifications_settings:
       show:
         administrators: Administratörer
-        allow_public_contact: Tillåt alla att skicka direktmeddelanden till mig, även de som jag inte följer.
         direct_messages: Ta emot direktmeddelanden från alla
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
@@ -1489,9 +1481,6 @@ sv:
         accept_until: Denna inbjudan kommer att förfalla %{due_date}.
         decline: Avböj inbjudan
         hello: Hej %{email},
-        ignore: |-
-          Om du inte vill godkänna inbjudningen kan du ignorera detta e-postmeddelande.<br />
-          Ditt konto kommer bara att skapas om du öppnar länken ovan och anger ditt användarnamn och lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
         invited_you_as_private_user: "%{invited_by} har bjudit in dig som privat deltagare till %{application}. Du kan godkänna detta via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
