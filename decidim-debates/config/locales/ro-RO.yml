@@ -233,7 +233,6 @@ ro:
           name: Dezbateri
           next_level_in: Participați la încă %{score} dezbateri pentru a ajunge la următorul nivel!
           unearned_another: Acest participant nu a luat încă parte la nicio dezbatere.
-          unearned_own: Încă nu ai luat parte la nicio dezbatere.
     metrics:
       debates:
         description: Numărul de dezbateri create
