@@ -645,17 +645,12 @@ cs:
               generate_legend: Musíte vytvořit pár identifikačních klíčů pro účast ve volbách jako důvěrník.
               generate_legend_1: Po stisknutí tlačítka byste měli stáhnout soubor s vygenerovanými identifikačními klíči.
               generate_legend_2: Kopírovat stažený soubor do čistého USB zařízení
-              generate_legend_3: Ujistěte se, že váš počítač nemá kopii souboru (např. zkontrolujte složky Stahování a plocha).
               generate_legend_4: Vytvořit další kopii souboru na jiném externím zařízení a uložit jej na velmi bezpečném místě.
               submit: Odeslat
               submit_legend: Po splnění všech výše uvedených kroků dokončete proces odesílání veřejného identifikačního klíče na server.
               submit_title: Odeslat veřejný identifikační klíč
               title: Identifikační klíče důvěrníka
               upload: Nahrajte své identifikační klíče
-              upload_error:
-                invalid_format: Nahraný soubor neobsahuje žádný identifikační klíč.
-                invalid_public_key: Identifikační klíče v nahraném souboru neodpovídají uloženému veřejnému identifikačnímu klíči.
-              upload_legend: Server má vaše veřejné identifikační klíče, ale váš prohlížeč jej stále nemá. Je třeba importovat soubor s identifikačními klíči do počítače ze zálohy, kterou jste vytvořili po jejich vygenerování.
             not_supported_browser_title: Upgradujte prohlížeč abyste mohl fungovat jako důvěrník
             trustee_role_description: Byl jste pověřen, abyste v některých volbách, které na této platformě probíhají, jednal jako důvěrník.
           update:
@@ -1177,7 +1172,6 @@ cs:
             subject: Export hlasovacích kódů pro %{voting_title} je k dispozici
         vote_flow:
           already_voted_in_person: Tento uživatel již hlasoval osobně a nemá právo hlasovat.
-          datum_not_found: Poskytnutá data neodpovídají žádnému voliči.
       content_blocks:
         highlighted_votings:
           name: Zvýrazněné hlasování
@@ -1222,7 +1216,6 @@ cs:
             info_text: Uveďte celkový počet odpovědí na každou otázku.
             modal_ballots_results_count_error:
               close_modal: Zavřít
-              info_text: Celkový počet hlasovacích lístků neodpovídá celkovému počtu obálek. Zkontrolujte prosím celkový počet hlasovacích lístků.
               title: Součet hlasovacích lístků se nesčítá
             save_recount: Uložit přepočet
             total_ballots: Celkový počet hlasovacích lístků
@@ -1237,7 +1230,6 @@ cs:
               btn_validate_total: Ověření celkového přepočtu hlasovacích lístků
               close_modal: Zavřít
               info_explanation_text: 'Zkontrolujte celkový počet hlasovacích lístků. Pokud je celkové číslo nesprávné, musíte monitorovacímu výboru poskytnout vysvětlení:'
-              info_text: Celkový počet vložených hlasovacích lístků (obálek) neodpovídá počtu osob, které v této volební místnosti hlasovaly.
               message_for_monitoring_committee: Zpráva pro monitorovací výbor
               review_recount: Zkontrolovat přepočet
               text_area_placeholder: Zadejte prosím vaši zprávu
