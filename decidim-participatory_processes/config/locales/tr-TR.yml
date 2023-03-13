@@ -198,9 +198,6 @@ tr:
           success: Katılımcı süreç adımı başarıyla oluşturuldu.
         default_title: Giriş
         destroy:
-          error:
-            active_step: Aktif adımı silemiyorum.
-            last_step: Bir işlemin son adımı silinemiyor.
           success: Katılımcı süreç adımı başarıyla silindi.
         edit:
           title: Katılımcı süreç adımını düzenle
