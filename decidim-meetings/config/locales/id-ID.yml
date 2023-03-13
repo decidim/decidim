@@ -203,7 +203,6 @@ id:
             filter_by: Filter berdasarkan
             invite_attendee: Undang hadirin
             invites: Undangan
-            registrations_disabled: Anda tidak dapat mengundang peserta karena pendaftaran dinonaktifkan.
             search: Pencarian
         meeting_closes:
           edit:
