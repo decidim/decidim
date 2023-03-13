@@ -54,12 +54,6 @@ ca:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: no es pot canviar
-            public_key:
-              cant_be_changed: no es pot canviar
         voting:
           attributes:
             voting_type:
@@ -333,7 +327,6 @@ ca:
             continue: Continuar
             invalid: S'ha produït un error en notificar l'absència de la garant
             mark_as_missing: Marcar com absent
-            mark_as_missing_description: Totes les garants haurien de participar en aquest procés, però si una garant no en pot prendre part, la pots marcar com a absent.
             success: La notificació d'absència de la garant ha estat enviada correctament
             tally_completion: El procés es completarà quan totes les garants estiguin actives o marcades com a absents. Fan falta com un mínim de %{quorum} garant per a completar el procés.
             title: Procés de recompte
@@ -638,10 +631,8 @@ ca:
               upload: Puja les teves claus d'identificació
               upload_error:
                 invalid_format: L'arxiu pujat no conté cap clau d'identificació.
-                invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
                 invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada.
               upload_legend: Decidim té les teves claus públiques d'identificació, però el teu navegador encara no les té. Necessites importar l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que vas crear després de generar-les.
-            not_supported_browser_description: Sembla que estàs usant un navegador que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta usar qualsevol dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
             trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
           update:
@@ -1242,10 +1233,8 @@ ca:
             confirm: D'acord, continuar
             error: Hi ha hagut un error. Si us plau, torna-ho a provar.
             heading: Recompte de vots - Signar el tancament
-            info_text: Si continues ja no podràs modificar cap informació, aquesta acció no es pot desfer.
             submit: Signar el tancament
             success: Tancament signat correctament.
-            title: Aquesta acció no es pot desfer
           update:
             error: S'ha produït un error en actualitzar els resultats del tancament. Intenta-ho de nou més tard.
             success: Resultats de tancament actualitzats correctament.
