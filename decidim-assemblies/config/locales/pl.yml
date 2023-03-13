@@ -433,9 +433,6 @@ pl:
         related_assemblies: Powiązane zespoły
     statistics:
       assemblies_count: Zespoły
-  errors:
-    messages:
-      cannot_be_blank: nie może być puste
   layouts:
     decidim:
       assemblies:
