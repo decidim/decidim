@@ -252,7 +252,6 @@ pl:
           edit:
             confirm_destroy: Czy na pewno chcesz zresetować kod weryfikacyjny?
             destroy: Zresetuj kod weryfikacyjny
-            resend: Nie otrzymałeś kodu weryfikacyjnego?
             send: Potwierdź
             title: Wprowadź kod weryfikacyjny, który otrzymałeś
           new:
