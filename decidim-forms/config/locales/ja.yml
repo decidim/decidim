@@ -126,9 +126,6 @@ ja:
       admin_log:
         questionnaire:
           update: "%{user_name} が %{resource_name} アンケートを更新しました"
-      errors:
-        answer:
-          body: 本文は空白にできません
       images:
         dimensions: "%{width} x %{height} px"
         processors:
