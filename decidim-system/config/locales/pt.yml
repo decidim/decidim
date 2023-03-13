@@ -178,7 +178,6 @@ pt:
         users_registration_mode:
           disabled: O acesso só pode ser feito com contas externas
           enabled: Permitir que os participantes se registem e iniciem sessão
-          existing: Não permitir que os participantes se registem, mas permitir que participantes existentes iniciem sessão
       shared:
         notices:
           no_organization_warning_html: Você deve criar uma organização para começar. Certifique-se de ler %{guide} antes de prosseguir.
