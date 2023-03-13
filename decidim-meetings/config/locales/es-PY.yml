@@ -188,9 +188,6 @@ es-PY:
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
-    forms:
-      meetings:
-        attendees_count_help_text: No te olvides de añadir el número total de asistentes a la reunión, ya sea en persona, en línea o híbrido.
     gamification:
       badges:
         attended_meetings:
@@ -360,7 +357,6 @@ es-PY:
             registrations_count:
               one: Ha habido %{count} registro.
               other: Ha habido %{count} registros.
-            reserved_slots_help: Déjalo en 0 si no tienes espacios reservados
             reserved_slots_less_than: Debe ser menor que o igual a %{count}
             title: Registros
           update:
