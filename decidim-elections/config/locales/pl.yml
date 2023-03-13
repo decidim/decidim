@@ -536,7 +536,6 @@ pl:
                 share: Udostępnij ustalony wynik głosowania
             title: Wynik głosowania dla %{election}
           update:
-            error: Status wyborów nie został zaktualizowany.
             success: 'Status wyborów to: %{status}'
         menu:
           trustee_zone: Strefa mężów (osób) zaufania
