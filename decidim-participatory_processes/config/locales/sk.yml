@@ -180,9 +180,6 @@ sk:
           success: Úspešný krok procesu bol úspešne vytvorený.
         default_title: Úvod
         destroy:
-          error:
-            active_step: Aktívny krok nemožno odstrániť.
-            last_step: Posledný krok procesu nemožno odstrániť.
           success: Úspešný krok procesu bol úspešne zmazaný.
         edit:
           title: Úprava kroku procesu participácie
