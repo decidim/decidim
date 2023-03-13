@@ -167,7 +167,6 @@ pl:
           name: Spotkania w których uczestniczyłeś/-łaś
           next_level_in: Weź udział jeszcze w %{score} spotkaniach, aby awansować na kolejny poziom!
           unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
-          unearned_own: Nie uczestniczyłeś jeszcze w żadnym spotkaniu.
     meetings:
       actions:
         agenda: Program
