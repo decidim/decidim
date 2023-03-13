@@ -223,15 +223,11 @@ gl:
             filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitacións
-            registrations_disabled: Non podes invitar a un asistente porque os rexistros están desactivados.
             search: Busca
         meeting_closes:
           edit:
             close: Pechar
             title: Pechar reunión
-        meeting_copies:
-          form:
-            select_a_meeting_type: Por favor, selecciona un tipo de xuntanza
         meetings:
           close:
             invalid: Produciuse un problema ao pechar esta reunión
