@@ -126,9 +126,6 @@ lt:
       admin_log:
         questionnaire:
           update: "%{user_name} atnaujino %{resource_name} klausimyną"
-      errors:
-        answer:
-          body: Pagrindinė dalis negali būti tuščia
       images:
         dimensions: "%{width} x %{height} px"
         processors:
