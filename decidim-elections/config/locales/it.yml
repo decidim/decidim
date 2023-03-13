@@ -517,7 +517,6 @@ it:
                 share: Condivisione del conteggio
             title: Conteggio di %{election}
           update:
-            error: Lo stato delle elezioni non è stato aggiornato.
             success: 'Lo stato delle elezioni è: %{status}'
         menu:
           trustee_zone: Zona Garanti
