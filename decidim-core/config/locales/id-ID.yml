@@ -320,17 +320,6 @@ id:
           buttons:
             check: Periksa dan lanjutkan
             close_modal: Tutup modal
-          notice: |-
-            <p>Hai, apakah Anda yakin tidak ingin menerima buletin?<br>
-            Harap pertimbangkan lagi mencentang kotak nawala di bawah ini.<br>
-            Sangat penting bagi kami bahwa Anda dapat menerima email sesekali
-            untuk membuat pengumuman penting, Anda selalu dapat mengubah ini di
-            halaman pengaturan pemberitahuan Anda.</p>
-            <p>Jika Anda tidak mencentang kotak Anda mungkin kehilangan informasi yang relevan
-            tentang peluang partisipatif baru dalam platform.<br>
-            Jika Anda masih ingin menghindari menerima buletin, kami dengan sempurna
-            memahami keputusan Anda.</p>
-            <p>Terima kasih telah membaca ini!</p>
           title: Notifikasi buletin
         omniauth_buttons:
           or: Atau
@@ -975,9 +964,6 @@ id:
         accept_until: Undangan ini akan jatuh tempo dalam %{due_date}.
         decline: Tolak undangan
         hello: Halo %{email},
-        ignore: |-
-          Jika Anda tidak ingin menerima undangan, silakan abaikan email ini.<br />
-          Akun Anda tidak akan dibuat sampai Anda mengakses tautan di atas dan mengatur nama panggilan dan kata sandi Anda.
         invited_you_as_admin: "%{invited_by} telah mengundang Anda sebagai admin %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         invited_you_as_private_user: "%{invited_by} telah mengundang Anda sebagai pengguna pribadi dari %{application}. Anda dapat menerimanya melalui tautan di bawah ini."
         someone_invited_you: Seseorang telah mengundang Anda ke %{application}. Anda dapat menerimanya melalui tautan di bawah ini.
