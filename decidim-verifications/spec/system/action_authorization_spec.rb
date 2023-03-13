@@ -47,7 +47,9 @@ describe "Action Authorization", type: :system do
       end
 
       it "prompts the user to authorize again after modal reopening" do
-        click_button "×"
+        within("#authorizationModal") do
+          click_button "×"
+        end
         click_link "New proposal"
 
         expect(page).to have_content("Authorization required")

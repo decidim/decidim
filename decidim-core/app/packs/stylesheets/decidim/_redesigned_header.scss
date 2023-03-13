@@ -183,7 +183,7 @@ header{
     }
 
     &__breadcrumb-mobile{
-      @apply block lg:hidden w-full z-10;
+      @apply block lg:hidden w-full z-20;
 
       &__dropdown-trigger{
         @apply flex items-center justify-between text-white;

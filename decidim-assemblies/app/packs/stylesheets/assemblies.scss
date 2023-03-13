@@ -1,5 +1,5 @@
-/* REDESIGN_PENDING: CSS inside this block is the same as processes
-  move to content-block (in core) when merge https://github.com/decidim/decidim/pull/9658 */
+/* REDESIGN_PENDING: remove this full block once content-blocks were integrated in assemblies,
+  they are in decidim-core/app/packs/stylesheets/decidim/_redesigned_participatory_spaces.scss */
 .assembly{
   &__hero{
     @apply backdrop-brightness-[30%];

@@ -49,6 +49,7 @@
   @import "stylesheets/decidim/redesigned_modal_identities.scss";
   @import "stylesheets/decidim/redesigned_modal_authorization.scss";
   @import "stylesheets/decidim/redesigned_modal_update.scss";
+  @import "stylesheets/decidim/redesigned_modal_tos_refuse.scss";
   @import "stylesheets/decidim/redesigned_address.scss";
   @import "stylesheets/decidim/redesigned_statistics.scss";
   @import "stylesheets/decidim/redesigned_content_blocks.scss";
@@ -69,6 +70,9 @@
 @import "stylesheets/decidim/redesigned_conversations.scss";
 @import "stylesheets/decidim/redesigned_versions.scss";
 @import "stylesheets/decidim/redesigned_hero.scss";
+@import "stylesheets/decidim/redesigned_cookies.scss";
+// participatory spaces are quite similar between processes and assemblies (different modules), so their stylesheets are placed in the core
+@import "stylesheets/decidim/redesigned_participatory_spaces.scss";
 
 // This imports all the Decidim module stylesheet imports registered at
 // `config/assets.rb` of the module for the "app" group.

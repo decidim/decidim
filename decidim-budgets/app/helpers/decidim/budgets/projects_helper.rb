@@ -114,6 +114,13 @@ module Decidim
 
         project.latitude.present? && project.longitude.present?
       end
+
+      def filter_addition_type_values(added_count:)
+        [
+          ["all", { text: t("all", scope: "decidim.budgets.projects.project_filter"), count: nil }],
+          ["added", { text: t("added", scope: "decidim.budgets.projects.project_filter"), count: added_count }]
+        ]
+      end
     end
   end
 end

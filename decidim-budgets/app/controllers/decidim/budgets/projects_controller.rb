@@ -41,7 +41,7 @@ module Decidim
       end
 
       def search_collection
-        Project.where(budget:).includes([:scope, :component, :attachments, :category])
+        Project.where(budget:).includes([:scope, :component, :attachments, :category]).with_order(filter_params[:addition_type] == "added" ? current_order : nil)
       end
 
       def default_filter_params
@@ -49,7 +49,8 @@ module Decidim
           search_text_cont: "",
           with_any_status: default_filter_status_params,
           with_any_scope: default_filter_scope_params,
-          with_any_category: default_filter_category_params
+          with_any_category: default_filter_category_params,
+          addition_type: "all"
         }
       end
 

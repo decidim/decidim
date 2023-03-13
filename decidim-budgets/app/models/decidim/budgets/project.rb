@@ -31,6 +31,13 @@ module Decidim
 
       alias can_participate? can_participate_in_space?
 
+      scope :with_order, lambda { |order|
+        if order.present?
+          joins(:orders).where(Decidim::Budgets::Order.arel_table[:id].eq(order.id))
+        else
+          all
+        end
+      }
       scope :selected, -> { where.not(selected_at: nil) }
       scope :not_selected, -> { where(selected_at: nil) }
 

@@ -14,169 +14,18 @@
   )
 %>
 
-<div class="process__container">
+<div class="participatory-space__container">
 
   <%= participatory_space_floating_help %>
 
-  <div>
-    <% if current_participatory_space.private_space? %>
-      <%= cell("decidim/announcement", t("private_space", scope: "decidim.participatory_processes.show"), callout_class: "alert") %>
-    <% end %>
-
-    <%= cell("decidim/announcement", current_participatory_space.announcement) %>
-  </div>
-
-  <section class="content-block process__content-block">
-    <div>
-      <h2 class="h2 decorator"><%= t(".title") %></h2>
-
-      <div class="content-block__description">
-        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
-      </div>
-
-      <%= link_to description_participatory_process_path, class: "button button__lg button__text-secondary" do %>
-        <span><%= t("more_info", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-        <%= icon "arrow-right-line" %>
-      <% end %>
-    </div>
-
-    <div class="process__nav-container">
-      <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
-        <span><%= t("decidim.searches.filters.jump_to") %></span>
-        <%= icon "arrow-down-s-line" %>
-        <%= icon "arrow-up-s-line" %>
-      </button>
-      <ul id="dropdown-menu" class="process__nav">
-        <%= render partial: "layouts/decidim/process_nav_item", collection: process_nav_items, as: :item %>
-      </ul>
-    </div>
-
-    <%= render partial: "metadata" %>
-  </section>
-
-  <section class="content-block">
-    <div class="content-block__title">
-      <h2 class="h2 decorator"><%= t("activity", scope: "decidim.profiles.show") %></h2>
-      <div class="process__metadata-link-endorsers">
-        <% Decidim::User.take(6).each do |user| %>
-          <span class="endorsers-list__avatar">
-            <%= cell "decidim/author", present(user), layout: :avatar, skip_profile_link: true %>
-          </span>
-        <% end %>
-      </div>
-      <div class="label text-lg"><%= Decidim::User.count %></div>
-      <%#= REDESIGN_PENDING: add link to last_activity %>
-      <%= link_to "#", class: "button button__sm button__text-secondary" do %>
-        <span><%= t("see_all_activity", scope: "layouts.decidim.participatory_processes.participatory_process") %></span>
-        <%= icon "arrow-right-line" %>
-      <% end %>
-    </div>
-
-    <span class="content-block__span"><%= t("name", scope: "decidim.content_blocks.last_activity") %></span>
-    <%#= REDESIGN_PENDING: user_activity requires a proper modal to make it work %>
-    <div class="space-y-4">
-      <%= cell "decidim/activities", Decidim::LastActivity.new(current_organization).query.limit(6) %>
-    </div>
-  </section>
-
-  <%#= REDESIGN_PENDING: the html block must include id="html-block-..." to span the full width %>
-  <section id="html-block-SEED">
-  </section>
-
-  <%#= REDESIGN_PENDING: proposals markup not ready %>
-  <%= render_hook(:participatory_space_highlighted_elements) %>
-
-  <% if related_processes.any? %>
-    <section class="content-block">
-      <div class="content-block__title">
-        <h2 class="h2 decorator"><%= t "related_processes", scope: "decidim.participatory_processes.show" %></h2>
-        <div class="label text-lg"><%= related_processes.length %></div>
-        <%#= REDESIGN_PENDING: add link to index %>
-        <%= link_to "#", class: "button button__sm button__text-secondary" do %>
-          <span><%= t("decidim.participatory_processes.pages.home.highlighted_processes.see_all_processes") %></span>
-          <%= icon "arrow-right-line" %>
-        <% end %>
-      </div>
-
-      <div class="process__block-grid">
-        <% related_processes.each do |related_process| %>
-          <%= card_for(related_process) %>
-        <% end %>
-      </div>
-    </section>
+  <% active_content_blocks.each do |content_block| %>
+    <% next unless content_block.manifest %>
+    <%= cell content_block.manifest.cell, content_block %>
   <% end %>
-
-  <% if linked_assemblies.any? %>
-    <section class="content-block">
-      <div class="content-block__title">
-        <h2 class="h2 decorator"><%= t("participatory_process.show.related_assemblies", scope: "decidim") %></h2>
-        <div class="label text-lg"><%= linked_assemblies.length %></div>
-        <%#= REDESIGN_PENDING: add link to index %>
-        <%= link_to "#", class: "button button__sm button__text-secondary" do %>
-          <span><%= t("decidim.participatory_processes.pages.home.highlighted_processes.see_all_processes") %></span>
-          <%= icon "arrow-right-line" %>
-        <% end %>
-      </div>
-
-      <div class="process__block-grid">
-        <% linked_assemblies.each do |linked_assembly| %>
-          <%= card_for(linked_assembly) %>
-        <% end %>
-      </div>
-    </section>
-  <% end %>
-
-  <%# REDESIGN_PENDING: integrate blog section %>
-  <% linked_blogs = Decidim::Blogs::Post.take(3) %>
-  <% if linked_blogs.any? %>
-    <section class="content-block">
-      <div class="content-block__title">
-        <h2 class="h2 decorator"><%= t("name", scope: "decidim.components.blogs") %></h2>
-        <div class="label text-lg"><%= linked_blogs.length %></div>
-        <%#= REDESIGN_PENDING: add link to index %>
-        <%= link_to "#", class: "button button__sm button__text-secondary" do %>
-          <span><%= t("decidim.participatory_processes.pages.home.highlighted_processes.see_all_processes") %></span>
-          <%= icon "arrow-right-line" %>
-        <% end %>
-      </div>
-
-      <span class="content-block__span"><%= "Last published" %></span>
-      <div class="process__block-grid">
-        <% linked_blogs.each do |linked_blog| %>
-          <%#= card_for(linked_blog) %>
-          <%= cell "decidim/blogs/post_g", linked_blog %>
-        <% end %>
-      </div>
-    </section>
-  <% end %>
-
-  <% if current_participatory_space.show_statistics? %>
-    <%= cell "decidim/statistics", stats.collection %>
-  <% end %>
-
-  <% if current_participatory_space.show_metrics? %>
-    <%= render partial: "metrics" %>
-  <% end %>
-
-  <section class="content-block">
-    <div class="content-block__title">
-      <h2 class="h2 decorator"><%= t("decidim.application.documents.related_documents") %></h2>
-    </div>
-
-    <%= render partial: "decidim/application/documents", locals: { documents: current_participatory_space.documents } %>
-  </section>
-
-  <section class="content-block">
-    <div class="content-block__title">
-      <h2 class="h2 decorator"><%= t("decidim.application.photos.related_photos") %></h2>
-    </div>
-
-    <%= cell("decidim/photos_list", current_participatory_space.photos) %>
-  </section>
 
 </div>
 
-<!-- this elements goes outside of the .process__container block -->
-<section class="process__block-reference">
+<!-- this elements goes outside of the .participatory-space__container block -->
+<section class="participatory-space__block-reference">
   <%= resource_reference(current_participatory_space) %>
 </section>
