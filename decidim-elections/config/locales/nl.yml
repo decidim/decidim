@@ -454,14 +454,11 @@ nl:
               generate_legend: Je moet een paar identificatiesleutels genereren om als Trustee deel te nemen aan verkiezingen.
               generate_legend_1: Na het indrukken van de knop moet je het bestand downloaden met de gegenereerde identificatiesleutels.
               generate_legend_2: Kopieer het gedownloade bestand naar een veilig USB-apparaat
-              generate_legend_3: Zorg ervoor dat uw computer geen kopie van het bestand heeft (kijk bijvoorbeeld naar de downloads en Desktop-mappen).
               generate_legend_4: Maak nog een kopie van het bestand op een ander extern apparaat en sla het op een zeer veilige plaats.
               submit: Verzenden
               submit_title: Vul de publieke identificatiesleutel in
               title: Trustee identificatiesleutels
               upload: Upload jouw identificatiesleutels
-              upload_error:
-                invalid_format: Het geüploade bestand bevat geen identificatiesleutel.
             not_supported_browser_title: Upgrade de browser om als Trustee te fungeren
             trustee_role_description: Je bent aangeduid om als Trustee te fungeren in enkele verkiezingen op dit platform.
           update:
@@ -911,7 +908,6 @@ nl:
             subject: De export van de stem toegangscodes voor %{voting_title} is beschikbaar
         vote_flow:
           already_voted_in_person: Deze gebruiker heeft al persoonlijk gestemd en heeft geen stemrecht.
-          datum_not_found: De gegevens komen niet overeen met een stemgerechtigde.
       content_blocks:
         highlighted_votings:
           name: Stemrondes in de kijker
@@ -954,7 +950,6 @@ nl:
             info_text: Voer voor elke vraag het totale aantal antwoorden in.
             modal_ballots_results_count_error:
               close_modal: Sluit
-              info_text: Het totale aantal stemmen komt niet overeen met het totaal aantal enveloppen. Controleer alstublieft het totaal aantal stemmen.
               title: Totaal stemmen stemt niet overeen
             save_recount: Bewaar hertelling
             total_ballots: Totaal aantal stemmen
@@ -968,7 +963,6 @@ nl:
             modal_ballots_count_error:
               btn_validate_total: Bevestig de totale hertelling van de stemmen
               close_modal: Sluit
-              info_text: Het totale aantal ingevoerde stemmen (enveloppen) komt niet overeen met de lijst van mensen die in dit stembureau hebben gestemd.
               message_for_monitoring_committee: Bericht aan het Comité van toezicht
               review_recount: Controleer de hertelling
               text_area_placeholder: Schrijf je bericht
