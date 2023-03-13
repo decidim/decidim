@@ -54,12 +54,6 @@ ja:
           attributes:
             attachment:
               needs_to_be_reattached: 再接続が必要
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: 変更できません
-            public_key:
-              cant_be_changed: 変更できません
         voting:
           attributes:
             voting_type:
@@ -324,7 +318,6 @@ ja:
             continue: 続ける
             invalid: 受託者が見つからない報告する際に問題が発生しました
             mark_as_missing: missing としてマーク
-            mark_as_missing_description: すべての受託者は、このプロセスに参加する必要がありますが、受託者がプロセスに参加できない場合は、missing とマークすることができます。
             success: 不足していた受託者の報告は正しく掲示板に送信されました
             tally_completion: すべての受託者がアクティブまたは missing とマークされた場合、プロセスは完了します。少なくとも %{quorum} 人の受託者がプロセスを完了する必要があります。
             title: 集計処理
@@ -626,10 +619,8 @@ ja:
               upload: 識別キーをアップロード
               upload_error:
                 invalid_format: アップロードされたファイルには識別キーが含まれていません。
-                invalid_key: アップロードされたファイルの識別キーは読み込めません。
                 invalid_public_key: アップロードされたファイルの識別キーが公開鍵と一致しません。
               upload_legend: サーバーには公開鍵がありますが、ブラウザにはまだ公開鍵がありません。 公開鍵を作成後、作成したバックアップから、公開鍵を使用したファイルをコンピュータにインポートする必要があります。
-            not_supported_browser_description: 受託者としての活動に使用できないWebブラウザを使用しているようです。最新バージョンのブラウザを使用するか、または一般的なブラウザを使用して、受託者のタスクを完了できるようにしてください。
             not_supported_browser_title: ブラウザをアップグレードして受託者として行動する
             trustee_role_description: あなたは、このプラットフォームで行われる選挙のいくつかで受託者を務めることになっています。
           update:
@@ -1230,10 +1221,8 @@ ja:
             confirm: はい、続行します
             error: エラーが発生しました。もう一度やり直してください。
             heading: 投票の再集計 - 閉鎖を署名
-            info_text: 続行すると、情報を変更できなくなります。このアクションは元に戻すことはできません。
             submit: 閉鎖に署名する
             success: 閉鎖の署名に成功しました。
-            title: このアクションは元に戻せません
           update:
             error: 閉鎖結果の更新中にエラーが発生しました。後でもう一度お試しください。
             success: 閉鎖結果が正常に更新されました。
