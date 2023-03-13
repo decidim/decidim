@@ -228,6 +228,9 @@ fr:
           success: Étape de la concertation créée avec succès.
         default_title: Introduction
         destroy:
+          error:
+            active_step: "Cannot delete the active phase.\nVous ne pouvez pas supprimer l'étape active de ce processus."
+            last_step: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
         edit:
           title: Modifier l'étape de la concertation
