@@ -28,7 +28,6 @@ hu:
           body:
             label: Megjegyzés
             placeholder: Mit gondolsz erről?
-          form_error: Kötelező kitölteni, és nem lehet hosszabb, mint %{length} karakter.
           submit: Küldés
           user_group_id:
             label: 'Megjegyzés mint:'
@@ -55,6 +54,7 @@ hu:
             does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, ami nem tartozik ide: %{organization_name}.'
             offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
             spam: Klikkvadászat, reklám, átverés vagy script bot.
+        show_replies: '%{replies_count} válasz mutatása'
       comment_order_selector:
         order:
           best_rated: Legjobbra értékelt
@@ -107,6 +107,3 @@ hu:
         description: A felhasználók által generált megjegyzések száma
         object: Hozzászólások
         title: Hozzászólások
-  errors:
-    messages:
-      cannot_have_comments: nem tudsz megjegyzéseket tenni
