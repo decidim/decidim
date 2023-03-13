@@ -28,12 +28,6 @@ it:
           attributes:
             attachment:
               needs_to_be_reattached: Necessita di essere riallegato
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: non modificabile
-            public_key:
-              cant_be_changed: non modificabile
   activerecord:
     errors:
       models:
@@ -559,8 +553,6 @@ it:
               upload: Carica i tuoi codici di identificazione
               upload_error:
                 invalid_format: Il file caricato non contiene alcun codice di identificazione.
-                invalid_key: I codici di identificazione nel file caricato non possono essere caricati.
-            not_supported_browser_description: Sembra che tu stia usando un browser web che non può essere usato in qualitá di Garante. Assicurati di utilizzare la versione più recente del tuo browser, o prova ad utilizzare uno dei browser più popolari che ti permettano di esercitare il ruolo di Garante.
             not_supported_browser_title: Aggiorna il browser per fungere da Garante
             trustee_role_description: Ti è stato assegnato di ruolo di Garante in alcune delle elezioni che si svolgeranno su questa piattaforma.
           update:
@@ -1124,10 +1116,8 @@ it:
             confirm: Ok, continua
             error: Si è verificato un errore, riprova.
             heading: Resoconto dei voti - Chiusura dei segni
-            info_text: Se si continua non è più possibile modificare nessuna delle informazioni, questa azione non può essere annullata.
             submit: Firma la chiusura
             success: Chiusura firmata con successo.
-            title: L'azione non può essere annullata
           update:
             error: Si è verificato un errore durante l'aggiornamento dei risultati della chiusura, riprova più tardi.
             success: Risultati di chiusura aggiornati con successo.
