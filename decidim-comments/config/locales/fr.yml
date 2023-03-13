@@ -43,6 +43,7 @@ fr:
           body:
             label: Commentaire
             placeholder: Que pensez-vous de cela ?
+          form_error: Le texte est requis et ne doit pas dépasser %{length} caractères.
           submit: Publier
           user_group_id:
             label: Commenter en tant que
@@ -162,3 +163,6 @@ fr:
         description: Nombre de commentaires générés par les utilisateurs
         object: commentaires
         title: commentaires
+  errors:
+    messages:
+      cannot_have_comments: "cannot have comments\n\nNe peut faire l'objet d'un commentaire"
