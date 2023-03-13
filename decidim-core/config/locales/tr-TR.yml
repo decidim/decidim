@@ -454,17 +454,6 @@ tr:
             check: Kontrol et ve devam et
             close_modal: Yakın kalıcı
             uncheck: İşaretlemeyin
-          notice: |-
-            <p>Hey, bir haber bülteni almak istemediğine emin misin?<br>
-            Lütfen aşağıdaki haber bülteni onay kutusunu tekrar işaretleyin.<br>
-            Size ara sıra e-postaları alabilmeniz bizim için çok önemlidir
-            her zaman bu değiştirebilir, önemli duyurular yapmak için
-            bildirimleri ayarları sayfasında.</p>
-            <p>Eğer kutuyu işaretlemezseniz, platformdaki yeni katılımcı fırsatlar hakkında ilgili bilgileri
-            kaçırıyor olabilirsiniz.<br>
-            Hala alıcı haber kaçınmak istiyorsak, mükemmel
-            kararınızı anlıyoruz.</p>
-            <p>Bunu okuduğunuz için teşekkürler!</p>
           title: Bülten bildirimleri
         omniauth_buttons:
           or: Veya
@@ -975,7 +964,6 @@ tr:
       no_notifications: Henüz bildirim yok.
     notifications_settings:
       show:
-        allow_public_contact: Takip etmesem bile herkesin bana doğrudan mesaj göndermesine izin ver.
         direct_messages: Herkesten doğrudan mesaj alın
         everything_followed: Takip ettiğim her şey
         newsletter_notifications: Bülten almak istiyorum
@@ -1344,9 +1332,6 @@ tr:
         accept_until: Bu davetiye %{due_date}.
         decline: Davet reddet
         hello: Merhaba %{email}
-        ignore: |-
-          Davetiyeyi kabul etmek istemiyorsanız, lütfen bu e-postayı yoksayın.<br />
-          Yukarıdaki bağlantıya erişip takma adınızı ve şifrenizi ayarlayana kadar hesabınız oluşturulmaz.
         invited_you_as_admin: "%{invited_by} sizi %{application}yönetici olarak davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz."
         invited_you_as_private_user: "%{invited_by} özel bir kullanıcı olarak davet etti %{application}. Aşağıdaki bağlantıdan kabul edebilirsiniz."
         someone_invited_you: Birisi sizi %{application}davet etti. Aşağıdaki bağlantıdan kabul edebilirsiniz.
