@@ -176,7 +176,6 @@
           name: Deltok møter
           next_level_in: Delta %{score} flere møter for å nå neste nivå!
           unearned_another: Denne deltakeren har ikke deltatt noen møter ennå.
-          unearned_own: Du har ikke deltatt noen møter ennå.
     meetings:
       actions:
         agenda: Dagsorden
