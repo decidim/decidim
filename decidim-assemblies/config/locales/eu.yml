@@ -426,9 +426,6 @@ eu:
         related_assemblies: Erlazionatutako batzarrak
     statistics:
       assemblies_count: Batzarrak
-  errors:
-    messages:
-      cannot_be_blank: ezin da hutsik egon
   layouts:
     decidim:
       assemblies:
