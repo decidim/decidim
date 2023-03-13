@@ -795,7 +795,6 @@ ca:
               new: Nou
               title: Accions
             associated_census_data: Entrades del cens associades
-            explanation_callout: Un estil de papereta especifica quines són les preguntes que veuran els votants a la cabina. Així, en aquesta elecció pots escollir-ne quines formaran part de la papereta. El codi d'estil de papereta normalment comprova al cens quin és el votant per tal de mostrar una o altra papereta a la cabina. No creïs cap estil de papereta si es mostren sempre les mateixes preguntes a tothom.
             title: Estils de papereta
           new:
             create: Crear
@@ -1033,7 +1032,6 @@ ca:
             invalid: S'ha produït un error en crear aquesta votació
             success: Votació creada correctament
           edit:
-            add_election_component: No tens cap elecció configurada per a aquesta votació. Si us plau, afegeix-la a la secció de components
             assign_missing_officers: Hi ha punts de votació sense president i/o gestors. Si us plau, assigna'ls des de la secció de punts de votació
             update: Actualitzar
           form:
@@ -1341,7 +1339,6 @@ ca:
           success:
             access_link: per correu electrònic.
             access_link_with_sms: via SMS o correu electrònic.
-            info: Ja hauries d'haver rebut el codi d'accés per correu postal. En cas que no l'hagis rebut, pots demanar-lo de nou aquí
             title: Les teves dades del cens són correctes!
           title: Puc votar?
         check_fields:
@@ -1387,7 +1384,6 @@ ca:
           access_code: Codi d'accés
           access_code_placeholder: Codi d'accés
           ask_for_a_new_one: Sol·licita'n un de nou.
-          dont_have_access_code: No tens un codi d'accès?
           form_title: 'Emplena el formulari següent per accedir a la votació:'
           start_voting: Començar a votar
           step: Identificació
