@@ -61,7 +61,7 @@ es-MX:
             - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
             - Rellenas la información presente en la imagen subida.
             - La información debe coincidir con lo que el usuario envió.
-            - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
+            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
             - Los usuarios solicitan que se envíe un código de verificación a su dirección.
