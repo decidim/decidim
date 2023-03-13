@@ -411,10 +411,12 @@ ca:
           resume: Comprova el progrés de l'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
+          explanation: Ho sentim, no pots dur a terme aquesta acció perquè algunes de les teves dades d'autorització no coincideixen.
           invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
         unconfirmed:
+          confirmation_instructions: 'Si no has rebut les instruccions de confirmació, pots tornar a demanar-les:'
           explanation_html: Per realitzar aquesta acció cal que estiguis autoritzada, abans de fer-ho, has de confirmar el teu correu electrònic <strong>%{email}</strong>.
           request_confirmation_instructions: Sol·licita instruccions de confirmació
           title: Confirma el teu correu electrònic
@@ -433,6 +435,7 @@ ca:
       see_more: "(veure més)"
     components:
       component_order_selector:
+        no_content: No hem pogut trobar cap contingut amb aquest criteri
         order:
           all_types: Tots els tipus
           collaborative_draft: Esborrany col·laboratiu
@@ -565,6 +568,13 @@ ca:
             check: Marca i continua
             close_modal: Tanca modal
             uncheck: Deixa desmarcada
+          notice: |-
+            <p>Hola, segur que no vols rebre un butlletí?<br>
+            Si us plau, pren en consideració marcar la casella de selecció de butlletí a continuació.<br>
+            Per a nosaltres és molt important que rebis correus electrònics ocasionals per fer avisos importants, sempre pots canviar-ho a la pàgina de configuració de les notificacions.</p>
+            <p>Si no marques la casella, pot ser que et falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
+            Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió.</p>
+            <p>Gràcies per llegir això.</p>
           title: Notificacions de butlletins
         omniauth_buttons:
           or: O
@@ -623,6 +633,7 @@ ca:
       not_found:
         back_home: Torna a l'inici
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
+        title: No s'ha trobat la pàgina que busques
     events:
       amendments:
         amendment_accepted:
@@ -950,6 +961,7 @@ ca:
         success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
         error: S'ha produït un error en abandonar el grup
+        last_admin: No et pots esborrar tu mateixa d'aquest grup perquè n'ets la darrera administradora. Fes a una altra membre administradora per a poder abandonar aquest grup.
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
