@@ -210,7 +210,6 @@ ru:
             filter_by: 'Отобрать по признаку:'
             invite_attendee: Пригласить участника
             invites: Приглашения
-            registrations_disabled: Вы не можете пригласить участника, так как регистрация отключена.
             search: Поиск
         meeting_closes:
           edit:
