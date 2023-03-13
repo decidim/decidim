@@ -207,9 +207,6 @@ sv:
           success: Steget i deltagarprocessen har skapats.
         default_title: Introduktion
         destroy:
-          error:
-            active_step: Det aktiva steget kan inte raderas.
-            last_step: Kan inte radera det sista steget i en dialog.
           success: Steget i dialogen har raderats.
         edit:
           title: Redigera steg i dialogen
