@@ -26,8 +26,6 @@ eu:
       comments:
         create:
           error: Arazoa gertatu da iruzkina sortzean.
-        delete:
-          error: Iruzkina ezin izan da ezabatu.
         update:
           error: Arazoa gertatu da iruzkina eguneratzean.
       comments_count: Iruzkin kopurua
