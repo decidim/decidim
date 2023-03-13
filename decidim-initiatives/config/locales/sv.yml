@@ -58,12 +58,8 @@ sv:
             attachment:
               file: Filen är ogiltig
               needs_to_be_reattached: Måste återknytas
-              title: Titeln bör inte vara tom
   activerecord:
     models:
-      decidim/initiative:
-        one: Intitiativ
-        other: Initiativ
       decidim/initiative_comittee:
         one: Kommitté
         other: Kommittéer
