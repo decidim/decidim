@@ -139,7 +139,6 @@ sk:
           name: Stretnutia, ktorých ste sa zúčastnili
           next_level_in: Zúčastnite sa ďalších %{score} stretnutí pre dosiahnutie ďalšej úrovne!
           unearned_another: Tento účastník sa nezúčastnil žiadneho stretnutia.
-          unearned_own: Zatiaľ ste sa nezúčastnili žiadnych stretnutí.
     meetings:
       actions:
         agenda: Denný program
