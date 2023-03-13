@@ -152,7 +152,6 @@ pt-BR:
           name: Participou de reuniões
           next_level_in: Participe de mais %{score} reuniões para alcançar o próximo nível!
           unearned_another: Este usuário ainda não participou de nenhuma reunião.
-          unearned_own: Você não participou de nenhuma reunião ainda.
     meetings:
       actions:
         agenda: Agenda
