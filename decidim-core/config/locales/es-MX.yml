@@ -418,7 +418,6 @@ es-MX:
           ok: De acuerdo
           title: No autorizado
         unconfirmed:
-          confirmation_instructions: 'Si no has recibido las instrucciones de confirmación, puedes volver a solicitarlas:'
           explanation_html: Para realizar esta acción, debes estar autorizado, antes de hacerlo, confirma tu correo electrónico <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucciones de confirmación
           title: Confirma tu email
@@ -437,7 +436,6 @@ es-MX:
       see_more: "(ver más)"
     components:
       component_order_selector:
-        no_content: No podemos encontrar ningún contenido con este criterio
         order:
           all_types: Todos los tipos
           collaborative_draft: Borrador colaborativo
@@ -1646,7 +1644,6 @@ es-MX:
         action: Cambiar mi contraseña
         greeting: '¡Hola %{recipient}!'
         instruction: Alguien ha solicitado un enlace para cambiar tu contraseña, y puede hacerlo a través del siguiente enlace.
-        instruction_2: Si no lo solicitaste, ignora este correo electrónico.
         instruction_3: Tu contraseña no cambiará hasta que accedas al enlace de arriba y crees una nueva.
         subject: Restablecer instrucciones de contraseña
       unlock_instructions:
@@ -1692,8 +1689,6 @@ es-MX:
     shared:
       links:
         back: Atrás
-        didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
-        didn_t_receive_unlock_instructions: '¿No has recibido instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
         sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
@@ -1728,7 +1723,6 @@ es-MX:
       load: No se ha producido un error al cargar la lista de emojis
     recents:
       clear: Borra los emojis recientes
-      none: Aún no has seleccionado ningún emoji.
     retry: Inténtalo de nuevo
     search:
       _: Buscar emojis...
