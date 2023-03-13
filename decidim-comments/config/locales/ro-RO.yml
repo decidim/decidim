@@ -28,8 +28,6 @@ ro:
       comments:
         create:
           error: A apărut o problemă la crearea comentariului.
-        delete:
-          error: Comentariul nu a putut fi șters.
         update:
           error: A apărut o eroare la actualizarea comentariului.
       comments_count: Număr de comentarii
