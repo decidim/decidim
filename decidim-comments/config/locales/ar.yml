@@ -52,7 +52,6 @@ ar:
           body:
             label: تعليق
             placeholder: ما رأيك بهذا؟
-          form_error: النص مطلوب ولا يمكن أن يكون أطول من %{length} حرف.
           submit: إرسال
           user_group_id:
             label: التعليق باسم
@@ -91,6 +90,7 @@ ar:
             offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
             spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.
           title: الإبلاغ عن محتوى غير لائق
+        show_replies: اظهر الردود الـ %{replies_count}
         single_comment_link_title: أحصل على الرابط
       comment_order_selector:
         order:
@@ -175,6 +175,3 @@ ar:
         description: عدد التعليقات الناتجة عن المشاركين
         object: تعليقات
         title: تعليقات
-  errors:
-    messages:
-      cannot_have_comments: لا يمكن أن يكون لديك تعليقات
