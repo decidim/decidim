@@ -52,14 +52,8 @@ lt:
             attachment:
               file: Rinkmena netinkama
               needs_to_be_reattached: Reikia pridėti iš naujo
-              title: Pavadinimo laukas neturėtų būti tuščias
   activerecord:
     models:
-      decidim/initiative:
-        one: Iniciatyva
-        few: Iniciatyvos
-        many: Iniciatyvos
-        other: Iniciatyvos
       decidim/initiative_comittee:
         one: Komitetas
         few: Komitetai
