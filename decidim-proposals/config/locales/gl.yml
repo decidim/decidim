@@ -31,7 +31,6 @@ gl:
         cost_report: Informe de custos
         execution_period: Período de execución
       proposals_copy:
-        copy_proposals: Comprendo que isto importará todas as propostas do compoñente seleccionado ao actual e que esta acción non se pode revertir.
         origin_component_id: Componente para copiar as propostas de
       proposals_import:
         import_proposals: Propostas de importación
@@ -646,8 +645,6 @@ gl:
             valuator: Avaliador/a
             valuators: Avaliadores/as
             votes: Votos
-      new:
-        limit_reached: Non podes crear novas propostas xa que superaches o límite.
       participatory_text_proposal:
         alternative_title: Non hai ningún texto participativo neste momento
         buttons:
