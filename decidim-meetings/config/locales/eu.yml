@@ -188,9 +188,6 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" topaketa jarraitzen duzulako. Aurreko estekan baja eman daiteke.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino lehen hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
-    forms:
-      meetings:
-        attendees_count_help_text: Ez ahaztu tokapetara bertaratutakoen kopuru osoa sartzea, aurrez aurre, online edo hibridoan.
     gamification:
       badges:
         attended_meetings:
@@ -360,7 +357,6 @@ eu:
             registrations_count:
               one: Izen-emate %{count} izan da.
               other: Dena den, %{count} matrikulazioak.
-            reserved_slots_help: Utzi 0 aukerarik ez baduzu erreserbatutako slotarik
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
             title: Izen-emateak
           update:
