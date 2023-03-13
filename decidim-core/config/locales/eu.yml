@@ -740,8 +740,6 @@ eu:
       value: Balioa
     followers:
       no_followers: Ez da jarraitzailerik oraindik.
-    following:
-      no_followings: Ez du inork edo ezer oraindik jarraitzen.
     follows:
       create:
         button: Jarraitu
@@ -796,7 +794,6 @@ eu:
           description_own: "%{score} erabiltzaile jarraitzen zaituzte."
           name: Jarraitzaileak
           next_level_in: Lortu %{score} erabiltzaile gehiago jarraitzeko hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du jarraitzailerik.
           unearned_own: Oraindik ez duzu jarraitzaileik.
         index:
           badge_title: "%{name} txapela"
@@ -882,7 +879,6 @@ eu:
         create_user_group: Sortu taldea
         new_user_group: Talde berria
         subtitle: Sortu talde bat eta gonbidatu beste erabiltzaileei talde kolektiboan parte hartzeko.
-      no_user_groups: Oraindik ez da talde batekoa.
       roles:
         admin: Administratzailea
         creator: Administratzailea
@@ -940,8 +936,6 @@ eu:
       static:
         latlng_text: 'latitudea: %{latitude}, longitudea: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Erabiltzaile talde honek ez du kideik oraindik.
     menu:
       help: Laguntza
       home: Hasiera
@@ -1291,7 +1285,6 @@ eu:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
         description: Eduki hau desegokia da?
-        does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
         hide: Ezkutatu
         hide_content: Edukia ezkutatu
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
@@ -1304,7 +1297,6 @@ eu:
         already_reported: Eduki hau jada salatuta dago, eta administratzaile batek berrikusiko du.
         close: Itxi
         description: Erabiltzailearen zer da desegokia?
-        does_not_belong: Bertan badago legez kontrako jardunik, suizidio-mehatxurik, informazio pertsonalik edo beste zernahi, zure ustez %{organization_name}-ri ez dagokionik.
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         report: Jakinarazi
         spam: Bertan badago clickbait-ik, publizitaterik edo gidoi-robotik.
@@ -1395,7 +1387,6 @@ eu:
     user_interests:
       show:
         my_interests: Nire interesak
-        no_scopes: Antolakuntza honek ez du inongo esparrurik!
         select_your_interests: Aukeratu interesatzen zaizkizun gaiak zure profileko denbora lerroan.
         update_my_interests: Eguneratu nire interesak
       update:
