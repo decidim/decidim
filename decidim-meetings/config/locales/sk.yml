@@ -265,7 +265,6 @@ sk:
               few: Bolo tu%{count} registrácií.
               many: Bolo tu%{count} registrácií.
               other: Bolo tu%{count} registrácií.
-            reserved_slots_help: Nechajte ju na 0, ak nemáte vyhradenej sloty
             reserved_slots_less_than: Musí byť menšie alebo rovné%{count}
             title: Registrácia
           update:
