@@ -228,9 +228,6 @@ fi-pl:
           success: Osallisuusprosessin vaihe luotu onnistuneesti.
         default_title: Johdanto
         destroy:
-          error:
-            active_step: Aktiivista vaihetta ei voi poistaa.
-            last_step: Prosessin viimeistä vaihetta ei voi poistaa.
           success: Osallisuusprosessin vaihe poistettiin onnistuneesti.
         edit:
           title: Muokkaa osallisuusprosessin vaihetta
