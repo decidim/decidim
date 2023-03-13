@@ -306,7 +306,6 @@ tr:
           resume: '"%{authorization}" yetkilendirme işleminizi kontrol edin'
           title: Yetkilendirme devam ediyor
         unauthorized:
-          explanation: Maalesef, bu eylemi, yetki verilerinizden bazıları eşleşmediğinden gerçekleştiremezsiniz.
           invalid_field: "%{field} için değer %{value} geçerli değil."
           ok: Tamam
           title: Yetkili değil
@@ -505,7 +504,6 @@ tr:
       not_found:
         back_home: Eve dön
         content_doesnt_exist: Bu adres yanlış veya kaldırılmış.
-        title: Aradığınız sayfa bulunamadı
     events:
       amendments:
         amendment_accepted:
@@ -1394,7 +1392,6 @@ tr:
       new:
         forgot_your_password: Parolanızı mı unuttunuz?
         send_me_reset_password_instructions: Bana şifre sıfırlama talimatlarını gönder
-      no_token: Şifre sıfırlama e-postasından gelmeden bu sayfaya erişemezsiniz. Şifre sıfırlama e-postasından geliyorsanız, lütfen sağlanan URL’yi kullandığınızdan emin olun.
       send_instructions: Birkaç dakika içinde şifrenizi nasıl sıfırlayacağınızla ilgili talimatları içeren bir e-posta alacaksınız.
       send_paranoid_instructions: E-posta adresiniz veritabanımızda bulunuyorsa, birkaç dakika içinde e-posta adresinizde bir şifre kurtarma bağlantısı alacaksınız.
       updated: Şifreniz başarıyla değiştirildi. Şimdi oturum açtınız.
@@ -1441,13 +1438,11 @@ tr:
       already_confirmed: zaten onaylandı, lütfen giriş yapmayı deneyin
       confirmation_period_expired: '%{period}içinde onaylanması gerekiyor, lütfen yeni bir tane isteyin'
       content_type_allowlist_error: dosya türü geçerli değil
-      cycle_detected: bir kapsamın ebeveyni torunlarından biri olamaz
       expired: süresi doldu, lütfen yeni bir tane isteyin
       file_size_is_less_than_or_equal_to: dosya boyutu %{count}eşit veya daha küçük olmalıdır
       invalid_time_zone: geçerli bir zaman değil
       long_words: çok uzun kelimeler içeriyor (35 karakterden fazla)
       must_start_with_caps: büyük harfle başlamalıdır
-      nesting_too_deep: bir alt kategorinin içinde olamaz
       not_found: bulunamadı. Daha önce üye oldunuz mu?
       not_locked: kilitli değildi
       not_saved:
