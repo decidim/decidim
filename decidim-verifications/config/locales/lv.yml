@@ -226,7 +226,6 @@ lv:
           edit:
             confirm_destroy: Vai tiešām vēlaties atiestatīt verifikācijas kodu?
             destroy: Atiestatīt verifikācijas kodu
-            resend: Nesaņēmāt verifikācijas kodu?
             send: Apstiprināt
             title: Ievadiet saņemto verifikācijas kodu
           new:
