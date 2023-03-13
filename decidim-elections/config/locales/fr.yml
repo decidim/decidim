@@ -451,7 +451,6 @@ fr:
           verifiable_results:
             checksum: 'Fichier de somme de contrôle SHA256:'
             description:
-              not_ready: Le fichier de vérification électoral et la somme de contrôle SHA256 ne sont pas encore disponibles. Dès que les résultats seront publiés, vous serez en mesure de vérifier cette élection.
               ready: 'Ici, vous avez la possibilité de vérifier l''élection. D''abord, vous devez télécharger le fichier et vous assurer qu''il n''a pas été corrompu. Pour ce faire, exécutez la commande suivante et vérifiez que la sortie correspond à la somme de contrôle :'
             how_to_verify: 'Une fois le fichier téléchargé et vérifié qu''il est correct, vous pouvez exécuter le vérificateur universel. Clonez <a href=''https://github.com/decidim/decidim-bulletin-board''>ce dépôt</a> et, depuis le dossier racine, exécutez la commande suivante :'
             title: Vérifier les résultats de l'élection
@@ -1328,7 +1327,6 @@ fr:
       votings:
         access_code_modal:
           email: Envoyer par e-mail à %{email}
-          info: Vous avez besoin d'un code d'accès pour participer. Si vous n'en avez pas reçu un par courrier, nous pouvons vous en envoyer un nouveau.
           no_email: Aucun email disponible
           no_sms: Aucun numéro de téléphone disponible
           sms: Envoyer par SMS à %{sms}
