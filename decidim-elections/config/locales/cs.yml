@@ -54,12 +54,6 @@ cs:
           attributes:
             attachment:
               needs_to_be_reattached: Potřebuje být znovu připojen
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: nelze změnit
-            public_key:
-              cant_be_changed: nelze změnit
         voting:
           attributes:
             voting_type:
@@ -351,7 +345,6 @@ cs:
             continue: Pokračovat
             invalid: Došlo k problému s nahlášením chybějícího důvěrníka
             mark_as_missing: Označit jako chybějící
-            mark_as_missing_description: Tohoto procesu by se měli účastnit všichni důvěrníci, ale pokud se některý důvěrník nemůže procesu účastnit, můžete ho označit jako chybějícího.
             success: Zpráva o chybějícím důvěrníkovi byla úspěšně odeslána na vývěsku
             tally_completion: Proces bude dokončen, jakmile budou všichni důvěrníci aktivní nebo budou označeni jako chybějící. K dokončení procesu je zapotřebí alespoň %{quorum} důvěrníků.
             title: Proces volebního přepočítání
@@ -662,10 +655,8 @@ cs:
               upload: Nahrajte své identifikační klíče
               upload_error:
                 invalid_format: Nahraný soubor neobsahuje žádný identifikační klíč.
-                invalid_key: Identifikační klíče v nahraném souboru nelze načíst.
                 invalid_public_key: Identifikační klíče v nahraném souboru neodpovídají uloženému veřejnému identifikačnímu klíči.
               upload_legend: Server má vaše veřejné identifikační klíče, ale váš prohlížeč jej stále nemá. Je třeba importovat soubor s identifikačními klíči do počítače ze zálohy, kterou jste vytvořili po jejich vygenerování.
-            not_supported_browser_description: Vypadá to, že používáte webový prohlížeč, který nelze použít jako správce. Ujistěte se, že používáte nejnovější verzi prohlížeče, nebo zkuste použít některý z nejpopulárnějších prohlížečů, abyste mohli dokončit své úkoly správce.
             not_supported_browser_title: Upgradujte prohlížeč abyste mohl fungovat jako důvěrník
             trustee_role_description: Byl jste pověřen, abyste v některých volbách, které na této platformě probíhají, jednal jako důvěrník.
           update:
@@ -1267,10 +1258,8 @@ cs:
             confirm: Ok, pokračovat
             error: Došlo k chybě. Prosím zkuste to znovu.
             heading: Přepočet hlasů - uzavření podpisu
-            info_text: Pokud budete pokračovat, již nemůžete upravovat žádné informace, tuto akci nelze vrátit zpět.
             submit: Podepsat uzavření
             success: Uzavření úspěšně podepsáno.
-            title: Tuto akci nelze vrátit zpět
           update:
             error: Při aktualizaci výsledků uzávěrky došlo k chybě, zkuste to prosím později.
             success: Výsledky uzávěrky byly úspěšně aktualizovány.
