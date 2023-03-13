@@ -732,7 +732,6 @@ sv:
         other: "%{count} följare"
       no_followers: Inga följare än.
     following:
-      no_followings: Följer inte någon eller något än.
       non_public_followings: Vissa resurser som följs är inte offentliga.
     follows:
       create:
@@ -789,7 +788,6 @@ sv:
           description_own: "%{score} personer följer dig."
           name: Följare
           next_level_in: Nå nästa nivå genom att få %{score} fler personer användare att följa dig!
-          unearned_another: Den här användaren har inga följare än.
           unearned_own: Du har inga följare än.
         index:
           badge_title: "%{name} märke"
@@ -875,7 +873,6 @@ sv:
         create_user_group: Skapa grupp
         new_user_group: Ny grupp
         subtitle: Skapa en grupp och bjud in andra användare att delta som ett kollektiv.
-      no_user_groups: Tillhör inte någon grupp än.
       roles:
         admin: Administratör
         creator: Administratör
@@ -933,8 +930,6 @@ sv:
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Grupp har inga medlemmar än.
     menu:
       help: Hjälp
       home: Hem
@@ -1287,7 +1282,6 @@ sv:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
         description: Är detta innehåll olämpligt?
-        does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
         offensive: Innehåller rasism, sexism, nedsättande kommentarer, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
         reason: Anledning
         report: Rapportera
@@ -1297,7 +1291,6 @@ sv:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
         description: Vad är olämpligt med användaren?
-        does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
         offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
         report: Rapportera
         spam: Innehåller klickbete, reklam, bedrägerier eller skriptbottar.
@@ -1384,7 +1377,6 @@ sv:
     user_interests:
       show:
         my_interests: Mina intressen
-        no_scopes: Den här organisationen har ingen omfattning än!
         select_your_interests: Välj de ämnen som du är intresserad, och händelser som är relaterade till dessa visas fliken Tidslinje i din profil.
         update_my_interests: Uppdatera mina intressen
       update:
