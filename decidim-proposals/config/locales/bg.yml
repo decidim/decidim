@@ -26,7 +26,6 @@ bg:
       proposal_answer:
         answer: Отговор
       proposals_copy:
-        copy_proposals: Разбирам, че това ще вмъкне всички предложения от избрания компонент към текущия и това действие не е обратимо.
         origin_component_id: Компонент, от който да се копират предложенията
       proposals_import:
         import_proposals: Копиране на предложения
