@@ -427,8 +427,6 @@ eu:
           success_html: Zorionak! <strong> %{title}</strong> ekimena ongi sinatu da
         personal_data:
           invalid: Datu pertsonalak ez dira bat datozen baimenarekin emandako datuak.
-        sms_code:
-          invalid: Zure egiaztapen-kodea ez dator bat gurearekin. Begiratu bi aldiz bidalitako SMSa.
         sms_phone:
           invalid: Telefono-zenbakia baliogabea edo baimenaren zain dago. Egiaztatu zure baimenak.
       initiatives:
