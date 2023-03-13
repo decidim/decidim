@@ -475,13 +475,6 @@ nl:
             check: Controleer en ga door
             close_modal: Sluit venster
             uncheck: Uitgeschakeld houden
-          notice: |-
-            <p>Hé, weet je zeker dat je geen nieuwsbrief wilt ontvangen?<br>
-            Overweeg nogmaals om het selectievakje voor de nieuwsbrief hieronder aan te vinken.<br>
-            Het is erg belangrijk voor ons dat u af en toe e-mails kunt ontvangen om belangrijke mededelingen te doen, u kunt dit altijd wijzigen op de pagina met meldingen-instellingen.</p>
-            <p>Als u het selectievakje niet aanvinkt, mist u mogelijk relevante informatie over nieuwe participatiemogelijkheden binnen het platform.<br>
-            Als u nog steeds geen nieuwsbrieven meer wilt ontvangen, begrijpen we uw beslissing perfect.</p>
-            <p>Bedankt voor het lezen!</p>
           title: Nieuwsbriefmeldingen
         omniauth_buttons:
           or: Of
@@ -1012,7 +1005,6 @@ nl:
     notifications_settings:
       show:
         administrators: Beheerders
-        allow_public_contact: Ledereen kan mij een persoonlijk bericht sturen, ook mensen die ik niet volg.
         direct_messages: Ontvang privéberichten van iedereen
         everything_followed: Alles wat ik volg
         newsletter_notifications: Ik wil de nieuwsbrief ontvangen
@@ -1380,9 +1372,6 @@ nl:
         accept_until: Deze uitnodiging zal verlopen op %{due_date}.
         decline: Uitnodiging afwijzen
         hello: Hallo %{email},
-        ignore: |-
-          Als u de uitnodiging niet wilt accepteren, negeert u deze e-mail.<br />
-          Uw account zal pas worden aangemaakt als u de bovenstaande link opent en uw bijnaam en wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
         invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privé deelnemer van %{application}. Accepteren kan via onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
