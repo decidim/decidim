@@ -411,7 +411,6 @@ ca:
           resume: Comprova el progrés de l'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
-          explanation: Ho sentim, no pots dur a terme aquesta acció perquè algunes de les teves dades d'autorització no coincideixen.
           invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
@@ -815,7 +814,6 @@ ca:
       following_count:
         one: "%{count} ho segueix"
         other: "%{count} ho segueixen"
-      no_followings: No segueix a cap persona ni cap activitat.
       non_public_followings: Alguns dels recursos seguits no són públics.
     follows:
       create:
@@ -883,7 +881,6 @@ ca:
           description_own: "%{score} participants et segueixen."
           name: Seguidors
           next_level_in: Aconsegueix %{score} que et segueixin més persones per passar al següent nivell!
-          unearned_another: Aquesta participant encara no té seguidores.
           unearned_own: Encara no tens seguidors.
         index:
           badge_title: "Insígnia %{name}"
@@ -971,7 +968,6 @@ ca:
         create_user_group: Crea un grup
         new_user_group: Nou grup
         subtitle: Crea un grup i convida altres participants a unir-se per participar a nivell col·lectiu.
-      no_user_groups: Encara no pertanys a cap grup.
       roles:
         admin: Administradora
         creator: Administradora
@@ -1032,8 +1028,6 @@ ca:
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Aquest grup encara no té cap membre.
     menu:
       help: Ajuda
       home: Inici
@@ -1415,7 +1409,6 @@ ca:
         already_reported: Aquest contingut ja ha estat denunciat i serà revisat per una administradora.
         close: Tancar
         description: Aquest contingut no és apropiat?
-        does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
         hide: Amagar
         hide_content: Amagar aquest contingut
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort o de suïcidi o qualsevol forma de discurs d'odi.
@@ -1428,7 +1421,6 @@ ca:
         already_reported: Aquest contingut ja ha estat reportat i serà revisat per una administradora.
         close: Tancar
         description: Què és inapropiat d'aquesta usuària?
-        does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
         report: Reportar
         spam: Conté "clickbait", publicitat o estafes.
@@ -1525,7 +1517,6 @@ ca:
     user_interests:
       show:
         my_interests: Els meus interessos
-        no_scopes: Aquesta organització encara no té cap àmbit!
         select_your_interests: Selecciona els temes que t'interessen per rebre'n esdeveniments relacionats a la pestanya Timeline del teu perfil.
         update_my_interests: Actualitza els meus interessos
       update:
