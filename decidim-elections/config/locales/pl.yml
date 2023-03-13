@@ -562,14 +562,11 @@ pl:
               generate_legend: Musisz utworzyć parę kluczy identyfikacyjnych do udziału w głosowaniu jako mąż (osoba) zaufania.
               generate_legend_1: Po kliknięciu przycisku powinieneś pobrać plik z utworzonymi kluczami identyfikacyjnymi.
               generate_legend_2: Skopiuj pobrany plik na puste urządzenia USB
-              generate_legend_3: Upewnij się, że Twój komputer nie ma kopii pliku (np. sprawdź foldery Pobrane i Pulpit).
               generate_legend_4: Utwórz kolejną kopię pliku na innym urządzeniu zewnętrznym i przechowuj go w bezpiecznym miejscu.
               submit: Prześlij
               submit_title: Prześlij publiczny klucz identyfikacyjny
               title: Klucze identyfikacyjne męża (osoby) zaufania
               upload: Prześlij swoje klucze identyfikacyjne
-              upload_error:
-                invalid_format: Wgrany plik nie zawiera żadnego klucza identyfikacyjnego.
             not_supported_browser_title: Aktualizuj przeglądarkę by działać jako mąż (osoba) zaufania
             trustee_role_description: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w niektórych głosowaniach na tej platformie.
           update:
@@ -1033,7 +1030,6 @@ pl:
             subject: Eksport kodów dostępu do głosowania dla %{voting_title} jest dostępny
         vote_flow:
           already_voted_in_person: Ten użytkownik zagłosował już osobiście i nie ma prawa głosu.
-          datum_not_found: Podane dane nie pasują do żadnego wyborcy.
       content_blocks:
         highlighted_votings:
           name: Wyróżnione głosowania
@@ -1076,7 +1072,6 @@ pl:
             info_text: Proszę wprowadzić całkowitą liczbę odpowiedzi na każde pytanie.
             modal_ballots_results_count_error:
               close_modal: Zamknij
-              info_text: Całkowita liczba kart wyborczych nie jest zgodna z całkowitą liczbą kopert. Proszę przejrzeć całkowitą liczbę kart wyborczych.
               title: Suma kart wyborczych nie zgadza się
             save_recount: Zapisz przeliczenie głosów
             total_ballots: Suma oddanych głosów
@@ -1090,7 +1085,6 @@ pl:
             modal_ballots_count_error:
               btn_validate_total: Sprawdź sumę przeliczonych głosów
               close_modal: Zamknij
-              info_text: Całkowita liczba kart wyborczych (kopert) nie odpowiada liczbie osób, które zagłosowały w tym lokalu wyborczym.
               message_for_monitoring_committee: Wiadomość dla Komisji Wyborczej
               review_recount: Zweryfikuje przeliczenie głosów
               text_area_placeholder: Wpisz wiadomość
