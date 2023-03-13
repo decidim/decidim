@@ -26,8 +26,6 @@ fi-pl:
       comments:
         create:
           error: Kommentin luotaessa tapahtui virhe.
-        delete:
-          error: Kommenttia ei voitu poistaa.
         update:
           error: Kommentin päivittäminen epäonnistui.
       comments_count: Kommenttien määrä
