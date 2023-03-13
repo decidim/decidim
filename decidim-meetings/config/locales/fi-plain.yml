@@ -202,7 +202,6 @@ fi-pl:
           name: Tapahtumiin osallistuminen
           next_level_in: Osallistu %{score} uuteen tapahtumaan seuraavan tason saavuttamiseksi!
           unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapahtumaan.
-          unearned_own: Et ole vielä osallistunut yhteenkään tapahtumaan.
     meetings:
       actions:
         agenda: Esityslista
