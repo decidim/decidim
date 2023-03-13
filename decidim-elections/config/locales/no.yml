@@ -481,14 +481,11 @@
               generate_legend: Du må generere et identifikasjonspar med nøkler for å delta i valg som en tillitsmann.
               generate_legend_1: Etter å ha trykket på knappen bør du laste ned filen med de genererte identifikasjonsnøklene.
               generate_legend_2: Kopier den nedlastede filen til en ren USB-enhet
-              generate_legend_3: Kontroller at datamaskinen ikke har noen kopi av filen (f.eks. sjekk nedlastingsmappen og skrivebordsmapper).
               generate_legend_4: Lag en annen kopi av filen på en annen ekstern enhet og lagre den på et svært trygt sted.
               submit: Send inn
               submit_title: Send inn den offentlige identifikasjonsnøkkelen
               title: Identifikasjonsnøkler for tillitsmenn
               upload: Last opp dine identifikasjonsnøkler
-              upload_error:
-                invalid_format: Den opplastede filen inneholder ikke en identifikasjonsnøkkel.
       votes:
         confirm:
           answer: Svar
