@@ -622,17 +622,12 @@ lt:
               generate_legend: Turite sugeneruoti porą atpažinimo raktų norėdami dalyvauti rinkimuose kaip patikėtinis.
               generate_legend_1: Paspaudus mygtuką turėtumėt atsisiųsti rinkmeną su sugeneruotais atpažinimo raktais.
               generate_legend_2: Nukopijuokite rinkmeną į švarų USB raktą
-              generate_legend_3: Įsitikinkite, kad kompiuteryje nėra rinkmenos kopijos.
               generate_legend_4: Padarykite kitą rinkmenos kopiją ir laikykite ją labai saugioje vietoje.
               submit: Pateikti
               submit_legend: Įgyvendinus visus anksčiau paaiškintus žingsnius, baikite procesą išsiųsdami viešo atpažinimo raktą į serverį.
               submit_title: Įkelti viešo atpažinimo raktą
               title: Patikėtinių atpažinimo raktai
               upload: Įkelkite atpažinimo raktus
-              upload_error:
-                invalid_format: Įkelta rinkmena neturi atpažinimo rakto.
-                invalid_public_key: Atpažinimo raktai įkeltoje rinkmenoje nesutampa su viešu apažinimo raktu.
-              upload_legend: Serveris turi atpažinimo raktus, tačiau naršyklė jų neturi. Turite importuoti atpažinimo raktų rinkimeną į kompiuterį iš atsarginės saugyklos kurią sukūrėte sugeneravę raktus.
             not_supported_browser_title: Atnaujinkite naršyklę
             trustee_role_description: Buvote priskirtas kaip patikėtinis šioje platformoje vyksiantiems rinkimams.
           update:
@@ -1141,7 +1136,6 @@ lt:
             subject: '%{voting_title} balsavimo prieigos kodai gali būti eksportuojami'
         vote_flow:
           already_voted_in_person: Šis dalyvis jau balsavo ir negali balsuoti dar kartą.
-          datum_not_found: Šie duomenys nesutampa su jokiu balsuotoju.
       content_blocks:
         highlighted_votings:
           name: Paryškinti balsavimai
@@ -1186,7 +1180,6 @@ lt:
             info_text: Prašau įveskite pilną skaičių atsakymų kiekvienam klausimui.
             modal_ballots_results_count_error:
               close_modal: Uždaryti
-              info_text: Biuletenių skaičius nesutampa su vokų skaičium. Patikrinkite biuletenių skaičių.
               title: Visas biuletenių skaičius
             save_recount: Išsaugoti perskaičiavimą
             total_ballots: Visi biuleteniai
@@ -1201,7 +1194,6 @@ lt:
               btn_validate_total: Patvirtinti biuletenių perskaičiavimą
               close_modal: Uždaryti
               info_explanation_text: 'Prašau peržiūrėkite visą biuletenių skaičių. Jei suminis skaičius neteisingas, prašau pateikite paaiškinimą priežiūros komitetui:'
-              info_text: Įvestas visas biuletenių skaičius (vokai) neatitinka balsavusių balsavimo punkte skaičiaus.
               message_for_monitoring_committee: Žinutė priežiūros komitetui
               review_recount: Peržiūrėti perskaičiavimą
               text_area_placeholder: Įveskite žinutę
