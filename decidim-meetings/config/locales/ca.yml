@@ -202,7 +202,6 @@ ca:
           name: Trobades a les que has assistit
           next_level_in: Assisteix a més de %{score} reunions per arribar al següent nivell!
           unearned_another: Aquesta participant encara no ha assistit a cap trobada.
-          unearned_own: Encara no has assistit a cap reunió.
     meetings:
       actions:
         agenda: Ordre del dia
