@@ -602,7 +602,6 @@ es:
               processing: Procesando
             title: Recuento para %{election}
           update:
-            error: El estado de la elección no fue actualizado.
             success: 'El estado de la elección es: %{status}'
         menu:
           trustee_zone: Zona del garante
