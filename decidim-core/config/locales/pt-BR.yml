@@ -462,13 +462,6 @@ pt-BR:
             check: Verificar e continuar
             close_modal: Fechar modal
             uncheck: Manter desmarcado
-          notice: |-
-            <p>Tem certeza de que não quer receber uma newsletter?<br>
-            Por favor, considere novamente marcar a caixa de seleção do boletim informativo abaixo.<br>
-            É muito importante para nós que você receba e-mails ocasionais para fazer anúncios importantes. Você sempre pode alterar isso na página de configurações de notificações.</p>
-            <p>Se você não marcar a caixa, talvez esteja faltando informações relevantes sobre novas oportunidades participativas na plataforma.<br>
-            Se você ainda quiser evitar receber boletins informativos, entenderemos perfeitamente sua decisão.</p>
-            <p>Obrigado por ler isto!</p>
           title: Notificações de newsletter
         omniauth_buttons:
           or: Ou
@@ -992,7 +985,6 @@ pt-BR:
     notifications_settings:
       show:
         administrators: Administradores
-        allow_public_contact: Permita que qualquer pessoa me envie uma mensagem direta, mesmo que eu não as siga.
         direct_messages: Receber mensagens diretas de qualquer pessoa
         everything_followed: Tudo que eu sigo
         newsletter_notifications: Quero receber boletins informativos
@@ -1378,9 +1370,6 @@ pt-BR:
         accept_until: Este convite será devido em %{due_date}.
         decline: Negar convite
         hello: Olá %{email},
-        ignore: |-
-          Se você não quiser aceitar o convite, ignore este e-mail.<br />
-          Sua conta não será criada até que você acesse o link acima e defina seu apelido e senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
         invited_you_as_private_user: "%{invited_by} convidou você como usuário particular de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
