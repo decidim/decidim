@@ -196,9 +196,6 @@ it:
           success: E' stato creato il nuovo processo partecipativo.
         default_title: Introduzione
         destroy:
-          error:
-            active_step: Non è possibile cancellare questa fase poiché è attiva.
-            last_step: Non è possibile cancellare l'ultima fase di un processo.
           success: Fase del processo partecipativo cancellata con successo.
         edit:
           title: Modifica una fase del processo partecipativo.
