@@ -211,9 +211,6 @@ lt:
           success: Dalyvaujamojo proceso etapas sukurtas.
         default_title: Įžanga
         destroy:
-          error:
-            active_step: Negalima pašalinti aktyviojo etapo.
-            last_step: Negalima pašalinti proceso paskutinio etapo.
           success: Dalyvaujamojo proceso etapas pašalintas.
         edit:
           title: Redaguoti dalyvaujamojo proceso etapą
