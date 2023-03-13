@@ -179,7 +179,6 @@ lt:
         users_registration_mode:
           disabled: Prieiga galima tik iš išorės paskyrų
           enabled: Leisti dalyviams registruotis ir prisijungti
-          existing: Neleiskite dalyviams registruotis, bet leiskite esamiems dalyviams prisijungti
       shared:
         notices:
           no_organization_warning_html: Norėdami pradėti, turite sukurti organizaciją. Prieš tęsdami būtinai perskaitykite %{guide}.
