@@ -105,9 +105,6 @@ zh-CN:
           update:
             invalid: 保存表单时出错。
             success: 表单保存成功。
-      errors:
-        answer:
-          body: 主体不能为空
       images:
         dimensions: "%{width} x %{height} px"
       question_types:
