@@ -451,7 +451,6 @@ ca:
           verifiable_results:
             checksum: 'Suma de comprovació SHA256 de l''arxiu:'
             description:
-              not_ready: L'arxiu verificable de l'elecció i la suma de comprovació SHA256 encara no estan disponibles. Quan es publiquin els resultats, podràs verificar aquesta elecció.
               ready: 'Aquí tens l''opció de verificar l''elecció. En primer lloc, has de descarregar l''arxiu i assegurar-te que no s''ha corromput. Per a això, executa el següent comando i comprova que la sortida coincideix amb la suma de comprovació:'
             how_to_verify: 'Una vegada que hagis descarregat l''arxiu i t''hagis assegurat que està bé, pots procedir a executar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>aquest repositori</a> i, des de la carpeta arrel, executa el següent comando:'
             title: Verificar resultats de l'elecció
@@ -1327,7 +1326,6 @@ ca:
       votings:
         access_code_modal:
           email: Envia un correu a %{email}
-          info: Necessites un codi d'accés per perticipar-hi. Si no n'has rebut cap per correu postal, podem enviar-te un de nou.
           no_email: No hi ha cap correu disponible
           no_sms: No hi ha cap número de telèfon disponible
           sms: Envia un SMS a %{sms}
