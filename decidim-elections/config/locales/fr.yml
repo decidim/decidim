@@ -602,7 +602,6 @@ fr:
               processing: Traitement en cours
             title: Dépouillement pour %{election}
           update:
-            error: Le statut de l'élection n'a pas été mis à jour.
             success: 'Le statut de l''élection est : %{status}'
         menu:
           trustee_zone: Espace de garant
