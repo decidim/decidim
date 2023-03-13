@@ -894,7 +894,6 @@ zh-CN:
       no_notifications: 尚无通知。
     notifications_settings:
       show:
-        allow_public_contact: 允许任何人向我发送一条直接消息，即使我没有关注它们。
         direct_messages: 从任何人接收私信
         everything_followed: 我关注的所有情况
         newsletter_notifications: 我想要收到新闻简报
@@ -1242,9 +1241,6 @@ zh-CN:
         accept_until: 此邀请将在 %{due_date} 到期.
         decline: 拒绝邀请
         hello: 您好 %{email}，
-        ignore: |-
-          如果您不想接受邀请，请忽略此电子邮件。<br />
-          在您访问上面的链接并设置您的昵称和密码之前，您的帐户不会被创建。
         invited_you_as_admin: "%{invited_by} 邀请您担任了 %{application}的管理员。您可以通过下面的链接接受它。"
         invited_you_as_private_user: "%{invited_by} 邀请您作为私有参与者 %{application}。您可以通过下面的链接接受它。"
         someone_invited_you: 有人邀请您访问 %{application}。您可以通过下面的链接接受它。
