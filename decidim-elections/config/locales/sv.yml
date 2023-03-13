@@ -44,12 +44,6 @@ sv:
           attributes:
             attachment:
               needs_to_be_reattached: Måste bifogas igen
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: kan inte ändras
-            public_key:
-              cant_be_changed: kan inte ändras
   activerecord:
     models:
       decidim/elections/answer:
