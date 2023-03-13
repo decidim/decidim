@@ -26,8 +26,6 @@ de:
       comments:
         create:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
-        delete:
-          error: Die Sendung konnte nicht gelöscht werden.
         update:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
       comments_count: Kommentaranzahl
