@@ -7,7 +7,6 @@ is-IS:
           body:
             label: Athugasemd
             placeholder: Hvað finnst þér um þetta?
-          form_error: Textinn er krafist og það má ekki vera lengri en %{length} stafir.
           submit: Senda
           user_group_id:
             label: Athugasemd sem
@@ -68,6 +67,3 @@ is-IS:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú hefur verið nefndur í %{resource_title}.
           email_subject: Þú hefur verið nefndur í %{resource_title}
           notification_title: Þú hefur verið nefndur í <a href="%{resource_path}">%{resource_title}</a> af <a href="%{author_path}">%{author_name} %{author_nickname}</a>
-  errors:
-    messages:
-      cannot_have_comments: getur ekki haft athugasemdir
