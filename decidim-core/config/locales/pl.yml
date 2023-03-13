@@ -775,8 +775,6 @@ pl:
         many: "%{count} obserwujących"
         other: "%{count} obserwujących"
       no_followers: Brak obserwujących.
-    following:
-      no_followings: Jeszcze nikogo ani niczego nie obserwuje.
     follows:
       create:
         button: Obserwuj
@@ -813,7 +811,6 @@ pl:
           description_own: "%{score} użytkowników obserwuje Ciebie."
           name: Obserwujący
           next_level_in: Uzyskaj jeszcze %{score} użytkowników, którzy Cię obserwują, aby zdobyć kolejny poziom!
-          unearned_another: Ten użytkownik nie ma jeszcze żadnych obserwujących.
           unearned_own: Nie masz jeszcze żadnych obserwujących.
         index:
           badge_title: "Odznaka %{name}"
@@ -899,7 +896,6 @@ pl:
         create_user_group: Utwórz grupę
         new_user_group: Nowa grupa
         subtitle: Utwórz grupę, zaproś innych użytkowników i działajcie wspólnie.
-      no_user_groups: Nie należy jeszcze do żadnej grupy.
       roles:
         admin: Administrator
         member: Członek
@@ -952,8 +948,6 @@ pl:
       static:
         latlng_text: 'szerokość geograficzna: %{latitude}, długość geograficzna: %{longitude}'
         map_service_brand: OpenStreetMap
-    members:
-      no_members: Te grupy użytkowników nie mają jeszcze żadnego członka.
     menu:
       help: Pomoc
       home: Strona główna
@@ -1284,7 +1278,6 @@ pl:
         already_reported: Ta treść została już zgłoszona i zostanie ona sprawdzona przez administratora.
         close: Zamknij
         description: Czy ta treść jest nieodpowiednia?
-        does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
         offensive: Promuje rasizm, seksizm, nienawiść, ataki osobiste, groźby śmierci, groźby samobójcze jakąkolwiek formę mowy nienawiści.
         reason: Powód
         report: Zgłoś
@@ -1294,7 +1287,6 @@ pl:
         already_reported: Ta treść została już zgłoszona i zostanie sprawdzona przez administratora.
         close: Zamknij
         description: Jaki jest powód zgłoszenia użytkownika?
-        does_not_belong: Promuje nielegalną działalność, groźby samobójcze, informacje osobiste lub coś innego, co według Ciebie nie powinno pojawić się w %{organization_name}.
         offensive: Promuje rasizm, seksizm, kłamstwa, ataki osobiste, groźby śmierci, prośby samobójcze lub jakąkolwiek formę mowy nienawiści.
         report: Zgłoś
         spam: Zawiera clickbaity, reklamy, oszustwa lub skrypty botów.
@@ -1377,7 +1369,6 @@ pl:
     user_interests:
       show:
         my_interests: Moje zainteresowania
-        no_scopes: Ta organizacja nie ma jeszcze żadnego zakresu!
         select_your_interests: Wybierz tematy, które Cię interesują, aby otrzymywać związane z nimi wydarzenia na swojej stronie profilowej w zakładce Oś czasu.
         update_my_interests: Zaktualizuj moje zainteresowania
       update:
