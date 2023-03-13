@@ -523,7 +523,6 @@ pt:
                 share: Partilhar a contagem
             title: Contagem para %{election}
           update:
-            error: O estado da eleição não foi actualizado.
             success: 'O estado da eleição é: %{status}'
         menu:
           trustee_zone: Área de curadores
