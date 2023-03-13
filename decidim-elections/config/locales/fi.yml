@@ -602,7 +602,6 @@ fi:
               processing: Käsitellään
             title: Ääntenlaskenta vaaleille %{election}
           update:
-            error: Vaalin tilaa ei päivitetty.
             success: 'Vaalin tila on: %{status}'
         menu:
           trustee_zone: Luottamushenkilön alue
