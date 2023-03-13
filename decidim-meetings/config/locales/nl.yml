@@ -171,9 +171,6 @@ nl:
           email_outro: Je ontvangt deze melding omdat je het event "%{resource_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
           email_subject: Het "%{resource_title}" event start in minder dan 48 uur.
           notification_title: Het <a href="%{resource_path}">%{resource_title}</a> event begint over minder dan 48 uur.
-    forms:
-      meetings:
-        attendees_count_help_text: Vergeet niet om het totale aantal deelnemers aan je vergadering toe te voegen, of het nu een fysieke, online of hybride bijeenkomst is.
     gamification:
       badges:
         attended_meetings:
@@ -343,7 +340,6 @@ nl:
             registrations_count:
               one: Er is %{count} registratie geweest.
               other: Er zijn %{count} registraties geweest.
-            reserved_slots_help: Laat het op 0 staan ​​als je geen plaatsen gereserveerd hebt
             reserved_slots_less_than: Moet kleiner of gelijk zijn aan %{count}
             title: Inschrijvingen
           update:
