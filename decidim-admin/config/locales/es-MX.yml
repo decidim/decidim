@@ -880,7 +880,6 @@ es-MX:
         new:
           destroy:
             button: Borrar todas las participantes privadas
-            confirm: '¿Estás segura que quieres eliminar todas las participantes privadas? Esta acción no se puede deshacer, no podrás recupararlas.'
             empty: No hay participantes privadas.
             explanation: Hay %{count} participante/s privada/s.
             title: Borrar las participantes privadas
