@@ -196,9 +196,6 @@ pt:
           success: Fase de processo participativo criada corretamente.
         default_title: Introdução
         destroy:
-          error:
-            active_step: Não é possível eliminar a fase ativa.
-            last_step: Não é possível eliminar a última fase de um processo.
           success: Fase do processo participativo eliminada corretamente.
         edit:
           title: Editar a fase do processo participativo
