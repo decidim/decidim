@@ -2,8 +2,7 @@
   <%= cell(
     "decidim/versions_list",
     versioned_resource,
-    version_path: proc { |version_index| url_for(action: :show, id: version_index) },
-    i18n_scope: "decidim.meetings.versions"
+    version_path: proc { |version_index| url_for(action: :show, id: version_index) }
   ) %>
 <% end %>
 
@@ -14,7 +13,6 @@
     index: params[:id],
     versioned_resource: versioned_resource,
     path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) },
-    versions_path: proc { url_for(action: :index) },
-    i18n_scope: "decidim.meetings.versions"
+    versions_path: proc { url_for(action: :index) }
   ) %>
 <% end %>
