@@ -43,7 +43,6 @@
           body:
             label: Kommentar
             placeholder: Hva mener du om dette?
-          form_error: Teksten er påkrevd og den kan ikke være lengre enn %{length} tegn.
           submit: Send
           user_group_id:
             label: Kommenter som
@@ -81,6 +80,7 @@
             offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
             spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
           title: Rapporter upassende innhold
+        show_replies: Vis %{replies_count} svar
         single_comment_link_title: Få lenke
       comment_order_selector:
         order:
@@ -161,6 +161,3 @@
         description: Antall kommenterer generert av deltakerne
         object: kommentarer
         title: Kommentarer
-  errors:
-    messages:
-      cannot_have_comments: kan ikke ha kommentarer
