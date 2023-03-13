@@ -320,7 +320,6 @@ lb:
           resume: Überprüfen Sie Ihren Autorisierungsfortschritt "%{authorization}"
           title: D'Berechtegung ass nach am Gang verschafft ze ginn
         unauthorized:
-          explanation: Du kanns dës Aktioun net duerchféieren, well deng Donnéeën fir Berechtegung net iwwert eneen stëmmen.
           invalid_field: "%{field} Wert %{value} ist nicht gültig."
           ok: Ok
           title: Net berechtegt
@@ -510,7 +509,6 @@ lb:
       not_found:
         back_home: Zréck op d'Startsäit
         content_doesnt_exist: Dës Adress ass falsch oder gouf geläscht.
-        title: Déi Säit déi s'du sichs kann net fonnt ginn
     events:
       amendments:
         amendment_accepted:
@@ -1424,7 +1422,6 @@ lb:
       new:
         forgot_your_password: Passwuert vergiess?
         send_me_reset_password_instructions: Schéckt mir d'Instruktiounen fir d'Passwuert ze ersetzen
-      no_token: Du kenns net op dës Säit, ausser vun enger Reset-E-Mail. Am Fall wou s'du vun enger Passwuert-Reset-E-Mail aus kenns, versécher dech, dass du den vollstännegen URL aus der Mail benotzt hues.
       send_instructions: Du kriss bannent e puer Minutten en Email mat den Instruktiounen fir däin Passwuert zréck ze setzen.
       send_paranoid_instructions: Wann deng Email-Adress an eisen Donnéeën ass, kriss du bannent e puer Minutten e Passwuert Link fir deng Email-Adress nees hierzestellen.
       updated: Däin Passwuert gouf gewiesselt. Du bass elo ugemellt.
@@ -1471,13 +1468,11 @@ lb:
       already_confirmed: Gouf bestätegt, w.e.g. probéier dech ze registréieren
       confirmation_period_expired: muss bannent %{period} bestätegt ginn, fro w. e. g. en neit un
       content_type_allowlist_error: dësen Typ Datei ass net gülteg
-      cycle_detected: en iwwergeuerdente Beräich kann net ënnergeuerdent sinn
       expired: ass ofgelaf, w. e. g. eng nei Ufro maachen
       file_size_is_less_than_or_equal_to: d'Gréisst vun enger Datei muss méi kleng oder gläich %{count} sinn
       invalid_time_zone: keng gülteg Zäitzon
       long_words: enthält Wieder déi ze laang sinn (méi wéi 35 Zeechen)
       must_start_with_caps: muss mat engem Groussbuschtaf ufänken
-      nesting_too_deep: kann net bannent enger Ënnerkategorie sinn
       not_found: net fonnt. Bass du schonn registréiert?
       not_locked: wo net gespaart
       not_saved:
