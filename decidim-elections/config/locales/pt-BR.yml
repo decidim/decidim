@@ -694,7 +694,6 @@ pt-BR:
               new: Novo
               title: Ações
             associated_census_data: Entradas associadas de censo
-            explanation_callout: Um estilo de cédula especifica quais perguntas um eleitor será apresentado no estante. Num estilo de cédula, pode-se escolher as questões que os componentes eleitorais desta votação pertencem a uma cédula. O código de estilo da cédula é usada para combinar com o voto de um eleitor do censo com o voto que será apresentado na cabina. Não crie nenhum estilo de cédula se quiser sempre apresentar todas as perguntas.
             title: Estilo de cédula
           new:
             create: Criar
@@ -922,7 +921,6 @@ pt-BR:
             invalid: Tem havido um problema ao criar esta votação
             success: Votação criada com sucesso
           edit:
-            add_election_component: Você não tem nenhuma eleição configurada para este voto. Por favor adicione-a na seção Componentes
             assign_missing_officers: Existem estações de votação sem Presidente e/ou gerentes. Por favor atribua-as a partir da seção estações de enquete
             update: Atualizar
           form:
@@ -1180,7 +1178,6 @@ pt-BR:
           invalid: Houve um problema ao verificar o censo.
           success:
             access_link_with_sms: por SMS ou e-mail.
-            info: Você já deve ter recebido seu código de acesso por e-mail. Caso você não o tenha, você pode solicitá-lo aqui
             title: Seus dados do censo estão corretos!
           title: Posso votar?
         check_fields:
@@ -1224,7 +1221,6 @@ pt-BR:
           access_code: Código de Acesso
           access_code_placeholder: Código de Acesso
           ask_for_a_new_one: Peça um novo.
-          dont_have_access_code: Não tem um código de acesso?
           form_title: 'Preencha o formulário seguinte para acessar a votação:'
           start_voting: Começar a votar
           step: Identificação
