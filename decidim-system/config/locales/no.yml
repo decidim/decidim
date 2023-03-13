@@ -179,7 +179,6 @@
         users_registration_mode:
           disabled: Tilgang kan bare gjøres med eksterne kontoer
           enabled: Tillat deltakerne å registrere og logge inn
-          existing: Ikke la deltakerne registrere seg, men la eksisterende deltakere logge inn
       shared:
         notices:
           no_organization_warning_html: Du må opprette en organisasjon for å starte. Vær sikker på at du leser %{guide} før du fortsetter.
