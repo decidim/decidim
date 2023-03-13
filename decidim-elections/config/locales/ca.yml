@@ -54,6 +54,12 @@ ca:
           attributes:
             attachment:
               needs_to_be_reattached: És necessari tornar a adjuntar l'arxiu
+        trustee:
+          attributes:
+            name:
+              cant_be_changed: no es pot canviar
+            public_key:
+              cant_be_changed: no es pot canviar
         voting:
           attributes:
             voting_type:
@@ -327,6 +333,7 @@ ca:
             continue: Continuar
             invalid: S'ha produït un error en notificar l'absència de la garant
             mark_as_missing: Marcar com absent
+            mark_as_missing_description: Totes les garants haurien de participar en aquest procés, però si una garant no en pot prendre part, la pots marcar com a absent.
             success: La notificació d'absència de la garant ha estat enviada correctament
             tally_completion: El procés es completarà quan totes les garants estiguin actives o marcades com a absents. Fan falta com un mínim de %{quorum} garant per a completar el procés.
             title: Procés de recompte
@@ -451,6 +458,7 @@ ca:
           verifiable_results:
             checksum: 'Suma de comprovació SHA256 de l''arxiu:'
             description:
+              not_ready: L'arxiu verificable de l'elecció i la suma de comprovació SHA256 encara no estan disponibles. Quan es publiquin els resultats, podràs verificar aquesta elecció.
               ready: 'Aquí tens l''opció de verificar l''elecció. En primer lloc, has de descarregar l''arxiu i assegurar-te que no s''ha corromput. Per a això, executa el següent comando i comprova que la sortida coincideix amb la suma de comprovació:'
             how_to_verify: 'Una vegada que hagis descarregat l''arxiu i t''hagis assegurat que està bé, pots procedir a executar el verificador universal. Clona <a href=''https://github.com/decidim/decidim-bulletin-board''>aquest repositori</a> i, des de la carpeta arrel, executa el següent comando:'
             title: Verificar resultats de l'elecció
@@ -630,8 +638,10 @@ ca:
               upload: Puja les teves claus d'identificació
               upload_error:
                 invalid_format: L'arxiu pujat no conté cap clau d'identificació.
+                invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
                 invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada.
               upload_legend: Decidim té les teves claus públiques d'identificació, però el teu navegador encara no les té. Necessites importar l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que vas crear després de generar-les.
+            not_supported_browser_description: Sembla que estàs usant un navegador web que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta fer servir qualsevol altre dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
             trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
           update:
@@ -795,6 +805,7 @@ ca:
               new: Nou
               title: Accions
             associated_census_data: Entrades del cens associades
+            explanation_callout: Un estil de papereta especifica quines són les preguntes que veuran les votants a la cabina. Així, en aquesta elecció pots escollir-ne quines formaran part de la papereta. El codi d'estil de papereta normalment es fa servir per fer coincidir a una votant del cens amb la papereta que se li ha de mostrar a la cabina. No creïs cap estil de papereta si vols que sempre es mostrin totes les preguntes.
             title: Estils de papereta
           new:
             create: Crear
@@ -1032,6 +1043,7 @@ ca:
             invalid: S'ha produït un error en crear aquesta votació
             success: Votació creada correctament
           edit:
+            add_election_component: No tens cap elecció configurada per a aquesta votació. Si us plau, afegeix-la a la secció de components
             assign_missing_officers: Hi ha punts de votació sense president i/o gestors. Si us plau, assigna'ls des de la secció de punts de votació
             update: Actualitzar
           form:
@@ -1230,8 +1242,10 @@ ca:
             confirm: D'acord, continuar
             error: Hi ha hagut un error. Si us plau, torna-ho a provar.
             heading: Recompte de vots - Signar el tancament
+            info_text: Si continues ja no podràs modificar cap informació, aquesta acció no es pot desfer.
             submit: Signar el tancament
             success: Tancament signat correctament.
+            title: Aquesta acció no es pot desfer
           update:
             error: S'ha produït un error en actualitzar els resultats del tancament. Intenta-ho de nou més tard.
             success: Resultats de tancament actualitzats correctament.
@@ -1324,6 +1338,7 @@ ca:
       votings:
         access_code_modal:
           email: Envia un correu a %{email}
+          info: Necessites un codi d'accés per perticipar-hi. Si no n'has rebut cap per correu postal, podem enviar-te un de nou.
           no_email: No hi ha cap correu disponible
           no_sms: No hi ha cap número de telèfon disponible
           sms: Envia un SMS a %{sms}
@@ -1339,6 +1354,7 @@ ca:
           success:
             access_link: per correu electrònic.
             access_link_with_sms: via SMS o correu electrònic.
+            info: Ja hauries d'haver rebut el codi d'accés per correu postal. En cas que no l'hagis rebut, pots demanar-lo de nou aquí
             title: Les teves dades del cens són correctes!
           title: Puc votar?
         check_fields:
@@ -1384,6 +1400,7 @@ ca:
           access_code: Codi d'accés
           access_code_placeholder: Codi d'accés
           ask_for_a_new_one: Sol·licita'n un de nou.
+          dont_have_access_code: No tens un codi d'accès?
           form_title: 'Emplena el formulari següent per accedir a la votació:'
           start_voting: Començar a votar
           step: Identificació
