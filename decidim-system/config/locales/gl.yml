@@ -179,7 +179,6 @@ gl:
         users_registration_mode:
           disabled: O acceso só se pode facer con contas externas
           enabled: Permitir aos usuarios rexistrarse e iniciar sesión
-          existing: Non permitir que os usuarios se rexistren, mais permitir que os usuarios existentes inicien sesión
       shared:
         notices:
           no_organization_warning_html: Debes crear unha organización para comezar. Asegúrate de ler %{guide} antes de continuar.
