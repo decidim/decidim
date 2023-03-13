@@ -444,9 +444,6 @@ fi:
         related_assemblies: Liittyvät ryhmät
     statistics:
       assemblies_count: Ryhmää
-  errors:
-    messages:
-      cannot_be_blank: ei voi olla tyhjä
   layouts:
     decidim:
       assemblies:
