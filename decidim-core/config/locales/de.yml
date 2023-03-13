@@ -401,7 +401,6 @@ de:
           ok: Ok
           title: Nicht berechtigt
         unconfirmed:
-          confirmation_instructions: 'Wenn Sie die Bestätigungsanweisungen nicht erhalten haben, können Sie sie erneut anfordern:'
           explanation_html: Um diese Aktion auszuführen, müssen Sie autorisiert sein, bevor Sie dies tun müssen, müssen Sie Ihre E-Mail bestätigen <strong>%{email}</strong>.
           request_confirmation_instructions: Bestätigungsanleitungen anfordern
           title: Bestätige deine E-Mail
@@ -420,7 +419,6 @@ de:
       see_more: "(Mehr anzeigen)"
     components:
       component_order_selector:
-        no_content: Wir haben keine Inhalte anhand dieser Kriterien gefunden
         order:
           all_types: Alle Typen
           collaborative_draft: Gemeinsamer Entwurf
@@ -1575,7 +1573,6 @@ de:
         action: Ändere mein Passwort
         greeting: Hallo %{recipient}!
         instruction: Jemand hat einen Link angefordert, um Ihr Passwort zu ändern, und Sie können dies über den folgenden Link tun.
-        instruction_2: Wenn Sie dies nicht angefordert haben, ignorieren Sie diese E-Mail.
         instruction_3: Ihr Passwort ändert sich erst, wenn Sie auf den obigen Link zugreifen und einen neuen erstellen.
         subject: Passwort-Anweisungen zurücksetzen
       unlock_instructions:
@@ -1620,8 +1617,6 @@ de:
     shared:
       links:
         back: Zurück
-        didn_t_receive_confirmation_instructions: Haben Sie keine Bestätigungs-Mail erhalten?
-        didn_t_receive_unlock_instructions: Haben Sie keine Entsperrungsanweisungen erhalten?
         forgot_your_password: Haben Sie Ihr Passwort vergessen?
         sign_in: Einloggen
         sign_in_with_provider: Mit %{provider} anmelden
@@ -1656,7 +1651,6 @@ de:
       load: Fehler beim Laden von Emojis
     recents:
       clear: Zuletzt benutzte Emoji entfernen
-      none: Sie haben noch keine Emojis ausgewählt.
     retry: Erneut versuchen
     search:
       _: Emojis suchen...
