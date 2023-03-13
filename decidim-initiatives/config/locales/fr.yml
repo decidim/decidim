@@ -64,6 +64,7 @@ fr:
             attachment:
               file: Le fichier n'est pas valide
               needs_to_be_reattached: Doit être téléchargé de nouveau
+              title: "Title should not be empty\nChamp obligatoire"
   activerecord:
     models:
       decidim/initiative:
