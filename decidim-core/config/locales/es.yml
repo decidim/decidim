@@ -1099,6 +1099,7 @@ es:
         show:
           back: Volver a todas las conversaciones
           chat_with: Conversación con
+          deleted_accounts: No puedes tener una conversación con cuentas eliminadas.
           not_allowed: Esta participante no acepta mensajes directos.
           title: Conversación con %{usernames}
         start:
@@ -1191,6 +1192,7 @@ es:
     notifications_settings:
       show:
         administrators: Administradoras
+        allow_public_contact: Permitir que cualquier participante me envíe un mensaje directo, incluso si no la sigo.
         allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
@@ -1515,6 +1517,7 @@ es:
         title_reply: Responder
       show:
         back: Ver todas las conversaciones
+        deleted_accounts: No puedes tener una conversación con cuentas eliminadas.
         not_allowed: Esta participante no acepta mensajes directos.
         title: Conversación con %{usernames}
       update:
@@ -1620,6 +1623,8 @@ es:
         accept_until: Esta invitación caducará el día %{due_date}.
         decline: Rechazar invitación
         hello: Hola %{email},
+        ignore: |-
+          Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br /> Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuaria y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administradora de %{application}. Puedes aceptarlo a través del siguiente enlace."
         invited_you_as_private_user: "%{invited_by} te ha invitado como participante privada de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
@@ -1642,6 +1647,7 @@ es:
         action: Cambiar mi contraseña
         greeting: '¡Hola %{recipient}!'
         instruction: Alguien ha solicitado un enlace para cambiar tu contraseña, puedes hacerlo a través del siguiente enlace.
+        instruction_2: Si no lo solicitaste, ignora este correo electrónico.
         instruction_3: Tu contraseña no cambiará hasta que accedas al enlace de arriba y crees una nueva.
         subject: Restablecer instrucciones de contraseña
       unlock_instructions:
@@ -1664,6 +1670,7 @@ es:
       new:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         send_me_reset_password_instructions: Envíame instrucciones para restablecer la contraseña
+      no_token: No puedes acceder a esta página sin venir de un correo electrónico de restablecimiento de contraseña. Si vienes de un correo electrónico de restablecimiento de contraseña, asegúrate de haber utilizado la URL provista completa.
       send_instructions: Recibirás un correo electrónico con instrucciones sobre cómo restablecer tu contraseña en unos minutos.
       send_paranoid_instructions: Si tu dirección de correo electrónico existe en nuestra base de datos, recibirás un enlace de recuperación de contraseña en tu dirección de correo electrónico en unos minutos.
       updated: Tu contraseña se ha modificado correctamente. Ya has iniciado sesión.
@@ -1687,6 +1694,8 @@ es:
     shared:
       links:
         back: Volver
+        didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
+        didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones para desbloquear?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
         sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
@@ -1721,6 +1730,7 @@ es:
       load: No se ha producido un error al cargar la lista de emojis
     recents:
       clear: Borra los emojis recientes
+      none: Aún no has seleccionado ningún emoji.
     retry: Inténtalo de nuevo
     search:
       _: Buscar emojis...
@@ -1731,13 +1741,18 @@ es:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
       already_confirmed: ya fue confirmado, por favor intenta iniciar sesión
+      blank: no puede estar en blanco
+      cannot_be_blank: no puede estar en blanco
       confirmation_period_expired: se tiene que confirmar dentro de %{period}, por favor solicita uno nuevo
       content_type_allowlist_error: el tipo de archivo no es válido
+      cycle_detected: uno ámbito padre no puede ser uno de sus descendientes
+      empty: no puede estar vacío
       expired: ha expirado, por favor, solicita uno nuevo
       file_size_is_less_than_or_equal_to: el tamaño del archivo debe ser menor que o igual a %{count}
       invalid_time_zone: no es una zona horaria válida
       long_words: contiene palabras demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
+      nesting_too_deep: no puede estar dentro de una subcategoría
       not_found: no se pudo encontrar. ¿Te has registrado previamente?
       not_locked: No estaba bloqueado
       not_saved:
