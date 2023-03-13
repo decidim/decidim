@@ -446,6 +446,7 @@ cs:
           ok: OK
           title: Neautorizovaný
         unconfirmed:
+          confirmation_instructions: 'Pokud jste neobdrželi pokyny k potvrzení, můžete si o ně požádat znovu:'
           explanation_html: Abyste mohli provést tuto akci, musíte být autorizováni, před tím musíte potvrdit svůj e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
           title: Potvrdit svůj email
@@ -466,6 +467,7 @@ cs:
       see_more: "(viz další)"
     components:
       component_order_selector:
+        no_content: Nepodařilo se nám najít žádný obsah s tímto kritériem
         order:
           all_types: Všechny typy
           collaborative_draft: Koordinační návrh
