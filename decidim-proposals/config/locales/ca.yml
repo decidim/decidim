@@ -31,7 +31,6 @@ ca:
         cost_report: Informe de cost
         execution_period: Període d'execució
       proposals_copy:
-        copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot desfer.
         origin_component_id: Component des d'on importar les propostes
       proposals_import:
         import_proposals: Importar propostes
@@ -759,8 +758,6 @@ ca:
             valuator: Avaluadora
             valuators: Avaluadores
             votes: Suports
-      new:
-        limit_reached: No pots crear noves propostes perquè has superat el límit.
       participatory_text_proposal:
         alternative_title: Ara mateix no hi ha cap text participatiu
         buttons:
