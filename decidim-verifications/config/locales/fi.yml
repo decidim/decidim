@@ -61,7 +61,7 @@ fi:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
             - Sinä täytät ladatussa kuvassa näkyvät tiedot.
             - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin henkilö voi korjata sitä.
         postal_letter:
           help:
             - Käyttäjät pyytävät lähettämään vahvistuskoodin heidän postiosoitteeseensa.
@@ -269,6 +269,7 @@ fi:
           edit:
             confirm_destroy: Haluatko varmasti luoda uuden vahvistuskoodin?
             destroy: Luo uusi vahvistuskoodi
+            resend: Etkö saanut vahvistuskoodia?
             send: Vahvista
             title: Kirjoita vastaanottamasi vahvistuskoodi
           new:
