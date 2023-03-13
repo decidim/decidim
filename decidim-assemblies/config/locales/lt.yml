@@ -436,9 +436,6 @@ lt:
         related_assemblies: Susijusios asamblėjos
     statistics:
       assemblies_count: Asamblėjos
-  errors:
-    messages:
-      cannot_be_blank: negali būti tuščia
   layouts:
     decidim:
       assemblies:
