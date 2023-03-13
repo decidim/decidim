@@ -25,10 +25,6 @@ tr:
           attributes:
             attachment:
               needs_to_be_reattached: Yeniden bağlanması gerekiyor
-        trustee:
-          attributes:
-            public_key:
-              cant_be_changed: değiştirilemez
   activerecord:
     models:
       decidim/elections/answer:
@@ -278,8 +274,6 @@ tr:
               upload: Kimlik anahtarlarınızı yükleyin
               upload_error:
                 invalid_format: Yüklenen dosya herhangi bir kimlik anahtarı içermiyor.
-                invalid_key: Yüklenen dosyadaki kimlik anahtarları yüklenemez.
-            not_supported_browser_description: Vekil olarak hareket etmek için kullanılamayan bir web tarayıcısı kullanıyorsunuz gibi görünüyor. Vekil görevlerinizi tamamlayabilmek için tarayıcınızın en son sürümünü kullandığınızdan emin olun veya en popüler tarayıcılardan herhangi birini kullanmayı deneyin.
             not_supported_browser_title: Vekil kişi olarak hareket etmek için tarayıcıyı yükseltin
             trustee_role_description: Bu platformda kutlanan bazı seçimlerde Vekil olarak görev yapmakla görevlendirildiniz.
           update:
