@@ -36,7 +36,7 @@ describe "ProfileConversations", type: :system do
       visit decidim.profile_path(nickname: profile.nickname)
     end
 
-    it "doesn't have a contact link" do
+    it "does not have a contact link" do
       expect(page).not_to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
     end
   end
