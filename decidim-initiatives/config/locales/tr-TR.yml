@@ -51,12 +51,8 @@ tr:
             attachment:
               file: Dosya geçersiz
               needs_to_be_reattached: Yeniden bağlanması gerekiyor
-              title: Başlık boş olamaz
   activerecord:
     models:
-      decidim/initiative:
-        one: İnisiyatif
-        other: Initatives
       decidim/initiative_comittee:
         one: Komitesi
         other: Kurullar
