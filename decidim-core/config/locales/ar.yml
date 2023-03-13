@@ -474,7 +474,6 @@ ar:
           ok: موافق
           title: غير مخوّل
         unconfirmed:
-          confirmation_instructions: 'في حال لم تستلم تعليمات التأكيد يمكنك طلبها مرة أخرى:'
           explanation_html: من أجل تنفيذ هذا الإجراء، تحتاج إلى تفويض، وقبل القيام بذلك، تحتاج إلى تأكيد بريدك الإلكتروني <strong>%{email}</strong>.
           request_confirmation_instructions: طلب تعليمات التأكيد
           title: تأكيد البريد الإلكتروني
@@ -497,7 +496,6 @@ ar:
       see_more: "(شاهد المزيد)"
     components:
       component_order_selector:
-        no_content: لم نتمكن من العثور على أي محتوى بهذه المعايير
         order:
           all_types: جميع الأنواع
           collaborative_draft: مسودة تعاونية مشتركة
@@ -1718,7 +1716,6 @@ ar:
         action: تغيير كلمة المرور الخاصة بي
         greeting: مرحبا %{recipient}!
         instruction: طلب شخص ما رابطًا لتغيير كلمة مرورك ، ويمكنك القيام بذلك من خلال الرابط أدناه.
-        instruction_2: إذا لم تطلب ذلك ، فيرجى تجاهل هذا البريد الإلكتروني.
         instruction_3: لن تتغير كلمة مرورك حتى تصل إلى الرابط أعلاه وإنشاء كلمة مرور جديدة
         subject: إعادة تعيين تعليمات كلمة المرور
       unlock_instructions:
@@ -1764,8 +1761,6 @@ ar:
     shared:
       links:
         back: الى الخلف
-        didn_t_receive_confirmation_instructions: لم تتلق تعليمات التأكيد؟
-        didn_t_receive_unlock_instructions: لم تتلق تعليمات فتح؟
         forgot_your_password: نسيت رقمك السري؟
         sign_in: تسجيل الدخول
         sign_in_with_provider: تسجيل الدخول مع %{provider}
@@ -1804,7 +1799,6 @@ ar:
       load: فشل تحميل الرموز التعبيرية
     recents:
       clear: مسح الرموز التعبيرية الأخيرة
-      none: لم تقم باختيار أي رموز تعبيرية بعد.
     retry: يرجى المحاولة مرة أخرى
     search:
       _: البحث في الرموز التعبيرية...
