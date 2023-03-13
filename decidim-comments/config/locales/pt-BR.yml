@@ -19,8 +19,6 @@ pt-BR:
       comments:
         create:
           error: Houveram erros ao criar o comentário.
-        delete:
-          error: O comentário não pode ser excluído.
         update:
           error: Houve um erro ao atualizar o comentário.
       comments_count: Contagem de Comentários
