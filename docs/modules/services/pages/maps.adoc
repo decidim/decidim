@@ -9,7 +9,7 @@ Decidim has built-in support for the following map service providers:
  ** <<configuring-here-maps,Configuring HERE Maps>>
 * https://wiki.openstreetmap.org/wiki/Commercial_OSM_Software_and_Services[Open Street Maps based services]
  ** Please pick a service provider that provides all needed services (map tiles, static map images, geocoding and geocoding autocompletion)
- ** We can't use the OSM's own services by their https://operations.osmfoundation.org/policies/tiles/[tile usage policy].
+ ** We cannot use the OSM's own services by their https://operations.osmfoundation.org/policies/tiles/[tile usage policy].
  ** In case your service provider does not offer static map images, Decidim will use the dynamic map tiles to generate a similar map element.
  ** As an alternative, you may also want to use your own self-hosted map servers (see <<hosting-your-own-map-services,Hosting your own map services>> for more information)
  ** <<configuring-open-street-maps-based-service-providers,Configuring Open Street Maps based service providers>>

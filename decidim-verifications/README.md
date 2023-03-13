@@ -98,7 +98,7 @@ Decidim implements two type of authorization methods:
     authorization process.
 
 * _Renewable authorizations_.
-  By default a participant can't renew its authorization, but this can be enabled when registering the workflow, the time between renewals can be configured (one day by default).
+  By default a participant cannot renew its authorization, but this can be enabled when registering the workflow, the time between renewals can be configured (one day by default).
 
   Optionally to change the renew modal content part of the data stored, you can set a new value for the cell used to render the metadata.
 

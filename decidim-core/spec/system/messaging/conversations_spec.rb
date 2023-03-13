@@ -287,7 +287,7 @@ describe "Conversations", type: :system do
       context "when someone direct messages disabled" do
         let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
-        it "can't be selected on the mentioned list", :slow do
+        it "cannot be selected on the mentioned list", :slow do
           visit_inbox
           expect(page).to have_content("New conversation")
           click_button "New conversation"

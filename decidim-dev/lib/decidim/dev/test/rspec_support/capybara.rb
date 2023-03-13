@@ -6,7 +6,7 @@ module Decidim
   # Helpers meant to be used only during capybara test runs.
   module CapybaraTestHelpers
     def switch_to_host(host = "lvh.me")
-      raise "Can't switch to a custom host unless it really exists. Use `whatever.lvh.me` as a workaround." unless /lvh\.me$/.match?(host)
+      raise "Cannot switch to a custom host unless it really exists. Use `whatever.lvh.me` as a workaround." unless /lvh\.me$/.match?(host)
 
       app_host = (host ? "#{protocol}://#{host}" : nil)
       Capybara.app_host = app_host
@@ -57,7 +57,7 @@ Capybara.register_driver :headless_chrome do |app|
   )
 end
 
-# In order to work with PWA apps, Chrome can't be run in headless mode, and requires
+# In order to work with PWA apps, Chrome cannot be run in headless mode, and requires
 # setting up special prefs and flags
 Capybara.register_driver :pwa_chrome do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new

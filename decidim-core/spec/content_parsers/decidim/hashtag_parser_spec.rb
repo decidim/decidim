@@ -75,8 +75,8 @@ module Decidim
     end
 
     context "when content contains non-hash characters next to the hashtag name" do
-      let(:content) { "You can't add some characters to hashtags: ##{hashtag.name}+extra" }
-      let(:parsed_content) { "You can't add some characters to hashtags: #{hashtag.to_global_id}/#{hashtag.name}+extra" }
+      let(:content) { "You cannot add some characters to hashtags: ##{hashtag.name}+extra" }
+      let(:parsed_content) { "You cannot add some characters to hashtags: #{hashtag.to_global_id}/#{hashtag.name}+extra" }
 
       it_behaves_like "find and stores the hashtags references"
     end
