@@ -43,7 +43,6 @@ it:
           body:
             label: Commenta
             placeholder: Cosa ne pensi?
-          form_error: Il testo è necessario, deve essere obbligatoriamente indicato (max %{length} caratteri).
           submit: Invia
           user_group_id:
             label: Commenta come
@@ -81,6 +80,7 @@ it:
             offensive: Vi sono contenuti razzisti, sessisti, offensivi, attacchi di carattere personale, minacce di morte o altro tipo di minacci, istigazioni al suicidio o altre forme d'odio verbale.
             spam: Contiene pubblicità, truffe, clickbait ("esca da click") o altro contenuto mirato ad attrarre traffico internet.
           title: Segnala contenuti inappropriati
+        show_replies: Mostra %{replies_count} risposte
         single_comment_link_title: Ottieni il link
       comment_order_selector:
         order:
@@ -161,6 +161,3 @@ it:
         description: Numero di commenti generati dagli utenti
         object: Commenti
         title: Commenti
-  errors:
-    messages:
-      cannot_have_comments: non si possono fare commenti
