@@ -522,7 +522,6 @@ eu:
                 share: Zenbaketa partekatzea
             title: Zenbaketa %{election} aukerarako
           update:
-            error: Aukeraketaren egoera ez zen eguneratu.
             success: 'Aukeraren egoera hauxe da: %{status}'
         menu:
           trustee_zone: Bermatzailearen gunea
