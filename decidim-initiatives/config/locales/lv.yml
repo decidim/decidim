@@ -346,8 +346,6 @@ lv:
           success_html: Apsveicam! Iniciatīva <strong> %{title}</strong> ir veiksmīgi parakstīta
         personal_data:
           invalid: Personas dati neatbilst autorizējoties sniegtajiem datiem.
-        sms_code:
-          invalid: Jūsu verifikācijas kods neatbilst mūsu kodam. Lūdzu, vēlreiz pārbaudiet SMS, kuru mēs jums nosūtījām.
         sms_phone:
           invalid: Tālruņa numurs nav derīgs vai gaida autorizāciju. Lūdzu, pārbaudiet savas autorizācijas.
       initiatives:
