@@ -336,7 +336,6 @@ nl:
           resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
           title: Autorisatie is nog bezig
         unauthorized:
-          explanation: Sorry, u kunt deze actie niet uitvoeren, sommige gegevens kloppen niet.
           invalid_field: "%{field} waarde %{value} is niet geldig."
           ok: OK
           title: Niet geautoriseerd
@@ -530,7 +529,6 @@ nl:
       not_found:
         back_home: Terug naar de hoofdpagina
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
-        title: De opgevraagde pagina kan niet gevonden worden
     events:
       amendments:
         amendment_accepted:
@@ -939,7 +937,6 @@ nl:
         show:
           back: Terug naar alle gesprekken
           chat_with: Gesprek met
-          deleted_accounts: Je kunt geen gesprek voeren met verwijderde accounts.
           not_allowed: Deze deelnemer aanvaardt geen rechtstreekse berichten.
           title: Gesprek met %{usernames}
         start:
@@ -1290,7 +1287,6 @@ nl:
         title_reply: Beantwoorden
       show:
         back: Toon alle gesprekken
-        deleted_accounts: Je kunt geen gesprek voeren met verwijderde accounts.
         not_allowed: Deze gebruiker accepteert geen directe berichten meer.
         title: Gesprek met %{usernames}
       update:
@@ -1432,7 +1428,6 @@ nl:
       new:
         forgot_your_password: Je wachtwoord vergeten?
         send_me_reset_password_instructions: Stuur mij opnieuw wachtwoordinstructies
-      no_token: U hebt geen toegang tot deze pagina zonder van een e-mail voor het opnieuw instellen van uw wachtwoord te komen. Als u wel van een e-mail komt voor het opnieuw instellen van uw wachtwoord, moet u ervoor zorgen dat u de volledige URL heeft gebruikt.
       send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies voor het opnieuw instellen van uw wachtwoord.
       send_paranoid_instructions: Als uw e-mailadres in onze database staat, ontvangt u binnen enkele minuten een wachtwoordherstellink op uw e-mailadres.
       updated: Je wachtwoord is met succes veranderd. U bent nu ingelogd.
@@ -1479,13 +1474,11 @@ nl:
       already_confirmed: was al bevestigd, probeer u aan te melden
       confirmation_period_expired: moet worden bevestigd binnen %{period}, vraag een nieuwe aan
       content_type_allowlist_error: het bestandstype is niet geldig
-      cycle_detected: De ouder van een scope kan niet een van zijn afstammelingen zijn
       expired: is verlopen, vraag een nieuwe aan
       file_size_is_less_than_or_equal_to: bestandsgrootte moet kleiner zijn dan %{count}
       invalid_time_zone: is geen geldige tijdszone
       long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
       must_start_with_caps: moet beginnen met een hoofdletter
-      nesting_too_deep: kan niet binnen een subcategorie zijn
       not_found: kon niet worden gevonden. Ben je vooraf aangemeld?
       not_locked: was niet vergrendeld
       not_saved:
