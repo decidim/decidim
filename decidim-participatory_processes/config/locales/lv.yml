@@ -177,9 +177,6 @@ lv:
           success: Līdzdalības procesa fāze ir veiksmīgi izveidota.
         default_title: Ievads
         destroy:
-          error:
-            active_step: Nevar izdzēst aktīvo fāzi.
-            last_step: Nevar izdzēst procesa pēdējo fāzi.
           success: Līdzdalības procesa fāze ir veiksmīgi dzēsta.
         edit:
           title: Rediģēt līdzdalības procesa fāzi
