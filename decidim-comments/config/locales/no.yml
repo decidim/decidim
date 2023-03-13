@@ -74,7 +74,6 @@
           description: Er dette innholdet upassende?
           details: Ytterlige kommentarer
           reasons:
-            does_not_belong: Inneholder ulovlig aktivitet, selvmordstrusler, personlig informasjon eller noe annet du mener ikke hører hjemme på %{organization_name}.
             offensive: Inneholder rasisme, sexisme, banning, persjonangrep, dødstrusler, selvmords forespørsler eller all form for hatefullt språk.
             spam: Inneholder klikkagn, reklame, svindel eller manus-roboter.
           title: Rapporter upassende innhold
