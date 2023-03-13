@@ -39,12 +39,6 @@ eu:
           attributes:
             attachment:
               needs_to_be_reattached: Artxiboa berriro erantsi behar da
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: ezin da aldatu
-            public_key:
-              cant_be_changed: ezin da aldatu
   activerecord:
     errors:
       models:
@@ -564,8 +558,6 @@ eu:
               upload: Igo zure identifikazio-gakoak
               upload_error:
                 invalid_format: Igotako artxiboak ez du identifikazio-gakorik.
-                invalid_key: Ezin dira kargatu identifikazio-gakoak igotako artxiboan.
-            not_supported_browser_description: Dirudienez, berme-emaile gisa erabili ezin den nabigatzaile bat erabiltzen ari zara. Ziurtatu nabigatzailearen bertsio berriena erabiltzen ari zarela, edo saiatu nabigatzaile ezagunenetako edozein erabiltzen, zure zereginak bermatzaile gisa bete ahal izateko.
             not_supported_browser_title: Eguneratu nabigatzailea bermatzaile gisa aritzeko
             trustee_role_description: Plataforma honetan egindako bozketa batzuen bermatzaile gisa izendatu zaituzte.
           update:
@@ -1124,10 +1116,8 @@ eu:
             confirm: Ados, jarraitu
             error: Arazo bat izan da, mesedez, saiatu berriro.
             heading: Botoen zenbaketa - Sinatu itxiera
-            info_text: Jarraitzen baduzu, ezin izango duzu informaziorik aldatu, ekintza hau ezin da desegin.
             submit: Sinatu itxiera
             success: Itxiera zuzen itxi da.
-            title: Ekintza hau ezin da desegin
           update:
             error: Arazo bat izan da itxieraren emaitzak eguneratzean. Saiatu berriro geroago.
             success: Itxieraren emaitzak zuzen eguneratu dira.
