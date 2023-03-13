@@ -26,6 +26,8 @@ ca:
       comments:
         create:
           error: S'ha produït un error en crear el comentari.
+        delete:
+          error: El comentari no s'ha pogut eliminar.
         update:
           error: S'ha produït un error en actualitzar el comentari.
       comments_count: Número de comentaris
@@ -43,6 +45,7 @@ ca:
           body:
             label: Comentari
             placeholder: Què en penses d'això?
+          form_error: El text és necessari i no pot ser més llarg de %{length}.
           submit: Enviar
           user_group_id:
             label: Comentar com a
@@ -162,3 +165,6 @@ ca:
         description: Nombre de comentaris generats per les participants
         object: comentaris
         title: Comentaris
+  errors:
+    messages:
+      cannot_have_comments: no es poden fer comentaris
