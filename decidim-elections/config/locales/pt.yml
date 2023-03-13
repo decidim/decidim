@@ -716,7 +716,6 @@ pt:
               new: Novo
               title: Acções
             associated_census_data: Entradas de recenseamento associadas
-            explanation_callout: O estilo de boletim de voto específica que questões que serão apresentadas ao eleitor na cabine de voto. Num estilo de boletim de voto, pode escolher quais as questões os componentes da eleição que pertencem ao boletim de voto. O código do estilo de boletim de voto é utilizado para corresponder um eleitor do recenseamento com o boletim de voto que lhe será apresentado na cabine de voto. Não crie nenhum estile de boletim de voto se quiser apresentar todas as questões.
             title: Estilos de boletim de voto
           new:
             create: Criar
@@ -944,7 +943,6 @@ pt:
             invalid: Houve um problema ao actualizar esta votação
             success: Votação criada com êxito
           edit:
-            add_election_component: Não tem nenhuma eleição configurada para esta votação. Por favor adicione-a na secção Componentes
             assign_missing_officers: Há Secções de Voto sem Presidente e/ou Gestores. Por favor atribua-os a partir da área de Secções de Voto
             update: Actualizar
           form:
@@ -1221,7 +1219,6 @@ pt:
           invalid: Ocorreu um problema ao verificar o recenseamento.
           success:
             access_link_with_sms: via SMS ou e-mail.
-            info: Deve ter já recebido o seu Código de Acesso por correio postal. No caso de não o ter pode pedi-lo aqui
             title: Os seus dados de recenseamento estão correctos!
           title: Posso votar?
         check_fields:
@@ -1265,7 +1262,6 @@ pt:
           access_code: Código de acesso
           access_code_placeholder: Código de acesso
           ask_for_a_new_one: Pedir um novo.
-          dont_have_access_code: Não tem um código de acesso?
           form_title: 'Preencha o formulário seguinte para aceder à votação:'
           start_voting: Começar votação
           step: Identificação
