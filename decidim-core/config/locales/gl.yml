@@ -269,7 +269,6 @@ gl:
           ok: Ok
           title: Non autorizado
         unconfirmed:
-          confirmation_instructions: 'Se non recibiu as instrucións de confirmación, pode solicitalas de novo:'
           explanation_html: Para realizar esta acción necesitas estar autorizado, antes de facer isto necesitas confirmar o teu correo <strong>%{email}</strong>.
           request_confirmation_instructions: Solicitar instrucións de confirmación
           title: Confirma o teu correo electrónico
@@ -1106,7 +1105,6 @@ gl:
         action: Cambiar o meu contrasinal
         greeting: Ola %{recipient}
         instruction: Alguén solicitou unha ligazón para cambiar o teu contrasinal e podes facelo a través da seguinte ligazón.
-        instruction_2: Se non solicitou isto, ignore este correo electrónico.
         instruction_3: O seu contrasinal non cambiará ata que acceda á ligazón anterior e cree unha nova.
         subject: Restablecer as instrucións do contrasinal
       unlock_instructions:
@@ -1149,8 +1147,6 @@ gl:
     shared:
       links:
         back: De volta
-        didn_t_receive_confirmation_instructions: Non recibiches instrucións de confirmación?
-        didn_t_receive_unlock_instructions: Non recibiches instrucións de desbloqueo?
         forgot_your_password: Esqueceu o contrasinal?
         sign_in: Iniciar sesión
         sign_in_with_provider: Inicia sesión con %{provider}
