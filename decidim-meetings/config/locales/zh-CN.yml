@@ -138,7 +138,6 @@ zh-CN:
           name: 出席会议
           next_level_in: 再参加 %{score} 个会议来达到下一级！
           unearned_another: 此参与者尚未参加任何会议。
-          unearned_own: 你还没有参加任何会议。
     meetings:
       actions:
         agenda: 议程项目
