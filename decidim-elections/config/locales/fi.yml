@@ -628,7 +628,6 @@ fi:
               generate_legend: Sinun tulee luoda tunnistusavainten parit toimiaksesi äänestyksen luottamushenkilönä.
               generate_legend_1: Painikkeen painamisen jälkeen sinun tulee ladata tunnistusavainten tiedosto omalle tietokoneellesi.
               generate_legend_2: Kopioi ladattu tiedosto puhtaalle ja tyhjälle USB-tallennuslaitteelle
-              generate_legend_3: Tarkasta, että tietokoneellesi ei jää kopiota kyseisestä tiedostosta (tarkasta myös Lataukset-kansio sekä työpöytäsi).
               generate_legend_4: Luo toinen kopio tiedostosta toiselle ulkoiselle laitteelle ja talleta se erittäin turvalliseen paikkaan.
               submit: Lähetä
               submit_legend: Kun olet toteuttanut kaikki edellä esitetyt vaiheet, viimeistele julkisten tunnistusvainten lähetys palvelimelle.
@@ -636,10 +635,7 @@ fi:
               title: Luottamushenkilöiden tunnistusavaimet
               upload: Lataa tunnistusavaimet
               upload_error:
-                invalid_format: Ladattu tiedosto ei sisällä yhtään tunnistusavainta.
                 invalid_key: Ladatussa tiedostossa olevia tunnistusavaimia ei voida ladata.
-                invalid_public_key: Ladatun tiedoston tunnistusavaimet eivät vastaa tallennettua julkista tunnistusavainta.
-              upload_legend: Julkiset tunnistusavaimet ovat palvelimella, mutta eivät selaimessasi. Sinun täytyy tuoda tunnistusavainten tiedosto omalle tietokoneellesi varmuuskopiosta, jonka tallensit avaimia luotaessa.
             not_supported_browser_description: Näyttää siltä, että käytät selainta, jota ei voi käyttää luottamushenkilönä toimimiseen. Tarkasta, että käytät selaimesi viimeisintä versiota tai yritä käyttää jotain suosituimmista selaimista luottamushenkilön tehtävien suorittamiseksi.
             not_supported_browser_title: Päivitä selaimesi toimiaksesi luottamushenkilönä
             trustee_role_description: Sinulle on annettu luottamushenkilön tehtävä joissain vaaleissa tällä alustalla.
@@ -1162,7 +1158,6 @@ fi:
             subject: Äänestyksen tunnistautumiskoodien vientitiedosto äänestykselle %{voting_title} on nyt ladattavissa
         vote_flow:
           already_voted_in_person: Tämä osallistuja on jo äänestänyt fyysisessä tilaisuudessa eikä hänellä ole oikeutta äänestää verkossa.
-          datum_not_found: Annetut tiedot eivät vastaa yhtään äänestäjää.
       content_blocks:
         highlighted_votings:
           name: Korostetut äänestykset
@@ -1207,7 +1202,6 @@ fi:
             info_text: Syötä jokaisen kysymyksen kaikkien vastausten lukumäärä.
             modal_ballots_results_count_error:
               close_modal: Sulje
-              info_text: Äänten kokonaismäärä ei vastaa kirjeiden kokonaismäärää. Tarkasta äänten kokonaismäärä.
               title: Äänten kokonaismäärä ei täsmää
             save_recount: Tallenna uudelleenlaskenta
             total_ballots: Äänten kokonaismäärä
@@ -1222,7 +1216,6 @@ fi:
               btn_validate_total: Tarkasta äänten uudelleenlaskenta
               close_modal: Sulje
               info_explanation_text: 'Tarkasta äänten kokonaismäärä. Jos kokonaismäärä ei ole oikea, sinun on annettava selvitys tarkkailukomitealle:'
-              info_text: Syötettyjen äänten (kirjeiden) kokonaismäärä ei täsmää ihmisten määrään, jotka ovat äänestäneet tässä äänestyspaikassa.
               message_for_monitoring_committee: Viesti tarkkailukomitealle
               review_recount: Tarkasta uudelleenlaskenta
               text_area_placeholder: Kirjoita viestisi
