@@ -185,7 +185,6 @@ nl:
           name: Bijgewoonde vergaderingen
           next_level_in: Woon nog %{score} vergaderingen bij om het volgende niveau te bereiken!
           unearned_another: Deze gebruiker heeft nog geen enkele vergadering bijgewoond.
-          unearned_own: Je hebt nog geen vergadering bijgewoond.
     meetings:
       actions:
         agenda: Agenda
