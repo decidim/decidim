@@ -26,11 +26,6 @@ uk:
         name: Повне ім'я
   activerecord:
     models:
-      decidim/initiative:
-        one: Почин
-        few: Почини
-        many: Починів
-        other: Починів
       decidim/initiative_comittee:
         one: Робочий гурт
         few: Робочих гурти
