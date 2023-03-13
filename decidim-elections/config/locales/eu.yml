@@ -713,7 +713,6 @@ eu:
               new: Berria
               title: Ekintzak
             associated_census_data: Erroldarekin erlazionatutako sarrerak
-            explanation_callout: Boto-paperaren estilo batek zehazten du zein galdera aurkeztuko zaizkion boto-emaileari kabinan. Boto-paper baten estiloan, aukera dezakezu bozketa-osagaiaren zein galdera dagozkion boto-paper horri. Boto-paperaren estilo-kodea erabiltzen da bat etortzeko hautesle bat kabinan aurkeztuko den boto-paperarekin. Galdera guztiak erakutsi nahi badituzu, ez sortu inolako boto-paperik.
             title: Boto-paper motak
           new:
             create: Sortu
@@ -941,7 +940,6 @@ eu:
             invalid: Arazo bat izan da bozketa hau sortzean
             success: Bozketa zuzen sortu da
           edit:
-            add_election_component: Ez duzu bozketa honetarako hautaketarik konfiguratuta. Mesedez, gehitu osagaien atalean
             assign_missing_officers: Presidenterik eta/edo administratzailerik gabeko bozketa-guneak daude. Esleitu itzazu bozketa-guneen ataletik
             update: Eguneratu
           form:
@@ -1217,7 +1215,6 @@ eu:
           invalid: Arazo bat izan da errolda egiaztatzean.
           success:
             access_link_with_sms: sMSz edo posta elektronikoz.
-            info: Zure sarbide-kodea postaz jasota izan beharko zenuke. Ez baduzu, hemen eska dezakezu
             title: Zure erroldako datuak zuzenak dira!
           title: Botoa eman dezaket?
         check_fields:
@@ -1261,7 +1258,6 @@ eu:
           access_code: Sarbide-kodea
           access_code_placeholder: Sarbide-kodea
           ask_for_a_new_one: Eskatu berri bat.
-          dont_have_access_code: Ez duzu sarbide-koderik?
           form_title: 'Bete ezazu ondoko galdetegia bozketan sartzeko:'
           start_voting: Botoa ematen hasi
           step: Identifikazioa
