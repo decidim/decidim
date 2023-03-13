@@ -31,7 +31,6 @@ ro:
         cost_report: Raport de cost
         execution_period: Perioada de execuție
       proposals_copy:
-        copy_proposals: Înţeleg că această acțiune va importa toate propunerile din componenta selectată în cea curentă şi că această acţiune nu poate fi inversată.
         origin_component_id: Componentă de la care se copiază propunerile
       proposals_import:
         import_proposals: Importă propuneri
@@ -725,8 +724,6 @@ ro:
             valuator: Evaluator
             valuators: Evaluatori
             votes: Voturi
-      new:
-        limit_reached: Nu poți crea propuneri noi deoarece ai depășit limita.
       participatory_text_proposal:
         alternative_title: Nu există niciun text participativ în acest moment
         buttons:
