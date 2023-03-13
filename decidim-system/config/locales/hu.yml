@@ -85,7 +85,6 @@ hu:
         users_registration_mode:
           disabled: A hozzáférés csak külső fiókokkal végezhető el
           enabled: Engedélyezi a felhasználók regisztrálását és bejelentkezését
-          existing: A felhasználók regisztrációját nem, hanem a meglévő felhasználók bejelentkezését engedélyezi
       shared:
         notices:
           no_organization_warning_html: 'A kezdéshez hozz létre egy szervezetet. Mielőtt folytatnád, olvasd el az útmutatót: %{guide}.'
