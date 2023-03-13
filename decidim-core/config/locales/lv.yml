@@ -589,8 +589,6 @@ lv:
       value: Vērtība
     followers:
       no_followers: Vēl nav sekotāju.
-    following:
-      no_followings: Pagaidām neseko nevienam vai nekam
     follows:
       create:
         button: Seko
@@ -615,7 +613,6 @@ lv:
           description_own: "%{score} cilvēki seko jums."
           name: Sekotāji
           next_level_in: Piesaistiet vēl %{score} cilvēkus kā sekotājus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šim dalībniekam vēl nav sekotāju.
           unearned_own: Jums vēl nav sekotāju.
         index:
           badge_title: "%{name} žetons"
@@ -701,7 +698,6 @@ lv:
         create_user_group: Izveidot grupu
         new_user_group: Jauna grupa
         subtitle: Izveidojiet grupu un uzaiciniet citus lietotājus pievienoties kopējā līmenī.
-      no_user_groups: Pagaidām nepieder nevienai grupai.
       roles:
         admin: Administrators
         member: Dalībnieks
@@ -743,8 +739,6 @@ lv:
           not_found: 'Tvēruma veids netika atrasts datubāzē (ID: %{id})'
     managed_users:
       expired_session: Pašreizējā dalībnieka administratora sesija ir beigusies.
-    members:
-      no_members: Šajā grupā vēl nav dalībnieku.
     menu:
       help: Palīdzība
       home: Sākums
@@ -1026,7 +1020,6 @@ lv:
         already_reported: Par šo saturu jau ir ziņots, un administrators to pārskatīs.
         close: Aizvērt
         description: Vai šis saturs ir neatbilstīgs?
-        does_not_belong: Satur nelikumīgas darbības, pašnāvības draudus, personisku informāciju vai kaut ko citu, kam, jūsuprāt, nav vietas %{organization_name}.
         offensive: Satur rasismu, seksismu, lamuvārdus, personiskus uzbrukumus, nāves draudus, ierosinājumus veikt pašnāvību vai jebkāda veida naida runu.
         report: Ziņot
         spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
@@ -1089,7 +1082,6 @@ lv:
     user_interests:
       show:
         my_interests: Manas intereses
-        no_scopes: Šai organizācijai vēl nav nekāda darbības tvēruma!
         select_your_interests: Atlasiet jūs interesējošās tēmas, lai profila cilnē Laika skala saņemtu informāciju par notikumiem, kas ar tām saistīti.
         update_my_interests: Atjaunināt manas intereses
       update:
