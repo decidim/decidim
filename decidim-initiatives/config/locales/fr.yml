@@ -468,8 +468,6 @@ fr:
           success_html: Toutes nos félicitations ! La pétition <strong> %{title}</strong> a été signée correctement
         personal_data:
           invalid: Les données personnelles ne correspondent pas aux données fournies pour autorisation.
-        sms_code:
-          invalid: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier le SMS que nous vous avons envoyé.
         sms_phone:
           invalid: Le numéro de téléphone est invalide ou en attente d'autorisation. S'il vous plaît, vérifiez vos autorisations.
       initiatives:
