@@ -126,9 +126,6 @@ ro:
       admin_log:
         questionnaire:
           update: "%{user_name} a actualizat chestionarul %{resource_name}"
-      errors:
-        answer:
-          body: Conținutul nu poate fi gol
       images:
         dimensions: "%{width} x %{height} px"
         processors:
