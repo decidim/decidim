@@ -269,7 +269,6 @@ fi:
           edit:
             confirm_destroy: Haluatko varmasti luoda uuden vahvistuskoodin?
             destroy: Luo uusi vahvistuskoodi
-            resend: Etkö saanut vahvistuskoodia?
             send: Vahvista
             title: Kirjoita vastaanottamasi vahvistuskoodi
           new:
