@@ -31,7 +31,6 @@ tr:
         cost_report: Maliyet raporu
         execution_period: Yürütme süresi
       proposals_copy:
-        copy_proposals: Bunun, seçilen bileşendeki tüm teklifleri mevcut bileşene aktaracağını ve bu işlemin geri alınamayacağını anlıyorum.
         origin_component_id: Teklifleri kopyalamak için bileşen
       proposals_import:
         import_proposals: Teklifleri içe aktar
@@ -657,8 +656,6 @@ tr:
             valuator: Bilirkişi
             valuators: Bilirkişiler
             votes: Oylar
-      new:
-        limit_reached: Sınırı aştığınız için yeni teklifler oluşturamazsınız.
       participatory_text_proposal:
         alternative_title: Şu anda katılımcı metin yok
         buttons:
