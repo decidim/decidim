@@ -250,9 +250,6 @@ is-IS:
           not_found: 'Safnið fannst ekki í gagnagrunninum (ID: %{id})'
     menu:
       assemblies: Þing
-  errors:
-    messages:
-      cannot_be_blank: Ekki er hægt að eyða
   layouts:
     decidim:
       assemblies:
