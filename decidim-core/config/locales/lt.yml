@@ -431,7 +431,6 @@ lt:
           resume: Patikrinkite savo %{authorization} autorizacijos progresą
           title: Autorizacija vyksta
         unauthorized:
-          explanation: Deja, šio veiksmo negalite atlikti, nes kai kurie jūsų autorizacijos duomenys nesutampa.
           invalid_field: "%{field} vertė %{value} negalioja."
           ok: Gerai
           title: Neautorizuota
@@ -638,7 +637,6 @@ lt:
       not_found:
         back_home: Grįžti į pagrindinį puslapį
         content_doesnt_exist: Šis adresas neteisingas arba pašalintas.
-        title: Puslapio, kurio ieškote, nerandame
     events:
       amendments:
         amendment_accepted:
@@ -966,7 +964,6 @@ lt:
         success: Prisijungimo prašymas sukurtas. Administratorius peržiūrės jūsų prašymą prieš priimdamas jus į grupę.
       leave:
         error: Paliekant šią grupę iškilo problema
-        last_admin: Negalite savęs pašalinti iš šios grupės, nes esate paskutinis jos administratorius. Norėdami palikti grupę, paskirkite kitą žmogų jos administratoriumi.
         success: Grupė palikta.
       members:
         accept_or_reject_join_requests: 'Toliau nurodyti naudotojai pateikė prašymą prisijungti prie šios grupės. Priimkite arba atmeskite jų prašymus:'
@@ -1099,7 +1096,6 @@ lt:
         show:
           back: Grįžti į visus pokalbius
           chat_with: Pokalbis su
-          deleted_accounts: Negalite megzti pokalbių su ištrintomis paskyromis.
           not_allowed: Šis dalyvis nepriima tiesioginių žinučių.
           title: Pokalbis su %{usernames}
         start:
@@ -1507,7 +1503,6 @@ lt:
         title_reply: Atsakyti
       show:
         back: Rodyti visus pokalbius
-        deleted_accounts: Negalite megzti pokalbių su ištrintomis paskyromis.
         not_allowed: Šis naudotojas nebepriima tiesioginių pranešimų.
         title: Pokalbis su %{usernames}
       update:
@@ -1661,7 +1656,6 @@ lt:
       new:
         forgot_your_password: Pamiršote savo slaptažodį?
         send_me_reset_password_instructions: Atsiųskite slaptažodžio atstatymo instrukciją
-      no_token: Šis puslapis negali būti pasiektas atėjus ne iš slaptažodžio atkūrimo el. laiško. Jeigu jūs atvykstate iš slaptažodžio atkūrimo el. laiško, įsitikinkite, kad naudojote visą pateiktą URL.
       send_instructions: Per kelias minutes Jūs gausite elektroninį laišką su instrukcijomis, kaip iš naujo nustatyti savo slaptažodį.
       send_paranoid_instructions: Jei jūsų el. pašto adresas yra mūsų duomenų bazėje, per kelias minutes savo el. pašto adresu gausite nuorodą su slaptažodžio atkūrimo nurodymais.
       updated: Jūsų slaptažodis buvo sėkmingai pakeistas. Dabar esate prisijungę.
@@ -1710,13 +1704,11 @@ lt:
       already_confirmed: jau patvirtinta, pabandykite prisijungti
       confirmation_period_expired: turi būti patvirtintas per %{period}, prašome paprašyti naujo
       content_type_allowlist_error: rinkmenos tipas netinkamas
-      cycle_detected: srities pirminis elementas, negali būti vienas iš jos poelemenčių
       expired: nustojo galioti, prašykite iš naujo
       file_size_is_less_than_or_equal_to: rinkmenos dydis turi būti ne didesnis kaip %{count} arba jam lygus
       invalid_time_zone: netinkama laiko juosta
       long_words: yra per ilgų žodžių (daugiau kaip 35 ženklai)
       must_start_with_caps: pradėti būtina didžąja raide
-      nesting_too_deep: negali priklausyti pakategorei
       not_found: nepavyko rasti. Ar užsiregistravote anksčiau?
       not_locked: nebuvo užrakintas
       not_saved:
