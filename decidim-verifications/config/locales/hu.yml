@@ -55,7 +55,7 @@ hu:
             - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
             - Töltsd ki a feltöltött képen található információkkal.
             - Az információknak meg kell egyeznie a kitöltött adatokkal.
-            - Ha nem láthatók tisztán az információk vagy nem tudod ellenőrizni, akkor elutasíthatod és visszaküldheted javításra a kérelmet.
+            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
             - Felhasználók a lakcímükre kérik az ellenőrző kódot.
