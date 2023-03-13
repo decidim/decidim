@@ -468,7 +468,6 @@ ro:
                 share: Împărtășirea rezultatului votului
             title: Numărarea voturilor pentru %{election}
           update:
-            error: Statutul alegerilor nu a fost actualizat.
             success: 'Statutul alegerilor este: %{status}'
         menu:
           trustee_zone: Zonă împuternicit
