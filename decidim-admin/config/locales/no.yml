@@ -829,7 +829,6 @@
         new:
           destroy:
             button: Slett alle private deltakere
-            confirm: Er du sikker på at du vil slette alle private deltakere? Denne handlingen kan ikke angres, du vil ikke kunne gjenopprette dem.
             empty: Du har ingen private deltakere.
             explanation: Du har %{count} private deltakere.
             title: Slett private deltakere
