@@ -411,8 +411,6 @@ sk:
           buttons:
             check: Skontrolujte a pokračujte
             close_modal: Zatvoriť okno
-          notice: |-
-            | - <P> Hej, ste si istí, že nechcete dostávať newsletter? <br> Označte zaškrtávacie políčko nižšie. <br> Pre nás je veľmi dôležité, aby ste obdržali príležitostné e-maily aby ste dostali dôležitá oznámenia, môžete to vždy zmeniť v nastavenia oznámenia. </ p> <P> Ak nezaškrtnete zaškrtávacie políčko, môže vám chýbať relevantné informácie o nových možnostiach účasti v rámci platformy. <br> Ak sa chcete aj naďalej vyhýbať prijímanie informačných spravodajcov, dokonale rozumieme vášmu rozhodnutiu. </ p> <P> Ďakujeme, že ste si to prečítali! </ P>
           title: Upozornenie na bulletin
         omniauth_buttons:
           or: Alebo
@@ -850,7 +848,6 @@ sk:
       no_notifications: Zatiaľ žiadne oznámenie.
     notifications_settings:
       show:
-        allow_public_contact: Povoliť komukoľvek posielať mi priame správy, aj keď ho nesledujem.
         direct_messages: Povoliť priame správy od kohokoľvek
         everything_followed: Všetko, čo sledujem
         newsletter_notifications: Chcem dostávať informačné bulletiny
@@ -1115,8 +1112,6 @@ sk:
         accept_until: Tejto pozvánke vyprší platnosť v %{due_date}.
         decline: Odmietnuť pozvaním
         hello: Dobrý deň%{email},
-        ignore: |-
-          | - Ak nechcete prijať pozvánku, ignorujte tento e-mail. <br /> Váš účet nebude vytvorený, kým nevstúpite do vyššie uvedeného odkazu a nastavíte prezývku a heslo.
         invited_you_as_admin: "%{invited_by} vás pozval ako administrátora na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
         invited_you_as_private_user: "%{invited_by} vás pozval ako súkromného užívateľa na %{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu."
         someone_invited_you: Niekto vás pozval na%{application}. Môžete pozvanie prijať prostredníctvom nižšie uvedeného odkazu.
