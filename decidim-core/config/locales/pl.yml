@@ -424,7 +424,6 @@ pl:
           ok: Ok
           title: Nieautoryzowany
         unconfirmed:
-          confirmation_instructions: 'Jeśli nie otrzymałeś instrukcji uwierzytelnienia, możesz poprosić o nią ponowne:'
           explanation_html: Aby wykonać tę akcję, musisz mieć autoryzację, zanim to zrobisz, musisz potwierdzić swój adres e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Poproś o instrukcje uwierzytelniające
           title: Potwierdź swój adres e-mail
@@ -445,7 +444,6 @@ pl:
       see_more: "(pokaż więcej)"
     components:
       component_order_selector:
-        no_content: Nie znaleziono treści spełniających te kryteria
         order:
           all_types: Wszystkie typy
           collaborative_draft: Wspólny szkic
@@ -1508,7 +1506,6 @@ pl:
         action: Zmień moje hasło
         greeting: Witaj, %{recipient}!
         instruction: Ktoś poprosił o link do zmiany hasła. Możesz to zrobić za pomocą poniższego linku.
-        instruction_2: Jeśli nie prosiłeś o to, zignoruj ​​tę wiadomość.
         instruction_3: Twoje hasło nie zmieni się, dopóki nie klikniesz w powyższy link i nie ustawisz nowego.
         subject: Instrukcje dotyczące resetu hasła
       unlock_instructions:
@@ -1552,8 +1549,6 @@ pl:
     shared:
       links:
         back: Wróć
-        didn_t_receive_confirmation_instructions: Nie otrzymałeś(aś) instrukcji potwierdzenia?
-        didn_t_receive_unlock_instructions: Nie otrzymałeś(aś) instrukcji odblokowania?
         forgot_your_password: Nie pamiętasz hasła?
         sign_in: Zaloguj się
         sign_in_with_provider: Zaloguj się, używając %{provider}
