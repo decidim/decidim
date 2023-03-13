@@ -115,7 +115,6 @@ lb:
         my_budgets: Meine Budgets
         voted_on: Sie haben über %{links} abgestimmt
       limit_announcement:
-        cant_vote: Sie können nicht über dieses Budget abstimmen. <a href="%{landing_path}">Versuchen Sie es mit einem anderen Budget</a>.
         limit_reached: Sie haben aktive Stimmen in %{links}. Um über dieses Budget abstimmen zu können, müssen Sie <a href="%{landing_path}">Ihre Stimme löschen und neu </a> beginnen.
       models:
         budget:
