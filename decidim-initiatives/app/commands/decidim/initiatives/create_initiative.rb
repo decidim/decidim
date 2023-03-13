@@ -19,7 +19,7 @@ module Decidim
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
-      # - :invalid if the form wasn't valid and we couldn't proceed.
+      # - :invalid if the form wasn't valid and we could not proceed.
       #
       # Returns nothing.
       def call
@@ -111,7 +111,7 @@ module Decidim
 
       def initialize_pages(component)
         Decidim::Pages::CreatePage.call(component) do
-          on(:invalid) { raise "Can't create page" }
+          on(:invalid) { raise "Cannot create page" }
         end
       end
 

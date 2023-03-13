@@ -231,7 +231,7 @@ shared_examples_for "has questionnaire" do
           expect(page).to have_content("problem")
         end
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_content("cannot be blank")
       end
     end
 
@@ -248,7 +248,7 @@ shared_examples_for "has questionnaire" do
         expect(different_error).to eq("There are too many choices selected")
         expect(page).not_to have_content(different_error)
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_content("cannot be blank")
       end
     end
 
@@ -280,7 +280,7 @@ shared_examples_for "has questionnaire" do
           expect(page).to have_content("problem")
         end
 
-        expect(page).to have_content("can't be blank")
+        expect(page).to have_content("cannot be blank")
       end
     end
 
@@ -1196,7 +1196,7 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_responses_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+              fill_in "questionnaire_responses_0", with: "Are not we all expecting #{condition_value[:en]}?"
               change_focus
 
               expect_question_to_be_visible(true)
@@ -1219,7 +1219,7 @@ shared_examples_for "has questionnaire" do
             it "shows the question only if the condition is fulfilled" do
               expect_question_to_be_visible(false)
 
-              fill_in "questionnaire_responses_0", with: "Aren't we all expecting #{condition_value[:en]}?"
+              fill_in "questionnaire_responses_0", with: "Are not we all expecting #{condition_value[:en]}?"
               change_focus
 
               expect_question_to_be_visible(true)

@@ -148,7 +148,7 @@ describe "Admin manages votings", type: :system do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).not_to have_admin_callout("You don't have any election configured")
+      expect(page).not_to have_admin_callout("You do not have any election configured")
 
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")

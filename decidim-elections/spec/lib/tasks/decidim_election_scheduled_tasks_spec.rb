@@ -31,14 +31,14 @@ describe "decidim_elections:scheduled_tasks", type: :task do
     end
   end
 
-  context "with elections that shouldn't be affected" do
+  context "with elections that should not be affected" do
     let!(:election1) { create :election, :key_ceremony_ended, start_time: 1.day.from_now }
     let!(:election2) { create :election, :vote, :upcoming }
     let!(:election3) { create :election, :vote, :ongoing }
 
     before { task.execute }
 
-    it "don't modify them" do
+    it "do not modify them" do
       expect(election1.reload).to be_bb_key_ceremony_ended
       expect(election2.reload).to be_bb_vote
     end
@@ -55,7 +55,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
     end
   end
 
-  context "with votes that shouldn't be affected" do
+  context "with votes that should not be affected" do
     let!(:vote) { create :vote, status: "accepted" }
 
     before { task.execute }

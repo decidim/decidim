@@ -416,12 +416,12 @@ en:
           resume: Check your "%{authorization}" authorization progress
           title: Authorization is still in progress
         unauthorized:
-          explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
+          explanation: Sorry, you cannot perform this action as some of your authorization data doesn't match.
           invalid_field: "%{field} value %{value} isn't valid."
           ok: Ok
           title: Not authorized
         unconfirmed:
-          confirmation_instructions: 'If you haven''t received the confirmation instructions you can request them again:'
+          confirmation_instructions: 'If you have not received the confirmation instructions you can request them again:'
           explanation_html: In order to perform this action you need to be authorized, before doing that you need to confirm your email <strong>%{email}</strong>.
           request_confirmation_instructions: Request confirmation instructions
           title: Confirm your email
@@ -440,7 +440,7 @@ en:
       see_more: "(see more)"
     components:
       component_order_selector:
-        no_content: We couldn\'t find any content with this criteria
+        no_content: We could not find any content with this criteria
         order:
           all_types: All types
           collaborative_draft: Collaborative Draft
@@ -574,12 +574,12 @@ en:
             close_modal: Close modal
             uncheck: Keep unchecked
           notice: |-
-            <p>Hey, are you sure you don't want to receive a newsletter?<br>
+            <p>Hey, are you sure you do not want to receive a newsletter?<br>
             Please consider again ticking the newsletter checkbox below.<br>
             It is very important for us that you can receive occasional emails
             to make important announcements, you can always change this on your
             notifications settings page.</p>
-            <p>If you don't tick the box you might be missing relevant information
+            <p>If you do not tick the box you might be missing relevant information
             about new participatory opportunities within the platform.<br>
             If you still want to avoid receiving newsletters, we perfectly
             understand your decision.</p>
@@ -642,7 +642,7 @@ en:
       not_found:
         back_home: Back home
         content_doesnt_exist: This address is incorrect or has been removed.
-        title: The page you're looking for can't be found
+        title: The page you're looking for cannot be found
     events:
       amendments:
         amendment_accepted:
@@ -970,7 +970,7 @@ en:
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
         error: There was a problem leaving the group
-        last_admin: You can't remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
+        last_admin: You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
         accept_or_reject_join_requests: 'The following users have applied to join this group. Accept or reject their requests:'
@@ -1108,7 +1108,7 @@ en:
         show:
           back: Back to all conversations
           chat_with: Conversation with
-          deleted_accounts: You can't have a conversation with deleted accounts.
+          deleted_accounts: You cannot have a conversation with deleted accounts.
           not_allowed: This participant does not accept direct messages.
           title: Conversation with %{usernames}
         start:
@@ -1201,7 +1201,7 @@ en:
     notifications_settings:
       show:
         administrators: Administrators
-        allow_public_contact: Allow anyone to send me a direct message, even if I don't follow them.
+        allow_public_contact: Allow anyone to send me a direct message, even if I do not follow them.
         allow_push_notifications: Get push notifications to find out what's going on when you're not on the platform. You can turn them off anytime.
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
@@ -1526,7 +1526,7 @@ en:
         title_reply: Reply
       show:
         back: Show all conversations
-        deleted_accounts: You can't have a conversation with deleted accounts.
+        deleted_accounts: You cannot have a conversation with deleted accounts.
         not_allowed: This user does not accept any more direct messages.
         title: Conversation with %{usernames}
       update:
@@ -1633,7 +1633,7 @@ en:
         decline: Decline invitation
         hello: Hello %{email},
         ignore: |-
-          If you don't want to accept the invitation, please ignore this email.<br />
+          If you do not want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your nickname and password.
         invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
         invited_you_as_private_user: "%{invited_by} has invited you as a private participant of %{application}. You can accept it through the link below."
@@ -1657,7 +1657,7 @@ en:
         action: Change my password
         greeting: Hello %{recipient}!
         instruction: Someone has requested a link to change your password, and you can do this through the link below.
-        instruction_2: If you didn't request this, please ignore this email.
+        instruction_2: If you did not request this, please ignore this email.
         instruction_3: Your password won't change until you access the link above and create a new one.
         subject: Reset password instructions
       unlock_instructions:
@@ -1680,7 +1680,7 @@ en:
       new:
         forgot_your_password: Forgot your password?
         send_me_reset_password_instructions: Send me reset password instructions
-      no_token: You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
+      no_token: You cannot access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided.
       send_instructions: You will receive an email with instructions on how to reset your password in a few minutes.
       send_paranoid_instructions: If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes.
       updated: Your password has been successfully changed. You are now signed in.
@@ -1704,8 +1704,8 @@ en:
     shared:
       links:
         back: Back
-        didn_t_receive_confirmation_instructions: Didn't receive confirmation instructions?
-        didn_t_receive_unlock_instructions: Didn't receive unlock instructions?
+        didn_t_receive_confirmation_instructions: Did not receive confirmation instructions?
+        didn_t_receive_unlock_instructions: Did not receive unlock instructions?
         forgot_your_password: Forgot your password?
         sign_in: Log in
         sign_in_with_provider: Sign in with %{provider}
@@ -1740,7 +1740,7 @@ en:
       load: Failed to load emojis
     recents:
       clear: Clear recent emojis
-      none: You haven't selected any emojis yet.
+      none: You have not selected any emojis yet.
     retry: Try again
     search:
       _: Search emojis...
@@ -1751,15 +1751,18 @@ en:
     messages:
       allowed_file_content_types: 'only files with the following extensions are allowed: %{types}'
       already_confirmed: was already confirmed, please try signing in
+      blank: cannot be blank
+      cannot_be_blank: cannot be blank
       confirmation_period_expired: needs to be confirmed within %{period}, please request a new one
       content_type_allowlist_error: the file type is not valid
-      cycle_detected: a scope's parent can't be one of its descendants
+      cycle_detected: a scope's parent cannot be one of its descendants
+      empty: cannot be empty
       expired: has expired, please request a new one
       file_size_is_less_than_or_equal_to: file size must be less than or equal to %{count}
       invalid_time_zone: is not a valid time zone
       long_words: contains words that are too long (over 35 characters)
       must_start_with_caps: must start with a capital letter
-      nesting_too_deep: can't be inside of a subcategory
+      nesting_too_deep: cannot be inside of a subcategory
       not_found: could not be found. Did you sign up previously?
       not_locked: was not locked
       not_saved:

@@ -33,7 +33,7 @@ module Decidim::Admin
         end
       end
 
-      describe "when the newsletter can't be edited by this user" do
+      describe "when the newsletter cannot be edited by this user" do
         let(:user) { create(:user) }
 
         it "broadcasts invalid" do

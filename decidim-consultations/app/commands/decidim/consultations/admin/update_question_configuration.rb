@@ -17,13 +17,13 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form wasn't valid and we could not proceed.
         #
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
 
-          # We don't have other question fields in this forms so any additional
+          # We do not have other question fields in this forms so any additional
           # validation error will be just shown in a flash message
           begin
             update_question!
