@@ -204,9 +204,6 @@ ro:
           success: Etapa procesul participativ a fost creată cu succes.
         default_title: Introducere
         destroy:
-          error:
-            active_step: Nu se poți șterge etapa activă.
-            last_step: Nu se poți șterge ultima etapă a unui proces.
           success: Etapa procesului participativ a fost ştearsă cu succes.
         edit:
           title: Editează etapa procesului participativ
