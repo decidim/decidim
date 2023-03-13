@@ -348,7 +348,6 @@
           ok: Ok
           title: Ikke autorisert
         unconfirmed:
-          confirmation_instructions: 'Hvis du ikke har mottatt bekreftelse instruksjonene kan du be om de igjen:'
           explanation_html: For å utføre denne handlingen må du være autorisert, før du gjør det må du å bekrefte e-postadressen din <strong>%{email}</strong>.
           request_confirmation_instructions: Be om bekreftels instruksjoner
           title: Bekreft e-posten din
@@ -367,7 +366,6 @@
       see_more: "(se mer)"
     components:
       component_order_selector:
-        no_content: Vi kan ikke finne noe innhold under de kriteriene
         order:
           all_types: Alle typer
           collaborative_draft: Felles utkast
@@ -1449,7 +1447,6 @@
         action: Endre passordet mitt
         greeting: Hei %{recipient}!
         instruction: Noen har bedt om en lenke for å endre passordet ditt, og du kan gjøre dette gjennom lenken nedenfor.
-        instruction_2: Hvis du ikke har bedt om dette, kan du ignorere denne e-posten.
         instruction_3: Passordet endres ikke før du åpner lenken ovenfor og oppretter et nytt et.
         subject: Tilbakestill passordinstruksjoner
       unlock_instructions:
@@ -1493,8 +1490,6 @@
     shared:
       links:
         back: Tilbake
-        didn_t_receive_confirmation_instructions: Mottok ikke bekreftelse instruksjonen?
-        didn_t_receive_unlock_instructions: Mottok ikke instruksjoner om opplåsing?
         forgot_your_password: Glemt ditt passord?
         sign_in: Logg inn
         sign_in_with_provider: Logg deg på med %{provider}
