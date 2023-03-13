@@ -418,7 +418,6 @@ fi:
           ok: Ok
           title: Ei vahvistettu
         unconfirmed:
-          confirmation_instructions: 'Jos et ole saanut vahvistusohjeita, voit pyytää ne uudestaan:'
           explanation_html: Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu toiminnon suorittamiseen. Ennen tätä sinun on vahvistettava sähköpostiosoitteesi <strong>%{email}</strong>.
           request_confirmation_instructions: Pyydä vahvistusohjeita
           title: Vahvista sähköpostiosoitteesi
@@ -437,7 +436,6 @@ fi:
       see_more: "(näytä enemmän)"
     components:
       component_order_selector:
-        no_content: Sisältöä ei löytynyt annetuilla hakuehdoilla
         order:
           all_types: Kaikki tyypit
           collaborative_draft: Yhteistyöluonnos
@@ -1645,7 +1643,6 @@ fi:
         action: Vaihda salasanani
         greeting: Hei %{recipient}!
         instruction: Joku on pyytänyt linkin käyttäjätilisi salasanan vaihtamiseen, ja voit tehdä sen alla olevan linkin kautta.
-        instruction_2: Jos et ole pyytänyt tätä, ohita tämä viesti.
         instruction_3: Salasanasi ei muutu, ennen kuin klikkaat yllä olevaa linkkiä ja luot uuden.
         subject: Ohjeet salasanan nollaukseen
       unlock_instructions:
@@ -1691,8 +1688,6 @@ fi:
     shared:
       links:
         back: Takaisin
-        didn_t_receive_confirmation_instructions: Etkö saanut vahvistusohjeita?
-        didn_t_receive_unlock_instructions: Etkö saanut ohjeita tilin lukituksen poistoon?
         forgot_your_password: Unohditko salasanasi?
         sign_in: Kirjaudu sisään
         sign_in_with_provider: Kirjaudu sisään palvelulla %{provider}
@@ -1727,7 +1722,6 @@ fi:
       load: Emojien lataus epäonnistui
     recents:
       clear: Tyhjennä viimeksi käytetyt emojit
-      none: Et ole vielä valinnut yhtään emojia.
     retry: Yritä uudestaan
     search:
       _: Etsi emojia...
