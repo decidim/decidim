@@ -248,7 +248,6 @@ pl:
             filter_by: Filtruj według
             invite_attendee: Zaproś uczestnika
             invites: Zaproszeni
-            registrations_disabled: Nie możesz zaprosić uczestnika, ponieważ rejestracje są wyłączone.
             search: Szukaj
         meeting_closes:
           edit:
