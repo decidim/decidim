@@ -102,7 +102,7 @@ module Decidim
       # field, or not.
       #
       # It uses `RequestStore` so that the method works from inside presenter
-      # classes, which don't have access to controller instance variables.
+      # classes, which do not have access to controller instance variables.
       def machine_translation_value(attribute, organization, override_machine_translation_settings = nil)
         return unless organization
         return unless organization.enable_machine_translations?

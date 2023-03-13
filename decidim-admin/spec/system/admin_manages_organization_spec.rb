@@ -364,7 +364,7 @@ describe "Admin manages organization", type: :system do
 
         let(:clipboard_content_html) do
           # The pasted content contains always all styles for the elements, so
-          # this is just to test that the styles don't interfere with the pasted
+          # this is just to test that the styles do not interfere with the pasted
           # content handling.
           styles = {
             p: {

@@ -254,7 +254,7 @@ describe "Admin manages election steps", :slow, type: :system do
         expect(page).to have_css("svg.icon--x")
       end
 
-      # don't allow to mark more trustees as missing
+      # do not allow to mark more trustees as missing
       expect(page).not_to have_selector("button", text: "Mark as missing")
     end
   end

@@ -38,7 +38,7 @@ describe "decidim_elections:scheduled_tasks", type: :task do
 
     before { task.execute }
 
-    it "don't modify them" do
+    it "do not modify them" do
       expect(election1.reload).to be_bb_key_ceremony_ended
       expect(election2.reload).to be_bb_vote
     end

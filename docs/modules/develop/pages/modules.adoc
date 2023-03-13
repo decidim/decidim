@@ -13,7 +13,7 @@ NOTE: There's also a third possibility and create a module that is in a sub-fold
 simplifies a little the integration with your app and facilitates a future extraction to a proper external gem. You can
 see some examples of this in the https://github.com/AjuntamentdeBarcelona/decidim-barcelona/tree/master/decidim-census_sms?rgh-link-date=2021-07-23T09%3A19%3A08Z[Ajuntament of Barcelona]
 in the folders `decidim-census_sms`, `decidim-dataviz`, `decidim-ephemeral_participation`, or `decidim-stats`.
-However, we don't recommend this unless you are more in a testing phase and not sure if your work is going to be released
+However, we do not recommend this unless you are more in a testing phase and not sure if your work is going to be released
 more generically (most of the times this is the first approach for isolating the features). See more details about the sub-folder approach
 at xref:customize:code.adoc[Code customization].
 
@@ -74,7 +74,7 @@ In the case of dealing with more advanced overrides, we recommend implementing s
 
 == Recommendations
 
-First and foremost, don't be afraid to try and start hacking. Once you feel confident enough, read the recommendations
+First and foremost, do not be afraid to try and start hacking. Once you feel confident enough, read the recommendations
 and best practices below. Remember also that this is free software, so you can do whatever you want in the end.
 These are some opinions on how to improve the quality of the software, but they are not hard rules.
 
