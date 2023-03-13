@@ -47,7 +47,7 @@ describe "decidim_system:create_admin", type: :task do
 
           expect($stdout.string).to include("Some errors prevented creation of admin")
           expect($stdout.string).to include("Email is invalid")
-          expect($stdout.string).to include("Password confirmation doesn't match Password")
+          expect($stdout.string).to include("Password confirmation does not match Password")
         end
       end
 

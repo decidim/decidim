@@ -254,7 +254,7 @@ Style/BlockDelimiters:
     #   let(:foo) { Foo.new }
     #
     # Here, the return value of `Foo.new` is used to define a `foo` helper but
-    # doesn't appear to be used from the return value of `let`.
+    # does not appear to be used from the return value of `let`.
     - let
     - let!
     - subject
@@ -1018,7 +1018,7 @@ Style/TrailingCommaInHashLiteral:
   # non-empty array and hash literals.
   EnforcedStyleForMultiline: no_comma
 
-# TrivialAccessors requires exact name matches and doesn't allow
+# TrivialAccessors requires exact name matches and does not allow
 # predicated methods by default.
 Style/TrivialAccessors:
   # When set to false the cop will suggest the use of accessor methods

@@ -414,11 +414,11 @@ describe "Initiative", type: :system do
         let!(:other_initiative_type) { nil }
         let!(:other_initiative_type_scope) { nil }
 
-        it "doesn't displays initiative types" do
+        it "does not displays initiative types" do
           expect(page).not_to have_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
         end
 
-        it "doesn't display the 'choose' step" do
+        it "does not display the 'choose' step" do
           within ".wizard__steps" do
             expect(page).not_to have_content("Choose")
           end

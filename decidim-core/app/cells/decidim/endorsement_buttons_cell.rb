@@ -147,12 +147,12 @@ module Decidim
       decidim.identities_endorsement_path(resource.to_gid.to_param)
     end
 
-    # produce the path to endorsements from the engine routes as the cell doesn't have access to routes
+    # produce the path to endorsements from the engine routes as the cell does not have access to routes
     def endorsements_path(*args)
       decidim.endorsements_path(*args)
     end
 
-    # produce the path to an endorsement from the engine routes as the cell doesn't have access to routes
+    # produce the path to an endorsement from the engine routes as the cell does not have access to routes
     def endorsement_path(*args)
       decidim.endorsement_path(*args)
     end

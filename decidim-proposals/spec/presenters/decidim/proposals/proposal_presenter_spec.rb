@@ -147,7 +147,7 @@ module Decidim
             expect(subject.count).to eq(1)
           end
 
-          it "doesn't include state on the version" do
+          it "does not include state on the version" do
             expect(subject.first.changeset.keys).not_to include("state")
           end
         end
@@ -164,7 +164,7 @@ module Decidim
             expect(subject.count).to eq(2)
           end
 
-          it "doesn't include state on the first version" do
+          it "does not include state on the first version" do
             expect(subject.first.changeset.keys).not_to include("state")
           end
 

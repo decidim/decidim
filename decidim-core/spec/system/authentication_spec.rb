@@ -142,7 +142,7 @@ describe "Authentication", type: :system do
         OmniAuth.config.camelizations.delete("twitter")
       end
 
-      context "when the response doesn't include the email" do
+      context "when the response does not include the email" do
         it "redirects the user to a finish signup page" do
           find(".sign-up-link").click
 
@@ -158,7 +158,7 @@ describe "Authentication", type: :system do
         end
 
         context "and a user already exists with the given email" do
-          it "doesn't allow it" do
+          it "does not allow it" do
             create(:user, :confirmed, email: "user@from-twitter.com", organization:)
             find(".sign-up-link").click
 
@@ -448,7 +448,7 @@ describe "Authentication", type: :system do
             end
           end
 
-          it "doesn't show the last attempt warning before locking the account" do
+          it "does not show the last attempt warning before locking the account" do
             within ".new_user" do
               fill_in :session_user_email, with: user.email
               fill_in :session_user_password, with: "not-the-pasword"
@@ -570,7 +570,7 @@ describe "Authentication", type: :system do
       context "when sign up is disabled" do
         let(:organization) { create(:organization, users_registration_mode: :existing) }
 
-        it "doesn't allow the user to sign up" do
+        it "does not allow the user to sign up" do
           find(".sign-in-link").click
           expect(page).not_to have_content("Sign Up")
         end
@@ -579,12 +579,12 @@ describe "Authentication", type: :system do
       context "when sign in is disabled" do
         let(:organization) { create(:organization, users_registration_mode: :disabled) }
 
-        it "doesn't allow the user to sign up" do
+        it "does not allow the user to sign up" do
           find(".sign-in-link").click
           expect(page).not_to have_content("Sign Up")
         end
 
-        it "doesn't allow the user to sign in as a regular user, only through external accounts" do
+        it "does not allow the user to sign in as a regular user, only through external accounts" do
           find(".sign-in-link").click
           expect(page).not_to have_content("Email")
           within("div.login__omniauth") do

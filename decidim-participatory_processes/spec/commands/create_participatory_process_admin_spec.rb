@@ -83,7 +83,7 @@ module Decidim::ParticipatoryProcesses
         expect(action_log.version.event).to eq "create"
       end
 
-      it "doesn't add admin privileges to the user" do
+      it "does not add admin privileges to the user" do
         subject.call
         user.reload
 
@@ -97,7 +97,7 @@ module Decidim::ParticipatoryProcesses
         expect(user.follows?(my_process)).to be true
       end
 
-      it "doesn't invite the user again" do
+      it "does not invite the user again" do
         subject.call
         user.reload
 
@@ -123,7 +123,7 @@ module Decidim::ParticipatoryProcesses
           subject.call
         end
 
-        it "doesn't get created twice" do
+        it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
           roles = Decidim::ParticipatoryProcessUserRole.where(user:)

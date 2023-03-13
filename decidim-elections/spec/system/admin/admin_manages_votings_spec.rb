@@ -294,7 +294,7 @@ describe "Admin manages votings", type: :system do
       visit decidim_admin_votings.votings_path
     end
 
-    it "doesn't let the admin manage votings from other organizations" do
+    it "does not let the admin manage votings from other organizations" do
       within "table" do
         expect(page).not_to have_content(external_voting.title["en"])
       end

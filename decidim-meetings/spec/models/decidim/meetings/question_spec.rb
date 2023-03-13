@@ -43,7 +43,7 @@ module Decidim
         end
       end
 
-      context "when question type doesn't exists in allowed types" do
+      context "when question type does not exists in allowed types" do
         let(:question) { build :meetings_poll_question, questionnaire:, question_type: "foo" }
 
         it { is_expected.not_to be_valid }

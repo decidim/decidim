@@ -55,7 +55,7 @@ module Decidim::Conferences
         subject.call
       end
 
-      it "doesn't add admin privileges to the user" do
+      it "does not add admin privileges to the user" do
         subject.call
         user.reload
 
@@ -99,7 +99,7 @@ module Decidim::Conferences
           subject.call
         end
 
-        it "doesn't get created twice" do
+        it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
           roles = Decidim::ConferenceUserRole.where(user:)

@@ -85,7 +85,7 @@ module Decidim
         end
       end
 
-      context "when it doesn't have an end date" do
+      context "when it does not have an end date" do
         it "returns false" do
           participatory_process.end_date = nil
           expect(participatory_process).not_to be_past
@@ -108,7 +108,7 @@ module Decidim
         end
       end
 
-      context "when it doesn't have an end date" do
+      context "when it does not have an end date" do
         it "returns false" do
           participatory_process.end_date = nil
           expect(participatory_process).not_to be_past

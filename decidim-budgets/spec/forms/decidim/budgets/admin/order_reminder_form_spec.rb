@@ -53,7 +53,7 @@ describe Decidim::Budgets::Admin::OrderReminderForm do
     end
   end
 
-  context "when participatory spac doesnt have steps" do
+  context "when participatory space does not have steps" do
     let(:participatory_space) { create(:assembly) }
 
     context "and there are 2 hours left in the day" do

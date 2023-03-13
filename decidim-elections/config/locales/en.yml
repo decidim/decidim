@@ -632,7 +632,7 @@ en:
               generate_legend: You need to generate an identification pair of keys to participate on elections as a Trustee.
               generate_legend_1: After pressing the button you should download the file with the generated identification keys.
               generate_legend_2: Copy the downloaded file to a clean USB device
-              generate_legend_3: Ensure your computer doesn't have a copy of the file (e.g. check the Downloads and Desktop folders).
+              generate_legend_3: Ensure your computer does not have a copy of the file (e.g. check the Downloads and Desktop folders).
               generate_legend_4: Make another copy of the file on a different external device and store it in a very safe place.
               submit: Submit
               submit_legend: After following all the steps explained above, complete the process sending the public identification key to the server.
@@ -640,10 +640,10 @@ en:
               title: Trustee identification keys
               upload: Upload your identification keys
               upload_error:
-                invalid_format: The uploaded file doesn't contain any identification key.
+                invalid_format: The uploaded file does not contain any identification key.
                 invalid_key: The identification keys in the uploaded file cannot be loaded.
-                invalid_public_key: The identification keys in the uploaded file doesn't match the public identification key stored.
-              upload_legend: The server has your public identification keys, but your browser still doesn't have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
+                invalid_public_key: The identification keys in the uploaded file does not match the public identification key stored.
+              upload_legend: The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
             not_supported_browser_description: It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
             not_supported_browser_title: Upgrade browser to act as a Trustee
             trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
@@ -1166,7 +1166,7 @@ en:
             subject: The export of the voting access codes for %{voting_title} is available
         vote_flow:
           already_voted_in_person: This participant has already voted in person and is not entitled to vote.
-          datum_not_found: The given data doesn't match any voter.
+          datum_not_found: The given data does not match any voter.
       content_blocks:
         highlighted_votings:
           name: Highlighted votings
@@ -1211,7 +1211,7 @@ en:
             info_text: Please introduce the total number of answers for each question.
             modal_ballots_results_count_error:
               close_modal: Close
-              info_text: The total number of ballots doesn't match the total number of envelopes. Please review the total of ballots.
+              info_text: The total number of ballots does not match the total number of envelopes. Please review the total of ballots.
               title: Total of ballots do not add up
             save_recount: Save recount
             total_ballots: Total ballots
@@ -1226,7 +1226,7 @@ en:
               btn_validate_total: Validate total recount of ballots
               close_modal: Close
               info_explanation_text: 'Please review the total number of ballots. If the total number is incorrect, you must provide an explanation for the Monitoring Committee:'
-              info_text: The total number of ballots (envelopes) introduced doesn't match the record of people that has voted in this Polling Station.
+              info_text: The total number of ballots (envelopes) introduced does not match the record of people that has voted in this Polling Station.
               message_for_monitoring_committee: Message for the Monitoring Committee
               review_recount: Review the recount
               text_area_placeholder: Please type your message

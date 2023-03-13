@@ -51,7 +51,7 @@ describe "Meeting live event access", type: :system do
         end
 
         context "and user is not signed in" do
-          it "doesn't show the meeting link embedded" do
+          it "does not show the meeting link embedded" do
             visit_meeting
 
             expect(page).to have_no_content("This meeting is happening right now")
@@ -109,7 +109,7 @@ describe "Meeting live event access", type: :system do
         let!(:registration) { create :registration, meeting:, user: registered_user }
 
         context "and user is not signed in" do
-          it "doesn't show the meeting link embedded" do
+          it "does not show the meeting link embedded" do
             visit_meeting
 
             expect(page).to have_no_content("This meeting is happening right now")
@@ -127,7 +127,7 @@ describe "Meeting live event access", type: :system do
             login_as user, scope: :user
           end
 
-          it "doesn't show the meeting link embedded" do
+          it "does not show the meeting link embedded" do
             visit_meeting
 
             expect(page).to have_no_content("This meeting is happening right now")
@@ -168,7 +168,7 @@ describe "Meeting live event access", type: :system do
       let!(:assembly_private_user) { create :assembly_private_user, user: private_user, privatable_to: assembly }
 
       context "when user is not signed in" do
-        it "doesn't show the meeting link embedded" do
+        it "does not show the meeting link embedded" do
           visit_meeting
 
           expect(page).to have_no_content("This meeting is happening right now")
@@ -180,7 +180,7 @@ describe "Meeting live event access", type: :system do
           login_as user, scope: :user
         end
 
-        it "doesn't show the meeting link embedded" do
+        it "does not show the meeting link embedded" do
           visit_meeting
 
           expect(page).to have_no_content("This meeting is happening right now")
@@ -215,7 +215,7 @@ describe "Meeting live event access", type: :system do
     context "and the iframe_embed_type is none" do
       let(:meeting) { create :meeting, :published, :online, :live, component: }
 
-      it "doesn't show the link to the live meeting streaming" do
+      it "does not show the link to the live meeting streaming" do
         visit_meeting
 
         expect(page).to have_no_content("This meeting is happening right now")
@@ -306,7 +306,7 @@ describe "Meeting live event access", type: :system do
   context "when online meeting is not live and is not embedded" do
     let(:meeting) { create :meeting, :published, :online, :past, component: }
 
-    it "doesn't show the link to the live meeting streaming" do
+    it "does not show the link to the live meeting streaming" do
       visit_meeting
 
       expect(page).to have_no_content("This meeting is happening right now")
@@ -316,7 +316,7 @@ describe "Meeting live event access", type: :system do
   context "when online meeting is not live and it's embedded" do
     let(:meeting) { create :meeting, :published, :embed_in_meeting_page_iframe_embed_type, :online, :embeddable, component: }
 
-    it "doesn't show the meeting link embedded" do
+    it "does not show the meeting link embedded" do
       visit_meeting
 
       expect(page).to have_no_css("iframe")

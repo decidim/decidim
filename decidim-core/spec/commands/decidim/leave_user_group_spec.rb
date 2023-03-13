@@ -32,7 +32,7 @@ module Decidim
           context "and there is another member in the group" do
             let!(:another_membership) { create(:user_group_membership, user_group:, role: :member) }
 
-            it "doesnt allow last admin to leave the group" do
+            it "does not allow last admin to leave the group" do
               expect { command.call }.to broadcast(:last_admin)
             end
           end

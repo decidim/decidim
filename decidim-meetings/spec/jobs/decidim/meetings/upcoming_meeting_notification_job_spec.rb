@@ -32,7 +32,7 @@ describe Decidim::Meetings::UpcomingMeetingNotificationJob do
   context "when the checksum is not correct" do
     let(:checksum) { "1234" }
 
-    it "doesn't notify the upcoming meeting" do
+    it "does not notify the upcoming meeting" do
       expect(Decidim::EventsManager)
         .not_to receive(:publish)
 
@@ -43,7 +43,7 @@ describe Decidim::Meetings::UpcomingMeetingNotificationJob do
   context "when the meeting is hidden" do
     let!(:moderation) { create(:moderation, reportable: meeting, report_count: 1, hidden_at: Time.current) }
 
-    it "doesn't notify the upcoming meeting" do
+    it "does not notify the upcoming meeting" do
       expect(Decidim::EventsManager)
         .not_to receive(:publish)
 
@@ -54,7 +54,7 @@ describe Decidim::Meetings::UpcomingMeetingNotificationJob do
   context "when the meeting is withdrawn" do
     let(:meeting) { create :meeting, :withdrawn, start_time: }
 
-    it "doesn't notify the upcoming meeting" do
+    it "does not notify the upcoming meeting" do
       expect(Decidim::EventsManager)
         .not_to receive(:publish)
 

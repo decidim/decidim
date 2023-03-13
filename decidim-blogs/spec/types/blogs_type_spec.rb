@@ -37,7 +37,7 @@ module Decidim
           end
         end
 
-        context "when the post doesn't belong to the component" do
+        context "when the post does not belong to the component" do
           let!(:post) { create(:post, component: create(:post_component)) }
 
           it "returns null" do

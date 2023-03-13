@@ -26,7 +26,7 @@ describe "ExternalDomainWarning", type: :system do
     expect(page).to have_content("Open external link")
   end
 
-  it "doesnt show warning on whitelisted links" do
+  it "does not show warning on whitelisted links" do
     expect(page).to have_link("Another link", href: "http://www.example.org")
   end
 
