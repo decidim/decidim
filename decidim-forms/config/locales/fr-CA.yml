@@ -126,6 +126,9 @@ fr-CA:
       admin_log:
         questionnaire:
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
+      errors:
+        answer:
+          body: "Body cannot be blank\nChamp obligatoire"
       images:
         dimensions: "%{width} x %{height} px"
         processors:
