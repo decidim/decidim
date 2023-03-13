@@ -45,7 +45,6 @@ fi:
           body:
             label: Kommentti
             placeholder: Mitä mieltä olet tästä?
-          form_error: Teksti vaaditaan ja se ei voi olla pidempi kuin %{length} merkkiä.
           submit: Lähetä
           user_group_id:
             label: Kommentoi käyttäjänä
@@ -84,9 +83,7 @@ fi:
             offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
             spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
           title: Ilmoita asiatonta sisältöä
-        show_replies:
-          one: Näytä vastaus
-          other: Näytä %{count} vastausta
+        show_replies: Näytä %{replies_count} vastausta
         single_comment_link_title: Linkki kommenttiin
       comment_order_selector:
         order:
@@ -167,6 +164,3 @@ fi:
         description: Käyttäjien kirjoittamien kommenttien määrä
         object: kommentit
         title: Kommentit
-  errors:
-    messages:
-      cannot_have_comments: ei voi sisältää kommentteja
