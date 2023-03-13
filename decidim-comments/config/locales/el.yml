@@ -37,7 +37,6 @@ el:
           body:
             label: Σχόλιο
             placeholder: Ποια είναι η γνώμη σας για αυτό;
-          form_error: Το κείμενο απαιτείται και δεν μπορεί να υπερβαίνει τους %{length} χαρακτήρες.
           submit: Αποστολή
           user_group_id:
             label: Σχόλιο ως
@@ -75,6 +74,7 @@ el:
             offensive: Περιέχει ρατσισμό, σεξισμό, δυσφημίσεις, προσωπικές επιθέσεις, απειλές θανάτου, αιτήματα αυτοκτονίας ή οποιαδήποτε μορφή ρητορικής μίσους.
             spam: Περιέχει clickbait, διαφημίσεις, απάτες ή script bot.
           title: Αναφορά ακατάλληλου περιεχομένου
+        show_replies: Εμφάνιση %{replies_count} απαντήσεων
         single_comment_link_title: Αποκτήστε σύνδεσμο
       comment_order_selector:
         order:
@@ -154,6 +154,3 @@ el:
         description: Αριθμός σχολίων που δημιουργήθηκαν από συμμετέχοντες
         object: σχόλια
         title: Σχόλια
-  errors:
-    messages:
-      cannot_have_comments: δεν μπορεί να έχει σχόλια
