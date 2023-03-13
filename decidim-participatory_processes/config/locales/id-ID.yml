@@ -158,9 +158,6 @@ id:
           success: Langkah proses partisipatif berhasil dibuat.
         default_title: pengantar
         destroy:
-          error:
-            active_step: Tidak dapat menghapus langkah aktif.
-            last_step: Tidak dapat menghapus langkah terakhir dari suatu proses.
           success: Langkah proses partisipatif berhasil dihapus.
         edit:
           title: Edit langkah proses partisipatif
