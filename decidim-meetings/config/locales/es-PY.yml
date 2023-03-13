@@ -52,10 +52,6 @@ es-PY:
         code: Código
     errors:
       models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Esta URL no puede ser incrustada en la página de encuentro o evento en directo
         meeting_agenda:
           attributes:
             base:
@@ -286,15 +282,11 @@ es-PY:
             filter_by: Filtrar por
             invite_attendee: Invitar asistente
             invites: Invitaciones
-            registrations_disabled: No puedes invitar al asistente porque las inscripciones están deshabilitadas.
             search: Buscar
         meeting_closes:
           edit:
             close: Cerrar
             title: Cerrar encuentro
-        meeting_copies:
-          form:
-            select_a_meeting_type: Por favor, selecciona un tipo de encuentro
         meetings:
           close:
             invalid: Ha habido un problema al cerrar este encuentro
