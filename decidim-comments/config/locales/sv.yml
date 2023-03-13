@@ -26,8 +26,6 @@ sv:
       comments:
         create:
           error: Det gick inte att skapa kommentaren.
-        delete:
-          error: Kommentaren kunde inte tas bort.
         update:
           error: Det gick inte att uppdatera kommentaren.
       comments_count: Antal kommentarer
