@@ -344,7 +344,6 @@
           resume: Sjekk "%{authorization}" autoriseringen din
           title: Autoriseringen pågår fremdeles
         unauthorized:
-          explanation: Beklager, du kan ikke utføre denne handlingen fordi autoriserings informasjonen din er inkorrekt.
           invalid_field: "%{field} verdi %{value} er ikke gyldig."
           ok: Ok
           title: Ikke autorisert
@@ -543,7 +542,6 @@
       not_found:
         back_home: Tilbake hjem
         content_doesnt_exist: Denne adressen er feil eller har blitt fjernet.
-        title: Siden du ser etter kan ikke bli funnet
     events:
       amendments:
         amendment_accepted:
@@ -960,7 +958,6 @@
         show:
           back: Tilbake til alle samtaler
           chat_with: Samtale med
-          deleted_accounts: Du kan ikke ha en samtale med slettede kontoer.
           not_allowed: Denne deltakeren godtar ikke direktemeldinger.
           title: Samtale med %{usernames}
         start:
@@ -1324,7 +1321,6 @@
         title_reply: Svar
       show:
         back: Vis alle samtaler
-        deleted_accounts: Du kan ikke ha en samtale med slettede kontoer.
         not_allowed: Denne brukeren godtar ingen flere direktemeldinger.
         title: Samtale med %{usernames}
       update:
@@ -1474,7 +1470,6 @@
       new:
         forgot_your_password: Glemt ditt passord?
         send_me_reset_password_instructions: Send meg instruksjoner for tilbakestilling av passord
-      no_token: Du får ikke tilgang til denne siden uten å komme i fra en passord tilbakestilling email. Hvis du kommer fra en passord tilbakestilling email. kontroller at du bruker hele URL-adressen.
       send_instructions: Du vil motta en e-post med instruksjoner om hvordan du tilbakestiller passordet ditt om noen minutter.
       send_paranoid_instructions: Hvis din e-postadresse finnes i vår database, vil du motta en gjenopprett passord lenke på din e-postadresse innen et par minutter.
       updated: Passordet ditt er endret. Du er nå logget inn.
@@ -1521,13 +1516,11 @@
       already_confirmed: var allerede bekreftet, vennligst prøv å logge inn
       confirmation_period_expired: må bekreftes innen %{period}, vennligst be om ny en
       content_type_allowlist_error: filtypen er ikke gyldig
-      cycle_detected: forelderen til et tema kan ikke være en av dens etterkommere
       expired: har utløpt, vennligst be om ny
       file_size_is_less_than_or_equal_to: filstørrelse må være mindre enn eller lik %{count}
       invalid_time_zone: er ikke en gyldig tidssone
       long_words: inneholder ord som er for lange (over 35 tegn)
       must_start_with_caps: må starte med en stor bokstav
-      nesting_too_deep: kan ikke være inni en underkategori
       not_found: kunne ikke bli funnet. Har du registrert deg tidligere?
       not_locked: var ikke låst
       not_saved:
