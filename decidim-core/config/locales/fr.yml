@@ -419,6 +419,7 @@ fr:
           ok: D'accord
           title: Non autorisé
         unconfirmed:
+          confirmation_instructions: 'Si vous n''avez pas reçu les instructions de confirmation, vous pouvez les demander à nouveau :'
           explanation_html: Pour pouvoir effectuer cette action, vous devez être autorisé. Vous devez d'abord confirmer votre adresse électronique <strong>%{email}</strong>.
           request_confirmation_instructions: Demander des instructions de confirmation
           title: confirmez votre email
@@ -437,6 +438,7 @@ fr:
       see_more: "(voir plus)"
     components:
       component_order_selector:
+        no_content: "We could not find any content with this criteria\nNous n'avons trouvé aucun contenu répondant à ce critère"
         order:
           all_types: Tous types
           collaborative_draft: Brouillon collaboratif
@@ -569,6 +571,8 @@ fr:
             check: Oui, je souhaite m'inscrire à la newsletter
             close_modal: Fermer la fenêtre
             uncheck: Garder décoché
+          notice: |-
+            La newsletter vous permet de suivre tous les événements importants sur la plateforme (lancement de nouvelles concertations, annonce des résultats, etc.). Souhaitez-vous vous y inscrire ?
           title: Inscription à la newsletter
         omniauth_buttons:
           or: Ou
@@ -1186,7 +1190,7 @@ fr:
     notifications_settings:
       show:
         administrators: Administrateurs
-        allow_public_contact: "Allow anyone to send me a direct message, even if I do not follow them.\nAutoriser tout le monde à m'envoyer un message direct même si ceux-ci ne sont pas suivis."
+        allow_public_contact: "Allow anyone to send me a direct message, even if I do not follow them.\nAutoriser tout le monde à m'envoyer un message direct même si je ne les suis pas."
         allow_push_notifications: Recevez des notifications push pour savoir ce qui se passe lorsque vous n'êtes pas sur la plateforme. Vous pouvez les désactiver à tout moment.
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_moderations: Je veux recevoir un email chaque fois que quelqu'un ou qu'une ressource a été signalé à des fins de modérations.
@@ -1641,6 +1645,7 @@ fr:
         action: Changer mon mot de passe
         greeting: Bonjour %{recipient}!
         instruction: Quelqu'un a demandé un lien pour changer votre mot de passe, et vous pouvez le faire via le lien ci-dessous.
+        instruction_2: Si vous n'êtes pas à l'origine de cette demande, merci d'ignorer ce courriel.
         instruction_3: Votre mot de passe ne changera pas jusqu'à ce que vous accédiez au lien ci-dessus et en créez un nouveau.
         subject: Réinitialiser les instructions de mot de passe
       unlock_instructions:
@@ -1687,6 +1692,8 @@ fr:
     shared:
       links:
         back: Retour
+        didn_t_receive_confirmation_instructions: Vous n’avez pas reçu les instructions de confirmation?
+        didn_t_receive_unlock_instructions: Vous n’avez pas reçu les instructions de déverrouillage?
         forgot_your_password: Mot de passe oublié?
         sign_in: S'identifier
         sign_in_with_provider: S'identifier avec %{provider}
@@ -1721,6 +1728,7 @@ fr:
       load: Impossible de charger la liste des émojis
     recents:
       clear: Effacer les émojis récents
+      none: Vous n'avez pas encore sélectionné d'emojis.
     retry: Réessayez
     search:
       _: Rechercher des émojis...
