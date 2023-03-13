@@ -325,7 +325,6 @@ pl:
               few: Było %{count} rejestracji.
               many: Było %{count} rejestracji.
               other: Było %{count} rejestracji.
-            reserved_slots_help: Pozostaw 0, jeśli nie rezerwujesz miejsc
             reserved_slots_less_than: Musi być mniejszy lub równy %{count}
             title: Rejestracje
           update:
