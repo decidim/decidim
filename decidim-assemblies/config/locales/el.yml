@@ -409,9 +409,6 @@ el:
         related_assemblies: Σχετικές συνελεύσεις
     statistics:
       assemblies_count: Συνελεύσεις
-  errors:
-    messages:
-      cannot_be_blank: δεν μπορεί να είναι κενό
   layouts:
     decidim:
       assemblies:
