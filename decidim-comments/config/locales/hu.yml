@@ -51,7 +51,6 @@ hu:
           description: Sértő a tartalom?
           details: További megjegyzések
           reasons:
-            does_not_belong: 'Illegális tevékenységet, öngyilkosságra való felhívást, személyes adatokat vagy más olyan dolgot tartalmaz, ami nem tartozik ide: %{organization_name}.'
             offensive: Rasszizmust, szexizmust, gyalázkodást, személyeskedést, halálos fenyegetést, öngyilkosságra való felhívást vagy gyűlöletbeszédet tartalmaz.
             spam: Klikkvadászat, reklám, átverés vagy script bot.
         show_replies: '%{replies_count} válasz mutatása'
