@@ -435,7 +435,6 @@ lt:
           ok: Gerai
           title: Neautorizuota
         unconfirmed:
-          confirmation_instructions: 'Jeigu negavote patvirtinimo nurodymų, galite jų dar kartą paprašyti:'
           explanation_html: Kad galėtumėte atlikti šį veiksmą, turite gauti leidimą, o prieš atlikdami šį veiksmą turite patvirtinti savo el. pašto adresą <strong>%{email}</strong>.
           request_confirmation_instructions: Paprašyti patvirtinimo instrukcijų
           title: Patvirtinkite savo el. pašto adresą
@@ -456,7 +455,6 @@ lt:
       see_more: "(žr. daugiau)"
     components:
       component_order_selector:
-        no_content: Mes negalėjome rasti jokio turinio pagal šiuos kriterijus
         order:
           all_types: Visi tipai
           collaborative_draft: Bendras Juodraštis
@@ -1633,7 +1631,6 @@ lt:
         action: Keisti slaptažodį
         greeting: Sveiki %{recipient}!
         instruction: Kažkas paprašė slaptažodžio pakeitimo nuorodos. Jūs galite tai padaryti paspaudę žemiau esančią nuorodą.
-        instruction_2: Jei to neprašėte, nekreipkite dėmesio į šį el. laišką.
         instruction_3: Jūsų slaptažodis nepasikeis tol, kol nesukursite naujo. Tą padaryti galite paspaudę aukščiau pateiktą nuorodą.
         subject: Slaptažodžio atstatymo nurodymai
       unlock_instructions:
@@ -1679,8 +1676,6 @@ lt:
     shared:
       links:
         back: Atgal
-        didn_t_receive_confirmation_instructions: Negavote patvirtinimo nurodymų?
-        didn_t_receive_unlock_instructions: Negavote atrakinimo nurodymų?
         forgot_your_password: Pamiršote savo slaptažodį?
         sign_in: Prisijungti
         sign_in_with_provider: Prisijunkite su %{provider}
