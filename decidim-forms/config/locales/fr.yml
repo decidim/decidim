@@ -126,9 +126,6 @@ fr:
       admin_log:
         questionnaire:
           update: "%{user_name} a modifié le questionnaire %{resource_name}"
-      errors:
-        answer:
-          body: Le corps ne peut pas être vide
       images:
         dimensions: "%{width} x %{height} px"
         processors:
