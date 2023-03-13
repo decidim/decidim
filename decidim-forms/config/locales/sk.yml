@@ -49,9 +49,6 @@ sk:
             up: Hore
           update:
             invalid: Vyskytol sa problém s ukladaním formulára.
-      errors:
-        answer:
-          body: Telo nemôže byť prázdne
       question_types:
         long_answer: Dlhá odpoveď 
         multiple_option: Viacero možností
