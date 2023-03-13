@@ -126,9 +126,6 @@ cs:
       admin_log:
         questionnaire:
           update: "%{user_name} aktualizoval dotazník %{resource_name}"
-      errors:
-        answer:
-          body: Tělo nemůže být prázdné
       images:
         dimensions: "%{width} x %{height} px"
         processors:
