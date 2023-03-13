@@ -332,7 +332,6 @@
             registrations_count:
               one: Det har vært %{count} registrering.
               other: Det har vært %{count} registreringer.
-            reserved_slots_help: Sett den til 0 hvis du ikke har reserverte plasser
             reserved_slots_less_than: Må være mindre enn eller lik %{count}
             title: Registreringer
           update:
