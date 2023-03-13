@@ -600,7 +600,6 @@ gl:
           access_code: Código de acceso
           access_code_placeholder: Código de acceso
           ask_for_a_new_one: Solicitar un novo.
-          dont_have_access_code: Non tes un código de acceso?
           form_title: 'Enche o seguinte formulario para acceder á votación:'
           start_voting: Comezar votación
           step: Identificación
