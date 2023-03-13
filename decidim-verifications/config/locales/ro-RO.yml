@@ -254,7 +254,6 @@ ro:
           edit:
             confirm_destroy: Sigur dorești să resetezi codul de verificare?
             destroy: Resetează codul de verificare
-            resend: Nu ai primit codul de verificare?
             send: Confirmă
             title: Introdu codul de verificare primit
           new:
