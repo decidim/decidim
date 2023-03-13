@@ -25,8 +25,6 @@
       comments:
         create:
           error: Et problem oppstod med å opprette kommentaren.
-        delete:
-          error: Kommentaren kunne ikke slettes.
         update:
           error: Et problem oppstod med å oppdatere kommentaren.
       comments_count: Antall kommentarer
