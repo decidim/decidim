@@ -283,7 +283,6 @@ zh-CN:
           ok: 好的
           title: 未授权
         unconfirmed:
-          confirmation_instructions: '如果您没有收到确认指示，您可以再次请求：'
           explanation_html: 要执行此操作，您需要获得授权，然后才能确认您的电子邮件 <strong>%{email}</strong>
           request_confirmation_instructions: 请求确认说明
           title: 确认您的电子邮件
@@ -294,7 +293,6 @@ zh-CN:
       see_more: "(详见)"
     components:
       component_order_selector:
-        no_content: 我们无法找到任何符合此标准的内容
         order:
           all_types: 所有类型
           collaborative_draft: 协作草稿
@@ -1269,7 +1267,6 @@ zh-CN:
         action: 更改我的密码
         greeting: 你好 %{recipient}！
         instruction: 有人请求链接更改您的密码，您可以通过下面的链接这样做。
-        instruction_2: 如果您没有提出这个请求，请忽略这个电子邮件。
         instruction_3: 在您访问上面的链接并创建一个新链接之前，您的密码不会更改。
         subject: 重置密码说明
       unlock_instructions:
@@ -1313,8 +1310,6 @@ zh-CN:
     shared:
       links:
         back: 后退
-        didn_t_receive_confirmation_instructions: 没有收到确认说明？
-        didn_t_receive_unlock_instructions: 没有收到解锁指令？
         forgot_your_password: 忘记密码？
         sign_in: 登录
         sign_in_with_provider: 使用 %{provider} 登录
