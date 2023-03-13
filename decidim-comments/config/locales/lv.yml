@@ -52,7 +52,6 @@ lv:
           description: Vai šis saturs ir neatbilstīgs?
           details: Papildu komentāri
           reasons:
-            does_not_belong: Satur nelikumīgas darbības, pašnāvības draudus, personisku informāciju vai kaut ko citu, kam, jūsuprāt, nav vietas %{organization_name}.
             offensive: Satur rasismu, seksismu, lamuvārdus, personiskus uzbrukumus, nāves draudus, ierosinājumus veikt pašnāvību vai jebkāda veida naida runu.
             spam: Satur klikšķu ēsmu (clickbait), reklāmu, krāpšanu vai skriptu robotprogrammatūru.
         show_replies: Rādīt %{replies_count} atbildes
