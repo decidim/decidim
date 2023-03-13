@@ -188,9 +188,6 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la rencontre "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: La rencontre "%{resource_title}" commencera dans moins de 48h.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
-    forms:
-      meetings:
-        attendees_count_help_text: N'oubliez pas d'inclure le nombre total de participants à votre réunion, que ce soit en personne, en ligne ou en hybride.
     gamification:
       badges:
         attended_meetings:
@@ -360,7 +357,6 @@ fr:
             registrations_count:
               one: Il y a eu %{count} inscription.
               other: Il y a eu %{count} inscriptions.
-            reserved_slots_help: Laissez à 0 si vous n'avez pas de places réservées
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}
             title: Inscriptions
           update:
