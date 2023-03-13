@@ -412,9 +412,6 @@ gl:
         related_assemblies: Xuntanzas relacionadas
     statistics:
       assemblies_count: Xuntanzas
-  errors:
-    messages:
-      cannot_be_blank: non pode estar baleiro
   layouts:
     decidim:
       assemblies:
