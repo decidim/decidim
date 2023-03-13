@@ -396,13 +396,6 @@ lv:
           buttons:
             check: Pārbaudīt un turpināt
             close_modal: Aizvērt modal
-          notice: |-
-            <p>Hei, vai tiešām nevēlaties saņemt informatīvo biļetenu?<br>
-            Lūdzu, vēlreiz apsveriet iespēju atzīmēt turpmāk esošo informatīvā biļetena saņemšanas izvēles rūtiņu<br>
-            Mums ir ļoti svarīgi, lai jūs varētu saņemt neregulārus e-pastus ar būtiskiem paziņojumiem, jūs vienmēr varat to mainīt paziņojumu iestatījumu lapā.</p>
-            <p>Ja jūs neatzīmējiet rūtiņu, jūs varat palaist garām būtisku informāciju par jaunām līdzdalības iespējām platformā.<br>
-            Ja jūs joprojām vēlaties izvairīties no informatīvo biļetenu saņemšanas, mēs lieliski saprotam jūsu lēmumu</p>
-            <p>Paldies, ka izlasījāt!</p>
           title: Paziņojumi par informatīvajiem biļeteniem
         omniauth_buttons:
           or: vai
@@ -872,7 +865,6 @@ lv:
       no_notifications: Pagaidām nav paziņojumu.
     notifications_settings:
       show:
-        allow_public_contact: Ļauj ikvienam nosūtīt man tiešu ziņojumu, pat ja es viņam nesekoju.
         direct_messages: Saņemiet tiešus ziņojumus no jebkuras personas
         everything_followed: Viss, kam es sekoju
         newsletter_notifications: Es gribu saņemt informatīvos biļetenus
@@ -1183,8 +1175,6 @@ lv:
         accept_until: Šī ielūguma termiņš beigsies %{due_date}.
         decline: Noraidīt ielūgumu
         hello: Sveiki, %{email}!
-        ignore: |-
-          Ja nevēlaties pieņemt ielūgumu, lūdzu, ignorējiet šo e-pasta vēstuli. <br /> Jūsu konts netiks izveidots, kamēr nepiekļūsiet iepriekš norādītajai saitei un neiestatīsiet savu segvārdu un paroli.
         invited_you_as_admin: "%{invited_by} uzaicināja jūs kā %{application} administratoru. Jūs varat ielūgumu pieņemt, izmantojot turpmāk esošo saiti."
         invited_you_as_private_user: "%{invited_by} uzaicināja jūs kā %{application} privātu dalībnieku. Jūs varat ielūgumu pieņemt, izmantojot zemāk esošo saiti."
         someone_invited_you: Kāds jūs ir uzaicinājis uz %{application}. Jūs varat ielūgumu pieņemt, izmantojot turpmāk esošo saiti.
