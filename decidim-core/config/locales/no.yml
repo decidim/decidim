@@ -486,17 +486,6 @@
             check: Sjekk og fortsett
             close_modal: Lukk modal
             uncheck: Hold usjekket
-          notice: |-
-            <p>Hei, er du sikker på at du ikke ønsker å motta et nyhetsbrev?<br>
-            Vennligst vurder igjen og kryss av avmerkingsboksen for nyhetsbrevet. <br>
-            Det er veldig viktig for oss at du kan motta sporadiske e-poster
-            for å gi viktige kunngjøringer, du kan alltids endre dette på
-            varslingsinnstillinger siden.</p>
-            <p>Hvis du ikke merker av i boksen, mangler du kanskje relevant informasjon
-            om nye deltaker muligheter innen plattformen.<br>
-            Hvis du fortsatt ønsker å unngå å motta nyhetsbrev så forstår vi
-            beslutningen din.</p>
-            <p>Takk for at du leste dette!</p>
           title: Varsler om nyhetsbrev
         omniauth_buttons:
           or: Eller
@@ -1032,7 +1021,6 @@
     notifications_settings:
       show:
         administrators: Administratorer
-        allow_public_contact: La hvem som helst sende meg direktemelding, selv om jeg ikke følger dem.
         direct_messages: Motta direktemeldinger fra alle
         everything_followed: Alt jeg følger
         newsletter_notifications: Jeg ønsker å motta nyhetsbrev
@@ -1422,9 +1410,6 @@
         accept_until: Denne invitasjonen forfaller i %{due_date}.
         decline: Avvis invitasjon
         hello: Hei %{email},
-        ignore: |-
-          Hvis du ikke ønsker godta invitasjonen, kan du ignorere denne e-posten.<br />
-          Kontoen din blir ikke opprettet før du åpner lenken ovenfor og angir kallenavnet og passordet ditt.
         invited_you_as_admin: "%{invited_by} har invitert deg som en admin av %{application}. Du kan godta via lenken nedenfor."
         invited_you_as_private_user: "%{invited_by} har invitert deg som en privat deltaker av %{application}. Du kan godta via lenken nedenfor."
         someone_invited_you: Noen har invitert deg til %{application}. Du kan godta det via lenken nedenfor.
