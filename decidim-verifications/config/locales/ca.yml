@@ -61,7 +61,7 @@ ca:
             - Les participants omplen la informació de la seva identitat i carreguen una còpia del seu document.
             - Completa la informació que es mostra a la imatge pujada.
             - La informació ha de coincidir amb el que hagi omplert la persona participant.
-            - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
+            - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud perquè la participant la pugui corregir.
         postal_letter:
           help:
             - Les participants sol·liciten un codi de verificació que s'enviarà a la seva adreça.
@@ -269,6 +269,7 @@ ca:
           edit:
             confirm_destroy: Segur que vols restablir el codi de verificació?
             destroy: Restableix el codi de verificació
+            resend: No has rebut el codi de verificació?
             send: Confirmar
             title: Introdueix el codi de verificació que has rebut
           new:
