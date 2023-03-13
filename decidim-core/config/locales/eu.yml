@@ -371,7 +371,6 @@ eu:
           ok: Ados
           title: Ez dago baimenduta
         unconfirmed:
-          confirmation_instructions: 'Berrespen-argibideak jaso ez badituzu berriro eska ditzakezu:'
           explanation_html: Ekintza hau burutzeko baimena behar da, egiten zure email berretsi behar duzula aurretik behar duzu <strong>%{email}</strong>.
           request_confirmation_instructions: Eska ezazu berrespen-argibideak
           title: Berretsi zure posta elektronikoa
@@ -390,7 +389,6 @@ eu:
       see_more: "(gehiago ikusi)"
     components:
       component_order_selector:
-        no_content: Ez dugu aurkitu edukirik irizpide horrekin
         order:
           all_types: Mota guztiak
           collaborative_draft: Zirriborro kolaboratiboa
@@ -1527,7 +1525,6 @@ eu:
         action: Aldatu nire pasahitza
         greeting: Kaixo %{recipient}!
         instruction: Norbaitek zure pasahitza aldatzeko esteka eskatu du, eta beheko estekan egin dezakezu.
-        instruction_2: Ez baduzu eskatu, mesedez jaramonik egin mezu hau.
         instruction_3: Pasahitza ez da aldatuko goiko estekan sartzeko eta beste bat sortu arte.
         subject: Berrezarri pasahitzaren argibideak
       unlock_instructions:
@@ -1573,8 +1570,6 @@ eu:
     shared:
       links:
         back: Atzera
-        didn_t_receive_confirmation_instructions: Ez dituzu jaso berresteko jarraibideak?
-        didn_t_receive_unlock_instructions: Ez dituzu jaso desblokeatzeko jarraibideak?
         forgot_your_password: Zure pasahitza ahaztu duzu?
         sign_in: Saioa hasi
         sign_in_with_provider: Hasi saioa %{provider}
