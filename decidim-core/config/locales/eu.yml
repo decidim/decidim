@@ -445,8 +445,8 @@ eu:
         html_content: HTML edukia
         name: HTML blokea
       last_activity:
-        name: Azken jarduera
-        title: Azken jarduera
+        name: Azken jarduerak
+        title: Azken jarduerak
         view_all: Ikusi dena
       metrics:
         name: Erakundearen metrika
@@ -873,7 +873,7 @@ eu:
         no_activities_warning: Jarduera ez
       all: Jarduera mota guztiak
       index:
-        last_activity: Azken jarduera
+        last_activity: Azken jarduerak
         resource_type: Mota
     links:
       invalid_url: URL baliogabea
