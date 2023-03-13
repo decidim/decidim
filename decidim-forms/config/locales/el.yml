@@ -62,9 +62,6 @@ el:
             up: Επάνω
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της φόρμας.
-      errors:
-        answer:
-          body: Το σώμα δεν μπορεί να είναι κενό
       images:
         dimensions: "Π %{width} x Υ %{height} px"
       question_types:
