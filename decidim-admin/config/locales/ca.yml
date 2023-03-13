@@ -880,6 +880,7 @@ ca:
         new:
           destroy:
             button: Esborrar totes les participants privades
+            confirm: Segur que vols esborrar totes les participants privades? Aquesta acció no es pot desfer, no podràs recuperar-les.
             empty: No hi ha participants privades.
             explanation: Hi ha %{count} participant/s privada/ades.
             title: Esborrar les participants privades
