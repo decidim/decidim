@@ -136,7 +136,6 @@ lv:
           name: Apmeklētas sanāksmes
           next_level_in: Apmeklējiet vēl %{score} sanāksmes, lai sasniegtu nākamo līmeni!
           unearned_another: Šis dalībnieks vēl nav apmeklējis nevienu sanāksmi.
-          unearned_own: Jūs vēl neesat apmeklējis nevienu sanāksmi.
     meetings:
       actions:
         agenda: Darba kārtība
