@@ -27,12 +27,6 @@ nl:
           attributes:
             attachment:
               needs_to_be_reattached: Moet opnieuw worden gekoppeld
-        trustee:
-          attributes:
-            name:
-              cant_be_changed: kan niet worden gewijzigd
-            public_key:
-              cant_be_changed: kan niet worden gewijzigd
   activerecord:
     errors:
       models:
@@ -244,7 +238,6 @@ nl:
           tally_started:
             invalid: Er is een fout opgetreden bij het rapporteren van de ontbrekende trustee
             mark_as_missing: Als ontbrekend markeren
-            mark_as_missing_description: Alle trustees moeten deelnemen aan dit proces, maar als een trustee niet aan het proces kan deelnemen, kan je dit als ontbrekend aanduiden.
             success: Het rapport met de ontbrekende trustees is met succes verzonden naar het Bulletin Board
             tally_completion: Het proces zal worden voltooid wanneer alle trustees actief zijn of als ontbrekend zijn aangeduid. Tenminste %{quorum} trustees zijn vereist om het proces te voltooien.
             undo_mark_as_missing: Zolang het proces niet is voltooid zal een trustee die per ongeluk is gemarkeerd als ontbrekend kunnen deelnemen. Ze kunnen doorgaan zoals gebruikelijk en de aanduiding als 'ontbrekend' wordt genegeerd.
@@ -471,8 +464,6 @@ nl:
               upload: Upload jouw identificatiesleutels
               upload_error:
                 invalid_format: Het geüploade bestand bevat geen identificatiesleutel.
-                invalid_key: De identificatiesleutels in het geüploade bestand kunnen niet worden geladen.
-            not_supported_browser_description: Het lijkt erop dat je een webbrowser gebruikt die niet kan gebruikt worden als Trustee. Zorg ervoor dat je de meest recente versie van je browser gebruikt, of probeer een van de populairste browsers te gebruiken om je Trustee taken te voltooien.
             not_supported_browser_title: Upgrade de browser om als Trustee te fungeren
             trustee_role_description: Je bent aangeduid om als Trustee te fungeren in enkele verkiezingen op dit platform.
           update:
@@ -1001,10 +992,8 @@ nl:
             confirm: Ok, verdergaan
             error: Er is een fout opgetreden, probeer het opnieuw.
             heading: Stem hertelling - Onderteken sluiting
-            info_text: Als je doorgaat, kun je geen informatie meer wijzigen, deze actie kan niet ongedaan worden gemaakt.
             submit: Onderteken de sluiting
             success: Sluiting succesvol ondertekend.
-            title: Deze actie kan niet ongedaan worden gemaakt
           update:
             error: Er is een fout opgetreden bij het bijwerken van de resultaten van de sluiting, probeer het later opnieuw.
             success: Sluiting resultaten succesvol bijgewerkt.
