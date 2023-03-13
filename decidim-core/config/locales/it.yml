@@ -324,7 +324,6 @@ it:
           ok: Ok
           title: Non autorizzato
         unconfirmed:
-          confirmation_instructions: 'Se non hai ricevuto le istruzioni di conferma puoi richiederle di nuovo:'
           explanation_html: Per eseguire questa azione devi essere autorizzato, prima di farlo devi confermare la tua email <strong>%{email}</strong>.
           request_confirmation_instructions: Richiedi le istruzioni di conferma
           title: conferma la tua email
@@ -343,7 +342,6 @@ it:
       see_more: "(Vedi altro)"
     components:
       component_order_selector:
-        no_content: Non è stato possibile trovare alcun contenuto con questo criterio
         order:
           all_types: Tutti i tipi
           collaborative_draft: Bozza Collaborativa
@@ -1417,7 +1415,6 @@ it:
         action: Cambia la mia password
         greeting: Ciao %{recipient}!
         instruction: Qualcuno ha richiesto un link per cambiare la tua password, e puoi farlo attraverso il link qui sotto.
-        instruction_2: Se non lo hai richiesto, ignora questa email.
         instruction_3: La tua password non cambierà fino a quando non accedi al link sopra e ne crei uno nuovo.
         subject: Reimposta le istruzioni della password
       unlock_instructions:
@@ -1461,8 +1458,6 @@ it:
     shared:
       links:
         back: Indietro
-        didn_t_receive_confirmation_instructions: Non hai ricevuto le istruzioni di conferma?
-        didn_t_receive_unlock_instructions: Non hai ricevuto le istruzioni di sblocco?
         forgot_your_password: Hai dimenticato la password?
         sign_in: Accedi
         sign_in_with_provider: Accedi con %{provider}
