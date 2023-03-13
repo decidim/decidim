@@ -108,7 +108,6 @@ nl:
         users_registration_mode:
           disabled: Enkel externe accounts hebben toegang
           enabled: Sta gebruikers toe zich te registreren en in te loggen
-          existing: Niet toestaan dat deelnemers zich registreren, maar toestaan dat bestaande deelnemers inloggen
       shared:
         notices:
           no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.
