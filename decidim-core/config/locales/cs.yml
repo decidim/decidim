@@ -446,7 +446,6 @@ cs:
           ok: OK
           title: Neautorizovaný
         unconfirmed:
-          confirmation_instructions: 'Pokud jste neobdrželi pokyny k potvrzení, můžete je požádat znovu:'
           explanation_html: Abyste mohli provést tuto akci, musíte být autorizováni, před tím musíte potvrdit svůj e-mail <strong>%{email}</strong>.
           request_confirmation_instructions: Požádejte o pokyny pro potvrzení
           title: Potvrdit svůj email
@@ -467,7 +466,6 @@ cs:
       see_more: "(viz další)"
     components:
       component_order_selector:
-        no_content: Nepodařilo se nám najít žádný obsah s tímto kritériem
         order:
           all_types: Všechny typy
           collaborative_draft: Koordinační návrh
@@ -1686,7 +1684,6 @@ cs:
         action: Změňte heslo
         greeting: Dobrý den %{recipient}!
         instruction: Někdo požádal o odkaz na změnu hesla a můžete to provést pomocí níže uvedeného odkazu.
-        instruction_2: Pokud jste o to nepožádali, ignorujte tento e-mail.
         instruction_3: Vaše heslo se nezmění, dokud nevstoupíte do výše uvedeného odkazu a vytvoříte nový.
         subject: Resetujte pokyny k zadání hesla
       unlock_instructions:
@@ -1732,8 +1729,6 @@ cs:
     shared:
       links:
         back: Zpět
-        didn_t_receive_confirmation_instructions: Nedostali jste pokyny k potvrzení?
-        didn_t_receive_unlock_instructions: Nezískali jste pokyny k odemknutí?
         forgot_your_password: Zapomněli jste heslo?
         sign_in: Přihlásit se
         sign_in_with_provider: Přihlásit se přes %{provider}
@@ -1770,7 +1765,6 @@ cs:
       load: Nepodařilo se načíst emoje
     recents:
       clear: Vymazat nedávné emoji
-      none: Zatím jste nevybrali žádné emoji.
     retry: Zkuste to znovu
     search:
       _: Hledat emoji...
