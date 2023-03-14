@@ -80,6 +80,7 @@ es-MX:
           description: '¿Es inapropiado este contenido?'
           details: Comentarios adicionales
           reasons:
+            does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
           title: Notificar contenido inapropiado
