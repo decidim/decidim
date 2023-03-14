@@ -354,7 +354,6 @@ lt:
           description_own: Jūs parėmėte %{score} pasiūlymus (-ų).
           name: Pasiūlymą palaiko
           next_level_in: Paremkite dar %{score} pasiūlymus (-ų) ir pasiekite kitą lygį!
-          unearned_another: Šis dalyvis dar neparėmė jokių pasiūlymų.
           unearned_own: Jūs dar neparėmėte jokių pasiūlymų.
         proposals:
           conditions:
@@ -365,7 +364,6 @@ lt:
           description_own: Jūs parengėte %{score} pasiūlymus (-ų).
           name: Pasiūlymai
           next_level_in: Parenkite dar %{score} pasiūlymus (-ų) ir pasiekite kitą lygį!
-          unearned_another: Šis dalyvis dar neparengė jokių pasiūlymų.
           unearned_own: Jūs dar neparengėte jokių pasiūlymų.
     metrics:
       accepted_proposals:
@@ -622,7 +620,6 @@ lt:
           publish:
             error: Skelbiant bendrąjį juodraštį iškilo problema.
             irreversible_action_modal:
-              body: Paskelbus juodraštį, kaip pasiūlymą, jo nebebus galima redaguoti. Į pasiūlymo kūrimą negalės įsitraukti nauji autoriai ir nebus galima pateikti naujų nuomonių.
               cancel: Atšaukti
               ok: Paskelbti kaip Pasiūlymą
               title: Tai yra negrįžtamas veiksmas
@@ -631,7 +628,6 @@ lt:
           withdraw:
             error: Uždarant bendrąjį juodraštį iškilo problema.
             irreversible_action_modal:
-              body: Uždarius juodraštį, jo nebebus galima redaguoti. Į juodraščio kūrimą negalės įsitraukti nauji autoriai ir nebus galima pateikti naujų nuomonių.
               cancel: Atšaukti
               ok: Atsiimti bendrąjį juodraštį
               title: Tai yra negrįžtamas veiksmas
@@ -863,7 +859,6 @@ lt:
           view_proposal: Žiūrėti pasiūlymą
         proposals:
           empty: Pasiūlymų dar nėra
-          empty_filters: Pagal šį kriterijų nėra nė vieno pasiūlymo
         show:
           answer: Atsakymas
           back_to: Grįžti į
@@ -947,7 +942,6 @@ lt:
         choose_proposals: Pasirinkti pasiūlymus
         close: Uždaryti
         more_proposals: Yra dar %{number} pasiūlymai (-ų). Kad nustatytumėte jų vietą, patikslinkite savo paiešką.
-        no_proposals: Jūsų paieškos kriterijus atitinkančių pasiūlymų nerasta arba pasiūlymų nėra.
       publish:
         error: Skelbiant šį pasiūlymą iškilo problema.
         success: Pasiūlymas paskelbtas.
