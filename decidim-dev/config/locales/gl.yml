@@ -46,7 +46,6 @@ gl:
           description_own: Creaches %{score} probas.
           name: Probas
           next_level_in: Crea %{score} probas máis para chegar ao seguinte nivel!
-          unearned_another: Este usuario aínda non creou ningunha proba.
           unearned_own: Non creaches probas aínda.
     resource_links:
       test_link:
