@@ -262,7 +262,6 @@ sk:
           description_own: Podporili ste %{score} návrhov.
           name: Podpora návrhu
           next_level_in: Podporte o %{score} návrhov viac pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník zatiaľ nepodporil žiadne návrhy.
           unearned_own: Zatiaľ ste nepodporili žiadne návrhy.
         proposals:
           conditions:
@@ -273,7 +272,6 @@ sk:
           description_own: Vytvorili ste %{score} návrhov.
           name: Návrhy
           next_level_in: Vytvorte o %{score} návrhov viac pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník nevytvoril žiadny návrh.
           unearned_own: Zatiaľ ste nevytvorili žiadny návrh.
     metrics:
       accepted_proposals:
@@ -503,7 +501,6 @@ sk:
           publish:
             error: Pri publikovaní konceptu spolupráce došlo k chybám.
             irreversible_action_modal:
-              body: Po zverejnení návrhu ako návrhu návrh už nebude upraviteľný. Návrh neprijme nové autorov ani príspevky.
               cancel: zrušenie
               ok: Publikovať ako návrh
               title: Nasledujúci akcia je nevratná
@@ -512,7 +509,6 @@ sk:
           withdraw:
             error: Došlo k chybe pri uzatvorení návrhu spolupráce.
             irreversible_action_modal:
-              body: Po uzavretí konceptu už návrh nebude upraviteľný. Návrh neprijme nové autorov alebo príspevky.
               cancel: zrušenie
               ok: Vyberte návrh spolupráca
               title: Nasledujúci akcia je nevratná
@@ -791,7 +787,6 @@ sk:
         choose_proposals: Zvoliť návrhy
         close: Zavrieť
         more_proposals: Celkovo je tu o %{number} návrhov viac. Hľadajte s podrobnejšími nastaveniami.
-        no_proposals: Žiadne návrhy nezodpovedajú vašim kritériám vyhľadávania alebo nie sú žiadne plánované.
       publish:
         error: Pri publikovaní návrhu došlo k chybám.
         success: Návrh bol úspešne publikovaný.
