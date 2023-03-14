@@ -176,7 +176,6 @@ it:
           description_own: Hai partecipato a %{score} riunioni.
           name: Riunioni frequentate
           next_level_in: Partecipa a %{score} altri incontri per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora partecipato a nessuna riunione.
     meetings:
       actions:
         agenda: ordine del giorno
@@ -451,7 +450,6 @@ it:
         meeting_minutes:
           related_information: Informazioni correlate
         meetings:
-          no_meetings_warning: Nessun meeting corrisponde ai tuoi criteri di ricerca oppure non vi è nessun meeting in programma.
           upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
         new:
           back: Indietro
