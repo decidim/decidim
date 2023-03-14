@@ -170,7 +170,6 @@ pt:
           description_own: Tem %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
-          unearned_another: Este participante ainda não teve nenhuma iniciativa publicada.
           unearned_own: Ainda não tem iniciativas publicadas.
     help:
       participatory_spaces:
