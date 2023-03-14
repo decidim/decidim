@@ -468,6 +468,8 @@ ca:
           success_html: Enhorabona! Has signat la iniciativa <strong> %{title}</strong> correctament
         personal_data:
           invalid: Les dades personals no són coherents amb les dades proporcionades per a l'autorització.
+        sms_code:
+          invalid: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, torna a revisar l'SMS que t'hem enviat.
         sms_phone:
           invalid: El número de telèfon no és vàlid o està pendent d'autorització. Si us plau, consulta les teves autoritzacions.
       initiatives:
