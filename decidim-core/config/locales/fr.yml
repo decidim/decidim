@@ -413,6 +413,7 @@ fr:
           resume: Vérifiez votre progression d'autorisation "%{authorization}"
           title: L'autorisation est toujours en cours de validation
         unauthorized:
+          explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
           ok: D'accord
           title: Non autorisé
         unconfirmed:
@@ -809,6 +810,7 @@ fr:
       following_count:
         one: "%{count} abonné"
         other: "%{count} abonnés"
+      no_followings: Aucun abonnement.
       non_public_followings: Certaines des ressources suivies ne sont pas publiques.
     follows:
       create:
@@ -876,6 +878,7 @@ fr:
           description_own: "%{score} utilisateurs vous suivent."
           name: Suiveurs
           next_level_in: Obtenez %{score} autres utilisateurs à vous suivre pour atteindre le niveau suivant!
+          unearned_another: Ce participant n’a pas encore de followers.
           unearned_own: Vous n'avez pas encore de followers.
         index:
           badge_title: "%{name} badge"
@@ -962,6 +965,7 @@ fr:
         create_user_group: Créer un groupe
         new_user_group: Nouveau groupe
         subtitle: Créez un groupe et invitez d'autres utilisateurs à se joindre pour participer à un niveau collectif.
+      no_user_groups: "Does not belong to any group yet.\nVous n'appartenez à aucun groupe."
       roles:
         admin: Administrateur
         creator: Administrateur
@@ -1022,6 +1026,8 @@ fr:
       static:
         latlng_text: 'latitude : %{latitude}, longitude : %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Ce groupe d'utilisateurs n'a encore aucun membre.
     menu:
       help: Aide
       home: Accueil
@@ -1401,6 +1407,7 @@ fr:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Ce contenu est-il inapproprié ?
+        does_not_belong: "Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.\nContenu d'activité illégale, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}."
         hide: Masquer
         hide_content: Masquer ce contenu
         offensive: Contient des propos contraires à la loi (propos racistes, sexistes, insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine,...).
@@ -1413,6 +1420,7 @@ fr:
         already_reported: Ce contenu a déjà été signalé et il sera examiné par un administrateur.
         close: Fermer
         description: Qu'est-ce qui est inapproprié à propos de cet utilisateur ?
+        does_not_belong: "Contains illegal activity, suicide threats, personal information, or something else you think does not belong on %{organization_name}.\nContenu d'activité illégale, menace de suicide, informations personnelles ou tout autre élément qui, selon vous, n'aurait pas sa place sur %{nom_de_l'organisation}."
         offensive: Rédige des contenus racistes, sexistes, contenant des insultes, attaques personnelles, menaces de mort, incitations au suicide ou toute forme de discours de haine.
         report: Signaler
         spam: Rédige des contenus de type publicités, des escroqueries, des pièges à clic (clickbait) ou des robots fonctionnant au script (script bots).
@@ -1509,6 +1517,7 @@ fr:
     user_interests:
       show:
         my_interests: Mes intérêts
+        no_scopes: Cette organisation n'a pas encore de secteurs !
         select_your_interests: Sélectionnez les sujets qui vous intéressent pour recevoir des événements les concernant dans l'onglet Profil de votre profil.
         update_my_interests: Mettre à jour mes intérêts
       update:
