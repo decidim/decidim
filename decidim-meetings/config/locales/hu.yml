@@ -181,7 +181,6 @@ hu:
           description_own: '%{score} találkozóra vett részt.'
           name: Részt vett az üléseken
           next_level_in: Vegyen részt %{score} további ülések, hogy elérjük a következő szintre!
-          unearned_another: Ez a felhasználó még nem vett részt semmilyen találkozón.
     meetings:
       actions:
         agenda: Napirend
@@ -476,7 +475,6 @@ hu:
         meeting_minutes:
           related_information: Kapcsolódó információ
         meetings:
-          no_meetings_warning: Nincs, vagy nincs ütemezve olyan találkozó, amely megfelel a keresési feltételeknek.
           upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálhatod az összes korábbi találkozó listáját.
         registration_confirm:
           cancel: Mégse
