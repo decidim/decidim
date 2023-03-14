@@ -602,6 +602,7 @@ es:
               processing: Procesando
             title: Recuento para %{election}
           update:
+            error: El estado de la elección no se había actualizado.
             success: 'El estado de la elección es: %{status}'
         menu:
           trustee_zone: Zona del garante
@@ -628,6 +629,7 @@ es:
               generate_legend: Necesitas generar un par de claves de identificación para participar en las elecciones como garante.
               generate_legend_1: Después de pulsar el botón debes descargar el archivo con las claves de identificación generadas.
               generate_legend_2: Copia el archivo descargado a un dispositivo USB limpio
+              generate_legend_3: Asegúrate de que tu equipo no tenga una copia del archivo (por ejemplo, comprueba las carpetas de Descargas y de Escritorio).
               generate_legend_4: Haz otra copia del archivo en un dispositivo externo diferente y guárdalo en un lugar muy seguro.
               submit: Enviar
               submit_legend: Después de seguir todos los pasos explicados anteriormente, completa el proceso enviando la clave de identificación pública al servidor.
@@ -635,7 +637,9 @@ es:
               title: Claves de identificación del garante
               upload: Sube tus claves de identificación
               upload_error:
+                invalid_format: El archivo subido no contiene ninguna clave de identificación.
                 invalid_key: Las claves de identificación en el archivo subido no se pueden cargar.
+                invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave pública de identificación almacenada.
             not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta utilizar cualquier otro de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
             trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
