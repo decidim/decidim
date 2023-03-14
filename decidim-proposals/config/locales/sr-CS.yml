@@ -120,6 +120,5 @@ sr:
         choose_proposals: Izaberi predloge
         close: Zatvori
         more_proposals: Postoji još %{number} predloga. Smanjite obim pretrage da bi ih pregledali.
-        no_proposals: Nijedan predlog ne ispunjava kriterijume vaše pretrage, ili nema predloga.
       publish_answers:
         success: Odgovori na predloge uspešno objavljeni.
