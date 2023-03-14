@@ -209,6 +209,7 @@ fr:
           title: Accepter les conditions d'utilisation
         required_review:
           alert: 'Obligatoire: Consultez nos conditions d''utilisation administrateur'
+          callout: Veuillez prendre un moment pour consulter les conditions d'utilisation de l'administration. Sinon, vous ne pourrez pas gérer la plateforme.
           cta: Consultez les maintenant.
         title: Conditions d'utilisation administrateur
       area_types:
