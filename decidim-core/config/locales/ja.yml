@@ -111,7 +111,6 @@ ja:
     account:
       blocked: このアカウントは利用規約違反によりブロックされています
       delete:
-        alert: この操作は元に戻せません。アカウントを削除すると、ログインできなくなります。 アカウントを削除すると、あなたの貢献が匿名化されます。 引き続き新しいアカウントを作成することはできますが、これらの貢献は関連付けられません。
         confirm:
           close: ウィンドウを閉じる
           ok: はい、アカウントを削除します
@@ -400,7 +399,6 @@ ja:
           resume: '「%{authorization}」認証の進行状況を確認してください'
           title: 認証はまだ進行中です
         unauthorized:
-          invalid_field: "%{field} の値 %{value} は無効です。"
           ok: OK
           title: 権限がありません
         unconfirmed:
@@ -778,7 +776,6 @@ ja:
         result: 結果
     fingerprint:
       check: フィンガープリントを確認
-      explanation: 以下のテキストは、このコンテンツの短縮されたハッシュ化された表現です。 コンテンツが改ざんされていないことを確認すると便利です。単一の修正で全く異なる値になります。
       online_calculator_name: MD5カルキュレータオンライン
       replicate_help: このフィンガープリントはSHA256 ハッシュアルゴリズムを使用して計算されます。自分で複製するには、 %{online_calculator_link} を使用してソース データをコピー&ペーストできます。
       source: ソース
@@ -870,7 +867,6 @@ ja:
       title: バッジとは？
     group_admins:
       actions:
-        are_you_sure: 本当によろしいですか？グループから参加者を削除しません。
         demote_admin: 管理者を削除
       demote:
         error: この参加者を管理者リストから削除する際に問題が発生しました
@@ -1239,7 +1235,6 @@ ja:
           agreement: 上記の規約に同意する
           legend: 利用規約に同意する
         refuse:
-          modal_body: 拒否する場合、プラットフォームをご利用いただけなくなります。 <a href="%{download_your_data_path}">データをダウンロード</a> または <a href="%{delete_path}">アカウントを削除</a> することができます。
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
           modal_button: 同意しない
@@ -1247,7 +1242,6 @@ ja:
           modal_title: 更新された利用規約を本当に拒否しますか?
         required_review:
           alert: サービス利用規約を更新しました。ご確認ください。
-          body: サービス利用規約の更新を確認してください。そうでなければ、プラットフォームを使用することはできません。
           title: '必須：サービス利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
@@ -1608,7 +1602,6 @@ ja:
         action: パスワードを変更する
         greeting: こんにちは、 %{recipient} さん!
         instruction: 誰かがあなたのパスワードを変更するためのリンクを要求しています、そしてあなたは下のリンクを介してこれを行うことができます。
-        instruction_3: 上記のリンクにアクセスして新しいパスワードを作成するまで、パスワードは変更されません。
         subject: パスワードリセットの手順
       unlock_instructions:
         action: アカウントのロックを解除
