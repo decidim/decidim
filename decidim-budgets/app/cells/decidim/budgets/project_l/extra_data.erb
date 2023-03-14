@@ -1,4 +1,6 @@
 <div class="budget__card__list-project">
-  <%= budget_to_currency(project.budget_amount) %>
+  <span class="budget__card__list-project__amount">
+    <%= budget_to_currency(project.budget_amount) %>
+  </span>
   <%= cell("decidim/budgets/project_vote_button", project) %>
 </div>

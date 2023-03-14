@@ -84,11 +84,15 @@
   }
 
   &__card__list-project{
-    @apply ml-auto rounded px-3 md:px-6 py-2 bg-background font-bold text-gray-2 text-xl w-[35%] min-w-[120px] grid grid-cols-2 place-items-center;
+    @apply ml-auto rounded py-3 px-6 bg-background w-[40%] min-w-[120px] grid grid-cols-2 place-items-center justify-items-end;
+  }
+
+  &__card__list-project__amount{
+    @apply font-semibold text-gray-2 text-xl inline-block;
   }
 
   &__card__highlight-vote{
-    @apply justify-center flex flex-col w-1/4 bg-background p-4 bg-background font-bold text-gray-2 ml-auto;
+    @apply justify-center flex flex-col w-1/4 bg-background px-8 py-4 bg-background font-bold text-gray-2 ml-auto;
   }
 
   &__card__highlight-vote__header{
@@ -120,7 +124,7 @@
   }
 
   &__definition-data__grid{
-    @apply grid grid-cols-2 mt-72;
+    @apply grid grid-cols-2 mt-4;
 
     .button_to{
       @apply text-center;
@@ -155,7 +159,7 @@
     }
 
     .card__list-content{
-      @apply w-[65%] cursor-pointer;
+      @apply w-[60%] cursor-pointer pr-24;
     }
   }
 }
