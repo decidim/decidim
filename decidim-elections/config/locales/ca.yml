@@ -602,6 +602,7 @@ ca:
               processing: Processant
             title: Recompte per %{election}
           update:
+            error: L'estat de l'elecció no s'havia actualitzat.
             success: 'L''estat de l''elecció és: %{status}'
         menu:
           trustee_zone: Zona de garants
@@ -628,6 +629,7 @@ ca:
               generate_legend: Has de generar un parell de claus d'identificació per participar en les eleccions com a garant.
               generate_legend_1: Després de prémer el botó has de descarregar l'arxiu amb les claus d'identificació generades.
               generate_legend_2: Copia l'arxiu descarregat a un dispositiu USB net
+              generate_legend_3: Assegura't que el teu equip no tingui una còpia de l'arxiu (per exemple, comprova les carpetes de Baixades i d'Escriptori).
               generate_legend_4: Fes una altra copia de l'arxiu en un dispositiu extern diferent i guarda'l a un lloc molt segur.
               submit: Enviar
               submit_legend: Després de seguir tots els passos explicats anteriorment, completa el procés enviant la clau d'identificació pública al servidor.
@@ -635,7 +637,9 @@ ca:
               title: Claus d'identificació del garant
               upload: Puja les teves claus d'identificació
               upload_error:
+                invalid_format: L'arxiu pujat no conté cap clau d'identificació.
                 invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
+                invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada.
             not_supported_browser_description: Sembla que estàs usant un navegador web que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta fer servir qualsevol altre dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
             trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
