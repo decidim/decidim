@@ -31,7 +31,7 @@ trap 'rm -f $forbidden_words $excluded_paths' EXIT
 status=0
 
 # Perform grep and iterate through all matches
-while read match ; do
+while read match; do
   status=1
 
   # Cut the relevant parts of the match
