@@ -98,7 +98,6 @@ ro:
     account:
       blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
       delete:
-        alert: Această acțiune nu poate fi anulată. Dacă vă ștergeți contul, nu veți mai putea să vă autentificați cu datele de autentificare. Ștergerea contului dvs. va duce la anonimizarea contribuțiilor dvs. Veți putea crea în continuare un cont nou, dar aceste contribuții nu vor fi asociate cu acesta.
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
@@ -352,7 +351,6 @@ ro:
           resume: Verifică progresul autorizării tale ”%{authorization}"
           title: În proces de autorizare
         unauthorized:
-          invalid_field: "Valoarea %{field} %{value} nu este validă."
           ok: Ok
           title: Neautorizat
         unconfirmed:
@@ -714,7 +712,6 @@ ro:
         result: Rezultate
     fingerprint:
       check: Verifică amprenta
-      explanation: Partea de text de mai jos este o reprezentare scurtă a acestui conținut. Este util să te asiguri că acest conținut nu a fost modificat, deoarece o singură modificare ar avea ca rezultat o valoare total diferită.
       online_calculator_name: Calculator MD5 online
       replicate_help: Această amprentă este calculată folosind un algoritm de fixare SHA256. Pentru a-l copia singur/ă, poți folosi un %{online_calculator_link} şi copia datele sursă.
       source: Sursa
@@ -795,7 +792,6 @@ ro:
       title: Ce sunt insignele?
     group_admins:
       actions:
-        are_you_sure: Sigur dorești asta? Acest lucru nu va elimina participantul din grup.
         demote_admin: Elimină administratorul
       demote:
         error: A apărut o eroare la eliminarea acestui participant din lista de administratori
@@ -1156,7 +1152,6 @@ ro:
           modal_title: Chiar refuzați termenii și condițiile actualizate?
         required_review:
           alert: Am actualizat termenii și condițiile noastre de utilizare, te rugăm să le revizuiești.
-          body: Vă rugăm să treceți un moment pentru a revizui actualizările Termenilor și Condițiilor noastre. Altfel, nu veți putea utiliza platforma.
           title: 'Necesar: Revizuiește actualizările termenilor noștri de serviciu'
     participatory_space_private_users:
       not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
@@ -1502,7 +1497,6 @@ ro:
         action: Schimbă-mi parola
         greeting: Bună ziua %{recipient}!
         instruction: Cineva a solicitat un link pentru a vă schimba parola, şi puteţi face acest lucru prin link-ul de mai jos.
-        instruction_3: Parola dvs. nu se va schimba până când nu accesați link-ul de mai sus și nu creați una nouă.
         subject: Instrucțiuni resetare parolă
       unlock_instructions:
         action: Deblochează contul meu
