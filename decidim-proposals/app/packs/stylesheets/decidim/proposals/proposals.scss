@@ -5,6 +5,11 @@
     }
   }
 
+  &__map{
+    /* negative main padding values */
+    @apply md:-ml-16 -mt-6 md:-mt-12 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
+  }
+
   &__voting-rules{
     @apply flex flex-col md:flex-row justify-between items-center gap-2 md:gap-8 prose max-w-full;
   }

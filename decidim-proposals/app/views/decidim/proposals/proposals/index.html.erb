@@ -34,30 +34,32 @@
   <%= render partial: "decidim/shared/component_announcement" %>
 
   <% if component_settings.geocoding_enabled? %>
-    <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
-      <%# REDESIGN_PENDING: edit template map %>
-      <template id="marker-popup">
-        <div class="map-info__content">
-          <h3>${title}</h3>
-          <div id="bodyContent">
-            <p>{{html body}}</p>
-            <div class="map__date-address">
-              <div class="address card__extra">
-                <div class="address__icon">{{html icon}}</div>
-                <div class="address__details">
-                  <span>${address}</span><br>
+    <div class="proposal__map">
+      <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
+        <%# REDESIGN_PENDING: edit template map %>
+        <template id="marker-popup">
+          <div class="map-info__content">
+            <h3>${title}</h3>
+            <div id="bodyContent">
+              <p>{{html body}}</p>
+              <div class="map__date-address">
+                <div class="address card__extra">
+                  <div class="address__icon">{{html icon}}</div>
+                  <div class="address__details">
+                    <span>${address}</span><br>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="map-info__button">
-              <a href="${link}" class="button button--sc">
-                <%= t(".view_proposal") %>
-              </a>
+              <div class="map-info__button">
+                <a href="${link}" class="button button--sc">
+                  <%#= t(".view_proposal") %>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </template>
-    <% end %>
+        </template>
+      <% end %>
+    </div>
   <% end %>
 
   <%= render partial: "voting_rules" %>
