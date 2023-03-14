@@ -24,6 +24,7 @@ decidim-dev/lib/decidim/dev/assets/participatory_text.md
 decidim-core/lib/decidim/db/common-passwords.txt
 decidim-initiatives/spec/types/initiative_type_spec.rb
 decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
+config/locales/[^e]*[^n]*\.yml
 EOT
 
 trap 'rm -f $forbidden_words $excluded_paths' EXIT
