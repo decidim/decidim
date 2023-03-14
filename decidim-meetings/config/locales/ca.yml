@@ -205,6 +205,7 @@ ca:
           description_own: Has assistit a %{score} trobades.
           name: Trobades a les que has assistit
           next_level_in: Assisteix a més de %{score} reunions per arribar al següent nivell!
+          unearned_another: Aquest usuari encara no ha assistit a cap trobada.
           unearned_own: Encara no has assistit a cap reunió.
     meetings:
       actions:
@@ -526,6 +527,7 @@ ca:
         meeting_minutes:
           related_information: Informació relacionada
         meetings:
+          no_meetings_warning: No hi ha trobades que coincideixin amb la teva cerca o no hi ha cap trobada programada.
           upcoming_meetings_warning: Actualment no hi ha trobades programades, però pots veure les anteriors.
         new:
           back: Enrere
