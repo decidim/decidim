@@ -174,7 +174,6 @@ pl:
           description_own: Masz opublikowanych %{score} inicjatyw.
           name: Opublikowane inicjatywy
           next_level_in: Uzyskaj %{score} kolejnych opublikowanych inicjatyw, aby awansować na następny poziom!
-          unearned_another: Ten użytkownik nie utworzył jeszcze żadnych inicjatyw, które zostały opublikowane.
           unearned_own: Nie ma jeszcze żadnych opublikowanych inicjatyw.
     help:
       participatory_spaces:
