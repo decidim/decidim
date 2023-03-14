@@ -205,7 +205,6 @@ fr:
           description_own: Vous avez assisté à %{score} rencontres.
           name: Assister aux rencontres
           next_level_in: Assister à %{score} rencontres supplémentaires pour atteindre le prochain niveau!
-          unearned_another: Cet utilisateur n'a encore assisté à aucune réunion.
           unearned_own: Vous n'avez encore assisté à aucune réunion.
     meetings:
       actions:
@@ -527,7 +526,6 @@ fr:
         meeting_minutes:
           related_information: Informations liées
         meetings:
-          no_meetings_warning: Aucune rencontre ne correspond à vos critères de recherche ou aucune rencontre n'est prévue.
           upcoming_meetings_warning: À l'heure actuelle, il n'y a pas de rencontres planifiées. Ici vous trouverez une liste de toutes les rencontres passées.
         new:
           back: Précédent
