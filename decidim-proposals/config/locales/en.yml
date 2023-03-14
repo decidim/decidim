@@ -924,8 +924,7 @@ en:
           title: 'Supports are subject to the following rules:'
           vote_limit:
             description: You can support up to %{limit} proposals.
-            left: Remaining
-            votes: Supports
+            votes: Remaining %{number} supports
         wizard_aside:
           back: Back
           back_from_step_1: Back to proposals

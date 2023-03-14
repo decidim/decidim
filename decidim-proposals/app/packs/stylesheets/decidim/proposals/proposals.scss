@@ -1,0 +1,11 @@
+.proposal{
+  &__aside{
+    &__button-container{
+      @apply flex flex-col gap-4 w-fit;
+    }
+  }
+
+  &__voting-rules{
+    @apply flex flex-col md:flex-row justify-between items-center gap-2 md:gap-8 prose max-w-full;
+  }
+}

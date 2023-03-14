@@ -7,20 +7,27 @@
 <% end %>
 
 <% content_for :aside do %>
-  <h2 id="proposals-count" class="title-action__title section-heading">
-    <%= render partial: "count" %>
-  </h2>
+  <h1 id="proposals-count" class="h3 md:h1 decorator">
+    <%= t("name", scope: "decidim.components.proposals") %>
+  </h1>
 
-  <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
-    <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small", data: { "redirect_url" => new_proposal_path } do %>
-      <%= t(".new_proposal") %>
-      <%= icon "plus", role: "img", "aria-hidden": true %>
+  <div class="proposal__aside__button-container">
+    <% if current_settings.creation_enabled && current_component.participatory_space.can_participate?(current_user) %>
+      <%= action_authorized_link_to :create, new_proposal_path, class: "button button__sm md:button__lg button__secondary", data: { "redirect_url" => new_proposal_path } do %>
+        <span><%= t("new_proposal", scope: "decidim.proposals.proposals.index") %></span>
+        <%= icon "add-line" %>
+      <% end %>
     <% end %>
-  <% end %>
 
-  <% if component_settings.collaborative_drafts_enabled? %>
-    <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
-  <% end %>
+    <% if component_settings.collaborative_drafts_enabled? %>
+      <%= link_to collaborative_drafts_path, class: "button button__sm button__transparent-secondary" do %>
+        <span><%= t("collaborative_drafts_list", scope: "decidim.proposals.proposals.index") %></span>
+        <%= icon "edit-2-line" %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= render partial: "decidim/shared/filters" %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
@@ -28,6 +35,7 @@
 
   <% if component_settings.geocoding_enabled? %>
     <%= dynamic_map_for proposals_data_for_map(@all_geocoded_proposals) do %>
+      <%# REDESIGN_PENDING: edit template map %>
       <template id="marker-popup">
         <div class="map-info__content">
           <h3>${title}</h3>
