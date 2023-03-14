@@ -189,7 +189,6 @@ ro:
           description_own: Ai participat la %{score} întâlniri.
           name: Întâlniri la care ai participat
           next_level_in: Participă la încă %{score} întâlniri pentru a atinge următorul nivel!
-          unearned_another: Acest participant nu a participat încă la nicio întâlnire.
     meetings:
       actions:
         agenda: Agendă
@@ -503,7 +502,6 @@ ro:
         meeting_minutes:
           related_information: Informații asociate
         meetings:
-          no_meetings_warning: Nici o întâlnire nu corespunde criteriilor de căutare sau nu există nicio întrunire programată.
           upcoming_meetings_warning: În prezent, nu există întâlniri programate, dar aici se află pe listă toate întâlnirile anterioare.
         new:
           back: Înapoi
