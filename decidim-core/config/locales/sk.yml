@@ -294,7 +294,6 @@ sk:
           resume: Skontrolujte autorizáciu "%{Authorization}"
           title: Autorizácia stále prebieha
         unauthorized:
-          invalid_field: "%{field} hodnota %{value} nie je platná."
           ok: OK
           title: Neautorizovaný
         unconfirmed:
@@ -589,7 +588,6 @@ sk:
         result: Výsledky
     fingerprint:
       check: Kontrola odtlačkov prstov
-      explanation: Nižšie uvedený text je skráteným, rušivým znázornením tohto obsahu. Je užitočné zabezpečiť, aby obsah nebol narušovaný, pretože jediná zmena by viedla k úplne inej hodnote.
       online_calculator_name: MD5 kalkulačka online
       replicate_help: Tento odtlačok prsta sa vypočíta algoritmom SHA256. Aby ste ich mohli replikovať sami, môžete použiť%{online_calculator_link} a skopírovať a vložiť zdrojové dáta.
       source: Zdroj
@@ -632,7 +630,6 @@ sk:
       reached_top: Dosiahli ste najvyššej úrovne tohto odznaku.
     group_admins:
       actions:
-        are_you_sure: Ste si istí? Neodstráni používateľa zo skupiny.
         demote_admin: Odstrániť admin
       demote:
         error: Pri odobratí tohto užívateľa zo skupiny administrátorov došlo k chybe
@@ -910,7 +907,6 @@ sk:
           modal_title: Naozaj odmietate aktualizované zmluvné podmienky?
         required_review:
           alert: Aktualizovali sme Zmluvné podmienky, prečítajte si ich.
-          body: Venujte prosím prosím pozornosť aktualizácii našich zmluvných podmienok. V opačnom prípade nebudete môcť platformu používať.
           title: 'Vyžaduje: Skontrolujte aktualizácie našich zmluvných podmienok'
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
@@ -1126,7 +1122,6 @@ sk:
         action: Zmeňte heslo
         greeting: Dobrý deň, %{recipient}!
         instruction: Niekto požiadal o odkaz na zmenu hesla a môžete to vykonať pomocou nižšie uvedeného odkazu.
-        instruction_3: Vaše heslo sa nezmení, kým nevstúpite do vyššie uvedeného odkazu a vytvoríte nový.
         subject: Resetujte pokyny na zadanie hesla
       unlock_instructions:
         action: Odomknite svoj účet
