@@ -136,7 +136,6 @@ ru:
           description_another: Этот участник принял участие в %{score} встречах.
           description_own: Вы приняли участие в %{score} встречах.
           next_level_in: Примите участие еще в %{score} встречах, чтобы достичь следующего уровня!
-          unearned_another: Этот участник еще не участвовал ни в одной встрече.
     meetings:
       actions:
         agenda: Повестка дня
@@ -306,7 +305,6 @@ ru:
         meeting_minutes:
           related_information: Сопутствующие сведения
         meetings:
-          no_meetings_warning: Нет встреч, соответствующих вашим критериям поиска, или нет ни одной запланированной встречи.
           upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:
           cancel: Отменить
