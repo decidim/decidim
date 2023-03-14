@@ -200,7 +200,6 @@ de:
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
-          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
           cta: Lesen Sie sie jetzt.
         title: Admin-Nutzungsbedingungen
       area_types:
