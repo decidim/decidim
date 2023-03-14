@@ -109,7 +109,6 @@ eu:
     account:
       blocked: Kontu hau blokeatu da erabilera-irizpideak eta baldintzak urratzeagatik
       delete:
-        alert: Ekintza hori ezin da desegin. Zure kontua ezabatzen baduzu, ezin izango duzu saioa hasi zure kredentzialekin. Zure kontua ezabatzeak zure ekarpenen anonimotasuna ekarriko du. Oraindik kontu berri bat sortu ahal izango duzu, baina ekarpen horiek ez dira kontu horrekin lotuko.
         confirm:
           close: Itxi leihoa
           ok: Bai, nire kontua ezabatu nahi dut
@@ -367,7 +366,6 @@ eu:
           resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
           title: Baimena oraindik ere egiten ari da
         unauthorized:
-          invalid_field: "%{field} balio %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
         unconfirmed:
@@ -732,7 +730,6 @@ eu:
         result: Emaitzak
     fingerprint:
       check: Egiaztatu hatz-marka
-      explanation: Beheko testu zatiak eduki honen ordezkaritza laburtu bat du. Oso erabilgarria da edukia ez dela manipulatu, aldaketa bakar bat balioa erabat desberdina izango delako.
       online_calculator_name: MD5 kalkulagailua linean
       replicate_help: Hatz-marka hori SHA256 hashing algoritmo baten bidez kalkulatzen da. Zeure buruari errepikatu ahal izateko, %{online_calculator_link} erabil dezakezu eta kopiatu iturriaren datuak itsatsi.
       source: Iturria
@@ -805,7 +802,6 @@ eu:
       reached_top: Idatzi honen goialdean iritsi zara.
     group_admins:
       actions:
-        are_you_sure: Ziur zaude? Honek ez du erabiltzailea taldetik kenduko.
         demote_admin: Kendu kudeatzailea
       demote:
         error: Errore bat gertatu da erabiltzaile hau administratzaileen zerrendatik ezabatzean
@@ -1158,7 +1154,6 @@ eu:
           modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
         required_review:
           alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
-          body: Jarri une bat gure Zerbitzu Baldintzak eguneratzeak berrikusteko. Bestela, ezin izango duzu plataforma erabili.
           title: 'Beharrezkoa: berrikusi gure zerbitzu-baldintzen eguneratzeak'
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
@@ -1505,7 +1500,6 @@ eu:
         action: Aldatu nire pasahitza
         greeting: Kaixo %{recipient}!
         instruction: Norbaitek zure pasahitza aldatzeko esteka eskatu du, eta beheko estekan egin dezakezu.
-        instruction_3: Pasahitza ez da aldatuko goiko estekan sartzeko eta beste bat sortu arte.
         subject: Berrezarri pasahitzaren argibideak
       unlock_instructions:
         action: Desblokeatu nire kontua
