@@ -209,7 +209,6 @@ ro:
           title: Acceptă termenii și condițiile de utilizare
         required_review:
           alert: 'Obligatoriu: Revizuiți termenii de utilizare ai administratorului'
-          callout: Te rugăm acordă un moment pentru a revizui Termenii de utilizare ai administratorului. În caz contrar, nu vei putea administra platforma.
           cta: Revizuiește acum.
         title: Termeni de Utilizare ai Administratorului
       area_types:
