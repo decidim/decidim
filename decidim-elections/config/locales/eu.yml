@@ -639,7 +639,6 @@ eu:
           back: Atzera
           continue: Hurrengoa
       warnings:
-        no_elections_warning: Ez dago beren bilaketa-irizpideekin bat datorren hauteskunderik, edo ez dago hauteskunde programaturik.
         no_scheduled_elections_warning: Orain ez dago bozketa programaturik, baina aurrekoak ikus ditzakezu.
     events:
       elections:
@@ -897,7 +896,6 @@ eu:
             choose_polling_officers: Aukeratu mahaiko kudeatzailea
             close: Itxi
             more_polling_officers: '%{number} mahaiko kudeatzaile gehiago daude. Zehaztu berriro zure bilaketa aurkitzeko.'
-            no_polling_officers: Ez dago bilaketa-irizpidearekin bat datorren mahaiko kudeatzailerik, edo ez dago bat ere ez.
         polling_stations:
           create:
             invalid: Arazo bat izan da bozketa-gune hau sortzean
