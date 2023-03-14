@@ -640,6 +640,7 @@ ca:
                 invalid_format: L'arxiu pujat no conté cap clau d'identificació.
                 invalid_key: Les claus d'identificació a l'arxiu pujat no es poden carregar.
                 invalid_public_key: Les claus d'identificació a l'arxiu pujat no coincideixen amb la clau d'identificació pública emmagatzemada.
+              upload_legend: Al servidor hi consten les teves claus d'identificació públiques, però el teu navegador encara no les té. Cal que importis l'arxiu amb les teves claus d'identificació al teu ordinador des de la còpia de seguretat que has creat després de generar-les.
             not_supported_browser_description: Sembla que estàs usant un navegador web que no pot ser utilitzat per a actuar com a garant. Assegura't que estàs usant la versió més recent del teu navegador, o intenta fer servir qualsevol altre dels navegadors més populars per a poder completar les teves tasques com a garant.
             not_supported_browser_title: Actualitza el navegador per a actuar com a garant
             trustee_role_description: Se t'ha assignat com a garant en algunes de les eleccions celebrades en aquesta plataforma.
@@ -1161,6 +1162,7 @@ ca:
             subject: L'exportació dels codis d'accés a la votació de %{voting_title} està disponible
         vote_flow:
           already_voted_in_person: La participant ja ha votat de forma presencial i no té dret a vot.
+          datum_not_found: Les dades introduïdes no coincideixen amb cap votant.
       content_blocks:
         highlighted_votings:
           name: Votacions destacades
@@ -1205,6 +1207,7 @@ ca:
             info_text: Si us plau, introdueix el nombre total de respostes per a cada pregunta.
             modal_ballots_results_count_error:
               close_modal: Tancar
+              info_text: El nombre total de paperetes no coincideix amb el nombre total de sobres. Si us plau, revisa el total de paperetes.
               title: El total de paperetes no coincideix
             save_recount: Desar recompte
             total_ballots: Total de paperetes
@@ -1219,6 +1222,7 @@ ca:
               btn_validate_total: Validar recompte total de paperetes
               close_modal: Tancar
               info_explanation_text: 'Si us plau, revisa el nombre total de paperetes. Si el número total és incorrecte, has de proporcionar una explicació per al Comitè de Seguiment:'
+              info_text: El nombre total de paperetes (sobres) introduïdes no coincideix amb el registre de persones que han votat en aquest punt de votació.
               message_for_monitoring_committee: Missatge per al Comitè de Seguiment
               review_recount: Revisar el recompte
               text_area_placeholder: Si us plau, escriu el teu missatge
