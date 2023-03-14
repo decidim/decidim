@@ -83,7 +83,6 @@ pt:
     account:
       blocked: Esta conta foi bloqueada por violação dos Termos e Condições
       delete:
-        alert: Esta acção não pode ser revertida. Se apagar a sua conta não poderá mais ligar-se com as suas credenciais. Apagar a sua conta resultará no anonimizar de todas as suas contribuições. Conseguirá criar uma nova conta, mas essas contribuições não serão associadas a ela.
         confirm:
           close: Fechar janela
           ok: Sim, eu quero cancelar a minha conta
@@ -319,7 +318,6 @@ pt:
           resume: Verifique o progresso da sua autorização "%{authorization}"
           title: A autorização ainda está em progresso
         unauthorized:
-          invalid_field: "O campo %{field} com valor %{value} não é válido."
           ok: Ok
           title: Não autorizado
         unconfirmed:
@@ -658,7 +656,6 @@ pt:
         result: Resultados
     fingerprint:
       check: Verifique a impressão digital
-      explanation: O texto abaixo é uma representação encurtada e hash deste conteúdo. É útil garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
       online_calculator_name: Calculadora MD5 online
       replicate_help: Esta impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicá-la, pode usar uma %{online_calculator_link} e copiar e colar os dados de origem.
       source: Origem
@@ -716,7 +713,6 @@ pt:
       reached_top: Atingiu o nível superior para este distintivo.
     group_admins:
       actions:
-        are_you_sure: Tem a certeza? Isto não removerá o participante do grupo.
         demote_admin: Remover administrador
       demote:
         error: Ocorreu um problema ao remover este participante da lista de administradores
@@ -1047,7 +1043,6 @@ pt:
           modal_title: Recusa realmente os Termos e Condições atualizados?
         required_review:
           alert: Atualizámos os nossos Termos de Serviço, por favor reveja-os.
-          body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviços. Caso contrário, não poderá utilizar a plataforma.
           title: 'Obrigatório: reveja as atualizações dos nossos termos de serviço'
     participatory_space_private_users:
       not_allowed: Não tem permissão para visualizar este conteúdo
@@ -1382,7 +1377,6 @@ pt:
         action: Modificar a minha palavra-passe
         greeting: Olá %{recipient}!
         instruction: Alguém solicitou uma hiperligação para alterar a sua palavra-passe e pode fazer isso através da hiperligação abaixo.
-        instruction_3: A sua palavra-passe não será alterada até que aceda à hiperligação acima e crie uma nova.
         subject: Instruções de reposição da palavra-passe
       unlock_instructions:
         action: Desbloquear a minha conta
