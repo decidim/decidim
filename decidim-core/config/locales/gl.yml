@@ -265,7 +265,6 @@ gl:
           resume: Verifica o progreso da túa autorización "%{authorization}"
           title: A autorización aínda está en progreso
         unauthorized:
-          invalid_field: "O %{field} valor %{value} non é válido."
           ok: Ok
           title: Non autorizado
         unconfirmed:
@@ -535,7 +534,6 @@ gl:
         result: Resultados
     fingerprint:
       check: Verifique a pegada dixital
-      explanation: A parte de texto a continuación é unha representación reducida e enxurrada deste contido. É útil asegurar que o contido non foi manipulado, xa que unha modificación única resultaría nun valor totalmente diferente.
       online_calculator_name: Calculadora MD5 en liña
       replicate_help: Esta pegada calcúlase usando un algoritmo de hash SHA256. Para replicalo por si mesmo, pode usar un %{online_calculator_link} e copiar e pegar os datos fonte.
       source: Fonte
@@ -595,7 +593,6 @@ gl:
       reached_top: Alcanzou o nivel superior desta placa.
     group_admins:
       actions:
-        are_you_sure: Estás seguro? Isto non eliminará o usuario do grupo.
         demote_admin: Eliminar administrador
       demote:
         error: Produciuse un erro ao eliminar este usuario da lista de administradores
@@ -862,7 +859,6 @@ gl:
           modal_title: '¿Realmente rexeita os Termos e condicións actualizados?'
         required_review:
           alert: Actualizamos as nosas Condicións de servizo, por favor revíselas.
-          body: Leve un momento para revisar as actualizacións das nosas Condicións de servizo. Se non, non poderás usar a plataforma.
           title: 'Requirido: repasa as actualizacións dos nosos termos de servizo'
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
@@ -1088,7 +1084,6 @@ gl:
         action: Cambiar o meu contrasinal
         greeting: Ola %{recipient}
         instruction: Alguén solicitou unha ligazón para cambiar o teu contrasinal e podes facelo a través da seguinte ligazón.
-        instruction_3: O seu contrasinal non cambiará ata que acceda á ligazón anterior e cree unha nova.
         subject: Restablecer as instrucións do contrasinal
       unlock_instructions:
         action: Desbloquea a miña conta
