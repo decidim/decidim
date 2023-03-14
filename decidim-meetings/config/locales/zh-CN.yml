@@ -137,7 +137,6 @@ zh-CN:
           description_own: 您已经参加了 %{score} 次会议。
           name: 出席会议
           next_level_in: 再参加 %{score} 个会议来达到下一级！
-          unearned_another: 此参与者尚未参加任何会议。
     meetings:
       actions:
         agenda: 议程项目
@@ -351,7 +350,6 @@ zh-CN:
         meeting_minutes:
           related_information: 相关信息
         meetings:
-          no_meetings_warning: 没有符合您搜索条件的会议，也没有安排任何会议。
           upcoming_meetings_warning: 目前没有排定的会议，但在这里你可以找到过去所有会议的清单。
         new:
           back: 后退
