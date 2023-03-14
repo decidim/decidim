@@ -147,7 +147,6 @@ cs:
     account:
       blocked: Tento účet byl zablokován kvůli porušení smluvních podmínek
       delete:
-        alert: Tuto akci nelze vrátit zpět. Pokud smažete svůj účet, nebudete se moci přihlásit pomocí přihlašovacích údajů. Odstranění vašeho účtu povede k anonymizaci vašich příspěvků. Stále budete moci vytvořit nový účet, ale tyto příspěvky s ním nebudou spojeny.
         confirm:
           close: Zavřete okno
           ok: Ano, chci smazat účet
@@ -443,7 +442,6 @@ cs:
           title: Autorizace stále probíhá
         unauthorized:
           explanation: Omlouváme se, tuto akci nelze provést, protože některá z vašich autorizačních dat se neshodují.
-          invalid_field: "%{field} hodnota %{value} není platná."
           ok: OK
           title: Neautorizovaný
         unconfirmed:
@@ -836,7 +834,6 @@ cs:
         result: Výsledky
     fingerprint:
       check: Kontrola jedinečnosti
-      explanation: Níže uvedený text je zkráceným, zakódovaným znázorněním tohoto obsahu. Je užitečné zajistit, aby obsah nebyl pozměněn, protože jediná změna by vedla k úplně jiné hodnotě.
       online_calculator_name: MD5 kalkulačka online
       replicate_help: Tato digitální identifikace se vypočítá algoritmem SHA256. Abyste ji mohli replikovat sami, můžete použít %{online_calculator_link} a zkopírovat a vložit zdrojová data.
       source: Zdroj
@@ -934,7 +931,6 @@ cs:
       title: Jaké jsou odznaky?
     group_admins:
       actions:
-        are_you_sure: Jste si jisti? Toto uživatele ze skupiny neodstraní.
         demote_admin: Odstranit admin
       demote:
         error: Při odebrání tohoto uživatele ze seznamu administrátorů došlo k chybě
@@ -1304,7 +1300,6 @@ cs:
           agreement: Souhlasím s těmito podmínkami
           legend: Souhlasíte s podmínkami používání
         refuse:
-          modal_body: Pokud odmítnete, nebudete moci platformu používat, můžete <a href="%{download_your_data_path}">stáhnout svá data</a> a/nebo <a href="%{delete_path}">smazat svůj účet</a>.
           modal_btn_continue: Přijměte termíny a pokračujte
           modal_btn_exit: Později to přezkoumám
           modal_button: Odmítněte podmínky
@@ -1312,7 +1307,6 @@ cs:
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
           alert: Aktualizovali jsme Smluvní podmínky, přečtěte si je.
-          body: Věnujte prosím pozornost aktualizaci našich smluvních podmínek. V opačném případě nebudete moci platformu používat.
           title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
@@ -1654,9 +1648,6 @@ cs:
         accept_until: Této pozvánce vyprší platnost v %{due_date}.
         decline: Odmítnout pozvánku
         hello: Dobrý den %{email},
-        ignore: |-
-          Pokud pozvánku nechcete přijmout, ignorujte tento e-mail.<br />
-          Váš účet nebude vytvořen, dokud nekliknete na odkaz výše a nenastavíte si uživatelské jméno a heslo.
         invited_you_as_admin: "%{invited_by} vás pozval jako administrátora z %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
         invited_you_as_private_user: "%{invited_by} vás pozval jako soukromého uživatele %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu."
         someone_invited_you: Někdo vás pozval na %{application}. Můžete jej přijmout prostřednictvím níže uvedeného odkazu.
@@ -1680,7 +1671,6 @@ cs:
         greeting: Dobrý den %{recipient}!
         instruction: Někdo požádal o odkaz na změnu hesla a můžete to provést pomocí níže uvedeného odkazu.
         instruction_2: Pokud jste o změnu hesla nežádali, prosím ignorujte tento e-mail.
-        instruction_3: Vaše heslo se nezmění, dokud nevstoupíte do výše uvedeného odkazu a vytvoříte nový.
         subject: Resetujte pokyny k zadání hesla
       unlock_instructions:
         action: Odemkněte svůj účet
