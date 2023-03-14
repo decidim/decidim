@@ -46,7 +46,6 @@ nl:
           description_own: U hebt %{score} tests gemaakt.
           name: Tests
           next_level_in: Maak %{score} extra tests om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen tests gemaakt.
           unearned_own: U hebt nog geen tests gemaakt.
     resource_links:
       test_link:
