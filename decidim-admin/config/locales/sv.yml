@@ -209,7 +209,6 @@ sv:
           title: Godkänn användarvillkoren
         required_review:
           alert: 'Krav: granska villkoren för administratörer'
-          callout: Granska användarvillkoren för administratörer. Annars kan du inte administrera plattformen.
           cta: Granska dem nu.
         title: Användarvillkor för administratörer
       area_types:
