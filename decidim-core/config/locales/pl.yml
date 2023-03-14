@@ -143,7 +143,6 @@ pl:
     account:
       blocked: To konto zostało zablokowane z powodu naruszenia Regulaminu
       delete:
-        alert: Tej czynności nie można cofnąć. Jeśli usuniesz swoje konto, nie będziesz mógł zalogować się za pomocą swoich danych. Usunięcie Twojego konta spowoduje, że cała Twoja aktywność w portalu stanie się anonimowa. Nadal będziesz mógł utworzyć nowe konto, ale Twoje dotychczasowe zasoby nie będą już z nim powiązane.
         confirm:
           close: Zamknij okno
           ok: Tak, chcę usunąć moje konto
@@ -420,7 +419,6 @@ pl:
           resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
           title: Autoryzacja jest nadal w toku
         unauthorized:
-          invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
           ok: Ok
           title: Nieautoryzowany
         unconfirmed:
@@ -762,7 +760,6 @@ pl:
         result: Wyniki
     fingerprint:
       check: Sprawdź odcisk palca
-      explanation: Fragment tekstu poniżej stanowi skróconą i zaszyfrowaną wersję tej treści. Warto upewnić się, że treść nie została zmodyfikowana, ponieważ pojedyncza modyfikacja spowodowałaby zupełnie inną wartość.
       online_calculator_name: Kalkulator MD5 online
       replicate_help: 'Ten fingerprint jest wyliczony przy użyciu algorytmu szyfrującego SHA256. Aby wykonać replikę samodzielnie, możesz skopiować i wkleić dane źródłowe do tego narzędzia: %{online_calculator_link}.'
       source: Źródło
@@ -822,7 +819,6 @@ pl:
       reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
     group_admins:
       actions:
-        are_you_sure: Jesteś pewny? Nie spowoduje to usunięcia użytkownika z grupy.
         demote_admin: Usuń administratora
       demote:
         error: Wystąpił błąd podczas usuwania tego użytkownika z listy administratorów
@@ -1153,7 +1149,6 @@ pl:
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
           alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
-          body: Poświęć chwilę, aby przejrzeć aktualizacje naszych Warunków korzystania z Platformy. W przeciwnym razie nie będziesz mógł korzystać z platformy.
           title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
@@ -1486,7 +1481,6 @@ pl:
         action: Zmień moje hasło
         greeting: Witaj, %{recipient}!
         instruction: Ktoś poprosił o link do zmiany hasła. Możesz to zrobić za pomocą poniższego linku.
-        instruction_3: Twoje hasło nie zmieni się, dopóki nie klikniesz w powyższy link i nie ustawisz nowego.
         subject: Instrukcje dotyczące resetu hasła
       unlock_instructions:
         action: Odblokuj moje konto
