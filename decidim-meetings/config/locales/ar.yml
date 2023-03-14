@@ -210,7 +210,6 @@ ar:
           description_own: لقد حضرت %{score} اجتماع.
           name: حضور الاجتماعات
           next_level_in: حضور %{score} اجتماعات أخرى للوصول إلى المستوى التالي!
-          unearned_another: هذا المشارك لم يحضر أي اجتماع حتى الآن.
     meetings:
       actions:
         agenda: جدول أعمال
@@ -545,7 +544,6 @@ ar:
         meeting_minutes:
           related_information: معلومات ذات صله
         meetings:
-          no_meetings_warning: لا توجد اجتماعات تطابق معايير البحث الخاصة بك أو لا يوجد أي اجتماع مجدولة.
           upcoming_meetings_warning: حاليًا ، لا توجد اجتماعات مجدولة ، ولكن يمكنك هنا العثور على جميع الاجتماعات السابقة المدرجة.
         new:
           back: العودة
