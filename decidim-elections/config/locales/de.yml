@@ -649,7 +649,6 @@ de:
           back: Zurück
           continue: Weiter
       warnings:
-        no_elections_warning: Keine Wahlen entsprechen Ihren Suchkriterien oder es ist keine Wahl geplant.
         no_scheduled_elections_warning: Derzeit sind keine Wahlen geplant, aber hier finden Sie alle vergangenen Wahlen aufgelistet.
     events:
       elections:
@@ -903,7 +902,6 @@ de:
             choose_polling_officers: Wahllokal-Mitarbeitende auswählen
             close: Schließen
             more_polling_officers: Es gibt %{number} weitere Wahllokal-Mitarbeitende. Verfeinern Sie Ihre Suche um sie zu finden.
-            no_polling_officers: Keine Wahllokal-Mitarbeitenden passen zu Ihren Suchkriterien, oder es gibt keine Wahllokal-Mitarbeitenden.
         polling_stations:
           create:
             invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
