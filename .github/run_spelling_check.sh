@@ -1,22 +1,25 @@
 #!/bin/bash
 
-forbidden_words=$(mktemp)
+forbidden_words_file=$(mktemp)
+trap 'rm -f $forbidden_words_file' EXIT
 
-cat <<EOT | sort > $forbidden_words
-aren't
-can't
-couldn't
-didn't
-doesn't
-don't
-hasn't
-haven't
-isn't
-shouldn't
-wasn't
-weren't
-won't
-EOT
+declare -A forbidden_words=(
+  ["aren't"]="are not"
+  ["can't"]="cannot"
+  ["couldn't"]="could not"
+  ["didn't"]="did not"
+  ["doesn't"]="does not"
+  ["don't"]="do not"
+  ["hasn't"]="has not"
+  ["haven't"]="have not"
+  ["isn't"]="is not"
+  ["should't"]="should not"
+  ["wasn't"]="was not"
+  ["weren't"]="were not"
+  ["won't"]="will not"
+)
+
+printf "%s\n" "${!forbidden_words[@]}" | sort > $forbidden_words_file
 
 exclude_paths=(
   "decidim-dev/lib/decidim/dev/assets/participatory_text.md"
@@ -26,8 +29,6 @@ exclude_paths=(
   "config/locales/((?!en).)*\.yml"
 )
 exclude_paths_pattern=$(printf "|(%s)" "${exclude_paths[@]}" | cut -c 2-)
-
-trap 'rm -f $forbidden_words' EXIT
 
 status=0
 
@@ -41,8 +42,9 @@ while read match; do
   text=$(sed "${line}!d" "$file")
 
   # Find the forbidden words
-  for word in $(cat $forbidden_words); do
+  for word in "${!forbidden_words[@]}"; do
     len=$(expr length "$word")
+    preferred=${forbidden_words[$word]}
 
     while read posmatch; do
       spos=$(( $(echo $posmatch | cut -d':' -f 1) + 1 ))
@@ -50,9 +52,9 @@ while read match; do
 
       # Print out the annotation messages
       # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message
-      echo "::error file=${file},line=${line},col=${spos},endColumn=${epos}::The following word is forbidden $word"
+      echo "::error file=${file},line=${line},col=${spos},endColumn=${epos}::Use \"$preferred\" instead of \"$word\"."
     done < <(echo "$text" | grep -oib "$word")
   done
-done < <(find decidim-* -type f | grep -vP "$exclude_paths_pattern" | xargs -n1000 grep -Hnif $forbidden_words)
+done < <(find decidim-* -type f | grep -vP "$exclude_paths_pattern" | xargs -n1000 grep -Hnif $forbidden_words_file)
 
 exit $status
