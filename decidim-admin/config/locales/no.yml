@@ -189,7 +189,6 @@
           title: Godta vilkårene for bruk
         required_review:
           alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
-          callout: Vennligst ta deg tid til å se gjennom administratorers bruksvilkår. Ellers vil du ikke kunne administrere plattformen.
           cta: Se over dem nå.
         title: Administrator vilkår for bruk
       area_types:
