@@ -123,6 +123,7 @@ ca:
     account:
       blocked: Aquest compte ha estat bloquejat degut a una violació dels Termes i Condicions d'ús
       delete:
+        alert: Aquesta acció no es pot desfer. Si esborres el teu compte no podràs iniciar sessió amb les teves credencials. L'eliminació del teu compte tindrà com a resultat l'anonimització de les teves contribucions. Continuaràs podent crear un nou compte, però aquestes contribucions no estaran associades a ell.
         confirm:
           close: Tancar finestra
           ok: Sí, vull eliminar el meu compte
@@ -411,6 +412,7 @@ ca:
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: Ho sentim, no pots dur a terme aquesta acció perquè algunes de les teves dades d'autorització no coincideixen.
+          invalid_field: "El valor %{value} de %{field} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
         unconfirmed:
@@ -798,6 +800,7 @@ ca:
         result: Resultats
     fingerprint:
       check: Verifica l'empremta digital
+      explanation: El text següent és una representació abreviada i criptografiada d'aquest contingut. És útil per garantir que el contingut no hagi estat alterat, ja que una única modificació provocaria un valor totalment diferent.
       online_calculator_name: Calculadora MD5 en línia
       replicate_help: Aquesta empremta digital es calcula mitjançant un algoritme de hash SHA256. Per reproduir-lo tu mateix, pots utilitzar una %{online_calculator_link} i copiar-hi les dades d'origen.
       source: Origen
@@ -893,6 +896,7 @@ ca:
       title: Què són les ensenyes?
     group_admins:
       actions:
+        are_you_sure: Segur? Això no eliminarà la participant del grup.
         demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta participant de la llista d'administradores
@@ -1267,6 +1271,7 @@ ca:
           agreement: Estic d'acord amb aquests termes
           legend: Accepto els termes i condicions
         refuse:
+          modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{download_your_data_path}">descarregar les teves dades</a> i/o <a href="%{delete_path}">esborrar el teu compte de</a>.
           modal_btn_continue: Acceptar els termes i continuar
           modal_btn_exit: Ho revisaré més tard
           modal_button: Rebutjar els termes
@@ -1274,6 +1279,7 @@ ca:
           modal_title: Confirmes que no acceptes els Termes i Condicions actualitzats?
         required_review:
           alert: Hem actualitzat els nostres Termes de Servei, si us plau revisa'ls.
+          body: Si us plau, dedica un moment a revisar l'actualització dels nostres Termes de Servei. En cas contrari, no podràs utilitzar la plataforma.
           title: 'Obligatori: revisa l''actualització dels nostres Termes de Servei'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
@@ -1617,6 +1623,8 @@ ca:
         accept_until: Aquesta invitació caducarà el dia %{due_date}.
         decline: Declina la invitació
         hello: Hola %{email},
+        ignore: |-
+          Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administradora de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         invited_you_as_private_user: "%{invited_by} t'ha convidat com a participant privada de %{application}. Pots acceptar a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
@@ -1640,6 +1648,7 @@ ca:
         greeting: Hola %{recipient}!
         instruction: Algú ha demanat un enllaç per canviar la teva contrasenya, ho pots fer a través de l'enllaç següent.
         instruction_2: Si no ho has sol·licitat, ignora aquest correu electrònic.
+        instruction_3: La teva contrasenya no canviarà fins que accedeixis a l'enllaç de dalt i en creis una de nova.
         subject: Instruccions de regeneració de contrasenya
       unlock_instructions:
         action: Desbloqueja el meu compte
