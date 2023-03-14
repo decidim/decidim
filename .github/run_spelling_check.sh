@@ -4,19 +4,19 @@ forbidden_words=$(mktemp)
 excluded_paths=$(mktemp)
 
 cat <<EOT > $forbidden_words
-can't
-doesn't
-haven't
-didn't
-couldn't
-won't
-hasn't
-isn't
 aren't
+can't
+couldn't
+didn't
+doesn't
 don't
-wasn't
+hasn't
+haven't
+isn't
 shouldn't
+wasn't
 weren't
+won't
 EOT
 
 cat <<EOT > $excluded_paths
