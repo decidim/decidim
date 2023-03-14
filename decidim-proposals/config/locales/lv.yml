@@ -264,7 +264,6 @@ lv:
           description_own: Jūs esat atbalstījis %{score} priekšlikumus.
           name: Atbalsti priekšlikumiem
           next_level_in: Atbalstiet vēl %{score} priekšlikumus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav atbalstījis nevienu priekšlikumu.
           unearned_own: Jūs vēl neesat atbalstījis nevienu priekšlikumu.
         proposals:
           conditions:
@@ -275,7 +274,6 @@ lv:
           description_own: Jūs esat izveidojis %{score} priekšlikumus.
           name: Priekšlikumi
           next_level_in: Izveidojiet vēl %{score} priekšlikumus, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav izveidojis nevienu priekšlikumu.
           unearned_own: Jūs vēl neesat izveidojis nevienu priekšlikumu.
     metrics:
       accepted_proposals:
@@ -499,7 +497,6 @@ lv:
           publish:
             error: Sadarbības projekta publicēšanas laikā radās problēma.
             irreversible_action_modal:
-              body: Kad projekts ir publicēts kā priekšlikums, to vairs nevar rediģēt. Priekšlikumam netiks pieņemti jauni autori vai papildinājumi.
               cancel: Atcelt
               ok: Publicēt kā priekšlikumu
               title: Šī darbība ir neatgriezeniska
@@ -508,7 +505,6 @@ lv:
           withdraw:
             error: Sadarbības projekta aizvēršanas laikā radās problēma.
             irreversible_action_modal:
-              body: Pēc projekta aizvēršanas tas vairs nebūs rediģējams. Projektā netiks pieņemti jauni autori vai papildinājumi.
               cancel: Atcelt
               ok: Atsaukt sadarbības projektu
               title: Šī darbība ir neatgriezeniska
@@ -709,7 +705,6 @@ lv:
           view_proposal: Skatīt priekšlikumu
         proposals:
           empty: Pagaidām nav priekšlikuma
-          empty_filters: Nav neviena šim kritērija atbilstīga priekšlikuma
         show:
           answer: Atbilde
           back_to: Atpakaļ uz
@@ -778,7 +773,6 @@ lv:
         choose_proposals: Izvēlieties priekšlikumus
         close: Aizvērt
         more_proposals: Ir vēl %{number} priekšlikumi. Precizējiet savus meklēšanas kritērijus, lai tos atrastu.
-        no_proposals: Neviena priekšlikums neatbilst jūsu meklēšanas kritērijiem, vai arī nav neviena priekšlikuma.
       publish:
         error: Priekšlikuma publicēšanas laikā radās problēma.
         success: Priekšlikums ir veiksmīgi publicēts.
