@@ -618,7 +618,6 @@ pt-BR:
           back: Voltar
           continue: Próxima
       warnings:
-        no_elections_warning: Nenhuma eleição corresponde aos seus critérios de pesquisa ou não há nenhuma eleição agendada.
         no_scheduled_elections_warning: Atualmente, não há eleições agendadas, mas aqui podem encontrar uma lista de todas as últimas eleições.
     events:
       elections:
@@ -878,7 +877,6 @@ pt-BR:
             choose_polling_officers: Escolher agentes de enquete
             close: Fechado
             more_polling_officers: Existem mais %{number} agentes de enquete. Refine sua pesquisa para localizá-los.
-            no_polling_officers: Nenhum agente de enquete corresponde aos seus critérios de pesquisa ou não há nenhum agente de enquete.
         polling_stations:
           create:
             invalid: Houve um problema ao criar esta estação de voto
