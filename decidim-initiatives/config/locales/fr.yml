@@ -192,7 +192,6 @@ fr:
           description_own: Vous avez publié %{score} pétitions.
           name: Pétitions publiées
           next_level_in: Publiez %{score} pétitions pour atteindre le niveau supérieur!
-          unearned_another: Cet utilisateur n'a pas encore publié de pétition.
           unearned_own: Vous n'avez pas encore publié de pétition.
     help:
       participatory_spaces:
