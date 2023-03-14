@@ -192,7 +192,6 @@ es:
           description_own: Tienes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
-          unearned_another: Esta participante aún no ha publicado ninguna iniciativa.
           unearned_own: Aún no has publicado ninguna iniciativa.
     help:
       participatory_spaces:
