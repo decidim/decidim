@@ -31,6 +31,7 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:customize_registration_email) { true }
     let(:registration_email_custom_content) { { "en" => "The registration email custom content." } }
+    let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
 
@@ -56,6 +57,7 @@ module Decidim::Meetings
         registration_type: registration_type,
         available_slots: available_slots,
         registration_url: registration_url,
+        registrations_enabled: registrations_enabled,
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
         customize_registration_email: customize_registration_email,
@@ -101,6 +103,11 @@ module Decidim::Meetings
       it "sets the author" do
         subject.call
         expect(meeting.author).to eq organization
+      end
+
+      it "sets the registration enabled flag" do
+        subject.call
+        expect(meeting.registrations_enabled).to eq registrations_enabled
       end
 
       it "sets the services" do
@@ -163,6 +170,7 @@ module Decidim::Meetings
             registration_type: registration_type,
             available_slots: available_slots,
             registration_url: registration_url,
+            registrations_enabled: registrations_enabled,
             clean_type_of_meeting: type_of_meeting,
             online_meeting_url: online_meeting_url,
             customize_registration_email: customize_registration_email,

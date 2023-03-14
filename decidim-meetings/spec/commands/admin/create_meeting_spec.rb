@@ -25,6 +25,7 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:registration_type) { "on_this_platform" }
     let(:available_slots) { 0 }
+    let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "embed_in_meeting_page" }
     let(:iframe_access_level) { "all" }
     let(:services) do
@@ -68,6 +69,7 @@ module Decidim::Meetings
         registration_type: registration_type,
         available_slots: available_slots,
         registration_url: registration_url,
+        registrations_enabled: registrations_enabled,
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url: online_meeting_url,
         customize_registration_email: customize_registration_email,
@@ -108,6 +110,11 @@ module Decidim::Meetings
       it "sets the author" do
         subject.call
         expect(meeting.author).to eq organization
+      end
+
+      it "sets the registration enabled flag" do
+        subject.call
+        expect(meeting.registrations_enabled).to eq registrations_enabled
       end
 
       it "sets the component" do
