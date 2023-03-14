@@ -80,6 +80,7 @@ ca:
           description: Aquest contingut és inapropiat?
           details: Comentaris addicionals
           reasons:
+            does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
           title: Notificar contingut inapropiat
