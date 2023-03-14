@@ -602,6 +602,7 @@ es-PY:
               processing: Procesando
             title: Recuento para %{election}
           update:
+            error: El estado de la elección no se había actualizado.
             success: 'El estado de la elección es: %{status}'
         menu:
           trustee_zone: Zona del garante
@@ -628,6 +629,7 @@ es-PY:
               generate_legend: Necesitas generar un par de claves de identificación para participar en las elecciones como garante.
               generate_legend_1: Después de pulsar el botón debes descargar el archivo con las claves de identificación generadas.
               generate_legend_2: Copia el archivo descargado a un dispositivo USB limpio
+              generate_legend_3: Asegúrate de que tu equipo no tenga una copia del archivo (por ejemplo, comprueba las carpetas de Descargas y de Escritorio).
               generate_legend_4: Haz otra copia del archivo en un dispositivo externo diferente y guárdalo en un lugar muy seguro.
               submit: Enviar
               submit_legend: Después de seguir todos los pasos explicados anteriormente, completa el proceso enviando la clave de identificación pública al servidor.
@@ -635,7 +637,10 @@ es-PY:
               title: Claves de identificación del garante
               upload: Sube tus claves de identificación
               upload_error:
+                invalid_format: El archivo subido no contiene ninguna clave de identificación.
                 invalid_key: Las claves de identificación en el archivo subido no se pueden cargar.
+                invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave pública de identificación almacenada.
+              upload_legend: En el servidor constan tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
             not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta utilizar cualquier otro de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
             trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
@@ -728,7 +733,6 @@ es-PY:
           back: Atrás
           continue: Siguiente
       warnings:
-        no_elections_warning: No hay ninguna votación que coincida con tu búsqueda o no hay ninguna programada.
         no_scheduled_elections_warning: Actualmente no hay votaciones programadas, pero puedes ver las anteriores.
     events:
       elections:
@@ -999,7 +1003,6 @@ es-PY:
             choose_polling_officers: Elegir gestores de mesa
             close: Cerrar
             more_polling_officers: Hay %{number} gestores de mesa más. Refina tu búsqueda para localizarlos.
-            no_polling_officers: Ningún gestor de mesa coincide con tus criterios de búsqueda o no hay ninguno.
         polling_stations:
           create:
             invalid: Hubo un problema al crear este punto de votación
@@ -1157,6 +1160,7 @@ es-PY:
             subject: La exportación de los códigos de acceso de votación para %{voting_title} está disponible
         vote_flow:
           already_voted_in_person: Esta participante ya ha votado presencialmente y no tiene derecho a voto.
+          datum_not_found: Los datos introducidos no coinciden con ninguna votante.
       content_blocks:
         highlighted_votings:
           name: Votaciones destacadas
@@ -1201,6 +1205,7 @@ es-PY:
             info_text: Por favor, introduce el número total de respuestas para cada pregunta.
             modal_ballots_results_count_error:
               close_modal: Cerrar
+              info_text: El número total de papeletas no coincide con el número total de sobres. Por favor, revisa el total de papeletas.
               title: El total de papeletas no coincide
             save_recount: Guardar recuento
             total_ballots: Total de papeletas
@@ -1215,6 +1220,7 @@ es-PY:
               btn_validate_total: Validar recuento total de papeletas
               close_modal: Cerrar
               info_explanation_text: 'Por favor, revisa el número total de papeletas. Si el número total es incorrecto, debes proporcionar una explicación para el Comité de Seguimiento:'
+              info_text: El número total de papeletas (sobres) introducidas no coincide con el registro de personas que han votado en este punto de votación.
               message_for_monitoring_committee: Mensaje para el Comité de Seguimiento
               review_recount: Revisar el recuento
               text_area_placeholder: Por favor, escribe tu mensaje
