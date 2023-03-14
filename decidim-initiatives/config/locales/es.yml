@@ -468,6 +468,8 @@ es:
           success_html: '¡Enhorabuena! Has firmado la iniciativa <strong> %{title}</strong> correctamente'
         personal_data:
           invalid: Los datos personales no son coherentes con los datos proporcionados para la autorización.
+        sms_code:
+          invalid: El código de verificación no coincide con el nuestro. Por favor, vuelve a revisar el SMS que te enviamos.
         sms_phone:
           invalid: El número de teléfono no es válido o está pendiente de autorización. Por favor, revisa tus autorizaciones.
       initiatives:
