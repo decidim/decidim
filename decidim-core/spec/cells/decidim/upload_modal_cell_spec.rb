@@ -6,17 +6,18 @@ describe Decidim::UploadModal, type: :cell do
   subject { my_cell.call }
 
   let(:my_cell) { cell("decidim/upload_modal", form, options) }
-  let(:form) do
-    double(
-      object: object,
-      object_name: "object",
-      file_field: file_field,
-      abide_error_element: "",
-      error_and_help_text: ""
-    )
-  end
+  let(:form) { Decidim::FormBuilder.new(:object, object, view, {}) }
+  let(:view) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
   let(:object) do
-    double
+    Class.new do
+      def self.model_name
+        ActiveModel::Name.new(self, nil, "dummy")
+      end
+
+      def model_name
+        self.class.model_name
+      end
+    end.new
   end
   let(:file_field) { double }
   let(:file_validation_humanizer) do
@@ -29,14 +30,14 @@ describe Decidim::UploadModal, type: :cell do
       attribute: attribute,
       resource_name: resource_name,
       attachments: attachments,
-      optional: optional,
+      required: required,
       titled: titled
     }
   end
   let(:attribute) { "dummy_attribute" }
   let(:resource_name) { "dummy" }
   let(:attachments) { [] }
-  let(:optional) { true }
+  let(:required) { false }
   let(:titled) { false }
 
   before do
@@ -56,18 +57,35 @@ describe Decidim::UploadModal, type: :cell do
   end
 
   context "when file is required" do
-    let(:optional) { false }
-    let(:object) do
-      double(
-        model_name: double(
-          param_key: param_key
-        )
-      )
-    end
-    let(:param_key) { "dummy_param_key" }
+    let(:required) { true }
 
     it "renders hidden checkbox" do
-      expect(subject).to have_css("input[name='#{param_key}[#{attribute}_validation]']")
+      expect(subject).to have_css("input[name='dummy[#{attribute}_validation]']")
+    end
+
+    it "renders the required field indicator" do
+      expect(subject).to have_css("label .label-required", text: "Required field")
+    end
+  end
+
+  # @deprecated Remove after removing the `optional` option.
+  context "when file is not optional" do
+    let(:options) do
+      {
+        attribute: attribute,
+        resource_name: resource_name,
+        attachments: attachments,
+        optional: false,
+        titled: titled
+      }
+    end
+
+    it "renders hidden checkbox" do
+      expect(subject).to have_css("input[name='dummy[#{attribute}_validation]']")
+    end
+
+    it "renders the required field indicator" do
+      expect(subject).to have_css("label .label-required", text: "Required field")
     end
   end
 

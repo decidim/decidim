@@ -8,7 +8,7 @@
     <%= decidim_form_for(@form, url: user_groups_csv_verification_path, html: { class: "form" }) do |form| %>
       <p><%= t(".explanation") %></p>
       <div class="row column">
-        <%= form.upload :file, optional: false %>
+        <%= form.upload :file, required: true %>
       </div>
 
       <div class="button--double form-general-submit">
