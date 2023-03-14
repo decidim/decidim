@@ -347,7 +347,6 @@ ja:
           description_own: '%{score} の提案をサポートしました。'
           name: 提案サポート
           next_level_in: さらに %{score} の提案をサポートして次のレベルに到達しましょう！
-          unearned_another: この参加者はまだどの提案もサポートしていません。
           unearned_own: まだ提案がありません。
         proposals:
           conditions:
@@ -358,7 +357,6 @@ ja:
           description_own: '%{score} 件の提案を作成しました。'
           name: 提案
           next_level_in: '%{score} 個の提案を作成して、次のレベルに到達しましょう！'
-          unearned_another: この参加者はまだ提案を作成していません。
           unearned_own: 提案はまだ作成されていません。
     metrics:
       accepted_proposals:
@@ -622,7 +620,6 @@ ja:
           publish:
             error: 共同草案を公開する際に問題が発生しました。
             irreversible_action_modal:
-              body: 提案として草案を公開した後、草案は編集できなくなります。提案は新しい著者や貢献者を受け入れません。
               cancel: キャンセル
               ok: 提案として公開
               title: 次のアクションは取り消せません
@@ -631,7 +628,6 @@ ja:
           withdraw:
             error: 共同草案を閉じる際に問題が発生しました。
             irreversible_action_modal:
-              body: 草案を閉じた後、草案は編集できなくなります。草案は新しい投稿者や投稿を受け入れません。
               cancel: キャンセル
               ok: 共同草案を撤回する
               title: 次のアクションは取り消せません
@@ -849,7 +845,6 @@ ja:
           view_proposal: 提案を表示
         proposals:
           empty: 提案はまだありません
-          empty_filters: この基準の提案はありません
         show:
           answer: 回答
           back_to: 前に戻る
@@ -927,7 +922,6 @@ ja:
         choose_proposals: 提案を選択
         close: 閉じる
         more_proposals: あと %{number} 件の提案があります。検索を絞り込んで見つけましょう。
-        no_proposals: 検索条件に一致する提案がないか、提案がありません。
       publish:
         error: 提案を発表する際に問題が発生しました。
         success: 提案は正常に公開されました。
