@@ -135,7 +135,6 @@ lv:
           description_own: Jūs esat apmeklējis %{score} sanāksmes.
           name: Apmeklētas sanāksmes
           next_level_in: Apmeklējiet vēl %{score} sanāksmes, lai sasniegtu nākamo līmeni!
-          unearned_another: Šis dalībnieks vēl nav apmeklējis nevienu sanāksmi.
     meetings:
       actions:
         agenda: Darba kārtība
@@ -318,7 +317,6 @@ lv:
         meeting_minutes:
           related_information: Saistītā informācija
         meetings:
-          no_meetings_warning: Neviena sanāksme neatbilst jūsu meklēšanas kritērijiem, vai arī neviena sanāksme nav plānota.
           upcoming_meetings_warning: Pašlaik nav plānotas sanāksmes, taču šeit varat atrast visas iepriekšējās sanāksmes.
         registration_confirm:
           cancel: Atcelt
