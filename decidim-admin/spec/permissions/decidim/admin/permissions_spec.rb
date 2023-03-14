@@ -336,6 +336,24 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "admins" do
+    let(:action_subject) { :admin_user }
+
+    context "when trying to delete admin rights from self" do
+      let(:action_name) { :destroy }
+      let(:context) { { user: user } }
+
+      it_behaves_like "permission is not set"
+    end
+
+    context "when trying to block self" do
+      let(:action_name) { :block }
+      let(:context) { { user: user } }
+
+      it_behaves_like "permission is not set"
+    end
+  end
+
   shared_examples "can perform any action for" do |action_subject_name|
     let(:action_subject) { action_subject_name }
 
