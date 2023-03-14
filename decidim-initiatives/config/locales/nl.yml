@@ -147,7 +147,6 @@ nl:
           description_own: Je hebt %{score} initiatieven gepubliceerd.
           name: Gepubliceerde initiatieven
           next_level_in: Publiceer nog %{score} initiatieven om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen initiatieven gepubliceerd.
           unearned_own: Je hebt nog geen initiatieven gepubliceerd.
     help:
       participatory_spaces:
