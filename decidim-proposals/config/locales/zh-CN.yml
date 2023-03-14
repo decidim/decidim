@@ -276,7 +276,6 @@ zh-CN:
           description_own: 您已经对 %{score} 的建议给予了支持。
           name: 建议支持
           next_level_in: 支持更多 %{score} 个建议以达到下一级！
-          unearned_another: 此参与者尚未支持任何建议。
           unearned_own: 您还没有对任何建议给予支持。
         proposals:
           conditions:
@@ -287,7 +286,6 @@ zh-CN:
           description_own: 您已创建了 %{score} 个建议。
           name: 建议
           next_level_in: 再创建 %{score} 个建议以达到下一关！
-          unearned_another: 此参与者尚未创建任何提案。
           unearned_own: 您尚未创建任何提案。
     metrics:
       accepted_proposals:
@@ -513,7 +511,6 @@ zh-CN:
           publish:
             error: 发布合作草案时出现问题。
             irreversible_action_modal:
-              body: 在将草案作为提案发表之后，草案将不再被编辑。该提案不会接受新的作者或贡献。
               cancel: 取消
               ok: 发布为提案
               title: 以下操作是不可逆的
@@ -522,7 +519,6 @@ zh-CN:
           withdraw:
             error: 在结束合作草案时遇到了问题。
             irreversible_action_modal:
-              body: 草案结束后，草案将不会再被编辑。草案将不会接受新的作者或贡献。
               cancel: 取消
               ok: 撤回协作草稿
               title: 以下操作是不可逆的
@@ -716,7 +712,6 @@ zh-CN:
           view_proposal: 查看提案
         proposals:
           empty: 还没有提案
-          empty_filters: 没有任何符合此标准的提案
         show:
           answer: 答案
           back_to: 返回到
@@ -794,7 +789,6 @@ zh-CN:
         choose_proposals: 选择建议
         close: 关闭
         more_proposals: 还有 %{number} 个建议。请仔细搜索以找到它们。
-        no_proposals: 没有符合您搜索条件的建议或没有任何建议。
       publish:
         error: 发布建议时出现问题。
         success: 建议发布成功。
