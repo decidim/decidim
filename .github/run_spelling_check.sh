@@ -1,38 +1,33 @@
 #!/bin/bash
 
+if ! command -v yq &> /dev/null; then
+  echo "The yq command is not available on this system."
+  echo "Please install yq to use this script."
+  echo "See: https://github.com/mikefarah/yq/#install"
+  exit 1
+fi
+
+# Read the configurations from the YAML file
+CONFIG_FILE=".spelling.yml"
+
+declare -A forbidden_words=()
+while read forbidden; do
+  word=$(echo $forbidden | cut -d'=' -f 1)
+  preferred=$(echo $forbidden | cut -d'=' -f 2-)
+  forbidden_words["$word"]="$preferred"
+done < <(yq '.forbidden | to_entries | map([.key, .value] | join("=")) | .[]' "$CONFIG_FILE")
+
 forbidden_words_file=$(mktemp)
 trap 'rm -f $forbidden_words_file' EXIT
 
-declare -A forbidden_words=(
-  ["aren't"]="are not"
-  ["can't"]="cannot"
-  ["couldn't"]="could not"
-  ["didn't"]="did not"
-  ["doesn't"]="does not"
-  ["don't"]="do not"
-  ["hasn't"]="has not"
-  ["haven't"]="have not"
-  ["isn't"]="is not"
-  ["shouldn't"]="should not"
-  ["wasn't"]="was not"
-  ["weren't"]="were not"
-  ["won't"]="will not"
-)
-
 printf "%s\n" "${!forbidden_words[@]}" | sort > $forbidden_words_file
 
-exclude_paths=(
-  "decidim-dev/lib/decidim/dev/assets/participatory_text.md"
-  "decidim-core/lib/decidim/db/common-passwords.txt"
-  "decidim-initiatives/spec/types/initiative_type_spec.rb"
-  "decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md"
-  "config/locales/((?!en).)*\.yml"
-)
+exclude_paths=($(yq '.exclude_paths[]' "$CONFIG_FILE"))
 exclude_paths_pattern=$(printf "|(%s)" "${exclude_paths[@]}" | cut -c 2-)
 
+# Perform grep and iterate through all matches
 status=0
 
-# Perform grep and iterate through all matches
 while read match; do
   status=1
 

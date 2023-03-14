@@ -1,0 +1,21 @@
+exclude_paths:
+  - config/locales/((?!en).)*\.yml
+  - decidim-dev/lib/decidim/dev/assets/participatory_text.md
+  - decidim-core/lib/decidim/db/common-passwords.txt
+  - decidim-initiatives/spec/types/initiative_type_spec.rb
+  - decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
+
+forbidden:
+  "aren\'t": are not
+  "can't": cannot
+  "couldn't": could not
+  "didn't": did not
+  "doesn't": does not
+  "don't": do not
+  "hasn't": has not
+  "haven't": have not
+  "isn't": is not
+  "shouldn't": should not
+  "wasn't": was not
+  "weren't": were not
+  "won't": will not
