@@ -107,7 +107,6 @@ nl:
     account:
       blocked: Dit account is geblokkeerd vanwege schending van de Algemene Voorwaarden
       delete:
-        alert: Deze actie kan niet ongedaan worden gemaakt. Als je je account verwijdert, kan je niet meer inloggen met je inloggegevens. Het verwijderen van je account zal leiden tot het anonimiseren van je bijdragen. Je kunt nog steeds een nieuw account aanmaken, maar eerdere bijdragen worden daar niet aan gekoppeld.
         confirm:
           close: Sluit venster
           ok: Ja, ik wil mijn account verwijderen
@@ -336,7 +335,6 @@ nl:
           resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
           title: Autorisatie is nog bezig
         unauthorized:
-          invalid_field: "%{field} waarde %{value} is niet geldig."
           ok: OK
           title: Niet geautoriseerd
         unconfirmed:
@@ -671,7 +669,6 @@ nl:
         result: Resultaten
     fingerprint:
       check: Controleer vingerafdruk
-      explanation: Het onderstaande stukje tekst is een verkorte, gehashte weergave van deze inhoud. Het is handig om ervoor te zorgen dat er niet met de inhoud is geknoeid, omdat een enkele wijziging een totaal andere waarde zou hebben.
       online_calculator_name: MD5 calculator online
       replicate_help: Deze vingerafdruk wordt berekend met behulp van een SHA256 hash-algoritme. Om het zelf te repliceren, kunt u een %{online_calculator_link} gebruiken en de brongegevens kopiëren en plakken.
       source: Bron
@@ -731,7 +728,6 @@ nl:
       reached_top: U hebt het hoogste niveau bereikt voor deze badge.
     group_admins:
       actions:
-        are_you_sure: Weet je het zeker? Hiermee wordt de deelnemer niet uit de groep verwijderd.
         demote_admin: Verwijder admin
       demote:
         error: Er is een probleem opgetreden bij het verwijderen van deze deelnemer uit de beheerderslijst
@@ -1073,7 +1069,6 @@ nl:
           modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
         required_review:
           alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
-          body: Neem even de tijd om updates van onze Servicevoorwaarden door te nemen. Anders kunt u het platform niet gebruiken.
           title: 'Vereist: bekijk updates van onze servicevoorwaarden'
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
@@ -1387,7 +1382,6 @@ nl:
         action: Verander mijn wachtwoord
         greeting: Hallo %{recipient}!
         instruction: Iemand heeft om een ​​link gevraagd om uw wachtwoord te wijzigen en u kunt dit doen via de onderstaande link.
-        instruction_3: Uw wachtwoord verandert niet totdat u de bovenstaande link opent en een nieuwe maakt.
         subject: Reset wachtwoordinstructies
       unlock_instructions:
         action: Ontgrendel mijn account
