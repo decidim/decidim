@@ -47,7 +47,6 @@ ro:
           description_own: Ați creat %{score} teste.
           name: Teste
           next_level_in: Crează încă %{score} teste pentru a atinge următorul nivel!
-          unearned_another: Acest participant nu a creat încă niciun test.
           unearned_own: Nu ați creat încă niciun test.
     resource_links:
       test_link:
