@@ -460,7 +460,6 @@ sv:
           back: Tillbaka
           continue: Nästa
       warnings:
-        no_elections_warning: Inga omröstningar matchar dina sökkriterier eller det finns ingen omröstning planerad.
         no_scheduled_elections_warning: För närvarande finns det inga planerade omröstningar, men här hittar du alla tidigare omröstningar listade.
     events:
       elections:
