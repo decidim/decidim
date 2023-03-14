@@ -6,3 +6,6 @@ require.context("../images", true)
 
 // Documents
 require.context("../documents", true)
+
+// CSS
+import "stylesheets/decidim/proposals/proposals.scss"
