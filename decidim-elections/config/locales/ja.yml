@@ -705,7 +705,6 @@ ja:
           back: 戻る
           continue: 次へ
       warnings:
-        no_elections_warning: 検索条件に一致する選挙がないか、または予定されている選挙がありません。
         no_scheduled_elections_warning: 現在、予定された選挙はありませんが、ここでは記載されているすべての過去の選挙を見つけることができます。
     events:
       elections:
@@ -975,7 +974,6 @@ ja:
             choose_polling_officers: 投票委員を選択してください
             close: 閉じる
             more_polling_officers: あと %{number} 人の投票委員がいます。検索を絞り込んで探しましょう。
-            no_polling_officers: 検索条件に一致する投票委員がいないか、または投票委員が存在しません。
         polling_stations:
           create:
             invalid: 投票所の作成中に問題が発生しました
