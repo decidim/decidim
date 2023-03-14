@@ -176,7 +176,6 @@ hu:
           description_own: '%{score} kezdeményezéseid közzétéve.'
           name: Közzétett kezdeményezések
           next_level_in: Szerezz még %{score} kezdeményezéseket a következő szint eléréséhez!
-          unearned_another: Ez a résztvevő még nem tett közzé semmilyen kezdeményezést.
           unearned_own: Még nem tettél közzé kezdeményezéseket.
     help:
       participatory_spaces:
