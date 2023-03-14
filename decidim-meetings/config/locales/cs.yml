@@ -207,7 +207,6 @@ cs:
           description_own: Zúčastnili jste se %{score} setkání.
           name: Účastnily se setkání
           next_level_in: Zúčastněte se dalších %{score} setkání, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel se ještě nezúčastnil žádné schůzky.
           unearned_own: Zatím jste se nezúčastnili žádné schůze.
     meetings:
       actions:
@@ -536,7 +535,6 @@ cs:
         meeting_minutes:
           related_information: Související informace
         meetings:
-          no_meetings_warning: Žádné schůzky neodpovídají vašim kritériím vyhledávání nebo nejsou plánovány žádné schůzky.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
         new:
           back: Zpět
