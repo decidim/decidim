@@ -157,7 +157,6 @@ zh-CN:
           description_own: 您已经发布了 %{score} 项倡议。
           name: 已发布的活动
           next_level_in: 获取 %{score} 个更多已发布的倡议以达到下一级！
-          unearned_another: 此参与者尚未收到任何已发布的倡议。
           unearned_own: 您尚未发布任何倡议。
     help:
       participatory_spaces:
