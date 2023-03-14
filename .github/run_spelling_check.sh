@@ -64,6 +64,6 @@ while read match ; do
   # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message
   message_words=$(printf ", %s" "${words[@]}")
   echo "::error file=${file},line=${line}::${message} ${message_words:2}"
-done < <(find decidim-* -type f | grep -vf $excluded_paths | xargs -n1000 grep -nif $forbidden_words)
+done < <(find decidim-* -type f | grep -vf $excluded_paths | xargs -n1000 grep -Hnif $forbidden_words)
 
 exit $status
