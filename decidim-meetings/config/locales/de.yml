@@ -193,7 +193,6 @@ de:
           description_own: Sie haben an %{score} Sitzungen teilgenommen.
           name: Besuchte Sitzungen
           next_level_in: Nimm an %{score} weiteren Sitzungen teil, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch kein Sitzungen besucht.
           unearned_own: Sie haben noch kein Meeting besucht.
     meetings:
       actions:
@@ -497,7 +496,6 @@ de:
         meeting_minutes:
           related_information: Zugehörige Informationen
         meetings:
-          no_meetings_warning: Keine Besprechung entspricht Ihren Suchkriterien oder es ist keine Besprechung geplant.
           upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
         new:
           back: Zurück
