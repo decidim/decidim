@@ -127,7 +127,6 @@ ar:
           description_own: لديك %{score} مبادرات تم نشرها.
           name: المبادرات المنشورة
           next_level_in: احصل على %{score} مبادرة تم نشرها للوصول إلى المستوى التالي!
-          unearned_another: لم يحصل هذا المشارك على أية مبادرات منشورة حتى الآن.
           unearned_own: لم تحصل على أي مبادرات منشورة بعد.
     help:
       participatory_spaces:
