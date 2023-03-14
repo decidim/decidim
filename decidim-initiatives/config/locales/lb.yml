@@ -170,7 +170,6 @@ lb:
           description_own: Du hast %{score} Initiativen veröffentlicht.
           name: Veröffentlichte Initiativen
           next_level_in: Holen Sie sich %{score} weitere Initiativen veröffentlicht, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Initiativen veröffentlicht.
           unearned_own: Sie haben noch keine Initiativen veröffentlicht.
     help:
       participatory_spaces:
