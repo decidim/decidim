@@ -180,7 +180,6 @@ lt:
           description_own: Jūs paskelbėte %{score} iniciatyvas (-ų).
           name: Paskelbtos iniciatyvos
           next_level_in: Paskelbkite dar %{score} iniciatyvas (-ų) ir pasiekite kitą lygį!
-          unearned_another: Šis dalyvis dar nepaskelbė nė vienos iniciatyvos.
           unearned_own: Jūs nepaskelbėte nė vienos iniciatyvos.
     help:
       participatory_spaces:
