@@ -138,7 +138,6 @@ sk:
           description_own: Zúčastnili ste sa %{score} stretnutí.
           name: Stretnutia, ktorých ste sa zúčastnili
           next_level_in: Zúčastnite sa ďalších %{score} stretnutí pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník sa nezúčastnil žiadneho stretnutia.
     meetings:
       actions:
         agenda: Denný program
@@ -322,7 +321,6 @@ sk:
         meeting_minutes:
           related_information: Súvisiace informácie
         meetings:
-          no_meetings_warning: Žiadne schôdzky nezodpovedajú vašim kritériám vyhľadávania alebo nie sú plánované žiadne schôdzky.
           upcoming_meetings_warning: V súčasnosti neexistujú žiadne plánované schôdzky, ale nájdete tu všetky minulé stretnutia.
         registration_confirm:
           cancel: Zrušiť
