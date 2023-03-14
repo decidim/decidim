@@ -640,7 +640,6 @@ pt:
           back: Retroceder
           continue: Seguinte
       warnings:
-        no_elections_warning: Nenhuma eleição corresponde aos seus critérios de pesquisa ou não há nenhuma eleição agendada.
         no_scheduled_elections_warning: Actualmente, não há eleições agendadas, mas aqui pode encontrar listadas todas as eleições passadas.
     events:
       elections:
@@ -900,7 +899,6 @@ pt:
             choose_polling_officers: Escolher oficiais de votação
             close: Fechar
             more_polling_officers: Existem mais %{number} oficiais de votação. Refine a sua procura para localizá-los.
-            no_polling_officers: Não há oficiais de votação que correspondam aos seus critérios de pesquisa ou não há nenhum oficial de votação.
         polling_stations:
           create:
             invalid: Ocorreu um problema ao criar esta secção de voto
