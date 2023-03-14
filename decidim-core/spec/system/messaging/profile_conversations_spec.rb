@@ -27,6 +27,20 @@ describe "ProfileConversations", type: :system do
     end
   end
 
+  context "when visiting blocked profile page" do
+    let(:profile) { create(:user_group, :confirmed, :blocked, organization: organization, users: [user, extra_user]) }
+    let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
+
+    before do
+      login_as admin, scope: :user
+      visit decidim.profile_path(nickname: profile.nickname)
+    end
+
+    it "doesn't have a contact link" do
+      expect(page).not_to have_link(title: "Contact", href: decidim.new_conversation_path(recipient_id: profile.id))
+    end
+  end
+
   context "when profile has no conversations" do
     before { visit_profile_inbox }
 
