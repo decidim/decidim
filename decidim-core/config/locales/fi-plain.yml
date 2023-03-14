@@ -414,6 +414,7 @@ fi-pl:
           resume: Tarkista "%{authorization}" varmennuksen eteneminen
           title: Varmennus on edelleen kesken
         unauthorized:
+          explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
           invalid_field: "Kentän %{field} arvo %{value} ei kelpaa."
           ok: Ok
           title: Ei varmennettu
@@ -816,6 +817,7 @@ fi-pl:
       following_count:
         one: "%{count} seuraaja"
         other: "%{count} seuraajaa"
+      no_followings: Ei vielä seuraa ketään tai mitään.
       non_public_followings: Osa seuratuista kohteista ei ole julkisia.
     follows:
       create:
@@ -883,6 +885,7 @@ fi-pl:
           description_own: "%{score} käyttäjää seuraa sinua."
           name: Seuraajat
           next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
+          unearned_another: Tällä osallistujalla ei ole vielä seuraajia.
           unearned_own: Sinulla ei ole vielä seuraajia.
         index:
           badge_title: "%{name} kunniamerkki"
@@ -895,7 +898,7 @@ fi-pl:
       title: Mitä kunniamerkit ovat?
     group_admins:
       actions:
-        are_you_sure: Oletko varma? Tämä ei poista käyttäjää ryhmästä.
+        are_you_sure: Oletko varma? Tämä ei poista osallistujaa ryhmästä.
         demote_admin: Poista ylläpitäjä
       demote:
         error: Virhe poistettaessa tätä käyttäjää ylläpitäjistä
@@ -970,6 +973,7 @@ fi-pl:
         create_user_group: Luo ryhmä
         new_user_group: Uusi ryhmä
         subtitle: Luo ryhmä ja pyydä muita käyttäjiä osallistumaan yhteisöllisellä tasolla.
+      no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
         admin: Ylläpitäjä
         creator: Hallinnoija
@@ -1030,6 +1034,8 @@ fi-pl:
       static:
         latlng_text: 'leveysaste: %{latitude}, pituusaste: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Tässä ryhmässä ei ole vielä jäseniä.
     menu:
       help: Tietoa
       home: Etusivu
@@ -1411,6 +1417,7 @@ fi-pl:
         already_reported: Tästä sisällöstä on jo tehty ilmoitus ja palvelun hallinnoija tarkastaa sen.
         close: Sulje
         description: Onko tämä sisältö epäasiallista?
+        does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
         hide: Piilota
         hide_content: Piilota tämä sisältö
         offensive: Sisältää rasismia, seksismiä, loukkauksia, henkilöihin kohdistuneita hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai mitä tahansa vihapuhetta.
@@ -1423,6 +1430,7 @@ fi-pl:
         already_reported: Tämä sisältö on jo ilmoitettu ja se odottaa hallintakäyttäjän tarkastusta.
         close: Sulje
         description: Mikä tässä käyttäjässä on asiatonta?
+        does_not_belong: Sisältää laitonta toimintaa, itsemurhauhkailua, henkilökohtaisia tietoja tai jotain muuta, jonka et usko kuuluvan %{organization_name} -palveluun.
         offensive: Sisältää rasismia, seksismiä, haukkumista, henkilökohtaisia hyökkäyksiä, tappouhkauksia, itsemurhapyyntöjä tai muuta vihapuhetta.
         report: Tee ilmoitus
         spam: Sisältää klikkihoukutteita, mainostusta, huijauksia tai bottiskriptejä.
@@ -1519,6 +1527,7 @@ fi-pl:
     user_interests:
       show:
         my_interests: Omat kiinnostuksen kohteet
+        no_scopes: Tällä organisaatiolla ei ole vielä teemaa!
         select_your_interests: Valitse ne aiheet, joista olet kiinnostunut vastaanottamaan tapahtumia profiilisi aikajana-välilehdellä.
         update_my_interests: Päivitä omat kiinnostuksen kohteet
       update:
@@ -1642,7 +1651,7 @@ fi-pl:
         greeting: Hei %{recipient}!
         instruction: Joku on pyytänyt linkin käyttäjätilisi salasanan vaihtamiseen, ja voit tehdä sen alla olevan linkin kautta.
         instruction_2: Jos et pyytänyt uutta salasanaa, jätä tämä sähköposti huomioimatta.
-        instruction_3: Salasanasi ei muutu, ennen kuin klikkaat yllä olevaa linkkiä ja luot uuden.
+        instruction_3: Salasanasi ei muutu, ennen kuin avaat yllä olevan linkin ja luot uuden salasanan.
         subject: Ohjeet salasanan nollaukseen
       unlock_instructions:
         action: Avaa tilini
@@ -1737,6 +1746,7 @@ fi-pl:
       already_confirmed: on jo vahvistettu, yritä kirjautua sisään
       blank: ei voi olla tyhjä
       cannot_be_blank: ei voi olla tyhjä
+      confirmation: ei täsmää kentän %{attribute} kanssa
       confirmation_period_expired: on vahvistettava %{period} kuluessa, pyydä uutta
       content_type_allowlist_error: tiedostotyyppi ei kelpaa
       cycle_detected: teeman isäntä ei voi olla sen jälkeläinen
