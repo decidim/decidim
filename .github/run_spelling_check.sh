@@ -3,7 +3,7 @@
 forbidden_words=$(mktemp)
 excluded_paths=$(mktemp)
 
-cat <<EOT > $forbidden_words
+cat <<EOT | sort > $forbidden_words
 aren't
 can't
 couldn't
