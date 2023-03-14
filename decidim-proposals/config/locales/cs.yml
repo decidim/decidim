@@ -359,7 +359,6 @@ cs:
           description_own: Podpořili jste %{score} návrhů.
           name: Podpora návrhů
           next_level_in: Poskytněte podporu %{score} dalších návrhů, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel zatím nepodporoval žádné návrhy.
           unearned_own: Zatím jste nepodpořili žádné návrhy.
         proposals:
           conditions:
@@ -370,7 +369,6 @@ cs:
           description_own: Vytvořili jste %{score} návrhů.
           name: Návrhy
           next_level_in: Vytvořte %{score} dalších návrhů, abyste dosáhli další úrovně!
-          unearned_another: Tento uživatel dosud nevytvořil žádné návrhy.
           unearned_own: Dosud jste nevytvořili žádné návrhy.
     metrics:
       accepted_proposals:
@@ -643,7 +641,6 @@ cs:
           publish:
             error: Při publikování konceptu spolupráce došlo k chybám.
             irreversible_action_modal:
-              body: Po zveřejnění návrhu jako návrhu návrh již nebude upravitelný. Návrh nepřijme nové autory ani příspěvky.
               cancel: Zrušit
               ok: Publikovat jako návrh
               title: Následující akce je nevratná
@@ -652,7 +649,6 @@ cs:
           withdraw:
             error: Došlo k chybě při uzavření návrhu spolupráce.
             irreversible_action_modal:
-              body: Po uzavření konceptu již návrh nebude upravitelný. Návrh nepřijme nové autory nebo příspěvky.
               cancel: Zrušit
               ok: Vyjměte návrh spolupráce
               title: Následující akce je nevratná
@@ -885,7 +881,6 @@ cs:
           view_proposal: Zobrazit návrh
         proposals:
           empty: Zatím neexistuje žádný návrh
-          empty_filters: Neexistuje žádný návrh s tímto kritériem
         show:
           answer: Odpovědět
           back_to: Zpět k
@@ -969,7 +964,6 @@ cs:
         choose_proposals: Vybrat návrhy
         close: Zavřít
         more_proposals: Existuje ještě %{number} návrhů. Upřesněte vaše hledání a najděte je.
-        no_proposals: Žádné návrhy neodpovídají zadaným kritériím nebo nejsou k dispozici žádné návrhy.
       publish:
         error: Při publikování návrhu došlo k chybám.
         success: Návrh byl úspěšně publikován.
