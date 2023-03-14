@@ -46,7 +46,6 @@ eu:
           description_own: '%{score} proba sortu dituzu.'
           name: probak
           next_level_in: Sortu %{score} proba gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek ez du proba oraindik sortu.
           unearned_own: Oraindik ez duzu probak sortu.
     resource_links:
       test_link:
