@@ -205,7 +205,6 @@ es-PY:
           description_own: Usted ha asistido a %{score} reuniones.
           name: Reuniones asistidas
           next_level_in: '¡Asiste a %{score} reuniones más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha asistido a ninguna reunión.
           unearned_own: No has asistido a ningún encuentro todavía.
     meetings:
       actions:
@@ -527,7 +526,6 @@ es-PY:
         meeting_minutes:
           related_information: Información relacionada
         meetings:
-          no_meetings_warning: No hay encuentros que coincidan con el criterio de búsqueda o no hay ningún encuentro programado.
           upcoming_meetings_warning: Actualmente no hay encuentros programados, pero puedes ver los encuentros anteriores.
         new:
           back: Atrás
