@@ -172,7 +172,6 @@ eu:
           description_own: Argitaratutako %{score} ekimen dituzu.
           name: Argitaratutako ekimenak
           next_level_in: Talde %{score} ekimen gehiago argitaratu hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du argitaratutako ekimenik lortu.
           unearned_own: Ez duzu oraindik argitaratutako ekimenik.
     help:
       participatory_spaces:
