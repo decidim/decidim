@@ -52,6 +52,7 @@ ca:
           description_own: Has creat %{score} proves.
           name: Proves
           next_level_in: Crea %{score} més proves per arribar al següent nivell!
+          unearned_another: Aquesta participant encara no ha creat cap prova.
           unearned_own: Encara no has creat cap prova.
     resource_links:
       test_link:
