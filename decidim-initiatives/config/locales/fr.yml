@@ -64,7 +64,7 @@ fr:
             attachment:
               file: Le fichier n'est pas valide
               needs_to_be_reattached: Doit être téléchargé de nouveau
-              title: "Title should not be empty\nChamp obligatoire"
+              title: Le titre doit être non vide
   activerecord:
     models:
       decidim/initiative:
@@ -192,6 +192,7 @@ fr:
           description_own: Vous avez publié %{score} pétitions.
           name: Pétitions publiées
           next_level_in: Publiez %{score} pétitions pour atteindre le niveau supérieur!
+          unearned_another: Cet utilisateur n'a pas encore publié de pétition.
           unearned_own: Vous n'avez pas encore publié de pétition.
     help:
       participatory_spaces:
@@ -467,6 +468,8 @@ fr:
           success_html: Toutes nos félicitations ! La pétition <strong> %{title}</strong> a été signée correctement
         personal_data:
           invalid: Les données personnelles ne correspondent pas aux données fournies pour autorisation.
+        sms_code:
+          invalid: Votre code de vérification ne correspond pas au nôtre. Veuillez revérifier le SMS que nous vous avons envoyé.
         sms_phone:
           invalid: Le numéro de téléphone est invalide ou en attente d'autorisation. S'il vous plaît, vérifiez vos autorisations.
       initiatives:
