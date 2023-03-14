@@ -602,6 +602,7 @@ fr:
               processing: Traitement en cours
             title: Dépouillement pour %{election}
           update:
+            error: Le statut de l'élection n'a pas été mis à jour.
             success: 'Le statut de l''élection est : %{status}'
         menu:
           trustee_zone: Espace de garant
@@ -628,6 +629,7 @@ fr:
               generate_legend: Vous devez générer une paire de clés d'identification pour participer aux élections en tant que garant.
               generate_legend_1: Après avoir cliqué sur le bouton, le téléchargement du fichier contenant les clés d'identification générées va commencer.
               generate_legend_2: Copiez le fichier téléchargé sur un périphérique USB fiable
+              generate_legend_3: Assurez-vous que votre ordinateur ne possède pas de copie du fichier (par exemple, vérifiez les dossiers Téléchargements et Bureau).
               generate_legend_4: Faites une autre copie du fichier sur un appareil externe et conservez-le dans un endroit très sûr.
               submit: Envoyer
               submit_legend: Après avoir suivi toutes les étapes expliquées ci-dessus, complétez le processus d'envoi de la clé d'identification publique au serveur.
@@ -635,6 +637,7 @@ fr:
               title: Clés d'identification du garant
               upload: Téléchargez vos clés d'identification
               upload_error:
+                invalid_format: Le fichier téléchargé ne contient pas de clé d'identification.
                 invalid_key: Impossible de charger les clés d'identification à partir du fichier téléchargé.
             not_supported_browser_description: "It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your tasks.\nIl semblerait que votre navigateur web ne peut pas être utilisé pour agir en tant qu'administrateur. Assurez-vous d'utiliser la dernière version ou essayez d'utiliser l'un des navigateurs les plus populaires afin de réaliser vos tâches."
             not_supported_browser_title: Mettre à niveau le navigateur pour agir en tant que garant
