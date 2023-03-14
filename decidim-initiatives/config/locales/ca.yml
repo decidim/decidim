@@ -192,7 +192,6 @@ ca:
           description_own: Tens %{score} iniciatives publicades.
           name: Iniciatives publicades
           next_level_in: Publica %{score} iniciatives més per arribar al següent nivell!
-          unearned_another: Aquesta participant encara no ha publicat cap iniciativa.
           unearned_own: Encara no has publicat cap iniciativa.
     help:
       participatory_spaces:
