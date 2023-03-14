@@ -742,7 +742,6 @@ cs:
           back: Zpět
           continue: Další
       warnings:
-        no_elections_warning: Žádné volby neodpovídají zadaným kritériím nebo nejsou naplánovány žádné volby.
         no_scheduled_elections_warning: V současné době nejsou žádné plánované volby, ale zde najdete všechny minulé volby na seznamu.
     events:
       elections:
@@ -1013,7 +1012,6 @@ cs:
             choose_polling_officers: Vybrat volební komisaře
             close: Zavřít
             more_polling_officers: Existuje ještě %{number} volebních komisařů. Upřesněte vyhledávání a najděte je.
-            no_polling_officers: Žádní volební komisaři neodpovídají vašim kritériím vyhledávání, nebo zde není žádný volební komisař.
         polling_stations:
           create:
             invalid: Při vytváření tohoto volebního místa došlo k chybě
