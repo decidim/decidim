@@ -292,7 +292,6 @@ gl:
           description_own: Vostede deu apoio a %{score} propostas.
           name: A proposta é compatible
           next_level_in: Dea soporte a máis de %{score} propostas para alcanzar o seguinte nivel!
-          unearned_another: Este usuario aínda non deu soporte a ningunha proposta.
           unearned_own: Xa deu soporte a ningunha proposta aínda.
         proposals:
           conditions:
@@ -303,7 +302,6 @@ gl:
           description_own: Creaches %{score} propostas.
           name: Propostas
           next_level_in: Crea %{score} propostas para chegar ao seguinte nivel!
-          unearned_another: Este usuario aínda non creou ningunha proposta.
           unearned_own: Aínda non creaches propostas.
     metrics:
       accepted_proposals:
@@ -521,7 +519,6 @@ gl:
           publish:
             error: Produciuse un erro ao publicar o borrador colaborativo.
             irreversible_action_modal:
-              body: Despois de publicar o proxecto como proposta, o borrador non será editable máis. A proposta non aceptará novos autores ou contribucións.
               cancel: Cancelar
               ok: Publicar como proposta
               title: A seguinte acción é irreversible
@@ -530,7 +527,6 @@ gl:
           withdraw:
             error: Houbo erros ao pechar o borrador colaborativo.
             irreversible_action_modal:
-              body: Despois de pechar o borrador, o borrador non será editable máis. O borrador non aceptará novos autores ou contribucións.
               cancel: Cancelar
               ok: Retire o borrador colaborativo
               title: A seguinte acción é irreversible
