@@ -351,7 +351,6 @@ eu:
           description_own: '%{score} proposamenei man diezu zure babesa.'
           name: Proposamenak onartzen ditu
           next_level_in: Eman babesa % {score} proposamen gehiagori hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du proposamenik onartzen.
           unearned_own: Oraindik ez duzu proposamenik egin.
         proposals:
           conditions:
@@ -362,7 +361,6 @@ eu:
           description_own: '%{score} proposamen sortu dituzu.'
           name: proposamenak
           next_level_in: Sortu %{score} proposamen gehiago hurrengo mailara iristeko!
-          unearned_another: Erabiltzaile honek oraindik ez du proposamenik sortu.
           unearned_own: Oraindik ez duzu proposamenik sortu.
     metrics:
       accepted_proposals:
@@ -630,7 +628,6 @@ eu:
           publish:
             error: Arazoak izan dira zirriborro kolaboratiboa argitaratzean.
             irreversible_action_modal:
-              body: Proiektua proposamen gisa argitaratu ondoren, zirriborroa ezin izango da berriro editatu. Proposamena ez da egile edo ekarpen berririk onartuko.
               cancel: Utzi
               ok: Proposamen gisa argitaratu
               title: Hurrengo ekintza atzeraezina da
@@ -639,7 +636,6 @@ eu:
           withdraw:
             error: Arazoak izan dira lankidetza zirriborroa ixtean.
             irreversible_action_modal:
-              body: Zirriborroa ixtean, zirriborroa ezin izango da berriro editatu. Zirriborroak ez du egile edo ekarpen berririk onartuko.
               cancel: Utzi
               ok: Lankidetza zirriborroa kendu
               title: Hurrengo ekintza atzeraezina da
@@ -862,7 +858,6 @@ eu:
           view_proposal: Ikusi proposamena
         proposals:
           empty: Oraindik ez dago proposamenik
-          empty_filters: Ez dago irizpide hori duen proposamenik
         show:
           answer: Erantzuna
           back_to: Itzuli
@@ -942,7 +937,6 @@ eu:
         choose_proposals: Hautatu proposamenak
         close: Itxi
         more_proposals: '%{number} proposamen gehiago daude. Zehaztu berriro zure bilaketa aurkitzeko.'
-        no_proposals: Ez dago zure bilatzeko irizpidearekin bat datorren proposamenik edo ez dago proposamenik.
       publish:
         error: Arazoak izan dira proposamena argitaratzean.
         success: Proposamena ondo argitaratua.
