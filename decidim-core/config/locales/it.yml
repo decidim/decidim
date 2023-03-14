@@ -83,7 +83,6 @@ it:
     account:
       blocked: Questo account è stato bloccato a causa della violazione di Termini e Condizioni
       delete:
-        alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai accedere con le tue credenziali. La cancellazione del tuo account comporterà l'anonimizzazione dei tuoi contributi. Sarai ancora in grado di creare un nuovo account, ma questi contributi non saranno associati ad esso.
         confirm:
           close: Chiudere finestra
           ok: Sì, voglio eliminare il mio account
@@ -320,7 +319,6 @@ it:
           resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
           title: L'autorizzazione è ancora in corso
         unauthorized:
-          invalid_field: "%{field} valore %{value} non è valido."
           ok: Ok
           title: Non autorizzato
         unconfirmed:
@@ -664,7 +662,6 @@ it:
         result: Votazioni
     fingerprint:
       check: Controlla l'impronta digitale
-      explanation: La parte di testo qui sotto è una rappresentazione abbreviata e con hash di questo contenuto. È utile assicurarsi che il contenuto non sia stato manomesso, poiché una singola modifica darebbe un valore completamente diverso.
       online_calculator_name: Calcolatrice MD5 online
       replicate_help: Questa impronta digitale viene calcolata utilizzando un algoritmo di hash SHA256. Per replicare tu stesso, puoi usare uno %{online_calculator_link} e copiare e incollare i dati di origine.
       source: fonte
@@ -722,7 +719,6 @@ it:
       reached_top: Hai raggiunto il livello più alto per questo badge.
     group_admins:
       actions:
-        are_you_sure: Sei sicuro? Questo non rimuoverà l'utente dal gruppo.
         demote_admin: Rimuovi l'amministratore
       demote:
         error: Si è verificato un errore durante la rimozione di questo utente dall'elenco degli amministratori
@@ -1060,7 +1056,6 @@ it:
           modal_title: Rifiutate davvero i Termini e condizioni aggiornati?
         required_review:
           alert: Abbiamo aggiornato i nostri Termini di servizio, per favore controllali.
-          body: Si prega di prendere un momento per rivedere gli aggiornamenti ai nostri Termini di servizio. Altrimenti non sarai in grado di utilizzare la piattaforma.
           title: 'Obbligatorio: controlla gli aggiornamenti dei nostri termini di servizio'
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
@@ -1395,7 +1390,6 @@ it:
         action: Cambia la mia password
         greeting: Ciao %{recipient}!
         instruction: Qualcuno ha richiesto un link per cambiare la tua password, e puoi farlo attraverso il link qui sotto.
-        instruction_3: La tua password non cambierà fino a quando non accedi al link sopra e ne crei uno nuovo.
         subject: Reimposta le istruzioni della password
       unlock_instructions:
         action: Sblocca il mio account
