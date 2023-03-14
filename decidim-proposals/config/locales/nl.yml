@@ -309,7 +309,6 @@ nl:
           description_own: U hebt %{score} voorstellen ondersteund.
           name: Voorstel ondersteunt
           next_level_in: Geef %{score} extra voorstellen om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen steun gegeven aan eventuele voorstellen.
           unearned_own: U heeft nog geen steun gegeven aan voorstellen.
         proposals:
           conditions:
@@ -320,7 +319,6 @@ nl:
           description_own: U hebt %{score} voorstellen gemaakt.
           name: voorstellen
           next_level_in: Maak nog %{score} voorstellen om het volgende niveau te bereiken!
-          unearned_another: Deze gebruiker heeft nog geen voorstellen gemaakt.
           unearned_own: U hebt nog geen voorstellen gemaakt.
     metrics:
       accepted_proposals:
@@ -569,7 +567,6 @@ nl:
           publish:
             error: Er zijn fouten opgetreden bij het publiceren van de gezamenlijk ontwerp.
             irreversible_action_modal:
-              body: Nadat het concept als een voorstel is gepubliceerd, kan het concept niet meer worden bewerkt. Het voorstel aanvaardt geen nieuwe auteurs of bijdragen.
               cancel: Annuleer
               ok: Publiceer als een voorstel
               title: De volgende actie is onomkeerbaar
@@ -578,7 +575,6 @@ nl:
           withdraw:
             error: Er zijn fouten opgetreden bij het sluiten van het gezamenlijk ontwerp.
             irreversible_action_modal:
-              body: Nadat het concept is gesloten, kan het niet meer worden bewerkt. Het concept aanvaardt geen nieuwe auteurs of bijdragen.
               cancel: Annuleer
               ok: Trek het gezamenlijk ontwerp in
               title: De volgende actie is onomkeerbaar
@@ -788,7 +784,6 @@ nl:
           view_proposal: Bekijk voorstel
         proposals:
           empty: Er is nog geen voorstel
-          empty_filters: Er is geen voorstel met deze criteria
         show:
           answer: Antwoord
           back_to: Terug naar
@@ -868,7 +863,6 @@ nl:
         choose_proposals: Kies voorstellen
         close: Afsluiten
         more_proposals: Er zijn nog %{number} voorstellen. Verfijn je zoekopdracht om ze te vinden.
-        no_proposals: Er zijn geen voorstellen die overeenkomen met uw zoekcriteria of er zijn geen voorstellen.
       publish:
         error: Er is een fout opgetreden bij het publiceren van het voorstel.
         success: Voorstel succesvol gepubliceerd.
