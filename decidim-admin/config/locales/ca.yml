@@ -209,7 +209,6 @@ ca:
           title: Accepto els Termes i Condicions d'Administració
         required_review:
           alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
-          callout: Si us plau dedica un moment a revisar l'actualització dels nostres termes i condicions del panell d'administració. En cas contrari, no podràs utilitzar la plataforma.
           cta: Revisa-les ara.
         title: Termes i Condicions del panell d'administració
       area_types:
