@@ -327,7 +327,6 @@ lb:
         meeting_minutes:
           related_information: Zugehörige Informationen
         meetings:
-          no_meetings_warning: Keine Besprechung entspricht Ihren Suchkriterien oder es ist keine Besprechung geplant.
           upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
         new:
           back: Zréck
