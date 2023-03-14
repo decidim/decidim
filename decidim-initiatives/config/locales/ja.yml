@@ -188,7 +188,6 @@ ja:
           description_own: '%{score} のイニシアチブが公開されました。'
           name: 公開されたイニシアチブ
           next_level_in: 次のレベルに到達するために公開された %{score} 件のイニシアチブを入手しましょう！
-          unearned_another: この参加者はまだイニシアチブを発行していません。
           unearned_own: まだイニシアチブが公開されていません。
     help:
       participatory_spaces:
