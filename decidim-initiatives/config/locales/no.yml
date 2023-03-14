@@ -175,7 +175,6 @@
           description_own: Du har fått %{score} initiativer publisert.
           name: Publiserte initiativ
           next_level_in: Få %{score} flere initiativer publisert for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke fått publisert noen tiltak ennå.
           unearned_own: Du har ingen initiativer publisert ennå.
     help:
       participatory_spaces:
