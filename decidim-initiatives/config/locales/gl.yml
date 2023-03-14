@@ -121,7 +121,6 @@ gl:
           description_own: Tes publicado %{score} iniciativas.
           name: Iniciativas publicadas
           next_level_in: Recibe %{score} iniciativas máis publicadas para alcanzar o seguinte nivel!
-          unearned_another: Este usuario aínda non recibiu ningunha iniciativa publicada.
           unearned_own: Aínda non recibiu ningunha iniciativa publicada.
     help:
       participatory_spaces:
