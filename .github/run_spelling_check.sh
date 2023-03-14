@@ -42,7 +42,7 @@ while read match ; do
   # Find the forbidden words
   words=()
   for word in $(cat $forbidden_words); do
-    if [[ $text == *"$word"* ]]; then
+    if [[ ${text,,} =~ ${word,,} ]]; then
       words+=("$word")
     fi
   done
