@@ -326,7 +326,6 @@ de:
           description_own: Sie haben %{score} Vorschläge unterstützt.
           name: Vorschlag unterstützt
           next_level_in: Unterstütze %{score} weitere Vorschläge, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Vorschläge unterstützt.
           unearned_own: Sie haben noch keine Vorschläge unterstützt.
         proposals:
           conditions:
@@ -337,7 +336,6 @@ de:
           description_own: Sie haben %{score} Vorschläge erstellt.
           name: Vorschläge
           next_level_in: Erstellen Sie %{score} weitere Vorschläge, um das nächste Level zu erreichen!
-          unearned_another: Dieser Benutzer hat noch keine Vorschläge erstellt.
           unearned_own: Sie haben noch keine Vorschläge erstellt.
     metrics:
       accepted_proposals:
@@ -582,7 +580,6 @@ de:
           publish:
             error: Bei der Veröffentlichung des gemeinsamen Entwurfs sind Fehler aufgetreten.
             irreversible_action_modal:
-              body: Nachdem der Entwurf als Vorschlag veröffentlicht wurde, kann der Entwurf nicht mehr bearbeitet werden. Der Vorschlag akzeptiert keine neuen Autoren oder Beiträge.
               cancel: Abbrechen
               ok: Als Vorschlag veröffentlichen
               title: Die folgende Aktion ist irreversibel
@@ -591,7 +588,6 @@ de:
           withdraw:
             error: Es gab Fehler beim Schließen des gemeinsamen Entwurfs.
             irreversible_action_modal:
-              body: Nach dem Schließen des Entwurfs wird der Entwurf nicht mehr bearbeitet werden können. Der Entwurf akzeptiert keine neuen Autoren oder Beiträge.
               cancel: Abbrechen
               ok: Ziehen Sie den gemeinsamen Entwurf zurück
               title: Die folgende Aktion ist irreversibel
@@ -808,7 +804,6 @@ de:
           view_proposal: Vorschlag anzeigen
         proposals:
           empty: Es gibt noch keinen Vorschlag
-          empty_filters: Es gibt keine Vorschläge mit diesem Kriterium
         show:
           answer: Antworten
           back_to: Zurück zu
@@ -888,7 +883,6 @@ de:
         choose_proposals: Vorschläge auswählen
         close: Schließen
         more_proposals: Es gibt %{number} weitere Vorschläge. Spezifizieren Sie Ihre Suche, um sie zu finden.
-        no_proposals: Kein Vorschlag entspricht Ihren Suchkriterien oder es ist keine Vorschlag geplant.
       publish:
         error: Beim Veröffentlichen des Vorschlags ist ein Fehler aufgetreten.
         success: Vorschlag erfolgreich veröffentlicht.
