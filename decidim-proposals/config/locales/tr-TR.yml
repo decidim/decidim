@@ -290,7 +290,6 @@ tr:
           description_own: '%{score} teklife destek verdiniz.'
           name: Teklif destekleri
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} adetten fazla teklife destek verin!
-          unearned_another: Bu kullanıcı henüz herhangi bir teklife destek vermedi.
           unearned_own: Henüz hiçbir teklife destek vermediniz.
         proposals:
           conditions:
@@ -301,7 +300,6 @@ tr:
           description_own: '%{score} teklif oluşturdunuz.'
           name: Teklif
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} teklif daha oluşturun!
-          unearned_another: Bu kullanıcı henüz herhangi bir teklif oluşturmadı.
           unearned_own: Henüz hiç teklif oluşturmadınız.
     metrics:
       accepted_proposals:
@@ -533,7 +531,6 @@ tr:
           publish:
             error: Ortak taslak yayınlanırken bir sorun oluştu.
             irreversible_action_modal:
-              body: Taslağı bir teklif olarak yayınladıktan sonra, taslak artık düzenlenemez. Teklif yeni yazarları veya katkıları kabul etmeyecektir.
               cancel: İptal etmek
               ok: Teklif olarak yayınla
               title: Aşağıdaki işlem geri alınamaz
@@ -542,7 +539,6 @@ tr:
           withdraw:
             error: Ortak taslak kapanırken bir sorun oluştu.
             irreversible_action_modal:
-              body: Taslağı kapattıktan sonra, taslak artık düzenlenemez. Taslak yeni yazarları veya katkıları kabul etmeyecek.
               cancel: İptal Et
               ok: İşbirliği taslağını geri çekme
               title: Aşağıdaki işlem geri alınamaz
@@ -746,7 +742,6 @@ tr:
           view_proposal: Teklifi görüntüle
         proposals:
           empty: Henüz teklif yok
-          empty_filters: Bu kritere sahip herhangi bir teklif yok
         show:
           answer: Cevap
           back_to: Geri
@@ -826,7 +821,6 @@ tr:
         choose_proposals: Teklifleri seçin
         close: Kapat
         more_proposals: '%{number} tane daha teklif var. Onları bulmak için aramanızı daraltın.'
-        no_proposals: Arama kriterlerinizle eşleşen teklif yok veya herhangi bir teklif yok.
       publish:
         error: Teklif yayınlanırken hatalar oluştu.
         success: Teklif başarıyla yayınlandı.
