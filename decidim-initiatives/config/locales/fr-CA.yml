@@ -192,7 +192,6 @@ fr-CA:
           description_own: Vous avez publié %{score} initiatives.
           name: Initiatives publiées
           next_level_in: Obtenez %{score} autres initiatives publiées pour atteindre le niveau supérieur!
-          unearned_another: Cet utilisateur n'a pas encore publié d'initiative.
           unearned_own: Vous n'avez pas encore publié d'initiative.
     help:
       participatory_spaces:
