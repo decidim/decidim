@@ -176,7 +176,6 @@ ro:
           description_own: Ai %{score} inițiative publicate.
           name: Inițiative publicate
           next_level_in: Obține încă %{score} inițiative publicate pentru a atinge următorul nivel!
-          unearned_another: Acest participant nu a publicat încă nicio inițiativă.
           unearned_own: Nu ai nicio inițiativă publicată încă.
     help:
       participatory_spaces:
