@@ -692,10 +692,10 @@ module Decidim
           )
         )
       end
-      let(:optional) { true }
+      let(:required) { false }
       let(:attributes) do
         {
-          optional:
+          required:
         }
       end
       let(:output) do
