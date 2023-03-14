@@ -192,7 +192,6 @@ es-PY:
           description_own: Tienes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
-          unearned_another: Este usuario aún no ha publicado ninguna iniciativa.
           unearned_own: Aún no tienes ninguna iniciativa publicada.
     help:
       participatory_spaces:
@@ -468,6 +467,8 @@ es-PY:
           success_html: '¡Felicidades! La iniciativa <strong> %{title}</strong> ha sido firmada correctamente.'
         personal_data:
           invalid: Los datos personales no son consistentes con los datos proporcionados para la autorización.
+        sms_code:
+          invalid: El código de verificación no coincide con el nuestro. Por favor, vuelve a revisar el SMS que te enviamos.
         sms_phone:
           invalid: El número de teléfono no es válido o está pendiente de autorización. Por favor, revise sus autorizaciones.
       initiatives:
