@@ -802,6 +802,7 @@ eu:
       reached_top: Idatzi honen goialdean iritsi zara.
     group_admins:
       actions:
+        are_you_sure: Ziur zaude? Honek ez du partaidea taldetik aterako.
         demote_admin: Kendu kudeatzailea
       demote:
         error: Errore bat gertatu da erabiltzaile hau administratzaileen zerrendatik ezabatzean
@@ -1500,6 +1501,7 @@ eu:
         action: Aldatu nire pasahitza
         greeting: Kaixo %{recipient}!
         instruction: Norbaitek zure pasahitza aldatzeko esteka eskatu du, eta beheko estekan egin dezakezu.
+        instruction_3: Zure pasahitza ez da aldatuko aurreko estekara sartu eta beste bat sortu arte.
         subject: Berrezarri pasahitzaren argibideak
       unlock_instructions:
         action: Desblokeatu nire kontua
