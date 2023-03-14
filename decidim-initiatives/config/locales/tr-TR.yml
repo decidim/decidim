@@ -164,7 +164,6 @@ tr:
           description_own: Yayınlanmış %{score} girişiminiz var.
           name: Yayınlanmış girişimler
           next_level_in: Bir sonraki seviyeye ulaşmak için yayınlanan %{score} daha alın!
-          unearned_another: Bu katılımcı henüz yayınlanmış herhangi bir girişimde bulunmadı.
           unearned_own: Henüz yayınlanan hiçbir girişimin yok.
     help:
       participatory_spaces:
