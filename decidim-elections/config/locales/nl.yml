@@ -772,7 +772,6 @@ nl:
             choose_polling_officers: Kies de stembeambtes
             close: Sluit
             more_polling_officers: Er zijn nog %{number} meer stembeambtes. Verfijn uw zoekopdracht om ze te vinden.
-            no_polling_officers: Geen stembeambtes komen overeen met uw zoekcriteria of er zijn geen stembeambtes.
         polling_stations:
           create:
             invalid: Er is een fout opgetreden bij het maken van dit stembureau
