@@ -187,7 +187,6 @@ lt:
           description_own: Jūs dalyvavote %{score} susirinkimuose (-ų).
           name: Dalyvauta susirinkimuose
           next_level_in: Dalyvaukite dar %{score} susirinkimuose (-ų) ir pasiekite kitą lygį!
-          unearned_another: Šis dalyvis dar nedalyvavo nė viename susirinkime.
     meetings:
       actions:
         agenda: Darbotvarkė
@@ -514,7 +513,6 @@ lt:
         meeting_minutes:
           related_information: Susijusi informacija
         meetings:
-          no_meetings_warning: Nei vienas susitikimas neatitinka jūsų paieškos kriterijų arba nėra suplanuotų susitikimų.
           upcoming_meetings_warning: Šiuo metu suplanuotų susitikimų nėra, tačiau čia galite rasti visus buvusius susitikimus.
         new:
           back: Atgal
