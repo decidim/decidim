@@ -653,7 +653,6 @@ pl:
           back: Wróć
           continue: Dalej
       warnings:
-        no_elections_warning: Brak wyborów spełniających kryteria wyszukiwania lub nie ma żadnych zaplanowanych wyborów.
         no_scheduled_elections_warning: Obecnie nie ma żadnych zaplanowanych wyborów, ale możesz zobaczyć wszystkie zakończone już wybory.
     events:
       elections:
@@ -913,7 +912,6 @@ pl:
             choose_polling_officers: Wybierz oficerów wyborczych
             close: Zamknij
             more_polling_officers: Jest jeszcze %{number} więcej oficerów wyborczych. Doprecyzuj kryteria wyszukiwania, aby ich zlokalizować.
-            no_polling_officers: Brak oficerów wyborczych spełniających kryteria wyszukiwania lub nie ma żadnego oficera wyborczego.
         polling_stations:
           create:
             invalid: Przy tworzeniu lokalu wyborczego wystąpił błąd
