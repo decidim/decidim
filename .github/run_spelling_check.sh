@@ -58,8 +58,8 @@ while read match; do
 
   # Print out the annotation messages
   # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message
-  message_words=$(printf ", %s" "${words[@]}")
-  echo "::error file=${file},line=${line}::${message} ${message_words:2}"
+  message_words=$(printf ", %s" "${words[@]}" | cut -c 3-)
+  echo "::error file=${file},line=${line}::${message} ${message_words}"
 done < <(find decidim-* -type f | grep -vP "$exclude_paths_pattern" | xargs -n1000 grep -Hnif $forbidden_words)
 
 exit $status
