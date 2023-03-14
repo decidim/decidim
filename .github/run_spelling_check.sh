@@ -38,28 +38,21 @@ while read match; do
   # Cut the relevant parts of the match
   file=$(echo $match | cut -d':' -f 1)
   line=$(echo $match | cut -d':' -f 2)
-  text=$(echo $match | cut -d':' -f 3-)
+  text=$(sed "${line}!d" "$file")
 
   # Find the forbidden words
-  words=()
   for word in $(cat $forbidden_words); do
-    if [[ ${text,,} =~ ${word,,} ]]; then
-      words+=("$word")
-    fi
+    len=$(expr length "$word")
+
+    while read posmatch; do
+      spos=$(( $(echo $posmatch | cut -d':' -f 1) + 1 ))
+      epos=$(( $spos + $len ))
+
+      # Print out the annotation messages
+      # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message
+      echo "::error file=${file},line=${line},col=${spos},endColumn=${epos}::The following word is forbidden $word"
+    done < <(echo "$text" | grep -oib "$word")
   done
-
-  # Create the message based on the amount of matching words
-  message=""
-  if [[ ${#words[@]} -gt 1 ]]; then
-    message="The following words are forbidden:"
-  else
-    message="The following word is forbidden:"
-  fi
-
-  # Print out the annotation messages
-  # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message
-  message_words=$(printf ", %s" "${words[@]}" | cut -c 3-)
-  echo "::error file=${file},line=${line}::${message} ${message_words}"
 done < <(find decidim-* -type f | grep -vP "$exclude_paths_pattern" | xargs -n1000 grep -Hnif $forbidden_words)
 
 exit $status
