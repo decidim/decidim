@@ -83,7 +83,6 @@ lb:
     account:
       blocked: Dësen Kont gouf gespaart wéinst dem Net-Respekt vun den allgemengen Bestëmmungen
       delete:
-        alert: Dës Aktioun kann net réckgängeg gemaach ginn. Wann däin Kont geläscht ass, kanns du dech net méi mat de selwechten Donnéeën aloggen. Zukünfteg Beiträg sinn dann anonymiséiert. Du kanns nach ëmmer en neien Kont erstellen, mee anonym Beiträg sinn net mat engem Kont verknäppt.
         confirm:
           close: Fënster zou maachen
           ok: Jo ech well mäin Kont läschen
@@ -320,7 +319,6 @@ lb:
           resume: Überprüfen Sie Ihren Autorisierungsfortschritt "%{authorization}"
           title: D'Berechtegung ass nach am Gang verschafft ze ginn
         unauthorized:
-          invalid_field: "%{field} Wert %{value} ist nicht gültig."
           ok: Ok
           title: Net berechtegt
         unconfirmed:
@@ -658,7 +656,6 @@ lb:
         result: Resultater
     fingerprint:
       check: Fangerofdrock iwwerpréiwen
-      explanation: Den folgenden Text ass eng verkierzten a markéiert Duerstellung vun dësem Inhalt. Dat ass néideg fir sécherzestellen, dass den Inhalt net manipuléiert gouf, well och kleng Ännerungen doran de Wäert dovun vëlleg veränneren géifen.
       online_calculator_name: Online MD5-Rechner
       replicate_help: Dësen Fangerofdrock gëtt mat engem SHA256-Hashing-Algorithmus berechent. Fir den selwer ze generéieren, kanns du en %{online_calculator_link} verwennen andeems de d'Quelldaten kopéiers an asetz.
       source: Quell
@@ -713,7 +710,6 @@ lb:
       reached_top: Du hues den héchsten Level bei dësem Ofzeechen erreecht.
     group_admins:
       actions:
-        are_you_sure: Bass du der sécher? Dëst läscht den Teilnehmer net aus dem Grupp.
         demote_admin: Admin läschen
       demote:
         error: Et gouf e Problem beim Läschen vun engem Teilnehmer aus der Lëscht vun den Administrateuren
@@ -1044,7 +1040,6 @@ lb:
           modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
         required_review:
           alert: Mir hunn eis Konditiounen vum Benotzen aktualiséiert, iwwerpréif se w. e. g.
-          body: Huel dir e Moment Zäit fir d' Konditiounen vum Benotzen ze iwwerpréiwen. Soss kanns du d'Plattform net benotzen.
           title: 'Erfuerderlech: Iwwerpréif Aktualiséierungen vun eisen Konditiounen vum Benotzen'
     participatory_space_private_users:
       not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
@@ -1379,7 +1374,6 @@ lb:
         action: Mäin Passwuert änneren
         greeting: Moien %{recipient}!
         instruction: Et huet een e Link ugefrot fir däin Passwuert ze änneren, du kanns dat iwwer den Link ënnen maachen.
-        instruction_3: Däin Passwuert ännert eréischt, wann s'du op den Link uewen gees fir en neit ze erstellen.
         subject: Passwuert-Instruktiounen zeréck setzen
       unlock_instructions:
         action: Entspäert mäin Kont
