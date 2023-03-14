@@ -279,7 +279,6 @@ zh-CN:
           resume: 检查您的 "%{authorization}"授权进度
           title: 授权仍在进行中
         unauthorized:
-          invalid_field: "%{field} 值 %{value} 无效。"
           ok: 好的
           title: 未授权
         unconfirmed:
@@ -582,7 +581,6 @@ zh-CN:
         result: 成果
     fingerprint:
       check: 检查指纹
-      explanation: 下面的文本是这个内容的简短、散列的描述。 确保内容不被篡改是有用的，因为单一修改会产生完全不同的价值。
       online_calculator_name: MD5 计算器在线
       replicate_help: 这个指纹是用一个 SHA256 散列算法计算出来的。为了复制它，您可以使用一个 %{online_calculator_link} 并复制粘贴源数据。
       source: 来源
@@ -638,7 +636,6 @@ zh-CN:
       reached_top: 你已经达到了这个徽章的顶级了。
     group_admins:
       actions:
-        are_you_sure: 您确定吗？这将不会从群组中删除参与者。
         demote_admin: 删除管理员
       demote:
         error: 从管理员列表中删除此参与者时出错
@@ -957,7 +954,6 @@ zh-CN:
           modal_title: 您真的拒绝更新的条款和条件吗？
         required_review:
           alert: 我们已更新我们的服务条款，请查看。
-          body: 请花一点时间来审查我们服务条款的更新。否则您将无法使用该平台。
           title: '需要：审查我们服务条款的更新'
     participatory_space_private_users:
       not_allowed: 您无权查看此内容
@@ -1255,7 +1251,6 @@ zh-CN:
         action: 更改我的密码
         greeting: 你好 %{recipient}！
         instruction: 有人请求链接更改您的密码，您可以通过下面的链接这样做。
-        instruction_3: 在您访问上面的链接并创建一个新链接之前，您的密码不会更改。
         subject: 重置密码说明
       unlock_instructions:
         action: 解锁我的帐户
