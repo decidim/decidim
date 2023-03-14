@@ -19,16 +19,11 @@ shouldn't
 weren't
 EOT
 
-# Actual excluded paths
-# decidim-dev/lib/decidim/dev/assets/participatory_text.md
-# decidim-core/lib/decidim/db/common-passwords.txt
-# decidim-initiatives/spec/types/initiative_type_spec.rb
-# decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
-
 cat <<EOT > $excluded_paths
+decidim-dev/lib/decidim/dev/assets/participatory_text.md
 decidim-core/lib/decidim/db/common-passwords.txt
-this-should-include-actual-file-paths
-for-testing-purposes-this-is-disabled
+decidim-initiatives/spec/types/initiative_type_spec.rb
+decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
 EOT
 
 trap 'rm -f $forbidden_words $excluded_paths' EXIT
