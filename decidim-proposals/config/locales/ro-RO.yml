@@ -335,7 +335,6 @@ ro:
           description_own: Ai votat %{score} propuneri.
           name: Voturi pentru propuneri
           next_level_in: Votează încă %{score} alte propuneri pentru a atinge următorul nivel!
-          unearned_another: Acest participant nu a votat încă nicio propunere.
           unearned_own: Încă nu ai votat nicio propunere.
         proposals:
           conditions:
@@ -346,7 +345,6 @@ ro:
           description_own: Ai creat %{score} propuneri.
           name: Propuneri
           next_level_in: Creează încă %{score} propuneri pentru a atinge nivelul următor!
-          unearned_another: Acest participant nu a creat încă nicio propunere.
           unearned_own: Nu ai creat încă nicio propunere.
     metrics:
       accepted_proposals:
@@ -599,7 +597,6 @@ ro:
           publish:
             error: A apărut o problemă la publicarea ciornei colaborative.
             irreversible_action_modal:
-              body: După publicarea ciornei drept propunere, aceasta nu va mai fi editabilă. Propunerea nu va mai accepta autori sau contribuții noi.
               cancel: Anulează
               ok: Publică drept propunere
               title: Următoarea acţiune este ireversibilă
@@ -608,7 +605,6 @@ ro:
           withdraw:
             error: A apărut o problemă la închiderea ciornei colaborative.
             irreversible_action_modal:
-              body: După închiderea ciornei, aceasta nu va mai putea fi editată. Ciorna nu va mai accepta autori sau contribuții noi.
               cancel: Anulează
               ok: Retrage ciorna colaborativă
               title: Următoarea acţiune este ireversibilă
@@ -825,7 +821,6 @@ ro:
           view_proposal: Vizualizează propunerea
         proposals:
           empty: Încă nu există nicio propunere
-          empty_filters: Nu există nici o propunere cu acest criteriu
         show:
           answer: Răspuns
           back_to: Înapoi la
@@ -907,7 +902,6 @@ ro:
         choose_proposals: Alege propuneri
         close: Închide
         more_proposals: Mai sunt %{number} propuneri. Rafinează căutarea pentru a le localiza.
-        no_proposals: Nicio propunere nu corespunde criteriilor tale de căutare sau nu există nicio propunere.
       publish:
         error: A apărut o problemă la publicarea propunerii.
         success: Propunerea a fost publicată cu succes.
