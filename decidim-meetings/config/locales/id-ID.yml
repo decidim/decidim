@@ -129,7 +129,6 @@ id:
           description_own: Anda telah menghadiri %{score} pertemuan.
           name: Menghadiri pertemuan
           next_level_in: Hadiri %{score} pertemuan lagi untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum menghadiri rapat apa pun.
     meetings:
       actions:
         agenda: Jadwal acara
@@ -305,7 +304,6 @@ id:
         meeting_minutes:
           related_information: Informasi Terkait
         meetings:
-          no_meetings_warning: Tidak ada pertemuan yang sesuai dengan kriteria pencarian Anda atau tidak ada jadwal pertemuan.
           upcoming_meetings_warning: Saat ini, tidak ada pertemuan yang dijadwalkan, tetapi di sini Anda dapat menemukan semua pertemuan sebelumnya yang terdaftar.
         registration_confirm:
           cancel: Membatalkan
