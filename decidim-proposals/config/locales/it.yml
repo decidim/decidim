@@ -310,7 +310,6 @@ it:
           description_own: Hai dato supporto a %{score} proposte.
           name: Supporti della proposta
           next_level_in: Dare supporto a %{score} ulteriori proposte per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora fornito supporto a nessuna proposta.
           unearned_own: Hai dato supporto a proposte.
         proposals:
           conditions:
@@ -321,7 +320,6 @@ it:
           description_own: Hai creato %{score} proposte.
           name: Proposte
           next_level_in: Crea altre %{score} proposte per raggiungere il livello successivo!
-          unearned_another: Questo utente non ha ancora creato alcuna proposta.
           unearned_own: Non hai ancora creato alcuna proposta.
     metrics:
       accepted_proposals:
@@ -555,7 +553,6 @@ it:
           publish:
             error: Si sono verificati errori durante la pubblicazione della bozza collaborativa.
             irreversible_action_modal:
-              body: Dopo aver pubblicato la bozza come proposta, la bozza non sarà più modificabile. La proposta non accetterà nuovi autori o contributi.
               cancel: Annulla
               ok: Pubblica come proposta
               title: La seguente azione è irreversibile
@@ -564,7 +561,6 @@ it:
           withdraw:
             error: Ci sono stati errori nel chiudere la bozza collaborativa.
             irreversible_action_modal:
-              body: Dopo aver chiuso la bozza, la bozza non sarà più modificabile. La bozza non accetterà nuovi autori o contributi.
               cancel: Annulla
               ok: Ritirare la bozza collaborativa
               title: La seguente azione è irreversibile
@@ -773,7 +769,6 @@ it:
           view_proposal: Visualizza la proposta
         proposals:
           empty: Non c'è ancora nessuna proposta
-          empty_filters: Non c'è alcuna proposta con questo criterio
         show:
           answer: Risposta
           back_to: Torna a
@@ -853,7 +848,6 @@ it:
         choose_proposals: Scegli proposte
         close: Chiudi
         more_proposals: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
-        no_proposals: Nessuna proposta corrisponde ai tuoi criteri di ricerca o non ci sono proposte.
       publish:
         error: Si sono verificati errori durante la pubblicazione della proposta.
         success: Proposta pubblicata con successo.
