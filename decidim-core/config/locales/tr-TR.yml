@@ -306,7 +306,6 @@ tr:
           resume: '"%{authorization}" yetkilendirme işleminizi kontrol edin'
           title: Yetkilendirme devam ediyor
         unauthorized:
-          invalid_field: "%{field} için değer %{value} geçerli değil."
           ok: Tamam
           title: Yetkili değil
         unconfirmed:
@@ -649,7 +648,6 @@ tr:
         result: Sonuçlar
     fingerprint:
       check: Parmak izi kontrol edin
-      explanation: Aşağıdaki metin parçası, bu içeriğin kısaltılmış, temsili bir temsilidir. Tek bir değişikliğin tamamen farklı bir değerle sonuçlanacağı için içeriğin müdahale edilmediğinden emin olmak yararlıdır.
       online_calculator_name: Çevrimiçi MD5 hesap makinesi
       replicate_help: Bu parmak izi, bir SHA256 karma algoritması kullanılarak hesaplanır. Kendiniz çoğaltmak için, bir %{online_calculator_link} kullanabilir ve kaynak verileri kopyalayıp yapıştırabilirsiniz.
       source: Kaynak
@@ -706,7 +704,6 @@ tr:
       reached_top: Bu rozetin en üst seviyesine ulaştınız.
     group_admins:
       actions:
-        are_you_sure: Emin misiniz? Bu, kullanıcıyı gruptan kaldırmaz.
         demote_admin: Yönetici kaldır
       demote:
         error: Bu kullanıcıyı yönetici listesinden kaldırırken bir hata oluştu
@@ -1027,7 +1024,6 @@ tr:
           modal_title: Güncellenmiş Şartlar ve Koşulları gerçekten reddediyor musunuz?
         required_review:
           alert: Hizmet Şartlarımızı güncellendi, lütfen inceleyin.
-          body: Hizmet Şartlarımıza ait güncellemeleri incelemek için lütfen biraz zaman ayırın. Aksi halde platformu kullanamazsınız.
           title: 'Gerekli: Hizmet şartlarımızı güncellemeleri inceleyin'
     participatory_space_private_users:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
@@ -1345,7 +1341,6 @@ tr:
         action: Şifremi Değiştir
         greeting: Merhaba %{recipient}!
         instruction: Birisi şifrenizi değiştirmek için bir bağlantı istedi ve bunu aşağıdaki bağlantıdan yapabilirsiniz.
-        instruction_3: Yukarıdaki bağlantıya erişip yeni bir tane oluşturana kadar şifreniz değişmeyecek.
         subject: Şifre talimatlarını sıfırla
       unlock_instructions:
         action: Hesabımın kilidini aç
