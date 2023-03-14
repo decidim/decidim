@@ -209,7 +209,6 @@ eu:
           title: Onartzen ditut Administrazio-irizpideak eta baldintzak
         required_review:
           alert: 'Eskatuta: berrikusi gure Administrazio-irizpideak eta baldintzak'
-          callout: Mesedez, hartu tarte bat administratzaileentzako erabilera-irizpideak erabiltzeko. Bestela, ezin izango duzu plataforma administratu.
           cta: Berrikusi orain.
         title: Administrazioaren Irizpideak eta Baldintzak
       area_types:
