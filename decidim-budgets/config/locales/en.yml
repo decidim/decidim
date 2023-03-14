@@ -288,9 +288,6 @@ en:
           most_voted: Most voted
           random: Random order
           selected: Selected
-        project_filter:
-          all: All
-          added: Added
         project:
           add: Add project %{resource_name} to your vote
           remove: Remove project %{resource_name} from your vote
@@ -305,6 +302,9 @@ en:
           add_descriptive: Add project %{resource_name} to your vote
           added: Added
           added_descriptive: Project %{resource_name} added to your vote
+        project_filter:
+          added: Added
+          all: All
         projects_for: Projects for %{name}
         select_projects: Select projects
         show:
