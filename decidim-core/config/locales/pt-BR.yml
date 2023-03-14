@@ -83,7 +83,6 @@ pt-BR:
     account:
       blocked: Esta conta foi bloqueada devido a violação de Termos e Condições
       delete:
-        alert: Esta ação não pode ser desfeita. Se você excluir sua conta, não poderá fazer login com suas credenciais. A exclusão da sua conta resultará em anonimato das suas contribuições. Você ainda poderá criar uma nova conta, mas estas contribuições não serão associadas a ela.
         confirm:
           close: Fechar janela
           ok: Sim, eu quero excluir minha conta
@@ -320,7 +319,6 @@ pt-BR:
           resume: Verifique o seu progresso de autorização "%{authorization}"
           title: A autorização ainda está em progresso
         unauthorized:
-          invalid_field: "%{field} valor %{value} não é válido."
           ok: Ok
           title: Não autorizado
         unconfirmed:
@@ -659,7 +657,6 @@ pt-BR:
         result: Resultados
     fingerprint:
       check: Verificar impressão digital
-      explanation: O trecho abaixo é uma representação curta (ou hashed) deste conteúdo. Ele é útil para garantir que o conteúdo não tenha sido adulterado, já que uma única modificação resultaria em um valor totalmente diferente.
       online_calculator_name: Calculadora MD5 online
       replicate_help: Essa impressão digital é calculada usando um algoritmo de hashing SHA256. Para replicar você mesmo, você pode usar um %{online_calculator_link} e copiar e colar os dados de origem.
       source: Fonte
@@ -717,7 +714,6 @@ pt-BR:
       reached_top: Você atingiu o nível superior para este selo.
     group_admins:
       actions:
-        are_you_sure: Você tem certeza? Isso não removerá o usuário do grupo.
         demote_admin: Remover Administrador
       demote:
         error: Ocorreu um erro ao remover este usuário da lista de administradores
@@ -1048,7 +1044,6 @@ pt-BR:
           modal_title: Você realmente recusa os Termos e Condições atualizados?
         required_review:
           alert: Atualizamos nossos Termos de Serviço, revise-os.
-          body: Por favor, dedique um momento para rever as atualizações dos nossos Termos de Serviço. Caso contrário, você não poderá usar a plataforma.
           title: 'Obrigatório: revise as atualizações dos nossos Termos de Serviço'
     participatory_space_private_users:
       not_allowed: Você não tem permissão para visualizar este conteúdo
@@ -1383,7 +1378,6 @@ pt-BR:
         action: Mudar minha senha
         greeting: Olá %{recipient}!
         instruction: Alguém solicitou um link para alterar sua senha, e você pode fazer isso através do link abaixo.
-        instruction_3: Sua senha não será alterada até que você acesse o link acima e crie um novo.
         subject: Redefinir instruções de senha
       unlock_instructions:
         action: Desbloquear minha conta
