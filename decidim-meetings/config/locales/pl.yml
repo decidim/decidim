@@ -166,7 +166,6 @@ pl:
           description_own: Uczestniczyłeś w %{score} spotkaniach.
           name: Spotkania w których uczestniczyłeś/-łaś
           next_level_in: Weź udział jeszcze w %{score} spotkaniach, aby awansować na kolejny poziom!
-          unearned_another: Ten użytkownik nie uczestniczył jeszcze w żadnym spotkaniu.
     meetings:
       actions:
         agenda: Program
@@ -442,7 +441,6 @@ pl:
         meeting_minutes:
           related_information: Powiązana informacja
         meetings:
-          no_meetings_warning: Brak spotkań spełniających kryteria wyszukiwania lub nie ma żadnego zaplanowanego spotkania.
           upcoming_meetings_warning: Obecnie nie ma żadnych zaplanowanych spotkań, ale możesz zobaczyć wszystkie przeszłe.
         new:
           back: Wróć
