@@ -116,7 +116,6 @@ id:
           description_own: Anda punya %{score} inisiatif yang dipublikasikan.
           name: Inisiatif yang diterbitkan
           next_level_in: Dapatkan %{score} lebih banyak inisiatif yang diterbitkan untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum mendapatkan inisiatif apa pun yang dipublikasikan.
           unearned_own: Anda belum ada inisiatif yang dipublikasikan.
     help:
       participatory_spaces:
