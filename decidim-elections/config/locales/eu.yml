@@ -896,6 +896,7 @@ eu:
             choose_polling_officers: Aukeratu mahaiko kudeatzailea
             close: Itxi
             more_polling_officers: '%{number} mahaiko kudeatzaile gehiago daude. Zehaztu berriro zure bilaketa aurkitzeko.'
+            no_polling_officers: Ez dago zure bilaketa-irizpideekin bat datorren hauteslekurik edo ez dago hauteslekurik.
         polling_stations:
           create:
             invalid: Arazo bat izan da bozketa-gune hau sortzean
