@@ -283,7 +283,6 @@ lv:
           resume: Pārbaudiet savu "%{authorization}" autorizācijas apstrādes statusu.
           title: Autorizācija joprojām notiek
         unauthorized:
-          invalid_field: "%{field} vērtība %{value} nav derīga."
           ok: Labi
           title: Nav autorizācijas
         unconfirmed:
@@ -581,7 +580,6 @@ lv:
         proposal: Priekšlikumi
         result: Rezultāti
     fingerprint:
-      explanation: Turpmāk redzamais teksta gabals ir saīsināts un sajaukts šī satura attēlojums. Tas ir lietderīgs, lai pārliecinātos, vai saturs nav ticis mainīts, jo viena izmaiņa radītu pavisam citu vērtību.
       online_calculator_name: Tiešsaistes MD5 kalkulators.
       replicate_help: Šis digitālais pirkstu nospiedums tiek aprēķināts, izmantojot SHA256 sajaukšanas algoritmu. Lai to atkārtotu, varat izmantot %{online_calculator_link} un kopēt – ielīmēt avota datus.
       source: Avots
@@ -624,7 +622,6 @@ lv:
       reached_top: Jūs esat sasniedzis šim žetona nepieciešamo augstāko līmeni.
     group_admins:
       actions:
-        are_you_sure: Vai esat pārliecināts? Šī darbība nenoņems dalībnieku no grupas.
         demote_admin: Noņemt administratoru
       demote:
         error: Noņemot šo dalībnieku no administratoru saraksta, radās problēma
@@ -925,7 +922,6 @@ lv:
           modal_title: Vai jūs tiešām atsakāties no atjauninātajiem lietošanas noteikumiem?
         required_review:
           alert: Mēs esam atjauninājuši mūsu pakalpojumu sniegšanas noteikumus, lūdzu, pārskatiet tos.
-          body: Lūdzu, atvēliet laiku, lai pārskatītu atjauninātos pakalpojumu sniegšanas noteikumus administratoriem. Pretējā gadījumā jūs nevarēsiet izmantot platformu.
           title: 'Obligāti: pārskatiet mūsu atjaunotos pakalpojumu sniegšanas noteikumus.'
     participatory_space_private_users:
       not_allowed: Jums nav atļauts skatīt šo saturu
@@ -1189,7 +1185,6 @@ lv:
         action: Nomainīt manu paroli
         greeting: Sveiki, %{recipient}!
         instruction: Kāds ir pieprasījis saiti, lai mainītu jūsu paroli, un jūs to varat izdarīt, izmantojot turpmāk esošo saiti.
-        instruction_3: Jūsu parole nemainīsies, kamēr neizmantosiet iepriekš norādīto saiti un neizveidosiet jaunu paroli.
         subject: Norādījumi paroles atiestatīšanai.
       unlock_instructions:
         action: Atbloķēt manu kontu
