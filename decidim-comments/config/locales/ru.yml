@@ -20,6 +20,7 @@ ru:
         other: Голосов
   decidim:
     comments:
+      comments_title: Комментарии
       last_activity:
         new_comment_at_html: "<span>Новый комментарий в %{link}</span>"
       votes:

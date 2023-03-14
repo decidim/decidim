@@ -602,6 +602,7 @@ ar:
       newsletter_templates:
         index:
           preview_template: معاينة
+          title: نماذج النشرة الإخبارية
       newsletters:
         create:
           error: كانت هناك مشكلة في إنشاء هذه الرسالة الإخبارية.

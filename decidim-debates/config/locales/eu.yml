@@ -124,7 +124,7 @@ eu:
           official: Ofiziala
           origin: Origin
           scope: Eremua
-          search: Search
+          search: Bilatu
           state: Egoera
           state_values:
             closed: Itxita
@@ -211,7 +211,7 @@ eu:
           notification_title: Orain <a href="%{resource_path}">eztabaida berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
-            email_intro: '"%{resource_title}" eztabaida itrxi egin da. Ondorioak bere orrialdean irakur ditzakezu:'
+            email_intro: '"%{resource_title}" eztabaida itxi egin da. Ondorioak bere orrialdean irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" eztabaida jarraitzen ari zarelako. Aurreko loturan utzi ahal diozu jarraitzeari .
             email_subject: '"%{resource_title}" eztabaida itxi egin da'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida itxi egin da.

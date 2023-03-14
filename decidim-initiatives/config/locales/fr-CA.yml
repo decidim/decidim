@@ -66,6 +66,9 @@ fr-CA:
               title: Le titre ne doit pas être vide
   activerecord:
     models:
+      decidim/initiative:
+        one: Pétition
+        other: Pétitions
       decidim/initiative_comittee:
         one: Comité
         other: Comités

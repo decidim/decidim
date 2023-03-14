@@ -18,6 +18,7 @@ lv:
         other: Balsis
   decidim:
     comments:
+      comments_title: Komentāri
       last_activity:
         new_comment_at_html: "<span>Jauns komentārs %{link}</span>"
       votes:

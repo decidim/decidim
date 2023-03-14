@@ -151,13 +151,13 @@ eu:
           affected_user:
             email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Bere orriko ondorioak irakur ditzakezu:'
             email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" topaketa antolatu duzulako.
-            email_subject: '"%{resource_title}" topaketa itxita zegoen'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxita zegoen.
+            email_subject: '"%{resource_title}" topaketa itxi da'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi da.
           follower:
-            email_intro: '"%{resource_title}" topaketa itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
+            email_intro: '"%{resource_title}" topaketa itxi da. Bere orriko ondorioak irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan jarrai dezakezu.
-            email_subject: '"%{resource_title}" topaketa itxita zegoen'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxita zegoen.
+            email_subject: '"%{resource_title}" topaketa itxi da'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi da.
         meeting_created:
           button_text: Eman izena topaketan
           email_intro: Topaketa "%{resource_title}" jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.
@@ -341,7 +341,7 @@ eu:
             invalid: Arazo bat gertatu da topaketa hau desargitaratzean
             success: Topaketa zuzen desargitaratu da
           update:
-            invalid: Arazo bat zegoen topaketa eguneratzeko
+            invalid: Arazo bat egon da topaketa eguneratzeko
             success: Topaketa zuzen eguneratu da.
         meetings_poll:
           form:
@@ -616,7 +616,7 @@ eu:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu.
         decline_invitation:
-          invalid: Arazo bat zegoen gonbidapenari uko egiten.
+          invalid: Arazo bat egon da gonbidapenari uko egiten.
           success: Arrakastaz uko egin diozu gonbidapenari.
         destroy:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.

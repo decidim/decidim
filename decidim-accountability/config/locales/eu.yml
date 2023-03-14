@@ -131,7 +131,7 @@ eu:
           index:
             title: Proiektuen denbora-lerroko sarrerak
           new:
-            create: Sortu sarrerak
+            create: Sortu sarrera
             title: Sarrera berria
           update:
             invalid: Arazo bat izan da sarrera hau eguneratzean
@@ -151,7 +151,7 @@ eu:
           unspecified: Zehaztu gabe
       import_mailer:
         import:
-          errors: Erroreak
+          errors: Akatsak
           errors_present: Arazo bat izan da emaitzak inportatzen
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira

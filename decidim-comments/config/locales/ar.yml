@@ -39,7 +39,7 @@ ar:
         update:
           error: طرأت مشكلة خلال تحديث التعليق.
       comments_count: تعداد التعليقات
-      comments_title: التعليقات
+      comments_title: تعليقات
       last_activity:
         new_comment_at_html: "<span>تعليق جديد على %{link}</span>"
       view: العرض
@@ -111,6 +111,13 @@ ar:
         loading: جارٍ تحميل التعليقات ...
         single_comment_warning: <a href="%{url}"> عرض جميع التعليقات</a>
         single_comment_warning_title: إنك ترى تعليقا واحدا
+        title:
+          zero: "%{count} تعليقات"
+          one: "%{count} تعليق"
+          two: "%{count} تعليقان"
+          few: "%{count} تعليقات"
+          many: "%{count} تعليقات"
+          other: "%{count} تعليقات"
       down_vote_button:
         text: أنا لا أوافق على هذا التعليق
       edit_comment_modal_form:
