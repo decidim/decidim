@@ -6,7 +6,7 @@ exclude_paths:
   - decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
 
 forbidden:
-  "aren\'t": are not
+  "aren't": are not
   "can't": cannot
   "couldn't": could not
   "didn't": did not
