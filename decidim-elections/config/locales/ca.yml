@@ -733,6 +733,7 @@ ca:
           back: Enrere
           continue: Següent
       warnings:
+        no_elections_warning: No hi ha cap votació que coincideixi amb la teva cerca o no n'hi ha cap programada.
         no_scheduled_elections_warning: Actualment no hi ha votacions programades, però pots veure les anteriors.
     events:
       elections:
@@ -1003,6 +1004,7 @@ ca:
             choose_polling_officers: Escollir gestors de mesa
             close: Tancar
             more_polling_officers: Hi ha %{number} gestors de mesa més. Refina la teva cerca per localitzar-los.
+            no_polling_officers: No hi ha gestores de mesa que coincideixin amb els teus criteris de cerca o no existeix cap gestora de mesa.
         polling_stations:
           create:
             invalid: S'ha produït un error en crear aquest punt de votació
