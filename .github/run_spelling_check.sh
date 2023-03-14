@@ -1,7 +1,6 @@
 #!/bin/bash
 
 forbidden_words=$(mktemp)
-excluded_paths=$(mktemp)
 
 cat <<EOT | sort > $forbidden_words
 aren't
@@ -19,15 +18,16 @@ weren't
 won't
 EOT
 
-cat <<EOT > $excluded_paths
-decidim-dev/lib/decidim/dev/assets/participatory_text.md
-decidim-core/lib/decidim/db/common-passwords.txt
-decidim-initiatives/spec/types/initiative_type_spec.rb
-decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
-config/locales/[^e]*[^n]*\.yml
-EOT
+exclude_paths=(
+  "decidim-dev/lib/decidim/dev/assets/participatory_text.md"
+  "decidim-core/lib/decidim/db/common-passwords.txt"
+  "decidim-initiatives/spec/types/initiative_type_spec.rb"
+  "decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md"
+  "config/locales/((?!en).)*\.yml"
+)
+exclude_paths_pattern=$(printf "|(%s)" "${exclude_paths[@]}" | cut -c 2-)
 
-trap 'rm -f $forbidden_words $excluded_paths' EXIT
+trap 'rm -f $forbidden_words' EXIT
 
 status=0
 
@@ -60,6 +60,6 @@ while read match; do
   # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message
   message_words=$(printf ", %s" "${words[@]}")
   echo "::error file=${file},line=${line}::${message} ${message_words:2}"
-done < <(find decidim-* -type f | grep -vf $excluded_paths | xargs -n1000 grep -Hnif $forbidden_words)
+done < <(find decidim-* -type f | grep -vP "$exclude_paths_pattern" | xargs -n1000 grep -Hnif $forbidden_words)
 
 exit $status
