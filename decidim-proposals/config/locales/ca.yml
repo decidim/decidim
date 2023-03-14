@@ -352,7 +352,6 @@ ca:
           description_own: Has donat suport a %{score} propostes.
           name: Suports a propostes
           next_level_in: Dóna suport a %{score} propostes més per arribar al següent nivell!
-          unearned_another: Aquesta participant encara no ha donat suport a cap proposta.
           unearned_own: Encara no has donat suport a cap proposta.
         proposals:
           conditions:
@@ -363,7 +362,6 @@ ca:
           description_own: Has creat %{score} propostes.
           name: Propostes
           next_level_in: Crea %{score} més propostes per arribar al següent nivell!
-          unearned_another: Aquesta participant encara no ha creat cap proposta.
           unearned_own: Encara no has creat cap proposta.
     metrics:
       accepted_proposals:
@@ -630,7 +628,6 @@ ca:
           publish:
             error: S'ha produït un error en publicar l'esborrany col·laboratiu.
             irreversible_action_modal:
-              body: Després de publicar l'esborrany com a proposta, deixarà de ser editable. La proposta no acceptarà noves autores ni contribucions.
               cancel: Cancel·lar
               ok: Publica com a proposta
               title: La següent acció és irreversible
@@ -639,7 +636,6 @@ ca:
           withdraw:
             error: S'ha produït un error en tancar l'esborrany col·laboratiu.
             irreversible_action_modal:
-              body: Després de tancar l'esborrany, ja no serà editable. L'esborrany no acceptarà noves autores ni contribucions.
               cancel: Cancel·lar
               ok: Retira l'esborrany col·laboratiu
               title: La següent acció és irreversible
@@ -864,7 +860,6 @@ ca:
           view_proposal: Veure proposta
         proposals:
           empty: Encara no hi ha cap proposta
-          empty_filters: No hi ha cap proposta amb aquest criteri
         show:
           answer: Resposta
           back_to: Torna
@@ -944,7 +939,6 @@ ca:
         choose_proposals: Triar propostes
         close: Tancar
         more_proposals: Hi ha %{number} propostes més. Afina la teva cerca per localitzar-les.
-        no_proposals: No hi ha propostes que coincideixin amb el teu criteri de cerca o no hi ha cap proposta.
       publish:
         error: Hi ha hagut un error en publicar la proposta.
         success: La proposta s'ha publicat correctament.
