@@ -182,7 +182,6 @@ lb:
           title: Den Admin-Nutzungsbedingungen zustimmen
         required_review:
           alert: 'Erforderlich: Überprüfen Sie unsere Admin-Nutzungsbedingungen'
-          callout: Huelt e Moment fir d'Admin Benotzungsconditiounen ze iwwerpréiwen. Soss kënnt Dir d'Plattform net managen
           cta: Lesen Sie sie jetzt.
         title: Admin-Nutzungsbedingungen
       area_types:
