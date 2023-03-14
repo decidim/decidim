@@ -314,7 +314,6 @@ pl:
           description_own: Udzieliłeś wsparcia propozycjom w liczbie %{score}.
           name: Wsparcia propozycji
           next_level_in: Wesprzyj %{score} innych propozycji, aby awansować na kolejny poziom!
-          unearned_another: Ten użytkownik nie wsparł jeszcze żadnych propozycji.
           unearned_own: Nie udzielałeś jeszcze wsparcia żadnym propozycjom.
         proposals:
           conditions:
@@ -325,7 +324,6 @@ pl:
           description_own: Stworzyłeś %{score} propozycji.
           name: Propozycje
           next_level_in: Stwórz %{score} kolejnych propozycji, aby awansować na kolejny poziom!
-          unearned_another: Ten użytkownik nie utworzył jeszcze żadnych propozycji.
           unearned_own: Nie utworzyłeś jeszcze żadnych propozycji.
     metrics:
       accepted_proposals:
@@ -567,7 +565,6 @@ pl:
           publish:
             error: Wystąpił błąd podczas publikowania wspólnego szkicu.
             irreversible_action_modal:
-              body: Po opublikowaniu szkicu jako propozycji, szkic nie będzie już edytowalny. Do propozycji nie będzie można dodawać nowych autorów i zmian.
               cancel: Anuluj
               ok: Opublikuj jako propozycję
               title: Poniższe działanie jest nieodwracalne
@@ -576,7 +573,6 @@ pl:
           withdraw:
             error: Podczas zamykania wspólnego szkicu wystąpił błąd.
             irreversible_action_modal:
-              body: Po zamknięciu szkicu nie będzie on już edytowalny. Nie będzie można dodać nowych autorów i zmian.
               cancel: Anuluj
               ok: Wycofaj wspólny szkic
               title: Poniższe działanie jest nieodwracalne
@@ -792,7 +788,6 @@ pl:
           view_proposal: Zobacz propozycję
         proposals:
           empty: Nie ma jeszcze żadnych propozycji
-          empty_filters: Brak propozycji spełniającej te kryteria
         show:
           answer: Odpowiedź
           back_to: Wróć do
@@ -876,7 +871,6 @@ pl:
         choose_proposals: Wybierz propozycje
         close: Zamknij
         more_proposals: 'Liczba pozostałych propozycji: %{number}. Zawęź wyszukiwanie, aby je zlokalizować.'
-        no_proposals: Żadne propozycje nie spełniają kryteriów wyszukiwania lub nie ma żadnych propozycji.
       publish:
         error: Podczas publikowania propozycji wystąpił błąd.
         success: Propozycja została opublikowana.
