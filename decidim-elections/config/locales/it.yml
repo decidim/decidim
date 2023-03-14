@@ -634,7 +634,6 @@ it:
           back: Indietro
           continue: Successivo
       warnings:
-        no_elections_warning: Nessuna elezione corrisponde ai criteri della tua ricerca oppure non sono previste elezioni.
         no_scheduled_elections_warning: Al momento non sono previste elezioni, ma qui puoi trovare un elenco di tutte quelle passate.
     events:
       elections:
@@ -894,7 +893,6 @@ it:
             choose_polling_officers: Crea responsabile sondaggio
             close: Chiudi
             more_polling_officers: Ci sono altre %{number} proposte. Affina la tua ricerca per localizzarle.
-            no_polling_officers: Nessun funzionario di sondaggio corrisponde ai tuoi criteri di ricerca o non c'è alcun funzionario di sondaggio.
         polling_stations:
           create:
             invalid: Si è verificato un errore durante la creazione di stazione di sondaggio
