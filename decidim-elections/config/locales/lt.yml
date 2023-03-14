@@ -719,7 +719,6 @@ lt:
           back: Atgal
           continue: Kita
       warnings:
-        no_elections_warning: Jūsų paieškos kriterijus atitinkančių rinkimų nerasta arba neplanuojama.
         no_scheduled_elections_warning: Dabar neplanuojama rinkimų, tačiau čia galite rasti visų įvykusių rinkimų sąrašą.
     events:
       elections:
@@ -980,7 +979,6 @@ lt:
             choose_polling_officers: Pasirinkti balsavimo prižiūrėtojus
             close: Uždaryti
             more_polling_officers: Yra dar %{number} daugiau balsavimo prižiūrėtojų. Kad nustatytumėte jų vietą, patikslinkite savo paiešką.
-            no_polling_officers: Jūsų paieškos kriterijus atitinkančių balsavimo prižiūrėtojų nerasta arba nėra balsavimo prižiūrėtojų.
         polling_stations:
           create:
             invalid: Sukuriant šį balsavimo punktą iškilo problema
