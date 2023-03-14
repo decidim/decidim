@@ -329,7 +329,6 @@ pt:
           description_own: Você deu suporte a %{score} propostas.
           name: Votos da proposta
           next_level_in: Vote em mais %{score} propostas para alcançar o próximo nível!
-          unearned_another: Este participante ainda não votou em alguma proposta.
           unearned_own: Ainda não votou em alguma proposta.
         proposals:
           conditions:
@@ -340,7 +339,6 @@ pt:
           description_own: Criou %{score} propostas.
           name: Propostas
           next_level_in: Criar mais %{score} propostas para alcançar o próximo nível!
-          unearned_another: Este participante ainda não criou alguma proposta.
           unearned_own: Ainda não criou alguma proposta.
     metrics:
       accepted_proposals:
@@ -575,7 +573,6 @@ pt:
           publish:
             error: Ocorreu um problema ao publicar o rascunho colaborativo.
             irreversible_action_modal:
-              body: Depois de publicar o rascunho como uma proposta, o rascunho já não poderá ser editado. A proposta não aceitará novos autores ou contribuições.
               cancel: Cancelar
               ok: Publicar como uma Proposta
               title: A ação seguinte é irreversível
@@ -584,7 +581,6 @@ pt:
           withdraw:
             error: Ocorreu um problema ao fechar o rascunho colaborativo.
             irreversible_action_modal:
-              body: Depois de fechar o rascunho, o mesmo deixará de ser editável. O rascunho não aceita novos autores ou contribuições.
               cancel: Cancelar
               ok: Retirar o rascunho colaborativo
               title: A ação seguinte é irreversível
@@ -796,7 +792,6 @@ pt:
           view_proposal: Ver proposta
         proposals:
           empty: Ainda não existe nenhuma proposta
-          empty_filters: Não existe nenhuma proposta com este critério
         show:
           answer: Responder
           back_to: Retroceder a
@@ -876,7 +871,6 @@ pt:
         choose_proposals: Escolher propostas
         close: Fechar
         more_proposals: Existem mais %{number} propostas. Refine a pesquisa para localizá-las.
-        no_proposals: Nenhuma proposta corresponde aos seus critérios de pesquisa ou não existem propostas.
       publish:
         error: Ocorreu um problema ao publicar a proposta.
         success: Proposta publicada corretamente.
