@@ -277,7 +277,6 @@ uk:
         meeting_minutes:
           related_information: Супутні відомості
         meetings:
-          no_meetings_warning: Жодна зустріч не відповідає вашим критеріям пошуку, або жодних зустрічей не заплановано.
           upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
         registration_confirm:
           cancel: Скасувати
