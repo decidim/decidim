@@ -318,7 +318,6 @@
           description_own: Du har gitt støtte til %{score} forslag.
           name: Forslags støtter
           next_level_in: Gi støtte til %{score} flere forslag for å nå neste nivå!
-          unearned_another: Denne deltakeren har ingen gitt støtte til et forslag ennå.
           unearned_own: Du har ikke gitt støtte til noen forslag ennå.
         proposals:
           conditions:
@@ -329,7 +328,6 @@
           description_own: Du har opprettet %{score} forslag.
           name: Forslag
           next_level_in: Opprett %{score} flere forslag for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke opprettet et forslag ennå.
           unearned_own: Du har ikke opprettet noen forslag ennå.
     metrics:
       accepted_proposals:
@@ -551,7 +549,6 @@
           publish:
             error: Det oppsto et problem med å publisere samarbeids utkastet.
             irreversible_action_modal:
-              body: Etter å ha publisert utkastet som et forslag, kan utkastet ikke lenger redigeres. Forslaget vil ikke godta nye forfattere eller bidrag.
               cancel: Avbryt
               ok: Publiser som et Forslag
               title: Følgende handling kan ikke gjøres om
@@ -560,7 +557,6 @@
           withdraw:
             error: Det oppsto et problem med å lukke samarbeids utkastet.
             irreversible_action_modal:
-              body: Etter å ha lukket utkastet, kan utkastet ikke lenger redigeres. Utkastet vil ikke godta nye forfattere eller bidrag.
               cancel: Avbryt
               ok: Trakk tilbake samarbeids utkastet
               title: Følgende handling kan ikke gjøres om
@@ -760,7 +756,6 @@
           view_proposal: Se forslag
         proposals:
           empty: Det finnes ingen forslag enda
-          empty_filters: Det er ingen forslag med disse kriteriene
         show:
           answer: Svar
           back_to: Tilbake til
@@ -840,7 +835,6 @@
         choose_proposals: Velg forslag
         close: Lukk
         more_proposals: Det er %{number} flere forslag. Begrens søket for å finne dem.
-        no_proposals: Ingen forslag stemmer overens med søkekriteriene, eller så finnes det ikke noe forslag.
       publish:
         error: Det oppstod et problem med å publisere forslaget.
         success: Forslag publisert.
