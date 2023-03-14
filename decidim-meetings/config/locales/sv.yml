@@ -193,7 +193,6 @@ sv:
           description_own: Du har deltagit i %{score} möten.
           name: Deltog i möten
           next_level_in: Delta i %{score} fler möten för att nå nästa nivå!
-          unearned_another: Deltagaren har inte deltagit i något möte än.
     meetings:
       actions:
         agenda: Dagordning
@@ -497,7 +496,6 @@ sv:
         meeting_minutes:
           related_information: Relaterad information
         meetings:
-          no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
           upcoming_meetings_warning: För närvarande finns det inga planerade möten, men här hittar du alla tidigare möten listade.
         new:
           back: Tillbaka
