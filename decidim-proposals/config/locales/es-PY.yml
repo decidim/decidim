@@ -352,7 +352,6 @@ es-PY:
           description_own: Has dado soporte a %{score} propuestas.
           name: Apoyos a propuestas
           next_level_in: '¡Apoya %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario aún no ha dado apoyo a ninguna propuesta.
           unearned_own: Todavía no has dado apoyo a ninguna propuesta.
         proposals:
           conditions:
@@ -363,7 +362,6 @@ es-PY:
           description_own: Has creado %{score} propuestas.
           name: Propuestas
           next_level_in: '¡Crea %{score} propuestas más para alcanzar el siguiente nivel!'
-          unearned_another: Este usuario no ha creado ninguna propuesta todavía.
           unearned_own: Aún no has creado propuestas.
     metrics:
       accepted_proposals:
@@ -630,7 +628,6 @@ es-PY:
           publish:
             error: Ha habido errores al publicar el borrador colaborativo.
             irreversible_action_modal:
-              body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevos autores o contribuciones.
               cancel: Cancelar
               ok: Publicar como una propuesta
               title: La siguiente acción es irreversible
@@ -639,7 +636,6 @@ es-PY:
           withdraw:
             error: Ha habido errores al cerrar el borrador colaborativo.
             irreversible_action_modal:
-              body: Después de cerrar el borrador, dejara de ser editable. El borrador no aceptará nuevos autores o contribuciones.
               cancel: Cancelar
               ok: Retirar el borrador colaborativo
               title: La siguiente acción es irreversible
@@ -864,7 +860,6 @@ es-PY:
           view_proposal: Ver propuesta
         proposals:
           empty: Aún no hay ninguna propuesta
-          empty_filters: No hay ninguna propuesta con este criterio
         show:
           answer: Respuesta
           back_to: De regreso
@@ -944,7 +939,6 @@ es-PY:
         choose_proposals: Elegir propuestas
         close: Cerrar
         more_proposals: Hay %{number} propuestas más. Refina tu búsqueda para localizarlas.
-        no_proposals: No hay propuestas que coincidan con tu criterio de búsqueda o no hay ninguna propuesta.
       publish:
         error: Ha habido errores al publicar la propuesta.
         success: Propuesta publicada con éxito.
