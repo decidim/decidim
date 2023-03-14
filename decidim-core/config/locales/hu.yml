@@ -122,7 +122,6 @@ hu:
     account:
       blocked: Ezt a fiókot az Általános Szerződési Feltételek megsértése miatt blokkoltuk
       delete:
-        alert: Ez a művelet nem visszavonható. Ha törlöd a fiókjod, nem fogsz tudni bejelentkezni a hitelesítő adataiddal. Fiókod törlése a hozzájárulásaid anonimizálását eredményezi. Továbbra is létrehozhatsz új fiókot, de ezek a hozzájárulások nem fognak kapcsolódni hozzá.
         confirm:
           close: Ablak bezárása
           ok: Igen, törölni szeretném a fiókomat
@@ -405,7 +404,6 @@ hu:
           resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
           title: Engedélyezés folyamatban
         unauthorized:
-          invalid_field: "A(z) %{field} %{value} érték nem érvényes."
           ok: Rendben
           title: Nem engedélyezett
         unconfirmed:
@@ -741,7 +739,6 @@ hu:
         result: Eredmények
     fingerprint:
       check: Ujjlenyomat ellenőrzése
-      explanation: Az alábbi szövegrész a tartalom rövidített, kettőskeresztekkel kibővített változata. Fontos ellenőrizned, hogy a szöveg érintetlen-e, hiszen egyetlen apró eltérés is teljesen más értéket eredményezhet.
       online_calculator_name: MD5 online számológép
       replicate_help: 'Ezt az ujjlenyomat SHA256 technológiával készült. Ha szeretnéd egyet magadnak, akkor használd a következő linket: %{online_calculator_link} és másold be a forrásadatokat.'
       source: Forrás
@@ -808,7 +805,6 @@ hu:
       reached_top: Elérted a jelvény legmagasabb szintjét.
     group_admins:
       actions:
-        are_you_sure: Biztos vagy ebben? Ez nem fogja eltávolítani a felhasználót a csoportból.
         demote_admin: Admin eltávolítása
       demote:
         error: Hiba történt a felhasználó eltávolításakor az adminisztrátorok listáján
@@ -1163,7 +1159,6 @@ hu:
           modal_title: Tényleg elutasítod az ÁSZF frissített szövegét?
         required_review:
           alert: Frissítettük az ÁSZF szövegét. Kérlek, nézd át ezeket.
-          body: Kérlek, nézd át a Szolgáltatási feltételek frissített szövegét. Ellenkező esetben nem tudod majd használni a platformot.
           title: 'Fontos: ellenőrizd a szolgáltatás feltételeink frissítéseit'
     participatory_space_private_users:
       not_allowed: Nincs jogosultságod a tartalom megtekintésére
@@ -1455,7 +1450,6 @@ hu:
         action: A jelszó megváltoztatása
         greeting: Hello %{recipient}!
         instruction: Valaki felkért egy linket a jelszó megváltoztatására, és ezt az alábbi linken keresztül teheti meg.
-        instruction_3: A jelszavát addig nem változtatják meg, amíg nem érjük el a fenti linket, és nem hozunk létre újat.
         subject: Jelszó-visszaállító utasítások visszaállítása
       unlock_instructions:
         action: Fiókom feloldása
