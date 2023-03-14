@@ -71,7 +71,7 @@ describe "Answer a survey", type: :system do
         expect(page).to have_content("successfully")
       end
 
-      # Unregistered users are tracked with their session_id so they won't be allowed to repeat easily
+      # Unregistered users are tracked with their session_id so they will not be allowed to repeat easily
       expect(page).to have_content("You have already answered this form.")
       expect(page).to have_no_i18n_content(question.body)
 

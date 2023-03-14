@@ -210,7 +210,7 @@ en:
           title: Agree to the terms and conditions of use
         required_review:
           alert: 'Required: Review our admin terms of use'
-          callout: Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform.
+          callout: Please take a moment to review Admin Terms of Use. Otherwise you will not be able to manage the platform.
           cta: Review them now.
         title: Admin Terms of Use
       area_types:

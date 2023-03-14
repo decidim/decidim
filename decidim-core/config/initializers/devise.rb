@@ -107,7 +107,7 @@ Devise.setup do |config|
   # When false, Devise will not attempt to reload routes on eager load.
   # This can reduce the time taken to boot the app but if your application
   # requires the Devise mappings to be loaded during boot time the application
-  # won't boot properly.
+  # will not boot properly.
   # config.reload_routes = true
 
   # ==> Configuration for :database_authenticatable
@@ -129,8 +129,8 @@ Devise.setup do |config|
 
   # ==> Configuration for :invitable
   # The period the generated invitation token is valid, after
-  # this period, the invited resource won't be able to accept the invitation.
-  # When invite_for is 0 (the default), the invitation won't expire.
+  # this period, the invited resource will not be able to accept the invitation.
+  # When invite_for is 0 (the default), the invitation will not expire.
   config.invite_for = 2.weeks
 
   # Number of invitations users can send.
@@ -248,7 +248,7 @@ Devise.setup do |config|
   # config.reset_password_keys = [:email]
 
   # Time interval you can reset your password with a reset password key.
-  # Do not put a too small interval or your users won't have the time to
+  # Do not put a too small interval or your users will not have the time to
   # change their passwords.
   config.reset_password_within = 6.hours
 

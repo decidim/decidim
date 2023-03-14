@@ -150,7 +150,7 @@ Other user accounts that you'll have in the seeds are:
 * To participate as a regular user, with email `user@example.org` and password `decidim123456789`.
 * To manage the Multitenant and being able to log in at `/system`, with email `system@example.org` and password `decidim123456789`.
 
-The seed data won't be created in production environments, if you still want to do it (for instance, for a Demo or Staging server), run:
+The seed data will not be created in production environments, if you still want to do it (for instance, for a Demo or Staging server), run:
 
 [source,bash]
 ----
