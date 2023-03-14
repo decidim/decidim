@@ -146,7 +146,6 @@ lt:
     account:
       blocked: Ši paskyra užblokuota dėl sąlygų pažeidimų
       delete:
-        alert: Šis veiksmas negali būti pakeistas vėliau. Jei ištrinate paskyrą nebegalėsite prie jos prisijungti. Paskyros ištrynis anonimizuos Jūsų indėlius. Galėsite susikurti naują paskyrą, tačiau indėliai nebus jai priskirti.
         confirm:
           close: Uždaryti langą
           ok: Taip, noriu ištrinti paskyrą
@@ -431,7 +430,6 @@ lt:
           resume: Patikrinkite savo %{authorization} autorizacijos progresą
           title: Autorizacija vyksta
         unauthorized:
-          invalid_field: "%{field} vertė %{value} negalioja."
           ok: Gerai
           title: Neautorizuota
         unconfirmed:
@@ -797,7 +795,6 @@ lt:
         result: Rezultatai
     fingerprint:
       check: Patikrinti piršto atspaudą
-      explanation: Tekstas yra sutrumpintas ir apibendrintas jo turinys. Būtinai įsitikinkite, kad turinys nebūtų pažeistas, nes padarius vieną pakeitimą duomenys netektų vertės.
       online_calculator_name: MD5 internetinė skaičiuoklė
       replicate_help: Šis piršto atspaudas apskaičiuojamas naudojant SHA256 maišos algoritmą. Kad galėtumėte jį atkartoti, galite naudoti %{online_calculator_link} ir kopijuoti bei įklijuoti šaltinio duomenis.
       source: Šaltinis
@@ -890,7 +887,6 @@ lt:
       title: Kas yra ženkleliai?
     group_admins:
       actions:
-        are_you_sure: Ar jūs tuo tikri? Tai nepašalins dalyvio iš grupės.
         demote_admin: Pašalinti administratorių
       demote:
         error: Šalinant šį dalyvį iš administratorių sąrašo iškilo problema
@@ -1252,7 +1248,6 @@ lt:
           agreement: Aš sutinku su šiomis sąlygomis
           legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
-          modal_body: Jeigu nesutiksite, negalėsite naudotis platforma. Galite <a href="%{data_portability_path}">pasisiųsti savo duomenis</a> ir (arba) <a href="%{delete_path}">pašalinti savo paskyrą</a>.
           modal_btn_continue: Sutikti su sąlygomis ir tęsti
           modal_btn_exit: Peržiūrėsiu vėliau
           modal_button: Nesutikti su sąlygomis
@@ -1260,7 +1255,6 @@ lt:
           modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
         required_review:
           alert: Mes atnaujinome naudojimo sąlygas, kviečiame jas peržiūrėti.
-          body: Kviečiame peržiūrėti naujimo sąlygu atnaujinimus. Kitu atveju negalėsite naudotis platforma.
           title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
@@ -1614,7 +1608,6 @@ lt:
         action: Keisti slaptažodį
         greeting: Sveiki %{recipient}!
         instruction: Kažkas paprašė slaptažodžio pakeitimo nuorodos. Jūs galite tai padaryti paspaudę žemiau esančią nuorodą.
-        instruction_3: Jūsų slaptažodis nepasikeis tol, kol nesukursite naujo. Tą padaryti galite paspaudę aukščiau pateiktą nuorodą.
         subject: Slaptažodžio atstatymo nurodymai
       unlock_instructions:
         action: Atblokuoti mano paskyrą
