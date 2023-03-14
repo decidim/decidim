@@ -277,7 +277,6 @@ hu:
           description_own: Eddig %{score} javaslatot támogattál.
           name: Javaslat támogatói
           next_level_in: Támogatja a %{score} további javaslatot a következő szint eléréséhez!
-          unearned_another: A felhasználó még nem támogatott egy javaslatot sem.
           unearned_own: Még nem támogattál egyetlen javaslatot sem.
         proposals:
           conditions:
@@ -288,7 +287,6 @@ hu:
           description_own: Eddig %{score} javaslatot hoztál létre.
           name: Javaslatok
           next_level_in: Hozz létre még %{score} javaslatot a következő szint eléréséhez!
-          unearned_another: A felhasználó még nem hozott létre javaslatokat.
           unearned_own: Még nem hoztál létre javaslatokat.
     metrics:
       accepted_proposals:
@@ -518,7 +516,6 @@ hu:
           publish:
             error: Hiba történt a közösen szerkesztett vázlat közzététele során.
             irreversible_action_modal:
-              body: Miután a vázlatot közzétetted, mint javaslatot, már nem szerkesztheted. A javaslathoz új szerzők vagy közreműködők sem adhatóak hozzá.
               cancel: Mégse
               ok: Közzététel javaslatként
               title: A következő művelet visszavonhatatlan
@@ -527,7 +524,6 @@ hu:
           withdraw:
             error: Hiba történt a közösen szerkesztett vázlat lezárásakor.
             irreversible_action_modal:
-              body: A tervezet a lezárás után nem szerkeszthető. A javaslathoz új szerzők vagy közreműködők sem adhatóak hozzá.
               cancel: Mégse
               ok: Közös vázlat visszavonása
               title: A következő művelet visszavonhatatlan
