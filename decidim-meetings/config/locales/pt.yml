@@ -176,7 +176,6 @@ pt:
           description_own: Participou em %{score} reuniões.
           name: Reuniões participadas
           next_level_in: Participe em mais %{score} reuniões para alcançar o próximo nível!
-          unearned_another: Este participante ainda não participou em nenhuma reunião.
     meetings:
       actions:
         agenda: Agenda
@@ -450,7 +449,6 @@ pt:
         meeting_minutes:
           related_information: Informação Relacionada
         meetings:
-          no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui pode encontrar listadas todas as reuniões passadas.
         new:
           back: Retroceder
