@@ -158,7 +158,6 @@ is-IS:
           filter_by: Sía eftir
           unfold: Fella út
         meetings:
-          no_meetings_warning: Engar fundir samræmast leitarskilyrðum þínum eða það er ekki fundur áætlað.
           upcoming_meetings_warning: Eins og er, eru engar áætlanir fundar, en hér er hægt að finna allar fyrri fundi skráð.
         registration_confirm:
           cancel: Hætta við
