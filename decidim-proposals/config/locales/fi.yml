@@ -638,7 +638,7 @@ fi:
           withdraw:
             error: Yhteistyöluonnoksen sulkeminen epäonnistui.
             irreversible_action_modal:
-              body: Luonnoksen sulkemisen jälkeen luonnos ei enää ole muokattavissa. Luonnos ei hyväksy uusia tekijöitä tai osallistumisia.
+              body: Luonnoksen julkaisemisen jälkeen sitä ei voi enää muokata. Uusia tekijöitä tai muutoksia ehdotukseen ei enää hyväksytä tämän jälkeen.
               cancel: Peruuta
               ok: Peru yhteistyöluonnos
               title: Seuraavat toimenpiteet ovat peruuttamattomia
@@ -863,7 +863,7 @@ fi:
           view_proposal: Näytä ehdotus
         proposals:
           empty: Ei vielä yhtään ehdotusta
-          empty_filters: Ei yhtään ehdotusta annetuilla hakuehdoilla
+          empty_filters: Ehdotuksia ei löytynyt annetuilla hakuehdoilla
         show:
           answer: Vastaus
           back_to: Takaisin sivulle
