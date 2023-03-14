@@ -175,7 +175,6 @@
           description_own: Du har deltatt %{score} møter.
           name: Deltok møter
           next_level_in: Delta %{score} flere møter for å nå neste nivå!
-          unearned_another: Denne deltakeren har ikke deltatt noen møter ennå.
     meetings:
       actions:
         agenda: Dagsorden
@@ -464,7 +463,6 @@
         meeting_minutes:
           related_information: Relatert Informasjon
         meetings:
-          no_meetings_warning: Ingen møter samsvarer med søkekriteriene, eller det er ikke planlagt noe møte.
           upcoming_meetings_warning: For øyeblikket er det ingen planlagte møter, men her kan du finne alle de forrige møtene oppført.
         registration_confirm:
           cancel: Avbryt
