@@ -736,7 +736,7 @@ en:
           back: Back
           continue: Next
       warnings:
-        no_elections_warning: No elections match your search criteria or there isn't any election scheduled.
+        no_elections_warning: No elections match your search criteria or there is not any election scheduled.
         no_scheduled_elections_warning: Currently, there are no scheduled elections, but here you can find all the past elections listed.
     events:
       elections:
@@ -1007,7 +1007,7 @@ en:
             choose_polling_officers: Choose polling officers
             close: Close
             more_polling_officers: There are %{number} more polling officers. Refine your search to locate them.
-            no_polling_officers: No polling officers match your search criteria or there isn't any polling officer.
+            no_polling_officers: No polling officers match your search criteria or there is not any polling officer.
         polling_stations:
           create:
             invalid: There was a problem creating this polling station

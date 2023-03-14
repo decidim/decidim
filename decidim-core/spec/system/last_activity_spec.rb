@@ -58,7 +58,7 @@ describe "Last activity", type: :system do
     context "when there is a deleted comment" do
       let(:comment) { create(:comment, :deleted, body: "This is deleted") }
 
-      it "isn't shown" do
+      it "is not shown" do
         within "#last_activity" do
           expect(page).not_to have_content("This is deleted")
         end

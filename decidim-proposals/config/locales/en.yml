@@ -865,7 +865,7 @@ en:
           view_proposal: View proposal
         proposals:
           empty: There is no proposal yet
-          empty_filters: There isn't any proposal with this criteria
+          empty_filters: There is not any proposal with this criteria
         show:
           answer: Answer
           back_to: Back to
@@ -945,7 +945,7 @@ en:
         choose_proposals: Choose proposals
         close: Close
         more_proposals: There are %{number} more proposals. Refine your search to locate them.
-        no_proposals: No proposals match your search criteria or there isn't any proposals.
+        no_proposals: No proposals match your search criteria or there is not any proposals.
       publish:
         error: There was a problem publishing the proposal.
         success: Proposal successfully published.

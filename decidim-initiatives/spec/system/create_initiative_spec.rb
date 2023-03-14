@@ -527,7 +527,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "when the scope isn't selected" do
+          context "when the scope is not selected" do
             it "shows an error" do
               select("Online", from: "Signature collection type")
               find_button("Continue").click

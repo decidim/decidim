@@ -21,7 +21,7 @@ module Decidim
     end
 
     describe "render_social_share_buttons" do
-      context "when there isn't any service" do
+      context "when there is not any service" do
         before do
           allow(Decidim.config).to receive(:social_share_services).and_return([])
         end

@@ -36,7 +36,7 @@ module Decidim
     # event to decide based on the params.
     #
     # It returns false when the resource or any element in the chain is a
-    # `Decidim::Publicable` and it isn't published or participatory_space
+    # `Decidim::Publicable` and it is not published or participatory_space
     # is a `Decidim::Participable` and the user cannot participate.
     def notifiable?
       return false if resource.is_a?(Decidim::Publicable) && !resource.published?

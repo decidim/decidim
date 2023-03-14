@@ -26,7 +26,7 @@ describe "Index proposals", type: :system do
       end
 
       it "shows an empty page with a message" do
-        expect(page).to have_content("There isn't any proposal with this criteria")
+        expect(page).to have_content("There is not any proposal with this criteria")
         within ".callout.warning" do
           expect(page).to have_content("You are viewing the list of proposals withdrawn by their authors. ")
         end
@@ -68,7 +68,7 @@ describe "Index proposals", type: :system do
 
         uncheck "Accepted"
 
-        expect(page).to have_content("There isn't any proposal with this criteria")
+        expect(page).to have_content("There is not any proposal with this criteria")
       end
     end
   end

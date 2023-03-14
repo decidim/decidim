@@ -5,7 +5,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 == Technological
 
 . Choose a *domain or subdomain* for your application. Some typical names involve "Participation" or "Decision" conjugations.
-. Choose which *languages* do you want for your application. In case that your language isn't supported you should translate it on https://crowdin.com/project/decidim[Crowdin].
+. Choose which *languages* do you want for your application. In case that your language is not supported you should translate it on https://crowdin.com/project/decidim[Crowdin].
 . Customize the xref:customize:styles.adoc[*look and feel*] (colors, pictures, fonts, etc).
 . Configure *SSL*:
 .. We recommend using at least *https://letsencrypt.org/[Let's Encrypt]* for minimum security.
