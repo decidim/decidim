@@ -119,7 +119,6 @@ sv:
     account:
       blocked: Detta konto har blockerats på grund av överträdelse av användarvillkoren
       delete:
-        alert: Denna åtgärd kan inte ångras. Om du tar bort ditt konto kommer du inte att kunna logga in med dina uppgifter. Raderingen av ditt konto kommer att resultera i anonymiseringen av dina bidrag. Du kommer fortfarande kunna skapa ett nytt konto, men dina gamla bidrag kommer inte förknippas med det.
         confirm:
           close: Stäng fönster
           ok: Ja, radera mitt konto
@@ -369,7 +368,6 @@ sv:
           resume: Se hur auktoriseringen med "%{authorization}" pågår
           title: Auktoriseringen pågår fortfarande
         unauthorized:
-          invalid_field: "%{field} värdet %{value} är inte giltigt."
           ok: OK
           title: Ej auktoriserad
         unconfirmed:
@@ -720,7 +718,6 @@ sv:
         result: Resultat
     fingerprint:
       check: Kontrollera fingeravtryck
-      explanation: Textstycket nedan är en förkortad och hashad representation av detta innehåll. Det är användbart för att se om innehållet har manipulerats, eftersom en enda ändring skulle resultera i ett helt annat värde.
       online_calculator_name: MD5 onlinekalkylator
       replicate_help: Detta fingeravtryck har beräknats med en SHA256 hash-algoritm. För att själv utföra beräkningen via %{online_calculator_link} och kopiera och klistra in källdata.
       source: Källa
@@ -799,7 +796,6 @@ sv:
       reached_top: Du har nått den högsta nivån för detta märke.
     group_admins:
       actions:
-        are_you_sure: Är du säker? Detta tar inte bort deltagaren från gruppen.
         demote_admin: Ta bort administratör
       demote:
         error: Det gick inte att ta bort den här deltagaren från administratörslistan
@@ -1151,7 +1147,6 @@ sv:
           modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
-          body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
           title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
@@ -1495,7 +1490,6 @@ sv:
         action: Ändra mitt lösenord
         greeting: Hej %{recipient}!
         instruction: Någon har begärt en länk för att ändra ditt lösenord, och du kan göra det genom länken nedan.
-        instruction_3: Ditt lösenord ändras inte förrän du följer länken ovan och skapar ett nytt.
         subject: Anvisningar om att återställa lösenord
       unlock_instructions:
         action: Lås upp mitt konto
