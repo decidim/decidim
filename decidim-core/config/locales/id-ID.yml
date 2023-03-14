@@ -228,7 +228,6 @@ id:
           resume: Periksa kemajuan otorisasi "%{authorization}" Anda
           title: Otorisasi masih berlangsung
         unauthorized:
-          invalid_field: "%{field} nilai %{value} tidak valid."
           ok: Baik
           title: Tidak diizinkan
         unconfirmed:
@@ -487,7 +486,6 @@ id:
         result: Hasil
     fingerprint:
       check: Periksa sidik jari
-      explanation: Bagian teks di bawah ini adalah representasi singkat, berciri dari konten ini. Ini berguna untuk memastikan konten belum dirusak, karena satu modifikasi akan menghasilkan nilai yang sangat berbeda.
       online_calculator_name: Kalkulator MD5 online
       replicate_help: Sidik jari ini dihitung menggunakan algoritma hashing SHA256. Untuk mereplikasi sendiri, Anda dapat menggunakan %{online_calculator_link} dan copy-paste data sumber.
       source: Sumber
@@ -527,7 +525,6 @@ id:
       reached_top: Anda telah mencapai level teratas untuk lencana ini.
     group_admins:
       actions:
-        are_you_sure: Apakah kamu yakin? Ini tidak akan menghapus pengguna dari grup.
         demote_admin: Hapus admin
       demote:
         error: Terjadi kesalahan saat menghapus pengguna ini dari daftar admin
@@ -776,7 +773,6 @@ id:
           modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
         required_review:
           alert: Kami telah memperbarui Persyaratan Layanan, harap tinjau.
-          body: Harap luangkan waktu untuk meninjau pembaruan pada Ketentuan Layanan kami. Jika tidak, Anda tidak akan dapat menggunakan platform.
           title: 'Diperlukan: Tinjau pembaruan untuk persyaratan layanan kami'
     participatory_space_private_users:
       not_allowed: Anda tidak diizinkan untuk melihat konten ini
@@ -978,7 +974,6 @@ id:
         action: Ubah kata sandi saya
         greeting: Halo %{recipient}!
         instruction: Seseorang telah meminta tautan untuk mengubah kata sandi Anda, dan Anda dapat melakukannya melalui tautan di bawah ini.
-        instruction_3: Kata sandi Anda tidak akan berubah sampai Anda mengakses tautan di atas dan membuat yang baru.
         subject: Setel ulang instruksi kata sandi
       unlock_instructions:
         action: Buka kunci akun saya
