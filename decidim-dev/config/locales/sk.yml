@@ -36,7 +36,6 @@ sk:
           description_own: Vytvorili ste %{score} testov.
           name: Testy
           next_level_in: Vytvorte o %{score} testov viac pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník nevytvoril žiadny test.
           unearned_own: Zatiaľ ste nevytvorili žiadny test.
     resource_links:
       test_link:
