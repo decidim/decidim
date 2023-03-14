@@ -110,7 +110,6 @@
     account:
       blocked: Denne kontoen er sperret på grunn av brudd på vilkår og betingelser
       delete:
-        alert: Denne handlingen kan ikke angres. Hvis du sletter kontoen din, vil du ikke kunne logge inn igjen med denne innloggingsinformasjonen. Slettingen av din konto vil resultere i at dine bidrag blir anonymisert. Du vil fortsatt kunne lage en ny konto, men disse bidragene vil ikke bli knyttet til den.
         confirm:
           close: Lukk vindu
           ok: Ja, jeg ønsker å slette kontoen min
@@ -344,7 +343,6 @@
           resume: Sjekk "%{authorization}" autoriseringen din
           title: Autoriseringen pågår fremdeles
         unauthorized:
-          invalid_field: "%{field} verdi %{value} er ikke gyldig."
           ok: Ok
           title: Ikke autorisert
         unconfirmed:
@@ -688,7 +686,6 @@
         result: Resultater
     fingerprint:
       check: Sjekk fingeravtrykket
-      explanation: Tekststykket nedenfor er en forkortet, hashet fremstilling av dette innholdet. Det er nyttig for å sikre at innholdet ikke har blitt tuklet med, ettersom en enkelt modifisering vil resultere i en helt annen verdi.
       online_calculator_name: MD5 kalkulator online
       replicate_help: Dette fingeravtrykket blir beregnet ved å bruke en SHA256 hashing algoritme. For å gjenskape det selv, kan du bruke en %{online_calculator_link} og kopiere og lime inn kildedataene.
       source: Kilde
@@ -748,7 +745,6 @@
       reached_top: Du har nådd det høyeste nivået for dette merket.
     group_admins:
       actions:
-        are_you_sure: Er du sikker? Dette vil ikke fjerne deltakeren fra gruppen.
         demote_admin: Fjern admin
       demote:
         error: Det oppstod et problem med å fjerne denne deltakeren fra administrator listen
@@ -1089,7 +1085,6 @@
           modal_title: Nekter du virkelig de oppdaterte vilkårene?
         required_review:
           alert: Vi har oppdatert våre vilkår for bruk, vennligst se gjennom dem.
-          body: Vennligst ta deg tid til å se gjennom oppdateringer til våres Vilkår for Bruk. Ellers vil du ikke kunne bruke plattformen.
           title: 'Påkrevd: Se gjennom oppdateringer til våre vilkår for bruk'
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
@@ -1424,7 +1419,6 @@
         action: Endre passordet mitt
         greeting: Hei %{recipient}!
         instruction: Noen har bedt om en lenke for å endre passordet ditt, og du kan gjøre dette gjennom lenken nedenfor.
-        instruction_3: Passordet endres ikke før du åpner lenken ovenfor og oppretter et nytt et.
         subject: Tilbakestill passordinstruksjoner
       unlock_instructions:
         action: Lås opp kontoen min
