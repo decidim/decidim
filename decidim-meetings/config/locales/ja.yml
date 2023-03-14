@@ -195,7 +195,6 @@ ja:
           description_own: '%{score} 件のミーティングに出席しました．'
           name: 出席したミーティング
           next_level_in: さらに %{score} 件のミーティングに参加して、次のレベルに到達しましょう！
-          unearned_another: この参加者はまだミーティングに出席していません．
     meetings:
       actions:
         agenda: 予定
@@ -510,7 +509,6 @@ ja:
         meeting_minutes:
           related_information: 関連情報
         meetings:
-          no_meetings_warning: 検索条件に一致するミーティングがないか，スケジュールされたミーティングがありません．
           upcoming_meetings_warning: 現在、スケジュールされたミーティングはありませんが、ここではリストされた過去のミーティングをすべて見つけることができます。
         new:
           back: 戻る
