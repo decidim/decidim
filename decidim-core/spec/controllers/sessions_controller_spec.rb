@@ -88,6 +88,58 @@ module Decidim
         end
       end
 
+      describe "POST create" do
+        let(:params) { { user: { email: user.email, password: password } } }
+        let(:user) { create(:user, :confirmed, password: password, password_confirmation: password) }
+        let(:password) { "decidim123456789" }
+
+        before do
+          request.env["decidim.current_organization"] = user.organization
+          request.env["devise.mapping"] = ::Devise.mappings[:user]
+        end
+
+        context "when participant" do
+          context "with weak password" do
+            let(:password) { "decidim123" }
+
+            it "does not update password_updated_at" do
+              post :create, params: params
+
+              expect(user.reload.password_updated_at).not_to be_nil
+            end
+          end
+        end
+
+        context "when admin" do
+          context "with strong password" do
+            let(:user) { create(:user, :confirmed, :admin) }
+
+            it "does not change password_updated_at" do
+              post :create, params: params
+
+              expect(user.reload.password_updated_at).not_to be_nil
+            end
+          end
+
+          context "with weak password" do
+            let(:user) { create(:user, :confirmed, password: password, password_confirmation: password) }
+            let(:password) { "decidim123" }
+
+            # To avoid the password validation failing when creating the user
+            before do
+              user.password = user.password_confirmation = nil
+              user.update!(admin: true)
+            end
+
+            it "sets password_updated_at to nil" do
+              post :create, params: params
+
+              expect(user.reload.password_updated_at).to be_nil
+            end
+          end
+        end
+      end
+
       describe "DELETE destroy" do
         let(:user) { create(:user, :confirmed) }
 
