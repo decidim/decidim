@@ -148,7 +148,6 @@ gl:
           description_own: Atendeu %{score} reunións.
           name: Reunións asistidas
           next_level_in: Asistir a %{score} reunións máis para alcanzar o seguinte nivel!
-          unearned_another: Este usuario aínda non asistiu a ningunha reunión.
     meetings:
       actions:
         agenda: Axenda
@@ -361,7 +360,6 @@ gl:
         meeting_minutes:
           related_information: Información relacionada
         meetings:
-          no_meetings_warning: Non hai encontros que coincidan cos seus criterios de busca ou non hai ningunha reunión programada.
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
         registration_confirm:
           cancel: Cancelar
