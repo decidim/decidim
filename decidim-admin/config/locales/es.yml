@@ -209,7 +209,6 @@ es:
           title: Acepto los Términos y Condiciones de Administración
         required_review:
           alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
-          callout: Por favor dedica un momento a familiarizarte con los términos de uso para administradoras. En caso contrario, no podrás administrar la plataforma.
           cta: Revísalos ahora.
         title: Términos y Condiciones de Administración
       area_types:
