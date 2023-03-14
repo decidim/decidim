@@ -133,7 +133,7 @@ module Decidim::ParticipatoryProcesses
         end
       end
 
-      context "when the user hasn't accepted the invitation" do
+      context "when the user has not accepted the invitation" do
         before do
           user.invite!
         end

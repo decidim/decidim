@@ -193,7 +193,7 @@ en:
           description_own: You've got %{score} initiatives published.
           name: Published initiatives
           next_level_in: Get %{score} more initiatives published to reach the next level!
-          unearned_another: This participant hasn't gotten any initiatives published yet.
+          unearned_another: This participant has not gotten any initiatives published yet.
           unearned_own: You got no initiatives published yet.
     help:
       participatory_spaces:

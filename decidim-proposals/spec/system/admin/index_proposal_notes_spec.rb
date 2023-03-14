@@ -53,7 +53,7 @@ describe "Index Proposal Notes", type: :system do
     end
   end
 
-  context "when the form hasn't text inside body" do
+  context "when the form has not text inside body" do
     let(:body) { nil }
 
     it "do not create a proposal note", :slow do

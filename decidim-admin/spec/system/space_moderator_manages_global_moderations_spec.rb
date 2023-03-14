@@ -25,7 +25,7 @@ describe "Space moderator manages global moderations", type: :system do
     login_as user, scope: :user
   end
 
-  context "when the user hasn't accepted the Terms of Use" do
+  context "when the user has not accepted the Terms of Use" do
     before do
       user.update(admin_terms_accepted_at: nil)
     end
