@@ -147,7 +147,6 @@ tr:
           description_own: '%{score} toplantıya katıldınız.'
           name: Katıldığı toplantılar
           next_level_in: Bir sonraki seviyeye ulaşmak için %{score} toplantıya katılın!
-          unearned_another: Bu katılımcı henüz bir toplantıya katılmadı.
     meetings:
       actions:
         agenda: Gündem
@@ -390,7 +389,6 @@ tr:
         meeting_minutes:
           related_information: İlgili bilgi
         meetings:
-          no_meetings_warning: Hiçbir toplantı, arama kriterinizle eşleşmiyor veya planlanmış bir toplantı yok.
           upcoming_meetings_warning: Şu anda planlanmış bir toplantı yok, ancak burada listelenen tüm geçmiş toplantıları bulabilirsiniz.
         new:
           back: Geri
