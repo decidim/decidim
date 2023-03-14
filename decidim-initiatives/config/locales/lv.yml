@@ -141,7 +141,6 @@ lv:
           description_own: Jūs esat publicējis %{score} iniciatīvas.
           name: Publicētās iniciatīvas
           next_level_in: Publicējiet vēl vairākas %{score} iniciatīvas, lai sasniegtu nākamo līmeni!
-          unearned_another: Šim dalībniekam vēl nav nevienas publicētas iniciatīvas.
           unearned_own: Jums vēl nav nevienas publicētas iniciatīvas.
     help:
       participatory_spaces:
