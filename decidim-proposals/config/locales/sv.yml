@@ -331,7 +331,6 @@ sv:
           description_own: Du har gett stöd till %{score} förslag.
           name: Stött förslag
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
-          unearned_another: Den här användaren har inte stött några förslag än.
           unearned_own: Du har inte gett stöd till några förslag än.
         proposals:
           conditions:
@@ -342,7 +341,6 @@ sv:
           description_own: Du har skapat %{score} förslag.
           name: Förslag
           next_level_in: Nå nästa nivå genom att skapa %{score} till förslag!
-          unearned_another: Den här användaren har inte skapat några förslag ännu.
           unearned_own: Du har inte skapat några förslag än.
     metrics:
       accepted_proposals:
@@ -593,7 +591,6 @@ sv:
           publish:
             error: Det gick inte att publicera det gemensamma utkastet.
             irreversible_action_modal:
-              body: Efter att utkastet har publicerats som ett förslag går det inte längre att redigera utkastet. Förslaget kommer inte acceptera nya författare eller bidrag.
               cancel: Dra tillbaka
               ok: Publicera som ett förslag
               title: Följande åtgärd kan inte ångras
@@ -602,7 +599,6 @@ sv:
           withdraw:
             error: Det gick inte att stänga det gemensamma utkastet.
             irreversible_action_modal:
-              body: Efter att utkastet stängs går det inte längre att redigera. Utkastet accepterar inte nya författare eller bidrag.
               cancel: Dra tillbaka
               ok: Dra tillbaka det gemensamma utkastet
               title: Det går inte att ångra denna åtgärd
@@ -820,7 +816,6 @@ sv:
           view_proposal: Visa förslag
         proposals:
           empty: Det finns ännu inget förslag
-          empty_filters: Det finns inget förslag med dessa kriterier
         show:
           answer: Svara
           back_to: Tillbaka till
@@ -900,7 +895,6 @@ sv:
         choose_proposals: Välj förslag
         close: Stäng
         more_proposals: Det finns ytterligare %{number} förslag. Förfina dina sökkriterier för att hitta dem.
-        no_proposals: Inga förslag matchar dina sökkriterier eller det finns inget förslag.
       publish:
         error: Det gick inte att publicera förslaget.
         success: Förslag har publicerats.
