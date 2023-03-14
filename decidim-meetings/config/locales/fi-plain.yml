@@ -205,7 +205,7 @@ fi-pl:
           description_own: Olet osallistunut %{score} tapahtumaan.
           name: Tapahtumiin osallistuminen
           next_level_in: Osallistu %{score} uuteen tapahtumaan seuraavan tason saavuttamiseksi!
-          unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapahtumaan.
+          unearned_another: Tämä käyttäjä ei ole vielä osallistunut yhteenkään tapaamiseen.
           unearned_own: Et ole vielä osallistunut yhteenkään tapaamiseen.
     meetings:
       actions:
@@ -527,7 +527,7 @@ fi-pl:
         meeting_minutes:
           related_information: Liittyviä tietoja
         meetings:
-          no_meetings_warning: Yksikään tapahtuma ei vastaa hakukriteerejäsi tai yhtään tapahtumaa ei ole suunniteltu.
+          no_meetings_warning: Yksikään tapaaminen ei vastaa hakukriteerejäsi tai yhtään tapaamista ei ole suunniteltu.
           upcoming_meetings_warning: Tällä hetkellä ei ole suuniteltuja tapahtumia, mutta täältä löydät kaikki aikaisemmat tapahtumat.
         new:
           back: Takaisin
