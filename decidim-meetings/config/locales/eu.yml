@@ -198,7 +198,6 @@ eu:
           description_own: '%{score} topaketetan parte hartu duzu.'
           name: Parte hartu den topkaetak
           next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
-          unearned_another: Erabiltzaile honek oraindik ez du topaketarik izan.
     meetings:
       actions:
         agenda: Agenda
@@ -517,7 +516,6 @@ eu:
         meeting_minutes:
           related_information: Lotutako informazioa
         meetings:
-          no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago ezein topaketarik programaturik.
           upcoming_meetings_warning: Orain ez dago topaketarik programaturik, baina aurreko topaketak ikus ditzakezu.
         new:
           back: Atzera
