@@ -2,7 +2,7 @@
       budget_order_line_item_path(model.budget, project_id: model),
       method: vote_button_method,
       remote: true,
-      class: "button button__sm budget-list__action w-full #{vote_button_class} #{resource_added? ? 'button__transparent-secondary' : 'button__secondary'}",
+      class: "button budget-list__action w-full #{vote_button_class} #{resource_added? ? 'button__transparent-secondary' : 'button__secondary'} #{project_item? ? 'button__lg' : 'button__sm'}",
       id: "project-vote-button-#{model.id}",
       data: {
         add: !resource_added?,

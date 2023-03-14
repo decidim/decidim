@@ -13,6 +13,10 @@ module Decidim
 
       private
 
+      def project_item?
+        options[:project_item]
+      end
+
       def resource_path
         resource_locator([model.budget, model]).path
       end

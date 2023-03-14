@@ -6,6 +6,6 @@
         <%= t("add", scope: "decidim.budgets.projects.project_budget_button") %>
       </button>
   <% else %>
-    <%= cell("decidim/budgets/project_vote_button", project) %>
+    <%= cell("decidim/budgets/project_vote_button", project, project_item: true) %>
   <% end %>
 </div>
