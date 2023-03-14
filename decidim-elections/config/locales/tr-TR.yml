@@ -310,7 +310,6 @@ tr:
           back: Geri
           continue: Sonraki
       warnings:
-        no_elections_warning: Arama kriterlerinize uyan seçim yok veya planlanmış bir seçim yok.
         no_scheduled_elections_warning: Şu anda planlanmış bir seçim yok, ancak burada listelenen tüm geçmiş seçimleri bulabilirsiniz.
     events:
       elections:
