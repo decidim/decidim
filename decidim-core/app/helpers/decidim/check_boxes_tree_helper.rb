@@ -152,11 +152,9 @@ module Decidim
     end
 
     def filter_scopes_values_from(scopes, participatory_space = nil)
-      organization = participatory_space&.organization || current_organization
-
       scopes_values = scopes.compact.flat_map do |scope|
         TreeNode.new(
-          TreePoint.new(scope.id.to_s, filter_text_for(translated_attribute(scope.name, organization))),
+          TreePoint.new(scope.id.to_s, filter_text_for(translated_attribute(scope.name))),
           scope_children_to_tree(scope, participatory_space)
         )
       end
@@ -170,11 +168,9 @@ module Decidim
       return if participatory_space.present? && scope.scope_type && scope.scope_type == current_participatory_space.try(:scope_type_max_depth)
       return unless scope.children.any?
 
-      organization = participatory_space&.organization || current_organization
-
       scope.children.includes(:scope_type, :children).flat_map do |child|
         TreeNode.new(
-          TreePoint.new(child.id.to_s, filter_text_for(translated_attribute(child.name, organization))),
+          TreePoint.new(child.id.to_s, filter_text_for(translated_attribute(child.name))),
           scope_children_to_tree(child, participatory_space)
         )
       end
