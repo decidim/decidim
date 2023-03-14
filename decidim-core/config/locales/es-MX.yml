@@ -123,7 +123,6 @@ es-MX:
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los Términos y Condiciones de uso
       delete:
-        alert: Esta acción no se puede deshacer. Si eliminas tu cuenta no podrás iniciar sesión con tus credenciales. La eliminación de tu cuenta resultará en la anonimización de tus contribuciones. Aún podrás crear una nueva cuenta, pero estas contribuciones no se asociarán a ella.
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
@@ -414,7 +413,7 @@ es-MX:
           resume: Comprueba el progreso de la autorización "%{authorization}"
           title: La autorización aún está en progreso
         unauthorized:
-          invalid_field: "%{field} valor %{value} no es válido."
+          explanation: Lo sentimos, no puedes realizar esta acción porque algunos de tus datos de autorización no coinciden.
           ok: De acuerdo
           title: No autorizado
         unconfirmed:
@@ -802,7 +801,6 @@ es-MX:
         result: Resultados
     fingerprint:
       check: Verificar huella digital
-      explanation: La siguiente cadena de texto es una representación abreviada y hashed de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
       online_calculator_name: Calculadora MD5 en línea
       replicate_help: Esta huella digital se calcula utilizando un algoritmo hash SHA256. Para poder replicarlo tú mismo, puedes usar una %{online_calculator_link} y copiar y pegar los datos de origen.
       source: Origen
@@ -817,6 +815,7 @@ es-MX:
       following_count:
         one: "%{count} lo sigue"
         other: "%{count} lo siguen"
+      no_followings: No sigue a nadie ni a ninguna actividad.
       non_public_followings: Algunos de los recursos seguidos no son públicos.
     follows:
       create:
@@ -884,6 +883,7 @@ es-MX:
           description_own: "%{score} usuarios te están siguiendo."
           name: Seguidores
           next_level_in: '¡Consigue %{score} usuarios más para seguirte y alcanzar el siguiente nivel!'
+          unearned_another: Esta participante todavía no tiene seguidoras.
           unearned_own: Aún no tienes seguidores.
         index:
           badge_title: "Distintivo %{name}"
@@ -896,7 +896,6 @@ es-MX:
       title: '¿Qué son las insignias?'
     group_admins:
       actions:
-        are_you_sure: '¿Estás seguro? Esto no eliminará al usuario del grupo.'
         demote_admin: Eliminar permisos de administración
       demote:
         error: Se ha producido un error al eliminar este usuario de la lista de administradores.
@@ -971,6 +970,7 @@ es-MX:
         create_user_group: Crear un grupo
         new_user_group: Nuevo grupo
         subtitle: Crea un grupo e invita a otros usuarios a unirse para participar a nivel colectivo.
+      no_user_groups: Aún no pertenece a ningún grupo.
       roles:
         admin: Administrador
         creator: Administradora
@@ -1031,6 +1031,8 @@ es-MX:
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
+    members:
+      no_members: Este grupo aún no tiene ningún miembro.
     menu:
       help: Ayuda
       home: Inicio
@@ -1268,7 +1270,6 @@ es-MX:
           agreement: Estoy de acuerdo con estos términos
           legend: Aceptar los Términos y Condiciones de uso
         refuse:
-          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{download_your_data_path}">descargar tus datos</a> y/o <a href="%{delete_path}">eliminar tu cuenta</a>.
           modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
@@ -1276,7 +1277,6 @@ es-MX:
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
-          body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No puedes ver este contenido
@@ -1412,6 +1412,7 @@ es-MX:
         already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
         close: Cerrar
         description: Es inapropiado este contenido?
+        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
         hide: Esconder
         hide_content: Esconder este contenido
         offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
@@ -1424,6 +1425,7 @@ es-MX:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
         close: Cerrar
         description: '¿Qué es inapropiado de la usuaria?'
+        does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
         offensive: Contiene el racismo, el sexismo, los golpes personales, las amenazas de muerte, las peticiones de suicidio o cualquier forma de discurso de odio.
         report: Reporte
         spam: Contiene clickbait, publicidad, estafas o robots de guión.
@@ -1520,6 +1522,7 @@ es-MX:
     user_interests:
       show:
         my_interests: Mis intereses
+        no_scopes: '¡Esta organización aún no tiene ningún ámbito!'
         select_your_interests: Seleccione los temas que le interesan para recibir eventos relacionados con ellos en la pestaña Línea de tiempo de su perfil.
         update_my_interests: Actualizar mis intereses
       update:
@@ -1617,8 +1620,6 @@ es-MX:
         accept_until: Esta invitación caducará el día %{due_date}.
         decline: Rechazar invitación
         hello: Hola %{email},
-        ignore: |-
-          Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br /> Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuaria y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
         invited_you_as_private_user: "%{invited_by} te ha invitado como usuario privado de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
@@ -1642,7 +1643,6 @@ es-MX:
         greeting: '¡Hola %{recipient}!'
         instruction: Alguien ha solicitado un enlace para cambiar tu contraseña, y puede hacerlo a través del siguiente enlace.
         instruction_2: Si no lo solicitaste, ignora este correo electrónico.
-        instruction_3: Tu contraseña no cambiará hasta que accedas al enlace de arriba y crees una nueva.
         subject: Restablecer instrucciones de contraseña
       unlock_instructions:
         action: Desbloquear mi cuenta
@@ -1737,6 +1737,7 @@ es-MX:
       already_confirmed: Ya fuiste confirmado, intenta iniciar sesión
       blank: no puede estar en blanco
       cannot_be_blank: no puede estar en blanco
+      confirmation: no coincide con %{attribute}
       confirmation_period_expired: Necesitas ser confirmado dentro de %{period}, por favor solicita uno nuevo.
       content_type_allowlist_error: el tipo de archivo no es válido
       cycle_detected: uno ámbito padre no puede ser uno de sus descendientes
