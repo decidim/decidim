@@ -27,14 +27,14 @@ module Decidim
         expect(subject.user).to eq(user)
       end
 
-      context "when the user doesn't belong to the same organization" do
+      context "when the user does not belong to the same organization" do
         it "is not valid" do
           subject.user = create(:user)
           expect(subject).not_to be_valid
         end
       end
 
-      context "when question doesn't belong to the questionnaire" do
+      context "when question does not belong to the questionnaire" do
         it "is not valid" do
           subject.question = create(:meetings_poll_question)
           expect(subject).not_to be_valid

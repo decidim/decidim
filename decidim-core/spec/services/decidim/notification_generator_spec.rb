@@ -140,7 +140,7 @@ describe Decidim::NotificationGenerator do
             allow(resource).to receive(:can_participate?).with(kind_of(Decidim::User)).and_return(false)
           end
 
-          it "doesn't schedule a job" do
+          it "does not schedule a job" do
             expect(Decidim::NotificationGeneratorForRecipientJob)
               .not_to receive(:perform_later)
 
@@ -155,7 +155,7 @@ describe Decidim::NotificationGenerator do
         allow(event_class).to receive(:types).and_return([])
       end
 
-      it "doesn't schedule a job for each recipient" do
+      it "does not schedule a job for each recipient" do
         expect(Decidim::NotificationGeneratorForRecipientJob)
           .not_to receive(:perform_later)
 

@@ -168,7 +168,7 @@ module Decidim::Meetings
         end
 
         context "when nothing changes" do
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
@@ -183,14 +183,14 @@ module Decidim::Meetings
             }
           end
 
-          it "doesn't notify the change" do
+          it "does not notify the change" do
             expect(Decidim::EventsManager)
               .not_to receive(:publish)
 
             subject.call
           end
 
-          it "doesn't schedule the upcoming meeting notification job" do
+          it "does not schedule the upcoming meeting notification job" do
             expect(UpcomingMeetingNotificationJob)
               .not_to receive(:perform_later)
 
@@ -260,14 +260,14 @@ module Decidim::Meetings
           context "when the start time changes" do
             let(:start_time) { meeting.start_time - 1.day }
 
-            it "doesn't notify the change" do
+            it "does not notify the change" do
               expect(Decidim::EventsManager)
                 .not_to receive(:publish)
 
               subject.call
             end
 
-            it "doesn't schedule the upcoming meeting notification job" do
+            it "does not schedule the upcoming meeting notification job" do
               expect(UpcomingMeetingNotificationJob)
                 .not_to receive(:perform_later)
 

@@ -19,7 +19,7 @@ module Decidim
         Decidim::Pages::AdminLog::PagePresenter
       end
 
-      # Public: Pages doesn't have title so we assign the component one to it.
+      # Public: Pages do not have title so we assign the component one to it.
       def title
         component.name
       end

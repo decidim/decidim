@@ -70,7 +70,7 @@ module Decidim
           describe "when the email already exists" do
             let(:email) { user_email }
 
-            it "doesn't create a new user" do
+            it "does not create a new user" do
               expect { subject.call }.to broadcast(:ok)
 
               polling_officers = Decidim::Votings::PollingOfficer.where(user: existing_user)

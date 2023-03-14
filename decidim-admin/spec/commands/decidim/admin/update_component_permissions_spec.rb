@@ -119,7 +119,7 @@ module Decidim::Admin
         expect { subject }.to broadcast(:ok)
       end
 
-      it "doesn't update the component permissions" do
+      it "does not update the component permissions" do
         expect { subject }.not_to change(component, :permissions)
       end
 

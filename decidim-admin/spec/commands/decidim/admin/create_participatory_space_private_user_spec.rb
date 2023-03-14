@@ -78,7 +78,7 @@ module Decidim::Admin
         end
       end
 
-      it "don't invite the user again" do
+      it "do not invite the user again" do
         subject.call
         user.reload
 
@@ -104,7 +104,7 @@ module Decidim::Admin
           subject.call
         end
 
-        it "doesn't get created twice" do
+        it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
           participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user:)

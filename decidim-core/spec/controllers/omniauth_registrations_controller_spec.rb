@@ -56,7 +56,7 @@ module Decidim
           post :create
         end
 
-        it "doesn't create a new user" do
+        it "does not create a new user" do
           expect(User.count).to eq(1)
         end
 
@@ -93,7 +93,7 @@ module Decidim
             request.env["omniauth.auth"][:info][:email] = "omniauth@email.com"
           end
 
-          it "doesn't log in" do
+          it "does not log in" do
             post :create
 
             expect(controller).not_to be_user_signed_in

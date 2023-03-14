@@ -22,7 +22,7 @@ module Decidim
       def map_model(debate)
         super
         # Debates can be translated in different languages from the admin but
-        # the public form doesn't allow it. When a user creates a debate the
+        # the public form does not allow it. When a user creates a debate the
         # user locale is taken as the text locale.
         self.title = debate.title.values.first
         self.description = debate.description.values.first

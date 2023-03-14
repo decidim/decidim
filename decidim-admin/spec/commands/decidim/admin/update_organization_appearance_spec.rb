@@ -39,7 +39,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't update the organization" do
+        it "does not update the organization" do
           command.call
           organization.reload
 

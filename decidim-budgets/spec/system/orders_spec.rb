@@ -409,7 +409,7 @@ describe "Orders", type: :system do
           end
         end
 
-        context "when the order total budget doesn't exceed the threshold" do
+        context "when the order total budget does not exceed the threshold" do
           it "cannot vote" do
             within "#order-progress" do
               expect(page).to have_button("Vote", disabled: true)
@@ -484,7 +484,7 @@ describe "Orders", type: :system do
           end
         end
 
-        context "when the order total budget doesn't reach the minimum" do
+        context "when the order total budget does not reach the minimum" do
           it "cannot vote" do
             visit_budget
 

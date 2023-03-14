@@ -41,7 +41,7 @@ module Decidim
         allow(form).to receive(:valid?).and_return(false)
       end
 
-      it "doesn't update anything" do
+      it "does not update anything" do
         form.name = "John Doe"
         old_name = user.name
         expect { command.call }.to broadcast(:invalid)

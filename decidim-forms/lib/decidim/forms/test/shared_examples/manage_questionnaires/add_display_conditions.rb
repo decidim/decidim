@@ -20,7 +20,7 @@ shared_examples_for "add display conditions" do
         visit_questionnaire_edit_path_and_expand_all
       end
 
-      it "doesn't display an add display condition button" do
+      it "does not display an add display condition button" do
         expect(page).to have_no_button("Add display condition")
       end
 
