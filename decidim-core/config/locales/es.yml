@@ -123,7 +123,6 @@ es:
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los Términos y Condiciones de uso
       delete:
-        alert: Esta acción no se puede deshacer. Si eliminas tu cuenta no podrás iniciar sesión con tus credenciales. La eliminación de tu cuenta resultará en la anonimización de tus contribuciones. Aún podrás crear una nueva cuenta, pero estas contribuciones no se asociarán a ella.
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
@@ -412,7 +411,6 @@ es:
           title: La autorización aún está en progreso
         unauthorized:
           explanation: Lo sentimos, no puedes realizar esta acción porque algunos de tus datos de autorización no coinciden.
-          invalid_field: "%{field} valor %{value} no es válido."
           ok: De acuerdo
           title: No autorizado
         unconfirmed:
@@ -800,7 +798,6 @@ es:
         result: Resultados
     fingerprint:
       check: Verificar huella digital
-      explanation: La siguiente cadena de texto es una representación abreviada y hashed de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
       online_calculator_name: Calculadora MD5 en línea
       replicate_help: Esta huella digital se calcula utilizando un algoritmo hash SHA256. Para poder replicarlo tú mismo, puedes usar una %{online_calculator_link} y copiar y pegar los datos de origen.
       source: Origen
@@ -896,7 +893,6 @@ es:
       title: '¿Qué son las insignias?'
     group_admins:
       actions:
-        are_you_sure: '¿Seguro? Esto no eliminará a la participante del grupo.'
         demote_admin: Eliminar permisos de administración
       demote:
         error: Se ha producido un error al eliminar esta participante de la lista de administradoras
@@ -1271,7 +1267,6 @@ es:
           agreement: Estoy de acuerdo con estos términos
           legend: Acepto los Términos y Condiciones de uso
         refuse:
-          modal_body: Si no aceptas, no podrás utilizar la plataforma, puedes <a href="%{download_your_data_path}">descargar tus datos</a> y/o <a href="%{delete_path}">eliminar tu cuenta</a>.
           modal_btn_continue: Aceptar los términos y continuar
           modal_btn_exit: Lo revisaré más tarde
           modal_button: Rechazar los términos
@@ -1279,7 +1274,6 @@ es:
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
           alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
-          body: Por favor dedica un momento a revisar la actualización de nuestras Términos de Servicio. De lo contrario, no podrás usar la plataforma.
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
       not_allowed: No tienes permiso para visualizar este contenido
@@ -1623,8 +1617,6 @@ es:
         accept_until: Esta invitación caducará el día %{due_date}.
         decline: Rechazar invitación
         hello: Hola %{email},
-        ignore: |-
-          Si no deseas aceptar la invitación, por favor ignora este correo electrónico.<br /> Tu cuenta no se creará hasta que accedas al enlace de arriba y establezcas tu nombre de usuaria y contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administradora de %{application}. Puedes aceptarlo a través del siguiente enlace."
         invited_you_as_private_user: "%{invited_by} te ha invitado como participante privada de %{application}. Puedes aceptar a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
@@ -1648,7 +1640,6 @@ es:
         greeting: '¡Hola %{recipient}!'
         instruction: Alguien ha solicitado un enlace para cambiar tu contraseña, puedes hacerlo a través del siguiente enlace.
         instruction_2: Si no lo solicitaste, ignora este correo electrónico.
-        instruction_3: Tu contraseña no cambiará hasta que accedas al enlace de arriba y crees una nueva.
         subject: Restablecer instrucciones de contraseña
       unlock_instructions:
         action: Desbloquear mi cuenta
