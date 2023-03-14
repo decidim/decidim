@@ -100,7 +100,7 @@ eu:
           cancelled: Bertan behera
           category: Kategoria
           category_prompt: Aukeratu kategoria bat
-          search: Search
+          search: Bilatu
           state: Estatu
         filters_small_view:
           close_modal: Itxi modal
