@@ -522,7 +522,6 @@
           back: Tilbake
           continue: Neste
       warnings:
-        no_elections_warning: Ingen valg stemmer overens med søkekriteriene, eller det er ikke noe valg planlagt.
         no_scheduled_elections_warning: Det er foreløpig ingen planlagte valg, men her kan du finne alle tidligere valg.
     events:
       elections:
