@@ -58,3 +58,5 @@ jobs:
         name: Lint ERB files
       - run: npm run markdownlint
         name: Lint Markdown files
+      - run: ./.github/run_spelling_check.sh
+        name: Lint ERB files
