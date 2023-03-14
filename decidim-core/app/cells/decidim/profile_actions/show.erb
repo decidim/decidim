@@ -1,11 +1,6 @@
 <div class="profile__actions-main">
-  <% profile_actions.each do |item| %>
-    <% if item[:cell].present? %>
-      <%= cell item[:cell], profile_holder, item[:options] %>
-    <% else %>
-      <%= cell "decidim/button", item, item[:options] %>
-    <% end %>
-  <% end %>
+  <%= dropdown_actions %>
+  <%= profile_actions %>
 </div>
 
 <div class="profile__actions-secondary">

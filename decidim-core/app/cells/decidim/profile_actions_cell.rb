@@ -19,12 +19,6 @@ module Decidim
       leave_user_group: { icon: "logout-box-r-line", path: :leave_group_path, options: { method: :delete } }
     }.freeze
 
-    def show
-      return render :user_group_admin if can_edit_user_group_profile?
-
-      render
-    end
-
     private
 
     def action_item(key, translations_scope: "decidim.profiles.user.actions")
@@ -64,33 +58,45 @@ module Decidim
     end
 
     def actions_keys
-      [].tap do |keys|
+      @actions_keys ||= [].tap do |keys|
         keys << :edit_profile if own_profile?
         keys << :create_user_group if own_profile? && user_groups_enabled?
-        # keys << :edit_user_group if can_edit_user_group_profile?
         keys << :message if can_contact_user?
-        # keys.append(:manage_user_group_users, :manage_user_group_admins, :invite_user) if can_edit_user_group_profile?
         keys << :join_user_group if can_join_user_group?
         keys << :leave_user_group if can_leave_group?
       end
     end
 
-    def user_group_admin_actions_keys
-      # [].tap do |keys|
-      #   keys << :message if can_contact_user?
-      # end
-
-      [].tap do |keys|
-        # keys << :create_user_group if own_profile? && user_groups_enabled?
-        keys << :edit_user_group if can_edit_user_group_profile?
-        keys.append(:manage_user_group_users, :manage_user_group_admins, :invite_user) if can_edit_user_group_profile?
-        # keys << :join_user_group if can_join_user_group?
-        keys << :leave_user_group if can_leave_group?
-      end.map { |key| action_item(key) }.compact
+    def group_editor_actions_keys
+      @group_editor_actions_keys ||= if can_edit_user_group_profile?
+                                       [
+                                         :edit_user_group,
+                                         :manage_user_group_users,
+                                         :manage_user_group_admins,
+                                         :invite_user
+                                       ].tap do |keys|
+                                         keys << :join_user_group if can_join_user_group?
+                                         keys << :leave_user_group if can_leave_group?
+                                       end
+                                     else
+                                       []
+                                     end
     end
 
     def profile_actions
-      actions_keys.map { |key| action_item(key) }.compact
+      actions = (actions_keys - group_editor_actions_keys).map { |key| action_item(key) }.compact
+      return if actions.blank?
+
+      render locals: { actions: }
+    end
+
+    def dropdown_actions
+      return if group_editor_actions_keys.blank?
+
+      actions = group_editor_actions_keys.map { |key| action_item(key) }.compact
+      return if actions.blank?
+
+      render locals: { actions: }
     end
 
     def user_group?
