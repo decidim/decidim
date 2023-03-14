@@ -214,7 +214,6 @@ id:
           description_own: Anda telah memberikan dukungan untuk %{score} proposal.
           name: Dukungan proposal
           next_level_in: Berikan dukungan untuk %{score} lebih banyak proposal untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum memberikan dukungan untuk proposal apa pun.
           unearned_own: Anda telah memberi dukungan untuk belum ada proposal.
         proposals:
           conditions:
@@ -225,7 +224,6 @@ id:
           description_own: Anda telah membuat %{score} proposal.
           name: Proposal
           next_level_in: Buat %{score} proposal lagi untuk mencapai level berikutnya!
-          unearned_another: Pengguna ini belum membuat proposal apa pun.
           unearned_own: Anda belum membuat proposal.
     metrics:
       accepted_proposals:
@@ -405,7 +403,6 @@ id:
           publish:
             error: Ada kesalahan saat memublikasikan draf kolaboratif.
             irreversible_action_modal:
-              body: Setelah menerbitkan draf sebagai proposal, draf tidak akan dapat diedit lagi. Proposal tidak akan menerima penulis atau kontribusi baru.
               cancel: Membatalkan
               ok: Publikasikan sebagai Proposal
               title: Tindakan berikut tidak dapat diubah
@@ -414,7 +411,6 @@ id:
           withdraw:
             error: Terjadi kesalahan saat menutup draf kolaboratif.
             irreversible_action_modal:
-              body: Setelah menutup draf, draf tidak akan dapat diedit lagi. Draf tidak akan menerima penulis atau kontribusi baru.
               cancel: Membatalkan
               ok: Tarik draf kolaboratif
               title: Tindakan berikut tidak dapat diubah
