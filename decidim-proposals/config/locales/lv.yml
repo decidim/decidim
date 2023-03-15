@@ -791,9 +791,6 @@ lv:
           title: Versijas
         proposals:
           back_to_resource: Doties atpakaļ pie priekšlikuma
-      withdraw:
-        errors:
-          has_supports: Šo priekšlikumu nevar atsaukt, jo tas jau tiek atbalstīts.
     resource_links:
       copied_from_component:
         proposal_proposal: Saistītie priekšlikumi
