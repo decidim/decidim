@@ -851,9 +851,6 @@
           title: Versjoner
         proposals:
           back_to_resource: Gå tilbake til forslag
-      withdraw:
-        errors:
-          has_supports: Dette forslaget kan ikke trekkes tilbake fordi det allerede har støtte.
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterte forslag
