@@ -77,6 +77,7 @@ ca:
     'true': 'Sí'
   carrierwave:
     errors:
+      file_cannot_be_processed: No s'ha pogut llegir el fitxer
       file_resolution_too_large: La resolució de l'arxiu és massa gran
       file_size_too_large: La mida del fitxer és massa gran
       not_inside_organization: L'arxiu no està relacionat amb cap organització
