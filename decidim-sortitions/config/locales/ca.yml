@@ -64,6 +64,7 @@ ca:
             error: S'ha produït un error en crear un nou sorteig.
             success: El sorteig s'ha creat correctament
           destroy:
+            error: No es pot cancel·lar el sorteig.
             success: El sorteig s'ha cancel·lat correctament
           edit:
             title: Actualitza la informació sobre el sorteig
@@ -75,6 +76,7 @@ ca:
           index:
             title: Sortejos
           new:
+            confirm: Pressionant el següent botó, la plataforma registrarà la data i l'hora (amb precisió de segons) i, juntament amb la tirada de daus, aquesta informació s'utilitzarà per generar una selecció aleatòria. L'acció serà irreversible, una vegada que es faci clic al botó, es publicarà el resultat d'aquest sorteig, juntament amb les dades introduïdes en aquest formulari i que no es poden modificar. Si us plau, comprova el contingut acuradament.
             create: Crear
             title: Nou sorteig
           show:
