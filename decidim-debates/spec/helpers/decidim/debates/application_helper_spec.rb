@@ -3,20 +3,20 @@
 require "spec_helper"
 
 module Decidim
-  module Meetings
+  module Debates
     describe ApplicationHelper do
-      describe "#render_meeting_body" do
-        subject { helper.render_meeting_body(meeting) }
+      describe "#render_debate_description" do
+        subject { helper.render_debate_description(debate) }
 
         before do
-          allow(helper).to receive(:present).with(meeting).and_return(Decidim::Meetings::MeetingPresenter.new(meeting))
-          allow(helper).to receive(:current_organization).and_return(meeting.organization)
-          helper.instance_variable_set(:@meeting, meeting)
+          allow(helper).to receive(:present).with(debate).and_return(Decidim::Debates::DebatePresenter.new(debate))
+          allow(helper).to receive(:current_organization).and_return(debate.organization)
+          allow(helper).to receive(:debate).and_return(debate)
         end
 
         let(:description) { "<ul><li>First</li><li>Second</li><li>Third</li></ul><script>alert('OK');</script>" }
-        let(:meeting_trait) { :not_official }
-        let(:meeting) { create(:meeting, meeting_trait, description: { "en" => description }) }
+        let(:debate_trait) { :participant_author }
+        let(:debate) { create(:debate, debate_trait, description: { "en" => description }) }
 
         it "renders a sanitized body" do
           expect(subject).to eq(
@@ -29,8 +29,8 @@ module Decidim
           )
         end
 
-        context "with official meeting" do
-          let(:meeting_trait) { :official }
+        context "with official debate" do
+          let(:debate_trait) { :official }
 
           it "renders a sanitized body" do
             expect(subject).to eq(

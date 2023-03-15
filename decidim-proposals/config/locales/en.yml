@@ -966,7 +966,7 @@ en:
           back_to_resource: Go back to proposal
       withdraw:
         errors:
-          has_supports: This proposal can not be withdrawn because it already has supports.
+          has_supports: This proposal cannot be withdrawn because it already has supports.
     resource_links:
       copied_from_component:
         proposal_proposal: Related proposals

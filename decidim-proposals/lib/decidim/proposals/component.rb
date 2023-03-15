@@ -30,7 +30,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :scope_id, type: :scope
     settings.attribute :vote_limit, type: :integer, default: 0
     settings.attribute :minimum_votes_per_user, type: :integer, default: 0
-    settings.attribute :proposal_limit, type: :integer, default: 0
+    settings.attribute :proposal_limit, type: :integer, default: 0, required: true
     settings.attribute :proposal_length, type: :integer, default: 500
     settings.attribute :proposal_edit_time, type: :enum, default: "limited", choices: -> { %w(limited infinite) }
     settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5
