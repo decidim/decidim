@@ -881,9 +881,6 @@ nl:
           title: versies
         proposals:
           back_to_resource: Ga terug naar het voorstel
-      withdraw:
-        errors:
-          has_supports: Dit voorstel kan niet worden ingetrokken omdat het al wordt ondersteund.
     resource_links:
       copied_from_component:
         proposal_proposal: Verwante voorstellen
