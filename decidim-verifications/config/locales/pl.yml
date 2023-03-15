@@ -30,9 +30,6 @@ pl:
           before_date_info: Przydatne, jeśli proces już się rozpoczął i chcesz cofnąć uprawnienia poprzedniego procesu.
           button: Cofnij wszystkie
           button_before: Cofnij uprawnienia nadane przed datą
-          destroy:
-            confirm: Wycofanie uprawnień nadanych przed datą jest akcją, której nie można cofnąć. Na pewno chcesz kontynuować?
-            confirm_all: Wycofanie wszystkich uprawnień nie jest akcją, którą można cofnąć. Na pewno chcesz kontynuować?
           destroy_nok: Wystąpił błąd podczas cofania uprawnień.
           destroy_ok: Pomyślnie wycofano wszystkie autoryzacje spełniające kryteria.
           info: 'Całkowita liczba zweryfikowanych użytkowników: %{count}.'
@@ -121,7 +118,6 @@ pl:
             destroy_all:
               success: Wszystkie dane spisu zostały usunięte
           destroy:
-            confirm: Usunięcia całego spis nie można cofnąć. Jesteś pewien, że chcesz kontynuować?
             title: Usuń wszystkie dane spisu
           index:
             data: Łącznie załadowano %{count} rekordów. Ostatnia data przesyłki to %{due_date}
@@ -164,7 +160,6 @@ pl:
               success: Konfiguracja została zaktualizowana
           confirmations:
             create:
-              error: Dane weryfikacyjne nie pokrywają się. Spróbuj ponownie lub odrzuć weryfikację, aby użytkownik mógł ją poprawić
               success: Użytkownik pomyślnie zweryfikowany
             new:
               introduce_user_data: Wprowadź dane z obrazu
@@ -172,7 +167,6 @@ pl:
               verify: Zweryfikuj
           offline_confirmations:
             create:
-              error: Dane weryfikacyjne nie pokrywają się. Spróbuj ponownie lub powiedz użytkownikowi, aby to poprawił
               success: Użytkownik pomyślnie zweryfikowany
             new:
               cancel: Anuluj
@@ -240,7 +234,6 @@ pl:
             send: Wyślij mi list
             title: Poproś o kod weryfikacyjny
           update:
-            error: Twój kod weryfikacyjny nie pasuje do naszego. Proszę dokładnie sprawdzić list, który do Ciebie wysłaliśmy
             success: Gratulacje. Twoja weryfikacja została pomyślnie zakończona
       sms:
         authorizations:
@@ -258,7 +251,6 @@ pl:
             send: Wyślij mi SMS-a
             title: Poproś o kod weryfikacyjny
           update:
-            error: Twój kod weryfikacyjny nie pasuje do naszego. Sprawdź dokładnie SMS, który Ci wysłaliśmy.
             success: Gratulacje. Twoja weryfikacja została pomyślnie zakończona.
   errors:
     messages:
