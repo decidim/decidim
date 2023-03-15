@@ -30,9 +30,6 @@ gl:
           before_date_info: Útil se o proceso ten comezado e queres rexeitar os permisos do proceso anterior.
           button: Rexeitar todo
           button_before: Rexeitar antes da data
-          destroy:
-            confirm: O rexeitamento de autorizacións anteriores a esta data non se pode desfacer. Estas certo/a de querer continuar?
-            confirm_all: O rexeitamento de autorizacións non se pode desfacer. Estas certo/a de querer continuar?
           destroy_nok: Produciuse un problema ao rexeitar as autorizacións.
           destroy_ok: Todas as autorizacións coincidentes foron revogadas con éxito.
           info: Hai un total de %{count} participantes verificados.
@@ -121,7 +118,6 @@ gl:
             destroy_all:
               success: Todos os datos do censo foron eliminados
           destroy:
-            confirm: Non se pode desfacer todo o censo. Estás seguro de que queres continuar?
             title: Elimine todos os datos do censo
           index:
             data: Hai %{count} rexistros cargados en total. A última data de carga foi o %{due_date}
@@ -160,7 +156,6 @@ gl:
               success: A configuración actualizouse correctamente
           confirmations:
             create:
-              error: A verificación non coincide. Téntao de novo ou rexeita a verificación para que o usuario poida modificalo
               success: O usuario verificouse con éxito
             new:
               introduce_user_data: Introduce os datos na imaxe
@@ -168,7 +163,6 @@ gl:
               verify: Verifique
           offline_confirmations:
             create:
-              error: A verificación non coincide. Téntao de novo ou díxolles ao usuario que o modifique
               success: O usuario verificouse con éxito
             new:
               cancel: Cancelar
@@ -236,7 +230,6 @@ gl:
             send: Envíame unha carta
             title: Solicita o teu código de verificación
           update:
-            error: O teu código de verificación non coincide coa nosa. Verifique a carta que lle enviamos
             success: Parabéns. Verificouse con éxito
       sms:
         authorizations:
@@ -254,7 +247,6 @@ gl:
             send: Envíame un SMS
             title: Solicita o teu código de verificación
           update:
-            error: O teu código de verificación non coincide coa nosa. Verifique os SMS que lle enviamos.
             success: Parabéns. Verificouse con éxito.
   errors:
     messages:
