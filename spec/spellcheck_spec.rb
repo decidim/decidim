@@ -10,7 +10,6 @@ describe "Spellcheck utility" do
   let(:output_lines) { output.split("\n") }
   let(:exitstatus) { subject[1] }
 
-  let(:root_path) { File.expand_path("..", __dir__) }
   let(:config) { YAML.load_file("#{working_dir}/.spelling.yml") }
   let(:script) { "#{working_dir}/.github/run_spelling_check.sh" }
 
