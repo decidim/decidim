@@ -64,7 +64,6 @@
             error: Det oppstod et problem med å lage en ny sortering.
             success: Sorteringen ble opprettet
           destroy:
-            error: Kan ikke avbryte sorteringen.
             success: Sorteringen ble avbrutt
           edit:
             title: Oppdater informasjonen om sorteringen
