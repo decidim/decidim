@@ -30,9 +30,6 @@ pt-BR:
           before_date_info: Útil se o processo já começou e você deseja revogar as permissões do processo anterior.
           button: Revogar todos
           button_before: Revogar antes da data
-          destroy:
-            confirm: Revogar antes da data as autorizações não podem ser desfeitas. Tem certeza que deseja continuar?
-            confirm_all: Revogar todas as autorizações não pode ser desfeito. Tem certeza que deseja continuar?
           destroy_nok: Houve um problema ao revogar as autorizações.
           destroy_ok: Todas as autorizações correspondentes foram revogadas com sucesso.
           info: Há um total de %{count} participantes verificados.
@@ -121,7 +118,6 @@ pt-BR:
             destroy_all:
               success: Todos os dados do censo foram excluídos
           destroy:
-            confirm: Excluir todo o censo não pode ser desfeito. Você tem certeza que quer continuar?
             title: Excluir todos os dados do censo
           index:
             data: Existem %{count} registros carregados no total. A última data de envio foi em %{due_date}
@@ -160,7 +156,6 @@ pt-BR:
               success: Configuração atualizada com sucesso
           confirmations:
             create:
-              error: A verificação não corresponde. Tente novamente ou rejeite a verificação para que o usuário possa corrigi-la
               success: Usuário verificado com sucesso
             new:
               introduce_user_data: Introduza os dados na imagem
@@ -168,7 +163,6 @@ pt-BR:
               verify: Verificar
           offline_confirmations:
             create:
-              error: A verificação não corresponde. Tente novamente ou diga ao usuário para alterá-lo
               success: Usuário verificado com sucesso
             new:
               cancel: Cancelar
@@ -236,7 +230,6 @@ pt-BR:
             send: Envie-me uma carta
             title: Solicite seu código de verificação
           update:
-            error: O seu código de verificação não corresponde ao nosso. Verifique a carta que lhe enviamos
             success: Parabéns. Você foi verificado com sucesso
       sms:
         authorizations:
@@ -254,7 +247,6 @@ pt-BR:
             send: Envie-me um SMS
             title: Solicite seu código de verificação
           update:
-            error: Seu código de verificação não corresponde ao nosso. Por favor, verifique novamente o SMS que lhe enviamos.
             success: Parabéns. Você foi confirmado com sucesso.
   errors:
     messages:
