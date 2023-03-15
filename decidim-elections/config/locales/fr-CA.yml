@@ -733,6 +733,7 @@ fr-CA:
           back: Précédent
           continue: Suivant
       warnings:
+        no_elections_warning: Aucune élection ne correspond à vos critères de recherche ou aucune élection n'est programmée.
         no_scheduled_elections_warning: À l'heure actuelle, il n'y a pas d'élections programmées, mais vous trouverez ici toutes les élections passées.
     events:
       elections:
@@ -1003,6 +1004,7 @@ fr-CA:
             choose_polling_officers: Choisir les responsables du scrutin
             close: Fermer
             more_polling_officers: Il y a %{number} responsables du scrutin supplémentaires. Affinez votre recherche pour les localiser.
+            no_polling_officers: Aucun responsable du scrutin ne correspond à vos critères de recherche ou il n'y a pas de responsable du scrutin.
         polling_stations:
           create:
             invalid: Une erreur est survenue lors de la création de ce bureau de vote
