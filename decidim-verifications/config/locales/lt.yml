@@ -30,9 +30,6 @@ lt:
           before_date_info: Naudinga, jei procesas jau prasidėjo ir norite atšaukti ankstesnio proceso leidimus.
           button: Atšaukti viską
           button_before: Atšaukti iki datos
-          destroy:
-            confirm: Atšaukus leidimus iki datos, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
-            confirm_all: Atšaukus visus leidimus, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
           destroy_nok: Atšaukiant leidimus, iškilo problema.
           destroy_ok: Visi sutampantys leidimai atšaukti.
           info: Bendras patvirtintų dalyvių skaičius – %{count}.
@@ -128,7 +125,6 @@ lt:
             destroy_all:
               success: Visi surašymo duomenys pašalinti
           destroy:
-            confirm: Pašalinus visus surašymo duomenis, veiksmo nebus galima anuliuoti. Ar tikrai norite tęsti?
             title: Pašalinti visus surašymo duomenis
           index:
             data: Bendras įkeltų įrašų skaičius – %{count}. Paskutinį kartą įkelta %{due_date}
@@ -171,7 +167,6 @@ lt:
               success: Konfigūracija atnaujinta
           confirmations:
             create:
-              error: Tikrinimo duomenys nesutampa. Bandykite dar kartą arba atmeskite tikrinimą, kad dalyvis galėtų pakeisti duomenis
               success: Dalyvis patikrintas
             new:
               introduce_user_data: Pristatykite duomenis paveikslėlyje
@@ -179,7 +174,6 @@ lt:
               verify: Patikrinti
           offline_confirmations:
             create:
-              error: Tikrinimo duomenys nesutampa. Bandykite dar kartą ir prašykite dalyviui juos pakeisti
               success: Dalyvis patikrintas
             new:
               cancel: Atšaukti
@@ -247,7 +241,6 @@ lt:
             send: Atsiųskite man laišką
             title: Paprašykite patvirtinimo kodo
           update:
-            error: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą laišką
             success: Sveikiname! Jūs patikrinti
       sms:
         authorizations:
@@ -265,7 +258,6 @@ lt:
             send: Atsiųskite SMS
             title: Paprašykite patvirtinimo kodo
           update:
-            error: Jūsų tikrinimo kodas nesutampa su mūsų kodu. Dar kartą patikrinkite jums atsiųstą SMS žinutę.
             success: Sveikiname! Jūs patikrinti.
   errors:
     messages:
