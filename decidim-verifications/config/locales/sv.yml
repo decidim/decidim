@@ -30,9 +30,6 @@ sv:
           before_date_info: Användbart om dialogen har påbörjats och du vill återkalla behörigheterna för den tidigare dialogen.
           button: Återkalla alla
           button_before: Återkalla före datum
-          destroy:
-            confirm: Återkallande av auktorisering före datum kan inte ångras. Vill du fortsätta?
-            confirm_all: Det går inte att ångra återkallande av alla auktoriseringar. Vill du fortsätta?
           destroy_nok: Det gick inte att återkalla auktoriseringar.
           info: Det finns totalt %{count} verifierade deltagare.
           no_data: Inga verifierade deltagare
@@ -114,7 +111,6 @@ sv:
             destroy_all:
               success: Alla medlemsuppgifeter har raderats
           destroy:
-            confirm: Raderingen av samtliga medlemsuppgifter kan inte ångras. Vill du fortsätta?
             title: Radera alla medlemsuppgifter
           index:
             data: Det finns totalt %{count} inlästa poster. Datum för senaste uppdatering var %{due_date}
@@ -148,7 +144,6 @@ sv:
               success: Konfigurationen har uppdaterats
           confirmations:
             create:
-              error: Verifieringen stämmer inte. Försök igen eller avvisa verifieringen så att användaren kan rätta den
               success: Användaren har verifierats
             new:
               introduce_user_data: För in uppgifterna från bilden
@@ -156,7 +151,6 @@ sv:
               verify: Verifiera
           offline_confirmations:
             create:
-              error: Verifieringen stämmer inte. Försök igen eller be deltagaren att rätta den
               success: Deltagaren har verifierats
             new:
               cancel: Avbryt
@@ -224,7 +218,6 @@ sv:
             send: Skicka mig ett brev
             title: Begär din verifieringskod
           update:
-            error: Din verifieringskod stämmer inte överens med vår. Kontrollera brevet som vi skickade till dig igen
             success: Grattis. Du har blivit verifierad
       sms:
         authorizations:
@@ -242,7 +235,6 @@ sv:
             send: Skicka mig ett SMS
             title: Begär din verifieringskod
           update:
-            error: Verifieringskoden stämmer inte. Kontrollera det SMS som vi skickade till dig igen.
             success: Grattis. Du har blivit verifierad.
   errors:
     messages:
