@@ -200,10 +200,8 @@ lt:
           title: Patvirtinti balsavimą
         budget_excess:
           budget_excess:
-            description: Šio projekto biudžetas viršija didžiausią nustatytą ribą ir projekto negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuoti, atsižvelgami į tai kam teikiate pirmenybę.
             title: Didžiausia nustatyta biudžeto riba viršyta
           close: Uždaryti
-          description: Šio projekto kaina viršija didžiausią nustatytą biudžeto ribą ir projekto negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuotii atsižvelgdmai į tai kam teikiate pirmenybę.
           ok: OK
           projects_excess:
             description: Šio projekto biudžetas viršija didžiausią nustatytą projektų kiekio ribą ir projekto negalima pridėti. Jei norite, galite pašalinti projektą, kurį jau pasirinkote pridėti, arba balsuoti atsižvelgdami į tai kam teikiate pirmenybę.
