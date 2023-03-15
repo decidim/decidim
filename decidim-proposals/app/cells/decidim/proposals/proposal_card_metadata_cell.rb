@@ -20,6 +20,24 @@ module Decidim
         [coauthors_item, comments_count_item, endorsements_count_item, state_item, emendation_item]
       end
 
+      def proposal_items_for_map
+        [coauthors_item_for_map, comments_count_item, endorsements_count_item, state_item, emendation_item].compact_blank.map do |item|
+          {
+            text: item[:text].to_s.html_safe,
+            icon: item[:icon].present? ? icon(item[:icon]).html_safe : nil
+          }
+        end
+      end
+
+      def coauthors_item_for_map
+        presented_author = official? ? "#{resource.class.module_parent}::OfficialAuthorPresenter".constantize.new : present(resource.identities.first)
+
+        {
+          text: presented_author.name,
+          icon: "account-circle-line"
+        }
+      end
+
       def state_item
         return if state.blank?
 

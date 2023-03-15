@@ -4,13 +4,15 @@
   ).html_safe, callout_class: "warning [&>a]:text-secondary") %>
 <% end %>
 
-<%# REDESIGN_PENDING: reuse from somewhere else %>
-<%#= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
-
 <% if @proposals.empty? %>
   <%= cell("decidim/announcement", params[:filter].present? ? t(".empty_filters") : t(".empty")) %>
 <% else %>
-  <%= render @proposals %>
+  <%= order_selector available_orders, i18n_scope: "decidim.proposals.proposals.orders" %>
+
+  <div class="proposal__container">
+    <%= render @proposals %>
+  </div>
+
   <%= decidim_paginate @proposals %>
 <% end %>
 
