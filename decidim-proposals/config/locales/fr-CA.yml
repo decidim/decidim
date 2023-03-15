@@ -352,6 +352,7 @@ fr-CA:
           description_own: Vous avez soutenu %{score} propositions.
           name: Soutiens de proposition
           next_level_in: Soutenir %{score} propositions supplémentaires pour atteindre le niveau supérieur!
+          unearned_another: Cet utilisateur n'a soutenu aucun proposition pour le moment.
           unearned_own: Vous n'avez soutenu aucune proposition pour le moment.
         proposals:
           conditions:
@@ -362,6 +363,7 @@ fr-CA:
           description_own: Vous avez créé %{score} propositions.
           name: Propositions
           next_level_in: Créez %{score} propositions supplémentaires pour atteindre le niveau suivant !
+          unearned_another: Cet utilisateur n'a pas encore créé de proposition.
           unearned_own: Vous n'avez créé aucune proposition pour le moment.
     metrics:
       accepted_proposals:
@@ -628,6 +630,7 @@ fr-CA:
           publish:
             error: Il y a eu des erreurs lors de la publication du brouillon collaboratif.
             irreversible_action_modal:
+              body: Après avoir publié le brouillon en tant que proposition, le brouillon ne sera plus éditable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
@@ -636,6 +639,7 @@ fr-CA:
           withdraw:
             error: Il y a eu des erreurs en fermant le brouillon collaboratif.
             irreversible_action_modal:
+              body: Après avoir fermé le brouillon, le brouillon ne sera plus éditable. Le projet n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Retirer le projet collaboratif
               title: L'action suivante est irréversible
@@ -860,6 +864,7 @@ fr-CA:
           view_proposal: Voir la proposition
         proposals:
           empty: Il n'y a pas encore de proposition
+          empty_filters: Il n'y a aucune proposition avec ce critère
         show:
           answer: Répondre
           back_to: Retour à
@@ -939,6 +944,7 @@ fr-CA:
         choose_proposals: Choisir les propositions
         close: Fermer
         more_proposals: Il y a %{number} propositions supplémentaires. Affinez votre recherche pour les localiser.
+        no_proposals: Aucune proposition ne correspond à vos critères de recherche ou il n'y a aucune proposition.
       publish:
         error: Il y a eu des erreurs lors de la publication de la proposition.
         success: Proposition publiée avec succès.
