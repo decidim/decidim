@@ -963,9 +963,6 @@ es-PY:
           title: Versiones
         proposals:
           back_to_resource: Volver a propuesta
-      withdraw:
-        errors:
-          has_supports: Esta propuesta no puede ser retirada porque ya tiene apoyos.
     resource_links:
       copied_from_component:
         proposal_proposal: Propuestas relacionadas
