@@ -14,7 +14,7 @@ describe "Spellcheck utility" do
   let(:config) { YAML.load_file("#{working_dir}/.spelling.yml") }
   let(:script) { "#{working_dir}/.github/run_spelling_check.sh" }
 
-  let(:test_directory) { "#{__dir__}/spellcheck-utility-test-#{rand(1_000)}" }
+  let(:test_directory) { "/tmp/spellcheck-utility-test-#{rand(1_000)}" }
   let(:working_dir) { File.expand_path("..", __dir__) }
 
   before do
