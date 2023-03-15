@@ -36,9 +36,6 @@ ca:
           before_date_info: Útil si el procés ja ha començat i vols revocar els permisos del procés anterior.
           button: Revocar tot
           button_before: Revocar abans de la data
-          destroy:
-            confirm: La revocació d'autoritzacions anteriors a aquesta data no es pot desfer. Segur que vols continuar?
-            confirm_all: La revocació de totes les autoritzacions no es pot desfer. Segur que vols continuar?
           destroy_nok: S'ha produït un error al revocar les autoritzacions.
           destroy_ok: Totes les autoritzacions coincidents s'han revocat correctament.
           info: Hi ha un total de %{count} participants verificades.
@@ -139,7 +136,6 @@ ca:
             destroy_all:
               success: S'han eliminat totes les dades del cens
           destroy:
-            confirm: L'eliminació del cens no es pot desfer. Segur que vols continuar?
             title: Eliminar totes les dades del cens
           index:
             data: Hi ha %{count} registres carregats en total. La darrera data de pujada va ser el dia %{due_date}
@@ -181,7 +177,6 @@ ca:
               success: La configuració s'ha actualitzat correctament
           confirmations:
             create:
-              error: La verificació no coincideix. Si us plau, torna-ho a provar o rebutja la verificació perquè la participant pugui modificar-la
               success: S'ha verificat la participant correctament
             new:
               introduce_user_data: Introdueix les dades de la imatge
@@ -189,7 +184,6 @@ ca:
               verify: Verificar
           offline_confirmations:
             create:
-              error: La verificació no coincideix. Si us plau torna-ho a provar o digues-li a la participant que la modifiqui
               success: S'ha verificat la participant correctament
             new:
               cancel: Cancel·lar
@@ -257,7 +251,6 @@ ca:
             send: Envia'm una carta
             title: Sol·licita el teu codi de verificació
           update:
-            error: El teu codi de verificació no coincideix amb el nostre. Si us plau, revisa la carta que t'hem enviat
             success: Felicitats. T'has verificat correctament
       sms:
         authorizations:
@@ -276,7 +269,6 @@ ca:
             send: Envia'm un SMS
             title: Sol·licita el teu codi de verificació
           update:
-            error: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, revisa el SMS que t'hem enviat.
             success: Felicitats. T'has verificat correctament.
   errors:
     messages:
