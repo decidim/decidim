@@ -920,9 +920,6 @@ ro:
           title: Versiuni
         proposals:
           back_to_resource: Înapoi la propuneri
-      withdraw:
-        errors:
-          has_supports: Această propunere nu poate fi retrasă deoarece are deja voturi.
     resource_links:
       copied_from_component:
         proposal_proposal: Propuneri asociate
