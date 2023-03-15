@@ -37,8 +37,8 @@ fi-pl:
           button: Kumoa kaikki
           button_before: Kumoa ennen tiettyä päivämäärää luodut
           destroy:
-            confirm: Et voi peruuttaa ennen tiettyä päivämäärää luotujen varmennusten kumoamista. Haluatko varmasti jatkaa?
-            confirm_all: Et voi peruuttaa kaikkien varmennusten kumoamista. Haluatko varmasti jatkaa?
+            confirm: Ennen valittua päivämäärää tehtyjen vahvistustietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
+            confirm_all: Vahvistusten tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
           destroy_nok: Varmennusten kumoamisessa tapahtui virhe.
           destroy_ok: Kaikki hakua vastanneiden tunnistautumiset on peruutettu onnistuneesti.
           info: Yhteensä %{count} varmennettua osallistujaa.
@@ -139,7 +139,7 @@ fi-pl:
             destroy_all:
               success: Kaikki rekisteritiedot on poistettu
           destroy:
-            confirm: Rekisteritietojen poistamista ei voi jälkikäteen peruuttaa. Haluatko varmasti jatkaa?
+            confirm: Henkilötietorekisterin tietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
             title: Poista kaikki rekisteritiedot
           index:
             data: Yhteensä %{count} tietuetta ladattu. Viimeisin latauspäivä oli %{due_date}
@@ -181,7 +181,7 @@ fi-pl:
               success: Asetukset päivitettiin onnistuneesti
           confirmations:
             create:
-              error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
+              error: Vahvistustiedot eivät täsmää. Yritä uudelleen tai hylkää vahvistus, jolloin käyttäjä voi muuttaa sitä
               success: Käyttäjä vahvistettu onnistuneesti
             new:
               introduce_user_data: Syötä kuvassa näkyvät tiedot
@@ -189,7 +189,7 @@ fi-pl:
               verify: Vahvista
           offline_confirmations:
             create:
-              error: Vahvistus ei täsmää. Yritä uudelleen tai pyydä käyttäjää muuttamaan tietojaan
+              error: Vahvistustiedot eivät täsmää. Yritä uudelleen tai pyydä osallistujaa muuttamaan vahvistustietoja
               success: Käyttäjä vahvistettu onnistuneesti
             new:
               cancel: Peruuta
