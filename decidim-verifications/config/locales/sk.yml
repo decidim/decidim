@@ -30,9 +30,6 @@ sk:
           before_date_info: Užitočné, pokiaľ už proces začal, a chcete zrušiť povolenia, nastavené v predchádzajúcom procese.
           button: Zrušiť všetky
           button_before: Zrušiť všetky pred dátumom
-          destroy:
-            confirm: Zrušenie všetkých autorizácií pred dátumom je nenávratné. Ste si istí, že chcete pokračovať?
-            confirm_all: Zrušenie všetkých autorizácií je nenávratné. Ste si istí, že chcete pokračovať?
           destroy_nok: Pri rušení autorizácií nastal problém.
           info: Je tu celkovo %{count} overených účastníkov.
           no_data: Žiadni overení účastníci
@@ -112,7 +109,6 @@ sk:
             destroy_all:
               success: Všetky dáta sčítania boli zmazané
           destroy:
-            confirm: Odstrániť všetky sčítanie nemožno vrátiť späť. Ste si istý, že chcete pokračovať?
             title: Zmazať všetky dáta sčítania
           index:
             data: Celkovo je načítaných %{count} záznamov. Posledný nahraný bol %{due_date}.
@@ -147,7 +143,6 @@ sk:
               success: Konfigurácia bola úspešne aktualizovaná
           confirmations:
             create:
-              error: Overenie neodpovedá. Overte znovu alebo odmietnite overenie, aby ho užívateľ mohol zmeniť
               success: Užívateľ úspešne overený
             new:
               introduce_user_data: Vložte dáta do obrázku
@@ -155,7 +150,6 @@ sk:
               verify: Overte
           offline_confirmations:
             create:
-              error: Overenie neodpovedá. Skúste to znovu alebo povedzte užívateľovi, že ho zmení
               success: Užívateľ úspešne overený
             new:
               cancel: zrušenie
@@ -223,7 +217,6 @@ sk:
             send: Pošlite mi list
             title: Požiadajte o overovací kód
           update:
-            error: Váš overovací kód nezodpovedá nášmu. Skontrolujte, prosím, list, ktorý sme vám poslali
             success: Gratulujeme. Bol ste úspešne overený
       sms:
         authorizations:
@@ -241,7 +234,6 @@ sk:
             send: Pošlite mi SMS
             title: Požiadajte o overovací kód
           update:
-            error: Váš overovací kód nezodpovedá nášmu. Prosím, skontrolujte SMS, ktorý sme vám poslali.
             success: Gratulujeme. Bol ste úspešne overený.
   errors:
     messages:
