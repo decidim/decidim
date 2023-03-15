@@ -36,6 +36,9 @@ fi:
           before_date_info: Hyödyllinen, jos prosessi on jo alkanut ja haluat kumota aikaisemman prosessin vahvistukset ja käyttäjien oikeudet prosesseihin.
           button: Kumoa kaikki
           button_before: Kumoa ennen tiettyä päivämäärää luodut
+          destroy:
+            confirm: Ennen valittua päivämäärää tehtyjen vahvistustietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
+            confirm_all: Vahvistusten tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
           destroy_nok: Vahvistusten kumoaminen epäonnistui.
           destroy_ok: Kaikki hakua vastanneiden tunnistautumiset on peruutettu onnistuneesti.
           info: Yhteensä %{count} vahvistettua osallistujaa.
@@ -136,6 +139,7 @@ fi:
             destroy_all:
               success: Kaikki rekisteritiedot on poistettu
           destroy:
+            confirm: Henkilötietorekisterin tietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
             title: Poista kaikki rekisteritiedot
           index:
             data: Yhteensä %{count} tietuetta ladattu. Viimeisin latauspäivä oli %{due_date}
@@ -177,6 +181,7 @@ fi:
               success: Asetusten päivittäminen onnistui
           confirmations:
             create:
+              error: Vahvistustiedot eivät täsmää. Yritä uudelleen tai hylkää vahvistus, jolloin käyttäjä voi muuttaa sitä
               success: Käyttäjän vahvistus onnistui
             new:
               introduce_user_data: Syötä kuvassa näkyvät tiedot
@@ -184,6 +189,7 @@ fi:
               verify: Vahvista
           offline_confirmations:
             create:
+              error: Vahvistustiedot eivät täsmää. Yritä uudelleen tai pyydä osallistujaa muuttamaan vahvistustietoja
               success: Käyttäjän vahvistus onnistui
             new:
               cancel: Peruuta
@@ -251,6 +257,7 @@ fi:
             send: Lähetä kirje minulle
             title: Pyydä vahvistuskoodia
           update:
+            error: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan kirje, jonka olemme lähettäneet sinulle
             success: Onnittelut. Olet vahvistanut tilisi
       sms:
         authorizations:
@@ -269,6 +276,7 @@ fi:
             send: Lähetä minulle tekstiviesti
             title: Pyydä vahvistuskoodia
           update:
+            error: Vahvistuskoodi on virheellinen. Tarkista uudestaan tekstiviesti, jonka lähetimme sinulle.
             success: Onnittelut. Käyttäjätilisi vahvistaminen onnistui.
   errors:
     messages:
