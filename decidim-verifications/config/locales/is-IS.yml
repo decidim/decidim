@@ -110,7 +110,6 @@ is-IS:
             send: Sendu mér bréf
             title: Biðja um staðfestingarkóðann þinn
           update:
-            error: Staðfestingarkóðinn þinn passar ekki við okkar. Vinsamlegast tvíttu athugaðu bréfið sem við sendum til þín
             success: Til hamingju. Þú hefur verið staðfest með staðfestingu
   errors:
     messages:
