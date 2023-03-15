@@ -962,6 +962,9 @@ fi:
           title: Versiot
         proposals:
           back_to_resource: Palaa ehdotukseen
+      withdraw:
+        errors:
+          has_supports: Tätä ehdotusta ei voi peruuttaa, koska sitä on jo tuettu.
     resource_links:
       copied_from_component:
         proposal_proposal: Liittyvät ehdotukset
