@@ -30,9 +30,6 @@ tr:
           before_date_info: İşlem zaten başladıysa ve önceki işlemin izinlerini iptal etmek istiyorsanız kullanışlıdır.
           button: Tümünü İptal Et
           button_before: Tarihten önce iptal et
-          destroy:
-            confirm: Tarihten önce iptal yetkileri geri alınamaz. Devam etmek istediğine emin misin?
-            confirm_all: Tüm yetkilendirmeler geri alınamaz. Devam etmek istediğine emin misin?
           destroy_nok: Yetkilendirmeler iptal edilirken bir sorun oluştu.
           info: Toplam %{count} doğrulanmış katılımcı var.
           no_data: Doğrulanmış katılımcı yok
@@ -113,7 +110,6 @@ tr:
             destroy_all:
               success: Tüm sayım verileri silindi
           destroy:
-            confirm: Silinen tüm sayımlar geri alınamaz. Devam etmek istediğine emin misin?
             title: Tüm sayım verilerini sil
           index:
             data: Toplam %{count} kayıt var. Son yükleme tarihi %{due_date}
@@ -148,7 +144,6 @@ tr:
               success: Yapılandırma başarıyla güncellendi
           confirmations:
             create:
-              error: Doğrulama uyuşmuyor. Tekrar deneyebilir veya doğrulamayı reddedebilir, böylece kullanıcı bunu değiştirebilir
               success: Katılımcı başarıyla doğrulandı
             new:
               introduce_user_data: Resimdeki verileri tanıtın
@@ -156,7 +151,6 @@ tr:
               verify: Doğrulama
           offline_confirmations:
             create:
-              error: Doğrulama eşleşmiyor. Lütfen tekrar deneyin veya katılımcıya düzeltmesini söyleyin
               success: Katılımcı başarıyla doğrulandı
             new:
               cancel: İptal Et
@@ -224,7 +218,6 @@ tr:
             send: Bana bir mektup gönder
             title: Doğrulama kodunuzu isteyin
           update:
-            error: Doğrulama kodunuz bizimkilerle uyuşmuyor. Lütfen size gönderdiğimiz mektubu iki kez kontrol edin
             success: Tebrikler. Başarıyla doğrulandı
       sms:
         authorizations:
@@ -242,7 +235,6 @@ tr:
             send: Bana bir SMS gönder
             title: Doğrulama kodunuzu isteyin
           update:
-            error: Doğrulama kodunuz bizimkilerle uyuşmuyor. Lütfen size gönderdiğimiz SMS'i tekrar kontrol edin.
             success: Tebrikler. Başarıyla doğrulandınız.
   errors:
     messages:
