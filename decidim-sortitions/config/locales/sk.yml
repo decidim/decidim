@@ -65,7 +65,6 @@ sk:
             error: Pri vytváraní novej voľby došlo k chybe.
             success: Voľba losovaním bola úspešne vytvorená
           destroy:
-            error: Voľbu nemožno zrušiť.
             success: Voľba bola úspešne zrušená
           edit:
             title: Aktualizujte informácie o voľbe losovaním
