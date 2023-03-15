@@ -191,10 +191,8 @@ de:
           title: Bestätigung der Abstimmung
         budget_excess:
           budget_excess:
-            description: Mit diesem Projekt überschreiten Sie das maximale Budget. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
             title: Maximales Budget überschritten
           close: Schließen
-          description: Mit diesem Projekt überschreiten Sie das maximale Budget. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
           ok: OK
           projects_excess:
             description: Mit diesem Projekt überschreiten Sie die maximale Anzahl auszuwählende Projekte. Deshalb kann es nicht hinzugefügt werden. Entfernen Sie ein bereits ausgewähltes Projekt um diesem Projekt eine Stimme zu geben.
