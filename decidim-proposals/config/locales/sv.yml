@@ -913,9 +913,6 @@ sv:
           title: Versioner
         proposals:
           back_to_resource: Gå tillbaka till förslaget
-      withdraw:
-        errors:
-          has_supports: Detta förslag kan inte dras tillbaka eftersom det redan har stöd.
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterade förslag
