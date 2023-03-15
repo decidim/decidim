@@ -36,6 +36,9 @@ fr:
           before_date_info: Utile si le processus a déjà commencé et que vous voulez révoquer les permissions du processus précédent.
           button: Révoquer tout
           button_before: Révoquer avant
+          destroy:
+            confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
+            confirm_all: La révocation des autorisations ne peut être annulée. Êtes-vous sur de vouloir continuer?
           destroy_nok: Il y a eu un problème lors de la révocation des autorisations.
           destroy_ok: Toutes les autorisations correspondantes ont été révoquées avec succès.
           info: Il y a un total de %{count} participants vérifiés.
@@ -136,6 +139,7 @@ fr:
             destroy_all:
               success: Toutes les données du recensement ont été supprimées
           destroy:
+            confirm: La suppression du recensement est irréversible. Êtes-vous sûr de vouloir continuer ?
             title: Supprimer toutes les données du recensement
           index:
             data: Il y a %{count} enregistrements chargés au total. La dernière date de mise en ligne était le %{due_date}
@@ -177,6 +181,7 @@ fr:
               success: Configuration mise à jour avec succès
           confirmations:
             create:
+              error: La vérification ne correspond pas. Réessayez ou rejetez la vérification afin que l'utilisateur puisse la modifier
               success: Utilisateur vérifié avec succès
             new:
               introduce_user_data: Introduire les données dans l'image
@@ -184,6 +189,7 @@ fr:
               verify: Vérifier
           offline_confirmations:
             create:
+              error: La vérification ne correspond pas. Réessayez ou dites à l'utilisateur de la modifier.
               success: Utilisateur vérifié avec succès
             new:
               cancel: Annuler
@@ -251,6 +257,7 @@ fr:
             send: Envoyez-moi une lettre
             title: Demandez votre code de vérification
           update:
+            error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée
             success: Félicitations, votre identité a été vérifiée avec succès
       sms:
         authorizations:
@@ -269,6 +276,7 @@ fr:
             send: Envoyez moi un SMS
             title: Demander votre code de vérification
           update:
+            error: Votre code de vérification ne correspond pas au nôtre. Veuillez revérifier le SMS que nous vous avons envoyé.
             success: Toutes nos félicitations. Vous avez été vérifié avec succès.
   errors:
     messages:
