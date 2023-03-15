@@ -733,6 +733,7 @@ es-MX:
           back: Atrás
           continue: Siguiente
       warnings:
+        no_elections_warning: No hay ninguna votación que coincida con tu búsqueda o no hay ninguna programada.
         no_scheduled_elections_warning: Actualmente no hay votaciones programadas, pero puedes ver las anteriores.
     events:
       elections:
@@ -1003,6 +1004,7 @@ es-MX:
             choose_polling_officers: Elegir gestores de mesa
             close: Cerrar
             more_polling_officers: Hay %{number} gestores de mesa más. Refina tu búsqueda para localizarlos.
+            no_polling_officers: Ninguna gestora de mesa coincide con tus criterios de búsqueda o no hay ninguna.
         polling_stations:
           create:
             invalid: Hubo un problema al crear este punto de votación
