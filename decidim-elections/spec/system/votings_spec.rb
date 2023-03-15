@@ -55,7 +55,7 @@ describe "Votings", type: :system do
 
         it "lists the votings ordered by created at" do
           within ".order-by" do
-            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+            expect(page).to have_selector("div.order-by a", text: "Random")
             page.find("a", text: "Random").click
             click_link "Most recent"
           end
@@ -76,7 +76,7 @@ describe "Votings", type: :system do
 
       it "shows all votings" do
         within ".order-by" do
-          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          expect(page).to have_selector("div.order-by a", text: "Random")
         end
 
         expect(page).to have_selector(".card--voting", count: 2)
