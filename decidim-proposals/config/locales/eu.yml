@@ -955,9 +955,6 @@ eu:
           title: Bertsioak
         proposals:
           back_to_resource: Joan proposamenera
-      withdraw:
-        errors:
-          has_supports: Proposamen hau ezin da baztertu, bozkak dituelako.
     resource_links:
       copied_from_component:
         proposal_proposal: Lotutako proposamenak
