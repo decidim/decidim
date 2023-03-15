@@ -66,6 +66,11 @@ cs:
               title: Název nesmí být prázdný
   activerecord:
     models:
+      decidim/initiative:
+        one: Iniciativa
+        few: Iniciativy
+        many: Iniciativ
+        other: Iniciativ
       decidim/initiative_comittee:
         one: Výbor
         few: Výbory

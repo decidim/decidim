@@ -97,18 +97,18 @@ eu:
             add_matrix_row: Gehitu errenkada
             any: Edozein
             collapse: Bildu
-            description: deskribapena
-            down: Down
+            description: Deskribapena
+            down: Behera
             expand: Zabaldu
             question: Galdera
             remove: Kendu
-            statement: adierazpena
-            up: up
+            statement: Adierazpena
+            up: Gora
           separator:
-            down: Jaitsi
+            down: Behera
             remove: Kendu
             separator: Bereizlea
-            up: Igo
+            up: Gora
           title_and_description:
             collapse: Tolestu
             description: Deskribapena
@@ -140,21 +140,21 @@ eu:
         multiple_option: Hainbat aukera
         short_answer: Erantzun laburra
         single_option: Aukera bakarra
-        sorting: Lazcoz
+        sorting: Sailkaketa
         title_and_description: Izenburua eta deskribapena
       questionnaire_answer_presenter:
         download_attachment: Deskargatu eranskina
       questionnaires:
         answer:
-          invalid: Akatsik egon da galdeketa erantzutean.
+          invalid: Akatsen bat gertatu da galdeketa erantzutean.
           max_choices_alert: Aukera gehiegi daude hautatuta
-          success: Galdesortaz erantzun ona.
+          success: Formularioak ondo erantzun du.
         question:
           max_choices: 'Gehienezko aukerak: %{n}'
         show:
           answer_questionnaire:
             anonymous_user_message: <a href="%{sign_in_link}">Hasi saioa zure kontuarekin</a> edo <a href="%{sign_up_link}">saioa hasi</a> galdetegiari erantzuteko.
-            title: Erantzun galdetegia
+            title: Erantzun formularioari
           current_step: '%{step} urratsa'
           of_total_steps: '%{total_steps} etik'
           questionnaire_answered:

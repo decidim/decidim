@@ -7,10 +7,10 @@ eu:
         offline_explanation: Lineaz kanpoko egiaztapenaren jarraibideak
         online: Online
       id_document_information:
-        document_number: Dokumentuaren zenbakia (letra batekin)
+        document_number: Dokumentu zenbakia
         document_type: Dokumentu mota
       id_document_upload:
-        document_number: Dokumentuaren zenbakia (letra batekin)
+        document_number: Dokumentu zenbakia
         document_type: Zure dokumentuaren mota
         user: Erabiltzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia

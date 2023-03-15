@@ -1,5 +1,11 @@
 ar:
   activemodel:
+    attributes:
+      post:
+        body: النص
+        decidim_author_id: المؤلف
+        published_at: موعد النشر
+        title: العنوان
     models:
       decidim/blogs/create_post_event: بلوق وظيفة جديدة
   activerecord:
@@ -49,6 +55,7 @@ ar:
             author: مؤلف
             body: الجسم
             created_at: أنشئت في
+            title: العنوان
       posts:
         show:
           back: العودة إلى القائمة
@@ -61,8 +68,10 @@ ar:
     components:
       blogs:
         actions:
+          comment: التعليق
           create: إنشاء
           destroy: حذف
+          endorse: تأييد
           update: تحديث
         name: مدونة
         settings:

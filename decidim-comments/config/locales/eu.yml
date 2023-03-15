@@ -31,7 +31,7 @@ eu:
         update:
           error: Arazoa gertatu da iruzkina eguneratzean.
       comments_count: Iruzkin kopurua
-      comments_title: Iruzkinak
+      comments_title: Oharrak
       last_activity:
         new_comment_at_html: "<span>Iruzkin berria %{link}</span>"
       view: Bistaratu
@@ -122,7 +122,7 @@ eu:
       comments:
         comment_by_followed_user:
           email_intro: "%{author_name} egileak iruzkin bat utzi du %{resource_title} helbidean. Orri honetan irakur dezakezu:"
-          email_outro: Jakinarazpen hau jaso duzu %{author_name} erabiltzailea jarraitzen duzulako. Erabiltzaile horri profil-orrialdetik ez jarraitu.
+          email_outro: Jakinarazpen hau jaso duzu %{author_name} erabiltzailea jarraitzen duzulako. Nahi izatekotan erabiltzaile hori bere profil-orritik jarraitzeari utz diezaiokezu.
           email_subject: '%{author_name} %{resource_title} iruzkin berri bat dago'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>-en iruzkin berri bat dagon <a href="%{resource_path}">%{resource_title}</a>-an.
         comment_by_followed_user_group:
@@ -132,8 +132,8 @@ eu:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>egileak iruzkin berri bat utzi du <a href="%{resource_path}">%{resource_title}</a>-an.
         comment_created:
           email_intro: "%{resource_title} iruzkindu da. Orri honetan iruzkina irakur dezakezu:"
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
-          email_subject: '%{author_name} (r) en %{resource_title} iruzkin berri bat dago'
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" edo bere egilea jarraitzen duzulako. Aurreko estekan jarrai dezakezu.
+          email_subject: '%{author_name} ren %{resource_title} iruzkin berri bat dago'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> </a> iruzkin berri bat dago
         comment_downvoted:
           email_intro: Zure iruzkina hemen "%{resource_title}" negatiboki bozkatu da. Orain %{upvotes} boto positibo eta %{downvotes} boto negatibo dituzu guztira.
@@ -157,7 +157,7 @@ eu:
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> k aipatu zaitu hemen <a href="%{resource_path}">%{resource_title}</a> <a href="%{group_path}">%{group_name} %{group_nickname}</a> taldearen kide gisa
         user_mentioned:
           email_intro: Aipatu zaituzte
-          email_outro: Jakinarazpena jaso duzu %{resource_title} delakoan aipatu duzulako.
+          email_outro: Jakinarazpena jaso duzu %{resource_title} delakoan aipatu zaituztelako.
           email_subject: '%{resource_title} delakoan aipatu zaituzte'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
     metrics:

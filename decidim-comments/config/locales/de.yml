@@ -31,7 +31,7 @@ de:
         update:
           error: Beim Erstellen des Kommentars ist ein Fehler aufgetreten.
       comments_count: Kommentaranzahl
-      comments_title: Kommentare
+      comments_title: Bemerkungen
       last_activity:
         new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
       view: Ansicht

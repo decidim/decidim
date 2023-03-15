@@ -341,7 +341,7 @@ eu:
             filter_by: Iragazi arabera
             invite_attendee: Gonbidatu parte-hartzailea
             invites: Gonbidapenak
-            search: Search
+            search: Bilatu
           new:
             explanation: Erabiltzaileari hitzaldi batean parte hartzeko gonbidapena egongo da. Posta elektronikoa ez bada erregistratuta, erakundera gonbidatuko dute.
             invite: gonbidatu
@@ -356,7 +356,7 @@ eu:
             select_user: Aukeratu erabiltzailea
             user_type: Erabiltzaile mota
           index:
-            search: Search
+            search: Bilatu
         conferences:
           form:
             available_slots_help: Utzi 0 mugak mugagabea badaude.

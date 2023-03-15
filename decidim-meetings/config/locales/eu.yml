@@ -151,13 +151,13 @@ eu:
           affected_user:
             email_intro: 'Zure topaketa "%{resource_title}" itxi egin da. Bere orriko ondorioak irakur ditzakezu:'
             email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" topaketa antolatu duzulako.
-            email_subject: '"%{resource_title}" topaketa itxita zegoen'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxita zegoen.
+            email_subject: '"%{resource_title}" topaketa itxi da'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi da.
           follower:
-            email_intro: '"%{resource_title}" topaketa itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
+            email_intro: '"%{resource_title}" topaketa itxi da. Bere orriko ondorioak irakur ditzakezu:'
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan jarrai dezakezu.
-            email_subject: '"%{resource_title}" topaketa itxita zegoen'
-            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxita zegoen.
+            email_subject: '"%{resource_title}" topaketa itxi da'
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa itxi da.
         meeting_created:
           button_text: Eman izena topaketan
           email_intro: Topaketa "%{resource_title}" jarraitzen duzun "%{participatory_space_title}" espazioan gehitu da.
@@ -173,7 +173,7 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketarako hartutako ordu-tarteak % %{percentage}% baino gehiago dira.
         meeting_updated:
           email_intro: '"%{resource_title}" topaketa eguneratu da. Bertsio berria irakur dezakezu bere orrian:'
-          email_outro: Jjakinarazpen hau "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan baja eman daiteke.
+          email_outro: Jakinarazpen hau "%{resource_title}" topaketa jarraitzen ari zarelako. Aurreko estekan baja eman daiteke.
           email_subject: '"%{resource_title}" topaketa eguneratu da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa eguneratu da.
         registration_code_validated:
@@ -263,12 +263,12 @@ eu:
         invite_join_meeting_mailer:
           invite:
             decline: Deuseztatu gonbidapena
-            invited_you_to_join_a_meeting: "%{invited_by} gonbidatu zaitu %{application} topaketan. Beheko estekan onartu dezakezu."
+            invited_you_to_join_a_meeting: "%{invited_by}-k gonbidatu zaitu %{application} topaketan. Beheko estekan onartu dezakezu."
             join: Erregistratu topaketa'%{meeting_title}'
         invites:
           create:
             error: Arazo bat zegoen parte-hartzailea topaketara gonbidatzeko.
-            success: Erabiltzailea behar bezala gonbidatu topaketa batera.
+            success: Erabiltzailea behar bezala gonbidatu da topaketa batera.
           form:
             attendee_type: Parte-hartzaile mota
             existing_user: Parte-hartzailea badago
@@ -341,7 +341,7 @@ eu:
             invalid: Arazo bat gertatu da topaketa hau desargitaratzean
             success: Topaketa zuzen desargitaratu da
           update:
-            invalid: Arazo bat zegoen topaketa eguneratzeko
+            invalid: Arazo bat egon da topaketa eguneratzeko
             success: Topaketa zuzen eguneratu da.
         meetings_poll:
           form:
@@ -377,8 +377,8 @@ eu:
       admin_log:
         invite:
           create: "%{user_name} gonbidatua izan da %{attendee_name} batzeko %{resource_name} buruzko topaketa %{space_name} espazioan"
-          deleted: "%{user_name}-ek %{attendee_name}-ri gonbidapena egiteari utzi zion %{space_name} espazioan parte hartzeko"
-          update: "%{user_name}-ek %{attendee_name}-ri gonbidatu %{space_name} espazioan parte hartzeko"
+          deleted: "%{user_name}-k %{attendee_name}-ri gonbidapena egiteari utzi dio %{space_name} espazioan parte hartzeko"
+          update: "%{user_name}-ek %{attendee_name}-ri gonbidatuta %{space_name} espazioan parte hartzeko"
         meeting:
           close: "%{user_name}-k %{resource_name} topaketa %{space_name} espazioan itxi zen"
           create: "%{user_name}-k %{resource_name} topaketa sortu da %{space_name} espazioan"
@@ -616,7 +616,7 @@ eu:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu.
         decline_invitation:
-          invalid: Arazo bat zegoen gonbidapenari uko egiten.
+          invalid: Arazo bat egon da gonbidapenari uko egiten.
           success: Arrakastaz uko egin diozu gonbidapenari.
         destroy:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.

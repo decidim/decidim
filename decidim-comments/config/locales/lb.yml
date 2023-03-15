@@ -24,7 +24,7 @@ lb:
         update:
           error: Beim Aktualisieren des Kommentars ist ein Problem aufgetreten.
       comments_count: Kommentaranzahl
-      comments_title: Kommentare
+      comments_title: Bemerkungen
       last_activity:
         new_comment_at_html: "<span>Neuer Kommentar unter %{link}</span>"
       view: Ansicht

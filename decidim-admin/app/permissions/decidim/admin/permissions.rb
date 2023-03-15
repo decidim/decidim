@@ -39,10 +39,10 @@ module Decidim
           allow! if templates_action?
           allow! if organization_action?
           allow! if user_action?
+          allow! if admin_user_action?
 
           allow! if permission_action.subject == :category
           allow! if permission_action.subject == :component
-          allow! if permission_action.subject == :admin_user
           allow! if permission_action.subject == :attachment
           allow! if permission_action.subject == :editor_image
           allow! if permission_action.subject == :attachment_collection
@@ -195,6 +195,19 @@ module Decidim
             Decidim::ImpersonationLog.active.where(admin: user).empty?
         when :destroy
           subject_user != user
+        else
+          true
+        end
+      end
+
+      def admin_user_action?
+        return unless permission_action.subject == :admin_user
+
+        target_user = context.fetch(:user, nil)
+
+        case permission_action.action
+        when :destroy, :block
+          target_user != user
         else
           true
         end

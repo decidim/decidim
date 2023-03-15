@@ -252,7 +252,7 @@ eu:
         active: Aktiboak
         all: guztiak
         finished: Amaitu
-        search: Search
+        search: Bilatu
         state: Estatu
         upcoming: Datozen
       filters_small_view:

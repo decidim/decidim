@@ -418,7 +418,7 @@ eu:
             'true': Ez da argitaratu
         scope_id_eq:
           label: Esparrua
-        search_label: Search
+        search_label: Bilatu
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
           reported_id_string_or_reported_content_cont: Bilatu %{collection} eduki edo Id erreportablearen arabera.
@@ -457,7 +457,7 @@ eu:
           needs_authorization_warning: Gutxienez baimen gaitu bat behar duzu erakunde honendako.
           not_managed: Ez da kudeatzen
           promote: Sustatu
-          search: Search
+          search: Bilatu
           status: Egoera
           view_logs: Ikusi erregistroak
       impersonations:

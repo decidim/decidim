@@ -24,6 +24,7 @@ env:
   RUBY_VERSION: 2.7.5
   NODE_VERSION: 16.9.1
   DECIDIM_MODULE: decidim-elections
+  CODECOV_TOKEN: bc15b944-6b42-420a-b3f9-a5a8fb214326
 
 jobs:
   main:
@@ -80,8 +81,12 @@ jobs:
         working-directory: ${{ env.DECIDIM_MODULE }}
         env:
           SIMPLECOV: "true"
-      - run: ./.github/upload_coverage.sh decidim-elections-system-admin $GITHUB_EVENT_PATH
+      - uses: codecov/codecov-action@v3
         name: Upload coverage
+        with:
+          token: ${{ env.CODECOV_TOKEN }}
+          name: decidim-elections-system-admin
+          flags: decidim-elections-system-admin
       - uses: actions/upload-artifact@v2
         if: always()
         with:

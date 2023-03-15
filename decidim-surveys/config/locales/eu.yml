@@ -34,7 +34,7 @@ eu:
     events:
       surveys:
         survey_closed:
-          email_intro: '%{resource_title} inkesta %{participatory_space_title} itxita egon da.'
+          email_intro: '%{resource_title} inkesta %{participatory_space_title} itxi egin da.'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Inkestaren arabera %{participatory_space_title} amaitu da
           notification_title: Inkesta <a href="%{resource_path}">%{resource_title}</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> amaitu da.
