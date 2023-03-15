@@ -63,7 +63,6 @@ lv:
             error: Jaunas izlozes izveides laikā radās problēma.
             success: Izloze ir veiksmīgi izveidota
           destroy:
-            error: Nevarēja atcelt izlozi.
             success: Izloze ir veiksmīgi atcelta
           edit:
             title: Atjaunināt informāciju par izlozi
