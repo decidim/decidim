@@ -963,6 +963,9 @@ ca:
           title: Versions
         proposals:
           back_to_resource: Torna a la proposta
+      withdraw:
+        errors:
+          has_supports: Aquesta proposta no es pot retirar perquè ja compta amb suports.
     resource_links:
       copied_from_component:
         proposal_proposal: Propostes relacionades
