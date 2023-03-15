@@ -48,7 +48,7 @@ while read match; do
       # Print out the annotation messages
       # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#setting-an-error-message
       echo "::error file=${file},line=${line},col=${spos},endColumn=${epos}::Use \"$preferred\" instead of \"$word\"."
-    done < <(echo "$text" | grep -oib "$word")
+    done < <(echo "$text" | grep -owib "$word")
   done
 done < <(find decidim-* -type f | grep -vP "$exclude_paths_pattern" | xargs -n1000 grep -Hnwif $forbidden_words_file)
 
