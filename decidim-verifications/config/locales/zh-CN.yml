@@ -30,9 +30,6 @@ zh-CN:
           before_date_info: 如果进程已经开始并且你想要撤销上一个进程的权限，将非常有用。
           button: 全部取消
           button_before: 取消之前的日期
-          destroy:
-            confirm: 在日期前撤销授权无法撤销。您确定要继续吗？
-            confirm_all: 撤销所有授权无法撤销。您确定要继续吗？
           destroy_nok: 撤销授权时出现问题。
           info: 共有 %{count} 个已验证的参与者。
           no_data: 没有经过验证的参与者
@@ -113,7 +110,6 @@ zh-CN:
             destroy_all:
               success: 所有普查数据已被删除
           destroy:
-            confirm: 删除所有普查无法撤消。您确定要继续吗？
             title: 删除所有普查数据
           index:
             data: 总共载入了 %{count} 条记录。最后上传日期在 %{due_date}
@@ -144,7 +140,6 @@ zh-CN:
               success: 配置已成功更新
           confirmations:
             create:
-              error: 验证不匹配。请重试或拒绝验证，以便参与者可以修改
               success: 参与者已成功验证
             new:
               introduce_user_data: 在图片中介绍数据
@@ -152,7 +147,6 @@ zh-CN:
               verify: 验证
           offline_confirmations:
             create:
-              error: 验证不匹配。请重试或告诉参与者修改
               success: 参与者已成功验证
             new:
               cancel: 取消
@@ -220,7 +214,6 @@ zh-CN:
             send: 给我发信
             title: 请求您的验证码
           update:
-            error: 您的验证码与我们不匹配。请再次检查我们发送给您的信件
             success: 恭喜您。您已成功验证
       sms:
         authorizations:
@@ -238,7 +231,6 @@ zh-CN:
             send: 给我发送短信
             title: 请求您的验证码
           update:
-            error: 您的验证码与我们不匹配。请再次检查我们发送给您的短信。
             success: 恭喜您。您已成功验证。
   errors:
     messages:
