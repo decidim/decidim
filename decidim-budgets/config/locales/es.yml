@@ -208,8 +208,10 @@ es:
           title: Confirmar voto
         budget_excess:
           budget_excess:
+            description: No se puede añadir este proyecto porque sobrepasaría el máximo del presupuesto disponible. Si lo deseas, puedes eliminar alguno de los proyectos que ya hayas seleccionado para poder votar de acuerdo a tus preferencias.
             title: Presupuesto excedido
           close: Cerrar
+          description: No se puede añadir este proyecto porque sobrepasaría el máximo del presupuesto disponible. Si lo deseas, puedes eliminar alguno de los proyectos que ya hayas seleccionado para poder votar de acuerdo a tus preferencias.
           ok: De acuerdo
           projects_excess:
             description: Este proyecto sobrepasa el presupuesto máximo y no se puede añadir. Si lo deseas, puedes eliminar un proyecto que ya hayas seleccionado, o votar de acuerdo a tus preferencias.
