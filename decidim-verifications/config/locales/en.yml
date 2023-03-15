@@ -38,8 +38,8 @@ en:
           button: Revoke all
           button_before: Revoke before date
           destroy:
-            confirm: Revoke before date authorizations can not be undone. Are you sure you want to continue?
-            confirm_all: Revoke all the authorizations can not be undone. Are you sure you want to continue?
+            confirm: Revoke before date authorizations cannot be undone. Are you sure you want to continue?
+            confirm_all: Revoke all the authorizations cannot be undone. Are you sure you want to continue?
           destroy_nok: There's been a problem while revoking authorizations.
           destroy_ok: All matched authorizations have been revocated successfully.
           info: There are a total of %{count} verified participants.
@@ -140,7 +140,7 @@ en:
             destroy_all:
               success: All census data have been deleted
           destroy:
-            confirm: Delete all the census can not be undone. Are you sure you want to continue?
+            confirm: Delete all the census cannot be undone. Are you sure you want to continue?
             title: Delete all census data
           index:
             data: There are %{count} records loaded in total. Last upload date was on %{due_date}
