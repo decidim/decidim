@@ -960,9 +960,6 @@ lt:
           title: Versijos
         proposals:
           back_to_resource: Grįžti į pasiūlymą
-      withdraw:
-        errors:
-          has_supports: Šio pasiūlymo negalima atsiimti, nes jau yra už jį balsavusių.
     resource_links:
       copied_from_component:
         proposal_proposal: Susiję pasiūlymai
