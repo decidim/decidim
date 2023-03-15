@@ -635,7 +635,7 @@ This does not affect comments as its length can be configured by administrators 
 |List of Denied passwords. Array may contain strings and regex entries.
 
 Separate each item of the array with a comma AND a space, for instance:
-`i-dont-like-this-password, i-dont-like-this-one-either, password123456`
+`i-do-not-like-this-password, i-do-not-like-this-one-either, password123456`
 |
 |No
 
