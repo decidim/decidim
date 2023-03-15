@@ -30,9 +30,6 @@ hu:
           before_date_info: Hasznos, ha a folyamat már megkezdődött, és vissza szeretné vonni az előző folyamat jogosultságait.
           button: Összes visszavonása
           button_before: Dátum előtti visszavonás
-          destroy:
-            confirm: A dátum előtti engedélyezések visszavonása nem vonható vissza. Biztosan folytatja?
-            confirm_all: Az összes engedélyezés visszavonása nem vonható vissza. Biztosan folytatja?
           destroy_nok: Probléma merült fel az engedélyek visszavonásakor.
           destroy_ok: Az összes egyező engedélyt sikeresen visszavonták.
           info: Összesen %{count} ellenőrzött résztvevő.
@@ -121,7 +118,6 @@ hu:
             destroy_all:
               success: Az összes népszámlálási adatot törölték
           destroy:
-            confirm: Az összes népszámlálás törlése nem vonható vissza. Biztos vagy benne, hogy folytatni akarod?
             title: Törölje az összes népszámlálási adatot
           index:
             data: '%{count} bejegyzés van feltöltve. Az utolsó feltöltés dátuma %{due_date}'
@@ -157,7 +153,6 @@ hu:
               success: A konfiguráció sikeresen frissült
           confirmations:
             create:
-              error: Az ellenőrzés nem sikerült. Próbáld újra vagy utasítsd el az ellenőrzést, így a felhasználó kijavíthatja
               success: Felhasználó ellenőrzése sikeres
             new:
               introduce_user_data: Add meg a képen látható adatokat
@@ -165,7 +160,6 @@ hu:
               verify: Ellenőrzés
           offline_confirmations:
             create:
-              error: Az ellenőrzés nem egyezik. Próbálja újra vagy mondja meg a felhasználót, hogy módosítsa azt
               success: A felhasználó sikeresen ellenőrizve
             new:
               cancel: Mégse
@@ -233,7 +227,6 @@ hu:
             send: Küldjetek levelet
             title: Kérj ellenőrző kódot magadnak
           update:
-            error: Az ellenőrző kód nem egyezik a miénkkel. Kérlek, nézd át mégegyszer az elküldött levelet
             success: Gratulálunk. Az ellenőrzésed sikeres volt
       sms:
         authorizations:
@@ -251,7 +244,6 @@ hu:
             send: Küldj nekem SMS-t
             title: Kérjen ellenőrző kódot
           update:
-            error: Az ellenőrző kód nem egyezik a miénk. Kérjük, ellenőrizze az SMS-t, amit elküldtek.
             success: Gratulálunk. Sikeresen ellenőrizte.
   errors:
     messages:
