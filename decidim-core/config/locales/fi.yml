@@ -77,6 +77,7 @@ fi:
     'true': 'Kyllä'
   carrierwave:
     errors:
+      file_cannot_be_processed: Tiedostoa ei voida käsitellä
       file_resolution_too_large: Tiedoston resoluutio on liian suuri
       file_size_too_large: Tiedoston koko on liian suuri
       not_inside_organization: Tiedostoa ei ole liitetty mihinkään organisaatioon
