@@ -30,9 +30,6 @@ nl:
           before_date_info: Nuttig als het proces al is begonnen en u de machtigingen van het vorige proces wilt intrekken.
           button: Alles intrekken
           button_before: Intrekken voor datum
-          destroy:
-            confirm: Intrekken voor de datum kan niet ongedaan worden gemaakt. Weet u zeker dat u wilt doorgaan?
-            confirm_all: Het intrekken van alle autorisaties kan niet ongedaan worden gemaakt. Weet u zeker dat u wilt doorgaan?
           destroy_nok: Er is een probleem opgetreden tijdens het intrekken van autorisaties.
           destroy_ok: Alle overeenkomstige autorisaties zijn ingetrokken.
           info: Er zijn een totaal van %{count} geverifieerde deelnemers.
@@ -121,7 +118,6 @@ nl:
             destroy_all:
               success: Alle censusgegevens zijn verwijderd
           destroy:
-            confirm: Verwijder alle census kan niet ongedaan gemaakt worden. Weet je zeker dat je door wilt gaan?
             title: Verwijder alle censusgegevens
           index:
             data: Er zijn in totaal %{count} records geladen. De laatste uploaddatum was op %{due_date}
@@ -160,7 +156,6 @@ nl:
               success: Configuratie succesvol bijgewerkt
           confirmations:
             create:
-              error: Verificatie komt niet overeen. Probeer het opnieuw of verwerp de verificatie zodat de deelnemer het kan wijzigen
               success: Deelnemer succesvol geverifieerd
             new:
               introduce_user_data: Introduceer de gegevens in de afbeelding
@@ -168,7 +163,6 @@ nl:
               verify: Verifiëren
           offline_confirmations:
             create:
-              error: Verificatie komt niet overeen. Probeer het opnieuw of laat de deelnemer het wijzigen
               success: Deelnemer succesvol geverifieerd
             new:
               cancel: annuleren
@@ -236,7 +230,6 @@ nl:
             send: Stuur me een brief
             title: Vraag uw verificatiecode aan
           update:
-            error: Uw verificatiecode komt niet overeen met de onze. Controleer alstublieft de brief die we u hebben gestuurd
             success: Hartelijk gefeliciteerd. U bent succesvol geverifieerd
       sms:
         authorizations:
@@ -254,7 +247,6 @@ nl:
             send: Stuur me een sms
             title: Vraag uw verificatiecode aan
           update:
-            error: Uw verificatiecode komt niet overeen met de onze. Controleer nogmaals de sms die we u hebben gestuurd.
             success: Gefeliciteerd. U bent succesvol geverifieerd.
   errors:
     messages:
