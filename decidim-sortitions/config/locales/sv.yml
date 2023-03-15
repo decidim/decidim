@@ -64,7 +64,6 @@ sv:
             error: Det gick inte att skapa en ny tilldelning.
             success: Tilldelningen har skapats
           destroy:
-            error: Kan inte avbryta tilldelningen.
             success: Tilldelningen har avbrutits
           edit:
             title: Uppdatera informationen om tilldelningen
