@@ -901,9 +901,6 @@ de:
           title: Versionen
         proposals:
           back_to_resource: Gehen Sie zurück zum Vorschlag
-      withdraw:
-        errors:
-          has_supports: Dieser Vorschlag kann nicht zurückgezogen werden, da er bereits Unterstützung hat.
     resource_links:
       copied_from_component:
         proposal_proposal: Ähnliche Vorschläge
