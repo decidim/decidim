@@ -807,9 +807,6 @@ zh-CN:
           title: 版本
         proposals:
           back_to_resource: 返回提案
-      withdraw:
-        errors:
-          has_supports: 这项建议不能被撤回，因为它已经得到支持。
     resource_links:
       copied_from_component:
         proposal_proposal: 有关提议
