@@ -30,9 +30,6 @@ it:
           before_date_info: Utile se il processo è già iniziato e si desidera revocare i permessi del processo precedente.
           button: Revoca tutto
           button_before: Revoca prima della data
-          destroy:
-            confirm: Le autorizzazioni di revoca prima della data non possono essere annullate. Sei sicuro di voler continuare?
-            confirm_all: Revocare tutte le autorizzazioni non può essere annullato. Sei sicuro di voler continuare?
           destroy_nok: C'è stato un problema durante la revoca delle autorizzazioni.
           destroy_ok: Tutte le autorizzazioni corrispondenti sono state revocate correttamente.
           info: Ci sono un totale di %{count} partecipanti verificati.
@@ -121,7 +118,6 @@ it:
             destroy_all:
               success: Tutti i dati del censimento sono stati cancellati
           destroy:
-            confirm: Cancellare tutto il censimento non può essere annullato. Sei sicuro di voler continuare?
             title: Elimina tutti i dati del censimento
           index:
             data: Ci sono %{count} record caricati in totale. L'ultima data di caricamento era %{due_date}
@@ -160,7 +156,6 @@ it:
               success: Configurazione aggiornata con successo
           confirmations:
             create:
-              error: La verifica non corrisponde. Prova di nuovo o rifiuta la verifica in modo che l'utente possa modificarla
               success: Utente verificato con successo
             new:
               introduce_user_data: Introduci i dati nella foto
@@ -168,7 +163,6 @@ it:
               verify: Verifica
           offline_confirmations:
             create:
-              error: La verifica non corrisponde. Riprovare o chiedere all'utente di modificarlo
               success: Utente verificato con successo
             new:
               cancel: Annulla
@@ -236,7 +230,6 @@ it:
             send: Inviami una lettera
             title: Richiedi il tuo codice di verifica
           update:
-            error: Il tuo codice di verifica non corrisponde al nostro. Per favore controlla la lettera che ti abbiamo inviato
             success: Felicitazioni. Sei stato verificato con successo
       sms:
         authorizations:
@@ -254,7 +247,6 @@ it:
             send: Mandami un sms
             title: Richiedi il tuo codice di verifica
           update:
-            error: Il tuo codice di verifica non corrisponde al nostro. Si prega di ricontrollare l'SMS che ti abbiamo inviato.
             success: Congratulazioni. Sei stato verificato con successo.
   errors:
     messages:
