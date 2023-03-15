@@ -57,7 +57,7 @@ module Decidim
           )
         end
 
-        context "with official meeting" do
+        context "with official proposal" do
           let(:proposal_trait) { :official }
 
           it "renders a sanitized body" do
@@ -70,6 +70,23 @@ module Decidim
                 </ul>alert('OK');</div>
               HTML
             )
+          end
+
+          context "when the body includes images and iframes" do
+            let(:body) do
+              <<~HTML.strip
+                <p><img src="/path/to/image.jpg" alt="Image"></p>
+                <div class="editor-content-videoEmbed">
+                  <div>
+                    <iframe src="https://example.org/video/xyz" title="Video" frameborder="0" allowfullscreen="true"></iframe>
+                  </div>
+                </div>
+              HTML
+            end
+
+            it "renders the image and iframe embed" do
+              expect(subject).to eq(%(<div class="ql-editor-display">#{body}</div>))
+            end
           end
         end
       end
