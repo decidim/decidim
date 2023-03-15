@@ -64,7 +64,6 @@ de:
             error: Beim Erstellen einer neuen Datei ist ein Fehler aufgetreten.
             success: Die Sortierung wurde erfolgreich erstellt
           destroy:
-            error: Die Sortierung kann nicht abgebrochen werden.
             success: Die Sortierung wurde erfolgreich abgebrochen
           edit:
             title: Aktualisieren Sie die Informationen zur Sortierung
