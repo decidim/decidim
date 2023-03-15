@@ -814,9 +814,6 @@ gl:
           title: Versións
         proposals:
           back_to_resource: Volver á proposta
-      withdraw:
-        errors:
-          has_supports: Esta proposta non pode ser retirada porque xa ten apoio.
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas
