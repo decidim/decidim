@@ -64,7 +64,6 @@ pt:
             error: Ocorreu um problema ao criar um novo sorteio.
             success: Sorteio criado corretamente
           destroy:
-            error: Não é possível cancelar o sorteio.
             success: Sorteio cancelado corretamente
           edit:
             title: Atualizar as informações sobre o sorteio
