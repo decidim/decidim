@@ -194,10 +194,8 @@ nl:
           title: Bevestig de stem
         budget_excess:
           budget_excess:
-            description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, om je stem opnieuw te kunnen uitbrengen.
             title: Maximum budget overschreden
           close: Sluit
-          description: Dit project overschrijdt het maximale budget en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, om je stem opnieuw te kunnen uitbrengen.
           ok: OK
           projects_excess:
             description: Dit project overschrijdt het maximale aantal projecten en kan niet worden toegevoegd. Als je wil, kun je een project verwijderen dat je al had geselecteerd, om je stem opnieuw te kunnen uitbrengen.
