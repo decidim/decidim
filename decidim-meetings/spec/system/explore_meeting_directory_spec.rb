@@ -28,15 +28,14 @@ describe "Explore meeting directory", type: :system do
     it "shows all the upcoming meetings" do
       visit directory
 
-      within ".with_any_date_collection_radio_buttons_filter" do
-        expect(find("input[value='upcoming']").checked?).to be(true)
+      within "#panel-dropdown-menu-date" do
+        expect(find("input[value='upcoming']", visible: false).checked?).to be(true)
       end
 
       within "#meetings" do
-        expect(page).to have_css(".card--meeting", count: 7)
+        expect(page).to have_css(".meeting-list", count: 7)
       end
 
-      expect(page).to have_css("#meetings-count", text: "7 MEETINGS")
       expect(page).to have_content(translated(upcoming_meeting.title))
     end
 
@@ -55,7 +54,9 @@ describe "Explore meeting directory", type: :system do
 
       within "form.new_filter" do
         fill_in("filter[title_or_description_cont]", with: "foobar")
-        click_button "Search"
+        within "div.filter-search" do
+          click_button
+        end
       end
 
       expect(page).not_to have_content("Another meeting")
@@ -79,8 +80,7 @@ describe "Explore meeting directory", type: :system do
       it "shows tags for category" do
         visit directory
 
-        expect(page).to have_selector("ul.tags.tag-container")
-        within "ul.tags.tag-container" do
+        within "#meetings" do
           expect(page).to have_content(translated(meeting.category.name))
         end
       end
@@ -88,9 +88,9 @@ describe "Explore meeting directory", type: :system do
       it "allows filtering by category" do
         visit directory
 
-        within ".with_any_global_category_check_boxes_tree_filter" do
-          check "All"
-          check translated(participatory_process.title)
+        within "#panel-dropdown-menu-category" do
+          click_filter_item "All"
+          click_filter_item translated(participatory_process.title)
         end
 
         expect(page).to have_content(translated(participatory_process.title))
@@ -111,9 +111,9 @@ describe "Explore meeting directory", type: :system do
     it "allows filtering by scope" do
       visit directory
 
-      within ".with_any_scope_check_boxes_tree_filter" do
-        check "All"
-        check translated(meeting.scope.name)
+      within "#panel-dropdown-menu-scope" do
+        click_filter_item "All"
+        click_filter_item translated(meeting.scope.name)
       end
 
       expect(page).to have_content(translated(meeting.scope.name))
@@ -125,17 +125,18 @@ describe "Explore meeting directory", type: :system do
       let!(:official_meeting) { create(:meeting, :published, :official, component: components.first, author: organization) }
 
       it "lists the filtered meetings" do
+        skip_unless_redesign_enabled
+
         visit directory
 
-        within ".with_any_origin_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Official"
+        within "#panel-dropdown-menu-origin" do
+          click_filter_item "All"
+          click_filter_item "Official"
         end
 
-        expect(page).to have_content("1 MEETING")
-        expect(page).to have_css(".card--meeting", count: 1)
+        expect(page).to have_css(".meeting-list", count: 1)
 
-        within ".card--meeting" do
+        within ".meeting-list" do
           expect(page).to have_content("Official meeting")
         end
       end
@@ -145,18 +146,22 @@ describe "Explore meeting directory", type: :system do
       let!(:user_group_meeting) { create(:meeting, :published, :user_group_author, component: components.first) }
 
       it "lists the filtered meetings" do
+        skip_unless_redesign_enabled
+
         visit directory
 
-        within ".with_any_origin_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Groups"
+        within "#panel-dropdown-menu-origin" do
+          click_filter_item "All"
+          click_filter_item "Groups"
         end
 
-        expect(page).to have_content("1 MEETING")
-        expect(page).to have_css(".card--meeting", count: 1)
-        within ".card--meeting" do
-          expect(page).to have_content(user_group_meeting.normalized_author.name)
-        end
+        expect(page).to have_css(".meeting-list", count: 1)
+        # REDESIGN_PENDING: The redesigned card_l cell is not expected to show
+        # the author, only display if a meeting is official
+        #
+        # within ".meeting-list" do
+        #   expect(page).to have_content(user_group_meeting.normalized_author.name)
+        # end
       end
     end
 
@@ -164,13 +169,12 @@ describe "Explore meeting directory", type: :system do
       it "lists the filtered meetings" do
         visit directory
 
-        within ".with_any_origin_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Participants"
+        within "#panel-dropdown-menu-origin" do
+          click_filter_item "All"
+          click_filter_item "Participants"
         end
 
-        expect(page).to have_css(".card--meeting", count: 6)
-        expect(page).to have_content("6 MEETINGS")
+        expect(page).to have_css(".meeting-list", count: 6)
       end
     end
   end
@@ -181,32 +185,36 @@ describe "Explore meeting directory", type: :system do
       let!(:online_meeting2) { create(:meeting, :published, :online, component: components.last) }
 
       it "allows filtering by type 'online'" do
-        within ".with_any_type_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Online"
+        skip_unless_redesign_enabled
+
+        within "#panel-dropdown-menu-type" do
+          click_filter_item "All"
+          click_filter_item "Online"
         end
 
         expect(page).to have_content(online_meeting1.title["en"])
         expect(page).to have_content(online_meeting2.title["en"])
-        expect(page).to have_css("#meetings-count", text: "2 MEETINGS")
       end
 
       it "allows linking to the filtered view using a short link" do
-        within ".with_any_type_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Online"
+        skip_unless_redesign_enabled
+
+        within "#panel-dropdown-menu-type" do
+          click_filter_item "All"
+          click_filter_item "Online"
         end
 
         expect(page).to have_content(online_meeting1.title["en"])
         expect(page).to have_content(online_meeting2.title["en"])
-        expect(page).to have_css("#meetings-count", text: "2 MEETINGS")
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
         base_url = "http://#{organization.host}:#{Capybara.server_port}"
 
         click_button "Export calendar"
-        expect(page).to have_content("Calendar URL:")
         expect(page).to have_css("#calendarShare", visible: :visible)
+        within("#calendarShare") do
+          expect(page).to have_content("Calendar URL")
+        end
         short_url = nil
         within "#calendarShare" do
           input = find("input#urlCalendarUrl[readonly]")
@@ -217,7 +225,6 @@ describe "Explore meeting directory", type: :system do
         visit short_url
         expect(page).to have_content(online_meeting1.title["en"])
         expect(page).to have_content(online_meeting2.title["en"])
-        expect(page).to have_css("#meetings-count", text: "2 MEETINGS")
         expect(page).to have_current_path(/^#{directory}/)
 
         current_params = CGI.parse(URI.parse(page.current_url).query)
@@ -229,13 +236,14 @@ describe "Explore meeting directory", type: :system do
       let!(:in_person_meeting) { create(:meeting, :published, :in_person, component: components.last) }
 
       it "allows filtering by type 'in-person'" do
-        within ".with_any_type_check_boxes_tree_filter" do
-          uncheck "All"
-          check "In-person"
+        skip_unless_redesign_enabled
+
+        within "#panel-dropdown-menu-type" do
+          click_filter_item "All"
+          click_filter_item "In-person"
         end
 
         expect(page).to have_content(in_person_meeting.title["en"])
-        expect(page).to have_css("#meetings-count", text: "7 MEETINGS") # default meeting component it's with type "in-person"
       end
     end
 
@@ -243,12 +251,10 @@ describe "Explore meeting directory", type: :system do
       let!(:online_meeting) { create(:meeting, :published, :hybrid, component: components.last) }
 
       it "allows filtering by type 'both'" do
-        within ".with_any_type_check_boxes_tree_filter" do
-          uncheck "All"
-          check "Hybrid"
+        within "#panel-dropdown-menu-type" do
+          click_filter_item "All"
+          click_filter_item "Hybrid"
         end
-
-        expect(page).to have_css("#meetings-count", text: "1 MEETING")
       end
     end
   end
@@ -265,13 +271,13 @@ describe "Explore meeting directory", type: :system do
       it "orders them by start date" do
         visit "#{directory}?per_page=20"
 
-        within ".with_any_date_collection_radio_buttons_filter" do
-          choose "All"
+        within "#panel-dropdown-menu-date" do
+          click_filter_item "All"
         end
 
-        expect(page).to have_css("#meetings-count", text: "12 MEETINGS")
+        expect(page).to have_content(translated(past_meeting1.title))
 
-        result = page.find("#meetings .card-grid").text
+        result = page.find("#meetings .meeting-list__container").text
         expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(past_meeting1.title))
         expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting3.title))
         expect(result.index(translated(past_meeting2.title))).to be < result.index(translated(upcoming_meeting1.title))
@@ -284,13 +290,13 @@ describe "Explore meeting directory", type: :system do
       it "orders them by start date" do
         visit directory
 
-        within ".with_any_date_collection_radio_buttons_filter" do
-          choose "Past"
+        within "#panel-dropdown-menu-date" do
+          click_filter_item "Past"
         end
 
-        expect(page).to have_css("#meetings-count", text: "3 MEETINGS")
+        expect(page).to have_no_content(translated(upcoming_meeting1.title))
 
-        result = page.find("#meetings .card-grid").text
+        result = page.find("#meetings .meeting-list__container").text
         expect(result.index(translated(past_meeting3.title))).to be < result.index(translated(past_meeting1.title))
         expect(result.index(translated(past_meeting1.title))).to be < result.index(translated(past_meeting2.title))
       end
@@ -300,9 +306,7 @@ describe "Explore meeting directory", type: :system do
       it "orders them by start date" do
         visit directory
 
-        expect(page).to have_css("#meetings-count", text: "9 MEETINGS")
-
-        result = page.find("#meetings .card-grid").text
+        result = page.find("#meetings .meeting-list__container").text
         expect(result.index(translated(upcoming_meeting3.title))).to be < result.index(translated(upcoming_meeting1.title))
         expect(result.index(translated(upcoming_meeting1.title))).to be < result.index(translated(upcoming_meeting2.title))
       end
@@ -319,29 +323,34 @@ describe "Explore meeting directory", type: :system do
     end
 
     it "allows filtering by space" do
+      skip_unless_redesign_enabled
+
       expect(page).to have_content(assembly_meeting.title["en"])
 
       # Since in the first load all the meeting are present, we need cannot rely on
       # have_content to wait for the card list to change. This is a hack to
       # reset the contents to no meetings at all, and then showing only the upcoming
       # assembly meetings.
-      within ".with_any_date_collection_radio_buttons_filter" do
-        choose "Past"
+      within "#panel-dropdown-menu-date" do
+        click_filter_item "Past"
       end
 
-      expect(page).to have_no_css(".card--meeting")
-      within(all(".filters__section")[7]) do
-        uncheck "All"
-        check "Assemblies"
+      expect(page).to have_no_css(".meeting-list")
+      within("#panel-dropdown-menu-space_type") do
+        click_filter_item "All"
+        click_filter_item "Assemblies"
       end
 
-      within ".with_any_date_collection_radio_buttons_filter" do
-        choose "Upcoming"
+      within "#panel-dropdown-menu-date" do
+        click_filter_item "Upcoming"
       end
 
       expect(page).to have_content(assembly_meeting.title["en"])
-      expect(page).to have_css(".card--meeting", count: 1)
-      expect(page).to have_css("#meetings-count", text: "1 MEETING")
+      expect(page).to have_css(".meeting-list", count: 1)
     end
   end
+end
+
+def click_filter_item(text)
+  find("div.filter", text:).click
 end

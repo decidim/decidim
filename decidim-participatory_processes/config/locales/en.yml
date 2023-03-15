@@ -127,6 +127,7 @@ en:
           categories: Categories
           components: Components
           info: Info
+          landing_page: Landing page
           moderations: Moderations
           private_users: Private participants
           process_admins: Process admins
@@ -377,6 +378,8 @@ en:
         related_assemblies: Related assemblies
     participatory_process_groups:
       content_blocks:
+        html:
+          name: HTML block
         html_1:
           name: First HTML block
         html_2:
@@ -448,6 +451,8 @@ en:
       content_blocks:
         highlighted_processes:
           name: Highlighted processes
+        related_processes:
+          name: Related processes
       index:
         title: Participatory processes
       last_activity:
@@ -497,19 +502,10 @@ en:
         show:
           title: About this process
       show:
-        area: Area
         belongs_to_group: This process belongs to
         dates: Dates
-        developer_group: Promoter group
-        end_date: End date
-        local_area: Organization Area
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
         private_space: This is a private process
         related_processes: Related processes
-        scope: Scope
-        start_date: Start date
-        target: Who participates
         unspecified: Not specified
     statistics:
       processes_count: Processes
@@ -528,19 +524,11 @@ en:
         index:
           promoted_processes: Highlighted processes
         participatory_process:
-          active_step: 'Current phase:'
+          active_step: Current phase
           more_info: More info
           more_info_about: More info about process %{resource_name}
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
-        promoted_process:
-          active_step: 'Current phase:'
-          more_info: More info
-          more_info_about: More info about process %{resource_name}
-          take_part: Take part
-          take_part_in: Take part in process %{resource_name}
-        promoted_process_group:
-          more_info: More info
       process_header_steps:
         step: Phase %{current} of %{total}
         view_steps: Process phases

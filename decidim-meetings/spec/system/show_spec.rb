@@ -10,7 +10,7 @@ describe "show", type: :system do
 
   before do
     visit_component
-    click_link meeting.title[I18n.locale.to_s], class: "card__link"
+    click_link meeting.title[I18n.locale.to_s], class: "meeting-list"
   end
 
   context "when shows the meeting component" do
@@ -18,6 +18,8 @@ describe "show", type: :system do
       expect(page).to have_content meeting.title[I18n.locale.to_s]
     end
 
-    it_behaves_like "going back to list button"
+    # REDESIGN_PENDING - There should be recovered the back to list button,
+    # removed with drawers and uncomment these shared examples
+    # it_behaves_like "going back to list button"
   end
 end

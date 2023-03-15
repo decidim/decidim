@@ -585,9 +585,6 @@ en:
           conferences:
             one: "%{count} conference"
             other: "%{count} conferences"
-        promoted_conference:
-          more_info: More info
-          take_part: Take part
       conferences_nav:
         conference_menu_item: Information
         conference_partners_menu_item: Partners

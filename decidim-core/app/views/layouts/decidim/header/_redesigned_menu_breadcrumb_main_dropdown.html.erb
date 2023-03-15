@@ -1,18 +1,17 @@
-<div class="bg-white divide-y divide-gray-3 rounded-b shadow-lg text-black w-full lg:w-[1200px]">
-  <div class="flex flex-col md:flex-row justify-between p-4 md:p-8 gap-x-8">
-    <div class="w-full md:w-1/2">
+<div id="<%= id %>" class="menu-bar__main-dropdown">
+  <div class="menu-bar__main-dropdown__top">
+    <div class="menu-bar__main-dropdown__top-left">
       <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown_top_left" %>
     </div>
-    <ul class="w-full md:w-1/2 mt-8 md:mt-0 divide-y divide-gray-3 grid md:grid-cols-2 gap-x-6 text-secondary">
-      <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_links" %>
-    </ul>
+    <%= breadcrumb_root_menu.render %>
   </div>
-  <div class="flex flex-col md:flex-row justify-between p-4 md:p-8 gap-x-8">
-    <div class="w-full md:w-1/2">
+  <div class="menu-bar__main-dropdown__bottom">
+  <%# REDESIGN_PENDING - This element should use a cell and define a criteria to select a single featured element %>
+    <div class="menu-bar__main-dropdown__bottom-left">
       <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_main_dropdown_bottom_left" %>
     </div>
-    <div class="hidden md:block md:w-1/2">
-      <%= render partial: "layouts/decidim/header/redesigned_menu_breadcrumb_last_activity" %>
+    <div class="menu-bar__main-dropdown__bottom-right">
+      <%= cell "decidim/content_blocks/menu_breadcrumb_last_activity", nil %>
     </div>
   </div>
 </div>

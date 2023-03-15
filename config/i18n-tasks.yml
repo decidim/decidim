@@ -115,6 +115,8 @@ ignore_missing:
   - decidim.budgets.projects_helper.current_rule_explanation.*
   - decidim.budgets.projects_helper.current_rule_description.*
   - decidim.debates.debate_m.footer.commented_time_ago
+  - date.abbr_day_names
+  - date.month_names
   - explanation
 
 # Consider these keys used:
@@ -232,6 +234,8 @@ ignore_unused:
   - decidim.consultations.content_blocks.*.name
   - decidim.meetings.content_blocks.*.name
   - decidim.votings.content_blocks.*.name
+  - decidim.blogs.content_blocks.*.name
+  - decidim.proposals.content_blocks.*.name
   - decidim.proposals.collaborative_drafts.show.hidden_authors_count.*
   - decidim.proposals.collaborative_drafts.orders*
   - decidim.proposals.collaborative_drafts.filters*
@@ -334,6 +338,9 @@ ignore_unused:
   - decidim.profiles.user.actions.*
   - decidim.forms.questionnaires.show.answer_questionnaire.*
   - decidim.forms.upload_help.explanation
+  - versions.dropdown.option_*
+  - decidim.meetings.meetings.filters.*
+  - decidim.meetings.directory.meetings.index.space_type
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

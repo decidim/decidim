@@ -9,6 +9,8 @@ module Decidim
     # attached_to - The model to render the attachments from.
     #
     # Returns nothing.
+
+    # deprecated
     def attachments_for(attached_to)
       render partial: "decidim/application/attachments", locals: { attached_to: }
     end

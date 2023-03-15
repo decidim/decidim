@@ -31,6 +31,7 @@ module Decidim
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::LayoutHelper
       helper Decidim::MenuHelper
+      helper Decidim::BreadcrumbHelper
       helper Decidim::OmniauthHelper
       helper Decidim::CacheHelper
       helper Decidim::SocialShareButtonHelper

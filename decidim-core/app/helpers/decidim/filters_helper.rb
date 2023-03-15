@@ -3,6 +3,8 @@
 module Decidim
   # Helper that provides a single method to create filter resource forms
   module FiltersHelper
+    include IconHelper
+
     # This method wraps everything in a div with class filters and calls
     # the form_for helper with a custom builder
     #
@@ -37,16 +39,17 @@ module Decidim
       form_for(
         filter,
         namespace: filter_form_namespace,
-        builder: FormBuilder,
+        builder: RedesignedFilterFormBuilder,
         url:,
         as: :filter,
         method: :get,
-        # REDESIGN_PENDING: it must ne false in order to refresh the current selection
-        # Look further using Turbo
-        remote: false,
+        remote: true,
         html: { id: nil }.merge(html_options)
       ) do |form|
-        yield form
+        inner = []
+        inner << hidden_field_tag("per_page", params[:per_page], id: nil) if params[:per_page]
+        inner << capture { yield form }
+        inner.join.html_safe
       end
     end
 

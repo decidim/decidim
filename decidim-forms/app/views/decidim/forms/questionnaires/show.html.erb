@@ -16,12 +16,17 @@
   <%= render partial: "decidim/shared/component_announcement" if current_component.manifest_name == "surveys" %>
 
   <div class="text-center py-10">
-    <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
-      <%= translated_attribute questionnaire.title %>
-    </h1>
+    <% if questionnaire.title.present? %>
+      <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
+        <%= translated_attribute questionnaire.title %>
+      </h1>
+    <% end %>
+
+    <% if questionnaire.description.present? %>
     <div class="text-lg text-gray-2 text-left">
       <%= decidim_sanitize_editor translated_attribute questionnaire.description %>
     </div>
+    <% end %>
   </div>
 
   <div class="mb-24">

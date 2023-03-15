@@ -17,6 +17,9 @@ module Decidim
           member do
             put :withdraw
           end
+          collection do
+            get :year_calendar
+          end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection
           end
@@ -28,7 +31,7 @@ module Decidim
               post :answer
             end
           end
-          resources :versions, only: [:show, :index]
+          resources :versions, only: [:show]
           resource :widget, only: :show, path: "embed"
           resource :live_event, only: :show
           namespace :polls do

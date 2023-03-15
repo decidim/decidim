@@ -23,8 +23,8 @@ describe "Proposals", type: :system do
   end
 
   matcher :have_author do |name|
-    match { |node| node.has_selector?(".author-data", text: name) }
-    match_when_negated { |node| node.has_no_selector?(".author-data", text: name) }
+    match { |node| node.has_selector?("[data-author]", text: name) }
+    match_when_negated { |node| node.has_no_selector?("[data-author]", text: name) }
   end
 
   matcher :have_creation_date do |date|
@@ -137,8 +137,9 @@ describe "Proposals", type: :system do
       let!(:image) { create(:attachment, attached_to: proposal) }
 
       it "shows the card image" do
+        skip "REDESIGN_PENDING - The card-l for proposals does not implement images. Delete this test if this is correct"
         visit_component
-        within "#proposal_#{proposal.id}" do
+        within "#proposals__proposal_#{proposal.id}" do
           expect(page).to have_selector(".card__image")
         end
       end
@@ -362,9 +363,9 @@ describe "Proposals", type: :system do
         visit_component
 
         expect(page).to have_selector("a", text: "Random")
-        expect(page).to have_selector(".card--proposal", count: 2)
-        expect(page).to have_selector(".card--proposal", text: lucky_proposal_title)
-        expect(page).to have_selector(".card--proposal", text: unlucky_proposal_title)
+        expect(page).to have_selector(".proposal-list-item", count: 2)
+        expect(page).to have_selector(".proposal-list-item", text: lucky_proposal_title)
+        expect(page).to have_selector(".proposal-list-item", text: unlucky_proposal_title)
         expect(page).to have_author(lucky_proposal.creator_author.name)
       end
     end
@@ -381,7 +382,7 @@ describe "Proposals", type: :system do
       create_list(:proposal, 3, component:)
 
       visit_component
-      expect(page).to have_css(".card--proposal", count: 3)
+      expect(page).to have_css(".proposal-list-item", count: 3)
     end
 
     describe "editable content" do
@@ -399,9 +400,9 @@ describe "Proposals", type: :system do
       it "displays unhidden comments count" do
         visit_component
 
-        within("#proposal_#{proposal.id}") do
-          within(".card-data__item:last-child") do
-            expect(page).to have_content(2)
+        within("#proposals__proposal_#{proposal.id}") do
+          within(".card__list-metadata") do
+            expect(page).to have_css("span", text: 2)
           end
         end
       end
@@ -433,11 +434,13 @@ describe "Proposals", type: :system do
 
       it "lists the proposals ordered by votes by default" do
         expect(page).to have_selector("a", text: "Most supported")
-        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal_title)
-        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal_title)
+        expect(page).to have_selector("#proposals .card-grid .proposal-list-item:first-child", text: most_voted_proposal_title)
+        expect(page).to have_selector("#proposals .card-grid .proposal-list-item:last-child", text: less_voted_proposal_title)
       end
 
       it "shows a disabled vote button for each proposal, but no links to full proposals" do
+        skip "REDESIGN_PENDING - Voting from index is deprecated in proposals. Remove this test if this is correct"
+
         expect(page).to have_button("Supports disabled", disabled: true, count: 2)
         expect(page).to have_no_link("View proposal")
       end
@@ -460,9 +463,10 @@ describe "Proposals", type: :system do
 
         visit_component
 
-        expect(page).to have_no_button("Supports disabled", disabled: true)
-        expect(page).to have_no_button("Vote")
-        expect(page).to have_link("View proposal", count: 2)
+        # REDESIGN_PENDING - Voting from index is deprecated in proposals. Remove this test if this is correct
+        # expect(page).to have_no_button("Supports disabled", disabled: true)
+        # expect(page).to have_no_button("Vote")
+        expect(page).to have_css("div.card__list-title a", count: 2)
       end
     end
 
@@ -474,13 +478,13 @@ describe "Proposals", type: :system do
       it "paginates them" do
         visit_component
 
-        expect(page).to have_css(".card--proposal", count: Decidim::Paginable::OPTIONS.first)
+        expect(page).to have_css(".proposal-list-item", count: Decidim::Paginable::OPTIONS.first)
 
         click_link "Next"
 
         expect(page).to have_selector("[data-pages] [data-page][aria-current='page']", text: "2")
 
-        expect(page).to have_css(".card--proposal", count: 5)
+        expect(page).to have_css(".proposal-list-item", count: 5)
       end
     end
 
@@ -497,8 +501,8 @@ describe "Proposals", type: :system do
       end
 
       it "lists the proposals ordered by selected option" do
-        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: first_proposal_title)
-        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: last_proposal_title)
+        expect(page).to have_selector("#proposals .card-grid .proposal-list-item:first-child", text: first_proposal_title)
+        expect(page).to have_selector("#proposals .card-grid .proposal-list-item:last-child", text: last_proposal_title)
       end
     end
 
@@ -602,7 +606,7 @@ describe "Proposals", type: :system do
 
     context "when paginating" do
       let!(:collection) { create_list :proposal, collection_size, component: }
-      let!(:resource_selector) { ".card--proposal" }
+      let!(:resource_selector) { ".proposal-list-item" }
 
       it_behaves_like "a paginated resource"
     end

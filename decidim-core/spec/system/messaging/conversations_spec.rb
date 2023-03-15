@@ -22,7 +22,7 @@ describe "Conversations", type: :system do
     end
 
     it "shows the topbar button as inactive" do
-      within "#dropdown-summary-account" do
+      within "#trigger-dropdown-account" do
         expect(page).to have_no_selector("span[data-unread-items]")
       end
     end
@@ -138,7 +138,7 @@ describe "Conversations", type: :system do
       end
 
       it "shows the topbar button as active" do
-        within "#dropdown-summary-account" do
+        within "#trigger-dropdown-account" do
           expect(page).to have_selector("span[data-unread-items]")
         end
       end
@@ -152,7 +152,7 @@ describe "Conversations", type: :system do
       before { visit_inbox }
 
       it "shows the topbar button as inactive" do
-        within "#dropdown-summary-account" do
+        within "#trigger-dropdown-account" do
           expect(page).to have_no_selector("span[data-unread-items]")
         end
       end
@@ -522,7 +522,7 @@ describe "Conversations", type: :system do
     visit decidim.root_path
 
     if Decidim.redesign_active
-      find("#dropdown-summary-account").click
+      find("#trigger-dropdown-account").click
       click_link("Conversations")
     else
       within ".topbar__user__logged" do

@@ -14,213 +14,111 @@ edit_link(
 )
 %>
 
-<%= participatory_space_floating_help %>
+<div class="assembly__container">
 
-<% if current_participatory_space.private_space? %>
-  <%= render partial: "decidim/shared/private_participatory_space",
-             locals: { text: t("private_space", scope: "decidim.assemblies.show") } %>
-<% end %>
+  <%= participatory_space_floating_help %>
 
-<%= cell("decidim/announcement", current_participatory_space.announcement) %>
+  <div>
+    <% if current_participatory_space.private_space? %>
+      <%= cell("decidim/announcement", t("private_space", scope: "decidim.assemblies.show"), callout_class: "alert") %>
+    <% end %>
 
-<div class="row column">
-  <% if current_participatory_space.parent.present? %>
-    <div class="row">
-      <div class="small-12 columns">
-        <%= render partial: "decidim/assemblies/assemblies/nav_breadcumb",
-                   locals: { assemblies: current_participatory_space.ancestors.to_a } %>
-      </div>
-    </div>
-  <% end %>
-  <div class="row">
-    <div class="columns medium-7 mediumlarge-8">
-      <div class="section">
-        <h2 class="show-for-sr"><%= t(".title") %></h2>
-        <div class="lead">
-          <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
-        </div>
-        <%= decidim_sanitize_editor_admin translated_attribute(current_participatory_space.description) %>
+    <%= cell("decidim/announcement", current_participatory_space.announcement) %>
 
-        <% if current_participatory_space.private_space? %>
-          <%= assembly_features(current_participatory_space) %>
-        <% end %>
-      </div>
-
-      <% if translated_attribute(current_participatory_space.purpose_of_action).present? ||
-          translated_attribute(current_participatory_space.internal_organisation).present? ||
-          translated_attribute(current_participatory_space.composition).present? %>
-        <div class="show-more">
-          <button class="button hollow small"><%= t("read_more", scope: "decidim.assemblies.show") %></button>
-        </div>
-
-        <div class="hide show-more-panel">
-          <% if translated_attribute(current_participatory_space.purpose_of_action).present? %>
-            <div class="section">
-              <h3 class="section-heading"><%= t("purpose_of_action", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.purpose_of_action) %>
-            </div>
-          <% end %>
-
-          <% if translated_attribute(current_participatory_space.internal_organisation).present? %>
-            <div class="section">
-              <h3 class="section-heading"><%= t("internal_organisation", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.internal_organisation) %>
-            </div>
-          <% end %>
-
-          <% if translated_attribute(current_participatory_space.composition).present? %>
-            <div class="section">
-              <h3 class="section-heading"><%= t("composition", scope: "decidim.assemblies.show") %></h3>
-              <%= decidim_sanitize_editor translated_attribute(current_participatory_space.composition) %>
-            </div>
-          <% end %>
-          <div class="section text-center">
-            <div class="hide-more">
-              <button class="button hollow small"><%= t("read_less", scope: "decidim.assemblies.show") %></button>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      <%= attachments_for current_participatory_space %>
-
-      <%= render_hook(:participatory_space_highlighted_elements) %>
-
-      <% if current_participatory_space.children.visible_for(current_user).published.count.positive? %>
-        <section id="assemblies-grid" class="section row collapse">
-          <h3 class="section-heading"><%= t("children", scope: "decidim.assemblies.show") %></h3>
-          <div class="row small-up-1 medium-up-2 large-up-2 card-grid">
-            <%= render partial: "decidim/assemblies/assembly", collection: current_participatory_space.children.visible_for(current_user).published.order(weight: :asc) %>
-          </div>
-        </section>
-      <% end %>
-
-      <%= participatory_processes_for_assembly(assembly_participatory_processes) if assembly_participatory_processes.present? %>
-    </div>
-
-    <div class="section columns medium-5 mediumlarge-4 large-3">
-      <div class="card extra">
-        <div class="card__content">
-          <%= render partial: "decidim/shared/follow_button", locals: { followable: current_participatory_space, large: false  } %>
+    <%# REDESIGN_PENDING - This part requires a redesign and maybe moved to the metadata content block %>
+    <% if current_participatory_space.parent.present? %>
+      <div class="row">
+        <div class="small-12 columns">
+          <%= render partial: "decidim/assemblies/assemblies/nav_breadcrumb",
+            locals: { assemblies: current_participatory_space.ancestors.to_a } %>
         </div>
       </div>
-      <div class="card extra definition-data">
-        <% if translated_attribute(current_participatory_space.meta_scope).present? %>
-          <div class="definition-data__item scope">
-            <span class="definition-data__title"><%= t("scope", scope: "decidim.assemblies.show") %></span>
-            <%= translated_attribute(current_participatory_space.meta_scope) %>
-          </div>
-        <% end %>
-
-        <% if translated_attribute(current_participatory_space.developer_group).present? %>
-          <div class="definition-data__item developer-group">
-            <span class="definition-data__title"><%= t("developer_group", scope: "decidim.assemblies.show") %></span>
-            <%= translated_attribute(current_participatory_space.developer_group) %>
-          </div>
-        <% end %>
-
-        <% if translated_attribute(current_participatory_space.local_area).present? %>
-          <div class="definition-data__item local_area">
-            <span class="definition-data__title"><%= t("local_area", scope: "decidim.assemblies.show") %></span>
-            <%= translated_attribute(current_participatory_space.local_area) %>
-          </div>
-        <% end %>
-
-         <% if translated_attribute(current_participatory_space.target).present? %>
-          <div class="definition-data__item target">
-            <span class="definition-data__title"><%= t("target", scope: "decidim.assemblies.show") %></span>
-            <%= translated_attribute(current_participatory_space.target) %>
-          </div>
-        <% end %>
-
-         <% if translated_attribute(current_participatory_space.participatory_scope).present? %>
-          <div class="definition-data__item participatory_scope">
-            <span class="definition-data__title"><%= t("participatory_scope", scope: "decidim.assemblies.show") %></span>
-              <%= translated_attribute(current_participatory_space.participatory_scope) %>
-          </div>
-        <% end %>
-
-        <% if translated_attribute(current_participatory_space.participatory_structure).present? %>
-          <div class="definition-data__item participatory_structure">
-            <span class="definition-data__title"><%= t("participatory_structure", scope: "decidim.assemblies.show") %></span>
-            <%= translated_attribute(current_participatory_space.participatory_structure) %>
-          </div>
-        <% end %>
-
-        <% area = current_participatory_space.area %>
-        <% if translated_attribute(area&.name).present? %>
-          <div class="definition-data__item area">
-            <span class="definition-data__title"><%= t("area", scope: "decidim.assemblies.show") %></span>
-            <% if translated_attribute(area.area_type&.name).present? %>
-              <%= translated_attribute(area.area_type.name) %><span>&#45;</span>
-            <% end %>
-            <%= translated_attribute(area.name) %>
-          </div>
-        <% end %>
-
-        <% if current_participatory_space.assembly_type.present? %>
-          <div class="definition-data__item assembly_type">
-            <span class="definition-data__title"><%= t("assembly_type", scope: "decidim.assemblies.show") %></span>
-              <%= translated_attribute(current_participatory_space.assembly_type.title) %>
-          </div>
-        <% end %>
-
-        <% if current_participatory_space.creation_date.present? %>
-          <div class="definition-data__item creation_date">
-            <span class="definition-data__title"><%= t("creation_date", scope: "decidim.assemblies.show") %></span>
-            <%= l current_participatory_space.creation_date, format: :decidim_short %>
-          </div>
-        <% end %>
-
-        <% if current_participatory_space.created_by.present? %>
-          <div class="definition-data__item created_by">
-            <span class="definition-data__title"><%= t("created_by", scope: "decidim.assemblies.show") %></span>
-            <% if current_participatory_space.created_by == "others" %>
-              <%= translated_attribute(current_participatory_space.created_by_other) %>
-            <% else %>
-              <%= t("created_by.#{current_participatory_space.created_by }", scope: "decidim.assemblies") %>
-            <% end %>
-          </div>
-        <% end %>
-
-        <% if current_participatory_space.included_at.present? %>
-          <div class="definition-data__item included_at">
-            <span class="definition-data__title"><%= t("included_at", scope: "decidim.assemblies.show") %></span>
-            <%= l current_participatory_space.included_at, format: :decidim_short %>
-          </div>
-        <% end %>
-
-        <div class="definition-data__item duration">
-          <span class="definition-data__title"><%= t("duration", scope: "decidim.assemblies.show") %></span>
-          <% if current_participatory_space.duration.present? %>
-            <%= l current_participatory_space.duration, format: :decidim_short %>
-          <% else %>
-            <%= t("indefinite_duration", scope: "decidim.assemblies.show") %>
-          <% end %>
-        </div>
-
-        <% if current_participatory_space.closing_date.present? %>
-          <div class="definition-data__item closing_date">
-            <span class="definition-data__title"><%= t("closing_date", scope: "decidim.assemblies.show") %></span>
-            <%= l(current_participatory_space.closing_date, format: :decidim_short) %>
-            <br>
-            <%= decidim_sanitize_editor translated_attribute(current_participatory_space.closing_date_reason) %>
-          </div>
-        <% end %>
-
-        <%= social_handler_links(current_participatory_space) %>
-      </div>
-      <%= resource_reference(current_participatory_space) %>
-      <%= render partial: "decidim/shared/share_modal" %>
-      <%= embed_modal_for assembly_widget_url(current_participatory_space, format: :js) %>
-    </div>
+    <% end %>
   </div>
 
-  <% if current_participatory_space.show_statistics? %>
-    <%= cell "decidim/statistics", stats.collection %>
-  <% end %>
-</div>
+  <section class="content-block assembly__content-block">
+    <div>
+      <h2 class="h2 decorator"><%= t(".title") %></h2>
 
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_assemblies" %>
-<% end %>
+      <div class="content-block__description">
+        <%= decidim_sanitize_editor translated_attribute(current_participatory_space.short_description) %>
+      </div>
+    </div>
+
+    <div class="assembly__nav-container">
+      <button id="dropdown-trigger" data-component="dropdown" data-target="dropdown-menu" data-auto-close="true">
+        <span><%= t("decidim.searches.filters.jump_to") %></span>
+        <%= icon "arrow-down-s-line" %>
+        <%= icon "arrow-up-s-line" %>
+      </button>
+      <ul id="dropdown-menu" class="assembly__nav">
+        <%= render partial: "layouts/decidim/assembly_nav_item", collection: assembly_nav_items, as: :item %>
+      </ul>
+    </div>
+
+    <%= render partial: "metadata" %>
+  </section>
+
+  <% if current_participatory_space.children.visible_for(current_user).published.count.positive? %>
+    <% children = current_participatory_space.children.visible_for(current_user).published.order(weight: :asc) %>
+    <section id="assemblies-grid" class="content-block">
+      <div class="content-block__title">
+        <h2 class="h2 decorator"><%= t("children", scope: "decidim.assemblies.show") %></h2>
+        <div class="label text-lg"><%= children.length %></div>
+
+        <%#= REDESIGN_PENDING: add link to index %>
+        <%= link_to "#", class: "button button__sm button__text-secondary" do %>
+          <span><%= t("decidim.assemblies.pages.home.highlighted_assemblies.see_all_assemblies") %></span>
+          <%= icon "arrow-right-line" %>
+        <% end %>
+      </div>
+
+      <div class="assembly__block-grid">
+        <% children.each do |child| %>
+          <%= card_for(child) %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+
+  <%#= REDESIGN_PENDING: proposals markup not ready %>
+  <%= render_hook(:participatory_space_highlighted_elements) %>
+
+  <%#= participatory_processes_for_assembly(assembly_participatory_processes) if assembly_participatory_processes.present? %>
+  <% if assembly_participatory_processes.present? %>
+    <section class="content-block">
+      <div class="content-block__title">
+        <h2 class="h2 decorator"><%= t("assemblies.show.related_participatory_processes", scope: "decidim") %></h2>
+        <div class="label text-lg"><%= assembly_participatory_processes.length %></div>
+      </div>
+
+      <div class="assembly__block-grid">
+        <% assembly_participatory_processes.each do |child| %>
+          <%= card_for(child) %>
+        <% end %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if current_participatory_space.show_statistics? %>
+    <section class="content-block" data-statistics>
+      <%= cell "decidim/statistics", stats.collection %>
+    </section>
+  <% end %>
+
+  <section class="content-block">
+    <div class="content-block__title">
+      <h2 class="h2 decorator"><%= t("decidim.application.documents.related_documents") %></h2>
+    </div>
+
+    <%= render partial: "decidim/application/documents", locals: { documents: current_participatory_space.documents } %>
+  </section>
+
+  <section class="content-block">
+    <div class="content-block__title">
+      <h2 class="h2 decorator"><%= t("decidim.application.photos.related_photos") %></h2>
+    </div>
+
+    <%= cell("decidim/photos_list", current_participatory_space.photos) %>
+  </section>
+</div>

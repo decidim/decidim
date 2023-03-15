@@ -1,6 +1,6 @@
 <%= content_tag title_tag, class: "h4 card__list-title" do %>
   <% if has_link_to_resource? && !link_whole_card? %>
-    <%= link_to title, resource_path %>
+    <%= link_to title, resource_path, **html_options %>
   <% else %>
     <%= title %>
   <% end %>

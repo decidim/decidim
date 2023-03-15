@@ -1,11 +1,9 @@
 <ul class="flex flex-col md:flex-row gap-10 text-sm text-white">
+  <%= cell("decidim/footer_pages", :pages) %>
   <li>
-    <%= link_to "Avís Legal" %>
+    <%= link_to t("layouts.decidim.footer.terms_and_conditions"), decidim.page_path("terms-and-conditions") %>
   </li>
   <li>
-    <%= link_to "Termes i condicions d'ús" %>
-  </li>
-  <li>
-    <%= link_to "Cookies" %>
+    <a href="#" data-dialog-open="dc-modal"><%= t("layouts.decidim.footer.data_consent_settings") %></a>
   </li>
 </ul>

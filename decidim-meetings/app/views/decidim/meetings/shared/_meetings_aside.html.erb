@@ -1,0 +1,29 @@
+<% title = component.present? ? translated_attribute(component.name) : t("decidim.components.meetings.name") %>
+<% if local_assigns[:main_action] %>
+  <h1 class="h3 md:h1 decorator" data-heading-tag><%= title %></h1>
+<% else %>
+  <h2 class="h3 md:h1 decorator"><%= t("decidim.components.meetings.name") %></h2>
+<% end %>
+
+<% if allowed_to?(:create, :meeting) %>
+  <%= action_authorized_link_to :create, new_meeting_path, class: "button button__lg button__secondary", data: { "redirect_url" => new_meeting_path } do %>
+    <span><%= t("new_meeting", scope: "decidim.meetings.meetings.index") %></span>
+    <%= icon "add-line" %>
+  <% end %>
+<% end %>
+
+<% [Date.current, Date.current.next_month].each do |start_date| %>
+  <%= cell "decidim/meetings/meeting_month", search.result, start_date: %>
+<% end %>
+
+<%= render partial: "decidim/meetings/shared/filters", locals: {
+  search_variable: search_variable,
+  filter_options: filter_options || {}
+} %>
+
+<%= render partial: "decidim/meetings/calendar_modal", locals: {
+  path: short_url(
+    route_name: "calendar",
+    params: { filter: params.fetch(:filter, {}).try(:to_unsafe_hash) }
+  )
+} %>

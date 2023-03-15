@@ -57,15 +57,24 @@ module Decidim
         )
       end
 
-      # Public: Invokes the appropriate partial for a promoted
-      # participatory process or group based on the type name
-      #
-      # promoted_item - Can be a Decidim::ParticipatoryProcess or
-      #                 Decidim::ParticipatoryProcessGroup
-      def render_highlighted_partial_for(promoted_item)
-        name = promoted_item.class.name.demodulize.underscore.gsub("participatory_", "promoted_")
+      # Items to display in the navigation of a process
+      def process_nav_items(participatory_space)
+        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
-        render partial: name, locals: { name => promoted_item }.symbolize_keys
+        [
+          {
+            name: t("process_menu_item", scope: "layouts.decidim.process_navigation"),
+            url: decidim_participatory_processes.participatory_process_path(participatory_space),
+            active: is_active_link?(decidim_participatory_processes.participatory_process_path(participatory_space), :exclusive) ||
+              is_active_link?(decidim_participatory_processes.all_metrics_participatory_process_path(participatory_space), :exclusive)
+          }
+        ] + components.map do |component|
+          {
+            name: translated_attribute(component.name),
+            url: main_component_path(component),
+            active: is_active_link?(main_component_path(component), :inclusive)
+          }
+        end
       end
     end
   end

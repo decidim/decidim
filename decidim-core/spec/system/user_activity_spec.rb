@@ -40,7 +40,7 @@ describe "User activity", type: :system do
   end
 
   let(:resource_types) do
-    ["Collaborative Draft", "Comment", "Debate", "Initiative", "Meeting", "Post", "Proposal", "Question"]
+    ["Collaborative draft", "Comment", "Debate", "Initiative", "Meeting", "Post", "Proposal", "Question"]
   end
 
   before do
@@ -104,7 +104,7 @@ describe "User activity", type: :system do
 
     it "displays activities filter with the correct options" do
       within(".filter-container #dropdown-menu") do
-        resource_types.push("All types").each do |type|
+        resource_types.push("All activity types").each do |type|
           expect(page).to have_css("label", text: type)
         end
       end

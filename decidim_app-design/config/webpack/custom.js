@@ -1,7 +1,6 @@
 /* eslint-disable */
-
-const path = require("path");
 const { config } = require("@rails/webpacker");
+const { InjectManifest } = require("workbox-webpack-plugin");
 
 module.exports = {
   module: {
@@ -93,5 +92,18 @@ module.exports = {
   optimization: {
     runtimeChunk: false
   },
-  entry: config.entrypoints
+  entry: config.entrypoints,
+  plugins: [
+    new InjectManifest({
+      swSrc: "src/decidim/sw/sw.js",
+
+      /**
+       * NOTE:
+       * @rails/webpacker outputs to '/packs',
+       * in order to make the SW run properly
+       * they must be put at the project's root folder '/'
+       */
+      swDest: "../sw.js"
+    })
+  ]
 }

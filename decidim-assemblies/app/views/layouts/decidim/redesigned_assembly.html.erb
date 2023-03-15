@@ -1,0 +1,23 @@
+<% add_decidim_page_title(translated_attribute(current_component.name)) if try(:current_component) %>
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
+<% add_decidim_meta_tags(
+  image_url: current_participatory_space.attached_uploader(:banner_image).path,
+  description: translated_attribute(current_participatory_space.short_description),
+) %>
+
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_assemblies" %>
+<% end %>
+
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_assemblies", media: "all" %>
+<% end %>
+
+<%= render "layouts/decidim/redesigned_application" do %>
+  <main>
+    <%= render partial: "layouts/decidim/assembly_header" %>
+    <%= yield %>
+  </main>
+<% end %>
+
+<% provide :meta_image_url, current_participatory_space.attached_uploader(:banner_image).path %>

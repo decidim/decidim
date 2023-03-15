@@ -104,6 +104,23 @@ en:
       less_than_x_seconds:
         one: right now
         other: less than %{count} sec.
+      short:
+        about_x_days: "%{count}d"
+        about_x_hours: "%{count}h"
+        about_x_minutes: "%{count}m"
+        about_x_months: "%{count} mo."
+        about_x_years: "%{count}y"
+        almost_x_years: "%{count}y"
+        half_a_minute: 1m
+        less_than_x_minutes: "%{count}m"
+        less_than_x_seconds: "%{count}s"
+        over_x_years: "%{count}y"
+        x_days: "%{count}d"
+        x_hours: "%{count}h"
+        x_minutes: "%{count}m"
+        x_months: "%{count} mo."
+        x_seconds: "%{count}s"
+        x_years: "%{count}y"
       x_days:
         one: 1 day ago
         other: "%{count} days ago"
@@ -343,6 +360,7 @@ en:
       document:
         download: Download file
       documents:
+        documents: Documents
         related_documents: Related documents
       geocoding:
         geocoded_address: Address
@@ -350,6 +368,7 @@ en:
         alt: Media picture
         title: Image
       photos:
+        photos: Images
         related_photos: Related images
     author:
       avatar: 'Avatar: %{name}'
@@ -482,6 +501,8 @@ en:
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
+      announcement:
+        name: Announcement
       cta:
         name: Image, text and Call To Action button
       cta_settings_form:
@@ -499,6 +520,9 @@ en:
       highlighted_content_banner:
         name: Highlighted content banner
       highlighted_elements_settings_form:
+        components:
+          all: All
+          label: 'Select component:'
         orders:
           label: 'Sort elements by:'
           random: Random
@@ -510,10 +534,23 @@ en:
         name: HTML block
       last_activity:
         name: Last activity
+        see_all_activity: See all the activity
         title: Last activity
         view_all: View all
+      last_activity_settings_form:
+        max_last_activity_users: Maximum number of user avatars with recent activity to show
+      main_data:
+        name: Main data
+      metadata:
+        name: Metadata
       metrics:
         name: Organization metrics
+      participatory_space_main_data:
+        more_info: More info
+      participatory_space_metrics:
+        name: Metrics
+      participatory_space_stats:
+        name: Statistics
       static_page:
         section:
           name: Section
@@ -572,11 +609,10 @@ en:
         newsletter_modal:
           buttons:
             check: Check and continue
-            close_modal: Close modal
             uncheck: Keep unchecked
           notice: |-
-            <p>Hey, are you sure you do not want to receive a newsletter?<br>
-            Please consider again ticking the newsletter checkbox below.<br>
+            <p>Hey, are you sure you do not want to receive a newsletter?
+            Please consider again ticking the newsletter checkbox below.
             It is very important for us that you can receive occasional emails
             to make important announcements, you can always change this on your
             notifications settings page.</p>
@@ -997,12 +1033,9 @@ en:
         description: Read more about %{organization}
         title: General Help
     last_activities:
-      activities:
-        no_activities_warning: No activity
       all: All activity types
       index:
         last_activity: Last activity
-        resource_type: Type
     links:
       invalid_url: Invalid URL
       warning:
@@ -1117,6 +1150,12 @@ en:
           send: Send
         update:
           error: Message was not sent due to an error
+    metadata:
+      progress:
+        active: Active
+        finished: Finished
+        not_started: Not started yet
+        remaining: "%{time_distance} remaining"
     metrics:
       download:
         csv: Download data (CSV)
@@ -1272,7 +1311,7 @@ en:
       participatory_space:
         metrics:
           headline: Metrics
-          link: Show all metrics
+          link: Show all
       terms_and_conditions:
         accept:
           error: There was a problem accepting the terms and conditions.
@@ -1285,7 +1324,6 @@ en:
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms
-          modal_close: Close modal
           modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
           alert: We've updated our Terms of Service, please review them.
@@ -1567,16 +1605,9 @@ en:
         of_versions: "(of %{number})"
         see_other_versions: see other versions
         version: Version number %{number}
-    versions_list:
-      show:
-        back_to_resource: Go back
-        changes_at_title: Changes at "%{title}"
-        number_of_versions: Versions
-        title: Versions
     versions_list_item:
-      back: Show all versions
       show:
-        version_index: Version %{index}
+        version_index: Version %{index} of %{total}
     welcome_notification:
       default_body: <p>Hi {{name}}, thanks for joining {{organization}} and welcome!</p><ul><li>If you want to get a quick idea of what you can do here, have a look at the <a href="{{help_url}}">Help</a> section.</li><li>Once you have read it you will get your first badge. Here's a <a href="{{badges_url}}">list of all the badges</a> you can get as you participate in {{organization}}</li><li>Last but not least, join other people, share with them the experience of being engaged and participating in {{organization}}. Make proposals, comments, debate, think about how to contribute to the common good, provide arguments to convince, listen and read to be convinced, express your ideas in a concrete and direct way, respond with patience and decision, defend your ideas and keep an open mind to collaborate and join other people's ideas.</li></ul>
       default_subject: Thanks for joining {{organization}}!
@@ -1841,8 +1872,13 @@ en:
         cc_by_license: Creative Commons License
         data_consent_settings: Cookie settings
         decidim_logo: Decidim Logo
+        decidim_title: Decidim
         download_open_data: Download Open Data files
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        resources: Resources
+        sign_in: Sign In
+        sign_up: Sign Up
+        terms_and_conditions: Terms and Conditions
       header:
         close_menu: Close menu
         main_menu: Main menu
@@ -1877,6 +1913,7 @@ en:
       user_menu:
         account: 'User account: %{name}'
         admin_dashboard: Admin dashboard
+        configuration: Configuration
         conversations: Conversations
         notifications: Notifications
         profile: My account
@@ -1966,7 +2003,6 @@ en:
     dropdown:
       choose_diff_view_html: 'HTML view mode:'
       choose_diff_view_mode: 'Compare view mode:'
-      choose_diff_view_mode_menu: Choose compare mode
       option_escaped: Escaped
       option_split: Side-by-side
       option_unescaped: Unescaped

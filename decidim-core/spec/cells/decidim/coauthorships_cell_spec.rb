@@ -48,7 +48,7 @@ describe Decidim::CoauthorshipsCell, type: :cell do
     end
 
     it "renders with the NilPresenter" do
-      expect(subject).to have_css(".author-data")
+      expect(subject).to have_css("[data-author]")
     end
   end
 end

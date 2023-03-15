@@ -11,6 +11,7 @@
     current_version,
     index: params[:id],
     versioned_resource: versioned_resource,
+    path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) },
     versions_path: proc { url_for(action: :index) },
     i18n_scope: "decidim.accountability.results.show.stats"
   ) %>

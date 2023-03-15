@@ -48,7 +48,7 @@ describe "Homepage", type: :system do
 
       context "when having homepage anchors" do
         %w(hero sub_hero highlighted_content_banner how_to_participate footer_sub_hero).each do |anchor|
-          it { expect(page).to have_selector("##{anchor}", visible: :all) }
+          it { expect(page).to have_selector("[id^=#{anchor}]", visible: :all) }
         end
       end
 
@@ -97,8 +97,9 @@ describe "Homepage", type: :system do
           let(:organization) { create(:organization, cta_button_text:) }
 
           it "uses the custom values for the CTA button text" do
+            skip_unless_redesign_enabled
+
             within ".hero" do
-              expect(page).to have_selector("a.hero-cta", text: "SIGN UP")
               click_link "Sign up"
             end
 
@@ -110,8 +111,9 @@ describe "Homepage", type: :system do
           let(:organization) { create(:organization, cta_button_path: "users/sign_in") }
 
           it "uses the custom values for the CTA button" do
+            skip_unless_redesign_enabled
+
             within ".hero" do
-              expect(page).to have_selector("a.hero-cta", text: "PARTICIPATE")
               click_link "Participate"
             end
 
@@ -123,10 +125,11 @@ describe "Homepage", type: :system do
 
         context "when the organization does not have it customized" do
           it "uses the default values for the CTA button" do
+            skip_unless_redesign_enabled
+
             visit decidim.root_path
 
             within ".hero" do
-              expect(page).to have_selector("a.hero-cta", text: "PARTICIPATE")
               click_link "Participate"
             end
 

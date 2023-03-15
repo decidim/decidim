@@ -126,3 +126,4 @@ exclude_patterns:
   - "spec/decidim_dummy_app/"
   - "coverage/"
   - "webpack.report.html"
+  - "decidim_app-design/public/sw.js"

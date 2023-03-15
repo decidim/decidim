@@ -1,17 +1,24 @@
-<div class="profile__activity__item" id="<%= element_id %>" data-activity>
-  <div class="profile__activity__item-time">
+<div id="<%= element_id %>" class="activity" data-activity>
+  <div class="activity__time">
     <%= created_at %>
   </div>
-  <div class="profile__activity__item-content">
+  <div class="activity__content">
     <span>
       <%= title if title.present? %>
       <a href="<%= resource_link_path %>">
         <%= html_truncate decidim_sanitize(resource_link_text, strip_tags: true), length: 80 %>
       </a>
     </span>
-    <span>
-      <%= icon "treasure-map-line", class: "w-3.5 h-3.5 text-gray fill-current" %>
-      <%= participatory_space_link %>
-    </span>
+    <% unless hide_participatory_space? %>
+      <span>
+        <%= icon "treasure-map-line" %>
+        <%= participatory_space_link %>
+      </span>
+    <% end %>
   </div>
+  <% if show_author? %>
+    <div class="activity__author">
+      <%= author %>
+    </div>
+  <% end %>
 </div>

@@ -27,6 +27,7 @@ module Decidim
 
       helper ParticipatorySpaceHelpers, IconHelper, ContextualHelpHelper
       helper_method :current_participatory_space
+      helper_method :participatory_space_breadcrumb_items
       helper_method :current_participatory_space_manifest
       helper_method :current_participatory_space_context
       helper_method :help_section, :help_id
@@ -40,6 +41,22 @@ module Decidim
 
     def current_participatory_space
       raise NotImplementedError
+    end
+
+    # Overwrite this method in your component controller to define
+    # the breadcrumb element to be shown. The item may contain the following
+    # keys with their respective values:
+    # * label - The text to use in the breadcrumb element. For example, the
+    #           title of the space (mandatory).
+    # * url - The url of the resource (optional).
+    # * active - Whether the item is active (optional).
+    # * dropdown_cell - When this value is present is used to generate a dropdown
+    #                   associated to the item (optional).
+    # * resource - The resource of the item. This value is passed to the
+    #              dropdown cell, so it's mandatory if the dropdown cell is
+    #              present.
+    def current_participatory_space_breadcrumb_item
+      {}
     end
 
     def current_participatory_space_manifest
@@ -56,6 +73,10 @@ module Decidim
 
     def authorize_participatory_space
       enforce_permission_to :read, :participatory_space, current_participatory_space:
+    end
+
+    def participatory_space_breadcrumb_items
+      @participatory_space_breadcrumb_items ||= [current_participatory_space_breadcrumb_item].compact_blank
     end
 
     def layout

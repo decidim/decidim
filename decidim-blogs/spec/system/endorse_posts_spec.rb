@@ -13,13 +13,14 @@ describe "endorse posts", type: :system do
     allow(Decidim).to receive(:redesign_active).and_return(true)
 
     sign_in author
-    visit_component
-    click_link "Blog post title"
   end
 
   context "when liking the post without belonging to a user group" do
     it "likes the post" do
+      visit_component
+      click_link "Blog post title"
       click_button "Like"
+
       expect(page).to have_content("Dislike")
     end
   end
@@ -35,6 +36,11 @@ describe "endorse posts", type: :system do
         users: [author],
         organization:
       )
+    end
+
+    before do
+      visit_component
+      click_link "Blog post title"
     end
 
     it "opens a modal where you select identity as a user or a group" do

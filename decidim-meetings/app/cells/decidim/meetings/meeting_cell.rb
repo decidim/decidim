@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     # This cell renders the meeting card for an instance of a Meeting
-    # the default size is the Medium Card (:m)
+    # the default size is the List Card (:l)
     # also available the List Item Card (:list_item)
     class MeetingCell < Decidim::ViewModel
       include Decidim::SanitizeHelper
@@ -25,7 +25,7 @@ module Decidim
         when :s
           "decidim/meetings/meeting_s"
         else
-          "decidim/meetings/meeting_m"
+          "decidim/meetings/meeting_l"
         end
       end
 

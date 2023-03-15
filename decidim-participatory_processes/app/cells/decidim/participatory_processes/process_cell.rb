@@ -11,12 +11,17 @@ module Decidim
 
       private
 
+      # REDESIGN_DETAILS: size :m will be deprecated
       def card_size
         case @options[:size]
         when :s
           "decidim/participatory_processes/process_s"
-        else
+        when :m
           "decidim/participatory_processes/process_m"
+        when :l
+          "decidim/participatory_processes/process_l"
+        else
+          "decidim/participatory_processes/process_g"
         end
       end
     end

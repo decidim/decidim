@@ -60,7 +60,7 @@ shared_examples "manage processes examples" do
           click_link "Preview"
         end
 
-        expect(page).to have_css(".process-header")
+        expect(page).to have_css(".participatory-space__container")
         expect(page).to have_content(translated(participatory_process.title))
       end
     end

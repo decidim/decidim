@@ -8,28 +8,32 @@ edit_link(
 )
 %>
 
-<%= participatory_space_wrapper do %>
-  <% if promoted_assemblies.any? %>
-    <section id="highlighted-assemblies" class="row section">
-      <h1 class="section-heading"><%= t("assemblies.index.promoted_assemblies", scope: "layouts.decidim") %></h1>
-      <%= render partial: "promoted_assembly", collection: promoted_assemblies, as: :promoted_assembly %>
-    </section>
-  <% end %>
-
-  <%= render partial: "parent_assemblies" %>
-
-  <% if current_assemblies_settings.enable_organization_chart %>
-    <section id="assemblies-chart" class="row column section">
-      <div class="row column">
-        <h3 class="section-heading"><%= t("assemblies.index.organizational_chart", scope: "layouts.decidim") %></h3>
-        <div id="orgchart-<%= SecureRandom.hex(5) %>" class="card orgchart js-orgchart absolutes" data-url="<%= decidim_assemblies.assemblies_path(format: :json) %>">
-          <button class="medium-1 m-s top left button small hollow invisible js-reset-orgchart"><%= t("assemblies.index.reset_chart", scope: "layouts.decidim") %></button>
-        </div>
-      </div>
-    </section>
-  <% end %>
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_assemblies", media: "all" %>
 <% end %>
 
 <% content_for :js_content do %>
   <%= javascript_pack_tag "decidim_assemblies" %>
+<% end %>
+
+<% content_for :aside do %>
+  <h1 class="h3 md:h1 decorator"><%= t("decidim.menu.assemblies") %></h1>
+
+  <%= render partial: "decidim/shared/filters" %>
+<% end %>
+
+<%= render layout:"layouts/decidim/shared/layout_two_col" do %>
+
+  <%= participatory_space_floating_help %>
+
+  <% if promoted_assemblies.any? %>
+    <section id="highlighted-assemblies" class="card__highlight-container">
+      <h2 class="h5 md:h3 decorator"><%= t("assemblies.index.promoted_assemblies", scope: "layouts.decidim") %></h2>
+      <% promoted_assemblies.each do |promoted_assembly| %>
+        <%= card_for promoted_assembly, highlight: true, size: :g %>
+      <% end %>
+    </section>
+  <% end %>
+
+  <%= render partial: "collection" %>
 <% end %>

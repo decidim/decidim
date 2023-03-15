@@ -1,27 +1,5 @@
-<%# REDESIGN_PENDING: Remove the mock content once integrated in the index view %>
-<!-- MOCK CONTENT -->
-<div class="container">
-  <button class="button button__lg button__primary" data-drawer-open>Trigger</button>
-</div>
-<!-- end MOCK CONTENT -->
-
-<% content_for :aside do %>
-  <div class="accountability__project-aside">
-    <% if component_settings.display_progress_enabled? %>
-      <%= cell(
-        "decidim/accountability/status",
-        result,
-        title: t("models.result.fields.progress", scope: "decidim.accountability"),
-        extra_classes: "accountability__status__project"
-      ) %>
-  <% end %>
-
-  <%= cell("decidim/accountability/result_metadata", result, template: :project_aside) %>
-  </div>
-<% end %>
-
-<%# REDESIGN_PENDING: Resolve the drawer feature using turbo %>
-<%= render layout: "layouts/decidim/shared/drawer" , locals: { next: "https://www.." , prev: "https://www.." } do %>
+<%# REDESIGN_PENDING - Replace this layout with other not using drawers %>
+<%= render layout: "layouts/decidim/shared/drawer" , locals: { close_url: results_path } do %>
   <%= cell("decidim/accountability/project", result) %>
 
   <div class="mt-8 accountability__project-actions">
@@ -40,4 +18,19 @@
   <div class="mt-8">
     <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
   </div>
+
+  <% content_for :drawer_aside do %>
+    <div class="accountability__project-aside">
+      <% if component_settings.display_progress_enabled? %>
+        <%= cell(
+          "decidim/accountability/status",
+          result,
+          title: t("models.result.fields.progress", scope: "decidim.accountability"),
+          extra_classes: "accountability__status__project"
+        ) %>
+      <% end %>
+
+    <%= cell("decidim/accountability/result_metadata", result, template: :project_aside) %>
+    </div>
+  <% end %>
 <% end %>

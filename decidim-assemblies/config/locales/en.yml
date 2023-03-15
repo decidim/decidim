@@ -348,6 +348,8 @@ en:
       content_blocks:
         highlighted_assemblies:
           name: Highlighted assemblies
+        related_assemblies:
+          name: Related assemblies
       created_by:
         city_council: City Council
         others: Others
@@ -376,33 +378,16 @@ en:
           member_of:
             member_of: Member of
       show:
-        area: Area
         assembly_type: Assembly type
         children: Assemblies
-        closing_date: Closing date
-        composition: Composition
-        created_by: Created by
-        creation_date: Date created
-        developer_group: Promoter group
         duration: Duration
-        included_at: Included at
-        indefinite_duration: Indefinite
-        internal_organisation: Internal organisation
         is_transparent:
           'false': opaque
           'true': transparent
-        local_area: Organization area
-        participatory_scope: What is decided
-        participatory_structure: How is it decided
         private_space: This is a private assembly
-        purpose_of_action: Purpose of action
-        read_less: Read less
-        read_more: Read more
         related_participatory_processes: Related participatory processes
-        scope: Scope
         social_networks: Social Networks
         social_networks_title: Visit assembly on
-        target: Who participates
     assembly_members:
       assembly_member:
         designated_on: Designated on
@@ -453,16 +438,15 @@ en:
           take_part: Take part
         index:
           children: 'Assemblies: '
-          organizational_chart: Organizational chart
           promoted_assemblies: Highlighted assemblies
-          reset_chart: Reset
+        metadata:
+          children_item:
+            one: "%{count} assembly"
+            other: "%{count} assemblies"
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblies"
             other: "%{count} assemblies"
-        promoted_assembly:
-          more_info: More info
-          take_part: Take part
       assembly_navigation:
         assembly_member_menu_item: Members
         assembly_menu_item: The assembly

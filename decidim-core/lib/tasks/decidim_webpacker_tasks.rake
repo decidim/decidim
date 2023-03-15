@@ -8,9 +8,6 @@ namespace :decidim do
     task install: :environment do
       raise "Decidim gem is not installed" if decidim_path.nil?
 
-      # Install turbo
-      Rake::Task["turbo:install"].invoke
-
       # Removing bin/yarn makes assets:precompile task to do not execute `yarn install`
       remove_file_from_application "bin/yarn"
       remove_file_from_application "yarn.lock"

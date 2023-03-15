@@ -2,7 +2,7 @@
   @apply flex items-center gap-2 p-1.5 rounded cursor-pointer;
 
   &-container{
-    @apply sticky top-0 md:top-2 rounded border-4 border-background md:border-0;
+    @apply rounded border-4 border-background md:border-0;
 
     [id*="dropdown-menu"]{
       @apply gap-2;
@@ -57,7 +57,7 @@
   }
 
   span{
-    @apply text-sm text-gray-2 whitespace-nowrap first-letter:uppercase;
+    @apply text-sm text-gray-2 truncate whitespace-nowrap first-letter:uppercase;
   }
 
   [data-controls*="panel"]{
@@ -79,7 +79,12 @@
   &-container [id*="dropdown-menu"] .is-active,
   &:hover{
     @apply bg-background-4;
+  }
 
+  &-container [type="radio"]:checked + &,
+  &-container [type="checkbox"]:checked + &,
+  &-container [id*="dropdown-menu"] .is-active,
+  &-container [type="checkbox"]:indeterminate + &{
     svg{
       @apply text-secondary;
     }

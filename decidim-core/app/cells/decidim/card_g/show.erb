@@ -1,0 +1,18 @@
+<%= link_to resource_path, class: classes[:default], id: resource_id do %>
+  <% if has_image? %>
+    <div class="<%= classes[:img] %>">
+      <%= image_tag resource_image_path, alt: title %>
+    </div>
+  <% end %>
+
+  <div class="<%= classes[:text] %>">
+    <%= content_tag title_tag, title, class: title_class %>
+    <%= description if show_description? %>
+
+    <% if metadata_cell.present? %>
+      <div class="<%= classes[:metadata] %>">
+        <%= cell metadata_cell, resource %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

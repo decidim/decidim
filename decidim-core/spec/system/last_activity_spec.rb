@@ -80,14 +80,14 @@ describe "Last activity", type: :system do
       end
 
       it "shows the activities in correct order" do
-        result = page.find("#activities .row").text
+        result = page.find("#activities").text
         expect(result.index(translated(resource.title))).to be < result.index(translated(comment.commentable.title))
         expect(result.index(translated(comment.commentable.title))).to be < result.index(translated(another_comment.commentable.title))
       end
 
       it "allows filtering by type" do
-        within ".filters" do
-          choose "Comment"
+        within "#filters" do
+          find("label", text: "Comment").click
         end
 
         expect(page).to have_content(translated(comment.commentable.title))

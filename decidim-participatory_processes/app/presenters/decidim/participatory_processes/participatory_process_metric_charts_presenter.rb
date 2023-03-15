@@ -18,13 +18,27 @@ module Decidim
       end
 
       def highlighted
-        render_highlighted(Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process"))
+        redesigned_charts(Decidim.metrics_registry.filtered(highlight: true, scope: "participatory_process"))
       end
 
+      # deprecated
       def not_highlighted
         render_not_highlighted(Decidim.metrics_registry.filtered(highlight: false, scope: "participatory_process"))
       end
 
+      def redesigned_charts(charts)
+        safe_join(
+          charts.map do |metric_manifest|
+            redesigned_render_metrics(metric_manifest.metric_name,
+                                      title: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.title"),
+                                      description: I18n.t("decidim.metrics.#{metric_manifest.metric_name}.description"),
+                                      download: true,
+                                      data: { ratio: "11:4", axis: true }).html_safe
+          end
+        )
+      end
+
+      # deprecated
       def big_stats
         safe_join(
           Decidim.metrics_registry.filtered(scope: "participatory_process", block: "big", sort: true).map do |metric_manifest|
@@ -41,6 +55,7 @@ module Decidim
         )
       end
 
+      # deprecated
       def medium_stats
         safe_join(
           Decidim.metrics_registry.filtered(scope: "participatory_process", block: "medium", sort: true).in_groups_of(2).map do |metrics_group|
@@ -63,6 +78,7 @@ module Decidim
         )
       end
 
+      # deprecated
       def small_stats
         safe_join(
           Decidim.metrics_registry.filtered(scope: "participatory_process", block: "small", sort: true).in_groups_of(3).map do |metrics_group|

@@ -173,5 +173,24 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(images[1]["src"]).to match(%r{/city2.jpeg$})
       end
     end
+
+    context "when attachment is titled" do
+      let(:attachments) { [create(:attachment, file:)] }
+      let(:titled) { true }
+
+      before do
+        allow(form).to receive(:hidden_field).and_return(
+          %(<input type="hidden" name="#{attribute}[]" value="#{attachments[0].id}">)
+        )
+      end
+
+      it "renders the attachments" do
+        expect(subject).to have_css(".attachment-details")
+        expect(subject).to have_selector("[data-filename='#{filename}']")
+
+        details = subject.find(".attachment-details")
+        expect(details).to have_content("#{attachments[0].title["en"]} (#{filename})")
+      end
+    end
   end
 end

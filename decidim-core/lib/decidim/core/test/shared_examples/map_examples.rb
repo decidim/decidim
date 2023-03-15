@@ -129,10 +129,10 @@ shared_examples "a page with dynamic map" do
         # Create two separate map elements to make sure generating multiple
         # map elements will not produce any HTML or accessibility validation
         # errors.
-        content = builder.map_element(id: "map1", class: "google-map") do
+        content = builder.map_element(id: "map1") do
           content_tag(:span, "", id: "map1_inner")
         end
-        content += builder.map_element(id: "map2", class: "google-map") do
+        content += builder.map_element(id: "map2") do
           content_tag(:span, "", id: "map2_inner")
         end
         content
@@ -143,9 +143,9 @@ shared_examples "a page with dynamic map" do
   it_behaves_like "accessible page"
 
   it "displays the maps" do
-    expect(page).to have_selector("#map1.google-map", visible: :all)
+    expect(page).to have_selector("#map1", visible: :all)
     expect(page).to have_selector("#map1_inner", visible: :all)
-    expect(page).to have_selector("#map2.google-map", visible: :all)
+    expect(page).to have_selector("#map2", visible: :all)
     expect(page).to have_selector("#map2_inner", visible: :all)
   end
 end

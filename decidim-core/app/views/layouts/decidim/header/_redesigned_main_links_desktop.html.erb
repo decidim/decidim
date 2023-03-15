@@ -1,41 +1,53 @@
-<%= link_to decidim.pages_path, class: "flex flex-col items-center text-secondary px-8", "aria-label": t("decidim.menu.help") do %>
-  <%= icon "question-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("decidim.menu.help") %></span>
-<% end %>
-<div class="flex px-8 gap-x-8">
-  <%= link_to Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path, class: "flex flex-col items-center text-secondary", "aria-label": t("decidim.pages.home.extended.meetings") do %>
-    <%= icon "road-map-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("decidim.pages.home.extended.meetings") %></span>
-  <% end %>
-  <%= link_to decidim.last_activities_path, class: "flex flex-col items-center text-secondary", "aria-label": t("decidim.profiles.show.activity") do %>
-    <%= icon "bubble-chart-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("decidim.profiles.show.activity") %></span>
+<div>
+  <%= link_to decidim.pages_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.menu.help") do %>
+    <%= icon "question-line" %><span><%= t("decidim.menu.help") %></span>
   <% end %>
 </div>
+<div class="main-bar__links-desktop__item-wrapper">
+  <div>
+    <%= link_to Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.pages.home.extended.meetings") do %>
+      <%= icon "road-map-line" %><span><%= t("decidim.pages.home.extended.meetings") %></span>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to decidim.last_activities_path, class: "main-bar__links-desktop__item", "aria-label": t("decidim.profiles.show.activity") do %>
+      <%= icon "bubble-chart-line" %><span><%= t("decidim.profiles.show.activity") %></span>
+    <% end %>
+  </div>
+</div>
+
 <% if !current_user %>
-  <%= link_to decidim.new_user_session_path, class: "flex flex-col items-center text-secondary px-8", "aria-label": t("layouts.decidim.header.sign_in") do %>
-    <%= icon "login-box-line", class: "w-5 h-5 fill-current" %><span class="text-sm first-letter:uppercase"><%= t("layouts.decidim.header.sign_in") %></span>
-  <% end %>
+  <div>
+    <%= link_to decidim.new_user_session_path, class: "main-bar__links-desktop__item", "aria-label": t("layouts.decidim.header.sign_in") do %>
+      <%= icon "login-box-line" %><span><%= t("layouts.decidim.header.sign_in") %></span>
+    <% end %>
+  </div>
 <% else %>
-  <details class="relative px-8 cursor-pointer">
-    <summary id="dropdown-summary-account" class="flex flex-col items-center text-secondary relative" aria-controls="dropdown-account">
+  <div class="main-bar__dropdown-container">
+    <div id="trigger-dropdown-account" class="main-bar__dropdown-trigger" data-component="dropdown" data-target="dropdown-menu-account">
       <% if current_user.notifications.any? || current_user.unread_conversations.any? %>
-        <span class="w-2.5 h-2.5 rounded-full block absolute -top-0.5 right-0 bg-primary" data-unread-items></span>
+        <span class="main-bar__dropdown-trigger__notification" data-unread-items></span>
       <% end %>
       <% if current_user.avatar.attached? %>
-        <span class="w-8 h-8 rounded-full border border-secondary">
-          <span class="w-full h-full rounded-full overflow-hidden">
+        <span class="main-bar__dropdown-trigger__avatar">
+          <span>
             <%= image_tag(
                   current_user.attached_uploader(:avatar).path(variant: :thumb),
-                  class: "object-cover w-full h-full",
                   alt: t("decidim.author.avatar", name: decidim_sanitize(current_user.avatar.name))
                 ) %>
           </span>
         </span>
       <% else %>
-        <%= icon "user-smile-line", class: "w-5 h-5 fill-current" %>
-        <span class="text-sm first-letter:uppercase"><%= t("layouts.decidim.user_profile.account") %></span>
+        <span class="main-bar__links-desktop__item">
+          <%= icon "user-smile-line" %>
+          <span><%= t("layouts.decidim.user_profile.account") %></span>
+        </span>
       <% end %>
-    </summary>
-    <ul id="dropdown-account" class="dropdown bottom px-4 divide-y divide-gray-3 z-20 w-64" aria-labelledby="dropdown-summary-account">
-      <%= render partial: "layouts/decidim/header/redesigned_main_links_dropdown" %>
-    </ul>
-  </details>
+    </div>
+    <div id="dropdown-menu-account" aria-hidden="true">
+      <ul class="dropdown dropdown__bottom main-bar__dropdown">
+        <%= render partial: "layouts/decidim/header/redesigned_main_links_dropdown" %>
+      </ul>
+    </div>
+  </div>
 <% end %>

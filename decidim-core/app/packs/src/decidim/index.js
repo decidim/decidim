@@ -23,7 +23,7 @@ import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
 import Accordions from "a11y-accordion-component";
 import Dropdowns from "a11y-dropdown-component";
 import Dialogs from "a11y-dialog-component";
-import RemoteModal from "./redesigned_ajax_modals"
+import RemoteModal from "src/decidim/ajax_modals"
 // end new libraries
 
 window.Decidim = window.Decidim || {};
