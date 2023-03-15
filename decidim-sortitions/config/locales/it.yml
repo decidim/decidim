@@ -64,7 +64,6 @@ it:
             error: Si è verificato un errore durante la creazione di una nuova sortizione.
             success: Sorteggio creato con successo
           destroy:
-            error: Impossibile cancellare la sortizione.
             success: Sorteggio cancellato con successo
           edit:
             title: Aggiorna le informazioni sulla sortizione
