@@ -50,6 +50,6 @@ while read match; do
       echo "::error file=${file},line=${line},col=${spos},endColumn=${epos}::Use \"$preferred\" instead of \"$word\"."
     done < <(echo "$text" | grep -oib "$word")
   done
-done < <(find decidim-* -type f | grep -vP "$exclude_paths_pattern" | xargs -n1000 grep -Hnif $forbidden_words_file)
+done < <(find decidim-* -type f | grep -vP "$exclude_paths_pattern" | xargs -n1000 grep -Hnwif $forbidden_words_file)
 
 exit $status
