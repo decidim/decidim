@@ -30,9 +30,6 @@
           before_date_info: Nyttig hvis prosessen allerede har begynt og du vil tilbakekalle tillatelsene for den forrige prosessen.
           button: Opphev alle
           button_before: Tilbakekall før dato
-          destroy:
-            confirm: Tilbakekall før dato-autorisering kan ikke angres. Er du sikker på at du vil fortsette?
-            confirm_all: Tilbakekall alle autorisasjoner kan ikke angres. Er du sikker på at du vil fortsette?
           destroy_nok: Det har vært et problem under tilbakekalling av autorisasjoner.
           destroy_ok: Alle matchede autorisasjoner er nå tilbakekallet.
           info: Det er totalt %{count} bekreftede deltakere.
@@ -121,7 +118,6 @@
             destroy_all:
               success: Alle folketellingene er slettet
           destroy:
-            confirm: Slett all folketellingen kan ikke angres. Er du sikker på at du vil fortsette?
             title: Slett alle folketellingsdata
           index:
             data: Det er %{count} poster lastet totalt. Siste opplastningsdato var den %{due_date}
@@ -160,7 +156,6 @@
               success: Konfigurasjonen ble oppdatert
           confirmations:
             create:
-              error: Verifikasjonen stemmer ikke overens. Prøv igjen eller avvis bekreftelsen slik at deltakeren kan endre den
               success: Deltakeren ble verifisert
             new:
               introduce_user_data: Introduser dataene på bildet
@@ -168,7 +163,6 @@
               verify: Verifiser
           offline_confirmations:
             create:
-              error: Verifikasjonen stemmer ikke overens. Prøv igjen eller be deltakeren om å endre den
               success: Deltakeren ble verifisert
             new:
               cancel: Avbryt
@@ -236,7 +230,6 @@
             send: Send meg et brev
             title: Be om din verifiseringskode
           update:
-            error: Verifiseringskoden din samsvarer ikke med vår. Dobbel-sjekk brevet vi sendte til deg
             success: Gratulerer. Du har blitt verifisert
       sms:
         authorizations:
@@ -254,7 +247,6 @@
             send: Send meg en meldig
             title: Be om din verifiseringskode
           update:
-            error: Verifiseringskoden din samsvarer ikke med vår. Dobbel-sjekk SMS-en vi sendte deg.
             success: Gratulerer. Du har blitt verifisert.
   errors:
     messages:
