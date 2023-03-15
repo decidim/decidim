@@ -208,8 +208,10 @@ ca:
           title: Confirmar vot
         budget_excess:
           budget_excess:
+            description: No es pot afegir aquest projecte perquè sobrepassaria el màxim del pressupost disponible. Si ho desitges, pots eliminar un projecte ja seleccionat per a poder votar d'acord amb les teves preferències.
             title: Pressupost excedit
           close: Tancar
+          description: No es pot afegir aquest projecte perquè sobrepassaria el màxim del pressupost disponible. Si ho desitges, pots eliminar un projecte ja seleccionat per a poder votar d'acord amb les teves preferències.
           ok: D'acord
           projects_excess:
             description: Aquest projecte sobrepassa el pressupost màxim i no es pot afegir. Si ho desitges, pots eliminar un projecte ja seleccionat per afegir aquest o votar d'acord amb les teves preferències.
