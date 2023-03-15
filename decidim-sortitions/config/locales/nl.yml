@@ -64,7 +64,6 @@ nl:
             error: Er is een fout opgetreden bij het maken van een nieuwe loting.
             success: Loting succesvol aangemaakt
           destroy:
-            error: De sortering kan niet worden geannuleerd.
             success: Loting succesvol geannuleerd
           edit:
             title: Update de informatie over de loting
