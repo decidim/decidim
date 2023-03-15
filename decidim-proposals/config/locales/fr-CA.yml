@@ -963,9 +963,6 @@ fr-CA:
           title: Versions
         proposals:
           back_to_resource: Retourner à la proposition
-      withdraw:
-        errors:
-          has_supports: Cette proposition ne peut pas être retirée car elle dispose déjà de supports.
     resource_links:
       copied_from_component:
         proposal_proposal: Propositions associées
