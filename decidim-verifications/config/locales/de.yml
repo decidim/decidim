@@ -30,9 +30,6 @@ de:
           before_date_info: Das ist nützlich, wenn der Prozess bereits begonnen hat und Sie die Rechte des vorherigen Prozesses zurückziehen möchten.
           button: Alle entziehen
           button_before: Entziehen vor Datum
-          destroy:
-            confirm: Das Entziehen aller Berechtigungen vor einem Datum kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
-            confirm_all: Das Entziehen aller Berechtigungen nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
           destroy_nok: Beim Entziehen von Berechtigungen ist ein Fehler aufgetreten.
           destroy_ok: Alle übereinstimmenden Berechtigungen wurden erfolgreich entzogen.
           info: Es gibt insgesamt %{count} verifizierte Teilnehmer.
@@ -121,7 +118,6 @@ de:
             destroy_all:
               success: Alle Volkszählungsdaten wurden gelöscht
           destroy:
-            confirm: Alles löschen Die Zählung kann nicht rückgängig gemacht werden. Sind Sie sicher, dass Sie fortfahren möchten?
             title: Löschen Sie alle Volkszählungsdaten
           index:
             data: Insgesamt wurden %{count} Datensätze geladen. Das letzte Upload-Datum war am %{due_date}
@@ -160,7 +156,6 @@ de:
               success: Konfiguration erfolgreich aktualisiert
           confirmations:
             create:
-              error: Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder lehnen Sie die Überprüfung ab, damit der Benutzer sie ändern kann
               success: Benutzer erfolgreich verifiziert
             new:
               introduce_user_data: Stellen Sie die Daten in das Bild ein
@@ -168,7 +163,6 @@ de:
               verify: Überprüfen
           offline_confirmations:
             create:
-              error: Die Überprüfung stimmt nicht überein. Versuchen Sie es erneut oder teilen Sie dem Benutzer mit, es zu ändern
               success: Benutzer erfolgreich verifiziert
             new:
               cancel: Stornieren
@@ -236,7 +230,6 @@ de:
             send: Schick mir einen Brief
             title: Fordern Sie Ihren Bestätigungscode an
           update:
-            error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie den Brief, den wir Ihnen geschickt haben
             success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert
       sms:
         authorizations:
@@ -255,7 +248,6 @@ de:
             send: Senden Sie mir eine SMS
             title: Fordern Sie Ihren Bestätigungscode an
           update:
-            error: Ihr Bestätigungscode stimmt nicht mit unserem überein. Bitte überprüfen Sie die SMS, die wir Ihnen gesendet haben.
             success: Herzliche Glückwünsche. Sie wurden erfolgreich verifiziert.
   errors:
     messages:
