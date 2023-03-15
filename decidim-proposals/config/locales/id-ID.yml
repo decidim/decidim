@@ -659,9 +659,6 @@ id:
           title: Versi
         proposals:
           back_to_resource: Kembali ke proposal
-      withdraw:
-        errors:
-          has_supports: Proposal ini tidak dapat ditarik karena sudah memiliki dukungan.
     resource_links:
       copied_from_component:
         proposal_proposal: Proposal terkait
