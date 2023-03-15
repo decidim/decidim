@@ -940,9 +940,6 @@ ja:
           title: バージョン
         proposals:
           back_to_resource: 提案に戻る
-      withdraw:
-        errors:
-          has_supports: すでにサポートがあるため、この提案は撤回できません。
     resource_links:
       copied_from_component:
         proposal_proposal: 関連する提案
