@@ -208,10 +208,8 @@ fr:
           title: Confirmez votre vote
         budget_excess:
           budget_excess:
-            description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
             title: Budget maximum dépassé
           close: Fermer
-          description: Ce projet dépasse le budget maximum et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
           ok: D'accord
           projects_excess:
             description: Ce projet dépasse le nombre maximum de projets et ne peut pas être ajouté. Si vous le souhaitez, vous pouvez supprimer un projet que vous avez déjà sélectionné puis voter de nouveau selon vos préférences.
