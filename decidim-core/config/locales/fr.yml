@@ -77,6 +77,7 @@ fr:
     'true': 'Oui'
   carrierwave:
     errors:
+      file_cannot_be_processed: Le fichier n'a pas pu être traité
       file_resolution_too_large: La résolution du fichier est trop grande
       file_size_too_large: Le fichier est trop volumineux
       not_inside_organization: Le fichier n'est relié à aucune organisation
@@ -123,6 +124,7 @@ fr:
     account:
       blocked: Ce compte a été bloqué en raison d'une violation des Conditions Générales d'Utilisation
       delete:
+        alert: Cette action ne peut être annulée. Si vous supprimez votre compte, vous ne pourrez plus vous connecter avec vos identifiants. La suppression de votre compte entraînera l'anonymisation de vos contributions. Vous serez toujours en mesure de créer un nouveau compte, mais vos anciennes contributions n'y seront pas associées.
         confirm:
           close: Fermer la fenêtre
           ok: Oui, je souhaite supprimer mon compte
@@ -414,6 +416,7 @@ fr:
           title: L'autorisation est toujours en cours de validation
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
+          invalid_field: "La valeur du champ %{field} (%{value}) n'est pas valide."
           ok: D'accord
           title: Non autorisé
         unconfirmed:
@@ -796,6 +799,7 @@ fr:
         result: Réalisations
     fingerprint:
       check: Vérifiez l'empreinte numérique
+      explanation: Le texte ci-dessous est une représentation raccourcie et hachée de ce contenu. Il est utile de s'assurer que le contenu n'a pas été falsifié, car une seule modification entraînerait une valeur totalement différente.
       online_calculator_name: calculateur de hash MD5 en ligne
       replicate_help: Cette empreinte numérique est calculée à l'aide d'un algorithme de hachage SHA256. Pour le reproduire vous-même, vous pouvez utiliser un %{online_calculator_link} et copier-coller les données.
       source: Source
@@ -891,6 +895,7 @@ fr:
       title: Que sont les badges ?
     group_admins:
       actions:
+        are_you_sure: Êtes-vous sûr? Cela ne supprimera pas l'utilisateur du groupe.
         demote_admin: Supprimer admin
       demote:
         error: Une erreur s'est produite lors de la suppression de cet utilisateur de la liste des administrateurs.
@@ -1265,6 +1270,7 @@ fr:
           agreement: J'accepte ces conditions d'utilisation
           legend: Accepter les conditions d'utilisation
         refuse:
+          modal_body: Si vous refusez, vous ne pourrez pas utiliser la plateforme. Vous pouvez <a href="%{download_your_data_path}">télécharger vos données</a> ainsi que <a href="%{delete_path}">supprimer votre compte</a>.
           modal_btn_continue: Accepter les conditions et continuer
           modal_btn_exit: Je l'examinerai plus tard
           modal_button: Refuser les conditions d'utilisation
@@ -1272,6 +1278,7 @@ fr:
           modal_title: Refusez-vous vraiment les conditions d'utilisation mises à jour ?
         required_review:
           alert: Nous avons mis à jour nos conditions d'utilisation, veuillez les consulter.
+          body: Veuillez prendre un moment pour examiner nos conditions d'utilisation mises à jour. Sinon, vous ne pourrez pas utiliser la plateforme.
           title: 'Obligatoire : consultez les conditions d''utilisation mises à jour'
     participatory_space_private_users:
       not_allowed: Vous n'êtes pas autorisé à voir ce contenu
@@ -1615,6 +1622,8 @@ fr:
         accept_until: Cette invitation expirera le %{due_date}.
         decline: Refuser l'invitation
         hello: Bonjour %{email},
+        ignore: |-
+          Si vous n’acceptez pas l’invitation, veuillez ignorer ce courrier électronique.<br />Votre compte ne sera pas créé tant que vous n’aurez pas accédé au lien ci-dessus et que vous n’aurez pas configuré votre pseudo et votre mot de passe.
         invited_you_as_admin: "%{invited_by} vous a invité en tant qu'administrateur de %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous."
         invited_you_as_private_user: "%{invited_by} vous a invité en tant qu'utilisateur privé de %{application}. Vous pouvez l'accepter via le lien ci-dessous."
         someone_invited_you: Vous avez été invité à %{application}. Vous pouvez accepter cette invitation grâce au lien ci-dessous.
@@ -1638,6 +1647,7 @@ fr:
         greeting: Bonjour %{recipient}!
         instruction: Quelqu'un a demandé un lien pour changer votre mot de passe, et vous pouvez le faire via le lien ci-dessous.
         instruction_2: Si vous n'êtes pas à l'origine de cette demande, merci d'ignorer ce courriel.
+        instruction_3: Votre mot de passe ne changera pas jusqu'à ce que vous accédiez au lien ci-dessus et en créiez un nouveau.
         subject: Réinitialiser les instructions de mot de passe
       unlock_instructions:
         action: Débloquer mon compte
@@ -1732,6 +1742,7 @@ fr:
       already_confirmed: était déjà confirmé, s'il vous plaît essayez de vous connecter
       blank: "cannot be blank\nChamp obligatoire"
       cannot_be_blank: "cannot be blank\nChamp obligatoire"
+      confirmation: ne correspond pas à %{attribute}
       confirmation_period_expired: doit être confirmé dans les %{period}, s'il vous plaît demander un nouveau
       content_type_allowlist_error: le type de fichier n'est pas valide
       cycle_detected: le parent d'une portée ne peut pas être l'un de ses descendants
