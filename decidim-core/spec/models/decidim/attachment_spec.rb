@@ -65,6 +65,20 @@ module Decidim
         expect(subject.big_url).not_to be_nil
       end
 
+      context "when the image is an invariable format" do
+        before do
+          allow(ActiveStorage).to receive(:variable_content_types).and_return(%w(image/bmp))
+        end
+
+        it "has a thumbnail" do
+          expect(subject.thumbnail_url).not_to be_nil
+        end
+
+        it "has a big version" do
+          expect(subject.big_url).not_to be_nil
+        end
+      end
+
       describe "photo?" do
         it "returns true" do
           expect(subject.photo?).to be(true)
