@@ -839,9 +839,6 @@ tr:
           title: Sürümler
         proposals:
           back_to_resource: Teklife geri dön
-      withdraw:
-        errors:
-          has_supports: Zaten destekleri olduğu için bu teklif geri çekilemez.
     resource_links:
       copied_from_component:
         proposal_proposal: İlgili teklifler
