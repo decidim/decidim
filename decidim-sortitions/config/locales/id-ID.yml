@@ -59,7 +59,6 @@ id:
             error: Terjadi masalah saat membuat penyortiran baru.
             success: Sortasi berhasil dibuat
           destroy:
-            error: Tidak dapat membatalkan penyortiran.
             success: Penyortiran berhasil dibatalkan
           edit:
             title: Perbarui informasi tentang penyortiran
