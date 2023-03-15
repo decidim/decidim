@@ -852,9 +852,6 @@ pt-BR:
           title: Versões
         proposals:
           back_to_resource: Volte para a proposta
-      withdraw:
-        errors:
-          has_supports: Esta proposta não pode ser retirada porque já tem suporte.
     resource_links:
       copied_from_component:
         proposal_proposal: Propostas relacionadas
