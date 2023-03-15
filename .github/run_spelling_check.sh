@@ -15,14 +15,14 @@ while read forbidden; do
   word=$(echo $forbidden | cut -d'=' -f 1)
   preferred=$(echo $forbidden | cut -d'=' -f 2-)
   forbidden_words["$word"]="$preferred"
-done < <(yq '.forbidden | to_entries | map([.key, .value] | join("=")) | .[]' "$CONFIG_FILE")
+done < <(cat "$CONFIG_FILE" | yq '.forbidden | to_entries | map([.key, .value] | join("=")) | .[]')
 
 forbidden_words_file=$(mktemp)
 trap 'rm -f $forbidden_words_file' EXIT
 
 printf "%s\n" "${!forbidden_words[@]}" | sort > $forbidden_words_file
 
-exclude_paths=($(yq '.exclude_paths[]' "$CONFIG_FILE"))
+exclude_paths=($(cat "$CONFIG_FILE" | yq '.exclude_paths[]'))
 exclude_paths_pattern=$(printf "|(%s)" "${exclude_paths[@]}" | cut -c 2-)
 
 # Perform grep and iterate through all matches
