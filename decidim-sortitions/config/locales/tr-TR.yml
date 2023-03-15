@@ -62,7 +62,6 @@ tr:
             error: Yeni bir sıralama oluştururken bir sorun oluştu.
             success: Sıralama başarıyla oluşturuldu
           destroy:
-            error: Sıralama iptal edilemez.
             success: Sıralama başarıyla iptal edildi
           edit:
             title: Sıralama hakkındaki bilgileri güncelleyin
