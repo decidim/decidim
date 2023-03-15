@@ -36,9 +36,6 @@ cs:
           before_date_info: Užitečné, pokud již proces začal a chcete zrušit oprávnění z předchozího procesu.
           button: Zrušit vše
           button_before: Zrušit před datem
-          destroy:
-            confirm: Zrušení před datem autorizace nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
-            confirm_all: Zrušení všech autorizací nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
           destroy_nok: Při rušení autorizace došlo k chybě.
           destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny.
           info: Celkem je %{count} ověřených účastníků.
@@ -139,7 +136,6 @@ cs:
             destroy_all:
               success: Všechna data členů organizace byly smazány
           destroy:
-            confirm: Odstranění veškerých kontaktů členů organizace nelze vrátit zpět. Jste si jistý, že chcete pokračovat?
             title: Smazat všechna data členství organizace
           index:
             data: Celkem načteno %{count} záznamů. Poslední datum načtení bylo %{due_date}
@@ -185,7 +181,6 @@ cs:
               success: Konfigurace byla úspěšně aktualizována
           confirmations:
             create:
-              error: Ověření neodpovídá. Ověřte znovu nebo odmítněte ověření, aby jej uživatel mohl změnit
               success: Uživatel úspěšně ověřen
             new:
               introduce_user_data: Vložte data do obrázku
@@ -193,7 +188,6 @@ cs:
               verify: Ověřte
           offline_confirmations:
             create:
-              error: Ověření neodpovídá vloženým údajům. Zkuste to znovu, nebo řekněte uživateli, ať si je změní
               success: Uživatel úspěšně ověřen
             new:
               cancel: Zrušit
@@ -261,7 +255,6 @@ cs:
             send: Pošlete mi dopis
             title: Požádejte o ověřovací kód
           update:
-            error: Váš ověřovací kód neodpovídá našemu. Zkontrolujte, prosím, dopis, který jsme vám poslali
             success: Gratulujeme. Byl jste úspěšně ověřen
       sms:
         authorizations:
@@ -280,7 +273,6 @@ cs:
             send: Pošlete mi SMS
             title: Požádejte o ověřovací kód
           update:
-            error: Váš ověřovací kód neodpovídá našemu. Prosím, zkontrolujte SMS, který jsme vám poslali.
             success: Gratulujeme. Byl jste úspěšně ověřen.
   errors:
     messages:
