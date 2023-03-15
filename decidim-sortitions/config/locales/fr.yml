@@ -64,6 +64,7 @@ fr:
             error: Une erreur s'est produite lors de la création d'un nouveau tirage au sort.
             success: Le tirage au sort a été créé avec succès
           destroy:
+            error: Impossible d'annuler le tirage au sort.
             success: Le tirage au sort a été annulé avec succès
           edit:
             title: Mettre à jour les informations sur le tirage au sort
@@ -75,6 +76,7 @@ fr:
           index:
             title: Tirages au sort
           new:
+            confirm: En appuyant sur le bouton suivant, la plateforme enregistra la date et l'heure (à la seconde près) et, avec le résultat du dé, cette information sera utilisée pour générer une sélection aléatoire. L'action sera irréversible, une fois le bouton cliqué, le résultat de ce tirage sera publié, ainsi que les données saisies dans ce formulaire et ne pourront pas être modifiées, veuillez vérifier attentivement le contenu
             create: Créer
             title: Nouveau tirage au sort
           show:
