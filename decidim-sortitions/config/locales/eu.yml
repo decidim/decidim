@@ -64,7 +64,6 @@ eu:
             error: Errore bat gertatu da sortzapen berri bat sortzean.
             success: Sortu arrakastaz sortu da
           destroy:
-            error: Ezin da irtenbidea bertan behera utzi.
             success: Antolaketa behar bezala bertan behera utzi da
           edit:
             title: Eguneratu kokapenari buruzko informazioa
