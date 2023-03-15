@@ -36,9 +36,6 @@ es-MX:
           before_date_info: Útil si el proceso ya ha comenzado y quieres revocar los permisos del proceso anterior.
           button: Revocar todo
           button_before: Revocar antes de la fecha
-          destroy:
-            confirm: La revocación de las autorizaciones anteriores a esta fecha no se puede deshacer. ¿Seguro que quieres continuar?
-            confirm_all: La revocación de todas las autorizaciones no se puede deshacer. ¿Seguro que quieres continuar?
           destroy_nok: Ha habido un problema al revocar las autorizaciones.
           destroy_ok: Todas las autorizaciones coincidentes han sido revocadas con éxito.
           info: Hay un total de %{count} participantes verificadas.
@@ -139,7 +136,6 @@ es-MX:
             destroy_all:
               success: Todos los datos del censo han sido eliminados
           destroy:
-            confirm: Eliminar todo el censo no se puede deshacer. Estás seguro de que quieres continuar?
             title: Borrar todos los datos del censo
           index:
             data: Hay %{count} registros cargados en total. La última fecha de carga fue en %{due_date}
@@ -181,7 +177,6 @@ es-MX:
               success: Configuración actualizada correctamente
           confirmations:
             create:
-              error: La verificación no coincide. Inténtalo de nuevo o rechaza la verificación para que el usuario pueda modificarla
               success: El usuario ha sido verificado correctamente
             new:
               introduce_user_data: Introduce los datos de la imagen
@@ -189,7 +184,6 @@ es-MX:
               verify: Verificar
           offline_confirmations:
             create:
-              error: La verificación no coincide. Inténtalo de nuevo o dile al usuario que lo corrija
               success: Usuario verificado correctamente
             new:
               cancel: Cancelar
@@ -257,7 +251,6 @@ es-MX:
             send: Mándame una carta
             title: Solicita tu código de verificación
           update:
-            error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos
             success: Felicidades. Has sido verificado correctamente
       sms:
         authorizations:
@@ -276,7 +269,6 @@ es-MX:
             send: Mándame un SMS
             title: Solicita tu código de verificación
           update:
-            error: Tu código de verificación no coincide con el nuestro. Por favor, vuelve a comprobar los SMS que te enviamos.
             success: Felicidades. Has sido verificado con éxito.
   errors:
     messages:
