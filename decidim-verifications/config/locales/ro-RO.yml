@@ -30,9 +30,6 @@ ro:
           before_date_info: Este util dacă procesul a început deja și dorești să revoci drepturile procesului anterior.
           button: Revocă tot
           button_before: Revocă înainte de data
-          destroy:
-            confirm: Revocarea înainte de data autorizării nu poate fi anulată. Sigur dorești să continui?
-            confirm_all: Revocarea tuturor autorizațiilor nu poate fi anulată. Sigur dorești să continui?
           destroy_nok: A apărut o problemă în timpul revocării autorizațiilor.
           destroy_ok: Toate autorizațiile corelate au fost revocate.
           info: Există un total de %{count} participanți verificați.
@@ -125,7 +122,6 @@ ro:
             destroy_all:
               success: Toate datele recensământului au fost șterse
           destroy:
-            confirm: Ştergerea recensământului nu poate fi anulată. Sigur dorești să continui?
             title: Şterge toate datele recensământului
           index:
             data: Există %{count} înregistrări încărcate în total. Ultima dată de încărcare a fost pe %{due_date}
@@ -166,7 +162,6 @@ ro:
               success: Configurație actualizată cu succes
           confirmations:
             create:
-              error: Verificarea nu se potrivește. Te rugăm încercă din nou sau respinge verificarea astfel încât participantul să o poată modifica
               success: Participant verificat cu succes
             new:
               introduce_user_data: Introdu datele din imagine
@@ -174,7 +169,6 @@ ro:
               verify: Verifică
           offline_confirmations:
             create:
-              error: Verificarea nu se potrivește. Te rugăm încercă din nou sau spune participantului să o modifice
               success: Participant verificat cu succes
             new:
               cancel: Anulează
@@ -242,7 +236,6 @@ ro:
             send: Trimite-mi o scrisoare
             title: Cere codul tău de verificare
           update:
-            error: Codul tău de verificare nu se potrivește cu al nostru. Te rugăm să verifici din nou scrisoarea pe care ți-am trimis-o
             success: Felicitări. Ai fost verificat cu succes
       sms:
         authorizations:
@@ -260,7 +253,6 @@ ro:
             send: Trimite-mi un SMS
             title: Cere codul tău de verificare
           update:
-            error: Codul tău de verificare nu se potrivește cu al nostru. Te rugăm să verifici din nou SMS-ul pe care ți l-am trimis.
             success: Felicitări. Ai fost verificat cu succes.
   errors:
     messages:
