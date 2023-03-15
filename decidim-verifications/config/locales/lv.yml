@@ -30,9 +30,6 @@ lv:
           before_date_info: Noderīgs, ja process jau ir sācies un jūs vēlaties atsaukt iepriekšējā procesa atļaujas.
           button: Atsaukt visas
           button_before: Atsaukt, sākot ar datumu
-          destroy:
-            confirm: Atļauju atsaukšana, sākot ar datumu, nevar tikt atsaukta. Vai tiešām vēlaties turpināt?
-            confirm_all: Visu atļauju atsaukšana nevar tikt atsaukta. Vai tiešām vēlaties turpināt?
           destroy_nok: Atļauju atsaukšanas laikā radās problēma.
           info: Kopā ir %{count} verificētu dalībnieku.
           no_data: Nav verificētu dalībnieku
@@ -112,7 +109,6 @@ lv:
             destroy_all:
               success: Visi skaitīšanas dati ir dzēsti
           destroy:
-            confirm: Visu skaitīšanu izdzēšana nevar tikt atsaukta. Vai tiešām vēlaties turpināt?
             title: Dzēst visus skaitīšanas datus
           index:
             data: Kopā ir ielādēti %{count} ieraksti. Pēdējais augšupielādes datums bija %{due_date}
@@ -140,7 +136,6 @@ lv:
               success: Konfigurācija ir veiksmīgi atjaunināta
           confirmations:
             create:
-              error: Verifikācija neatbilst. Lūdzu, mēģiniet vēlreiz vai noraidiet verifikāciju, lai dalībnieks to varētu grozīt
               success: Dalībnieks ir veiksmīgi verificēts
             new:
               introduce_user_data: Ievadiet attēlā redzamos datus
@@ -148,7 +143,6 @@ lv:
               verify: Verificēt
           offline_confirmations:
             create:
-              error: Verifikācija neatbilst. Lūdzu, mēģiniet vēlreiz vai lūdziet dalībniekam to grozīt
               success: Dalībnieks ir veiksmīgi verificēts
             new:
               cancel: Atcelt
@@ -214,7 +208,6 @@ lv:
             send: Nosūtīt man vēstuli
             title: Pieprasīt jūsu verifikācijas kodu
           update:
-            error: Jūsu verifikācijas kods neatbilst mūsu kodam. Lūdzu, vēlreiz pārbaudiet vēstuli, kuru mēs jums nosūtījām.
             success: Apsveicam! Jūs esat veiksmīgi verificēts
       sms:
         authorizations:
@@ -232,7 +225,6 @@ lv:
             send: Sūtīt man SMS
             title: Pieprasīt jūsu verifikācijas kodu
           update:
-            error: Jūsu verifikācijas kods neatbilst mūsu kodam. Lūdzu, vēlreiz pārbaudiet SMS, kuru mēs jums nosūtījām.
             success: Apsveicam! Jūs esat veiksmīgi verificēts.
   errors:
     messages:
