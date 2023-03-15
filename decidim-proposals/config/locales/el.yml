@@ -801,9 +801,6 @@ el:
           title: Εκδόσεις
         proposals:
           back_to_resource: Επιστροφή στην πρόταση
-      withdraw:
-        errors:
-          has_supports: Αυτή η πρόταση δεν μπορεί να αποσυρθεί επειδή έχει ήδη υποστηρίξεις.
     resource_links:
       copied_from_component:
         proposal_proposal: Σχετικές προτάσεις
