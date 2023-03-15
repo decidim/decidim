@@ -29,7 +29,7 @@ Decidim.register_component(:accountability) do |component|
     settings.attribute :scopes_enabled, type: :boolean, default: true
     settings.attribute :scope_id, type: :scope
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: false
+    settings.attribute :comments_max_length, type: :integer, default: 1000, required: true
     settings.attribute :intro, type: :text, translated: true, editor: true
     settings.attribute :categories_label, type: :string, translated: true, editor: true
     settings.attribute :subcategories_label, type: :string, translated: true, editor: true

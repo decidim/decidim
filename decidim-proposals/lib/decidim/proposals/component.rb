@@ -40,7 +40,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :default_sort_order, type: :select, default: "default", choices: -> { POSSIBLE_SORT_ORDERS }
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, required: true
+    settings.attribute :comments_max_length, type: :integer, default: 1000, required: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
