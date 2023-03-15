@@ -178,10 +178,8 @@ sv:
           title: Bekräfta röst
         budget_excess:
           budget_excess:
-            description: Detta projekt överstiger den maximala budgeten och kan inte tilläggas. Du måste först ta bort ett projekt innan du lägger till ett nytt.
             title: Maximal budget överskriden
           close: Stäng
-          description: Detta projekt överstiger den maximala budgeten och kan inte tilläggas. Du måste först ta bort ett projekt innan du lägger till ett nytt.
           ok: OK
           projects_excess:
             description: Du har valt för många projekt. Du måste först ta bort ett projekt innan du lägger till ett nytt.
