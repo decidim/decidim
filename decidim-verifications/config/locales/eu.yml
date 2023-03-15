@@ -36,9 +36,6 @@ eu:
           before_date_info: Erabilgarria da prozesua hasita badago eta aurreko prozesuko baimenak ezeztatu nahi badituzu.
           button: Ezeztatu guztiak
           button_before: Ezeztatu data honen aurrekoak
-          destroy:
-            confirm: Data horren aurreko baimenak ezeztatzea ezin da desegin. Ziur jarraitu nahi duzula?
-            confirm_all: Baimen guztiak ezeztatzea ezin da desegin. Ziur jarraitu nahi duzula?
           destroy_nok: Arazo bat izan da baimen guztiak ezeztatzean.
           destroy_ok: Bat datozen baimen guztiak zuzen ezeztatu dira.
           info: Guztira %{count} parte-hartzaile egiaztatuta daude.
@@ -135,7 +132,6 @@ eu:
             destroy_all:
               success: Erroldatze-datu guztiak ezabatu egin dira
           destroy:
-            confirm: Ezabatu errolda guztia ezin da desegin. Ziur zaude jarraitu nahi duzula?
             title: Zentsu-datu guztiak ezabatu
           index:
             data: Guztira %{count} karga daude guztira. Azken kargatze-data %{due_date}
@@ -174,7 +170,6 @@ eu:
               success: Konfigurazioa behar bezala eguneratu da
           confirmations:
             create:
-              error: Egiaztapena ez dator bat. Berriro saiatu edo ezeztatu egiaztapena erabiltzaileak hura aldatzeko
               success: Erabiltzaileak behar bezala egiaztatu du
             new:
               introduce_user_data: Idatzi irudian datuak
@@ -182,7 +177,6 @@ eu:
               verify: Ziurtatu
           offline_confirmations:
             create:
-              error: Egiaztapena ez dator bat. Saiatu berriro edo esan erabiltzaileak hura aldatzeko
               success: Erabiltzaileak behar bezala egiaztatu du
             new:
               cancel: Utzi
@@ -250,7 +244,6 @@ eu:
             send: Bidali gutun bat
             title: Eskatu egiaztapen-kodea
           update:
-            error: Zure egiaztapen-kodea ez dator bat gurekin. Begiratu bi aldiz bidalitako mezua
             success: Zorionak. Ongi egiaztatu duzu
       sms:
         authorizations:
@@ -268,7 +261,6 @@ eu:
             send: Bidal iezadazu SMS bat
             title: Eskatu egiaztapen-kodea
           update:
-            error: Zure egiaztapen-kodea ez dator bat gurekin. Begiratu bi aldiz bidalitako SMSa.
             success: Zorionak. Ongi egiaztatu duzu.
   errors:
     messages:
