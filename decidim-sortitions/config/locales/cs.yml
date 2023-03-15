@@ -68,7 +68,6 @@ cs:
             error: Při vytváření nového losování došlo k chybě.
             success: Losování bylo úspěšně vytvořeno
           destroy:
-            error: Nelze zrušit losování.
             success: Losování bylo úspěšně zrušeno
           edit:
             title: Aktualizovat informace o volbě losem
@@ -80,7 +79,6 @@ cs:
           index:
             title: Losování
           new:
-            confirm: Stisknutím dalšího tlačítka bude platforma zaznamenávat datum a čas (s přesností sekund) a společně s kostkou, tyto informace budou použity k vytvoření náhodného výběru. Akce bude nevratná, po kliknutí na tlačítko bude výsledek tohoto remízu publikován, spolu s údaji zadanými v tomto formuláři a nelze je změnit, pečlivě zkontrolujte obsah
             create: Vytvořit
             title: Nové losování
           show:
