@@ -208,8 +208,10 @@ fi:
           title: Vahvista ääni
         budget_excess:
           budget_excess:
+            description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
             title: Maksimibudjetti ylitetty
           close: Sulje
+          description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
           ok: OK
           projects_excess:
             description: Tämä projekti ylittää valittavien projektien maksimimäärän, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
