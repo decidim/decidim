@@ -87,7 +87,6 @@ id:
             destroy_all:
               success: Semua data sensus telah dihapus
           destroy:
-            confirm: Hapus semua sensus tidak bisa dibatalkan. Apakah anda yakin ingin melanjutkan?
             title: Hapus semua data sensus
           index:
             data: Ada %{count} catatan yang dimuat secara total. Tanggal unggah terakhir pada %{due_date}
@@ -118,7 +117,6 @@ id:
               success: Konfigurasi berhasil diperbarui
           confirmations:
             create:
-              error: Verifikasi tidak cocok. Coba lagi atau tolak verifikasi sehingga pengguna dapat mengubahnya
               success: Pengguna berhasil diverifikasi
             new:
               introduce_user_data: Perkenalkan data dalam gambar
@@ -126,7 +124,6 @@ id:
               verify: Memeriksa
           offline_confirmations:
             create:
-              error: Verifikasi tidak cocok. Coba lagi atau beri tahu pengguna untuk mengubahnya
               success: Pengguna berhasil diverifikasi
             new:
               cancel: Membatalkan
@@ -194,7 +191,6 @@ id:
             send: Kirimkan saya surat
             title: Minta kode verifikasi Anda
           update:
-            error: Kode verifikasi Anda tidak sesuai dengan kami. Silakan periksa kembali surat yang kami kirimkan kepada Anda
             success: Selamat. Anda telah berhasil diverifikasi
       sms:
         authorizations:
@@ -212,7 +208,6 @@ id:
             send: Kirimi saya SMS
             title: Minta kode verifikasi Anda
           update:
-            error: Kode verifikasi Anda tidak sesuai dengan kami. Harap periksa kembali SMS yang kami kirimkan kepada Anda.
             success: Selamat. Anda telah berhasil diverifikasi.
   errors:
     messages:
