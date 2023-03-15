@@ -62,7 +62,6 @@ pt-BR:
             error: Ocorreu um erro ao criar uma nova classificação.
             success: Ordenação criada com sucesso
           destroy:
-            error: Não é possível cancelar a classificação.
             success: Classificação cancelada com sucesso
           edit:
             title: Atualizar as informações sobre a classificação
