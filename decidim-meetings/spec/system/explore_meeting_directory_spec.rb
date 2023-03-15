@@ -40,7 +40,7 @@ describe "Explore meeting directory", type: :system do
       expect(page).to have_content(translated(upcoming_meeting.title))
     end
 
-    it "doesn't show past meetings" do
+    it "does not show past meetings" do
       within "#meetings" do
         expect(page).not_to have_content(translated(past_meeting.title))
       end
@@ -321,7 +321,7 @@ describe "Explore meeting directory", type: :system do
     it "allows filtering by space" do
       expect(page).to have_content(assembly_meeting.title["en"])
 
-      # Since in the first load all the meeting are present, we need can't rely on
+      # Since in the first load all the meeting are present, we need cannot rely on
       # have_content to wait for the card list to change. This is a hack to
       # reset the contents to no meetings at all, and then showing only the upcoming
       # assembly meetings.

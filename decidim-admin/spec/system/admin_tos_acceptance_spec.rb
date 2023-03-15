@@ -21,7 +21,7 @@ describe "AdminTosAcceptance", type: :system do
       end
 
       it "has a message that they need to accept the admin TOS" do
-        expect(page).to have_content("Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform")
+        expect(page).to have_content("Please take a moment to review Admin Terms of Use. Otherwise you will not be able to manage the platform")
       end
 
       it "has only the Dashboard menu item in the main navigation" do

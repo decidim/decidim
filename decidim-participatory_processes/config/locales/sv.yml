@@ -11,13 +11,16 @@ sv:
         decidim_area_id: Område
         description: Beskrivning
         developer_group: Kampanjgrupp
+        document: Dokument
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
         hero_image: Hembild
+        import_steps: Importera steg
         local_area: Område
         meta_scope: Omfångets metadata
         participatory_process_group_id: Dialoggrupp
+        participatory_process_type_id: Dialogtyp
         participatory_scope: Vad som bestäms
         participatory_structure: Hur det bestäms
         promoted: Annonserad
@@ -89,6 +92,7 @@ sv:
           all_processes: Visa alla dialoger
           process_groups: Dialoggrupper
         import_process: Importera
+        moderate: Moderera
         new_process: Ny dialog
         new_process_group: Ny dialoggrupp
         new_process_step: Nytt steg
@@ -137,6 +141,7 @@ sv:
         participatory_process_type:
           fields:
             title: Titel
+          name: Processtyp
         participatory_process_user_role:
           fields:
             email: E-post
@@ -221,6 +226,7 @@ sv:
           success: Steget i deltagarprocessen har uppdaterats.
       participatory_process_types:
         edit:
+          title: Redigera dialogtyp
           update: Uppdatera
         form:
           title: Titel

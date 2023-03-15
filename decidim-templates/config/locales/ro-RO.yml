@@ -41,6 +41,9 @@ ro:
         name: Model
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Salvează
         questionnaire_templates:
           choose:
             create_from_template: Creează după model

@@ -6,15 +6,32 @@ fi:
         image: Kuva
         proposals: Liittyvät ehdotukset
         title: Otsikko
+      ballot_style:
+        code: Koodi
       election:
         description: Kuvaus
         end_time: Äänestys päättyy
         start_time: Äänestys alkaa
         title: Otsikko
+      monitoring_committee_member:
+        email: Sähköpostiosoite
+        name: Nimi
+      polling_officer:
+        email: Sähköpostiosoite
+        name: Nimi
+      polling_station:
+        address: Osoite
+        location: Sijainti
+        location_hints: Paikan tarkemmat tiedot
+        polling_station_managers: Virkailijat
+        polling_station_president_id: Esimies
+        title: Otsikko
       question:
         max_selections: Valintojen enimmäismäärä
         min_selections: Ei mikään edellä mainituista
         title: Otsikko
+      trustees_participatory_space:
+        user_id: Osallistuja
       voting:
         banner_image: Bannerikuva
         census_contact_information: Henkilötietorekisterin vastuutahon yhteystiedot
@@ -22,7 +39,7 @@ fi:
         end_time: Äänestyksen päättymisaika
         introductory_image: Esittelykuva
         promoted: Korostettu
-        scope: Teema
+        scope_id: Teema
         show_check_census: Näytä "tarkasta henkilötietorekisterin tiedot" -sivu
         start_time: Äänestyksen alkamisaika
         title: Otsikko
@@ -827,11 +844,20 @@ fi:
           published: Julkaistu
         landing_page:
           content_blocks:
+            create:
+              error: Sisältölohkon luonti epäonnistui
+              success: Sisältölohkon luonti onnistui
+            destroy:
+              error: Sisältölohkon poisto epäonnistui
+              success: Sisältölohkon poisto onnistui
             edit:
               update: Päivitä
           edit:
             active_content_blocks: Aktiiviset sisältölohkot
+            add: Lisää sisältölohko
+            destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
             inactive_content_blocks: Käytöstä poistetut sisältölohkot
+            title: Sivun sisältö
         menu:
           votings: Äänestykset
           votings_submenu:

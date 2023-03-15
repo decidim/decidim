@@ -122,7 +122,7 @@ module Decidim
       where(promoted: true)
     end
 
-    # Return processes that DON'T belong to a process group.
+    # Return processes that DO NOT belong to a process group.
     def self.groupless
       where(decidim_participatory_process_group_id: nil)
     end

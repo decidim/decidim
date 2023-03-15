@@ -62,7 +62,7 @@ en:
           - Users fill in their identity information and upload a copy of their document.
           - You fill in the information present in the uploaded image.
           - The information should match whatever the user filled in.
-          - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
+          - If you cannot clearly see the information or you cannot get it verified, you can reject the request and the user will be able to fix it.
         postal_letter:
           help:
           - Participants request a verification code to be sent to their address.
@@ -182,7 +182,7 @@ en:
               success: Configuration successfully updated
           confirmations:
             create:
-              error: Verification doesn't match. Please try again or reject the verification so the participant can amend it
+              error: Verification does not match. Please try again or reject the verification so the participant can amend it
               success: Participant successfully verified
             new:
               introduce_user_data: Introduce the data in the picture
@@ -190,7 +190,7 @@ en:
               verify: Verify
           offline_confirmations:
             create:
-              error: Verification doesn't match. Please try again or tell the participant to amend it
+              error: Verification does not match. Please try again or tell the participant to amend it
               success: Participant successfully verified
             new:
               cancel: Cancel
@@ -258,7 +258,7 @@ en:
             send: Send me a letter
             title: Request your verification code
           update:
-            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
+            error: Your verification code does not match ours. Please double-check the letter we sent to you
             success: Congratulations. You've been successfully verified
       sms:
         authorizations:
@@ -270,14 +270,14 @@ en:
           edit:
             confirm_destroy: Are you sure you want to reset the verification code?
             destroy: Reset verification code
-            resend: Didn't receive the verification code?
+            resend: Did not receive the verification code?
             send: Confirm
             title: Introduce the verification code you received
           new:
             send: Send me an SMS
             title: Request your verification code
           update:
-            error: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+            error: Your verification code does not match ours. Please double-check the SMS we sent you.
             success: Congratulations. You've been successfully verified.
   errors:
     messages:

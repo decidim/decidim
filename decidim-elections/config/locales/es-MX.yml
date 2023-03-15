@@ -6,15 +6,32 @@ es-MX:
         image: Imagen
         proposals: Propuestas relacionadas
         title: Título
+      ballot_style:
+        code: Código
       election:
         description: Descripción
         end_time: La votación termina en
         start_time: La votación comienza a las
         title: Título
+      monitoring_committee_member:
+        email: Correo electrónico
+        name: Nombre
+      polling_officer:
+        email: Correo electrónico
+        name: Nombre
+      polling_station:
+        address: Dirección
+        location: Ubicación
+        location_hints: Detalles de ubicación
+        polling_station_managers: Gestoras
+        polling_station_president_id: Presidencia
+        title: Título
       question:
         max_selections: Número máximo de opciones
         min_selections: Ninguna de las anteriores
         title: Título
+      trustees_participatory_space:
+        user_id: Participante
       voting:
         banner_image: Imagen de cabecera
         census_contact_information: Datos de contacto del censo
@@ -22,7 +39,7 @@ es-MX:
         end_time: La votación finaliza
         introductory_image: Imagen de presentación
         promoted: Destacada
-        scope: Ámbito
+        scope_id: Ámbito
         show_check_census: Mostrar la página de "comprobar censo"
         start_time: La votación empieza
         title: Título
@@ -262,7 +279,7 @@ es-MX:
               'false': no tiene una <strong>clave pública</strong>
               'true': tiene una <strong> clave pública</strong>
             requirements:
-              census_codes_generated: Se han generador los códigos de acceso al censo.
+              census_codes_generated: Se han generado los códigos de acceso al censo.
               census_frozen: Se han exportado los códgos para el censo y el censo ha quedado congelado.
               census_uploaded: El censo está subido.
               component_published: La elección está <strong>publicada</strong>.
@@ -827,11 +844,20 @@ es-MX:
           published: Publicada
         landing_page:
           content_blocks:
+            create:
+              error: Se ha producido un error al intentar crear este bloque de contenido
+              success: Bloque de contenido creado con éxito
+            destroy:
+              error: Se ha producido un error al intentar crear este bloque de contenido
+              success: Bloque de contenido eliminado con éxito
             edit:
               update: Actualizar
           edit:
             active_content_blocks: Bloques de contenido activos
+            add: Añadir bloque de contenido
+            destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
             inactive_content_blocks: Bloques de contenido inactivos
+            title: Contenidos de la página
         menu:
           votings: Votaciones
           votings_submenu:
@@ -1107,7 +1133,7 @@ es-MX:
               launch_success: Se ha iniciado la generación de códigos.
               start_over: Por favor, elimine el censo actual y vuelva a empezar con un archivo CSV apropiado con filas válidas.
             generating_access_codes:
-              info_message: "<strong>Por favor<</strong>, los códigos de acceso a la votación se están generando (esto puede tardar unos minutos)..."
+              info_message: "<strong>Espera, por favor<</strong>, los códigos de acceso a la votación se están generando (esto puede tardar unos minutos)..."
             new:
               file_help:
                 explanation: 'Instrucciones para el archivo:'

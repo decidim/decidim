@@ -50,7 +50,7 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to broadcast(:ok)
       end
 
-      it "doesn't notify followers" do
+      it "does not notify followers" do
         expect(Decidim::EventsManager).not_to receive(:publish)
 
         subject.call

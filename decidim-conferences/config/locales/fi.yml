@@ -28,22 +28,23 @@ fi:
         show_statistics: Näytä tilastot
         sign_date: Allekirjoituksen päivämäärä
         signature: Allekirjoitus
-        signature_name: allekirjoituksen nimi
+        signature_name: Allekirjoituksen nimi
         slogan: Iskulause
         slug: URL-tunniste
         start_date: Alkamispäivä
         title: Otsikko
+        weight: Järjestysnumero
       conference_media_link:
         date: Päivämäärä
         link: Linkki
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_partner:
         link: Linkki
         logo: Logo
         name: Nimi
         partner_type: Kumppanin tyyppi
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_registration_invite:
         email: Sähköposti
         name: Nimi
@@ -53,7 +54,7 @@ fi:
         description: Kuvaus
         price: Hinta
         title: Otsikko
-        weight: Painoarvo
+        weight: Järjestysnumero
       conference_speaker:
         affiliation: Jäsenyys
         avatar: Avatar
@@ -134,7 +135,7 @@ fi:
           title: Päivitä konferenssin hallintakäyttäjä.
           update: Päivitä
         index:
-          conference_admins_title: konferenssin hallintakäyttäjät
+          conference_admins_title: Konferenssin ylläpitäjät
         new:
           create: Luo
           title: Uusi konferenssin hallintakäyttäjä.
@@ -312,6 +313,7 @@ fi:
           update: "%{user_name} päivitti yhteistyökumppania %{resource_name} konferenssissa %{space_name}"
         registration_type:
           create: "%{user_name} loi ilmoittautumistyypin %{resource_name} konferenssiin %{space_name}"
+          delete: "%{user_name} poisti ilmoittautumistyypin %{resource_name} konferenssista %{space_name}"
           publish: "%{user_name} julkaisi ilmoittautumistyypin %{resource_name} konferenssissa %{space_name}"
           unpublish: "%{user_name} lopetti ilmoittautumistyypin %{resource_name} julkaisun konferenssissa %{space_name}"
           update: "%{user_name} päivitti ilmoittautumistyyppiä %{resource_name} konferenssissa %{space_name}"
@@ -405,18 +407,11 @@ fi:
           cancel: Peruuta
           confirm: Vahvista
         show:
-          free: Maksuton
           going: Osallistumassa
           no_slots_available: Ei paikkoja vapaana
           registration: Ilmoittautuminen
       conference_program:
-        program_meeting:
-          content: Sisältö
-          location: Sijainti
-          speakers: Puhujat
-          streaming: Suoratoisto
         show:
-          day: Päivä
           program: Ohjelma
       conference_registration_mailer:
         confirmation:
@@ -449,18 +444,18 @@ fi:
       conference_speaker_cell:
         personal_url:
           personal_website: Henkilökohtainen verkkosivusto
-        twitter_handle:
-          go_to_twitter: Siirry Twitteriin
       conference_speakers:
         index:
-          speakers: Puhujat
+          speakers:
+            one: Puhuja
+            other: Puhujat
       conferences:
         partners:
           collaborators: Yhteistyökumppanit
           main_promotors: Järjestäjät
         show:
           login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
-          make_conference_registration: 'Ilmoittaudu konferenssiin:'
+          make_conference_registration: Ilmoittaudu konferenssiin
           register: Rekisteröidy
       content_blocks:
         highlighted_conferences:
@@ -506,29 +501,12 @@ fi:
             active_conferences: Aktiiviset konferenssit
             conferences_button_title: Linkki Konferenssit-sivulle, jossa näkyvät kaikki konferenssit
             see_all_conferences: Katso kaikki konferenssit
-      photo:
-        image:
-          attributes:
-            alt: Kuvan vaihtoehtoisteksti
-        show:
-          close_modal: Sulje ikkuna
-          photo: Kuva
-      photos_list:
-        show:
-          related_photos: Kuvat
       registration_types:
         index:
           choose_an_option: 'Valitse ilmoittautumisvaihtoehto:'
-          login_as: Olet kirjautunut sisään henkilönä %{name} <%{email}>
           no_registrations: Ei ilmoittautumisia
           register: Ilmoittaudu
           title: Ilmoittautumistyypit
-      shared:
-        conference_user_login:
-          already_account: Onko sinulla jo käyttäjätili?
-          new_user: Uusi käyttäjä?
-          sign_in: Kirjaudu sisään ilmoittautuaksesi konferenssiin
-          sign_up: Luo tili palveluun ilmoittautuaksesi konferenssin
       show:
         details: Tarkemmat tiedot
         introduction: Esittely

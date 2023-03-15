@@ -121,7 +121,7 @@ module Decidim::ParticipatoryProcesses
         expect(process.steps.first).to be_active
       end
 
-      it "doesn't enable by default stats and metrics" do
+      it "does not enable by default stats and metrics" do
         subject.call
         expect(process.show_statistics).to be(false)
         expect(process.show_metrics).to be(false)

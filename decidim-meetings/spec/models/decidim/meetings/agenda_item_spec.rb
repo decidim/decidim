@@ -57,7 +57,7 @@ module Decidim
           expect(subject).not_to be_parent
         end
 
-        it "returns true if the agenda item doesn't have a parent" do
+        it "returns true if the agenda item does not have a parent" do
           subject.parent = nil
           expect(subject).to be_parent
         end

@@ -66,7 +66,7 @@ module Decidim
         end
       end
 
-      context "when the component hasn't enabled pads" do
+      context "when the component has not enabled pads" do
         before do
           paddable.component.settings = { enable_pads_creation: false }
         end

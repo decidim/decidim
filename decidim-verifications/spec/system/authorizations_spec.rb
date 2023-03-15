@@ -150,7 +150,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         fill_in "Document number", with: "123456789X"
         # REDESIGN_PENDING: The datepicker interaction fails with the redesign
-        # and the click_button "Send" action doesn't submit the form. The
+        # and the click_button "Send" action does not submit the form. The
         # datepicker component redesign is pending.
         # page.execute_script("$('#authorization_handler_birthday').focus()")
         # page.find(".datepicker-dropdown .datepicker-days", text: "12").click
@@ -172,7 +172,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
 
         fill_in "Document number", with: "12345678"
         # REDESIGN_PENDING: The datepicker interaction fails with the redesign
-        # and the click_button "Send" action doesn't submit the form. The
+        # and the click_button "Send" action does not submit the form. The
         # datepicker component redesign is pending.
         # page.execute_script("$('#authorization_handler_birthday').focus()")
         # page.find(".datepicker-dropdown .datepicker-days", text: "12").click
@@ -203,7 +203,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.minute.ago)
           end
 
-          it "can't be renewed yet" do
+          it "cannot be renewed yet" do
             visit_authorizations
 
             within ".authorizations-list" do
@@ -258,7 +258,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 2.seconds.ago)
         end
 
-        it "can't be renewed yet" do
+        it "cannot be renewed yet" do
           visit_authorizations
 
           within ".authorizations-list" do
@@ -296,7 +296,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
     context "when no authorizations are configured", with_authorization_handlers: [] do
       let(:authorizations) { [] }
 
-      it "doesn't list authorizations" do
+      it "does not list authorizations" do
         visit decidim_verifications.authorizations_path
         expect(page).to have_no_link("Authorizations")
       end

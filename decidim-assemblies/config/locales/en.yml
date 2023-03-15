@@ -445,9 +445,6 @@ en:
         related_assemblies: Related assemblies
     statistics:
       assemblies_count: Assemblies
-  errors:
-    messages:
-      cannot_be_blank: can not be blank
   layouts:
     decidim:
       assemblies:

@@ -2,7 +2,7 @@
 
 module Decidim
   module Events
-    # Extends the BaseEvent to add common components to most events so you don't
+    # Extends the BaseEvent to add common components to most events so you do not
     # need to write each time the same code.
     #
     # The only convention you need to keep in mind is that the event name will be
