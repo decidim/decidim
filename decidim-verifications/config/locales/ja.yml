@@ -36,9 +36,6 @@ ja:
           before_date_info: 参加型プロセスがすでに開始されており、前のプロセスの権限を取り消したい場合に便利です。
           button: すべて取り消し
           button_before: 日付の前に取り消し
-          destroy:
-            confirm: 前の日付の権限を取り消すことはできません。続行してもよろしいですか？
-            confirm_all: すべての権限を取り消すことはできません。続行してもよろしいですか？
           destroy_nok: 許可の取り消し中に問題が発生しました。
           destroy_ok: すべての一致した認証が正常に取り消されました。
           info: '%{count} 人の確認済み参加者がいます。'
@@ -139,7 +136,6 @@ ja:
             destroy_all:
               success: すべてのセンサスデータが削除されました
           destroy:
-            confirm: センサスをすべて削除することはできません。続行してもよろしいですか？
             title: センサスデータをすべて削除する
           index:
             data: 合計 %{count} 件のレコードが読み込まれています。最終アップロード日は %{due_date}です。
@@ -179,7 +175,6 @@ ja:
               success: 構成が正常に更新されました
           confirmations:
             create:
-              error: 検証が一致しません。再試行するか、参加者が修正できるように検証を拒否してください
               success: 参加者を確認しました
             new:
               introduce_user_data: 写真のデータを入力する
@@ -187,7 +182,6 @@ ja:
               verify: 確認する
           offline_confirmations:
             create:
-              error: 検証が一致しません。もう一度試すか、参加者に修正するように伝えてください。
               success: 参加者を確認しました
             new:
               cancel: キャンセル
@@ -255,7 +249,6 @@ ja:
             send: 郵便物を送る
             title: 確認コードをリクエストする
           update:
-            error: 入力された確認コードが郵送したものと一致しません。お送りした郵送物を再確認してください。
             success: おめでとうございます。正常に検証されました
       sms:
         authorizations:
@@ -273,7 +266,6 @@ ja:
             send: SMSを送信
             title: 確認コードをリクエストする
           update:
-            error: 確認コードが私たちのものと一致しません。SMSを送信したことを再確認してください。
             success: おめでとうございます。認証に成功しました。
   errors:
     messages:
