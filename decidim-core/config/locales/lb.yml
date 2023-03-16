@@ -174,10 +174,8 @@ lb:
         amended_by: Geännert duerch
         button: '%{model_name} änneren'
         error: Beim Änneren vun dëser Ressource ass e Feeler opgetrueden.
-        help_text: Verbesser dësen %{model_name} andeems de %{amendable_fields} änners
         promote_button: Zu engem %{model_name} befërderen
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
-        promote_help_text: Du kanns dës Erweiderung befërderen an als onofhängegen Modell verëffentlechen %{model_name}
         section_heading: Ännerungen (%{count})
       compare_draft:
         continue: Weider
@@ -219,26 +217,16 @@ lb:
         modify: Beaarbechten
         publish: Verëffentlechen
         title: Ännerungs-Virschlag verëffentlechen
-      promoted:
-        error: Bei der Verëffentlechung vun der Ännerung als neien Virschlag ass e Problem opgetrueden
-        success: D'Ännerung gouf als neien Virschlag verëffentlecht
       publish_draft:
         error: Et gouf e Problem bei der Verëffentlechung vum Ännerungs-Virschlag.
         success: D'Ännerung gouf verëffentlecht.
-      rejected:
-        error: Bei der Ofleenung vun dëser Ännerung ass e Feeler opgetrueden. Probéier w. e. g. méi spéit op en Neits
-        success: Dës Ännerung gouf ofgeleent
       review:
         back: Zréck
         heading: Ännerung iwwerpréiwen
-        help_text: Du iwwerpréifs d'Ännerung vun %{model_name}
         send: Ännerung akzeptéieren
       update_draft:
         error: Et gouf e Problem beim Aktualiséieren vum Ännerungsvirschlag.
         success: Ännerungsvirschlag gouf aktualiséiert.
-      withdraw:
-        error: Beim Zréckzéien vum Ännerungsvirschlag ass e Feeler opgetrueden
-        success: Den Ännerungsvirschlag gouf zréckgezunn
       wizard_step_form:
         steps:
           '1': Erstell deng Ännerung
@@ -266,13 +254,11 @@ lb:
         other: Befürwortungen
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Loss dech iwwerpréiwen, andeems de d'Nummer vun dengem Pass agëss déi mat "A" muss ufänken
         fields:
           passport_number: Nummer vum Pass
           postal_code: Postleitzuel
         name: En anert Beispill fir eng Berechtegung
       dummy_authorization_handler:
-        explanation: Loss dech iwwerpréiwen, andeems de eng Auswäis-Nummer agëss déi mat "X" muss ophalen
         fields:
           allowed_postal_codes: Erlaabten Postleitzuelen (duerch Komma getrennt)
           allowed_scope_id: Erlaabten Ëmfang
@@ -312,11 +298,7 @@ lb:
           authorize: Mat "%{authorization}" berechtegen
           explanation: Fir dës Aktioun duerch ze féieren muss du mat "%{authorization}" berechtegt sinn.
           title: Berechtegung ass néideg
-        ok:
-          title: Du goufs berechtegt andeems op der Säit wos. Lued d'Säit w. e. g. nei, fir deng Aktioun duerch ze féieren
         pending:
-          explanation: Fir dës Handlung muss de berechtegt sinn iwwer "%{authorization}", deng Berechtegung gëtt awer réischt verschafft
-          resume: Überprüfen Sie Ihren Autorisierungsfortschritt "%{authorization}"
           title: D'Berechtegung ass nach am Gang verschafft ze ginn
         unauthorized:
           ok: Ok
@@ -415,16 +397,10 @@ lb:
         name: Organisations-Statistiken
       sub_hero:
         name: Sub hero Banner
-    core:
-      actions:
-        login_before_access: Bitte melden Sie sich mit Ihrem Konto an, um auf diese Seite zuzugreifen
-        unauthorized: Du hues keng Berechtegung fir dës Aktioun
     datepicker:
       help_text: 'Format: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: En aneren Kont benotzt déi selwecht Email-Adress
         new:
           complete_profile: Profil vervollstännegen
           nickname_help: Däin Pseudonym an %{organization}. Dierf nëmmen aus Buschtawen, Zuelen, _ an - bestoen.
@@ -450,8 +426,6 @@ lb:
         new:
           are_you_new?: Nei op dëser Plattform?
           register: Kont uleeën
-          sign_in_disabled: Du kënns mat engem externen Kont eran
-          sign_up_disabled: D'Umeldung ass desaktivéiert. Du kanns mat engem bestoenden Benotzer-Kont erakommen
         user:
           timed_out: Sie waren zu lange inaktiv und wurden automatisch abgemeldet. Wenn Sie den Dienst weiterhin nutzen möchten, melden Sie sich bitte erneut an.
       shared:
@@ -469,7 +443,6 @@ lb:
           authorize: Applikatioun zouloossen
           by_organization_link_html: <small class="heading-small">vun %{link}</small>
           cancel: Ofbriechen
-          connect_your_account_html: Verbann däin Kont, andeem s'de dech bei <strong>%{organization}</strong> umells
           publish_content: Inhalt fir Iech verëffentlechen
           see_email: Kuck deng Email
           see_name: Kuck däin Numm
@@ -726,17 +699,8 @@ lb:
       index:
         invite: Alueden
         invite_user: En Teilnehmer alueden
-      invite:
-        error: Beim Eroplueden vun dësem Teilnehmer ass e Problem opgetrueden
-        success: Benotzer gouf agelueden
-      reject:
-        error: Et gouf e Problem beim Refuséieren vun dëser Invitatioun
-        success: Invitatioun gouf refuséiert
       reject_invitation: Refuséieren
     group_members:
-      accept:
-        error: Et gouf e Problem beim Unhuelen vun dëser Ufro bäi ze trieden
-        success: D'Ufro bäi ze trieden gouf acceptéiert
       actions:
         are_you_sure: Bass du sécher?
         promote_to_admin: Zum Admin maachen
@@ -744,36 +708,20 @@ lb:
       index:
         current_members_without_admins: 'Aktuell Memberen (ouni Admins):'
         manage_members: Memberen verwalten
-      promote:
-        error: Et gouf e Problem beim Fërderen vun dësem Teilnehmer
-        success: Teilnehmer gouf gefërdert
-      reject:
-        error: Et gouf e Problem dës Bäitrëtts-Ufro ze refuséieren
-        success: Bäitrëtts-Ufro gouf refuséiert
-      remove:
-        error: Et gouf e Problem dësen Teilnehmer aus dem Grupp ze läschen
-        success: Dësen Teilnehmer gouf aus dem Grupp geläscht
     groups:
       actions:
         are_you_sure: Bass de sécher?
-      create:
-        error: Et gouf e Problem beim Erstellen vum Grupp
-        success: De Grupp gouf erstallt
       edit:
         edit_user_group: Grupp beaarbechten
         update_user_group: Grupp aktualiséieren
       form:
-        document_number_help: Verwenn keng Bindestrécher oder Espace-Zeechen
         email_help: Email-Adress vun denger Organisatioun, Associatioun, Kollektiv, Grupp, etc.
         fill_in_for_verification: 'Fëll dës Felder aus, wann däin Grupp soll iwwerpréift ginn:'
         name_help: Numm vun denger Organisatioun, Associatioun, Kollektiv, Grupp, etc.
         nickname_help: Benotzer-Numm vun denger Organisatioun, Associatioun, Kollektiv, Grupp, etc. Verwenn weder Espace-Zeechen nach Akzenter.
-        phone_help: Verwenn keng Bindestrécher oder Espace-Zeechen
       join:
-        error: Et gouf e Problem beim Bäitrieden an de Grupp
         success: Bäitrëtts-Ufro gouf erstallt. En Administrateur iwwerpréift deng Ufro, éier s'du an de Grupp ugeholl gëss.
       leave:
-        error: Et gouf e Problem beim Austrieden aus dem Grupp
         success: Aus dem Grupp ausgetrueden.
       members:
         accept_or_reject_join_requests: 'Dës Benotzer hunn ugefrot dësem Grupp bäizetrieden. Hir Ufroen unhuelen oder refuséieren:'
@@ -786,15 +734,11 @@ lb:
       roles:
         admin: Administrateur
         member: Member
-      update:
-        error: Et gouf e Problem beim Aktualiséieren vum Grupp
-        success: De Grupp gouf aktualiséiert
     help:
       main_topic:
         default_page:
           content: "<p>An der %{organization} kanns de, mëttels de Felder aus dem ieweschten Menü déi Themen-Beräicher entscheeden an erauswielen bei deenen s'de wëlls matmaachen: Prozesser, Gremien, Initiativen, Berodungen.</p> <p>An all Beräich fënns de verschidden Optiounen fir d'Matmaachen: Virschléi maachen - eleng oder mat aneren -, bei Debatten matmaachen, Prioritéiten setzen fir Projeten ëmzesetzen, un perséinlechen Treffen an aneren Aktiounen deelhuelen.</p>\n"
           title: Wat kann ech an der %{organization} maachen?
-        description: Méi liesen iwwer %{organization}
         title: Allgemeng Hëllef
     last_activities:
       activities:
@@ -848,35 +792,29 @@ lb:
           admin_in_group: Du kriss dat hei, well s'du en Admin am Grupp %{group} bass.
           greeting: Moien %{recipient}!
           intro: "%{manager} huet eng nei Konversatioun am Numm vum Grupp %{group} ugefaangen. Klick hei fir et ze gesinn:"
-          outro: Vill Spaass mat decidim!
           subject: "%{manager} huet eng Konversatioun mam %{group} ugefaangen"
         comanagers_new_message:
           admin_in_group: Du kriss dat hei, well s'du en Admin am Grupp %{group} bass.
           greeting: Moien %{recipient}!
           intro: "%{manager} huet nei Noriichten gepost an der Konversatioun mam Grupp %{group}. Klick hei fir se ze gesinn:"
-          outro: Vill Spaass mat decidim!
           subject: "%{manager} huet eng nei Noriicht an de %{group} geschéckt"
         new_conversation:
           greeting: Moien %{recipient}!
           intro: "%{sender} huet eng nei Konversatioun mat dir ugefaange. Klick hei fir se ze gesinn:"
-          outro: Vill Spaass mat decidim!
           subject: "%{sender} huet eng Konversatioun mat dir ugefaangen"
         new_group_conversation:
           admin_in_group: Du kriss dat hei, well s'du en Admin am Grupp %{group} bass.
           greeting: Moien %{recipient}!
           intro: "%{sender} huet eng nei Konversatioun am Grupp ugefaange %{group}. Klick hei fir se ze gesinn:"
-          outro: Vill Spaass mat decidim!
           subject: "%{sender} huet eng Konversatioun mam %{group} ugefaangen"
         new_group_message:
           admin_in_group: Du kriss dat heiten, well du bass Administrateur am %{group}.
           greeting: Moien, %{recipient}!
           intro: "%{sender} huet nei Noriichten gepost an der Konversatioun mam Grupp %{group}. Klick hei fir se ze gesinn:"
-          outro: Vill Spaass mat decidim!
           subject: "%{group} hat neue Nachrichten von %{sender}"
         new_message:
           greeting: Moien, %{recipient}!
           intro: "%{sender} huet nei Noriichten an denger Konversatioun gepost. Klick hei fir se ze gesinn:"
-          outro: Vill Spaass mat decidim!
           subject: Du hues nei Noriichten vum %{sender}
       conversations:
         add_conversation_users:
@@ -884,9 +822,6 @@ lb:
           add_users_placeholder: Sich...
           modal_title: Nei Konversatioun
           no_results: Keen Resultat
-          participant_with_disabled_message_reception: Dësen Teilnehmer huet Noriichten desaktivéiert
-        create:
-          error: D'Konversatioun gouf net gestart. Probéier méi spéit nach emol
         error_modal:
           close: Dialog zou maachen
           correct_errors: Korrigéier w. e. g. dëse Feeler a probéier op en Neits.
@@ -896,7 +831,6 @@ lb:
           ago: virun
           new_conversation: Nei Konversatioun
           next: Weider
-          no_conversations: Du hues nach keng Konversatiounen
           title: Konversatiounen
         show:
           back: Zeréck bei all d'Konversatiounen
@@ -905,8 +839,6 @@ lb:
           title: Konversatioun mam %{usernames}
         start:
           send: Senden
-        update:
-          error: Wéinst engem Feeler konnt d'Noriicht net geschéckt ginn
     metrics:
       download:
         csv: Daten am (CSV) eroflueden
@@ -1031,7 +963,6 @@ lb:
           success: Wonnerbar! Du hues d'Konditiounen vum Benotzen akzeptéiert.
         form:
           agreement: Ech sinn mat dësen Konditiounen averstane
-          legend: Akzeptéier d'Konditiounen vum Benotzen
         refuse:
           modal_btn_continue: Konditiounen akzeptéieren an weiderfueren
           modal_btn_exit: Ech iwwerpréiwen dat méi spéit
@@ -1044,12 +975,9 @@ lb:
     participatory_space_private_users:
       not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
     profile:
-      deleted: Teilnehmer geläscht
       inaccessible_message: Dësen Profil ass wéinst der Verletzung vun den Konditiounen vum Benotzen net zougänglech!
       view: Uweisen
     profiles:
-      default_officialization_text_for_user_groups: Dësen Grupp gouf ëffentlech iwwerpréift, säin Numm stëmmt mat sengem richtegen Numm iwwerteneen
-      default_officialization_text_for_users: Dësen Teilnehmer gouf ëffentlech iwwerpréift, säin Numm an seng Roll stëmmen mat sengem tatsächlechen Numm an senger Roll iwwerteneen
       show:
         activity: Aktivitéit
         badges: Ofzeechen
@@ -1066,11 +994,9 @@ lb:
           info: Ofzeechen kann een sech verdéngen, andeems een bestëmmten Aktivitéiten op der Plattform duerchféiert.
           title: Ofzeechen
       user:
-        confirmation_instructions_sent: Et gouf en Email mat Instruktiounen geschéckt
         create_user_group: Grupp erstellen
         edit_profile: Profil beaarbechten
         edit_user_group: Profil vum Grupp beaarbechten
-        fill_in_email_to_confirm_it: Gëff w. e. g. d'Email-Adress vun dengem Grupp an fir se ze bestätegen
         invite_user: En Teilnehmer alueden
         join_user_group: Ufro engem Grupp bäitrieden ze dierfen
         leave_user_group: Grupp verloossen
@@ -1225,7 +1151,6 @@ lb:
     user_contact_disabled: Dësen Teilnehmer refuséiert direkt Noriichten.
     user_conversations:
       create:
-        error: Dës Noriicht konnt net erstallt ginn. Probéier mi spéit nach eng Kéier
         existing_error: Dës Noriicht konnt net erstallt ginn. D'Konversatioun besteet schon, probéier elo nach eng Kéier.
         success: Konversatioun gestart!
       index:
@@ -1240,7 +1165,6 @@ lb:
         next: Weider
         no_conversations_warning: Et gëtt nach keng Konversatiounen.
         no_results: Keng Resultater
-        participant_with_disabled_message_reception: Dësen Teilnehmer huet Noriichten desaktivéiert
         time_ago: "Virun %{time}"
       new:
         title: Eng Konversatioun ufänken
