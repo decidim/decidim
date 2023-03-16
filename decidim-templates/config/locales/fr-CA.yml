@@ -13,19 +13,13 @@ fr-CA:
       templates:
         apply:
           error: Une erreur est survenue lors de l'application de ce modèle.
-          success: Modèle appliqué avec succès
         copy:
           error: Une erreur est survenue lors de la copie de ce modèle.
-          success: Modèle copié avec succès
         create:
           error: Une erreur est survenue pendant la création du modèle.
-          success: Modèle créé avec succès
-        destroy:
-          success: Modèle supprimé avec succès
         empty: Il n'y a pas de modèle pour l'instant.
         update:
           error: Un problème est survenu lors de la mise à jour de ce modèle.
-          success: Modèle mis à jour avec succès
       titles:
         template_types:
           questionnaires: Modèles de questionnaire
@@ -59,7 +53,6 @@ fr-CA:
             skip_template: Passer
           edit:
             edit: Modifier
-            empty: Il n'y a pas encore de question
             questionnaire: Questionnaire
           form:
             save: Sauvegarder
