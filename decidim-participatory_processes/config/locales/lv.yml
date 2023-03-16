@@ -363,8 +363,6 @@ lv:
               one: viens gaidāmais process
               other: "%{count} gaidāmie procesi"
           explanations:
-            no_active: Nav aktīvu procesu
-            no_active_nor_upcoming: Nav ne aktīvu, ne gaidāmu procesu
             no_active_nor_upcoming_callout: Nav ne aktīvu, ne gaidāmu procesu. Šeit ir saraksts ar agrākajiem.
           names:
             active: Aktīvas
