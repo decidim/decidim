@@ -29,12 +29,6 @@ lb:
         title: Aktionen
       admin:
         budgets:
-          create:
-            invalid: Beim Erstellen dieses Budgets ist ein Problem aufgetreten
-            success: Budget erfolgreich erstellt
-          destroy:
-            invalid: Es gab ein Problem beim Löschen dieses Budgets
-            success: Budget erfolgreich gelöscht
           edit:
             title: Budget bearbeiten
             update: Budget aktualisieren
@@ -47,9 +41,6 @@ lb:
           new:
             create: Budget erstellen
             title: Neues Budget
-          update:
-            invalid: Es gab ein Problem beim Aktualisieren dieses Budgets
-            success: Budget erfolgreich aktualisiert
         exports:
           projects: Projekte
         models:
@@ -58,11 +49,6 @@ lb:
           project:
             name: Projekt
         projects:
-          create:
-            invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten
-            success: Projekt erfolgreich erstellt
-          destroy:
-            success: Projekt erfolgreich gelöscht
           edit:
             title: Projekt bearbeiten
             update: Aktualisieren
@@ -74,13 +60,7 @@ lb:
           new:
             create: Erstellen
             title: Neues Projekt
-          update:
-            invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten
-            success: Projekt erfolgreich aktualisiert
         proposals_imports:
-          create:
-            invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
-            success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
@@ -102,9 +82,6 @@ lb:
         close_modal: Dialog schließen
         continue: Weiter
         more_information: Mehr Informationen
-      budget_list_item:
-        voting_finished: Sie haben bei diesem Budget abgestimmt
-        voting_started: Sie haben damit begonnen, bei diesem Budget abzustimmen
       budgets_list:
         cancel_order:
           more_than_one: lösche deine Stimme am %{name} und beginne neu
@@ -113,7 +90,6 @@ lb:
         highlighted_cta: Über %{name} abstimmen
         if_change_opinion: Wenn sie ihr Meinung geändert haben, können sie
         my_budgets: Meine Budgets
-        voted_on: Sie haben über %{links} abgestimmt
       limit_announcement:
         limit_reached: Sie haben aktive Stimmen in %{links}. Um über dieses Budget abstimmen zu können, müssen Sie <a href="%{landing_path}">Ihre Stimme löschen und neu </a> beginnen.
       models:
@@ -201,8 +177,6 @@ lb:
           random: Zufällige Anordnung
           selected: Ausgewählt
         project:
-          add: Projekt %{resource_name} Ihrer Stimme hinzufügen
-          remove: Projekt %{resource_name} aus deiner Stimme entfernen
           selected: Ausgewählt
           view: Anzeigen
           votes:
@@ -210,9 +184,7 @@ lb:
             other: Abstimmungen
         project_budget_button:
           add: Zur Abstimmung hinzufügen
-          add_descriptive: Projekt %{resource_name} Ihrer Stimme hinzufügen
           added: Zu deiner Abstimmung hinzugefügt
-          added_descriptive: Projekt %{resource_name} wurde zu deiner Abstimmung hinzugefügt
         projects_for: Projekte für %{name}
         show:
           budget: Budget
@@ -228,10 +200,6 @@ lb:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
-            form:
-              errors:
-                budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein
-                budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
@@ -271,13 +239,6 @@ lb:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv.
           notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
-    orders:
-      checkout:
-        error: Während der Bearbeitung Ihrer Abstimmung ist ein Fehler aufgetreten
-        success: Ihre Stimme wurde erfolgreich angenommen
-      destroy:
-        error: Bei der Absage der Abstimmung ist ein Fehler aufgetreten
-        success: Ihre Abstimmung wurde erfolgreich abgebrochen
     resource_links:
       included_proposals:
         project_proposal: Vorschläge in diesem Projekt
