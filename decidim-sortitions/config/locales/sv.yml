@@ -62,9 +62,6 @@ sv:
             title: Avbryta tilldelningen
           create:
             error: Det gick inte att skapa en ny tilldelning.
-            success: Tilldelningen har skapats
-          destroy:
-            success: Tilldelningen har avbrutits
           edit:
             title: Uppdatera informationen om tilldelningen
             update: Uppdatera
@@ -81,7 +78,6 @@ sv:
             selected_proposals: Förslag som valts för lottning
           update:
             error: Det gick inte att uppdatera tilldelningen.
-            success: Tilldelningen har uppdaterats
       admin_log:
         sortition:
           create: "%{user_name} skapade tilldelningen %{resource_name} i %{space_name}"
