@@ -27,23 +27,16 @@ fr-CA:
           post:
             name: Publier
         posts:
-          create:
-            invalid: Un problème est survenu lors de la création de cet article
-            success: Article créé avec succès
-          destroy:
-            success: Article supprimé avec succès
           edit:
             save: Mettre à jour
             title: Éditer le post
           index:
-            not_published_yet: Pas encore publié
             title: Articles
           new:
             create: Créer
             title: Créer un article
           update:
             invalid: Il y a eu des erreurs lors de l'enregistrement de l'article.
-            success: Article enregistré avec succès
       admin_log:
         post:
           create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
