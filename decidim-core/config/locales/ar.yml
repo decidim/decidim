@@ -191,11 +191,9 @@ ar:
         cancel_error: لا يمكن إلغاء طلب تغيير البريد الإلكتروني.
         cancel_successfully: تم إلغاء تغيير البريد الإلكتروني بنجاح.
         resend_error: تعذرت إعادة إرسال بريد التأكيد الاكتروني.
-        resend_successfully: تمت إعادة إرسال بريد التأكيد الالكتروني بنجاح إلى %{unconfirmed_email}
         send_again: إرسل مجددا
         title: التحقق من تغيير البريد الإلكتروني
       show:
-        available_locales_helper: اختر اللغة التي تريد استخدامها لتصفح وتلقي الإشعارات على المنصة
         change_password: غير كلمة السر
         update_account: تحديث الحساب
       update:
@@ -208,7 +206,6 @@ ar:
       actions:
         cancel: إلغاء
       password_change:
-        alert: عليك تغيير كلمة السر الخاصة بك من أجل المضي قدماً
         notification: يجب على المستخدمين المدراء تغيير كلمة المرور الخاصة بهم كل %{days} أيام.
     admin_log:
       area:
@@ -311,10 +308,8 @@ ar:
         amended_by: عدلت من قبل
         button: تعديل %{model_name}
         error: طرأ خطأ خلال تصليح هذا المورد.
-        help_text: تحسين هذا %{model_name} عن طريق تعديل %{amendable_fields}الخاص به
         promote_button: ترقية إلى صفة %{model_name}
         promote_confirm_text: هل أنت متأكد من رغبتك في الترويج لهذا الإصدار؟
-        promote_help_text: يمكنك الترويج لهذا التعديل ونشره كـ %{model_name} مستقل
         section_heading: التعديلات (%{count})
       compare_draft:
         continue: متابعة
@@ -356,26 +351,16 @@ ar:
         modify: تعديل
         publish: انشر
         title: نشر مسودة التعديل
-      promoted:
-        error: كانت هناك مشكلة في نشر التعديل كاقتراح جديد
-        success: تم نشر التعديل بنجاح كمقترح جديد
       publish_draft:
         error: حدثت هناك مشكلة أثناء نشر التعديل.
         success: تم نشر التعديل بنجاح.
-      rejected:
-        error: حدثت مشكلة في رفض هذا التعديل ، يرجى إعادة المحاولة لاحقًا
-        success: تم رفض التعديل بنجاح
       review:
         back: الى الخلف
         heading: مراجعة التعديل
-        help_text: أنت تراجع التعديل على %{model_name}
         send: قبول التعديل
       update_draft:
         error: حدثت هناك مشكلة أثناء تحديث مسودة التعديل.
         success: تم تحديث مسودة التعديل بنجاح.
-      withdraw:
-        error: حدث خطأ أثناء سحب التعديل
-        success: تم سحب تعديل المسودة بنجاح
       wizard_step_form:
         steps:
           '1': إنشاء التعديل الخاص بك
@@ -415,13 +400,11 @@ ar:
       official_author: رسمي
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: الحصول على التحقق عن طريق إدخال رقم جواز سفر يبدأ بـ "A"
         fields:
           passport_number: رقم جواز السفر
           postal_code: الكود البريدى
         name: مثال آخر إذن
       dummy_authorization_handler:
-        explanation: الحصول على التحقق من خلال إدخال رقم مستند ينتهي بـ "X"
         fields:
           allowed_postal_codes: الرموز البريدية المسموح بها (مفصولة بفواصل)
           allowed_scope_id: النطاق المسموح به
@@ -462,11 +445,7 @@ ar:
           authorize: التفويض مع "%{authorization}"
           explanation: من أجل تنفيذ هذا الإجراء، تحتاج إلى التفويض مع "%{authorization}".
           title: التفويض مطلوب
-        ok:
-          title: لقد تم التفوبض لك أثناء وجودك على هذه الصفحة. يرجى إعادة تحميل الصفحة لتنفيذ الإجراء الخاص بك
         pending:
-          explanation: من أجل تنفيذ هذا الإجراء، تحتاج إلى التفويض مع "%{authorization}" ، ولكن تفويضك لا يزال قيد العمل
-          resume: تحقق من تقدم التفويض%{authorization} الخاص بك
           title: لا يزال الترخيص قيد انتظار التأكيد
         unauthorized:
           ok: موافق
@@ -575,22 +554,15 @@ ar:
           summary_content: المحتوى
         two_pane_section:
           left_column: العمود الأيسر
-          name: قسم من جزئين
           right_column: العمود الأيمن
       stats:
         name: احصائيات المنظمة
       sub_hero:
         name: البطل الفرعي راية
-    core:
-      actions:
-        login_before_access: من فضلك ، لِج بحسابك قبل الوصول
-        unauthorized: غير مصرح لك بتنفيذ هذا الإجراء
     datepicker:
       help_text: 'التنسيق المتوقع: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: يستخدم حساب آخر عنوان البريد الإلكتروني نفسه
         new:
           complete_profile: الملف الشخصي الكامل
           nickname_help: الاسم المستعار الخاص بك في %{organization}. يمكن أن يحتوي فقط على أحرف وأرقام '-' و '_'.
@@ -616,8 +588,6 @@ ar:
         new:
           are_you_new?: جديد على المنصة؟
           register: انشئ حساب
-          sign_in_disabled: يمكنك الوصول باستخدام حساب خارجي
-          sign_up_disabled: تم تعطيل التسجيل ، يمكنك استخدام حساب موجود للوصول
         user:
           timed_out: لقد كنت غير نشطاً لفترة طويلة للغاية وتم تسجيل خروجك تلقائياً من الخدمة. في حال تود مواصلة استخدام الخدمة يجب عليك إعادة تسجيل الدخول.
       shared:
@@ -635,7 +605,6 @@ ar:
           authorize: إذن التطبيق
           by_organization_link_html: <small class="heading-small">بواسطة %{link}</small>
           cancel: إلغاء
-          connect_your_account_html: قم بتوصيل حسابك بتسجيل الدخول إلى <strong>%{organization}</strong>
           publish_content: نشر المحتوى لك
           see_email: انظر البريد الإلكتروني الخاص بك
           see_name: انظر اسمك
@@ -966,17 +935,8 @@ ar:
       index:
         invite: دعا
         invite_user: دعوة مشارك
-      invite:
-        error: حدثت مشكلة أثناء دعوة هذا المشارك
-        success: تمت دعوة المشارك بنجاح
-      reject:
-        error: حدثت مشكلة في رفض هذه الدعوة
-        success: تم رفض الدعوة بنجاح
       reject_invitation: رفض
     group_members:
-      accept:
-        error: حدثت مشكلة في قبول طلب الانضمام هذا
-        success: انضمام طلب قبول بنجاح
       actions:
         are_you_sure: هل أنت واثق؟
         promote_to_admin: جعل المشرف
@@ -984,36 +944,20 @@ ar:
       index:
         current_members_without_admins: 'الأعضاء الحاليون (بدون مدراء):'
         manage_members: إدارة الأعضاء
-      promote:
-        error: كانت هناك مشكلة في الترويج لهذا المشارك
-        success: تمت ترقية المشارك بنجاح
-      reject:
-        error: حدثت مشكلة في رفض طلب الانضمام هذا
-        success: تم رفض طلب الانضمام بنجاح
-      remove:
-        error: حدثت مشكلة أثناء إزالة هذا المشارك من المجموعة
-        success: تمت إزالة المشارك بنجاح من المجموعة
     groups:
       actions:
         are_you_sure: هل أنت واثق؟
-      create:
-        error: كانت هناك مشكلة في إنشاء المجموعة
-        success: تم إنشاء المجموعة بنجاح
       edit:
         edit_user_group: تعديل المجموعة
         update_user_group: تحديث المجموعة
       form:
-        document_number_help: لا تستخدم شرطات ولا مسافات
         email_help: البريد الإلكتروني لمؤسستك أو رابطتك أو جماعتك أو مجموعتك ، إلخ
         fill_in_for_verification: 'املأ هذه الحقول إذا كنت تريد التحقق من مجموعتك:'
         name_help: اسم مؤسستك أو جمعيتك أو جماعتك أو جماعتك ، إلخ.
         nickname_help: الاسم المستعار لمؤسستك أو رابطتك أو جماعتك أو مجموعتك ، إلخ. لا تستخدم مسافات أو لهجات.
-        phone_help: لا تستخدم شرطات ولا مسافات
       join:
-        error: حدثت مشكلة في الانضمام إلى المجموعة
         success: انضمام طلب تم إنشاؤه بنجاح. سيقوم المشرف بمراجعة طلبك قبل قبولك في المجموعة.
       leave:
-        error: حدثت مشكلة أثناء مغادرة المجموعة
         success: تم التخلي عن المجموعة بنجاح.
       members:
         accept_or_reject_join_requests: 'تقدم المستخدمون التاليون بطلب للانضمام إلى هذه المجموعة. قبول أو رفض طلباتهم:'
@@ -1027,15 +971,11 @@ ar:
         admin: مدير
         creator: مدير
         member: عضو
-      update:
-        error: حدثت مشكلة أثناء تحديث المجموعة
-        success: تم تحديث المجموعة بنجاح
     help:
       main_topic:
         default_page:
           content: "<p>في %{organization} يمكنك المشاركة واتخاذ قرار بشأن مواضيع مختلفة ، من خلال المساحات التي تراها في القائمة العليا: العمليات ، والجمعيات ، والمبادرات ، والمشاورات.</p> <p>في كل منها ، ستجد خيارات مختلفة للمشاركة: تقديم مقترحات - بشكل فردي أو مع أشخاص آخرين - والمشاركة في المناقشات ، وتحديد أولويات المشاريع للتنفيذ ، وحضور الاجتماعات وجهاً لوجه وغيرها من الإجراءات.</p>\n"
           title: ماذا يمكنني أن أفعل في %{organization}؟
-        description: قراءة المزيد عن %{organization}
         title: المساعدة العامة
     last_activities:
       activities:
@@ -1092,35 +1032,29 @@ ar:
           admin_in_group: تتلقى هذا لأنك مدير في %{group}.
           greeting: مرحباً، %{recipient}!
           intro: "بدأ %{manager} محادثة جديدة باسم %{group}. انقر هنا لرؤيتها:"
-          outro: استمتع بDecidim!
           subject: "بدأ %{manager} محادثة جديدة كـ %{group}"
         comanagers_new_message:
           admin_in_group: تتلقى هذا لأنك مدير في %{group}.
           greeting: مرحباً، %{recipient}!
           intro: "قام %{manager} بنشر رسائل جديدة في المحادثة ذات اسم %{group}. انقر هنا لرؤيتها:"
-          outro: استمتع بDecidim!
           subject: "%{manager} أرسل رسائل جديدة كـ %{group}"
         new_conversation:
           greeting: مرحبًا ، %{recipient}!
           intro: "%{sender} بدأ محادثة جديدة معك. انقر هنا لرؤيتها:"
-          outro: استمتع ديسيديم!
           subject: "%{sender} بدأ محادثة معك"
         new_group_conversation:
           admin_in_group: تتلقى هذا لأنك مدير في %{group}.
           greeting: مرحباً، %{recipient}!
           intro: "بدأ %{sender} محادثة جديدة مع المجموعة %{group}. انقر هنا لرؤيتها:"
-          outro: استمتع بDecidim!
           subject: "بدأ %{sender} محادثة جديدة مع %{group}"
         new_group_message:
           admin_in_group: تتلقى هذا لأنك مدير في %{group}.
           greeting: مرحباً، %{recipient}!
           intro: "قام %{sender} بنشر رسائل جديدة في المحادثة مع المجوعة %{group}. انقر هنا لرؤيتها:"
-          outro: استمتع بDecidim!
           subject: "%{group} لديها رسائل جديدة من %{sender}"
         new_message:
           greeting: مرحبًا ، %{recipient}!
           intro: "نشر %{sender} رسائل جديدة في محادثتك. انقر هنا لرؤيتها:"
-          outro: استمتع ديسيديم!
           subject: لديك رسائل جديدة من %{sender}
       conversations:
         add_conversation_users:
@@ -1128,9 +1062,6 @@ ar:
           add_users_placeholder: البحث…
           modal_title: محادثة جديدة
           no_results: لا توجد نتائج
-          participant_with_disabled_message_reception: قام هذا المشارك بتعطيل استقبال الرسائل
-        create:
-          error: لم تبدأ المحادثة. حاول مرة أخرى في وقت لاحق
         error_modal:
           close: اغلاق النموذج
           correct_errors: يرجى تصحيح الأخطاء والمحاولة مرة أخرى.
@@ -1140,7 +1071,6 @@ ar:
           ago: منذ
           new_conversation: محادثة جديدة
           next: التالي
-          no_conversations: ليس لديك محادثات حتى الآن
           title: المحادثات
         reply_form:
           placeholder: ردك...
@@ -1153,8 +1083,6 @@ ar:
         start:
           placeholder: رسالتك...
           send: إرسال
-        update:
-          error: لم يتم إرسال الرسالة بسبب حدوث خطأ
     metrics:
       download:
         csv: تحميل البيانات (CSV)
@@ -1316,7 +1244,6 @@ ar:
           success: عظيم! لقد قبلت الشروط والأحكام.
         form:
           agreement: أوافق على هذه الشروط
-          legend: توافق على شروط وأحكام الاستخدام
         refuse:
           modal_btn_continue: قبول الشروط والمتابعة
           modal_btn_exit: سأراجعها لاحقًا
@@ -1328,17 +1255,10 @@ ar:
           title: 'مطلوب: مراجعة التحديثات لشروط الخدمة لدينا'
     participatory_space_private_users:
       not_allowed: غير مسموح لك بمشاهدة هذا المحتوى
-    passwords:
-      update:
-        error: طرأت مشكلة خلال تحديث كلمة المرور
-        success: تم تحديث كلمة المرور بنجاح
     profile:
-      deleted: تم حذف المشارك
       inaccessible_message: لا يمكن الوصول إلى هذا الملف الشخصي بسبب انتهاك الشروط والأحكام!
       view: رأي
     profiles:
-      default_officialization_text_for_user_groups: تم التحقق من هذه المجموعة علنًا ، وتم التحقق من اسمها لتتوافق مع اسمه الحقيقي
-      default_officialization_text_for_users: تم التحقق من هذا المشارك علنًا ، وتم التحقق من اسمه / دوره ليتوافق مع اسمه / دوره الحقيقي
       show:
         activity: نشاط
         badges: شارات
@@ -1364,11 +1284,9 @@ ar:
           manage_user_group_admins: إدارة المدراء
           manage_user_group_users: إدارة الاعضاء
           message: الرسالة
-        confirmation_instructions_sent: تم إرسال تعليمات تأكيد البريد الإلكتروني
         create_user_group: إنشاء مجموعة
         edit_profile: تعديل الملف الشخصي
         edit_user_group: تحرير ملف تعريف المجموعة
-        fill_in_email_to_confirm_it: يرجى ملء البريد الإلكتروني لمجموعتك لتأكيدها
         invite_user: دعوة مشارك
         join_user_group: طلب الانضمام إلى المجموعة
         leave_user_group: غادر المجموعة
@@ -1536,7 +1454,6 @@ ar:
     user_contact_disabled: هذا المشارك لا يقبل الرسائل المباشرة.
     user_conversations:
       create:
-        error: تعذر إنشاء الرسالة. يرجى المحاولة مرة أخرى لاحقاً
         existing_error: تعذر إنشاء الرسالة. المحادثة موجودة بالفعل، الرجاء المحاولة مرة أخرى الآن.
         success: تم بدء المحادثة بنجاح!
       index:
@@ -1551,7 +1468,6 @@ ar:
         next: التالي
         no_conversations_warning: لا توجد نقاشات بعد.
         no_results: لا توجد نتائج
-        participant_with_disabled_message_reception: قام هذا المشارك بتعطيل استقبال الرسائل
         time_ago: "منذ %{time}"
       new:
         title: بدء محادثة
