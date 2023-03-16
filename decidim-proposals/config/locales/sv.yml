@@ -215,10 +215,8 @@ sv:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Någon har lämnat en anteckning på förslaget "%{resource_title}". Kolla in det på <a href="%{admin_proposal_info_url}">adminpanelen</a>
             email_outro: Du har fått detta meddelande eftersom du kan värdera förslaget.
             email_subject: Någon lämnade en anteckning på förslag %{resource_title}.
-            notification_title: Någon har lämnat en anteckning om förslaget <a href="%{resource_path}">%{resource_title}</a>. Kolla in det på <a href="%{admin_proposal_info_path}">adminpanelen</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har fått tillgång till och är accepterad som bidragsgivare till %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>fått tillgång till och accepterats som bidragsgivare till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
@@ -241,12 +239,10 @@ sv:
           email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddlanden via föregående länk.
           email_subject: Det är nu möjligt att skapa förslag i %{participatory_space_title}
-          notification_title: Nu kan du lägga fram <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Du kan instämma med förslag på %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Instämmande i förslag har startat för %{participatory_space_title}
-          notification_title: Du kan nu börja att <a href="%{resource_path}">instämma i förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har accepterats. Du kan läsa svaret på den här sidan:'
@@ -283,7 +279,6 @@ sv:
           email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: Nytt förslag "%{resource_title}" lades till %{participatory_space_title}
-          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title} av %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Ditt förslag "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
@@ -436,21 +431,12 @@ sv:
             rejected: Avvisat
             title: Svar på förslaget %{title}
         proposal_notes:
-          create:
-            error: Det gick inte att skapa anteckningen till förslaget
-            success: Förslagsanteckning skapades
           form:
             note: Annteckning
             submit: Skicka in
           leave_your_note: Lämna anteckningen
           title: Privata anteckningar
         proposals:
-          answer:
-            invalid: Det gick inte att svara på förslaget
-            success: Förslaget har besvarats
-          create:
-            invalid: Det gick inte att skapa förslaget
-            success: Förslaget har skapats
           edit:
             title: Uppdatera förslag
             update: Uppdatera
@@ -524,9 +510,6 @@ sv:
             select_a_scope: Välj ett omfång
             success: 'Förslag som har uppdaterats till omfånget %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Det gick inte att importera förslagen
-            success: "%{number} förslag har importerats"
           new:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagarutrymme att importera förslagen från.
@@ -541,13 +524,6 @@ sv:
           create:
             invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
-        valuation_assignments:
-          create:
-            invalid: Det gick inte att tilldela förslag till en värderare
-            success: Förslag tilldelades till en värderare
-          delete:
-            invalid: Det gick inte att ta bort tilldelningen av förslag från en värderare
-            success: Värderaren är inte längre tilldelad till förslagen
       admin_log:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
@@ -814,8 +790,6 @@ sv:
         proposal:
           creation_date: 'Skapat: %{date}'
           view_proposal: Visa förslag
-        proposals:
-          empty: Det finns ännu inget förslag
         show:
           answer: Svara
           back_to: Tillbaka till
@@ -868,8 +842,6 @@ sv:
             supports_remaining: Du måste stödja ytterligare %{remaining_votes} förslag för att dina stöd ska beaktas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
-          threshold_per_proposal:
-            description: För att valideras måste förslag nå stöd från %{limit}
           title: 'Stöd är föremål för följande regler:'
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
