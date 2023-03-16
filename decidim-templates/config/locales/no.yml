@@ -13,18 +13,11 @@
       templates:
         apply:
           error: Det oppstod et problem med å bruke denne malen.
-          success: Mal lagt til
         copy:
           error: Det oppstod et problem under kopiering av denne malen.
-          success: Malen ble kopiert
         create:
           error: Det oppstod et problem under oppretting av malen.
-          success: Malen er opprettet
-        destroy:
-          success: Malen ble slettet
         empty: Det finnes ingen maler enda.
-        update:
-          success: Mal oppdatert
       titles:
         template_types:
           questionnaires: Maler for spørreskjema
@@ -49,7 +42,6 @@
             skip_template: Hopp over
           edit:
             edit: Rediger
-            empty: Det er ingen spørsmål enda
             questionnaire: Spørreskjema
           form:
             save: Lagre
