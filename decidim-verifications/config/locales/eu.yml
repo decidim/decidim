@@ -36,10 +36,8 @@ eu:
           before_date_info: Erabilgarria da prozesua hasita badago eta aurreko prozesuko baimenak ezeztatu nahi badituzu.
           button: Ezeztatu guztiak
           button_before: Ezeztatu data honen aurrekoak
-          destroy_nok: Arazo bat izan da baimen guztiak ezeztatzean.
           destroy_ok: Bat datozen baimen guztiak zuzen ezeztatu dira.
           info: Guztira %{count} parte-hartzaile egiaztatuta daude.
-          no_data: Ez dago parte-hartzaile egiaztaturik
           title: Baimenak ezeztatzea
         authorization_workflows: Baimenak
     admin_log:
@@ -49,10 +47,6 @@ eu:
         grant_id_documents_offline_verification: "%{user_name} k egiaztatu zuen %{resource_name} nortasun agirien baimen bat erabiliz"
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - Onartzen diren onartutako parte-hartzaileen mezu elektronikoak igortzen dituzte CSVak
-            - CSV fitxategi horretan mezu elektroniko bat duten parte-hartzaileek soilik egiaztatu ahal izango dute
         id_documents:
           help:
             - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
@@ -66,17 +60,14 @@ eu:
             - Bidalitako mezua markatzen du.
             - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
       csv_census:
-        explanation: Egiaztatu erakundearen zentsua erabiliz
         name: Erakundearen zentsua
       direct: Zuzeneko
       help: Laguntza
       id_documents:
-        explanation: Zure nortasun agiriak kargatu zure identitatea egiaztatzeko
         name: Nortasun agiriak
       multistep: Multi-Step
       name: izena
       postal_letter:
-        explanation: Posta-gutun bat bidaliko dizugu, sartu behar duzun kode batekin, beraz, zure helbidea egiaztatu ahal izango dugu
         name: Kodea posta bidez
     events:
       verifications:
@@ -119,7 +110,6 @@ eu:
         renew_modal:
           cancel: Utzi
           continue: Jarraitu
-          info_renew: Datuak eguneratu nahi badituzu, jarraitu berriztatzen
           title: Berritu egiaztapena
         skip_verification: Hau saltatu dezakezu oraingoz eta %{link}
         start_exploring: Hasi esploratzen
@@ -128,13 +118,9 @@ eu:
           census:
             create:
               error: Errore bat gertatu da errolda inportatzean.
-              success: Arrakastaz inportatutako %{count} elementu (%{errors} errore)
-            destroy_all:
-              success: Erroldatze-datu guztiak ezabatu egin dira
           destroy:
             title: Zentsu-datu guztiak ezabatu
           index:
-            data: Guztira %{count} karga daude guztira. Azken kargatze-data %{due_date}
             empty: Ez dago zentsu-datuik. Erabili beheko formularioa CSV fitxategiaren bidez inportatzeko.
             title: Uneko erroldako datuak
           instructions:
@@ -167,17 +153,12 @@ eu:
               update: eguneratzearen
             update:
               error: Errore bat gertatu da konfigurazioa eguneratzean.
-              success: Konfigurazioa behar bezala eguneratu da
           confirmations:
-            create:
-              success: Erabiltzaileak behar bezala egiaztatu du
             new:
               introduce_user_data: Idatzi irudian datuak
               reject: Ukatu
               verify: Ziurtatu
           offline_confirmations:
-            create:
-              success: Erabiltzaileak behar bezala egiaztatu du
             new:
               cancel: Utzi
               introduce_user_data: Erabiltzailearen helbide elektronikoa eta dokumentuaren datuak sartu
@@ -188,32 +169,19 @@ eu:
               offline_verification: Lineaz kanpoko egiaztapena
               title: Zain dauden egiaztapenak
               verification_number: 'Egiaztapena # %{n}'
-          rejections:
-            create:
-              success: Verification rejected. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
         authorizations:
           choose:
             choose_a_type: 'Hautatu nola egiaztatu nahi duzun:'
             offline: Offline
             online: Online
             title: Egiaztatu zure identifikazio dokumentua
-          create:
-            error: Arazo bat izan da dokumentua kargatzean
-            success: Dokumentua behar bezala kargatu da
           edit:
-            being_reviewed: Zure dokumentuak berrikusten ari gara. Handik gutxira, egiaztatu egingo zara
             offline: Erabili lineaz kanpoko egiaztapena
             online: Erabili lineako egiaztapena
-            rejection_clarity: Ziurtatu informazioa kargatutako irudian ikusgai dagoela
-            rejection_correctness: Egiaztatu informazioa zuzena dela
-            rejection_notice: Arazo bat izan da zure egiaztapenarekin. Saiatu berriro mesedez
             send: Eskatu egiaztapena berriro
           new:
             send: Eska ezazu egiaztapena
             title: Kargatu zure identifikazio dokumentua
-          update:
-            error: Arazo bat izan da zure dokumentua berriro kargatzea
-            success: Dokumentua berriro kargatu da
         dni: DNI
         nie: NIE
         passport: pasaportea
@@ -228,28 +196,14 @@ eu:
               title: Etengabeko egiaztapenak
               username: Erabiltzaile izena
               verification_code: Egiaztapen kodea
-          postages:
-            create:
-              error: Errorea gutun gisa markatutako bidalketa gisa
-              success: Letra bidalitako gisa markatu da
         authorizations:
-          create:
-            error: Arazo bat izan da eskaera zurekin
-            success: Eskerrik asko! Zure helbidean egiaztapen-kodea bidaliko dugu
           edit:
             send: Berretsi
-            title: Jasotako egiaztapen-kodea sartu
-            waiting_for_letter: Zure helbidera gutun bat bidaliko dizugu egiaztapen-kodearekin laster
           new:
             send: Bidali gutun bat
             title: Eskatu egiaztapen-kodea
-          update:
-            success: Zorionak. Ongi egiaztatu duzu
       sms:
         authorizations:
-          create:
-            error: Arazo bat izan da eskaera zurekin
-            success: Eskerrik asko! SMS bat bidali dizugu telefonoan.
           destroy:
             success: Egiaztapen kodea behar bezala berrezarri da. Sartu berriro zure telefono zenbakia.
           edit:
