@@ -67,12 +67,6 @@ sv:
         email: E-post
         name: Namn
         role: Roll
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Det här e-postadressen har redan blivit inbjuden
   activerecord:
     models:
       decidim/conference:
@@ -449,11 +443,6 @@ sv:
       index:
         title: Konferenser
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Din konferensregistrering har bekräftats
-          pending_validation:
-            subject: Din konferensregistrering väntar på bekräftelse
         invite_join_conference_mailer:
           invite:
             subject: Inbjudan att delta i en konferens
@@ -537,10 +526,6 @@ sv:
           contextual: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
           page: "<p>En <strong>konferens</strong> är en samling av möten som arrangeras i ett program, med ett antal personer inbjudna som talare, och andra informationsfält typiska för stora kongresser eller sociala evenemang (registrering, förteckning över organisationer som stöder eller sponsrar evenemanget, etc.).</p> <p>Exempel: En konferens kan vara ett relevant evenemang för en organisation och dess medlemmar, eller äga rum som en del av en deltagarprocess eller följa ett samråd.</p>\n"
           title: Vad är konferenser?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferensen hittades inte i databasen (ID: %{id})'
     media:
       index:
         description: Länkar om konferensen
