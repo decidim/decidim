@@ -38,6 +38,11 @@ chmod +x install-decidim.sh
 
 == Initializing your application for local development
 
+[NOTE]
+====
+The commands below will add lots of example seed data to the Decidim application. This may be confusing for new users if you only want to use Decidim for a specific purpose, such as collecting proposals or arranging participatory budgeting. If you want to start with an empty database (without any seeds) and configure the system yourself, please refer to xref:install:empty-database.adoc[Empty database installation] manual.
+====
+
 You should now setup your database:
 
 [source,console]
