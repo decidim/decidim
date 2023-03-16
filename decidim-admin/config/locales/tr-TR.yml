@@ -146,17 +146,12 @@ tr:
           success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
         actions:
           refuse: Yönetici şartlarını reddedin
-          title: Kullanım şartlarını ve koşullarını kabul edin
         required_review:
-          alert: 'Gerekli: Yönetici kullanım şartlarımızı inceleyin'
           cta: Şimdi gözden geçirin.
-        title: Yönetici Kullanım Koşulları
       area_types:
         create:
           error: Yeni alan türü oluştururken bir hata oluştu.
           success: Alan türü başarıyla oluşturuldu.
-        destroy:
-          success: Alan tipi başarıyla yok edildi
         edit:
           title: Alan türünü düzenle
           update: Güncelleştirme
@@ -165,13 +160,10 @@ tr:
           title: Yeni alan tipi
         update:
           error: Bu alan türünü güncellerken bir hata oluştu.
-          success: Alan türü başarıyla güncellendi
       areas:
         create:
           error: Yeni bir alan oluştururken bir hata oluştu.
           success: Alan başarıyla oluşturuldu.
-        destroy:
-          success: Alan başarıyla yok edildi
         edit:
           title: Alanı düzenle
           update: Güncelleştirme
@@ -181,7 +173,6 @@ tr:
         no_areas: Alan Yok
         update:
           error: Bu alanı güncellerken bir hata oluştu.
-          success: Alan başarıyla güncellendi
       attachment_collections:
         create:
           error: Yeni bir klasör oluştururken bir hata oluştu.
@@ -219,7 +210,6 @@ tr:
           success: Ek başarıyla güncellendi.
       autocomplete:
         no_results: Sonuç bulunamadı
-        search_prompt: Aramak için en az üç karakter girin
       block_user:
         new:
           action: Hesabı engelle ve uyarı mesjı gönder
@@ -337,10 +327,8 @@ tr:
         state_eq:
           label: Durum
       help_sections:
-        error: Yardım bölümleri güncellenirken bir hata oluştu
         form:
           save: Kayıt etmek
-        success: Bölümler başarıyla güncellenmiş Yardım
       impersonatable_users:
         index:
           filter:
@@ -574,8 +562,6 @@ tr:
           send_to_participants: Katılımcılara gönder
           title: Teslim etmek için alıcıları seçiniz
           warning: "<strong>Dikkat:</strong> Haber bülteni yalnızca bildirim seçeneklerinden <em>Haber bülteni almak istiyorum</em> ayarını etkinleştirmiş kullanıcılara gönderilecektir."
-        send:
-          no_recipients: Bu seçim için hiç alıcı yok
         show:
           preview: Ön izleme
           select_recipients_to_deliver: Teslim etmek için alıcıları seçiniz
@@ -584,13 +570,6 @@ tr:
           error: Bu bülteni güncellerken bir hata oluştu.
           success: Bülten başarıyla güncellendi. Lütfen göndermeden önce gözden geçirin.
       officializations:
-        block:
-          error: Katılımcıyı engellerken bir hata oluştu
-          success: Katılımcı başarıyla engellendi
-        create:
-          success: Kullanıcı başarıyla onaylandı
-        destroy:
-          success: Kullanıcı başarıyla gayri resmi
         index:
           actions: Eylemler
           badge: rozet
@@ -617,9 +596,6 @@ tr:
           full_name: Tam adı
           hidden: saklı
           show: Göster
-        unblock:
-          error: Katılımcıyı engellerken bir hata oluştu
-          success: Katılımcı başarıyla engellendi
       organization:
         edit:
           title: Kuruluş düzenle
@@ -653,12 +629,6 @@ tr:
           omnipresent_banner_appearance_title: Her yerde bulunan banner'ı düzenle
       organization_homepage:
         content_blocks:
-          create:
-            error: Bu içerik bloğu oluşturulurken bir sorun oluştu
-            success: Içerik bloğu başarıyla oluşturuldu
-          destroy:
-            error: Bu içerik bloğunu silmeye çalişirken bir sorun oluştu.  
-            success: İçerik bloğu başariyla silindi 
           edit:
             update: Güncellemeler 
         edit:
@@ -715,8 +685,6 @@ tr:
         create:
           error: Yeni kapsam oluştururken bir hata oluştu.
           success: Kapsam başarıyla oluşturuldu.
-        destroy:
-          success: Kapsam başarıyla yok edildi
         edit:
           title: Kapsamı düzenle
           update: Güncelleştirme
@@ -736,7 +704,6 @@ tr:
           error: Bu jetonu yok ederken bir hata oluştu.
           success: Jeton başarılı bir şekilde yok edildi.
         share_tokens:
-          empty: Etkin bir jeton yok
           help: Bu jeton, yayınlanmamış kaynağı herhangi bir kullanıcıyla herkese açık olarak paylaşmak için kullanılır. Kaynak yayınlandığında gizlenecekler. Paylaşılabilir URL'yi ziyaret etmek için jetonun paylaş simgesine tıklayın.
           title: Jeton paylaş
       shared:
@@ -748,8 +715,6 @@ tr:
         create:
           error: Yeni bir konu oluştururken bir hata oluştu.
           success: Konu başarıyla oluşturuldu.
-        destroy:
-          success: Konu başarıyla yok edildi
         edit:
           title: Konuyu düzenle
           update: Konuyu güncelle
@@ -764,12 +729,6 @@ tr:
           view: Genel sayfayı görüntüle
         content_blocks:
           add: Içerik bloğu ekle 
-          create:
-            error: Bu içerik bloğu oluşturulurken bir sorun oluştu
-            success: Içerik bloğu başarıyla oluşturuldu
-          destroy:
-            error: Bu içerik bloğunu silmeye çalişirken bir sorun oluştu.  
-            success: İçerik bloğu başariyla silindi 
           destroy_confirmation: Bu içerik bloğunu silmek istediğnizeden emin misiniz 
           edit:
             update: Güncellemeler 
@@ -793,11 +752,9 @@ tr:
         topic:
           destroy: Konuyu kaldır
           edit: Konuyu düzenle
-          empty: Bu konunun altında sayfa yok
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
-          success: Sayfa başarıyla güncellendi
       titles:
         admin_log: Yönetici günlüğü
         area_types: Alan türleri
@@ -820,10 +777,8 @@ tr:
           success: CSV dosyası başarıyla yüklendi, kriterleri karşılayan kullanıcı gruplarını doğrularız. Bu biraz zaman alabilir.
         reject:
           invalid: Bu kullanıcı grubunu reddederken bir hata oluştu.
-          success: Kullanıcı grubu başarıyla reddedildi
         verify:
           invalid: Bu kullanıcı grubunu doğrularken bir hata oluştu.
-          success: Kullanıcı grubu başarıyla doğrulandı
       user_groups:
         index:
           state:
@@ -855,7 +810,6 @@ tr:
           last_day: Son gün
           last_month: Geçen ay
           last_week: Geçen hafta
-          no_users_count_statistics_yet: Henüz canlı kullanıcı istatistikleri yok
           participants: Katılımcılar
       view_public_page: Genel sayfayı görüntüle
     moderations:
