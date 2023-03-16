@@ -39,7 +39,6 @@ es-MX:
         body: Cuerpo
         subject: Asunto
       organization:
-        admin_terms_of_use_body: Cuerpo para los términos de uso del administrador
         alert_color: Alerta
         available_authorizations: Autorizaciones disponibles
         badges_enabled: Habilitar insignias
@@ -134,10 +133,6 @@ es-MX:
         file: Expediente
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Seleccione al menos un espacio participativo
         organization:
           attributes:
             official_img_footer:
@@ -152,11 +147,6 @@ es-MX:
           attributes:
             file:
               malformed: Archivo de importación mal formateado, por favor lea las instrucciones cuidadosamente y asegúrese de que el archivo está codificado en UTF-8.
-      new_import:
-        attributes:
-          file:
-            invalid_file: El archivo proporcionado no es válido, por favor comprueba que el archivo está correctamente formateado
-            invalid_mime_type: Tipo de mime inválido
   activerecord:
     attributes:
       decidim/static_page:
@@ -177,8 +167,6 @@ es-MX:
         add: Añadir
         attachment:
           new: Nuevo archivo adjunto
-        attachment_collection:
-          new: Nueva colección de archivos adjuntos
         browse: Explorar
         category:
           new: Nueva categoría
@@ -206,18 +194,12 @@ es-MX:
           accept: Estoy de acuerdo con los términos
           are_you_sure: '¿Seguro que deseas rechazar los términos de uso para administradoras?'
           refuse: Rechazar los Términos y Condiciones de Administración
-          title: Acepto los Términos y Condiciones de Administración
         required_review:
-          alert: 'Requerido: revisa nuestros Términos y Condiciones de Administración'
-          callout: Por favor dedica un momento a familiarizarte con los términos de uso para administradoras. En caso contrario, no podrás administrar la plataforma.
           cta: Revísalos ahora.
-        title: Términos y Condiciones de Administración
       area_types:
         create:
           error: Hubo un error al crear un nuevo tipo de área.
           success: Tipo de área creada con éxito.
-        destroy:
-          success: Tipo de área destruido con éxito
         edit:
           title: Editar tipo de área
           update: Actualizar
@@ -226,14 +208,12 @@ es-MX:
           title: Nuevo tipo de área
         update:
           error: Hubo un error al actualizar este tipo de área.
-          success: Tipo de área actualizado con éxito
       areas:
         create:
           error: Hubo un error al crear una nueva área.
           success: Área creada correctamente.
         destroy:
           has_spaces: Esta área tiene espacios dependientes. Asegúrate de que no hace referencia a ningún espacio de participación antes de eliminarla.
-          success: Área destruida correctamente
         edit:
           title: Editar área
           update: Actualizar
@@ -243,7 +223,6 @@ es-MX:
         no_areas: Sin áreas
         update:
           error: Hubo un error al actualizar esta área.
-          success: Área actualizada correctamente
       attachment_collections:
         create:
           error: Se ha producido un error al crear una nueva carpeta.
@@ -283,7 +262,6 @@ es-MX:
         message: Tenga cuidado al trabajar con archivos adjuntos en un espacio privado. Cualquier participante podría compartir este documento a otras personas.
       autocomplete:
         no_results: No se han encontrado resultados
-        search_prompt: Escriba al menos tres caracteres para buscar
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
@@ -373,9 +351,6 @@ es-MX:
       domain_whitelist:
         form:
           domain_too_short: Dominio demasiado corto
-        update:
-          error: Error al actualizar la lista blanca del dominio
-          success: Lista blanca de dominio actualizada correctamente
       exports:
         export_as: "%{name} como %{export_format}"
         formats:
@@ -458,10 +433,8 @@ es-MX:
             message_1: Los archivos CSV, JSON y Excel (.xlsx) están soportados
             message_2: Para archivos CSV, el separador entre columnas debe ser un punto y coma (";")
       help_sections:
-        error: Se ha producido un error al actualizar las secciones de ayuda
         form:
           save: Guardar
-        success: Las secciones de ayuda se han actualizado correctamente
       impersonatable_users:
         index:
           filter:
@@ -753,8 +726,6 @@ es-MX:
           send_to_participants: Enviar a los participantes
           title: Selecciona los destinatarios
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
-        send:
-          no_recipients: No hay destinatarios para esta selección
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
@@ -763,13 +734,6 @@ es-MX:
           error: Se ha producido un error al actualizar este boletín.
           success: Boletín actualizado correctamente. Por favor revísalo antes de enviarlo.
       officializations:
-        block:
-          error: Se ha producido un error al bloquear a la participante
-          success: Participante bloqueada correctamente
-        create:
-          success: Usuario oficializado con éxito
-        destroy:
-          success: Usuario des-oficializado con éxito
         index:
           actions: Acciones
           badge: Distintivo
@@ -798,9 +762,6 @@ es-MX:
           hidden: oculto
           show: Mostrar
           title: Mostrar dirección de correo de la participante
-        unblock:
-          error: Se ha producido un error al desbloquear a la participante
-          success: Participante desbloqueada correctamente
       organization:
         edit:
           title: Editar organización
@@ -846,12 +807,6 @@ es-MX:
           title: Lista blanca de dominios externos
       organization_homepage:
         content_blocks:
-          create:
-            error: Hubo un problema al intentar crear este bloque de contenido
-            success: Bloque de contenido creado correctamente
-          destroy:
-            error: Se ha producido un error al tratar de eliminar este bloque de contenido
-            success: Bloque de contenido eliminado con éxito
           edit:
             update: Actualizar
         edit:
@@ -928,8 +883,6 @@ es-MX:
         create:
           error: Se ha producido un error al crear un nuevo ámbito.
           success: Ámbito creado correctamente.
-        destroy:
-          success: Ámbito eliminado con éxito
         edit:
           title: Editar alcance
           update: Actualizar
@@ -949,7 +902,6 @@ es-MX:
           error: Se ha producido un error al eliminar este token.
           success: Token eliminado correctamente.
         share_tokens:
-          empty: No hay tokens activos
           help: Estos tokens se utilizan para compartir públicamente este recurso no publicado a cualquier usuario. Se ocultarán cuando se publique el recurso. Haz clic en el icono de compartir el token para visitar la URL compartible.
           title: Compartir tokens
       shared:
@@ -962,8 +914,6 @@ es-MX:
         create:
           error: Se ha producido un error al crear un nuevo tema.
           success: Tema creado correctamente.
-        destroy:
-          success: Tema eliminado correctamente
         edit:
           title: Editar tema
           update: Actualizar tema
@@ -979,12 +929,6 @@ es-MX:
         content_blocks:
           active_content_blocks: Bloques de contenido activos
           add: Añadir bloque de contenido
-          create:
-            error: Se ha producido un error al intentar crear este bloque de contenido
-            success: Bloque de contenido creado con éxito
-          destroy:
-            error: Se ha producido un error al intentar crear este bloque de contenido
-            success: Bloque de contenido eliminado con éxito
           destroy_confirmation: '¿Seguro que quieres borrar este bloque de contenido?'
           edit:
             update: Actualizar
@@ -1010,11 +954,9 @@ es-MX:
         topic:
           destroy: Eliminar tema
           edit: Editar tema
-          empty: No hay ninguna página para este tema
           without_topic: Páginas sin tema
         update:
           error: Se ha producido un error en la actualización de ésta página.
-          success: La página se ha actualizado correctamente.
       titles:
         admin_log: Registro de actividad de administradores
         area_types: Tipos de área
@@ -1038,10 +980,8 @@ es-MX:
           success: El archivo CSV se cargó correctamente, estamos verificando los grupos de usuarios que coinciden con los criterios. Esto podría tomar un tiempo.
         reject:
           invalid: Se ha producido un error al rechazar este grupo de usuarios.
-          success: Grupo de usuarios rechazado correctamente
         verify:
           invalid: Se ha producido un error al verificar este grupo de usuarios.
-          success: Grupo de usuarios verificado correctamente
       user_groups:
         index:
           state:
@@ -1078,13 +1018,8 @@ es-MX:
           last_day: Del último día
           last_month: El último mes
           last_week: La última semana
-          no_users_count_statistics_yet: Aún no hay estadísticas de recuenteo de usuarias
           participants: Participantes
       view_public_page: Ver página pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Debes indicar un motivo para la gestión de una participante no gestionada
     metrics:
       blocked_users:
         object: usuarias bloqueadas
