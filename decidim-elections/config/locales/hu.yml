@@ -83,7 +83,6 @@ hu:
           label: Érvényesített
           values:
             'false': Érvényesített
-            'true': Nem érvényesített
     components:
       elections:
         actions:
