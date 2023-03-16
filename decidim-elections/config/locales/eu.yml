@@ -109,7 +109,6 @@ eu:
           label: Baliozkotuta
           values:
             'false': Baliozkotuta
-            'true': Baliozkotu gabe
     components:
       elections:
         actions:
