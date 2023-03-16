@@ -154,10 +154,8 @@ lv:
         amended_by: Grozījumus veica
         button: Grozīt %{model_name}
         error: Vienuma grozījumu veikšanas laikā radusies kļūda.
-        help_text: Uzlabojiet šo %{model_name}, mainot tā %{amendable_fields}
         promote_button: Paaugstināt līdz %{model_name}
         promote_confirm_text: Vai tiešām vēlaties atbalstīt šo labojumu?
-        promote_help_text: Jūs varat atbalstīt šo labojumu un publicēt to kā neatkarīgu %{model_name}
         section_heading: Grozījumi (%{count})
       compare_draft:
         continue: Turpināt
@@ -196,26 +194,16 @@ lv:
         modify: Rediģēt
         publish: Publicēt
         title: Publicēt grozījuma melnrakstu
-      promoted:
-        error: Publicējot grozījumu kā jaunu priekšlikumu, radās problēma
-        success: Grozījums ir veiksmīgi publicēts kā jauns priekšlikums
       publish_draft:
         error: Grozījuma publicēšanas laikā radās problēma.
         success: Grozījums ir veiksmīgi publicēts.
-      rejected:
-        error: Noraidot šo grozījumu, radās problēma. Lūdzu, mēģiniet vēlreiz vēlāk
-        success: Grozījums ir veiksmīgi noraidīts
       review:
         back: Atpakaļ
         heading: Pārskatīt grozījumu
-        help_text: Jūs pārskatāt %{model_name} grozījumu
         send: Pieņemt grozījumu
       update_draft:
         error: Grozījuma melnraksta atjaunināšanas laikā radās kļūda.
         success: Grozījuma melnraksts ir veiksmīgi atjaunināts.
-      withdraw:
-        error: Grozījuma atsaukšanas laikā radās kļūda
-        success: Grozījums ir veiksmīgi atsaukts
       wizard_step_form:
         steps:
           '1': Izveidot savu grozījumu
@@ -241,13 +229,11 @@ lv:
         other: atbalsti
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Verificējieties, ievadot pases numuru, sākot ar burtu „A”
         fields:
           passport_number: Pases numurs
           postal_code: Pasta indekss
         name: Vēl viens autorizācijas piemērs
       dummy_authorization_handler:
-        explanation: Verificējieties, ievadot dokumenta numuru, beidzot ar "X".
         fields:
           document_number: Dokumenta numurs
           postal_code: Pasta indekss
@@ -279,8 +265,6 @@ lv:
           explanation: Lai veiktu šo darbību, jums ir atkārtoti jāautorizējas ar "%{authorization}".
           title: Nepieciešama autorizācija
         pending:
-          explanation: Lai veiktu šo darbību, jums ir jābūt autorizētam ar "%{authorization}", taču jūsu autorizācija joprojām tiek apstrādāta
-          resume: Pārbaudiet savu "%{authorization}" autorizācijas apstrādes statusu.
           title: Autorizācija joprojām notiek
         unauthorized:
           ok: Labi
@@ -355,16 +339,10 @@ lv:
         name: Organizācijas statistika
       sub_hero:
         name: Kājenes apakšējais galvenais reklāmkarogs
-    core:
-      actions:
-        login_before_access: Pirms piekļuves, lūdzu, piesakieties savā kontā
-        unauthorized: Jūs neesat autorizēts veikt šo darbību
     datepicker:
       help_text: 'Paredzētais formāts: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Citam kontam jau izmantota tā pati e-pasta adrese
         new:
           complete_profile: Pabeigt profila izveidi
           sign_up: Lūdzu, pabeidziet aizpildīt savu profilu
@@ -388,8 +366,6 @@ lv:
         new:
           are_you_new?: Vai esat jauns platformas lietotājs?
           register: Izveidot kontu
-          sign_in_disabled: Jūs varat piekļūt, izmantojot ārēju kontu
-          sign_up_disabled: Reģistrēšanās ir atspējota, lai piekļūtu, varat izmantot esošo kontu.
       shared:
         newsletter_modal:
           buttons:
@@ -404,7 +380,6 @@ lv:
           authorize: Autorizēt lietojumprogrammu
           by_organization_link_html: <small class="heading-small">pa %{link}</small>
           cancel: Atcelt
-          connect_your_account_html: Pievienojiet kontu, pierakstoties <strong>%{organization}</strong>
           publish_content: Publicēt saturu jūsu vietā
           see_email: Redzēt jūsu e-pastu
           see_name: Redzēt jūsu vārdu
@@ -638,17 +613,8 @@ lv:
       index:
         invite: Uzaicināt
         invite_user: Uzaicināt dalībnieku
-      invite:
-        error: Šī dalībnieka uzaicināšanas laikā radās problēma
-        success: Dalībnieks ir veiksmīgi uzaicināts
-      reject:
-        error: Šī ielūguma noraidīšanas laikā radās problēma
-        success: Ielūgums tika veiksmīgi noraidīts
       reject_invitation: Noraidīt
     group_members:
-      accept:
-        error: Apstiprinot šo pievienošanās pieprasījumu, radās problēma
-        success: Pievienošanās pieprasījums tika veiksmīgi apstiprināts
       actions:
         are_you_sure: Vai esat pārliecināts?
         promote_to_admin: Padarīt par administratoru
@@ -656,36 +622,20 @@ lv:
       index:
         current_members_without_admins: 'Pašreizējie dalībnieki (bez administratoriem):'
         manage_members: Pārvaldīt biedrus
-      promote:
-        error: Šī dalībnieka paaugstināšanas laikā radās problēma
-        success: Dalībnieks tika sekmīgi paaugstināts
-      reject:
-        error: Noraidot šo pievienošanās pieprasījumu, radās problēma
-        success: Pievienošanās pieprasījums tika veiksmīgi noraidīts
-      remove:
-        error: Noņemot šo dalībnieku no grupas, radās problēma
-        success: Dalībnieks ir veiksmīgi noņemts no grupas
     groups:
       actions:
         are_you_sure: Vai esat pārliecināts?
-      create:
-        error: Šīs grupas izveides laikā radās problēma
-        success: Grupa ir veiksmīgi izveidota
       edit:
         edit_user_group: Rediģēt grupu
         update_user_group: Atjaunināt grupu
       form:
-        document_number_help: Nelietojiet defises un atstarpes
         email_help: Jūsu organizācijas, asociācijas, kolektīva, grupas utt. e-pasta adrese.
         fill_in_for_verification: 'Aizpildiet šos laukus, ja vēlaties, lai jūsu grupa tiktu apstiprināta:'
         name_help: Jūsu organizācijas, asociācijas, kolektīva, grupas utt. nosaukums.
         nickname_help: Jūsu organizācijas, asociācijas, kolektīva, grupas utt. segvārds. Neizmantojiet atstarpes un uzsvarus.
-        phone_help: Nelietojiet defises un atstarpes
       join:
-        error: Pievienojoties šai grupai, radās problēma
         success: Pievienošanās pieprasījums ir veiksmīgi izveidots. Administrators pārskatīs jūsu pieprasījumu pirms jūsu pieņemšanas grupā.
       leave:
-        error: Pametot šo grupu, radās problēma
         success: Grupa ir veiksmīgi pamesta.
       members:
         accept_or_reject_join_requests: 'Šie lietotāji ir pieteikušies, lai pievienotos šai grupai. Pieņemt vai noraidīt viņu pieprasījumus:'
@@ -698,15 +648,11 @@ lv:
       roles:
         admin: Administrators
         member: Dalībnieks
-      update:
-        error: Šīs grupas atjaunināšanas laikā radās problēma
-        success: Grupa ir veiksmīgi atjaunināta
     help:
       main_topic:
         default_page:
           content: "<p>%{organization} jūs varat piedalīties un lemt par dažādām tēmām, izmantojot augšējā izvēlnē redzamās vietas: procesi, asamblejas, iniciatīvas, konsultācijas. </p><p> Katrā no tām jūs atradīsiet dažādas iespējas piedalīties: izteikt priekšlikumus – individuāli vai kopā ar citiem, piedalīties debatēs, noteikt prioritātes projektiem, kas tiek īstenoti, apmeklēt klātienes sanāksmes un veikt citas darbības.</p>"
           title: Ko es varu darīt %{organization}?
-        description: Lasīt vairāk par %{organization}
         title: Vispārēja palīdzība
     last_activities:
       activities:
@@ -745,35 +691,29 @@ lv:
           admin_in_group: Jūs to saņemat, jo administrējat %{group}.
           greeting: Sveiki, %{recipient}!
           intro: "%{manager} ir uzsācis jaunu sarunu %{group} vārdā. Noklikšķiniet šeit, lai to aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{manager} ir sācis jaunu sarunu kā %{group}"
         comanagers_new_message:
           admin_in_group: Jūs to saņemat, jo administrējat %{group}.
           greeting: Sveiki, %{recipient}!
           intro: "%{manager} sarunā ir nosūtījis jaunus ziņojumus %{group} vārdā. Noklikšķiniet šeit, lai tos aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{manager} ir nosūtījis jaunus ziņojumus kā %{group}"
         new_conversation:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir sācis jaunu sarunu ar jums. Noklikšķiniet šeit, lai to aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{sender} ir sācis sarunu ar jums"
         new_group_conversation:
           admin_in_group: Jūs to saņemat, jo administrējat %{group}.
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir sācis jaunu sarunu ar grupu %{group}. Noklikšķiniet šeit, lai to aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{sender} ir sācis sarunu ar %{group}"
         new_group_message:
           admin_in_group: Jūs to saņemat, jo administrējat %{group}.
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir nosūtījis jaunus ziņojumus sarunā ar grupu %{group}. Noklikšķiniet šeit, lai tos aplūkotu:"
-          outro: Baudiet decidim!
           subject: "%{group} ir jauni ziņojumi no %{sender}"
         new_message:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} ir nosūtījis jaunus ziņojumus jūsu sarunā. Lai apskatītu tos, noklikšķiniet šeit:"
-          outro: Baudiet decidim!
           subject: Jums ir jauni ziņojumi no %{sender}
       conversations:
         add_conversation_users:
@@ -781,14 +721,10 @@ lv:
           add_users_placeholder: Meklēt...
           modal_title: Jauna saruna
           no_results: Nav rezultātu
-          participant_with_disabled_message_reception: Šis dalībnieks ir atspējojis ziņojumu saņemšanu
-        create:
-          error: Saruna nav sākusies. Pamēģiniet vēlreiz vēlāk
         index:
           ago: pirms
           new_conversation: Jauna saruna
           next: Nākamais
-          no_conversations: Jums vēl nav sarunu
           title: Sarunas
         show:
           chat_with: Saruna ar
@@ -912,8 +848,6 @@ lv:
         accept:
           error: Piekrītot lietošanas noteikumiem, radās problēma.
           success: Lieliski! Jūs esat piekritis lietošanas noteikumiem.
-        form:
-          legend: Piekrist lietošanas noteikumiem
         refuse:
           modal_btn_continue: Pieņemt noteikumus un turpināt
           modal_btn_exit: Es tos pārskatīšu vēlāk
@@ -926,11 +860,8 @@ lv:
     participatory_space_private_users:
       not_allowed: Jums nav atļauts skatīt šo saturu
     profile:
-      deleted: Dalībnieks dzēsts
       view: Apskatīt
     profiles:
-      default_officialization_text_for_user_groups: Šī grupa ir publiski apstiprināta, tās nosaukums ir verificēts, lai pārliecinātos, vai tas atbilst īstajam nosaukumam
-      default_officialization_text_for_users: Šis dalībnieks ir publiski apstiprināts, viņa vārds vai loma ir pārbaudīta, lai atbilstu īstajam vārdam un lomai
       show:
         activity: Aktivitāte
         badges: Žetoni
@@ -945,11 +876,9 @@ lv:
           info: Žetoni tiek nopelnīti, veicot noteiktas darbības platformā.
           title: Žetoni
       user:
-        confirmation_instructions_sent: E-pastā nosūtīt apstiprināšanas norādījumus
         create_user_group: Izveidot grupu
         edit_profile: Rediģēt profilu
         edit_user_group: Rediģēt grupas profilu
-        fill_in_email_to_confirm_it: Lūdzu, ierakstiet savas grupas e-pasta adresi, lai to apstiprinātu
         invite_user: Uzaicināt dalībnieku
         join_user_group: Pieteikums pievienoties grupai
         leave_user_group: Pamest grupu
@@ -1047,7 +976,6 @@ lv:
     user_contact_disabled: Šis dalībnieks nepieņem tiešās ziņas.
     user_conversations:
       create:
-        error: Ziņojumu nevarēja izveidot. Pamēģiniet vēlreiz vēlāk
         existing_error: Ziņojumu nevarēja izveidot. Saruna jau eksistē, lūdzu, mēģiniet vēlreiz.
         success: Saruna sākās veiksmīgi!
       index:
@@ -1062,7 +990,6 @@ lv:
         next: Nākamais
         no_conversations_warning: Šeit vēl nav sarunu.
         no_results: Nav rezultātu
-        participant_with_disabled_message_reception: Šis dalībnieks ir atspējojis ziņojumu saņemšanu
         time_ago: "Pirms %{time}"
       new:
         title: Sākt sarunu
