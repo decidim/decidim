@@ -53,12 +53,6 @@ cs:
         title: Akce
       admin:
         budgets:
-          create:
-            invalid: Při vytváření tohoto rozpočtu došlo k chybě
-            success: Rozpočet byl úspěšně vytvořen
-          destroy:
-            invalid: Při mazání tohoto rozpočtu došlo k chybě
-            success: Rozpočet byl úspěšně odstraněn
           edit:
             title: Upravit rozpočet
             update: Aktualizovat rozpočet
@@ -71,9 +65,6 @@ cs:
           new:
             create: Vytvořit rozpočet
             title: Nový rozpočet
-          update:
-            invalid: Při aktualizaci tohoto rozpočtu došlo k chybě
-            success: Rozpočet byl úspěšně aktualizován
         exports:
           projects: Projekty
         models:
@@ -82,11 +73,6 @@ cs:
           project:
             name: Projekt
         projects:
-          create:
-            invalid: Při vytváření tohoto projektu došlo k problému
-            success: Projekt byl úspěšně vytvořen
-          destroy:
-            success: Projekt byl úspěšně smazán
           edit:
             title: Upravit projekt
             update: Aktualizace
@@ -107,32 +93,20 @@ cs:
           new:
             create: Vytvořit
             title: Nový projekt
-          update:
-            invalid: Při aktualizaci tohoto projektu došlo k problému
-            success: Projekt byl úspěšně aktualizován
           update_category:
             invalid: 'Tyto projekty již mají kategorii %{subject_name}: %{projects}.'
-            select_a_category: Vyberte prosím kategorii
-            select_a_project: Vyberte projekt
             success: 'Projekty byly úspěšně aktualizovány do kategorie %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Tyto projekty již mají rozsah %{subject_name}: %{projects}.'
-            select_a_project: Vyberte projekt
-            select_a_scope: Vyberte prosím rozsah
             success: 'Projekty byly úspěšně aktualizovány na rozsah %{subject_name}: %{projects}.'
           update_selected:
             invalid:
               selected: 'Tyto projekty již byly vybrány pro implementaci: %{projects}.'
               unselected: 'Tyto projekty již byly odebrány z implementace: %{projects}.'
-            select_a_project: Vyberte projekt
-            select_a_selection: Vyberte prosím stav implementace
             success:
               selected: 'Tyto projekty byly úspěšně vybrány pro implementaci: %{projects}.'
               unselected: 'Tyto projekty byly úspěšně odebrány z implementace: %{projects}.'
         proposals_imports:
-          create:
-            invalid: Při importu návrhů do projektů došlo k problému
-            success: "%{number} projektů úspěšně dovezených do projektů"
           new:
             create: Návrhy na projekty
             default_budget: Výchozí rozpočet
@@ -165,9 +139,6 @@ cs:
         close_modal: Zavřít okno
         continue: Pokračovat
         more_information: Více informací
-      budget_list_item:
-        voting_finished: Hlasovali jste v tomto rozpočtu
-        voting_started: Začali jste hlasovat v tomto rozpočtu
       budgets_list:
         cancel_order:
           more_than_one: smažte svůj hlas na %{name} a začněte znovu
@@ -179,7 +150,6 @@ cs:
         progress: Dokončit hlasování
         show: Zobrazit projekty
         vote: Hlasovat
-        voted_on: Hlasovali jste pro %{links}
       last_activity:
         new_vote_at: Nový rozpočtový hlas v
       limit_announcement:
@@ -290,8 +260,6 @@ cs:
           random: Náhodné pořadí
           selected: Vybrané
         project:
-          add: Přidejte k hlasování projekt %{resource_name}
-          remove: Odebrat projekt %{resource_name} z vašeho hlasování
           selected: Vybrané
           view: Zobrazit
           votes:
@@ -302,9 +270,7 @@ cs:
           you_voted: Hlasoval jste pro toto
         project_budget_button:
           add: Přidat do vašeho hlasování
-          add_descriptive: Přidat k hlasování projekt %{resource_name}
           added: Přidáno k vašemu hlasování
-          added_descriptive: Projekt %{resource_name} přidán k vašemu hlasování
         projects_for: Projekty pro %{name}
         show:
           budget: Rozpočet
@@ -331,10 +297,6 @@ cs:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
-            form:
-              errors:
-                budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno
-                budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování
             geocoding_enabled: Geokódování aktivováno
             landing_page_content: Úvodní stránka rozpočtů
             more_information_modal: Více informací
@@ -376,13 +338,6 @@ cs:
           email_outro: Obdrželi jste toto oznámení, protože sledujete %{participatory_space_title}. Můžete přestat přijímat oznámení na předchozím odkazu.
           email_subject: Rozpočet %{resource_title} je nyní aktivní pro %{participatory_space_title}.
           notification_title: Rozpočet <a href="%{resource_path}">%{resource_title}</a> je nyní aktivní pro %{participatory_space_title}.
-    orders:
-      checkout:
-        error: Při zpracování vašeho hlasování došlo k potížím
-        success: Váš hlas byl úspěšně přijat
-      destroy:
-        error: Při rušení vašeho hlasování došlo k chybě
-        success: Váš hlas byl úspěšně zrušen
     resource_links:
       included_proposals:
         project_proposal: Návrhy zahrnuté do tohoto projektu
