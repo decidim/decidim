@@ -32,7 +32,6 @@
         body: Tekst
         subject: Emne
       organization:
-        admin_terms_of_use_body: Innholdet i de administrative vilkårene for bruk av plattformen
         alert_color: Varsel
         available_authorizations: Tilgjengelige autorisasjoner
         badges_enabled: Aktiver utmerkelse
@@ -123,21 +122,12 @@
         file: Fil
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Velg minst et rom
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ugyldig bildefil
             official_img_header:
               allowed_file_content_types: Ugyldig bildefil
-      new_import:
-        attributes:
-          file:
-            invalid_file: Ugyldig fil gitt, sjekk at filen er riktig formatert
-            invalid_mime_type: Ugyldig medie-type
   activerecord:
     attributes:
       decidim/static_page:
@@ -158,8 +148,6 @@
         add: Legg til
         attachment:
           new: Nytt vedlegg
-        attachment_collection:
-          new: Ny vedleggssamling
         browse: Bla gjennom
         category:
           new: Ny kategori
@@ -186,17 +174,12 @@
         actions:
           are_you_sure: Er du sikker på at du vil avslå administratorvilkårene for bruk?
           refuse: Avslå administratorvilkårene
-          title: Godta vilkårene for bruk
         required_review:
-          alert: 'Påkrevd: Gå gjennom administrasjons vilkårene våre'
           cta: Se over dem nå.
-        title: Administrator vilkår for bruk
       area_types:
         create:
           error: Det oppstod et problem med å lage en ny områdetype.
           success: Områdetypen ble opprettet.
-        destroy:
-          success: Områdetype ble ødelagt
         edit:
           title: Rediger områdetype
           update: Oppdater
@@ -205,14 +188,12 @@
           title: Ny områdetype
         update:
           error: Det oppstod et problem med å oppdatere denne områdetypen.
-          success: Områdetypen ble oppdatert
       areas:
         create:
           error: Det oppstod et problem med å opprette et nytt område.
           success: Området ble opprettet.
         destroy:
           has_spaces: Dette området har avhengige rom. Vennligst sørg for at ingen deltakende rom refererer til dette rommet før du sletter det.
-          success: Området ble ødelagt
         edit:
           title: Endre området
           update: Oppdater
@@ -222,7 +203,6 @@
         no_areas: Ingen Områder
         update:
           error: Det oppstod et problem med å oppdatere dette området.
-          success: Området ble oppdatert
       attachment_collections:
         create:
           error: Det oppstod et problem med å opprette en ny mappe.
@@ -262,7 +242,6 @@
         message: Vær forsiktig når du arbeider med vedlegg i et privat rom. Alle deltakere kan dele dette dokumentet med andre.
       autocomplete:
         no_results: Ingen resultat funnet
-        search_prompt: Skriv minst tre tegn for å søke
       block_user:
         new:
           action: Blokker konto og send begrunnelse
@@ -346,9 +325,6 @@
       domain_whitelist:
         form:
           domain_too_short: Domene er for kort
-        update:
-          error: Kunne ikke oppdatere domene-hviteliste
-          success: Domene-hviteliste oppdatert
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -431,10 +407,8 @@
             message_1: CSV, JSON og Excel (.xlsx)-filer støttes
             message_2: For CSV-filer, må skilletegnet mellom kolonner være et semikolon (";")
       help_sections:
-        error: Det oppsto et problem med å oppdatere hjelpeseksjonene
         form:
           save: Lagre
-        success: Hjelpeseksjoner ble oppdatert
       impersonatable_users:
         index:
           filter:
@@ -714,8 +688,6 @@
           send_to_participants: Send til deltakerne
           title: Velg mottakere som skal leveres
           warning: "<strong>Oppmerksomhet:</strong> Dette nyhetsbrevet vil bare bli sendt til brukere som har aktivert <em>Jeg ønsker å motta nyhetsbrev</em> i varslingsinnstillingene."
-        send:
-          no_recipients: Ingen mottakere for dette valget
         show:
           preview: Forhåndsvis
           select_recipients_to_deliver: Velg mottakere som skal leveres
@@ -724,13 +696,6 @@
           error: Det oppstod et problem med å oppdatere dette nyhetsbrevet.
           success: Nyhetsbrev oppdatert. Vennligst se gjennom det før du sender.
       officializations:
-        block:
-          error: Det oppstod en feil under blokkering av deltakeren
-          success: Deltageren ble blokkert
-        create:
-          success: Deltaker ble offisialisert
-        destroy:
-          success: Deltaker ble uoffisialisert
         index:
           actions: Handlinger
           badge: Merke
@@ -759,9 +724,6 @@
           hidden: skjult
           show: Vis
           title: Vis deltakerens e-postadresse
-        unblock:
-          error: Kunne ikke fjerne blokkering av deltaker
-          success: Deltaker godkjent på ny
       organization:
         edit:
           title: Rediger organisasjon
@@ -870,8 +832,6 @@
         create:
           error: Det oppstod et problem med å opprette et nytt tema.
           success: Tema ble opprettet.
-        destroy:
-          success: Temaet ble ødelagt
         edit:
           title: Rediger tema
           update: Oppdater
@@ -891,7 +851,6 @@
           error: Et problem oppstod under ødelggelsen av token.
           success: Token ble ødelagt.
         share_tokens:
-          empty: Ingen aktive token
           help: Disse tokenene brukes til å dele denne upubliserte ressursen til hvilken som helst bruker. De vil bli skjult når ressursen publiseres. Klikk på tokenenes deleikon for å besøke den delte URL-en.
           title: Del tokener
       shared:
@@ -904,8 +863,6 @@
         create:
           error: Det oppstod et problem med å opprette et nytt emne.
           success: Emnet ble opprettet.
-        destroy:
-          success: Emnet ble ødelagt
         edit:
           title: Rediger emne
           update: Oppdater emne
@@ -938,11 +895,9 @@
         topic:
           destroy: Fjern emne
           edit: Rediger emne
-          empty: Det er ingen side under dette emnet
           without_topic: Sider uten emne
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
-          success: Siden ble oppdatert
       titles:
         admin_log: Admin logg
         area_types: Områdetyper
@@ -966,10 +921,8 @@
           success: CSV fil lastet opp, vi bekrefter gruppene som samsvarer med kriteriene. Dette kan ta en stund.
         reject:
           invalid: Det oppstod et problem med å avvise denne gruppen.
-          success: Gruppen ble avvist
         verify:
           invalid: Det oppstod et problem med å verifisere denne gruppen.
-          success: Gruppen ble verifisert
       user_groups:
         index:
           state:
@@ -1002,13 +955,8 @@
           last_day: Siste dag
           last_month: Siste måned
           last_week: Siste uke
-          no_users_count_statistics_yet: Det er ingen statistikk på antall brukere enda
           participants: Deltakere
       view_public_page: Vis offentlig side
-    forms:
-      errors:
-        impersonate_user:
-          reason: Du må oppgi en grunn når du behandler en ikke-behandlet deltaker
     metrics:
       blocked_users:
         object: blokkerte brukere
