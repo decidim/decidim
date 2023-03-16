@@ -216,10 +216,8 @@ eu:
         amended_by: Aldatua
         button: Aldatu %{model_name}
         error: Errore bat gertatu da baliabidea aldatzen.
-        help_text: Hobetu %{model_name} hau bere %{amendable_fields}aldatuz
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
-        promote_help_text: Aldaketa hori sustatzeko eta argitaratzeko %{model_name}independente gisa
         section_heading: Aldaketak (%{count})
       compare_draft:
         continue: Jarraitu
@@ -261,26 +259,16 @@ eu:
         modify: Aldatu
         publish: Argitaratu
         title: Argitaratu zuzenketa-zirriborroa
-      promoted:
-        error: Akatsak izan dira emendifikazioa sustatzen denean
-        success: Emendazioa arrakastaz sustatu da
       publish_draft:
         error: Arazoa gertatu da zuzenketa argitaratzean.
         success: Zuzenketa zuzen argitaratu da.
-      rejected:
-        error: Errore bat gertatu da aldaketa hori arbuiatzearekin. Saiatu berriro geroago
-        success: Aldaketa ongi baztertu da
       review:
         back: Atzera
         heading: Aldaketa berrikustea
-        help_text: '%{model_name}zuzenketa bat berrikusten ari zara'
         send: Onartu aldaketa
       update_draft:
         error: Arazoa gertatu da zuzenketa-zirriborroa eguneratzean.
         success: Zuzenketa-zirriborroa zuzen eguneratu da.
-      withdraw:
-        error: Arazoa gertatu da zuzenketa kentzean
-        success: Zuzenketa zuzen kendu da
       wizard_step_form:
         steps:
           '1': Sortu zure aldaketa
@@ -312,13 +300,11 @@ eu:
       official_author: Ofiziala
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Egiaztatu pasaportearen zenbakia "A"
         fields:
           passport_number: Pasaporte zenbakia
           postal_code: Posta kodea
         name: Beste adibide bat baimena
       dummy_authorization_handler:
-        explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
         fields:
           allowed_postal_codes: Onartutako posta-kodeak (komaz bereizita)
           allowed_scope_id: Onartutako eremua
@@ -359,11 +345,7 @@ eu:
           authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
           explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
           title: Baimena behar da
-        ok:
-          title: Baimena duzu orrialde honetan zauden bitartean. Mesedez, kargatu berriro orrialdea zure ekintza egiteko
         pending:
-          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
-          resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
           title: Baimena oraindik ere egiten ari da
         unauthorized:
           ok: Ados
@@ -471,16 +453,10 @@ eu:
         name: Erakundearen estatistikak
       sub_hero:
         name: Sub heroi banner
-    core:
-      actions:
-        login_before_access: Mesedez, sartu baino lehen hasi saioa zure kontuarekin
-        unauthorized: Ez duzu baimenik ekintza honi heltzeko.
     datepicker:
       help_text: 'Espero den formatua: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Beste kontu batek erabiltzen du helbide elektroniko bera.
         new:
           complete_profile: Osatu profila
           nickname_help: Zure ezizena %{organization}-an. Letrak, zenbakiak, '-' eta '_' soilik eduki ditzake.
@@ -506,8 +482,6 @@ eu:
         new:
           are_you_new?: Berria zara plataforman?
           register: Sortu zure kontua
-          sign_in_disabled: Kanpoko kontu batekin sar zaitezke
-          sign_up_disabled: Erregistratu ezgaituta dago, lehendik dagoen erabiltzaile bat erabil dezakezu sartzeko
         user:
           timed_out: Denbora gehiegi egon zara lanik egin gabe, eta automatikoki bidali zaituzte zerbitzutik. Zerbitzua erabiltzen jarraitu nahi baduzu, sinatu berriro.
       shared:
@@ -525,7 +499,6 @@ eu:
           authorize: Baimena eskatu
           by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Utzi
-          connect_your_account_html: Konektatu kontua <strong>%{organization}</strong>-n sartzean
           publish_content: Argitaratu zure edukia
           see_email: Ikusi zure helbide elektronikoa
           see_name: Ikusi zure izena
@@ -819,17 +792,8 @@ eu:
       index:
         invite: Gonbit egin
         invite_user: Erabiltzaile bat gonbidatu
-      invite:
-        error: Errore bat gertatu da erabiltzaile hau gonbidatuz
-        success: Erabiltzailea behar bezala gonbidatu da
-      reject:
-        error: Errore bat gertatu da gonbidapen hau uztea
-        success: Gonbidapena ongi baztertu da
       reject_invitation: Ukatu
     group_members:
-      accept:
-        error: Errore bat gertatu da eskaera bat onartzeko
-        success: Erregistratu eskaera arrakastaz onartu da
       actions:
         are_you_sure: Ziur zaude?
         promote_to_admin: Egin admin
@@ -837,36 +801,20 @@ eu:
       index:
         current_members_without_admins: 'Uneko kideak (administratzaile gabe):'
         manage_members: Kudeatu kideak
-      promote:
-        error: Errore bat gertatu da erabiltzaile hau sustatzeko
-        success: Erabiltzailea arrakastaz sustatu da
-      reject:
-        error: Errore bat gertatu da eskaera bateratua ukatuz
-        success: Erregistratu eskaera ongi baztertu da
-      remove:
-        error: Errore bat gertatu da talde honetatik erabiltzaile hau kenduta
-        success: Taldeak arrakastaz ezabatu du erabiltzailea
     groups:
       actions:
         are_you_sure: Ziur zaude?
-      create:
-        error: Arazo bat izan da taldea sortzean
-        success: Taldeak arrakastaz sortu du
       edit:
         edit_user_group: Editatu taldea
         update_user_group: Eguneratu taldea
       form:
-        document_number_help: Ez erabili marratuak eta ez espazioak
         email_help: Zure erakundearen, elkarte, talde, taldeen eta abarren posta elektronikoa.
         fill_in_for_verification: 'Eremu hauek bete behar dituzu zure taldea egiaztatu nahi baduzu:'
         name_help: Zure erakundearen izena, elkartea, kolektiboa, taldea, eta abar.
         nickname_help: Zure erakunde, elkarte, kolektibo, talde eta abarren ezizena. Ez erabili ez espaziorik ez azenturik.
-        phone_help: Ez erabili marratuak eta ez espazioak
       join:
-        error: Taldean sartzeko arazorik izan da
         success: Erregistratu eskaera behar bezala sortu da. Administratzaileak zure eskaera berrikusiko du taldera onartu aurretik.
       leave:
-        error: Arazo bat izan da taldean utzita
         success: Taldea zuzen utzi duzu.
       members:
         accept_or_reject_join_requests: 'Hurrengo parte-hartzaileek taldean sartzea eskatu dute. Onartu edo ukatu bere eskariak:'
@@ -880,15 +828,11 @@ eu:
         admin: Administratzailea
         creator: Administratzailea
         member: Kidea
-      update:
-        error: Arazo bat izan da taldea eguneratzean
-        success: Taldeak behar bezala eguneratu du
     help:
       main_topic:
         default_page:
           content: "<p> %{organization} gai desberdinetan parte hartu eta erabaki dezakezu, menu nagusian ikusten dituzun espazioen bidez: Prozesuak, Biltzarrak, Ekimenak, Kontsultak.</p> <p>Parte bakoitzean parte hartzeko aukera desberdinak aurkituko dituzu: proposamenak egitea, banaka edo beste pertsona batzuekin, eztabaidetan parte hartzea, proiektuak gauzatzeko aurreikusitako aurrekontuak, aurrez aurreko topaketak eta bestelako ekintzak biltzea.</p>\n"
           title: Zer egin dezaket %{organization}?
-        description: Irakurri buruz gehiago %{organization}
         title: Laguntza orokorra
     last_activities:
       activities:
@@ -942,35 +886,29 @@ eu:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidimez!
           subject: "%{manager} k elkarrizketa berri bat hasi du %{group} taldearekin"
         comanagers_new_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{manager} k mezu berriak argitaratu ditu %{group} taldearen elkarrizketa batean. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidimez!
           subject: "%{manager} k mezu berriak bidali ditu %{group} gisa"
         new_conversation:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} elkarrizketa berria hasi duzu zurekin. Egin klik hemen ikusteko:"
-          outro: Gozatu erabaki!
           subject: "%{sender} elkarrizketa bat hasi da zurekin"
         new_group_conversation:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidimez!
           subject: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin"
         new_group_message:
           admin_in_group: Jakinarazpen hau jaso duzu %{group} taldearen administratzailea zarelako.
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketa berri bat hasi du %{group} taldearekin. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidimez!
           subject: "%{group} k %{sender} ren mezu berriak ditu"
         new_message:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} k elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
-          outro: Disfrutatu Decidim-ekin!
           subject: '%{sender}-tik mezu berriak dituzu'
       conversations:
         add_conversation_users:
@@ -978,9 +916,6 @@ eu:
           add_users_placeholder: Bilatu...
           modal_title: Elkarrizketa berria
           no_results: Emaitzarik ez
-          participant_with_disabled_message_reception: Erabiltzaile honek mezuak jasotzea desaktibatu du
-        create:
-          error: Ez da elkarrizketa hasi. Saiatu berriro geroago
         error_modal:
           close: Itxi leihoa
           correct_errors: Mesedez, zuzendu akatsak eta saiatu berriro.
@@ -990,7 +925,6 @@ eu:
           ago: orain dela
           new_conversation: Elkarrizketa berria
           next: Hurrengoa
-          no_conversations: Oraindik ez duzu elkarrizketarik
           title: Elkarrizketak
         reply_form:
           placeholder: Zure erantzuna...
@@ -1003,8 +937,6 @@ eu:
         start:
           placeholder: Zure mezua...
           send: Bidali
-        update:
-          error: Mezua ez da bidali akats batengatik
     metrics:
       download:
         csv: Deskargatu datuak (CSV)
@@ -1146,7 +1078,6 @@ eu:
           success: Great! Baldintzak eta baldintzak onartu dituzu.
         form:
           agreement: Ados nago irizpide hauekin
-          legend: Erabiltzeko baldintzak eta baldintzak onartzen dituzu
         refuse:
           modal_btn_continue: Baldintzak onartu eta jarraitu
           modal_btn_exit: Berriro berrikusiko dut geroago
@@ -1159,12 +1090,9 @@ eu:
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
     profile:
-      deleted: Erabiltzailea ezabatua
       inaccessible_message: Profil hau eskuraezina da Erabilera-irizpideak eta baldintzak urratzeagatik!
       view: Bistaratu
     profiles:
-      default_officialization_text_for_user_groups: Erabiltzaile talde hau publikoki egiaztatua dago, bere izena benetako izenarekin lotzeko egiaztatu da
-      default_officialization_text_for_users: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
         activity: Jarduera
         badges: Badges
@@ -1185,11 +1113,9 @@ eu:
           create_user_group: Sortu taldea
           edit_profile: Fitxategia editatu
           message: Mezu
-        confirmation_instructions_sent: Posta elektroniko bidezko berrespena bidalitako argibideak
         create_user_group: Sortu taldea
         edit_profile: Editatu profila
         edit_user_group: Editatu taldearen profila
-        fill_in_email_to_confirm_it: Mesedez, bete zure taldearen posta elektronikoa berresteko
         invite_user: Gonbidatu erabiltzailea
         join_user_group: Talde batzeko eskaera
         leave_user_group: Utzi taldea
@@ -1351,7 +1277,6 @@ eu:
     user_contact_disabled: Parte-hartzaile honek ez du mezu zuzenik onartzen.
     user_conversations:
       create:
-        error: Mezua ezin izan da sortu. Saiatu berriro geroago
         existing_error: Mezua ezin izan da sortu. Elkarrizketa bada, mesedez, saiatu berriro orain.
         success: Elkarrizketa zuzen hasi da!
       index:
@@ -1366,7 +1291,6 @@ eu:
         next: Hurrengoa
         no_conversations_warning: Oraindik ez dago elkarrizketarik.
         no_results: Emaitzarik ez
-        participant_with_disabled_message_reception: Erabiltzaile honek mezuak jasotzea desaktibatu du
         time_ago: "duela %{time}"
       new:
         title: Hasi elkarrizketa
