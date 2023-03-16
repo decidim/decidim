@@ -38,7 +38,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Get npm cache directory path
         id: npm-cache-dir-path
-        run: echo "::set-output name=dir::$(npm get cache)-lint"
+        run: echo "dir=$(npm get cache)-lint" >> $GITHUB_OUTPUT
       - uses: actions/cache@v2
         id: npm-cache
         with:
