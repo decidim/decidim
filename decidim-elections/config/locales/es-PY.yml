@@ -133,7 +133,6 @@ es-PY:
           label: Validada
           values:
             'false': Validada
-            'true': Sin validar
     components:
       elections:
         actions:
