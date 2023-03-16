@@ -172,8 +172,6 @@ nl:
           index:
             approve: Goedkeuren
             confirm_revoke: Weet je het zeker?
-            invite_to_committee_help: Deel deze link om andere deelnemers uit te nodigen voor de promotieraad
-            no_members_yet: Er zijn geen leden in de promotieraad
             revoke: Intrekken
             title: Commissieleden
         content_blocks:
@@ -194,7 +192,6 @@ nl:
             export_votes: Handtekeningen exporteren
             reject: Verwerp initiatief
             send_to_technical_validation: Stuur naar technische validatie
-            success: Het initiatief is verzonden naar technische validatie
             update: Bijwerken
           form:
             attachments: Bijlagen
@@ -209,13 +206,7 @@ nl:
             edit: Bewerken
             new: Nieuw
             photos: Foto's
-          update:
-            error: er is een fout opgetreden
-            success: Het burgerinitiatief is met succes bijgewerkt
         initiatives_type_scopes:
-          create:
-            error: er is een fout opgetreden
-            success: Er is een nieuwe scope voor het gegeven initiatieftype gecreëerd
           destroy:
             success: De scope is succesvol verwijderd
           edit:
@@ -228,15 +219,7 @@ nl:
             back: Terug
             create: creëren
             title: Creër initiatiefstype bereik
-          update:
-            error: er is een fout opgetreden
-            success: Het bereik is met succes bijgewerkt
         initiatives_types:
-          create:
-            error: er is een fout opgetreden
-            success: Een nieuw initiatieftype is succesvol gemaakt
-          destroy:
-            success: Het initiatieftype is succesvol verwijderd
           edit:
             confirm_destroy: Weet je het zeker?
             destroy: Verwijder
@@ -248,9 +231,6 @@ nl:
           new:
             create: creëren
             title: Nieuw initiatiefstype
-          update:
-            error: Er is een fout opgetreden
-            success: Het initiatieftype is succesvol bijgewerkt
       admin_log:
         initiative:
           publish: "%{user_name} heeft het initiatief %{resource_name} gepubliceerd"
@@ -283,7 +263,6 @@ nl:
           success: Het verzoek is goedgekeurd.
         new:
           continue: Doorgaan met
-          help_text: U staat op het punt lid te worden van de promotieraad van dit initiatief
         revoke:
           success: Verzoek is ingetrokken.
         spawn:
@@ -363,7 +342,6 @@ nl:
             day: Dag
             month: Maand
             year: Jaar
-          help: Vul alstublieft de volgende velden in met uw persoonlijke gegevens om het initiatief te ondertekenen
         finish:
           back_to_initiative: Terug naar initiatief
         sms_code:
@@ -371,12 +349,9 @@ nl:
           help: Controleer de sms die je op je telefoon hebt ontvangen
         sms_phone_number:
           continue: Stuur me een sms
-          help: Vul het formulier in met uw geverifieerde telefoonnummer om uw verificatiecode aan te vragen
       initiative_votes:
         create:
           error: Er zijn fouten opgetreden bij het ondertekenen van het initiatief.
-          invalid: De gegevens die worden verstrekt om het initiatief te ondertekenen zijn niet geldig
-          success_html: Proficiat! Het initiatief <strong> %{title}</strong> is correct ondertekend
         personal_data:
           invalid: Persoonlijke gegevens komen niet overeen met gegevens die zijn verstrekt voor autorisatie.
         sms_phone:
@@ -425,7 +400,6 @@ nl:
         print:
           city: stad
         result:
-          answer_title: Dit initiatief is beantwoord
           initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan handtekeningen.
         show:
           follow_description: Ontvang een melding wanneer er nieuws is in dit initiatief
