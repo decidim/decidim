@@ -50,17 +50,6 @@ ar:
         name: الإسم
       validate_registration_code:
         code: الرمز
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: تتجاوز مدة العناصر مدة الاجتماع بـ %{count} دقيقة
-              too_many_minutes_child: تتجاوز مدة العنصر التابع للطفل مدة الأصل "%{parent_title}" لعنصر جدول الأعمال بمقدار دقيقة %{count}
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: تمت دعوة حساب البريد الإلكتروني هذا بالفعل
     models:
       decidim/meetings/close_meeting_event: تم إغلاق الاجتماع
       decidim/meetings/create_meeting_event: لقاء
@@ -246,9 +235,6 @@ ar:
             down: أسفل
             remove: إزالة
             up: فوق
-          create:
-            invalid: كانت هناك مشكلة في إنشاء جدول الأعمال هذا
-            success: تم إنشاء جدول الأعمال بنجاح
           edit:
             title: تحرير جدول الأعمال
             update: تحديث
@@ -260,9 +246,6 @@ ar:
           new:
             create: إنشاء
             title: جدول أعمال جديد
-          update:
-            invalid: حدثت مشكلة أثناء تحديث جدول الأعمال هذا
-            success: تم تحديث جدول الأعمال بنجاح
         exports:
           answers: الأجوبة
           meeting_comments: التعليقات
@@ -299,21 +282,9 @@ ar:
             close: قريب
             title: اجتماع قريب
         meetings:
-          close:
-            invalid: حدثت مشكلة أثناء اختتام هذا الاجتماع
-            success: تم إغلاق الاجتماع بنجاح
           create:
-            invalid: كانت هناك مشكلة في إنشاء هذا الاجتماع
             success: تم إنشاء الاجتماع بنجاح. لاحظ أن هذا غير منشور حتى الآن، تحتاج إلى نشره بنفسك.
           destroy:
-            invalid:
-              proposals_count:
-                zero: لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به
-                one: لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراح مرتبط به
-                two: لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحين مرتبطين به
-                few: لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به
-                many: لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به
-                other: لا يمكن حذف هذا الاجتماع لأنه يحتوي على %{count} اقتراحات مرتبطة به
             success: تم حذف الاجتماع بنجاح
           edit:
             title: تعديل الاجتماعات
@@ -334,9 +305,6 @@ ar:
           new:
             create: إنشاء
             title: إنشاء اجتماع
-          publish:
-            invalid: طرأت مشكلة أثناء نشر هذا الاجتماع
-            success: تم نشر الاجتماع بنجاح
           service:
             description: وصف
             down: أسفل
@@ -347,18 +315,9 @@ ar:
           services:
             add_service: إضافة الخدمة
             services: خدمات
-          unpublish:
-            invalid: طرأت مشكلة أثناء إلغاء نشر هذا الاجتماع
-            success: تم الغاء نشر الاجتماع بنجاح
-          update:
-            invalid: حدثت مشكلة أثناء تحديث هذا الاجتماع
-            success: تم تحديث الاجتماع بنجاح
         meetings_poll:
           form:
             title: تعديل استبيان الاستطلاع لـ %{questionnaire_for}
-          update:
-            invalid: طرأت مشكلة خلال تحديث استطلاع الرأي هذا
-            success: تم تحديث استطلاع الرأي الخاص بالاجتماع بنجاح
         models:
           meeting:
             name: لقاء
@@ -462,8 +421,6 @@ ar:
         registration_mailer:
           confirmation:
             subject: تم تأكيد تسجيل اجتماعك
-      meeting:
-        not_allowed: غير مسموح لك بمشاهدة هذا الاجتماع
       meeting_closes:
         edit:
           back: العودة
@@ -671,9 +628,6 @@ ar:
         withdraw: تم السحب
       versions:
         back_to_resource: العودة إلى الاجتماع
-      withdraw:
-        error: حدث خطأ أثناء سحب الاجتماع
-        success: تم سحب الاجتماع بنجاح
     metrics:
       meetings:
         description: عدد الاجتماعات التي تم إنشاؤها
