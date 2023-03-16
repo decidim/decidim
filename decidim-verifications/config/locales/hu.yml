@@ -30,10 +30,8 @@ hu:
           before_date_info: Hasznos, ha a folyamat már megkezdődött, és vissza szeretné vonni az előző folyamat jogosultságait.
           button: Összes visszavonása
           button_before: Dátum előtti visszavonás
-          destroy_nok: Probléma merült fel az engedélyek visszavonásakor.
           destroy_ok: Az összes egyező engedélyt sikeresen visszavonták.
           info: Összesen %{count} ellenőrzött résztvevő.
-          no_data: Nincsenek ellenőrzött résztvevők
           title: Engedélyezés és visszavonás
         authorization_workflows: Engedélyezések
     admin_log:
@@ -43,10 +41,6 @@ hu:
         grant_id_documents_offline_verification: "%{user_name} hitelesítve %{resource_name} egy offline azonosító dokumentum ellenőrzésével"
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - Az adminisztrátorok CSV-t töltenek fel az elfogadott résztvevők emailcímeivel
-            - Csak azok a résztvevők kaphatnak igazolást, akiknek az emailje megtalálható a CSV-fájlban
         id_documents:
           help:
             - A felhasználók kitölthetik az adatlapjukat és feltölthetik dokumentumaikat.
@@ -60,17 +54,14 @@ hu:
             - Levél elküldöttként megjelölve.
             - Miután a levelet megjelölted elküldöttként, a felhasználó a kód segítségével ellenőrizhető lesz.
       csv_census:
-        explanation: Ellenőrizze a szervezet népszámlálásával
         name: A szervezet népszámlálása
       direct: Közvetlen
       help: Segítség
       id_documents:
-        explanation: Töltsd fel személyazonosító okmányaid, hogy ellenőrizzük a személyazonosságod
         name: Személyazonosító okmányok
       multistep: Több lépéses
       name: Név
       postal_letter:
-        explanation: Küldünk egy levelet postán a kóddal, amelyet aztán a lakcím ellenőrzéséhez tudsz majd használni
         name: Kód postai levéllel
     verifications:
       authorizations:
@@ -105,7 +96,6 @@ hu:
         renew_modal:
           cancel: Mégse
           continue: Tovább
-          info_renew: Ha frissíteni akarja az adatokat, folytassa a megújítással
           title: Hitelesítés megújítása
         skip_verification: Most hagyd ki ezt a lépést és %{link}
         start_exploring: felfedezés indul
@@ -114,13 +104,9 @@ hu:
           census:
             create:
               error: Hiba történt a népszámlálás importálásakor.
-              success: Sikeresen importált %{count} elemet (%{errors} hiba)
-            destroy_all:
-              success: Az összes népszámlálási adatot törölték
           destroy:
             title: Törölje az összes népszámlálási adatot
           index:
-            data: '%{count} bejegyzés van feltöltve. Az utolsó feltöltés dátuma %{due_date}'
             empty: Nincsenek népszámlálási adatok. Az alábbi űrlap segítségével importálhatja a CSV-fájlt.
             title: Jelenlegi népszámlálási adatok
           instructions:
@@ -150,17 +136,12 @@ hu:
               update: Frissítés
             update:
               error: Hiba történt a konfiguráció frissítése során.
-              success: A konfiguráció sikeresen frissült
           confirmations:
-            create:
-              success: Felhasználó ellenőrzése sikeres
             new:
               introduce_user_data: Add meg a képen látható adatokat
               reject: Elutasít
               verify: Ellenőrzés
           offline_confirmations:
-            create:
-              success: A felhasználó sikeresen ellenőrizve
             new:
               cancel: Mégse
               introduce_user_data: Ismertesse a felhasználói e-mailt és a dokumentumadatokat
@@ -171,32 +152,19 @@ hu:
               offline_verification: Offline ellenőrzés
               title: Folyamatban lévő ellenőrzések
               verification_number: 'Ellenőrzés #%{n}'
-          rejections:
-            create:
-              success: Ellenőrzés elutasítva. A felhasználónak módosítania kell dokumentumain
         authorizations:
           choose:
             choose_a_type: 'Kérjük, adja meg, hogy miként szeretné ellenőrizni:'
             offline: Offline
             online: Online
             title: Ellenőrizze magát személyazonosító okmányával
-          create:
-            error: Hiba történt a dokumentum feltöltése során
-            success: Dokumentum feltöltése sikeres
           edit:
-            being_reviewed: Megvizsgáljuk a dokumentumokat. Hamarosan jelentkezünk
             offline: Az offline ellenőrzés használata
             online: Online ellenőrzés használatával
-            rejection_clarity: Győződj meg, hogy az információk jól láthatóak a feltöltött képen
-            rejection_correctness: Győződjön meg a megadott adatok helyességéről
-            rejection_notice: Hiba történt az ellenőrzés során. Kérlek próbáld újra
             send: Újbóli ellenőrzés kérése
           new:
             send: Ellenőrzés kérelem
             title: Személyi igazolvány feltöltése
-          update:
-            error: Probléma volt a dokumentum újbóli feltöltésekor
-            success: Dokumentum újbóli feltöltése sikeres
         dni: Szig.
         nie: Lakcím kártya
         passport: Útlevél
@@ -211,28 +179,14 @@ hu:
               title: Folyamatban lévő ellenőrzések
               username: Felhasználónév
               verification_code: Ellenőrző kód
-          postages:
-            create:
-              error: Hiba a levél megjelölésekor
-              success: Levél megjelölés elküldöttként sikeres
         authorizations:
-          create:
-            error: Probléma történt a kérésed kapcsán
-            success: Köszönjük! Az ellenőrző kódot elküldünk a lakcímedre
           edit:
             send: Megerősítés
-            title: Írd be az ellenőrző kódot
-            waiting_for_letter: Az ellenőrző kódot tartalmazó levelet hamarosan elküldjük a címedre
           new:
             send: Küldjetek levelet
             title: Kérj ellenőrző kódot magadnak
-          update:
-            success: Gratulálunk. Az ellenőrzésed sikeres volt
       sms:
         authorizations:
-          create:
-            error: Probléma volt a kéréssel
-            success: Kösz! SMS-t küldtünk telefonjára.
           destroy:
             success: A hitelesítési kód sikeresen visszaáll. Kérjük, írja be újra a telefonszámát.
           edit:
