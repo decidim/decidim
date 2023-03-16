@@ -23,17 +23,6 @@ sk:
         registrations_enabled: Registrácia povolené
         title: Názov
         transparent: Transparentné
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Čas trvania položiek presahuje dobu trvania konferencie o%{count} minút
-              too_many_minutes_child: Dĺžka podradené položky presahuje dobu o%{count} minút z nadradenej položku programu "%{parent_title}"
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Tento e-mail už bol pozvaný
     models:
       decidim/meetings/close_meeting_event: Stretnutie uzavreté
       decidim/meetings/create_meeting_event: Stretnutie
@@ -165,9 +154,6 @@ sk:
             down: Dole
             remove: Odstrániť
             up: Hore
-          create:
-            invalid: Pri vytváraní tejto agendy došlo k problému
-            success: Agenda bola úspešne vytvorená
           edit:
             title: Upraviť agendu
             update: Aktualizácia
@@ -179,9 +165,6 @@ sk:
           new:
             create: Vytvoriť
             title: Nová agenda
-          update:
-            invalid: Pri aktualizácii tejto agendy došlo k problému
-            success: Agenda bola úspešne aktualizovaná
         exports:
           meetings: Stretnutie
           registrations: Registrácia
@@ -216,11 +199,6 @@ sk:
             close: Zavrieť
             title: Zatvorte schôdzku
         meetings:
-          close:
-            invalid: Pri stretnutí došlo k problému
-            success: Stretnutie bolo úspešne uzavreté
-          create:
-            invalid: Pri vytváraní tohto stretnutia došlo k problému
           destroy:
             success: Stretnutie bolo úspešne vymazané
           edit:
@@ -243,9 +221,6 @@ sk:
           services:
             add_service: Pridať službu
             services: Služby
-          update:
-            invalid: Došlo k problému pri aktualizácii tohto stretnutia
-            success: Schôdzka bola úspešne aktualizovaná
         models:
           meeting:
             name: Stretnutie
@@ -306,8 +281,6 @@ sk:
         registration_mailer:
           confirmation:
             subject: Registrácia schôdzky bola potvrdená
-      meeting:
-        not_allowed: Túto schôdzku nie je povolené prehliadať
       meetings:
         filters:
           category: Kategória
