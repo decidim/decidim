@@ -32,7 +32,6 @@ gl:
         body: Corpo
         subject: Asunto
       organization:
-        admin_terms_of_use_body: Corpo para o texto das condicións de uso do administrador/a
         alert_color: Alerta
         available_authorizations: Autorizacións dispoñíbeis
         badges_enabled: Activar emblemas
@@ -128,11 +127,6 @@ gl:
               allowed_file_content_types: Ficheiro de imaxe non válido
             official_img_header:
               allowed_file_content_types: Ficheiro de imaxe non válido
-      new_import:
-        attributes:
-          file:
-            invalid_file: O ficheiro fornecido non é válido, por favor verifica que o ficheiro posúe o formato correcto
-            invalid_mime_type: Tipo Mime non válido
   activerecord:
     attributes:
       decidim/static_page:
@@ -153,8 +147,6 @@ gl:
         add: Engadir
         attachment:
           new: Novo anexo
-        attachment_collection:
-          new: Nova colección de anexos
         browse: Buscar
         category:
           new: Nova categoría
@@ -180,17 +172,12 @@ gl:
           success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
           refuse: Rexeitar os termos de uso
-          title: Concordo cos termos e condicións de uso
         required_review:
-          alert: 'Requirido: Revisa os nosos termos de uso do panel de administración'
           cta: Revísaos agora.
-        title: Termos de uso do panel de administración
       area_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de área.
           success: Tipo de área creada con éxito.
-        destroy:
-          success: Tipo de área destruído con éxito
         edit:
           title: Editar tipo de área
           update: Actualización
@@ -199,13 +186,10 @@ gl:
           title: Tipo de área nova
         update:
           error: Produciuse un erro ao actualizar este tipo de área.
-          success: Tipo de área actualizado con éxito
       areas:
         create:
           error: Produciuse un erro ao crear unha nova área.
           success: Area creada con éxito.
-        destroy:
-          success: Área destruída con éxito
         edit:
           title: Editar área
           update: Actualización
@@ -215,7 +199,6 @@ gl:
         no_areas: Sen Áreas
         update:
           error: Produciuse un erro ao actualizar esta área.
-          success: Área actualizada correctamente
       attachment_collections:
         create:
           error: Produciuse un erro ao crear un cartafol novo.
@@ -255,7 +238,6 @@ gl:
         message: Ten coidado ao traballar con ficheiros anexos nun espazo privado. Calquera participante podería compartir este documento con outra xente.
       autocomplete:
         no_results: Non se atoparon resultados
-        search_prompt: Escriba polo menos tres caracteres para buscar
       block_user:
         new:
           action: Bloquear conta e enviar xustificante
@@ -419,10 +401,8 @@ gl:
             message_1: Están soportados os ficheiros CSV, JSON e Excel (.xlsx)
             message_2: Para os ficheiros CSV, o separador entre columnas ten de ser o punto e coa (";")
       help_sections:
-        error: Produciuse un erro ao actualizar as seccións de axuda
         form:
           save: Gardar
-        success: As seccións de axuda actualizáronse con éxito
       impersonatable_users:
         index:
           filter:
@@ -700,8 +680,6 @@ gl:
           send_to_participants: Enviar aos participantes
           title: Seleccionar os destinatarios
           warning: "<strong>Atención:</strong> Este boletín enviarase só aos usuarios que teñen activado <em>Desexo recibir boletíns</em> nos seus axustes de notificacións."
-        send:
-          no_recipients: Sen destinatarios para esta selección
         show:
           preview: Vista previa
           select_recipients_to_deliver: Seleccionar os destinatarios
@@ -710,13 +688,6 @@ gl:
           error: Produciuse un erro ao actualizar este boletín informativo.
           success: Boletín informativo actualizado con éxito. Revisa isto antes de enviar.
       officializations:
-        block:
-          error: Produciuse un erro ao bloquear o participante
-          success: Participante bloqueado con éxito
-        create:
-          success: O usuario oficializouse con éxito
-        destroy:
-          success: O usuario non foi oficializado correctamente
         index:
           actions: Accións
           badge: Insignia
@@ -743,9 +714,6 @@ gl:
           full_name: Nome completo
           hidden: oculto
           show: Amosar
-        unblock:
-          error: Produciuse un erro ao desbloquear o participante
-          success: Participante desbloqueado con éxito
       organization:
         edit:
           title: Editar organización
@@ -844,8 +812,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un novo alcance.
           success: Alcance creado con éxito.
-        destroy:
-          success: Alcance destruído con éxito
         edit:
           title: Editar alcance
           update: Actualización
@@ -865,7 +831,6 @@ gl:
           error: Produciuse un problema ao destruír o token.
           success: Token eliminado con éxito.
         share_tokens:
-          empty: Non hai tokens activos
           help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
           title: Compartir tokens
       shared:
@@ -878,8 +843,6 @@ gl:
         create:
           error: Produciuse un erro ao crear un tema novo.
           success: O tema creouse con éxito.
-        destroy:
-          success: Tema destruído con éxito
         edit:
           title: Editar tema
           update: Actualizar tema
@@ -912,11 +875,9 @@ gl:
         topic:
           destroy: Eliminar tema
           edit: Editar tema
-          empty: Non hai ningunha páxina neste tema
           without_topic: Páxinas sen tema
         update:
           error: Produciuse un erro ao actualizar esta páxina.
-          success: Páxina actualizada con éxito
       titles:
         admin_log: Rexistro de administrador
         area_types: Tipos de área
@@ -940,10 +901,8 @@ gl:
           success: O ficheiro CSV cargouse con éxito, verificamos os grupos de usuarios que coinciden cos criterios. Isto pode levar un tempo.
         reject:
           invalid: Produciuse un erro ao rexeitar este grupo de usuarios.
-          success: Grupo de usuarios rexeitado con éxito
         verify:
           invalid: Produciuse un erro ao verificar este grupo de usuarios.
-          success: Grupo de usuarios verificado con éxito
       user_groups:
         index:
           state:
@@ -976,7 +935,6 @@ gl:
           last_day: Último día
           last_month: O mes pasado
           last_week: A semana pasada
-          no_users_count_statistics_yet: Aínda non hai estatísticas do reconto de usuario/as
           participants: Participantes
       view_public_page: Ver páxina pública
     metrics:
