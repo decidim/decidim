@@ -62,12 +62,6 @@ it:
         email: E-mail
         name: Nome
         role: Ruolo
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Questa email è già stata invitata
   activerecord:
     models:
       decidim/conference:
@@ -444,11 +438,6 @@ it:
       index:
         title: Conferenze
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: La tua registrazione alla conferenza è stata confermata
-          pending_validation:
-            subject: La tua registrazione alla conferenza è in attesa di conferma
         invite_join_conference_mailer:
           invite:
             subject: Invito a partecipare a una conferenza
@@ -532,10 +521,6 @@ it:
           contextual: "<p>Una <strong>conferenza</strong> è una raccolta di riunioni organizzate in un programma, con un certo numero di persone invitate come relatori, e altri campi di informazione tipici di grandi congressi o eventi sociali (registrazione, elenco delle organizzazioni che sostengono o sponsorizzano l'evento, ecc.).</p> <p>Esempi: Una conferenza può essere un evento rilevante per un'organizzazione e i suoi membri, o può essere parte di un processo partecipativo o il seguito di una consultazione.</p>\n"
           page: "<p>Una <strong>conferenza</strong> è una raccolta di riunioni organizzate in un programma, con un certo numero di persone invitate come relatori, e altri campi di informazione tipici di grandi congressi o eventi sociali (registrazione, elenco delle organizzazioni che sostengono o sponsorizzano l'evento, ecc.).</p> <p>Esempi: Una conferenza può essere un evento rilevante per un'organizzazione e i suoi membri, o può essere parte di un processo partecipativo o il seguito di una consultazione.</p>\n"
           title: Cosa sono le conferenze?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'La conferenza non è stata trovata nel database (ID: %{id})'
     media:
       index:
         description: Collegamenti su questa conferenza
