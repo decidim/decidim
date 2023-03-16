@@ -23,17 +23,6 @@ el:
         registrations_enabled: Οι εγγραφές ενεργοποιήθηκαν
         title: Τίτλος
         transparent: Διαφανής
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Η διάρκεια των στοιχείων υπερβαίνει τη διάρκεια της σύσκεψης κατά %{count} λεπτά
-              too_many_minutes_child: Η διάρκεια των θυγατρικών στοιχείων του στοιχείου υπερβαίνει τη διάρκεια του γονικού στοιχείου «%{parent_title}» του στοιχείου της ημερήσιας διάταξης κατά %{count} λεπτά
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Αυτός ο λογαριασμός email έχει ήδη προσκληθεί
     models:
       decidim/meetings/close_meeting_event: Η σύσκεψη έκλεισε
       decidim/meetings/create_meeting_event: Σύσκεψη
@@ -159,9 +148,6 @@ el:
             down: Κάτω
             remove: Κατάργηση
             up: Επάνω
-          create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της ημερήσιας διάταξης
-            success: Η ημερήσια διάταξη δημιουργήθηκε με επιτυχία
           edit:
             title: Επεξεργασία ημερήσιας διάταξης
             update: Ενημέρωση
@@ -173,9 +159,6 @@ el:
           new:
             create: Δημιουργία
             title: Νέα ημερήσια διάταξη
-          update:
-            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της ημερήσιας διάταξης
-            success: Η ημερήσια διάταξη ενημερώθηκε με επιτυχία
         exports:
           meetings: Συσκέψεις
           registrations: Εγγραφές
@@ -210,11 +193,6 @@ el:
             close: Κλείσιμο
             title: Κλείσιμο σύσκεψης
         meetings:
-          close:
-            invalid: Υπήρξε ένα πρόβλημα κατά το κλείσιμο αυτής της σύσκεψης
-            success: Η σύσκεψη έκλεισε με επιτυχία
-          create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της σύσκεψης
           destroy:
             success: Η σύσκεψη διαγράφηκε με επιτυχία
           edit:
@@ -237,9 +215,6 @@ el:
           services:
             add_service: Προσθήκη υπηρεσίας
             services: Υπηρεσίες
-          update:
-            invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της σύσκεψης
-            success: Η σύσκεψη ενημερώθηκε με επιτυχία
         models:
           meeting:
             name: Σύσκεψη
@@ -298,8 +273,6 @@ el:
         registration_mailer:
           confirmation:
             subject: Η εγγραφή σας στη σύσκεψη επιβεβαιώθηκε
-      meeting:
-        not_allowed: Δεν επιτρέπεται η προβολή αυτής της σύσκεψης
       meetings:
         filters:
           category: Κατηγορία
