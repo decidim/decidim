@@ -13,18 +13,11 @@ lt:
       templates:
         apply:
           error: Pritaikant šį šabloną iškilo problema.
-          success: Šablonas sėkmingai pritaikytas
         copy:
           error: Kopijuojant šį šabloną iškilo problema.
-          success: Šablonas pritaikytas nukopijuotas
         create:
           error: Kuriant šį šabloną iškilo problema.
-          success: Šablonas sukurtas sėkmingai
-        destroy:
-          success: Šablonas ištrintas sėkmingai
         empty: Dar nėra šablonų.
-        update:
-          success: Šablonas atnaujintas sėkmingai
       titles:
         template_types:
           questionnaires: Klausimyno šablonai
@@ -49,7 +42,6 @@ lt:
             skip_template: Praleisti
           edit:
             edit: Redaguoti
-            empty: Dar nėra klausimų
             questionnaire: Klausimynas
           form:
             save: Išsaugoti
