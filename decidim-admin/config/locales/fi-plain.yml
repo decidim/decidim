@@ -39,7 +39,7 @@ fi-pl:
         body: Runko
         subject: Otsikko
       organization:
-        admin_terms_of_use_body: Hallintakäyttäjien käyttöehtojen sisältöteksti
+        admin_terms_of_use_body: Käyttöehtojen sisältö
         alert_color: Ilmoitus
         available_authorizations: Käytettävissä olevat tunnistautumistavat
         badges_enabled: Ota kunniamerkit käyttöön
@@ -137,7 +137,7 @@ fi-pl:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Valitse vähintään yksi osallistumistila
+              at_least_one_space: Valitse vähintään yksi osallistumistila.
         organization:
           attributes:
             official_img_footer:
@@ -156,7 +156,7 @@ fi-pl:
         attributes:
           file:
             invalid_file: Antamasi tiedosto on virheellinen. Tarkasta, että tiedosto on muotoiltu oikein.
-            invalid_mime_type: Virheellinen mime-tyyppi
+            invalid_mime_type: Virheellinen MIME-tyyppi.
   activerecord:
     attributes:
       decidim/static_page:
@@ -206,9 +206,9 @@ fi-pl:
           accept: Hyväksyn ehdot
           are_you_sure: Oletko varma, että haluat kieltäytyä hyväksymästä hallintakäyttäjien käyttöehtoja?
           refuse: Kieltäydy hyväksymästä hallintakäyttäjän ehtoja
-          title: Hyväksy käyttöehdot
+          title: Käyttöehtojen hyväksyntä
         required_review:
-          alert: 'Vaadittu: tutustu hallintakäyttäjän ehtoihimme'
+          alert: 'Vaaditaan: Tarkista hallintakäyttäjän käyttöehdot'
           callout: Ole hyvä ja tutustu hallintakäyttäjän käyttöehtoihin. Ehtojen hyväksyminen vaaditaan, jotta saat oikeudet järjestelmän hallintatoimintoihin.
           cta: Tutustu nyt.
         title: Hallintakäyttäjän käyttöehdot
@@ -217,7 +217,7 @@ fi-pl:
           error: Uuden aluetyypin luomisessa tapahtui virhe.
           success: Aluetyyppi luotu onnistuneesti.
         destroy:
-          success: Aluetyyppi tuhottu onnistuneesti
+          success: Aluetyypin poisto onnistui.
         edit:
           title: Muokkaa aluetyyppiä
           update: Päivitä
@@ -226,14 +226,14 @@ fi-pl:
           title: Uusi aluetyyppi
         update:
           error: Aluetyyppiä päivitettäessä tapahtui virhe.
-          success: Aluetyyppi päivitetty onnistuneesti
+          success: Aluetyypin päivitys onnistui.
       areas:
         create:
           error: Uuden alueen luomisessa tapahtui virhe.
           success: Alue luotu onnistuneesti.
         destroy:
           has_spaces: Tällä alueella on riippuvia osallistumistiloja. Tarkasta huolellisesti, että alueella ei ole yhtään riippuuvuuksia osallistumistiloihin ennen sen poistoa.
-          success: Alue tuhottu onnistuneesti
+          success: Alueen poisto onnistui.
         edit:
           title: Muokkaa aluetta
           update: Päivitä
@@ -243,7 +243,7 @@ fi-pl:
         no_areas: Ei alueita
         update:
           error: Virhe päivitettäessä tätä aluetta.
-          success: Alue päivitetty onnistuneesti
+          success: Alueen päivitys onnistui.
       attachment_collections:
         create:
           error: Uuden kansion luomisessa tapahtui virhe.
@@ -283,7 +283,7 @@ fi-pl:
         message: Ole varovainen, kun työskentelet liitetiedostojen kanssa yksityisessä tilassa. Kuka tahansa osallistuja voi jakaa tämän asiakirjan muille.
       autocomplete:
         no_results: Ei tuloksia
-        search_prompt: Kirjoita vähintään kolme merkkiä hakuun
+        search_prompt: Kirjoita vähintään kolme merkkiä hakeaksesi.
       block_user:
         new:
           action: Estä tili ja lähetä perustelut
@@ -374,8 +374,8 @@ fi-pl:
         form:
           domain_too_short: Verkkotunnus on liian lyhyt
         update:
-          error: Sallittujen verkkotunnusten listan päivitys epäonnistui
-          success: Sallittujen verkkotunnusten listan päivitys onnistui
+          error: Sallittujen verkkotunnusten listan päivitys epäonnistui.
+          success: Sallittujen verkkotunnusten listan päivitys onnistui.
       exports:
         export_as: "%{name} muodossa %{export_format}"
         formats:
@@ -458,10 +458,10 @@ fi-pl:
             message_1: CSV-, JSON- ja Excel-tiedostoja (.xlsx) tuetaan
             message_2: CSV-tiedostoissa sarake-erottimen on oltava puolipiste (";")
       help_sections:
-        error: Ohjeosioiden päivittämisessä tapahtui virhe
+        error: Ohjeosioiden päivittäminen epäonnistui.
         form:
           save: Tallenna
-        success: Ohjeosiot päivitetty onnistuneesti
+        success: Ohjeosioiden päivitys onnistui.
       impersonatable_users:
         index:
           filter:
@@ -754,7 +754,7 @@ fi-pl:
           title: Valitse vastaanottajat
           warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
         send:
-          no_recipients: Ei vastaanottajia tälle valinnalle
+          no_recipients: Ei yhtään vastaanottajaa valituille rajauksille.
         show:
           preview: Esikatsele
           select_recipients_to_deliver: Valitse vastaanottajat
@@ -764,12 +764,12 @@ fi-pl:
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
       officializations:
         block:
-          error: Käyttäjän estäminen epäonnistui
-          success: Käyttäjän estäminen onnistui
+          error: Käyttäjän estäminen epäonnistui.
+          success: Käyttäjän estäminen onnistui.
         create:
-          success: Käyttäjä virallistettu onnistuneesti
+          success: Osallistujan virallistaminen onnistui.
         destroy:
-          success: Käyttäjän virallistaminen poistettu onnistuneesti
+          success: Osallistujan virallistamisen peruuttaminen onnistui.
         index:
           actions: Toiminnot
           badge: Kunniamerkki
@@ -799,8 +799,8 @@ fi-pl:
           show: Näytä
           title: Näytä osallistujan sähköpostiosoite
         unblock:
-          error: Käyttäjän eston poistaminen epäonnistui
-          success: Käyttäjän eston poistaminen onnistui
+          error: Käyttäjän eston peruuttaminen epäonnistui.
+          success: Käyttäjän eston peruuttaminen onnistui.
       organization:
         edit:
           title: Muokkaa organisaatiota
@@ -847,11 +847,11 @@ fi-pl:
       organization_homepage:
         content_blocks:
           create:
-            error: Sisältölohkon luonti epäonnistui
-            success: Sisältölohkon luonti onnistui
+            error: Sisältölohkon luonti epäonnistui.
+            success: Sisältölohkon luonti onnistui.
           destroy:
-            error: Sisältölohkon poisto epäonnistui
-            success: Sisältölohkon poisto onnistui
+            error: Sisältölohkon poisto epäonnistui.
+            success: Sisältölohkon poisto onnistui.
           edit:
             update: Päivitä
         edit:
@@ -929,7 +929,7 @@ fi-pl:
           error: Uuden teeman luonnissa tapahtui virhe.
           success: Teema luotu onnistuneesti.
         destroy:
-          success: Teema tuhottu onnistuneesti
+          success: Teeman tuhoaminen onnistui.
         edit:
           title: Muokkaa teemaa
           update: Päivitä
@@ -949,7 +949,7 @@ fi-pl:
           error: Tunnisteen poistaminen epäonnistui.
           success: Tunnisteen poistaminen onnistui.
         share_tokens:
-          empty: Aktiivisia tunnisteita ei ole tällä hetkellä
+          empty: Aktiivisia tunnisteita ei ole tällä hetkellä.
           help: Näitä tunnisteita käytetään jaettaessa tätä kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakoikonia vieraillaksesi jaettavassa URL-osoitteessa.
           title: Jakotunnisteet
       shared:
@@ -963,7 +963,7 @@ fi-pl:
           error: Uuden aiheen luomisessa tapahtui virhe.
           success: Aihe luotiin onnistuneesti.
         destroy:
-          success: Aihe tuhottu onnistuneesti
+          success: Aiheen poistaminen onnistui.
         edit:
           title: Muokkaa aihetta
           update: Päivitä aihe
@@ -980,11 +980,11 @@ fi-pl:
           active_content_blocks: Aktiiviset sisältölohkot
           add: Lisää sisältölohko
           create:
-            error: Sisältölohkon luonti epäonnistui
-            success: Sisältölohkon luonti onnistui
+            error: Sisältölohkon luonti epäonnistui.
+            success: Sisältölohkon luonti onnistui.
           destroy:
-            error: Sisältölohkon poisto epäonnistui
-            success: Sisältölohkon poisto onnistui
+            error: Sisältölohkon poisto epäonnistui.
+            success: Sisältölohkon poisto onnistui.
           destroy_confirmation: Haluatko varmasti poistaa tämän sisältölohkon?
           edit:
             update: Päivitä
@@ -1010,11 +1010,11 @@ fi-pl:
         topic:
           destroy: Poista aihe
           edit: Muokkaa aihetta
-          empty: Tämän aiheen alla ei ole sivuja
+          empty: Tämän aiheen alla ei ole sivuja.
           without_topic: Sivut ilman aihetta
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
-          success: Sivu päivitetty onnistuneesti
+          success: Sivun päivitys onnistui.
       titles:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
@@ -1038,10 +1038,10 @@ fi-pl:
           success: CSV-tiedosto on ladattu onnistuneesti, varmistamme kriteerien mukaiset käyttäjäryhmät. Tämä saattaa kestää jonkin aikaa.
         reject:
           invalid: Käyttäjäryhmän hylkäämisessä tapahtui virhe.
-          success: Käyttäjäryhmä hylätty onnistuneesti
+          success: Käyttäjäryhmän hylkäys onnistui.
         verify:
           invalid: Käyttäjäryhmän vahvistuksessa tapahtui virhe.
-          success: Käyttäjäryhmä vahvistaminen onnistui
+          success: Käyttäjäryhmän vahvistaminen onnistui.
       user_groups:
         index:
           state:
@@ -1078,13 +1078,13 @@ fi-pl:
           last_day: Viimeinen päivä
           last_month: Viimeinen kuukausi
           last_week: Viimeinen viikko
-          no_users_count_statistics_yet: Käyttäjämäärän tilastoja ei vielä ole olemassa
+          no_users_count_statistics_yet: Käyttäjämäärätilastoja ei vielä ole.
           participants: Osallistujat
       view_public_page: Näytä julkinen sivu
     forms:
       errors:
         impersonate_user:
-          reason: Sinun on annettava syy, kun esiinnyt hallinnoimattomana osallistujana
+          reason: Sinun on annettava syy, kun hallitset osallistujaa, joka ei ole hallittu osallistuja.
     metrics:
       blocked_users:
         object: estetyt käyttäjät
