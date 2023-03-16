@@ -15,8 +15,6 @@ el:
             choices:
               missing: δεν έχουν ολοκληρωθεί
               too_many: είναι πάρα πολλά
-        questionnaire:
-          request_invalid: Παρουσιάστηκε σφάλμα κατά τον χειρισμό του αιτήματος. Δοκιμάστε ξανά
   decidim:
     forms:
       admin:
