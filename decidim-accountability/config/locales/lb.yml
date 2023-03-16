@@ -50,9 +50,6 @@ lb:
           new:
             import: Import
             title: Resultater aus engem CSV-Fichier importéieren
-        imports:
-          create:
-            success: Den Import vum Fichier huet ugefaang. Dir kritt eng Email an den nächste puer Minutte mam Resultat vum Import
         models:
           result:
             name: Resultat
@@ -61,11 +58,6 @@ lb:
           timeline_entry:
             name: Zeitachseneintrag
         results:
-          create:
-            invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten
-            success: Ergebnis erfolgreich erstellt
-          destroy:
-            success: Ergebnis erfolgreich gelöscht
           edit:
             title: Ergebnis bearbeiten
             update: Ergebnis aktualisieren
@@ -74,18 +66,10 @@ lb:
           new:
             create: Ergebnis erstellen
             title: Neues Ergebnis
-          update:
-            invalid: Beim Aktualisieren dieses Ergebnisses ist ein Problem aufgetreten
-            success: Ergebnis erfolgreich aktualisiert
         shared:
           subnav:
             statuses: Status
         statuses:
-          create:
-            invalid: Beim Erstellen dieses Status ist ein Problem aufgetreten
-            success: Status erfolgreich erstellt
-          destroy:
-            success: Status erfolgreich gelöscht
           edit:
             title: Status bearbeiten
             update: Update Status
@@ -94,15 +78,7 @@ lb:
           new:
             create: Status erstellen
             title: Neuer Status
-          update:
-            invalid: Beim Aktualisieren dieses Status ist ein Problem aufgetreten
-            success: Status erfolgreich aktualisiert
         timeline_entries:
-          create:
-            invalid: Beim Erstellen dieses Eintrags ist ein Problem aufgetreten
-            success: Der Eintrag wurde erfolgreich erstellt
-          destroy:
-            success: Der Eintrag wurde erfolgreich gelöscht
           edit:
             title: Eintrag bearbeiten
             update: Eintrag aktualisieren
@@ -111,9 +87,6 @@ lb:
           new:
             create: Eintrag erstellen
             title: Neuer Eintrag
-          update:
-            invalid: Beim Aktualisieren dieses Eintrags ist ein Problem aufgetreten
-            success: Eintrag erfolgreich aktualisiert
       admin_log:
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
@@ -130,7 +103,6 @@ lb:
       import_mailer:
         import:
           errors: Fehler
-          errors_present: Beim Importieren der Ergebnisse ist ein Fehler aufgetreten
           row_number: Zeile
           subject: Ergebnisse wurden erfolgreich importiert
           success: Ergebnisse wurden erfolgreich importiert. Sie können die Ergebnisse über die Administrationsoberfläche aufrufen.
