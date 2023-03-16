@@ -71,6 +71,12 @@ fi:
           attributes:
             presided_polling_station:
               president_and_manager: Äänestysvirkailija on jo äänestyspaikan esimies tai hoitaja.
+            voting:
+              different_organization: Äänestyksen tulee tapahtua sen organisaation alla, johon käyttäjä on rekisteröitynyt.
+        decidim/votings/polling_station:
+          attributes:
+            polling_station_president:
+              different_voting: Äänestysvirkailijan on oltava samassa äänestyksessä kuin äänestyspaikka.
     models:
       decidim/elections/answer:
         one: Vastaus
@@ -124,6 +130,9 @@ fi:
             'true': Ei allekirjoitettu
         validated_eq:
           label: Vahvistettu
+          values:
+            'false': Vahvistamaton
+            'true': Vahvistettu
     components:
       elections:
         actions:
@@ -151,10 +160,17 @@ fi:
         unpublish: Lopeta julkaisu
       admin:
         answers:
+          create:
+            invalid: Vastauksen luonti epäonnistui.
+            success: Vastauksen luonti onnistui.
+          destroy:
+            invalid: Vastauksen poisto epäonnistui.
+            success: Vastauksen poisto onnistui.
           edit:
             title: Muokkaa vastausta
             update: Päivitä vastausta
           index:
+            invalid_max_selections: Sinun on valittava vielä %{missing_answers} valinta/valintaa täyttääksesi maksimivalintojen ehdon.
             title: Vastaukset
           new:
             create: Luo vastaus
@@ -163,8 +179,22 @@ fi:
           select:
             disable: Poista vastausvalinta
             enable: Merkitse vastaus valituksi
+            invalid: Vastauksen valinta epäonnistui.
+            success: Vastauksen valinta onnistui.
           selected: Valittu
+          unselect:
+            invalid: Vastauksen valinnan poisto epäonnistui.
+            success: Vastauksen valinnan poisto onnistui.
+          update:
+            invalid: Vastauksen päivitys epäonnistui.
+            success: Vastauksen päivitys onnistui.
         elections:
+          create:
+            invalid: Vaalin luonti epäonnistui.
+            success: Vaalin luonti onnistui.
+          destroy:
+            invalid: Vaalin poisto epäonnistui.
+            success: Vaalin poisto onnistui.
           edit:
             title: Muokkaa vaalia
             update: Päivitä vaali
@@ -178,6 +208,9 @@ fi:
             success: Vaalin julkaisu onnistui.
           unpublish:
             success: Vaalin julkaisu epäonnistui.
+          update:
+            invalid: Vaalin päivitys epäonnistui.
+            success: Vaalin päivitys onnistui.
         exports:
           elections: Vaalit
           feedback_form_answers: Palautelomakkeen vastaukset
@@ -198,12 +231,22 @@ fi:
           trustee:
             name: Luottamushenkilö
         proposals_imports:
+          create:
+            invalid: Ehdotusten tuonti vastauksiksi epäonnistui.
+            success: "%{number} ehdotusta tuotiin vastauksiksi."
           new:
             create: Tuo ehdotuksia vastauksiksi
             no_components: Tässä osallistumistilassa ei ole muita ehdotuskomponentteja, joista voisit tuoda ehdotuksia vastauksiksi.
             select_component: Valitse komponentti
             title: Tuo ehdotuksia
         questions:
+          create:
+            election_started: Tämä äänestys on jo aloitettu.
+            invalid: Kysymyksen luonti epäonnistui.
+            success: Kysymyksen luonti onnistui.
+          destroy:
+            invalid: Kysymyksen poisto epäonnistui.
+            success: Kysymyksen poisto onnistui.
           edit:
             title: Muokkaa kysymystä
             update: Päivitä kysymys
@@ -212,6 +255,9 @@ fi:
           new:
             create: Luo kysymys
             title: Uusi kysymys
+          update:
+            invalid: Kysymyksen päivitys epäonnistui.
+            success: Kysymyksen päivitys onnistui.
         steps:
           create_election:
             census: Henkilötietorekisteri
@@ -248,7 +294,9 @@ fi:
             title: Määritä vaali
             trustees: Vaalin luottamushenkilöt
           created:
+            invalid: Avainseremonian käynnistäminen epäonnistui.
             submit: Aloita avainseremonia
+            success: Avainseremonian aloituspyyntö on lähetetty sähköiselle ääniuurnalle.
             title: Vaali luotu
             trustees: Luottamushenkilöt
           key_ceremony:
@@ -257,9 +305,11 @@ fi:
           key_ceremony_ended:
             errors:
               time_before: Vaali on valmis alkamaan. Vaalin äänestysaika voidaan käynnistää aikaisintaan %{hours} tuntia ennen alkamisaikaa (%{start_time}).
+            invalid: Äänestysajan käynnistäminen epäonnistui.
             requirements:
               time_before: 'Äänestys alkaa pian. Voit käynnistää äänestysajan manuaalisesti tai se käynnistetään automaattisesti ennen alkamisaikaa: %{start_time}.'
             submit: Käynnistä äänestys
+            success: Pyyntösi aloittaa äänestysaika on lähetetty sähköiselle ääniuurnalle.
             title: Valmis alkamaan
           processing: Käsitellään...
           results_published:
@@ -277,9 +327,11 @@ fi:
             result: Tulos
             selected: Valittu
             submit: Julkaise tulokset
+            success: Pyyntösi julkaista äänestyksen tulokset on lähetetty sähköiselle ääniuurnalle.
             title: Ääntenlaskun tulokset
           tally_started:
             continue: Jatka
+            invalid: Poissaolevan luottamushenkilön ilmoittaminen epäonnistui.
             mark_as_missing: Merkitse poissaolevaksi
             mark_as_missing_description: Kaikkien luottamushenkilöiden pitäisi osallistua tähän prosessiin, mutta jos luottamushenkilö ei voi osallistua prosessiin, voit merkitä kyseisen henkilön poissaolevaksi.
             success: Poissaolevan luottamushenkilön merkitseminen sähköiselle ääniuurnalle onnistui
@@ -289,12 +341,16 @@ fi:
           vote:
             errors:
               time_after: Vaali on edelleen käynnissä. Sinun on odotettava päättymisaikaan saakka (%{end_time}) päättääksesi äänestyksen.
+            invalid: Äänestysajan päättäminen epäonnistui.
             requirements:
               time_after: Äänestys on päättynyt. Voit sulkea äänestysajan manuaalisesti tai se suljetaan automaattisesti muutaman minuutin päästä.
             submit: Päätä äänestysaika
+            success: Pyyntösi päättää äänestysaika on lähetetty sähköiselle ääniuurnalle.
             title: Äänestysaika
           vote_ended:
+            invalid: Ääntenlaskennan käynnistäminen epäonnistui.
             submit: Aloita ääntenlaskenta
+            success: Pyyntösi aloittaa ääntenlaskenta on lähetetty sähköiselle ääniuurnalle.
             text: Äänestys on päättynyt. Voit nyt aloittaa ääntenlaskun.
             title: Äänestysaika on päättynyt
           vote_stats:
@@ -306,6 +362,13 @@ fi:
           actions:
             disable: Poista käytöstä
             enable: Harkitse
+          create:
+            exists: Tällä osallistumistilalla on luottamushenkilö.
+            invalid: Luottamushenkilön luonti epäonnistui.
+            success: Luottamushenkilön luonti onnistui.
+          delete:
+            invalid: Luottamushenkilön poisto epäonnistui.
+            success: Luottamushenkilön poisto onnistui.
           form:
             select_user: Valitse käyttäjä
           index:
@@ -313,6 +376,9 @@ fi:
           new:
             create: Luo luottamushenkilö
             title: Uusi luottamushenkilö
+          update:
+            invalid: Luottamushenkilön %{trustee} päivitys epäonnistui.
+            success: Luottamushenkilön %{trustee} päivitys onnistui.
       admin_log:
         election:
           create: "%{user_name} loi vaalin %{resource_name} osallistumistilassa %{space_name}"
@@ -662,6 +728,7 @@ fi:
             title: Vahvista äänesi
           success:
             header: Äänesi löytyi!
+            info: Salattu äänesi on vaaliuurnassa %{link}.
         voting_step:
           back: Takaisin
           continue: Seuraava
@@ -716,6 +783,9 @@ fi:
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Äänestystyylin luonti epäonnistui.
+            success: Äänestystyylin luonti onnistui.
           destroy:
             invalid: Äänestystyylin poisto epäonnistui.
             success: Äänestystyylin poisto onnistui.
