@@ -25,17 +25,6 @@ zh-CN:
         registrations_enabled: 注册已启用
         title: 标题
         transparent: 透明的
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: 项目持续时间超过 %{count} 分钟
-              too_many_minutes_child: 项目的持续时间超过议程项目 "%{parent_title}" 父时间 %{count} 分钟
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: 此电子邮件帐户已被邀请
     models:
       decidim/meetings/close_meeting_event: 会议结束
       decidim/meetings/create_meeting_event: 会议
@@ -167,9 +156,6 @@ zh-CN:
             down: 向下
             remove: 删除
             up: 上移
-          create:
-            invalid: 创建这个议程时遇到问题
-            success: 日程创建成功
           edit:
             title: 编辑议程
             update: 更新
@@ -181,9 +167,6 @@ zh-CN:
           new:
             create: 创建
             title: 新议程
-          update:
-            invalid: 更新这个议程时遇到问题
-            success: 日程更新成功
         exports:
           meetings: 会议
           registrations: 注册
@@ -218,15 +201,7 @@ zh-CN:
             close: 关闭
             title: 关闭会议
         meetings:
-          close:
-            invalid: 本次会议结束时出现问题
-            success: 会议已成功关闭
-          create:
-            invalid: 创建此会议时出现问题
           destroy:
-            invalid:
-              proposals_count:
-                other: 会议不能被销毁，因为它有 %{count} 个建议相关联。
             success: 会议已成功删除
           edit:
             update: 更新
@@ -248,9 +223,6 @@ zh-CN:
           services:
             add_service: 添加服务
             services: 服务
-          update:
-            invalid: 更新本次会议时出错
-            success: 会议已成功更新
         models:
           meeting:
             name: 会议
@@ -308,8 +280,6 @@ zh-CN:
         registration_mailer:
           confirmation:
             subject: 您的会议注册已确认
-      meeting:
-        not_allowed: 您无权查看此会议
       meetings:
         count:
           meetings_count:
