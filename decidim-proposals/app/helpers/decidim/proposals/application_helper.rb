@@ -165,10 +165,10 @@ module Decidim
       # Options to filter Proposals by activity.
       def activity_filter_values
         base = [
-          ["all", t(".all")],
-          ["my_proposals", t(".my_proposals")]
+          ["all", t("decidim.proposals.proposals.filters.all")],
+          ["my_proposals", t("decidim.proposals.proposals.filters.my_proposals")]
         ]
-        base += [["voted", t(".voted")]] if current_settings.votes_enabled?
+        base += [["voted", t("decidim.proposals.proposals.filters.voted")]] if current_settings.votes_enabled?
         base
       end
 
