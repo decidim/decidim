@@ -237,10 +237,8 @@ ar:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: ترك شخص ملاحظة على المقترح "%{resource_title}". تحقق منها في <a href="%{admin_proposal_info_url}">لوحة المشرف</a>
             email_outro: تلقيت هذا الإشعار لأنك تستطيع تقييم الاقتراح.
             email_subject: ترك شخص ملاحظة على الاقتراح %{resource_title}.
-            notification_title: ترك شخص ملاحظة على الاقتراح <a href="%{resource_path}">%{resource_title}</a>. تحقق منها في <a href="%{admin_proposal_info_path}">لوحة المشرف</a>
         collaborative_draft_access_accepted:
           email_intro: 'تم قبول %{requester_name} لأن يكون مسجلاً كمساهم في المسودة التعاونية <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: لقد تلقيت هذا الإشعار لأنك مساهم مع <a href="%{resource_url}">%{resource_title}</a>.
@@ -275,12 +273,10 @@ ar:
           email_intro: 'يمكنك الآن إنشاء مقترحات جديدة في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: مقترحات متاحة الآن في %{participatory_space_title}
-          notification_title: يمكنك الآن طرح <a href="%{resource_path}">مقترحات جديدة</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'يمكنك تأييد المقترحات في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: بدأت اقتراحات الموافقة على %{participatory_space_title}
-          notification_title: يمكنك الآن بدء <a href="%{resource_path}">تأييد مقترحات</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'تم قبول اقتراحك "%{resource_title}". يمكنك قراءة الإجابة في هذه الصفحة:'
@@ -317,8 +313,6 @@ ar:
           email_intro: تمت إضافة الاقتراح "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تمت إضافة اقتراح جديد "%{resource_title}" إلى %{participatory_space_title}
-          notification_title: تمت إضافة الاقتراح <a href="%{resource_path}">%{resource_title}</a> إلى %{participatory_space_title} من قبل %{author}
-          notification_title_official: الاقتراح الرسمي <a href="%{resource_path}">%{resource_title}</a> تمت إضافته إلى %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'تم رفض اقتراحك "%{resource_title}". يمكنك قراءة الإجابة في هذه الصفحة:'
@@ -496,21 +490,12 @@ ar:
             rejected: مرفوض
             title: الإجابة على الاقتراح %{title}
         proposal_notes:
-          create:
-            error: حدثت مشكلة أثناء إنشاء مذكرة الاقتراح هذه
-            success: تم إنشاء ملاحظة الاقتراح بنجاح
           form:
             note: ملحوظة
             submit: خضع
           leave_your_note: اترك ملاحظتك
           title: ملاحظات خاصة
         proposals:
-          answer:
-            invalid: كانت هناك مشكلة في الإجابة على هذا الاقتراح
-            success: تم الرد على الاقتراح بنجاح
-          create:
-            invalid: كانت هناك مشكلة في إنشاء هذا الاقتراح
-            success: تم إنشاء الاقتراح بنجاح
           edit:
             title: تحديث الاقتراح
             update: تحديث
@@ -588,9 +573,6 @@ ar:
             select_a_scope: يرجى اختيار نطاق
             success: 'تم تحديث الاقتراحات بنجاح إلى نطاق %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: كانت هناك مشكلة في استيراد المقترحات
-            success: "%{number} مقترحات تم استيرادها بنجاح"
           new:
             create: مقترحات الاستيراد
             no_components: لا توجد مكونات اقتراح أخرى في هذه المساحة التشاركية لاستيراد المقترحات منها.
@@ -605,13 +587,6 @@ ar:
           create:
             invalid: 'طرأت مشكلة في فصل الاقتراحات المحددة لأن بعضها:'
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
-        valuation_assignments:
-          create:
-            invalid: طرأت مشكلة في تعيين الاقتراحات لأحد المُقيِّمين
-            success: لقد تم إسناد المُقتَرحات إلى مُقيِّم بنجاح
-          delete:
-            invalid: طرأت مشكلة في سحب تعيين الاقتراحات من أحد المُقيِّمين
-            success: تم سحب تعيين المُقيِّم من الاقتراح بنجاح
       admin_log:
         proposal:
           answer: "%{user_name} أجاب على الاقتراح %{resource_name} على %{space_name} الفضاء"
@@ -903,8 +878,6 @@ ar:
         proposal:
           creation_date: 'الإنشاء: %{date}'
           view_proposal: عرض الاقتراح
-        proposals:
-          empty: لا يوجد اقتراح بعد
         show:
           answer: إجابة
           back_to: ارجع الى
@@ -965,8 +938,6 @@ ar:
             supports_remaining: يجب عليك دعم %{remaining_votes} مقترحات أخرى ليتم أخذها في الاعتبار.
           proposal_limit:
             description: يمكنك إنشاء ما يصل إلى %{limit} مقترحات.
-          threshold_per_proposal:
-            description: من أجل التحقق من صحة المقترحات تحتاج إلى الوصول إلى %{limit} الدعم
           title: 'الدعامات تخضع للقواعد التالية:'
           vote_limit:
             description: يمكنك دعم ما يصل إلى %{limit} مقترحات.
