@@ -219,10 +219,8 @@ ro:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Cineva a lăsat o notă cu privire la propunerea "%{resource_title}". Verifică detaliile în <a href="%{admin_proposal_info_url}">panoul de administrare</a>
             email_outro: Ai primit această notificare pentru a putea evalua propunerea.
             email_subject: Cineva a trimis o notă la propunerea %{resource_title}.
-            notification_title: Cineva a lăsat o notă la propunerea <a href="%{resource_path}">%{resource_title}</a>. Verifică detaliile în <a href="%{admin_proposal_info_path}">panoul de administrare</a>
         collaborative_draft_access_accepted:
           email_subject: "Utilizatorul %{requester_name} a fost acceptat drept colaborator pentru %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> a fost <strong>acceptat drept colaborator</strong> pentru ciorna colaborativă <a href="%{resource_path}">%{resource_title}</a>.
@@ -245,12 +243,10 @@ ro:
           email_intro: 'Acum poți crea propuneri noi pentru %{participatory_space_title}! Participă acum la această pagină:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
           email_subject: Propunerile sunt acum disponibile pentru %{participatory_space_title}
-          notification_title: Acum poți înainta <a href="%{resource_path}">noi propuneri</a> pentru <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Poți susține propuneri pentru %{participatory_space_title}! Participă acum la această pagină:'
           email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
           email_subject: Poți acum susține propunerile primite pentru %{participatory_space_title}
-          notification_title: Poți acum începe <a href="%{resource_path}">să susții propuneri</a> pentru <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Propunerea ta "%{resource_title}" a fost acceptată. Poți citi răspunsul în această pagină:'
@@ -287,7 +283,6 @@ ro:
           email_intro: Propunerea "%{resource_title}" a fost adăugată la "%{participatory_space_title}", spațiu participativ pe care îl urmărești.
           email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula aceste notificări de la link-ul anterior.
           email_subject: O nouă propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
-          notification_title: Propunerea <a href="%{resource_path}">%{resource_title}</a> a fost adăugată la %{participatory_space_title} de %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'Propunerea ta "%{resource_title}" a fost respinsă. Poți citi răspunsul în această pagină:'
@@ -441,21 +436,12 @@ ro:
             rejected: Respinse
             title: Răspuns pentru propunerea %{title}
         proposal_notes:
-          create:
-            error: A apărut o eroare la crearea notei acestei propuneri
-            success: Notă de propunere creată cu succes
           form:
             note: Notă
             submit: Trimite
           leave_your_note: Lasă-ți nota
           title: Note private
         proposals:
-          answer:
-            invalid: A apărut o problemă la răspunsul pentru această propunere
-            success: Răspunsul pentru propunere a fost înregistrat cu succes
-          create:
-            invalid: A apărut o problemă la crearea acestei propuneri
-            success: Propunerea a fost creată cu succes
           edit:
             title: Actualizează propunerea
             update: Actualizează
@@ -530,9 +516,6 @@ ro:
             select_a_scope: Te rugăm selectează un domeniu
             success: 'Propuneri actualizate cu succes în domeniul %{subject_name} : %{proposals}.'
         proposals_imports:
-          create:
-            invalid: A apărut o problemă la importul propunerilor
-            success: "%{number} propuneri importate cu succes"
           new:
             create: Importă propuneri
             no_components: Nu există alte componente de propunere în acest spațiu participativ din care să se importe propunerile.
@@ -547,13 +530,6 @@ ro:
           create:
             invalid: 'A apărut o problemă la împărțirea propunerilor selectate, deoarece unele dintre ele:'
             success: Propunerile au fost împărțite cu succes în altele noi.
-        valuation_assignments:
-          create:
-            invalid: A apărut o eroare la atribuirea propunerilor unui evaluator
-            success: Propuneri au fost atribuite cu succes unui evaluator
-          delete:
-            invalid: A apărut o eroare la anularea atribuirii propunerilor de la un evaluator
-            success: Anularea atribuirii propunerilor de la un evaluator s-a realizat cu succes
       admin_log:
         proposal:
           answer: "%{user_name} a răspuns la propunerea %{resource_name} pentru spațiul %{space_name}"
@@ -819,8 +795,6 @@ ro:
         proposal:
           creation_date: 'Data creării: %{date}'
           view_proposal: Vizualizează propunerea
-        proposals:
-          empty: Încă nu există nicio propunere
         show:
           answer: Răspuns
           back_to: Înapoi la
@@ -875,8 +849,6 @@ ro:
             supports_remaining: Trebuie să votezi încă %{remaining_votes} propuneri pentru ca votul tău să fie luat în considerare.
           proposal_limit:
             description: Poți crea până la %{limit} propuneri.
-          threshold_per_proposal:
-            description: Pentru a putea fi validate propunerile trebuie să adune %{limit} voturi
           title: 'Voturile sunt supuse următoarelor reguli:'
           vote_limit:
             description: Poți vota până la %{limit} propuneri.
