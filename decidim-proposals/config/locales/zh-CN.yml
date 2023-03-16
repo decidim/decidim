@@ -168,10 +168,8 @@ zh-CN:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: 有人在提议 "%{resource_title}"上留下了一条笔记。请在管理面板 <a href="%{admin_proposal_info_url}">上查看</a>
             email_outro: 您收到此通知是因为您可以评估提案。
             email_subject: 有人在建议 %{resource_title} 留下了一条笔记。
-            notification_title: 有人在提议 <a href="%{resource_path}">%{resource_title}</a>留下了一条笔记。请在 <a href="%{admin_proposal_info_path}">管理面板</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} 已被接受作为贡献者访问 %{resource_title}。"
         collaborative_draft_access_rejected:
@@ -362,21 +360,12 @@ zh-CN:
             rejected: 已拒绝
             title: 对提议 %{title} 的答案
         proposal_notes:
-          create:
-            error: 创建此建议说明时出现问题
-            success: 提案备注创建成功
           form:
             note: 说明
             submit: 提交
           leave_your_note: 留下您的便笺
           title: 私人笔记
         proposals:
-          answer:
-            invalid: 回答此建议时出现问题
-            success: 已成功回复建议
-          create:
-            invalid: 创建此建议时出现问题
-            success: 建议已成功创建
           edit:
             title: 更新提议
             update: 更新
@@ -448,9 +437,6 @@ zh-CN:
             select_a_scope: 请选择范围
             success: '建议已成功更新到 %{subject_name} 范围： %{proposals}。'
         proposals_imports:
-          create:
-            invalid: 导入提案时出现问题
-            success: "%{number} 个建议已成功导入"
           new:
             create: 导入提议
             no_components: 在这个参与性空间中，没有其他提案组成部分可以从中导入。
@@ -462,13 +448,6 @@ zh-CN:
         proposals_splits:
           create:
             success: 成功地将建议分成新的建议。
-        valuation_assignments:
-          create:
-            invalid: 分配建议给值者时出错
-            success: 分配给估值者的建议
-          delete:
-            invalid: 有一个错误，未分配来自一个值的建议
-            success: 已成功从建议中删除值
       admin_log:
         proposal:
           answer: "%{user_name} 回答了 %{resource_name} 在 %{space_name} 空间的建议"
@@ -710,8 +689,6 @@ zh-CN:
         proposal:
           creation_date: '创建: %{date}'
           view_proposal: 查看提案
-        proposals:
-          empty: 还没有提案
         show:
           answer: 答案
           back_to: 返回到
@@ -762,8 +739,6 @@ zh-CN:
             supports_remaining: 您必须支持 %{remaining_votes} 个更多的建议以便您的支持被考虑。
           proposal_limit:
             description: 您最多可以创建 %{limit} 个建议。
-          threshold_per_proposal:
-            description: 为了被验证的建议需要达到 %{limit} 支持
           title: '支持受以下规则约束：'
           vote_limit:
             description: 您可以最多支持 %{limit} 个建议。
