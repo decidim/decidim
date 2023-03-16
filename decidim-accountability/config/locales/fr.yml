@@ -75,9 +75,6 @@ fr:
               </li>
               </ol>
             title: Importer les résultats depuis un fichier CSV
-        imports:
-          create:
-            success: Le fichier a commencé à être importé. Vous recevrez un email dans les prochaines minutes avec le résultat de l'import
         models:
           result:
             name: Réalisation
@@ -97,16 +94,8 @@ fr:
             no_components: Il n'y a aucune fonctionnalité Budget dans cet espace participatif depuis laquelle importer des projets.
             origin_component_id: Fonctionnalité d'origine
             select_component: Sélectionner une fonctionnalité
-            success:
-              one: 1 projet mis en file d'attente pour être importé. Vous serez notifié par email une fois l'import terminé
-              other: "%{count} projets mis en file d'attente pour être importés. Vous serez notifié par email une fois l'import terminé"
             title: Importer des projets vers la fonctionnalité Suivi
         results:
-          create:
-            invalid: Un problème est survenu lors de la création de cette réalisation
-            success: Réalisation créée avec succès
-          destroy:
-            success: Réalisation supprimée avec succès
           edit:
             title: Modifier la réalisation
             update: Mise à jour de la réalisation
@@ -115,18 +104,10 @@ fr:
           new:
             create: Créer une réalisation
             title: Nouvelle réalisation
-          update:
-            invalid: Un problème est survenu lors de la mise à jour de cette réalisation
-            success: Réalisation mise à jour avec succès
         shared:
           subnav:
             statuses: Progrès
         statuses:
-          create:
-            invalid: Un problème est survenu lors de la création de ce statut
-            success: Statut créé avec succès
-          destroy:
-            success: Statut supprimé avec succès
           edit:
             title: Modifier le statut
             update: Mettre à jour le statut
@@ -135,15 +116,7 @@ fr:
           new:
             create: Créer un statut
             title: Nouveau statut
-          update:
-            invalid: Un problème est survenu lors de la mise à jour de ce statut
-            success: Statut mis à jour avec succès
         timeline_entries:
-          create:
-            invalid: Un problème est survenu lors de la création de cette élément de chronologie
-            success: Élément de chronologie créé avec succès
-          destroy:
-            success: Élément de chronologie supprimé avec succès
           edit:
             title: Modifier l'élément de chronologie
             update: Mise à jour de l'élément de chronologie
@@ -152,9 +125,6 @@ fr:
           new:
             create: Créer un élément de chronologie
             title: Nouvel élément de chronologie
-          update:
-            invalid: Un problème est survenu lors de la mise à jour de cet élément de chronologie
-            success: Élément de chronologie mis à jour avec succès
       admin_log:
         result:
           create: "%{user_name} a créé la réalisation %{resource_name} dans %{space_name}"
@@ -179,7 +149,6 @@ fr:
       import_mailer:
         import:
           errors: Erreurs
-          errors_present: Un problème est survenu lors de l'import des résultats
           row_number: Ligne
           subject: Import des résultats réussi
           success: Import des résultats réussi. Vous pouvez consulter les résultats dans l'interface d'administration.
