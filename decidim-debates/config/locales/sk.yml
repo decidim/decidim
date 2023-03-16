@@ -132,7 +132,6 @@ sk:
           email_intro: 'Teraz môžete vytvoriť nové debaty v priestore %{participatory_space_title}! Zúčastnite sa na tejto stránke:'
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Debaty sú teraz k dispozícii v %{participatory_space_title}
-          notification_title: Teraz môžete začať <a href="%{resource_path}"> nové debaty v priestore </a><a href="%{participatory_space_url}">%{participatory_space_title} </a>
     gamification:
       badges:
         commented_debates:
