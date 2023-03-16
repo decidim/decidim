@@ -40,10 +40,7 @@ module Decidim
 
         it "shows the correct error" do
           expect(subject.valid?).to be(false)
-          # Note: After update to Ubuntu 22.04, the expectation needs to be
-          # changed to the one below.
-          expect(subject.errors[:file]).to match_array(["File resolution is too large"])
-          # expect(subject.errors[:file]).to match_array(["File cannot be processed"])
+          expect(subject.errors[:file]).to match_array(["File cannot be processed"])
         end
       end
     end
