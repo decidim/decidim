@@ -133,17 +133,12 @@ sk:
           success: Skvele! Odsúhlasili ste podmienky použitia pre administrátorov.
         actions:
           refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
-          title: Súhasím s podmienkami použitia.
         required_review:
-          alert: 'Vyžaduje sa: oboznámiť sa s administrátorskými podmienkami použitia'
           cta: Oboznámte sa s nimi teraz.
-        title: Administrátorské podmienky použitia
       area_types:
         create:
           error: Pri tvorbe nového typu oblasti nastala chyba.
           success: Nový typ oblasti úspešne vytvorený.
-        destroy:
-          success: Typ oblasti úspešne vymazaný
         edit:
           title: Upraviť typ oblasti
           update: Aktualizovať
@@ -152,13 +147,10 @@ sk:
           title: Nový typ oblasti
         update:
           error: Pri aktualizácii typu oblasti nastala chyba.
-          success: Nový typ oblasti úspešne aktualizovaný
       areas:
         create:
           error: Pri tvorbe novej oblasti nastala chyba.
           success: Oblasť úspešne vytvorená.
-        destroy:
-          success: Oblasť úspešne vymazaná
         edit:
           title: Upravit oblasť
           update: Aktualizovať
@@ -168,7 +160,6 @@ sk:
         no_areas: Žiadne oblasti
         update:
           error: Pri aktualizácii oblasti nastala chyba.
-          success: Oblasť úspešne aktualizovaná
       attachment_collections:
         create:
           error: Pri tvorbe nového priečinka nastala chyba.
@@ -206,7 +197,6 @@ sk:
           success: Príloha bola upravená úspešne.
       autocomplete:
         no_results: Neboli nájdené žiadne výsledky
-        search_prompt: Prosím, zadajte min. 3 znaky pre vyhľadávanie
       categories:
         create:
           error: Vyskytol sa problém s vytváraním tejto kategórie.
@@ -293,10 +283,8 @@ sk:
           name_or_nickname_or_email_cont: Hľadať {collection} podľa e-mailu, mena alebo prezývky.
           title_cont: Hľadať %{collection} podľa titulku.
       help_sections:
-        error: Pri aktualizácií sekcie Pomoc došlo ku chybe
         form:
           save: Uložiť
-        success: Sekcia Pomoc úspešne aktualizovaná
       impersonatable_users:
         index:
           filter:
@@ -493,8 +481,6 @@ sk:
           send_to_participants: Poslať účastníkom
           title: Vyberte príjemcov
           warning: "<strong>Pozor:</strong> Tento spravodaj bude odoslaný len účastníkom, ktorí aktivovali možnosť <em>Chcem dostávať spravodaje</em> vo svojich nastaveniach."
-        send:
-          no_recipients: Žiadni príjemcovia v tomto výbere
         show:
           preview: Náhľad
           select_recipients_to_deliver: Vyberte príjemcov
@@ -503,10 +489,6 @@ sk:
           error: Vyskytol sa problém s aktualizáciou spravodaja.
           success: Spravodaj úspešne aktualizovaný. Prosíme skontrolujte ho pred odoslaním.
       officializations:
-        create:
-          success: Užívateľ úspešne zoficiálnený
-        destroy:
-          success: Užívateľ úspešne zneoficiálnený
         index:
           actions: Akcie
           badge: Odznak
@@ -605,8 +587,6 @@ sk:
         create:
           error: Pri tvorbe nového rozsahu nastala chyba.
           success: Nový rozsah úspešne vytvorený.
-        destroy:
-          success: Rozsah úspešne vymazaný
         edit:
           title: Upraviť rozsah
           update: Aktualizovať
@@ -626,8 +606,6 @@ sk:
         create:
           error: Pri tvorbe novej témy nastala chyba.
           success: Téma vytvorená úspešne.
-        destroy:
-          success: Téma úspešne zničená.
         edit:
           title: Upraviť tému
           update: Aktualizovať tému
@@ -660,11 +638,9 @@ sk:
         topic:
           destroy: Odstrániť tému
           edit: Upraviť tému
-          empty: Pod témou nie je žiadna stránka
           without_topic: Stránky bez témy
         update:
           error: Pri aktualizácii stránky nastala chyba.
-          success: Stránka úspešne aktualizovaná
       titles:
         admin_log: Záznam činnosti admina
         area_types: Typy oblastí
@@ -686,10 +662,8 @@ sk:
           success: Súbor CSV nahraný úspešne, overujeme skupiny, spĺňajúce kritériá. Môže to chvíľu trvať.
         reject:
           invalid: Nastal problém pri odmietaní tejto skupiny.
-          success: Skupina úspešne odmietnutá
         verify:
           invalid: Nastal problém pri overovaní tejto skupiny.
-          success: Skupina úspešne verifikovaná
       user_groups:
         index:
           state:
@@ -721,7 +695,6 @@ sk:
           last_day: Posledný deň
           last_month: Posledný mesiac
           last_week: Posledný týždeň
-          no_users_count_statistics_yet: Zatiaľ nie sú žiadne štatistiky o počte užívateľov
           participants: Účastníci
       view_public_page: Zobraziť verejnú stránku
     moderations:
