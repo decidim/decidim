@@ -54,9 +54,6 @@ ro:
             download_export: Descarcați Export cu format CSV
             import: Importă
             title: Importați rezultate de la CSV
-        imports:
-          create:
-            success: Fișierul a început importul. Veți primi un e-mail în următoarele câteva minute cu rezultatul importului
         models:
           result:
             name: Rezultat
@@ -69,11 +66,6 @@ ro:
             create: Importă
             select_component: Selectați componenta
         results:
-          create:
-            invalid: A apărut o problemă la crearea acestui rezultat
-            success: Rezultatul a fost creat
-          destroy:
-            success: Rezultatul a fost șters
           edit:
             title: Editare rezultat
             update: Actualizare rezultat
@@ -82,18 +74,10 @@ ro:
           new:
             create: Creează rezultat
             title: Rezultat nou
-          update:
-            invalid: A apărut o eroare la actualizarea acestui rezultat
-            success: Rezultatul a fost actualizat
         shared:
           subnav:
             statuses: Stadii
         statuses:
-          create:
-            invalid: A apărut o eroare la crearea acestui stadiu
-            success: Stadiu creat cu succes
-          destroy:
-            success: Stadiu şters cu succes
           edit:
             title: Editare stadiu
             update: Actualizare stadiu
@@ -102,15 +86,7 @@ ro:
           new:
             create: Creează stadiu
             title: Stadiu nou
-          update:
-            invalid: A apărut o eroare la crearea acestui stadiu
-            success: Stadiu actualizat cu succes
         timeline_entries:
-          create:
-            invalid: A apărut o eroare la crearea acestei înregistrări
-            success: Intrare creată cu succes
-          destroy:
-            success: Intrare ștearsă cu succes
           edit:
             title: Editare înregistrare
             update: Actualizare înregistrare
@@ -119,9 +95,6 @@ ro:
           new:
             create: Creează înregistrare
             title: Înregistrare nouă
-          update:
-            invalid: A apărut o eroare la actualizarea acestei înregistrări
-            success: Înregistrare actualizată cu succes
       admin_log:
         result:
           create: "%{user_name} a creat %{resource_name} în %{space_name}"
@@ -144,7 +117,6 @@ ro:
       import_mailer:
         import:
           errors: Erori
-          errors_present: A apărut o problemă la importarea rezultatelor
           row_number: Rând
           subject: Importare cu succes a rezultatelor
           success: Rezultate importate. Puteți revizui rezultatele în interfața de administrare.
