@@ -49,12 +49,6 @@ sv:
         title: Åtgärder
       admin:
         budgets:
-          create:
-            invalid: Det gick inte att skapa budgeten
-            success: Budgeten har skapats
-          destroy:
-            invalid: Det gick inte att radera budgeten
-            success: Budgeten har raderats
           edit:
             title: Redigera budget
             update: Uppdatera budget
@@ -67,9 +61,6 @@ sv:
           new:
             create: Skapa budget
             title: Ny budget
-          update:
-            invalid: Det gick inte att uppdatera budgeten
-            success: Budgeten har uppdaterats
         exports:
           projects: Projekt
         models:
@@ -78,11 +69,6 @@ sv:
           project:
             name: Projekt
         projects:
-          create:
-            invalid: Det gick inte att skapa projektet
-            success: Projektet har skapats
-          destroy:
-            success: Projektet har raderats
           edit:
             title: Redigera projekt
             update: Uppdatera
@@ -99,13 +85,7 @@ sv:
           new:
             create: Skapa
             title: Nytt projekt
-          update:
-            invalid: Det gick inte att uppdatera projektet
-            success: Projektet har uppdaterats
         proposals_imports:
-          create:
-            invalid: Det gick inte att importera förslagen till projekten
-            success: "%{number} förslag har importerats till projekt"
           new:
             create: Importera förslag till projekt
             default_budget: Förvald budget
@@ -134,9 +114,6 @@ sv:
         close_modal: Stäng fönster
         continue: Fortsätt
         more_information: Mer information
-      budget_list_item:
-        voting_finished: Du har röstat i denna medborgarbudget
-        voting_started: Du har börjat rösta i denna medborgarbudget
       budgets_list:
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
@@ -148,7 +125,6 @@ sv:
         progress: Avsluta röstning
         show: Visa projekt
         vote: Rösta
-        voted_on: Du har röstat på %{links}
       limit_announcement:
         limit_reached: Du har aktiva röster i %{links}. För att rösta måste du <a href="%{landing_path}">ta bort din röst och börja om</a>.
       models:
@@ -250,8 +226,6 @@ sv:
           random: Slumpmässig ordning
           selected: Valda
         project:
-          add: Lägg till projekt %{resource_name} till din röst
-          remove: Ta bort projekt %{resource_name} från din röst
           selected: Valda
           view: Visa
           votes:
@@ -259,9 +233,7 @@ sv:
             other: röster
         project_budget_button:
           add: Lägg till i din röst
-          add_descriptive: Lägg till projekt %{resource_name} till din röst
           added: Lades till i din röst
-          added_descriptive: Projekt %{resource_name} lades till i din röst
         projects_for: Projekt för %{name}
         show:
           budget: Budget
@@ -286,10 +258,6 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
-            form:
-              errors:
-                budget_voting_rule_only_one: Endast en röstningsregel får vara aktiverad
-                budget_voting_rule_required: En röstningsregel krävs
             landing_page_content: Budgetarnas landningssida
             more_information_modal: Fönster "Mer information"
             projects_per_page: Projekt per sida
@@ -329,13 +297,6 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddlanden via föregående länk.
           email_subject: Budgeten %{resource_title} är nu aktivt för %{participatory_space_title}.
           notification_title: Budgeten <a href="%{resource_path}">%{resource_title}</a> är nu aktiv för %{participatory_space_title}.
-    orders:
-      checkout:
-        error: Det gick inte att behandla din röst
-        success: Din röst har tagits emot
-      destroy:
-        error: Det gick inte att dra tillbaka din röst
-        success: Din röst har dragits tillbaka
     resource_links:
       included_proposals:
         project_proposal: Förslag som ingår i detta projekt
