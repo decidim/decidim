@@ -62,9 +62,6 @@ it:
             title: Annullamento della sortizione
           create:
             error: Si è verificato un errore durante la creazione di una nuova sortizione.
-            success: Sorteggio creato con successo
-          destroy:
-            success: Sorteggio cancellato con successo
           edit:
             title: Aggiorna le informazioni sulla sortizione
             update: Aggiornare
@@ -81,7 +78,6 @@ it:
             selected_proposals: Proposte selezionate per l'estrazione
           update:
             error: Si è verificato un errore durante l'aggiornamento della sortizione.
-            success: Sorteggio aggiornato con successo
       admin_log:
         sortition:
           create: "%{user_name} ha creato il sorteggio %{resource_name} in %{space_name}"
