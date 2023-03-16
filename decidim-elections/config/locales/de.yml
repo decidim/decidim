@@ -104,7 +104,6 @@ de:
           label: Überprüft
           values:
             'false': Überprüft
-            'true': Nicht überprüft
     components:
       elections:
         actions:
