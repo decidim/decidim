@@ -864,7 +864,7 @@ en:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         proposals:
-          empty: There are no proposal yet.
+          empty: There are no proposals yet.
           empty_filters: There are no proposals with this criteria.
         show:
           answer: Answer
