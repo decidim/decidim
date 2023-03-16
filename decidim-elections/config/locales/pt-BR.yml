@@ -29,18 +29,6 @@ pt-BR:
             attachment:
               needs_to_be_reattached: Precisa ser reanexado
   activerecord:
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            presided_polling_station:
-              president_and_manager: O oficial de votação já é presidente/gerente da estação de voto
-            voting:
-              different_organization: A votação deve estar na mesma organização que o usuário
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: O consultor de voto deve estar na mesma votação que a estação de voto
     models:
       decidim/elections/answer:
         one: Responda
@@ -91,9 +79,6 @@ pt-BR:
             'true': Não assinado
         validated_eq:
           label: Validado
-          values:
-            'false': Validado
-            'true': Não validado
     components:
       elections:
         actions:
@@ -121,17 +106,10 @@ pt-BR:
         unpublish: Despublicar
       admin:
         answers:
-          create:
-            invalid: Tem havido um problema ao criar esta resposta
-            success: Resposta criada com sucesso
-          destroy:
-            invalid: Houve um problema ao excluir esta resposta
-            success: Resposta excluída com sucesso
           edit:
             title: Editar resposta
             update: Atualizar resposta
           index:
-            invalid_max_selections: Você precisa de mais %{missing_answers} resposta/s para combinar com a seleção máxima
             title: Respostas
           new:
             create: Criar resposta
@@ -140,22 +118,8 @@ pt-BR:
           select:
             disable: Resposta desmarcada
             enable: Marcar resposta como selecionada
-            invalid: Houve um problema ao selecionar esta resposta
-            success: Resposta selecionada com sucesso
           selected: Selecionado
-          unselect:
-            invalid: Houve um problema ao desmarcar esta resposta
-            success: Resposta não selecionada com sucesso
-          update:
-            invalid: Houve um problema ao atualizar esta resposta
-            success: Resposta atualizada com sucesso
         elections:
-          create:
-            invalid: Houve um problema ao criar essa eleição
-            success: Eleição criada com sucesso
-          destroy:
-            invalid: Houve um problema ao excluir essa eleição
-            success: Eleição excluída com sucesso
           edit:
             title: Editar eleição
             update: Atualizar eleição
@@ -169,9 +133,6 @@ pt-BR:
             success: A eleição foi publicada com sucesso.
           unpublish:
             success: A eleição deixou de ser publicada com sucesso.
-          update:
-            invalid: Houve um problema ao atualizar essa eleição
-            success: Eleição atualizada com sucesso
         exports:
           elections: Eleições
           feedback_form_answers: Respostas do formulário de feedback
@@ -187,21 +148,12 @@ pt-BR:
           trustee:
             name: Curador
         proposals_imports:
-          create:
-            invalid: Houve um problema ao importar as propostas para respostas
-            success: "%{number} propostas importadas com sucesso para respostas"
           new:
             create: Importar propostas para respostas
             no_components: Não há outros componentes de proposta neste espaço participativo para importar as propostas para respostas.
             select_component: Por favor, selecione um componente
             title: Importar propostas
         questions:
-          create:
-            invalid: Ocorreu um erro ao criar uma nova pergunta
-            success: Questão criada com sucesso
-          destroy:
-            invalid: Houve um problema ao excluir esta pergunta
-            success: Questão criada com sucesso
           edit:
             title: Editar pergunta
             update: Atualizar pergunta
@@ -210,9 +162,6 @@ pt-BR:
           new:
             create: Criar questão
             title: Nova questão
-          update:
-            invalid: Ocorreu um erro ao atualizar esta questão
-            success: Questão atualizada com sucesso
         steps:
           create_election:
             errors:
@@ -239,9 +188,7 @@ pt-BR:
             title: Configurar eleição
             trustees: Agentes fiduciários da Eleição
           created:
-            invalid: Houve um problema ao iniciar a cerimônia de chave
             submit: Inicie a cerimônia de chaves
-            success: Pedido de cerimônia inicial foi enviado com sucesso para o Quadro de Notas
             title: Eleição criada
             trustees: Agentes fiduciários
           key_ceremony:
@@ -249,11 +196,9 @@ pt-BR:
           key_ceremony_ended:
             errors:
               time_before: A eleição está pronta para começar. Você tem que esperar até %{hours} horas antes da hora de início (%{start_time}) para iniciar o período de votação.
-            invalid: Houve um problema ao iniciar o período de votação
             requirements:
               time_before: A eleição começará em breve. Você pode iniciar o período de votação manualmente ou ele será iniciado automaticamente antes da hora inicial, às %{start_time}.
             submit: Iniciar período de votação
-            success: O pedido de período de votação foi enviado com sucesso para o Quadro de Notas
             title: Preparado para começar
           processing: Processando...
           results_published:
@@ -271,21 +216,16 @@ pt-BR:
             result: Resultado
             selected: Selecionado
             submit: Publicar resultados
-            success: A publicação requerida foi enviada com sucesso para o Quadro de Boletim
             title: Resultados calculados
           vote:
             errors:
               time_after: A eleição ainda está em curso. Você tem que esperar até o fim do período de votação (%{end_time}).
-            invalid: Houve um problema ao terminar o período de votação
             requirements:
               time_after: A eleição terminou. Você pode terminar o período de votação manualmente ou terminará automaticamente em alguns minutos.
             submit: Fim período de votação
-            success: Período de votação final foi enviado com sucesso para o Quadro de Notas
             title: Período de votação
           vote_ended:
-            invalid: Houve um problema ao iniciar a apuração
             submit: Iniciar a apuração
-            success: O início da apuração foi enviado com sucesso para o Quadro de Notas
             text: A votação terminou. Você pode iniciar a apuração agora.
             title: O período de votação terminou
           vote_stats:
@@ -297,13 +237,6 @@ pt-BR:
           actions:
             disable: Desabilitado
             enable: Considere
-          create:
-            exists: Curador existente para este espaço participativo
-            invalid: Houve um problema ao criar um curador
-            success: Curador criado com sucesso
-          delete:
-            invalid: Houve um erro ao remover o curador
-            success: Curador removido com sucesso
           form:
             select_user: Selecionar usuário
           index:
@@ -311,9 +244,6 @@ pt-BR:
           new:
             create: Criar curador
             title: Novo curador
-          update:
-            invalid: Ocorreu um erro ao atualizar %{trustee} como curador
-            success: Curador %{trustee} atualizado com sucesso
       election_m:
         badge_name:
           finished: Finalizado
@@ -613,7 +543,6 @@ pt-BR:
             title: Verifique seu voto
           success:
             header: Voto localizado!
-            info: Seu voto criptografado está na urna %{link}
         voting_step:
           back: Voltar
           continue: Próxima
@@ -667,20 +596,12 @@ pt-BR:
     votings:
       admin:
         ballot_styles:
-          create:
-            error: Ocorreu um erro ao criar este estilo de cédula
-            success: Estilo de cédula criado com sucesso
-          destroy:
-            invalid: Ocorreu um erro ao excluir este estilo de cédula
-            success: Estilo de cédula deletado com sucesso
           edit:
             title: Editar estilo da cédula
             update: Atualizar
           form:
-            code_help: 'Dica: o código é a ligação entre o censo e um estilo de boleto. Ao carregar os dados do censo, será atribuído a cada entrada um estilo de voto correspondendo ao código'
             election: Eleição
             questions: Perguntas para este estilo de cédula
-            questions_help: 'Dica: selecione as questões dos componentes da eleição a serem apresentados aos eleitores atribuídos a este estilo de cédula'
           index:
             actions:
               confirm_destroy: Você tem certeza?
@@ -803,16 +724,8 @@ pt-BR:
             publish_results: Publicar resultados
             publishing: Publicando resultados...
           update:
-            invalid: Ocorreu um erro ao publicar os resultados
             rejected: A publicação dos resultados foi rejeitada pelo quadro de avisos. Tente novamente ou entre em contato com o administrador do sistema.
-            success: Os resultados foram publicados com sucesso
         monitoring_committee_members:
-          create:
-            invalid: Houve um problema ao criar este membro do comitê de monitoramento
-            success: Membro do comitê de monitoramento criado com sucesso
-          destroy:
-            invalid: Houve um problema ao excluir este membro do comitê de monitoramento
-            success: Membro do comitê de monitoramento excluído com sucesso
           form:
             existing_user: Usuário existente
             non_user: Convidar novo usuário
@@ -842,9 +755,6 @@ pt-BR:
           show:
             change_polling_station: Voltar para estações de votação
             monitoring_committee_notes: Observações do Comitê de Monitoramento
-          validate:
-            error: Houve um problema ao validar o fechamento
-            success: O fechamento foi validado corretamente
         monitoring_committee_verify_elections:
           index:
             download: Download
@@ -855,12 +765,6 @@ pt-BR:
             not_available: Não disponível ainda
             title: Eleições
         polling_officers:
-          create:
-            invalid: Houve um problema ao criar este Agente de Enquete
-            success: Agente de Enquete criado com sucesso
-          destroy:
-            invalid: Houve um problema ao excluir este oficial de enquete
-            success: Agente de enquete excluído com sucesso
           form:
             existing_user: Usuário existente
             non_user: Convidar novo usuário
@@ -878,12 +782,6 @@ pt-BR:
             close: Fechado
             more_polling_officers: Existem mais %{number} agentes de enquete. Refine sua pesquisa para localizá-los.
         polling_stations:
-          create:
-            invalid: Houve um problema ao criar esta estação de voto
-            success: Estação de voto criada com sucesso
-          destroy:
-            invalid: Houve um problema ao excluir esta estação de voto
-            success: Estação de voto excluída com sucesso
           edit:
             title: Editar estação de voto
             update: Atualizar estação de voto
@@ -892,16 +790,12 @@ pt-BR:
             location_help: 'Local: mensagem direcionada aos eleitores implicando o local exato da estação de voto'
             location_hints_help: 'Dicas de localização: informações adicionais. Exemplo: o piso do edifício onde a estação de voto está localizada.'
             polling_station_managers_help: 'Gerentes das estações de voto: os oficiais que atuarão como gestores das estações de voto. Assegure-se de que os oficiais já foram criados nos Agentes de Enquete e de que eles ainda não estão atribuídos a outra estação de voto'
-            polling_station_president_help: 'Oficial da estação de voto: o oficial que atuará como presidente da estação de voto. Verifique se o oficial já foi criado em Agentes de enquete e que ele(a) ainda não está atribuído a outra estação de voto'
             select_president: Selecione um Agente de Enquete como presidente da estação de voto
           index:
             title: Estações de votação
           new:
             create: Criar
             title: Criar estação de votação
-          update:
-            invalid: Houve um problema ao atualizar esta estação de voto
-            success: Estação de voto atualizada com sucesso
         titles:
           votings: Votações
         votings:
@@ -911,11 +805,7 @@ pt-BR:
             new_voting: Novo espaço de votação
             publish: Publicar
             unpublish: Despublicar
-          create:
-            invalid: Tem havido um problema ao criar esta votação
-            success: Votação criada com sucesso
           edit:
-            assign_missing_officers: Existem estações de votação sem Presidente e/ou gerentes. Por favor atribua-as a partir da seção estações de enquete
             update: Atualizar
           form:
             select_a_voting_type: Por favor, selecione um tipo de votação
@@ -928,13 +818,6 @@ pt-BR:
           new:
             create: Criar
             title: Nova votação
-          publish:
-            success: Votação publicada com sucesso
-          unpublish:
-            success: Votação despublicada com sucesso
-          update:
-            invalid: Houve um problema ao atualizar esta votação
-            success: Votação atualizada com sucesso
       admin_log:
         voting:
           create: "%{user_name} criou a votação %{resource_name}"
@@ -949,13 +832,10 @@ pt-BR:
               button: Excluir todos os dados do censo
             destroy:
               error: Ocorreu um erro ao deletando o censo, por favor tente novamente mais tarde.
-              success: Dados Census excluídos
             export_access_codes:
               button: Exportar códigos de acesso a votos
               callout: Agora você pode exportar os códigos de acesso. Isso só pode ser feito uma vez. Ao iniciar a exportação, você receberá um e-mail com as instruções para <strong>%{email}</strong>
               confirm: Você só pode exportar os códigos de acesso uma vez. Certifique-se de que você tem acesso à conta de e-mail <strong>%{email}</strong>.
-              launch_error: Problema ao lançar a exportação de códigos de acesso
-              launch_success: Códigos de acesso lançado. Em breve, você receberá um e-mail em %{email}
             freeze:
               callout: O censo está congelado e não pode ser modificado.
             generate_access_codes:
@@ -1216,14 +1096,10 @@ pt-BR:
           start_voting: Começar a votar
           step: Identificação
           title: Identificar com meus dados do recenseamento de voto
-        no_census_contact_information: Ainda não há nenhuma informação de contato
         orders:
           label: 'Classificar votos por:'
           random: Aleatório
           recent: Mais recente
-        send_access_code:
-          invalid: Houve um problema ao enviar o Código de Acesso
-          success: Seu código de acesso foi enviado com sucesso
         show:
           dates: Datas
       votings_m:
