@@ -174,10 +174,8 @@ it:
         amended_by: Modificato da
         button: Modificare %{model_name}
         error: Si è verificato un errore durante la modifica di questa risorsa.
-        help_text: Migliora questo %{model_name} modificando il suo %{amendable_fields}
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
-        promote_help_text: Puoi promuovere questa modifica e pubblicarla come %{model_name} indipendente
         section_heading: Modifiche (%{count})
       compare_draft:
         continue: Prosegui
@@ -219,26 +217,16 @@ it:
         modify: Modifica
         publish: Pubblica
         title: Pubblica la proposta di emendamento
-      promoted:
-        error: Ci sono stati errori nel promuovere l'emendamento
-        success: Emendation promossa con successo
       publish_draft:
         error: Si è verificato un errore durante la pubblicazione di questo emendamento.
         success: Emendamento pubblicato con successo.
-      rejected:
-        error: Si è verificato un errore durante il rifiuto di questa modifica, riprova più tardi
-        success: L'emendamento è stato respinto con successo
       review:
         back: Indietro
         heading: Rivedi l'emendamento
-        help_text: Stai esaminando un emendamento al %{model_name}
         send: Accettare l'emendamento
       update_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
         success: Bozza emendamento aggiornata correttamente.
-      withdraw:
-        error: Si è verificato un errore durante la creazione della proposta di emendamento
-        success: L'emendamento è stato creato con successo
       wizard_step_form:
         steps:
           '1': Crea il tuo emendamento
@@ -266,13 +254,11 @@ it:
         other: appoggi
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Ottenere verificato introducendo un numero di passaporto che inizia con "A"
         fields:
           passport_number: Numero di passaporto
           postal_code: Codice postale
         name: Un'altra autorizzazione di esempio
       dummy_authorization_handler:
-        explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
         fields:
           allowed_postal_codes: Codici postali consentiti (separati da virgole)
           allowed_scope_id: Ambito consentito
@@ -312,11 +298,7 @@ it:
           authorize: Autorizzare con "%{authorization}"
           explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
           title: Autorizzazione richiesta
-        ok:
-          title: Sei stato autorizzato durante la navigazione su questa pagina. Ricarica la pagina per eseguire la tua azione
         pending:
-          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
-          resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
           title: L'autorizzazione è ancora in corso
         unauthorized:
           ok: Ok
@@ -415,16 +397,10 @@ it:
         name: Statistiche dell'organizzazione
       sub_hero:
         name: Testo in evidenza home
-    core:
-      actions:
-        login_before_access: Per favore, fai login con il tuo account prima di accedere
-        unauthorized: Non sei autorizzato a eseguire questa azione
     datepicker:
       help_text: 'Formato previsto: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
           nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
@@ -450,8 +426,6 @@ it:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
-          sign_in_disabled: È possibile accedere con un account esterno
-          sign_up_disabled: La registrazione è disabilitata, puoi accedere a un utente esistente
         user:
           timed_out: Sei stato inattivo per troppo tempo e sei stato automaticamente disconnesso dal servizio. Se desideri continuare a utilizzare il servizio, accedi di nuovo.
       shared:
@@ -469,7 +443,6 @@ it:
           authorize: Autorizza l'applicazione
           by_organization_link_html: <small class="heading-small">di %{link}</small>
           cancel: Annulla
-          connect_your_account_html: Collega il tuo account eseguendo l'accesso a <strong>%{organization}</strong>
           publish_content: Pubblica contenuti per te
           see_email: Vedi la tua email
           see_name: Vedi il tuo nome
@@ -735,17 +708,8 @@ it:
       index:
         invite: Invitare
         invite_user: Invita un utente
-      invite:
-        error: Si è verificato un errore durante l'invito a questo utente
-        success: Utente invitato con successo
-      reject:
-        error: Si è verificato un errore durante il rifiuto di questo invito
-        success: Invito rifiutato con successo
       reject_invitation: Rifiutare
     group_members:
-      accept:
-        error: Si è verificato un errore durante l'accettazione di questa richiesta di partecipazione
-        success: Richiesta di adesione accettata con successo
       actions:
         are_you_sure: Sei sicuro?
         promote_to_admin: Rendere amministratore
@@ -753,36 +717,20 @@ it:
       index:
         current_members_without_admins: 'Membri attuali (senza amministratori):'
         manage_members: Gestisci i membri
-      promote:
-        error: Si è verificato un errore nella promozione di questo utente
-        success: Utente promosso con successo
-      reject:
-        error: Si è verificato un errore durante il rifiuto di questa richiesta di partecipazione
-        success: Richiesta di partecipazione rifiutata correttamente
-      remove:
-        error: Si è verificato un errore durante la rimozione di questo utente dal gruppo
-        success: Utente rimosso dal gruppo con successo
     groups:
       actions:
         are_you_sure: Sei sicuro?
-      create:
-        error: Si è verificato un problema durante la creazione del gruppo
-        success: Gruppo creato con successo
       edit:
         edit_user_group: Modifica gruppo
         update_user_group: Gruppo di aggiornamento
       form:
-        document_number_help: Non utilizzare trattini o spazi
         email_help: Email della tua organizzazione, associazione, collettivo, gruppo, ecc.
         fill_in_for_verification: 'Compila questi campi se vuoi che il tuo gruppo sia verificato:'
         name_help: Nome della tua organizzazione, associazione, collettivo, gruppo, ecc.
         nickname_help: Nome utente della propria organizzazione, associazione, collettivo, gruppo, ecc. Non utilizzare spazi né accenti.
-        phone_help: Non utilizzare trattini o spazi
       join:
-        error: C'è stato un problema ad entrare nel gruppo
         success: Richiesta di unione creata con successo. Un amministratore esaminerà la tua richiesta prima di accettarti nel gruppo.
       leave:
-        error: C'è stato un problema a lasciare il gruppo
         success: Gruppo lasciato con successo.
       members:
         accept_or_reject_join_requests: 'I seguenti utenti hanno chiesto di unirsi a questo gruppo. Accetta o rifiuta le loro richieste:'
@@ -795,15 +743,11 @@ it:
       roles:
         admin: Amministratore
         member: Membro
-      update:
-        error: Si è verificato un problema durante l'aggiornamento del gruppo
-        success: Gruppo aggiornato con successo
     help:
       main_topic:
         default_page:
           content: "<p>In %{organization} puoi partecipare e decidere su diversi argomenti, attraverso gli spazi che vedi nel menu in alto: Processi, Assemblee, Iniziative, Consultazioni.</p> <p>All'interno di ognuna troverai diverse opzioni per partecipare: fare proposte - individualmente o con altre persone-, prendere parte ai dibattiti, dare la priorità ai progetti da attuare, partecipare alle riunioni faccia a faccia e altre azioni.</p>\n"
           title: Cosa posso fare in %{organization}?
-        description: Maggiori informazioni su %{organization}
         title: Aiuto generale
     last_activities:
       activities:
@@ -857,35 +801,29 @@ it:
           admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
           greeting: Ciao, %{recipient}!
           intro: "%{manager} ha iniziato una nuova conversazione a nome di %{group}. Clicca qui per vederla:"
-          outro: Goditi decidim!
           subject: "%{manager} ha iniziato una nuova conversazione come %{group}"
         comanagers_new_message:
           admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
           greeting: Ciao, %{recipient}!
           intro: "%{manager} ha postato nuovi messaggi in una conversazione a nome di %{group}. Clicca qui per vederli:"
-          outro: Goditi decidim!
           subject: "%{manager} ha inviato nuovi messaggi come %{group}"
         new_conversation:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha avviato una nuova conversazione con te. Clicca qui per vederlo:"
-          outro: Questa applicazione è stata realizzata con decidim!
           subject: "%{sender} ha iniziato una conversazione con te"
         new_group_conversation:
           admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha iniziato una nuova conversazione con il gruppo %{group}. Clicca qui per vederla:"
-          outro: Goditi decidim!
           subject: "%{sender} ha iniziato una conversazione con %{group}"
         new_group_message:
           admin_in_group: Hai ricevuto questo perché sei un amministratore di %{group}.
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha postato nuovi messaggi in una conversazione con il gruppo %{group}. Clicca qui per vederlo:"
-          outro: Goditi decidim!
           subject: "%{group} ha nuovi messaggi da %{sender}"
         new_message:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha pubblicato nuovi messaggi nella tua conversazione. Clicca qui per vederli:"
-          outro: Questa applicazione è stata realizzata con decidim!
           subject: Hai nuovi messaggi da %{sender}
       conversations:
         add_conversation_users:
@@ -893,9 +831,6 @@ it:
           add_users_placeholder: Cerca...
           modal_title: Nuova conversazione
           no_results: Nessun risultato
-          participant_with_disabled_message_reception: Questo utente ha disabilitato la ricezione dei messaggi
-        create:
-          error: La conversazione non è iniziata. Riprovare più tardi
         error_modal:
           close: Chiudi modalità
           correct_errors: Correggi gli errori e riprova.
@@ -905,7 +840,6 @@ it:
           ago: fa
           new_conversation: Nuova conversazione
           next: Successivo
-          no_conversations: Non hai ancora conversazioni
           title: Conversazioni
         show:
           back: Torna a tutte le conversazioni
@@ -914,8 +848,6 @@ it:
           title: Conversazione con %{usernames}
         start:
           send: Invia
-        update:
-          error: Messaggio non inviato a causa di un errore
     metrics:
       download:
         csv: Scarica i dati (CSV)
@@ -1047,7 +979,6 @@ it:
           success: Grande! Hai accettato i termini e le condizioni.
         form:
           agreement: Accetto le condizioni
-          legend: Accetta i termini e le condizioni d'uso
         refuse:
           modal_btn_continue: Accetta i termini e continua
           modal_btn_exit: Lo esaminerò più tardi
@@ -1060,12 +991,9 @@ it:
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
     profile:
-      deleted: Utente eliminato
       inaccessible_message: Questo profilo è inaccessibile a causa della violazione di Termini e Condizioni!
       view: vista
     profiles:
-      default_officialization_text_for_user_groups: Questo gruppo di utenti è verificato pubblicamente, il suo nome è stato verificato per corrispondere con il suo vero nome
-      default_officialization_text_for_users: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
         activity: Attività
         badges: badge
@@ -1082,11 +1010,9 @@ it:
           info: I badge vengono guadagnati eseguendo attività specifiche sulla piattaforma.
           title: badge
       user:
-        confirmation_instructions_sent: Istruzioni di conferma via email inviate
         create_user_group: Crea un gruppo
         edit_profile: Modifica Profilo
         edit_user_group: Modifica il profilo del gruppo
-        fill_in_email_to_confirm_it: Per favore, inserisci l'email del tuo gruppo per confermarlo
         invite_user: Invita utente
         join_user_group: Richiesta di iscrizione al gruppo
         leave_user_group: Lascia il gruppo
@@ -1241,7 +1167,6 @@ it:
     user_contact_disabled: Questo partecipante non accetta messaggi diretti.
     user_conversations:
       create:
-        error: Il messaggio non può essere creato. Riprova più tardi
         existing_error: Il messaggio non può essere creato. La conversazione esiste già, riprova ora.
         success: Conversazione iniziata con successo!
       index:
@@ -1256,7 +1181,6 @@ it:
         next: Successivo
         no_conversations_warning: Non ci sono ancora conversazioni.
         no_results: Nessun risultato
-        participant_with_disabled_message_reception: Questo utente ha disabilitato la ricezione dei messaggi
         time_ago: "%{time} fa"
       new:
         title: Inizia una conversazione
