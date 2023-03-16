@@ -46,12 +46,6 @@ sk:
         decidim_consultations_response_id:
           not_found: Odpoveď nenájdená.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Počet hlasov neplatný.
     models:
       decidim/consultation:
         one: Konzultácia
@@ -166,7 +160,6 @@ sk:
             many: Odpovede
             other: Odpovede
       question_configuration:
-        disable_external_voting: Prosím znemožnite hlasovanie zvonku pre pokročilé nastavenia
         form:
           help: Nastavte otázky s viacerými možnosťami tým, že zvýšite počet odpovedí, ktoré si môže účastník zvoliť. Prednastavené maximum je 1, hlasovať sa teda môže iba s jednou odpoveďou.
           title: Pokročilá konfigurácia
@@ -313,7 +306,6 @@ sk:
             votes: Hlasy
       question_votes:
         create:
-          error: Nastal problém pri hlasovaní
           success: Svoj hlas môžete zmeniť až do konca konzultácie. Platný bude až posledný hlas.
           title_error: Chyba hlasovania!
           title_success: Hlas úspešne zaregistrovaný
