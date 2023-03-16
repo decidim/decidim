@@ -53,9 +53,6 @@ pt-BR:
             download_export: Baixe a Exportação com formato CSV
             import: Importar
             title: Importar resultados de CSV
-        imports:
-          create:
-            success: O arquivo começou a importar. Você receberá um e-mail nos próximos minutos com o resultado da importação
         models:
           result:
             name: Resultado
@@ -73,11 +70,6 @@ pt-BR:
             select_component: Selecionar componente
             title: Importar Projetos para Responsabilidade
         results:
-          create:
-            invalid: Houve um problema ao criar esse resultado
-            success: Resultado criado com sucesso
-          destroy:
-            success: Resultado excluído com sucesso
           edit:
             title: Editar resultado
             update: Atualizar resultado
@@ -86,18 +78,10 @@ pt-BR:
           new:
             create: Criar resultado
             title: Novo resultado
-          update:
-            invalid: Houve um problema ao atualizar este resultado
-            success: Resultado atualizado com sucesso
         shared:
           subnav:
             statuses: Statuses
         statuses:
-          create:
-            invalid: Houve um problema ao criar este status
-            success: Status criado com sucesso
-          destroy:
-            success: Status excluído com êxito
           edit:
             title: Editar status
             update: Atualizar status
@@ -106,15 +90,7 @@ pt-BR:
           new:
             create: Criar status
             title: Novo status
-          update:
-            invalid: Ocorreu um problema ao atualizar esse status
-            success: Status atualizado com sucesso
         timeline_entries:
-          create:
-            invalid: Tem havido um problema ao criar esta entrada
-            success: Entrada criada com sucesso
-          destroy:
-            success: Entrada excluída com êxito
           edit:
             title: Editar entrada
             update: Atualizar entrada
@@ -123,9 +99,6 @@ pt-BR:
           new:
             create: Criar entrada
             title: Nova entrada
-          update:
-            invalid: Ocorreu um problema ao atualizar esta entrada
-            success: Entrada atualizada com sucesso
       admin_log:
         result:
           create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
@@ -142,7 +115,6 @@ pt-BR:
       import_mailer:
         import:
           errors: Erros
-          errors_present: Houve um problema na exportação
           row_number: Linha
           subject: Importação bem sucedida de resultados
           success: Importação bem sucedida de resultados. Você pode revisar os resultados na interface de administração.
