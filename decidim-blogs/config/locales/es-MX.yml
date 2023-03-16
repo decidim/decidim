@@ -27,23 +27,16 @@ es-MX:
           post:
             name: Enviar
         posts:
-          create:
-            invalid: Ha habido un problema al crear esta publicación
-            success: Publicación creada con éxito
-          destroy:
-            success: Publicación eliminada con éxito
           edit:
             save: Actualizar
             title: Editar publicación
           index:
-            not_published_yet: No publicado aún
             title: Publicaciones
           new:
             create: Crear
             title: Crear publicación
           update:
             invalid: Ha habido errores al guardar la publicación.
-            success: Publicación guardada con éxito
       admin_log:
         post:
           create: "%{user_name} creó el post %{resource_name} en el blog de %{space_name}"
