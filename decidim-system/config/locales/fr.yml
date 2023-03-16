@@ -43,9 +43,6 @@ fr:
       admins:
         create:
           error: Une erreur s'est produite lors de la création d'un nouvel administrateur.
-          success: Admin créé avec succès
-        destroy:
-          success: Administrateur supprimé avec succès
         edit:
           title: Modifier l'administrateur
           update: Mettre à jour
@@ -56,7 +53,6 @@ fr:
           title: Nouvel administrateur
         update:
           error: Une erreur s'est produite lors de la mise à jour de cet administrateur.
-          success: Administrateur mis à jour avec succès
       dashboard:
         show:
           current_organizations: Organisations actuelles
@@ -145,8 +141,6 @@ fr:
         index:
           title: Organisations
         new:
-          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources pour toutes les organisations
-          secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
         omniauth_settings:
           decidim:
@@ -169,8 +163,6 @@ fr:
         smtp_settings:
           fieldsets:
             sender: Expéditeur
-          instructions:
-            from_label: 'L''expéditeur du mail sera "nom-de-votre-organisation <your-organization@example.org>". Laissez le champ vide pour utiliser la valeur de ''from_email'' comme label'
           placeholder:
             from_email: votre-organisation@exemple.org
             from_label: nom-de-votre-organisation
