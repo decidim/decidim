@@ -62,12 +62,6 @@ pt-BR:
         email: O email
         name: Nome
         role: Função
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Este email já foi convidado
   activerecord:
     models:
       decidim/conference:
@@ -444,11 +438,6 @@ pt-BR:
       index:
         title: Conferências
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: O registro da sua conferência foi confirmado
-          pending_validation:
-            subject: O registro da sua conferência está pendente de confirmação
         invite_join_conference_mailer:
           invite:
             subject: Convite para participar de uma conferência
@@ -532,10 +521,6 @@ pt-BR:
           contextual: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
           page: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
           title: O que são conferências?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'A conferência não foi encontrada no banco de dados (ID: %{id})'
     media:
       index:
         description: Links sobre esta conferência
