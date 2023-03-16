@@ -182,12 +182,6 @@ ca:
           inactive_content_blocks: Blocs de contingut inactius
           title: Continguts de la pàgina
       participatory_process_group_landing_page_content_blocks:
-        create:
-          error: S'ha produït un error en intentar crear aquest bloc de contingut
-          success: Bloc de contingut creat amb èxit
-        destroy:
-          error: S'ha produït un error en intentar eliminar aquest bloc de contingut
-          success: Bloc de contingut eliminat amb èxit
         edit:
           update: Actualitzar
       participatory_process_groups:
@@ -360,10 +354,6 @@ ca:
           contextual: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           page: "<p>Un <strong>procés participatiu</strong> és una seqüència d'activitats participatives (p.e. primer omplir una enquesta, després realitzar propostes, debatre-les en trobades presencials o virtuals, i finalment prioritzar-les) amb l'objectiu de definir y prendre una decisió sobre un tema específic.</p> <p>Exemples de processos participatius són: un procés d'elecció de les membres d'un comitè (on primer es presenten unes candidatures, després es debat i finalment s'escull una candidatura), pressupostos participatius (on es realitzen propostes, es valoren econòmicament i es voten amb el pressupost disponible), un procés de planificació estratègica, la redacció col·laborativa d'un reglament o norma, el disseny d'un espai urbà o la producció d'un pla de polítiques públiques.</p>\n"
           title: Què és un procés participatiu?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Aquest tipus de procés no s''ha trobat a la base de dades (ID: %{id})'
     menu:
       processes: Processos
     metrics:
@@ -481,8 +471,6 @@ ca:
               one: Un procés proper
               other: "%{count} processos propers"
           explanations:
-            no_active: Sense processos actius
-            no_active_nor_upcoming: No hi ha processos actius ni futurs
             no_active_nor_upcoming_callout: No hi ha processos actius ni futurs. Aquí hi ha una llista dels anteriors.
           filter_by: Mostrar
           names:
