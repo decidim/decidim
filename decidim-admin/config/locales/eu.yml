@@ -39,7 +39,6 @@ eu:
         body: Testua
         subject: Gaia
       organization:
-        admin_terms_of_use_body: Administratzailearen erabilera-terminoetarako testu-atala
         alert_color: Alerta
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu txapak
@@ -134,10 +133,6 @@ eu:
         file: file
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Aukeratu parte hartzeko espazio bat gutxienez
         organization:
           attributes:
             official_img_footer:
@@ -152,11 +147,6 @@ eu:
           attributes:
             file:
               malformed: Fitxategia akastuna da. Irakurri arretaz jarraibideak eta ziurtatu fitxategia UTF-8an kodifikatuta dagoela.
-      new_import:
-        attributes:
-          file:
-            invalid_file: Baliogabetutako fitxategia, mesedez, egiaztatu espedientea ondo formalizatuta dagoela
-            invalid_mime_type: Baliogabeko mime mota
   activerecord:
     attributes:
       decidim/static_page:
@@ -177,8 +167,6 @@ eu:
         add: Gehitu
         attachment:
           new: Beste artxibo bat
-        attachment_collection:
-          new: Erantsitako beste artxibo-blduma bat
         browse: Arakatu
         category:
           new: Kategoria berria
@@ -206,17 +194,12 @@ eu:
           accept: Ados nago
           are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
           refuse: Ez onartu Administrazio-irizpideak eta baldintzak
-          title: Onartzen ditut Administrazio-irizpideak eta baldintzak
         required_review:
-          alert: 'Eskatuta: berrikusi gure Administrazio-irizpideak eta baldintzak'
           cta: Berrikusi orain.
-        title: Administrazioaren Irizpideak eta Baldintzak
       area_types:
         create:
           error: Errorea eremu mota berri bat sortzean.
           success: Area mota sortu da.
-        destroy:
-          success: Area mota behar bezala suntsitu da
         edit:
           title: Editatu eremu mota
           update: Onartu
@@ -225,14 +208,12 @@ eu:
           title: Area mota berria
         update:
           error: Errore bat gertatu da eremu mota hau eguneratzean.
-          success: Area mota eguneratu da behar bezala
       areas:
         create:
           error: Errore bat gertatu da area berri bat sortzean.
           success: Area sortu da behar bezala.
         destroy:
           has_spaces: Eremu honek mendekotasuna duten espazioak ditu. Kendu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
-          success: Area behar bezala suntsitu da
         edit:
           title: Editatu eremua
           update: Onartu
@@ -242,7 +223,6 @@ eu:
         no_areas: No Arloak
         update:
           error: Errore bat gertatu da eremu hau eguneratzean.
-          success: Area ondo eguneratu da
       attachment_collections:
         create:
           error: Errore bat gertatu da karpeta berria sortzean.
@@ -282,7 +262,6 @@ eu:
         message: Kontuz ibili fitxategi erantsiekin espazio pribatu batean lan egiten duzunean, edozein parte-hartzailek parteka dezake dokumentu hau beste pertsona batzuekin.
       autocomplete:
         no_results: Ez da emaitzarik aurkitu
-        search_prompt: Idatzi bilaketak gutxienez hiru karaktere
       block_user:
         new:
           action: Blokeatu kontua eta bidali justifikazioa
@@ -371,9 +350,6 @@ eu:
       domain_whitelist:
         form:
           domain_too_short: Domeinu laburregia
-        update:
-          error: Errorea gertatu da domeinuaren zerrenda zuria eguneratzean
-          success: Domeinuaren zerrenda zuria zuzen eguneratu da
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         formats:
@@ -453,10 +429,8 @@ eu:
             message_1: CSV, JSON eta Excel (.xlsx) artxiboak eutsita daude
             message_2: CSV artxiboetarako, zutabeen arteko banatzailea puntu eta koma (";") izan behar da
       help_sections:
-        error: Errore bat gertatu da laguntza-atalak eguneratuz
         form:
           save: Gorde
-        success: Laguntza atalak behar bezala eguneratu dira
       impersonatable_users:
         index:
           filter:
@@ -724,8 +698,6 @@ eu:
           send_to_participants: Bidali parte-hartzaileei
           title: Hautatu hartzaileak
           warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten parte-hartzaileei baino ez zaie bidaliko buletin hau."
-        send:
-          no_recipients: Ez dago hartzailerik hautaketa honetarako
         show:
           preview: Aurreikusi
           select_recipients_to_deliver: Hautatu hartzaileak
@@ -734,13 +706,6 @@ eu:
           error: Errorea gertatu da buletin hau eguneratzean.
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       officializations:
-        block:
-          error: Errorea gertatu da parte-hartzailea blokeatzean
-          success: Parte-hartzailea zuzen blokeatu da
-        create:
-          success: Erabiltzailea zuzen ofizializatu da
-        destroy:
-          success: Parte-hartzailearen ofizializazioa behar bezala desgaitu da
         index:
           actions: Ekintzak
           badge: Badge
@@ -769,9 +734,6 @@ eu:
           hidden: ezkutua
           show: Erakutsi
           title: Erakutsi parte-hartzailearen helbide elektronikoa
-        unblock:
-          error: Errorea gertatu da parte-hartzailea desblokeatzean
-          success: Parte-hartzailea zuzen desblokeatu da
       organization:
         edit:
           title: Editatu erakundea
@@ -873,8 +835,6 @@ eu:
         create:
           error: Errorea gertatu da esparru berri bat sortzean.
           success: Esparrua zuzen sortu da.
-        destroy:
-          success: Esparrua ongi ezabatu da
         edit:
           title: Editatu helmena
           update: Eguneratu
@@ -894,7 +854,6 @@ eu:
           error: Errore bat gertatu da identifikatzailea ezabatzean.
           success: Identifikatzailea zuzen ezabatu da.
         share_tokens:
-          empty: Ez dago identifikatzaile aktiborik
           help: Identifikatzaile hauek argitaratu gabeko baliabide hori edozein erabiltzaileri publikoki partekatzeko erabiltzen dira. Errekurtsoa argitaratzean ezkutatuko dira. Egin klik identifikatzailea partekatzeko ikonoan, URL partekagarria bisitatzeko.
           title: Partekatu identifikatzaileak
       shared:
@@ -906,8 +865,6 @@ eu:
         create:
           error: Errore bat gertatu da gai berri bat sortzean.
           success: Gaia arrakastaz sortu da.
-        destroy:
-          success: Gaia arrakastaz suntsitu da
         edit:
           title: Editatu gaia
           update: Eguneratu gaia
@@ -940,11 +897,9 @@ eu:
         topic:
           destroy: Kendu gaia
           edit: Editatu gaia
-          empty: Ez dago orrialde honen azpian
           without_topic: Gai gabeko orriak
         update:
           error: Errorea gertatu da orri hau eguneratzean.
-          success: Orria zuzen eguneratu da.
       titles:
         admin_log: Admin erregistroa
         area_types: Area motak
@@ -967,10 +922,8 @@ eu:
           success: CSV fitxategiak behar bezala kargatu da, irizpideekin bat datozen erabiltzaile-taldeak egiaztatzen ari gara. Denbora pixka bat izan liteke.
         reject:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
-          success: Erabiltzaile taldea arrakastaz arbuiatua
         verify:
           invalid: Errorea gertatu da erabiltzaile-talde hau egiaztatzean.
-          success: Erabiltzaile-taldea ongi egiaztatu da
       user_groups:
         index:
           state:
@@ -1006,13 +959,8 @@ eu:
           last_day: Azken eguna
           last_month: Azken hila
           last_week: Azken astea
-          no_users_count_statistics_yet: Oraindik ez dago erabiltzaileen zenbaketa-estatistikarik
           participants: Parte-hartzaileak
       view_public_page: Ikusi orri publikoa
-    forms:
-      errors:
-        impersonate_user:
-          reason: Arrazoi bat adierazi behar duzu kudeatu gabeko parte-hartzaile bat kudeatzeko
     metrics:
       blocked_users:
         object: erabiltzaileak blokeatuta
