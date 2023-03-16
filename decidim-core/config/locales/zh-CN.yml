@@ -153,10 +153,8 @@ zh-CN:
         amended_by: 修改者
         button: 修改 %{model_name}
         error: 修改此资源时出错。
-        help_text: 通过修改它的 %{model_name} 来改进这个 %{amendable_fields}
         promote_button: 提升至 %{model_name}
         promote_confirm_text: 您确定要推广此修饰吗？
-        promote_help_text: 您可以推广此修饰并将其作为一个独立的 %{model_name} 发布
         section_heading: 修饰(%{count})
       compare_draft:
         continue: 继续
@@ -189,26 +187,16 @@ zh-CN:
         modify: 修改
         publish: 发布
         title: 发布修正草案
-      promoted:
-        error: 有一个问题，将修正案作为一项新提案发布
-        success: 修正案已作为一项新提案成功发布
       publish_draft:
         error: 发布修正案时出现问题。
         success: 修改成功发布。
-      rejected:
-        error: 拒绝此修改时出现问题，请稍后再试
-        success: 修改已被成功拒绝
       review:
         back: 后退
         heading: 审查修正
-        help_text: 您正在审查对 %{model_name} 的修正
         send: 接受修正
       update_draft:
         error: 更新修正草案时遇到问题。
         success: 修正草稿已成功更新。
-      withdraw:
-        error: 撤回修正时发生错误
-        success: 已成功撤销该修正
       wizard_step_form:
         steps:
           '1': 创建您的修改
@@ -230,13 +218,11 @@ zh-CN:
         other: 核准
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: 通过引入一个以“A”开头的护照号码获得验证
         fields:
           passport_number: 护照号码
           postal_code: 邮政编码
         name: 另一个示例授权
       dummy_authorization_handler:
-        explanation: 通过引入以“X”结尾的文档编号获得验证
         fields:
           allowed_postal_codes: 允许的邮政编码 (用逗号分隔)
           allowed_scope_id: 允许的范围
@@ -275,8 +261,6 @@ zh-CN:
           explanation: 要执行此操作，您需要通过 "%{authorization}" 授权。
           title: 需要授权
         pending:
-          explanation: 为了执行此操作，您需要通过 "%{authorization}"获得授权，但您的授权仍在进行中
-          resume: 检查您的 "%{authorization}"授权进度
           title: 授权仍在进行中
         unauthorized:
           ok: 好的
@@ -355,16 +339,10 @@ zh-CN:
         name: 组织统计
       sub_hero:
         name: 子英雄广告
-    core:
-      actions:
-        login_before_access: 请在访问前使用您的帐户登录
-        unauthorized: 您无权执行此操作
     datepicker:
       help_text: '预期格式: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: 另一个帐户正在使用相同的电子邮件地址
         new:
           complete_profile: 完整资料
           sign_up: 请填写您的个人资料
@@ -388,8 +366,6 @@ zh-CN:
         new:
           are_you_new?: 新建平台？
           register: 创建帐户
-          sign_in_disabled: 您可以使用外部账户访问
-          sign_up_disabled: 注册已禁用，您可以使用现有的帐户进行访问
       shared:
         newsletter_modal:
           buttons:
@@ -405,7 +381,6 @@ zh-CN:
           authorize: 授权应用程序
           by_organization_link_html: <small class="heading-small">由 %{link}</small>
           cancel: 取消
-          connect_your_account_html: 登录到 <strong>%{organization}连接您的帐户</strong>
           publish_content: 发布您的内容
           see_email: 查看您的电子邮件
           see_name: 查看您的名字
@@ -652,17 +627,8 @@ zh-CN:
       index:
         invite: 邀请
         invite_user: 邀请参与者
-      invite:
-        error: 邀请此参与者时出现问题
-        success: 成功邀请参与者
-      reject:
-        error: 拒绝此邀请时出现问题
-        success: 邀请已被拒绝
       reject_invitation: 拒绝
     group_members:
-      accept:
-        error: 接受此加入请求时出现问题
-        success: 加入请求已被接受
       actions:
         are_you_sure: 您确定吗？
         promote_to_admin: 设为管理员
@@ -670,36 +636,20 @@ zh-CN:
       index:
         current_members_without_admins: '当前成员 (无管理员)：'
         manage_members: 管理成员
-      promote:
-        error: 推广此参与者时出现问题
-        success: 参与者提升成功
-      reject:
-        error: 拒绝此加入请求时出现问题
-        success: 加入请求已被拒绝
-      remove:
-        error: 从群组中删除此参与者时出错
-        success: 参与者已成功从群组删除
     groups:
       actions:
         are_you_sure: 您确定吗？
-      create:
-        error: 创建群组时出错
-        success: 组已成功创建
       edit:
         edit_user_group: 编辑组
         update_user_group: 更新组
       form:
-        document_number_help: 不要使用破折号或空格
         email_help: 您的组织、协会、集体、群组等的电子邮件。
         fill_in_for_verification: '如果你想要验证你的组, 请填写这些字段:'
         name_help: 您的组织、协会、集体、团体等的名称
         nickname_help: 您的组织、社团、集体、群组等的昵称。请不要使用空格，也不要重音。
-        phone_help: 不要使用破折号或空格
       join:
-        error: 加入群组时出现问题
         success: 加入请求已成功创建。管理员将在接受您加入群组之前审查您的请求。
       leave:
-        error: 离开群组时出现问题
         success: 群组已成功放弃。
       members:
         accept_or_reject_join_requests: '以下用户已申请加入此组。接受或拒绝他们的请求：'
@@ -712,15 +662,11 @@ zh-CN:
       roles:
         admin: 管理员
         member: 成员
-      update:
-        error: 更新群组时出错
-        success: 组已成功更新
     help:
       main_topic:
         default_page:
           content: "<p>在 %{organization} 中，您可以参与并决定不同的主题， 通过你在顶菜单中看到的空间：程序、集会、倡议、协商。</p> <p>在每个选项中，您都会发现不同的参与选项：单独或与其他人一起提出建议 • 参加辩论、确定执行项目的优先次序、参加面对面会议和其他行动。</p>\n"
           title: 我可以在 %{organization} 中做什么？
-        description: 阅读更多关于 %{organization}
         title: 常规帮助
     last_activities:
       activities:
@@ -766,35 +712,29 @@ zh-CN:
           admin_in_group: 您收到这是因为您是 %{group} 的管理员。
           greeting: Hi, %{recipient}!
           intro: "%{manager} 以 %{group}的名字开始了新的对话。点击这里查看："
-          outro: 享受决定！
           subject: "%{manager} 以 %{group} 身份开始了新的对话"
         comanagers_new_message:
           admin_in_group: 您收到这是因为您是 %{group} 的管理员。
           greeting: Hi, %{recipient}!
           intro: "%{manager} 在 %{group}的对话中发布了新消息。点击这里查看："
-          outro: 享受决定！
           subject: "%{manager} 已发送新消息为 %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} 已开始与您进行新的对话。点击这里查看："
-          outro: 享受决定！
           subject: "%{sender} 已开始了与您的对话"
         new_group_conversation:
           admin_in_group: 您收到这是因为您是 %{group} 的管理员。
           greeting: Hi, %{recipient}!
           intro: "%{sender} 已经开始了与组 %{group}的新对话。点击这里查看："
-          outro: 享受决定！
           subject: "%{sender} 已开始与 %{group} 的对话"
         new_group_message:
           admin_in_group: 您收到这是因为您是 %{group} 的管理员。
           greeting: Hi, %{recipient}!
           intro: "%{sender} 在与组 %{group}的对话中发布了新消息。点击这里查看："
-          outro: 享受决定！
           subject: "%{group} 有来自 %{sender} 的新消息"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} 已在您的对话中发布新消息。点击这里查看："
-          outro: 享受决定！
           subject: 您有来自 %{sender} 的新消息
       conversations:
         add_conversation_users:
@@ -802,9 +742,6 @@ zh-CN:
           add_users_placeholder: 搜索...
           modal_title: 新建对话
           no_results: 没有结果
-          participant_with_disabled_message_reception: 此参与者已禁用消息接收功能
-        create:
-          error: 对话未开始，请稍后再试
         error_modal:
           close: 关闭模式
           correct_errors: 请更正错误，然后重试。
@@ -814,7 +751,6 @@ zh-CN:
           ago: 前
           new_conversation: 新建对话
           next: 下一个
-          no_conversations: 您还没有对话
           title: 对话
         show:
           back: 回到所有对话
@@ -822,8 +758,6 @@ zh-CN:
           title: 与 %{usernames} 的对话
         start:
           send: 发送
-        update:
-          error: 消息因错误而未发送
     metrics:
       followers:
         description: 跟随此参与空间的参与者数量
@@ -945,7 +879,6 @@ zh-CN:
           success: 太棒了！您已接受条款和条件。
         form:
           agreement: 我同意这些条款
-          legend: 同意使用条款
         refuse:
           modal_btn_continue: 接受并继续
           modal_btn_exit: 我稍后再查看
@@ -958,11 +891,8 @@ zh-CN:
     participatory_space_private_users:
       not_allowed: 您无权查看此内容
     profile:
-      deleted: 参与者已删除
       view: 查看
     profiles:
-      default_officialization_text_for_user_groups: 此组已公开验证，它的名称已被验证为与它的真实名称对应。
-      default_officialization_text_for_users: 此参与者已公开验证、 他/她的姓名或角色已被验证为符合他/她的真实姓名和角色
       show:
         activity: 活动
         badges: 徽章
@@ -978,11 +908,9 @@ zh-CN:
           info: 徽章是通过在平台上执行特定活动赚取的。
           title: 徽章
       user:
-        confirmation_instructions_sent: 邮件确认说明已发送
         create_user_group: 创建组
         edit_profile: 编辑配置文件
         edit_user_group: 编辑群组资料
-        fill_in_email_to_confirm_it: 请填写您的群组电子邮件以确认它
         invite_user: Invite participant
         join_user_group: 加入组的请求
         leave_user_group: 离开组
@@ -1111,7 +1039,6 @@ zh-CN:
     user_contact_disabled: 此参与者不接受私信。
     user_conversations:
       create:
-        error: 无法创建消息，请稍后再试
         existing_error: 无法创建消息。对话已经存在，请现在重试。
         success: 对话已成功启动！
       index:
@@ -1126,7 +1053,6 @@ zh-CN:
         next: 下一个
         no_conversations_warning: 还没有对话。
         no_results: 没有结果
-        participant_with_disabled_message_reception: 此参与者已禁用消息接收功能
         time_ago: "%{time} 前"
       new:
         title: 开始对话
