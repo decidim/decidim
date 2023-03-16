@@ -28,12 +28,6 @@ lv:
         email: E-pasts
         name: Nosaukums
         role: Loma
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Šis e-pasts jau ir uzaicināts
   activerecord:
     models:
       decidim/conference:
@@ -408,11 +402,6 @@ lv:
       index:
         title: Konferences
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Jūsu konferences reģistrācija ir apstiprināta
-          pending_validation:
-            subject: Jūsu konferences reģistrācija gaida apstiprinājumu
         invite_join_conference_mailer:
           invite:
             subject: Ielūgums pievienoties konferencei
@@ -488,10 +477,6 @@ lv:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat konferencei "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
           email_subject: Konference "%{resource_title}" tuvojas!
           notification_title: Konference <a href="%{resource_path}">%{resource_title}</a> notiks pēc divām dienām.
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konference netika atrasta datubāzē (ID: %{id})'
     media:
       index:
         description: Saites par šo konferenci
