@@ -13,18 +13,11 @@ pt:
       templates:
         apply:
           error: Houve um problema ao aplicar este modelo
-          success: Modelo aplicado com êxito
         copy:
           error: Houve um problema ao copiar este modelo
-          success: Modelo copiado com êxito
         create:
           error: Houve um problema ao criar este modelo.
-          success: Modelo criado com êxito
-        destroy:
-          success: Modelo eliminado com êxito
         empty: Ainda não há modelos.
-        update:
-          success: Modelo actualizado com êxito
       titles:
         template_types:
           questionnaires: Modelos de questionário
@@ -49,7 +42,6 @@ pt:
             skip_template: Saltar
           edit:
             edit: Editar
-            empty: Ainda não há questões
             questionnaire: Questionário
           form:
             save: Guardar
