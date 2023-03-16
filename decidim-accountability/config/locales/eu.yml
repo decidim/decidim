@@ -75,9 +75,6 @@ eu:
               </li>
               </ol>
             title: Inportatu emaitzak CSVtik
-        imports:
-          create:
-            success: Fitxeroa inportatzen ari da. Hurrengo minutuetan mezu elektroniko bat jasoko duzu inportazioaren emaitzak dituena
         models:
           result:
             name: Emaitza
@@ -97,16 +94,8 @@ eu:
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Aukeratu osagaia
-            success:
-              one: Inportatzeko proiektu bat hilaran. Posta elektronikoz jakinaraziko dizute, amaitutakoan
-              other: "%{count} proiektu hilaran inportatzeko zain. Eginda dagoenean posta elektronikoz jakinaraziko zaizu"
             title: Inportatu proiektuak jarraipenera
         results:
-          create:
-            invalid: Arazo bat izan da emaitza hau sortzean.
-            success: Emaitza zuzen sortu da
-          destroy:
-            success: Emaitza zuzen ezabatu da
           edit:
             title: Editatu emaitza
             update: Eguneratu emaitza
@@ -115,18 +104,10 @@ eu:
           new:
             create: Sortu emaitza
             title: Emaitza berria
-          update:
-            invalid: Arazo bat izan da emaitza hau eguneratzean.
-            success: Emaitza zuzen eguneratu da
         shared:
           subnav:
             statuses: Egoerak
         statuses:
-          create:
-            invalid: Arazo bat izan da egoera hau sortzean
-            success: Egoera behar bezala sortu da
-          destroy:
-            success: Egoera behar bezala ezabatu da
           edit:
             title: Editatu egoera
             update: Eguneratze egoera
@@ -135,15 +116,7 @@ eu:
           new:
             create: Sortu egoera
             title: Egoera berria
-          update:
-            invalid: Arazo bat izan da egoera hori eguneratzean
-            success: Egoera behar bezala eguneratu da
         timeline_entries:
-          create:
-            invalid: Arazo bat izan da sarrera hau sortzeko
-            success: Sarrera ondo sortu da
-          destroy:
-            success: Sarrera zuzen ezabatu da
           edit:
             title: Editatu sarrera
             update: Eguneratu sarrera
@@ -152,9 +125,6 @@ eu:
           new:
             create: Sortu sarrera
             title: Sarrera berria
-          update:
-            invalid: Arazo bat izan da sarrera hau eguneratzean
-            success: Sarrera ondo eguneratu da
       admin_log:
         result:
           create: "%{user_name} emaitza sortu da %{resource_name} en %{space_name}"
@@ -175,7 +145,6 @@ eu:
       import_mailer:
         import:
           errors: Akatsak
-          errors_present: Arazo bat izan da emaitzak inportatzen
           row_number: Errenkada
           subject: Emaitzak zuzen inportatu dira
           success: Emaitzak zuzen inportatu dira. Emaitzak administrazioaren panelaren bidez berrikusi ahal dituzu.
