@@ -434,8 +434,6 @@ sv:
               one: En kommande dialog
               other: "%{count} kommande dialoger"
           explanations:
-            no_active: Inga pågående dialoger
-            no_active_nor_upcoming: Inga pågående eller kommande dialoger
             no_active_nor_upcoming_callout: Det finns inga pågående eller kommande dialoger. Här är en lista över tidigare dialoger.
           filter_by: Visa
           names:
