@@ -229,7 +229,7 @@ hu:
             success: Köszönjük! Az ellenőrző kódot elküldünk a lakcímedre
           edit:
             send: Megerősítés
-            title: Írd be az ellenőrző kódot
+            title: Vigye be a kapott ellenőrző kódot
             waiting_for_letter: Az ellenőrző kódot tartalmazó levelet hamarosan elküldjük a címedre
           new:
             send: Küldjetek levelet
