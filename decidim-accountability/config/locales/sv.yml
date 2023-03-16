@@ -75,9 +75,6 @@ sv:
               </li>
               </ol>
             title: Importera resultat från CSV
-        imports:
-          create:
-            success: Filen har börjat importera. Du kommer att få ett e-postmeddelande inom de närmaste minuterna med resultatet av importen
         models:
           result:
             name: Resultat
@@ -97,16 +94,8 @@ sv:
             no_components: Det finns inga budgetkomponenter i detta deltagande utrymme för att exportera projekt till resultat.
             origin_component_id: Ursprungskomponent
             select_component: Välj en komponent
-            success:
-              one: 1 projekt köas för att importeras. Du kommer att meddelas via e-post när det är klart
-              other: "%{count} projekt köas för att importeras. Du kommer att meddelas via e-post när det är klart"
             title: Importera projekt till resultat
         results:
-          create:
-            invalid: Det gick inte att skapa det här resultatet
-            success: Resultatet har skapats
-          destroy:
-            success: Resultatet har raderats
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
@@ -115,18 +104,10 @@ sv:
           new:
             create: Skapa resultat
             title: Nytt resultat
-          update:
-            invalid: Det gick inte att uppdatera det här resultatet
-            success: Resultatet har uppdaterats
         shared:
           subnav:
             statuses: Status
         statuses:
-          create:
-            invalid: Det gick inte att skapa denna status
-            success: Skapat status
-          destroy:
-            success: Raderat status
           edit:
             title: Redigera status
             update: Uppdatera status
@@ -135,15 +116,7 @@ sv:
           new:
             create: Skapa status
             title: Ny status
-          update:
-            invalid: Det gick inte att uppdatera denna status
-            success: Uppdaterat status
         timeline_entries:
-          create:
-            invalid: Det gick inte att skapa den här posten
-            success: Skapade post
-          destroy:
-            success: Posten har raderats
           edit:
             title: Redigera post
             update: Uppdatera post
@@ -152,9 +125,6 @@ sv:
           new:
             create: Skapa post
             title: Ny post
-          update:
-            invalid: Det gick inte att uppdatera den här posten
-            success: Posten har uppdaterats
       admin_log:
         result:
           create: "%{user_name} skapade resultatet %{resource_name} i %{space_name}"
@@ -179,7 +149,6 @@ sv:
       import_mailer:
         import:
           errors: Fel
-          errors_present: Det gick inte att importera resultat
           row_number: Rad
           subject: Lyckad import av resultat
           success: Lyckad import av resultat. Du kan granska resultaten i administrationsgränssnittet.
