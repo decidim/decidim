@@ -131,10 +131,8 @@ id:
         amended_by: Diubah oleh
         button: Ubah %{model_name}
         error: Terjadi kesalahan saat mengubah sumber daya ini.
-        help_text: Tingkatkan %{model_name} ini dengan memodifikasi %{amendable_fields}
         promote_button: Promosikan ke %{model_name}
         promote_confirm_text: Anda yakin ingin mempromosikan perbaikan ini?
-        promote_help_text: Anda dapat mempromosikan emendasi ini dan mempublikasikannya sebagai %{model_name}independen
         section_heading: Amandemen (%{count})
       emendation:
         actions:
@@ -154,16 +152,9 @@ id:
             telah ditarik oleh penulis.
       new:
         amendment_author: Pengarang perubahan
-      promoted:
-        error: Sudah ada kesalahan saat mempromosikan emendasi
-        success: Emendasi berhasil dipromosikan
-      rejected:
-        error: Terjadi kesalahan saat menolak perubahan ini, silakan coba lagi nanti
-        success: Amendemen tersebut telah ditolak dengan sukses
       review:
         back: Kembali
         heading: Tinjau amandemennya
-        help_text: Anda sedang meninjau amandemen ke %{model_name}
         send: Terima amandemen
       wizard_step_form:
         steps:
@@ -182,13 +173,11 @@ id:
         other: komentar
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Dapatkan verifikasi dengan memperkenalkan nomor paspor dimulai dengan "A"
         fields:
           passport_number: Nomor paspor
           postal_code: Kode Pos
         name: Contoh otorisasi lain
       dummy_authorization_handler:
-        explanation: Dapatkan verifikasi dengan memperkenalkan nomor dokumen yang diakhiri dengan "X"
         fields:
           document_number: Nomor dokumen
           postal_code: Kode Pos
@@ -224,8 +213,6 @@ id:
           explanation: Untuk melakukan tindakan ini, Anda harus diotorisasi dengan "%{authorization}".
           title: Dibutuhkan otorisasi
         pending:
-          explanation: Untuk melakukan tindakan ini, Anda harus diotorisasi dengan "%{authorization}", tetapi otorisasi Anda masih dalam proses
-          resume: Periksa kemajuan otorisasi "%{authorization}" Anda
           title: Otorisasi masih berlangsung
         unauthorized:
           ok: Baik
@@ -280,15 +267,10 @@ id:
         name: Statistik organisasi
       sub_hero:
         name: Spanduk sub hero
-    core:
-      actions:
-        unauthorized: Anda tidak berwenang untuk melakukan tindakan ini
     datepicker:
       help_text: 'Format yang diharapkan: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Akun lain menggunakan alamat email yang sama
         new:
           complete_profile: Profil lengkap
           sign_up: Silakan lengkapi profil Anda
@@ -312,8 +294,6 @@ id:
         new:
           are_you_new?: Baru ke platform?
           register: Buat sebuah akun
-          sign_in_disabled: Anda dapat mengakses dengan akun eksternal
-          sign_up_disabled: Daftar dinonaktifkan, Anda dapat menggunakan pengguna yang ada untuk mengakses
       shared:
         newsletter_modal:
           buttons:
@@ -328,7 +308,6 @@ id:
           authorize: Otorisasi aplikasi
           by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Membatalkan
-          connect_your_account_html: Hubungkan akun Anda dengan masuk ke <strong>%{organization}</strong>
           publish_content: Publikasikan konten untuk Anda
           see_email: Lihat email Anda
           see_name: Lihat namamu
@@ -541,17 +520,8 @@ id:
       index:
         invite: Undang
         invite_user: Undang pengguna
-      invite:
-        error: Terjadi kesalahan saat mengundang pengguna ini
-        success: Pengguna berhasil diundang
-      reject:
-        error: Terjadi kesalahan saat menolak undangan ini
-        success: Undangan ditolak dengan sukses
       reject_invitation: Menolak
     group_members:
-      accept:
-        error: Terjadi kesalahan saat menerima permintaan bergabung ini
-        success: Permintaan bergabung diterima dengan sukses
       actions:
         are_you_sure: Apakah kamu yakin?
         promote_to_admin: Membuat admin
@@ -559,36 +529,20 @@ id:
       index:
         current_members_without_admins: 'Anggota saat ini (tanpa admin):'
         manage_members: Kelola anggota
-      promote:
-        error: Terjadi kesalahan saat mempromosikan pengguna ini
-        success: Pengguna berhasil dipromosikan
-      reject:
-        error: Terjadi kesalahan saat menolak permintaan bergabung ini
-        success: Gabung permintaan ditolak dengan sukses
-      remove:
-        error: Terjadi kesalahan saat menghapus pengguna ini dari grup
-        success: Pengguna dihapus dari grup dengan sukses
     groups:
       actions:
         are_you_sure: Apakah kamu yakin?
-      create:
-        error: Ada masalah saat membuat grup
-        success: Grup berhasil dibuat
       edit:
         edit_user_group: Edit grup
         update_user_group: Perbarui grup
       form:
-        document_number_help: Jangan gunakan tanda hubung atau spasi
         email_help: Email dari organisasi Anda, asosiasi, kolektif, grup, dll.
         fill_in_for_verification: 'Isi bidang-bidang ini jika Anda ingin grup Anda diverifikasi:'
         name_help: Nama organisasi Anda, asosiasi, kolektif, grup, dll.
         nickname_help: Nama pengguna organisasi Anda, asosiasi, kolektif, grup, dll. Jangan menggunakan spasi atau aksen.
-        phone_help: Jangan gunakan tanda hubung atau spasi
       join:
-        error: Ada masalah saat bergabung dengan grup
         success: Gabung permintaan berhasil dibuat. Admin akan meninjau permintaan Anda sebelum menerima Anda ke grup.
       leave:
-        error: Ada masalah saat keluar dari grup
         success: Grup berhasil dibiarkan.
       members:
         accept_or_reject_join_requests: 'Pengguna berikut telah mendaftar untuk bergabung dengan grup ini. Terima atau tolak permintaan mereka:'
@@ -601,15 +555,11 @@ id:
       roles:
         admin: Administrator
         member: Anggota
-      update:
-        error: Terjadi masalah saat memperbarui grup
-        success: Grup berhasil diperbarui
     help:
       main_topic:
         default_page:
           content: "<p>Dalam %{organization} Anda dapat berpartisipasi dan memutuskan topik yang berbeda, melalui ruang yang Anda lihat di menu atas: Proses, Rakitan, Inisiatif, Konsultasi.</p> <p>Di dalam masing-masing Anda akan menemukan berbagai opsi untuk berpartisipasi: membuat proposal - secara individu atau dengan orang lain-, ambil bagian dalam perdebatan, memprioritaskan proyek untuk dilaksanakan, menghadiri pertemuan tatap muka dan tindakan lainnya.</p>\n"
           title: Apa yang bisa saya lakukan di %{organization}?
-        description: Baca lebih lanjut tentang %{organization}
         title: Bantuan umum
     last_activities:
       activities:
@@ -647,18 +597,13 @@ id:
         new_conversation:
           greeting: Hai, %{recipient}!
           intro: "%{sender} telah memulai percakapan baru dengan Anda. Klik di sini untuk melihatnya:"
-          outro: Selamat menikmati decidim!
           subject: "%{sender} telah memulai percakapan dengan Anda"
         new_message:
           greeting: Hai, %{recipient}!
           intro: "%{sender} telah memposting pesan baru di percakapan Anda. Klik di sini untuk melihatnya:"
-          outro: Selamat menikmati decidim!
           subject: Anda memiliki pesan baru dari %{sender}
       conversations:
-        create:
-          error: Percakapan tidak dimulai. Coba lagi nanti
         index:
-          no_conversations: Anda belum memiliki percakapan
           title: Percakapan
         show:
           title: Percakapan dengan %{usernames}
@@ -763,8 +708,6 @@ id:
         accept:
           error: Terjadi kesalahan saat menerima persyaratan dan ketentuan.
           success: Besar! Anda telah menyetujui persyaratan dan ketentuan.
-        form:
-          legend: Setujui persyaratan dan ketentuan penggunaan
         refuse:
           modal_btn_continue: Terima persyaratan dan lanjutkan
           modal_btn_exit: Saya akan memeriksanya nanti
@@ -777,11 +720,8 @@ id:
     participatory_space_private_users:
       not_allowed: Anda tidak diizinkan untuk melihat konten ini
     profile:
-      deleted: Pengguna yang dihapus
       view: Melihat
     profiles:
-      default_officialization_text_for_user_groups: Kelompok pengguna ini diverifikasi secara publik, namanya telah diverifikasi untuk sesuai dengan nama aslinya
-      default_officialization_text_for_users: Peserta ini diverifikasi secara publik, nama atau perannya telah diverifikasi untuk sesuai dengan nama dan peran aslinya
       show:
         activity: Aktivitas
         badges: Lencana
@@ -795,11 +735,9 @@ id:
           info: Lencana diperoleh dengan melakukan aktivitas tertentu di platform.
           title: Lencana
       user:
-        confirmation_instructions_sent: Instruksi konfirmasi email terkirim
         create_user_group: Membuat grup
         edit_profile: Edit profil
         edit_user_group: Edit profil grup
-        fill_in_email_to_confirm_it: Silakan isi email grup Anda untuk mengonfirmasi
         invite_user: Undang pengguna
         join_user_group: Permintaan untuk bergabung dengan grup
         leave_user_group: Meninggalkan grup
