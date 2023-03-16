@@ -141,11 +141,9 @@ hu:
         cancel_error: Nem sikerült az email változást jóváhagyni.
         cancel_successfully: Az email változtatása sikerült.
         resend_error: Nem sikerült a megerősítő emailt újraküldeni.
-        resend_successfully: Sikeresen újraküldtük a megerősítő emailt a %{unconfirmed_email} címre
         send_again: Újraküldés
         title: Az email változtatás ellenőrzése
       show:
-        available_locales_helper: Válasszd ki a nyelvet, amelyet használni szeretnél a platform értesítéseinek böngészéshez és fogadásához
         change_password: Jelszó módosítása
         update_account: Fiók frissítése
       update:
@@ -158,7 +156,6 @@ hu:
       actions:
         cancel: Mégse
       password_change:
-        alert: A továbblépéshez a jelszó megváltoztatására van szükség
         notification: Az admin felhasználóknak minden %{days} napon jelszót kell cserélniük.
     admin_log:
       area:
@@ -259,10 +256,8 @@ hu:
         amended_by: Módosította
         button: 'Módosítás: %{model_name}'
         error: Hiba történt az erőforrás módosításakor.
-        help_text: Javítsd ezt a %{model_name} az %{amendable_fields}módosításával
         promote_button: Kezdeményezze a %{model_name}
         promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a helyreigazítást?
-        promote_help_text: Támogathatod ezt az emelést, és közzétehetik önálló %{model_name}-ként
         section_heading: Módosítások (%{count})
       compare_draft:
         continue: Tovább
@@ -303,26 +298,16 @@ hu:
         modify: Szerkeszt
         publish: Közzétesz
         title: Módosító javaslat publikálása
-      promoted:
-        error: Problémát történt a módosító javaslat új javaslatként való közzététele során
-        success: A módosító javaslat új javaslatként sikeresen megjelent
       publish_draft:
         error: Hiba történt a módosító javaslat közzététele során.
         success: A módosító javaslat közzététele sikeres.
-      rejected:
-        error: Hiba történt a módosító javaslat elutasításakor, próbálkozz később
-        success: A módosító javaslat sikeresen elutasításra került
       review:
         back: Vissza
         heading: Tekintse át a módosítást
-        help_text: Ön felülvizsgálja a %{model_name} módosítását
         send: Módosítás elfogadása
       update_draft:
         error: Probléma merült fel a módosító javaslat frissítésével.
         success: A módosító javaslat sikeresen frissítve.
-      withdraw:
-        error: A módosítás létrehozásának visszavonása során hiba történt
-        success: A módosítást sikeresen visszavonták
       wizard_step_form:
         steps:
           '1': Készítse el a módosítását
@@ -351,13 +336,11 @@ hu:
       official_author: Hivatalos
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Ellenőriztesd magad egy "A" betűvel kezdődő útlevél számmal
         fields:
           passport_number: Útlevélszám
           postal_code: Irányítószám
         name: Egy másik példa feljogosításra
       dummy_authorization_handler:
-        explanation: Ellenőriztesd magad egy "A" betűvel kezdődő dokumentum azonosítóval
         fields:
           allowed_postal_codes: Engedélyezett irányítószámok (vesszővel elválasztva)
           allowed_scope_id: Engedélyezett hatáskör
@@ -397,11 +380,7 @@ hu:
           authorize: 'Engedélyezés ezzel: "%{authorization}"'
           explanation: 'A művelet végrehajtásához innen kell engedélyt kapnod: "%{authorization}".'
           title: Engedély szükséges
-        ok:
-          title: Az oldal látogatása alatt hitelesítésre került a fiókja. Az oldal újratöltése szükséges a művelet végrehajtásához
         pending:
-          explanation: 'A művelet végrehajtásához engedélyt kell kapnod innen: "%{authorization}", de az engedélyezés még folyamatban van'
-          resume: Ellenőrizd a(z) "%{authorization}" engedélyezés folyamatát
           title: Engedélyezés folyamatban
         unauthorized:
           ok: Rendben
@@ -500,16 +479,10 @@ hu:
         name: Szervezeti statisztikák
       sub_hero:
         name: Sub hero banner
-    core:
-      actions:
-        login_before_access: Kérlek jelentkezz be a fiókodba a hozzáféréshez
-        unauthorized: Nem vagy jogosult a művelet végrehajtására
     datepicker:
       help_text: 'Várható formátum: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Egy másik fiók ugyanezt az email címet használja
         new:
           complete_profile: Profil kiegészítése
           nickname_help: A beceneved itt %{organization} csak betűket, számokat '-' és '_' jeleket tartalmazhat.
@@ -535,8 +508,6 @@ hu:
         new:
           are_you_new?: Új vagy az oldalon?
           register: Hozz létre egy fiókot
-          sign_in_disabled: Külső fiókkal is hozzáférhetsz
-          sign_up_disabled: A bejelentkezés le van tiltva, a meglévő felhasználói fiókoddal hozzáférhetsz
         user:
           timed_out: Túl sokáig volt inaktív, ezért automatikusan kijelentkezett a szolgáltatásból. Ha továbbra is használni szeretné a szolgáltatást, jelentkezzen be újra.
       shared:
@@ -554,7 +525,6 @@ hu:
           authorize: Engedélyezési kérelem
           by_organization_link_html: <small class="heading-small">, %{link}</small>
           cancel: Mégse
-          connect_your_account_html: 'Ha bejelentkezel, csatlakoztatni tudod fiókódat ehhez: <strong>%{organization}</strong>'
           publish_content: Tartalom közzététele neked
           see_email: Email cím megjelenítése
           see_name: Neved megjelenítése
@@ -821,17 +791,8 @@ hu:
       index:
         invite: Meghívás
         invite_user: Résztvevő meghívása
-      invite:
-        error: Hiba történt a résztvevő meghívása során
-        success: A résztvevő sikeresen meghívásra került
-      reject:
-        error: Hiba történt a meghívás elutasításakor
-        success: A meghívó sikeresen elutasítva
       reject_invitation: Elutasít
     group_members:
-      accept:
-        error: Hiba történt a csatlakozási kérelem elfogadásakor
-        success: A csatlakozási kérelem sikeresen elfogadva
       actions:
         are_you_sure: biztos vagy ebben?
         promote_to_admin: Tedd rendszergazdává
@@ -839,36 +800,20 @@ hu:
       index:
         current_members_without_admins: 'A jelenlegi tagok (adminok nélkül):'
         manage_members: Tagok kezelése
-      promote:
-        error: Hiba történt a felhasználó előléptetésekor
-        success: A felhasználó sikeresen előléptetve
-      reject:
-        error: Hiba történt a csatlakozási kérelem elutasításakor
-        success: Csatlakozási kérelem sikeresen elutasítva
-      remove:
-        error: Probléma adódott a résztvevő csoportból való eltávolítása során
-        success: A felhasználó sikeresen eltávolításra került a csoportból
     groups:
       actions:
         are_you_sure: biztos vagy ebben?
-      create:
-        error: Hiba történt a csoport létrehozásakor
-        success: A csoport sikeresen létrehozva
       edit:
         edit_user_group: Csoport szerkesztése
         update_user_group: Csoport frissítése
       form:
-        document_number_help: Ne használj kötőjeleket és szóközöket
         email_help: A szervezet, az egyesület, a társaság, a csoport stb. e-mailje.
         fill_in_for_verification: 'Töltsd ki ezeket a mezőket, ha azt szeretnéd, hogy csoportod ellenőrizhető legyen:'
         name_help: A szervezet, az egyesület, a társaság, a csoport stb. neve.
         nickname_help: Adja meg a szervezet, az egyesület, a társaság, a csoport stb. felhasználónevét. Ne használjon szóközöket vagy ékezeteket.
-        phone_help: Ne használjon kötőjeleket és szóközöket
       join:
-        error: Hiba történt a csoporthoz való csatlakozáskor
         success: A csatlakozási kérelem sikeresen létrehozva. A csoportgazda felülvizsgálja a kérelmet, mielőtt a csatlakozás elfogadásra kerül.
       leave:
-        error: Hiba történt a csoport elhagyása kapcsán
         success: A csoportot sikeresen elhagytad.
       members:
         accept_or_reject_join_requests: 'A következő felhasználók bejelentették, hogy csatlakozzanak ehhez a csoporthoz. A kérelmek elfogadása vagy elutasítása:'
@@ -881,15 +826,11 @@ hu:
       roles:
         admin: Adminisztrátor
         member: Tag
-      update:
-        error: Probléma történt a csoport frissítésével
-        success: A csoport sikeresen frissült
     help:
       main_topic:
         default_page:
           content: "<p>Az %{organization} -ben részt vehetsz és dönthetsz különböző témákban a főmenüben megjelenő mezőkön keresztül: Folyamatok, Gyűlések, Kezdeményezések, Konzultációk.</p> <p>Mindegyikben megtalálja a különböző lehetőségeket a részvételre: készítsen javaslatokat - egyénileg vagy más emberekkel -, vegyél részt vitákban, fontold meg a végrehajtandó projekteket, vegyél részt személyes találkozókon és egyéb tevékenységekben.</p>\n"
           title: Mit tehetek a %{organization} szervezetben?
-        description: További információ a %{organization} szervezetről
         title: Általános segítség
     last_activities:
       activities:
@@ -936,35 +877,29 @@ hu:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
           greeting: Kedves %{recipient}!
           intro: "%{manager} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
-          outro: Használd örömmel a szolgáltatást!
           subject: "%{manager} egy új beszélgetést indított a(z) %{group} nevében"
         comanagers_new_message:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
           greeting: Kedves %{recipient}!
           intro: "%{manager} egy új üzenetet tett közzé egy beszélgetésben a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
-          outro: Használd örömmel a szolgáltatást!
           subject: "%{manager} új üzeneteket küldött a(z) %{group} nevében"
         new_conversation:
           greeting: Szia %{recipient}!
           intro: "%{sender} új beszélgetést kezdett veled. Ide kattintva elolvashatod:"
-          outro: Üdvözlünk a Decidimen!
           subject: "%{sender} beszélgetést kezdett veled"
         new_group_conversation:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
           greeting: Kedves %{recipient}!
           intro: "%{sender} egy új beszélgetést indított a(z) %{group} csoport nevében. Kattintson ide a megtekintéshez:"
-          outro: Használd örömmel a szolgáltatást!
           subject: "%{sender} új beszélgetést indított a(z) %{group} csoporttal"
         new_group_message:
           admin_in_group: Azért kapta ezt, mert a(z) %{group} csoport adminisztrátora.
           greeting: Kedves %{recipient}!
           intro: "%{sender} új üzeneteket tett közzé a(z) %{group} csoporttal folytatott beszélgetésben. Kattintson ide a megtekintéshez:"
-          outro: Használd örömmel a szolgáltatást!
           subject: "%{group} csoportba új üzenetet küldött %{sender}"
         new_message:
           greeting: Szia %{recipient}!
           intro: "%{sender} új üzeneteket küldött neked. Ide kattintva megtekintheted őket:"
-          outro: Üdvözlünk a Decidimen!
           subject: 'Új üzenetek érkeztek tőle: %{sender}'
       conversations:
         add_conversation_users:
@@ -972,9 +907,6 @@ hu:
           add_users_placeholder: Keres...
           modal_title: Új beszélgetés
           no_results: Nincs eredmény
-          participant_with_disabled_message_reception: Ez a résztvevő letiltotta az üzenetek fogadását
-        create:
-          error: A beszélgetés megakadt. Próbáld újra később
         error_modal:
           close: Ablak bezárás
           correct_errors: Kérjük javítsa a hibákat és próbálja újra.
@@ -984,7 +916,6 @@ hu:
           ago: óta
           new_conversation: Új beszélgetés
           next: Következő
-          no_conversations: Még nincsenek beszélgetések
           title: Beszélgetések
         show:
           back: Vissza az összes beszélgetéshez
@@ -993,8 +924,6 @@ hu:
           title: 'Beszélgetés vele: %{usernames}'
         start:
           send: Küldés
-        update:
-          error: Hiba folytán nem került kiküldésre az üzenet
     metrics:
       download:
         csv: Adatok letöltése (CSV)
@@ -1150,7 +1079,6 @@ hu:
           success: Remek! Elfogadtad a feltételeket.
         form:
           agreement: Elfogadom a feltételeket
-          legend: Elfogadom a felhasználási feltételeket
         refuse:
           modal_btn_continue: Elfogadom és tovább lépek
           modal_btn_exit: Később átnézem
@@ -1163,11 +1091,8 @@ hu:
     participatory_space_private_users:
       not_allowed: Nincs jogosultságod a tartalom megtekintésére
     profile:
-      deleted: Törölt résztvevő
       view: Nézet
     profiles:
-      default_officialization_text_for_user_groups: Ez a felhasználói csoport nyilvánosan ellenőrzött, annak neve igazoltan megfelel a valódi nevének
-      default_officialization_text_for_users: Ez a résztvevő nyilvánosan ellenőrzött, nevét vagy szerepét igazolták, így az megfelel valódi nevének és szerepének
       show:
         activity: Tevékenység
         badges: Jelvények
@@ -1182,11 +1107,9 @@ hu:
           info: A jelvények a platformon végzett konkrét tevékenység végrehajtásával érhetők el.
           title: Kitűzők
       user:
-        confirmation_instructions_sent: E-mail megerősítési utasításokat küldött
         create_user_group: Csoport létrehozása
         edit_profile: Profil szerkesztése
         edit_user_group: Csoportprofil szerkesztése
-        fill_in_email_to_confirm_it: Kérjük, töltse ki a csoport e-mailjét a megerősítéshez
         invite_user: Résztvevő meghívása
         join_user_group: Csatlakozás kérése a csoporthoz
         leave_user_group: Kilépés a csoportból
@@ -1314,7 +1237,6 @@ hu:
         next: Következő
         no_conversations_warning: Még nincsenek beszélgetések.
         no_results: Nincs eredmény
-        participant_with_disabled_message_reception: Ez a résztvevő letiltotta az üzenetek fogadását
         time_ago: "%{time} ideje"
       new:
         title: Beszélgetés indítása
