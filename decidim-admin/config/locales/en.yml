@@ -207,7 +207,7 @@ en:
           accept: I agree with the terms
           are_you_sure: Are you sure you want to refuse the admin terms of use?
           refuse: Refuse the admin terms
-          title: Agree to the terms and conditions
+          title: Agree to the terms of use
         required_review:
           alert: 'Required: Review our admin terms terms and conditions'
           callout: Please take a moment to review the admin terms of use. Otherwise you will not be able to manage the platform.
