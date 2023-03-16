@@ -199,10 +199,8 @@ ro:
         amended_by: Amendament făcut de
         button: Fă un amendament pentru %{model_name}
         error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
-        help_text: Îmbunătățește acest %{model_name} prin modificarea câmpurilor %{amendable_fields}
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
-        promote_help_text: Poți promova acest amendament și îl poți publica drept o %{model_name} independentă
         section_heading: Amendamente (%{count})
       compare_draft:
         continue: Continuă
@@ -244,26 +242,16 @@ ro:
         modify: Modifică
         publish: Publică
         title: Publică ciorna de amendament
-      promoted:
-        error: A apărut o problemă la publicarea amendamentului drept propunere nouă
-        success: Amendamentul a fost publicat cu succes drept propunere nouă
       publish_draft:
         error: A apărut o problemă la publicarea amendamentului.
         success: Amendamentul a fost publicat.
-      rejected:
-        error: A apărut o eroare la respingerea acestui amendament, te rugăm să încerci din nou mai târziu
-        success: Amendamentul a fost respins cu succes
       review:
         back: Înapoi
         heading: Revizuiește amendamentul
-        help_text: Revizuiești un amendament pentru %{model_name}
         send: Acceptă amendamentul
       update_draft:
         error: A apărut o problemă la actualizarea ciornei de amendament.
         success: Ciorna de amendament a fost actualizată cu succes.
-      withdraw:
-        error: S-a produs o eroare la retragerea amendamentului
-        success: Amendamentul a fost retras cu succes
       wizard_step_form:
         steps:
           '1': Creează-ți un amendament
@@ -297,13 +285,11 @@ ro:
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Verifică prin prin introducerea unui număr al pașaportului începând cu „A”
         fields:
           passport_number: Număr pașaport
           postal_code: Cod poștal
         name: Un alt exemplu de autorizare
       dummy_authorization_handler:
-        explanation: Fii verificat prin introducerea unui număr de document care se termină cu "X"
         fields:
           allowed_postal_codes: Coduri poștale permise (separate prin virgulă)
           allowed_scope_id: Domeniu de interes permis
@@ -344,11 +330,7 @@ ro:
           authorize: Autorizează cu "%{authorization}"
           explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}".
           title: Autorizare necesară
-        ok:
-          title: Ați fost autorizat în timp ce vizitai această pagină. Te rugăm să reîncarci pagina pentru a efectua acțiunea
         pending:
-          explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}", dar autorizația ta este încă în desfășurare
-          resume: Verifică progresul autorizării tale ”%{authorization}"
           title: În proces de autorizare
         unauthorized:
           ok: Ok
@@ -458,16 +440,10 @@ ro:
         name: Statisticile organizației
       sub_hero:
         name: Banner suberoi
-    core:
-      actions:
-        login_before_access: Te rugăm să te conectezi cu contul tău înainte de a accesa conținutul
-        unauthorized: Nu sunteți autorizat să efectuați această acțiune
     datepicker:
       help_text: 'Format preconizat: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Un alt cont folosește aceeași adresă de e-mail
         new:
           complete_profile: Profil complet
           nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
@@ -493,8 +469,6 @@ ro:
         new:
           are_you_new?: Nou pe platformă?
           register: Creează un cont
-          sign_in_disabled: Puteți accesa cu un cont extern
-          sign_up_disabled: Înregistrarea este dezactivată, poți folosi un cont existent pentru a accesa
         user:
           timed_out: Ați fost inactiv pentru prea mult timp și ai fost deconectat automat de la serviciu. Dacă dorești să continui să utilizezi serviciul, te rugăm să te conectezi din nou.
       shared:
@@ -512,7 +486,6 @@ ro:
           authorize: Autorizați cererea
           by_organization_link_html: <small class="heading-small">de %{link}</small>
           cancel: Anulează
-          connect_your_account_html: Conectează-ți contul conectându-te la <strong>%{organization}</strong>
           publish_content: Publică conținut pentru tine
           see_email: Vezi e-mailul tău
           see_name: Vezi numele tău
@@ -808,17 +781,8 @@ ro:
       index:
         invite: Invită
         invite_user: Invită un participant
-      invite:
-        error: A apărut o eroare la invitarea acestui participant
-        success: Participant invitat cu succes
-      reject:
-        error: A apărut o eroare la respingerea acestei invitații
-        success: Invitație respinsă cu succes
       reject_invitation: Respinge
     group_members:
-      accept:
-        error: A apărut o eroare la acceptarea acestei cereri de aderare
-        success: Solicitare de înscriere acceptată cu succes
       actions:
         are_you_sure: Sigur dorești asta?
         promote_to_admin: Setare ca administrator
@@ -826,36 +790,20 @@ ro:
       index:
         current_members_without_admins: 'Membrii actuali (fără administratori):'
         manage_members: Gestionare participanți
-      promote:
-        error: A apărut o problemă la promovarea acestui participant
-        success: Participant promovat cu succes
-      reject:
-        error: A apărut o eroare la respingerea acestei cereri de aderare
-        success: Solicitare de înscriere respinsă cu succes
-      remove:
-        error: A apărut o eroare la eliminarea acestui participant din grup
-        success: Participantul a fost șters din grup
     groups:
       actions:
         are_you_sure: Sigur dorești asta?
-      create:
-        error: A apărut o problemă la crearea grupului
-        success: Grup creat cu succes
       edit:
         edit_user_group: Editează grup
         update_user_group: Actualizați grupul
       form:
-        document_number_help: A nu se utiliza cratimele și spațiile
         email_help: E-mailul organizației, asocierii, colective, grupului, etc.
         fill_in_for_verification: 'Completați aceste câmpuri dacă dorești ca grupul tau să fie verificat:'
         name_help: Numele organizației, asocierii, colectivelor, grupului, etc.
         nickname_help: Pseudonimul organizaţiei, asocierii, colectivelor, grupului etc. Nu folosi spaţii sau accente.
-        phone_help: Nu utilizaţi cratime sau spaţii
       join:
-        error: A apărut o problemă la intrarea în grup
         success: Cererea de intrare a fost făcută cu succes. Un administrator va revizui cererea ta înainte de a o accepta în grup.
       leave:
-        error: A existat o problemă la părăsirea grupului
         success: Grupul a fost abandonat.
       members:
         accept_or_reject_join_requests: 'Următorii utilizatori au solicitat să se alăture acestui grup. Acceptă sau respinge cererile lor:'
@@ -869,15 +817,11 @@ ro:
         admin: Administrator
         creator: Administrator
         member: Membru
-      update:
-        error: A apărut o eroare la actualizarea grupului
-        success: Grup actualizat cu succes
     help:
       main_topic:
         default_page:
           content: "<p>În %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile participative pe care le vezi în meniul superior: Procese, Grupuri de lucru, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: formulează propuneri individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele ce urmează a fi puse în aplicare, participă la întâlniri față-în-față și la alte acțiuni.</p>\n"
           title: Ce pot face în %{organization}?
-        description: Citește mai multe despre %{organization}
         title: Ajutor General
     last_activities:
       activities:
@@ -931,35 +875,29 @@ ro:
           admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} a început o nouă conversație în numele lui %{group}. Click aici pentru a o vedea:"
-          outro: Bucură-te de decidi!
           subject: "%{manager} a început o nouă conversație ca %{group}"
         comanagers_new_message:
           admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} a postat mesaje noi într-o conversație în numele lui %{group}. Click aici pentru a le vedea:"
-          outro: Bucură-te de decidi!
           subject: "%{manager} a trimis mesaje noi ca %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} a început o nouă conversație cu tine. Apasă aici pentru a o vedea:"
-          outro: Bucură-te de decidi!
           subject: "%{sender} a început o conversație cu tine"
         new_group_conversation:
           admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} a început o nouă conversație cu grupul %{group}. Click aici pentru a o vedea:"
-          outro: Bucură-te de decidi!
           subject: "%{sender} a început o conversație cu %{group}"
         new_group_message:
           admin_in_group: Primiți acest lucru deoarece sunteți un administrator în %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} a postat mesaje noi într-o conversație cu grupul %{group}. Click aici pentru a le vedea:"
-          outro: Bucură-te de decidi!
           subject: "%{group} au mesaje noi de la %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} a postat mesaje noi în conversația ta. Apasă aici pentru a le vedea:"
-          outro: Bucură-te de decidi!
           subject: Ai mesaje noi de la %{sender}
       conversations:
         add_conversation_users:
@@ -967,9 +905,6 @@ ro:
           add_users_placeholder: Caută...
           modal_title: Conversație nouă
           no_results: Niciun rezultat
-          participant_with_disabled_message_reception: Acest participant a dezactivat recepția de mesaje
-        create:
-          error: Conversația nu a început. Încercați din nou mai târziu
         error_modal:
           close: Închidere
           correct_errors: Te rugăm să remediezi erorile și să încerci din nou.
@@ -979,7 +914,6 @@ ro:
           ago: acum
           new_conversation: Conversație nouă
           next: Următoarea
-          no_conversations: Încă nu aveți conversații
           title: Conversații
         reply_form:
           placeholder: Răspunsul tău...
@@ -992,8 +926,6 @@ ro:
         start:
           placeholder: Mesajul tău...
           send: Trimite
-        update:
-          error: Mesajul nu a fost trimis din cauza unei erori
     metrics:
       download:
         csv: Descărcare date (CSV)
@@ -1143,7 +1075,6 @@ ro:
           success: Minunat! Ați acceptat termenii și condițiile.
         form:
           agreement: Sunt de acord cu acești termeni și condiţii
-          legend: Sunt de acord cu termenii și condițiile de utilizare
         refuse:
           modal_btn_continue: Acceptați termenii și continuați
           modal_btn_exit: O voi revizui mai târziu
@@ -1156,12 +1087,9 @@ ro:
     participatory_space_private_users:
       not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
     profile:
-      deleted: Participant șters
       inaccessible_message: Acest profil este inaccesibil din cauza încălcării Termenilor și Condițiilor!
       view: Vizualizare
     profiles:
-      default_officialization_text_for_user_groups: Acest grup este verificat public, numele său a fost verificat pentru a corespunde cu numele său real
-      default_officialization_text_for_users: Acest participant este verificat public, numele sau rolul său au fost verificate pentru a corespunde numelui și rolului său real
       show:
         activity: Activitate
         badges: Insigne
@@ -1183,11 +1111,9 @@ ro:
           invite_user: Invită un participant
           manage_user_group_users: Gestionare participanți
           message: Mesaj
-        confirmation_instructions_sent: Instrucțiuni de confirmare e-mail trimise
         create_user_group: Creează grup
         edit_profile: Editare profil
         edit_user_group: Editează profilul grupului
-        fill_in_email_to_confirm_it: Vă rugăm, completați e-mailul grupului dvs. pentru a confirma
         invite_user: Invite participant
         join_user_group: Cerere de aderare la grup
         leave_user_group: Părăsește grupul
@@ -1348,7 +1274,6 @@ ro:
     user_contact_disabled: Acest participant nu acceptă mesaje directe.
     user_conversations:
       create:
-        error: Mesajul nu a putut fi creat. Încercați din nou mai târziu
         existing_error: Mesajul nu a putut fi creat. Conversaţia există deja, vă rugăm să încercaţi din nou acum.
         success: Conversația a început cu succes!
       index:
@@ -1363,7 +1288,6 @@ ro:
         next: Următoarea
         no_conversations_warning: Nu există încă conversații.
         no_results: Niciun rezultat
-        participant_with_disabled_message_reception: Acest participant a dezactivat recepția de mesaje
         time_ago: "%{time} în urmă"
       new:
         title: Începe o conversație
