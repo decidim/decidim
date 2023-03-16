@@ -133,17 +133,12 @@ sr:
           success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
           refuse: Ne prihvatam uslove korišćenja za administratore
-          title: Prihvatam propisane načine i uslove korišćenja
         required_review:
-          alert: 'Obavezno: Pročitajte naše uslove korišćenja za administratore'
           cta: Proučite uslove sada.
-        title: Uslovi korišćenja za administratore
       area_types:
         create:
           error: Nastao je problem pri stvaranju novog tipa oblasti.
           success: Tip oblasti je uspešno stvoren.
-        destroy:
-          success: Tip oblasti je uspešno uništen
         edit:
           title: Izmeni tip oblasti
           update: Ažuriraj
@@ -152,13 +147,10 @@ sr:
           title: Nov tip oblasti
         update:
           error: Nastao je problem pri ažuriranju ovog tipa oblasti.
-          success: Tip oblasti je uspešno ažuriran
       areas:
         create:
           error: Nastao je problem pri stvaranju nove oblasti.
           success: Oblast je uspešno stvorena.
-        destroy:
-          success: Oblast je uspešno uništena
         edit:
           title: Uređivanje oblasti
           update: Ažuriraj
@@ -168,7 +160,6 @@ sr:
         no_areas: Nema Oblasti
         update:
           error: Nastao je problem pri ažuriranju ove oblasti.
-          success: Oblast je uspešno ažurirana
       attachment_collections:
         create:
           error: Nastao je problem pri stvaranju nove fascikle.
@@ -206,7 +197,6 @@ sr:
           success: Prilog je uspešno ažuriran.
       autocomplete:
         no_results: Nema rezultata
-        search_prompt: Ukucajte bar tri znaka da bi pretražili
       categories:
         create:
           error: Nastao je problem pri stvaranju ove kategorije.
@@ -293,10 +283,8 @@ sr:
           name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
           title_cont: Pretraži %{collection} prema nazivu.
       help_sections:
-        error: Pojavio se problem pri ažuriranju poglavlja za pomoć
         form:
           save: Sačuvaj
-        success: Poglavlja za pomoć su uspešno ažurirana
       impersonatable_users:
         index:
           filter:
@@ -493,8 +481,6 @@ sr:
           send_to_participants: Pošalji učesnicima
           title: Izaberi primaoce za dostavu
           warning: "<strong>Pažnja:</strong> Ovaj bilten će biti poslan samo korisnicima koji su aktivirali <em>Želim da dobijam biltene</em> u svojim podešavanjima obaveštenja."
-        send:
-          no_recipients: Nema primaoca za ovaj odabir
         show:
           preview: Pregled
           select_recipients_to_deliver: Izaberi primaoce za dostavu
@@ -503,10 +489,6 @@ sr:
           error: Nastao je problem pri ažuriranju ovog biltena.
           success: Bilten je uspešno ažuriran. Molimo vas da ga pregledate pre slanja.
       officializations:
-        create:
-          success: Učesnik je uspešno ozvaničen
-        destroy:
-          success: Učesnik je uspešno razrešen zvaničnog statusa
         index:
           actions: Akcije
           badge: Bedž
@@ -565,4 +547,3 @@ sr:
           last_day: Poslednji dan
           last_month: Poslednji mesec
           last_week: Poslednje nedelje
-          no_users_count_statistics_yet: Još nema statistike o broju korisnika
