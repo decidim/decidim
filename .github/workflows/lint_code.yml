@@ -26,7 +26,7 @@ jobs:
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - uses: ruby/setup-ruby@v1
