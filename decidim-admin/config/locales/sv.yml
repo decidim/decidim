@@ -39,7 +39,6 @@ sv:
         body: Innehåll
         subject: Ämne
       organization:
-        admin_terms_of_use_body: Innehåll för administratörsvillkoren
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
@@ -134,10 +133,6 @@ sv:
         file: Fil
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Välj minst ett deltagarutrymme
         organization:
           attributes:
             official_img_footer:
@@ -152,11 +147,6 @@ sv:
           attributes:
             file:
               malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
-      new_import:
-        attributes:
-          file:
-            invalid_file: 'Ogiltig fil: Kontrollera formatteringen eller försök igen'
-            invalid_mime_type: Ogiltig MIME type
   activerecord:
     attributes:
       decidim/static_page:
@@ -177,8 +167,6 @@ sv:
         add: Lägg till
         attachment:
           new: Ny bifogad fil
-        attachment_collection:
-          new: Ny mapp för bilagor
         browse: Bläddra
         category:
           new: Ny kategori
@@ -206,17 +194,12 @@ sv:
           accept: Jag godkänner villkoren
           are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
           refuse: Avvisa villkoren för administratörer
-          title: Godkänn användarvillkoren
         required_review:
-          alert: 'Krav: granska villkoren för administratörer'
           cta: Granska dem nu.
-        title: Användarvillkor för administratörer
       area_types:
         create:
           error: Det gick inte att skapa en ny områdestyp.
           success: Områdestypen har skapats.
-        destroy:
-          success: Områdestypen har tagits bort
         edit:
           title: Redigera områdestyp
           update: Uppdatera
@@ -225,14 +208,12 @@ sv:
           title: Ny områdestyp
         update:
           error: Det gick inte att uppdatera områdestypen.
-          success: Områdestypen uppdaterades framgångsrikt
       areas:
         create:
           error: Det gick inte att skapa ett nytt område.
           success: Området har har skapats.
         destroy:
           has_spaces: Det finns redan deltagarutrymmen för detta område. Se till att inget utrymme refererar till detta område innan du tar bort det.
-          success: Området har tagits bort
         edit:
           title: Redigera område
           update: Uppdatera
@@ -242,7 +223,6 @@ sv:
         no_areas: Inga områden
         update:
           error: Det gick inte att uppdatera området.
-          success: Området har uppdaterats
       attachment_collections:
         create:
           error: Det gick inte att skapa en ny mapp.
@@ -282,7 +262,6 @@ sv:
         message: Var försiktig när du arbetar med bilagor i ett privat utrymme. En deltagare skulle kunna dela detta dokument utanför plattformen.
       autocomplete:
         no_results: Hittade inga resultat
-        search_prompt: Sök genom att skriva minst tre tecken
       block_user:
         new:
           action: Blockera konto och skicka motivering
@@ -366,9 +345,6 @@ sv:
       domain_whitelist:
         form:
           domain_too_short: Domänen är för kort
-        update:
-          error: Vitlistans uppdatering misslyckades
-          success: Domäns vitlista har uppdaterats
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -451,10 +427,8 @@ sv:
             message_1: CSV, JSON och Excel (.xlsx) filer stöds
             message_2: För CSV-filer måste separatorn mellan kolumner vara en semikolon (";")
       help_sections:
-        error: Det gick inte att uppdatera hjälpavsnitten
         form:
           save: Spara
-        success: Hjälpavsnitten har uppdaterats
       impersonatable_users:
         index:
           filter:
@@ -742,8 +716,6 @@ sv:
           send_to_participants: Skicka till deltagare
           title: Välj mottagare att skicka till
           warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
-        send:
-          no_recipients: Inga mottagare för det här urvalet
         show:
           preview: Förhandsvisa
           select_recipients_to_deliver: Välj mottagare att leverera till
@@ -752,13 +724,6 @@ sv:
           error: Det gick inte att uppdatera nyhetsbrevet.
           success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
       officializations:
-        block:
-          error: Det gick inte att blockera användaren
-          success: Deltagaren har blockerats
-        create:
-          success: Deltagaren har gjorts officiell
-        destroy:
-          success: Deltagaren är inte längre officiell
         index:
           actions: Åtgärder
           badge: Märke
@@ -787,9 +752,6 @@ sv:
           hidden: dold
           show: Visa
           title: Visa deltagarens e-postadress
-        unblock:
-          error: Det gick inte att avblockera användaren
-          success: Deltagaren har avblockerats
       organization:
         edit:
           title: Redigera organisation
@@ -904,8 +866,6 @@ sv:
         create:
           error: Det gick inte att skapa ett nytt omfång.
           success: Omfånget har skapats.
-        destroy:
-          success: Omfånget har tagits bort
         edit:
           title: Redigera omfattning
           update: Uppdatera
@@ -925,7 +885,6 @@ sv:
           error: Det gick inte att radera den token.
           success: Token har tagits bort.
         share_tokens:
-          empty: Det finns inga aktiva tokens
           help: Dessa tokens används för att offentligt dela denna opublicerade resurs till alla användare. De kommer att döljas när resursen publiceras. Klicka på tokens dela-ikon för att besöka den delbara URL.
           title: Delade tokens
       shared:
@@ -938,8 +897,6 @@ sv:
         create:
           error: Det gick inte att skapa ett nytt ämne.
           success: Ämnet har skapats.
-        destroy:
-          success: Ämne har tagits bort
         edit:
           title: Redigera ämne
           update: Uppdatera ämne
@@ -976,11 +933,9 @@ sv:
         topic:
           destroy: Ta bort ämne
           edit: Redigera ämne
-          empty: Det finns ingen sida under det här ämnet
           without_topic: Sidor utan ämne
         update:
           error: Det gick inte att uppdatera sidan.
-          success: Sidan har uppdaterats
       titles:
         admin_log: Administratörslogg
         area_types: Områdestyper
@@ -1004,10 +959,8 @@ sv:
           success: CSV-filen har tagits mot, och vi verifierar de grupper som överensstämmer med kriterierna. Det kan ta en stund.
         reject:
           invalid: Det gick inte att avvisa gruppen.
-          success: Gruppen har avvisats
         verify:
           invalid: Det gicka inte att verifiera gruppen.
-          success: Gruppen har verifierats
       user_groups:
         index:
           state:
@@ -1044,13 +997,8 @@ sv:
           last_day: Sista dagen
           last_month: Förra månaden
           last_week: Förra veckan
-          no_users_count_statistics_yet: Det finns ingen statistik för användare än
           participants: Deltagare
       view_public_page: Visa offentlig sida
-    forms:
-      errors:
-        impersonate_user:
-          reason: Du måste ange en anledning vid hantering av en icke-hanterad användare
     metrics:
       blocked_users:
         object: blockerade användare
