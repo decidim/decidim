@@ -32,7 +32,6 @@ hu:
         body: Szöveg
         subject: Tárgy
       organization:
-        admin_terms_of_use_body: A szövegtörzse az admin felhasználási feltételeinek
         alert_color: Figyelmeztetés
         available_authorizations: Elérhető authorizációk
         badges_enabled: Jelvények engedélyezése
@@ -123,21 +122,12 @@ hu:
         file: Fájl
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Válasszon legalább egy részvételi teret
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Érvénytelen képfájl
             official_img_header:
               allowed_file_content_types: Érvénytelen képfájl
-      new_import:
-        attributes:
-          file:
-            invalid_file: Nem érvényes fájl, ellenőrizze le, hogy helyesen van formázva a fájl
-            invalid_mime_type: Érvénytelen MIME típus
   activerecord:
     attributes:
       decidim/static_page:
@@ -158,8 +148,6 @@ hu:
         add: Hozzáad
         attachment:
           new: Új csatolmány
-        attachment_collection:
-          new: Új melléklet gyűjtemény
         browse: Böngészés
         category:
           new: Új kategória
@@ -186,17 +174,12 @@ hu:
         actions:
           are_you_sure: Biztosan visszautasítod az adminokra vonatkozó feltételek elfogadását?
           refuse: Admin feltételek elutasítása
-          title: Elfogadom a felhasználási feltételeket
         required_review:
-          alert: 'Szükséges: az admin felhasználási feltételek áttekintése'
           cta: Áttekintés most.
-        title: Admin felhasználási feltételek
       area_types:
         create:
           error: Hiba történt az új területtípus létrehozásakor.
           success: Területtípus létrehozása sikeres.
-        destroy:
-          success: Területtípus eltávolítása sikeres
         edit:
           title: Területtípus szerkesztése
           update: Frissítés
@@ -205,14 +188,12 @@ hu:
           title: Új területtípus
         update:
           error: Hiba történt a területtípus frissítése során.
-          success: Területtípus frissítése sikeres
       areas:
         create:
           error: Hiba történt az új terület létrehozásakor.
           success: Terület létrehozása sikeres.
         destroy:
           has_spaces: Ez a terület mással összefüggő terekkel rendelkezik. Kérjük, győződjön meg róla, hogy egyetlen részvételi tér sem hivatkozik erre a területre, mielőtt törölné.
-          success: Terület eltávolítása sikeres
         edit:
           title: Terület szerkesztése
           update: Frissítés
@@ -222,7 +203,6 @@ hu:
         no_areas: Nincs terület
         update:
           error: Hiba történt a terület frissítésekor.
-          success: Terület frissítése sikeres
       attachment_collections:
         create:
           error: Hiba történt az új mappa létrehozása során.
@@ -262,7 +242,6 @@ hu:
         message: Legyen óvatos a mellékletek kezelése során. Bármely résztvevő megoszthatja a dokumentumokat bárkivel.
       autocomplete:
         no_results: Nincs találat
-        search_prompt: Legalább három karakter szükséges a kereséshez
       block_user:
         new:
           action: Fiók blokkolása és igazolás küldése
@@ -346,9 +325,6 @@ hu:
       domain_whitelist:
         form:
           domain_too_short: Túl rövid domain
-        update:
-          error: Nem lehetett frissíteni a domain whitelistet
-          success: A domain whiteliste sikeresen frissítésre került
       exports:
         export_as: "%{name} mint %{export_format}"
         formats:
@@ -431,10 +407,8 @@ hu:
             message_1: A CSV, JSON és Excel (.xls) fájlok támogatottak
             message_2: CSV fájlok esetén az oszlopok közötti elválasztójelnek pontosvesszőnek (";") kell lennie
       help_sections:
-        error: Hiba történt a súgószakaszok frissítésekor
         form:
           save: Mentés
-        success: A súgó szakaszok sikeresen frissültek
       impersonatable_users:
         index:
           filter:
@@ -719,8 +693,6 @@ hu:
           send_to_participants: Küldés a résztvevőknek
           title: Címzettek kiválasztása
           warning: "<strong>Figyelem:</strong> Ez a hírlevél csak azoknak a felhasználóknak kerül elküldésre, akik bejelölték a <em>Hírleveleket szeretnék kapni</em> opciót az értesítési beállításokban."
-        send:
-          no_recipients: Ehhez a kiválasztáshoz nem tartoznak címzettek
         show:
           preview: Előnézet
           select_recipients_to_deliver: Címzettek kiválasztása
@@ -729,13 +701,6 @@ hu:
           error: Hiba történt a hírlevél frissítése során.
           success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
       officializations:
-        block:
-          error: Hiba történt a résztvevő blokkolásakor
-          success: A résztvevő sikeresen blokkolva lett
-        create:
-          success: A felhasználó hivatalos lett
-        destroy:
-          success: Felhasználó hivatalos státusza visszavonva
         index:
           actions: Műveletek
           badge: Jelvény
@@ -764,9 +729,6 @@ hu:
           hidden: rejtett
           show: Megjelenítés
           title: A résztvevő e-mail címének megjelenítése
-        unblock:
-          error: Hiba történt a résztvevő feloldásának feloldása során
-          success: Sikeresen feloldotta a résztvevő tiltását
       organization:
         edit:
           title: Szervezet szerkesztése
@@ -875,8 +837,6 @@ hu:
         create:
           error: Hiba történt az új hatáskör létrehozásakor.
           success: Hatáskor létrehozása sikeres.
-        destroy:
-          success: A hatáskör törlése sikeres
         edit:
           title: Hatáskör szerkesztése
           update: Frissítés
@@ -896,7 +856,6 @@ hu:
           error: Hiba történt a token törlése során.
           success: A token törlése sikeres.
         share_tokens:
-          empty: Nincs aktív token
           help: Ezeket a tokeneket arra használják, hogy ezt a nem közzétett erőforrást nyilvánosan megosszák valamely felhasználóval. Az erőforrás közzétételekor elrejtésre kerülnek. Kattintson a token megosztási ikonjára a megosztható URL-cím megtekintéséhez.
           title: Tokenek megosztása
       shared:
@@ -909,8 +868,6 @@ hu:
         create:
           error: Hiba történt egy új téma létrehozásakor.
           success: Téma létrehozva sikeresen.
-        destroy:
-          success: A téma sikeresen megsemmisült
         edit:
           title: Téma szerkesztése
           update: Téma frissítése
@@ -943,11 +900,9 @@ hu:
         topic:
           destroy: Téma eltávolítása
           edit: Téma szerkesztése
-          empty: Ebben a témában nincs oldal
           without_topic: Téma nélküli oldalak
         update:
           error: Hiba történt az oldal frissítése során.
-          success: Oldal frissítése sikeres
       titles:
         admin_log: Admin napló
         area_types: Terület típusok
@@ -971,10 +926,8 @@ hu:
           success: A CSV-fájl sikeresen fel lett töltve, ellenőrizzük a kritériumoknak megfelelő felhasználói csoportokat. Ez eltarthat egy ideig.
         reject:
           invalid: Hiba történt a felhasználói csoport elutasításakor.
-          success: Felhasználói csoport elutasítva
         verify:
           invalid: Hiba történt a felhasználói csoport ellenőrzésekor.
-          success: A csoport sikeresen ellenőrzött
       user_groups:
         index:
           state:
@@ -1007,13 +960,8 @@ hu:
           last_day: Utolsó nap
           last_month: Előző hónap
           last_week: Előző hét
-          no_users_count_statistics_yet: Nincsenek felhasználói statisztikák még
           participants: Résztvevők
       view_public_page: Nyilvános oldal megtekintése
-    forms:
-      errors:
-        impersonate_user:
-          reason: Indokolnod kell a nem menedzselt résztvevők kezelését
     metrics:
       blocked_users:
         object: Letiltott felhasználók
