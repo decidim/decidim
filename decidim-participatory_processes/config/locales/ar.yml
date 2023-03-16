@@ -368,8 +368,6 @@ ar:
               many: "%{count} العمليات القادمة"
               other: "%{count} العمليات القادمة"
           explanations:
-            no_active: لا توجد عمليات نشطة
-            no_active_nor_upcoming: لا توجد عمليات نشطة ولا قادمة
             no_active_nor_upcoming_callout: لا توجد عمليات نشطة ولا قادمة. وهنا لائحة من الماضي.
           names:
             active: نشيط
