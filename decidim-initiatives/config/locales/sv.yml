@@ -195,8 +195,6 @@ sv:
           index:
             approve: Godkänn
             confirm_revoke: Är du säker?
-            invite_to_committee_help: Dela den här länken för att bjuda in andra deltagare till kampanjutskottet
-            no_members_yet: Det finns inga medlemmar i kampanjutskottet
             revoke: Återkalla
             title: Kommittémedlemmar
         content_blocks:
@@ -218,7 +216,6 @@ sv:
             export_votes: Exportera underskrifter
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
-            success: Initiativet har skickats till teknisk validering
             update: Uppdatera
           form:
             attachments: Bilagor
@@ -233,9 +230,6 @@ sv:
             edit: Redigera
             new: Ny
             photos: Foton
-          update:
-            error: Ett fel har inträffat
-            success: Initiativet har uppdaterats
         initiatives_settings:
           edit:
             update: Uppdatera
@@ -243,9 +237,6 @@ sv:
             comments: Mest kommenterade
             random: Slumpmässigt
         initiatives_type_scopes:
-          create:
-            error: Ett fel har inträffat
-            success: Ett nytt omfång har skapats för den givna initiativtypen
           destroy:
             success: Omfånget har tagits bort
           edit:
@@ -258,15 +249,7 @@ sv:
             back: Tillbaka
             create: Skapa
             title: Skapa omfång till initiativtyp
-          update:
-            error: Ett fel har inträffat
-            success: Omfånget har uppdaterats
         initiatives_types:
-          create:
-            error: Ett fel har inträffat
-            success: En ny initiativtyp har skapats
-          destroy:
-            success: Initiativtypen har tagits bort
           edit:
             confirm_destroy: Är du säker?
             destroy: Radera
@@ -280,9 +263,6 @@ sv:
           new:
             create: Skapa
             title: Ny initiativtyp
-          update:
-            error: Ett fel har inträffat
-            success: Initiativtypen har uppdaterats
       admin_log:
         initiative:
           publish: "%{user_name} publicerade initiativet %{resource_name}"
@@ -313,7 +293,6 @@ sv:
       committee_requests:
         new:
           continue: Fortsätta
-          help_text: Du kommer att be att få bli medlem av initiativets kampanjutskott
         spawn:
           success: Din förfrågan har skickats till författaren av initiativet.
       content_blocks:
@@ -387,7 +366,6 @@ sv:
             day: Dag
             month: Månad
             year: År
-          help: Skriv under initiativet genom att fylla i följande fält med dina personuppgifter
         finish:
           back_to_initiative: Tillbaka till initiativet
         sms_code:
@@ -395,12 +373,9 @@ sv:
           help: Se det SMS som skickades till din telefon
         sms_phone_number:
           continue: Skicka mig ett SMS
-          help: Begär en verifieringskod genom att fyll i formuläret med ditt verifierade telefonnummer
       initiative_votes:
         create:
           error: Det gick inte att skriva under initiativet.
-          invalid: Uppgifterna för underskrift av initiativet är ogiltiga
-          success_html: Grattis! Du har skrivit under initiativet <strong> %{title}</strong>
         personal_data:
           invalid: Personuppgifterna överensstämmer inte med de uppgifter som lämnats för godkännande.
         sms_phone:
@@ -415,7 +390,6 @@ sv:
         committee_members:
           approve: Godkänn
           confirm_revoke: Är du säker?
-          no_members_yet: Det finns inga medlemmar i projektkommittén
           revoke: Återkalla
           title: Kommittémedlemmar
         count:
@@ -472,7 +446,6 @@ sv:
           section: 'Om det begärs av organisationen, skriv ut och fyll i detta formulär för att skicka där det anges:'
           signature: Underskrift
         result:
-          answer_title: Detta initiativ "" har fått ett svar
           initiative_rejected_reason: Detta initiativ har avslagits på grund av bristen på underskrifter.
         show:
           any_vote_method: Detta initiativ samlar in både digitala och fysiska underskrifter.
@@ -529,9 +502,6 @@ sv:
         accepted: Godkända
         expired: Utgångna
       unavailable_scope: Ej tillgängligt omfång
-      update:
-        error: Ett fel har inträffat
-        success: Initiativet har uppdaterats
       versions:
         shared:
           back_to_resource: Gå tillbaka till initiativet
