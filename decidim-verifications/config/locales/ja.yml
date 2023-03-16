@@ -36,10 +36,8 @@ ja:
           before_date_info: 参加型プロセスがすでに開始されており、前のプロセスの権限を取り消したい場合に便利です。
           button: すべて取り消し
           button_before: 日付の前に取り消し
-          destroy_nok: 許可の取り消し中に問題が発生しました。
           destroy_ok: すべての一致した認証が正常に取り消されました。
           info: '%{count} 人の確認済み参加者がいます。'
-          no_data: 確認済みの参加者はありません
           title: 認証の取り消し方法
         authorization_workflows: 認証
     admin_log:
@@ -49,10 +47,6 @@ ja:
         grant_id_documents_offline_verification: "オフラインIDドキュメント認証を使用して%{user_name} が %{resource_name} を確認しました"
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - 管理者は受理済みの参加者のメールで CSV をアップロードします
-            - そのCSVファイルに電子メールが記載されている参加者のみが確認できます
         id_documents:
           help:
             - ユーザーは自分の身元情報を入力し、自分の文書のコピーをアップロードします。
@@ -66,17 +60,14 @@ ja:
             - 郵便物を送信済みとしてマークします。
             - 郵便物を送信済みとしてマークすると、参加者はコードを入力して検証することができます。
       csv_census:
-        explanation: 組織センサスを使用して認証を取得する
         name: 組織のセンサス
       direct: ダイレクト
       help: ヘルプ
       id_documents:
-        explanation: 本人確認のため本人確認書類をアップロードしてください
         name: 本人確認書類
       multistep: 複数ステップ
       name: 名前
       postal_letter:
-        explanation: 住所を確認するために入力するコードを記載した郵便物をお送りします。
         name: 郵便物によるコード
     events:
       verifications:
@@ -123,7 +114,6 @@ ja:
         renew_modal:
           cancel: キャンセル
           continue: 続ける
-          info_renew: データを更新したい場合は、更新を続けてください
           title: 確認を更新
         skip_verification: しばらくの間はスキップできますし、 %{link}
         start_exploring: 探索を始めましょう
@@ -132,13 +122,9 @@ ja:
           census:
             create:
               error: センサスのインポート中にエラーが発生しました。
-              success: '%{count} 個のアイテムを正常にインポートしました (%{errors} 個のエラー)'
-            destroy_all:
-              success: すべてのセンサスデータが削除されました
           destroy:
             title: センサスデータをすべて削除する
           index:
-            data: 合計 %{count} 件のレコードが読み込まれています。最終アップロード日は %{due_date}です。
             empty: センサスデータがありません。CSVファイルを使用してインポートするには、以下のフォームを使用してください。
             title: 現在のセンサスデータ
           instructions:
@@ -172,17 +158,12 @@ ja:
               update: 更新
             update:
               error: 設定の更新中に問題が発生しました。
-              success: 構成が正常に更新されました
           confirmations:
-            create:
-              success: 参加者を確認しました
             new:
               introduce_user_data: 写真のデータを入力する
               reject: 拒否
               verify: 確認する
           offline_confirmations:
-            create:
-              success: 参加者を確認しました
             new:
               cancel: キャンセル
               introduce_user_data: 参加者のメールアドレスと文書データを入力
@@ -193,32 +174,19 @@ ja:
               offline_verification: オフライン認証
               title: オンラインでの認証待ちです
               verification_number: '認証 #%{n}'
-          rejections:
-            create:
-              success: 本人確認が拒否されました。参加者は書類を修正するよう求められます。
         authorizations:
           choose:
             choose_a_type: '確認方法を選択してください：'
             offline: オフライン
             online: オンライン
             title: 身分証明書を使用して確認してください
-          create:
-            error: ドキュメントのアップロード中に問題が発生しました
-            success: ドキュメントが正常にアップロードされました
           edit:
-            being_reviewed: 書類を確認中です。まもなく確認されます。
             offline: オフライン認証を使用する
             online: オンライン認証を使用する
-            rejection_clarity: アップロードされた画像に明確に情報が表示されていることを確認してください
-            rejection_correctness: 入力された情報が正しいことを確認してください
-            rejection_notice: 認証に問題がありました。もう一度やり直してください。
             send: もう一度確認を要求する
           new:
             send: リクエスト確認
             title: 身分証明書をアップロード
-          update:
-            error: ドキュメントの再アップロード中に問題が発生しました
-            success: ドキュメントを再アップロードしました
         dni: 免許証
         nie: マイナンバーカード
         passport: パスポート
@@ -233,28 +201,14 @@ ja:
               title: 現在検証中
               username: アカウントID
               verification_code: 確認コード
-          postages:
-            create:
-              error: 郵便物送信済みのマーキング時エラー
-              success: 郵便物の送信済みにマークされました
         authorizations:
-          create:
-            error: リクエストに問題がありました
-            success: ありがとうございます！あなたのアドレスに確認コードを送信します
           edit:
             send: 確認する
-            title: 受信した確認コードを入力する
-            waiting_for_letter: 確認コードを記載した郵便物をお送りします。
           new:
             send: 郵便物を送る
             title: 確認コードをリクエストする
-          update:
-            success: おめでとうございます。正常に検証されました
       sms:
         authorizations:
-          create:
-            error: リクエストに問題がありました
-            success: ありがとうございます！あなたの携帯電話にSMSを送信しました。
           destroy:
             success: 確認コードが正常にリセットされました。電話番号を再入力してください。
           edit:
