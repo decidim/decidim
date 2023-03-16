@@ -48,10 +48,6 @@ is-IS:
             confirm_destroy: Ertu viss um að þú viljir hætta við þessa flokkun?
             destroy: Hætta við flokkun
             title: Afpöntun á flokkuninni
-          create:
-            success: Flokkun búin til
-          destroy:
-            success: Flokkun tókst að hætta við
           edit:
             title: Uppfærðu upplýsingar um flokkunina
             update: Uppfæra
