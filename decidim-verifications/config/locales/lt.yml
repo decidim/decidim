@@ -30,10 +30,8 @@ lt:
           before_date_info: Naudinga, jei procesas jau prasidėjo ir norite atšaukti ankstesnio proceso leidimus.
           button: Atšaukti viską
           button_before: Atšaukti iki datos
-          destroy_nok: Atšaukiant leidimus, iškilo problema.
           destroy_ok: Visi sutampantys leidimai atšaukti.
           info: Bendras patvirtintų dalyvių skaičius – %{count}.
-          no_data: Patvirtintų dalyvių nėra
           title: Įgaliojimų atėmimas
         authorization_workflows: Autorizacijos
     admin_log:
@@ -43,10 +41,6 @@ lt:
         grant_id_documents_offline_verification: "%{user_name} patvirtino %{resource_name} naudodamas tapatybės dokumentų tikrinimo offline režimu funkciją"
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - Administratoriai įkelia CSV su priimtų dalyvių el. pašto adresais
-            - Tik dalyviai, turintys el. pašto adresą tame CSV faile, gali gauti patvirtinimą
         id_documents:
           help:
             - Vartotojai užpildo savo tapatybės informaciją ir įkelia savo dokumento kopiją.
@@ -60,17 +54,14 @@ lt:
             - Jūs pažymite laišką kaip išsiųstą.
             - Kai pažymėsite laišką kaip išsiųstą, dalyvis galės įvesti kodą ir gauti patvirtinimą.
       csv_census:
-        explanation: Patikrinimas naudojant organizacijos surašymo duomenis
         name: Organizacijos surašymo duomenys
       direct: Tiesiogiai
       help: Pagalba
       id_documents:
-        explanation: Įkelkite savo asmens dokumentus, kad galėtume patikrinti jūsų tapatybę
         name: Tapatybės dokumentai
       multistep: Kelių žingsnių procesas
       name: Vardas
       postal_letter:
-        explanation: Atsiųsime jums laišką paštu su kodu, kurį turėsite įvesti, kad galėtume patvirtinti jūsų adresą
         name: Kodas pašto laišku
     events:
       verifications:
@@ -112,7 +103,6 @@ lt:
         renew_modal:
           cancel: Atšaukti
           continue: Tęsti
-          info_renew: Jei norite atnaujinti duomenis, tęskite atnaujinimą
           title: Atnaujinti patikrinimą
         skip_verification: Dabar tai galite praleisti ir %{link}
         start_exploring: pradėti naršyti
@@ -121,13 +111,9 @@ lt:
           census:
             create:
               error: Importuojant surašymo duomenis įvyko klaida.
-              success: Sėkmingai importuota %{count} elementų (%{errors} klaidų)
-            destroy_all:
-              success: Visi surašymo duomenys pašalinti
           destroy:
             title: Pašalinti visus surašymo duomenis
           index:
-            data: Bendras įkeltų įrašų skaičius – %{count}. Paskutinį kartą įkelta %{due_date}
             empty: Surašymo duomenų nėra. Naudokite toliau pateikiamą formą, kad ją importuotumėte naudodami CSV rinkmeną.
             title: Dabartiniai surašymo duomenys
           instructions:
@@ -164,17 +150,12 @@ lt:
               update: Atnaujinti
             update:
               error: Atnaujinant konfigūraciją iškilo problema.
-              success: Konfigūracija atnaujinta
           confirmations:
-            create:
-              success: Dalyvis patikrintas
             new:
               introduce_user_data: Pristatykite duomenis paveikslėlyje
               reject: Atmesti
               verify: Patikrinti
           offline_confirmations:
-            create:
-              success: Dalyvis patikrintas
             new:
               cancel: Atšaukti
               introduce_user_data: Pristatykite dalyvio el. pašto adresą ir dokumento duomenis
@@ -185,32 +166,19 @@ lt:
               offline_verification: Tikrinimas atjungties režimu
               title: Vyksta tikrinimas online rėžimu
               verification_number: 'Tikrinimas #%{n}'
-          rejections:
-            create:
-              success: Tikrinimas atmestas. Dalyvis bus paragintas peržiūrėti savo dokumentus
         authorizations:
           choose:
             choose_a_type: 'Pasirinkite, kaip norite būti tikrinami:'
             offline: Offline
             online: Online
             title: Identifikuokite save naudodami tapatybės dokumentą
-          create:
-            error: Įkeliant jūsų dokumentą iškilo problema
-            success: Dokumentas įkeltas
           edit:
-            being_reviewed: Peržiūrime jūsų dokumentus. Netrukus jus patikrinsime
             offline: Naudoti tikrinimo offline režimu funkciją
             online: Naudoti tikrinimo online režimu funkciją
-            rejection_clarity: Įsitikinkite, kad įkeltame paveikslėlyje informacija būtų aiškiai matoma
-            rejection_correctness: Įsitikinkite, kad suvedėte teisingą informaciją
-            rejection_notice: Jus identifikuojant iškilo problema. Bandykite dar kartą
             send: Dar kartą teikti tikrinimo užklausą
           new:
             send: Užklausos tikrinimas
             title: Įkelkite savo tapatybės dokumentą
-          update:
-            error: Iš naujo įkeliant jūsų dokumentą iškilo problema
-            success: Dokumentas iš naujo įkeltas
         dni: Asmens tapatybės dokumentas
         nie: NIE
         passport: Pasas
@@ -225,28 +193,14 @@ lt:
               title: Vykstantys tikrinimai
               username: Slapyvardis
               verification_code: Patvirtinimo kodas
-          postages:
-            create:
-              error: Iškilo klaida pažymint laišką kaip išsiųstą
-              success: Laiškas pažymėtas kaip išsiųstas
         authorizations:
-          create:
-            error: Dėl jūsų užklausos iškilo problema
-            success: Dėkojame! Jūsų adresu atsiųsime patvirtinimo kodą
           edit:
             send: Patvirtinti
-            title: Įveskite gautą patvirtinimo kodą
-            waiting_for_letter: Netrukus jūsų adresu išsiųsime laišką su patvirtinimo kodu
           new:
             send: Atsiųskite man laišką
             title: Paprašykite patvirtinimo kodo
-          update:
-            success: Sveikiname! Jūs patikrinti
       sms:
         authorizations:
-          create:
-            error: Dėl jūsų užklausos iškilo problema
-            success: Dėkojame! Jūsų telefonu išsiuntėme SMS žinutę.
           destroy:
             success: Tikrinimo kodas nustatytas iš naujo. Dar kartą įveskite savo telefono numerį.
           edit:
