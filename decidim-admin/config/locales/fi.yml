@@ -458,7 +458,7 @@ fi:
             message_1: CSV-, JSON- ja Excel-tiedostoja (.xlsx) tuetaan
             message_2: CSV-tiedostoissa sarake-erottimen on oltava puolipiste (";")
       help_sections:
-        error: Ohjeosioiden päivittäminen epäonnistui.
+        error: Ohjeosioiden päivitys epäonnistui.
         form:
           save: Tallenna
         success: Ohjeosioiden päivitys onnistui.
@@ -764,8 +764,8 @@ fi:
           success: Uutiskirjeen päivitys onnistui. Tarkasta se läpi ennen lähetystä.
       officializations:
         block:
-          error: Käyttäjän estäminen epäonnistui.
-          success: Käyttäjän estäminen onnistui.
+          error: Osallistujan estäminen epäonnistui.
+          success: Osallistujan estäminen onnistui.
         create:
           success: Osallistujan virallistaminen onnistui.
         destroy:
