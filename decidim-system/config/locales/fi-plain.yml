@@ -43,9 +43,9 @@ fi-pl:
       admins:
         create:
           error: Uuden hallinnoijan luonnissa tapahtui virhe.
-          success: Hallinnoija luotu onnistuneesti
+          success: Hallintakäyttäjän luonti onnistui.
         destroy:
-          success: Hallinnoija poistettu onnistuneesti
+          success: Hallintakäyttäjän poisto onnistui.
         edit:
           title: Muokkaa hallinnoijaa
           update: Päivitä
@@ -56,7 +56,7 @@ fi-pl:
           title: Uusi hallinnoija
         update:
           error: Hallinnoijan päivityksessä tapahtui virhe.
-          success: Hallinnoija päivitetty onnistuneesti
+          success: Hallintakäyttäjän päivitys onnistui.
       dashboard:
         show:
           current_organizations: Nykyiset organisaatiot
@@ -145,8 +145,8 @@ fi-pl:
         index:
           title: Organisaatiot
         new:
-          reference_prefix_hint: Viitekoodin avulla tunnistetaan yksilöllisesti resursseja kaikissa organisaatioissa
-          secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
+          reference_prefix_hint: Viitetunnisteen avulla tunnistetaan yksilöllisesti resursseja eri organisaatioiden välillä.
+          secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen.
           title: Uusi organisaatio
         omniauth_settings:
           decidim:
@@ -170,7 +170,7 @@ fi-pl:
           fieldsets:
             sender: Lähettäjä
           instructions:
-            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <your-organization@example.org>". Jätä tyhjäksi käyttääksesi "Sähköpostiosoite" -kentän arvoa lähettäjän nimenä'
+            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <your-organization@example.org>". Jätä tyhjäksi käyttääksesi "Sähköpostiosoite" -kentän arvoa lähettäjän nimenä.'
           placeholder:
             from_email: sinun-organisaatiosi@example.org
             from_label: organisaatiosi-nimi
