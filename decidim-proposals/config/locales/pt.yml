@@ -214,10 +214,8 @@ pt:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Alguém deixou uma nota na proposta "%{resource_title}". Consulte-a no <a href="%{admin_proposal_info_url}">painel de administrador</a>
             email_outro: Recebeu esta notificação pois pode avaliar a proposta.
             email_subject: Alguém deixou uma nota na proposta %{resource_title}.
-            notification_title: Alguém deixou uma nota na proposta <a href="%{resource_path}">%{resource_title}</a>. Consulte-a no <a href="%{admin_proposal_info_path}">painel de administrador</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} foi aceite para aceder como contribuidor de %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> foi aceite <strong>para aceder como colaborador</strong> do projeto colaborativo <a href="%{resource_path}">%{resource_title}</a>.
@@ -240,12 +238,10 @@ pt:
           email_intro: 'Agora pode criar novas propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: Propostas agora disponíveis em %{participatory_space_title}
-          notification_title: Pode apresentar <a href="%{resource_path}">novas propostas</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Pode endossar propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
           email_subject: As propostas de endosso começaram para %{participatory_space_title}
-          notification_title: Pode começar a <a href="%{resource_path}">endossar propostas</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'A sua proposta "%{resource_title}" foi aceite. Pode ler a resposta nesta página:'
@@ -419,21 +415,12 @@ pt:
             rejected: Rejeitado
             title: Resposta para a proposta %{title}
         proposal_notes:
-          create:
-            error: Ocorreu um problema ao criar esta nota de proposta
-            success: Nota de proposta criada corretamente
           form:
             note: Nota
             submit: Submeter
           leave_your_note: Deixe a sua nota
           title: Notas privadas
         proposals:
-          answer:
-            invalid: Ocorreu um problema ao responder a esta proposta
-            success: Proposta respondida corretamente
-          create:
-            invalid: Ocorreu um problema ao criar esta proposta
-            success: Proposta criada corretamente
           edit:
             title: Atualizar proposta
             update: Atualizar
@@ -507,9 +494,6 @@ pt:
             select_a_scope: Selecione um âmbito
             success: 'Propostas atualizadas corretamente para o âmbito %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Ocorreu um problema ao importar as propostas
-            success: "%{number} propostas importadas corretamente"
           new:
             create: Importar propostas
             no_components: Não há outros componentes da proposta neste espaço participativo de onde importar as propostas.
@@ -524,13 +508,6 @@ pt:
           create:
             invalid: 'Houve um problema ao dividir as propostas seleccionadas porque algumas delas:'
             success: Dividiu corretamente as propostas em novas.
-        valuation_assignments:
-          create:
-            invalid: Ocorreu um erro ao atribuir propostas a um avaliador
-            success: Propostas atribuídas a um avaliador corretamente
-          delete:
-            invalid: Ocorreu um erro ao remover a atribuição de propostas de um avaliador
-            success: Remoção da atribuição de avaliador a propostas feita corretamente
       admin_log:
         proposal:
           answer: "%{user_name} respondeu à proposta %{resource_name} no espaço %{space_name}"
@@ -790,8 +767,6 @@ pt:
         proposal:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
-        proposals:
-          empty: Ainda não existe nenhuma proposta
         show:
           answer: Responder
           back_to: Retroceder a
@@ -844,8 +819,6 @@ pt:
             supports_remaining: Tem que votar em mais %{remaining_votes} propostas para os seus votos serem levados em conta.
           proposal_limit:
             description: Pode criar até %{limit} propostas.
-          threshold_per_proposal:
-            description: Para serem aceites, as propostas precisam de atingir %{limit} votos
           title: 'A votação está sujeita às seguintes regras:'
           vote_limit:
             description: Pode votar até %{limit} propostas.
