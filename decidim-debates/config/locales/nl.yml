@@ -180,7 +180,6 @@ nl:
           email_intro: 'Je kan nu nieuwe debatten aanmaken in %{participatory_space_title}! Start jouw deelname op deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de meldingen uitschakelen door te klikken op de voorgaande link.
           email_subject: Debatten zijn nu beschikbaar in %{participatory_space_title}
-          notification_title: Je kan nu beginnen met <a href="%{resource_path}">nieuwe debatten</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Het debat "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
