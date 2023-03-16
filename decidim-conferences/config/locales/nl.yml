@@ -62,12 +62,6 @@ nl:
         email: E-mail
         name: Naam
         role: Rol
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Deze e-mail is al uitgenodigd
   activerecord:
     models:
       decidim/conference:
@@ -444,11 +438,6 @@ nl:
       index:
         title: Conferenties
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: De registratie van uw conferentie is bevestigd
-          pending_validation:
-            subject: De registratie van uw conferentie is in afwachting van bevestiging
         invite_join_conference_mailer:
           invite:
             subject: Uitnodiging om deel te nemen aan een conferentie
@@ -532,10 +521,6 @@ nl:
           contextual: "<p>Een <strong>conferentie</strong> is een verzameling van bijeenkomsten georganiseerd in een programma, waarbij een aantal mensen is uitgenodigd als spreker. en andere informatievelden die typerend zijn voor grote congressen of sociale evenementen (registratie, lijst van organisaties die het evenement ondersteunen, sponsoren, etc.)</p> <p>Voorbeelden: een conferentie kan een relevante gebeurtenis zijn voor een organisatie en haar leden, of maakt deel uit van een participatief proces of volgt na een consultatie.</p>\n"
           page: "<p>Een <strong>conferentie</strong> is een verzameling van bijeenkomsten georganiseerd in een programma, waarbij een aantal mensen is uitgenodigd als spreker. en andere informatievelden die typerend zijn voor grote congressen of sociale evenementen (registratie, lijst van organisaties die het evenement ondersteunen, sponsoren, etc.)</p> <p>Voorbeelden: een conferentie kan een relevante gebeurtenis zijn voor een organisatie en haar leden, of maakt deel uit van een participatief proces of volgt na een consultatie.</p>\n"
           title: Wat zijn conferenties?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'De conferentie is niet gevonden in de database (ID: %{id})'
     media:
       index:
         description: Links over deze conferentie
