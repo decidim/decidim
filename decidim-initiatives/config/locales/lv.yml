@@ -166,8 +166,6 @@ lv:
           index:
             approve: Apstiprināt
             confirm_revoke: Vai esat pārliecināts?
-            invite_to_committee_help: Kopīgojiet šo saiti, lai uzaicinātu citus dalībniekus uz veicinātāju komiteju
-            no_members_yet: Veicinātāju komitejā nav locekļu
             revoke: Atsaukt
             title: Komitejas locekļi
         content_blocks:
@@ -184,7 +182,6 @@ lv:
             export_votes: Eksportēt parakstus
             reject: Noraidīt iniciatīvu
             send_to_technical_validation: Nosūtiet tehniskajai validācijai
-            success: Iniciatīva ir nosūtīta tehniskajai validācijai
             update: Atjaunināt
           form:
             title: Vispārēja informācija
@@ -197,13 +194,7 @@ lv:
             edit: Labot
             new: Jauns
             photos: Fotogrāfijas
-          update:
-            error: Ir radusies kļūda
-            success: Iniciatīva tika veiksmīgi atjaunināta
         initiatives_type_scopes:
-          create:
-            error: Ir radusies kļūda
-            success: Konkrētajam iniciatīvas veidam ir izveidots jauns darbības tvērums
           destroy:
             success: Darbības tvērums ir veiksmīgi noņemts
           edit:
@@ -216,15 +207,7 @@ lv:
             back: Atpakaļ
             create: Izveidot
             title: Izveidot iniciatīvas darbības veida tvērumu
-          update:
-            error: Ir radusies kļūda
-            success: Darbības tvērums ir veiksmīgi atjaunināts
         initiatives_types:
-          create:
-            error: Ir radusies kļūda
-            success: Jaunais iniciatīvas veids ir veiksmīgi izveidots
-          destroy:
-            success: Iniciatīvas veids ir veiksmīgi noņemts
           edit:
             confirm_destroy: Vai esat pārliecināts?
             destroy: Dzēst
@@ -236,9 +219,6 @@ lv:
           new:
             create: Izveidot
             title: Jauns iniciatīvas veids
-          update:
-            error: Ir radusies kļūda
-            success: Iniciatīvas veids ir veiksmīgi atjaunināts
       admin_log:
         initiative:
           publish: "%{user_name} publicēja iniciatīvu %{resource_name}"
@@ -269,7 +249,6 @@ lv:
       committee_requests:
         new:
           continue: Turpināt
-          help_text: Jūs tūliņ kļūsiet par šīs iniciatīvas veicinātāju komitejas locekli
         spawn:
           success: Jūsu pieprasījums ir nosūtīts iniciatīvas autoram.
       content_blocks:
@@ -329,7 +308,6 @@ lv:
             day: Diena
             month: Mēnesis
             year: Gads
-          help: Lai parakstītu iniciatīvu, lūdzu, aizpildiet šos laukus, ierakstot savus personas datus
         finish:
           back_to_initiative: Atpakaļ pie iniciatīvas
         sms_code:
@@ -337,12 +315,9 @@ lv:
           help: Pārbaudiet tālrunī saņemto SMS
         sms_phone_number:
           continue: Sūtīt man SMS
-          help: Lai pieprasītu verifikācijas kodu, aizpildiet veidlapu, izmantojot verificēto tālruņa numuru
       initiative_votes:
         create:
           error: Iniciatīvas parakstīšanas laikā radās problēma
-          invalid: Iniciatīvas parakstīšanai sniegtie dati nav derīgi
-          success_html: Apsveicam! Iniciatīva <strong> %{title}</strong> ir veiksmīgi parakstīta
         personal_data:
           invalid: Personas dati neatbilst autorizējoties sniegtajiem datiem.
         sms_phone:
