@@ -188,12 +188,10 @@ hu:
           email_intro: 'Mostantól új javaslatokat készíthetsz itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Javaslatok elérhetőek innen: %{participatory_space_title}'
-          notification_title: 'Mostantól <a href="%{resource_path}">új javaslatokat terjeszthetsz elő</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
         endorsing_enabled:
           email_intro: 'Hagyd jóvá az új javaslatokat itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
           email_subject: 'Javaslatok jóváhagyása elkezdődött itt: %{participatory_space_title}'
-          notification_title: 'Mostantól <a href="%{resource_path}">jóváhagyhatsz javaslatokat</a> itt: <a href="%{participatory_space_url}">%{participatory_space_title}</a>'
         proposal_accepted:
           affected_user:
             email_intro: 'Javaslata "%{resource_title}" elfogadva. A válasz ezen az oldalon olvasható:'
@@ -365,21 +363,12 @@ hu:
             rejected: Elutasítva
             title: Válasz a(z) %{title} javaslatra
         proposal_notes:
-          create:
-            error: Probléma merült fel a javaslat jegyzetének létrehozásakor
-            success: Javaslat jegyzetének létrehozása sikeres
           form:
             note: Jegyzet
             submit: Küldés
           leave_your_note: Jegyzet elhagyása
           title: Privát jegyzetek
         proposals:
-          answer:
-            invalid: Probléma merült fel a javaslat megválaszolásakor
-            success: Javaslat megválaszolása sikeres
-          create:
-            invalid: Probléma merült fel a javaslat létrehozásakor
-            success: Javaslat létrehozása sikeres
           edit:
             title: Frissítse a javaslatot
             update: frissítés
@@ -452,9 +441,6 @@ hu:
             select_a_scope: Kérlek válassz hatáskört
             success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Probléma merült fel a javaslatok importálásakor
-            success: "%{number} javaslat sikeresen importálva"
           new:
             create: Javaslatok importálása
             no_components: Ebben a részvételi térben nincs több javaslati elem az importálásához.
@@ -466,13 +452,6 @@ hu:
         proposals_splits:
           create:
             success: A javaslatokat sikeresen újakra osztottuk.
-        valuation_assignments:
-          create:
-            invalid: Hiba történt a javaslatok értékelőhöz való rendelésekor
-            success: Javaslatok sikeresen értékelőhöz rendelve
-          delete:
-            invalid: Hiba történt a javaslatok értékbecslőtől való visszarendelésekor
-            success: Értékelő sikeresen visszarendelve a javaslatoktól
       admin_log:
         proposal:
           answer: "%{user_name} válaszolt a(z) %{resource_name} javaslatra itt: %{space_name}"
@@ -773,8 +752,6 @@ hu:
             supports_remaining: Meg kell szavaznod %{remaining_votes} további javaslatot hogy a szavazataid figyelembe vételre kerüljenek.
           proposal_limit:
             description: Legfeljebb %{limit} javaslatot készíthetsz.
-          threshold_per_proposal:
-            description: Javaslatok jóváhagyáshoz legalább %{limit} támogatás szükséges
           title: 'A szavazásra ezen szabályok vonatkoznak:'
           vote_limit:
             description: Legfeljebb %{limit} javaslatról szavazhatsz.
