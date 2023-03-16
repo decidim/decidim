@@ -149,10 +149,8 @@ lv:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Kāds ir atstājis piezīmi par priekšlikumu "%{resource_title}". Apskatiet to <a href="%{admin_proposal_info_url}">administratora panelī</a>
             email_outro: Jūs saņēmāt šo paziņojumu, jo varat izvērtēt priekšlikumu.
             email_subject: Kāds atstāja piezīmi par priekšlikumu %{resource_title}.
-            notification_title: Kāds ir atstājis piezīmi par priekšlikumu <a href="%{resource_path}">%{resource_title}</a>. Pārbaudiet to <a href="%{admin_proposal_info_path}">administratora panelī</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} ir pieņemts, lai piekļūtu kā līdzautors %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> ir <strong> pieņemts, lai piekļūtu kā līdzautors</strong> <a href="%{resource_path}">%{resource_title}</a> sadarbības projektā.
@@ -175,12 +173,10 @@ lv:
           email_intro: 'Tagad jūs varat izveidot jaunu priekšlikumu telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Priekšlikumi tagad ir pieejami telpā %{participatory_space_title}
-          notification_title: Tagad jūs varat ierosināt <a href="%{resource_path}"> jaunus priekšlikumus </a> sadaļā <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Jūs varat atbalstīt priekšlikumus telpā %{participatory_space_title}! Sāciet piedalīties šajā lapā:'
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Priekšlikumu atbalstīšana %{participatory_space_title} ir sākusies
-          notification_title: Tagad jūs varat sākt <a href="%{resource_path}"> atbalstīt priekšlikumus </a> sadaļā <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Jūsu priekšlikums "%{resource_title}" tika pieņemts. Jūs varat izlasīt atbildi šajā lapā:'
@@ -346,21 +342,12 @@ lv:
             rejected: Noraidīts
             title: Atbilde par priekšlikumu %{title}
         proposal_notes:
-          create:
-            error: Šī priekšlikuma piezīmes izveides laikā radās problēma
-            success: Priekšlikuma piezīme ir veiksmīgi izveidota.
           form:
             note: Piezīme
             submit: Iesniegt
           leave_your_note: Atstājiet savu piezīmi
           title: Privātas piezīmes
         proposals:
-          answer:
-            invalid: Atbildot uz šo priekšlikumu, radās problēma
-            success: Priekšlikums ir veiksmīgi atbildēts
-          create:
-            invalid: Šī priekšlikuma izveides laikā radās problēma
-            success: Priekšlikums ir veiksmīgi izveidots
           edit:
             title: Atjaunināt priekšlikumu
             update: Atjaunināt
@@ -434,9 +421,6 @@ lv:
             select_a_scope: Lūdzu, atlasiet tvērumu
             success: 'Priekšlikumi ir veiksmīgi atjaunināti %{subject_name} tvērumam: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Importējot priekšlikumus, radās problēma
-            success: "%{number} priekšlikumi ir veiksmīgi importēti"
           new:
             create: Importēt priekšlikumus
             no_components: Šajā līdzdalības telpā nav citu priekšlikumu komentāru, no kuriem importēt priekšlikumus.
@@ -448,13 +432,6 @@ lv:
         proposals_splits:
           create:
             success: Priekšlikumi ir veiksmīgi sadalīti jaunos priekšlikumos.
-        valuation_assignments:
-          create:
-            invalid: Piešķirot vērtētājam priekšlikumus, radās kļūda
-            success: Priekšlikumi ir veiksmīgi piešķirti vērtētājam
-          delete:
-            invalid: Atsaucot priekšlikumus no vērtētāja, radās kļūda
-            success: Vērtētājs ir veiksmīgi atsaukts no priekšlikumiem
       admin_log:
         proposal:
           answer: "%{user_name} atbildēja projektam %{resource_name} telpā %{space_name}"
@@ -703,8 +680,6 @@ lv:
         proposal:
           creation_date: 'Izveidots: %{date}'
           view_proposal: Skatīt priekšlikumu
-        proposals:
-          empty: Pagaidām nav priekšlikuma
         show:
           answer: Atbilde
           back_to: Atpakaļ uz
@@ -752,8 +727,6 @@ lv:
             supports_remaining: Jums ir jāatbalsta vēl %{remaining_votes} vairāk priekšlikumi, lai jūsu atbalsts tiktu ņemts vērā.
           proposal_limit:
             description: Jūs varat izveidot līdz %{limit} priekšlikumiem.
-          threshold_per_proposal:
-            description: Lai priekšlikumi tiktu apstiprināti, tiem jāsasniedz %{limit} atbalsts
           title: 'Atbalstam tiek piemēroti šādi noteikumi:'
           vote_limit:
             description: Jūs varat atbalstīt līdz %{limit} priekšlikumiem.
