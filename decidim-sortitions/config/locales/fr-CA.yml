@@ -62,9 +62,8 @@ fr-CA:
             title: Annulation du tirage au sort
           create:
             error: Une erreur s'est produite lors de la création d'un nouveau tirage au sort.
-            success: Le tirage au sort a été créé avec succès
           destroy:
-            success: Le tirage au sort a été annulé avec succès
+            error: Impossible d'annuler le tirage au sort.
           edit:
             title: Mettre à jour les informations sur le tirage au sort
             update: Mettre à jour
@@ -81,7 +80,6 @@ fr-CA:
             selected_proposals: Propositions sélectionnées pour le tirage au sort
           update:
             error: Une erreur est survenue lors de la mise à jour du tirage au sort.
-            success: Le tirage au sort a bien été mis à jour
       admin_log:
         sortition:
           create: "%{user_name} a créé le tirage au sort %{resource_name} dans %{space_name}"
