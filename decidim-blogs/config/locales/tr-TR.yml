@@ -26,23 +26,16 @@ tr:
           post:
             name: posta
         posts:
-          create:
-            invalid: Bu yayını oluştururken bir sorun oluştu
-            success: Yayın başarıyla oluşturuldu
-          destroy:
-            success: Yayın başarıyla silindi
           edit:
             save: Güncelleştirme
             title: Gönderiyi düzenle
           index:
-            not_published_yet: Henüz yayınlanmadı
             title: Mesajlar
           new:
             create: yaratmak
             title: Gönderi oluştur
           update:
             invalid: Gönderiyi kaydederken bir sorun oluştu.
-            success: Yayın başarıyla kaydedildi
       models:
         post:
           fields:
