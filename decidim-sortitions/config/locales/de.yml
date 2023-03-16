@@ -62,9 +62,6 @@ de:
             title: Stornierung der Sortierung
           create:
             error: Beim Erstellen einer neuen Datei ist ein Fehler aufgetreten.
-            success: Die Sortierung wurde erfolgreich erstellt
-          destroy:
-            success: Die Sortierung wurde erfolgreich abgebrochen
           edit:
             title: Aktualisieren Sie die Informationen zur Sortierung
             update: Aktualisieren
@@ -81,7 +78,6 @@ de:
             selected_proposals: Vorschläge für die Auslosung ausgewählt
           update:
             error: Beim Aktualisieren der Sortierung ist ein Fehler aufgetreten.
-            success: Die Sortierung wurde erfolgreich aktualisiert
       admin_log:
         sortition:
           create: "%{user_name} erstellt die %{resource_name} Sortierung in %{space_name}"
