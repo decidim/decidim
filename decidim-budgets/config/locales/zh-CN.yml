@@ -32,12 +32,6 @@ zh-CN:
         title: 行动
       admin:
         budgets:
-          create:
-            invalid: 创建此预算时出现问题
-            success: 预算创建成功
-          destroy:
-            invalid: 删除这个预算时出错
-            success: 预算已成功删除
           edit:
             title: 编辑预算
             update: 更新预算
@@ -46,20 +40,12 @@ zh-CN:
           new:
             create: 创建预算
             title: 新预算
-          update:
-            invalid: 更新这个预算时出现问题
-            success: 预算已成功更新
         models:
           budget:
             name: 三. 预算
           project:
             name: 项目
         projects:
-          create:
-            invalid: 创建此项目时出现问题
-            success: 项目创建成功
-          destroy:
-            success: 工程删除成功
           edit:
             title: 编辑项目
             update: 更新
@@ -71,13 +57,7 @@ zh-CN:
           new:
             create: 创建
             title: 新建项目
-          update:
-            invalid: 更新此项目时出现问题
-            success: 项目已成功更新
         proposals_imports:
-          create:
-            invalid: 将建议导入项目时遇到问题
-            success: "%{number} 个建议已成功导入到项目"
           new:
             create: 导入提案到项目
             no_components: 在这个参与性空间中，没有其他提案组成部分可以将提案导入项目。
@@ -106,7 +86,6 @@ zh-CN:
         highlighted_cta: 对 %{name} 投票
         if_change_opinion: 如果你改变了主意，你可以：
         my_budgets: 我的预算
-        voted_on: 您已对 %{links} 投票
       limit_announcement:
         limit_reached: 您在 %{links}有活跃的投票。要对此预算进行投票，您必须 <a href="%{landing_path}">删除您的投票并开始于</a> 开始投票。
       models:
@@ -175,17 +154,13 @@ zh-CN:
           random: 随机顺序
           selected: 已选择
         project:
-          add: 将项目 %{resource_name} 添加到您的投票
-          remove: 从您的投票中删除项目 %{resource_name}
           selected: 已选择
           view: 查看
           votes:
             other: 投票
         project_budget_button:
           add: 添加到您的投票
-          add_descriptive: 将项目 %{resource_name} 添加到您的投票
           added: 添加到您的投票
-          added_descriptive: 项目 %{resource_name} 添加到您的投票
         projects_for: '%{name} 的项目'
         show:
           budget: 三. 预算
@@ -200,10 +175,6 @@ zh-CN:
             announcement: 通 知
             comments_enabled: 评论已启用
             comments_max_length: 评论最大长度 (默认值留0)
-            form:
-              errors:
-                budget_voting_rule_only_one: 只能启用一个投票规则
-                budget_voting_rule_required: 需要一个投票规则
             landing_page_content: 预算登陆页
             more_information_modal: 更多信息模式
             projects_per_page: 每页项目数
@@ -239,12 +210,5 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
           email_subject: '%{resource_title} 的预算现在在 %{participatory_space_title} 处于活动状态。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 预算现在已经在 %{participatory_space_title} 中生效。
-    orders:
-      checkout:
-        error: 处理您的投票时出现问题
-        success: 您的投票已被接受
-      destroy:
-        error: 取消投票时出现问题
-        success: 您的投票已成功取消
   index:
     confirmed_orders_count: 所得票数
