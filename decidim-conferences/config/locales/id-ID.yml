@@ -28,12 +28,6 @@ id:
         email: E-mail
         name: Nama
         role: Peran
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Email ini sudah diundang
   activerecord:
     models:
       decidim/conference:
@@ -399,11 +393,6 @@ id:
       index:
         title: Konferensi
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Pendaftaran konferensi Anda telah dikonfirmasi
-          pending_validation:
-            subject: Pendaftaran konferensi Anda sedang menunggu untuk dikonfirmasi
         invite_join_conference_mailer:
           invite:
             subject: Undangan untuk bergabung dalam konferensi
@@ -474,10 +463,6 @@ id:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti konferensi "%{resource_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Konferensi "%{resource_title}" akan datang!
           notification_title: Konferensi <a href="%{resource_path}">%{resource_title}</a> akan datang dalam 2 hari.
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferensi tidak ditemukan di database (ID: %{id})'
     media:
       index:
         description: Tautan tentang konferensi ini
