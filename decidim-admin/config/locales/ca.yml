@@ -39,7 +39,6 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
-        admin_terms_of_use_body: Cos del text de condicions d'ús per als administradors
         alert_color: Alerta
         available_authorizations: Autoritzacions disponibles
         badges_enabled: Habilitar les ensenyes
@@ -134,10 +133,6 @@ ca:
         file: Fitxer
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Selecciona com a mínim un espai de participació
         organization:
           attributes:
             official_img_footer:
@@ -152,11 +147,6 @@ ca:
           attributes:
             file:
               malformed: Arxiu d'importació mal formatat, si us plau, llegeix les instruccions curosament i assegura't que l'arxiu està codificat en UTF-8.
-      new_import:
-        attributes:
-          file:
-            invalid_file: L'arxiu proporcionat no és vàlid, si us plau comprova que l'arxiu està formatat correctament
-            invalid_mime_type: Tipus Mime invàlid
   activerecord:
     attributes:
       decidim/static_page:
@@ -177,8 +167,6 @@ ca:
         add: Afegir
         attachment:
           new: Nou arxiu adjunt
-        attachment_collection:
-          new: Nova col·lecció d'arxius adjunts
         browse: Explorar
         category:
           new: Nova categoria
@@ -206,18 +194,12 @@ ca:
           accept: Estic d'acord amb els termes
           are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
           refuse: Rebutjar els termes
-          title: Accepto els Termes i Condicions d'Administració
         required_review:
-          alert: 'Requerit: Revisa els nostres Termes i Condicions del panell d''administració'
-          callout: Si us plau, dedica un moment a revisar l'actualització dels nostres termes i condicions del panell d'administració. En cas contrari, no podràs administrar la plataforma.
           cta: Revisa-les ara.
-        title: Termes i Condicions del panell d'administració
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
           success: El tipus d'àrea ha estat creat correctament.
-        destroy:
-          success: El tipus d'àrea s'ha eliminat correctament
         edit:
           title: Editar el tipus d'àrea
           update: Actualitzar
@@ -226,14 +208,12 @@ ca:
           title: Nou tipus d'àrea
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àrea.
-          success: El tipus d'àrea s'ha actualitzat correctament
       areas:
         create:
           error: S'ha produït un error en crear una nova àrea.
           success: Àrea creada correctament.
         destroy:
           has_spaces: Aquesta àrea té espais dependents. Assegura't que no fa referència a cap espai de participació abans d'eliminar-la.
-          success: Àrea eliminada correctament
         edit:
           title: Editar àrea
           update: Actualitzar
@@ -243,7 +223,6 @@ ca:
         no_areas: Sense àrees
         update:
           error: S'ha produït un error en actualitzar aquesta àrea.
-          success: Àrea actualitzada correctament
       attachment_collections:
         create:
           error: S'ha produït un error en crear una nova carpeta.
@@ -283,7 +262,6 @@ ca:
         message: Tingues cura quan treballis amb adjunts en un espai privat. Qualsevol participant pot compartir aquest document amb tercers.
       autocomplete:
         no_results: No s'han trobat resultats
-        search_prompt: Escriu com a mínim tres caràcters per cercar
       block_user:
         new:
           action: Bloquejar compte i enviar justificació
@@ -373,9 +351,6 @@ ca:
       domain_whitelist:
         form:
           domain_too_short: El domini és massa curt
-        update:
-          error: Hi ha hagut un error en incloure el domini en la llista blanca
-          success: Llista blanca de dominis actualitzada correctament
       exports:
         export_as: "%{name} com a %{export_format}"
         formats:
@@ -458,10 +433,8 @@ ca:
             message_1: Estan suportats els arxius CSV, JSON i Excel (.xlsx)
             message_2: Pels arxius CSV, el separador entre columnes ha de ser un punt i coma (";")
       help_sections:
-        error: S'ha produït un error en actualitzar les seccions d'ajuda
         form:
           save: Desa
-        success: Les seccions d'ajuda s'han actualitzat correctament
       impersonatable_users:
         index:
           filter:
@@ -753,8 +726,6 @@ ca:
           send_to_participants: Envia a totes les participants
           title: Selecciona les destinatàries a lliurar
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
-        send:
-          no_recipients: No hi ha destinatàries per a aquesta selecció
         show:
           preview: Previsualitzar
           select_recipients_to_deliver: Selecciona les destinatàries a lliurar
@@ -763,13 +734,6 @@ ca:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       officializations:
-        block:
-          error: S'ha produït un error en bloquejar a la participant
-          success: Participant bloqueada correctament
-        create:
-          success: La participant s'ha oficialitzat correctament
-        destroy:
-          success: L'oficialització de la participant ha estat inhabilitada correctament
         index:
           actions: Accions
           badge: Insígnia
@@ -798,9 +762,6 @@ ca:
           hidden: ocult
           show: Mostra
           title: Mostra l'adreça de correu electrònic de la participant
-        unblock:
-          error: S'ha produït un error al desbloquejar a la participant
-          success: Participant desbloquejada correctament
       organization:
         edit:
           title: Edita organització
@@ -846,12 +807,6 @@ ca:
           title: Llista blanca de dominis externs
       organization_homepage:
         content_blocks:
-          create:
-            error: S'ha produït un error en intentar crear aquest bloc de contingut
-            success: Bloc de contingut creat correctament
-          destroy:
-            error: S'ha produït un error en intentar eliminar aquest bloc de contingut
-            success: Bloc de contingut eliminat amb èxit
           edit:
             update: Actualitzar
         edit:
@@ -928,8 +883,6 @@ ca:
         create:
           error: S'ha produït un error en crear un nou àmbit.
           success: Àmbit creat correctament.
-        destroy:
-          success: Àmbit eliminat correctament
         edit:
           title: Edita àmbit
           update: Actualitzar
@@ -949,7 +902,6 @@ ca:
           error: S'ha produït un error en eliminar aquest token.
           success: El token s'ha eliminat correctament.
         share_tokens:
-          empty: No hi ha tokens actius
           help: Aquests tokens s'utilitzen per a compartir públicament aquest recurs no publicat a qualsevol usuari. S'ocultaran quan es publiqui el recurs. Fes clic en la icona de compartir el token per a visitar la URL compartible.
           title: Compartir tokens
       shared:
@@ -962,8 +914,6 @@ ca:
         create:
           error: S'ha produït un error en crear un tema nou.
           success: S'ha creat el tema correctament.
-        destroy:
-          success: S'ha destruït el tema amb èxit
         edit:
           title: Edita el tema
           update: Actualitza el tema
@@ -979,12 +929,6 @@ ca:
         content_blocks:
           active_content_blocks: Blocs de contingut actius
           add: Afegir bloc de contingut
-          create:
-            error: S'ha produït un error en intentar crear aquest bloc de contingut
-            success: Bloc de contingut creat amb èxit
-          destroy:
-            error: S'ha produït un error en intentar eliminar aquest bloc de contingut
-            success: Bloc de contingut eliminat amb èxit
           destroy_confirmation: Segur que vols esborrar aquest bloc de contingut?
           edit:
             update: Actualitzar
@@ -1010,11 +954,9 @@ ca:
         topic:
           destroy: Elimina el tema
           edit: Edita el tema
-          empty: No hi ha cap pàgina sobre aquest tema
           without_topic: Pàgines sense tema
         update:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
-          success: La pàgina s'ha actualitzat correctament.
       titles:
         admin_log: Registre d'administració
         area_types: Tipus d'àrees
@@ -1038,10 +980,8 @@ ca:
           success: El fitxer CSV s'ha pujat correctament, estem verificant que els grups coincideixin amb els criteris. Això pot trigar una estona.
         reject:
           invalid: S'ha produït un error al rebutjar aquest grup.
-          success: El grup s'ha rebutjat correctament
         verify:
           invalid: S'ha produït un error al verificar aquest grup.
-          success: Grup verificat correctament
       user_groups:
         index:
           state:
@@ -1078,13 +1018,8 @@ ca:
           last_day: El darrer dia
           last_month: El darrer mes
           last_week: La darrera setmana
-          no_users_count_statistics_yet: Encara no hi ha estadístiques de recompte d’usuàries
           participants: Participants
       view_public_page: Mostra la pàgina pública
-    forms:
-      errors:
-        impersonate_user:
-          reason: Has d'indicar un motiu per a la gestió d'una participant no gestionada
     metrics:
       blocked_users:
         object: usuàries bloquejades
