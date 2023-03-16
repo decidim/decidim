@@ -98,7 +98,7 @@ class ConsentManager {
   }
 
   updateModalSelections() {
-    const categoryElements = this.modal.querySelectorAll(".category-wrapper");
+    const categoryElements = this.modal.querySelectorAll("[data-id]");
 
     categoryElements.forEach((categoryEl) => {
       const categoryInput = categoryEl.querySelector("input");

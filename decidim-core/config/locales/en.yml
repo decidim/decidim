@@ -500,6 +500,8 @@ en:
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
+      announcement:
+        name: Announcement
       cta:
         name: Image, text and Call To Action button
       cta_settings_form:
@@ -517,6 +519,9 @@ en:
       highlighted_content_banner:
         name: Highlighted content banner
       highlighted_elements_settings_form:
+        components:
+          all: All
+          label: 'Select component:'
         orders:
           label: 'Sort elements by:'
           random: Random
@@ -528,10 +533,23 @@ en:
         name: HTML block
       last_activity:
         name: Last activity
+        see_all_activity: See all the activity
         title: Last activity
         view_all: View all
+      last_activity_settings_form:
+        max_last_activity_users: Maximum number of user avatars with recent activity to show
+      main_data:
+        name: Main data
+      metadata:
+        name: Metadata
       metrics:
         name: Organization metrics
+      participatory_space_main_data:
+        more_info: More info
+      participatory_space_metrics:
+        name: Metrics
+      participatory_space_stats:
+        name: Statistics
       static_page:
         section:
           name: Section
@@ -590,11 +608,10 @@ en:
         newsletter_modal:
           buttons:
             check: Check and continue
-            close_modal: Close modal
             uncheck: Keep unchecked
           notice: |-
-            <p>Hey, are you sure you don't want to receive a newsletter?<br>
-            Please consider again ticking the newsletter checkbox below.<br>
+            <p>Hey, are you sure you don't want to receive a newsletter?
+            Please consider again ticking the newsletter checkbox below.
             It is very important for us that you can receive occasional emails
             to make important announcements, you can always change this on your
             notifications settings page.</p>
@@ -1293,7 +1310,7 @@ en:
       participatory_space:
         metrics:
           headline: Metrics
-          link: Show all metrics
+          link: Show all
       terms_and_conditions:
         accept:
           error: There was a problem accepting the terms and conditions.
@@ -1306,7 +1323,6 @@ en:
           modal_btn_continue: Accept terms and continue
           modal_btn_exit: I'll review it later
           modal_button: Refuse the terms
-          modal_close: Close modal
           modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
           alert: We've updated our Terms of Service, please review them.
