@@ -46,12 +46,6 @@ ro:
         decidim_consultations_response_id:
           not_found: Răspunsul nu a fost găsit.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Numărul de voturi nu este valid
     models:
       decidim/consultation:
         one: Consultare
@@ -160,7 +154,6 @@ ro:
             few: Răspunsuri
             other: Răspunsuri
       question_configuration:
-        disable_external_voting: Dezactivați votul extern pentru configurații avansate
         form:
           help: Să stabilească mai multe opțiuni prin creșterea numărului maxim de răspunsuri pe care un participant le poate alege. Valoarea maximă implicită este 1, ceea ce înseamnă că doar un singur răspuns poate fi votat.
           title: Configurare avansată
@@ -310,7 +303,6 @@ ro:
             votes: Voturi
       question_votes:
         create:
-          error: A apărut o problemă la votarea întrebării
           success: Îl puteți schimba până la sfârșitul consultării. Numai ultimul vot va fi acceptat.
           title_error: Eroare vot!
           title_success: Vot înregistrat cu succes
