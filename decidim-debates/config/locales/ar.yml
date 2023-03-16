@@ -143,7 +143,6 @@ ar:
           email_intro: 'يمكنك الآن بدء مناقشات جديدة في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: المناقشات المتاحة الآن في %{participatory_space_title}
-          notification_title: يمكنك الآن بدء <a href="%{resource_path}">مناقشات جديدة</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
