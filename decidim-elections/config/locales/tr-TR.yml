@@ -63,17 +63,10 @@ tr:
         unpublish: Yayımdan Kaldır
       admin:
         answers:
-          create:
-            invalid: Bu cevabı oluştururken bir sorunla karşılaştım
-            success: Cevap başarıyla oluşturuldu
-          destroy:
-            invalid: Bu cevabı silerken bir sorun oluştu
-            success: Yanıt başarıyla silindi
           edit:
             title: Cevabı düzenle
             update: Cevabı güncelle
           index:
-            invalid_max_selections: Maksimum seçimi eşleştirmek için %{missing_answers} yanıt(lar)a daha ihtiyacınız var
             title: Cevaplar
           new:
             create: Cevap oluştur
@@ -81,21 +74,7 @@ tr:
           select:
             disable: Cevabın seçimini kaldır
             enable: Cevabı seçildi olarak işaretle
-            invalid: Bu cevabı seçerken bir sorun oluştu
-            success: Cevap başarıyla seçildi
-          unselect:
-            invalid: Bu cevabın seçimi kaldırılırken bir sorun oluştu
-            success: Cevabın seçimi başarıyla kaldırıldı
-          update:
-            invalid: Bu klasör güncellenirken bir hata oluştu
-            success: Cevap başarıyla güncellendi
         elections:
-          create:
-            invalid: Bu seçim oluşturulurken bir sorun meydana geldi
-            success: Seçim başarıyla oluşturuldu
-          destroy:
-            invalid: Bu seçim silinirken bir sorun oluştu
-            success: Seçim başarıyla silindi
           edit:
             title: Seçimi düzenle
             update: Seçimi güncelle
@@ -109,9 +88,6 @@ tr:
             success: Seçim başarıyla yayınlandı.
           unpublish:
             success: Seçim başarılı bir şekilde yayınlanmadı.
-          update:
-            invalid: Bu seçim güncellenirken bir sorun oluştu
-            success: Seçim başarıyla güncellendi
         exports:
           elections: Seçimler
           feedback_form_answers: Cevapların geri bildirimi
@@ -125,21 +101,12 @@ tr:
           trustee:
             name: Vekil
         proposals_imports:
-          create:
-            invalid: Teklifleri cevaplara aktarırken bir sorun oluştu
-            success: "%{number} teklif başarıyla yanıtlara aktarıldı"
           new:
             create: Teklifleri yanıtlara aktarın
             no_components: Bu katılımcı alanda, teklifleri yanıtlara aktarmak için başka teklif bileşeni yoktur.
             select_component: Lütfen modülü bileşeni seçin
             title: Teklifleri içe aktar
         questions:
-          create:
-            invalid: Yeni bir soru oluşturulurken bir hata oluştu
-            success: Soru başarıyla oluşturuldu
-          destroy:
-            invalid: Bu soru silinirken bir sorun oluştu
-            success: Soru başarıyla silindi
           edit:
             title: Soruyu Düzenle
             update: Soruyu güncelle
@@ -148,20 +115,10 @@ tr:
           new:
             create: Soru Oluştur
             title: Yeni soru
-          update:
-            invalid: Bu soru güncellenirken bir hata oluştu
-            success: Soru başarıyla güncellendi
         trustees_participatory_spaces:
           actions:
             disable: Devre dışı
             enable: Dikkate al
-          create:
-            exists: Bu katılımcı alan için vekil var
-            invalid: Vekil oluşturulurken bir sorun meydana geldi
-            success: Vekil başarıyla oluşturuldu
-          delete:
-            invalid: Bu vekili kaldırırken bir sorun oluştu
-            success: Vekil başarıyla kaldırıldı
           form:
             select_user: Kullanıcı seçin
           index:
@@ -169,9 +126,6 @@ tr:
           new:
             create: Vekil Oluşturun
             title: Yeni Vekil
-          update:
-            invalid: '%{trustee} vekili güncellenirken bir sorun oluştu'
-            success: Vekil %{trustee} başarıyla güncellendi
       election_m:
         badge_name:
           finished: Bitti
