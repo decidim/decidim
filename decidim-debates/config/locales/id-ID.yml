@@ -125,7 +125,6 @@ id:
           email_intro: 'Anda sekarang dapat memulai debat baru dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima pemberitahuan setelah tautan sebelumnya.
           email_subject: Debat sekarang tersedia dalam %{participatory_space_title}
-          notification_title: Anda sekarang dapat memulai <a href="%{resource_path}">debat baru</a> dalam <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         commented_debates:
