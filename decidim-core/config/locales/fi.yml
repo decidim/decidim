@@ -149,6 +149,7 @@ fi:
         send_again: Lähetä uudestaan
         title: Sähköpostin muuttamisen vahvistus
       show:
+        available_locales_helper: Valitse haluamasi kieli alustan käyttämiseen ja ilmoitusten vastaanottamiseen.
         change_password: Vaihda salasana
         update_account: Päivitä tili
       update:
@@ -161,6 +162,7 @@ fi:
       actions:
         cancel: Peruuta
       password_change:
+        alert: Sinun täytyy vaihtaa salasanasi, jotta voit jatkaa alustan käyttöä.
         notification: Hallintakäyttäjien on vaihdettava salasanansa %{days} päivän välein.
     admin_log:
       area:
@@ -263,8 +265,10 @@ fi:
         amended_by: 'Muuttanut:'
         button: Muuta %{model_name}
         error: Tämän resurssin muutoksen tallennus epäonnistui.
+        help_text: Paranna kohdetta %{model_name} muuttamalla sen kenttiä %{amendable_fields}.
         promote_button: Korosta kohteeksi %{model_name}
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
+        promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen itsenäisenä kohteena %{model_name}.
         section_heading: Muutokset (%{count})
       compare_draft:
         continue: Jatka
@@ -306,16 +310,26 @@ fi:
         modify: Muokkaa
         publish: Julkaise
         title: Julkaise muutosluonnos
+      promoted:
+        error: Muutoksen julkaiseminen uutena ehdotuksena epäonnistui.
+        success: Muutos on julkaistu uutena ehdotuksena.
       publish_draft:
         error: Muutoksen julkaisu epäonnistui.
         success: Muutoksen julkaisu onnistui.
+      rejected:
+        error: Muutoksen hylkääminen epäonnistui, yritä myöhemmin uudelleen.
+        success: Muutos on hylätty.
       review:
         back: Takaisin
         heading: Tarkastele muutosta
+        help_text: Tarkastat muutosta kohteelle %{model_name}.
         send: Hyväksy muutos
       update_draft:
         error: Muutosluonnoksen päivitys epäonnistui.
         success: Muutosluonnoksen päivitys onnistui.
+      withdraw:
+        error: Muutoksen peruuttaminen epäonnistui.
+        success: Muutos on peruutettu.
       wizard_step_form:
         steps:
           '1': Luo muutos
@@ -347,11 +361,13 @@ fi:
       official_author: Virallinen
     authorization_handlers:
       another_dummy_authorization_handler:
+        explanation: Vahvista itsesi syöttämällä A-kirjaimella alkava passin numero.
         fields:
           passport_number: Passin numero
           postal_code: Postinumero
         name: Toinen esimerkkivahvistustapa
       dummy_authorization_handler:
+        explanation: Vahvista itsesi syöttämällä X-kirjaimella alkava asiakirjan numero.
         fields:
           allowed_postal_codes: Sallitut postinumerot (erottele pilkuilla)
           allowed_scope_id: Sallittu teema
@@ -392,7 +408,11 @@ fi:
           authorize: Vahvista palvelulla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee vahvistaa tilisi palvelulla "%{authorization}".
           title: Vahvistus vaaditaan
+        ok:
+          title: Sinut on vahvistettu sen aikana, kun olet ollut tällä sivulla. Lataa sivu uudelleen suorittaaksesi toiminnon, jota yritit suorittaa.
         pending:
+          explanation: Tämän toiminnon suorittamiseksi sinun vahvistettava itsesi palvelulla "%{authorization}", mutta vahvistuksesi on edelleen kesken.
+          resume: Tarkista "%{authorization}" vahvistuksen eteneminen.
           title: Vahvistus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
@@ -419,6 +439,7 @@ fi:
       see_more: "(näytä enemmän)"
     components:
       component_order_selector:
+        no_content: Sisältöä ei löytynyt annetuilla hakuehdoilla.
         order:
           all_types: Kaikki tyypit
           collaborative_draft: Yhteistyöluonnos
@@ -500,15 +521,22 @@ fi:
           summary_content: Sisältö
         two_pane_section:
           left_column: Vasen sarake
+          name: Kaksisarakkeinen osio
           right_column: Oikea sarake
       stats:
         name: Organisaation tilastot
       sub_hero:
         name: Hero-kuvan alabanneri
+    core:
+      actions:
+        login_before_access: Kirjaudu tilillesi ennen käyttöä.
+        unauthorized: Tiliäsi ei ole vahvistettu tämän toiminnon suorittamiseen.
     datepicker:
       help_text: 'Odotettu muoto: %{datepicker_format}'
     devise:
       omniauth_registrations:
+        create:
+          email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta.
         new:
           complete_profile: Viimeistele profiilisi
           nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
@@ -534,6 +562,8 @@ fi:
         new:
           are_you_new?: Uusi käyttäjä?
           register: Rekisteröidy
+          sign_in_disabled: Voit käyttää ulkoista tiliä.
+          sign_up_disabled: Rekisteröityminen on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
         user:
           timed_out: Palvelua ei ole käytetty hetkeen, minkä takia sinut on kirjattu palvelusta ulos automaattisesti. Jos haluat jatkaa palvelun käyttöä, kirjaudu uudestaan sisään.
       shared:
@@ -558,6 +588,7 @@ fi:
           authorize: Hyväksyn tietojeni käytön
           by_organization_link_html: '<small class="heading-small">palveluntarjoaja: %{link}</small>'
           cancel: Peruuta
+          connect_your_account_html: Yhdistä tilisi kirjautumalla kohteeseen <strong>%{organization}</strong>.
           publish_content: Julkaista sisältöä puolestasi
           see_email: Nähdä sähköpostiosoitteesi
           see_name: Nähdä nimesi
@@ -885,8 +916,17 @@ fi:
       index:
         invite: Kutsu
         invite_user: Kutsu käyttäjä
+      invite:
+        error: Osallistujan kutsuminen epäonnistui.
+        success: Osallistuja on kutsuttu.
+      reject:
+        error: Kutsun hylkääminen epäonnistui.
+        success: Kutsu on hylätty.
       reject_invitation: Hylkää
     group_members:
+      accept:
+        error: Liittymispyynnön hyväksyminen epäonnistui.
+        success: Liittymispyyntö on hyväksytty.
       actions:
         are_you_sure: Oletko varma?
         promote_to_admin: Nimitä ylläpitäjäksi
@@ -894,20 +934,36 @@ fi:
       index:
         current_members_without_admins: 'Nykyiset jäsenet (ilman ylläpitäjiä):'
         manage_members: Hallinnoi jäseniä
+      promote:
+        error: Osallistujan oikeuksien korottaminen epäonnistui.
+        success: Osallistujan oikeuksien korottaminen onnistui.
+      reject:
+        error: Liittymispyynnön hylkääminen epäonnistui.
+        success: Liittymispyyntö on hylätty.
+      remove:
+        error: Osallistujan poistaminen ryhmästä epäonnistui.
+        success: Osallistuja on poistettu ryhmästä.
     groups:
       actions:
         are_you_sure: Oletko varma?
+      create:
+        error: Ryhmän luominen epäonnistui.
+        success: Ryhmä luonti onnistui.
       edit:
         edit_user_group: Muokkaa ryhmää
         update_user_group: Päivitä ryhmä
       form:
+        document_number_help: Älä käytä väliviivoja tai välilyöntejä.
         email_help: Sähköpostiosoite organisaatiolle, yhdistykselle, ryhmälle, tms.
         fill_in_for_verification: 'Täytä nämä kentät, jos haluat ryhmäsi vahvistettavan:'
         name_help: Nimi organisaatiolle, yhdistykselle, ryhmälle, tms.
         nickname_help: Nimimerkki organisaatiolle, yhdistykselle, ryhmälle, tms. Älä käytä välilyöntejä tai erikoismerkkejä.
+        phone_help: Älä käytä väliviivoja tai välilyöntejä.
       join:
+        error: Ryhmään liittyminen epäonnistui.
         success: Liittymispyynnön luonti onnistui. Ylläpitäjä tarkistaa pyyntösi ennen hyväksymistäsi ryhmään.
       leave:
+        error: Ryhmästä poistuminen epäonnistui.
         last_admin: Et voi poistaa itseäsi tästä ryhmästä, koska olet sen ainoa hallinnoija. Tee toisesta ryhmän jäsenestä hallinnoija, mikäli haluat poistua ryhmästä.
         success: Ryhmästä poistuminen onnistui.
       members:
@@ -923,11 +979,15 @@ fi:
         admin: Ylläpitäjä
         creator: Hallinnoija
         member: Jäsen
+      update:
+        error: Ryhmän päivittäminen epäonnistui.
+        success: Ryhmän päivitys onnistui.
     help:
       main_topic:
         default_page:
           content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
+        description: Lue lisää palvelusta %{organization}.
         title: Yleisiä ohjeita
     last_activities:
       activities:
