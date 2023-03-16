@@ -81,10 +81,6 @@ hu:
             label: Típus
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Keresés a(z) %{collection} elemei között cím, leírás, azonosító vagy szerző alapján.
-      initiatives_settings:
-        update:
-          error: Hiba történt
-          success: A kezdeményezés frissítése sikeres volt
       menu:
         attachments: Csatolmányok
         committee_members: Bizottsági tagok
@@ -201,8 +197,6 @@ hu:
           index:
             approve: Jóváhagy
             confirm_revoke: Biztos vagy benne?
-            invite_to_committee_help: Oszd meg a linket felhasználók meghívásához a promóciós bizottságba
-            no_members_yet: A kezdeményező bizottságban nincsenek tagok
             revoke: Visszavonás
             title: Bizottsági tagok
         content_blocks:
@@ -224,7 +218,6 @@ hu:
             export_votes: Exportálás támogatása
             reject: Kezdeményezés elutasítása
             send_to_technical_validation: Elküldés technikai ellenőrzésre
-            success: A kezdeményezést technikai érvényesítésre továbbítottuk
             update: Frissítés
           form:
             attachments: Csatolmányok
@@ -239,9 +232,6 @@ hu:
             edit: Szerkeszt
             new: Új
             photos: Fotók
-          update:
-            error: Hiba történt
-            success: Az állampolgári kezdeményezés frissítése sikeres
         initiatives_settings:
           edit:
             update: Frissítés
@@ -253,9 +243,6 @@ hu:
             signatures: Legtöbb aláírással rendelkező
             title: Kezdeményezések beállításai
         initiatives_type_scopes:
-          create:
-            error: Hiba történt
-            success: Az adott kezdeményezési típushoz új hatóáskört hoztunk létre
           destroy:
             success: A hatáskör eltávolítása sikeres volt
           edit:
@@ -268,15 +255,7 @@ hu:
             back: Vissza
             create: Létrehozás
             title: Kezdeményezési típus hatáskörének létrehozása
-          update:
-            error: Hiba történt
-            success: A hatáskör frissítése sikeres volt
         initiatives_types:
-          create:
-            error: Hiba történt
-            success: Új kezdeményezés létrehozása sikeres
-          destroy:
-            success: A kezdeményezés eltávolítása sikeres volt
           edit:
             confirm_destroy: Biztos vagy benne?
             destroy: Törlés
@@ -292,9 +271,6 @@ hu:
           new:
             create: Létrehozás
             title: Új kezdeményezéstípus
-          update:
-            error: Hiba történt
-            success: A kezdeményezés frissítése sikeres volt
       admin_log:
         initiative:
           publish: "%{user_name} közzétette a(z) %{resource_name} kezdeményezést"
@@ -333,7 +309,6 @@ hu:
           success: A kérés jóváhagyva.
         new:
           continue: Tovább
-          help_text: Arra készülsz, hogy csatlakozz az úgynevezett kezdeményező bizottsághoz
         revoke:
           success: A kérédés visszavonásra került.
         spawn:
@@ -434,7 +409,6 @@ hu:
             day: Nap
             month: Hónap
             year: Év
-          help: Kérjük, töltse ki az alábbi mezőket személyes adataival a kezdeményezés aláírásához
         finish:
           back_to_initiative: Vissza a kezdeményezéshez
         sms_code:
@@ -442,12 +416,9 @@ hu:
           help: Ellenőrizze a telefonon kapott SMS-t
         sms_phone_number:
           continue: Küldj nekem SMS-t
-          help: Töltse ki az űrlapot a hitelesített telefonszámával, a hitelesítési kódjának igényléséhez
       initiative_votes:
         create:
           error: Hiba történt a kezdeményezés aláírása során.
-          invalid: A kezdeményezés aláírásához megadott adatok nem érvényesek
-          success_html: Gratulálunk! A <strong> %{title}</strong> kezdeményezést helyesen írták alá
         personal_data:
           invalid: A személyes adatok nem egyeznek meg az engedélyezéshez megadott adatokkal.
         sms_phone:
@@ -462,8 +433,6 @@ hu:
         committee_members:
           approve: Jóváhagy
           confirm_revoke: Biztos vagy benne?
-          invite_to_committee_help: Ossza meg ezt a hivatkozást, hogy meghívjon más résztvevőket a támogatói bizottságba
-          no_members_yet: Nincsenek tagok a támogatói bizottságban
           revoke: Visszavonás
           title: Bizottsági tagok
         count:
@@ -524,7 +493,6 @@ hu:
           section: 'Ha a szervezet kéri, kérjük, nyomtassa ki és töltse ki ezt az űrlapot, és küldje be a megadott helyre:'
           signature: Aláírás
         result:
-          answer_title: A kezdeményezés megválaszolásra került
           initiative_rejected_reason: A kezdeményezést a támogatás hiánya miatt elutasították.
         show:
           any_vote_method: A kezdeményezés online és személyes úton leadott aláírásokat gyűjt.
@@ -585,9 +553,6 @@ hu:
         accepted: Elfogadva
         expired: Lejárt
       unavailable_scope: Nem áll rendelkezésre
-      update:
-        error: Hiba történt
-        success: A kezdeményezés frissítése sikeres
       versions:
         shared:
           back_to_resource: Vissza a kezdeményezéshez
