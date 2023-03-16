@@ -75,9 +75,6 @@ es-MX:
               </li>
               </ol>
             title: Importa resultados vía CSV
-        imports:
-          create:
-            success: Se está importando el fichero. Recibirás un mail en los próximos minutos con el resultado de la imporación
         models:
           result:
             name: Resultado
@@ -97,16 +94,8 @@ es-MX:
             no_components: No hay ningún componente de presupuestos en este espacio de participación para importar los proyectos como resultados.
             origin_component_id: Componente de origen
             select_component: Selecciona un componente
-            success:
-              one: Hay un proyecto para ser importado. Se notificará por correo electrónico, cuando se complete la importación
-              other: "Hay %{count} proyectos para ser importados. Se notificará por correo electrónico, cuando se complete la importación"
             title: Importar Proyectos a Seguimiento
         results:
-          create:
-            invalid: Ha habido un problema al crear este resultado
-            success: El resultado ha sido creado correctamente
-          destroy:
-            success: El resultado se ha eliminado correctamente
           edit:
             title: Editar resultado
             update: Actualizar resultado
@@ -115,18 +104,10 @@ es-MX:
           new:
             create: Crear resultado
             title: Nuevo resultado
-          update:
-            invalid: Ha habido un problema al actualizar este resultado
-            success: El resultado ha actualizado correctamente
         shared:
           subnav:
             statuses: Estados
         statuses:
-          create:
-            invalid: Ha habido un problema al crear este estado
-            success: El estado ha sido creado correctamente
-          destroy:
-            success: El estado se ha eliminado correctamente
           edit:
             title: Editar estado
             update: Actualizar estado
@@ -135,15 +116,7 @@ es-MX:
           new:
             create: Crear estado
             title: Nuevo estado
-          update:
-            invalid: Ha habido un problema al actualizar este estado
-            success: El estado ha actualizado correctamente
         timeline_entries:
-          create:
-            invalid: Ha habido un problema al crear este elemento
-            success: El elemento ha sido creado correctamente
-          destroy:
-            success: El elemento se ha eliminado correctamente
           edit:
             title: Editar elemento
             update: Actualizar elemento
@@ -152,9 +125,6 @@ es-MX:
           new:
             create: Crear elemento
             title: Nuevo elemento
-          update:
-            invalid: Ha habido un problema al actualizar este elemento
-            success: El elemento ha actualizado correctamente
       admin_log:
         result:
           create: "%{user_name} creó el resultado %{resource_name} en %{space_name}"
@@ -179,7 +149,6 @@ es-MX:
       import_mailer:
         import:
           errors: Errores
-          errors_present: Ha habido un problema importando los resultados
           row_number: Fila
           subject: Los resultados se han importado correctamente
           success: Los resultados se han importante correctamente. Puedes revisar los resultados a través del panel de administración.
