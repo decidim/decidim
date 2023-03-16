@@ -43,9 +43,6 @@ pl:
       admins:
         create:
           error: Podczas tworzenia nowego administratora wystąpił błąd.
-          success: Administrator został utworzony
-        destroy:
-          success: Administrator został usunięty
         edit:
           title: Edytuj administratora
           update: Aktualizuj
@@ -56,7 +53,6 @@ pl:
           title: Nowy administrator
         update:
           error: Podczas aktualizowania tego administratora wystąpił błąd.
-          success: Administrator został zaktualizowany
       default_pages:
         placeholders:
           content: Proszę dodać istotne treści do strony statycznej %{page} w panelu administratora.
@@ -138,8 +134,6 @@ pl:
         index:
           title: Organizacje
         new:
-          reference_prefix_hint: Prefiks referencyjny służy do jednoznacznego identyfikowania zasobów we wszystkich organizacjach
-          secondary_hosts_hint: Wpisz każdy z nich w nowej linii
           title: Nowa organizacja
         omniauth_settings:
           decidim:
@@ -162,8 +156,6 @@ pl:
         smtp_settings:
           fieldsets:
             sender: Nadawca
-          instructions:
-            from_label: 'Nadawcą wiadomości e-mail będzie: "twoja-nazwa-organizacji <twoja-organizacja@przyklad.org>". Pozostaw puste, aby użyć "Adres e-mail" jako etykiety'
           placeholder:
             from_email: twoja-organizacja@przyklad.org
             from_label: twoja-nazwa-organizacji
