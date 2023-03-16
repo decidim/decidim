@@ -11,9 +11,6 @@ lv:
       admins:
         create:
           error: Jauna administratora izveides laikā radās problēma.
-          success: Administrators ir veiksmīgi izveidots
-        destroy:
-          success: Administrators ir veiksmīgi izdzēsts
         edit:
           title: Rediģēt administratoru
           update: Atjaunināt
@@ -24,7 +21,6 @@ lv:
           title: Jauns administrators
         update:
           error: Administratora atjaunināšanas laikā radās problēma.
-          success: Administrators ir veiksmīgi atjaunināts
       default_pages:
         placeholders:
           content: Lūdzu, pievienojiet nozīmīgu saturu statiskajai lapai %{page} administratora informācijas panelī.
@@ -59,8 +55,6 @@ lv:
         index:
           title: Organizācijas
         new:
-          reference_prefix_hint: Atsauces prefiksu izmanto, lai varētu identificēt resursus visā organizācijā
-          secondary_hosts_hint: Katru no tām ievadiet jaunā rindā
           title: Jauna organizācija
         omniauth_settings:
           decidim:
