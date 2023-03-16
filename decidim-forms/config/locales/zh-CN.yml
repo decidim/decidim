@@ -17,8 +17,6 @@ zh-CN:
             choices:
               missing: 不完成
               too_many: 太多了
-        questionnaire:
-          request_invalid: 处理请求时出错。请再试一次
   decidim:
     forms:
       admin:
