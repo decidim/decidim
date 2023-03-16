@@ -69,12 +69,6 @@ es-PY:
         email: Correo electrónico
         name: Nombre
         role: Papel
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Este correo electrónico ya ha sido invitado
   activerecord:
     models:
       decidim/conference:
@@ -455,7 +449,6 @@ es-PY:
           main_promotors: Organizadores
         show:
           login_as: Has iniciado sesión como %{name} <%{email}>
-          make_conference_registration: Inscribirse a la jornada
           register: Registro
       content_blocks:
         highlighted_conferences:
@@ -463,11 +456,6 @@ es-PY:
       index:
         title: Conferencias
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: El registro de su conferencia ha sido confirmado
-          pending_validation:
-            subject: Tu inscripción a la conferencia está pendiente de confirmación
         invite_join_conference_mailer:
           invite:
             subject: Invitación para unirse a una conferencia
@@ -551,10 +539,6 @@ es-PY:
           contextual: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>\n"
           page: "<p>Una <strong>conferencia</strong> es una colección de reuniones organizadas en un programa, con un número de personas invitadas como ponentes, y otros campos de información típicos de grandes congresos o eventos sociales (registro, lista de organizaciones que apoyan o patrocinan el evento, etc.)..</p> <p>Ejemplos: Una conferencia puede ser un evento relevante para una organización y sus miembros, o tiene lugar como parte de un proceso participativo o después de una consulta.</p>"
           title: '¿Qué son las conferencias?'
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'La conferencia no se encontró en la base de datos (ID: %{id})'
     media:
       index:
         description: Enlaces sobre esta conferencia
