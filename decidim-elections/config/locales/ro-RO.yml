@@ -103,7 +103,6 @@ ro:
           label: Validat
           values:
             'false': Validat
-            'true': Nevalidat
     components:
       elections:
         actions:
