@@ -22,8 +22,6 @@
             choices:
               missing: er ikke fullstendig
               too_many: er for mange
-        questionnaire:
-          request_invalid: Det har oppstod en feil med håndtering av forespørselen. Prøv på nytt
   decidim:
     forms:
       admin:
