@@ -81,7 +81,7 @@ This will also create some example data through the seeds so that you can start 
 
 |===
 
-This data will not be created in production environments. If you insist adding it in production, run: `$ SEED=true rails db:setup`. We recomend that you first login as a system user and edit the hostname for the organization. Set it as your production environment's domain, without the protocol and the port (so if your domain/hostname is `+https://example.org:3000+`, you need to write `example.org` in the organization's host field).
+This data will not be created in production environments. If you insist on adding it in production, run: `$ SEED=true rails db:setup`. We recomend that you first login as a system user and edit the hostname for the organization. Set it as your production environment's domain, without the protocol and the port (so if your domain/hostname is `+https://example.org:3000+`, you need to write `example.org` in the organization's host field).
 
 You can now start your server!
 
@@ -149,7 +149,7 @@ Once you have successfully deployed your applicaton to your favorite platform, y
 bin/rails decidim_system:create_admin
 ----
 
-The command asks for an email and a password. For security, the password will not be displayed in the terminal at you and you need to confirm it by typing it twice.
+The command asks for an email and a password. For security, the password will not be displayed in the terminal and you need to confirm it by typing it twice.
 
 This will create a system user with the email and password you provided. We recommend using a random password generator and saving it to a password manager, so you have a more secure credentials.
 

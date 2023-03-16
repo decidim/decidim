@@ -17,7 +17,7 @@ bin/rails db:create db:migrate
 bin/rails decidim_system:create_admin
 ----
 [start=4]
-. To create your organization's admin user start the server and configure the organization from the system panel:
+. To create your organization's admin user, start the server and configure the organization from the system panel:
 [source,bash]
 ----
 bundle exec rails s
@@ -27,8 +27,8 @@ Now, you will be able to login to the system panel with the provided credentials
 
 After you have configured the organization from the system panel, log out of the system panel and type in the URL of the organization to the browser after which you should see a rather empty home page of your organization. You can now login with the admin user you created when configuring the organization. Note that you will need to set a password for the admin user before being able to login with that user.
 
-At the development environment, you have https://github.com/ryanb/letter_opener[Letter opener] available for viewing the emails that the system sends. You can access it through the `/letter_opener` URL within the domain where your rails server is running at (typically `http://localhost:3000`).
+At the development environment, you have https://github.com/ryanb/letter_opener[Letter opener] available for viewing the emails that the system sends. You can access it through the `/letter_opener` URL within the domain where your Rails server is running at (typically `http://localhost:3000`).
 
 == Extra notes
 
-Decidim provides a way for organizations to transform into an autonomous entities where the whole community participates in decisions being made within that community. Therefore, creating the organization is key part of the process when setting up Decidim. To learn more about the system panel and organizations, refer to the xref:admin:system.adoc[System] panel documentation.
+Decidim provides a way for organizations to transform into an autonomous entities where the whole community participates in decisions being made within that community. Therefore, creating the organization is a key part of the process when setting up Decidim. To learn more about the system panel and organizations, refer to the xref:admin:system.adoc[System] panel documentation.
