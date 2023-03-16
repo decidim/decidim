@@ -30,17 +30,6 @@ tr:
         title: Başlık
         transparent: Şeffaf
         type_of_meeting: Tür
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Öğelerin süresi toplantı süresini %{count} dakika aşıyor
-              too_many_minutes_child: Alt öğelerin süresi, gündem maddesi "%{parent_title}" üst süresini %{count} dakika aşıyor
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Bu e-posta hesabı zaten davet edildi
     models:
       decidim/meetings/close_meeting_event: Toplantı kapalı
       decidim/meetings/create_meeting_event: Toplantı
@@ -178,9 +167,6 @@ tr:
             down: Aşağı
             remove: Kaldır
             up: Yukarı
-          create:
-            invalid: Bu gündemi oluştururken bir sorun oluştu
-            success: Ajanda başarıyla oluşturuldu
           edit:
             title: Gündemi düzenle
             update: Güncelle
@@ -192,9 +178,6 @@ tr:
           new:
             create: Oluştur
             title: Yeni gündem
-          update:
-            invalid: Bu gündemi güncellerken bir sorun oluştu
-            success: Gündem başarıyla güncellendi
         exports:
           meeting_comments: Yorumlar
           meetings: Toplantılar
@@ -230,16 +213,7 @@ tr:
             close: Kapat
             title: Toplantıyı kapat
         meetings:
-          close:
-            invalid: Bu toplantıyı kapatırken bir sorun oluştu
-            success: Toplantı başarıyla kapatıldı
-          create:
-            invalid: Bu toplantıyı oluştururken bir sorun oluştu
           destroy:
-            invalid:
-              proposals_count:
-                one: Kendisiyle ilişkilendirilmiş %{count} teklif olduğu için toplantı yok edilemez
-                other: Kendisiyle ilişkilendirilmiş %{count} teklif olduğu için toplantı yok edilemez
             success: Toplantı başarıyla silindi
           edit:
             title: Toplantıyı Düzenle
@@ -268,9 +242,6 @@ tr:
           services:
             add_service: Servis ekle
             services: Servisler
-          update:
-            invalid: Bu toplantı güncellenirken bir sorun oluştu
-            success: Toplantı başarıyla güncellendi
         models:
           meeting:
             name: Toplantı
@@ -329,8 +300,6 @@ tr:
         registration_mailer:
           confirmation:
             subject: Toplantınızın kaydı onaylandı
-      meeting:
-        not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
       meeting_closes:
         edit:
           back: Geri
