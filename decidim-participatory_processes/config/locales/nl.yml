@@ -413,8 +413,6 @@ nl:
               one: 1 aankomend inspraakproces
               other: "%{count} aankomende processen"
           explanations:
-            no_active: Geen actieve processen
-            no_active_nor_upcoming: Geen actieve of aankomende processen
             no_active_nor_upcoming_callout: Er zijn geen actieve of aankomende processen. Hier is een lijst met de vorige.
           names:
             active: Actief
