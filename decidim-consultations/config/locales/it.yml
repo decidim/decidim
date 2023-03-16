@@ -46,12 +46,6 @@ it:
         decidim_consultations_response_id:
           not_found: Risposta non trovata
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Numero di voti non valido
     models:
       decidim/consultation:
         one: Consultazione
@@ -153,7 +147,6 @@ it:
             one: Risposta
             other: risposte
       question_configuration:
-        disable_external_voting: Si prega di disabilitare il voto esterno per configurazioni avanzate
         form:
           help: Imposta i quesiti a risposta multipla aumentando il numero massimo di risposte che un partecipante può scegliere. Valore massimo predefinito è 1, il che significa che può essere votata solo una risposta.
           title: Configurazione avanzata
@@ -296,7 +289,6 @@ it:
             votes: Voti
       question_votes:
         create:
-          error: Ci sono stati errori nel votare il quesito
           success: La modifica può essere effettuata fino al termine della consultazione. Solo l'ultimo voto sarà accettato.
           title_error: Errore di voto!
           title_success: Voto registrato con successo
