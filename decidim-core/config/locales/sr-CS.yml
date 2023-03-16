@@ -45,7 +45,6 @@ sr:
           add_users_placeholder: Pretraži...
           modal_title: Novi razgovor
           no_results: Nema rezultata
-          participant_with_disabled_message_reception: Ovaj učesnik je onemogućio prijem poruka
         index:
           new_conversation: Novi razgovor
           next: Slеdеćе
