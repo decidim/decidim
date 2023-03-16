@@ -32,18 +32,6 @@ ro:
             attachment:
               needs_to_be_reattached: Trebuie să fie reatașate
   activerecord:
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            presided_polling_station:
-              president_and_manager: Ofiţerul de sondare a opiniei publice este deja preşedintele/managerul secţiilor de votare
-            voting:
-              different_organization: Votul trebuie să fie în aceeași organizație ca și utilizatorul
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: Ofiţerul de votare trebuie să se afle în acelaşi vot ca şi secţia de votare
     models:
       decidim/elections/answer:
         one: Răspuns
@@ -94,9 +82,6 @@ ro:
             'true': Nu este semnat
         validated_eq:
           label: Validat
-          values:
-            'false': Validat
-            'true': Nevalidat
     components:
       elections:
         actions:
@@ -124,17 +109,10 @@ ro:
         unpublish: De-publicare
       admin:
         answers:
-          create:
-            invalid: A apărut o problemă la crearea acestui răspuns
-            success: Răspuns creat cu succes
-          destroy:
-            invalid: A apărut o eroare la ștergerea acestui răspuns
-            success: Răspuns șters cu succes
           edit:
             title: Editare răspuns
             update: Actualizare răspuns
           index:
-            invalid_max_selections: Mai ai nevoie de %{missing_answers} răspuns/s pentru a se potrivi cu selecțiile maxime
             title: Răspunsuri
           new:
             create: Creează răspuns
@@ -143,22 +121,8 @@ ro:
           select:
             disable: Deselectare răspuns
             enable: Marchează răspunsul ca selectat
-            invalid: A apărut o eroare la selectarea acestui răspuns
-            success: Răspuns selectat cu succes
           selected: Selectate
-          unselect:
-            invalid: A apărut o eroare la selectarea acestui răspuns
-            success: Răspuns selectat cu succes
-          update:
-            invalid: A apărut o problemă la actualizarea acestui răspuns
-            success: Răspuns actualizat cu succes
         elections:
-          create:
-            invalid: A apărut o problemă la crearea acestor alegeri
-            success: Alegeri create cu succes
-          destroy:
-            invalid: A apărut o eroare la ștergerea acestor alegeri
-            success: Alegerile au fost șterse
           edit:
             title: Editează alegeri
             update: Actualizează alegeri
@@ -172,9 +136,6 @@ ro:
             success: Alegerile au fost publicate cu succes.
           unpublish:
             success: Alegerile au fost anulate cu succes.
-          update:
-            invalid: A apărut o eroare la actualizarea acestei alegeri
-            success: Alegerile au fost actualizate
         exports:
           elections: Alegeri
           feedback_form_answers: Răspunsuri la formularul de feedback
@@ -190,21 +151,12 @@ ro:
           trustee:
             name: Împuternicit
         proposals_imports:
-          create:
-            invalid: A apărut o problemă la importarea propunerilor în răspunsuri
-            success: "%{number} propuneri importate cu succes în răspunsuri"
           new:
             create: Importă propunerile pentru răspunsuri
             no_components: Nu există alte componente de propunere în acest spațiu participativ pentru importa propunerile în răspunsuri.
             select_component: Te rugăm selectează o componentă
             title: Importă propuneri
         questions:
-          create:
-            invalid: A apărut o problemă la crearea acestei întrebări
-            success: Întrebare creată cu succes
-          destroy:
-            invalid: A apărut o eroare la ștergerea acestei întrebări
-            success: Întrebarea a fost ștearsă
           edit:
             title: Editare întrebare
             update: Actualizare întrebare
@@ -213,9 +165,6 @@ ro:
           new:
             create: Creează întrebare
             title: Întrebare nouă
-          update:
-            invalid: A apărut o eroare la actualizarea acestei întrebări
-            success: Întrebare actualizată cu succes
         steps:
           create_election:
             errors:
@@ -259,10 +208,8 @@ ro:
             result: Rezultat
             selected: Selectate
             submit: Publică rezultatele
-            success: Cererea de publicare a rezultatelor a fost trimisă cu succes către Panoul de afișare
             title: Calculează rezultatele
           tally_started:
-            invalid: A apărut o problemă la raportarea împuternicitului care lipsește
             mark_as_missing: Marcheză drept absent
             success: Raportul privind împuternicitul absent a fost trimis cu succes către Panoul de afișare
             tally_completion: Procesul va fi finalizat cânt toți împuternicții sunt activi sau marcați drept absenți. Pentru a finaliza procesul sunt necesari cel puțin %{quorum} împuterniciți.
@@ -270,16 +217,12 @@ ro:
           vote:
             errors:
               time_after: Alegerile sunt încă în desfășurare. Trebuie să aștepți până se încheie (%{end_time}) pentru încheia perioada de votare.
-            invalid: A apărut o probemă la încheierea perioadei de votare
             requirements:
               time_after: Alegerile s-au terminat. Poți încheia perioada de votare manual, sau se va încheia automat în câteva minute.
             submit: Încheie perioada de votare
-            success: Cererea de încheiere a perioadei de votare a fost trimisă cu succes către Panoul de afișare
             title: Perioada de vot
           vote_ended:
-            invalid: A apărut o problemă la începerea numărării voturilor
             submit: Începe numărarea voturilor
-            success: Solicitarea de începere a fost trimisă cu succes către Panoul de afișare
             text: Votul s-a terminat. Puteţi începe numărătoarea acum.
             title: Perioada de vot s-a încheiat
           vote_stats:
@@ -291,13 +234,6 @@ ro:
           actions:
             disable: Dezactivează
             enable: Luați în considerare
-          create:
-            exists: Există împuterniciți pentru acest spațiu participativ
-            invalid: A apărut o problemă la crearea unui împuternicit
-            success: Împuternicit creat cu succes
-          delete:
-            invalid: A apărut o eroare la eliminarea acestui împuternicit
-            success: Împuternicitul a fost sters cu succes
           form:
             select_user: Selectați utilizatorul
           index:
@@ -305,9 +241,6 @@ ro:
           new:
             create: Creează împuternicit
             title: Împuternicit nou
-          update:
-            invalid: A apărut o problemă la actualizarea împternicitului %{trustee}
-            success: Împuternicitul %{trustee} a fost actualizat cu succes
       admin_log:
         election:
           create: "%{user_name} a creat algerile %{resource_name} în %{space_name}"
@@ -572,8 +505,6 @@ ro:
     votings:
       admin:
         ballot_styles:
-          form:
-            questions_help: 'Sugestie: selectează întrebările din componenta alegeri pentru a le prezenta celor care votează în acest tip de votare'
           index:
             actions:
               confirm_destroy: Sigur dorești asta?
@@ -736,7 +667,6 @@ ro:
           start_voting: Începe să votezi
           step: Identificare
           title: Mă identifică cu datele mele de recensământ de vot
-        no_census_contact_information: Nu există încă informații de contact
   layouts:
     decidim:
       election_votes_header:
