@@ -195,8 +195,6 @@ lb:
           index:
             approve: Genehmigen
             confirm_revoke: Bist du sicher?
-            invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-            no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
         initiatives_types:
           form:
             options: Optionen
@@ -206,9 +204,6 @@ lb:
           new:
             create: Erstellen
             title: Neuer Initiativentyp
-          update:
-            error: Ein Fehler ist aufgetreten
-            success: Der Initiativentyp wurde erfolgreich aktualisiert
       admin_log:
         initiative:
           publish: "%{user_name} hat die Initiative %{resource_name} veröffentlicht"
@@ -241,7 +236,6 @@ lb:
           success: Anfrage wurde bestätigt.
         new:
           continue: Fortsetzen
-          help_text: Sie sind dabei, ein Mitglied des Promoter-Komitees dieser Initiative zu werden
         revoke:
           success: Anfrage wurde zurückgezogen.
         spawn:
@@ -341,7 +335,6 @@ lb:
             day: Tag
             month: Monat
             year: Jahr
-          help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
         finish:
           back_to_initiative: Zurück zur Initiative
         sms_code:
@@ -349,12 +342,9 @@ lb:
           help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
         sms_phone_number:
           continue: Senden Sie mir eine SMS
-          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
-          invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
-          success_html: Herzliche Glückwünsche! Die <strong> %{title}</strong> -Initiative wurde korrekt unterzeichnet
         personal_data:
           invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
         sms_phone:
@@ -369,8 +359,6 @@ lb:
         committee_members:
           approve: Genehmigen
           confirm_revoke: Bist du dir sicher?
-          invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-          no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
           revoke: Widerrufen
           title: Ausschussmitglieder
         count:
@@ -428,9 +416,6 @@ lb:
         accepted: Akzeptiert
         expired: Abgelaufen
       unavailable_scope: Nicht verfügbarer Umfang
-      update:
-        error: Ein Fehler ist aufgetreten
-        success: Die Initiative wurde erfolgreich aktualisiert
       versions:
         shared:
           back_to_resource: Zurück zur Initiative
