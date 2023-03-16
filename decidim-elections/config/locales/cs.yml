@@ -151,7 +151,6 @@ cs:
           label: Ověřeno
           values:
             'false': Ověřeno
-            'true': Neschváleno
     components:
       elections:
         actions:
