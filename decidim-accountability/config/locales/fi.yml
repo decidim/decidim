@@ -9,7 +9,7 @@ fi:
         end_date: Päättymispäivä
         meetings_ids: Sisällytetyt tapaamiset
         progress: Edistyminen
-        project_ids: Liitetyt suunnitelmat
+        project_ids: Liitetyt hankkeet
         proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
         title: Otsikko
@@ -39,11 +39,11 @@ fi:
         confirm_destroy: Oletko varma, että haluat poistaa tämän kohteen nimeltä "%{name}"?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo projekteja tuloksiin
+        import: Tuo hankkeita tuloksiin
         import_csv: Tuo CSV
         new: Uusi %{name}
         preview: Esikatsele
-        timeline_entries: Projektin edistyminen
+        timeline_entries: Hankkeen edistyminen
         title: Toiminnot
       admin:
         exports:
@@ -87,20 +87,20 @@ fi:
             name: Aikajanan merkintä
         projects_import:
           create:
-            invalid: Projektien tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut projekteja toteutukseen.
+            invalid: Hankkeiden tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
           new:
             create: Tuo
-            import_all_selected_projects: Tuo kaikki toteutukseen valitut projektit
+            import_all_selected_projects: Tuo kaikki toteutukseen valitut hankkeet
             new_items:
-              one: 1 toteutukseen valittu projekti tuodaan
-              other: "%{count} toteutukseen valittua projektia tuodaan"
-            no_components: Tässä osallisuustilassa ei ole yhtään budjetointikomponenttia, josta projektit voitaisiin tuoda tuloksiksi.
+              one: 1 toteutukseen valittu hanke tuodaan
+              other: "%{count} toteutukseen valittua hanketta tuodaan"
+            no_components: Tässä osallistumistilassa ei ole yhtään budjetointikomponenttia, josta hankkeet voitaisiin tuoda tuloksiksi.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
             success:
-              one: 1 projekti on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
-              other: "%{count} projektia on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
-            title: Tuo projekteja vastuullisuuskomponenttiin
+              one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
+              other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
+            title: Tuo hankkeita vastuullisuuskomponenttiin
         results:
           create:
             invalid: Tuloksen luonti epäonnistui.
@@ -148,7 +148,7 @@ fi:
             title: Muokkaa merkintää
             update: Päivitä merkintä
           index:
-            title: Projektin aikajanan merkinnät
+            title: Hankkeen aikajanan merkinnät
           new:
             create: Luo merkintä
             title: Uusi merkintä
@@ -186,10 +186,10 @@ fi:
       import_projects_mailer:
         import:
           added_projects:
-            one: Yksi tulos tuotiin projekteista.
-            other: "%{count} tulosta tuotiin projekteista."
+            one: Yksi tulos tuotiin hankkeista.
+            other: "%{count} tulosta tuotiin hankkeista."
           subject: Tulosten tuonti onnistui
-          success: Projektien tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
+          success: Hankkeiden tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
       last_activity:
         new_result: 'Uusi tulos:'
       models:
@@ -245,7 +245,7 @@ fi:
             proposals: Ehdotukset
             votes: Kannatukset
         timeline:
-          title: Projektin kehitys
+          title: Hankkeen kehitys
     admin:
       filters:
         results:
@@ -266,7 +266,7 @@ fi:
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             display_progress_enabled: Näytä edistyminen
-            heading_leaf_level_results: Nimi termille "Suunnitelmat"
+            heading_leaf_level_results: Nimi termille "Hankkeet"
             heading_parent_level_results: Nimi termille "Tulokset"
             intro: Esittelyteksti
             scope_id: Teema
@@ -296,7 +296,7 @@ fi:
         see_all: Näytä kaikki (%{count} kpl)
     resource_links:
       included_projects:
-        result_project: Tähän tulokseen liittyvät suunnitelmat
+        result_project: Tähän tulokseen liittyvät hankkeet
       included_proposals:
         result_proposal: Tähän tulokseen liittyvät ehdotukset
     statistics:
