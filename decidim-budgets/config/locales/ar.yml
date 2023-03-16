@@ -51,11 +51,6 @@ ar:
           project:
             name: مشروع
         projects:
-          create:
-            invalid: كانت هناك مشكلة في إنشاء هذا المشروع
-            success: تم إنشاء المشروع بنجاح
-          destroy:
-            success: تم حذف المشروع بنجاح
           edit:
             title: تحرير المشروع
             update: تحديث
@@ -69,13 +64,7 @@ ar:
           new:
             create: إنشاء
             title: مشروع جديد
-          update:
-            invalid: حدثت مشكلة أثناء تحديث هذا المشروع
-            success: تم تحديث المشروع بنجاح
         proposals_imports:
-          create:
-            invalid: كانت هناك مشكلة في استيراد المقترحات إلى المشاريع
-            success: "%{number} مقترحات تم استيرادها بنجاح في المشروعات"
           new:
             create: استيراد مقترحات للمشاريع
             default_budget: الميزانية الافتراضية
@@ -170,13 +159,6 @@ ar:
             show_votes: إظهار الأصوات
             votes_choices:
               enabled: تم تمكين التصويت
-    orders:
-      checkout:
-        error: حدثت مشكلة أثناء معالجة تصويتك
-        success: تم قبول تصويتك بنجاح
-      destroy:
-        error: حدثت مشكلة في إلغاء تصويتك
-        success: تم إلغاء تصويتك بنجاح
     statistics:
       projects_count: المشاريع
   index:
