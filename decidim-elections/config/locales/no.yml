@@ -29,18 +29,6 @@
             attachment:
               needs_to_be_reattached: Må festes på nytt
   activerecord:
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            presided_polling_station:
-              president_and_manager: Valgansvarlig er allerede ansvarlig for valgstasjonen
-            voting:
-              different_organization: Stemmegivning må være i samme organisasjon som brukeren
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: Valgansvarlig må være i samme stemmegivning som valgstasjonen
     models:
       decidim/elections/answer:
         one: Svar
@@ -91,9 +79,6 @@
             'true': Ikke signert
         validated_eq:
           label: Godkjent
-          values:
-            'false': Godkjent
-            'true': Ikke godkjent
     components:
       elections:
         actions:
@@ -121,17 +106,10 @@
         unpublish: Avpubliser
       admin:
         answers:
-          create:
-            invalid: Kunne ikke opprette svaret
-            success: Svar ble opprettet
-          destroy:
-            invalid: Kunne ikke slette dette svaret
-            success: Svaret ble slettet
           edit:
             title: Rediger svar
             update: Oppdater svar
           index:
-            invalid_max_selections: Du trenger %{missing_answers} flere svar for å matche maksimale valg
             title: Svar
           new:
             create: Opprett svar
@@ -140,22 +118,8 @@
           select:
             disable: Fjern svar
             enable: Marker svar som valgt
-            invalid: Kunne ikke velge dette svaret
-            success: Svar ble valgt
           selected: Valgt
-          unselect:
-            invalid: Kunne ikke fjerne svaret
-            success: Svar ble avvalgt
-          update:
-            invalid: Kunne ikke oppdatere dette svaret
-            success: Svar ble oppdatert
         elections:
-          create:
-            invalid: Kunne ikke opprette dette valget
-            success: Valg opprettet
-          destroy:
-            invalid: Kunne ikke slette dette valget
-            success: Valg slettet
           edit:
             title: Rediger valg
             update: Oppdater valg
@@ -169,9 +133,6 @@
             success: Valget er publisert.
           unpublish:
             success: Valget har blitt avpublisert.
-          update:
-            invalid: Kunne ikke oppdatere valget
-            success: Valg oppdatert
         exports:
           elections: Valg
           feedback_form_answers: Svar på tilbakemeldingsskjema
@@ -187,21 +148,12 @@
           trustee:
             name: Tillitsmann
         proposals_imports:
-          create:
-            invalid: Det oppstod et problem under importen av forslag til svar
-            success: "%{number} forslag importert til svar"
           new:
             create: Importer forslag til svar
             no_components: Det er ingen andre utkastkomponenter i dette deltakerrommet for å importere forslagene til svar.
             select_component: Vennligst velg en komponent
             title: Importer forslag
         questions:
-          create:
-            invalid: Kunne ikke opprette dette spørsmålet
-            success: Spørsmålet ble opprettet
-          destroy:
-            invalid: Kunne ikke slette dette spørsmålet
-            success: Spørsmålet ble slettet
           edit:
             title: Rediger spørsmål
             update: Oppdater spørsmål
@@ -210,9 +162,6 @@
           new:
             create: Lag spørsmål
             title: Nytt spørsmål
-          update:
-            invalid: Kunne ikke oppdatere dette spørsmålet
-            success: Spørsmålet er oppdatert
         steps:
           create_election:
             errors:
@@ -239,9 +188,7 @@
             title: Oppsett valg
             trustees: Valgets tillitsmenn
           created:
-            invalid: Det var et problem med å starte hovedseremonien
             submit: Start hovedseremonien
-            success: Forespørsel om start av hovedseremoni ble sendt til oppslagstavlen
             title: Valget opprettet
             trustees: Tillitsmenn
           key_ceremony:
@@ -250,11 +197,9 @@
           key_ceremony_ended:
             errors:
               time_before: Valget er klart til å starte. Du må vente %{hours} timer før starttidspunktet (%{start_time}) for å starte avstemmingsperioden.
-            invalid: Kunne starte valgperioden
             requirements:
               time_before: Valget vil starte snart. Du kan starte valgperioden manuelt, eller den vil bli startet automatisk før starttidspunktet, %{start_time}.
             submit: Start valgperiode
-            success: Forespørsel om å starte valgperiode ble sent til oppslagstavle
             title: Klar for å begynne
           processing: Behandler...
           results_published:
@@ -272,10 +217,8 @@
             result: Resultat
             selected: Valgt
             submit: Publiser resultater
-            success: Forespørsel om publisering av resultater ble sendt til oppslagstavlen
             title: Beregnet resultat
           tally_started:
-            invalid: Kunne ikke rapportere manglende tillitsmann
             mark_as_missing: Marker som manglende
             success: Manglende tillitsmannrapport ble sendt til oppslagstavle
             tally_completion: Prosessen vil bli fullført når alle tillitsmenn er aktive eller merket som manglende. Minst %{quorum} tillitsmenn er nødvendig for å fullføre prosessen.
@@ -283,16 +226,12 @@
           vote:
             errors:
               time_after: Valget pågår enda. Du må vente til det er ferdog (%{end_time}) for å avslutte avstemmingen.
-            invalid: Kunne ikke avslutte avstemmingen
             requirements:
               time_after: Valget er ferdig. Du kan avslutte avstemmingen manuelt, eller den vil automatisk avsluttes om noen minutter.
             submit: Avslutt avstemming
-            success: Forespørsel om avslutt avstemning er sendt til oppslagstavlen
             title: Avstemming
           vote_ended:
-            invalid: Kunne ikke starte opptellingen
             submit: Start opptelling
-            success: Forespørsel om å starte opptelling er sendt til oppslagstavla
             text: Avstemming avsluttet. Du kan starte opptellingen nå.
             title: Avstemming avsluttet
           vote_stats:
@@ -304,13 +243,6 @@
           actions:
             disable: Deaktiver
             enable: Vurder
-          create:
-            exists: Tillitsmann eksisterer for deltakerområdet
-            invalid: Kunne ikke opprette tillitsmann
-            success: Tillitsmann opprettet
-          delete:
-            invalid: Kunne ikke fjerne tillitsmann
-            success: Tillitsmann fjernet
           form:
             select_user: Velg bruker
           index:
@@ -318,9 +250,6 @@
           new:
             create: Opprett tillitsmann
             title: Ny tillitsmann
-          update:
-            invalid: Kunne ikke oppdatere %{trustee} tillitsmann
-            success: Tillitsmann %{trustee} oppdatert
       admin_log:
         election:
           create: "%{user_name} opprettet valget %{resource_name} i %{space_name}"
@@ -517,7 +446,6 @@
         verify:
           success:
             header: Stemme plassert!
-            info: Din krypterte stemme er i %{link} i valgurnen
         voting_step:
           back: Tilbake
           continue: Neste
