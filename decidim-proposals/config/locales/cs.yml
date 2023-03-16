@@ -229,10 +229,8 @@ cs:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Někdo zanechal poznámku k návrhu "%{resource_title}". Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>
             email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
             email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
-            notification_title: Někdo zanechal poznámku k návrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">admin panel</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
@@ -267,12 +265,10 @@ cs:
           email_intro: 'Nyní můžete vytvořit nové návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Návrhy jsou nyní k dispozici v %{participatory_space_title}
-          notification_title: Nyní můžete předložit <a href="%{resource_path}">nových návrhů</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Můžete schválit návrhy v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
           email_subject: Schválení návrhů bylo zahájeno po dobu %{participatory_space_title}
-          notification_title: Nyní můžete začít <a href="%{resource_path}">schválení návrhů</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl přijat. Odpověď můžete číst na této stránce:'
@@ -309,8 +305,6 @@ cs:
           email_intro: Návrh "%{resource_title}" byl přidán k "%{participatory_space_title}", který sledujete.
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali "%{participatory_space_title}". Můžete jej odhlásit od předchozího odkazu.
           email_subject: Nový návrh "%{resource_title}" byl přidán k %{participatory_space_title}
-          notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title} uživatelem %{author}
-          notification_title_official: Oficiální návrh <a href="%{resource_path}">%{resource_title}</a> byl přidán do %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" byl zamítnut. Odpověď můžete číst na této stránce:'
@@ -484,21 +478,12 @@ cs:
             rejected: Odmítnuto
             title: Odpověď na návrh %{title}
         proposal_notes:
-          create:
-            error: Při vytváření tohoto návrhu nebyl problém
-            success: Návrhová poznámka byla úspěšně vytvořena
           form:
             note: Poznámka
             submit: Předložit
           leave_your_note: Nechte svou poznámku
           title: Soukromé poznámky
         proposals:
-          answer:
-            invalid: Při řešení tohoto problému došlo k problému
-            success: Návrh úspěšně odpověděl
-          create:
-            invalid: Při vytváření tohoto návrhu došlo k problému
-            success: Návrh byl úspěšně vytvořen
           edit:
             title: Návrh aktualizace
             update: Aktualizace
@@ -574,9 +559,6 @@ cs:
             select_a_scope: Vyberte prosím rozsah
             success: 'Návrhy byly úspěšně aktualizovány v rozsahu %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Při importu návrhů došlo k problému
-            success: "%{number} návrhů bylo úspěšně dovezeno"
           new:
             create: Návrhy na dovoz
             no_components: V tomto účastnickém prostoru neexistují žádné jiné komponenty návrhu, které by mohly importovat návrhy.
@@ -591,13 +573,6 @@ cs:
           create:
             invalid: 'Vyskytl se problém s rozdělením vybraných návrhů, protože některé z nich:'
             success: Úspěšně rozdělil návrhy na nové.
-        valuation_assignments:
-          create:
-            invalid: Při přiřazování návrhů hodnotiteli došlo k chybě
-            success: Návrhy úspěšně přiřazené hodnotiteli
-          delete:
-            invalid: Došlo k chybě při odebírání návrhů od hodnotitele
-            success: Hodnotitel byl úspěšně odebrán z návrhů
       admin_log:
         proposal:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
@@ -879,8 +854,6 @@ cs:
         proposal:
           creation_date: 'Tvorba: %{date}'
           view_proposal: Zobrazit návrh
-        proposals:
-          empty: Zatím neexistuje žádný návrh
         show:
           answer: Odpovědět
           back_to: Zpět k
@@ -937,8 +910,6 @@ cs:
             supports_remaining: Musíte hlasovat o dalších %{remaining_votes} návrzích, aby se vaše hlasy zohlednily.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
-          threshold_per_proposal:
-            description: Aby bylo možné ověřit návrhy, je třeba dosáhnout %{limit} podpory
           title: 'Hlasování podléhá těmto pravidlům:'
           vote_limit:
             description: Můžete hlasovat až pro %{limit} návrhů.
