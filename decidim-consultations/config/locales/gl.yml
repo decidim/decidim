@@ -225,9 +225,6 @@ gl:
         votes_out_of:
           one: votar de fóra
           other: votos de fóra
-      question_votes:
-        create:
-          error: Houbo erros ao votar a pregunta
       regular_questions:
         title: Preguntas para esta consulta
       show:
