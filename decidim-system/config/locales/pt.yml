@@ -43,9 +43,6 @@ pt:
       admins:
         create:
           error: Ocorreu um problema ao criar um novo administrador.
-          success: Administrador criado corretamente
-        destroy:
-          success: Administrador eliminado corretamente
         edit:
           title: Editar administrador
           update: Atualizar
@@ -56,7 +53,6 @@ pt:
           title: Novo administrador
         update:
           error: Ocorreu um problema ao atualizar este administrador.
-          success: Administrador atualizado corretamente
       dashboard:
         show:
           current_organizations: Organizações actuais
@@ -143,8 +139,6 @@ pt:
         index:
           title: Organizações
         new:
-          reference_prefix_hint: O prefixo de referência é usado para identificar recursos únicos em todas as organizações
-          secondary_hosts_hint: Insira cada um deles em uma nova linha
           title: Nova organização
         omniauth_settings:
           decidim:
@@ -167,8 +161,6 @@ pt:
         smtp_settings:
           fieldsets:
             sender: Remetente
-          instructions:
-            from_label: 'O remetente do email será “nome-sua-organizacao <your-organization@example.org>”. Deixe em branco para usar ‘Endereço de e-mail’ como rótulo'
           placeholder:
             from_email: sua-organizacao@exemplo.org
             from_label: nome-da-sua-organização
