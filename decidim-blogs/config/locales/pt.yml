@@ -21,11 +21,6 @@ pt:
           post:
             name: Publicação
         posts:
-          create:
-            invalid: Ocorreu um problema ao criar esta publicação
-            success: Publicação criada com êxito
-          destroy:
-            success: Publicação eliminada com êxito
           edit:
             save: Actualizar
             title: Editar publicação
@@ -36,7 +31,6 @@ pt:
             title: Criar publicação
           update:
             invalid: Ocorreu um problema ao guardar a publicação.
-            success: Publicação guardada com êxito
       models:
         post:
           fields:
