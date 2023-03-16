@@ -62,12 +62,6 @@
         email: Epost
         name: Navn
         role: Rolle
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Denne e-postadressen er allerede invitert
   activerecord:
     models:
       decidim/conference:
@@ -444,11 +438,6 @@
       index:
         title: Konferanser
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Registrering av konferansen din er bekreftet
-          pending_validation:
-            subject: Registrering av konferansen din venter på bekreftelse
         invite_join_conference_mailer:
           invite:
             subject: Invitasjon til å delta en konferanse
@@ -532,10 +521,6 @@
           contextual: "<p>En <strong>konferanse</strong> er en samling av møter i et program, med inviterte aktører som er typisk for store kongresser eller sosiale hendelser (påmelding, liste over organisasjoner som støtter eller sponser arrangementet, osv.).</p> <p>Eksempler: En konferanse kan være en relevant begivenhet for en organisasjon og dens medlemmer, eller finne sted som en del av en deltakerprosess eller som konsultasjon</p>\n"
           page: "<p>En <strong>konferanse</strong> er en samling av møter i et program, med inviterte aktører som er typisk for store kongresser eller sosiale hendelser (påmelding, liste over organisasjoner som støtter eller sponser arrangementet, osv.).</p> <p>Eksempler: En konferanse kan være en relevant begivenhet for en organisasjon og dens medlemmer, eller finne sted som en del av en deltakerprosess eller som konsultasjon</p>\n"
           title: Hva er konferanser?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferansen ble ikke funnet i databasen (ID: %{id})'
     media:
       index:
         description: Lenker om denne konferansen
