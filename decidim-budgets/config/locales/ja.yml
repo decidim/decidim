@@ -50,12 +50,6 @@ ja:
         title: アクション
       admin:
         budgets:
-          create:
-            invalid: 予算の作成中に問題が発生しました。
-            success: 予算が正常に作成されました
-          destroy:
-            invalid: 予算を削除中に問題が発生しました。
-            success: 予算が正常に削除されました。
           edit:
             title: 予算の編集
             update: 予算を更新
@@ -68,9 +62,6 @@ ja:
           new:
             create: 予算を作成する
             title: 新しい予算
-          update:
-            invalid: 予算の更新中に問題が発生しました。
-            success: 予算が正常に更新されました。
         exports:
           projects: プロジェクト
         models:
@@ -79,11 +70,6 @@ ja:
           project:
             name: プロジェクト
         projects:
-          create:
-            invalid: このプロジェクトの作成中に問題が発生しました
-            success: プロジェクトを作成しました
-          destroy:
-            success: プロジェクトを削除しました
           edit:
             title: プロジェクトを編集
             update: 更新
@@ -104,32 +90,20 @@ ja:
           new:
             create: 作成
             title: 新規プロジェクト
-          update:
-            invalid: このプロジェクトの更新中に問題が発生しました
-            success: プロジェクトを更新しました
           update_category:
             invalid: 'これらのプロジェクトは既に %{subject_name} カテゴリを持っています: %{projects}'
-            select_a_category: カテゴリを選択してください
-            select_a_project: プロジェクトを選択してください
             success: 'プロジェクトは %{subject_name} カテゴリに更新されました: %{projects}'
           update_scope:
             invalid: 'これらのプロジェクトは既に %{subject_name} スコープを持っています: %{projects}'
-            select_a_project: プロジェクトを選択してください
-            select_a_scope: スコープを選択してください
             success: 'プロジェクトは %{subject_name} スコープに正常に更新されました: %{projects}'
           update_selected:
             invalid:
               selected: 'これらのプロジェクトはすでに実装のために選択されています: %{projects}。'
               unselected: 'これらのプロジェクトは既に実装から選択解除されています: %{projects}。'
-            select_a_project: プロジェクトを選択してください
-            select_a_selection: 実装の状態を選択してください
             success:
               selected: 'これらのプロジェクトは、実装のために正常に選択されました: %{projects}。'
               unselected: 'これらのプロジェクトは、実装から正常に選択解除されました: %{projects}。'
         proposals_imports:
-          create:
-            invalid: 提案をプロジェクトにインポートする際に問題が発生しました
-            success: "%{number} 件の提案がプロジェクトにインポートされました"
           new:
             create: プロジェクトへの提案をインポート
             default_budget: 既定の予算
@@ -159,9 +133,6 @@ ja:
         close_modal: ウィンドウを閉じる
         continue: 続行
         more_information: 詳細情報
-      budget_list_item:
-        voting_finished: この予算に投票しました
-        voting_started: この予算に投票し始めました
       budgets_list:
         cancel_order:
           more_than_one: '%{name} への投票を削除してからやり直してください'
@@ -173,7 +144,6 @@ ja:
         progress: 投票を終了
         show: プロジェクトを表示
         vote: 投票
-        voted_on: '%{links} に投票しました'
       last_activity:
         new_vote_at: 新しい予算投票日時
       limit_announcement:
@@ -275,8 +245,6 @@ ja:
           random: ランダムな注文
           selected: 選択済
         project:
-          add: プロジェクト %{resource_name} をあなたの投票に追加
-          remove: プロジェクト %{resource_name} を投票から削除する
           selected: 選択済
           view: 表示
           votes:
@@ -284,9 +252,7 @@ ja:
           you_voted: あなたの投票
         project_budget_button:
           add: 投票に追加
-          add_descriptive: プロジェクト %{resource_name} をあなたの投票に追加
           added: 投票に追加しました
-          added_descriptive: プロジェクト %{resource_name} が投票に追加されました
         projects_for: '%{name} のプロジェクト'
         show:
           budget: 予算
@@ -310,10 +276,6 @@ ja:
             announcement: お知らせ
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
-            form:
-              errors:
-                budget_voting_rule_only_one: 1つの投票ルールを有効にする必要があります
-                budget_voting_rule_required: 1つの投票ルールが必要です
             geocoding_enabled: ジオコーディングを有効にする
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
@@ -355,13 +317,6 @@ ja:
           email_outro: '%{participatory_space_title} をフォローしているため、この通知を受け取りました。前のリンク先から、通知の受信を停止することができます。'
           email_subject: '%{resource_title} の予算が %{participatory_space_title} に有効になりました。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の予算が %{participatory_space_title} に有効になりました。
-    orders:
-      checkout:
-        error: 投票処理中に問題が発生しました
-        success: 投票は正常に承認されました
-      destroy:
-        error: 投票のキャンセル中に問題が発生しました
-        success: 投票は正常にキャンセルされました
     resource_links:
       included_proposals:
         project_proposal: このプロジェクトに含まれる提案
