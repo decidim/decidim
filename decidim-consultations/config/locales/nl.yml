@@ -46,12 +46,6 @@ nl:
         decidim_consultations_response_id:
           not_found: Reactie niet gevonden.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Aantal stemmen is ongeldig
     models:
       decidim/consultation:
         one: Raadpleging
@@ -153,7 +147,6 @@ nl:
             one: Antwoord
             other: Antwoorden
       question_configuration:
-        disable_external_voting: Schakel externe stem uit voor geavanceerde configuraties
         form:
           help: Stel meerdere keuzes in door het maximum aantal antwoorden dat een deelnemer kan kiezen te verhogen. Standaard maximale waarde is 1, wat betekent dat slechts één reactie kan worden gestemd.
           title: Geavanceerde instellingen
@@ -296,7 +289,6 @@ nl:
             votes: Stemmen
       question_votes:
         create:
-          error: Er zijn fouten opgetreden bij het stemmen op de vraag
           success: U kunt uw stem wijzigen tot het einde van de raadpleging, maar alleen de laatste keuze zal worden aangenomen.
           title_error: Stemfout!
           title_success: Stem succesvol geregistreerd
