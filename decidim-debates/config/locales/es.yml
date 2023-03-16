@@ -208,7 +208,6 @@ es:
           email_intro: '¡Ya puedes crear nuevos debates en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Los debates ya estan disponibles en %{participatory_space_title}
-          notification_title: Ya puedes empezar <a href="%{resource_path}">nuevos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Se ha cerrado el debate "%{resource_title}". Puedes leer las conclusiones en su página:'
