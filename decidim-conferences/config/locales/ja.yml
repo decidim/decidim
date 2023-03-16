@@ -69,12 +69,6 @@ ja:
         email: Eメールアドレス
         name: 名前
         role: ロール
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: このメールアドレスは既に招待されています
   activerecord:
     models:
       decidim/conference:
@@ -450,7 +444,6 @@ ja:
           main_promotors: オーガナイザー
         show:
           login_as: '%{name} <%{email} >としてログインしています'
-          make_conference_registration: カンファレンスに参加登録する
           register: 登録
       content_blocks:
         highlighted_conferences:
@@ -458,11 +451,6 @@ ja:
       index:
         title: カンファレンス
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: カンファレンスの登録が確認されました
-          pending_validation:
-            subject: カンファレンスの登録は保留中です
         invite_join_conference_mailer:
           invite:
             subject: カンファレンスへの招待
@@ -546,10 +534,6 @@ ja:
           contextual: "<p><strong>カンファレンス</strong>はミーティングの集合体で、数多くの参加者が講演者として参加します。また、大きな会議やソーシャルイベントに必要な、登録、協賛企業等の典型的な情報が含まれます。</p><p>例えば、カンファレンスは組織やそのメンバーに関するものでも良いし、参加型プロセスの一部でも良いし、コンサルテーションに従ったものでも良いでしょう。</p>\n"
           page: "<p><strong>カンファレンス</strong>はミーティングの集合体で、数多くの参加者が講演者として参加します。また、大きな会議やソーシャルイベントに必要な、登録、協賛企業等の典型的な情報が含まれます。</p><p>例えば、カンファレンスは組織やそのメンバーに関するものでも良いし、参加型プロセスの一部でも良いし、コンサルテーションに従ったものでも良いでしょう。</p>\n"
           title: カンファレンスとは何ですか？
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'データベース上にカンファレンスが見つかりませんでした (ID: %{id})'
     media:
       index:
         description: このカンファレンスに関するリンク
