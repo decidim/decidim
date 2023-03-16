@@ -115,7 +115,6 @@ pl:
           label: Zweryfikowano
           values:
             'false': Zweryfikowano
-            'true': Nie zweryfikowano
     components:
       elections:
         actions:
