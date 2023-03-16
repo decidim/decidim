@@ -47,9 +47,6 @@ bg:
           new:
             import: Внасяне
             title: Импортирай резултати от CSV
-        imports:
-          create:
-            success: Файлът започна да се импортира. В следващите минути ще получите ел. поща с резултата от импортирането
         models:
           result:
             name: Резултат
@@ -58,11 +55,6 @@ bg:
           timeline_entry:
             name: Запис във времевата линия
         results:
-          create:
-            invalid: Възникна проблем при създаване на резултата
-            success: Резултата е създаден успешно
-          destroy:
-            success: Резултата е изтрит успешно
           edit:
             title: Редактирай резултат
             update: Обнови резултат
@@ -71,18 +63,10 @@ bg:
           new:
             create: Създай резултат
             title: Нови резултати
-          update:
-            invalid: Възникна проблем при обновяването на резултата
-            success: Резултата е обновен успешно
         shared:
           subnav:
             statuses: Статуси
         statuses:
-          create:
-            invalid: Възникна проблем при създаване на статуса
-            success: Статуса е създаден успешно
-          destroy:
-            success: Статуса е изтрит успешно
           edit:
             title: Редактирай на статуса
             update: Обнови на статус
@@ -91,15 +75,7 @@ bg:
           new:
             create: Създай статус
             title: Нов статус
-          update:
-            invalid: Възникна проблем при обновяване на статуса
-            success: Статуса е обновен успешно
         timeline_entries:
-          create:
-            invalid: Възникна проблем при създаване на записа
-            success: Записа е създаден успешно
-          destroy:
-            success: Записа е изтрит успешно
           edit:
             title: Редактирай на запис
             update: Обнови на запис
@@ -108,9 +84,6 @@ bg:
           new:
             create: Създай запис
             title: Нов запис
-          update:
-            invalid: Възникна проблем при обновяване на записа
-            success: Записа е обновен успешно
       admin_log:
         result:
           create: "%{user_name} създаде резултата %{resource_name} в %{space_name}"
@@ -122,7 +95,6 @@ bg:
       import_mailer:
         import:
           errors: Грешки
-          errors_present: Възникна проблем при внасяне на резултата
           row_number: Редове
           subject: Успешно внасяне на резултати
           success: Успешно внасяне на резултати. Може да ги прегледате в администраторския интерфейс.
