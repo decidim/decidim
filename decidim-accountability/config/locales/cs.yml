@@ -77,9 +77,6 @@ cs:
               </li>
               </ol>
             title: Importovat výsledky z CSV
-        imports:
-          create:
-            success: Soubor se začal importovat. Během několika následujících minut obdržíte e-mail s výsledkem importu
         models:
           result:
             name: Výsledek
@@ -101,18 +98,8 @@ cs:
             no_components: V tomto participačním prostoru nejsou žádné složky rozpočtů pro import projektů do výsledků.
             origin_component_id: Původ komponenty
             select_component: Vybrat komponentu
-            success:
-              one: 1 projekt, který má být importován. Po dokončení budete upozorněni e-mailem
-              few: "%{count} projekty jsou ve frontě na import. Po dokončení budete informováni e-mailem"
-              many: "%{count} projektů je ve frontě na import. Po dokončení budete informováni e-mailem"
-              other: "%{count} projektů je ve frontě na import. Po dokončení budete informováni e-mailem"
             title: Importovat projekty k odpovědnosti
         results:
-          create:
-            invalid: Při vytváření tohoto výsledku došlo k problému
-            success: Výsledek byl úspěšně vytvořen
-          destroy:
-            success: Výsledek byl úspěšně smazán
           edit:
             title: Upravit výsledek
             update: Aktualizovat výsledek
@@ -121,18 +108,10 @@ cs:
           new:
             create: Vytvořit výsledek
             title: Nový výsledek
-          update:
-            invalid: Při aktualizaci tohoto výsledku došlo k problému
-            success: Výsledek byl úspěšně aktualizován
         shared:
           subnav:
             statuses: Stavy
         statuses:
-          create:
-            invalid: Při vytváření tohoto stavu došlo k problému
-            success: Stav byl úspěšně vytvořen
-          destroy:
-            success: Stav byl úspěšně smazán
           edit:
             title: Upravit stav
             update: Aktualizovat stav
@@ -141,15 +120,7 @@ cs:
           new:
             create: Vytvořit stav
             title: Nový stav
-          update:
-            invalid: Při aktualizaci tohoto stavu došlo k problému
-            success: Stav byl úspěšně aktualizován
         timeline_entries:
-          create:
-            invalid: Při vytváření této položky došlo k problému
-            success: Položka byla úspěšně vytvořena
-          destroy:
-            success: Položka byla úspěšně smazána
           edit:
             title: Upravit položku
             update: Aktualizovat položku
@@ -158,9 +129,6 @@ cs:
           new:
             create: Vytvořit položku
             title: Nová položka
-          update:
-            invalid: Došlo k problému při aktualizaci této položky
-            success: Zápis byl úspěšně aktualizován
       admin_log:
         result:
           create: "%{user_name} vytvořen výsledek %{resource_name} v %{space_name}"
@@ -185,7 +153,6 @@ cs:
       import_mailer:
         import:
           errors: Chyby
-          errors_present: Došlo k chybě při importu výsledků
           row_number: Řádek
           subject: Úspěšný import výsledků
           success: Úspěšný import výsledků. Výsledky můžete zkontrolovat v rozhraní administrace.
