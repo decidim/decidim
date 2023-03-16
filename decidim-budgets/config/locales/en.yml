@@ -162,9 +162,6 @@ en:
         close_modal: Close modal
         continue: Continue
         more_information: More information
-      budget_list_item:
-        voting_finished: You have voted in this budget
-        voting_started: You have started to vote in this budget
       budgets_list:
         budgets: Budgets
         cancel_order:
@@ -217,7 +214,6 @@ en:
           budget_excess:
             description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
             title: Maximum budget exceeded
-          close: Close
           description: This project exceeds the maximum budget and can not be added. If you want, you can delete a project you have already selected, in order to be able to vote again according to your preferences.
           ok: OK
           projects_excess:
@@ -229,7 +225,6 @@ en:
           checked_out:
             description: You've already voted for the budget. If you've changed your mind, you can delete your vote.
             title: Budget vote completed
-          title: You decide the budget
           vote: Vote budget
         count:
           projects_count:
@@ -237,7 +232,6 @@ en:
             other: "%{count} projects"
         exit_modal:
           cancel: Return to voting
-          close_modal: Close modal
           exit: Exit voting
           message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
           title: You have not yet voted
@@ -252,12 +246,9 @@ en:
             selected: Selected
         filters_small_view:
           close_modal: Close modal
-          filter: Filter
           filter_by: Filter by
-          unfold: Unfold
         index:
           back_to_budgets: back to budgets
-          view_project: View project
         order_progress:
           assigned: Assigned
           budget: Budget
@@ -272,15 +263,12 @@ en:
             description: Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
           projects_rule_maximum_only:
             description: Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
-          vote: Vote
           vote_threshold_percent_rule:
             description: Assign at least %{minimum_budget} to the projects you want and vote according to your preferences to define the budget.
         order_selected_projects:
-          remove: Remove
           selected_projects:
             one: project selected
             other: projects selected
-          view: View
         orders:
           highest_cost: Budget
           label: Order projects by
@@ -309,7 +297,6 @@ en:
         select_projects: Select projects
         show:
           budget: Budget
-          view_all_projects: View all projects
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Areas where you have an unfinished vote:'
