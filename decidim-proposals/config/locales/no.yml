@@ -208,9 +208,6 @@
             votes_hidden: Støtter skjult (hvis støtter er aktivert, sjekke du av dette vil det skjule antall støtter)
     events:
       proposals:
-        admin:
-          proposal_note_created:
-            email_intro: Noen har lagt ut en merknad på forslaget "%{resource_title}". Sjekk det ut i <a href="%{admin_proposal_info_url}">administratorpanelet</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har blitt akseptert tilgang som bidragsyter til %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har blitt <strong>akseptert tilgang som bidragsyter</strong> av <a href="%{resource_path}">%{resource_title}</a> samarbeids utkastet.
@@ -233,12 +230,10 @@
           email_intro: 'Du kan nå lage nye forslag i %{participatory_space_title}! Begynn å delta på denne siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Forslag nå tilgjengelig i %{participatory_space_title}
-          notification_title: Du kan nå legge frem <a href="%{resource_path}">nye forslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Du kan påtegne forslag i %{participatory_space_title}! Begynn å delta på denne siden:'
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Forslags påtegnelse har startet for %{participatory_space_title}
-          notification_title: Du kan nå begynne å <a href="%{resource_path}">påtegne forslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Forslaget ditt "%{resource_title}" er blitt akseptert. Du kan lese svaret på denne siden:'
@@ -421,21 +416,12 @@
             rejected: Avvist
             title: Svar for forslag %{title}
         proposal_notes:
-          create:
-            error: Det oppsto et problem med å lage dette forslags notatet
-            success: Forslags notat opprettet
           form:
             note: Merk
             submit: Send inn
           leave_your_note: Legg igjen notatene dine
           title: Private notater
         proposals:
-          answer:
-            invalid: Det oppstod et problem med å svare på dette forslaget
-            success: Forslag besvart
-          create:
-            invalid: Det oppstod et problem med å opprette dette forslaget
-            success: Forslag opprettet
           edit:
             title: Oppdater forslag
             update: Oppdater
@@ -497,9 +483,6 @@
           update_scope:
             select_a_proposal: Vennligst velg et forslag
         proposals_imports:
-          create:
-            invalid: Det oppsto et problem med å importere forslagene
-            success: "%{number} forslag importert"
           new:
             create: Importer forslag
             no_components: Det er ingen andre forslags komponetner i dette deltaker området å importere forslagene fra.
@@ -754,8 +737,6 @@
         proposal:
           creation_date: 'Opprettet: %{date}'
           view_proposal: Se forslag
-        proposals:
-          empty: Det finnes ingen forslag enda
         show:
           answer: Svar
           back_to: Tilbake til
@@ -808,8 +789,6 @@
             supports_remaining: Du må støtte %{remaining_votes} flere forslag for at støttene dine som skal tas i betraktning.
           proposal_limit:
             description: Du kan lage opptil %{limit} forslag.
-          threshold_per_proposal:
-            description: For å bli validert må forslagene nå %{limit} støtter
           title: 'Støtter er underlagt følgende regler:'
           vote_limit:
             description: Du kan støtte opptil %{limit} forslag.
