@@ -21,11 +21,6 @@ hu:
           post:
             name: Bejegyzés
         posts:
-          create:
-            invalid: Probléma történt a bejegyzés létrehozásakor
-            success: Bejegyzés létrehozása sikeres
-          destroy:
-            success: Bejegyzés törlése sikeres
           edit:
             save: Frissítés
             title: Bejegyzés szerkesztése
@@ -36,7 +31,6 @@ hu:
             title: Bejegyzés létrehozása
           update:
             invalid: Hiba történt a bejegyzés mentése során.
-            success: Bejegyzés mentése sikeres
       admin_log:
         post:
           create: "%{user_name} létrehozta a(z) %{resource_name} blogposztot itt: %{space_name}"
