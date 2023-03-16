@@ -60,9 +60,6 @@ tr:
             title: Sıralamanın iptali
           create:
             error: Yeni bir sıralama oluştururken bir sorun oluştu.
-            success: Sıralama başarıyla oluşturuldu
-          destroy:
-            success: Sıralama başarıyla iptal edildi
           edit:
             title: Sıralama hakkındaki bilgileri güncelleyin
             update: Güncelle
@@ -79,7 +76,6 @@ tr:
             selected_proposals: Çekiliş için seçilen teklifler
           update:
             error: Sıralama güncellenirken bir sorun oluştu.
-            success: Sıralama başarıyla güncellendi
       admin_log:
         sortition:
           create: "%{user_name}, %{space_name} %{resource_name} sıralamayı yarattı"
