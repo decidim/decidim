@@ -197,7 +197,7 @@ fi:
       helpers:
         answers: vastaukset
         comments: kommentit
-        projects: projektit
+        projects: hankkeet
         results: tulokset
       impersonation_log:
         manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
@@ -798,7 +798,7 @@ fi:
         collaborative_draft: Yhdessä koostettu luonnos
         dummy_resource: Dummy-resurssit
         meeting: Tapaamiset
-        project: Projektit
+        project: Hankkeet
         proposal: Ehdotukset
         result: Tulokset
     fingerprint:
