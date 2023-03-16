@@ -33,17 +33,6 @@ lt:
         title: Pavadinimas
         transparent: Skaidrus
         type_of_meeting: Tipas
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Elementų trukmė viršija posėdžio trukmę %{count} minutėmis (-čių)
-              too_many_minutes_child: Antrinių elementų trukmė viršija darbotvarkės pirminio elemento „%{parent_title}“ trukmę %{count} minutėmis (-čių)
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Šio el. laiško paskyros adresatas jau buvo pakviestas
     models:
       decidim/meetings/close_meeting_event: Susitikimas baigtas
       decidim/meetings/create_meeting_event: Susitikimas
@@ -221,9 +210,6 @@ lt:
             down: Žemyn
             remove: Pašalinti
             up: Aukštyn
-          create:
-            invalid: Kuriant šią darbotvarkę iškilo problema
-            success: Darbotvarkė sukurta
           edit:
             title: Redaguoti darbotvarkę
             update: Atnaujinti
@@ -235,9 +221,6 @@ lt:
           new:
             create: Sukurti
             title: Nauja darbotvarkė
-          update:
-            invalid: Atnaujinant šią darbotvarkę iškilo problema
-            success: Darbotvarkė atnaujinta
         exports:
           answers: Atsakymai
           meeting_comments: Komentarai
@@ -274,19 +257,9 @@ lt:
             close: Uždaryti
             title: Baigti susirinkimą
         meetings:
-          close:
-            invalid: Užbaigiant šį susirinkimą iškilo problema
-            success: Susirinkimas uždarytas
           create:
-            invalid: Kuriant šį susirinkimą iškilo problema
             success: Susirinkimas sėkmingai sukurtas. Jis dar nepublikuotas, tai turite padaryti rankiniu būdu.
           destroy:
-            invalid:
-              proposals_count:
-                one: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymas
-                few: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai
-                many: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai
-                other: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymai
             success: Susirinkimas sėkmingai pašalintas
           edit:
             title: Redaguoti susirinkimą
@@ -307,9 +280,6 @@ lt:
           new:
             create: Sukurti
             title: Sukurti susirinkimą
-          publish:
-            invalid: Skelbiant šį susirinkimą iškilo problema
-            success: Susirinkimas sėkmingai paskelbtas
           service:
             description: Aprašymas
             down: Žemyn
@@ -320,18 +290,9 @@ lt:
           services:
             add_service: Pridėti paslaugą
             services: Paslaugos
-          unpublish:
-            invalid: Depublikuojant šį susirinkimą iškilo problema
-            success: Susirinkimas sėkmingai depublikuotas
-          update:
-            invalid: Atnaujinat šį susirinkimą iškilo problema
-            success: Posėdis sėkmingai atnaujintas
         meetings_poll:
           form:
             title: Redaguoti klausimyną %{questionnaire_for}
-          update:
-            invalid: Atnaujinat šio susirinkimo klausimyną iškilo problema
-            success: Susirinkimo klausimynas sėkmingai atnaujintas
         models:
           meeting:
             name: Susirinkimas
@@ -433,8 +394,6 @@ lt:
         registration_mailer:
           confirmation:
             subject: Jūsų registracija į susirinkimą buvo patvirtinta
-      meeting:
-        not_allowed: Jūs negalite peržiūrėti šio susirinkimo
       meeting_closes:
         edit:
           back: Atgal
@@ -636,9 +595,6 @@ lt:
         withdraw: Atsiimta
       versions:
         back_to_resource: Grįžti į susirinkimą
-      withdraw:
-        error: Išimant susirinkimą įvyko klaida
-        success: Susirinkimas sėkmingai išimtas
     metrics:
       meetings:
         description: Sukurtų susirinkimų skaičius
