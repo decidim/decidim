@@ -169,10 +169,8 @@ tr:
         amended_by: Tarafından değiştirildi
         button: '%{model_name} üzerinde değişiklik yapın'
         error: Bu kaynağı değiştiren bir hata oluştu.
-        help_text: Bu %{model_name} 'yi %{amendable_fields} değiştirerek geliştirin
         promote_button: '%{model_name} olarak yükselt'
         promote_confirm_text: Bu değişikliği tanıtmak istediğinizden emin misiniz?
-        promote_help_text: Bu değişikliği tanıtabilir ve bağımsız bir %{model_name} olarak yayınlayabilirsiniz
         section_heading: Değişiklikler (%{count})
       compare_draft:
         continue: Devam et
@@ -212,26 +210,16 @@ tr:
         modify: Düzenle
         publish: Yayınla
         title: Değişiklik Taslağını Yayınla
-      promoted:
-        error: Değişikliği yeni bir teklif olarak yayınlarken bir hata oluştu
-        success: Değişiklik yeni bir teklif olarak başarıyla yayınlandı
       publish_draft:
         error: Değişiklik yayınlanırken bir hata oluştu.
         success: Değişiklik başarıyla yayınlandı.
-      rejected:
-        error: Bu değişikliği reddederken bir hata oluştu, lütfen daha sonra tekrar deneyin
-        success: Değişiklik başarıyla reddedildi
       review:
         back: Geri
         heading: Değişikliği gözden geçirin
-        help_text: '%{model_name} yapılan bir değişikliği inceliyorsunuz'
         send: Değişikliği kabul et
       update_draft:
         error: Değişiklik taslağı güncellenirken bir hata oluştu.
         success: Değişiklik taslağı başarıyla güncellendi.
-      withdraw:
-        error: Değişiklik geri çekilirken bir hata oluştu
-        success: Değişiklik başarıyla geri çekildi
       wizard_step_form:
         steps:
           '1': Değişikliğinizi oluşturun
@@ -255,13 +243,11 @@ tr:
         other: onaylar
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: '"A" ile başlayan bir pasaport numarası girerek doğrulanın.'
         fields:
           passport_number: Pasaport numarası
           postal_code: Posta kodu
         name: Başka bir örnek yetkilendirme
       dummy_authorization_handler:
-        explanation: '"X" ile biten bir belge numarası girerek doğrulanmış olsun'
         fields:
           allowed_postal_codes: İzin verilen posta kodları (virgülle ayrılmış)
           allowed_scope_id: İzin Verilen Kapsamlar
@@ -302,8 +288,6 @@ tr:
           explanation: Bu eylemi gerçekleştirmek için "%{authorization}" ile yetkilendirilmeniz gerekir.
           title: Yetkilendirme gerekli
         pending:
-          explanation: Bu işlemi gerçekleştirmek için "%{authorization}" ile yetkilendirilmeniz gerekir, ancak yetkilendirmeniz hala devam ediyor
-          resume: '"%{authorization}" yetkilendirme işleminizi kontrol edin'
           title: Yetkilendirme devam ediyor
         unauthorized:
           ok: Tamam
@@ -404,22 +388,15 @@ tr:
           section_content: İçerik
         two_pane_section:
           left_column: Sol Sütun
-          name: Iki bölme bölümü
           right_column: Sağ sütun
       stats:
         name: Organizasyon istatistikleri
       sub_hero:
         name: Alt ana afişi
-    core:
-      actions:
-        login_before_access: Lütfen, erişmeden önce hesabınızla giriş yapın
-        unauthorized: Bu eylemi gerçekleştirmek için yetkiniz yok
     datepicker:
       help_text: 'Beklenen format: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Başka bir hesap aynı e-posta adresini kullanıyor
         new:
           complete_profile: Profilini tamamla
           nickname_help: Takma adınız %{organization}. Yalnızca harf, rakam, "-" ve "_" içerebilir.
@@ -445,8 +422,6 @@ tr:
         new:
           are_you_new?: Platformda yeni misiniz?
           register: Hesap oluştur
-          sign_in_disabled: Harici bir hesaba erişebilirsiniz
-          sign_up_disabled: Kaydolma devre dışı, mevcut bir kullanıcıyı kullanmak için kullanabilirsiniz
       shared:
         newsletter_modal:
           buttons:
@@ -462,7 +437,6 @@ tr:
           authorize: Uygulamayı yetkilendir
           by_organization_link_html: <small class="heading-small">x %{link}</small>
           cancel: İptal etmek
-          connect_your_account_html: Hesabınıza bağlanarak bağlanın <strong>%{organization}</strong>
           publish_content: İçeriği sizin için yayınlayın
           see_email: E-postanızı görün
           see_name: İsmini gör
@@ -720,17 +694,8 @@ tr:
       index:
         invite: Davet et
         invite_user: Bir katılımcı davet et
-      invite:
-        error: Bu katılımcıyı davet ederken bir sorun oluştu
-        success: Katılımcı başarıyla davet edildi
-      reject:
-        error: Bu davet reddedilirken bir hata oluştu
-        success: Davet başarıyla reddedildi
       reject_invitation: Reddet
     group_members:
-      accept:
-        error: Bu katılma isteğini kabul eden bir hata oluştu
-        success: Katılım isteği başarıyla kabul edildi
       actions:
         are_you_sure: Emin misiniz?
         promote_to_admin: Yönetici yap
@@ -738,36 +703,20 @@ tr:
       index:
         current_members_without_admins: 'Mevcut üyeler (yöneticiler olmadan):'
         manage_members: Üyeleri yönet
-      promote:
-        error: Bu katılımcıyı tanıtırken bir sorun oluştu
-        success: Katılımcı başarıyla tanıtıldı
-      reject:
-        error: Bu katılma isteğini reddeden bir hata oluştu
-        success: Katılma isteği başarıyla reddedildi
-      remove:
-        error: Bu katılımcıyı gruptan çıkarırken bir sorun oluştu
-        success: Katılımcı gruptan başarıyla kaldırıldı
     groups:
       actions:
         are_you_sure: Emin misiniz?
-      create:
-        error: Grup oluşturulurken bir sorun oluştu
-        success: Grup başarıyla oluşturuldu
       edit:
         edit_user_group: Grubu düzenle
         update_user_group: Grubu güncelle
       form:
-        document_number_help: Tire veya boşluk kullanmayın
         email_help: Kuruluşunuzun, derneğin, kolektif, grubun vb. e-posta adresi.
         fill_in_for_verification: 'Grubunuzun doğrulanmasını istiyorsanız, bu alanları doldurun:'
         name_help: Kuruluşunuzun, derneğin, kolektif, grubun vb. e-posta adresi.
         nickname_help: Kuruluşunuzun, derneğinizin, kolektifiniziz, grubunuzun vb. isimlerinde boşluk veya aksan kullanmayın.
-        phone_help: Tire veya boşluk kullanmayın
       join:
-        error: Gruba katılırken bir sorun oluştu
         success: Katılım isteği başarıyla oluşturuldu. Bir yönetici sizi gruba kabul etmeden önce isteğinizi inceleyecektir.
       leave:
-        error: Gruptan ayrılırken bir sorun oluştu
         success: Grup başarıyla terk edildi.
       members:
         accept_or_reject_join_requests: 'Aşağıdaki kullanıcılar bu gruba katılmak için başvurdu. İsteklerini kabul edin veya reddedin:'
@@ -780,15 +729,11 @@ tr:
       roles:
         admin: Yönetici
         member: Üye
-      update:
-        error: Grup güncellemede bir hata oluştu
-        success: Grup başarıyla güncellendi
     help:
       main_topic:
         default_page:
           content: "<p>%{organization}'da üst menüde gördüğünüz alanlar aracılığıyla katılabilir ve farklı konulara karar verebilirsiniz: Süreçler, Toplantılar, Girişimler, İstişareler. </p> <p> Her birinde farklı seçenekler bulacaksınız. katılmak: bireysel olarak veya diğer insanlarla birlikte teklifler yapın, tartışmalara katılın, uygulanacak projelere öncelik verin, yüz yüze toplantılara ve diğer eylemlere katılın. </p>\n"
           title: '%{organization} ne yapabilirim?'
-        description: '%{organization} hakkında daha fazla bilgi edinin'
         title: Genel Yardım
     last_activities:
       activities:
@@ -834,35 +779,29 @@ tr:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{manager}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
-          outro: Decidim'in tadını çıkarın!
           subject: "%{manager}, %{group} olarak yeni bir görüşme başlattı"
         comanagers_new_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{manager}, %{group} adına bir görüşmede yeni mesajlar yayınladı. Onları görmek için buraya tıklayın:"
-          outro: Decidim'in tadını çıkarın!
           subject: "%{manager} %{group} olarak yeni mesajlar gönderdi"
         new_conversation:
           greeting: Merhaba %{recipient}!
           intro: "%{sender} sizinle yeni bir sohbet başlattı. Görmek için buraya tıklayın:"
-          outro: Decidimin tadını çıkar!
           subject: "%{sender} sizinle bir konuşma başlattı"
         new_group_conversation:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} adına yeni bir görüşme başlattı. Görmek için buraya tıklayın:"
-          outro: Decidimin tadını çıkarın!
           subject: "%{sender}, %{group} olarak yeni bir görüşme başlattı"
         new_group_message:
           admin_in_group: Bunu, %{group} grubunun yöneticisi olduğunuz için alıyorsunuz.
           greeting: Merhaba, %{recipient}!
           intro: "%{sender}, %{group} grubuyla bir görüşmede yeni mesajlar yayınladı. Görmek için buraya tıklayın:"
-          outro: Decidimin tadını çıkarın!
           subject: "%{group}, %{sender} adlı kişiden yeni mesajlar aldı"
         new_message:
           greeting: Merhaba %{recipient}!
           intro: "%{sender}, konuşmanıza yeni mesajlar gönderdi. Görmek için buraya tıklayın:"
-          outro: Decidimin tadını çıkar!
           subject: '%{sender}, size yeni mesaj gönderdi'
       conversations:
         add_conversation_users:
@@ -870,9 +809,6 @@ tr:
           add_users_placeholder: Arama...
           modal_title: Yeni görüşme
           no_results: Sonuç bulunamadı
-          participant_with_disabled_message_reception: Bu katılımcı mesaj alımını devre dışı bıraktı
-        create:
-          error: Konuşma başlamadı. Daha sonra tekrar deneyin
         error_modal:
           close: Pencereyi kapat
           correct_errors: Lütfen hataları düzeltip tekrar deneyin.
@@ -882,7 +818,6 @@ tr:
           ago: önce
           new_conversation: Yeni görüşme
           next: Sonraki
-          no_conversations: Henüz konuşma yok
           title: Konuşmalar
         show:
           back: Tüm görüşmelere dön
@@ -890,8 +825,6 @@ tr:
           title: '%{usernames} ile görüşme'
         start:
           send: Gönder
-        update:
-          error: Bir hata nedeniyle mesaj gönderilemedi
     metrics:
       download:
         csv: Veri indir (csv)
@@ -1015,7 +948,6 @@ tr:
           success: Harika! Şartları ve koşulları kabul ettiniz.
         form:
           agreement: Bu koşulları kabul ediyorum
-          legend: Kullanım şartlarını ve koşullarını kabul et
         refuse:
           modal_btn_continue: Şartları kabul et ve devam et
           modal_btn_exit: Daha sonra inceleyeceğim
@@ -1028,12 +960,9 @@ tr:
     participatory_space_private_users:
       not_allowed: Bu içeriği görüntüleme izniniz bulunmuyor
     profile:
-      deleted: Katılımcı silindi
       inaccessible_message: Bu profile, Şartlar ve Koşullar ihlali nedeniyle erişilemez!
       view: Görünüm
     profiles:
-      default_officialization_text_for_user_groups: Bu grup herkese açık olarak doğrulandı, adının gerçek adıyla eşleştiği doğrulandı
-      default_officialization_text_for_users: Bu katılımcı herkese açık olarak doğrulandı, adı veya rolü gerçek adı ve rolüyle eşleşecek şekilde doğrulandı
       show:
         activity: Aktivite
         badges: Rozetler
@@ -1049,11 +978,9 @@ tr:
           info: Rozetler, platformda belirli etkinlikler gerçekleştirilerek kazanılır.
           title: Rozetler
       user:
-        confirmation_instructions_sent: E-posta doğrulama talimatları gönderildi
         create_user_group: Grup oluştur
         edit_profile: Profili Düzenle
         edit_user_group: Grup profilini düzenle
-        fill_in_email_to_confirm_it: Lütfen onaylamak için grubunuzun e-posta adresini doldurun
         invite_user: Katılımcı davet et
         join_user_group: Gruba katılma isteği
         leave_user_group: Gruptan ayrıl
@@ -1194,7 +1121,6 @@ tr:
     user_contact_disabled: Bu katılımcı doğrudan mesajları kabul etmiyor.
     user_conversations:
       create:
-        error: Mesaj oluşturulamadı. Daha sonra tekrar deneyin
         existing_error: Mesaj oluşturulamadı. Konuşma zaten mevcut, lütfen şimdi tekrar deneyin.
         success: Görüşme başarıyla başladı!
       index:
@@ -1209,7 +1135,6 @@ tr:
         next: Sonraki
         no_conversations_warning: Henüz bir görüşme yok.
         no_results: Sonuç bulunamadı
-        participant_with_disabled_message_reception: Bu katılımcı mesaj alımını devre dışı bıraktı
         time_ago: "%{time} önce"
       new:
         title: Bir görüşme başlatın
