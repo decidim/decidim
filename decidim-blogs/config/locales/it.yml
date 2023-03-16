@@ -21,11 +21,6 @@ it:
           post:
             name: Inviare
         posts:
-          create:
-            invalid: Si è verificato un problema durante la creazione di questo post
-            success: Post creato con successo
-          destroy:
-            success: Posta cancellata con successo
           edit:
             save: Aggiornare
             title: Modifica post
@@ -36,7 +31,6 @@ it:
             title: Crea un post
           update:
             invalid: Si sono verificati errori durante il salvataggio del post.
-            success: Post salvato correttamente
       models:
         post:
           fields:
