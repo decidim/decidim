@@ -62,9 +62,8 @@ es-PY:
             title: Cancelar el sorteo
           create:
             error: Se produjo un error al crear un nuevo sorteo.
-            success: Sorteo creado con éxito.
           destroy:
-            success: Orden cancelada con éxito
+            error: No se puede cancelar el sorteo.
           edit:
             title: Actualiza la información sobre el sorteo
             update: Actualizar
@@ -81,7 +80,6 @@ es-PY:
             selected_proposals: Propuestas seleccionadas para sorteo
           update:
             error: Se produjo un error al actualizar el sorteo.
-            success: Sorteo actualizado correctamente
       admin_log:
         sortition:
           create: "%{user_name} creó el sorteo %{resource_name} en %{space_name}"
