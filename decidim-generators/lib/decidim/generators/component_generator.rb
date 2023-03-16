@@ -46,9 +46,11 @@ module Decidim
         template "README.md.erb", "#{component_folder}/README.md"
         template "gitignore", "#{component_folder}/.gitignore"
         template "github/ci.yml.erb", "#{component_folder}/.github/workflows/ci_#{component_name}.yml"
-        template ".ruby-version", "#{component_folder}/.ruby-version"
-        template ".node-version", "#{component_folder}/.node-version"
         template ".rubocop.yml.erb", "#{component_folder}/.rubocop.yml"
+
+        repo_url = "https://raw.githubusercontent.com/decidim/decidim/#{edge_git_branch}"
+        get "#{repo_url}/.ruby-version", "#{component_folder}/.ruby-version"
+        get "#{repo_url}/.node-version", "#{component_folder}/.node-version"
 
         app_folder = "#{component_folder}/app"
         template "app/packs/js/entrypoint.js", "#{app_folder}/packs/entrypoints/decidim_#{component_name}.js"
