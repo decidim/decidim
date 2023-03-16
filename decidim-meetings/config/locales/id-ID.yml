@@ -23,17 +23,6 @@ id:
         registrations_enabled: Pendaftaran diaktifkan
         title: Judul
         transparent: Transparan
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Durasi barang melebihi durasi rapat dengan %{count} menit
-              too_many_minutes_child: Durasi item anak melebihi item agenda "%{parent_title}" durasi induk %{count} menit
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Email ini sudah diundang
     models:
       decidim/meetings/close_meeting_event: Pertemuan tertutup
       decidim/meetings/create_meeting_event: Pertemuan
@@ -156,9 +145,6 @@ id:
             down: Turun
             remove: Menghapus
             up: Naik
-          create:
-            invalid: Ada masalah saat membuat agenda ini
-            success: Agenda berhasil dibuat
           edit:
             title: Edit agenda
             update: Memperbarui
@@ -170,9 +156,6 @@ id:
           new:
             create: Membuat
             title: Agenda baru
-          update:
-            invalid: Terjadi masalah saat memperbarui agenda ini
-            success: Agenda berhasil diperbarui
         exports:
           meetings: Rapat
           registrations: Pendaftaran
@@ -207,11 +190,6 @@ id:
             close: Dekat
             title: Tutup rapat
         meetings:
-          close:
-            invalid: Terjadi masalah saat menutup rapat ini
-            success: Rapat berhasil ditutup
-          create:
-            invalid: Ada masalah saat membuat rapat ini
           destroy:
             success: Rapat berhasil dihapus
           edit:
@@ -231,9 +209,6 @@ id:
           services:
             add_service: Tambahkan layanan
             services: Jasa
-          update:
-            invalid: Terjadi masalah saat memperbarui rapat ini
-            success: Rapat berhasil diperbarui
         models:
           meeting:
             name: Pertemuan
@@ -289,8 +264,6 @@ id:
         registration_mailer:
           confirmation:
             subject: Pendaftaran pertemuan Anda telah dikonfirmasi
-      meeting:
-        not_allowed: Anda tidak diizinkan untuk melihat rapat ini
       meetings:
         filters:
           category: Kategori
