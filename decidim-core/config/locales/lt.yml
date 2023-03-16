@@ -165,11 +165,9 @@ lt:
         cancel_error: El. pašto pakeitimo nepavyko atšaukti.
         cancel_successfully: El. pašto pakeitimas atšauktas sėkmingai.
         resend_error: Neįmanoma išsiųsti patvirtinimo laiško.
-        resend_successfully: Patvirtinimo laiškas sėkmingai išsiųstas į %{unconfirmed_email}
         send_again: Siųsti dar kartą
         title: El. pašto pakeitimo patvirtinimas
       show:
-        available_locales_helper: Pasirinkite kalbą, kuria norite naršyti platformą ir gauti pranešimus
         change_password: Pakeisti slaptažodį
         update_account: Atnaujinti paskyrą
       update:
@@ -182,7 +180,6 @@ lt:
       actions:
         cancel: Atšaukti
       password_change:
-        alert: Norėdami tęsti turite pasikeisti slaptažodį
         notification: Administratoriai turi pakeisti savo slaptažodį kas %{days} dienas.
     admin_log:
       area:
@@ -283,10 +280,8 @@ lt:
         amended_by: Pakeitė
         button: Pakeisti %{model_name}
         error: Keičiant šį išteklių įvyko klaida.
-        help_text: Patobulinkite šį %{model_name} pakeisdami jo %{amendable_fields}
         promote_button: Pakelti iki %{model_name}
         promote_confirm_text: Ar tikrai norite palaikyti šią pataisą?
-        promote_help_text: Galite paremti šią pataisą ir ją paskelbti kaip nepriklausomą %{model_name}
         section_heading: Pakeitimai (%{count})
       compare_draft:
         continue: Tęsti
@@ -325,26 +320,16 @@ lt:
         modify: Redaguoti
         publish: Publikuoti
         title: Publikuoti Pataisos Juodraštį
-      promoted:
-        error: Publikuojant pataisą kaip naują pasiūlymą iškilo problema
-        success: Pataisa sėkmingai publikuota kaip naujas pasiūlymas
       publish_draft:
         error: Publikuojant pataisą iškilo problema.
         success: Pataisa sėkmingai publikuota.
-      rejected:
-        error: Atmetant pataisą kilo problema. Pabandykite dar kartą vėliau
-        success: Pataisa sėkmingai atmesta
       review:
         back: Atgal
         heading: Peržiūrėti pataisą
-        help_text: Peržiūrite %{model_name} pataisą
         send: Priimti pataisą
       update_draft:
         error: Atnaujinant pataisos juodraštį iškilo problema.
         success: Pataisos juodraštis sėkmingai atnaujintas.
-      withdraw:
-        error: Išimant pataisą įvyko klaida
-        success: Pataisa sėkmingai išimta
       wizard_step_form:
         steps:
           '1': Sukurkite savo pataisą
@@ -377,13 +362,11 @@ lt:
       official_author: Oficialus
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Patvirtinkite savo tapatybę įvesdami savo paso numerį po "A" raidės
         fields:
           passport_number: Paso numeris
           postal_code: Pašto kodas
         name: Kita pavyzdinė autorizacija
       dummy_authorization_handler:
-        explanation: Patvirtinkite tapatybę įvesdami dokumento numerį pasibaigianti su "X"
         fields:
           allowed_postal_codes: Leistini pašto kodai (atskirti kableliais)
           allowed_scope_id: Leidžiama sritis
@@ -423,11 +406,7 @@ lt:
           authorize: Autorizuokite su "%{authorization}"
           explanation: Kad galėtumėte atlikti šį veiksmą, turite gauti autorizaciją „%{authorization}“.
           title: Reikalinga autorizacija
-        ok:
-          title: Būdami šiame puslapyje buvote autorizuoti. Prašau perkraukite puslapį tam, kad įvykdyti veiksmą
         pending:
-          explanation: Kad galėtumėte atlikti šį veiksmą, turite autorizuotis su „%{authorization}“, tačiau tai dar progrese
-          resume: Patikrinkite savo %{authorization} autorizacijos progresą
           title: Autorizacija vyksta
         unauthorized:
           ok: Gerai
@@ -529,16 +508,10 @@ lt:
         name: Organizacijos statistiniai duomenys
       sub_hero:
         name: Turinio juosta po paveikslėliu
-    core:
-      actions:
-        login_before_access: Prašau prisijunkite prie savo paskyros
-        unauthorized: Jūs neturite teisės atlikti šio veiksmo
     datepicker:
       help_text: 'Pageidaujamas formatas: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Kitoje paskyroje naudojamas tas pats el. pašto adresas
         new:
           complete_profile: Užbaigti profilį
           nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai ir brūkšneliai.
@@ -564,8 +537,6 @@ lt:
         new:
           are_you_new?: Naujas platformos naudotojas?
           register: Sukurti paskyrą
-          sign_in_disabled: Galite prisijungti su išorine paskyra
-          sign_up_disabled: Registracija išjungta, norėdami prisijungti, naudokite jau egzistuojančią paskyrą
         user:
           timed_out: Per ilgai buvote neaktyvus ir buvote automatiškai atjungtas nuo paslaugos. Jei norite ir toliau naudotis paslauga, prisijunkite dar kartą.
       shared:
@@ -583,7 +554,6 @@ lt:
           authorize: Leisti naudoti programą
           by_organization_link_html: <small class="heading-small"> %{link}</small>
           cancel: Atšaukti
-          connect_your_account_html: Prijunkite savo paskyrą prisijungtami prie <strong>%{organization}</strong>
           publish_content: Skelbti turinį už Jus
           see_email: Žiūrėti savo el. paštą
           see_name: Žiūrėti savo vardą ir pavardę
@@ -903,17 +873,8 @@ lt:
       index:
         invite: Pakviesti
         invite_user: Pakviesti dalyvį
-      invite:
-        error: Kviečiant šį dalyvį iškilo problema
-        success: Dalyvis pakviestas
-      reject:
-        error: Atmetant šį kvietimą iškilo problema
-        success: Kvietimas atmestas
       reject_invitation: Atmesti
     group_members:
-      accept:
-        error: Priimant šį prisijungimo kvietimą iškilo problema
-        success: Prisijungimo kvietimas priimtas
       actions:
         are_you_sure: Ar esate tikri?
         promote_to_admin: Padaryti administratoriumi
@@ -921,36 +882,20 @@ lt:
       index:
         current_members_without_admins: 'Dabartiniai nariai (be administratorių):'
         manage_members: Valdyti narius
-      promote:
-        error: Paaukštinant šį dalyvį iškilo problema
-        success: Dalyvis paaukštintas
-      reject:
-        error: Atmetant šį prisijungimo kvietimą iškilo problema
-        success: Prisijungimo kvietimas atmestas
-      remove:
-        error: Šalinant šį dalyvį iš grupės iškilo problema
-        success: Dalyvis pašalintas iš grupės
     groups:
       actions:
         are_you_sure: Ar esate tikri?
-      create:
-        error: Kuriant grupę iškilo problema
-        success: Grupė sukurta
       edit:
         edit_user_group: Redaguoti grupę
         update_user_group: Atnaujinti grupę
       form:
-        document_number_help: Nenaudokite nei brūkšnių, nei tarpų
         email_help: Jūsų organizacijos, asociacijos, kolektyvo, grupės ir kt. el. pašto adresas.
         fill_in_for_verification: 'Jei norite, kad jūsų grupė būtų patvirtinta, užpildykite šiuos laukelius:'
         name_help: Jūsų organizacijos, asociacijos, kolektyvo, grupės ir kt. pavadinimas.
         nickname_help: Jūsų organizacijos, asociacijos, kolektyvo, grupės ir kt. naudotojo vardas. Nenaudokite nei tarpų, nei diakritinių ženklų.
-        phone_help: Nenaudokite nei brūkšnių, nei tarpų
       join:
-        error: Prisijungiant prie šios grupės iškilo problema
         success: Prisijungimo prašymas sukurtas. Administratorius peržiūrės jūsų prašymą prieš priimdamas jus į grupę.
       leave:
-        error: Paliekant šią grupę iškilo problema
         success: Grupė palikta.
       members:
         accept_or_reject_join_requests: 'Toliau nurodyti naudotojai pateikė prašymą prisijungti prie šios grupės. Priimkite arba atmeskite jų prašymus:'
@@ -964,15 +909,11 @@ lt:
         admin: Administratorius
         creator: Administratorius
         member: Narys
-      update:
-        error: Atnaujinant šią grupę iškilo problema
-        success: Grupė atnaujinta
     help:
       main_topic:
         default_page:
           content: "<p>%{organization} galite dalyvauti ir spręsti dėl įvairių temų pasinaudodami puslapiais, kuriuos matote viršutiniame meniu: „Procesai“, „Asamblėjos“, „Iniciatyvos“, „Konsultacijos“.</p> <p>Kiekviename iš jų rasite įvairių dalyvavimo galimybių: individualiai arba su kitais žmonėmis teikti pasiūlymus, dalyvauti diskusijose, nustatyti, kurie įgyvendintini projektai, yra prioritetiniai, dalyvauti tiesioginiuose susitikimuose ir kituose veiksmuose.</p>\n"
           title: Ką galiu daryti %{organization}?
-        description: Daugiau informacijos apie %{organization}
         title: Bendroji Pagalba
     last_activities:
       activities:
@@ -1027,35 +968,29 @@ lt:
           admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
           greeting: Sveiki, %{recipient}!
           intro: "%{manager} pradėjo naują pokalbį %{group} vardu. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės „Decidim“!
           subject: "%{manager} pradėjo naują pokalbį kaip %{group}"
         comanagers_new_message:
           admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
           greeting: Sveiki, %{recipient}!
           intro: "%{manager} paskelbė naujų žinučių pokalbyje %{group} vardu. Spustelkite čia norėdami juos pamatyti:"
-          outro: Mėgaukitės „Decidim“!
           subject: "%{manager} išsiuntė naujas žinutes kaip %{group}"
         new_conversation:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} pradėjo naują pokalbį su jumis. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės „Decidim“!
           subject: "%{sender} pradėjo pokalbį su jumis"
         new_group_conversation:
           admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} pradėjo naują pokalbį su grupe %{group}. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės „Decidim“!
           subject: "%{sender} pradėjo pokalbį su %{group}"
         new_group_message:
           admin_in_group: Šią informaciją gaunate dėl to, kad esate %{group} administratorius.
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} paskelbė naujų pranešimų pokalbyje su grupe %{group}. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės „Decidim“!
           subject: "%{group} gavo naujų pranešimų iš %{sender}"
         new_message:
           greeting: Sveiki, %{recipient}!
           intro: "%{sender} paskelbė naujų pranešimų jūsų pokalbyje. Spustelėkite čia ir pamatysite:"
-          outro: Mėgaukitės „Decidim“!
           subject: Gavote naujų pranešimų iš %{sender}
       conversations:
         add_conversation_users:
@@ -1063,9 +998,6 @@ lt:
           add_users_placeholder: Ieškoti...
           modal_title: Naujas pokalbis
           no_results: Rezultatų nerasta
-          participant_with_disabled_message_reception: Šis dalyvis išjungė pranešimų gavimo funkciją
-        create:
-          error: Pokalbis neprasidėjo. Bandykite dar kartą vėliau
         error_modal:
           close: Uždaryti modalinį langą
           correct_errors: Ištaisykite klaidas ir bandykite dar kartą.
@@ -1075,7 +1007,6 @@ lt:
           ago: prieš
           new_conversation: Naujas pokalbis
           next: Kitas
-          no_conversations: Dar neturite pokalbių
           title: Pokalbiai
         show:
           back: Grįžti į visus pokalbius
@@ -1084,8 +1015,6 @@ lt:
           title: Pokalbis su %{usernames}
         start:
           send: Siųsti
-        update:
-          error: Žinutė nebuvo išsiųsta dėl įvykusios klaidos
     metrics:
       download:
         csv: Parsisiųsti duomenis (CSV)
@@ -1246,7 +1175,6 @@ lt:
           success: Puiku! Jūs sutikote su sąlygomis.
         form:
           agreement: Aš sutinku su šiomis sąlygomis
-          legend: Sutikti su naudojimosi nuostatomis ir sąlygomis
         refuse:
           modal_btn_continue: Sutikti su sąlygomis ir tęsti
           modal_btn_exit: Peržiūrėsiu vėliau
@@ -1258,17 +1186,10 @@ lt:
           title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
-    passwords:
-      update:
-        error: Atnaujinant slaptažodį iškilo problema
-        success: Slaptažodis buvo sėkmingai atnaujintas
     profile:
-      deleted: Dalyvis pašalintas
       inaccessible_message: Profilis neprieinamas dėl naudojimo sąlygų pažeidimų!
       view: Rodyti
     profiles:
-      default_officialization_text_for_user_groups: Ši grupė yra patikrinta, jos pavadinimas atitinka realybę
-      default_officialization_text_for_users: Šis dalyvis yra patikrintas, jo vardas ir pavardė arba pareigos buvo patikrintos ir atitinka jo tikrąjį vardą ir pavardę bei pareigas
       show:
         activity: Veikla
         badges: Ženkleliai
@@ -1294,11 +1215,9 @@ lt:
           manage_user_group_admins: Valdyti administratorių duomenis
           manage_user_group_users: Valdyti narius
           message: Pranešimas
-        confirmation_instructions_sent: Patvirtinimo el. laiškas išsiųstas
         create_user_group: Sukurti grupę
         edit_profile: Redaguoti profilį
         edit_user_group: Redaguoti grupės profilį
-        fill_in_email_to_confirm_it: Prašau įveskite grupės el. paštą tam, kad jį patvirtinti
         invite_user: Kviesti dalyvį
         join_user_group: Prašyti prisijungti prie grupės
         leave_user_group: Palikti grupę
@@ -1457,7 +1376,6 @@ lt:
     user_contact_disabled: Šis dalyvis nepriima tiesioginių žinučių.
     user_conversations:
       create:
-        error: Pranešimo nepavyko sukurti. Bandykite dar kartą vėliau
         existing_error: Pranešimo nepavyko sukurti. Pokalbis jau egzistuoja, dabar bandykite dar kartą.
         success: Pokalbis pradėtas!
       index:
@@ -1472,7 +1390,6 @@ lt:
         next: Kitas
         no_conversations_warning: Pokalbių dar nėra.
         no_results: Nėra rezultatų
-        participant_with_disabled_message_reception: Šis dalyvis išjungė pranešimų gavimo funkciją
         time_ago: "Prieš %{time}"
       new:
         title: Pradėti pokalbį
