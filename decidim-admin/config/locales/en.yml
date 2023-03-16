@@ -40,7 +40,7 @@ en:
         body: Body
         subject: Subject
       organization:
-        admin_terms_of_use_body: Body for the admin terms of use
+        admin_terms_of_use_body: Body for the terms and conditions
         alert_color: Alert
         available_authorizations: Available authorizations
         badges_enabled: Enable badges
@@ -210,7 +210,7 @@ en:
           title: Agree to the terms and conditions
         required_review:
           alert: 'Required: Review our admin terms terms and conditions'
-          callout: Please take a moment to review Admin Terms of Use. Otherwise you will not be able to manage the platform.
+          callout: Please take a moment to review the admin terms and conditions. Otherwise you will not be able to manage the platform.
           cta: Review them now.
         title: Admin terms and conditions
       area_types:
