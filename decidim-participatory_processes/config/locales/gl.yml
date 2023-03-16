@@ -395,8 +395,6 @@ gl:
               one: 1 proceso seguinte
               other: "%{count} próximos procesos"
           explanations:
-            no_active: Non hai procesos activos
-            no_active_nor_upcoming: Non hai procesos activos nin futuros
             no_active_nor_upcoming_callout: Non hai procesos activos nin próximos. Aquí tes unha lista dos últimos.
           names:
             active: Activo
