@@ -103,10 +103,10 @@ fi:
             title: Tuo projekteja vastuullisuuskomponenttiin
         results:
           create:
-            invalid: Tuloksen luominen epäonnistui.
+            invalid: Tuloksen luonti epäonnistui.
             success: Tuloksen luonti onnistui.
           destroy:
-            success: Tuloksen poistaminen onnistui.
+            success: Tuloksen poisto onnistui.
           edit:
             title: Muokkaa tulosta
             update: Päivitä tulos
@@ -116,8 +116,8 @@ fi:
             create: Luo tulos
             title: Uusi tulos
           update:
-            invalid: Tuloksen päivittäminen epäonnistui.
-            success: Tuloksen päivittäminen onnistui.
+            invalid: Tuloksen päivitys epäonnistui.
+            success: Tuloksen päivitys onnistui.
         shared:
           subnav:
             statuses: Tilat
@@ -126,7 +126,7 @@ fi:
             invalid: Tilan luonti epäonnistui.
             success: Tilan luonti onnistui.
           destroy:
-            success: Tilan poistaminen onnistui.
+            success: Tilan poisto onnistui.
           edit:
             title: Muokkaa tilaa
             update: Päivitä tila
@@ -136,14 +136,14 @@ fi:
             create: Luo tila
             title: Uusi tila
           update:
-            invalid: Statuksen päivittäminen epäonnistui.
+            invalid: Tilan päivitys epäonnistui.
             success: Tilan päivitys onnistui.
         timeline_entries:
           create:
             invalid: Merkinnän luonti epäonnistui.
             success: Merkinnän luonti onnistui.
           destroy:
-            success: Merkinnän poistaminen onnistui.
+            success: Merkinnän poisto onnistui.
           edit:
             title: Muokkaa merkintää
             update: Päivitä merkintä
