@@ -88,8 +88,6 @@ uk:
           index:
             approve: Схвалити
             confirm_revoke: Ви впевнені?
-            invite_to_committee_help: Поділіться цим посиланням, щоб запросити інших учасників до робочого гурту з просування
-            no_members_yet: У робочого гурту з просування нема жодного члена
             revoke: Відкликати
             title: Члени робочого гурту
         initiatives:
@@ -100,7 +98,6 @@ uk:
             export_votes: Зберегти у вигляді файлу перелік тих, хто підтримує
             reject: Відхилити почин
             send_to_technical_validation: Надіслати на технічну перевірку
-            success: Почин був відправлений на технічну перевірку
             update: Оновити
           form:
             title: Загальні відомості
@@ -108,13 +105,7 @@ uk:
             actions_title: Дія
             preview: Попередній перегляд
             print: Друк
-          update:
-            error: Сталася помилка
-            success: Громадський почин було успішно оновлено
         initiatives_type_scopes:
-          create:
-            error: Сталася помилка
-            success: Було додано новий обсяг для даного різновиду почину
           destroy:
             success: Обсяг було успішно видалено
           edit:
@@ -127,15 +118,7 @@ uk:
             back: Повернутись
             create: Створити
             title: Створити обсяг різновиду почину
-          update:
-            error: Сталася помилка
-            success: Обсяг було успішно оновлено
         initiatives_types:
-          create:
-            error: Сталася помилка
-            success: Був успішно створений новий різновид почину
-          destroy:
-            success: Різновид почину було успішно видалено
           edit:
             confirm_destroy: Ви впевнені?
             destroy: Видалити
@@ -147,9 +130,6 @@ uk:
           new:
             create: Додати
             title: Додати різновид почину
-          update:
-            error: Сталася помилка
-            success: Різновид почину було успішно оновлено
       admin_log:
         initiative:
           publish: "%{user_name} оприлюднив почин %{resource_name}"
@@ -168,7 +148,6 @@ uk:
       committee_requests:
         new:
           continue: Продовжити
-          help_text: Ви збираєтесь подати заявку на участь у робочому гурті з просування цього почину
         spawn:
           success: Ваш запит було надіслано автору почину.
       content_blocks:
