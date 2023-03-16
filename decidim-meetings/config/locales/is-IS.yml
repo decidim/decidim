@@ -94,8 +94,6 @@ is-IS:
             close: Loka
             title: Loka fundi
         meetings:
-          close:
-            success: Fundur með góðum árangri lokað
           destroy:
             success: Fundur með góðum árangri eytt
           edit:
@@ -115,8 +113,6 @@ is-IS:
           services:
             add_service: Bæta við þjónustu
             services: Þjónusta
-          update:
-            success: Fundur tókst að uppfæra
         models:
           meeting:
             name: Fundur
@@ -145,8 +141,6 @@ is-IS:
         registration_mailer:
           confirmation:
             subject: Skráning fundarins hefur verið staðfest
-      meeting:
-        not_allowed: Þú mátt ekki skoða þennan fund
       meetings:
         filters:
           category: Flokkur
