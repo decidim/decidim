@@ -15,8 +15,6 @@ hu:
             choices:
               missing: nem teljesek
               too_many: túl sok
-        questionnaire:
-          request_invalid: A kérés teljesítése során hiba történt. Kérjük próbálkozzon újra
   decidim:
     forms:
       admin:
