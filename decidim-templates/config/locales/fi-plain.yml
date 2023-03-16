@@ -13,19 +13,19 @@ fi-pl:
       templates:
         apply:
           error: Mallipohjan käyttöönotto epäonnistui.
-          success: Mallipohjan käyttöönotto onnistui
+          success: Mallipohjan käyttöönotto onnistui.
         copy:
           error: Mallipohjan kopiointi epäonnistui.
-          success: Mallipohjan kopiointi onnistui
+          success: Mallipohjan kopiointi onnistui.
         create:
           error: Mallipohjan luonti epäonnistui.
-          success: Mallipohjan luonti onnistui
+          success: Mallipohjan luonti onnistui.
         destroy:
-          success: Mallipohjan poistaminen onnistui
+          success: Mallipohjan poisto onnistui.
         empty: Mallipohjia ei ole vielä lisätty.
         update:
           error: Mallipohjan päivitys epäonnistui.
-          success: Mallipohjan päivitys onnistui
+          success: Mallipohjan päivitys onnistui.
       titles:
         template_types:
           questionnaires: Kyselymallit
@@ -59,7 +59,7 @@ fi-pl:
             skip_template: Ohita
           edit:
             edit: Muokkaa
-            empty: Kysymyksiä ei ole vielä
+            empty: Kysymyksiä ei ole vielä.
             questionnaire: Kysely
           form:
             save: Tallenna
