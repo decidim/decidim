@@ -51,12 +51,6 @@ eu:
         title: Ekintzak
       admin:
         budgets:
-          create:
-            invalid: Errorea gertatu da proiektu hau sortzean
-            success: Aurrekontua zuzen sortu da
-          destroy:
-            invalid: Errorea gertatu da aurrekontu hau ezabatzean
-            success: Aurrekontua zuzen ezabatu da
           edit:
             title: Editatu aurrekontua
             update: Eguneratu aurrekontua
@@ -69,9 +63,6 @@ eu:
           new:
             create: Sortu aurrekontua
             title: Aurrekontu berri bat
-          update:
-            invalid: Arazoa gertatu da aurrekontu hau eguneratzean
-            success: Aurrekontua zuzen eguneratu da
         exports:
           projects: Proiektuak
         models:
@@ -80,11 +71,6 @@ eu:
           project:
             name: Proiektua
         projects:
-          create:
-            invalid: Arazo bat izan da proiektu hau sortzean
-            success: Proiektua ongi sortu da
-          destroy:
-            success: Proiektua behar bezala ezabatu da
           edit:
             title: Editatu proiektua
             update: Eguneratu
@@ -105,24 +91,14 @@ eu:
           new:
             create: Sortu
             title: Proiektu berria
-          update:
-            invalid: Arazo bat izan da proiektu hau eguneratzean
-            success: Proiektua zuzen eguneratu da
-          update_category:
-            select_a_category: Mesedez, hautatu kategoria bat
-            select_a_project: Mesedez, hautatu proiektu bat
           update_selected:
             invalid:
               selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
               unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
-            select_a_selection: Hautatu gauzatzearen egoera
             success:
               selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
               unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
         proposals_imports:
-          create:
-            invalid: Arazo bat izan da proiektuen proposamenak inportatzea
-            success: "%{number} proposamen arrakastaz proiektuak inportatu"
           new:
             create: Inportatu proposamenak proiektuetarako
             no_components: Proposamenak proiektuetan inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
@@ -144,9 +120,6 @@ eu:
         close_modal: Itxi modala
         continue: Jarraitu
         more_information: Informazio gehiago
-      budget_list_item:
-        voting_finished: Eman duzu botoa proiektu honetan
-        voting_started: Hasi zara botoa ematen proiektu honetan
       budgets_list:
         cancel_order:
           more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
@@ -158,7 +131,6 @@ eu:
         progress: Amaitu bozketa
         show: Ikusi proiektuak
         vote: Eman botoa
-        voted_on: Botoa eman duzu hemen %{links}
       limit_announcement:
         limit_reached: Badituzu botoak aktibo hemen %{links}. Aurrekontu honetan botoa emateko <a href="%{landing_path}">ezabatu behar duzu zure botoa eta berriro hasi</a>.
       models:
@@ -254,8 +226,6 @@ eu:
           random: Ausazko ordena
           selected: Hautatua
         project:
-          add: Gehitu %{resource_name} proiektua zure botoari
-          remove: Ezabatu %{resource_name} proiektua zure bototik
           selected: Hautatua
           view: ikusi
           votes:
@@ -264,9 +234,7 @@ eu:
           you_voted: Honen aldeko botoa eman duzu
         project_budget_button:
           add: Gehitu zure botoari
-          add_descriptive: Gehitu %{resource_name} proiektua zure botoari
           added: Gehituta zure botoari
-          added_descriptive: '%{resource_name} proiektua zure botoari gehitu zaio'
         projects_for: '%{name} ren prozesuak'
         show:
           budget: Aurrekontua
@@ -282,10 +250,6 @@ eu:
             announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (uzti 0 defektuz konfigurazioa mantendu nahi baduzu)
-            form:
-              errors:
-                budget_voting_rule_only_one: Gutxienez arau bat aktibatu behar da bozketarako
-                budget_voting_rule_required: Arau bat behar da bozketarako
             landing_page_content: Aurrekontuen hasierako orria
             more_information_modal: '"Informazio gehiago"ren modala'
             projects_per_page: Orrialde bakoitzeko proiektuak
@@ -325,13 +289,6 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
           email_subject: '%{resource_title} osagaia orain aktibo dago %{participatory_space_title} rentzat.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> aurrekontua aktibo dago hemen %{participatory_space_title}.
-    orders:
-      checkout:
-        error: Errorea gertatu da zure botoa prozesatzean
-        success: Zure botoa ongi bideratu da
-      destroy:
-        error: Errorea gertatu da zure botoa ezeztatzean
-        success: Zure botua zuzen ezeztatu da
     resource_links:
       included_proposals:
         project_proposal: Proiektu honetan sartuta dauden proposamenak
