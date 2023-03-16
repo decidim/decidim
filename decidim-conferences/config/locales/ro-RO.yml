@@ -69,12 +69,6 @@ ro:
         email: E-mail
         name: Nume
         role: Rol
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Acest e-mail a fost deja invitat
   activerecord:
     models:
       decidim/conference:
@@ -460,7 +454,6 @@ ro:
           main_promotors: Organizatori
         show:
           login_as: Ești contectat ca %{name} <%{email}>
-          make_conference_registration: Înscrieți-vă la conferință
           register: Inregistrare
       content_blocks:
         highlighted_conferences:
@@ -468,11 +461,6 @@ ro:
       index:
         title: Conferințe
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Înregistrarea conferinței dvs. a fost confirmată
-          pending_validation:
-            subject: Înregistrarea conferinței dvs. este în curs de confirmare
         invite_join_conference_mailer:
           invite:
             subject: Invitație de a participa la o conferință
@@ -556,10 +544,6 @@ ro:
           contextual: "<p>O <strong>conferință</strong> reprezintă un set de întâlniri organizate în cadrul unui program, cu un grup de persoane invitate ca vorbitori, precum și alte informații tipice marilor congrese sau evenimente sociale (modalitatea de înregistrare, lista organizațiilor care sponsorizează evenimentul etc).</p> <p>Exemple: O conferință poate fi un eveniment relevant pentru o organizație și membrii acesteia; sau să se desfășoare ca parte a unui proces participativ sau în urma unei consultări.</p>\n"
           page: "<p>O <strong>conferință</strong> reprezintă un set de întâlniri organizate în cadrul unui program, cu un grup de persoane invitate ca vorbitori, precum și alte informații tipice marilor congrese sau evenimente sociale (modalitatea de înregistrare, lista organizațiilor care sponsorizează evenimentul etc).</p> <p>Exemple: O conferință poate fi un eveniment relevant pentru o organizație și membrii acesteia; sau să se desfășoare ca parte a unui proces participativ sau în urma unei consultări.</p>\n"
           title: Ce sunt conferinţele?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Conferința nu a fost găsită în baza de date (ID: %{id})'
     media:
       index:
         description: Legături despre această conferință
