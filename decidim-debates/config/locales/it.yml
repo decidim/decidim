@@ -204,7 +204,6 @@ it:
           email_intro: 'Ora puoi iniziare nuovi dibattiti su %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Discussioni ora disponibili in %{participatory_space_title}
-          notification_title: Ora puoi iniziare <a href="%{resource_path}">nuovi dibattiti</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'La discussione "%{resource_title}" si è conclusa. Puoi leggere le conclusioni sulla pagina:'
