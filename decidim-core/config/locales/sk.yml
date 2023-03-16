@@ -159,10 +159,8 @@ sk:
         amended_by: Zmenil
         button: Zmena %{model_name}
         error: Pri zmene tohto zdroja sa vyskytla chyba.
-        help_text: Zlepšite tento %{model_name} zmenou jeho %{amendable_fields}
         promote_button: Propagujte na %{model_name}
         promote_confirm_text: Naozaj chcete túto emisiu podporiť?
-        promote_help_text: Túto zmenu môžete propagovať a publikovať ju ako nezávislú%{model_name}
         section_heading: Zmeny (%{count})
       compare_draft:
         continue: Pokračovať
@@ -201,26 +199,16 @@ sk:
         modify: Zmeniť
         publish: Publikovať
         title: Publikovať pozmeňovací návrh
-      promoted:
-        error: Došlo k chybe pri propagovaní emendace
-        success: Úprava bola úspešne podporovaná
       publish_draft:
         error: Pri publikovaní pozmeňovacieho návrhu došlo k chybe.
         success: doplňujúci návrh úspešne publikovaný
-      rejected:
-        error: Pri odmietnutie tejto zmeny došlo k chybe. Skúste to znova neskôr
-        success: EMEND bola úspešne odmietnutá
       review:
         back: Zadná
         heading: Preskúmajte pozmeňovací návrh
-        help_text: skúmajú zmenu%{model_name}
         send: Prijať pozmeňovací návrh
       update_draft:
         error: Pri aktualizácii pozmeňovacieho návrhu sa vyskytol problém.
         success: Pozmeňovací návrh bol úspešne aktualizovaný.
-      withdraw:
-        error: Pri stiahnutí pozmeňovacieho návrhu došlo k chybe
-        success: Pozmeňovací návrh bol úspešne stiahnutý
       wizard_step_form:
         steps:
           '1': Vytvorte svoj pozmeňovací návrh
@@ -248,13 +236,11 @@ sk:
         other: podpory
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Overte si zavedením čísla pasu začínajúcim písmenom "A"
         fields:
           passport_number: Číslo pasu
           postal_code: Poštové smerovacie číslo
         name: Ďalší príklad oprávnenia
       dummy_authorization_handler:
-        explanation: Overte sa zavedením čísla dokumentu končiaceho "X"
         fields:
           document_number: Číslo dokumentu
           postal_code: Poštové smerovacie číslo
@@ -290,8 +276,6 @@ sk:
           explanation: Ak chcete vykonať túto akciu, musíte byť autorizovaní pomocou "%{authorization}".
           title: Je potrebná autorizácia
         pending:
-          explanation: Ak chcete vykonať túto akciu, musíte byť autorizovaní "%{Authorization}", ale vaše oprávnenie stále prebieha
-          resume: Skontrolujte autorizáciu "%{Authorization}"
           title: Autorizácia stále prebieha
         unauthorized:
           ok: OK
@@ -370,16 +354,10 @@ sk:
         name: Štatistiky organizácie
       sub_hero:
         name: Pruh pod hlavným pruhom
-    core:
-      actions:
-        login_before_access: Prosím prihláste sa k účtu pred prístupom
-        unauthorized: Nemáte povolenie na vykonanie tejto akcie
     datepicker:
       help_text: 'Očakávaný formát:%{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Iný účet používa rovnakú e-mailovú adresu
         new:
           complete_profile: Kompletné profil
           sign_up: Prosím, vyplňte svoj profil
@@ -403,8 +381,6 @@ sk:
         new:
           are_you_new?: Ste na tejto platforme noví?
           register: Vytvoriť účet
-          sign_in_disabled: Môžete pristupovať pomocou externého účtu
-          sign_up_disabled: Registrácia je zakázaná, k prístupu môžete použiť existujúci účet
       shared:
         newsletter_modal:
           buttons:
@@ -419,7 +395,6 @@ sk:
           authorize: Povoliť aplikáciu
           by_organization_link_html: <small class = "heading-small"> podľa %{link} </ small>
           cancel: Zrušiť
-          connect_your_account_html: Pripojte svoj účet prihlásením k <strong>%{organization} </strong>
           publish_content: Publikujte obsah pre vás
           see_email: Pozrite sa na svoj e-mail
           see_name: Zobrazte svoje meno
@@ -646,17 +621,8 @@ sk:
       index:
         invite: Pozvať
         invite_user: Pozvať užívateľa
-      invite:
-        error: Došlo k chybe pri pozvanie tohto používateľa
-        success: Užívateľ pozvaný úspešne
-      reject:
-        error: Došlo k chybe odmietnutie tejto pozvánky
-        success: Pozvánka bola úspešne zamietnutá
       reject_invitation: Odmietnuť
     group_members:
-      accept:
-        error: Pri prijímaní tejto žiadosti o spojenie došlo k chybe
-        success: Žiadosť úspešne prijatá
       actions:
         are_you_sure: Ste si istí?
         promote_to_admin: Urobiť adminom
@@ -664,36 +630,20 @@ sk:
       index:
         current_members_without_admins: 'Aktuálne členovia (bez administrátorov):'
         manage_members: Správa členov
-      promote:
-        error: Došlo k chybe pri propagácii tohto používateľa
-        success: Užívateľ úspešne povýšený
-      reject:
-        error: Pri odobratí tejto žiadosti o spojenie došlo k chybe
-        success: Žiadosť úspešne odmietnutá
-      remove:
-        error: Pri odobratí tohto užívateľa zo skupiny došlo k chybe
-        success: Užívateľ bol zo skupiny úspešne odstránený
     groups:
       actions:
         are_you_sure: Ste si istí?
-      create:
-        error: Pri vytváraní skupiny sa vyskytol problém
-        success: Skupina bola úspešne vytvorená
       edit:
         edit_user_group: Upraviť skupinu
         update_user_group: Aktualizovať skupinu
       form:
-        document_number_help: Nepoužívejte pomlčky ani mezery
         email_help: E-mail vaší organizace, asociace, kolektivu, skupiny atd.
         fill_in_for_verification: 'Pokud chcete ověřit vaši skupinu, vyplňte tato pole:'
         name_help: Název vaší organizace, sdružení, kolektivu, skupiny atd.
         nickname_help: Uživatelské jméno vaší organizace, asociace, kolektivní skupiny, atd. Nepoužívejte mezery ani diakritické znaménka.
-        phone_help: Nepoužívejte pomlčky ani mezery
       join:
-        error: Do skupiny došlo k problému
         success: Požadavek na spojení byl úspěšně vytvořen. Před tím, než vás přijme do skupiny, admin přezkoumá vaši žádost.
       leave:
-        error: Při opouštění skupiny došlo k problému
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
@@ -706,15 +656,11 @@ sk:
       roles:
         admin: Správca
         member: Člen
-      update:
-        error: Pri aktualizácii skupiny došlo k problému
-        success: Skupina bola úspešne aktualizovaná
     help:
       main_topic:
         default_page:
           content: "<p>V %{organization} sa môžete zúčastniť a rozhodnúť sa o rôznych témach cez miesta, ktoré vidíte v hornom menu: procesy, zhromaždenie, iniciatívy, konzultácie. </ p> <p> V rámci každej z nich nájdete rôzne možnosti účasti: urobiť návrhy - jednotlivo alebo s inými ľuďmi -, zúčastňovať sa na diskusiách, uprednostňovať realizáciu projektov, zúčastniť sa osobných stretnutí a ďalších akcií. </p>"
           title: Čo môžem robiť v %{organization}?
-        description: Prečítajte si viac o %{organization}
         title: Všeobecná nápoveda
     last_activities:
       activities:
@@ -752,12 +698,10 @@ sk:
         new_conversation:
           greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} zahájil novú diskusiu s vami. Kliknite sem pre zobrazenie:"
-          outro: Užite si rozhodovanie!
           subject: "%{sender} začal s vami konverzovať"
         new_message:
           greeting: Dobrý deň, %{recipient}!
           intro: "%{sender} poslala nové správy vo vašej konverzácii. Kliknite sem pre ich zobrazenie:"
-          outro: Užite si rozhodovanie!
           subject: Máte nové správy od %{sender}
       conversations:
         add_conversation_users:
@@ -765,13 +709,9 @@ sk:
           add_users_placeholder: Hľadať...
           modal_title: Nová konverzácia
           no_results: Žiadne výsledky
-          participant_with_disabled_message_reception: Tento účastník zablokoval prijímanie správ
-        create:
-          error: Konverzace se nespustí. Zkuste to později znovu
         index:
           new_conversation: Nová konverzácia
           next: Nasledujúce
-          no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         show:
           chat_with: Konverzácia s
@@ -897,8 +837,6 @@ sk:
         accept:
           error: Pri prijímaní zmluvných podmienok došlo k chybe.
           success: Skvelý! Súhlasíte s podmienkami.
-        form:
-          legend: Souhlasíte s podmínkami používání
         refuse:
           modal_btn_continue: Prijmite termíny a pokračujte
           modal_btn_exit: Neskôr to preskúmam
@@ -911,11 +849,8 @@ sk:
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
     profile:
-      deleted: Vymazaný užívateľ
       view: Pohľad
     profiles:
-      default_officialization_text_for_user_groups: Táto skupina užívateľov je verejne overená a jej názov bol overený tak, aby zodpovedal skutočnému mene
-      default_officialization_text_for_users: Tento účastník je verejne overený, jeho meno alebo rola boli overené tak, aby zodpovedali jeho skutočnému mene a úlohu
       show:
         activity: Aktivita
         badges: Odznaky
@@ -929,11 +864,9 @@ sk:
           info: Odznaky získate za určité aktivity a účasť na platforme.
           title: Odznaky
       user:
-        confirmation_instructions_sent: Boli odoslané pokyny pre potvrdenie e-mailu
         create_user_group: Vytvoriť skupinu
         edit_profile: Editovať profil
         edit_user_group: Upraviť profil skupiny
-        fill_in_email_to_confirm_it: Vyplňte e-mail svojej skupiny a na potvrdenie
         invite_user: Pozvať užívateľa
         join_user_group: Žiadosť o pripojenie k skupine
         leave_user_group: Opustiť skupinu
