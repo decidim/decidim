@@ -36,10 +36,8 @@ cs:
           before_date_info: Užitečné, pokud již proces začal a chcete zrušit oprávnění z předchozího procesu.
           button: Zrušit vše
           button_before: Zrušit před datem
-          destroy_nok: Při rušení autorizace došlo k chybě.
           destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny.
           info: Celkem je %{count} ověřených účastníků.
-          no_data: Žádní ověření účastníci
           title: Zrušení autorizace
         authorization_workflows: Autorizace
     admin_log:
@@ -49,10 +47,6 @@ cs:
         grant_id_documents_offline_verification: "%{user_name} ověřil %{resource_name} pomocí offline autorizace dokladů totožnosti"
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - Správci nahrají CSV s e-maily přijatých účastníků
-            - Ověřit se mohou pouze účastníci s e-mailem v tomto souboru CSV
         id_documents:
           help:
             - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
@@ -66,17 +60,14 @@ cs:
             - Označte dopis jako odeslaný.
             - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
       csv_census:
-        explanation: Získejte ověření pomocí členství v organizaci
         name: Členství organizace
       direct: Přímo
       help: Pomoc
       id_documents:
-        explanation: Nahrajte své doklady totožnosti, abychom mohli ověřit vaši totožnost
         name: Doklady totožnosti
       multistep: Více kroků
       name: název
       postal_letter:
-        explanation: Pošleme vám poštovní dopis s kódem, který budete muset zadat, abychom mohli ověřit vaši adresu
         name: Kód v listovní zásilce
     events:
       verifications:
@@ -123,7 +114,6 @@ cs:
         renew_modal:
           cancel: Zrušit
           continue: Pokračovat
-          info_renew: Pokud chcete aktualizovat data, pokračujte obnovením
           title: Obnovit ověření
         skip_verification: Můžete to přeskočit nyní a %{link}
         start_exploring: začít zkoumat
@@ -132,13 +122,9 @@ cs:
           census:
             create:
               error: Při importu členů organizace došlo k chybě.
-              success: Úspěšně importováno %{count} položek (%{errors} chyb)
-            destroy_all:
-              success: Všechna data členů organizace byly smazány
           destroy:
             title: Smazat všechna data členství organizace
           index:
-            data: Celkem načteno %{count} záznamů. Poslední datum načtení bylo %{due_date}
             empty: Nejsou data o členech organizace. Pomocí níže uvedeného formuláře je importujte souborem CSV.
             title: Aktuální údaje o členech organizace
           instructions:
@@ -178,17 +164,12 @@ cs:
               update: Aktualizace
             update:
               error: Při aktualizaci konfigurace došlo k chybě.
-              success: Konfigurace byla úspěšně aktualizována
           confirmations:
-            create:
-              success: Uživatel úspěšně ověřen
             new:
               introduce_user_data: Vložte data do obrázku
               reject: Odmítnout
               verify: Ověřte
           offline_confirmations:
-            create:
-              success: Uživatel úspěšně ověřen
             new:
               cancel: Zrušit
               introduce_user_data: Zadejte e-mail uživatele a data dokumentu
@@ -199,32 +180,19 @@ cs:
               offline_verification: Ověření offline
               title: Čekající ověření online
               verification_number: 'Ověření #%{n}'
-          rejections:
-            create:
-              success: Ověření bylo zamítnuto. Uživatel bude vyzván, aby změnil své dokumenty
         authorizations:
           choose:
             choose_a_type: 'Vyberte, jak chcete ověřit:'
             offline: Offline
             online: Online
             title: Ověřte svou identitu
-          create:
-            error: Při nahrávání dokumentu došlo k potížím
-            success: Dokument byl úspěšně nahrán
           edit:
-            being_reviewed: Kontrolujeme vaše dokumenty. Budete brzy ověřeni
             offline: Použijte ověření offline
             online: Používejte ověření online
-            rejection_clarity: Ujistěte se, že informace jsou v nahraném obrázku jasně viditelné
-            rejection_correctness: Ujistěte se, že zadané informace jsou správné
-            rejection_notice: Při ověřování došlo k potížím. Prosím zkuste to znovu
             send: Znovu požádejte o ověření
           new:
             send: Požádejte o ověření
             title: Nahrajte svůj doklad totožnosti
-          update:
-            error: Při načítání dokumentu došlo k problému
-            success: Dokument byl úspěšně obnoven
         dni: Občanský průkaz
         nie: Daňové identifikační číslo
         passport: Cestovní pas
@@ -239,29 +207,14 @@ cs:
               title: Probíhající ověřování
               username: Uživatelské jméno
               verification_code: Ověřovací kód
-          postages:
-            create:
-              error: Chyba při označování dopisu
-              success: Písmeno bylo úspěšně označeno jako odesláno
         authorizations:
-          create:
-            error: Při vašem požadavku došlo k potížím
-            success: Dík! Na vaši adresu vám zašleme ověřovací kód
           edit:
             send: Potvrdit
-            title: Zadejte ověřovací kód, který jste obdrželi
-            waiting_for_letter: Brzy pošleme dopis na Vaši adresu s Vaším ověřovacím kódem
           new:
             send: Pošlete mi dopis
             title: Požádejte o ověřovací kód
-          update:
-            error: Váš ověřovací kód se neshoduje s naším. Zkontrolujte prosím SMS, kterou jsme vám poslali
-            success: Gratulujeme. Byl jste úspěšně ověřen
       sms:
         authorizations:
-          create:
-            error: Při vašem požadavku došlo k potížím
-            success: Dík! Do telefonu jsme poslali SMS.
           destroy:
             success: Ověřovací kód úspěšně resetovat. Opět zadejte své telefonní číslo.
           edit:
