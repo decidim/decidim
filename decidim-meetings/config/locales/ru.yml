@@ -23,17 +23,6 @@ ru:
         registrations_enabled: Регистрация включена
         title: Название
         transparent: Прозрачная
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Продолжительность всех вопросов превышает продолжительность встречи на %{count} минут
-              too_many_minutes_child: Продолжительность вложенных вопросов превышает продолжительность общего вопроса «%{parent_title}» на %{count} минут
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Участник с таким адресом уже приглашен
     models:
       decidim/meetings/close_meeting_event: Встреча закрыта
       decidim/meetings/create_meeting_event: Встреча
@@ -163,9 +152,6 @@ ru:
             down: Вниз
             remove: Удалить
             up: Вверх
-          create:
-            invalid: При попытке создать эту повестку дня произошла ошибка
-            success: Повестка дня успешно создана
           edit:
             title: Изменить повестку дня
             update: Обновить
@@ -177,9 +163,6 @@ ru:
           new:
             create: Создать
             title: Создать повестку дня
-          update:
-            invalid: При попытке обновить эту повестку дня произошла ошибка
-            success: Повестка дня успешно обновлена
         exports:
           meetings: Встречи
           registrations: Регистрации
@@ -214,11 +197,6 @@ ru:
             close: Закрыть
             title: Закрыть встречу
         meetings:
-          close:
-            invalid: При попытке закрыть эту встречу произошла ошибка
-            success: Встреча успешно завершена
-          create:
-            invalid: При попытке добавить эту встречу произошла ошибка
           destroy:
             success: Встреча успешно удалена
           edit:
@@ -238,9 +216,6 @@ ru:
           services:
             add_service: Добавить услугу
             services: Услуги
-          update:
-            invalid: При попытке обновить эту встречу произошла ошибка
-            success: Встреча успешно обновлена
         models:
           meeting:
             name: Встреча
@@ -290,8 +265,6 @@ ru:
         registration_mailer:
           confirmation:
             subject: Ваша регистрация на встречу подтверждена
-      meeting:
-        not_allowed: У вас нет прав на просмотр этой встречи
       meetings:
         filters:
           category: Категория
