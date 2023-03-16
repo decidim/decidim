@@ -23,17 +23,6 @@ lv:
         registrations_enabled: Reģistrācijas ir iespējotas
         title: Nosaukums
         transparent: Caurskatāms
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Darba kārtības jautājumu ilgums pārsniedz sanāksmes ilgumu par %{count} minūtēm
-              too_many_minutes_child: No darba kārtības atvasinātie jautājumi pārsniedz sākotnējo jautājumu "%{parent_title}" ilgumu par %{count} minūtēm.
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Šis e-pasta konts jau ir uzaicināts
     models:
       decidim/meetings/close_meeting_event: Sanāksme slēgta
       decidim/meetings/create_meeting_event: Sanāksme
@@ -162,9 +151,6 @@ lv:
             down: Lejup
             remove: Noņemt
             up: Augšup
-          create:
-            invalid: Šīs darba kārtības izveides laikā radās problēma
-            success: Darba kārtība ir veiksmīgi izveidota
           edit:
             title: Rediģēt darba kārtību
             update: Atjaunināt
@@ -176,9 +162,6 @@ lv:
           new:
             create: Izveidot
             title: Jauna darba kārtība
-          update:
-            invalid: Šīs darba kārtības atjaunināšanas laikā radās problēma
-            success: Darba kārtība ir veiksmīgi atjaunināta
         exports:
           meetings: Sanāksmes
           registrations: Reģistrācija
@@ -213,11 +196,6 @@ lv:
             close: Aizvērt
             title: Slēgt sanāksmi
         meetings:
-          close:
-            invalid: Šīs sanāksmes slēgšanas laikā radās problēma
-            success: Sanāksme ir veiksmīgi slēgta
-          create:
-            invalid: Šīs sanāksmes izveides laikā radās problēma
           destroy:
             success: Sanāksme ir veiksmīgi izdzēsta
           edit:
@@ -240,9 +218,6 @@ lv:
           services:
             add_service: Pievienot pakalpojumu
             services: Pakalpojumi
-          update:
-            invalid: Šīs sanāksmes atjaunināšanas laikā radās problēma
-            success: Sanāksme ir veiksmīgi atjaunināta
         models:
           meeting:
             name: Sanāksme
@@ -302,8 +277,6 @@ lv:
         registration_mailer:
           confirmation:
             subject: Jūsu sanāksmes reģistrācija ir apstiprināta
-      meeting:
-        not_allowed: Jums nav atļauts skatīt šo sanāksmi
       meetings:
         filters:
           category: Kategorija
