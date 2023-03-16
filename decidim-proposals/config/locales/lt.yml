@@ -225,10 +225,8 @@ lt:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“. Patikrinkite tai <a href="%{admin_proposal_info_url}">administratoriaus srityje</a>
             email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
             email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
-            notification_title: Kažkas paliko pastabą dėl pasiūlymo <a href="%{resource_path}">%{resource_title}</a>. Peržiūrėkite ją <a href="%{admin_proposal_info_path}">administratoriaus srityje</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} buvo priimtas kaip <a href="%{resource_url}">%{resource_title}</a> bendradarbiavimo juodraščio bendradarbis.'
           email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
@@ -263,12 +261,10 @@ lt:
           email_intro: 'Dabar galite kurti naujus pasiūlymus %{participatory_space_title}! Pradėti dalyvauti šiame puslapyje:'
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: Dabar su pasiūlymais galima susipažinti in %{participatory_space_title}
-          notification_title: Dabar galite pateikti <a href="%{resource_path}">naujų pasiūlymų </a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Galite pritarti pasiūlymams %{participatory_space_title}! Pradėkite dalyvauti šiame puslapyje:'
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: Pritarimas pasiūlymams %{participatory_space_title} prasidėjo
-          notification_title: Dabar galite pradėti <a href="%{resource_path}">pritarti pasiūlymams</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Jūsų pasiūlymas "%{resource_title}" priimtas. Atsakymą galite perskaityti šiame puslapyje:'
@@ -305,8 +301,6 @@ lt:
           email_intro: Erdvėje „%{participatory_space_title}“, kurią sekate, pridėtas pasiūlymas „%{resource_title}“.
           email_outro: Šį pranešimą gavote dėl to, kad sekate „%{participatory_space_title}“. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: '%{participatory_space_title} pridėtas naujas pasiūlymas „%{resource_title}“'
-          notification_title: '%{author} dalyvaujamojoje erdvėje %{participatory_space_title} pridėjo pasiūlymą <a href="%{resource_path}">%{resource_title}</a>'
-          notification_title_official: Erdvėje %{participatory_space_title} pridėtas oficialus pasiūlymas <a href="%{resource_path}">%{resource_title}</a>
         proposal_rejected:
           affected_user:
             email_intro: 'Jūsų pasiūlymas „%{resource_title}“ atmestas. Atsakymą galite perskaityti šiame puslapyje:'
@@ -463,21 +457,12 @@ lt:
             rejected: Atmesta
             title: Atsakymai į %{title} pasiūlymą
         proposal_notes:
-          create:
-            error: Kuriant šią pastabą prie pasiūlymo iškilo problema
-            success: Pastaba prie pasiūlymo sukurta
           form:
             note: Pastaba
             submit: Pateikti
           leave_your_note: Palikite pastabą
           title: Privačios pastabos
         proposals:
-          answer:
-            invalid: Atsakant į šį pasiūlymą iškilo problema
-            success: Į pasiūlymą atsakyta
-          create:
-            invalid: Kuriant šį pasiūlymą iškilo problema
-            success: Pasiūlymas sukurtas
           edit:
             title: Atnaujinti pasiūlymą
             update: Atnaujinti
@@ -553,9 +538,6 @@ lt:
             select_a_scope: Pasirinkite apimtį
             success: 'Pasiūlymai sėkmingai atnaujinti į %{subject_name} sritį: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Importuojant pasiūlymus iškilo problema
-            success: "%{number} pasiūlymai (-ų) importuoti"
           new:
             create: Importuoti pasiūlymus
             no_components: Šioje dalyvaujamojo proceso erdvėje nėra kitų pasiūlymų komponentų, iš kurių būtų galima importuoti pasiūlymus.
@@ -570,13 +552,6 @@ lt:
           create:
             invalid: 'Iškilo problema skaidant pasirinktus pasiūlymus, nes kai kurie iš jų:'
             success: Pasiūlymai išskaidyti į naujus.
-        valuation_assignments:
-          create:
-            invalid: Pavedant pasiūlymus vertintojui įvyko klaida
-            success: Pasiūlymai pavesti vertintojui
-          delete:
-            invalid: Naikinant vertintojui pavestus pasiūlymus įvyko klaida
-            success: Vertintojas sėkmingai pašalintas nuo pasiūlymų
       admin_log:
         proposal:
           answer: "%{user_name} atsakė į pasiūlymą %{resource_name} %{space_name} erdvėje"
@@ -857,8 +832,6 @@ lt:
         proposal:
           creation_date: 'Sukūrimo data: %{date}'
           view_proposal: Žiūrėti pasiūlymą
-        proposals:
-          empty: Pasiūlymų dar nėra
         show:
           answer: Atsakymas
           back_to: Grįžti į
@@ -915,8 +888,6 @@ lt:
             supports_remaining: Kad į jūsų balsus būtų atsižvelgta, turite paremti dar %{remaining_votes} pasiūlymus (-ų).
           proposal_limit:
             description: Galite parengti iki %{limit} pasiūlymų.
-          threshold_per_proposal:
-            description: Kad pasiūlymai būtų priimti, jie turi surinkti %{limit} balsų
           title: 'Paramai taikomos šios taisyklės:'
           vote_limit:
             description: Galite paremti iki %{limit} pasiūlymų.
