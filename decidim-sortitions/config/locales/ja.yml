@@ -60,9 +60,6 @@ ja:
             title: 並べ替えのキャンセル
           create:
             error: 新しいソートの作成中に問題が発生しました。
-            success: ソートが正常に作成されました
-          destroy:
-            success: 並べ替えをキャンセルしました
           edit:
             title: 並べ替えに関する情報を更新する
             update: 更新
@@ -79,7 +76,6 @@ ja:
             selected_proposals: ドローのために選択された提案
           update:
             error: ソートの更新に問題がありました。
-            success: ソートが正常に更新されました
       admin_log:
         sortition:
           create: "%{user_name} が %{resource_name} で %{space_name}ソートを作成しました"
