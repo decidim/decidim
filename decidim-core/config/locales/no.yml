@@ -201,10 +201,8 @@
         amended_by: Endret av
         button: Endre %{model_name}
         error: Det oppsto feil under endringen av denne resurssen.
-        help_text: Forbedre denne %{model_name} med å modifisere %{amendable_fields}
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil forfremme denne emendasjonen?
-        promote_help_text: Du kan nå promotere denne emendasjonen og publisere den uavhengig %{model_name}
         section_heading: Endringer (%{count})
       compare_draft:
         continue: Fortsett
@@ -243,26 +241,16 @@
         modify: Endre
         publish: Publiser
         title: Publiser endrings utkast
-      promoted:
-        error: Det oppsto et problem under publiseringen av endringen som et nytt forslag
-        success: Endringen ble publisert som et nytt forslag
       publish_draft:
         error: Det oppsto et problem under publiseringen av endringen.
         success: Endringen ble publisert.
-      rejected:
-        error: Det oppsto et problem med å avslå endringen, vennligst prøv igjen senere
-        success: Endringen ble avslått
       review:
         back: Tilbake
         heading: Anmeld endringen
-        help_text: Du andmelder en endring til %{model_name}
         send: Godta endring
       update_draft:
         error: Det oppsto et problem med å oppdatere endrings utkastet.
         success: Endrings utkastet ble oppdatert.
-      withdraw:
-        error: Et problem oppsto under tilbaketrekningen av endringen
-        success: Endringen ble tilbaketrukket
       wizard_step_form:
         steps:
           '1': Opprett endringen din
@@ -290,13 +278,11 @@
         other: tilslutninger
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Bli verifisert med å introdusere et passnummer som starter med "A"
         fields:
           passport_number: Pass nummer
           postal_code: Postnummer
         name: Et annet eksempel autorisering
       dummy_authorization_handler:
-        explanation: Bli verifisert med å introdusere et dokumentnummer som starter med "X"
         fields:
           allowed_postal_codes: Godkjente postnr (adskilt med komma)
           allowed_scope_id: Tillatt tema
@@ -336,11 +322,7 @@
           authorize: Autoriser med "%{authorization}"
           explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}".
           title: Autorisering påkrevet
-        ok:
-          title: Du har blitt autorisert etter du gikk inn på denne siden. Vennligst oppdater siden for å utføre handlingen din
         pending:
-          explanation: For å utføre denne handlingen, må du autorisere med "%{authorization}", men autoriseringen din er fortsatt i gang
-          resume: Sjekk "%{authorization}" autoriseringen din
           title: Autoriseringen pågår fremdeles
         unauthorized:
           ok: Ok
@@ -439,16 +421,10 @@
         name: Organisasjonsstatistikk
       sub_hero:
         name: Underhelt banner
-    core:
-      actions:
-        login_before_access: Vennligst logg inn med kontoen din før tilgang
-        unauthorized: Du er ikke autorisert til å utføre denne handlingen
     datepicker:
       help_text: 'Forventet format: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: En annen bruker er registrert under samme e-postadresse
         new:
           complete_profile: Fullfør profilen
           nickname_help: Ditt alias i %{organization}, kan bare inneholde bokstaver, tall, '-' og '_'.
@@ -474,8 +450,6 @@
         new:
           are_you_new?: Er du ny på plattformen?
           register: Opprett en konto
-          sign_in_disabled: Du kan få tilgang til med en ekstern konto
-          sign_up_disabled: Registreringen er stoppet, du kan bruke en eksisterende konto for å få tilgang
         user:
           timed_out: Du har vært inaktiv for lenge og du har blitt automatisk logget ut fra tjenesten. Hvis du ønsker å fortsette å bruke tjenesten, vennligst logg på igjen.
       shared:
@@ -493,7 +467,6 @@
           authorize: Autoriser søknad
           by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
-          connect_your_account_html: Koble til kontoen din ved å logge på <strong>%{organization}</strong>
           publish_content: Publiser innhold for deg
           see_email: Se din email
           see_name: Se navnet ditt
@@ -761,17 +734,8 @@
       index:
         invite: Inviter
         invite_user: Inviter en deltaker
-      invite:
-        error: Det oppstod et problem med å invitere denne deltakeren
-        success: Deltakeren ble invitert
-      reject:
-        error: Det oppstod et problem med å avslå denne invitasjonen
-        success: Invitasjonen ble avvist
       reject_invitation: Avvis
     group_members:
-      accept:
-        error: Det oppstod et problem med å godta denne bli med forespørselen
-        success: Bli med forespørsel godtatt
       actions:
         are_you_sure: Er du sikker?
         promote_to_admin: Lag administrator
@@ -779,36 +743,20 @@
       index:
         current_members_without_admins: 'Nåværende medlemmer (uten administratorer):'
         manage_members: Administrere medlemmer
-      promote:
-        error: Det oppstod et problem med å promotere denne deltakeren
-        success: Deltakeren ble promotert
-      reject:
-        error: Det oppstod et problem med å avvise denne bli med forespørselen
-        success: Bli med forespørsel avvist
-      remove:
-        error: Det oppstod et problem med å fjerne denne deltakeren fra gruppen
-        success: Deltakeren ble fjernet fra gruppen
     groups:
       actions:
         are_you_sure: Er du sikker?
-      create:
-        error: Det oppstod et problem med å opprette gruppen
-        success: Gruppe ble opprettet
       edit:
         edit_user_group: Rediger gruppe
         update_user_group: Oppdater gruppe
       form:
-        document_number_help: Ikke bruk streker eller mellomrom
         email_help: E-post til din organisasjon, forening, kollektiv, gruppe osv.
         fill_in_for_verification: 'Fyll ut disse feltene hvis du vil at gruppen din skal bekreftes:'
         name_help: Navn på din organisasjon, forening, kollektiv, gruppe osv.
         nickname_help: Kallenavn til din organisasjon, forening, kollektiv, gruppe, osv. Ikke bruk mellomrom eller aksenter.
-        phone_help: Ikke bruk streker eller mellomrom
       join:
-        error: Det oppstod et problem med å bli med i gruppen
         success: Bli med forespørsel opprettet. En administrator vil gjennomgå forespørselen din før han godtar deg inn i gruppen.
       leave:
-        error: Det oppstod et problem med å forlate gruppen
         success: Gruppen ble forlatt.
       members:
         accept_or_reject_join_requests: 'Følgende brukere har søkt om å bli med i denne gruppen. Godta eller avvis forespørsler:'
@@ -821,15 +769,11 @@
       roles:
         admin: Administrator
         member: Medlem
-      update:
-        error: Det oppstod et problem med å oppdatere gruppen
-        success: Gruppe oppdatert
     help:
       main_topic:
         default_page:
           content: "<p>I %{organization} kan du delta og bestemme forskjellige temaer gjennom mellomrommene du ser i toppmenyen: Prosesser, Forsamlinger, Initiativer, Konsultasjoner.</p> <p>Innenfor hver enkelt finner du forskjellige alternativer for å delta: lage forslag - hver for seg eller med andre mennesker-, delta i debatter, prioritere prosjekter for å implementere, delta på ansikt-til-ansikt møter og andre handlinger.</p>\n"
           title: Hva kan jeg gjøre i %{organization}?
-        description: Les mer om %{organization}
         title: Generell hjelp
     last_activities:
       activities:
@@ -883,35 +827,29 @@
           admin_in_group: Du mottar dette fordi du er en admin i %{group}.
           greeting: Hei %{recipient}!
           intro: "%{manager} har startet en ny samtale for %{group}. Klikk her for å se den:"
-          outro: Kos deg med decidim!
           subject: "%{manager} har startet en ny samtale som %{group}"
         comanagers_new_message:
           admin_in_group: Du mottar dette fordi du er en admin i %{group}.
           greeting: Hei %{recipient}!
           intro: "%{manager} har postet nye meldinger i en samtale for %{group}. Klikk her for å se dem:"
-          outro: Kos deg med decidim!
           subject: "%{manager} har sendt nye meldinger som %{group}"
         new_conversation:
           greeting: Hei %{recipient}!
           intro: "%{sender} har startet en ny samtale med deg. Klikk her for å se den:"
-          outro: Kos deg med desidim!
           subject: "%{sender} har startet en samtale med deg"
         new_group_conversation:
           admin_in_group: Du mottar dette fordi du er en admin i %{group}.
           greeting: Hei %{recipient}!
           intro: "%{sender} har startet en ny samtale med gruppen %{group}. Klikk her for å se den:"
-          outro: Kos deg med decidim!
           subject: "%{sender} har startet en samtale med %{group}"
         new_group_message:
           admin_in_group: Du mottar dette fordi du er en admin i %{group}.
           greeting: Hei %{recipient}!
           intro: "%{sender} har postet nye meldinger i en samtale med gruppen %{group}. Klikk her for å se den:"
-          outro: Kos deg med decidim!
           subject: "%{group} har nye meldinger fra %{sender}"
         new_message:
           greeting: Hei %{recipient}!
           intro: "%{sender} har lagt ut nye meldinger i samtalen din. Klikk her for å se dem:"
-          outro: Kos deg med desidim!
           subject: Du har nye meldinger fra %{sender}
       conversations:
         add_conversation_users:
@@ -919,9 +857,6 @@
           add_users_placeholder: Søk...
           modal_title: Ny Samtale
           no_results: Ingen resultater
-          participant_with_disabled_message_reception: Denne deltakeren har fjernet muligheten for å sende melding
-        create:
-          error: Samtalen har ikke startet. Prøv igjen senere
         error_modal:
           close: Lukk modal
           correct_errors: Vennligst korriger feilene og prøv på nytt.
@@ -931,7 +866,6 @@
           ago: siden
           new_conversation: Ny samtale
           next: Neste
-          no_conversations: Du har ingen samtaler ennå
           title: Samtaler
         show:
           back: Tilbake til alle samtaler
@@ -940,8 +874,6 @@
           title: Samtale med %{usernames}
         start:
           send: Send
-        update:
-          error: Meldingen ble ikke sendt på grunn av en feil
     metrics:
       download:
         csv: Last ned data (CSV)
@@ -1076,7 +1008,6 @@
           success: Flott! Du har godtatt vilkårene for bruk.
         form:
           agreement: Jeg godtar vilkårene
-          legend: Godta vilkårene for bruk
         refuse:
           modal_btn_continue: Aksepter vilkår og fortsett
           modal_btn_exit: Jeg vil vurdere det senere
@@ -1089,12 +1020,9 @@
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
     profile:
-      deleted: Deltakeren slettet
       inaccessible_message: Denne profilen er utilgjengelig på grunn av brudd på vilkår og betingelser!
       view: Vis
     profiles:
-      default_officialization_text_for_user_groups: Denne gruppen er offentlig bekreftet, navnet er bekreftet for å svare til dets virkelige navn
-      default_officialization_text_for_users: Denne deltakeren er verifisert offentlig, hans/hennes navn eller rolle er verifisert for å samsvare med hans/hennes virkelige navn og rolle
       show:
         activity: Aktivitet
         badges: Merker
@@ -1111,11 +1039,9 @@
           info: Merker tjenes med å utføre spesifikke aktivitet i plattformen.
           title: Merker
       user:
-        confirmation_instructions_sent: Email bekreftelse instruksjoner sendt
         create_user_group: Opprett gruppe
         edit_profile: Rediger profil
         edit_user_group: Rediger gruppeprofil
-        fill_in_email_to_confirm_it: Vennligst, fyll ut gruppens email for å bekrefte den
         invite_user: Inviter deltaker
         join_user_group: Forespør om å bli med i gruppen
         leave_user_group: Forlat gruppe
@@ -1270,7 +1196,6 @@
     user_contact_disabled: Denne deltakeren godtar ikke direktemeldinger.
     user_conversations:
       create:
-        error: Meldingen kunne ikke opprettes. Prøv igjen senere
         existing_error: Meldingen kunne ikke opprettes. Samtalen eksisterer allerede, prøv igjen nå.
         success: Samtalen startet vellykket!
       index:
@@ -1285,7 +1210,6 @@
         next: Neste
         no_conversations_warning: Det er ingen samtaler ennå.
         no_results: Ingen resultater
-        participant_with_disabled_message_reception: Denne deltakeren har fjernet muligheten for å motta melding
         time_ago: "%{time} siden"
       new:
         title: Start en samtale
