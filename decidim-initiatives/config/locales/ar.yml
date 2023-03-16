@@ -152,8 +152,6 @@ ar:
           index:
             approve: يوافق
             confirm_revoke: هل أنت واثق؟
-            invite_to_committee_help: شارك هذا الرابط لدعوة مشاركين آخرين إلى لجنة المروجين
-            no_members_yet: لا يوجد أعضاء في لجنة المروجين
             revoke: سحب
             title: أعضاء اللجنة
         content_blocks:
@@ -168,7 +166,6 @@ ar:
             export_votes: توقيعات التصدير
             reject: رفض المبادرة
             send_to_technical_validation: إرسال إلى التحقق الفني
-            success: تم إرسال المبادرة إلى التحقق الفني
             update: تحديث
           form:
             title: معلومات عامة
@@ -176,13 +173,7 @@ ar:
             actions_title: عمل
             preview: معاينة
             print: طباعة
-          update:
-            error: حدث خطأ
-            success: تم تحديث المبادرة بنجاح
         initiatives_type_scopes:
-          create:
-            error: حدث خطأ
-            success: تم إنشاء نطاق جديد لنوع المبادرة المحدد
           destroy:
             success: تمت إزالة النطاق بنجاح
           edit:
@@ -195,15 +186,7 @@ ar:
             back: الى الخلف
             create: إنشاء
             title: إنشاء نطاق نوع المبادرة
-          update:
-            error: حدث خطأ
-            success: تم تحديث النطاق بنجاح
         initiatives_types:
-          create:
-            error: حدث خطأ
-            success: تم إنشاء نوع مبادرة جديد بنجاح
-          destroy:
-            success: تمت إزالة نوع المبادرة بنجاح
           edit:
             confirm_destroy: هل أنت واثق؟
             destroy: حذف
@@ -215,9 +198,6 @@ ar:
           new:
             create: إنشاء
             title: نوع المبادرة الجديدة
-          update:
-            error: حدث خطأ
-            success: تم تحديث نوع المبادرة بنجاح
       admin_log:
         initiative:
           publish: "%{user_name} نشرت المبادرة %{resource_name}"
@@ -241,7 +221,6 @@ ar:
       committee_requests:
         new:
           continue: استمر
-          help_text: أنت على وشك أن تصبح عضوًا في لجنة الترويج لهذه المبادرة
         spawn:
           success: تم إرسال طلبك إلى مؤلف المبادرة.
       content_blocks:
@@ -302,7 +281,6 @@ ar:
             day: يوم
             month: شهر
             year: عام
-          help: يرجى ملء الحقول التالية ببياناتك الشخصية لتوقيع المبادرة
         finish:
           back_to_initiative: العودة إلى المبادرة
         sms_code:
@@ -310,12 +288,9 @@ ar:
           help: تحقق من الرسائل القصيرة المستلمة على هاتفك
         sms_phone_number:
           continue: ارسل لي رسالة
-          help: املأ النموذج برقم هاتفك الذي تم التحقق منه لطلب رمز التحقق
       initiative_votes:
         create:
           error: كانت هناك مشكلة في توقيع المبادرة.
-          invalid: البيانات المقدمة للتوقيع على المبادرة غير صالحة
-          success_html: تهانينا! و <strong> %{title}</strong> تم توقيع المبادرة بنجاح
         personal_data:
           invalid: البيانات الشخصية لا تتفق مع البيانات المقدمة للترخيص.
         sms_phone:
