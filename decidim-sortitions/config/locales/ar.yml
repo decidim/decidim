@@ -67,9 +67,6 @@ ar:
             title: إلغاء التصنيف
           create:
             error: كانت هناك مشكلة في إنشاء فرز جديد.
-            success: تم إنشاء التصنيف بنجاح
-          destroy:
-            success: تم الغاء التصنيف بنجاح
           edit:
             title: تحديث المعلومات حول الفرز
             update: تحديث
@@ -86,7 +83,6 @@ ar:
             selected_proposals: مقترحات مختارة للقرعة
           update:
             error: حدثت مشكلة أثناء تحديث التصنيف.
-            success: تم تحديث التصنيف بنجاح
       admin_log:
         sortition:
           create: "%{user_name} خلق %{resource_name} التصنيف في %{space_name}"
