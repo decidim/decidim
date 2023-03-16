@@ -43,9 +43,6 @@ gl:
       admins:
         create:
           error: Produciuse un erro ao crear un administrador novo.
-          success: O administrador creouse con éxito
-        destroy:
-          success: Administrador eliminado con éxito
         edit:
           title: Editar administrador
           update: Actualizar
@@ -56,7 +53,6 @@ gl:
           title: Novo administrador
         update:
           error: Produciuse un problema ao actualizar este administrador.
-          success: Administrador actualizado con éxito
       dashboard:
         show:
           current_organizations: Organizacións actuais
@@ -144,8 +140,6 @@ gl:
         index:
           title: Organizacións
         new:
-          reference_prefix_hint: O prefixo de referencia utilízase para identificar de forma exclusiva recursos en todas as organizacións
-          secondary_hosts_hint: Entre cada unha delas nunha nova liña
           title: Nova organización
         omniauth_settings:
           decidim:
@@ -168,8 +162,6 @@ gl:
         smtp_settings:
           fieldsets:
             sender: Remitente
-          instructions:
-            from_label: 'O remitente do correo será: "o-nome-da-tua-organizacion <your-organization@example.org>". Deixar baleiro para empregar ''Correo electrónico'' como etiqueta'
           placeholder:
             from_email: a-tua-organizacion@exemplo.org
             from_label: o-nome-da-tua-organizacion
