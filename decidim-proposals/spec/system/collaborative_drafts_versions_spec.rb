@@ -50,7 +50,7 @@ describe "Explore versions", versioning: true, type: :system do
     # it_behaves_like "accessible page"
 
     it "allows going back to the collaborative draft" do
-      click_link "Go back to collaborative draft"
+      click_link "Back"
       expect(page).to have_current_path collaborative_draft_path
     end
 
