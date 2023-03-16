@@ -175,10 +175,8 @@ tr:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Birisi "%{resource_title}" teklifine not bıraktı. <a href="%{admin_proposal_info_url}"> yönetici panelinden </a> kontrol edin
             email_outro: Bu bildirimi, teklifi değerlendirebileceğiniz için aldınız.
             email_subject: Birisi %{resource_title} teklifine not bıraktı.
-            notification_title: Birisi teklif <a href="%{resource_path}">%{resource_title} </a> hakkında bir not bıraktı. <a href="%{admin_proposal_info_path}"> Yönetici panelinden </a> kontrol edin
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name}, %{resource_title} katkı sağlayıcısı olarak erişim için kabul edildi."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname} </a> için <strong> katkıda bulunan </strong> olarak erişim için kabul edildi <a href = "%{resource_path}">%{resource_title} </a> ortak çalışma taslağı.
@@ -201,12 +199,10 @@ tr:
           email_intro: 'Artık %{participatory_space_title} içinde yeni teklifler oluşturabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: Teklifler artık %{participatory_space_title} içinde mevcut
-          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> ’de <a href="%{resource_path}"> yeni teklifler </a> sunabilirsiniz
         endorsing_enabled:
           email_intro: 'Teklifleri %{participatory_space_title} olarak onaylayabilirsiniz! Bu sayfaya katılmaya başlayın:'
           email_outro: Bu bildirimi %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: '%{participatory_space_title} için teklifleri onaylamaya başladı'
-          notification_title: Artık <a href="%{participatory_space_url}">%{participatory_space_title} </a> ’de <a href="%{resource_path}"> teklifleri onaylamaya </a> başlayabilirsiniz
         proposal_accepted:
           affected_user:
             email_intro: '"%{resource_title}" teklifiniz kabul edildi. Cevabı bu sayfada okuyabilirsiniz:'
@@ -380,21 +376,12 @@ tr:
             rejected: Reddedilen
             title: Teklifin cevabı %{title}
         proposal_notes:
-          create:
-            error: Bu teklif notu oluşturulurken bir sorun oluştu.
-            success: Teklif notası başarıyla oluşturuldu
           form:
             note: Not
             submit: Gönder
           leave_your_note: Notunu bırak
           title: Özel notlar
         proposals:
-          answer:
-            invalid: Bu teklife cevap veren bir sorun oluştu
-            success: Teklif başarıyla cevaplandı
-          create:
-            invalid: Bu teklifin oluşturulmasında bir sorun oluştu
-            success: Teklif başarıyla oluşturuldu
           edit:
             title: Teklifi güncelle
             update: Güncelle
@@ -467,9 +454,6 @@ tr:
             select_a_scope: Lütfen bir kapsam seçin
             success: 'Teklifler, %{subject_name} kapsamına başarıyla güncellendi: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Teklifleri içe aktarırken bir sorun oluştu
-            success: "%{number} teklif başarıyla içe aktarıldı"
           new:
             create: Teklifleri içe aktar
             no_components: Teklifleri içe aktarmak için bu katılımcı alanda başka hiçbir teklif bileşeni bulunmamaktadır.
@@ -482,13 +466,6 @@ tr:
         proposals_splits:
           create:
             success: Teklifleri başarılı bir şekilde yenilere ayırdı.
-        valuation_assignments:
-          create:
-            invalid: Bir değerleyiciye teklif atanırken bir hata oluştu
-            success: Bir değerleyiciye başarıyla atanan teklifler
-          delete:
-            invalid: Bir bilirkişiden tekliflerin ataması kaldırılırken hata oluştu
-            success: Bilirkişinin tekliflerdeki ataması başarıyla kaldırıldı
       admin_log:
         proposal:
           answer: "%{user_name}, %{space_name} alanında %{resource_name} teklifini yanıtladı"
@@ -740,8 +717,6 @@ tr:
         proposal:
           creation_date: 'Oluşturma: %{date}'
           view_proposal: Teklifi görüntüle
-        proposals:
-          empty: Henüz teklif yok
         show:
           answer: Cevap
           back_to: Geri
@@ -794,8 +769,6 @@ tr:
             supports_remaining: Oylarınızın dikkate alınması için %{remaining_votes} daha fazla teklif vermeniz gerekiyor.
           proposal_limit:
             description: En fazla %{limit} teklif oluşturabilirsin.
-          threshold_per_proposal:
-            description: Onaylanacak tekliflerin %{limit} ulaşması gerekiyor
           title: 'Oylama aşağıdaki kurallara tabidir:'
           vote_limit:
             description: En fazla %{limit} teklife oy verebilirsiniz.
