@@ -555,13 +555,13 @@ en:
             votes_ranking: Ranking by supports
           update_category:
             invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
-            select_a_category: Please select a category
-            select_a_proposal: Please select a proposal
+            select_a_category: Please select a category.
+            select_a_proposal: Please select a proposal.
             success: 'Proposals successfully updated to the %{subject_name} category: %{proposals}.'
           update_scope:
             invalid: 'These proposals already had the %{subject_name} scope: %{proposals}.'
-            select_a_proposal: Please select a proposal
-            select_a_scope: Please select a scope
+            select_a_proposal: Please select a proposal.
+            select_a_scope: Please select a scope.
             success: 'Proposals successfully updated to the %{subject_name} scope: %{proposals}.'
         proposals_imports:
           create:
