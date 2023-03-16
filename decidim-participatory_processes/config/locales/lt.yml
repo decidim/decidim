@@ -340,10 +340,6 @@ lt:
           contextual: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamųjų veiklų seka (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose susitikimuose arba vaizdo konferencijose ir galiausiai nustatomi pasiūlymų prioritetai). Šios veiklos tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimo procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           page: "<p> <strong>dalyvaujamasis procesas</strong> – dalyvaujamųjų veiklų seka (pvz., visų pirma surengiama apklausa, tada pateikiami pasiūlymai, jie aptariami tiesioginiuose susitikimuose arba vaizdo konferencijose ir galiausiai nustatomi pasiūlymų prioritetai). Šios veiklos tikslas – nustatyti ir priimti sprendimus konkrečia tema.</p> <p>Dalyvaujamojo proceso pavyzdžiai: komiteto narių rinkimo procesas (pirmiausia pateikiamos kandidatūros, po to diskutuojama ir galiausiai pasirenkamas kandidatas), dalyvaujamojo biudžeto nustatymas (teikiami pasiūlymai, jie vertinami ekonomiškai ir dėl jų balsuojama remiantis turimomis lėšomis), strateginio planavimo procesas, bendras reglamento ar standarto rengimas, miesto erdvės planavimas arba viešosios politikos plano rengimas.</p>\n"
           title: Kas yra dalyvaujamasis procesas?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Proceso tipas duomenų bazėje nerastas (ID: %{id})'
     menu:
       processes: Procesai
     metrics:
@@ -471,8 +467,6 @@ lt:
               many: "%{count} būsimi procesai"
               other: "%{count} būsimi procesai"
           explanations:
-            no_active: Aktyvių procesų nėra
-            no_active_nor_upcoming: Nei aktyvių, nei būsimų procesų nėra
             no_active_nor_upcoming_callout: Nei aktyvių, nei būsimų procesų nėra. Čia pateikiamas buvusių procesų sąrašas.
           filter_by: Rodyti
           names:
