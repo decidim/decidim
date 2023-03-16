@@ -39,7 +39,6 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
-        admin_terms_of_use_body: Tělo zprávy správcovských podmínek použití
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
@@ -134,10 +133,6 @@ cs:
         file: Soubor
     errors:
       models:
-        newsletter:
-          attributes:
-            base:
-              at_least_one_space: Vyberte alespoň jeden participační prostor
         organization:
           attributes:
             official_img_footer:
@@ -152,11 +147,6 @@ cs:
           attributes:
             file:
               malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
-      new_import:
-        attributes:
-          file:
-            invalid_file: Neplatný soubor, zkontrolujte, zda je soubor správně naformátován
-            invalid_mime_type: Neplatný typ mime
   activerecord:
     attributes:
       decidim/static_page:
@@ -177,8 +167,6 @@ cs:
         add: Přidat
         attachment:
           new: Nová příloha
-        attachment_collection:
-          new: Nová sbírka příloh
         browse: Procházet
         category:
           new: Nová kategorie
@@ -206,18 +194,12 @@ cs:
           accept: Souhlasím s podmínkami
           are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
           refuse: Odmítnout administrátorské podmínky
-          title: Souhlasit s podmínkami používání
         required_review:
-          alert: 'Vyžadováno: Zkontrolujte naše administrátorské podmínky použití'
-          callout: Věnujte prosím chvíli a přečtěte si podmínky použití správce. V opačném případě nebudete moci platformu spravovat.
           cta: Zkontrolovat je nyní.
-        title: Administrátorské podmínky použití
       area_types:
         create:
           error: Při vytváření nového typu oblasti došlo k chybě.
           success: Typ oblasti byl úspěšně vytvořen.
-        destroy:
-          success: Typ oblasti byl úspěšně smazán
         edit:
           title: Upravit typ oblasti
           update: Aktualizace
@@ -226,14 +208,12 @@ cs:
           title: Nový typ oblasti
         update:
           error: Při aktualizaci tohoto typu oblasti došlo k chybě.
-          success: Typ oblasti byl úspěšně aktualizován
       areas:
         create:
           error: Při vytváření nové oblasti došlo k chybě.
           success: Oblast byla úspěšně vytvořena.
         destroy:
           has_spaces: Tato oblast má závislé prostory. Před smazáním se prosím ujistěte, že žádný účastnický prostor neodkazuje na tuto oblast.
-          success: Oblast úspěšně zničena
         edit:
           title: Upravit oblast
           update: Aktualizace
@@ -243,7 +223,6 @@ cs:
         no_areas: Žádné oblasti
         update:
           error: Při aktualizaci této oblasti došlo k chybě.
-          success: Oblast byla úspěšně aktualizována
       attachment_collections:
         create:
           error: Při vytváření nové složky došlo k chybě.
@@ -283,7 +262,6 @@ cs:
         message: Buďte opatrní při práci s přílohami v soukromém prostoru. Každý účastník by mohl sdílet tento dokument s ostatními.
       autocomplete:
         no_results: Nenalezeny žádné výsledky
-        search_prompt: Zadejte nejméně tři znaky, které chcete vyhledat
       block_user:
         new:
           action: Blokovat účet a odeslat odůvodnění
@@ -375,9 +353,6 @@ cs:
       domain_whitelist:
         form:
           domain_too_short: Doména je příliš krátká
-        update:
-          error: Nepodařilo se aktualizovat seznam povolených domén
-          success: Seznam povolených domén byl úspěšně aktualizován
       exports:
         export_as: "%{name} jako %{export_format}"
         formats:
@@ -460,10 +435,8 @@ cs:
             message_1: CSV, JSON a Excel (.xlsx) jsou podporovány
             message_2: Pro CSV soubory musí být oddělovač mezi sloupci středníkem (";")
       help_sections:
-        error: Při aktualizaci sekcí nápovědy došlo k chybě
         form:
           save: Uložit
-        success: Části nápovědy byly úspěšně aktualizovány
       impersonatable_users:
         index:
           filter:
@@ -763,8 +736,6 @@ cs:
           send_to_participants: Odeslat účastníkům
           title: Vybrat příjemce k doručení
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
-        send:
-          no_recipients: Žádný příjemce pro tento výběr
         show:
           preview: Náhled
           select_recipients_to_deliver: Vybrat příjemce k doručení
@@ -773,13 +744,6 @@ cs:
           error: Při aktualizaci tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       officializations:
-        block:
-          error: Při blokování uživatele došlo k chybě
-          success: Uživatel byl úspěšně zablokován
-        create:
-          success: Účastník úspěšně oficiálně zaregistrován
-        destroy:
-          success: Uživatel úspěšně zbaven oficiální registrace
         index:
           actions: Akce
           badge: Odznak
@@ -808,9 +772,6 @@ cs:
           hidden: skrytý
           show: Zobrazit
           title: Zobrazit e-mailovou adresu účastníka
-        unblock:
-          error: Při odblokování uživatele došlo k chybě
-          success: Uživatel byl úspěšně odblokován
       organization:
         edit:
           title: Upravit organizaci
@@ -856,12 +817,6 @@ cs:
           title: Seznam externích povolených domén
       organization_homepage:
         content_blocks:
-          create:
-            error: Při pokusu o vytvoření tohoto obsahu se vyskytl problém
-            success: Blok obsahu byl úspěšně vytvořen
-          destroy:
-            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě
-            success: Blok obsahu byl úspěšně odstraněn
           edit:
             update: Aktualizovat
         edit:
@@ -940,8 +895,6 @@ cs:
         create:
           error: Při vytváření nové oblasti působnosti došlo k chybě.
           success: Oblast působnosti byla úspěšně vytvořena.
-        destroy:
-          success: Oblast působnosti úspěšně zničena
         edit:
           title: Upravit oblast působnosti
           update: Aktualizace
@@ -961,7 +914,6 @@ cs:
           error: Při zničení tokenu došlo k chybě.
           success: Token byl úspěšně smazán.
         share_tokens:
-          empty: Nejsou žádné aktivní tokeny
           help: Tyto tokeny se používají k veřejnému sdílení tohoto nezveřejněného zdroje každému uživateli. Budou skryty, když bude dokument publikován. Klikněte na ikonu sdílení tokenu a navštivte sdílenou URL.
           title: Sdílet tokeny
       shared:
@@ -974,8 +926,6 @@ cs:
         create:
           error: Při vytváření nového tématu došlo k chybě.
           success: Téma vytvořeno úspěšně.
-        destroy:
-          success: Téma úspěšně zničena
         edit:
           title: Upravit téma
           update: Aktualizovat téma
@@ -991,12 +941,6 @@ cs:
         content_blocks:
           active_content_blocks: Aktivní bloky obsahu
           add: Přidat blok obsahu
-          create:
-            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém
-            success: Blok obsahu byl úspěšně vytvořen
-          destroy:
-            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě
-            success: Blok obsahu byl úspěšně odstraněn
           destroy_confirmation: Opravdu chcete smazat tento blok obsahu?
           edit:
             update: Aktualizovat
@@ -1022,11 +966,9 @@ cs:
         topic:
           destroy: Odebrat téma
           edit: Upravit téma
-          empty: V tomto tématu není žádná stránka
           without_topic: Stránky bez tématu
         update:
           error: Při aktualizaci této stránky došlo k chybě.
-          success: Stránka byla úspěšně aktualizována
       titles:
         admin_log: Správce protokolu
         area_types: Typy oblastí
@@ -1050,10 +992,8 @@ cs:
           success: Soubor CSV byl úspěšně nahrán, ověřujeme skupiny, které odpovídají kritériím. To může chvíli trvat.
         reject:
           invalid: Při odmítnutí této skupiny došlo k chybě.
-          success: Skupina byla úspěšně odmítnuta
         verify:
           invalid: Při ověřování této skupiny došlo k chybě.
-          success: Skupina byla úspěšně ověřena
       user_groups:
         index:
           state:
@@ -1090,13 +1030,8 @@ cs:
           last_day: Poslední den
           last_month: Minulý měsíc
           last_week: Minulý týden
-          no_users_count_statistics_yet: Zatím nejsou žádné statistiky počtu uživatelů
           participants: Účastníci
       view_public_page: Zobrazit veřejnou stránku
-    forms:
-      errors:
-        impersonate_user:
-          reason: Při správě nespravovaného účastníka musíte uvést důvod
     metrics:
       blocked_users:
         object: blokovaní uživatelé
