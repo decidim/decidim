@@ -46,12 +46,6 @@ eu:
         decidim_consultations_response_id:
           not_found: Erantzuna ez da aurkitu.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Boto kopurua ez da baliozkoa
     models:
       decidim/consultation:
         one: Consulta
@@ -153,7 +147,6 @@ eu:
             one: Erantzun
             other: Erantzunak
       question_configuration:
-        disable_external_voting: Mesedez, desaktibatu kanpoko bozketa konfigurazio aurreratuetarako
         form:
           help: Erantzun anitzeko aukerak dituzten galderak konfiguratzen ditu, parte-hartzaile batek aukera ditzakeen erantzun kopurua handituz. Aurrez zehaztutako gehieneko balioa 1 da, eta horrek esan nahi du erantzun bakarra aukera daitekeela.
           title: Konfigurazio aurreratua
@@ -296,7 +289,6 @@ eu:
             votes: Botoak
       question_votes:
         create:
-          error: Arazoak izan dira galdera hautapenean
           success: Kontsultaren amaiera arte alda dezakezu. Azken botoa baino ez da onartuko.
           title_error: Boto-akatsa!
           title_success: Botoa zuzen erregistratu da
