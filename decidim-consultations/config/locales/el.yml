@@ -46,12 +46,6 @@ el:
         decidim_consultations_response_id:
           not_found: Η απάντηση δεν βρέθηκε.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Ο αριθμός ψήφων δεν είναι έγκυρος
     models:
       decidim/consultation:
         one: Διαβούλευση
@@ -152,7 +146,6 @@ el:
             one: Απάντηση
             other: Απαντήσεις
       question_configuration:
-        disable_external_voting: Απενεργοποιήστε την εξωτερική ψηφοφορία για σύνθετες διαμορφώσεις
         form:
           help: Ορίστε ερωτήσεις πολλαπλής επιλογής, αυξάνοντας τον μέγιστο αριθμό απαντήσεων που μπορεί να επιλέξει ένας συμμετέχων. Η προεπιλεγμένη μέγιστη τιμή είναι 1, που σημαίνει ότι μόνο μία απάντηση μπορεί να ψηφιστεί.
           title: Σύνθετη διαμόρφωση
@@ -295,7 +288,6 @@ el:
             votes: Ψήφοι
       question_votes:
         create:
-          error: Υπήρξε ένα πρόβλημα κατά την ψηφοφορία της ερώτησης
           success: Μπορείτε να την αλλάξετε μέχρι το τέλος της διαβούλευσης. Μόνο η τελευταία ψήφος θα γίνει δεκτή.
           title_error: Σφάλμα ψήφου!
           title_success: Η ψήφος καταχωρήθηκε με επιτυχία
