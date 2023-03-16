@@ -62,9 +62,6 @@ pt:
             title: Cancelamento do sorteio
           create:
             error: Ocorreu um problema ao criar um novo sorteio.
-            success: Sorteio criado corretamente
-          destroy:
-            success: Sorteio cancelado corretamente
           edit:
             title: Atualizar as informações sobre o sorteio
             update: Atualizar
@@ -81,7 +78,6 @@ pt:
             selected_proposals: Propostas selecionadas para sorteio
           update:
             error: Ocorreu um problema ao atualizar o sorteio.
-            success: Sorteio atualizado corretamente
       admin_log:
         sortition:
           create: "%{user_name} criou o sorteio %{resource_name} em %{space_name}"
