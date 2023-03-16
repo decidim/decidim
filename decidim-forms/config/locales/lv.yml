@@ -15,8 +15,6 @@ lv:
             choices:
               missing: nav pabeigti
               too_many: ir par daudz
-        questionnaire:
-          request_invalid: Apstrādājot pieprasījumu, radās kļūda. Lūdzu, mēģiniet vēlreiz
   decidim:
     forms:
       admin:
