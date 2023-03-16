@@ -11,7 +11,7 @@ shared_examples "has mandatory config setting" do |mandatory_field|
     visit edit_component_path
   end
 
-  it "does not allow updating proposal component" do
+  it "does not allow updating the component" do
     click_button "Update"
 
     within ".#{mandatory_field}_container" do
