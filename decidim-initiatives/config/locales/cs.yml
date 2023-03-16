@@ -103,10 +103,6 @@ cs:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
-      initiatives_settings:
-        update:
-          error: Došlo k chybě
-          success: Nastavení iniciativ bylo úspěšně aktualizováno
       menu:
         attachments: Přílohy
         committee_members: Členové výboru
@@ -223,8 +219,6 @@ cs:
           index:
             approve: Schvalovat
             confirm_revoke: Jste si jisti?
-            invite_to_committee_help: Sdílejte tento odkaz, abyste mohli pozvat ostatní uživatele do propagačního výboru
-            no_members_yet: Ve výboru promotérů nejsou žádní členové
             revoke: Zrušit
             title: Členové výboru
         content_blocks:
@@ -246,7 +240,6 @@ cs:
             export_votes: Exportovat podpisy
             reject: Odmítnout iniciativu
             send_to_technical_validation: Odeslání k technickému ověření
-            success: Iniciativa byla odeslána k technickému ověření
             update: Aktualizovat
           form:
             attachments: Přílohy
@@ -261,9 +254,6 @@ cs:
             edit: Upravit
             new: Nový
             photos: Fotky
-          update:
-            error: Došlo k chybě
-            success: Iniciativa občanů byla úspěšně aktualizována
         initiatives_settings:
           edit:
             update: Aktualizovat
@@ -275,9 +265,6 @@ cs:
             signatures: S nejvíce podpisy
             title: Nastavení pro iniciativy
         initiatives_type_scopes:
-          create:
-            error: Došlo k chybě
-            success: Byla vytvořena nová oblast působnosti pro daný typ iniciativy
           destroy:
             success: Oblast působnosti byla úspěšně odstraněna
           edit:
@@ -290,15 +277,7 @@ cs:
             back: Zpět
             create: Vytvořit
             title: Vytvořit rozsah typů iniciativy
-          update:
-            error: Došlo k chybě
-            success: Rozsah byl úspěšně aktualizován
         initiatives_types:
-          create:
-            error: Došlo k chybě
-            success: Nový typ iniciativy byl úspěšně vytvořen
-          destroy:
-            success: Typ iniciativy byl úspěšně odstraněn
           edit:
             confirm_destroy: Jste si jisti?
             destroy: Odstranit
@@ -314,9 +293,6 @@ cs:
           new:
             create: Vytvořit
             title: Nový typ iniciativy
-          update:
-            error: Došlo k chybě
-            success: Typ iniciativy byl úspěšně aktualizován
       admin_log:
         initiative:
           publish: "%{user_name} zveřejnil iniciativu %{resource_name}"
@@ -355,7 +331,6 @@ cs:
           success: Žádost byla schválena.
         new:
           continue: Pokračovat
-          help_text: Chystáte se požádat o členství ve výboru promotéra této iniciativy
         revoke:
           success: Žádost byla zrušena.
         spawn:
@@ -457,7 +432,6 @@ cs:
             day: Den
             month: Měsíc
             year: Rok
-          help: Vyplňte prosím následující pole s osobními údaji, abyste podepsali iniciativu
         finish:
           back_to_initiative: Zpět na iniciativu
         sms_code:
@@ -465,12 +439,9 @@ cs:
           help: Zkontrolujte SMS přijaté v telefonu
         sms_phone_number:
           continue: Pošlete mi SMS
-          help: Vyplňte formulář s ověřeným telefonním číslem a vyžádejte si ověřovací kód
       initiative_votes:
         create:
           error: Při podpisu iniciativy došlo k chybám.
-          invalid: Údaje poskytnuté k podpisu iniciativy nejsou platné
-          success_html: Gratulujeme! Iniciativa <strong> %{title}</strong> byla správně podepsána
         personal_data:
           invalid: Osobní údaje nejsou v souladu s údaji poskytnutými k autorizaci.
         sms_phone:
@@ -487,8 +458,6 @@ cs:
         committee_members:
           approve: Schválit
           confirm_revoke: Jste si jist?
-          invite_to_committee_help: Sdílejte tento odkaz pro pozvání ostatních účastníků do propagačního výboru
-          no_members_yet: V propagačním výboru nejsou žádní členové
           revoke: Odvolat
           title: Členové výboru
         count:
@@ -553,7 +522,6 @@ cs:
           section: 'Pokud o to organizace požádá, vytiskněte a vyplňte tento formulář pro odeslání, pokud je uvedeno:'
           signature: Podpis
         result:
-          answer_title: Tato iniciativa byla zodpovězena
           initiative_rejected_reason: Tato iniciativa byla zamítnuta z důvodu nedostatečné podpory.
         show:
           any_vote_method: Tato iniciativa shromažďuje online i osobní podpisy.
@@ -620,9 +588,6 @@ cs:
         accepted: Přijato
         expired: Platnost vypršela
       unavailable_scope: Nedostupný rozsah
-      update:
-        error: Došlo k chybě
-        success: Tato iniciativa byla úspěšně aktualizována
       versions:
         shared:
           back_to_resource: Přejít zpět na iniciativu
