@@ -59,9 +59,6 @@ hu:
             title: Sorsolás törlése
           create:
             error: Hiba történt egy új sorsolás létrehozásakor.
-            success: Sorsolás létrehozása sikeres
-          destroy:
-            success: Sorsolás törlése sikeres
           edit:
             title: Sorsolással kapcsolatos információk frissítése
             update: Frissítés
@@ -78,7 +75,6 @@ hu:
             selected_proposals: Sorsolásra kiválasztott javaslatok
           update:
             error: Hiba történt a sorsolás frissítése során.
-            success: Sorsolás frissítése sikeres
       admin_log:
         sortition:
           create: "%{user_name} létrehozta a(z) %{resource_name} sorsolást itt: %{space_name}"
