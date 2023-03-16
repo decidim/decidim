@@ -13,18 +13,11 @@ nl:
       templates:
         apply:
           error: Er is een fout opgetreden bij het bijwerken van dit template.
-          success: Template met succes toegepast
         copy:
           error: Er is een fout opgetreden bij het kopiëren van dit template.
-          success: Template met succes gekopieerd
         create:
           error: Er is een fout opgetreden bij het maken van dit template.
-          success: Template met succes aangemaakt
-        destroy:
-          success: Template met succes verwijderd
         empty: Er zijn nog geen templates.
-        update:
-          success: Template met succes bijgewerkt
       titles:
         template_types:
           questionnaires: Vragenlijst templates
@@ -49,7 +42,6 @@ nl:
             skip_template: Overslaan
           edit:
             edit: Bewerk
-            empty: Er zijn nog geen vragen
             questionnaire: Vragenlijst
           form:
             save: Opslaan
