@@ -62,12 +62,6 @@ eu:
         email: Emaila
         name: izena
         role: Role
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Mezu hau dagoeneko gonbidatu da
   activerecord:
     models:
       decidim/conference:
@@ -444,11 +438,6 @@ eu:
       index:
         title: Jardunaldiak
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Zure hitzaldiko erregistroa baieztatu da
-          pending_validation:
-            subject: Zure hitzaldiko erregistroa baieztatu behar da
         invite_join_conference_mailer:
           invite:
             subject: Hitzaldi baterako gonbidapena
@@ -532,10 +521,6 @@ eu:
           contextual: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
           page: "</p>Programa batean antolatutako bileren bilduma bat da. Bertan, hizlari gisa gonbidatutako pertsonak daude, baita biltzar handietako edo gizarte-ekitaldietako ohiko informazio-eremuak ere (erregistroa, ekitaldia babesten edo laguntzen duten erakundeen zerrenda, etab.).</p> <p>Adibideak: Hitzaldi bat garrantzitsua izan daiteke erakunde batentzat eta haren kideentzat, edo parte hartzeko prozesu baten zati gisa edo kontsulta baten ondoren egin daiteke.</p>\n"
           title: Zer dira hitzaldiak?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferentzia ez da aurkitu datu-basean (ID: %{id})'
     media:
       index:
         description: Kongresu honi buruzko estekak
