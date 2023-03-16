@@ -22,17 +22,6 @@ uk:
         registrations_enabled: Реєстрацію відкрито
         title: Назва
         transparent: Прозора
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Тривалість усіх питань перевищує тривалість зустрічі на %{count} хвилин
-              too_many_minutes_child: Тривалість вкладених питань перевищує тривалість загального питання порядку денного "%{parent_title}" на %{count} хвилин
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Учасника з такою адресою вже запрошено
     models:
       decidim/meetings/close_meeting_event: Зустріч закрито
       decidim/meetings/create_meeting_event: Зустріч
@@ -146,9 +135,6 @@ uk:
             down: Донизу
             remove: Видалити
             up: Догори
-          create:
-            invalid: При спробі створити цей порядок денний сталася помилка
-            success: Порядок денний успішно створено
           edit:
             title: Редагувати порядок денний
             update: Оновити
@@ -160,9 +146,6 @@ uk:
           new:
             create: Створити
             title: Додати порядок денний
-          update:
-            invalid: При спробі оновити цей порядок денний сталася помилка
-            success: Порядок денний успішно оновлено
         exports:
           registrations: Реєстрації
         invite_join_meeting_mailer:
@@ -196,11 +179,6 @@ uk:
             close: Закрити
             title: Закрити зустріч
         meetings:
-          close:
-            invalid: При спробі закрити цю зустріч сталася помилка
-            success: Зустріч успішно завершено
-          create:
-            invalid: При спробі додати цю зустріч сталася помилка
           destroy:
             success: Зустріч успішно видалено
           edit:
@@ -220,9 +198,6 @@ uk:
           services:
             add_service: Додати послугу
             services: Послуги
-          update:
-            invalid: При спробі оновити цю зустріч сталася помилка
-            success: Зустріч успішно оновлено
         models:
           meeting:
             name: Зустріч
@@ -262,8 +237,6 @@ uk:
         registration_mailer:
           confirmation:
             subject: Вашу реєстрацію на зустріч підтверджено
-      meeting:
-        not_allowed: У вас нема прав на перегляд цієї зустрічі
       meetings:
         filters:
           category: Категорія
