@@ -62,9 +62,6 @@ gl:
             title: Cancelación do sortition
           create:
             error: Produciuse un erro ao crear unha nova xeración.
-            success: Creouse a edición correctamente
-          destroy:
-            success: A eliminación cancelouse correctamente
           edit:
             title: Actualiza a información sobre a clasificación
             update: Actualización
@@ -81,7 +78,6 @@ gl:
             selected_proposals: Propostas seleccionadas para o sorteo
           update:
             error: Produciuse un erro ao actualizar o sorteo.
-            success: A clasificación actualizouse correctamente
       admin_log:
         sortition:
           create: "%{user_name} creou o sorteo %{resource_name} en %{space_name}"
