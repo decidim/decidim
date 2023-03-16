@@ -33,17 +33,6 @@ nl:
         title: Titel
         transparent: Transparant
         type_of_meeting: Type
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: De duur van de items overschrijdt de vergaderduur met %{count} minuten
-              too_many_minutes_child: De duur van het item childs overschrijdt het agendapunt van de ouder-duur "%{parent_title}" met %{count} minuut
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Deze e-mail is al uitgenodigd
     models:
       decidim/meetings/close_meeting_event: Vergadering gesloten
       decidim/meetings/create_meeting_event: Vergadering
@@ -213,9 +202,6 @@ nl:
             down: Naar beneden
             remove: Verwijderen
             up: Omhoog
-          create:
-            invalid: Er is een probleem opgetreden bij het maken van deze agenda
-            success: Agenda succesvol aangemaakt
           edit:
             title: Agenda bewerken
             update: Bijwerken
@@ -227,9 +213,6 @@ nl:
           new:
             create: Aanmaken
             title: Nieuwe agenda
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze agenda
-            success: Agenda succesvol bijgewerkt
         exports:
           answers: Antwoorden
           meeting_comments: Reacties
@@ -266,17 +249,9 @@ nl:
             close: Sluiten
             title: Vergadering sluiten
         meetings:
-          close:
-            invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
-            success: Vergadering succesvol afgesloten
           create:
-            invalid: Er is een probleem opgetreden met het maken van deze vergadering
             success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
           destroy:
-            invalid:
-              proposals_count:
-                one: De vergadering kan niet worden verwijderd omdat er %{count} voorstel aan verbonden is
-                other: De vergadering kan niet worden verwijderd omdat er %{count} voorstellen aan verbonden zijn
             success: Vergadering succesvol verwijderd
           edit:
             title: Vergadering bewerken
@@ -297,9 +272,6 @@ nl:
           new:
             create: Creëren
             title: Creëer vergadering
-          publish:
-            invalid: Er is een fout opgetreden bij het publiceren van deze vergadering
-            success: Vergadering succesvol gepubliceerd
           service:
             description: Beschrijving
             down: Omlaag
@@ -310,18 +282,9 @@ nl:
           services:
             add_service: Dienst toevoegen
             services: Diensten
-          unpublish:
-            invalid: Er is een probleem opgetreden bij het weghalen van deze vergadering
-            success: Vergadering met succes weggehaald
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
-            success: Vergadering succesvol bijgewerkt
         meetings_poll:
           form:
             title: Bewerk poll vragenlijst voor %{questionnaire_for}
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze poll
-            success: Poll vergadering met succes bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -418,8 +381,6 @@ nl:
         registration_mailer:
           confirmation:
             subject: Registratie van uw vergadering is bevestigd
-      meeting:
-        not_allowed: U mag deze vergadering niet bekijken
       meeting_closes:
         edit:
           back: Terug
@@ -615,9 +576,6 @@ nl:
         withdraw: Afgelasten
       versions:
         back_to_resource: Ga terug naar de vergadering
-      withdraw:
-        error: Er is een fout opgetreden tijdens het afgelasten van de vergadering
-        success: De vergadering is met succes afgelast
     metrics:
       meetings:
         description: Aantal gemaakte vergaderingen
