@@ -173,12 +173,10 @@ sk:
           email_intro: 'Teraz môžete vytvoriť nové návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Návrhy sú teraz k dispozícii v %{participatory_space_title}
-          notification_title: Teraz môžete predložiť <a href="%{resource_path}"> nových návrhov </a> v <a href="%{participatory_space_url}">%{participatory_space_title} </a>
         endorsing_enabled:
           email_intro: 'Môžete schváliť návrhy v %{participatory_space_title}! Zúčastnite sa na tejto stránke: '
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Schválenie návrhov sa začalo po dobu%{participatory_space_title}
-          notification_title: Teraz môžete začať <a href="%{resource_path}"> schválení návrhov </a> v <a href="%{participatory_space_url}">%{participatory_space_title} </a>
         proposal_accepted:
           affected_user:
             email_intro: 'Váš návrh "%{resource_title}" bol prijatý. Odpoveď môžete čítať na tejto stránke: '
@@ -349,21 +347,12 @@ sk:
             rejected: Odmietnuté
             title: Odpoveď na návrh%{title}
         proposal_notes:
-          create:
-            error: Pri vytváraní tohto návrhu nebol problém
-            success: Návrhová poznámka bola úspešne vytvorená
           form:
             note: Poznámka
             submit: Predložiť
           leave_your_note: Nechajte svoju poznámku
           title: Súkromné ​​poznámky
         proposals:
-          answer:
-            invalid: Pri riešení tohto problému došlo k problému
-            success: Návrh úspešne odpovedal
-          create:
-            invalid: Pri vytváraní tohto návrhu došlo k problému
-            success: Návrh bol úspešne vytvorený
           edit:
             title: Návrh aktualizácie
             update: Aktualizácia
@@ -438,9 +427,6 @@ sk:
             select_a_scope: Prosím, zvoľte rozsah
             success: 'Návrhy úspešne pridané do kategórie %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Pri importe návrhov došlo k problému
-            success: "%{number} návrhov bolo úspešne dovezené"
           new:
             create: Návrhy na dovoz
             no_components: V tomto účastníckom priestore neexistujú žiadne iné komponenty návrhu, ktoré by mohli importovať návrhy.
@@ -452,13 +438,6 @@ sk:
         proposals_splits:
           create:
             success: Úspešne rozdelil návrhy na nové.
-        valuation_assignments:
-          create:
-            invalid: Pri udeľovaní návrhov ku hodnotiteľovi nastala chyba
-            success: Návrhy úspešne pridelené hodnotiteľovi
-          delete:
-            invalid: Pri rušení pridelených návrhov ku hodnotiteľovi nastala chyba
-            success: Návrhy úspešne odobrané hodnotiteľovi
       admin_log:
         proposal:
           answer: "%{user_name} odpovedalo na %{resource_name} návrh na priestore %{space_name}"
@@ -766,8 +745,6 @@ sk:
             supports_remaining: Musíte hlasovať o ďalších %{remaining_votes} návrhoch, aby sa vaše hlasy zohľadnili.
           proposal_limit:
             description: Môžete vytvoriť až %{limit} návrhov.
-          threshold_per_proposal:
-            description: Aby bolo možné overiť návrhy, je potrebné dosiahnuť %{limit} podpory
           title: 'Hlasovanie podlieha týmto pravidlám:'
           vote_limit:
             description: Môžete hlasovať až pre %{limit} návrhov.
