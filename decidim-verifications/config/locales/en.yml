@@ -253,7 +253,7 @@ en:
           edit:
             send: Confirm
             title: Introduce the verification code you received.
-            waiting_for_letter: We will be sending a letter to your address with your verification code soon.
+            waiting_for_letter: We will send a letter to your address with your verification code soon.
           new:
             send: Send me a letter
             title: Request your verification code
