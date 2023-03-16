@@ -239,7 +239,7 @@ fi-pl:
             success: Kiitos! Lähetämme vahvistuskoodin osoiteeseesi
           edit:
             send: Vahvista
-            title: Syötä vastaanottamasi vahvistuskoodi
+            title: Kirjoita vastaanottamasi vahvistuskoodi
             waiting_for_letter: Lähetämme vahvistuskoodin sisältävän kirjeen osoitteeseesi pian
           new:
             send: Lähetä kirje minulle
