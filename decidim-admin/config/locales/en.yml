@@ -157,7 +157,7 @@ en:
         attributes:
           file:
             invalid_file: Invalid file provided, please check that the file is correctly formatted.
-            invalid_mime_type: Invalid mime type.
+            invalid_mime_type: Invalid MIME type.
   activerecord:
     attributes:
       decidim/static_page:
