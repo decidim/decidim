@@ -211,10 +211,8 @@ de:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Jemand hat eine Notiz zum Vorschlag "%{resource_title}" hinterlassen. Schauen Sie sich diese im <a href="%{admin_proposal_info_url}">Admin-Panel</a> an
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
-            notification_title: Jemand hat eine Notiz für den Vorschlag <a href="%{resource_path}">%{resource_title}</a>erstellt. Sie können sie über das <a href="%{admin_proposal_info_path}">Admin-Panel</a> anzeigen
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} wurde zur Mitwirkung an %{resource_title} akzeptiert."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_path}">%{resource_title}</a> <strong>angenommen</strong>.
@@ -237,12 +235,10 @@ de:
           email_intro: 'Sie können jetzt neue Vorschläge in %{participatory_space_title} erstellen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} sind jetzt Vorschläge verfügbar
-          notification_title: Sie können jetzt <a href="%{resource_path}">neue Vorschläge</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> erfassen
         endorsing_enabled:
           email_intro: 'Sie können Vorschläge in %{participatory_space_title} unterstützen! Beteiligen Sie sich auf dieser Seite:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: In %{participatory_space_title} ist es jetzt möglich, Vorschläge zu unterstützen
-          notification_title: Sie können nun Vorschläge in <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">unterstützen</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Ihr Vorschlag "%{resource_title}" wurde angenommen. Sie können die Antwort auf dieser Seite lesen:'
@@ -427,21 +423,12 @@ de:
             rejected: Abgelehnt
             title: Antwort auf Vorschlag %{title}
         proposal_notes:
-          create:
-            error: Beim Erstellen dieser Vorschlagsnotiz ist ein Fehler aufgetreten
-            success: Vorschlagsanmerkung erfolgreich erstellt
           form:
             note: Anmerkung
             submit: Absenden
           leave_your_note: Anmerkung hinterlassen
           title: Private Notizen
         proposals:
-          answer:
-            invalid: Es gab ein Problem bei der Beantwortung dieses Vorschlags
-            success: Der Vorschlag wurde erfolgreich beantwortet
-          create:
-            invalid: Beim Erstellen dieses Vorschlags ist ein Fehler aufgetreten
-            success: Vorschlag erfolgreich erstellt
           edit:
             title: Vorschlag aktualisieren
             update: Aktualisieren
@@ -515,9 +502,6 @@ de:
             select_a_scope: Bitte wählen Sie einen Umfang
             success: 'Die Vorschläge wurden erfolgreich zum Umfang %{subject_name} aktualisiert: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten
-            success: "%{number} Vorschläge wurden erfolgreich importiert"
           new:
             create: Vorschläge importieren
             no_components: In diesem partizipatorischen Bereich gibt es keine weiteren Vorschlagskomponenten, aus denen die Vorschläge importiert werden könnten.
@@ -530,13 +514,6 @@ de:
         proposals_splits:
           create:
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
-        valuation_assignments:
-          create:
-            invalid: Bei der Zuweisung von Vorschlägen an einen Schätzer ist ein Fehler aufgetreten
-            success: Die Vorschläge wurden erfolgreich dem Schätzer zugewiesen
-          delete:
-            invalid: Beim Zurückziehen der Zuweisung von Vorschlägen an einen Schätzer ist ein Fehler aufgetreten
-            success: Die Zuweisung der Vorschläge wurden erfolgreich von dem Schätzer zurückgezogen
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
@@ -802,8 +779,6 @@ de:
         proposal:
           creation_date: 'Erstellt am %{date}'
           view_proposal: Vorschlag anzeigen
-        proposals:
-          empty: Es gibt noch keinen Vorschlag
         show:
           answer: Antworten
           back_to: Zurück zu
@@ -856,8 +831,6 @@ de:
             supports_remaining: Sie müssen %{remaining_votes} weitere Vorschläge abgeben, damit Ihre Stimmen berücksichtigt werden.
           proposal_limit:
             description: Sie können bis zu %{limit} Vorschläge erstellen.
-          threshold_per_proposal:
-            description: Um validiert zu werden, müssen die Vorschläge %{limit} Unterstützungen erreichen
           title: 'Die Abstimmung unterliegt folgenden Regeln:'
           vote_limit:
             description: Sie können bis zu %{limit} Vorschläge abstimmen.
