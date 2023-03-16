@@ -366,8 +366,6 @@ sk:
               many: "%{count} nadchádzajúcich procesov"
               other: "%{count} nadchádzajúcich procesov"
           explanations:
-            no_active: Žiadne aktívne procesy
-            no_active_nor_upcoming: Žiadne aktívne alebo nadchádzajúce procesy
             no_active_nor_upcoming_callout: Nie sú žiadne aktívne alebo nadchádzajúce procesy. Tu je zoznam uplynulých.
           names:
             active: Aktívne
