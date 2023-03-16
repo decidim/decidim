@@ -76,7 +76,7 @@ This will also create some example data through the seeds so that you can start 
 
 |===
 
-This data will not be created in production environments. If you insist adding it in production, run: `$ SEED=true rails db:setup`. We recomend that you first login as a system user and edit the hostname for the organization. Set it as your production environment's domain, without the protocol and the port (so if your domain/hostname is `+https://example.org:3001+`, you need to write `example.org` in the organization's host field).
+This data will not be created in production environments. If you insist adding it in production, run: `$ SEED=true rails db:setup`. We recomend that you first login as a system user and edit the hostname for the organization. Set it as your production environment's domain, without the protocol and the port (so if your domain/hostname is `+https://example.org:3000+`, you need to write `example.org` in the organization's host field).
 
 You can now start your server!
 
