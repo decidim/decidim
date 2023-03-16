@@ -195,8 +195,6 @@ pt:
           index:
             approve: Aprovar
             confirm_revoke: Tem a certeza?
-            invite_to_committee_help: Partilhe esta hiperligação para convidar outros participantes para o comité promotor
-            no_members_yet: Não há membros no comité promotor
             revoke: Revogar
             title: Membros do Comité
         content_blocks:
@@ -218,7 +216,6 @@ pt:
             export_votes: Exportar assinaturas
             reject: Rejeitar iniciativa
             send_to_technical_validation: Enviar para validação técnica
-            success: A iniciativa foi enviada para validação técnica
             update: Atualizar
           form:
             attachments: Anexos
@@ -233,13 +230,7 @@ pt:
             edit: Editar
             new: Novo
             photos: Fotos
-          update:
-            error: Ocorreu um erro
-            success: A iniciativa foi atualizada corretamente
         initiatives_type_scopes:
-          create:
-            error: Ocorreu um erro
-            success: Um novo âmbito para o tipo de iniciativa dado foi criado
           destroy:
             success: O âmbito foi removido corretamente
           edit:
@@ -252,15 +243,7 @@ pt:
             back: Retroceder
             create: Criar
             title: Criar âmbito do tipo de iniciativa
-          update:
-            error: Ocorreu um erro
-            success: O âmbito foi atualizado corretamente
         initiatives_types:
-          create:
-            error: Ocorreu um erro
-            success: Um novo tipo de iniciativa foi criado corretamente
-          destroy:
-            success: O tipo de iniciativa foi removido corretamente
           edit:
             confirm_destroy: Tem a certeza?
             destroy: Eliminar
@@ -274,9 +257,6 @@ pt:
           new:
             create: Criar
             title: Novo tipo de iniciativa
-          update:
-            error: Ocorreu um erro
-            success: O tipo de iniciativa foi atualizado corretamente
       admin_log:
         initiative:
           publish: "%{user_name} publicou a iniciativa %{resource_name}"
@@ -309,7 +289,6 @@ pt:
           success: O pedido foi aprovado
         new:
           continue: Continuar
-          help_text: Está prestes a pedir para se tornar membro do comité promotor desta iniciativa
         revoke:
           success: O pedido foi revogado
         spawn:
@@ -409,7 +388,6 @@ pt:
             day: Dia
             month: Mês
             year: Ano
-          help: Por favor, preencha os seguintes campos com os seus dados pessoais para assinar a iniciativa
         finish:
           back_to_initiative: Retroceder para a iniciativa
         sms_code:
@@ -417,12 +395,9 @@ pt:
           help: Verifique o SMS recebido no seu telefone
         sms_phone_number:
           continue: Enviar-me um SMS
-          help: Preencha o formulário com o seu número de telefone verificado para solicitar o seu código de verificação
       initiative_votes:
         create:
           error: Ocorreu um problema ao assinar a iniciativa.
-          invalid: Os dados fornecidos para assinar a iniciativa não são válidos
-          success_html: Parabéns! A iniciativa <strong> %{title}</strong> foi assinada corretamente
         personal_data:
           invalid: Os dados pessoais não são consistentes com os dados fornecidos para autorização.
         sms_phone:
@@ -437,8 +412,6 @@ pt:
         committee_members:
           approve: Aprovar
           confirm_revoke: Tem a certeza?
-          invite_to_committee_help: Partilhe esta hiperligação para convidar outros participantes para o comité promotor
-          no_members_yet: Não há membros no comité promotor
           revoke: Revogar
           title: Membros do Comité
         count:
@@ -498,7 +471,6 @@ pt:
           section: 'Se for requerido pela organização, por favor imprima e preencha este formulário a submeter onde indicado:'
           signature: Assinatura
         result:
-          answer_title: Há resposta(s) a esta iniciativa
           initiative_rejected_reason: Esta iniciativa foi rejeitada devido à falta de assinaturas.
         show:
           any_vote_method: Esta iniciativa recolhe assinaturas on-line e presencialmente.
@@ -557,9 +529,6 @@ pt:
         accepted: Aceite
         expired: Expirado
       unavailable_scope: Âmbito não disponível
-      update:
-        error: Ocorreu um erro
-        success: A iniciativa foi atualizada corretamente
       versions:
         shared:
           back_to_resource: Retroceder para a iniciativa
