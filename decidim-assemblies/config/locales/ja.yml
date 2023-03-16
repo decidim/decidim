@@ -76,12 +76,6 @@ ja:
         email: Eメールアドレス
         name: 名前
         role: ロール
-    errors:
-      models:
-        assembly:
-          attributes:
-            document:
-              allowed_file_content_types: '無効なドキュメントタイプです。次の拡張子を持つファイルのみ許可されます: %{types}'
   activerecord:
     models:
       decidim/assembly:
