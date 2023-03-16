@@ -334,10 +334,6 @@ hu:
           contextual: "<p>A <strong>részvételi folyamat</strong> a részvételi tevékenységek sorrendje (pl. Először egy felmérést tölt be, majd javaslatokat tesz, személyes vagy virtuális találkozókkal foglalkozik, végül pedig kiemelteti őket) a döntés megfogalmazása és meghozatala érdekében egy adott témában.</p> <p>Példák a részvételi folyamatokra: a bizottsági tagok megválasztásának folyamata (ahol a jelölteket először bemutatták, vitatták és végül jelöltségüket választották), részvételi költségvetések (ahol javaslatokat tesznek, gazdaságilag értékelik és szavaznak a rendelkezésre álló pénzzel) egy stratégiai tervezési folyamatot, egy rendelet vagy normaterv kidolgozását, egy városi tér kialakítását vagy egy közpolitikai terv elkészítését.</p>\n"
           page: "<p>A <strong>részvételi folyamat</strong> a részvételi tevékenységek sorrendje (pl. Először egy felmérést tölt be, majd javaslatokat tesz, személyes vagy virtuális találkozókkal foglalkozik, végül pedig kiemelteti őket) a döntés megfogalmazása és meghozatala érdekében egy adott témában.</p> <p>Példák a részvételi folyamatokra: a bizottsági tagok megválasztásának folyamata (ahol a jelölteket először bemutatták, vitatták és végül jelöltségüket választották), részvételi költségvetések (ahol javaslatokat tesznek, gazdaságilag értékelik és szavaznak a rendelkezésre álló pénzzel) egy stratégiai tervezési folyamatot, egy rendelet vagy normaterv kidolgozását, egy városi tér kialakítását vagy egy közpolitikai terv elkészítését.</p>\n"
           title: Mi a részvételi folyamat?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'A folyamat típust nem találtuk az adatbázisban (ID:%{id})'
     menu:
       processes: Folyamatok
     metrics:
@@ -452,8 +448,6 @@ hu:
               one: 1 közelgő folyamat
               other: "%{count} közelgő folyamat"
           explanations:
-            no_active: Nincsenek aktív folyamatok
-            no_active_nor_upcoming: Nincs aktív vagy közelgő folyamat
             no_active_nor_upcoming_callout: Nincs sem aktív, sem közelgő folyamat. A korrábbiakat itt nézheted meg.
           filter_by: Mutat
           names:
