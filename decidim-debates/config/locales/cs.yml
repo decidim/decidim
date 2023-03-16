@@ -212,7 +212,6 @@ cs:
           email_intro: 'Nyní můžete začít debaty v %{participatory_space_title}! Začněte se účastnit této stránky:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Na předchozím odkazu můžete přestat přijímat oznámení.
           email_subject: Debaty jsou nyní k dispozici v %{participatory_space_title}
-          notification_title: Nyní můžete začít <a href="%{resource_path}">novou debatu</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Debata "%{resource_title}" byla ukončena. Závěry si můžete přečíst z její stránky:'
