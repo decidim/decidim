@@ -11,9 +11,6 @@ sk:
       admins:
         create:
           error: Pri tvorbe nového správcu nastala chyba.
-          success: Správca úspešne vytvorený
-        destroy:
-          success: Správca úspešne vymazaný
         edit:
           title: Upraviť správcu
           update: Aktualizovať
@@ -24,7 +21,6 @@ sk:
           title: Nový správca
         update:
           error: Pri aktualizácii správcu nastala chyba.
-          success: Správca úspešne aktualizovaný
       default_pages:
         placeholders:
           content: Prosíme pridajte zmysluplný obsah na statickú stránku %{page} na paneli správcu.
@@ -59,8 +55,6 @@ sk:
         index:
           title: Organizácie
         new:
-          reference_prefix_hint: Referenčná predpona je použitá pre unikátne identifikovanie zdrojov naprieč všetkými organizáciami
-          secondary_hosts_hint: Zadajte každý host na nový riadok
           title: Nová organizácia
         omniauth_settings:
           decidim:
