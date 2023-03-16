@@ -34,12 +34,6 @@ tr:
         title: Eylemler
       admin:
         budgets:
-          create:
-            invalid: Bu bütçe oluşturulurken bir sorunla karşılaşıldı
-            success: Bütçe başarıyla oluşturuldu
-          destroy:
-            invalid: Bu bütçe silinirken bir sorun oluştu
-            success: Bütçe başarıyla silindi
           edit:
             title: Bütçeyi düzenle
             update: Bütçeyi güncelle
@@ -48,9 +42,6 @@ tr:
           new:
             create: Bütçe oluştur
             title: Yeni bütçe
-          update:
-            invalid: Bu bütçe güncellenirken bir sorunla karşılaşıldı
-            success: Bütçe başarıyla güncellendi
         exports:
           projects: Projeler
         models:
@@ -59,11 +50,6 @@ tr:
           project:
             name: proje
         projects:
-          create:
-            invalid: Bu projeyi oluştururken bir sorun oluştu
-            success: Proje başarıyla oluşturuldu
-          destroy:
-            success: Proje başarıyla silindi
           edit:
             title: Projeyi düzenle
             update: Güncelle
@@ -75,13 +61,7 @@ tr:
           new:
             create: Oluştur
             title: Yeni proje
-          update:
-            invalid: Bu projeyi güncellerken bir sorun oluştu
-            success: Proje başarıyla güncellendi
         proposals_imports:
-          create:
-            invalid: Teklifleri projelere aktarırken bir sorun oluştu
-            success: "%{number} adet teklif başarıyla projelere aktarıldı"
           new:
             create: Teklifleri projelere aktarın
             no_components: Bu katılımcı alanda teklifleri projelere aktarmak için başka bir teklif bileşeni yoktur.
@@ -111,7 +91,6 @@ tr:
         highlighted_cta: '%{name} için oy verin'
         if_change_opinion: Fikrini değiştirdiysen, yapabilirsin
         my_budgets: Bütçelerim
-        voted_on: '%{links} linkinden oy verdiniz'
       limit_announcement:
         limit_reached: '%{links} alanında aktif oylarınız var. Bu bütçeye oy vermek için <a href="%{landing_path}"> oyunuzu silmeli ve baştan başlamalısınız </a>.'
       models:
@@ -201,8 +180,6 @@ tr:
           random: Rasgele sırala
           selected: Seçili
         project:
-          add: Oyunuza %{resource_name} projesini ekleyin
-          remove: '%{resource_name} projesini oyunuzdan çıkarın'
           selected: Seçili
           view: Görünüm
           votes:
@@ -210,9 +187,7 @@ tr:
             other: oylar
         project_budget_button:
           add: Oyunuza ekleyin
-          add_descriptive: Oyunuza %{resource_name} projesini ekleyin
           added: Oyunuza eklendi
-          added_descriptive: '%{resource_name} projesi oyunuza eklendi'
         projects_for: '%{name} için projeler'
         show:
           budget: Bütçe
@@ -227,10 +202,6 @@ tr:
             announcement: Duyurular
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
-            form:
-              errors:
-                budget_voting_rule_only_one: Yalnızca bir oylama kuralı etkinleştirilmelidir
-                budget_voting_rule_required: Bir oylama kuralı gerekli
             landing_page_content: Bütçeler ana sayfası
             more_information_modal: Daha fazla bilgi
             projects_per_page: Sayfa başına projeler
@@ -270,12 +241,5 @@ tr:
           email_outro: Bu bildirimi, %{participatory_space_title} adlı kişiyi takip ettiğiniz için aldınız. Önceki bağlantıyı izleyerek bildirim almayı durdurabilirsiniz.
           email_subject: '%{resource_title} bütçesi artık %{participatory_space_title} için aktif.'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> bütçesi artık %{participatory_space_title} için aktif.
-    orders:
-      checkout:
-        error: Oyunuzu işleme koymada bir sorun oluştu
-        success: Oyunuz başarıyla kabul edildi
-      destroy:
-        error: Oyunuzu iptal ederken bir sorun oluştu
-        success: Oyunuz başarıyla iptal edildi
   index:
     confirmed_orders_count: Oy sayısı
