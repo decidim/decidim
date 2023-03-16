@@ -357,8 +357,6 @@ zh-CN:
             upcoming:
               other: "%{count} 个即将进行的进程"
           explanations:
-            no_active: 没有活动的进程
-            no_active_nor_upcoming: 没有活动或即将进行的进程
             no_active_nor_upcoming_callout: 没有活跃或即将开始的进程。这里是过去进程的清单。
           names:
             active: 已启用
