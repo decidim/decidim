@@ -5,7 +5,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 == Technological
 
 . Choose a *domain or subdomain* for your application. Some typical names involve "Participation" or "Decision" conjugations.
-. Choose which *languages* do you want for your application. In case that your language isn't supported you should translate it on https://crowdin.com/project/decidim[Crowdin].
+. Choose which *languages* do you want for your application. In case that your language is not supported you should translate it on https://crowdin.com/project/decidim[Crowdin].
 . Customize the xref:customize:styles.adoc[*look and feel*] (colors, pictures, fonts, etc).
 . Configure *SSL*:
 .. We recommend using at least *https://letsencrypt.org/[Let's Encrypt]* for minimum security.
@@ -24,7 +24,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 . Configure your xref:services:activejob.adoc[*ActiveJob*] background queue.
 . Configure your xref:services:activestorage.adoc[*ActiveStorage*] dynamic uploads.
 . If you want, configure your xref:services:social_providers.adoc[*social providers*] to enable login using external applications.
-. Check that you don't have any *default users, emails and passwords*, neither on the admin or on the system panel.
+. Check that you do not have any *default users, emails and passwords*, neither on the admin or on the system panel.
 . Configure xref:install:index.adoc#scheduled_tasks[scheduled tasks].
 . You should have a *staging* / preproduction environment where to test changes before deploying to production. If this environment has a copy of production database, you should disable the SMTP server and for privacy issues you should change the usernames / names / emails.
 . You should have a *exception tracking* service or gem, like https://errbit.com/[Errbit], https://github.com/smartinez87/exception_notification[Exception Notification], https://airbrake.io/[Airbrake] or https://sentry.io[Sentry].

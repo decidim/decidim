@@ -129,7 +129,7 @@ en:
           update: "%{user_name} updated the %{resource_name} questionnaire"
       errors:
         answer:
-          body: Body can't be blank
+          body: Body cannot be blank
       images:
         dimensions: "%{width} x %{height} px"
         processors:

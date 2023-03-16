@@ -87,7 +87,7 @@ shared_examples "manage process components" do
       end
     end
 
-    context "when the process doesn't have active steps" do
+    context "when the process does not have active steps" do
       let!(:participatory_process) do
         create(:participatory_process, organization:)
       end
@@ -226,7 +226,7 @@ shared_examples "manage process components" do
       end
     end
 
-    context "when the process doesn't have active steps" do
+    context "when the process does not have active steps" do
       before { participatory_process.steps.destroy_all }
 
       it "updates the default step settings" do

@@ -308,7 +308,7 @@ module Decidim
         end
       end
 
-      context "when a category doesn't have the translation in the current locale" do
+      context "when a category does not have the translation in the current locale" do
         before do
           I18n.locale = "zh"
           create(:category, name: { "en" => "Subcategory 2", "zh" => "Something" }, parent: category, participatory_space: component.participatory_space)
@@ -692,10 +692,10 @@ module Decidim
           )
         )
       end
-      let(:optional) { true }
+      let(:required) { false }
       let(:attributes) do
         {
-          optional:
+          required:
         }
       end
       let(:output) do
@@ -764,7 +764,7 @@ module Decidim
             expect(output).to include(%(<a href="#{url}">#{filename}</a>))
           end
 
-          it "doesn't render an image tag" do
+          it "does not render an image tag" do
             expect(parsed.css("img[src=\"#{url}\"]")).to be_empty
           end
 

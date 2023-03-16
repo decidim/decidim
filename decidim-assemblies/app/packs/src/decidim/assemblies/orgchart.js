@@ -339,7 +339,7 @@ const renderOrgCharts = () => {
 
         // -------------------- handle drag end event ---------------
         function dragended() {
-          // we are doing nothing, here , aren't we?
+          // we are doing nothing, here , are not we?
         }
 
         // -------------------------- node mouse hover handler ---------------

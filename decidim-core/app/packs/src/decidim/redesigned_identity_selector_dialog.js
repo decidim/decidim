@@ -1,6 +1,6 @@
 /**
  * Send a request to select which identity want to use
- * NOTE: this shouldn't be done using javascript
+ * NOTE: this should not be done using javascript
  *
  * @param {HTMLElement} node target node
  * @returns {void}

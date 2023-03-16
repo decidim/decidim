@@ -1,13 +1,13 @@
 = Getting started with Decidim
 :source-highlighter: highlightjs
 
-== What is and what isn't Decidim?
+== What is and what is not Decidim?
 
 Decidim is a set of Ruby on Rails engines to create a participatory democracy framework on top of a Ruby on Rails app. This system allows having Decidim code separated from custom code for each installation and still enabling easy updates.
 
 These libraries are published to Rubygems.org, so you can add Decidim to your Ruby on Rails app as external dependencies.
 
-If you want to start your own installation of Decidim, you don't need to clone this repo. Keep reading to find out how to install Decidim.
+If you want to start your own installation of Decidim, you do not need to clone this repo. Keep reading to find out how to install Decidim.
 
 == Creating your Decidim app
 
@@ -71,7 +71,7 @@ This will also create some default data so you can start testing the app:
 
 |===
 
-This data won't be created in production environments, if you still want to do it, run: `$ SEED=true rails db:setup`. We recomend that you first login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `+https://example.org:3001+`, you need to write `example.org`). After it'd be good to execute the `seed` command, as that would be created with the first Organization created.
+This data will not be created in production environments, if you still want to do it, run: `$ SEED=true rails db:setup`. We recomend that you first login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `+https://example.org:3001+`, you need to write `example.org`). After it'd be good to execute the `seed` command, as that would be created with the first Organization created.
 
 If you want to verify yourself against the default authorization handler use a document number ended with "X".
 
