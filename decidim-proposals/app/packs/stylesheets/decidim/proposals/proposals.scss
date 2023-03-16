@@ -1,4 +1,4 @@
-.proposal{
+.proposal-list{
   &__aside{
     &__button-container{
       @apply flex flex-col gap-4 md:gap-10 w-full md:w-fit;
@@ -10,11 +10,34 @@
     @apply md:-ml-16 -mt-6 md:-mt-12 aspect-square md:aspect-[21/9] [&>*]:h-full [&+*]:mt-6 md:[&+*]:mt-12;
   }
 
+  &__container{
+    @apply mt-6 space-y-10;
+  }
+}
+
+.proposal{
+  &__container{
+    @apply space-y-8;
+
+    /* overwrite defaults */
+    [data-decidim-map]{
+      @apply aspect-[5/1];
+    }
+  }
+
   &__voting-rules{
     @apply flex flex-col md:flex-row justify-between items-center gap-2 md:gap-8 prose max-w-full;
   }
 
-  &__container{
-    @apply mt-6 space-y-10;
+  &__author{
+    @apply flex items-center gap-4;
+  }
+
+  &__cost{
+    @apply space-y-3 bg-background rounded p-4 text-black;
+
+    &-period{
+      @apply text-gray-2 uppercase text-sm;
+    }
   }
 }
