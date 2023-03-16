@@ -30,10 +30,8 @@
           before_date_info: Nyttig hvis prosessen allerede har begynt og du vil tilbakekalle tillatelsene for den forrige prosessen.
           button: Opphev alle
           button_before: Tilbakekall før dato
-          destroy_nok: Det har vært et problem under tilbakekalling av autorisasjoner.
           destroy_ok: Alle matchede autorisasjoner er nå tilbakekallet.
           info: Det er totalt %{count} bekreftede deltakere.
-          no_data: Ingen bekreftede deltakere
           title: Tilbakekall av autorisasjoner
         authorization_workflows: Autorisasjoner
     admin_log:
@@ -43,10 +41,6 @@
         grant_id_documents_offline_verification: "%{user_name} bekreftet at %{resource_name} bruker en offline identitetdokumentsautorisasjon"
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - Adminier laster opp en CSV med e-postene til de aksepterte deltakerne
-            - Bare deltakere med en email i CSV-filen kan bli verifisert
         id_documents:
           help:
             - Brukere fyller ut sin identitets-informasjon og laster opp en kopi av dokumentet.
@@ -60,17 +54,14 @@
             - Du merkere brevet som sendt.
             - Når du har merket brevet som sendt, vil deltakeren kunne introdusere koden og bli bekreftet.
       csv_census:
-        explanation: Få verifisering med å bruke organisasjonens folketelling
         name: Organisasjonens folketelling
       direct: Direkte
       help: Hjelp
       id_documents:
-        explanation: Last opp identitets dokumentene dine slik at vi kan sjekke identiteten din
         name: Identitets dokumenter
       multistep: Multi-skritt
       name: Navn
       postal_letter:
-        explanation: Vi sender deg et postbrev med en kode som du må oppgi slik at vi kan bekrefte adressen din
         name: Kode med post brev
     verifications:
       authorizations:
@@ -105,7 +96,6 @@
         renew_modal:
           cancel: Avbryt
           continue: Fortsett
-          info_renew: Hvis du ønsker å oppdatere dataene, fortsetter du med fornyelsen
           title: Forny verifisering
         skip_verification: Du kan hoppe over dette for nå og %{link}
         start_exploring: begynn å utforske
@@ -114,13 +104,9 @@
           census:
             create:
               error: Det oppstod et problem under import av folketellingen.
-              success: Importerte %{count} elementer (%{errors} feil)
-            destroy_all:
-              success: Alle folketellingene er slettet
           destroy:
             title: Slett alle folketellingsdata
           index:
-            data: Det er %{count} poster lastet totalt. Siste opplastningsdato var den %{due_date}
             empty: Det er ingen data for folketellingen. Bruk skjemaet nedenfor for å importere det ved hjelp av en CSV-fil.
             title: Nåværende folketelling data
           instructions:
@@ -153,17 +139,12 @@
               update: Oppdater
             update:
               error: Det oppsto et problem med å oppdatere konfigurasjonen.
-              success: Konfigurasjonen ble oppdatert
           confirmations:
-            create:
-              success: Deltakeren ble verifisert
             new:
               introduce_user_data: Introduser dataene på bildet
               reject: Avvis
               verify: Verifiser
           offline_confirmations:
-            create:
-              success: Deltakeren ble verifisert
             new:
               cancel: Avbryt
               introduce_user_data: Introduser deltakerens email og dokumentdata
@@ -174,32 +155,19 @@
               offline_verification: Offline verifisering
               title: Venter på online verifiseringer
               verification_number: 'Verifikasjon #%{n}'
-          rejections:
-            create:
-              success: Verifikasjon avvist. Deltakeren vil bli bedt om å endre sine dokumenter
         authorizations:
           choose:
             choose_a_type: 'Vennligst velg hvordan du vil bli verifisert:'
             offline: Offline
             online: Online
             title: Verifiser deg selv ved å bruke ditt identitetsdokument
-          create:
-            error: Det oppstod et problem med å laste opp dokumentet
-            success: Dokumentet ble lastet opp
           edit:
-            being_reviewed: Vi vurderer dokumentene dine. Du vil bli verifisert snart
             offline: Bruk offline verifisering
             online: Bruk online verifisering
-            rejection_clarity: Forsikre deg om at informasjonen er tydelig synlig i det opplastede bildet
-            rejection_correctness: Forsikre deg om at den oppgitte informasjonen er riktig
-            rejection_notice: Det oppstod et problem med din verifikasjon. Prøv igjen
             send: Be om verifikasjon igjen
           new:
             send: Be om verifikasjon
             title: Last opp dine identitetsdokumentet
-          update:
-            error: Det oppstod et problem med å laste opp dokumentet ditt på nytt
-            success: Dokumentet ble lastet opp på nytt
         dni: DNI
         nie: NIE
         passport: Pass
@@ -214,28 +182,14 @@
               title: Pågående verifiseringer
               username: Kallenavn
               verification_code: Verifiseringskode
-          postages:
-            create:
-              error: Feil med å merkere brevet som sendt
-              success: Brevet ble markert som sendt
         authorizations:
-          create:
-            error: Det oppstod et problem med forespørselen din
-            success: Takk! Vi sender en verifiseringskode til adressen din
           edit:
             send: Bekreft
-            title: Introduser verifiseringskoden du mottok
-            waiting_for_letter: Vi sender snart et brev til adressen din med verifiseringskoden
           new:
             send: Send meg et brev
             title: Be om din verifiseringskode
-          update:
-            success: Gratulerer. Du har blitt verifisert
       sms:
         authorizations:
-          create:
-            error: Det oppstod et problem med forespørselen din
-            success: Takk! Vi har sendt en melding til telefonen din.
           destroy:
             success: Verifiseringskode vellykket tilbakestilt. Vennligst legg inn telefonnummeret ditt på nytt.
           edit:
