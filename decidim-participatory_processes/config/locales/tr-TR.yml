@@ -416,8 +416,6 @@ tr:
               one: 1 yaklaşan süreç
               other: "%{count} gelecek süreç"
           explanations:
-            no_active: Etkin işlem yok
-            no_active_nor_upcoming: Etkin ve yaklaşan süreç yok
             no_active_nor_upcoming_callout: Etkin ve yaklaşan süreçler yoktur. İşte geçmiş olanların listesi.
           names:
             active: Aktif
