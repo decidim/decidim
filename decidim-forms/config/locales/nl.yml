@@ -17,8 +17,6 @@ nl:
             choices:
               missing: zijn niet compleet
               too_many: zijn te veel
-        questionnaire:
-          request_invalid: Er is een fout opgetreden bij het verwerken van het verzoek. Probeer het opnieuw
   decidim:
     forms:
       admin:
