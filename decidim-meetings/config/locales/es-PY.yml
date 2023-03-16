@@ -50,21 +50,6 @@ es-PY:
         name: Nombre
       validate_registration_code:
         code: Código
-    errors:
-      models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Esta URL no puede ser incrustada en la página de encuentro o evento en directo
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: La duración de los ítems supera la duración del encuentro en %{count} minutos
-              too_many_minutes_child: La duración de los sub-ítems excede el punto "%{parent_title}" del orden del dia en %{count} minuto
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Esta persona ya ha sido invitada
     models:
       decidim/meetings/close_meeting_event: Encuentro cerrado
       decidim/meetings/create_meeting_event: Encuentro
@@ -239,9 +224,6 @@ es-PY:
             down: Bajar
             remove: Eliminar
             up: Subir
-          create:
-            invalid: Ha habido un problema al crear este orden del día
-            success: Orden del día creado correctamente
           edit:
             title: Editar orden del día
             update: Actualizar
@@ -253,9 +235,6 @@ es-PY:
           new:
             create: Crear
             title: Nuevo orden del día
-          update:
-            invalid: Ha habido un problema al actualizar el orden del día
-            success: Orden del día actualizado correctamente
         exports:
           answers: Respuestas
           meeting_comments: Comentarios
@@ -293,17 +272,9 @@ es-PY:
             close: Cerrar
             title: Cerrar encuentro
         meetings:
-          close:
-            invalid: Ha habido un problema al cerrar este encuentro
-            success: Encuentro cerrado con éxito
           create:
-            invalid: Ha habido un problema al crear este encuentro
             success: Encuentro creado correctamente. Ten en cuenta que aún no se ha publicado, deberás publicarlo manualmente.
           destroy:
-            invalid:
-              proposals_count:
-                one: El encuentro no se puede eliminar porque tiene %{count} propuesta asociada
-                other: El encuentro no se puede eliminar porque tiene %{count} propuestas asociadas
             success: El encuentro se ha eliminado correctamente
           edit:
             title: Editar encuentro
@@ -324,9 +295,6 @@ es-PY:
           new:
             create: Crear
             title: Crear encuentro
-          publish:
-            invalid: Se ha producido un error al publicar este encuentro
-            success: Encuentro publicado correctamente
           service:
             description: Descripción
             down: Abajo
@@ -337,18 +305,9 @@ es-PY:
           services:
             add_service: Añadir servicio
             services: Servicios
-          unpublish:
-            invalid: Se ha producido un error al despublicar este encuentro
-            success: Encuentro despublicado correctamente
-          update:
-            invalid: Ha habido un problema al actualizar este encuentro
-            success: Encuentro actualizado correctamente
         meetings_poll:
           form:
             title: Editar cuestionario de encuesta para %{questionnaire_for}
-          update:
-            invalid: Se ha producido un error al actualizar esta encuesta
-            success: Encuesta actualizada correctamente
         models:
           meeting:
             name: Encuentro
@@ -366,7 +325,6 @@ es-PY:
             registrations_count:
               one: Ha habido %{count} registro.
               other: Ha habido %{count} registros.
-            reserved_slots_help: Déjalo a 0 si no tienes espacios reservados
             reserved_slots_less_than: Debe ser menor que o igual a %{count}
             title: Registros
           update:
@@ -449,8 +407,6 @@ es-PY:
         registration_mailer:
           confirmation:
             subject: La inscripción a tu encuentro ha sido confirmada
-      meeting:
-        not_allowed: No puedes ver esta reunión
       meeting_closes:
         edit:
           back: Atrás
@@ -647,9 +603,6 @@ es-PY:
         withdraw: Retirado
       versions:
         back_to_resource: Volver al encuentro
-      withdraw:
-        error: Se ha producido un error al retirar el encuentro
-        success: El encuentro se ha retirado con éxito
     metrics:
       meetings:
         description: Número de reuniones creadas
