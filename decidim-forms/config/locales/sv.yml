@@ -22,8 +22,6 @@ sv:
             choices:
               missing: är inte fullständiga
               too_many: är för många
-        questionnaire:
-          request_invalid: Ett fel uppstod när begäran skulle hanteras. Försök igen
   decidim:
     forms:
       admin:
