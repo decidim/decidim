@@ -70,7 +70,7 @@ jobs:
       VALIDATOR_HTML_URI: http://localhost:8888/
       ELECTIONS_BULLETIN_BOARD_SERVER: http://localhost:8000/api
     steps:
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - uses: ./.github/actions/module-rspec
