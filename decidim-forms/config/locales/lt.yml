@@ -22,8 +22,6 @@ lt:
             choices:
               missing: nepilnas - trūksta elementų
               too_many: per daug
-        questionnaire:
-          request_invalid: Tvarkant prašymą įvyko klaida. Bandykite dar kartą
   decidim:
     forms:
       admin:
