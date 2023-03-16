@@ -182,12 +182,6 @@ fi:
           inactive_content_blocks: Käytöstä poistetut sisältölohkot
           title: Sivun sisältö
       participatory_process_group_landing_page_content_blocks:
-        create:
-          error: Sisältölohkon luonti epäonnistui
-          success: Sisältölohkon luonti onnistui
-        destroy:
-          error: Sisältölohkon poisto epäonnistui
-          success: Sisältölohkon poisto onnistui
         edit:
           update: Päivitä
       participatory_process_groups:
@@ -360,10 +354,6 @@ fi:
           contextual: "<p><strong>Osallistumisprosessi</strong> on osallistumistoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
           page: "<p><strong>Osallistumisprosessi</strong> on osallistumistoimien sarja (esim. täytä ensin kysely, tee sitten ehdotuksia, keskustele niistä kasvokkain tai virtuaalisissa tapaamisissa ja lopuksi priorisoi ne), tavoitteena päättää tietystä aiheesta.</p> <p>Esimerkkejä osallisuusprosesseista ovat komitean jäsenten valintamenettely (jossa ensin esitetään ehdokkaat, sitten keskustellaan ja lopulta valitaan jäsenet), osallistuva budjetointi (joissa tehdään ehdotuksia, arvioidaan niiden toteutushinta ja äänestetään niistä budjetoitujen varojen puitteissa) strateginen suunnitteluprosessi ja asetuksen, säädöksen, kaupunkisuunnitelman tai julkisen toimintasuunnitelman laatimisen yhteistyöstäminen.</p>\n"
           title: Mikä on osallistumisprosessi?
-    log:
-      value_types:
-        participatory_process_type_presenter:
-          not_found: 'Prosessityyppiä ei löytynyt tietokannasta (ID: %{id})'
     menu:
       processes: Prosessit
     metrics:
@@ -481,8 +471,6 @@ fi:
               one: 1 tuleva prosessi
               other: "%{count} tulevaa prosessia"
           explanations:
-            no_active: Ei aktiivisia prosesseja
-            no_active_nor_upcoming: Ei aktiivisia tai tulevia prosesseja
             no_active_nor_upcoming_callout: Ei ole olemassa aktiivisia tai tulevia prosesseja. Tässä on luettelo menneistä.
           filter_by: Näytä
           names:
