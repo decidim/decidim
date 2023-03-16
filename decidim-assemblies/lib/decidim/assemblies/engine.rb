@@ -93,6 +93,17 @@ module Decidim
             settings.attribute :max_results, type: :integer, default: 4
           end
         end
+
+        Decidim.content_blocks.register(:assembly_homepage, :html) do |content_block|
+          content_block.cell = "decidim/content_blocks/html"
+          content_block.public_name_key = "decidim.content_blocks.html.name"
+          content_block.settings_form_cell = "decidim/content_blocks/html_settings_form"
+
+          content_block.settings do |settings|
+            settings.attribute :html_content, type: :text, translated: true
+          end
+          content_block.default!
+        end
       end
 
       initializer "decidim_assemblies.register_metrics" do
