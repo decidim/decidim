@@ -137,7 +137,6 @@ sv:
         cancel: avbryt
         cancel_error: Kunde inte avbryta ändringen av e-postadressen.
       show:
-        available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
         update_account: Uppdatera konto
       update:
@@ -147,8 +146,6 @@ sv:
     admin:
       actions:
         cancel: Avbryt
-      password_change:
-        alert: Du måste ändra ditt lösenord för att kunna fortsätta
     admin_log:
       area:
         create: "%{user_name} skapade området %{resource_name}"
@@ -223,10 +220,8 @@ sv:
         amended_by: Ändrad av
         button: Ändra %{model_name}
         error: Det gick inte att ändra resursen.
-        help_text: Förbättra %{model_name} genom att ändra dess %{amendable_fields}
         promote_button: Gör till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
-        promote_help_text: Du kan stötta detta ändringsförslag och lägga fram det som ett oberoende %{model_name}
         section_heading: Ändringar (%{count})
       compare_draft:
         continue: Fortsätt
@@ -267,26 +262,16 @@ sv:
         modify: Ändra
         publish: Publicera
         title: Publicera utkast till ändringsförslag
-      promoted:
-        error: Det gick inte att publicera ändringen som ett nytt förslag
-        success: Ändringsförslaget har publicerats som ett nytt förslag
       publish_draft:
         error: Det gick inte att publicera ändringsförslaget.
         success: Ändringsförslaget har publicerats.
-      rejected:
-        error: Det gick inte av avslå detta ändringsförslag, försök igen senare
-        success: Ändringsförslaget har avslagits
       review:
         back: Tillbaka
         heading: Granska ändringsförslaget
-        help_text: Du granskar ett ändringsförslag till %{model_name}
         send: Godkänn ändring
       update_draft:
         error: Det gick inte att uppdatera utkastet till ändringsförslag.
         success: Utkastet till ändringsförslag har uppdaterats.
-      withdraw:
-        error: Det gick inte att dra tillbaka ändringsförslaget
-        success: Ändringsförslaget har dragits tillbaka
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
@@ -315,13 +300,11 @@ sv:
       official_author: Officiella
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Bli bekräftad genom att ange ett passnummer som inleds med "A"
         fields:
           passport_number: Passnummer
           postal_code: Postnummer
         name: Ett annat exempel på auktorisering
       dummy_authorization_handler:
-        explanation: Bli bekräftad genom att ange ett dokumentnummer som avslutas med "X"
         fields:
           allowed_postal_codes: Tillåtna postnummer (separerade med kommatecken)
           allowed_scope_id: Tillåtet omfång
@@ -361,11 +344,7 @@ sv:
           authorize: Auktorisera med "%{authorization}"
           explanation: För att utföra denna åtgärd måste du vara auktoriserad med "%{authorization}".
           title: Auktorisering krävs
-        ok:
-          title: Du har blivit auktoriserad på den här sidan. Ladda om sidan för att utföra din åtgärd
         pending:
-          explanation: För att kunna utföra denna åtgärd måste du vara auktoriserad med "%{authorization}", men din auktorisering behandlas fortfarande
-          resume: Se hur auktoriseringen med "%{authorization}" pågår
           title: Auktoriseringen pågår fortfarande
         unauthorized:
           ok: OK
@@ -465,16 +444,10 @@ sv:
         name: Organisationsstatistik
       sub_hero:
         name: Sub hjälte banner
-    core:
-      actions:
-        login_before_access: Logga in före åtkomst
-        unauthorized: Du har inte behörighet att utföra denna åtgärd
     datepicker:
       help_text: 'Förväntat format: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Komplettera profil
           nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
@@ -500,8 +473,6 @@ sv:
         new:
           are_you_new?: Ny här?
           register: Skapa ett konto
-          sign_in_disabled: Du kan få åtkomst via ett externt konto
-          sign_up_disabled: Anmälan är avaktiverad, men du kan komma in med ett befintligt konto
         user:
           timed_out: Du var inaktiv för länge och du har blivit automatiskt utloggad från tjänsten. Om du vill fortsätta använda tjänsten, vänligen logga in igen.
       shared:
@@ -519,7 +490,6 @@ sv:
           authorize: Auktorisera ansökan
           by_organization_link_html: <small class="heading-small">av %{link}</small>
           cancel: Avbryt
-          connect_your_account_html: Anslut ditt konto genom att logga in på <strong>%{organization}</strong>
           publish_content: Publicera innehåll åt dig
           see_email: Se din e-postadress
           see_name: Se ditt namn
@@ -812,17 +782,8 @@ sv:
       index:
         invite: Inbjudan
         invite_user: Bjud in en deltagare
-      invite:
-        error: Det gick inte att bjuda in deltagaren
-        success: Deltagaren har bjudits in
-      reject:
-        error: Det gick inte att avvisa denna inbjudan
-        success: Inbjudan har avvisats
       reject_invitation: Avvisa
     group_members:
-      accept:
-        error: Det gick inte att godkänna denna förfrågan att gå med
-        success: Förfrågan att gå med har godkänts
       actions:
         are_you_sure: Är du säker?
         promote_to_admin: Gör till administratör
@@ -830,36 +791,20 @@ sv:
       index:
         current_members_without_admins: 'Nuvarande medlemmar (utan administratörer):'
         manage_members: Hantera medlemmar
-      promote:
-        error: Det gick inte att befordra deltagaren
-        success: Användaren befodrades
-      reject:
-        error: Det gick inte att avvisa denna förfrågan att gå med
-        success: Förfrågan att gå med avvisades
-      remove:
-        error: Det gick inte att ta bort den här deltagaren från gruppen
-        success: Deltagaren har tagits bort från gruppen
     groups:
       actions:
         are_you_sure: Är du säker?
-      create:
-        error: Det gick inte att skapa gruppen
-        success: Gruppen har skapats
       edit:
         edit_user_group: Redigera grupp
         update_user_group: Uppdatera grupp
       form:
-        document_number_help: Använd inte bindestreck eller mellanslag
         email_help: E-post till din organisation, förening, kollektiv, grupp, och så vidare.
         fill_in_for_verification: 'Fyll i dessa fält om du vill att din grupp ska verifieras:'
         name_help: Namn på din organisation, förening, kollektiv, grupp eller motsvarande.
         nickname_help: Användarnamn till din organisation, förening, kollektiva, grupp etc. Använd inte mellanslag eller accenter.
-        phone_help: Använd inte bindestreck eller mellanslag
       join:
-        error: Det gick inte att gå med i gruppen
         success: Förfrågan att gå med har skickats. En administratör granskar din förfrågan innan du blir godkänd i gruppen.
       leave:
-        error: Det gick inte att lämna gruppen
         success: Du har lämnat gruppen.
       members:
         accept_or_reject_join_requests: 'Följande användare har ansökt om att få gå med i den här gruppen. Godkänn eller avvisa deras förfrågningar:'
@@ -873,15 +818,11 @@ sv:
         admin: Administratör
         creator: Administratör
         member: Medlem
-      update:
-        error: Det gick inte att uppdatera gruppen
-        success: Gruppen har uppdaterats
     help:
       main_topic:
         default_page:
           content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: dialoger, grupper, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
           title: Vad kan jag göra i %{organization}?
-        description: Läs mer om %{organization}
         title: Allmän hjälp
     last_activities:
       activities:
@@ -935,35 +876,29 @@ sv:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} har startat en ny konversation i namnet %{group}. Klicka här för att se den:"
-          outro: Njut av decidim!
           subject: "%{manager} har startat en ny konversation som %{group}"
         comanagers_new_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} har postat nya meddelanden i en konversation i namnet %{group}. Klicka här för att se dem:"
-          outro: Njut av decidim!
           subject: "%{manager} har skickat nya meddelanden som %{group}"
         new_conversation:
           greeting: Hej %{recipient}!
           intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se den:"
-          outro: Njut av decidim!
           subject: "%{sender} har startat en konversation med dig"
         new_group_conversation:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} har startat en ny konversation med gruppen %{group}. Klicka här för att se den:"
-          outro: Njut av decidim!
           subject: "%{sender} har startat en konversation med %{group}"
         new_group_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} har postat nya meddelanden i en konversation med gruppen %{group}. Klicka här för att se den:"
-          outro: Njut av decidim!
           subject: "%{group} har nya meddelanden från %{sender}"
         new_message:
           greeting: Hej %{recipient}!
           intro: "%{sender} har lagt upp nya meddelanden i er konversation. Klicka här för att se dem:"
-          outro: Njut av decidim!
           subject: Du har fått nya meddelanden från %{sender}
       conversations:
         add_conversation_users:
@@ -971,9 +906,6 @@ sv:
           add_users_placeholder: Sök...
           modal_title: Nytt samtal
           no_results: Inga resultat
-          participant_with_disabled_message_reception: Deltagaren har avaktiverat att ta emot meddelanden
-        create:
-          error: Konversationen har inte startat. Försök igen senare
         error_modal:
           close: Stäng fönster
           correct_errors: Rätta alla fel och försök igen.
@@ -983,7 +915,6 @@ sv:
           ago: sedan
           new_conversation: Nytt samtal
           next: Nästa
-          no_conversations: Du har inga konversationer än
           title: Samtal
         reply_form:
           placeholder: Ditt svar...
@@ -995,8 +926,6 @@ sv:
           title: Samtal med %{usernames}
         start:
           send: Skicka
-        update:
-          error: Meddelandet skickades inte på grund av ett fel
     metrics:
       download:
         csv: Ladda ner data (CSV)
@@ -1138,7 +1067,6 @@ sv:
           success: Tack! Du har godkänt användarvillkoren.
         form:
           agreement: Jag godkänner villkoren
-          legend: Godkänn användarvillkoren
         refuse:
           modal_btn_continue: Acceptera villkoren och fortsätt
           modal_btn_exit: Jag granskar dem senare
@@ -1151,12 +1079,9 @@ sv:
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
-      deleted: Deltagaren har raderats
       inaccessible_message: Denna profil kan inte ses på grund av överträdelse av användarvillkoren!
       view: Visa
     profiles:
-      default_officialization_text_for_user_groups: Den här gruppen är offentligt verifierad, namnet har kontrollerats att överensstämma med dess riktiga namn
-      default_officialization_text_for_users: Denna deltagare är verifierad. Deras namn eller roll har kontrollerats att motsvara deras riktiga namn och roll
       show:
         activity: Aktivitet
         badges: Märken
@@ -1181,11 +1106,9 @@ sv:
           manage_user_group_admins: Hantera administratörer
           manage_user_group_users: Hantera medlemmar
           message: Meddelande
-        confirmation_instructions_sent: Skickat e-brev med anvisningar om bekräftelse
         create_user_group: Skapa grupp
         edit_profile: Redigera profil
         edit_user_group: Redigera grupprofil
-        fill_in_email_to_confirm_it: Fyll i gruppens e-postadress för att bekräfta den
         invite_user: Bjud in deltagare
         join_user_group: Begäran att gå med i grupp
         leave_user_group: Lämna grupp
@@ -1340,7 +1263,6 @@ sv:
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_conversations:
       create:
-        error: Meddelandet kunde inte skapas. Försök igen senare
         existing_error: Meddelandet kunde inte skapas. Konversationen finns redan, försök igen nu.
         success: Samtalet startades framgångsrikt!
       index:
@@ -1355,7 +1277,6 @@ sv:
         next: Nästa
         no_conversations_warning: Det finns inga konversationer än.
         no_results: Inga resultat
-        participant_with_disabled_message_reception: Denna deltagare har inaktiverat meddelandemottagning
         time_ago: "%{time} sedan"
       new:
         title: Starta en konversation
