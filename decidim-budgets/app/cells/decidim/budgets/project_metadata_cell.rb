@@ -31,7 +31,7 @@ module Decidim
 
       def voted_item_for_map
         {
-          text: model.confirmed_orders_count.to_s + " " + t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count),
+          text: "#{model.confirmed_orders_count} #{t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count)}",
           icon: current_order_checked_out? && resource_added? ? "check-double-line" : "check-line"
         }
       end

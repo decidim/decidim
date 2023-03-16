@@ -120,7 +120,7 @@ module Decidim
             items: cell("decidim/budgets/project_metadata", project).send(:project_items_for_map).to_json,
             # REDESING_PENDING: deprecated attributes
             description: html_truncate(decidim_sanitize_editor(translated_attribute(project.description)), length: 100),
-            icon: icon("project", width: 40, height: 70, remove_icon_class: true),
+            icon: icon("project", width: 40, height: 70, remove_icon_class: true)
           )
       end
 
