@@ -20,6 +20,22 @@ module Decidim
         [voted_item, category_item, scope_item]
       end
 
+      def project_items_for_map
+        [voted_item_for_map, category_item, scope_item].compact_blank.map do |item|
+          {
+            text: item[:text].to_s.html_safe,
+            icon: item[:icon].present? ? icon(item[:icon]).html_safe : nil
+          }
+        end
+      end
+
+      def voted_item_for_map
+        {
+          text: model.confirmed_orders_count.to_s + " " + t("decidim.budgets.projects.project.votes", count: model.confirmed_orders_count),
+          icon: current_order_checked_out? && resource_added? ? "check-double-line" : "check-line"
+        }
+      end
+
       def show_votes_count?
         project.component.current_settings.show_votes?
       end

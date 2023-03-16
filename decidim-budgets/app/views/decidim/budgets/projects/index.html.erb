@@ -19,31 +19,6 @@
 
   <div class="voting-wrapper">
     <div class="budget-summary__container">
-      <% if component_settings.geocoding_enabled? %>
-        <%= dynamic_map_for projects_data_for_map(all_geocoded_projects) do %>
-          <template id="marker-popup">
-            <div class="map-info__content">
-              <h3>${title}</h3>
-              <div id="bodyContent">
-                <p>{{html body}}</p>
-                <div class="map__date-address">
-                  <div class="address card__extra">
-                    <div class="address__icon">{{html icon}}</div>
-                    <div class="address__details">
-                      <span>${address}</span><br>
-                    </div>
-                  </div>
-                </div>
-                <div class="map-info__button">
-                  <a href="${link}" class="button button--sc">
-                    <%= t("view_project", scope: "decidim.budgets.projects.index") %>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </template>
-        <% end %>
-      <% end %>
       <% if voting_finished? %>
         <h2 class="heading2">
           <%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %>
@@ -52,6 +27,27 @@
         <%= render partial: "budget_summary", locals: { include_heading: true, project_item: false } %>
       <% end %>
     </div>
+
+      <% if component_settings.geocoding_enabled? %>
+        <div class="budget-list__map">
+          <%= dynamic_map_for projects_data_for_map(all_geocoded_projects) do %>
+            <template id="marker-popup">
+              <div class="space-y-6">
+                <a href="${link}" class="card__list">
+                  <div class="card__list-content">
+                    <h3 class="h4 card__list-title">${title}</h3>
+                    <div class="card__list-metadata">
+                      {{each JSON.parse(items)}}
+                        <span>{{html icon}}{{html text}}</span>
+                      {{/each}}
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </template>
+          <% end %>
+        </div>
+      <% end %>
 
     <%= cell("decidim/budgets/limit_announcement", budget) %>
 
