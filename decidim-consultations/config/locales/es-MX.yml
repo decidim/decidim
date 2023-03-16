@@ -46,12 +46,6 @@ es-MX:
         decidim_consultations_response_id:
           not_found: Respuesta no encontrada
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Número de votos no es válido
     models:
       decidim/consultation:
         one: Consulta
@@ -153,7 +147,6 @@ es-MX:
             one: Respuesta
             other: Respuestas
       question_configuration:
-        disable_external_voting: Por favor, desactiva la votación externa para configuraciones avanzadas
         form:
           help: Configura preguntas con opciones de respuesta múltiples aumentando el número máximo de respuestas que puede elegir un participante. El valor máximo predeterminado es 1, lo que significa que sólo se puede seleccionar una respuesta.
           title: Configuración avanzada
@@ -300,7 +293,6 @@ es-MX:
             votes: Votos
       question_votes:
         create:
-          error: Ha habido errores al votar la pregunta
           success: Puedes cambiarlo hasta el final de la consulta. Sólo se aceptará el último voto.
           title_error: '¡Error de voto!'
           title_success: Voto registrado correctamente
