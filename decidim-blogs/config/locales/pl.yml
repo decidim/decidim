@@ -23,11 +23,6 @@ pl:
           post:
             name: Wpis
         posts:
-          create:
-            invalid: Podczas tworzenia tego wpisy wystąpił błąd
-            success: Wpis został utworzony
-          destroy:
-            success: Wpis został usunięty
           edit:
             save: Aktualizuj
             title: Edytuj wpis
@@ -38,7 +33,6 @@ pl:
             title: Utwórz wpis
           update:
             invalid: Podczas zapisywania wpisu wystąpiły błędy.
-            success: Wpis został pomyślnie zapisany
       models:
         post:
           fields:
