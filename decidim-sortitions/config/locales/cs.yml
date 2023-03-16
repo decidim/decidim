@@ -68,6 +68,7 @@ cs:
             error: Při vytváření nového losování došlo k chybě.
             success: Losování bylo úspěšně vytvořeno
           destroy:
+            error: Nelze zrušit losování.
             success: Losování bylo úspěšně zrušeno
           edit:
             title: Aktualizovat informace o volbě losem
