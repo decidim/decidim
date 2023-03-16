@@ -40,18 +40,6 @@ de:
             voting_type:
               inclusion: "%{value} ist kein gültiger Abstimmungstyp"
   activerecord:
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            presided_polling_station:
-              president_and_manager: Wahllokal-Mitarbeitender ist bereits Präsident/Manager eines Wahllokals
-            voting:
-              different_organization: Die Abstimmung muss in der selben Organisation wie der Benutzer sein
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: Der Wahllokal-Mitarbeiter und das Wahllokal müssen in der gleichen Abstimmung sein
     models:
       decidim/elections/answer:
         one: Antwort
@@ -105,9 +93,6 @@ de:
             'true': Nicht signiert
         validated_eq:
           label: Überprüft
-          values:
-            'false': Überprüft
-            'true': Nicht überprüft
     components:
       elections:
         actions:
@@ -135,17 +120,10 @@ de:
         unpublish: Veröffentlichung rückgängig machen
       admin:
         answers:
-          create:
-            invalid: Beim Erstellen dieser Antwort ist ein Fehler aufgetreten
-            success: Antwort wurde erfolgreich erstellt
-          destroy:
-            invalid: Beim Löschen dieser Antwort ist ein Fehler aufgetreten
-            success: Antwort wurde erfolgreich gelöscht
           edit:
             title: Antwort bearbeiten
             update: Antwort aktualisieren
           index:
-            invalid_max_selections: Du benötigst %{missing_answers} weitere Antwort/en, um die Auswahl zu erfüllen
             title: Antworten
           new:
             create: Antwort erstellen
@@ -154,22 +132,8 @@ de:
           select:
             disable: Antwort abwählen
             enable: Antwort als ausgewählt markieren
-            invalid: Beim Auswählen dieser Antwort ist ein Fehler aufgetreten
-            success: Antwort erfolgreich ausgewählt
           selected: Ausgewählt
-          unselect:
-            invalid: Beim Abwählen dieser Antwort ist ein Fehler aufgetreten
-            success: Antwort erfolgreich abgwählt
-          update:
-            invalid: Beim Aktualisieren dieser Antwort ist ein Fehler aufgetreten
-            success: Antwort wurde erfolgreich aktualisiert
         elections:
-          create:
-            invalid: Beim Erstellen dieser Wahl ist ein Fehler aufgetreten
-            success: Wahl wurde erfolgreich erstellt
-          destroy:
-            invalid: Beim Löschen dieser Wahl ist ein Fehler aufgetreten
-            success: Wahl wurde erfolgreich gelöscht
           edit:
             title: Wahl bearbeiten
             update: Wahl aktualisieren
@@ -183,9 +147,6 @@ de:
             success: Die Wahl wurde erfolgreich veröffentlicht.
           unpublish:
             success: Die Veröffentlichung der Wahl wurde erfolgreich zurückgezogen.
-          update:
-            invalid: Beim Aktualisieren dieser Wahl ist ein Fehler aufgetreten
-            success: Wahl wurde erfolgreich aktualisiert
         exports:
           elections: Wahlen
           feedback_form_answers: Antworten auf Feedback-Formular
@@ -201,22 +162,12 @@ de:
           trustee:
             name: Wahlhelfer
         proposals_imports:
-          create:
-            invalid: Beim Importieren der Vorschläge in Projekte ist ein Problem aufgetreten
-            success: "%{number} Vorschläge wurden erfolgreich in Projekte importiert"
           new:
             create: Importieren Sie Vorschläge in Projekte
             no_components: Es gibt keine weiteren Vorschlagskomponenten in diesem partizipativen Raum, um die Vorschläge in Projekte zu importieren.
             select_component: Bitte wählen Sie ein Objekt
             title: Vorschläge importieren
         questions:
-          create:
-            election_started: Die Wahl hat bereits begonnen
-            invalid: Beim Erstellen dieser Frage ist ein Fehler aufgetreten
-            success: Frage wurde erfolgreich erstellt
-          destroy:
-            invalid: Beim Löschen dieser Frage ist ein Fehler aufgetreten
-            success: Frage wurde erfolgreich gelöscht
           edit:
             title: Frage bearbeiten
             update: Frage aktualisieren
@@ -225,9 +176,6 @@ de:
           new:
             create: Frage erstellen
             title: Neue Frage
-          update:
-            invalid: Beim Aktualisieren dieser Frage ist ein Fehler aufgetreten
-            success: Frage wurde erfolgreich aktualisiert
         steps:
           create_election:
             errors:
@@ -254,9 +202,7 @@ de:
             title: Wahl einrichten
             trustees: Wahlhelfer
           created:
-            invalid: Beim Starten der Schlüssel-Zeremonie ist ein Fehler aufgetreten
             submit: Schlüssel-Zeremonie starten
-            success: Die Anfrage zum Starten der Schlüssel-Zeremonie wurde erfolgreich ans Bulletin Board gesendet
             title: Wahl erstellt
             trustees: Wahlhelfer
           key_ceremony:
@@ -265,11 +211,9 @@ de:
           key_ceremony_ended:
             errors:
               time_before: Die Wahl ist startbereit. Sie können die Abstimmungsperiode frühestens %{hours} Stunden vor der Startzeit (%{start_time}) eröffnen.
-            invalid: Beim Starten der Abstimmungsperiode ist ein Fehler aufgetreten
             requirements:
               time_before: Die Wahl wird bald beginnen. Sie können die Abstimmungsperiode manuell eröffnen, oder sie wird automatisch zur Startzeit um %{start_time} eröffnet.
             submit: Abstimmungsperiode eröffnen
-            success: Die Anfrage zum Starten der Abstimmungsperiode wurde erfolgreich ans Bulletin Board gesendet
             title: Startbereit
           processing: In Verarbeitung...
           results_published:
@@ -287,11 +231,9 @@ de:
             result: Ergebnis
             selected: Ausgewählt
             submit: Resultate veröffentlichen
-            success: Die Anfrage zur Veröffentlichung der Resultate wurde erfolgreich ans Bulletin Board gesendet
             title: Berechnete Ergebnisse
           tally_started:
             continue: Fortfahren
-            invalid: Es ist ein Problem beim Melden des Stimmenzählers aufgetreten
             mark_as_missing: Als fehlend markieren
             success: Eine Meldung über das Fehlen des Wahlhelfers wurde erfolgreich ans Forum gesendet
             tally_completion: Der Prozess wird abgeschlossen, wenn alle Wahlhelfer aktiv sind oder als fehlend markiert wurden. Mindestens %{quorum} Wahlhelfer sind erforderlich, um den Prozess abzuschließen.
@@ -300,16 +242,12 @@ de:
           vote:
             errors:
               time_after: Die Wahl läuft noch. Sie müssen bis zum Ende (%{end_time}) warten, um die Abstimmungsperiode zu schließen.
-            invalid: Beim Schließen der Abstimmungsperiode ist ein Fehler aufgetreten
             requirements:
               time_after: Die Wahl ist beendet. Sie können die Abstimmungsperiode manuell schließen, oder sie wird in wenigen Minuten automatisch geschlossen.
             submit: Abstimmungsperiode schließen
-            success: Die Anfrage zum Schließen der Abstimmungsperiode wurde erfolgreich ans Bulletin Board gesendet
             title: Abstimmungsperiode
           vote_ended:
-            invalid: Beim Starten der Stimmenzählung ist ein Fehler aufgetreten
             submit: Stimmenzählung starten
-            success: Die Anfrage zum Starten der Stimmenzählung wurde erfolgreich ans Bulletin Board gesendet
             text: Die Abstimmung ist beendet. Sie können jetzt die Stimmenzählung starten.
             title: Abstimmungsperiode abgeschlossen
           vote_stats:
@@ -321,13 +259,6 @@ de:
           actions:
             disable: Deaktivieren
             enable: Berücksichtigen
-          create:
-            exists: Ein Wahlhelfer existiert für diesen partizipativen Raum
-            invalid: Es ist ein Problem beim erstellen des Wahlhelfers aufgetreten
-            success: Wahlhelfer erfolgreich erstellt
-          delete:
-            invalid: Es ist ein Problem beim entfernen des Wahlhelfers aufgetreten
-            success: Wahlhelfer erfolgreich entfernt
           form:
             select_user: Nutzer wählen
           index:
@@ -335,9 +266,6 @@ de:
           new:
             create: Wahlhelfer erstellen
             title: Neuer Wahlhelfer
-          update:
-            invalid: Es ist ein Problem beim Aktualisieren des Wahlhelfers %{trustee} aufgetreten
-            success: Wahlhelfer %{trustee} erfolgreich aktualisiert
       connection:
         failed:
           modal:
@@ -644,7 +572,6 @@ de:
             title: Stimme verifizieren
           success:
             header: Stimme gefunden!
-            info: Ihre verschlüsselte Stimme ist in der Wahlurne %{link}
         voting_step:
           back: Zurück
           continue: Weiter
@@ -702,10 +629,8 @@ de:
             title: Wahlkategorie bearbeiten
             update: Aktualisieren
           form:
-            code_help: 'Hinweis: Der Code ist die Verbindung zwischen Erhebungsdaten und Wahlkategorie. Wenn die Erhebungsdaten hochgeladen werden, wird jedem Eintrag anhand dem Wahlkategorie-Code eine Wahlkategorie zugeteilt'
             election: Wahl
             questions: Fragen für diese Wahlkategorie
-            questions_help: 'Hinweis: Wählen Sie die Fragen aus den Wahlkomponenten aus, welche Wählern angezeigt werden sollen, die dieser Wahlkategorie zugeordnet werden'
           index:
             actions:
               confirm_destroy: Sind Sie sicher?
@@ -828,16 +753,8 @@ de:
             publish_results: Ergebnisse veröffentlichen
             publishing: Ergebnisse werden veröffentlicht...
           update:
-            invalid: Beim Veröffentlichen der Ergebnisse ist ein Fehler aufgetreten
             rejected: Die Veröffentlichung der Ergebnisse wurde vom Bulletin Board abgelehnt. Versuchen Sie es erneut oder kontaktieren Sie den Systemadministrator.
-            success: Die Ergebnisse wurden erfolgreich veröffentlicht
         monitoring_committee_members:
-          create:
-            invalid: Beim Erfassen dieses Überwachungskomitee-Mitglieds ist ein Fehler aufgetreten
-            success: Überwachungskomitee-Mitglied erfolgreich erfasst
-          destroy:
-            invalid: Beim Löschen dieses Überwachungskomitee-Mitglieds ist ein Fehler aufgetreten
-            success: Überwachungskomitee-Mitglied erfolgreich entfernt
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
@@ -867,9 +784,6 @@ de:
           show:
             change_polling_station: Zurück zu den Wahllokalen
             monitoring_committee_notes: Anmerkungen vom Überwachungsausschuss
-          validate:
-            error: Beim Überprüfen der Schliessung ist ein Problem aufgetreten
-            success: Die Schliessung wurde korrekt überprüft
         monitoring_committee_verify_elections:
           index:
             download: Download
@@ -880,12 +794,6 @@ de:
             not_available: Noch nicht verfügbar
             title: Wahlen
         polling_officers:
-          create:
-            invalid: Beim Erfassen dieses Wahllokal-Mitarbeiters ist ein Fehler aufgetreten
-            success: Wahllokal-Mitarbeitender wurde erfolgreich erfasst
-          destroy:
-            invalid: Beim Entfernen dieses Wahllokal-Mitarbeitenden ist ein Fehler aufgetreten
-            success: Wahllokal-Mitarbeitender wurde erfolgreich entfernt
           form:
             existing_user: Existierender Benutzer
             non_user: Neuen Benutzer einladen
@@ -903,12 +811,6 @@ de:
             close: Schließen
             more_polling_officers: Es gibt %{number} weitere Wahllokal-Mitarbeitende. Verfeinern Sie Ihre Suche um sie zu finden.
         polling_stations:
-          create:
-            invalid: Beim Erstellen dieses Wahllokals ist ein Fehler aufgetreten
-            success: Wahllokal erfolgreich erfasst
-          destroy:
-            invalid: Beim Löschen dieses Wahllokals ist ein Fehler aufgetreten
-            success: Wahllokal erfolgreich gelöscht
           edit:
             title: Wahllokal bearbeiten
             update: Wahllokal aktualisieren
@@ -917,16 +819,12 @@ de:
             location_help: 'Ort: Beschreibung des genauen Orts des Wahllokals für die Wähler'
             location_hints_help: 'Ortshinweise: Zusätzliche Informationen. Beispiel: Das Stockwerk des Gebäudes in dem sich das Wahllokal befindet.'
             polling_station_managers_help: 'Wahllokal-Manager: Die Mitarbeitenden die als Verwalter des Wahllokals agieren werden. Stellen Sie sicher dass diese Personen bereits als Wahllokal-Mitarbeitende erfasst wurden, und dass sie nicht bereits zu einem anderen Wahllokal zugewiesen sind'
-            polling_station_president_help: 'Wahllokal-Mitarbeiter: Der Mitarbeiter der als Präsident des Wahllokals agiert. Stellen Sie sicher dass diese Person bereits als Wahllokal-Mitarbeitender erfasst wurde, und dass sie nicht bereits zu einem anderen Wahllokal zugewiesen ist'
             select_president: Wählen Sie einen Wahllokal-Mitarbeiter als Präsident für das Wahllokal
           index:
             title: Wahllokale
           new:
             create: Erstellen
             title: Wahllokal erstellen
-          update:
-            invalid: Beim Aktualisieren dieses Wahllokals ist ein Fehler aufgetreten
-            success: Wahllokal erfolgreich aktualisiert
         titles:
           votings: Abstimmungen
         votings:
@@ -936,17 +834,12 @@ de:
             new_voting: Neue Abstimmung
             publish: Veröffentlichen
             unpublish: Veröffentlichung rückgängig machen
-          create:
-            invalid: Beim Erstellen dieser Abstimmung ist ein Problem aufgetreten
-            success: Abstimmung erfolgreich erstellt
           edit:
-            assign_missing_officers: Es gibt noch Wahllokale ohne Präsident und/oder Wahlleiter. Bitte ordnen Sie diese im Wahllokal-Abschnitt zu
             update: Aktualisieren
           form:
             banner_image: Kopf-Bild
             promoted: Hervorgehoben
             select_a_voting_type: Bitte einen Abstimmungs-Typ auswählen
-            show_check_census_help: Soll der Link "Kann ich abstimmen?" im Menü "öffentliche Abstimmung" angezeigt werden
             slug: URL-Segment
             slug_help: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diese Abstimmung verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             title: Titel
@@ -958,13 +851,6 @@ de:
           new:
             create: Erstellen
             title: Neue Abstimmung
-          publish:
-            success: Abstimmung erfolgreich veröffentlicht
-          unpublish:
-            success: Veröffentlichung der Abstimmung erfolgreich rückgängig gemacht
-          update:
-            invalid: Beim Aktualisieren dieser Abstimmung ist ein Problem aufgetreten
-            success: Abstimmung erfolgreich aktualisiert
       admin_log:
         voting:
           create: "%{user_name} hat die Abstimmung %{resource_name} erstellt"
@@ -979,14 +865,10 @@ de:
               button: Alle Erhebungsdaten löschen
             destroy:
               error: Beim Löschen der Erhebungsdaten ist ein Fehler aufgetreten, bitte versuchen Sie es später erneut.
-              success: Erhebungsdaten gelöscht
             export_access_codes:
               button: Zugangscodes für die Abstimmung exportieren
               callout: Sie können jetzt die Zugangscodes exportieren. Dies kann nur einmal geschehen. Sobald Sie den Export gestartet haben, werden Sie eine E-Mail mit den Anweisungen unter <strong>%{email}</strong> erhalten
               confirm: Sie können die Zugangscodes nur einmal exportieren. Stellen Sie sicher, dass Sie Zugang zum E-Mail-Konto <strong>%{email}</strong> haben.
-              file_not_exist: Diese Datei existiert nicht
-              launch_error: Beim Starten des Zugangscode-Exports ist ein Problem aufgetreten
-              launch_success: Der Zugangscode-Export wurde gestartet. Sie werden in Kürze eine E-Mail an %{email} erhalten
             freeze:
               callout: Die Erhebung ist geschlossen und kann nicht verändert werden.
             generate_access_codes:
@@ -1254,14 +1136,10 @@ de:
           start_voting: Jetzt abstimmen
           step: Identifikation
           title: Mich via Erhebungsdaten identifizieren
-        no_census_contact_information: Es sind noch keine Kontaktinformationen vorhanden
         orders:
           label: 'Abstimmungen sortieren nach:'
           random: Zufällig
           recent: Neueste zuerst
-        send_access_code:
-          invalid: Beim Versenden des Zugangscodes ist ein Problem aufgetreten
-          success: Ihr Zugangscode wurde erfolgreich versandt
         show:
           dates: Daten
       votings_m:
