@@ -50,9 +50,6 @@ pt:
           new:
             import: Importar
             title: Importar resultados do CSV
-        imports:
-          create:
-            success: A importação do ficheiro começou. Receberá um e-mail nos próximos minutos com o resultado da importação
         models:
           result:
             name: Resultado
@@ -61,11 +58,6 @@ pt:
           timeline_entry:
             name: Entrada do cronograma
         results:
-          create:
-            invalid: Ocorreu um problema ao criar este resultado
-            success: Resultado criado corretamente
-          destroy:
-            success: Resultado eliminado corretamente
           edit:
             title: Editar resultado
             update: Atualizar resultado
@@ -74,18 +66,10 @@ pt:
           new:
             create: Criar resultado
             title: Novo resultado
-          update:
-            invalid: Ocorreu um problema ao atualizar este resultado
-            success: Resultado atualizado corretamente
         shared:
           subnav:
             statuses: Estados
         statuses:
-          create:
-            invalid: Ocorreu um problema ao criar este estado
-            success: Estado criado corretamente
-          destroy:
-            success: Estado eliminado corretamente
           edit:
             title: Editar estado
             update: Atualizar estado
@@ -94,15 +78,7 @@ pt:
           new:
             create: Criar estado
             title: Novo estado
-          update:
-            invalid: Ocorreu um problema ao atualizar este estado
-            success: Estado atualizado corretamente
         timeline_entries:
-          create:
-            invalid: Ocorreu um problema ao criar esta entrada
-            success: Entrada criada corretamente
-          destroy:
-            success: Entrada eliminada corretamente
           edit:
             title: Editar entrada
             update: Atualizar entrada
@@ -111,9 +87,6 @@ pt:
           new:
             create: Criar entrada
             title: Nova entrada
-          update:
-            invalid: Ocorreu um problema ao atualizar esta entrada
-            success: Entrada atualizada corretamente
       admin_log:
         result:
           create: "%{user_name} criou o resultado %{resource_name} em %{space_name}"
@@ -130,7 +103,6 @@ pt:
       import_mailer:
         import:
           errors: Erros
-          errors_present: Ocorreu um problema ao importar os resultados
           row_number: Linha
           subject: Importação dos resultados bem-sucedida
           success: Importação dos resultados bem-sucedida. Poderá rever os resultados na interface de administração.
