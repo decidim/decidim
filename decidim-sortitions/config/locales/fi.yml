@@ -62,10 +62,10 @@ fi:
             title: Satunnaistamisen peruuttaminen
           create:
             error: Uuden satunnaisvalinnan luonti epäonnistui.
-            success: Satunnaisvalinnan luonti onnistui
+            success: Satunnaisvalinnan luonti onnistui.
           destroy:
             error: Satunnaisvalintaa ei voi peruuttaa.
-            success: Satunnaisvalinnan peruuttaminen onnistui
+            success: Satunnaisvalinnan peruuttaminen onnistui.
           edit:
             title: Päivitä satunnaisvalinnan tiedot
             update: Päivitä
@@ -76,14 +76,14 @@ fi:
           index:
             title: Satunnaisvalinnat
           new:
-            confirm: Kun painat painiketta, palvelin tallentaa päivämäärän ja kellonajan (sekunnin tarkkuudella) ja näitä tietoja käytetään yhdessä nopanheiton kanssa satunnaisen valinnan luomiseen. Toimintoa ei voi peruuttaa. Kun painiketta painetaan, arvonnan tulos julkaistaan tähän lomakkeeseen syötettyjen tietojen kanssa. Tietoja ei voi muuttaa jälkikäteen, joten tarkista sisältö huolellisesti
+            confirm: Kun painat painiketta, palvelin tallentaa päivämäärän ja kellonajan (sekunnin tarkkuudella) ja näitä tietoja käytetään yhdessä nopanheiton kanssa satunnaisen valinnan luomiseen. Toimintoa ei voi peruuttaa. Kun painiketta painetaan, arvonnan tulos julkaistaan tähän lomakkeeseen syötettyjen tietojen kanssa. Tietoja ei voi muuttaa jälkikäteen, joten tarkista sisältö huolellisesti.
             create: Luo
             title: Uusi satunnaisvalinta
           show:
             selected_proposals: Valintaan valitut ehdotukset
           update:
             error: Satunnaisvalinnan päivitys epäonnistui.
-            success: Satunnaisvalinnan päivitys onnistui
+            success: Satunnaisvalinnan päivitys onnistui.
       admin_log:
         sortition:
           create: "%{user_name} loi satunnaisvalinnan %{resource_name} kohtaan %{space_name}"
