@@ -13,18 +13,11 @@ hu:
       templates:
         apply:
           error: Probléma merült fel a sablon alkalmazása során.
-          success: Sablon sikeresen alkalmazva
         copy:
           error: Probléma merült fel a sablon másolása során.
-          success: Sablon sikeresen másolva
         create:
           error: Probléma történt az sablon létrehozásakor.
-          success: Sablon létrhehozása sikeres
-        destroy:
-          success: Sablon törlése sikeres
         empty: Nincsenek még sablonok.
-        update:
-          success: A sablon sikeresen frissült
       titles:
         template_types:
           questionnaires: Kérdőív-sablonok
@@ -49,7 +42,6 @@ hu:
             skip_template: Átugrás
           edit:
             edit: Szerkesztés
-            empty: Még nincsenek kérdések
             questionnaire: Kérdőív
           form:
             save: Mentés
