@@ -50,21 +50,6 @@ ca:
         name: Nom
       validate_registration_code:
         code: Codi
-    errors:
-      models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Aquesta adreça URL no es pot incrustar a la pàgina de la trobada o de l'esdeveniment en directe
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: La durada dels ítems supera la durada de la trobada per %{count} minuts
-              too_many_minutes_child: La durada del sub-ítem supera la durada del punt "%{parent_title}" del programa per %{count} minuts
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Aquest correu electrònic ja ha estat convidat
     models:
       decidim/meetings/close_meeting_event: Trobada tancada
       decidim/meetings/create_meeting_event: Trobada
@@ -239,9 +224,6 @@ ca:
             down: Baixar
             remove: Eliminar
             up: Pujar
-          create:
-            invalid: S'ha produït un error en crear aquest ordre del dia
-            success: S'ha creat l'agenda correctament
           edit:
             title: Edita ordre del dia
             update: Actualitzar
@@ -253,9 +235,6 @@ ca:
           new:
             create: Crear
             title: Nou ordre del dia
-          update:
-            invalid: S'ha produït un error en actualitzar aquest ordre del dia
-            success: Ordre del dia actualitzat correctament
         exports:
           answers: Respostes
           meeting_comments: Comentaris
@@ -293,17 +272,9 @@ ca:
             close: Tancar
             title: Tancar trobada
         meetings:
-          close:
-            invalid: S'ha produït un error en tancar aquesta trobada
-            success: Trobada tancada amb èxit
           create:
-            invalid: S'ha produït un error en crear aquesta trobada
             success: Trobada creada correctament. Tingues en compte que encara no s'ha publicat, hauràs de publicar-la manualment.
           destroy:
-            invalid:
-              proposals_count:
-                one: No es pot destruir la trobada perquè té %{count} proposta associades
-                other: No es pot destruir la trobada perquè té %{count} propostes associades
             success: La trobada s'ha eliminat correctament
           edit:
             title: Editar la trobada
@@ -324,9 +295,6 @@ ca:
           new:
             create: Crear
             title: Crear trobada
-          publish:
-            invalid: S'ha produït un error en publicar la trobada
-            success: La trobada s'ha publicat correctament
           service:
             description: Descripció
             down: Baixar
@@ -337,18 +305,9 @@ ca:
           services:
             add_service: Afegeix servei
             services: Serveis
-          unpublish:
-            invalid: Hi ha hagut un problema en en despublicar la trobada
-            success: La trobada s'ha despublicat correctament
-          update:
-            invalid: S'ha produït un error en actualitzar aquesta trobada
-            success: Trobada actualitzada correctament
         meetings_poll:
           form:
             title: Editar qüestionari d'enquesta per a %{questionnaire_for}
-          update:
-            invalid: Hi ha hagut un problema en actualitzar aquesta enquesta
-            success: Enquesta actualitzada correctament
         models:
           meeting:
             name: Trobada
@@ -366,7 +325,6 @@ ca:
             registrations_count:
               one: Hi ha hagut %{count} inscripció.
               other: Hi ha hagut %{count} inscripcions.
-            reserved_slots_help: Deixar a 0 si no hi ha espais reservats
             reserved_slots_less_than: Ha de ser inferior o igual que %{count}
             title: Inscripcions
           update:
@@ -449,8 +407,6 @@ ca:
         registration_mailer:
           confirmation:
             subject: La teva inscripció a la trobada ha estat confirmada
-      meeting:
-        not_allowed: No tens permís per veure aquesta trobada
       meeting_closes:
         edit:
           back: Tornar
@@ -647,9 +603,6 @@ ca:
         withdraw: Cancel·lada
       versions:
         back_to_resource: Tornar a la trobada
-      withdraw:
-        error: S'ha produït un error al cancel·lar la trobada
-        success: La trobada s'ha cancel·lat correctament
     metrics:
       meetings:
         description: Nombre de trobades creades
