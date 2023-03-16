@@ -30,15 +30,9 @@ zh-CN:
           before_date_info: 如果进程已经开始并且你想要撤销上一个进程的权限，将非常有用。
           button: 全部取消
           button_before: 取消之前的日期
-          destroy_nok: 撤销授权时出现问题。
           info: 共有 %{count} 个已验证的参与者。
-          no_data: 没有经过验证的参与者
     authorization_handlers:
       admin:
-        csv_census:
-          help:
-            - 管理员通过接受的电子邮件上传CSV
-            - 只有那个CSV文件中有电子邮件的参与者才能获得验证
         id_documents:
           help:
             - 用户填写其身份资料并上载其文件副本。
@@ -52,17 +46,14 @@ zh-CN:
             - 您将信件标记为已发送。
             - 一旦您将信件标记为发送，参与者将能够引入代码并获得验证。
       csv_census:
-        explanation: 通过该组织的普查获得验证
         name: 本组织的人口普查情况
       direct: 直线
       help: 帮助
       id_documents:
-        explanation: 上传您的身份证件，以便我们检查您的身份
         name: 身份文件
       multistep: 多步
       name: 名称
       postal_letter:
-        explanation: 我们将向您发送一封带有您必须输入的代码的邮件，我们才能验证您的地址
         name: 邮寄代码
     verifications:
       authorizations:
@@ -97,7 +88,6 @@ zh-CN:
         renew_modal:
           cancel: 取消
           continue: 继续
-          info_renew: 如果您想要更新数据，请继续更新
           title: 更新验证
         skip_verification: 您现在可以跳过它， %{link}
         start_exploring: 开始探索中
@@ -106,13 +96,9 @@ zh-CN:
           census:
             create:
               error: 导入普查时出错。
-              success: 成功导入 %{count} 个项目 (%{errors} 个错误)
-            destroy_all:
-              success: 所有普查数据已被删除
           destroy:
             title: 删除所有普查数据
           index:
-            data: 总共载入了 %{count} 条记录。最后上传日期在 %{due_date}
             empty: 没有普查数据。使用下面的表单导入CSV文件。
             title: 目前的普查数据
           instructions:
@@ -137,17 +123,12 @@ zh-CN:
               update: 更新
             update:
               error: 更新配置时出现问题。
-              success: 配置已成功更新
           confirmations:
-            create:
-              success: 参与者已成功验证
             new:
               introduce_user_data: 在图片中介绍数据
               reject: 拒绝
               verify: 验证
           offline_confirmations:
-            create:
-              success: 参与者已成功验证
             new:
               cancel: 取消
               introduce_user_data: 介绍参与者电子邮件和文档数据
@@ -158,32 +139,19 @@ zh-CN:
               offline_verification: 离线验证
               title: 待定在线验证
               verification_number: '验证 #%{n}'
-          rejections:
-            create:
-              success: 验证被拒绝。参与者将被提示修改她的文档
         authorizations:
           choose:
             choose_a_type: '请选择您想要验证的方式：'
             offline: 离线的
             online: 在线
             title: 使用您的身份证件验证自己
-          create:
-            error: 上传您的文档时出现问题
-            success: 文档上传成功
           edit:
-            being_reviewed: 我们正在审查您的文档。您将很快被验证
             offline: 使用离线验证
             online: 使用在线验证
-            rejection_clarity: 请确保上传图像中的信息清晰可见。
-            rejection_correctness: 请确保输入的信息正确
-            rejection_notice: 您的验证有问题。请再试一次
             send: 再次请求验证
           new:
             send: 请求验证
             title: 上传您的身份文档
-          update:
-            error: 重新上传您的文档时出现问题
-            success: 文档已成功重新上传
         dni: DNI
         nie: NIE
         passport: 护照：
@@ -198,28 +166,14 @@ zh-CN:
               title: 进行中的验证
               username: 昵称
               verification_code: 验证码
-          postages:
-            create:
-              error: 标记已发送信件时出错
-              success: 已成功标记为已发送
         authorizations:
-          create:
-            error: 您的请求有问题
-            success: 谢谢！我们会向您的地址发送验证码
           edit:
             send: 确认
-            title: 介绍您收到的验证码
-            waiting_for_letter: 我们将很快向您的地址发送一封信并附上您的验证码
           new:
             send: 给我发信
             title: 请求您的验证码
-          update:
-            success: 恭喜您。您已成功验证
       sms:
         authorizations:
-          create:
-            error: 您的请求有问题
-            success: 谢谢！我们已经向您的手机发送短信。
           destroy:
             success: 验证码已成功重置。请重新输入您的电话号码。
           edit:
