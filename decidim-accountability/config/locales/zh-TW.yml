@@ -74,9 +74,6 @@ zh-TW:
               </li>
               </ol>
             title: 從 CSV 匯入結果
-        imports:
-          create:
-            success: 檔案開始匯入，執行完成後會寄發 email 說明匯入結果
         models:
           result:
             name: 結果
@@ -95,15 +92,8 @@ zh-TW:
             no_components: 在這個參與空間沒有預算元件來匯入專案到結果
             origin_component_id: 原始元件
             select_component: 選擇一個元件
-            success:
-              other: "%{count} 個專案已經排程匯入，完成後會寄送 email 通知"
             title: 匯入專案到問責
         results:
-          create:
-            invalid: 建立結果時發生錯誤
-            success: 結果成功建立
-          destroy:
-            success: 結果成功刪除
           edit:
             title: 編輯結果
             update: 更新結果
@@ -112,18 +102,10 @@ zh-TW:
           new:
             create: 建立結果
             title: 新增結果
-          update:
-            invalid: 更新結果時發生錯誤
-            success: 結果成功更新
         shared:
           subnav:
             statuses: 狀態
         statuses:
-          create:
-            invalid: 建立狀態時發生錯誤
-            success: 狀態成功建立
-          destroy:
-            success: 狀態成功刪除
           edit:
             title: 編輯狀態
             update: 更新狀態
@@ -132,15 +114,7 @@ zh-TW:
           new:
             create: 新增狀態
             title: 新狀態
-          update:
-            invalid: 更新狀態時發生錯誤
-            success: 狀態成功更新
         timeline_entries:
-          create:
-            invalid: 建立資料時發生錯誤
-            success: 資料成功建立
-          destroy:
-            success: 資料成功刪除
           edit:
             title: 編輯資料
             update: 更新資料
@@ -149,9 +123,6 @@ zh-TW:
           new:
             create: 建立資料
             title: 新資料
-          update:
-            invalid: 更新資料時發生錯誤
-            success: 資料成功更新
       admin_log:
         result:
           create: "%{user_name} 建立結果 %{resource_name} 在 %{space_name}"
@@ -176,7 +147,6 @@ zh-TW:
       import_mailer:
         import:
           errors: 錯誤
-          errors_present: 匯入結果時發生錯誤
           row_number: 列
           subject: 結果匯入成功
           success: 結果匯入成功，在管理介面可以檢視。
