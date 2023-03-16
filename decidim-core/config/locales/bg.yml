@@ -151,10 +151,8 @@ bg:
         amended_by: Поправка от
         button: Променя %{model_name}
         error: Възникна грешка при промяната на ресурса.
-        help_text: Подобрете %{model_name} като измените неговите %{amendable_fields}
         promote_button: Обяви като %{model_name}
         promote_confirm_text: Сигурни ли сте, че искате да обявите тази поправка?
-        promote_help_text: Можете да обявите тази поправка като я публикувате като независим %{model_name}
         section_heading: Поправки (%{count})
       compare_draft:
         continue: Продължи
@@ -195,26 +193,16 @@ bg:
         modify: Промени
         publish: Публикувай
         title: Публикувай чернова на поправка
-      promoted:
-        error: Възникна проблем при публикуването на поправката като ново предложение
-        success: Поправката е успешно публикувана като ново предложение
       publish_draft:
         error: Възникна проблем при публикуване на поправката.
         success: Поправката е публикувана успешно.
-      rejected:
-        error: Възникна проблем при отхвърляне на поправката, опитайте по-късно
-        success: Поправката е успешно отхвърлена
       review:
         back: Назад
         heading: Преглед на поравка
-        help_text: Преглеждате поправка в %{model_name}
         send: Приеми поправка
       update_draft:
         error: Възникна проблем при обновяване черновата на поправка.
         success: Черновата на поправка е успешно обновена.
-      withdraw:
-        error: Възникна грешка при оттеглянето на поправка
-        success: Поправката беше оттеглена успешно
       wizard_step_form:
         steps:
           '1': Създайте Ваша поправка
@@ -238,13 +226,11 @@ bg:
         other: одобрявания
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Преминете проверка, като въведете номер на паспорт започващ с "A"
         fields:
           passport_number: Номер на паспорт
           postal_code: Пощенски код
         name: Друго примерна идентификация
       dummy_authorization_handler:
-        explanation: Преминете проверка, като въведете номер на документ завършващ с "X"
         fields:
           document_number: Номер на документ
           postal_code: Пощенски код
@@ -280,8 +266,6 @@ bg:
           explanation: За да изпълните това действие е необходима идентификация чрез "%{authorization}".
           title: Необходима е идентификация
         pending:
-          explanation: За да изпълните това действие е необходима идентификация чрез "%{authorization}", но Вашата идентификация все още не е завършена
-          resume: Проверете напредъка на Вашата "%{authorization}" идентификация
           title: Идентификацията не е завършила
         unauthorized:
           ok: Добре
@@ -358,16 +342,10 @@ bg:
         name: Статистики за организацията
       sub_hero:
         name: Банер на под-героя
-    core:
-      actions:
-        login_before_access: Влезте в профила си за достъп
-        unauthorized: Нямате права за това действие
     datepicker:
       help_text: 'Очакван формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Друг профил използва същия адрес за ел. поща
         new:
           complete_profile: Завърши профила
           sign_up: Моля, завършете профила си
@@ -391,8 +369,6 @@ bg:
         new:
           are_you_new?: Нов сте в тази платформа?
           register: Създай профил
-          sign_in_disabled: Може да влезете с външен профил
-          sign_up_disabled: Регистрацията е забранена, може да ползвате съществуващ профил за достъп
       shared:
         newsletter_modal:
           buttons:
@@ -407,7 +383,6 @@ bg:
           authorize: Потвърди приложение
           by_organization_link_html: <small class="heading-small"> чрез %{link}</small>
           cancel: Откажи
-          connect_your_account_html: Свържете вашия профил като се регистрирате в <strong>%{organization}</strong>
           publish_content: Публикувайте съдържание за вас
           see_email: Вижте Вашата ел. поща
           see_name: Вижте Вашето име
@@ -642,17 +617,8 @@ bg:
       index:
         invite: Покани
         invite_user: Покани участник
-      invite:
-        error: Възникна проблем с поканата към участник
-        success: Участника е поканен успешно
-      reject:
-        error: Възникна проблем при отхвърлянето на поканата
-        success: Поканата е отхвърлена успешно
       reject_invitation: Отхвърли
     group_members:
-      accept:
-        error: Възникна проблем при приемането на заявката за присъединяване
-        success: Заявката за присъединяване е приета успешно
       actions:
         are_you_sure: Сигурни ли сте?
         promote_to_admin: Направи администратор
@@ -660,36 +626,20 @@ bg:
       index:
         current_members_without_admins: 'Текущи членове (без админи):'
         manage_members: Управллявай членовете
-      promote:
-        error: Възникна проблем при представянето на участника
-        success: Участника е представен успешно
-      reject:
-        error: Възникна проблем при отхвърлянето на заявката за присъединяване
-        success: Заявката за присъединяване е отхвърлена успешно
-      remove:
-        error: Възникна проблем при премахването на участник от групата
-        success: Участника е успешно премахнат от групата
     groups:
       actions:
         are_you_sure: Сигурни ли сте?
-      create:
-        error: Възникна проблем при създаване на групата
-        success: Групата създадена успешно
       edit:
         edit_user_group: Редактирай група
         update_user_group: Обнови група
       form:
-        document_number_help: Не използвайте тирета или интервали
         email_help: Ел. поща на вашата организация, асоциация, колектив, група и т.н.
         fill_in_for_verification: 'Попълнете тези полета, ако желаете вашата група да бъде проверена:'
         name_help: Име на вашата организация, асоциация, колектив, група и т.н.
         nickname_help: Псевдоним на вашата организация, асоциация, колектив, група и т.н.
-        phone_help: Не използвайте тирета или интервали
       join:
-        error: Възникна проблем при присъединяването към групата
         success: Заявката за присъединяване е създадена успешно. Администраторът ще прегледа вашата заявка, преди да ви приеме в групата.
       leave:
-        error: Възникна проблем при напускане на групата
         success: Групата е напусната успешно.
       members:
         accept_or_reject_join_requests: 'Следните участници кандидатстват за присъединяване към групата. Приемете или отхвърлете техните заявки:'
@@ -702,15 +652,11 @@ bg:
       roles:
         admin: Администратор
         member: Член
-      update:
-        error: Възникна проблем при обновяването на групата
-        success: Групата е обновена успешно
     help:
       main_topic:
         default_page:
           content: "<p> В %{organization} можете да участвате и да решавате различни теми в разделите, които виждате в горното меню: Процеси, събрания, инициативи, консултации.</p><p>В рамките на всяка от тях ще намерите различни опции за участие: предложения - поотделно или с други хора, участие в дебати, дайте приоритет на проектите за изпълнение, присъствайте на лични срещи и други действия. </p>\n"
           title: Какво мога да правя в %{organization}?
-        description: Прочетете повече за %{organization}
         title: Обща помощ
     last_activities:
       activities:
@@ -749,35 +695,29 @@ bg:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{manager} започна нов разговор от името на %{group}. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{manager} започна нов разговор като %{group}"
         comanagers_new_message:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{manager} публикува ново съобщение от името на %{group}. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{manager} изпрати ново съобщение като %{group}"
         new_conversation:
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} започна нов разговор с Вас. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{sender} започва разговор с Вас"
         new_group_conversation:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} започна нов разговор с групата %{group}. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{sender} започна нов разговор с %{group}"
         new_group_message:
           admin_in_group: Получавате това защото сте администратор в %{group}.
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} публикува ново съобщение в разговор с групата %{group}. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: "%{group} има ново съобщение от %{sender}"
         new_message:
           greeting: Здравейте, %{recipient}!
           intro: "%{sender} публикува ново съобщение във вашият разговор. Натисни тук за да го видите:"
-          outro: Наслаждавайте се с decidim!
           subject: Имате ново съобщение от %{sender}
       conversations:
         add_conversation_users:
@@ -785,14 +725,10 @@ bg:
           add_users_placeholder: Търсене...
           modal_title: Нов разговор
           no_results: Няма резултати
-          participant_with_disabled_message_reception: Участника е забранил получаването на съобщения
-        create:
-          error: Разговора не започна. Опитайте по-късно
         index:
           ago: преди
           new_conversation: Нов разговор
           next: Напред
-          no_conversations: Все още нямате разговори
           title: Разговори
         show:
           chat_with: Разговор с
@@ -918,8 +854,6 @@ bg:
         accept:
           error: Възникна проблем при приемането на общите условия.
           success: Чудесно! Вие приехте общите условия.
-        form:
-          legend: Съгласявам се с общите условия за ползване
         refuse:
           modal_btn_continue: Приемам условията и продължавам
           modal_btn_exit: Ще ги прегледам по-късно
@@ -932,11 +866,8 @@ bg:
     participatory_space_private_users:
       not_allowed: Нямате права да преглеждате това съдържание
     profile:
-      deleted: Участника е изтрит
       view: Изглед
     profiles:
-      default_officialization_text_for_user_groups: Тази група е публично проверена, нейното име е потвърдено, че съответства на истинското и име
-      default_officialization_text_for_users: Този участник е публично проверен, името му или ролята са потвърдени, че съответстват на истинските му име и роля
       show:
         activity: Дейност
         badges: Значки
@@ -951,11 +882,9 @@ bg:
           info: Значките се заслужват чрез извършване на конкретна дейност в платформата.
           title: Значки
       user:
-        confirmation_instructions_sent: Изпратени са инструкции за потвърждение по ел. поща
         create_user_group: Създай група
         edit_profile: Редактиране на профил
         edit_user_group: Редактиране профил на група
-        fill_in_email_to_confirm_it: Попълнете ел. поща на вашата група, за да бъде потвърдена
         invite_user: Покани участник
         join_user_group: Заявка за присъединяване към група
         leave_user_group: Напусни на групата
@@ -1053,7 +982,6 @@ bg:
     user_contact_disabled: Този участник не приема директни съобщения.
     user_conversations:
       create:
-        error: Съобщението не можа да бъде създадено. Опитайте по-късно
         existing_error: Съобщението не можа да бъде създадено. Разговорът вече съществува, моля опитайте отново сега.
         success: Разговорът започна успешно!
       index:
@@ -1068,7 +996,6 @@ bg:
         next: Напред
         no_conversations_warning: Тук все още няма разговори.
         no_results: Няма резултати
-        participant_with_disabled_message_reception: Участника е забранил получаването на съобщения
         time_ago: "преди %{time}"
       new:
         title: Започни разговор
