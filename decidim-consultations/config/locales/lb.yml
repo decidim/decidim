@@ -46,12 +46,6 @@ lb:
         decidim_consultations_response_id:
           not_found: Antwort nicht gefunden.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Die Anzahl der Stimmen ist ungültig
     models:
       decidim/consultation:
         one: Beratung
@@ -214,7 +208,6 @@ lb:
             votes: Stimmen
       question_votes:
         create:
-          error: Es gab Fehler bei der Abstimmung der Frage
           success: Sie können dies bis zum Ende der Konsultation ändern. Nur die letzte Stimme wird akzeptiert.
           title_error: Abstimmungsfehler!
           title_success: Stimme erfolgreich registriert
