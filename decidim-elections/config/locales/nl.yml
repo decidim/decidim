@@ -28,18 +28,6 @@ nl:
             attachment:
               needs_to_be_reattached: Moet opnieuw worden gekoppeld
   activerecord:
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            presided_polling_station:
-              president_and_manager: Stembeambte is al stembureau voorzitter/manager
-            voting:
-              different_organization: De stemronde moet in dezelfde organisatie als de gebruiker zitten
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: De stembeambte moet in dezelfde stemronde als het stembureau zitten
     models:
       decidim/elections/answer:
         one: Beantwoorden
@@ -82,9 +70,6 @@ nl:
             'true': Niet ondertekend
         validated_eq:
           label: Gevalideerd
-          values:
-            'false': Gevalideerd
-            'true': Niet gevalideerd
     components:
       elections:
         actions:
@@ -111,12 +96,6 @@ nl:
         unpublish: Depubliceer
       admin:
         answers:
-          create:
-            invalid: Er is een fout opgetreden bij het maken van dit antwoord
-            success: Antwoord succesvol aangemaakt
-          destroy:
-            invalid: Er was een probleem bij het verwijderen van dit antwoord
-            success: Antwoord succesvol verwijderd
           edit:
             title: Antwoord bewerken
             update: Antwoord bijwerken
@@ -127,16 +106,7 @@ nl:
             title: Nieuw antwoord
           not_selected: Niet geselecteerd
           selected: Geselecteerd
-          update:
-            invalid: Er was een probleem bij het bijwerken van dit antwoord
-            success: Antwoord succesvol bijgewerkt
         elections:
-          create:
-            invalid: Er is een fout opgetreden bij het maken van deze verkiezing
-            success: Verkiezing succesvol aangemaakt
-          destroy:
-            invalid: Er was een probleem bij het verwijderen van deze verkiezingen
-            success: Verkiezing succesvol verwijderd
           edit:
             title: Bewerken van verkiezing
             update: Keuze bijwerken
@@ -149,9 +119,6 @@ nl:
             success: De verkiezing is succesvol gepubliceerd.
           unpublish:
             success: De verkiezing is succesvol gedepubliceerd.
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze verkiezingen
-            success: Verkiezing succesvol bijgewerkt
         exports:
           elections: Verkiezingen
         menu:
@@ -166,20 +133,11 @@ nl:
           trustee:
             name: Trustee
         proposals_imports:
-          create:
-            invalid: Er is een probleem opgetreden bij het importeren van de voorstellen in antwoorden
-            success: "%{number} voorstellen succesvol geïmporteerd in antwoorden"
           new:
             create: Importeer voorstellen naar antwoorden
             no_components: Er zijn geen andere onderdelen van het voorstel in deze participatieve ruimte om de voorstellen in de antwoorden te importeren.
             select_component: Selecteer een component
         questions:
-          create:
-            invalid: Er is een fout opgetreden bij het maken van deze vraag
-            success: Vraag met succes aangemaakt
-          destroy:
-            invalid: Er was een probleem bij het verwijderen van deze vraag
-            success: Vraag succesvol verwijderd
           edit:
             title: Vraag bewerken
             update: Vraag bijwerken
@@ -188,9 +146,6 @@ nl:
           new:
             create: Vraag aanmaken
             title: Nieuwe vraag
-          update:
-            invalid: Er is een fout opgetreden bij het bijwerken van deze vraag
-            success: Vraag met succes bijgewerkt
         steps:
           create_election:
             errors:
@@ -233,10 +188,8 @@ nl:
             question: Vraag
             result: Resultaat
             selected: Geselecteerd
-            success: Verzoek om de resultaten te publiceren is met succes verzonden naar het Bulletin Board
             title: Berekende resultaten
           tally_started:
-            invalid: Er is een fout opgetreden bij het rapporteren van de ontbrekende trustee
             mark_as_missing: Als ontbrekend markeren
             success: Het rapport met de ontbrekende trustees is met succes verzonden naar het Bulletin Board
             tally_completion: Het proces zal worden voltooid wanneer alle trustees actief zijn of als ontbrekend zijn aangeduid. Tenminste %{quorum} trustees zijn vereist om het proces te voltooien.
@@ -254,13 +207,6 @@ nl:
           actions:
             disable: Uitschakelen
             enable: Overweeg
-          create:
-            exists: Trustee bestaat voor deze participatieve ruimte
-            invalid: Er is een fout opgetreden bij het maken van een nieuwe trustee
-            success: Trustee succesvol aangemaakt
-          delete:
-            invalid: Er is een fout opgetreden bij het verwijderen van deze trustee
-            success: Trustee succesvol verwijderd
           form:
             select_user: Selecteer gebruiker
           index:
@@ -268,9 +214,6 @@ nl:
           new:
             create: Maak Trustee
             title: Nieuwe trustee
-          update:
-            invalid: Er is een fout opgetreden bij het bijwerken van trustee %{trustee}
-            success: Trustee %{trustee} succesvol bijgewerkt
       admin_log:
         election:
           create: "%{user_name} heeft de verkiezing %{resource_name} van %{space_name} gemaakt"
@@ -536,7 +479,6 @@ nl:
             title: Verifieer je stem
           success:
             header: Stem gevonden!
-            info: Jouw versleutelde stem staat in de %{link} stembus
         voting_step:
           back: Achterzijde
           continue: Volgende
@@ -582,20 +524,12 @@ nl:
     votings:
       admin:
         ballot_styles:
-          create:
-            error: Er is een probleem opgetreden bij het aanmaken van deze stembriefstijl
-            success: Stembriefstijl succesvol aangemaakt
-          destroy:
-            invalid: Er is een probleem opgetreden bij het verwijderen van deze stembriefstijl
-            success: Stembriefstijl succesvol verwijderd
           edit:
             title: Pas stembriefstijl aan
             update: Bijwerken
           form:
-            code_help: 'Tip: de code is de link tussen de kiezerslijst en een stembriefstijl. Bij het uploaden van de kiezerslijst wordt elk record een stembriefstijl toegewezen die overeenkomt met de code'
             election: Verkiezing
             questions: Vragen voor deze stembrief stijl
-            questions_help: 'Tip: selecteer de vragen uit de verkiezingsonderdelen die aan de kiezers worden voorgelegd die aan deze stembriefstijl zijn toegewezen'
           index:
             actions:
               confirm_destroy: Weet je het zeker?
@@ -713,16 +647,8 @@ nl:
             publish_results: Resultaten publiceren
             publishing: Resultaten publiceren...
           update:
-            invalid: Er is een probleem opgetreden bij het publiceren van de resultaten
             rejected: De publicatie van de resultaten is geweigerd door het Bulletin Board. Probeer het opnieuw of neem contact op met de systeembeheerder.
-            success: De resultaten zijn succesvol gepubliceerd
         monitoring_committee_members:
-          create:
-            invalid: Er is een fout opgetreden bij het aanmaken van dit lid van het controlecomité
-            success: Het lid van het controlecomité is succesvol aangemaakt
-          destroy:
-            invalid: Er is een fout opgetreden bij het verwijderen van dit lid van het controlecomité
-            success: Het lid van het controlecomité is succesvol verwijderd
           form:
             existing_user: Bestaande deelnemer
             non_user: Nodig een nieuwe deelnemer uit
@@ -752,9 +678,6 @@ nl:
           show:
             change_polling_station: Terug naar stembureaus
             monitoring_committee_notes: Opmerkingen van het Comité van toezicht
-          validate:
-            error: Er is een probleem opgetreden bij het valideren van de sluiting
-            success: De sluiting is correct gevalideerd
         monitoring_committee_verify_elections:
           index:
             download: Download
@@ -773,12 +696,6 @@ nl:
             close: Sluit
             more_polling_officers: Er zijn nog %{number} meer stembeambtes. Verfijn uw zoekopdracht om ze te vinden.
         polling_stations:
-          create:
-            invalid: Er is een fout opgetreden bij het maken van dit stembureau
-            success: Stembureau succesvol aangemaakt
-          destroy:
-            invalid: Er is een probleem opgetreden bij het wissen van dit stembureau
-            success: Stembureau succesvol verwijderd
           edit:
             title: Bewerk stembureau
             update: Stembureau bijwerken
@@ -787,16 +704,12 @@ nl:
             location_help: 'Locatie: boodschap aan de kiezers met de exacte plaats van het stembureau'
             location_hints_help: "Locatie hints: aanvullende informatie. Voorbeeld: de verdieping van het gebouw waar het stembureau \nzich bevindt."
             polling_station_managers_help: 'Stembureau managers: de beambtes die als beheerder van stembureaus fungeren. Zorg ervoor dat de beambtes al zijn aangemaakt in Stembeambtes en dat ze nog niet zijn toegewezen aan een ander stembureau'
-            polling_station_president_help: 'Stembureau voorzitter: de beambte die zal fungeren als voorzitter van een stembureau. Zorg ervoor dat de beambte al is aangemaakt in de Stembeambtes en dat hij/zij niet al is toegewezen aan een ander stembureau'
             select_president: Selecteer een stembeambte als voorzitter van het stembureau
           index:
             title: Stembureaus
           new:
             create: Aanmaken
             title: Stembureau aanmaken
-          update:
-            invalid: Er is een fout opgetreden bij het bewerken van dit stembureau
-            success: Stembureau succesvol bijgewerkt
         titles:
           votings: Stemrondes
         votings:
@@ -806,11 +719,7 @@ nl:
             new_voting: Nieuwe stemruimte
             publish: Publiceer
             unpublish: Publicatie ongedaan maken
-          create:
-            invalid: Er is een probleem opgetreden bij het aanmaken van deze stemronde
-            success: Stemronde succesvol aangemaakt
           edit:
-            assign_missing_officers: Er zijn stembureaus zonder voorzitter en/of manager. Duid deze aan in onderdeel Stembureau
             update: Bijwerken
           form:
             select_a_voting_type: Selecteer een type stemming
@@ -823,13 +732,6 @@ nl:
           new:
             create: Aanmaken
             title: Nieuwe stemronde
-          publish:
-            success: Stemronde succesvol gepubliceerd
-          unpublish:
-            success: Publicatie stemronde succesvol ongedaan gemaakt
-          update:
-            invalid: Er is een probleem opgetreden bij het bijwerken van deze stemronde
-            success: Vergadering succesvol bijgewerkt
       admin_log:
         ballot_style:
           create: "%{user_name} heeft een stembriefstijl gemaakt met code %{ballot_style_code} in %{space_name}"
@@ -858,18 +760,14 @@ nl:
           census:
             create:
               invalid: Er is een fout opgetreden bij het uploaden van de kiezerslijst, probeer het later opnieuw.
-              invalid_csv_header: De CSV-headers ontbreken of zijn niet correct - lees de instructies zorgvuldig door
             delete:
               button: Verwijder alle kiezerslijstgegevens
             destroy:
               error: Er is een fout opgetreden bij het verwijderen van de kiezerslijst, probeer het later opnieuw.
-              success: Registergegevens verwijderd
             export_access_codes:
               button: Genereer toegangscodes voor de stemronde
               callout: Je kunt nu doorgaan met het exporteren van de toegangscodes. Dit kan slechts één keer gedaan worden. Zodra je de export hebt opgestart, ontvang je een e-mail met de instructies voor <strong>%{email}</strong>
               confirm: Je kunt de toegangscodes slechts één keer exporteren. Controleer of je toegang heeft tot het e-mailadres <strong>%{email}</strong>.
-              launch_error: Probleem bij het starten van de toegangscodes export
-              launch_success: Exporteer toegangscodes gestart. Je ontvangt binnenkort een e-mail op %{email}
             freeze:
               callout: De kiezerslijst is bevroren, en kan niet worden gewijzigd.
             generate_access_codes:
@@ -1118,10 +1016,6 @@ nl:
           start_voting: Begin met stemmen
           step: Identificatie
           title: Mezelf identificeren aan de hand van mijn stemlijstgegevens
-        no_census_contact_information: Er is nog geen contactinformatie
-        send_access_code:
-          invalid: De toegangscode kon niet verzonden worden
-          success: Je toegangscode is succesvol verzonden
       votings_m:
         footer_button_text:
           participate: Deelnemen
