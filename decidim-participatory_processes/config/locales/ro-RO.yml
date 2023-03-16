@@ -431,8 +431,6 @@ ro:
               few: "%{count} procese viitoare"
               other: "%{count} procese viitoare"
           explanations:
-            no_active: Niciun proces activ
-            no_active_nor_upcoming: Nici un proces activ sau viitor
             no_active_nor_upcoming_callout: Nu există procese active sau viitoare. Aici este o listă a celor anterioare.
           names:
             active: Active
