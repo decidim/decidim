@@ -33,17 +33,6 @@ it:
         title: Titolo
         transparent: Trasparente
         type_of_meeting: Tipo
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: La durata degli articoli supera la durata della riunione di %{count} minuti
-              too_many_minutes_child: La durata dell'elemento child supera la durata del genitore "%{parent_title}" dell'ordine del giorno di %{count} minuto
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Questa email è già stata invitata
     models:
       decidim/meetings/close_meeting_event: Riunione chiusa
       decidim/meetings/create_meeting_event: Evento
@@ -208,9 +197,6 @@ it:
             down: Giù
             remove: Rimuovere
             up: Su
-          create:
-            invalid: C'è stato un problema nel creare questo programma
-            success: Agenda creata con successo
           edit:
             title: Modifica agenda
             update: Aggiornare
@@ -222,9 +208,6 @@ it:
           new:
             create: Creare
             title: Nuova agenda
-          update:
-            invalid: C'è stato un problema nell'aggiornare questo programma
-            success: Agenda aggiornata con successo
         exports:
           answers: Risposte
           meeting_comments: Commenti
@@ -261,17 +244,9 @@ it:
             close: Chiudi
             title: Chiusura meeting
         meetings:
-          close:
-            invalid: C'è stato un problema durante la chiusura di questo meeting.
-            success: OK, il meeting è stato chiuso.
           create:
-            invalid: C'è stato un problema durante la creazione di questo meeting.
             success: Riunione creata con successo. Nota che non è ancora pubblicata, devi pubblicarla manualmente.
           destroy:
-            invalid:
-              proposals_count:
-                one: La riunione non può essere annullata perché ha %{count} proposta ad essa associata
-                other: La riunione non può essere annullata perché ha %{count} proposte associate
             success: OK, il meeting è stato cancellato.
           edit:
             title: Modifica la riunione
@@ -290,9 +265,6 @@ it:
           new:
             create: Crea
             title: Crea meeting
-          publish:
-            invalid: Si è verificato un errore durante la pubblicazione di questa riunione
-            success: Riunione pubblicata con successo
           service:
             description: Descrizione
             down: Giù
@@ -303,18 +275,9 @@ it:
           services:
             add_service: Aggiungi servizio
             services: Servizi
-          unpublish:
-            invalid: Si è verificato un problema durante l'annullamento della pubblicazione di questa assemblea
-            success: Pubblicazione dell'assemblea annullata correttamente
-          update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo meeting.
-            success: OK, il meeting è stato aggiornato.
         meetings_poll:
           form:
             title: Modifica questionario per %{questionnaire_for}
-          update:
-            invalid: Si è verificato un errore durante l'aggiornamento di questo sondaggio della riunione
-            success: Riunione sondaggio aggiornata con successo
         models:
           meeting:
             name: Reunione
@@ -379,8 +342,6 @@ it:
         registration_mailer:
           confirmation:
             subject: La tua registrazione alla riunione è stata confermata
-      meeting:
-        not_allowed: Non sei autorizzato a visualizzare questo incontro
       meeting_closes:
         edit:
           back: Indietro
