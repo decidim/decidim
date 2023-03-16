@@ -69,12 +69,6 @@ cs:
         email: E-mail
         name: Název
         role: Role
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Tento e-mail již byl pozván
   activerecord:
     models:
       decidim/conference:
@@ -465,7 +459,6 @@ cs:
           main_promotors: Organizátoři
         show:
           login_as: Jste přihlášeni jako %{name} <%{email}>
-          make_conference_registration: Zaregistrujte se na konferenci
           register: Registrovat
       content_blocks:
         highlighted_conferences:
@@ -473,11 +466,6 @@ cs:
       index:
         title: Konference
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Registrace vaší konference byla potvrzena
-          pending_validation:
-            subject: Registrace vaší konference čeká na potvrzení
         invite_join_conference_mailer:
           invite:
             subject: Pozvánka na konferenci
@@ -561,10 +549,6 @@ cs:
           contextual: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd.).</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
           page: "<p> <strong>Konference</strong> je několik schůzek uspořádaných v rámci programu s řadou lidí pozvaných jako řečníci, a další informační pole typická pro velké kongresy nebo společenské události (registrace, seznam organizací, které podporují nebo sponzorují událost atd.).</p> <p>Příklady: Konference může být relevantní pro organizaci a její členy, nebo se koná v rámci účastnického procesu, nebo následuje konzultace.</p>\n"
           title: Co jsou konference?
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konference nebyla nalezena v databázi (ID: %{id})'
     media:
       index:
         description: Odkazy na tuto konferenci
