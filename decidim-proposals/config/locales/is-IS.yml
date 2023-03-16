@@ -55,7 +55,6 @@ is-IS:
           email_intro: 'Þú getur samþykkt tillögur í %{participatory_space_title}! Byrja að taka þátt í þessari síðu:'
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Tillögur um áritun hafa byrjað fyrir %{participatory_space_title}
-          notification_title: Þú getur nú byrjað á <a href="%{resource_path}">ábendingar um tillögur</a> í <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           follower:
             email_intro: 'Tillagan "%{resource_title}" hefur verið samþykkt. Þú getur lesið svarið á þessari síðu:'
@@ -110,20 +109,12 @@ is-IS:
             rejected: Hafnað
             title: Svar fyrir tillögu %{title}
         proposal_notes:
-          create:
-            success: Tillaga athugasemd búin til
           form:
             note: Athugaðu
             submit: Senda inn
           leave_your_note: Skildu athugasemdina þína
           title: Einkaskilaboð
         proposals:
-          answer:
-            invalid: Vandamál kom upp við að svara þessari tillögu
-            success: Tillaga svarað með góðum árangri
-          create:
-            invalid: Vandamál kom upp við að búa til þessa tillögu
-            success: Tillaga búin til
           form:
             attachment_legend: "(Valfrjálst) Bæta við viðhengi"
             select_a_category: Veldu flokk
@@ -148,8 +139,6 @@ is-IS:
           update_scope:
             select_a_proposal: Vinsamlegast veldu tillögu
         proposals_imports:
-          create:
-            success: "%{number} tillögur tókst að flytja inn"
           new:
             create: Innflutningur tillögur
             no_components: Það eru engar aðrar tillögur í þessum þátttökustíl til að flytja tillögur frá.
@@ -246,8 +235,6 @@ is-IS:
             description: Hver tillaga getur safnast meira en %{limit} styður
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.
-          threshold_per_proposal:
-            description: Til að fullgilda tillögur þarf að ná %{limit} stuðningi
           vote_limit:
             left: Eftirstöðvar
         wizard_aside:
