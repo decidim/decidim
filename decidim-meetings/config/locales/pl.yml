@@ -31,17 +31,6 @@ pl:
         title: Tytuł
         transparent: Transparentny
         type_of_meeting: Typ
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Czas trwania elementów przekracza czas trwania spotkania o %{count} minut
-              too_many_minutes_child: Czas trwania elementów podrzędnych przekracza czas trwania elementu nadrzędnego "%{parent_title}" w porządku obrad o %{count} minut
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Ten e-mail został już zaproszony
     models:
       decidim/meetings/close_meeting_event: Spotkanie zakończone
       decidim/meetings/create_meeting_event: Spotkanie
@@ -200,9 +189,6 @@ pl:
             down: Na dół
             remove: Usuń
             up: W górę
-          create:
-            invalid: Podczas tworzenia tego programu wystąpił błąd
-            success: Program został utworzony
           edit:
             title: Edytuj program
             update: Aktualizuj
@@ -214,9 +200,6 @@ pl:
           new:
             create: Utwórz
             title: Nowy program
-          update:
-            invalid: Wystąpił błąd podczas aktualizowania tego programu
-            success: Program został zaktualizowany
         exports:
           meeting_comments: Komentarze
           meetings: Spotkania
@@ -252,19 +235,9 @@ pl:
             close: Zamknij
             title: Zamknij spotkanie
         meetings:
-          close:
-            invalid: Wystąpił błąd podczas zamykania tego spotkania
-            success: Spotkanie zostało zakończone
           create:
-            invalid: Podczas tworzenia tego spotkania wystąpił błąd
             success: Spotkanie zostało utworzone. Zauważ, że jest ono nieopublikowane, musisz je opublikować ręcznie.
           destroy:
-            invalid:
-              proposals_count:
-                one: Nie można usunąć spotkania ponieważ ma ono %{count} powiązaną propozycję
-                few: Nie można usunąć spotkania ponieważ ma ono %{count} powiązane propozycje
-                many: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
-                other: Nie można usunąć spotkania ponieważ ma ono %{count} powiązanych propozycji
             success: Spotkanie zostało pomyślnie usunięte
           edit:
             title: Edytuj spotkanie
@@ -283,9 +256,6 @@ pl:
           new:
             create: Utwórz
             title: Utwórz spotkanie
-          publish:
-            invalid: Wystąpił błąd podczas publikowania tego spotkania
-            success: Spotkanie zostało opublikowane
           service:
             description: Opis
             down: Na dół
@@ -296,12 +266,6 @@ pl:
           services:
             add_service: Dodaj usługę
             services: Usługi
-          unpublish:
-            invalid: Wystąpił błąd podczas ukrywania tego spotkania
-            success: Spotkanie zostało ukryte
-          update:
-            invalid: Podczas aktualizowania tego spotkania wystąpił błąd
-            success: Spotkanie zostało zaktualizowane
         meetings_poll:
           form:
             title: Edytuj kartę do głosowania dla %{questionnaire_for}
@@ -370,8 +334,6 @@ pl:
         registration_mailer:
           confirmation:
             subject: Twoja rejestracja na spotkanie została potwierdzona
-      meeting:
-        not_allowed: Nie możesz zobaczyć tego spotkania
       meeting_closes:
         edit:
           back: Wróć
