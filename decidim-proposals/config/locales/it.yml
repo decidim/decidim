@@ -194,10 +194,8 @@ it:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Qualcuno ha lasciato una nota sulla proposta%{resource_title}". Controllala al <a href="%{admin_proposal_info_url}">pannello di amministrazione</a>
             email_outro: Hai ricevuto questa notifica perché puoi valutare la proposta.
             email_subject: Qualcuno ha lasciato una nota sulla proposta %{resource_title}.
-            notification_title: Qualcuno ha lasciato una nota sulla proposta <a href="%{resource_path}">%{resource_title}</a>. Controllala presso <a href="%{admin_proposal_info_path}">il pannello di amministrazione</a>
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} è stato accettato per accedere come contributore del %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> è stato accettato <strong>come contributore</strong> del progetto collaborativo <a href="%{resource_path}">%{resource_title}</a>.
@@ -220,12 +218,10 @@ it:
           email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: Proposte ora disponibili in %{participatory_space_title}
-          notification_title: Ora puoi proporre <a href="%{resource_path}">nuove proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo click su pulsante Smetti di seguire nella pagina del processo che stai seguendo.
           email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
-          notification_title: È ora possibile avviare <a href="%{resource_path}">proposte di approvazione</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'La tua proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
@@ -262,7 +258,6 @@ it:
           email_intro: La proposta "%{resource_title}" è stata aggiunta a "%{participatory_space_title}" che stai seguendo.
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Nuova proposta "%{resource_title}" aggiunta a %{participatory_space_title}
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata aggiunta a %{participatory_space_title} da %{author}
         proposal_rejected:
           affected_user:
             email_intro: 'La tua proposta "%{resource_title}" è stata respinta. Puoi leggere la risposta in questa pagina:'
@@ -400,21 +395,12 @@ it:
             rejected: Rifiutata
             title: Risposta per la proposta %{title}
         proposal_notes:
-          create:
-            error: Si è verificato un problema durante la creazione di questa nota di proposta
-            success: Nota della proposta creata con successo
           form:
             note: Nota
             submit: Invia
           leave_your_note: Lascia il tuo messaggio
           title: Note private
         proposals:
-          answer:
-            invalid: E' stato riscontrato un problema nella risposta per questa proposta
-            success: OK, risposta per la proposta registrata.
-          create:
-            invalid: Sono stati riscontrati dei problemi durante la creazione di questa proposta
-            success: OK, proposta creata.
           edit:
             title: Aggiorna proposta
             update: Aggiornare
@@ -488,9 +474,6 @@ it:
             select_a_scope: Seleziona un ambito
             success: 'Proposte aggiornate con successo all''ambito %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: C'è stato un problema nell'importazione delle proposte
-            success: "%{number} proposte importate con successo"
           new:
             create: Importa proposte
             no_components: Non ci sono altri componenti di proposta in questo spazio partecipativo per importare le proposte da.
@@ -503,13 +486,6 @@ it:
         proposals_splits:
           create:
             success: Suddiviso con successo le proposte in nuove.
-        valuation_assignments:
-          create:
-            invalid: Si è verificato un errore assegnando le proposte ad un valutatore
-            success: Proposte assegnate ad un valutatore con successo
-          delete:
-            invalid: Errore durante la cancellazione delle proposte da parte di un valutatore
-            success: Valutatore disassegnato dalle proposte con successo
       admin_log:
         proposal:
           answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
@@ -767,8 +743,6 @@ it:
         proposal:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
-        proposals:
-          empty: Non c'è ancora nessuna proposta
         show:
           answer: Risposta
           back_to: Torna a
@@ -821,8 +795,6 @@ it:
             supports_remaining: Devi votare %{remaining_votes} altre proposte per i tuoi voti da prendere in considerazione.
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
-          threshold_per_proposal:
-            description: Per essere accettate le proposte devono raggiungere %{limit} supporti
           title: 'Il voto è soggetto alle seguenti regole:'
           vote_limit:
             description: Puoi votare fino a %{limit} proposte.
