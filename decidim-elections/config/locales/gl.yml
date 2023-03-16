@@ -42,7 +42,6 @@ gl:
           label: Validado
           values:
             'false': Validado
-            'true': Sen validar
     components:
       elections:
         actions:
