@@ -417,8 +417,6 @@ eu:
               one: 1 hurrengo prozesua
               other: "%{count} hurrengo prozesuetan"
           explanations:
-            no_active: Ez dago prozesu aktiborik
-            no_active_nor_upcoming: Prozesu aktibo ez etorkizunik ez
             no_active_nor_upcoming_callout: Prozesu aktibo eta ez datoz bat. Hona hemen iraganekoen zerrenda.
           names:
             active: Aktiboa
