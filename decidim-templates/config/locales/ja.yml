@@ -13,19 +13,13 @@ ja:
       templates:
         apply:
           error: テンプレートの適用に失敗しました。
-          success: テンプレートが正常に適用されました
         copy:
           error: テンプレートコピー中に問題が発生しました。
-          success: テンプレートを正常にコピーしました
         create:
           error: テンプレート作成中に問題が発生しました。
-          success: テンプレートが正常に作成されました
-        destroy:
-          success: テンプレートが正常に削除されました
         empty: テンプレートはまだありません。
         update:
           error: テンプレートの更新中に問題が発生しました。
-          success: テンプレートが正常に更新されました
       titles:
         template_types:
           questionnaires: アンケートテンプレート
@@ -59,7 +53,6 @@ ja:
             skip_template: スキップ
           edit:
             edit: 編集
-            empty: 質問はありません。
             questionnaire: アンケート
           form:
             save: 保存
