@@ -195,8 +195,6 @@ it:
           index:
             approve: Sostieni
             confirm_revoke: Sei sicuro?
-            invite_to_committee_help: Condividi questo link per invitare altri utenti al comitato di promozione
-            no_members_yet: Non ci sono membri nel comitato promotore
             revoke: Revocare
             title: membri del Comitato
         content_blocks:
@@ -218,7 +216,6 @@ it:
             export_votes: Esporta le firme
             reject: Rifiuta l'iniziativa
             send_to_technical_validation: Invia a convalida tecnica
-            success: L'iniziativa è stata inviata alla convalida tecnica
             update: Aggiornare
           form:
             attachments: Allegati
@@ -233,13 +230,7 @@ it:
             edit: Modifica
             new: Nuovo
             photos: Foto
-          update:
-            error: C'è stato un errore
-            success: L'iniziativa cittadina è stata aggiornata con successo
         initiatives_type_scopes:
-          create:
-            error: C'è stato un errore
-            success: È stato creato un nuovo ambito per il tipo di iniziativa specificato
           destroy:
             success: L'ambito è stato rimosso con successo
           edit:
@@ -252,15 +243,7 @@ it:
             back: Indietro
             create: Creare
             title: Crea lo scope del tipo di iniziativa
-          update:
-            error: C'è stato un errore
-            success: L'ambito è stato aggiornato con successo
         initiatives_types:
-          create:
-            error: C'è stato un errore
-            success: Un nuovo tipo di iniziativa è stato creato con successo
-          destroy:
-            success: Il tipo di iniziativa è stato rimosso con successo
           edit:
             confirm_destroy: Sei sicuro?
             destroy: Elimina
@@ -274,9 +257,6 @@ it:
           new:
             create: Creare
             title: Nuovo tipo di iniziativa
-          update:
-            error: C'è stato un errore
-            success: Il tipo di iniziativa è stato aggiornato con successo
       admin_log:
         initiative:
           publish: "%{user_name} ha pubblicato l'iniziativa %{resource_name}"
@@ -309,7 +289,6 @@ it:
           success: La richiesta è stata approvata.
         new:
           continue: Continua
-          help_text: Stai per chiedere di diventare un membro del comitato promotore di questa iniziativa
         revoke:
           success: La richiesta è stata negata.
         spawn:
@@ -409,7 +388,6 @@ it:
             day: Giorno
             month: Mese
             year: Anno
-          help: Per favore, compila i seguenti campi con i tuoi dati personali per firmare l'iniziativa
         finish:
           back_to_initiative: Ritorno all'iniziativa
         sms_code:
@@ -417,12 +395,9 @@ it:
           help: Controlla gli SMS ricevuti sul tuo telefono
         sms_phone_number:
           continue: Mandami un sms
-          help: Compila il modulo con il tuo numero di telefono verificato per richiedere il codice di verifica
       initiative_votes:
         create:
           error: Ci sono stati degli errori durante la firma dell'iniziativa.
-          invalid: I dati forniti per firmare l'iniziativa non sono validi
-          success_html: Congratulazioni! L'iniziativa <strong> %{title}</strong> è stata firmata correttamente
         personal_data:
           invalid: I dati personali non sono coerenti con i dati forniti per l'autorizzazione.
         sms_phone:
@@ -437,8 +412,6 @@ it:
         committee_members:
           approve: Approva
           confirm_revoke: Sei sicuro?
-          invite_to_committee_help: Condividi questo link per invitare altri utenti al comitato di promozione
-          no_members_yet: Non vi sono membri nel comitato promotore
           revoke: Revoca
           title: Membri del comitato
         count:
@@ -498,7 +471,6 @@ it:
           section: 'Se richiesto dall''organizzazione, si prega di stampare e compilare il presente modulo per inviare dove indicato:'
           signature: Firma
         result:
-          answer_title: Questa iniziativa ha ricevuto una risposta
           initiative_rejected_reason: Questa iniziativa è stata respinta a causa della mancanza di firme.
         show:
           any_vote_method: Questa iniziativa raccoglie solo firme autografe.
@@ -557,9 +529,6 @@ it:
         accepted: Accettato
         expired: Scaduto
       unavailable_scope: Ambito non disponibile
-      update:
-        error: Qualcosa è andato storto
-        success: L'iniziativa è stata aggiornata correttamente
       versions:
         shared:
           back_to_resource: Torna all'iniziativa
