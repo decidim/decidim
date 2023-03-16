@@ -55,9 +55,6 @@ pl:
             download_export: Pobierz Eksport w formacie CSV
             import: Importuj
             title: Importuj wyniki z CSV
-        imports:
-          create:
-            success: Rozpoczęło się importowanie pliku. W ciągu kilku minut otrzymasz wiadomość e-mail z wynikiem importowania
         models:
           result:
             name: Wynik
@@ -80,11 +77,6 @@ pl:
             select_component: Wybierz komponent
             title: Importuj projekty do Rozliczeń
         results:
-          create:
-            invalid: Podczas tworzenia tego wyniku wystąpił błąd
-            success: Wynik został utworzony
-          destroy:
-            success: Wynik został usunięty
           edit:
             title: Edytuj wynik
             update: Zaktualizuj wynik
@@ -93,18 +85,10 @@ pl:
           new:
             create: Utwórz wynik
             title: Nowy wynik
-          update:
-            invalid: Podczas aktualizowania tego wyniku wystąpił błąd
-            success: Wynik został zaktualizowany
         shared:
           subnav:
             statuses: Statusy
         statuses:
-          create:
-            invalid: Podczas tworzenia tego statusu wystąpił błąd
-            success: Status został utworzony
-          destroy:
-            success: Status został usunięty
           edit:
             title: Edytuj status
             update: Aktualizuj status
@@ -113,15 +97,7 @@ pl:
           new:
             create: Utwórz status
             title: Nowy status
-          update:
-            invalid: Wystąpił błąd podczas aktualizacji tego statusu
-            success: Status został zaktualizowany
         timeline_entries:
-          create:
-            invalid: Podczas tworzenia tego wpisu wystąpił błąd
-            success: Wpis został utworzony
-          destroy:
-            success: Wpis został usunięty
           edit:
             title: Edytuj wpis
             update: Aktualizuj wpis
@@ -130,9 +106,6 @@ pl:
           new:
             create: Utwórz wpis
             title: Nowy wpis
-          update:
-            invalid: Podczas aktualizowania tego wpisu wystąpił błąd
-            success: Wpis został zaktualizowany
       admin_log:
         result:
           create: "%{user_name} utworzył(a) wynik %{resource_name} w %{space_name}"
@@ -157,7 +130,6 @@ pl:
       import_mailer:
         import:
           errors: Błędy
-          errors_present: Podczas importowania wyników wystąpił błąd
           row_number: Wiersz
           subject: Importowanie wyników zakończyło się pomyślnie
           success: Importowanie wyników zakończyło się pomyślnie. Możesz przejrzeć wyniki w panelu administracyjnym.
