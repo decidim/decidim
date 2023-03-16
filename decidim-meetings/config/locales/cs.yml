@@ -50,17 +50,6 @@ cs:
         name: Jméno
       validate_registration_code:
         code: Kód
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Doba trvání položek přesahuje dobu trvání konference o %{count} minut
-              too_many_minutes_child: Délka podřazené položky přesahuje dobu o %{count} minut z nadřazené položku programu "%{parent_title}"
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Tento e-mail již byl pozván
     models:
       decidim/meetings/close_meeting_event: Setkání bylo uzavřeno
       decidim/meetings/create_meeting_event: Setkání
@@ -242,9 +231,6 @@ cs:
             down: Dolů
             remove: Odstranit
             up: Nahoru
-          create:
-            invalid: Při vytváření této agendy došlo k problému
-            success: Agenda byla úspěšně vytvořena
           edit:
             title: Upravit agendu
             update: Aktualizace
@@ -256,9 +242,6 @@ cs:
           new:
             create: Vytvořit
             title: Nová agenda
-          update:
-            invalid: Při aktualizaci této agendy došlo k problému
-            success: Agenda byla úspěšně aktualizována
         exports:
           answers: Odpovědi
           meeting_comments: Komentáře
@@ -295,19 +278,9 @@ cs:
             close: Zavřít
             title: Zavřete schůzku
         meetings:
-          close:
-            invalid: Při setkání došlo k problému
-            success: Setkání bylo úspěšně uzavřeno
           create:
-            invalid: Při vytváření této schůzky došlo k problému
             success: Schůze byla úspěšně vytvořena. Všimněte si, že není publikována, musíte ji publikovat ručně.
           destroy:
-            invalid:
-              proposals_count:
-                one: Schůzku nelze zničit, protože má k ní přidružený %{count} návrh
-                few: Schůzku nelze zničit, protože má k ní přidruženo %{count} návrhů
-                many: Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů
-                other: Schůzka nemůže být zničena, protože s ní je spojeno %{count} návrhů
             success: Setkání bylo úspěšně smazáno
           edit:
             title: Upravit schůzku
@@ -328,9 +301,6 @@ cs:
           new:
             create: Vytvořit
             title: Vytvořte schůzku
-          publish:
-            invalid: Při publikování této schůzky došlo k chybě
-            success: Schůze byla úspěšně publikována
           service:
             description: Popis
             down: Dolů
@@ -341,18 +311,9 @@ cs:
           services:
             add_service: Přidat službu
             services: Služby
-          unpublish:
-            invalid: Při rušení publikování této schůzky došlo k chybě
-            success: Schůzka byla úspěšně zrušena
-          update:
-            invalid: Došlo k problému při aktualizaci této schůzky
-            success: Schůzka byla úspěšně aktualizována
         meetings_poll:
           form:
             title: Upravit anketní dotazník pro %{questionnaire_for}
-          update:
-            invalid: Při aktualizaci této ankety ke schůzce došlo k chybě
-            success: Anketa ke schůzce byla úspěšně aktualizována
         models:
           meeting:
             name: Setkání
@@ -372,7 +333,6 @@ cs:
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
-            reserved_slots_help: Hodnotu nechte na 0, pokud nemáte rezervována místa
             reserved_slots_less_than: Musí být menší nebo rovno %{count}
             title: Registrace
           update:
@@ -455,8 +415,6 @@ cs:
         registration_mailer:
           confirmation:
             subject: Registrace schůzky byla potvrzena
-      meeting:
-        not_allowed: Tuto schůzku není povoleno prohlížet
       meeting_closes:
         edit:
           back: Zpět
@@ -658,9 +616,6 @@ cs:
         withdraw: Staženo
       versions:
         back_to_resource: Přejít zpět na schůzku
-      withdraw:
-        error: Došlo k chybě při stahování schůzky
-        success: Schůzka byla úspěšně stažena
     metrics:
       meetings:
         description: Počet vytvořených schůzek
