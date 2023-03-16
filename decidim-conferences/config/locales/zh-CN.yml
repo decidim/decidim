@@ -28,12 +28,6 @@ zh-CN:
         email: 电子邮件地址
         name: 名称
         role: 作用
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: 此电子邮件已被邀请
   activerecord:
     models:
       decidim/conference:
@@ -400,11 +394,6 @@ zh-CN:
       index:
         title: 会议
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: 您的会议注册已确认
-          pending_validation:
-            subject: 您的会议注册正在等待确认
         invite_join_conference_mailer:
           invite:
             subject: 邀请加入会议
@@ -481,10 +470,6 @@ zh-CN:
           email_outro: 您收到此通知是因为您正在关注“%{resource_title}”会议。您可以从上一个链接取消关注它。
           email_subject: '"%{resource_title}"会议即将来临！'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 会议将在 2 天内到来。
-    log:
-      value_types:
-        conference_presenter:
-          not_found: '会议未在数据库中找到 (ID: %{id})'
     media:
       index:
         description: 关于此会议的链接
