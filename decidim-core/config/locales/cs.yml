@@ -168,11 +168,9 @@ cs:
         cancel_error: Nelze zrušit změnu e-mailu.
         cancel_successfully: Změna e-mailu byla úspěšně zrušena.
         resend_error: Potvrzovací e-mail nelze znovu odeslat.
-        resend_successfully: Potvrzovací e-mail byl úspěšně odeslán na %{unconfirmed_email}
         send_again: Znovu odeslat
         title: Ověření změny e-mailu
       show:
-        available_locales_helper: Vyberte jazyk, který chcete použít k procházení a přijímání oznámení na platformě
         change_password: Změnit heslo
         update_account: Aktualizovat účet
       update:
@@ -185,7 +183,6 @@ cs:
       actions:
         cancel: Zrušit
       password_change:
-        alert: Abyste mohli pokračovat, musíte změnit heslo
         notification: Uživatelé správce si musí měnit heslo každých %{days} dní.
     admin_log:
       area:
@@ -288,10 +285,8 @@ cs:
         amended_by: Pozměněno
         button: Změna %{model_name}
         error: Při změně tohoto zdroje došlo k chybě.
-        help_text: Zlepšete tento %{model_name} změnou jeho %{amendable_fields}
         promote_button: Propagujte na %{model_name}
         promote_confirm_text: Opravdu chcete tuto emisi podpořit?
-        promote_help_text: Tuto změnu můžete propagovat a publikovat ji jako nezávislou %{model_name}
         section_heading: Změny (%{count})
       compare_draft:
         continue: Pokračovat
@@ -333,26 +328,16 @@ cs:
         modify: Změnit
         publish: Publikovat
         title: Publikovat pozměňovací návrh
-      promoted:
-        error: Došlo k chybě při propagování emendace
-        success: Úprava byla úspěšně podporována
       publish_draft:
         error: Při publikování pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh úspěšně publikován.
-      rejected:
-        error: Při odmítnutí této změny došlo k chybě. Zkuste to prosím znovu později
-        success: Emenda byla úspěšně odmítnuta
       review:
         back: Zadní
         heading: Přezkoumejte pozměňovací návrh
-        help_text: Přezkoumáváte změnu %{model_name}
         send: Přijmout pozměňovací návrh
       update_draft:
         error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
         success: Pozměňovací návrh byl úspěšně aktualizován.
-      withdraw:
-        error: Při stažení pozměňovacího návrhu došlo k chybě
-        success: Pozměňovací návrh byl úspěšně stažen
       wizard_step_form:
         steps:
           '1': Vytvořte svůj pozměňovací návrh
@@ -388,13 +373,11 @@ cs:
       official_author: Oficiální
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Ověřte si zavedením čísla pasu začínajícím písmenem "A"
         fields:
           passport_number: Číslo pasu
           postal_code: Poštovní směrovací číslo
         name: Další příklad oprávnění
       dummy_authorization_handler:
-        explanation: Ověřte se zavedením čísla dokumentu končícího "X"
         fields:
           allowed_postal_codes: Povolené poštovní směrovací kódy (oddělené čárkami)
           allowed_scope_id: Povolená oblast působnosti
@@ -435,11 +418,7 @@ cs:
           authorize: Autorizujte s "%{authorization}"
           explanation: Chcete-li provést tuto akci, musíte být autorizováni pomocí "%{authorization}".
           title: Je potřebná autorizace
-        ok:
-          title: Byli jste autorizováni, když jste na této stránce. Prosím obnovte stránku pro provedení vaší akce
         pending:
-          explanation: Chcete-li provést tuto akci, musíte být autorizováni "%{authorization}", ale vaše oprávnění stále probíhá
-          resume: Zkontrolujte autorizaci "%{authorization}"
           title: Autorizace stále probíhá
         unauthorized:
           explanation: Omlouváme se, tuto akci nelze provést, protože některá z vašich autorizačních dat se neshodují.
@@ -467,7 +446,6 @@ cs:
       see_more: "(viz další)"
     components:
       component_order_selector:
-        no_content: Nepodařilo se nám najít žádný obsah s tímto kritériem
         order:
           all_types: Všechny typy
           collaborative_draft: Koordinační návrh
@@ -549,22 +527,15 @@ cs:
           summary_content: Obsah
         two_pane_section:
           left_column: Levý sloupec
-          name: Sekce se dvěma deskami
           right_column: Pravý sloupec
       stats:
         name: Statistika organizace
       sub_hero:
         name: Pruh pod hlavním pruhem
-    core:
-      actions:
-        login_before_access: Prosím přihlašte se k účtu abyste mohli vstoupit
-        unauthorized: Nemáte oprávnění k provedení této akce
     datepicker:
       help_text: 'Očekávaný formát: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Jiný účet používá stejnou e-mailovou adresu
         new:
           complete_profile: Dokončit profil
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
@@ -590,8 +561,6 @@ cs:
         new:
           are_you_new?: Jste na platformě poprvé?
           register: Vytvořit účet
-          sign_in_disabled: Můžete přistupovat pomocí externího účtu
-          sign_up_disabled: Registrace je zakázána, k přístupu můžete použít existující účet
         user:
           timed_out: Byli jste příliš dlouho neaktivní a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se znovu.
       shared:
@@ -620,7 +589,6 @@ cs:
           authorize: Autorizovat aplikaci
           by_organization_link_html: <small class="heading-small">podle %{link}</small>
           cancel: Zrušit
-          connect_your_account_html: Připojte svůj účet přihlášením k <strong>%{organization}</strong>
           publish_content: Publikujte obsah pro vás
           see_email: Podívejte se na svůj e-mail
           see_name: Zobrazte své jméno
@@ -948,17 +916,8 @@ cs:
       index:
         invite: Pozvat
         invite_user: Pozvat uživatele
-      invite:
-        error: Došlo k chybě při pozvání tohoto uživatele
-        success: Uživatel pozván úspěšně
-      reject:
-        error: Došlo k chybě odmítnutí této pozvánky
-        success: Pozvánka byla úspěšně zamítnuta
       reject_invitation: Odmítnout
     group_members:
-      accept:
-        error: Při přijímání této žádosti o spojení došlo k chybě
-        success: Připojit žádost úspěšně přijat
       actions:
         are_you_sure: Jste si jisti?
         promote_to_admin: Udělat adminem
@@ -966,36 +925,20 @@ cs:
       index:
         current_members_without_admins: 'Aktuální členové (bez administrátorů):'
         manage_members: Správa členů
-      promote:
-        error: Došlo k chybě při propagaci tohoto uživatele
-        success: Uživatel úspěšně povýšen
-      reject:
-        error: Při odebrání této žádosti o spojení došlo k chybě
-        success: Připojit žádost úspěšně odmítnu
-      remove:
-        error: Při odebrání tohoto uživatele ze skupiny došlo k chybě
-        success: Uživatel byl ze skupiny úspěšně odstraněn
     groups:
       actions:
         are_you_sure: Jste si jisti?
-      create:
-        error: Při vytváření skupiny došlo k potížím
-        success: Skupina byla úspěšně vytvořena
       edit:
         edit_user_group: Upravit skupinu
         update_user_group: Aktualizovat skupinu
       form:
-        document_number_help: Nepoužívejte pomlčky ani mezery
         email_help: E-mail vaší organizace, asociace, kolektivu, skupiny atd.
         fill_in_for_verification: 'Pokud chcete ověřit vaši skupinu, vyplňte tato pole:'
         name_help: Název vaší organizace, sdružení, kolektivu, skupiny atd.
         nickname_help: Uživatelské jméno vaší organizace, asociace, kolektivní skupiny, atd. Nepoužívejte mezery ani diakritické znaménka.
-        phone_help: Nepoužívejte pomlčky ani mezery
       join:
-        error: Do skupiny došlo k problému
         success: Žádost o připojení byla úspěšně vytvořena. Před přijetím do skupiny administrátor váš požadavek zkontroluje.
       leave:
-        error: Při opouštění skupiny došlo k problému
         success: Skupina úspěšně opustila.
       members:
         accept_or_reject_join_requests: 'Následující uživatelé se připojili k této skupině. Přijmout nebo odmítnout jejich požadavky:'
@@ -1009,15 +952,11 @@ cs:
         admin: Správce
         creator: Administrátor
         member: Člen
-      update:
-        error: Při aktualizaci skupiny došlo k problému
-        success: Skupina byla úspěšně aktualizována
     help:
       main_topic:
         default_page:
           content: "<p>v %{organization} se můžete zúčastnit a rozhodnout se o různých tématech přes místa, která vidíte v horním menu: procesy, shromáždění, iniciativy, konzultace.</p> <p>V rámci každé z nich najdete různé možnosti účasti: učinit návrhy - jednotlivě nebo s jinými lidmi -, účastnit se debat, upřednostňovat realizaci projektů, účastnit se osobních setkání a dalších akcí.</p>\n"
           title: Co mohu udělat v %{organization}?
-        description: Přečtěte si více o %{organization}
         title: Obecná nápověda
     last_activities:
       activities:
@@ -1074,35 +1013,29 @@ cs:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
           greeting: Dobrý den, %{recipient}!
           intro: "%{manager} zahájil novou konverzaci s názvem %{group}. Klikněte zde pro její zobrazení:"
-          outro: Užijte si Rozhodování!
           subject: "%{manager} zahájil novou konverzaci jako %{group}"
         comanagers_new_message:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
           greeting: Dobrý den, %{recipient}!
           intro: "%{manager} zveřejnil nové zprávy v konverzaci s názvem %{group}. Klikněte zde pro jejich zobrazení:"
-          outro: Užijte si Rozhodování!
           subject: "%{manager} odeslal nové zprávy jako %{group}"
         new_conversation:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} zahájil novou konverzaci s vámi. Klikněte sem pro zobrazení:"
-          outro: Užijte si rozhodování!
           subject: "%{sender} začal s vámi konverzovat"
         new_group_conversation:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
           greeting: Dobrý den, %{recipient}!
           intro: "%{sender} zahájil novou konverzaci se skupinou %{group}. Klikněte zde pro její zobrazení:"
-          outro: Užijte si Rozhodování!
           subject: "%{sender} zahájil konverzaci s %{group}"
         new_group_message:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
           greeting: Dobrý den, %{recipient}!
           intro: "%{sender} přidal nové zprávy do konverzace se skupinou %{group}. Klikněte zde pro jejich zobrazení:"
-          outro: Užijte si Rozhodování!
           subject: "%{group} má nové zprávy od %{sender}"
         new_message:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} poslala nové zprávy ve vaší konverzaci. Klikněte sem pro jejich zobrazení:"
-          outro: Užijte si rozhodování!
           subject: Máte nové zprávy od %{sender}
       conversations:
         add_conversation_users:
@@ -1110,9 +1043,6 @@ cs:
           add_users_placeholder: Hledat...
           modal_title: Nová konverzace
           no_results: Žádné výsledky
-          participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv
-        create:
-          error: Konverzace se nespustí. Zkuste to později znovu
         error_modal:
           close: Zavřít okno
           correct_errors: Opravte chyby a zkuste to znovu.
@@ -1122,7 +1052,6 @@ cs:
           ago: před
           new_conversation: Nová konverzace
           next: Další
-          no_conversations: Nemáte zatím žádné konverzace
           title: Konverzace
         reply_form:
           placeholder: Vaše odpověď...
@@ -1135,8 +1064,6 @@ cs:
         start:
           placeholder: Vaše zpráva...
           send: Poslat
-        update:
-          error: Zpráva nebyla odeslána z důvodu chyby
     metrics:
       download:
         csv: Stáhnout data (CSV)
@@ -1299,7 +1226,6 @@ cs:
           success: Skvělý! Souhlasíte s podmínkami.
         form:
           agreement: Souhlasím s těmito podmínkami
-          legend: Souhlasíte s podmínkami používání
         refuse:
           modal_btn_continue: Přijměte termíny a pokračujte
           modal_btn_exit: Později to přezkoumám
@@ -1311,17 +1237,10 @@ cs:
           title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
-    passwords:
-      update:
-        error: Došlo k problému s aktualizací hesla
-        success: Heslo bylo úspěšně změněno
     profile:
-      deleted: Vymazaný uživatel
       inaccessible_message: Tento profil je nedostupný z důvodu porušení smluvních podmínek!
       view: Zobrazit
     profiles:
-      default_officialization_text_for_user_groups: Tato skupina uživatelů je veřejně ověřena a její název byl ověřen tak, aby odpovídal skutečnému jménu
-      default_officialization_text_for_users: Tento účastník je veřejně ověřen, jeho jméno nebo role byly ověřeny tak, aby odpovídaly jeho skutečnému jménu a roli
       show:
         activity: Aktivita
         badges: Odznaky
@@ -1347,11 +1266,9 @@ cs:
           manage_user_group_admins: Spravovat správce
           manage_user_group_users: Spravovat členy
           message: Zpráva
-        confirmation_instructions_sent: Pokyny pro potvrzení e-mailu byly odeslány
         create_user_group: Vytvořit skupinu
         edit_profile: Editovat profil
         edit_user_group: Upravit profil skupiny
-        fill_in_email_to_confirm_it: Vyplňte e-mail své skupiny a potvrďte ji
         invite_user: Pozvat uživatele
         join_user_group: Žádost o připojení ke skupině
         leave_user_group: Opustit skupinu
@@ -1520,7 +1437,6 @@ cs:
     user_contact_disabled: Tento uživatel nepřijímá přímé zprávy.
     user_conversations:
       create:
-        error: Zprávu nelze vytvořit. Zkuste to znovu později
         existing_error: Zprávu nelze vytvořit. Konverzace již existuje, zkuste to prosím znovu.
         success: Konverzace byla úspěšně spuštěna!
       index:
@@ -1535,7 +1451,6 @@ cs:
         next: Další
         no_conversations_warning: Zatím nejsou žádné konverzace.
         no_results: Žádné výsledky
-        participant_with_disabled_message_reception: Tento uživatel zakázal příjem zpráv
         time_ago: "před %{time}"
       new:
         title: Zahájit konverzaci
