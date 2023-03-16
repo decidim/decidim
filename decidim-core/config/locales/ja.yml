@@ -131,11 +131,9 @@ ja:
         cancel_error: メールの変更をキャンセルできませんでした。
         cancel_successfully: メールの変更が正常にキャンセルされました。
         resend_error: 確認メールを再送信できませんでした。
-        resend_successfully: '%{unconfirmed_email} に確認メールが再送信されました'
         send_again: 再送信
         title: メールアドレスの変更確認
       show:
-        available_locales_helper: プラットフォーム上での通知と表示に使用する言語を選択してください
         change_password: パスワードの変更
         update_account: アカウントを更新
       update:
@@ -148,7 +146,6 @@ ja:
       actions:
         cancel: キャンセル
       password_change:
-        alert: 先に進むにはパスワードを変更する必要があります
         notification: 管理者ユーザーは、 %{days} 日ごとにパスワードを変更する必要があります。
     admin_log:
       area:
@@ -251,10 +248,8 @@ ja:
         amended_by: 修正者
         button: '%{model_name} を修正'
         error: リソースの修正中にエラーが発生しました。
-        help_text: '%{model_name} を変更して、この %{amendable_fields} を改善しましょう。'
         promote_button: '%{model_name} に昇格'
         promote_confirm_text: この修正を承認してもよろしいですか？
-        promote_help_text: この修正を昇格し、独立した %{model_name} として公開することができます
         section_heading: 修正履歴 (%{count})
       compare_draft:
         continue: 続ける
@@ -296,26 +291,16 @@ ja:
         modify: 変更
         publish: 公開
         title: 修正案を公開
-      promoted:
-        error: 修正案を新しい提案として公表する際に問題が発生しました
-        success: 修正は新しい提案として正常に公開されました
       publish_draft:
         error: 修正案を公表する際に問題が発生しました。
         success: 修正に成功しました。
-      rejected:
-        error: この修正を拒否する際に問題が発生しました。後でもう一度やり直してください。
-        success: 修正は正常に拒否されました
       review:
         back: 戻る
         heading: 修正を確認する
-        help_text: '%{model_name} の修正を確認しています'
         send: 修正を承認する
       update_draft:
         error: 修正案の更新中に問題が発生しました。
         success: 修正の下書きが正常に更新されました。
-      withdraw:
-        error: 修正の撤回中にエラーが発生しました
-        success: 修正は正常に撤回されました
       wizard_step_form:
         steps:
           '1': 修正を作成する
@@ -345,13 +330,11 @@ ja:
       official_author: 公式
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: '「A」で始まるパスポート番号を入力して確認する'
         fields:
           passport_number: パスポート番号
           postal_code: 郵便番号
         name: 別の例の承認
       dummy_authorization_handler:
-        explanation: '「X」で終わるドキュメント番号を導入して認証を取得する'
         fields:
           allowed_postal_codes: 許可する郵便番号 (コンマで区切る)
           allowed_scope_id: 許可されたスコープ
@@ -392,11 +375,7 @@ ja:
           authorize: '"%{authorization}" で認証'
           explanation: このアクションを実行するには、"%{authorization}" で認証する必要があります。
           title: 認証が必要です
-        ok:
-          title: このページにいる間は許可されています。アクションを実行するにはページを再読み込みしてください。
         pending:
-          explanation: このアクションを実行するには、"%{authorization}" で認証される必要がありますが、承認はまだ進行中です
-          resume: '「%{authorization}」認証の進行状況を確認してください'
           title: 認証はまだ進行中です
         unauthorized:
           ok: OK
@@ -501,22 +480,15 @@ ja:
           summary_content: コンテンツ
         two_pane_section:
           left_column: 左カラム
-          name: 2カラムセクション
           right_column: 右カラム
       stats:
         name: 組織の統計
       sub_hero:
         name: サブヒーローバナー
-    core:
-      actions:
-        login_before_access: アクセスする前にアカウントでログインしてください
-        unauthorized: この操作を実行する権限がありません。
     datepicker:
       help_text: '期待されるフォーマット: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: 別のアカウントは同じメールアドレスを使用しています
         new:
           complete_profile: プロファイルを完了
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
@@ -542,8 +514,6 @@ ja:
         new:
           are_you_new?: プラットフォームは初めてですか？
           register: アカウントを作成
-          sign_in_disabled: 外部アカウントでアクセスできます
-          sign_up_disabled: ユーザ登録は無効です。既存のアカウントを使用してアクセスすることができます
         user:
           timed_out: 長時間非アクティブだったため、自動的にサービスからログアウトされました。 引き続きサービスをご利用になる場合、改めてログインしてください。
       shared:
@@ -561,7 +531,6 @@ ja:
           authorize: アプリケーションを承認する
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: キャンセル
-          connect_your_account_html: <strong>%{organization}</strong> にログインしてアカウントに接続します
           publish_content: コンテンツを公開する
           see_email: メールを見る
           see_name: 名前を確認してください
@@ -883,17 +852,8 @@ ja:
       index:
         invite: 招待
         invite_user: 参加者を招待
-      invite:
-        error: この参加者の招待中に問題が発生しました
-        success: 参加者の招待に成功しました
-      reject:
-        error: この招待を拒否する際に問題が発生しました
-        success: 招待を却下しました
       reject_invitation: 拒否
     group_members:
-      accept:
-        error: この参加リクエストの承認中に問題が発生しました
-        success: 参加リクエストが正常に承認されました
       actions:
         are_you_sure: よろしいですか？
         promote_to_admin: 管理者にする
@@ -901,36 +861,20 @@ ja:
       index:
         current_members_without_admins: '現在のメンバー (管理者なし):'
         manage_members: メンバーの管理
-      promote:
-        error: この参加者を昇格する際に問題が発生しました
-        success: 参加者が正常に昇格しました
-      reject:
-        error: この参加リクエストを拒否する際に問題が発生しました
-        success: 参加リクエストが正常に拒否されました
-      remove:
-        error: この参加者をグループから削除する際に問題が発生しました
-        success: 参加者がグループから削除されました
     groups:
       actions:
         are_you_sure: よろしいですか？
-      create:
-        error: グループの作成中に問題が発生しました
-        success: グループを作成しました
       edit:
         edit_user_group: グループを編集
         update_user_group: グループを更新
       form:
-        document_number_help: ダッシュやスペースを使用しない
         email_help: 組織、団体、集団、グループなどのEメールアドレスです。
         fill_in_for_verification: 'グループを認証させたい場合は、以下の項目を入力してください。'
         name_help: 組織名、団体名、団体名、グループ名など。
         nickname_help: 団体名、団体名、団体名、団体名などスペースやアクセントは使用しないでください。
-        phone_help: ダッシュやスペースを使用しない
       join:
-        error: グループへの参加中に問題が発生しました
         success: 参加リクエストは正常に作成されました。管理者はあなたをグループに承認する前にリクエストを確認します。
       leave:
-        error: グループから脱退中に問題が発生しました
         success: グループを放棄しました。
       members:
         accept_or_reject_join_requests: '次のユーザーがこのグループに参加するために申請しました。リクエストを承認または拒否します。'
@@ -944,15 +888,11 @@ ja:
         admin: 管理者
         creator: 管理者
         member: メンバー
-      update:
-        error: グループの更新中に問題が発生しました
-        success: グループを更新しました
     help:
       main_topic:
         default_page:
           content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや参加スペース、取り組み、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: （個人または他の人と一緒に）提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面ミーティングに出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
-        description: '%{organization} についてもっと読む'
         title: 一般的なヘルプ
     last_activities:
       activities:
@@ -1009,35 +949,29 @@ ja:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{manager} が %{group}という名前で新しい会話を開始しました。こちらをクリックしてください:"
-          outro: ' '
           subject: "%{manager} が %{group} として新しい会話を開始しました"
         comanagers_new_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{manager} は、 %{group}という名前の新しいメッセージを会話に投稿しました。それらを表示するにはここをクリックしてください："
-          outro: ' '
           subject: "%{manager} は %{group} として新しいメッセージを送信しました"
         new_conversation:
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} があなたと新しい会話を開始しました。こちらをクリックしてください:"
-          outro: ' '
           subject: "%{sender} があなたと会話を開始しました"
         new_group_conversation:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との新しい会話を開始しました。こちらをクリックしてください:"
-          outro: ' '
           subject: "%{sender} が %{group} と会話を開始しました"
         new_group_message:
           admin_in_group: あなたは %{group}の管理者であるため、これを受け取っています。
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} がグループ %{group}との会話に新しいメッセージを投稿しました。こちらをクリックしてください:"
-          outro: ' '
           subject: "%{group} に %{sender} からの新しいメッセージがあります"
         new_message:
           greeting: こんにちは、%{recipient}。
           intro: "%{sender} さんがあなたの会話に新しいメッセージを投稿しました。こちらをクリックしてください："
-          outro: ' '
           subject: '%{sender} からの新しいメッセージがあります'
       conversations:
         add_conversation_users:
@@ -1045,9 +979,6 @@ ja:
           add_users_placeholder: 検索...
           modal_title: 新しい会話
           no_results: 結果がありません
-          participant_with_disabled_message_reception: この参加者はメッセージの受信を無効にしています
-        create:
-          error: 会話が開始されませんでした。後でもう一度お試しください。
         error_modal:
           close: ウィンドウを閉じる
           correct_errors: エラーを修正して、再度お試しください
@@ -1057,7 +988,6 @@ ja:
           ago: 前
           new_conversation: 新しい会話
           next: 次へ
-          no_conversations: 会話がまだありません
           title: 会話
         reply_form:
           placeholder: あなたの返信...
@@ -1070,8 +1000,6 @@ ja:
         start:
           placeholder: あなたのメッセージ...
           send: 送信
-        update:
-          error: エラーのためメッセージは送信されませんでした
     metrics:
       download:
         csv: ダウンロードデータ(CSV)
@@ -1233,7 +1161,6 @@ ja:
           success: 利用規約に同意しました。
         form:
           agreement: 上記の規約に同意する
-          legend: 利用規約に同意する
         refuse:
           modal_btn_continue: 利用規約に同意して続ける
           modal_btn_exit: 後で確認する
@@ -1245,17 +1172,10 @@ ja:
           title: '必須：サービス利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
-    passwords:
-      update:
-        error: パスワードの更新中に問題が発生しました
-        success: パスワードが正常に更新されました
     profile:
-      deleted: 参加者が削除されました
       inaccessible_message: このプロファイルは利用規約違反によりアクセスできません
       view: 表示
     profiles:
-      default_officialization_text_for_user_groups: このグループは公に検証されており、その名前は実名と一致するように検証されています
-      default_officialization_text_for_users: この参加者は公的に検証されます。彼/彼女の名前または役割が実名とロールに対応していることが確認されています。
       show:
         activity: アクティビティ
         badges: バッジ
@@ -1281,11 +1201,9 @@ ja:
           manage_user_group_admins: 管理者の管理
           manage_user_group_users: メンバーの管理
           message: メッセージ
-        confirmation_instructions_sent: メール確認の手順が送信されました
         create_user_group: グループを作成
         edit_profile: プロフィールを編集
         edit_user_group: グループプロファイルを編集
-        fill_in_email_to_confirm_it: グループのメールアドレスを入力して確認してください
         invite_user: 参加者の招待
         join_user_group: グループに参加するリクエスト
         leave_user_group: グループから退出する
@@ -1451,7 +1369,6 @@ ja:
     user_contact_disabled: この参加者はダイレクトメッセージを受け付けません。
     user_conversations:
       create:
-        error: メッセージを作成できませんでした。後でもう一度お試しください。
         existing_error: メッセージを作成できませんでした。会話はすでに存在します。今すぐやり直してください。
         success: 会話が正常に開始されました！
       index:
@@ -1466,7 +1383,6 @@ ja:
         next: 次へ
         no_conversations_warning: 会話はまだありません。
         no_results: 結果がありません
-        participant_with_disabled_message_reception: この参加者はメッセージの受信を無効にしています
         time_ago: "%{time} 前"
       new:
         title: 会話を開始
