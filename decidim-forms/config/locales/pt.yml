@@ -22,8 +22,6 @@ pt:
             choices:
               missing: não estão completos
               too_many: são demasiados
-        questionnaire:
-          request_invalid: Ocorreu um erro ao processar o pedido. Por favor tente novamente
   decidim:
     forms:
       admin:
