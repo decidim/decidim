@@ -59,18 +59,6 @@ ja:
             voting_type:
               inclusion: "%{value} は有効な投票タイプではありません"
   activerecord:
-    errors:
-      models:
-        decidim/votings/polling_officer:
-          attributes:
-            presided_polling_station:
-              president_and_manager: 投票委員はすでに投票所の投票管理者/マネージャーです
-            voting:
-              different_organization: 投票はユーザーと同じ組織内にある必要があります
-        decidim/votings/polling_station:
-          attributes:
-            polling_station_president:
-              different_voting: 投票委員は投票所と同じ投票に属さなければなりません
     models:
       decidim/elections/answer:
         other: 回答
@@ -115,9 +103,6 @@ ja:
             'true': 未署名
         validated_eq:
           label: 検証済み
-          values:
-            'false': 検証済み
-            'true': 未検証
     components:
       elections:
         actions:
@@ -145,17 +130,10 @@ ja:
         unpublish: 公開しない
       admin:
         answers:
-          create:
-            invalid: この回答を作成する際に問題が発生しました
-            success: 回答を作成しました
-          destroy:
-            invalid: この回答を削除する際に問題が発生しました
-            success: 正常に回答を削除しました
           edit:
             title: 回答を編集
             update: 回答を更新
           index:
-            invalid_max_selections: 最大選択数に届くには %{missing_answers} 個以上の回答が必要です
             title: 回答
           new:
             create: 回答を作成
@@ -164,22 +142,8 @@ ja:
           select:
             disable: 回答の選択を解除
             enable: 回答を選択済みとしてマーク
-            invalid: 回答を選択する際に問題が発生しました
-            success: 回答が正常に選択されました
           selected: 選択済み
-          unselect:
-            invalid: 回答の選択解除中に問題が発生しました
-            success: 回答が正常に選択されました。
-          update:
-            invalid: この回答の更新中に問題が発生しました
-            success: 回答が更新されました
         elections:
-          create:
-            invalid: この選挙の作成中に問題が発生しました
-            success: 選挙が正常に作成されました
-          destroy:
-            invalid: この選挙を削除する際に問題が発生しました
-            success: 選挙は正常に削除されました
           edit:
             title: 選挙を編集
             update: 選挙を更新
@@ -193,9 +157,6 @@ ja:
             success: 選挙は正常に公開されました。
           unpublish:
             success: 選挙は正常に非公開になりました。
-          update:
-            invalid: 選挙の更新中に問題が発生しました
-            success: 選挙が正常に更新されました
         exports:
           elections: 選挙
           feedback_form_answers: フィードバックフォームの回答
@@ -216,22 +177,12 @@ ja:
           trustee:
             name: 受託者
         proposals_imports:
-          create:
-            invalid: 提案を回答にインポートする際に問題が発生しました
-            success: "%{number} の提案が正常に回答にインポートされました"
           new:
             create: 提案を回答にインポート
             no_components: この参加スペースには、回答に提案をインポートするための他の提案コンポーネントはありません。
             select_component: コンポーネントを選択してください
             title: 提案のインポート
         questions:
-          create:
-            election_started: 選挙は既に開始されています
-            invalid: この質問を作成中に問題が発生しました
-            success: 問題を作成しました
-          destroy:
-            invalid: この質問を削除する際に問題が発生しました
-            success: 問題が削除されました
           edit:
             title: 質問を編集
             update: 質問を更新
@@ -240,9 +191,6 @@ ja:
           new:
             create: 質問を作成
             title: 新しい質問
-          update:
-            invalid: この質問の更新中に問題が発生しました
-            success: 問題が正常に更新されました
         steps:
           create_election:
             census: センサス
@@ -279,9 +227,7 @@ ja:
             title: 選挙を設定する
             trustees: 選挙受託者
           created:
-            invalid: キーセレモニーを開始する際に問題が発生しました
             submit: キーセレモニーを開始
-            success: キーセレモニーの開始リクエストは正常に掲示板に送信されました
             title: 選挙の作成
             trustees: 受託者
           key_ceremony:
@@ -290,11 +236,9 @@ ja:
           key_ceremony_ended:
             errors:
               time_before: 選挙を開始する準備ができました。投票期間を開始するには、 開始時刻 ( %{start_time}) の%{hours} 時間前まで待つ必要があります。
-            invalid: 投票期間開始中に問題が発生しました
             requirements:
               time_before: 選挙はまもなく開始されます。手動で投票期間を開始するか、開始時刻の %{start_time} より前に自動的に開始されます。
             submit: 投票期間を開始
-            success: 投票期間の開始リクエストは正常に掲示板に送信されました
             title: 開始準備完了
           processing: 処理しています...
           results_published:
@@ -312,11 +256,9 @@ ja:
             result: 結果
             selected: 選択済み
             submit: 結果を公開
-            success: 結果公開のリクエストは正常に掲示板に送信されました
             title: 計算結果
           tally_started:
             continue: 続ける
-            invalid: 受託者が見つからない報告する際に問題が発生しました
             mark_as_missing: missing としてマーク
             success: 不足していた受託者の報告は正しく掲示板に送信されました
             tally_completion: すべての受託者がアクティブまたは missing とマークされた場合、プロセスは完了します。少なくとも %{quorum} 人の受託者がプロセスを完了する必要があります。
@@ -325,16 +267,12 @@ ja:
           vote:
             errors:
               time_after: 選挙はまだ進行中です。投票期間を終了するには、終了時間（%{end_time}）まで待つ必要があります。
-            invalid: 投票期間の終了中に問題が発生しました
             requirements:
               time_after: 選挙は終了しました。投票期間を手動で終了するか、数分で自動的に終了します。
             submit: 投票を終了する
-            success: 投票期間の終了リクエストは正常に掲示板に送信されました
             title: 投票期間
           vote_ended:
-            invalid: 集計開始中に問題が発生しました
             submit: 集計を開始
-            success: 集計開始リクエストは正常に掲示板に送信されました
             text: 投票が終了しました。今すぐ集計を開始できます。
             title: 投票期間が終了しました
           vote_stats:
@@ -346,13 +284,6 @@ ja:
           actions:
             disable: 無効
             enable: 検討する
-          create:
-            exists: この参加スペースに受託者が存在します
-            invalid: 受託者の作成中に問題が発生しました
-            success: 受託者の作成に成功しました
-          delete:
-            invalid: 受託者を削除する際に問題が発生しました
-            success: 受託者を削除しました
           form:
             select_user: ユーザーを選択
           index:
@@ -360,9 +291,6 @@ ja:
           new:
             create: 受託者を作成
             title: 新しい受託者
-          update:
-            invalid: 受託者 %{trustee} の更新中に問題が発生しました
-            success: 受託者 %{trustee} が正常に更新されました
       admin_log:
         election:
           create: "%{user_name} が %{space_name} の選挙 %{resource_name} を作成しました"
@@ -700,7 +628,6 @@ ja:
             title: 投票を確認
           success:
             header: 投票しました！
-            info: 暗号化されたあなたの投票は %{link} 投票箱にあります
         voting_step:
           back: 戻る
           continue: 次へ
@@ -754,20 +681,12 @@ ja:
     votings:
       admin:
         ballot_styles:
-          create:
-            error: 投票スタイルの作成中に問題が発生しました
-            success: 投票スタイルを作成しました
-          destroy:
-            invalid: 投票スタイルを削除する際に問題が発生しました
-            success: 投票スタイルが正常に削除されました
           edit:
             title: 投票スタイルを編集
             update: 更新
           form:
-            code_help: 'ヒント: コードは、センサスと投票スタイルをリンクさせるものです。 センサスデータをアップロードするとき、コードに一致する投票スタイルが割り当てられます。'
             election: 選挙
             questions: この投票スタイルに関する質問
-            questions_help: 'ヒント: この投票スタイルに割り当てられた投票者に提示される選挙コンポーネントから質問を選択します'
           index:
             actions:
               confirm_destroy: 本当に削除してよろしいですか？
@@ -814,12 +733,6 @@ ja:
           published: 公開済み
         landing_page:
           content_blocks:
-            create:
-              error: コンテンツブロックの作成中に問題が発生しました
-              success: コンテンツブロックを作成しました
-            destroy:
-              error: コンテンツブロックの削除中に問題が発生しました
-              success: コンテンツブロックを削除しました
             edit:
               update: 更新
           edit:
@@ -899,16 +812,8 @@ ja:
             publish_results: 結果を公開
             publishing: 結果を公開中...
           update:
-            invalid: 結果の公開中に問題が発生しました
             rejected: 結果の公開が掲示板によって拒否されました。もう一度試すか、システム管理者に連絡してください。
-            success: 結果は正常に公開されました
         monitoring_committee_members:
-          create:
-            invalid: この監視委員会メンバーの作成中に問題が発生しました
-            success: 監視委員会のメンバーが正常に作成されました
-          destroy:
-            invalid: この監視委員会メンバーの削除中に問題が発生しました
-            success: 監視委員会のメンバーが正常に削除されました
           form:
             existing_user: 既存の参加者
             non_user: 新しい参加者を招待
@@ -939,9 +844,6 @@ ja:
           show:
             change_polling_station: 投票所に戻る
             monitoring_committee_notes: 監視委員会からの発言
-          validate:
-            error: 閉鎖の検証中に問題が発生しました
-            success: 閉鎖が検証されました
         monitoring_committee_verify_elections:
           index:
             download: ダウンロード
@@ -952,12 +854,6 @@ ja:
             not_available: まだ利用できません
             title: 選挙
         polling_officers:
-          create:
-            invalid: この投票委員の作成中に問題が発生しました
-            success: 投票委員を作成しました
-          destroy:
-            invalid: この投票担当者を削除する際に問題が発生しました
-            success: 投票委員を削除しました
           form:
             existing_user: 既存の参加者
             non_user: 新しい参加者を招待
@@ -975,12 +871,6 @@ ja:
             close: 閉じる
             more_polling_officers: あと %{number} 人の投票委員がいます。検索を絞り込んで探しましょう。
         polling_stations:
-          create:
-            invalid: 投票所の作成中に問題が発生しました
-            success: 投票所を作成しました
-          destroy:
-            invalid: 投票所を削除する際に問題が発生しました
-            success: 投票所を削除しました
           edit:
             title: 投票所を編集
             update: 投票所を更新
@@ -989,16 +879,12 @@ ja:
             location_help: '場所: 投票所の正確な場所を知らせるための投票者向けメッセージ'
             location_hints_help: '場所のヒント: 追加情報。例：投票所がある建物のフロア。'
             polling_station_managers_help: '投票所管理者: 投票所の管理を行う担当者。担当者がすでに投票委員として作成されていること、および他の投票所に割り当てられていないことを確認してください'
-            polling_station_president_help: '投票所責任者:投票所の代表を務める担当者。 投票委員がすでに投票所に設置されていること、および他の投票所に割り当てられていないことを確認してください'
             select_president: 投票所の投票管理者として投票委員を選択してください
           index:
             title: 投票所
           new:
             create: 作成
             title: 投票所の作成
-          update:
-            invalid: 投票所の更新中に問題が発生しました
-            success: 投票所を更新しました
         titles:
           votings: 投票
         votings:
@@ -1008,11 +894,7 @@ ja:
             new_voting: 新しい投票スペース
             publish: 公開
             unpublish: 非公開にする
-          create:
-            invalid: 投票の作成中に問題が発生しました
-            success: 投票が正常に作成されました
           edit:
-            assign_missing_officers: 投票管理者またはマネージャーがいない投票所があります。投票所セクションからアサインしてください
             update: 更新
           form:
             banner_image: バナー画像
@@ -1021,7 +903,6 @@ ja:
             introductory_image: 導入画像
             promoted: プロモート
             select_a_voting_type: 投票方式を選択してください
-            show_check_census_help: 公開投票メニューに「投票できますか?」リンクを表示するかどうか
             slug: スラグ
             slug_help: 'URLスラグは、この投票を指すURLを生成するために使用されます。 使用できるのはアルファベット、数字、ダッシュのみで、アルファベットから始める必要があります。例: %{url}'
             title: タイトル
@@ -1033,13 +914,6 @@ ja:
           new:
             create: 作成
             title: 新しい投票
-          publish:
-            success: 投票が正常に公開されました
-          unpublish:
-            success: 投票を非公開にしました
-          update:
-            invalid: 投票の更新中に問題が発生しました
-            success: 投票が正常に更新されました
       admin_log:
         ballot_style:
           create: "%{user_name} がスペース %{space_name} にコード %{ballot_style_code} の投票スタイルを作成しました"
@@ -1068,7 +942,6 @@ ja:
           census:
             create:
               invalid: センサスのアップロード中にエラーが発生しました。後でもう一度お試しください。
-              invalid_csv_header: CSVヘッダーが見つからないか正しくありません。手順をよくお読みください。
             creating_data:
               info_message: "<strong>しばらくお待ち下さい</strong>, ファイル %{file} の %{raw_count} 行中 %{processed_count} 行目を処理しています (数分かかる場合もあります)."
             delete:
@@ -1076,14 +949,10 @@ ja:
               confirm: センサスデータをすべて削除します。元に戻すことはできません。続行してもよろしいですか？
             destroy:
               error: センサスの削除中にエラーが発生しました。後でもう一度お試しください。
-              success: センサスデータが削除されました
             export_access_codes:
               button: 投票アクセスコードをエクスポート
               callout: これで、アクセスコードのエクスポートに進むことができます。これは一度だけ行うことができます。 エクスポートを開始すると、指示が記載されたメールが <strong>%{email}</strong> に届きます。
               confirm: アクセスコードは一度だけエクスポートできます。メールアカウント <strong>%{email}</strong> へのアクセス権があることを確認してください.
-              file_not_exist: このファイルは存在しません
-              launch_error: アクセスコードのエクスポートの起動に問題があります
-              launch_success: アクセスコードのエクスポートが開始されました。まもなく %{email} にメールが届きます。
             exporting_access_codes:
               info_message: "<strong>しばらくお待ち下さい</strong>, エクスポートを準備しており, 間もなく %{email} に送信されます (数分かかる場合があります)"
             freeze:
@@ -1309,7 +1178,6 @@ ja:
           check_status: ステータスの確認
           description: ここでは、あなたがこの投票に参加する権利があるかどうかを知るためにあなたのセンサスデータをチェックするオプションがあります。 すでにアクセスコードを持っているはずですが、紛失した場合は、データが正しいときにもう一度それを求めることができます。
           error:
-            info: 'もう一度やり直してください。システム内のデータが正しくないと思われる場合は、こちらから報告できます: %{census_contact_information}'
             title: 入力したデータはこの投票のためのセンサスにありません
           form_title: 'あなたのセンサスデータを確認するには、次のフォームに記入してください:'
           invalid: センサスの確認中に問題がありました。
@@ -1364,14 +1232,10 @@ ja:
           start_voting: 投票の開始
           step: 識別
           title: 自分の投票センサスのデータで自分を特定する
-        no_census_contact_information: 連絡先情報はまだありません
         orders:
           label: '投票の並べ替え:'
           random: ランダム
           recent: 新着順
-        send_access_code:
-          invalid: アクセスコードの送信中に問題が発生しました
-          success: アクセスコードが正常に送信されました
         show:
           dates: 日付
       votings_m:
