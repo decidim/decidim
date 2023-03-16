@@ -208,7 +208,6 @@ fr:
           email_intro: 'Vous pouvez maintenant initier de nouveaux débats dans %{participatory_space_title}! Commencez à participer sur cette page :'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Débats maintenant disponibles sur %{participatory_space_title}
-          notification_title: Vous pouvez maintenant initier <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         debate_closed:
           affected_user:
             email_intro: 'Le débat « %{resource_title} » est fermé. Vous pouvez lire les conclusions sur cette page :'
