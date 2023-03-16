@@ -201,18 +201,18 @@ en:
         verify: Verify
       admin_terms_of_use:
         accept:
-          error: There's been an error while accepting the admin terms and conditions.
-          success: Great! You've accepted the admin terms and conditions.
+          error: There's been an error while accepting the admin terms of use.
+          success: Great! You've accepted the admin terms of use.
         actions:
           accept: I agree with the terms
-          are_you_sure: Are you sure you want to refuse the admin terms and conditions?
+          are_you_sure: Are you sure you want to refuse the admin terms of use?
           refuse: Refuse the admin terms
           title: Agree to the terms and conditions
         required_review:
           alert: 'Required: Review our admin terms terms and conditions'
-          callout: Please take a moment to review the admin terms and conditions. Otherwise you will not be able to manage the platform.
+          callout: Please take a moment to review the admin terms of use. Otherwise you will not be able to manage the platform.
           cta: Review them now.
-        title: Admin terms and conditions
+        title: Admin terms of use
       area_types:
         create:
           error: There was a problem creating a new area type.
