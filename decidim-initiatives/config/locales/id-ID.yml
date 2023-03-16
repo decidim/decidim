@@ -141,8 +141,6 @@ id:
           index:
             approve: Menyetujui
             confirm_revoke: Apakah kamu yakin?
-            invite_to_committee_help: Bagikan tautan ini untuk mengundang pengguna lain ke komite promosi
-            no_members_yet: Tidak ada anggota di komite promotor
             revoke: Mencabut
             title: anggota Komite
         content_blocks:
@@ -157,7 +155,6 @@ id:
             export_votes: Mendukung ekspor
             reject: Tolak inisiatif
             send_to_technical_validation: Kirim ke validasi teknis
-            success: Inisiatif telah dikirim ke validasi teknis
             update: Memperbarui
           form:
             title: Informasi Umum
@@ -165,13 +162,7 @@ id:
             actions_title: Tindakan
             preview: Preview
             print: Mencetak
-          update:
-            error: Sebuah kesalahan telah terjadi
-            success: Inisiatif warga telah berhasil diperbarui
         initiatives_type_scopes:
-          create:
-            error: Sebuah kesalahan telah terjadi
-            success: Ruang lingkup baru untuk jenis inisiatif yang diberikan telah dibuat
           destroy:
             success: Ruang lingkup telah berhasil dihapus
           edit:
@@ -184,15 +175,7 @@ id:
             back: Kembali
             create: Membuat
             title: Buat ruang lingkup jenis inisiatif
-          update:
-            error: Sebuah kesalahan telah terjadi
-            success: Ruang lingkup telah berhasil diperbarui
         initiatives_types:
-          create:
-            error: Sebuah kesalahan telah terjadi
-            success: Jenis inisiatif baru telah berhasil dibuat
-          destroy:
-            success: Jenis inisiatif telah berhasil dihapus
           edit:
             confirm_destroy: Apakah kamu yakin?
             destroy: Menghapus
@@ -204,9 +187,6 @@ id:
           new:
             create: Membuat
             title: Jenis inisiatif baru
-          update:
-            error: Sebuah kesalahan telah terjadi
-            success: Jenis inisiatif telah berhasil diperbarui
       admin_log:
         initiative:
           publish: "%{user_name} menerbitkan %{resource_name} inisiatif"
@@ -225,7 +205,6 @@ id:
       committee_requests:
         new:
           continue: Terus
-          help_text: Anda akan meminta menjadi anggota komite promotor inisiatif ini
         spawn:
           success: Permintaan Anda telah dikirim ke penulis inisiatif.
       content_blocks:
@@ -284,7 +263,6 @@ id:
             day: Hari
             month: Bulan
             year: Tahun
-          help: Silakan, isi bidang berikut dengan data pribadi Anda untuk menandatangani inisiatif
         finish:
           back_to_initiative: Kembali ke inisiatif
         sms_code:
@@ -292,12 +270,9 @@ id:
           help: Periksa SMS yang diterima di ponsel Anda
         sms_phone_number:
           continue: Kirimi saya SMS
-          help: Isi formulir dengan nomor telepon terverifikasi Anda untuk meminta kode verifikasi Anda
       initiative_votes:
         create:
           error: Sudah ada kesalahan saat menandatangani inisiatif.
-          invalid: Data yang diberikan untuk menandatangani inisiatif tidak valid
-          success_html: Selamat! Inisiatif <strong> %{title}</strong> telah ditandatangani dengan benar
         personal_data:
           invalid: Data pribadi tidak konsisten dengan data yang diberikan untuk otorisasi.
         sms_phone:
