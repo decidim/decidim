@@ -59,6 +59,7 @@ fi:
             skip_template: Ohita
           edit:
             edit: Muokkaa
+            empty: Kysymyksiä ei ole vielä.
             questionnaire: Kysely
           form:
             save: Tallenna
