@@ -982,6 +982,9 @@ cs:
           title: Verze
         proposals:
           back_to_resource: Vraťte se k návrhu
+      withdraw:
+        errors:
+          has_supports: Tento návrh nemůže být stažen, protože již získal hlasy pro.
     resource_links:
       copied_from_component:
         proposal_proposal: Související návrhy
