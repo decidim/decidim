@@ -486,10 +486,10 @@ en:
           title: Private notes
         proposals:
           answer:
-            invalid: There's been a problem answering this proposal.
+            invalid: There has been a problem answering this proposal.
             success: Proposal successfully answered.
           create:
-            invalid: There's been a problem creating this proposal.
+            invalid: There has been a problem creating this proposal.
             success: Proposal successfully created.
           edit:
             title: Update proposal

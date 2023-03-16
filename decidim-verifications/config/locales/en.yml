@@ -40,7 +40,7 @@ en:
           destroy:
             confirm: Revoke before date authorizations cannot be undone. Are you sure you want to continue?
             confirm_all: Revoke all the authorizations cannot be undone. Are you sure you want to continue?
-          destroy_nok: There's been a problem while revoking authorizations.
+          destroy_nok: There has been a problem while revoking authorizations.
           destroy_ok: All matched authorizations have been revocated successfully.
           info: There are a total of %{count} verified participants.
           no_data: No verified participants.
@@ -80,7 +80,7 @@ en:
       multistep: Multi-Step
       name: Name
       postal_letter:
-        explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address.
+        explanation: We will send you a postal letter with a code that you'll have to enter so we can verify your address.
         name: Code by postal letter
     events:
       verifications:
@@ -215,7 +215,7 @@ en:
             error: There was a problem uploading your document.
             success: Document successfully uploaded.
           edit:
-            being_reviewed: We're reviewing your documents. You'll be verified shortly.
+            being_reviewed: We're reviewing your documents. You will be verified shortly.
             offline: Use offline verification
             online: Use online verification
             rejection_clarity: Make sure the information is clearly visible in the uploaded image.
@@ -249,11 +249,11 @@ en:
         authorizations:
           create:
             error: There was a problem with your request.
-            success: Thanks! We'll send a verification code to your address.
+            success: Thanks! We will send a verification code to your address.
           edit:
             send: Confirm
             title: Introduce the verification code you received.
-            waiting_for_letter: We'll be sending a letter to your address with your verification code soon.
+            waiting_for_letter: We will be sending a letter to your address with your verification code soon.
           new:
             send: Send me a letter
             title: Request your verification code
@@ -264,7 +264,7 @@ en:
         authorizations:
           create:
             error: There was a problem with your request.
-            success: Thanks! We've sent an SMS to your phone.
+            success: Thanks! We have sent an SMS to your phone.
           destroy:
             success: Verification code sucessfully reset. Please re-enter your phone number.
           edit:
