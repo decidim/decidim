@@ -19,11 +19,6 @@ id:
           post:
             name: Pos
         posts:
-          create:
-            invalid: Terjadi masalah saat membuat pos ini
-            success: Pos berhasil dibuat
-          destroy:
-            success: Posting berhasil dihapus
           edit:
             save: Memperbarui
           index:
@@ -33,7 +28,6 @@ id:
             title: Buat posting
           update:
             invalid: Terjadi masalah saat menyimpan pos.
-            success: Posting berhasil disimpan
       models:
         post:
           fields:
