@@ -124,8 +124,6 @@ id:
         create:
           error: Terjadi kesalahan saat membuat jenis area baru.
           success: Tipe area berhasil dibuat.
-        destroy:
-          success: Tipe area berhasil dihancurkan
         edit:
           title: Edit jenis area
           update: Memperbarui
@@ -134,13 +132,10 @@ id:
           title: Tipe area baru
         update:
           error: Terjadi kesalahan saat memperbarui jenis area ini.
-          success: Tipe area berhasil diperbarui
       areas:
         create:
           error: Terjadi kesalahan saat membuat area baru.
           success: Area berhasil dibuat.
-        destroy:
-          success: Area berhasil dihancurkan
         edit:
           title: Edit area
           update: Memperbarui
@@ -150,7 +145,6 @@ id:
         no_areas: Tanpa Area
         update:
           error: Ada kesalahan saat memperbarui area ini.
-          success: Area berhasil diperbarui
       attachment_collections:
         create:
           error: Ada kesalahan saat membuat folder baru.
@@ -188,7 +182,6 @@ id:
           success: Lampiran berhasil diperbarui.
       autocomplete:
         no_results: Tidak ada hasil yang ditemukan
-        search_prompt: Ketik setidaknya tiga karakter untuk mencari
       categories:
         create:
           error: Terjadi kesalahan saat membuat kategori ini.
@@ -258,10 +251,8 @@ id:
             'true': Tidak resmi
         search_label: Pencarian
       help_sections:
-        error: Terjadi kesalahan saat memperbarui bagian bantuan
         form:
           save: Menyimpan
-        success: Bagian bantuan berhasil diperbarui
       impersonatable_users:
         index:
           filter:
@@ -431,10 +422,6 @@ id:
           error: Terjadi kesalahan saat memperbarui buletin ini.
           success: Buletin berhasil diperbarui. Harap tinjau sebelum mengirim.
       officializations:
-        create:
-          success: Pengguna resmi berhasil
-        destroy:
-          success: Pengguna tidak resmi berhasil
         index:
           actions: Tindakan
           badge: Lencana
@@ -520,8 +507,6 @@ id:
         create:
           error: Terjadi kesalahan saat membuat cakupan baru.
           success: Lingkup berhasil dibuat.
-        destroy:
-          success: Cakupan berhasil dihancurkan
         edit:
           title: Sunting cakupan
           update: Memperbarui
@@ -536,8 +521,6 @@ id:
         create:
           error: Ada kesalahan saat membuat topik baru.
           success: Topik berhasil dibuat.
-        destroy:
-          success: Topik berhasil dihancurkan
         edit:
           title: Edit topik
           update: Perbarui topik
@@ -569,11 +552,9 @@ id:
         topic:
           destroy: Hapus topik
           edit: Edit topik
-          empty: Tidak ada halaman di bawah topik ini
           without_topic: Halaman tanpa topik
         update:
           error: Terjadi kesalahan saat memperbarui halaman ini.
-          success: Halaman berhasil diperbarui
       titles:
         admin_log: Log admin
         area_types: Tipe area
@@ -593,10 +574,8 @@ id:
           success: File CSV berhasil diunggah, kami memverifikasi grup pengguna yang cocok dengan kriteria. Ini mungkin membutuhkan waktu beberapa saat.
         reject:
           invalid: Ada kesalahan saat menolak grup pengguna ini.
-          success: Kelompok pengguna berhasil ditolak
         verify:
           invalid: Ada kesalahan saat memverifikasi grup pengguna ini.
-          success: Kelompok pengguna berhasil diverifikasi
       user_groups:
         index:
           state:
