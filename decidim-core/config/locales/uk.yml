@@ -118,13 +118,11 @@ uk:
         other: коментарів
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Підтвердьте свою особу, ввівши номер паспорта, що починається з "А"
         fields:
           passport_number: Номер паспорта
           postal_code: Поштовий індекс
         name: Ще один приклад підтвердження особи
       dummy_authorization_handler:
-        explanation: Підтвердьте особу, ввівши номер документа, що закінчується на "X"
         fields:
           document_number: Номер документа
           postal_code: Поштовий індекс
@@ -156,8 +154,6 @@ uk:
           explanation: Щоб виконати цю дію, потрібно підтвердити свою особу за допомогою "%{authorization}".
           title: Необхідне підтвердження своєї особи
         pending:
-          explanation: Щоб виконати цю дію, потрібно підтвердити особу за допомогою "%{authorization}", але ваше підтвердження особи все ще триває
-          resume: Відстежте перебіг підтвердження особи "%{authorization}"
           title: Підтвердження особи все ще триває
         unauthorized:
           ok: Гаразд
@@ -195,13 +191,8 @@ uk:
         name: Статистика організації
       sub_hero:
         name: Під-багатирський банер
-    core:
-      actions:
-        unauthorized: Ви не маєте прав на виконання цієї дії
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Інший обліковий запис використовує ту ж саму адресу електронної пошти
         new:
           complete_profile: Заповнити профіль
           sign_up: Будь ласка, заповніть свій профіль
@@ -239,7 +230,6 @@ uk:
           authorize: Підтвердити додаток
           by_organization_link_html: <small class="heading-small">через %{link}</small>
           cancel: Скасувати
-          connect_your_account_html: Підключіть свій обліковий запис, увійшовши до <strong>%{organization}</strong>
           publish_content: Оприлюднювати за вас дописи
           see_email: Бачити вашу адресу ел-пошти
           see_name: Бачити ваше ім'я
@@ -349,18 +339,12 @@ uk:
         new_conversation:
           greeting: Вітаємо, %{recipient}!
           intro: "%{sender} почав з вами нову бесіду. Клацніть тут, щоб прочитати її:"
-          outro: Насолоджуйтесь Десідім!
           subject: "%{sender} почав з вами бесіду"
         new_message:
           greeting: Доброго дня, %{recipient}!
           intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб переглянути їх:"
-          outro: Насолоджуйтесь Десідім!
           subject: Ви отримали нові повідомлення від %{sender}
       conversations:
-        create:
-          error: Бесіда не розпочата. Спробуйте ще раз пізніше
-        index:
-          no_conversations: У вас ще немає бесід
         start:
           send: Надіслати
     newsletter_mailer:
@@ -428,8 +412,6 @@ uk:
         accept:
           error: Під час прийняття умов участі виникла помилка.
           success: Чудово! Ви прийняли умови участі.
-        form:
-          legend: Погодитися з умовами участі
         refuse:
           modal_btn_continue: Прийняти умови та продовжити
           modal_btn_exit: Я перегляну це пізніше
@@ -442,10 +424,8 @@ uk:
     participatory_space_private_users:
       not_allowed: У вас нема прав на перегляд цього вмісту
     profile:
-      deleted: Видалений учасник
       view: Переглянути
     profiles:
-      default_officialization_text_for_users: Особу цього учасника прилюдно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
       show:
         followers: Ті, хто стежить
         following: 'Стежить за:'
