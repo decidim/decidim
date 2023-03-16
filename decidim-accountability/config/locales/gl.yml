@@ -50,9 +50,6 @@ gl:
           new:
             import: Importar
             title: Importar resultados dun CSV
-        imports:
-          create:
-            success: Importando o ficheiro. Recibirás un correo electrónico nos vindeiros minutos co resultado da importación
         models:
           result:
             name: Resultado
@@ -61,11 +58,6 @@ gl:
           timeline_entry:
             name: Entrada de liña de tempo
         results:
-          create:
-            invalid: Produciuse un problema ao crear este resultado
-            success: Resultado creado con éxito
-          destroy:
-            success: Resultado eliminado correctamente
           edit:
             title: Editar resultado
             update: Actualizar resultado
@@ -74,18 +66,10 @@ gl:
           new:
             create: Crear resultado
             title: Novo resultado
-          update:
-            invalid: Produciuse un problema ao actualizar este resultado
-            success: Resultado actualizado correctamente
         shared:
           subnav:
             statuses: Estatus
         statuses:
-          create:
-            invalid: Produciuse un problema ao crear este estado
-            success: Estado creado con éxito
-          destroy:
-            success: Estado eliminado con éxito
           edit:
             title: Editar o estado
             update: Actualizar o estado
@@ -94,15 +78,7 @@ gl:
           new:
             create: Crear estado
             title: Novo estado
-          update:
-            invalid: Houbo un problema ao actualizar este estado
-            success: Estado actualizado correctamente
         timeline_entries:
-          create:
-            invalid: Produciuse un problema ao crear esta entrada
-            success: Entrada creada con éxito
-          destroy:
-            success: Entrada correctamente eliminada
           edit:
             title: Editar entrada
             update: Actualizar a entrada
@@ -111,9 +87,6 @@ gl:
           new:
             create: Crear entrada
             title: Nova entrada
-          update:
-            invalid: Produciuse un problema ao actualizar esta entrada
-            success: Entrada actualizada con éxito
       admin_log:
         result:
           create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
@@ -130,7 +103,6 @@ gl:
       import_mailer:
         import:
           errors: Erros
-          errors_present: Produciuse un erro ao importar os resultados
           row_number: Fila
           subject: Resultados importados con éxito
           success: Resultados importados con éxito. Podes revisar os resultados no panel de administración.
