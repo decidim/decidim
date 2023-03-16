@@ -217,10 +217,8 @@ ja:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: 誰かが提案 "%{resource_title}" にメモを残しました。 <a href="%{admin_proposal_info_url}">管理者パネル</a>で確認してください。
             email_outro: 提案を評価できるため、この通知を受け取りました。
             email_subject: 誰かが提案 %{resource_title} にメモを残しました。
-            notification_title: 誰かが提案 <a href="%{resource_path}">%{resource_title}</a>にメモを残しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
@@ -255,12 +253,10 @@ ja:
           email_intro: '%{participatory_space_title}で新しい提案を作成できるようになりました! このページに参加してください:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} で現在利用可能な提案'
-          notification_title: <a href="%{resource_path}">新しい提案</a> を <a href="%{participatory_space_url}">%{participatory_space_title}</a>で提出できるようになりました。
         endorsing_enabled:
           email_intro: 'あなたは %{participatory_space_title} で提案をオススメすることができます! このページへの参加を開始します:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
           email_subject: '%{participatory_space_title} の推薦提案が開始されました'
-          notification_title: <a href="%{resource_path}">提案の支持</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a> を開始することができます。
         proposal_accepted:
           affected_user:
             email_intro: 'あなたの提案「%{resource_title}」が承認されました。このページで回答を読むことができます:'
@@ -297,8 +293,6 @@ ja:
           email_intro: あなたがフォローしている提案「%{resource_title}」が「%{participatory_space_title}」に追加されました。
           email_outro: '「%{participatory_space_title}」をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止できます。'
           email_subject: 新しい提案 "%{resource_title}" が %{participatory_space_title} に追加されました
-          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> が %{author} によって %{participatory_space_title} に追加されました
-          notification_title_official: 公式の提案 <a href="%{resource_path}">%{resource_title}</a> が %{participatory_space_title} に追加されました
         proposal_rejected:
           affected_user:
             email_intro: 'あなたの提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
@@ -466,21 +460,12 @@ ja:
             rejected: 拒否
             title: 提案 %{title} の回答
         proposal_notes:
-          create:
-            error: この提案ノートの作成中に問題が発生しました
-            success: 提案メモを作成しました
           form:
             note: メモ
             submit: 送信
           leave_your_note: メモを残してください
           title: プライベートノート
         proposals:
-          answer:
-            invalid: この提案に回答中に問題が発生しました
-            success: 提案が正常に回答しました
-          create:
-            invalid: この提案を作成中に問題が発生しました
-            success: 提案が正常に作成されました
           edit:
             title: 提案を更新
             update: 更新
@@ -553,9 +538,6 @@ ja:
             select_a_scope: スコープを選択してください
             success: '提案が %{subject_name} スコープ: %{proposals} に更新されました。'
         proposals_imports:
-          create:
-            invalid: 提案のインポート中に問題が発生しました
-            success: "%{number} の提案が正常にインポートされました"
           new:
             create: 提案をインポート
             no_components: この参加スペースには他の提案コンポーネントはありません。
@@ -570,13 +552,6 @@ ja:
           create:
             invalid: '選択した提案を分割する際に問題が発生しました:'
             success: 提案を新しいものに分割しました。
-        valuation_assignments:
-          create:
-            invalid: 評価者に提案を割り当てる際にエラーが発生しました
-            success: 評価者に割り当てられた提案
-          delete:
-            invalid: 評価者からの提案の割り当てを解除中にエラーが発生しました
-            success: 評価者としての提案への割り当てが正常に解除されました
       admin_log:
         proposal:
           answer: "%{user_name} が %{resource_name} スペースで %{space_name} の提案に回答しました"
@@ -843,8 +818,6 @@ ja:
         proposal:
           creation_date: '作成: %{date}'
           view_proposal: 提案を表示
-        proposals:
-          empty: 提案はまだありません
         show:
           answer: 回答
           back_to: 前に戻る
@@ -895,8 +868,6 @@ ja:
             supports_remaining: サポートを考慮するためには、あと %{remaining_votes} 件の提案をサポートする必要があります。
           proposal_limit:
             description: 最大 %{limit} 件の提案を作成できます。
-          threshold_per_proposal:
-            description: 検証されるためには、 %{limit} のサポートに到達する必要があります
           title: 'サポートは以下のルールに従います:'
           vote_limit:
             description: 最大 %{limit} 件の提案をサポートできます。
