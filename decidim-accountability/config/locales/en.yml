@@ -78,7 +78,7 @@ en:
             title: Import results from CSV
         imports:
           create:
-            success: The file has begun importing. You will receive an email in the next few minutes with the result of the import
+            success: The file has begun importing. You will receive an email in the next few minutes with the result of the import.
         models:
           result:
             name: Result
@@ -100,15 +100,15 @@ en:
             origin_component_id: Origin component
             select_component: Select a component
             success:
-              one: 1 project queued to be imported. You will be notified by email, once completed
-              other: "%{count} projects queued to be imported. You will be notified by email, once completed"
+              one: 1 project queued to be imported. You will be notified by email, once completed.
+              other: "%{count} projects queued to be imported. You will be notified by email, once completed."
             title: Import Projects to Accountability
         results:
           create:
-            invalid: There was a problem creating this result
-            success: Result successfully created
+            invalid: There was a problem creating this result.
+            success: Result successfully created.
           destroy:
-            success: Result successfully deleted
+            success: Result successfully deleted.
           edit:
             title: Edit result
             update: Update result
@@ -118,17 +118,17 @@ en:
             create: Create result
             title: New result
           update:
-            invalid: There was a problem updating this result
-            success: Result successfully updated
+            invalid: There was a problem updating this result.
+            success: Result successfully updated.
         shared:
           subnav:
             statuses: Statuses
         statuses:
           create:
-            invalid: There was a problem creating this status
-            success: Status successfully created
+            invalid: There was a problem creating this status.
+            success: Status successfully created.
           destroy:
-            success: Status successfully deleted
+            success: Status successfully deleted.
           edit:
             title: Edit status
             update: Update status
@@ -138,14 +138,14 @@ en:
             create: Create status
             title: New status
           update:
-            invalid: There was a problem updating this status
-            success: Status successfully updated
+            invalid: There was a problem updating this status.
+            success: Status successfully updated.
         timeline_entries:
           create:
-            invalid: There was a problem creating this entry
-            success: Entry successfully created
+            invalid: There was a problem creating this entry.
+            success: Entry successfully created.
           destroy:
-            success: Entry successfully deleted
+            success: Entry successfully deleted.
           edit:
             title: Edit entry
             update: Update entry
@@ -155,8 +155,8 @@ en:
             create: Create entry
             title: New entry
           update:
-            invalid: There was a problem updating this entry
-            success: Entry successfully updated
+            invalid: There was a problem updating this entry.
+            success: Entry successfully updated.
       admin_log:
         result:
           create: "%{user_name} created result %{resource_name} in %{space_name}"
@@ -181,7 +181,7 @@ en:
       import_mailer:
         import:
           errors: Errors
-          errors_present: There was a problem importing results
+          errors_present: There was a problem importing results.
           row_number: Row
           subject: Successful import of results
           success: Successful import of results. You can review the results in the administration interface.

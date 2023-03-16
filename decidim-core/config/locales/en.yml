@@ -147,11 +147,11 @@ en:
         cancel_error: Could not cancel the email change.
         cancel_successfully: Email change cancelled successfully.
         resend_error: Could not resend confirmation email.
-        resend_successfully: Confirmation email resent successfully to %{unconfirmed_email}
+        resend_successfully: Confirmation email resent successfully to %{unconfirmed_email}.
         send_again: Send again
         title: Email change verification
       show:
-        available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform
+        available_locales_helper: Choose the language you want to use to browse and receive notifications on the platform.
         change_password: Change password
         update_account: Update account
       update:
@@ -164,7 +164,7 @@ en:
       actions:
         cancel: Cancel
       password_change:
-        alert: You need to change your password in order to proceed further
+        alert: You need to change your password in order to proceed further.
         notification: Admin users need to change their password every %{days} days.
     admin_log:
       area:
@@ -267,10 +267,10 @@ en:
         amended_by: Amended by
         button: Amend %{model_name}
         error: There has been an error amending this resource.
-        help_text: Improve this %{model_name} by modifying its %{amendable_fields}
+        help_text: Improve this %{model_name} by modifying its %{amendable_fields}.
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
-        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}
+        promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
         section_heading: Amendments (%{count})
       compare_draft:
         continue: Continue
@@ -313,25 +313,25 @@ en:
         publish: Publish
         title: Publish Amendment Draft
       promoted:
-        error: There was a problem publishing the amendment as a new proposal
-        success: The amendment has been successfully published as a new proposal
+        error: There was a problem publishing the amendment as a new proposal.
+        success: The amendment has been successfully published as a new proposal.
       publish_draft:
         error: There was a problem publishing the amendment.
         success: Amendment successfully published.
       rejected:
-        error: There was a problem rejecting this amendment, please try again later
-        success: The amendment has been successfully rejected
+        error: There was a problem rejecting this amendment, please try again later.
+        success: The amendment has been successfully rejected.
       review:
         back: Back
         heading: Review the amendment
-        help_text: You are reviewing an amendment to the %{model_name}
+        help_text: You are reviewing an amendment to the %{model_name}.
         send: Accept amendment
       update_draft:
         error: There was a problem updating the amendment draft.
         success: Amendment draft successfully updated.
       withdraw:
-        error: An error ocurred while withdrawing the amendment
-        success: The amendment has been withdrawn successfully
+        error: An error ocurred while withdrawing the amendment.
+        success: The amendment has been withdrawn successfully.
       wizard_step_form:
         steps:
           '1': Create your amendment
@@ -363,13 +363,13 @@ en:
       official_author: Official
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Get verified by introducing a passport number starting with "A"
+        explanation: Get verified by introducing a passport number starting with "A".
         fields:
           passport_number: Passport number
           postal_code: Postal code
         name: Another example authorization
       dummy_authorization_handler:
-        explanation: Get verified by introducing a document number ending with "X"
+        explanation: Get verified by introducing a document number ending with "X".
         fields:
           allowed_postal_codes: Allowed postal codes (separated by commas)
           allowed_scope_id: Allowed scope
@@ -411,10 +411,10 @@ en:
           explanation: In order to perform this action, you need to be authorized with "%{authorization}".
           title: Authorization required
         ok:
-          title: You've been authorized while in this page. Please, reload the page to perform your action
+          title: You've been authorized while in this page. Please, reload the page to perform your action.
         pending:
-          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
-          resume: Check your "%{authorization}" authorization progress
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress.
+          resume: Check your "%{authorization}" authorization progress.
           title: Authorization is still in progress
         unauthorized:
           explanation: Sorry, you cannot perform this action as some of your authorization data does not match.
@@ -441,7 +441,7 @@ en:
       see_more: "(see more)"
     components:
       component_order_selector:
-        no_content: We could not find any content with this criteria
+        no_content: We could not find any content with this criteria.
         order:
           all_types: All types
           collaborative_draft: Collaborative Draft
@@ -531,14 +531,14 @@ en:
         name: Sub hero banner
     core:
       actions:
-        login_before_access: Please, login with your account before access
-        unauthorized: You are not authorized to perform this action
+        login_before_access: Please, login with your account before access.
+        unauthorized: You are not authorized to perform this action.
     datepicker:
       help_text: 'Expected format: %{datepicker_format}'
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: Another account is using the same email address
+          email_already_exists: Another account is using the same email address.
         new:
           complete_profile: Complete profile
           nickname_help: Your alias in %{organization}. Can only contain letters, numbers, '-' and '_'.
@@ -564,8 +564,8 @@ en:
         new:
           are_you_new?: New to the platform?
           register: Create an account
-          sign_in_disabled: You can access with an external account
-          sign_up_disabled: Sign up is disabled, you can use an existing account to access
+          sign_in_disabled: You can access with an external account.
+          sign_up_disabled: Sign up is disabled, you can use an existing account to access.
         user:
           timed_out: You were inactive for too long and you have been automatically signed out from the service. If you would like to continue using the service, please sign in again.
       shared:
@@ -594,7 +594,7 @@ en:
           authorize: Authorize application
           by_organization_link_html: <small class="heading-small">by %{link}</small>
           cancel: Cancel
-          connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>
+          connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>.
           publish_content: Publish content for you
           see_email: See your email
           see_name: See your name
@@ -924,16 +924,16 @@ en:
         invite: Invite
         invite_user: Invite a participant
       invite:
-        error: There was a problem inviting this participant
-        success: Participant successfully invited
+        error: There was a problem inviting this participant.
+        success: Participant successfully invited.
       reject:
-        error: There was a problem rejecting this invitation
-        success: Invitation successfully rejected
+        error: There was a problem rejecting this invitation.
+        success: Invitation successfully rejected.
       reject_invitation: Reject
     group_members:
       accept:
-        error: There was a problem accepting this join request
-        success: Join request successfully accepted
+        error: There was a problem accepting this join request.
+        success: Join request successfully accepted.
       actions:
         are_you_sure: Are you sure?
         promote_to_admin: Make admin
@@ -942,35 +942,35 @@ en:
         current_members_without_admins: 'Current members (without admins):'
         manage_members: Manage members
       promote:
-        error: There was a problem promoting this participant
-        success: Participant promoted successfully
+        error: There was a problem promoting this participant.
+        success: Participant promoted successfully.
       reject:
-        error: There was a problem rejecting this join request
-        success: Join request successfully rejected
+        error: There was a problem rejecting this join request.
+        success: Join request successfully rejected.
       remove:
-        error: There was a problem removing this participant from the group
-        success: Participant successfully removed from the group
+        error: There was a problem removing this participant from the group.
+        success: Participant successfully removed from the group.
     groups:
       actions:
         are_you_sure: Are you sure?
       create:
-        error: There was a problem creating the group
-        success: Group successfully created
+        error: There was a problem creating the group.
+        success: Group successfully created.
       edit:
         edit_user_group: Edit group
         update_user_group: Update group
       form:
-        document_number_help: Do not use dashes nor spaces
+        document_number_help: Do not use dashes nor spaces.
         email_help: Email of your organization, association, collective, group, etc.
         fill_in_for_verification: 'Fill in these fields if you want your group to be verified:'
         name_help: Name of your organization, association, collective, group, etc.
         nickname_help: Nickname of your organization, association, collective, group, etc. Do not use spaces nor accents.
-        phone_help: Do not use dashes nor spaces
+        phone_help: Do not use dashes nor spaces.
       join:
-        error: There was a problem joining the group
+        error: There was a problem joining the group.
         success: Join request successfully created. An admin will review your request before accepting you to the group.
       leave:
-        error: There was a problem leaving the group
+        error: There was a problem leaving the group.
         last_admin: You cannot remove yourself from this group as you're the last administrator. Make another member an administrator in order to leave the group.
         success: Group successfully abandoned.
       members:
@@ -987,14 +987,14 @@ en:
         creator: Administrator
         member: Member
       update:
-        error: There was a problem updating the group
-        success: Group successfully updated
+        error: There was a problem updating the group.
+        success: Group successfully updated.
     help:
       main_topic:
         default_page:
           content: "<p>In %{organization} you can participate and decide on different topics, through the spaces you see in the top menu: Processes, Assemblies, Initiatives, Consultations.</p> <p>Within each one you will find different options to participate: make proposals - individually or with other people-, take part in debates, prioritize projects to implement, attend face-to-face meetings and other actions.</p>\n"
           title: What can I do in %{organization}?
-        description: Read more about %{organization}
+        description: Read more about %{organization}.
         title: General Help
     last_activities:
       activities:
@@ -1053,35 +1053,35 @@ en:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} has started a new conversation in the name of %{group}. Click here to see it:"
-          outro: Enjoy decidim!
+          outro: Enjoy Decidim!
           subject: "%{manager} has started a new conversation as a %{group}"
         comanagers_new_message:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{manager} has posted new messages in a conversation in the name of %{group}. Click here to see them:"
-          outro: Enjoy decidim!
+          outro: Enjoy Decidim!
           subject: "%{manager} has send new messages as a %{group}"
         new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
-          outro: Enjoy decidim!
+          outro: Enjoy Decidim!
           subject: "%{sender} has started a conversation with you"
         new_group_conversation:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy decidim!
+          outro: Enjoy Decidim!
           subject: "%{sender} has started a conversation with %{group}"
         new_group_message:
           admin_in_group: You are receiving this because you are an admin in %{group}.
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in a conversation with the group %{group}. Click here to see it:"
-          outro: Enjoy decidim!
+          outro: Enjoy Decidim!
           subject: "%{group} have new messages from %{sender}"
         new_message:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has posted new messages in your conversation. Click here to see them:"
-          outro: Enjoy decidim!
+          outro: Enjoy Decidim!
           subject: You have new messages from %{sender}
       conversations:
         add_conversation_users:
@@ -1089,9 +1089,9 @@ en:
           add_users_placeholder: Search...
           modal_title: New conversation
           no_results: No results
-          participant_with_disabled_message_reception: This participant has disabled message reception
+          participant_with_disabled_message_reception: This participant does not want to receive private messages.
         create:
-          error: Conversation not started. Try again later
+          error: Conversation not started. Try again later.
         error_modal:
           close: Close modal
           correct_errors: Please correct the errors and try again.
@@ -1101,7 +1101,7 @@ en:
           ago: ago
           new_conversation: New conversation
           next: Next
-          no_conversations: You have no conversations yet
+          no_conversations: You have no conversations yet.
           title: Conversations
         reply_form:
           placeholder: Your reply...
@@ -1116,7 +1116,7 @@ en:
           placeholder: Your message...
           send: Send
         update:
-          error: Message was not sent due to an error
+          error: Message was not sent due to an error.
     metrics:
       download:
         csv: Download data (CSV)
@@ -1295,15 +1295,15 @@ en:
       not_allowed: You are not allowed to view this content
     passwords:
       update:
-        error: There was a problem updating the password
-        success: Password successfully updated
+        error: There was a problem updating the password.
+        success: Password successfully updated.
     profile:
-      deleted: Participant deleted
+      deleted: Deleted participant
       inaccessible_message: This profile is inaccessible due to Terms and Conditions violation!
       view: View
     profiles:
-      default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name
-      default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
+      default_officialization_text_for_user_groups: This group is publicly verified, its name has been verified to correspond with its real name.
+      default_officialization_text_for_users: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role.
       show:
         activity: Activity
         badges: Badges
@@ -1329,11 +1329,11 @@ en:
           manage_user_group_admins: Manage admins
           manage_user_group_users: Manage members
           message: Message
-        confirmation_instructions_sent: Email confirmation instructions sent
+        confirmation_instructions_sent: Email confirmation instructions sent.
         create_user_group: Create group
         edit_profile: Edit profile
         edit_user_group: Edit group profile
-        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it
+        fill_in_email_to_confirm_it: Please, fill in your group's email to confirm it.
         invite_user: Invite participant
         join_user_group: Request to join group
         leave_user_group: Leave group
@@ -1502,7 +1502,7 @@ en:
     user_contact_disabled: This participant does not accept direct messages.
     user_conversations:
       create:
-        error: The message could not be created. Try again later
+        error: The message could not be created. Try again later.
         existing_error: The message could not be created. The conversation already exists, please try again now.
         success: Conversation started successfully!
       index:
@@ -1517,7 +1517,7 @@ en:
         next: Next
         no_conversations_warning: There are no conversations yet.
         no_results: No results
-        participant_with_disabled_message_reception: This participant has disabled message reception
+        participant_with_disabled_message_reception: This participant has disabled message reception.
         time_ago: "%{time} ago"
       new:
         title: Start a conversation

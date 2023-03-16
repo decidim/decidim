@@ -223,10 +223,10 @@ en:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Someone has left a note on the proposal "%{resource_title}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>
+            email_intro: Someone has left a note on the proposal "%{resource_title}". Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
             email_outro: You have received this notification because you can valuate the proposal.
             email_subject: Someone left a note on proposal %{resource_title}.
-            notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>
+            notification_title: Someone has left a note on the proposal <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
@@ -261,12 +261,12 @@ en:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals now available in %{participatory_space_title}
-          notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: You can now put forward <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         endorsing_enabled:
           email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals endorsing has started for %{participatory_space_title}
-          notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         proposal_accepted:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
@@ -303,8 +303,8 @@ en:
           email_intro: The proposal "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can stop receiving notifications following the previous link.
           email_subject: New proposal "%{resource_title}" added to %{participatory_space_title}
-          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}
-          notification_title_official: The official proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+          notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title} by %{author}.
+          notification_title_official: The official proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}.
         proposal_rejected:
           affected_user:
             email_intro: 'Your proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
@@ -477,8 +477,8 @@ en:
             title: Answer for proposal %{title}
         proposal_notes:
           create:
-            error: There was a problem creating this proposal note
-            success: Proposal note successfully created
+            error: There was a problem creating this proposal note.
+            success: Proposal note successfully created.
           form:
             note: Note
             submit: Submit
@@ -486,11 +486,11 @@ en:
           title: Private notes
         proposals:
           answer:
-            invalid: There's been a problem answering this proposal
-            success: Proposal successfully answered
+            invalid: There's been a problem answering this proposal.
+            success: Proposal successfully answered.
           create:
-            invalid: There's been a problem creating this proposal
-            success: Proposal successfully created
+            invalid: There's been a problem creating this proposal.
+            success: Proposal successfully created.
           edit:
             title: Update proposal
             update: Update
@@ -565,8 +565,8 @@ en:
             success: 'Proposals successfully updated to the %{subject_name} scope: %{proposals}.'
         proposals_imports:
           create:
-            invalid: There was a problem importing the proposals
-            success: "%{number} proposals successfully imported"
+            invalid: There was a problem importing the proposals.
+            success: "%{number} proposals successfully imported."
           new:
             create: Import proposals
             no_components: There are no other proposal components in this participatory space to import the proposals from.
@@ -583,11 +583,11 @@ en:
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
-            invalid: There was an error assigning proposals to a valuator
-            success: Proposals assigned to a valuator successfully
+            invalid: There was an error assigning proposals to a valuator.
+            success: Proposals assigned to a valuator successfully.
           delete:
-            invalid: There was an error unassigning proposals from a valuator
-            success: Valuator unassigned from proposals successfully
+            invalid: There was an error unassigning proposals from a valuator.
+            success: Valuator unassigned from proposals successfully.
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
@@ -864,8 +864,8 @@ en:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         proposals:
-          empty: There is no proposal yet
-          empty_filters: There is not any proposal with this criteria
+          empty: There are no proposal yet.
+          empty_filters: There are no proposals with this criteria.
         show:
           answer: Answer
           back_to: Back to
@@ -919,7 +919,7 @@ en:
           proposal_limit:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:
-            description: In order to be validated proposals need to reach %{limit} supports
+            description: In order to be validated proposals need to reach %{limit} supports.
           title: 'Supports are subject to the following rules:'
           vote_limit:
             description: You can support up to %{limit} proposals.

@@ -138,7 +138,7 @@ en:
         newsletter:
           attributes:
             base:
-              at_least_one_space: Select at least one participatory space
+              at_least_one_space: Select at least one participatory space.
         organization:
           attributes:
             official_img_footer:
@@ -156,8 +156,8 @@ en:
       new_import:
         attributes:
           file:
-            invalid_file: Invalid file provided, please check that the file is correctly formatted
-            invalid_mime_type: Invalid mime type
+            invalid_file: Invalid file provided, please check that the file is correctly formatted.
+            invalid_mime_type: Invalid mime type.
   activerecord:
     attributes:
       decidim/static_page:
@@ -201,24 +201,24 @@ en:
         verify: Verify
       admin_terms_of_use:
         accept:
-          error: There's been an error while accepting the admin terms of use.
-          success: Great! You've accepted the admin terms of use.
+          error: There's been an error while accepting the admin terms and conditions.
+          success: Great! You've accepted the admin terms and conditions.
         actions:
           accept: I agree with the terms
-          are_you_sure: Are you sure you want to refuse the admin terms of use?
+          are_you_sure: Are you sure you want to refuse the admin terms and conditions?
           refuse: Refuse the admin terms
-          title: Agree to the terms and conditions of use
+          title: Agree to the terms and conditions
         required_review:
-          alert: 'Required: Review our admin terms of use'
+          alert: 'Required: Review our admin terms terms and conditions'
           callout: Please take a moment to review Admin Terms of Use. Otherwise you will not be able to manage the platform.
           cta: Review them now.
-        title: Admin Terms of Use
+        title: Admin terms and conditions
       area_types:
         create:
           error: There was a problem creating a new area type.
           success: Area type created successfully.
         destroy:
-          success: Area type successfully destroyed
+          success: Area type successfully destroyed.
         edit:
           title: Edit area type
           update: Update
@@ -227,14 +227,14 @@ en:
           title: New area type
         update:
           error: There was a problem updating this area type.
-          success: Area type updated successfully
+          success: Area type updated successfully.
       areas:
         create:
           error: There was a problem creating a new area.
           success: Area created successfully.
         destroy:
           has_spaces: This area has dependent spaces. Please make sure no Participatory Space references this area before deleting it.
-          success: Area successfully destroyed
+          success: Area successfully destroyed.
         edit:
           title: Edit area
           update: Update
@@ -244,7 +244,7 @@ en:
         no_areas: No Areas
         update:
           error: There was a problem updating this area.
-          success: Area updated successfully
+          success: Area updated successfully.
       attachment_collections:
         create:
           error: There was a problem creating a new folder.
@@ -284,7 +284,7 @@ en:
         message: Be careful when working with attachments in a private space. Any participant could share this document to others.
       autocomplete:
         no_results: No results found
-        search_prompt: Type at least three characters to search
+        search_prompt: Type at least three characters to search.
       block_user:
         new:
           action: Block account and send justification
@@ -375,8 +375,8 @@ en:
         form:
           domain_too_short: Domain too short
         update:
-          error: Failed to update domain whitelist
-          success: Domain whitelist updated successfully
+          error: Failed to update domain whitelist.
+          success: Domain whitelist updated successfully.
       exports:
         export_as: "%{name} as %{export_format}"
         formats:
@@ -459,10 +459,10 @@ en:
             message_1: CSV, JSON and Excel (.xlsx) files are supported
             message_2: For CSV files, the separator between columns must be a semicolon (";")
       help_sections:
-        error: There was a problem updating the help sections
+        error: There was a problem updating the help sections.
         form:
           save: Save
-        success: Help sections updated successfully
+        success: Help sections updated successfully.
       impersonatable_users:
         index:
           filter:
@@ -755,7 +755,7 @@ en:
           title: Select recipients to deliver
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
-          no_recipients: No recipients for this selection
+          no_recipients: No recipients for this selection.
         show:
           preview: Preview
           select_recipients_to_deliver: Select recipients to deliver
@@ -765,12 +765,12 @@ en:
           success: Newsletter updated successfully. Please review it before sending.
       officializations:
         block:
-          error: There was an error blocking the participant
-          success: Participant successfully blocked
+          error: There was an error blocking the participant.
+          success: Participant successfully blocked.
         create:
-          success: Participant successfully officialized
+          success: Participant successfully officialized.
         destroy:
-          success: Participant successfully unofficialized
+          success: Participant successfully unofficialized.
         index:
           actions: Actions
           badge: Badge
@@ -800,8 +800,8 @@ en:
           show: Show
           title: Show participant's email address
         unblock:
-          error: There was an error unblocking the participant
-          success: Participant successfully unblocked
+          error: There was an error unblocking the participant.
+          success: Participant successfully unblocked.
       organization:
         edit:
           title: Edit organization
@@ -848,11 +848,11 @@ en:
       organization_homepage:
         content_blocks:
           create:
-            error: There was a problem trying to create this content block
-            success: Content block successfully created
+            error: There was a problem trying to create this content block.
+            success: Content block successfully created.
           destroy:
-            error: There was a problem trying to delete this content block
-            success: Content block successfully deleted
+            error: There was a problem trying to delete this content block.
+            success: Content block successfully deleted.
           edit:
             update: Update
         edit:
@@ -930,7 +930,7 @@ en:
           error: There was a problem creating a new scope.
           success: Scope created successfully.
         destroy:
-          success: Scope successfully destroyed
+          success: Scope successfully destroyed.
         edit:
           title: Edit scope
           update: Update
@@ -950,7 +950,7 @@ en:
           error: There was a problem destroying the token.
           success: Token destroyed successfully.
         share_tokens:
-          empty: There are no active tokens
+          empty: There are no active tokens.
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
           title: Share tokens
       shared:
@@ -964,7 +964,7 @@ en:
           error: There was a problem creating a new topic.
           success: Topic created successfully.
         destroy:
-          success: Topic successfully destroyed
+          success: Topic successfully destroyed.
         edit:
           title: Edit topic
           update: Update topic
@@ -981,11 +981,11 @@ en:
           active_content_blocks: Active content blocks
           add: Add content block
           create:
-            error: There was a problem trying to create this content block
-            success: Content block successfully created
+            error: There was a problem trying to create this content block.
+            success: Content block successfully created.
           destroy:
-            error: There was a problem trying to delete this content block
-            success: Content block successfully deleted
+            error: There was a problem trying to delete this content block.
+            success: Content block successfully deleted.
           destroy_confirmation: Are you sure you want to delete this content block?
           edit:
             update: Update
@@ -1011,11 +1011,11 @@ en:
         topic:
           destroy: Remove topic
           edit: Edit topic
-          empty: There's no page under this topic
+          empty: There are no pages under this topic.
           without_topic: Pages without topic
         update:
           error: There was a problem updating this page.
-          success: Page updated successfully
+          success: Page updated successfully.
       titles:
         admin_log: Admin log
         area_types: Area types
@@ -1039,10 +1039,10 @@ en:
           success: CSV file uploaded successfully, we're verifying the groups matching the criteria. This might take a while.
         reject:
           invalid: There was a problem rejecting this group.
-          success: Group successfully rejected
+          success: Group successfully rejected.
         verify:
           invalid: There was a problem verifying this group.
-          success: Group successfully verified
+          success: Group successfully verified.
       user_groups:
         index:
           state:
@@ -1079,13 +1079,13 @@ en:
           last_day: Last day
           last_month: Last month
           last_week: Last week
-          no_users_count_statistics_yet: There are no users count statistics yet
+          no_users_count_statistics_yet: There are no users count statistics yet.
           participants: Participants
       view_public_page: View public page
     forms:
       errors:
         impersonate_user:
-          reason: You need to provide a reason when managing a non-managed participant
+          reason: You need to provide a reason when managing a non-managed participant.
     metrics:
       blocked_users:
         object: blocked users
