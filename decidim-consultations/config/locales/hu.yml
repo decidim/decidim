@@ -46,12 +46,6 @@ hu:
         decidim_consultations_response_id:
           not_found: Válasz nem található.
   activerecord:
-    errors:
-      models:
-        decidim/consultations/vote:
-          attributes:
-            question:
-              invalid_num_votes: Érvénytelen szavazatok száma
     models:
       decidim/consultation:
         one: Konzultáció
@@ -152,7 +146,6 @@ hu:
             one: Válasz
             other: Válaszok
       question_configuration:
-        disable_external_voting: Kérjük, tiltsa le a külső szavazást speciális konfigurációkhoz
         form:
           help: Állítson be több lehetséges válasszal rendelkező kérdést azáltal, hogy növeli a résztvevő által választható válaszok maximális számát. Az alapértelmezett maximális érték 1, azaz csak egy választ lehet megszavazni.
           title: Haladó konfiguráció
@@ -296,7 +289,6 @@ hu:
             votes: Szavazatok
       question_votes:
         create:
-          error: Hiba történt a kérdésre való szavazás során
           success: Megváltoztathatod a konzultáció végéig. Csak az utolsó szavazás kerül elfogadásra.
           title_error: Szavazati hiba!
           title_success: Szavazat sikeresen regisztrálva
