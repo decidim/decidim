@@ -11,9 +11,6 @@ hu:
       admins:
         create:
           error: Hiba történt egy új admin létrehozásakor.
-          success: Admin létrehozása sikeres
-        destroy:
-          success: Admin törlése sikeres
         edit:
           title: Admin szerkesztése
           update: Frissítés
@@ -24,7 +21,6 @@ hu:
           title: Új admin
         update:
           error: Hiba történt az admin frissítése során.
-          success: Admin sikeresen frissítve
       default_pages:
         placeholders:
           content: Adj hozzá értelmes tartalmat az admin irányítópult %{page} statikus oldalához.
@@ -59,8 +55,6 @@ hu:
         index:
           title: Szervezetek
         new:
-          reference_prefix_hint: A hivatkozási előtag az erőforrások azonosítására szolgál a szervezetek esetében
-          secondary_hosts_hint: Mindegyiket új sorba írd be
           title: Új szervezet
         omniauth_settings:
           decidim:
