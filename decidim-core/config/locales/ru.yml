@@ -133,7 +133,6 @@ ru:
       amendable:
         amended_by: Исправлено
         button: Изменить %{model_name}
-        help_text: Улучшить этот %{model_name}, изменив его %{amendable_fields}
         promote_button: Повысить до %{model_name}
       compare_draft:
         continue: Продолжить
@@ -150,9 +149,6 @@ ru:
         modify: Изменить
         publish: Опубликовать
         title: Опубликовать черновик поправок
-      promoted:
-        error: Возникла проблема с опубликованием поправки в качестве нового предложения
-        success: Эта поправка была успешно опубликована как новое предложение
       review:
         back: Назад
     anonymous_user: Анонимный
@@ -169,13 +165,11 @@ ru:
         other: комментариев
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Подтвердите свою личность, введя номер паспорта, начинающийся с «А»
         fields:
           passport_number: Номер паспорта
           postal_code: Почтовый индекс
         name: Еще один пример подтверждения личности
       dummy_authorization_handler:
-        explanation: Подтвердите свою личность, введя номер документа, заканчивающийся на «X»
         fields:
           document_number: Номер документа
           postal_code: Почтовый индекс
@@ -208,8 +202,6 @@ ru:
           explanation: Чтобы выполнить это действие, вам необходимо подтвердить свою личность с помощью «%{authorization}».
           title: Требуется подтверждение личности
         pending:
-          explanation: Чтобы выполнить это действие, вам необходимо подтвердить свою личность с помощью «%{authorization}», но подтверждение вашей личности еще не завершено
-          resume: Отследите ход подтверждения личности «%{authorization}»
           title: Подтверждение личности еще не проведено
         unauthorized:
           ok: Хорошо
@@ -263,16 +255,10 @@ ru:
         name: Статистика организации
       sub_hero:
         name: Под-богатырский баннер
-    core:
-      actions:
-        login_before_access: Пожалуйста, войдите под вашей учётной записью перед получением доступа
-        unauthorized: Вы не имеете прав для выполнения этого действия
     datepicker:
       help_text: 'Ожидаемый формат: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Другая учетная запись использует тот же адрес электронной почты
         new:
           complete_profile: Заполните профиль
           sign_up: Пожалуйста, заполните свой профиль
@@ -296,8 +282,6 @@ ru:
         new:
           are_you_new?: Вы впервые на этой площадке?
           register: Создать учетную запись
-          sign_in_disabled: Вы можете получить доступ с помощью внешней учетной записи
-          sign_up_disabled: Регистрация отключена, вы можете использовать существующую учетную запись для доступа
       shared:
         newsletter_modal:
           buttons:
@@ -312,7 +296,6 @@ ru:
           authorize: Подтвердить приложение
           by_organization_link_html: <small class="heading-small">по %{link}</small>
           cancel: Отменить
-          connect_your_account_html: Подключите свою учетную запись, выполнив вход в <strong>%{organization}</strong>
           publish_content: Обнародовать за вас сообщения
           see_email: Видеть ваш адрес электронной почты
           see_name: Видеть ваше имя
@@ -434,11 +417,8 @@ ru:
         edit_user_group: Изменить группу
         update_user_group: Обновить группу
       form:
-        document_number_help: Не использовать дефисы и пробелы
         email_help: Электронная почта вашей организации, ассоциации, коллектива, группы и т.д.
-        phone_help: Не использовать дефисы и пробелы
       join:
-        error: Возникла проблема при присоединении к группе
         success: Запрос на присоединение успешно создан. Администратор рассмотрит ваш запрос перед тем, как принять вас в группу.
     last_activities:
       all: Все виды активности
@@ -473,18 +453,12 @@ ru:
         new_conversation:
           greeting: Здравствуйте, %{recipient}!
           intro: "%{sender} начал с вами новую беседу. Кликните здесь, чтобы прочитать её:"
-          outro: Наслаждайтесь Десидим!
           subject: "%{sender} начал беседу с вами"
         new_message:
           greeting: Здравствуйте, %{recipient}!
           intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы посмотреть их:"
-          outro: Наслаждайтесь Десидим!
           subject: У вас есть новые сообщения от %{sender}
       conversations:
-        create:
-          error: Беседа не началась. Попробуйте позже
-        index:
-          no_conversations: У вас еще нет бесед
         start:
           send: Отправить
     newsletter_mailer:
@@ -552,8 +526,6 @@ ru:
         accept:
           error: При принятии условий участия произошла ошибка.
           success: Прекрасно! Вы приняли условия участия.
-        form:
-          legend: Согласиться с условиями участия
         refuse:
           modal_btn_continue: Принять условия и продолжить
           modal_btn_exit: Я просмотрю это позже
@@ -566,10 +538,8 @@ ru:
     participatory_space_private_users:
       not_allowed: У вас нет прав на просмотр этого содержимого
     profile:
-      deleted: Удаленный участник
       view: Посмотреть
     profiles:
-      default_officialization_text_for_users: Личность этого участника подтверждена при всём честном народе, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
       show:
         followers: Читают
         following: Следит за
@@ -578,11 +548,9 @@ ru:
           info: Значки заработаны за выполнение определенных действий на платформе.
           title: Значки
       user:
-        confirmation_instructions_sent: Письмо с инструкциями по подтверждению отправлено
         create_user_group: Создать группу
         edit_profile: Редактировать профиль
         edit_user_group: Изменить профиль группы
-        fill_in_email_to_confirm_it: Пожалуйста, заполните электронную почту вашей группы для подтверждения
         invite_user: Пригласить участника
     reported_mailer:
       hide:
