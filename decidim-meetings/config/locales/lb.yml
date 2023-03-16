@@ -33,17 +33,6 @@ lb:
         title: Titel
         transparent: Transparent
         type_of_meeting: Zort
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Die Dauer der Elemente überschreitet die Besprechungsdauer um %{count} Minuten
-              too_many_minutes_child: Die Dauer der Item-Childs überschreitet den Tagesordnungspunkt "%{parent_title}" Elternzeit um %{count} Minute
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Diese E-Mail wurde bereits eingeladen
     models:
       decidim/meetings/close_meeting_event: Sitzung geschlossen
       decidim/meetings/create_meeting_event: Versammlung
@@ -163,9 +152,6 @@ lb:
           new:
             create: Erstellen
             title: Neue Agenda
-          update:
-            invalid: Beim Aktualisieren dieser Agenda ist ein Problem aufgetreten
-            success: Agenda erfolgreich aktualisiert
         exports:
           answers: Antworten
           meeting_comments: Kommentare
@@ -202,17 +188,9 @@ lb:
             close: Schließen
             title: Sitzung beenden
         meetings:
-          close:
-            invalid: Beim Schließen dieses Meetings ist ein Problem aufgetreten
-            success: Sitzung erfolgreich abgeschlossen
           create:
-            invalid: Beim Erstellen dieses Meetings ist ein Problem aufgetreten
             success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
           destroy:
-            invalid:
-              proposals_count:
-                one: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschlag mit dieser verbunden ist
-                other: Die Besprechung kann nicht gelöscht werden, da %{count} Vorschläge mit dieser verbunden sind
             success: Das Meeting wurde erfolgreich gelöscht
           edit:
             title: Meeting bearbeiten
@@ -231,9 +209,6 @@ lb:
           new:
             create: Erstellen
             title: Versammlung erstellen
-          publish:
-            invalid: Beim Veröffentlichen dieser Sitzung ist ein Fehler aufgetreten
-            success: Sitzung erfolgreich veröffentlicht
           service:
             description: Beschreibung
             down: Nieder
@@ -244,12 +219,6 @@ lb:
           services:
             add_service: Service dobäisetzen
             services: Dienstleistungen
-          unpublish:
-            invalid: Beim Aufheben der Veröffentlichung dieser Sitzung ist ein Fehler aufgetreten
-            success: Veröffentlichung der Sitzung erfolgreich rückgängig gemacht
-          update:
-            invalid: Beim Aktualisieren dieses Meetings ist ein Problem aufgetreten
-            success: Sitzung erfolgreich aktualisiert
         models:
           meeting:
             name: Versammlung
@@ -310,8 +279,6 @@ lb:
         registration_mailer:
           confirmation:
             subject: Die Registrierung Ihrer Konferenz wurde bestätigt
-      meeting:
-        not_allowed: Sie dürfen dieses Meeting nicht sehen
       meeting_closes:
         edit:
           back: Zurück
