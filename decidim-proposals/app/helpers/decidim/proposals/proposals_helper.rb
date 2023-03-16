@@ -37,12 +37,12 @@ module Decidim
 
       def filter_proposals_state_values
         Decidim::CheckBoxesTreeHelper::TreeNode.new(
-          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.all"))),
           [
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", t("decidim.proposals.application_helper.filter_state_values.accepted")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", t("decidim.proposals.application_helper.filter_state_values.evaluating")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered")),
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", t("decidim.proposals.application_helper.filter_state_values.rejected"))
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("accepted", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.accepted"))),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("evaluating", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.evaluating"))),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.not_answered"))),
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("rejected", filter_text_for(t("decidim.proposals.application_helper.filter_state_values.rejected")))
           ]
         )
       end
