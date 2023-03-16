@@ -51,9 +51,6 @@
           new:
             import: Importer
             title: Importere resultater fra CSV
-        imports:
-          create:
-            success: Filen importeres. Du vil motta en e-post i de neste minuttene med resultatet av importen
         models:
           result:
             name: Resultat
@@ -62,11 +59,6 @@
           timeline_entry:
             name: Oppføring i tidslinjen
         results:
-          create:
-            invalid: Det oppstod et problem med å opprette dette resultatet
-            success: Resultat ble opprettet
-          destroy:
-            success: Resultat ble slettet
           edit:
             title: Rediger resultatet
             update: Oppdater resultatet
@@ -75,18 +67,10 @@
           new:
             create: Opprett resultat
             title: Nytt resultat
-          update:
-            invalid: Det oppsto et problem med å oppdatere dette resultatet
-            success: Resultat ble oppdatert
         shared:
           subnav:
             statuses: Statuser
         statuses:
-          create:
-            invalid: Det oppstod et problem med å opprette dette statusen
-            success: Status opprettet
-          destroy:
-            success: Status slettet
           edit:
             title: Endre status
             update: Oppdater status
@@ -95,15 +79,7 @@
           new:
             create: Lag ny status
             title: Ny status
-          update:
-            invalid: Det oppsto et problem med å oppdatere statusen din
-            success: Status oppdatert
         timeline_entries:
-          create:
-            invalid: Det oppsto et problem med å opprette dette innlegget
-            success: Oppføringen ble opprettet
-          destroy:
-            success: Oppføringen ble slettet
           edit:
             title: Rediger oppføringen
             update: Oppdater oppføringen
@@ -112,9 +88,6 @@
           new:
             create: Lag en ny oppføring
             title: Ny oppføring
-          update:
-            invalid: Det oppsto et problem med å oppdatere oppføringen
-            success: Oppføringen ble oppdatert
       admin_log:
         result:
           create: "%{user_name} opprettet resultat %{resource_name} i %{space_name}"
@@ -139,7 +112,6 @@
       import_mailer:
         import:
           errors: Feil
-          errors_present: Det oppstod et problem under import av resultater
           row_number: Rad
           subject: Vellykket import av resultater
           success: Vellykket import av resultater. Du kan se gjennom resultatene fra administrasjonsgrensesnittet.
