@@ -215,7 +215,7 @@ en:
             error: There was a problem uploading your document.
             success: Document successfully uploaded.
           edit:
-            being_reviewed: We're reviewing your documents. You will be verified shortly.
+            being_reviewed: We are reviewing your documents. You will be verified shortly.
             offline: Use offline verification
             online: Use online verification
             rejection_clarity: Make sure the information is clearly visible in the uploaded image.
