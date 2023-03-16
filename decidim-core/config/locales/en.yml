@@ -523,7 +523,7 @@ en:
           summary_content: Content
         two_pane_section:
           left_column: Left column
-          name: Two-pane section
+          name: Two-column section
           right_column: Right column
       stats:
         name: Organization statistics

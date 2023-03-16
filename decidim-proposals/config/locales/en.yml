@@ -631,7 +631,7 @@ en:
           publish:
             error: There was a problem publishing the collaborative draft.
             irreversible_action_modal:
-              body: After publishing the draft as a proposal, the draft will not be editable anymore. The proposal will not accept new authors or contributions.
+              body: After publishing the draft as a proposal, it will not be editable anymore. The proposal will not accept new authors or contributions.
               cancel: Cancel
               ok: Publish as a Proposal
               title: The following action is irreversible
@@ -640,7 +640,7 @@ en:
           withdraw:
             error: There was a problem closing the collaborative draft.
             irreversible_action_modal:
-              body: After closing the draft, the draft will not be editable anymore. The draft will not accept new authors or contributions.
+              body: After closing the draft, it will not be editable anymore. The draft will not accept new authors or contributions.
               cancel: Cancel
               ok: Withdraw the collaborative draft
               title: The following action is irreversible
