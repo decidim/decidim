@@ -83,12 +83,10 @@ is-IS:
         other: athugasemdir
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Fá staðfest með því að kynna vegabréfarnúmer sem byrjar með "A"
         fields:
           passport_number: Vegabréfs númer
           postal_code: Póstnúmer
       dummy_authorization_handler:
-        explanation: Fá staðfest með því að kynna skjalnúmer sem endar með "X"
         fields:
           document_number: Skjal númer
           postal_code: Póstnúmer
@@ -120,13 +118,8 @@ is-IS:
             dummy_step_attribute1: Dummy Skref Attribute 1
             dummy_step_attribute2: Dummy Skref Attribute 2
     contact: Hafa samband
-    core:
-      actions:
-        unauthorized: Þú hefur ekki heimild til að framkvæma þessa aðgerð
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Önnur reikningur notar sama netfangið
         new:
           complete_profile: Heill snið
           sign_up: Vinsamlegast ljúktu prófílnum þínum
@@ -157,7 +150,6 @@ is-IS:
           authorize: Leyfa umsókn
           by_organization_link_html: <small class="heading-small">af %{link}</small>
           cancel: Hætta við
-          connect_your_account_html: Tengdu reikninginn þinn með því að skrá þig inn á <strong>%{organization}</strong>
           publish_content: Birta efni fyrir þig
           see_email: Sjá netfangið þitt
           see_name: Sjáðu nafnið þitt
@@ -242,18 +234,12 @@ is-IS:
         new_conversation:
           greeting: Hæ, %{recipient}!
           intro: "%{sender} hefur byrjað nýtt samtal við þig. Smelltu hér til að sjá það:"
-          outro: Njóttu decidim!
           subject: "%{sender} hefur byrjað samtal við þig"
         new_message:
           greeting: Hæ, %{recipient}!
           intro: "%{sender} hefur sent ný skilaboð í samtali þínu. Smelltu hér til að sjá þær:"
-          outro: Njóttu decidim!
           subject: Þú hefur nýjar skilaboð frá %{sender}
       conversations:
-        create:
-          error: Samtal ekki hafin. Reyndu aftur seinna
-        index:
-          no_conversations: Þú hefur enga samtöl ennþá
         start:
           send: Senda
     newsletter_mailer:
@@ -277,8 +263,6 @@ is-IS:
         verified: Staðfest
     participatory_space_private_users:
       not_allowed: Þú hefur ekki leyfi til að skoða þetta efni
-    profiles:
-      default_officialization_text_for_users: Þessi þátttakandi er staðfestur opinberlega, nafn hans eða hlutverk hefur verið staðfest til að samsvara raunverulegu nafni hans og hlutverki
     reported_mailer:
       hide:
         hello: Halló %{name},
