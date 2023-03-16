@@ -308,8 +308,6 @@ ru:
               many: "%{count} грядущих движений"
               other: "%{count} грядущих движений"
           explanations:
-            no_active: Нет идущих движений
-            no_active_nor_upcoming: Нет идущих или грядущих движений
             no_active_nor_upcoming_callout: Нет ни идущих, ни грядущих движений. Вот список прошедших.
           names:
             active: Действующие
