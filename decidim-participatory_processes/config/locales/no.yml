@@ -430,8 +430,6 @@
               one: 1 kommende prosess
               other: "%{count} kommende prosesser"
           explanations:
-            no_active: Ingen aktive prosesser
-            no_active_nor_upcoming: Ingen aktive eller kommende prosesser
             no_active_nor_upcoming_callout: Det er ingen aktive eller kommende prosesser. Her er en liste over de som har vært.
           filter_by: Vis
           names:
