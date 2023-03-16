@@ -13,19 +13,13 @@ ro:
       templates:
         apply:
           error: A apărut o eroare la aplicarea acestui model.
-          success: Modelul a fost aplicat cu succes
         copy:
           error: A apărut o eroare la copierea acestui model.
-          success: Modelul a fost copiat cu succes
         create:
           error: A apărut o eroare la crearea acestui model.
-          success: Modelul a fost creat cu succes
-        destroy:
-          success: Modelul a fost şters cu succes
         empty: Nu există încă nici un model.
         update:
           error: A apărut o eroare la actualizarea acestui șablon.
-          success: Modelul a fost actualizat cu succes
       titles:
         template_types:
           questionnaires: Model de chestionar
@@ -53,7 +47,6 @@ ro:
             skip_template: Treci peste
           edit:
             edit: Editează
-            empty: Nu există încă întrebări
             questionnaire: Chestionar
           form:
             save: Salvează
