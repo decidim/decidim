@@ -239,7 +239,7 @@ ca:
             success: Gràcies! Enviarem un codi de verificació a la teva adreça
           edit:
             send: Confirmar
-            title: Introduïeix el codi de verificació que has rebut
+            title: Introdueix el codi de verificació que has rebut
             waiting_for_letter: En breu enviarem una carta a la teva adreça amb el teu codi de verificació
           new:
             send: Envia'm una carta
