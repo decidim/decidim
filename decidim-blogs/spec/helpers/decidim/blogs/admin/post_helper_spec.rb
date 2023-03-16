@@ -137,7 +137,7 @@ module Decidim::Blogs::Admin
 
         it "shows correct publishing info" do
           action = helper.publish_data(published_at)
-          expect(action[:popup]).to eq("Not published yet")
+          expect(action[:popup]).to eq("Not published yet.")
           expect(action[:icon]).to include("svg")
         end
       end

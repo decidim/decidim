@@ -31,7 +31,7 @@ describe "Postal letter code request", type: :system do
     end
 
     it "allows the user to request a code by postal letter to get verified" do
-      expect(page).to have_content("Thanks! We'll send a verification code to your address")
+      expect(page).to have_content("Thanks! We will send a verification code to your address.")
     end
 
     context "and getting it sent" do

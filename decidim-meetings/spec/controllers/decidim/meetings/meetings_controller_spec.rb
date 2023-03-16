@@ -61,7 +61,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
       it "withdraws the meeting" do
         put :withdraw, params: params.merge(id: meeting.id)
 
-        expect(flash[:notice]).to eq("The meeting has been withdrawn successfully")
+        expect(flash[:notice]).to eq("The meeting has been withdrawn successfully.")
         expect(response).to have_http_status(:found)
         meeting.reload
         expect(meeting.withdrawn?).to be true
@@ -75,7 +75,7 @@ describe Decidim::Meetings::MeetingsController, type: :controller do
       it "is not able to withdraw the meeting" do
         put :withdraw, params: params.merge(id: meeting.id)
 
-        expect(flash[:alert]).to eq("You are not authorized to perform this action")
+        expect(flash[:alert]).to eq("You are not authorized to perform this action.")
         expect(response).to have_http_status(:found)
         meeting.reload
         expect(meeting.withdrawn?).to be false
