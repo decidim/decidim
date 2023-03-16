@@ -145,11 +145,9 @@ ca:
         cancel_error: No s'ha pogut cancel·lar el canvi de correu electrònic.
         cancel_successfully: Canvi de correu electrònic cancel·lat amb èxit.
         resend_error: No s'ha pogut reenviar el correu de confirmació.
-        resend_successfully: Correu de confirmació reenviat amb èxit a %{unconfirmed_email}
         send_again: Tornar a enviar
         title: Verificació del canvi de correu electrònic
       show:
-        available_locales_helper: Tria l'idioma que en que vols navegar i rebre notificacions de la plataforma
         change_password: Canvia la contrasenya
         update_account: Actualitzar compte
       update:
@@ -162,7 +160,6 @@ ca:
       actions:
         cancel: Cancel·lar
       password_change:
-        alert: Has de canviar la teva contrasenya per a poder seguir endavant
         notification: Les usuàries amb rol d'administració han de canviar la seva contrasenya cada %{days} dies.
     admin_log:
       area:
@@ -265,10 +262,8 @@ ca:
         amended_by: Esmenat per
         button: Esmenar %{model_name}
         error: S'ha produït un error en modificar aquest recurs.
-        help_text: Milloreu aquest %{model_name} modificant la seva %{amendable_fields}
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: Segur que vols promoure aquesta esmena?
-        promote_help_text: Podeu publicar aquesta esmena com a proposta independent %{model_name}
         section_heading: Esmenes (%{count})
       compare_draft:
         continue: Continua
@@ -307,26 +302,16 @@ ca:
         modify: Modificar
         publish: Publicar
         title: Publicar l'esborrany d'esmena
-      promoted:
-        error: S'ha produït un error en publicar l'esmena com una nova proposta
-        success: L'esmena s'ha publicat com una nova proposta correctament
       publish_draft:
         error: S'ha produït un error en publicar aquesta esmena.
         success: Esmena publicada correctament.
-      rejected:
-        error: S'ha produït un error en rebutjar aquesta esmena, si us plau torna-ho a provar més tard
-        success: L'esmena s'ha rebutjat correctament
       review:
         back: Torna
         heading: Revisa l'esmena
-        help_text: Esteu revisant una esmena al %{model_name}
         send: Accepta l'esmena
       update_draft:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
-      withdraw:
-        error: S'ha produït un error en retirar l'esmena
-        success: L'esmena s'ha retirat correctament
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
@@ -358,13 +343,11 @@ ca:
       official_author: Oficial
     authorization_handlers:
       another_dummy_authorization_handler:
-        explanation: Verifica't introduint un número de passaport que comenci per "A"
         fields:
           passport_number: Número de passaport
           postal_code: Codi postal
         name: Una altra autorització d'exemple
       dummy_authorization_handler:
-        explanation: Verifica't introduint un número de document que finalitzi amb "X"
         fields:
           allowed_postal_codes: Codis postals permesos (separats per comes)
           allowed_scope_id: Àmbit permès
@@ -405,11 +388,7 @@ ca:
           authorize: Autoritzar amb "%{authorization}"
           explanation: Per dur a terme aquesta acció, has de disposar de l'autorització "%{authorization}".
           title: Es requereix autorització
-        ok:
-          title: Has estat autoritzat mentre estàs en aquesta pàgina. Si us plau, torna a carregar la pàgina per a realitzar la teva acció
         pending:
-          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
-          resume: Comprova el progrés de l'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: Ho sentim, no pots dur a terme aquesta acció perquè algunes de les teves dades d'autorització no coincideixen.
@@ -436,7 +415,6 @@ ca:
       see_more: "(veure més)"
     components:
       component_order_selector:
-        no_content: No hem pogut trobar cap contingut amb aquest criteri
         order:
           all_types: Tots els tipus
           collaborative_draft: Esborrany col·laboratiu
@@ -518,22 +496,15 @@ ca:
           summary_content: Contingut
         two_pane_section:
           left_column: Columna esquerra
-          name: Secció de dos panells
           right_column: Columna dreta
       stats:
         name: Estadístiques de l'organització
       sub_hero:
         name: Banner de sub-heros
-    core:
-      actions:
-        login_before_access: Si us plau, identifica't amb el teu compte abans d'accedir
-        unauthorized: No tens permís per realitzar aquesta acció
     datepicker:
       help_text: 'Format esperat: %{datepicker_format}'
     devise:
       omniauth_registrations:
-        create:
-          email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
           nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
@@ -559,8 +530,6 @@ ca:
         new:
           are_you_new?: Ets nova a la plataforma?
           register: Crea't un compte
-          sign_in_disabled: Pots accedir amb un compte extern
-          sign_up_disabled: El registre està deshabilitat, pots fer servir un compte existent per accedir-hi
         user:
           timed_out: Has estat sense activitat durant massa temps i se t'ha tancat automàticament la sessió del servei. Si vols continuar utilitzant el servei, torna a iniciar sessió.
       shared:
@@ -585,7 +554,6 @@ ca:
           authorize: Autoritza l'aplicació
           by_organization_link_html: <small class="heading-small">per %{link}</small>
           cancel: Cancel·lar
-          connect_your_account_html: Connecta el teu compte iniciant la sessió a <strong>%{organization}</strong>
           publish_content: Publica el contingut per a tu
           see_email: Consulta el teu correu electrònic
           see_name: Veure el teu nom
@@ -914,17 +882,8 @@ ca:
       index:
         invite: Convidar
         invite_user: Convidar a una participant
-      invite:
-        error: S'ha produït un error en convidar aquesta participant
-        success: Participant convidada correctament
-      reject:
-        error: S'ha produït un error en rebutjar aquesta invitació
-        success: Invitació rebutjada correctament
       reject_invitation: Rebutjar
     group_members:
-      accept:
-        error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació al grup
-        success: Sol·licitud acceptada correctament
       actions:
         are_you_sure: Segur?
         promote_to_admin: Fer administrador
@@ -932,36 +891,20 @@ ca:
       index:
         current_members_without_admins: 'Membres actuals (sense administradors):'
         manage_members: Gestiona els membres
-      promote:
-        error: S'ha produït un error en promoure aquesta participant
-        success: Participant promocionada correctament
-      reject:
-        error: S'ha produït un error en rebutjar aquesta sol·licitud d'incorporació
-        success: Sol·licitud d'incorporació rebutjada correctament
-      remove:
-        error: S'ha produït un error en eliminar aquesta participant del grup
-        success: La participant s'ha eliminat correctament del grup
     groups:
       actions:
         are_you_sure: Segur?
-      create:
-        error: S'ha produït un errot en crear el grup
-        success: Grup creat correctament
       edit:
         edit_user_group: Editar el grup
         update_user_group: Actualitzar el grup
       form:
-        document_number_help: No utilitzis guions ni espais
         email_help: Correu electrònic de la teva organització, associació, col·lectiu, grup, etc.
         fill_in_for_verification: 'Omple aquests camps si vols que el teu grup sigui verificat:'
         name_help: Nom de la teva organització, associació, col·lectiu, grup, etc.
         nickname_help: Àlies de la teva organització, associació, col·lectiu, grup, etc. No utilitzis espais ni accents.
-        phone_help: No utilitzis guions ni espais
       join:
-        error: S'ha produït un error en unir-te al grup
         success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
-        error: S'ha produït un error en abandonar el grup
         last_admin: No et pots esborrar tu mateixa d'aquest grup perquè n'ets la darrera administradora. Fes a una altra membre administradora per a poder abandonar aquest grup.
         success: El grup s'ha abandonat correctament.
       members:
@@ -977,15 +920,11 @@ ca:
         admin: Administradora
         creator: Administradora
         member: Membre
-      update:
-        error: S'ha produït un error en actualitzar el grup
-        success: El grup s'ha actualitzat correctament
     help:
       main_topic:
         default_page:
           content: "<p>A %{organization} pots participar i decidir sobre diferents temes, a través dels espais que veus al menú superior: Processos, Assemblees, Iniciatives, Consultes.</p> <p>Dins de cada un trobaràs diferents opcions per participar: fer propostes - a nivell individual o amb altres persones -, prendre part en debats, prioritzar projectes a executar, assistir a trobades presencials i altres accions.</p>\n"
           title: Què puc fer a %{organization}?
-        description: Llegeix més sobre %{organization}
         title: Ajuda general
     last_activities:
       activities:
@@ -1044,35 +983,29 @@ ca:
           admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
           greeting: Hola, %{recipient}!
           intro: "%{manager} ha iniciat una nova conversa en nom de %{group}. Fes clic aquí per veure-la:"
-          outro: Gaudeix de Decidim!
           subject: "%{manager} ha iniciat una nova conversa com a %{group}"
         comanagers_new_message:
           admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
           greeting: Hola, %{recipient}!
           intro: "%{manager} ha publicat nous missatge a una conversa en nom de %{group}. Fes clic aquí per veure-la:"
-          outro: Gaudeix de Decidim!
           subject: "%{manager} ha enviat nous missatges com a %{group}"
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciat una nova conversa amb tu. Fes clic aquí per veure-la:"
-          outro: Gaudeix de Decidim!
           subject: "%{sender} ha iniciat una conversa amb tu"
         new_group_conversation:
           admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciat una nova conversa amb el %{group}. Fes clic aquí per veure-la:"
-          outro: Gaudeix de Decidim!
           subject: "%{sender} ha iniciat una nova conversa amb %{group}"
         new_group_message:
           admin_in_group: Reps aquesta notificació perquè ets administradora de %{group}.
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha publicat nous missatge a una conversa amb el grup %{group}. Fes clic aquí per veure-la:"
-          outro: Gaudeix de Decidim!
           subject: "%{group} té nous missatge de %{sender}"
         new_message:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha enviat nous missatges a la teva conversa. Fes clic aquí per veure'ls:"
-          outro: Gaudeix de Decidim!
           subject: Tens nous missatges de %{sender}
       conversations:
         add_conversation_users:
@@ -1080,9 +1013,6 @@ ca:
           add_users_placeholder: Cercar...
           modal_title: Nova conversa
           no_results: No hi ha resultats
-          participant_with_disabled_message_reception: Aquesta participant ha desactivat la recepció de missatges
-        create:
-          error: No s'ha iniciat la conversa. Torna-ho a provar més tard
         error_modal:
           close: Tanca la finestra
           correct_errors: Si us plau, corregiu els errors i torneu-ho a intentar.
@@ -1092,7 +1022,6 @@ ca:
           ago: fa
           new_conversation: Nova conversa
           next: Següent
-          no_conversations: Encara no tens converses
           title: Converses
         reply_form:
           placeholder: La teva resposta...
@@ -1106,8 +1035,6 @@ ca:
         start:
           placeholder: El teu missatge…
           send: Enviar
-        update:
-          error: El missatge no ha estat enviat degut a un error
     metrics:
       download:
         csv: Descarregar les dades (csv)
@@ -1270,7 +1197,6 @@ ca:
           success: Genial! Has acceptat els Termes i Condicions.
         form:
           agreement: Estic d'acord amb aquests termes
-          legend: Accepto els termes i condicions
         refuse:
           modal_body: Si no acceptes, no podràs utilitzar la plataforma, pots <a href="%{download_your_data_path}">descarregar les teves dades</a> i/o <a href="%{delete_path}">esborrar el teu compte de</a>.
           modal_btn_continue: Acceptar els termes i continuar
@@ -1284,17 +1210,10 @@ ca:
           title: 'Obligatori: revisa l''actualització dels nostres Termes de Servei'
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
-    passwords:
-      update:
-        error: Hi ha hagut un problema en actualitzar la contrasenya
-        success: La contrasenya s'ha actualitzat correctament
     profile:
-      deleted: Participant eliminada
       inaccessible_message: Aquest perfil és inaccessible degut a la violació dels Termes i Condicions d'ús!
       view: Veure
     profiles:
-      default_officialization_text_for_user_groups: Aquest grup està verificat públicament, el seu nom s'ha verificat per correspondre amb el seu nom real
-      default_officialization_text_for_users: Aquesta participant està verificada públicament. S'ha verificat que el seu nom o la seva funció es correspon amb el seu nom i funció reals
       show:
         activity: Activitat
         badges: Insígnies
@@ -1320,11 +1239,9 @@ ca:
           manage_user_group_admins: Gestionar administradores
           manage_user_group_users: Gestionar membres
           message: Missatge
-        confirmation_instructions_sent: Instruccions de confirmació de correu electrònic enviades
         create_user_group: Crea un grup
         edit_profile: Edita el perfil
         edit_user_group: Edita el perfil del grup
-        fill_in_email_to_confirm_it: Si us plau, omple el correu electrònic del teu grup per confirmar-lo
         invite_user: Convida la participant
         join_user_group: Sol·licita unir-se al grup
         leave_user_group: Marxa del grup
@@ -1493,7 +1410,6 @@ ca:
     user_contact_disabled: Aquesta participant no accepta missatges directes.
     user_conversations:
       create:
-        error: El missatge no s'ha pogut crear. Torna a intentar-ho més tard
         existing_error: El missatge no s'ha pogut crear. La conversa ja existeix, si us plau torna-ho a provar ara.
         success: Conversa iniciada correctament!
       index:
@@ -1508,7 +1424,6 @@ ca:
         next: Següent
         no_conversations_warning: Encara no hi ha cap conversa.
         no_results: No hi ha resultats
-        participant_with_disabled_message_reception: Aquesta participant ha desactivat la recepció de missatges
         time_ago: "Fa %{time}"
       new:
         title: Iniciar una conversa
