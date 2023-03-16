@@ -27,7 +27,7 @@ concurrency:
 jobs:
   main:
     name: Tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     steps:
