@@ -28,12 +28,6 @@ sk:
         email: E-mail
         name: Meno
         role: Rola
-    errors:
-      models:
-        conference_registration_invite:
-          attributes:
-            email:
-              already_invited: Tento e-mail už obdržal pozvánku
   activerecord:
     models:
       decidim/conference:
@@ -412,11 +406,6 @@ sk:
       index:
         title: Konferencie
       mailer:
-        conference_registration_mailer:
-          confirmation:
-            subject: Vaša registrácia na konferenciu bola potvrdená
-          pending_validation:
-            subject: Vaša registrácia na konferenciu čaká na potvrdenie
         invite_join_conference_mailer:
           invite:
             subject: Pozvánka na konferenciu
@@ -487,10 +476,6 @@ sk:
           email_outro: Túto notifikáciu ste dostali, pretože sledujete konferenciu "%{resource_title}". Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
           email_subject: Konferencia "%{resource_title}" je tu!
           notification_title: Konferencia <a href="%{resource_path}">%{resource_title}</a> sa koná o 2 dni.
-    log:
-      value_types:
-        conference_presenter:
-          not_found: 'Konferencia nebola nájdená v databáze (ID: %{id})'
     media:
       index:
         description: Odkazy ku konferencii
