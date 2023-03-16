@@ -199,8 +199,6 @@ pl:
           index:
             approve: Zatwierdź
             confirm_revoke: Jesteś pewny?
-            invite_to_committee_help: Udostępnij ten link, aby zaprosić innych użytkowników do komitetu organizacyjnego
-            no_members_yet: W komitecie organizacyjnym nie ma członków
             revoke: Odwołaj
             title: Członkowie komitetu
         content_blocks:
@@ -222,7 +220,6 @@ pl:
             export_votes: Eksport podpisów
             reject: Odrzuć inicjatywę
             send_to_technical_validation: Wyślij do weryfikacji technicznej
-            success: Inicjatywa została wysłana do weryfikacji technicznej
             update: Aktualizuj
           form:
             attachments: Załączniki
@@ -237,13 +234,7 @@ pl:
             edit: Edytuj
             new: Nowy
             photos: Zdjęcia
-          update:
-            error: Wystąpił błąd
-            success: Inicjatywa została zaktualizowana
         initiatives_type_scopes:
-          create:
-            error: Wystąpił błąd
-            success: Utworzono nowy zakres dla danego typu inicjatywy
           destroy:
             success: Zakres został pomyślnie usunięty
           edit:
@@ -256,15 +247,7 @@ pl:
             back: Wróć
             create: Utwórz
             title: Utwórz zakres typu inicjatywy
-          update:
-            error: Wystąpił błąd
-            success: Zakres został zaktualizowany
         initiatives_types:
-          create:
-            error: Wystąpił błąd
-            success: Utworzono nowy typ inicjatywy
-          destroy:
-            success: Typ inicjatywy został usunięty
           edit:
             confirm_destroy: Jesteś pewny?
             destroy: Usuń
@@ -278,9 +261,6 @@ pl:
           new:
             create: Utwórz
             title: Nowy typ inicjatywy
-          update:
-            error: Wystąpił błąd
-            success: Typ inicjatywy został zaktualizowany
       admin_log:
         initiative:
           publish: "%{user_name} opublikował(a) inicjatywę %{resource_name}"
@@ -313,7 +293,6 @@ pl:
           success: Żądanie zostało zaakceptowane.
         new:
           continue: Dalej
-          help_text: Zamierzasz poprosić o członkostwo w komitecie organizacyjnym tej inicjatywy
         revoke:
           success: Żądanie zostało cofniete.
         spawn:
@@ -413,7 +392,6 @@ pl:
             day: Dzień
             month: Miesiąc
             year: Rok
-          help: Wypełnij następujące pola swoimi danymi osobowymi, aby poprzeć inicjatywę
         finish:
           back_to_initiative: Wróć do inicjatywy
         sms_code:
@@ -421,12 +399,9 @@ pl:
           help: Sprawdź SMS, który wysłaliśmy na Twój numer telefonu
         sms_phone_number:
           continue: Wyślij mi SMS-a
-          help: Wpisz w formularzu swój zweryfikowanym numerem telefonu, aby otrzymać kod weryfikacyjny
       initiative_votes:
         create:
           error: Podczas podpisywania inicjatywy wystąpiły błędy.
-          invalid: Dane dostarczone do poparcia inicjatywy nie są ważne
-          success_html: Gratulacje! Inicjatywa <strong> %{title}</strong> została poparta
         personal_data:
           invalid: Dane osobowe nie są zgodne z danymi przekazanymi do autoryzacji.
         sms_phone:
@@ -443,8 +418,6 @@ pl:
         committee_members:
           approve: Zatwierdź
           confirm_revoke: Jesteś pewny?
-          invite_to_committee_help: Udostępnij ten link, aby zaprosić innych użytkowników do komitetu organizacyjnego
-          no_members_yet: W komitecie organizacyjnym nie ma członków
           revoke: Odwołaj
           title: Członkowie komitetu
         count:
@@ -508,7 +481,6 @@ pl:
           section: 'Na wniosek organizacji proszę wydrukować i wypełnić niniejszy formularz w celu przesłania, jeśli jest to wskazane:'
           signature: Podpis
         result:
-          answer_title: Odpowiedziano na tę inicjatywę
           initiative_rejected_reason: Ta inicjatywa została odrzucona ze względu na brak podpisów.
         show:
           any_vote_method: Ta inicjatywa zbiera podpisy online i na piśmie.
@@ -571,9 +543,6 @@ pl:
         accepted: Przyjęto
         expired: Przedawnione
       unavailable_scope: Niedostępny zakres
-      update:
-        error: Wystąpił błąd
-        success: Inicjatywa została zaktualizowana
       versions:
         shared:
           back_to_resource: Wróć do inicjatywy
