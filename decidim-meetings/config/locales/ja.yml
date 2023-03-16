@@ -50,17 +50,6 @@ ja:
         name: 名前
       validate_registration_code:
         code: コード
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: 項目の期間はミーティング期間を %{count} 分超えています
-              too_many_minutes_child: アイテムの子の期間は議題項目「%{parent_title}」の親期間を %{count} 分超えています
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: このメールアカウントは既に招待されています
     models:
       decidim/meetings/close_meeting_event: ミーティングは終了しました
       decidim/meetings/create_meeting_event: ミーティング
@@ -226,9 +215,6 @@ ja:
             down: 下
             remove: 削除
             up: 上へ
-          create:
-            invalid: この議題の作成中に問題が発生しました
-            success: アジェンダを作成しました
           edit:
             title: 議題を編集
             update: 更新
@@ -240,9 +226,6 @@ ja:
           new:
             create: 作成
             title: 新しい議題の作成
-          update:
-            invalid: この議題の更新中に問題が発生しました
-            success: アジェンダを正常に更新しました
         exports:
           answers: 回答
           meeting_comments: コメント
@@ -279,16 +262,9 @@ ja:
             close: 閉じる
             title: ミーティングを閉じる
         meetings:
-          close:
-            invalid: このミーティングを終了する際に問題が発生しました
-            success: ミーティングが正常に閉じられました
           create:
-            invalid: このミーティングを作成する際に問題が発生しました
             success: ミーティングが正常に作成されました．これはまだ公開されていません．手動で公開する必要があります．
           destroy:
-            invalid:
-              proposals_count:
-                other: '%{count} 件の提案が関連付けられているため、ミーティングを削除できません'
             success: ミーティングを削除しました
           edit:
             title: ミーティングを編集
@@ -309,9 +285,6 @@ ja:
           new:
             create: 作成
             title: ミーティングを作成
-          publish:
-            invalid: このミーティングの公開中に問題が発生しました
-            success: ミーティングが正常に公開されました
           service:
             description: 説明
             down: 下
@@ -322,18 +295,9 @@ ja:
           services:
             add_service: サービスを追加
             services: サービス
-          unpublish:
-            invalid: このミーティングを非公開にする際に問題が発生しました
-            success: ミーティングを非公開にしました
-          update:
-            invalid: このミーティングの更新中に問題が発生しました
-            success: ミーティングを更新しました
         meetings_poll:
           form:
             title: '%{questionnaire_for} のアンケートを編集'
-          update:
-            invalid: このミーティング投票の更新中に問題が発生しました
-            success: ミーティングのアンケートが正常に更新されました
         models:
           meeting:
             name: ミーティング
@@ -432,8 +396,6 @@ ja:
         registration_mailer:
           confirmation:
             subject: ミーティングの登録が確認されました
-      meeting:
-        not_allowed: このミーティングを表示する権限がありません
       meeting_closes:
         edit:
           back: 戻る
@@ -626,9 +588,6 @@ ja:
         withdraw: 取り消し
       versions:
         back_to_resource: ミーティングに戻る
-      withdraw:
-        error: ミーティングの取り消し中にエラーが発生しました
-        success: ミーティングは正常に取り消されました
     metrics:
       meetings:
         description: 作成されたミーティング数
