@@ -133,7 +133,6 @@ fr-CA:
           label: Validé
           values:
             'false': Validé
-            'true': Non validé
     components:
       elections:
         actions:
