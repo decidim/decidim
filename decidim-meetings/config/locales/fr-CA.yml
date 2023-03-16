@@ -50,21 +50,6 @@ fr-CA:
         name: Nom
       validate_registration_code:
         code: Code
-    errors:
-      models:
-        meeting:
-          attributes:
-            iframe_embed_type:
-              not_embeddable: Cette URL ne peut pas être intégrée dans la page de réunion ou d'événement en direct
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: La durée des éléments dépasse la durée de la réunion de %{count} minutes
-              too_many_minutes_child: La durée du sous-événement dépasse la durée de l'événement concerné "%{parent_title}" de %{count} minutes
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Cet email a déjà été invité
     models:
       decidim/meetings/close_meeting_event: Rencontre terminée
       decidim/meetings/create_meeting_event: Rencontre
@@ -239,9 +224,6 @@ fr-CA:
             down: Décaler en bas
             remove: Supprimer
             up: Décaler en haut
-          create:
-            invalid: Un problème est survenu lors de la création de cet ordre du jour
-            success: Ordre du jour créé avec succès
           edit:
             title: Modifier l'ordre du jour
             update: Mettre à jour
@@ -253,9 +235,6 @@ fr-CA:
           new:
             create: Créer
             title: Nouvel ordre du jour
-          update:
-            invalid: Un problème est survenu lors de la mise à jour de cet ordre du jour
-            success: Ordre du jour mis à jour avec succès
         exports:
           answers: Réponses
           meeting_comments: Commentaires
@@ -293,17 +272,9 @@ fr-CA:
             close: Clore
             title: Clore la rencontre
         meetings:
-          close:
-            invalid: Il y a eu un problème au moment de clore cette rencontre
-            success: Rencontre close avec succès
           create:
-            invalid: Il y a eu un problème lors de la création de cette rencontre
             success: Réunion créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
           destroy:
-            invalid:
-              proposals_count:
-                one: La rencontre ne peut être supprimée car %{count} proposition y est rattachée
-                other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées
             success: La rencontre a été supprimée avec succès
           edit:
             title: Modifier la rencontre
@@ -324,9 +295,6 @@ fr-CA:
           new:
             create: Créer
             title: Créer une rencontre
-          publish:
-            invalid: Une erreur s'est produite lors de la publication de cette rencontre
-            success: Rencontre publiée avec succès
           service:
             description: Description
             down: Vers le bas
@@ -337,18 +305,9 @@ fr-CA:
           services:
             add_service: Ajouter un service
             services: Services
-          unpublish:
-            invalid: Une erreur s'est produite lors de la dépublication de cette rencontre
-            success: Rencontre dépubliée avec succès
-          update:
-            invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
-            success: Rencontre mise à jour avec succès
         meetings_poll:
           form:
             title: Modifier le questionnaire de sondage pour %{questionnaire_for}
-          update:
-            invalid: Une erreur est survenue lors de la mise à jour du sondage de la rencontre
-            success: Sondage de rencontre mis à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -366,7 +325,6 @@ fr-CA:
             registrations_count:
               one: Il y a eu %{count} inscription.
               other: Il y a eu %{count} inscriptions.
-            reserved_slots_help: Laisser à 0 si vous n'avez pas de places réservées
             reserved_slots_less_than: Doit être inférieur ou égal à %{count}
             title: Inscriptions
           update:
@@ -449,8 +407,6 @@ fr-CA:
         registration_mailer:
           confirmation:
             subject: Votre inscription a bien été enregistrée
-      meeting:
-        not_allowed: Vous n'êtes pas autorisé à voir cette rencontre
       meeting_closes:
         edit:
           back: Retour
@@ -647,9 +603,6 @@ fr-CA:
         withdraw: Retirée
       versions:
         back_to_resource: Revenir à la réunion
-      withdraw:
-        error: Une erreur s'est produite lors de l'annulation de la réunion
-        success: La réunion a été annulée avec succès
     metrics:
       meetings:
         description: Nombre de rencontres créées
