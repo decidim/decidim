@@ -93,10 +93,6 @@ ja:
             label: タイプ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
-      initiatives_settings:
-        update:
-          error: エラーが発生しました
-          success: イニシアチブの設定が正常に更新されました
       menu:
         attachments: 添付ファイル
         committee_members: 委員会メンバー
@@ -213,8 +209,6 @@ ja:
           index:
             approve: 承認
             confirm_revoke: よろしいですか？
-            invite_to_committee_help: このリンクを共有して他の参加者を推進委員会に招待します
-            no_members_yet: 推進委員会にメンバーがいません。
             revoke: 取り消し
             title: 委員会メンバー
         content_blocks:
@@ -236,7 +230,6 @@ ja:
             export_votes: 署名をエクスポート
             reject: イニシアチブを拒否する
             send_to_technical_validation: 技術検証に提出する
-            success: このイニシアチブは技術検証に提出されました
             update: 更新
           form:
             attachments: 添付ファイル
@@ -251,9 +244,6 @@ ja:
             edit: 編集
             new: 新規作成
             photos: 写真
-          update:
-            error: エラーが発生しました
-            success: イニシアチブが正常に更新されました
         initiatives_settings:
           edit:
             update: 更新
@@ -265,9 +255,6 @@ ja:
             signatures: 署名数順
             title: イニシアチブの設定
         initiatives_type_scopes:
-          create:
-            error: エラーが発生しました
-            success: 指定されたイニシアチブ種別の新しいスコープが作成されました
           destroy:
             success: スコープを削除しました
           edit:
@@ -280,15 +267,7 @@ ja:
             back: 戻る
             create: 作成
             title: イニシアチブ種別のスコープを作成
-          update:
-            error: エラーが発生しました
-            success: スコープが正常に更新されました
         initiatives_types:
-          create:
-            error: エラーが発生しました
-            success: 新しいイニシアチブ種別が正常に作成されました
-          destroy:
-            success: イニシアチブの種別が削除されました
           edit:
             confirm_destroy: よろしいですか？
             destroy: 削除
@@ -304,9 +283,6 @@ ja:
           new:
             create: 作成
             title: 新しいイニシアチブ種別
-          update:
-            error: エラーが発生しました
-            success: イニシアチブ種別が正常に更新されました
       admin_log:
         initiative:
           publish: "%{user_name} が %{resource_name} イニシアチブを公開しました"
@@ -345,7 +321,6 @@ ja:
           success: リクエストが承認されました。
         new:
           continue: 続ける
-          help_text: このイニシアチブの推進委員会のメンバーになることを要求しようとしています
         revoke:
           success: リクエストが取り消されました。
         spawn:
@@ -447,7 +422,6 @@ ja:
             day: 日
             month: 月
             year: 年
-          help: イニシアチブに署名するには、次の項目を入力してください。
         finish:
           back_to_initiative: イニシアチブに戻る
         sms_code:
@@ -455,12 +429,9 @@ ja:
           help: 携帯電話で受信したSMSを確認してください
         sms_phone_number:
           continue: SMSを送信
-          help: 確認済みの電話番号でフォームに記入し、確認コードをリクエストしてください
       initiative_votes:
         create:
           error: イニシアチブに署名中に問題が発生しました。
-          invalid: イニシアチブに署名するために提供されたデータは無効です
-          success_html: おめでとうございます！ <strong> %{title}</strong> イニシアチブの署名が完了しました。
         personal_data:
           invalid: 個人データは、承認のために提供されたデータと一致しません。
         sms_phone:
@@ -474,8 +445,6 @@ ja:
         committee_members:
           approve: 承認
           confirm_revoke: 本当によろしいですか？
-          invite_to_committee_help: このリンクを共有して他の参加者を推進委員会に招待します
-          no_members_yet: 推進委員会にメンバーがいません。
           revoke: 取り消し
           title: 委員会メンバー
         count:
@@ -534,7 +503,6 @@ ja:
           section: '組織から要求された場合、印刷した紙に必要事項を記入して、指定の場所に送信してください:'
           signature: 署名
         result:
-          answer_title: このイニシアチブは回答されました
           initiative_rejected_reason: このイニシアチブは、署名がないために拒否されました。
         show:
           any_vote_method: このイニシアチブは、オンラインと対面の署名の両方を収集します。
@@ -595,9 +563,6 @@ ja:
         accepted: 承認済み
         expired: 期限切れ
       unavailable_scope: 利用できないスコープ
-      update:
-        error: エラーが発生しました
-        success: イニシアチブが正常に更新されました
       versions:
         shared:
           back_to_resource: イニシアチブに戻る
