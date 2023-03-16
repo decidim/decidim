@@ -189,8 +189,6 @@ tr:
           index:
             approve: Onayla
             confirm_revoke: Emin misin?
-            invite_to_committee_help: Diğer katılımcıları tanıtım komitesine davet etmek için bu bağlantıyı paylaşın
-            no_members_yet: Tanıtım komitesinde üye yok
             revoke: Geri al
             title: Komite üyeleri
         content_blocks:
@@ -208,7 +206,6 @@ tr:
             export_votes: İmzaları dışa aktar
             reject: Girişimi reddet
             send_to_technical_validation: Teknik doğrulamaya gönder
-            success: Girişim teknik doğrulamaya gönderildi
             update: Güncelle
           form:
             attachments: Ekli Dosyalar
@@ -223,13 +220,7 @@ tr:
             edit: Düzenle
             new: Yeni
             photos: Resimler
-          update:
-            error: bir hata oluştu
-            success: Vatandaş girişimi başarıyla güncellendi
         initiatives_type_scopes:
-          create:
-            error: Bir hata oluştu
-            success: Verilen inisiyatif türü için yeni bir kapsam oluşturuldu
           destroy:
             success: Kapsam başarıyla kaldırıldı
           edit:
@@ -242,15 +233,7 @@ tr:
             back: Geri
             create: Oluştur
             title: Girişim tipi kapsamı oluştur
-          update:
-            error: Bir hata oluştu
-            success: Kapsam başarıyla güncellendi
         initiatives_types:
-          create:
-            error: Bir hata oluştu
-            success: Yeni bir girişim türü başarıyla oluşturuldu
-          destroy:
-            success: Girişim türü başarıyla kaldırıldı
           edit:
             confirm_destroy: Emin misin?
             destroy: Sil
@@ -264,9 +247,6 @@ tr:
           new:
             create: Oluştur
             title: Yeni girişim türü
-          update:
-            error: Bir hata oluştu
-            success: Girişim türü başarıyla güncellendi
       admin_log:
         initiative:
           publish: "%{user_name}, %{resource_name} girişimini yayınladı"
@@ -297,7 +277,6 @@ tr:
       committee_requests:
         new:
           continue: Devam et
-          help_text: Bu girişimin destekleyici komitesinin bir üyesi olmayı talep etmek üzeresiniz
         spawn:
           success: İsteğiniz girişim yazarına gönderildi.
       content_blocks:
@@ -380,7 +359,6 @@ tr:
             day: Gün
             month: Ay
             year: Yıl
-          help: Girişimi imzalamak için lütfen aşağıdaki alanları kişisel verilerinizle doldurun
         finish:
           back_to_initiative: Girişime geri dön
         sms_code:
@@ -388,12 +366,9 @@ tr:
           help: Telefonunuza gelen SMS'i kontrol edin
         sms_phone_number:
           continue: Bana bir sms gönder
-          help: Doğrulama kodunuzu istemek için formu doğrulanmış telefon numaranızla doldurun
       initiative_votes:
         create:
           error: Girişimi imzalarken bir hata oluştu.
-          invalid: Girişimi imzalamak için sağlanan veriler geçerli değil
-          success_html: Tebrikler! <strong> %{title}</strong> girişimi doğru imzalandı
         personal_data:
           invalid: Kişisel veriler, yetkilendirme için sağlanan verilerle tutarlı değildir.
         sms_phone:
@@ -408,8 +383,6 @@ tr:
         committee_members:
           approve: Onayla
           confirm_revoke: Emin misin?
-          invite_to_committee_help: Diğer katılımcıları tanıtım komitesine davet etmek için bu bağlantıyı paylaşın
-          no_members_yet: Tanıtım komitesinde üye yok
           revoke: Geri al
           title: Komite üyeleri
         count:
@@ -469,7 +442,6 @@ tr:
           section: 'Kuruluş tarafından istenirse, lütfen belirtilen yerlerde göndermek için bu formu yazdırın ve doldurun:'
           signature: İmza
         result:
-          answer_title: Bu girişim cevaplandı
           initiative_rejected_reason: Bu girişim, imza eksikliği nedeniyle reddedildi.
         show:
           any_vote_method: Bu girişim hem çevrimiçi hem de şahsen imzaları toplar.
@@ -528,9 +500,6 @@ tr:
         accepted: Kabul Edildi
         expired: Süresi doldu
       unavailable_scope: Kullanılamayan kapsam
-      update:
-        error: Bir hata oluştu
-        success: Vatandaş girişimi başarıyla güncellendi
       versions:
         shared:
           back_to_resource: Girişime geri dönün
