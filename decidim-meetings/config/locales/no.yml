@@ -32,17 +32,6 @@
         title: Tittel
         transparent: Privat
         type_of_meeting: Type møte
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Varigheten av elementene overskrider møtets varighet med %{count} minutter
-              too_many_minutes_child: Varigheten av underelement overskrider dagsorden-elementet "%{parent_title}" foreldre varighet av %{count} minutter
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Denne e-postadressen er allerede invitert
     models:
       decidim/meetings/close_meeting_event: Møttet lukket
       decidim/meetings/create_meeting_event: Møte
@@ -207,9 +196,6 @@
             down: Ned
             remove: Fjern
             up: Opp
-          create:
-            invalid: Det oppstod et problem med å opprette denne dagsordenen
-            success: Dagsorden opprettet
           edit:
             title: Rediger agenda
             update: Oppdater
@@ -221,9 +207,6 @@
           new:
             create: Opprett
             title: Ny agenda
-          update:
-            invalid: Det oppstod et problem med å oppdatere denne dagsordenen
-            success: Dagsorden oppdatert
         exports:
           answers: Svar
           meeting_comments: Kommentarer
@@ -260,17 +243,9 @@
             close: Lukk
             title: Lukk møte
         meetings:
-          close:
-            invalid: Det oppstod et problem med å avslutte dette møtet
-            success: Møtet ble avsluttet
           create:
-            invalid: Det oppstod et problem med å opprette dette møtet
             success: Møtet ble opprettet. Merk at dette ikke er publisert enda, du må publisere det manuelt.
           destroy:
-            invalid:
-              proposals_count:
-                one: Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet
-                other: Dette møtet kan ikke slettes, da det har %{count} forslag tilknyttet
             success: Møtet ble slettet
           edit:
             title: Rediger møte
@@ -290,9 +265,6 @@
           new:
             create: Opprett
             title: Opprett møte
-          publish:
-            invalid: Kunne ikke publisere møtet
-            success: Møtet ble publisert
           service:
             description: Beskrivelse
             down: Ned
@@ -303,18 +275,9 @@
           services:
             add_service: Legg til tjeneste
             services: Tjenester
-          unpublish:
-            invalid: Kunne ikke avpublisere møtet
-            success: Møtet ble avpublisert
-          update:
-            invalid: Det oppstod et problem med å oppdatere dette møtet
-            success: Møtet ble oppdatert
         meetings_poll:
           form:
             title: Rediger meningsmåling for %{questionnaire_for}
-          update:
-            invalid: Kunne ikke oppdatere meningsmåling for møtet
-            success: Møtets meningsmåling ble oppdatert
         models:
           meeting:
             name: Møte
@@ -395,8 +358,6 @@
         registration_mailer:
           confirmation:
             subject: Registrering av møtet ditt er bekreftet
-      meeting:
-        not_allowed: Du er ikke tillatt å se dette møtet
       meeting_closes:
         edit:
           back: Tilbake
