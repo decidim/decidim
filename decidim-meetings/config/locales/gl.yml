@@ -27,17 +27,6 @@ gl:
         registrations_enabled: Rexistros habilitados
         title: Título
         transparent: Transparente
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: A duración dos elementos supera a duración da reunión por %{count} minutos
-              too_many_minutes_child: A duración do elemento secundario supera o elemento da axenda "%{parent_title}" a duración dos pais por %{count} minuto
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Este correo electrónico xa foi convidado
     models:
       decidim/meetings/close_meeting_event: Reunión pechada
       decidim/meetings/create_meeting_event: Reunión
@@ -175,9 +164,6 @@ gl:
             down: Baixo
             remove: Quitar
             up: Arriba
-          create:
-            invalid: Produciuse un problema ao crear esta axenda
-            success: Axenda creada con éxito
           edit:
             title: Editar axenda
             update: Actualización
@@ -189,9 +175,6 @@ gl:
           new:
             create: Crear
             title: Nova axenda
-          update:
-            invalid: Produciuse un problema ao actualizar esta axenda
-            success: A axenda actualizouse correctamente
         exports:
           answers: Respostas
           meetings: Reunións
@@ -227,11 +210,6 @@ gl:
             close: Pechar
             title: Pechar reunión
         meetings:
-          close:
-            invalid: Produciuse un problema ao pechar esta reunión
-            success: Reunión pechada con éxito
-          create:
-            invalid: Produciuse un problema ao crear esta reunión
           destroy:
             success: Reunión eliminada correctamente
           edit:
@@ -251,9 +229,6 @@ gl:
           services:
             add_service: Engadir servizo
             services: Servizos
-          update:
-            invalid: Produciuse un problema ao actualizar esta reunión
-            success: Reunión actualizada correctamente
         models:
           meeting:
             name: Reunión
@@ -329,8 +304,6 @@ gl:
         registration_mailer:
           confirmation:
             subject: O rexistro da túa xuntanza foi confirmado
-      meeting:
-        not_allowed: Non tes permiso para ver esta reunión
       meetings:
         calendar_modal:
           add_to_calendar: Engadir ao calendario
@@ -443,9 +416,6 @@ gl:
         private_meeting: Encontro privado
         transparent: Transparente
         withdraw: Anular
-      withdraw:
-        error: Produciuse un erro ao anular a xuntanza
-        success: Xuntanza anulada con éxito
     metrics:
       meetings:
         description: Número de reunións creadas
