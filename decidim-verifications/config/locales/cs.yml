@@ -273,6 +273,7 @@ cs:
             send: Pošlete mi SMS
             title: Požádejte o ověřovací kód
           update:
+            error: Váš ověřovací kód se neshoduje s naším. Zkontrolujte prosím SMS, kterou jsme vám poslali.
             success: Gratulujeme. Byl jste úspěšně ověřen.
   errors:
     messages:
