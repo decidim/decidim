@@ -322,8 +322,6 @@ id:
             upcoming:
               other: "%{count} proses yang akan datang"
           explanations:
-            no_active: Tidak ada proses aktif
-            no_active_nor_upcoming: Tidak ada proses aktif atau yang akan datang
             no_active_nor_upcoming_callout: Tidak ada proses aktif atau yang akan datang. Berikut ini daftar daftar yang lalu.
           names:
             active: Aktif
