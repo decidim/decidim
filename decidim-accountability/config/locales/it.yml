@@ -50,9 +50,6 @@ it:
           new:
             import: Importa
             title: Importa risultati da CSV
-        imports:
-          create:
-            success: L'importazione del file è iniziata. Riceverai un'email nei prossimi minuti con l'esito
         models:
           result:
             name: Risultato
@@ -61,11 +58,6 @@ it:
           timeline_entry:
             name: Voce della cronologia
         results:
-          create:
-            invalid: C'è stato un problema durante la creazione di questo risultato
-            success: Risultato creato con successo
-          destroy:
-            success: Risultato eliminato con successo
           edit:
             title: Modifica il risultato
             update: Aggiorna il risultato
@@ -74,18 +66,10 @@ it:
           new:
             create: Crea un risultato
             title: Nuovo risultato
-          update:
-            invalid: C'è stato un problema durante l'aggiornamento di questo risultato
-            success: Risultato modificato con successo
         shared:
           subnav:
             statuses: Stati
         statuses:
-          create:
-            invalid: C'è stato un problema nella creazione di questo stato
-            success: Stato creato con successo
-          destroy:
-            success: Stato eliminato con successo
           edit:
             title: Modifica lo stato
             update: Aggiorna lo stato
@@ -94,15 +78,7 @@ it:
           new:
             create: Crea stato
             title: Nuovo stato
-          update:
-            invalid: C'è stato un problema nel aggiornamento di questo stato
-            success: Stato aggiornato con successo
         timeline_entries:
-          create:
-            invalid: C'è stato un problema nella creazione di questa voce
-            success: Voce creata con successo
-          destroy:
-            success: La voce è stata eliminata correttamente
           edit:
             title: Modifica la voce
             update: Aggiorna la voce
@@ -111,9 +87,6 @@ it:
           new:
             create: Crea una voce
             title: Nuova voce
-          update:
-            invalid: C'è stato un problema nel aggiornamento di questa voce
-            success: Voce aggiornata con successo
       admin_log:
         result:
           create: "%{user_name} ha creato il risultato %{resource_name} in %{space_name}"
@@ -130,7 +103,6 @@ it:
       import_mailer:
         import:
           errors: Errori
-          errors_present: Si è verificato un problema durante l'importazione dei risultati
           row_number: Riga
           subject: Importazione dei risultati riuscita
           success: Importazione riuscita dei risultati. È possibile rivedere i risultati nell'interfaccia di amministrazione.
