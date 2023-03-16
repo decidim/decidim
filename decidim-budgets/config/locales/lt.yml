@@ -52,12 +52,6 @@ lt:
         title: Veiksmai
       admin:
         budgets:
-          create:
-            invalid: Kuriant šį biudžetą iškilo problema
-            success: Biudžetas sukurtas sėkmingai
-          destroy:
-            invalid: Ištrinant šį biudžetą iškilo problema
-            success: Biudžetas sėkmingai ištrintas
           edit:
             title: Koreguoti biudžetą
             update: Atnaujinti biudžetą
@@ -70,9 +64,6 @@ lt:
           new:
             create: Sukurti biudžetą
             title: Naujas biudžetas
-          update:
-            invalid: Atnaujinant šį biudžetą iškilo problema
-            success: Biudžetas atnaujintas sėkmingai
         exports:
           projects: Projektai
         models:
@@ -81,11 +72,6 @@ lt:
           project:
             name: Projektas
         projects:
-          create:
-            invalid: Kuriant šį projektą iškilo problema
-            success: Projektas sukurtas sėkmingai
-          destroy:
-            success: Projektas ištrintas sėkmingai
           edit:
             title: Redaguoti projektą
             update: Atnaujinti
@@ -103,25 +89,13 @@ lt:
           new:
             create: Sukurti
             title: Naujas projektas
-          update:
-            invalid: Atnaujinant šį projektą iškilo problema
-            success: Projektas atnaujintas
           update_category:
             invalid: 'Šie projektai turi %{subject_name} kategoriją: %{projects}.'
-            select_a_category: Pasirinkite kategoriją
-            select_a_project: Pasirinkite projektą
             success: 'Projektai sėkmingai atnaujinti %{subject_name} kategorijoje: %{projects}.'
           update_scope:
             invalid: 'Šie projektai jau turi %{subject_name} sritį: %{projects}.'
-            select_a_project: Pasirinkite projektą
-            select_a_scope: Pasirinkite sritį
             success: 'Projektai sėkmingai atnaujinti %{subject_name} srityje: %{projects}.'
-          update_selected:
-            select_a_project: Pasirinkite projektą
         proposals_imports:
-          create:
-            invalid: Importuojant pasiūlymus į projektus kilo problema
-            success: "%{number} pasiūlymai sėkmingai įkelti į projektus"
           new:
             create: Importuoti pasiūlymus į projektus
             default_budget: Numatytasis biudžetas
@@ -154,9 +128,6 @@ lt:
         close_modal: Uždaryti modalinį langą
         continue: Tęsti
         more_information: Daugiau informacijos
-      budget_list_item:
-        voting_finished: Balsavote šiame biudžete
-        voting_started: Pradėjote balsuoti šiame biudžete
       budgets_list:
         cancel_order:
           more_than_one: ištrinkite balsą %{name} ir pradėkite iš naujo
@@ -168,7 +139,6 @@ lt:
         progress: Baigti balsavimą
         show: Peržiūrėti projektus
         vote: Balsuoti
-        voted_on: Jūs balsavote dėl %{links}
       last_activity:
         new_vote_at: Naujas balsavimas dėl biudžeto sudarymo
       limit_announcement:
@@ -276,8 +246,6 @@ lt:
           random: Atsitiktinai
           selected: Pasirinkta
         project:
-          add: Pridėti projektą %{resource_name} prie balsų
-          remove: Pašalinti projektą %{resource_name} iš balsų
           selected: Pasirinkta
           view: Peržiūrėti
           votes:
@@ -287,9 +255,7 @@ lt:
             other: balsai
         project_budget_button:
           add: Pridėti prie balsų
-          add_descriptive: Pridėti projektą %{resource_name} prie balsų
           added: Pridėta prie Jūsų balsų
-          added_descriptive: Projektas %{resource_name} pridėtas prie Jūsų balsų
         projects_for: Projektai dėl %{name}
         show:
           budget: Biudžetas
@@ -316,10 +282,6 @@ lt:
             announcement: Pranešimas
             comments_enabled: Komentarai aktyvuoti
             comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
-            form:
-              errors:
-                budget_voting_rule_only_one: Turi būti įjungta tik viena balsavimo taisyklė
-                budget_voting_rule_required: Būtina viena balsavimo taisyklė
             geocoding_enabled: Geokodavimas įjungtas
             landing_page_content: Biudžetų numatytasis puslapis
             more_information_modal: Išsamesnės informacijos modalinis langas
@@ -361,13 +323,6 @@ lt:
           email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
           email_subject: '%{participatory_space_title} %{resource_title} biudžetas dabar aktyvus.'
           notification_title: <a href="%{resource_path}">%{resource_title} biudžetas dabar aktyvus %{participatory_space_title} erdvėje.
-    orders:
-      checkout:
-        error: Apdorojant jūsų balsą iškilo problema
-        success: Jūsų balsas įskaitytas
-      destroy:
-        error: Atšaukiant jūsų balsą iškilo problema
-        success: Jūsų balsas atšauktas
     resource_links:
       included_proposals:
         project_proposal: Į šį projektą įtraukti pasiūlymai
