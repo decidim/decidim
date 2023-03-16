@@ -15,8 +15,6 @@ sk:
             choices:
               missing: nie je kompletné
               too_many: je príliš veľa
-        questionnaire:
-          request_invalid: Počas požiadavku sa vyskytla chyba, skúste to znova.
   decidim:
     forms:
       admin:
