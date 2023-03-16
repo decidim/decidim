@@ -100,7 +100,6 @@ sv:
           label: Bekräftad
           values:
             'false': Bekräftad
-            'true': Ej Validerad
     components:
       elections:
         actions:
