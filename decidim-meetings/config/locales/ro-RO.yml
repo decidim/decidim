@@ -38,17 +38,6 @@ ro:
       meeting_agenda_items:
         duration: Durată
         title: Titlu
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Durata elementelor depăşeşte durata şedinţei cu %{count} minute
-              too_many_minutes_child: Durata elementului copil depășește punctul de pe ordinea de zi "%{parent_title}" durata părintelui cu %{count} minute
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Acest cont de e-mail a fost deja invitat
     models:
       decidim/meetings/close_meeting_event: Ședință închisă
       decidim/meetings/create_meeting_event: Întâlnire
@@ -222,9 +211,6 @@ ro:
             down: Jos
             remove: Elimină
             up: Sus
-          create:
-            invalid: A apărut o problemă la crearea acestei agende
-            success: Agendă creată cu succes
           edit:
             title: Editare agendă
             update: Actualizare
@@ -236,9 +222,6 @@ ro:
           new:
             create: Creează
             title: Agenda nouă
-          update:
-            invalid: A apărut o eroare la actualizarea acestei agende
-            success: Agendă actualizată cu succes
         exports:
           answers: Răspunsuri
           meeting_comments: Comentarii
@@ -275,18 +258,9 @@ ro:
             close: Închide
             title: Închide ședința
         meetings:
-          close:
-            invalid: A apărut o problemă la închiderea acestei întâlniri
-            success: Ședință închisă cu succes
           create:
-            invalid: A apărut o problemă la crearea acestei întâlniri
             success: Întâlnirea a fost creată. Țineți cont că publicarea nu este automată, trebuie să o publicați manual.
           destroy:
-            invalid:
-              proposals_count:
-                one: Întâlnirea nu poate fi eliminată deoarece are %{count} propunere asociată
-                few: Întâlnirile nu pot fi eliminate deoarece au %{count} propuneri asociate
-                other: Întâlnirile nu pot fi eliminate deoarece au %{count} propuneri asociate
             success: Şedinţa a fost ştearsă
           edit:
             title: Editați ședința
@@ -306,9 +280,6 @@ ro:
           new:
             create: Creează
             title: Creează întâlnire
-          publish:
-            invalid: A apărut o problemă la publicarea acestei întâlniri
-            success: Întâlnire publicată cu succes
           service:
             description: Descriere
             down: Jos
@@ -319,18 +290,9 @@ ro:
           services:
             add_service: Adaugă serviciu
             services: Servicii
-          unpublish:
-            invalid: A apărut o problemă la retragerea publicării acestei întâlniri
-            success: Întâlnire retrasă cu succes
-          update:
-            invalid: A apărut o eroare la actualizarea acestei întâlniri
-            success: Întâlnire actualizată cu succes
         meetings_poll:
           form:
             title: Editează chestionarul sondajului pentru %{questionnaire_for}
-          update:
-            invalid: A apărut o eroare la actualizarea sondajului pentru întâlnire
-            success: Sondajul a fost actualizat cu succes
         models:
           meeting:
             name: Întâlnire
@@ -425,8 +387,6 @@ ro:
         registration_mailer:
           confirmation:
             subject: Înregistrarea întâlnirii tale a fost confirmată
-      meeting:
-        not_allowed: Nu ai dreptul de a vizualiza această întâlnire
       meeting_closes:
         edit:
           back: Înapoi
@@ -622,9 +582,6 @@ ro:
         withdraw: Retrasă
       versions:
         back_to_resource: Intră din nou în întâlnire
-      withdraw:
-        error: S-a produs o eroare la retragerea întâlnirii
-        success: Întâlnirea a fost anulată
     metrics:
       meetings:
         description: Numărul de întâlniri create
