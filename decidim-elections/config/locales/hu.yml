@@ -78,9 +78,6 @@ hu:
             'false': Aláírt
         validated_eq:
           label: Érvényesített
-          values:
-            'false': Érvényesített
-            'true': Nem érvényesített
     components:
       elections:
         actions:
@@ -116,12 +113,7 @@ hu:
             title: Új válasz
           not_selected: Nincs kiválasztva
           selected: Kiválasztva
-          update:
-            invalid: Hiba történt a válasz frissítése során
-            success: Válasz sikeresen frissítve
         elections:
-          create:
-            success: Választás sikeresen létrehozva
           edit:
             update: Választás frissítése
           index:
@@ -133,9 +125,6 @@ hu:
             success: A választás sikeresen publikálásra került.
           unpublish:
             success: A választás publikálását sikeresen visszavonta.
-          update:
-            invalid: Hiba történt a választás frissítése során
-            success: Választás sikeresen frissítve
         exports:
           elections: Választások
         menu:
@@ -155,13 +144,6 @@ hu:
             select_component: Kérjük, válassz egy komponenst
             title: Javaslatok importálása
         questions:
-          create:
-            election_started: A választás megkezdődött
-            invalid: Hiba történt a kérdés létrehozása során
-            success: Kérdés létrehozása sikeres
-          destroy:
-            invalid: Hiba történt a kérdés törlése során
-            success: Kérdés törlése sikeres
           edit:
             title: Kérdés szerkesztése
             update: Kérdés frissítése
@@ -170,9 +152,6 @@ hu:
           new:
             create: Kérdés létrehozása
             title: Új kérdés
-          update:
-            invalid: Hiba történt a kérdés frissítése során
-            success: Kérdés frissítése sikeres
         steps:
           create_election:
             trustees: Választási megbízottak
@@ -181,10 +160,8 @@ hu:
           key_ceremony:
             continue: Folytatás
           key_ceremony_ended:
-            invalid: Hiba történt a szavazási időszak elindításakor
             title: Készen áll a kezdésre
           tally_started:
-            invalid: Probléma volt a hiányzó megbízott bejelentésével
             mark_as_missing: Hiányzóként megjelölt
             success: Hiányzó megbízottról szóló jelentést elküldtük a Hirdetőtáblára
             tally_completion: A folyamat akkor fejeződik be, ha az összes megbízott aktív vagy hiányzónak van jelölve. A folyamat befejezéséhez legalább %{quorum} megbízottra van szükség.
@@ -244,8 +221,6 @@ hu:
               voting: Szavazás
       votings:
         check_census:
-          error:
-            info: 'Kérjük, próbálja újra. Amennyiben Ön szerint a rendszerben rögzített adat hibás, itt jelentheti: %{census_contact_information}'
           success:
             access_link: e-mailen keresztül.
         filters:
