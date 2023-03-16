@@ -206,12 +206,10 @@ gl:
           email_intro: 'Agora podes crear novas propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: As propostas agora están dispoñibles en %{participatory_space_title}
-          notification_title: Agora podes presentar <a href="%{resource_path}">novas propostas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Podes aprobar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: As propostas de avaliación iniciáronse para %{participatory_space_title}
-          notification_title: Agora podes comezar <a href="%{resource_path}">propostas de aprobación</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'A túa proposta "%{resource_title}" foi aceptada. Podes ler a resposta nesta páxina:'
@@ -247,7 +245,6 @@ gl:
           email_intro: A proposta "%{resource_title}" engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova proposta "%{resource_title}" engadida a %{participatory_space_title}
-          notification_title: '%{author} engadiu a proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}'
         proposal_rejected:
           affected_user:
             email_intro: 'A túa proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
@@ -393,21 +390,12 @@ gl:
             rejected: Rexeitado
             title: Resposta á proposta %{title}
         proposal_notes:
-          create:
-            error: Produciuse un problema ao crear esta nota de proposta
-            success: Notificación de proposta creada con éxito
           form:
             note: Nota
             submit: Enviar
           leave_your_note: Deixe a súa nota
           title: Notas privadas
         proposals:
-          answer:
-            invalid: Houbo un problema respondendo a esta proposta
-            success: A proposta respondeu con éxito
-          create:
-            invalid: Produciuse un problema ao crear esta proposta
-            success: Creouse a proposta correctamente
           edit:
             title: Actualizar a proposta
             update: Actualización
@@ -460,9 +448,6 @@ gl:
             select_a_proposal: Selecciona unha proposta
             select_a_scope: Por favor, escolle un ámbito
         proposals_imports:
-          create:
-            invalid: Produciuse un problema na importación das propostas
-            success: "%{number} propostas importadas con éxito"
           new:
             create: Propostas de importación
             no_components: Non existen outros compoñentes de proposta neste espazo participativo para importar as propostas.
@@ -477,9 +462,6 @@ gl:
           create:
             invalid: 'Produciuse un problema ao dividir as propostas seleccionadas xa que algunhas delas:'
             success: Reaccionou con éxito as propostas en novas.
-        valuation_assignments:
-          create:
-            invalid: Produciuse un erro ao asignar propostas a un avaliador/a
       admin_log:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
@@ -740,8 +722,6 @@ gl:
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver proposta
-        proposals:
-          empty: Aínda non hai ningunha proposta
         show:
           answer: Resposta
           back_to: Voltar
@@ -781,8 +761,6 @@ gl:
             supports_remaining: Tes que votar máis %{remaining_votes} propostas para que os teus votos sexan tidos en conta.
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
-          threshold_per_proposal:
-            description: Para ser aceptado, as propostas deben chegar a %{limit} apoios
           title: 'A votación está suxeita ás seguintes regras:'
           vote_limit:
             description: Podes votar ata %{limit} propostas.
