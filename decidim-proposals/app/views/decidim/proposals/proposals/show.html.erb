@@ -19,54 +19,78 @@ extra_admin_link(
   :create,
   :proposal_answer,
   { proposal: @proposal },
-  { name: t(".answer"), icon: "comment-square" }
+  { name: t(".answer"), icon: "question-answer-line" }
 )
 %>
 
-<%= render partial: "voting_rules" %>
-<% if component_settings.participatory_texts_enabled? %>
-  <div class="row column">
-    <div class="section text-medium">
-      <%= t(".back_to") %> <u><%= link_to translated_attribute(@participatory_text.title), main_component_path(current_component) %></u>
-    </div>
-  </div>
+<% content_for :css_content do %>
+  <%= stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% end %>
-<%= emendation_announcement_for @proposal %>
-<div class="row column view-header">
 
-  <div class="m-bottom">
-    <%= link_to proposals_path, class: "small hollow js-back-to-list" do %>
-      <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
-      <%= t(".back_to_list") %>
+<% content_for :js_content do %>
+  <%= javascript_pack_tag "decidim_proposals" %>
+<% end %>
+
+<% content_for :aside do %>
+  <%= render partial: "proposal_aside" %>
+<% end %>
+
+<%# REDESIGN_PENDING: define nav_paths %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: proposals_path } do %>
+
+  <div class="proposal__container">
+
+    <%= render partial: "voting_rules" %>
+
+    <% if component_settings.participatory_texts_enabled? %>
+      <div class="row column">
+        <div class="section text-medium">
+          <%= t(".back_to") %> <u><%= link_to translated_attribute(@participatory_text.title), main_component_path(current_component) %></u>
+        </div>
+      </div>
     <% end %>
-  </div>
 
-  <% if @proposal.emendation? %>
-    <h2 class="heading3"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h2>
-  <% else %>
-    <h2 class="heading3"><%= present(@proposal).title(links: true, html_escape: true) %></h2>
-  <% end %>
-  <% unless component_settings.participatory_texts_enabled? %>
-    <%= cell("decidim/coauthorships", @proposal, has_actions: true, size: 3, context: { current_user: current_user }) %>
-  <% end %>
-</div>
-<div class="row">
-  <div class="columns mediumlarge-8 large-9">
-    <div class="section">
-      <% if @proposal.emendation? %>
-        <%= cell("decidim/diff", proposal_presenter.versions.last) %>
-      <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
-        <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
-        <%= render_proposal_body(@proposal) %>
-      <% end %>
-      <% if component_settings.geocoding_enabled? %>
-        <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
-      <% end %>
-      <% if proposal_has_costs? && current_settings.answers_with_costs? %>
-        <%= cell("decidim/proposals/cost_report", @proposal) %>
-      <% end %>
-      <%= cell "decidim/proposals/proposal_tags", @proposal %>
-    </div>
+    <%= emendation_announcement_for @proposal %>
+
+    <% if @proposal.emendation? %>
+      <h1 class="h2 decorator"><%= t(".changes_at_title", title: present(@proposal.amendable).title(links: true, html_escape: true)) %></h1>
+    <% else %>
+      <h1 class="h2 decorator"><%= present(@proposal).title(links: true, html_escape: true) %></h1>
+    <% end %>
+
+    <% if component_settings.geocoding_enabled? %>
+      <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
+    <% end %>
+
+    <% unless component_settings.participatory_texts_enabled? %>
+      <div class="proposal__author">
+        <% # REDESIGN_PENDING: Logic copied from decidim-core/app/cells/decidim/coauthorships_cell.rb
+            author = if @proposal.respond_to?(:official?) && @proposal.official?
+                        "#{@proposal.class.module_parent}::OfficialAuthorPresenter".constantize.new
+                      else
+                        @proposal.user_group&.presenter || @proposal.author.presenter
+                      end
+        %>
+
+        <%= cell "decidim/author", author, from: @proposal, context_actions: nil, layout: :compact %>
+
+        <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
+          <%== cell("decidim/proposals/proposal_m", @proposal, full_badge: true).badge %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if @proposal.emendation? %>
+      <%= cell("decidim/diff", proposal_presenter.versions.last) %>
+    <% elsif not ["section","subsection"].include? @proposal.participatory_text_level %>
+      <%= render_proposal_body(@proposal) %>
+    <% end %>
+
+    <% if proposal_has_costs? && current_settings.answers_with_costs? %>
+      <%= cell("decidim/proposals/cost_report", @proposal) %>
+    <% end %>
+
+    <%= cell "decidim/tags", @proposal %>
 
     <%= cell("decidim/announcement", proposal_reason_callout_announcement, callout_class: proposal_reason_callout_class) if @proposal.answered? && @proposal.published_state? %>
 
@@ -77,65 +101,10 @@ extra_admin_link(
 
     <%= cell "decidim/endorsers_list", @proposal %>
     <%= amendments_for @proposal %>
+
+    <%= attachments_for @proposal %>
+
+    <%= comments_for @proposal %>
   </div>
-  <div class="columns section view-side mediumlarge-4 large-3">
-    <% if @proposal.amendable? && allowed_to?(:edit, :proposal, proposal: @proposal) %>
-      <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button hollow expanded button--sc" %>
-    <% else %>
-      <%= amend_button_for @proposal %>
-    <% end %>
 
-    <%= emendation_actions_for @proposal %>
-
-    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
-      <% if @proposal.withdrawn? %>
-        <div class="card">
-          <div class="card__content">
-            <% if current_settings.votes_enabled? %>
-              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-            <% end %>
-          </div>
-        </div>
-      <% else %>
-        <div class="card">
-          <div class="card__content">
-            <% if current_settings.votes_enabled? %>
-              <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-              <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-            <% end %>
-            <div class="row collapse buttons__row">
-              <% if endorsements_enabled? %>
-                <div class="column small-9 collapse">
-                  <%= endorsement_buttons_cell(@proposal) %>
-                </div>
-              <% end %>
-              <div class="column collapse <%= endorsements_enabled? ? "small-3" : "" %>">
-                <%= link_to "#comments", class: "button small compact hollow secondary button--nomargin expanded" do %>
-                    <span class="show-for-sr"><%= present(@proposal).title(html_escape: true) %></span>
-                    <%= icon "comment-square", class: "icon--small", aria_label: t(".comments"), role: "img" %> <%= @proposal.comments_count %>
-                <% end %>
-              </div>
-            </div>
-            <br>
-            <%= follow_button_for(@proposal) %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-
-    <%= amenders_list_for(@proposal) %>
-
-    <%= resource_reference(@proposal) %>
-    <%= resource_version(proposal_presenter, versions_path: proposal_versions_path(@proposal)) %>
-    <%= cell("decidim/fingerprint", @proposal) %>
-    <%= render partial: "decidim/shared/share_modal", locals: { resource: @proposal } %>
-    <%= embed_modal_for proposal_widget_url(@proposal, format: :js) %>
-    <%= cell "decidim/proposals/proposal_link_to_collaborative_draft", @proposal %>
-    <%= cell "decidim/proposals/proposal_link_to_rejected_emendation", @proposal %>
-  </div>
-</div>
-<%= attachments_for @proposal %>
-
-<%= comments_for @proposal %>
-
-<%= cell("decidim/flag_modal", @proposal) %>
+<% end %>
