@@ -222,10 +222,8 @@ es-PY:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Alguien ha dejado una nota en la propuesta "%{resource_title}". Revísala ahora a través del <a href="%{admin_proposal_info_url}">panel de administración</a>
             email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
-            notification_title: Alguien ha dejado una nota en la propuesta <a href="%{resource_path}">%{resource_title}</a>. Revísala ahora a través del <a href="%{admin_proposal_info_path}">panel de administración</a>
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
@@ -260,12 +258,10 @@ es-PY:
           email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
-          notification_title: Ahora puedes presentar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: '¡Puedes adherirte a propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: La adhesión de propuestas ha comenzado para %{participatory_space_title}
-          notification_title: Ahora puedes comenzar a <a href="%{resource_path}">adherirte propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
@@ -302,8 +298,6 @@ es-PY:
           email_intro: La propuesta "%{resource_title}" se ha añadido a "%{participatory_space_title}" que estás siguiendo.
           email_outro: Recibiste esta notificación porque estás siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
           email_subject: Nueva propuesta "%{resource_title}" añadida a %{participatory_space_title}
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido añadida a %{participatory_space_title} por %{author}
-          notification_title_official: Se ha añadido la propuesta oficial <a href="%{resource_path}">%{resource_title}</a> en %{participatory_space_title}
         proposal_rejected:
           affected_user:
             email_intro: 'Su propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
@@ -475,21 +469,12 @@ es-PY:
             rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposal_notes:
-          create:
-            error: Ha habido un problema al crear esta nota de propuesta
-            success: Nota de propuesta creada con éxito
           form:
             note: Nota
             submit: Enviar
           leave_your_note: Deja tu nota
           title: Notas privadas
         proposals:
-          answer:
-            invalid: Ha habido un problema al responder a esta propuesta
-            success: Propuesta respuesta con éxito
-          create:
-            invalid: Ha habido un problema al crear esta propuesta
-            success: Propuesta creada correctamente
           edit:
             title: Actualizar propuesta
             update: Actualizar
@@ -563,9 +548,6 @@ es-PY:
             select_a_scope: Por favor, selecciona un ámbito
             success: 'Propuestas actualizadas correctamente al ámbito %{subject_name}: %{proposals}.'
         proposals_imports:
-          create:
-            invalid: Ha habido un problema al importar las propuestas
-            success: "%{number} propuestas importadas correctamente"
           new:
             create: Importar propuestas
             no_components: No hay otros componentes propuesta en este espacio participativo desde el que importar.
@@ -580,13 +562,6 @@ es-PY:
           create:
             invalid: 'Ha habido un problema al dividir las propuestas seleccionadas porque algunas de ellas:'
             success: Dividió con éxito las propuestas en otras nuevas.
-        valuation_assignments:
-          create:
-            invalid: Se ha producido un error al asignar propuestas a una evaluadora
-            success: Propuestas asignadas a una evaluadora correctamente
-          delete:
-            invalid: Se ha producido un error al desasignar propuestas a una evaluadora
-            success: Evaluadora desasignada correctamente
       admin_log:
         proposal:
           answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
@@ -630,7 +605,6 @@ es-PY:
           publish:
             error: Ha habido errores al publicar el borrador colaborativo.
             irreversible_action_modal:
-              body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevas autoras o contribuciones.
               cancel: Cancelar
               ok: Publicar como una propuesta
               title: La siguiente acción es irreversible
@@ -639,7 +613,6 @@ es-PY:
           withdraw:
             error: Ha habido errores al cerrar el borrador colaborativo.
             irreversible_action_modal:
-              body: Después de cerrar el borrador, ya no será editable. El borrador no aceptará nuevas autoras ni contribuciones.
               cancel: Cancelar
               ok: Retirar el borrador colaborativo
               title: La siguiente acción es irreversible
@@ -862,9 +835,6 @@ es-PY:
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver propuesta
-        proposals:
-          empty: Aún no hay ninguna propuesta
-          empty_filters: No hay ninguna propuesta con este criterio
         show:
           answer: Respuesta
           back_to: De regreso
@@ -917,8 +887,6 @@ es-PY:
             supports_remaining: Tienes que votar %{remaining_votes} propuestas más para que tus votos sean tomados en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
-          threshold_per_proposal:
-            description: Para ser validadas, las propuestas deben llegar a %{limit} apoyos
           title: 'La votación se rige por las siguientes normas:'
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
@@ -963,6 +931,9 @@ es-PY:
           title: Versiones
         proposals:
           back_to_resource: Volver a propuesta
+      withdraw:
+        errors:
+          has_supports: Esta propuesta no puede ser retirada porque ya tiene apoyos.
     resource_links:
       copied_from_component:
         proposal_proposal: Propuestas relacionadas
