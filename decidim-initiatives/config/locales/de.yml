@@ -87,10 +87,6 @@ de:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Suche in %{collection} nach Titel, Beschreibung, ID oder Autoren.
-      initiatives_settings:
-        update:
-          error: Ein Fehler ist aufgetreten
-          success: Die Einstellungen für Initiativen wurden erfolgreich aktualisiert
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
@@ -207,8 +203,6 @@ de:
           index:
             approve: Genehmigen
             confirm_revoke: Bist du sicher?
-            invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-            no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
             revoke: Widerrufen
             title: Ausschussmitglieder
         content_blocks:
@@ -230,7 +224,6 @@ de:
             export_votes: Export unterstützt
             reject: Initiative ablehnen
             send_to_technical_validation: An technische Validierung senden
-            success: Die Initiative wurde an die technische Validierung gesendet
             update: Aktualisieren
           form:
             attachments: Beilagen
@@ -245,9 +238,6 @@ de:
             edit: Bearbeiten
             new: Neu
             photos: Fotos
-          update:
-            error: Ein Fehler ist aufgetreten
-            success: Die Bürgerinitiative wurde erfolgreich aktualisiert
         initiatives_settings:
           edit:
             update: Aktualisieren
@@ -259,9 +249,6 @@ de:
             signatures: Am häufigsten unterzeichnet
             title: Einstellungen für Initiativen
         initiatives_type_scopes:
-          create:
-            error: Ein Fehler ist aufgetreten
-            success: Ein neuer Bereich für den angegebenen Initiativentyp wurde erstellt
           destroy:
             success: Der Bereich wurde erfolgreich entfernt
           edit:
@@ -274,15 +261,7 @@ de:
             back: Zurück
             create: Erstellen
             title: Initiativentypbereich erstellen
-          update:
-            error: Ein Fehler ist aufgetreten
-            success: Der Bereich wurde erfolgreich aktualisiert
         initiatives_types:
-          create:
-            error: Ein Fehler ist aufgetreten
-            success: Ein neuer Initiativentyp wurde erfolgreich erstellt
-          destroy:
-            success: Der Initiativentyp wurde erfolgreich entfernt
           edit:
             confirm_destroy: Bist du sicher?
             destroy: Löschen
@@ -296,9 +275,6 @@ de:
           new:
             create: Erstellen
             title: Neuer Initiativentyp
-          update:
-            error: Ein Fehler ist aufgetreten
-            success: Der Initiativentyp wurde erfolgreich aktualisiert
       admin_log:
         initiative:
           publish: "%{user_name} hat die Initiative %{resource_name} veröffentlicht"
@@ -337,7 +313,6 @@ de:
           success: Anfrage wurde bestätigt.
         new:
           continue: Fortsetzen
-          help_text: Sie sind dabei, ein Mitglied des Promoter-Komitees dieser Initiative zu werden
         revoke:
           success: Anfrage wurde zurückgezogen.
         spawn:
@@ -438,7 +413,6 @@ de:
             day: Tag
             month: Monat
             year: Jahr
-          help: Bitte füllen Sie die folgenden Felder mit Ihren persönlichen Daten aus, um die Initiative zu unterzeichnen
         finish:
           back_to_initiative: Zurück zur Initiative
         sms_code:
@@ -446,12 +420,9 @@ de:
           help: Überprüfen Sie die an Ihrem Telefon empfangene SMS
         sms_phone_number:
           continue: Senden Sie mir eine SMS
-          help: Füllen Sie das Formular mit Ihrer bestätigten Telefonnummer aus, um Ihren Bestätigungscode anzufordern
       initiative_votes:
         create:
           error: Beim Signieren der Initiative sind Fehler aufgetreten.
-          invalid: Die zur Unterzeichnung der Initiative bereitgestellten Daten sind nicht gültig
-          success_html: Herzliche Glückwünsche! Die <strong> %{title}</strong> -Initiative wurde korrekt unterzeichnet
         personal_data:
           invalid: Persönliche Daten stimmen nicht mit den zur Autorisierung angegebenen Daten überein.
         sms_phone:
@@ -466,8 +437,6 @@ de:
         committee_members:
           approve: Genehmigen
           confirm_revoke: Bist du dir sicher?
-          invite_to_committee_help: Teilen Sie diesen Link, um andere Benutzer zum Promotionskomitee einzuladen
-          no_members_yet: Es gibt keine Mitglieder im Promoter-Ausschuss
           revoke: Widerrufen
           title: Ausschussmitglieder
         count:
@@ -527,7 +496,6 @@ de:
           section: 'Falls von der Organisation angefragt, drucken Sie bitte dieses Formular aus und füllen Sie es aus, um dort einzureichen, wo angegeben wurde:'
           signature: Unterschrift
         result:
-          answer_title: Diese Initiative wurde beantwortet
           initiative_rejected_reason: Diese Initiative wurde wegen fehlender Unterstützung abgelehnt.
         show:
           any_vote_method: Diese Bürgerinitiative sammelt sowohl online als auch persönlich Unterschriften.
@@ -588,9 +556,6 @@ de:
         accepted: Akzeptiert
         expired: Abgelaufen
       unavailable_scope: Nicht verfügbarer Umfang
-      update:
-        error: Ein Fehler ist aufgetreten
-        success: Die Initiative wurde erfolgreich aktualisiert
       versions:
         shared:
           back_to_resource: Zurück zur Initiative
