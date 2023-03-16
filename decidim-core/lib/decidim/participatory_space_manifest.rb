@@ -19,6 +19,10 @@ module Decidim
     # The ActiveRecord class name of the model we're exposing
     attribute :model_class_name, String
 
+    # The scope name of the content blocks associated with the participatory
+    # space
+    attribute :content_blocks_scope_name, String
+
     # The name of the named Rails route to create the url to the resource.
     # When not explicitly set, it will use the model name.
     attribute :route_name, String

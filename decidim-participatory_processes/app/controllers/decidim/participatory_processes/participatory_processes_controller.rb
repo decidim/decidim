@@ -9,6 +9,7 @@ module Decidim
       redesign_participatory_space_layout only: [:show, :all_metrics]
       include FilterResource
       include Paginable
+      include HasParticipatorySpaceContentBlocks
 
       helper_method :collection,
                     :promoted_collection,
@@ -18,8 +19,7 @@ module Decidim
                     :participatory_process_group,
                     :default_date_filter,
                     :related_processes,
-                    :linked_assemblies,
-                    :active_content_blocks
+                    :linked_assemblies
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -79,19 +79,6 @@ module Decidim
           dropdown_cell: "decidim/participatory_processes/process_dropdown_metadata",
           resource: current_participatory_space
         }
-      end
-
-      def active_content_blocks
-        @active_content_blocks ||= if current_participatory_space.present?
-                                     Decidim::ContentBlock.published.for_scope(
-                                       :participatory_process_homepage,
-                                       organization: current_organization
-                                     ).where(
-                                       scoped_resource_id: current_participatory_space.id
-                                     )
-                                   else
-                                     Decidim::ContentBlock.none
-                                   end
       end
 
       def published_processes

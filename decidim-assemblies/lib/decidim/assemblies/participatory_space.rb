@@ -3,6 +3,7 @@
 Decidim.register_participatory_space(:assemblies) do |participatory_space|
   participatory_space.icon = "media/images/decidim_assemblies.svg"
   participatory_space.model_class_name = "Decidim::Assembly"
+  participatory_space.content_blocks_scope_name = "assembly_homepage"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::Assemblies::OrganizationAssemblies.new(organization).query
