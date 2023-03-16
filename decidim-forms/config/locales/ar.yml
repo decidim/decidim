@@ -16,8 +16,6 @@ ar:
             choices:
               missing: ليست كاملة
               too_many: كثير جدا
-        questionnaire:
-          request_invalid: حدث خطأ أثناء معالجة الطلب. الرجاء إعادة المحاولة ثانية
   decidim:
     forms:
       admin:
