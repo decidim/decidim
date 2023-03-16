@@ -17,8 +17,6 @@ tr:
             choices:
               missing: tamamlanmadı
               too_many: çok fazla
-        questionnaire:
-          request_invalid: İsteği işlerken bir hata oluştu. Lütfen tekrar deneyin
   decidim:
     forms:
       admin:
