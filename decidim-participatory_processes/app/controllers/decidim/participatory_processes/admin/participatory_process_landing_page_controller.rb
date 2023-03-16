@@ -11,7 +11,7 @@ module Decidim
         layout "decidim/admin/participatory_process"
 
         def content_block_scope
-          :participatory_process_homepage
+          current_participatory_space_manifest.content_blocks_scope_name
         end
 
         alias scoped_resource current_participatory_space
