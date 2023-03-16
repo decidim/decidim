@@ -124,7 +124,6 @@ ja:
           label: 検証済み
           values:
             'false': 検証済み
-            'true': 未検証
     components:
       elections:
         actions:
