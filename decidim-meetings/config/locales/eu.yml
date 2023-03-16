@@ -50,17 +50,6 @@ eu:
         name: Izena
       validate_registration_code:
         code: Kodea
-    errors:
-      models:
-        meeting_agenda:
-          attributes:
-            base:
-              too_many_minutes: Elementuen iraupena %{count} minutuko iraupena gainditzen du
-              too_many_minutes_child: '"%{parent_title}" bileraren gaiak %{count} minutu baino gehiago irauten du'
-        meeting_registration_invite:
-          attributes:
-            email:
-              already_invited: Helbide elektronikoko kontu hau gonbidatuta dago
     models:
       decidim/meetings/close_meeting_event: Topaketa itxia
       decidim/meetings/create_meeting_event: Bilera
@@ -230,9 +219,6 @@ eu:
             down: Behera
             remove: Kendu
             up: Gora
-          create:
-            invalid: Arazo bat izan da agenda hau sortzeko
-            success: Egutegia modu egokian sortu da
           edit:
             title: Editatu agenda
             update: Gorde
@@ -244,9 +230,6 @@ eu:
           new:
             create: Sortu
             title: Agenda berria
-          update:
-            invalid: Arazo bat izan da agenda hau eguneratzean
-            success: Agenda ondo eguneratu da
         exports:
           answers: Erantzunak
           meeting_comments: Iruzkinak
@@ -283,17 +266,9 @@ eu:
             close: Itxi
             title: Itxi topaketa
         meetings:
-          close:
-            invalid: Arazo bat izan da topaketa hau ixtean.
-            success: Topaketa ongi itxi da
           create:
-            invalid: Arazo bat izan da topaketa hau sortzean.
             success: Topaketa zuzen sortu da. Kontuan hartu oraindik ez dela argitaratu, eskuz argitaratu beharko duzu.
           destroy:
-            invalid:
-              proposals_count:
-                one: Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako
-                other: Topaketa ezin da ezabatu lotutako %{count} proposamen dituelako
             success: Topaketa zuzen ezabatu da.
           edit:
             title: Editatu bilera
@@ -314,9 +289,6 @@ eu:
           new:
             create: Sortu
             title: Sortu topaketa
-          publish:
-            invalid: Arazo bat izan da topaketa hau argitaratzean
-            success: Topaketa zuzen argitaratu da
           service:
             description: deskribapena
             down: Behera
@@ -327,18 +299,9 @@ eu:
           services:
             add_service: Gehitu zerbitzua
             services: Zerbitzuak
-          unpublish:
-            invalid: Arazo bat gertatu da topaketa hau desargitaratzean
-            success: Topaketa zuzen desargitaratu da
-          update:
-            invalid: Arazo bat egon da topaketa eguneratzeko
-            success: Topaketa zuzen eguneratu da.
         meetings_poll:
           form:
             title: Editatu %{questionnaire_for} inkestaren galdetekgia
-          update:
-            invalid: Arazo bat izan da topaketa hau eguneratzean
-            success: Inkesta zuzen eguneratua
         models:
           meeting:
             name: Topaketa
@@ -438,8 +401,6 @@ eu:
         registration_mailer:
           confirmation:
             subject: Zure topaketarako izen-ematea baieztatua izan da
-      meeting:
-        not_allowed: Ez zaude topaketa hau ikusteko baimenik
       meeting_closes:
         edit:
           back: Atzera
@@ -635,9 +596,6 @@ eu:
         withdraw: Kenduta
       versions:
         back_to_resource: Itzuli topaketara
-      withdraw:
-        error: Arazo bat izan da topaketa bertan behera uztean
-        success: Topaketa da bertan behera
     metrics:
       meetings:
         description: Topaketa kopurua sortu da
