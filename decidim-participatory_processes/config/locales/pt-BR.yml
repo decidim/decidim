@@ -415,8 +415,6 @@ pt-BR:
               one: 1 processo futuro
               other: "%{count} processos futuros"
           explanations:
-            no_active: Nenhum processo ativo
-            no_active_nor_upcoming: Não há processos ativos nem futuros
             no_active_nor_upcoming_callout: Não há processos ativos nem futuros. Aqui está uma lista dos últimos.
           names:
             active: Ativo
