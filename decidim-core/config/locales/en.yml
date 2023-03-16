@@ -1279,7 +1279,7 @@ en:
           success: Great! You have accepted the terms and conditions.
         form:
           agreement: I agree with these terms
-          legend: Agree to the terms and conditions of use
+          legend: Agree to the terms and conditions
         refuse:
           modal_body: If you refuse, you will not be able to use the platform, you can <a href="%{download_your_data_path}">download your data</a> and/or <a href="%{delete_path}">delete your account</a>.
           modal_btn_continue: Accept terms and continue
