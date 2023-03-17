@@ -129,7 +129,6 @@ sr:
         verify: Overi
       admin_terms_of_use:
         accept:
-          error: Greška u postupku prihvatanja uslova korišćenja za administratore.
           success: Odlično! Prihvatili ste uslove korišćenja za administratore.
         actions:
           refuse: Ne prihvatam uslove korišćenja za administratore
