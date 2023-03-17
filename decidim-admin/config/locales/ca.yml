@@ -190,7 +190,6 @@ ca:
         verify: Verificar
       admin_terms_of_use:
         accept:
-          error: S'ha produït un error en acceptar els Termes i Condicions dell panell d'administració.
           success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
           accept: Estic d'acord amb els termes
