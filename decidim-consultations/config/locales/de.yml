@@ -46,6 +46,12 @@ de:
         decidim_consultations_response_id:
           not_found: Antwort nicht gefunden.
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: Die Anzahl der Stimmen ist ungültig.
     models:
       decidim/consultation:
         one: Beratung
@@ -147,6 +153,7 @@ de:
             one: Antwort
             other: Antworten
       question_configuration:
+        disable_external_voting: Bitte deaktivieren Sie externe Abstimmung für erweiterte Konfigurationen.
         form:
           help: Sie können Multiple-Choice-Fragen einstellen, indem Sie die maximale Anzahl von Antworten für Teilnehmer erhöhen. Der Standardwert ist 1, was bedeutet dass nur eine Antwort als Stimme abgegeben werden kann.
           title: Erweiterte Konfiguration
