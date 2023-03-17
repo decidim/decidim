@@ -22,7 +22,7 @@ describe Decidim::PadIframeCell, type: :cell do
 
     let(:html) { subject }
 
-    context "when there's no current user" do
+    context "when there is no current user" do
       let(:current_user) { nil }
 
       it "renders nothing" do

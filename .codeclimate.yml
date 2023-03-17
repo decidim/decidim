@@ -78,7 +78,7 @@ plugins:
       - decidim-core/app/assets/javascripts/decidim/core/bundle.js.map
       - decidim-core/app/assets/javascripts/decidim/core/bundle.js
       - decidim-elections/lib/decidim/elections/jwk_utils.rb
-      - .rubocop_ruby.yml
+      - decidim-dev/config/rubocop/ruby.yml
 
   grep:
     enabled: true

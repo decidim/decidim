@@ -40,7 +40,7 @@ module Decidim
           super().merge("decidim.current_participatory_space" => current_participatory_process)
         end
 
-        context "when there's no component" do
+        context "when there is no component" do
           it "does not match" do
             expect(subject.matches?(request)).to be(false)
           end

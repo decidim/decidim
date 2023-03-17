@@ -98,7 +98,7 @@ So, if you have a file in a subdirectory such as `app/packs/images/subfolder/tes
 
 Existing stylesheets should be moved from `app/assets/stylesheets` to `app/packs/stylesheets` and imported with `@import` into `decidim_application.scss`. Take into account that you might need to adjust a bit the paths of the `@import` to adjust them to the new locations.
 
-If that CSS file is replacing a Decidim file, there's no need to add it to `decidim_application.scss`.
+If that CSS file is replacing a Decidim file, there is no need to add it to `decidim_application.scss`.
 
 If any of the CSS is re-defining CSS vars add them to `_decidim-settings.scss`.
 
@@ -106,7 +106,7 @@ If any of the CSS is re-defining CSS vars add them to `_decidim-settings.scss`.
 
 Existing javascripts should be moved from `app/assets/javascsripts` to `app/packs/src` and imported with `import` into `decidim_application.js`. Take into account that you might need to adjust a bit the paths of the `import` to adjust them to the new locations.
 
-If that JS file is replacing a Decidim file, there's no need to add it to `decidim_application.js`
+If that JS file is replacing a Decidim file, there is no need to add it to `decidim_application.js`
 
 === Update Rails helpers
 

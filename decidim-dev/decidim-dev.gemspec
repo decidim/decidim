@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.summary = "Decidim dev tools"
   s.description = "Utilities and tools we need to develop Decidim"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md", "rubocop-decidim.yml"]
 
   s.add_dependency "capybara", "~> 3.24"
   s.add_dependency "decidim", Decidim::Dev.version
