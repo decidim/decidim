@@ -128,6 +128,11 @@ cs:
           subnav:
             statuses: Stavy
         statuses:
+          create:
+            invalid: Při vytváření tohoto stavu došlo k chybě.
+            success: Stav byl úspěšně vytvořen.
+          destroy:
+            success: Stav byl úspěšně smazán.
           edit:
             title: Upravit stav
             update: Aktualizovat stav
@@ -136,7 +141,15 @@ cs:
           new:
             create: Vytvořit stav
             title: Nový stav
+          update:
+            invalid: Při aktualizaci tohoto stavu došlo k chybě.
+            success: Stav byl úspěšně aktualizován.
         timeline_entries:
+          create:
+            invalid: Při vytváření tohoto záznamu došlo k chybě.
+            success: Položka byla úspěšně vytvořena.
+          destroy:
+            success: Položka byla úspěšně smazána.
           edit:
             title: Upravit položku
             update: Aktualizovat položku
@@ -145,6 +158,8 @@ cs:
           new:
             create: Vytvořit položku
             title: Nová položka
+          update:
+            invalid: Při aktualizaci této položky došlo k problému.
       admin_log:
         result:
           create: "%{user_name} vytvořen výsledek %{resource_name} v %{space_name}"
