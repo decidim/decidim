@@ -174,7 +174,7 @@ describe Decidim::UploadModalCell, type: :cell do
       end
     end
 
-    context "when there's a title" do
+    context "when there is a title" do
       let(:titled) { true }
       let(:attachment) do
         instance_double(
@@ -192,7 +192,7 @@ describe Decidim::UploadModalCell, type: :cell do
         expect(subject).to have_content("An image title")
       end
 
-      context "when there's rich content in the title" do
+      context "when there is rich content in the title" do
         let(:title) { "An image <script>alert(\"ALERT\")</script>" }
 
         it "renders the title" do
