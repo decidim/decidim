@@ -308,9 +308,6 @@ uk:
       destroy:
         button: Припинити стежити
         error: При спробі припинити стежити за цим ресурсом сталася помилка.
-    forms:
-      errors:
-        error: У цьому полі є помилка.
     log:
       base_presenter:
         create: "%{user_name} створив %{resource_name}"
