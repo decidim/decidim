@@ -658,7 +658,6 @@ it:
         decidim/user:
           password: La password è troppo breve.
           password_confirmation: La conferma password deve corrispondere alla password.
-        error: Si è verificato un errore in questo campo.
       file_help:
         file:
           explanation: 'Orientamenti per il file:'
