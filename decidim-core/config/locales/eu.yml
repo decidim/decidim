@@ -659,8 +659,6 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu plataformaren administratzaileetako bat zarelako.
           email_subject: Talde batek bere profila eguneratu du
           notification_title: '%{user_group_name} taldeak bere profila eguneratu du egiaztapena galduz. Berriro egiaztatu ahal duzu honen bidez <a href="%{groups_admin_path}">panel de administración</a>.'
-      nickname_event:
-        notification_body: Ezizenak erabiltzeko modua zuzendu dugu bikoiztasunik egon ez dadin, eta horregatik kendu dugu kasu sentikorra. Zure ezizena izen bera duen beste baten ondoren sortu da, eta automatikoki aldatu dugu. Alda dezakezu <a href="%{link_to_account_settings}"> >zure kontuaren konfigurazioan </a>.
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       reports:
