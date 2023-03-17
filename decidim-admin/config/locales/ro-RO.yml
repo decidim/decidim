@@ -188,7 +188,6 @@ ro:
         verify: Verifică
       admin_terms_of_use:
         accept:
-          error: A apărut o eroare la acceptarea termenilor de utilizare ai administratorului.
           success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
           accept: Sunt de acord cu acești termeni și condiţii
