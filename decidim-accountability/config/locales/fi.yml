@@ -8,7 +8,7 @@ fi:
         description: Kuvaus
         end_date: Päättymispäivä
         progress: Edistyminen
-        project_ids: Liitetyt suunnitelmat
+        project_ids: Liitetyt hankkeet
         proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
         title: Otsikko
@@ -40,7 +40,7 @@ fi:
         import_csv: Tuo CSV
         new: Uusi %{name}
         preview: Esikatsele
-        timeline_entries: Projektin edistyminen
+        timeline_entries: Hankkeen edistyminen
         title: Toiminnot
       admin:
         exports:
@@ -129,7 +129,7 @@ fi:
             title: Muokkaa merkintää
             update: Päivitä merkintä
           index:
-            title: Projektin aikajanan merkinnät
+            title: Hankkeen aikajanan merkinnät
           new:
             create: Luo merkintä
             title: Uusi merkintä
@@ -212,7 +212,7 @@ fi:
             proposals: Ehdotukset
             votes: Kannatukset
         timeline:
-          title: Projektin kehitys
+          title: Hankkeen kehitys
     admin:
       filters:
         results:
@@ -233,7 +233,7 @@ fi:
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             display_progress_enabled: Näytä edistyminen
-            heading_leaf_level_results: Nimi termille "Suunnitelmat"
+            heading_leaf_level_results: Nimi termille "Hankkeet"
             heading_parent_level_results: Nimi termille "Tulokset"
             intro: Esittelyteksti
             scope_id: Teema
@@ -263,7 +263,7 @@ fi:
         see_all: Näytä kaikki (%{count} kpl)
     resource_links:
       included_projects:
-        result_project: Tähän tulokseen liittyvät suunnitelmat
+        result_project: Tähän tulokseen liittyvät hankkeet
       included_proposals:
         result_proposal: Tähän tulokseen liittyvät ehdotukset
     statistics:
