@@ -61,6 +61,10 @@ fi-pl:
             base:
               too_many_minutes: Aiheiden kesto ylittää kokouksen keston %{count} minuutilla.
               too_many_minutes_child: Alakohdan kesto ylittää esityslistan kohdan "%{parent_title}" keston %{count} minuutilla.
+        meeting_registration_invite:
+          attributes:
+            email:
+              already_invited: Tämä sähköpostiosoite on jo kutsuttu.
     models:
       decidim/meetings/close_meeting_event: Tapahtuma suljettu
       decidim/meetings/create_meeting_event: Tapahtuma
@@ -235,6 +239,9 @@ fi-pl:
             down: Alas
             remove: Poista
             up: Ylös
+          create:
+            invalid: Esityslistan luominen epäonnistui.
+            success: Esityslistan luonti onnistui.
           edit:
             title: Muokkaa esityslistaa
             update: Päivitä
@@ -246,6 +253,9 @@ fi-pl:
           new:
             create: Luo
             title: Uusi esityslista
+          update:
+            invalid: Esityslistan päivittäminen epäonnistui.
+            success: Esityslistan päivitys onnistui.
         exports:
           answers: Vastaukset
           meeting_comments: Kommentit
@@ -283,9 +293,17 @@ fi-pl:
             close: Sulje
             title: Sulje tapahtuma
         meetings:
+          close:
+            invalid: Tapaamisen sulkeminen epäonnistui.
+            success: Tapaamisen sulkeminen onnistui.
           create:
+            invalid: Tapaamisen luonti epäonnistui.
             success: Tapaamisen luonti onnistui. Huomaa, että tapaamista ei ole vielä julkaistu, sinun pitää julkaista se manuaalisesti.
           destroy:
+            invalid:
+              proposals_count:
+                one: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus.
+                other: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta.
             success: Tapahtuma onnistuneesti luotu
           edit:
             title: Muokkaa tapaamista
@@ -306,6 +324,9 @@ fi-pl:
           new:
             create: Luo
             title: Luo tapahtuma
+          publish:
+            invalid: Tapaamisen julkaiseminen epäonnistui.
+            success: Tapaamisen julkaiseminen onnistui.
           service:
             description: Kuvaus
             down: Alas
@@ -316,9 +337,18 @@ fi-pl:
           services:
             add_service: Lisää palvelu
             services: Palvelut
+          unpublish:
+            invalid: Tapaamisen julkaisemisen peruminen epäonnistui.
+            success: Tapaamisen julkaisemisen peruminen onnistui.
+          update:
+            invalid: Tapaamisen päivitys epäonnistui.
+            success: Tapaamisen päivitys onnistui.
         meetings_poll:
           form:
             title: Muokkaa mielipidetiedustelun kyselylomaketta kohteelle %{questionnaire_for}
+          update:
+            invalid: Tapaamisen mielipidetiedustelun päivittäminen epäonnistui.
+            success: Tapaamisen mielipidetiedustelun päivittäminen onnistui.
         models:
           meeting:
             name: Tapahtuma
@@ -336,6 +366,7 @@ fi-pl:
             registrations_count:
               one: Tapahtumaan on %{count} ilmoittautuminen.
               other: Tapahtumaan on %{count} ilmoittautumista.
+            reserved_slots_help: Jätä arvoksi 0, jos sinulla ei ole varattuja paikkoja.
             reserved_slots_less_than: Täytyy olla vähemmän tai yhtä paljon kuin %{count}
             title: Rekisteröitymiset
           update:
@@ -418,6 +449,8 @@ fi-pl:
         registration_mailer:
           confirmation:
             subject: Tapahtumailmoittautumisesi on vahvistettu
+      meeting:
+        not_allowed: Sinulla ei ole lupaa tarkastella tätä tapaamista.
       meeting_closes:
         edit:
           back: Takaisin
@@ -614,6 +647,9 @@ fi-pl:
         withdraw: Peruutettu
       versions:
         back_to_resource: Takaisin tapahtumaan
+      withdraw:
+        error: Tapaamisen peruuttaminen epäonnistui.
+        success: Tapaaminen on peruttu.
     metrics:
       meetings:
         description: Tapahtumien määrä
