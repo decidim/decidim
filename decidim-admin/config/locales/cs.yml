@@ -167,6 +167,8 @@ cs:
         add: Přidat
         attachment:
           new: Nová příloha
+        attachment_collection:
+          new: Nová složka příloh
         browse: Procházet
         category:
           new: Nová kategorie
