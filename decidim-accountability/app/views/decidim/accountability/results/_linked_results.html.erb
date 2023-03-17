@@ -1,7 +1,7 @@
-<div class="item-list">
+<div class="card__list">
   <% resources.each do |result| %>
-    <%= link_to resource_locator(result).path, class: "item-list__content" do %>
-      <h5 class="h4 item-list__title">
+    <%= link_to resource_locator(result).path, class: "card__list-content" do %>
+      <h5 class="h4 card__list-title">
         <%= translated_attribute(result.title) %>
       </h5>
     <% end %>

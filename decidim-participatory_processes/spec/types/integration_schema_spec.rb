@@ -152,7 +152,10 @@ describe "Decidim::Api::QueryType" do
   let!(:participatory_process_response) do
     {
       "announcement" => {
-        "locales" => participatory_process.announcement.keys.sort,
+        "locales" => (
+          participatory_process.announcement.keys.excluding("machine_translations") +
+          participatory_process.announcement["machine_translations"].keys
+        ).sort,
         "translation" => participatory_process.announcement[locale]
       },
       "attachments" => [],

@@ -21,7 +21,7 @@ After that, you can start the development server under SSL at port 3443 (default
 
 Now you are ready to visit your favorite browser at the address `https://localhost:3443/` (note "https" and port 3443). If you would like to test the non-SSL "http" version, it is also running normally at port 3000, so you can access that as you normally would.
 
-Note: Your browser is going to complain as this is a self-signed certificate, that's ok for development, just add an exception and accept the certificate.
+Note: Your browser is going to complain as this is a self-signed certificate, that is ok for development, just add an exception and accept the certificate.
 
 == Testing tenants using lvh.me
 
@@ -45,7 +45,7 @@ etc.
 
 == Optional: Create your own self-signed certificate for localhost
 
-If you don't want to rely on the dummy certificate shipped with the `decidim-dev` gem, you can also create the certificates yourself.
+If you do not want to rely on the dummy certificate shipped with the `decidim-dev` gem, you can also create the certificates yourself.
 
 First you need a SSL certificate for the `localhost` domain (you only need to execute this command once):
 

@@ -18,8 +18,16 @@ module Decidim
       redesign_enabled? ? "dialog-open" : "open"
     end
 
+    def modal_remote_key
+      redesign_enabled? ? "dialog-remote-url" : "open-url"
+    end
+
     def data_modal_open_key
       "data-#{modal_open_key}"
+    end
+
+    def data_modal_remote_key
+      "data-#{modal_remote_key}"
     end
   end
 end

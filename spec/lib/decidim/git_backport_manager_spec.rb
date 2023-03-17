@@ -47,13 +47,51 @@ describe Decidim::GitBackportManager do
   end
 
   describe ".create_backport_branch!" do
-    context "when there's a branch already with that name" do
+    let(:remote_repository_dir) { "#{tmp_repository_dir}/fake-remote/decidim/decidim/repository.git" }
+
+    before do
+      `
+        git init --bare #{remote_repository_dir}
+        git remote add origin #{remote_repository_dir}
+      `
+    end
+
+    after do
+      FileUtils.rm_rf(remote_repository_dir)
+    end
+
+    context "when there is a branch already with that name" do
       it "exits" do
         `
           git branch #{backport_branch}
         `
 
         expect { manager.send(:create_backport_branch!) }.to raise_error(SystemExit).and output(/Branch already exists locally/).to_stdout
+      end
+    end
+
+    context "when the local repository is not up to date with the remote" do
+      before do
+        # Create a new commit and push it to the origin
+        `
+          git checkout #{release_branch}
+          touch b_file.txt
+          git add b_file.txt
+          git commit -m "Another commit (#2345)"
+          git push origin #{release_branch}
+        `
+      end
+
+      it "pulls the remote changes before branching off" do
+        sha_commit = `git rev-parse --short HEAD`.strip
+
+        # Reset the last commit locally, so that the local repository is behind remote
+        `git reset --hard @~`
+
+        manager.send(:create_backport_branch!)
+
+        # After the method the local release branch should be up to date with remote
+        expect(`git rev-parse --short HEAD`.strip).to eq(sha_commit)
       end
     end
 
@@ -100,7 +138,7 @@ describe Decidim::GitBackportManager do
       FileUtils.rm_rf(remote_repository_dir)
     end
 
-    it "exits when there's nothing to push" do
+    it "exits when there is nothing to push" do
       `
         git checkout -b #{backport_branch}
       `
@@ -108,7 +146,7 @@ describe Decidim::GitBackportManager do
       expect { manager.send(:push_backport_branch!) }.to raise_error(SystemExit).and output(/Nothing to push to remote server/).to_stdout
     end
 
-    it "is pushed when there's a branch to push" do
+    it "is pushed when there is a branch to push" do
       `
         git checkout -b #{backport_branch}
         touch another_file.txt

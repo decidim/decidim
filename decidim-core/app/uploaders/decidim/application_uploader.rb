@@ -30,6 +30,8 @@ module Decidim
       else
         model.send(mounted_as)
       end
+    rescue ActiveStorage::InvariableError
+      model.send(mounted_as)
     end
 
     def attached?
@@ -47,7 +49,7 @@ module Decidim
       return unless attached?
 
       representable = variant(key)
-      AssetRouter.new(representable).url(**options)
+      AssetRouter::Storage.new(representable).url(**options)
     end
 
     def path(options = {})

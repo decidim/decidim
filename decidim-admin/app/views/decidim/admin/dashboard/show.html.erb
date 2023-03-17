@@ -11,6 +11,14 @@
     <%= cell("decidim/announcement", announcement_body, callout_class: current_user.admin_terms_accepted? ? "success" : "warning" ) %>
   <% end %>
 
+  <% if count_pending_moderations.positive? && allowed_to?(:read, :global_moderation) %>
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-12 medium-6 large-4">
+        <%= render "pending_moderations" %>
+      </div>
+    </div>
+  <% end %>
+
   <div class="grid-x grid-margin-x">
     <% if allowed_to? :read, :users_statistics %>
       <div class="cell small-12 medium-6 large-4">

@@ -17,7 +17,7 @@ bundle exec rails s
 
 == Bullet
 
-Bullet detects N+1 queries and suggests how to fix them, although it doesn't catch them all. It's currently configured in `config/initializers/bullet.rb` to log in the regular rails log and also in its own `log/bullet.log`. You'll now see entries like the following:
+Bullet detects N+1 queries and suggests how to fix them, although it does not catch them all. It's currently configured in `config/initializers/bullet.rb` to log in the regular rails log and also in its own `log/bullet.log`. You'll now see entries like the following:
 
 [source,bash]
 ----
@@ -29,7 +29,7 @@ USE eager loading detected
 Call stack
 ----
 
-It also warns you when there's an unnecessary eager load.
+It also warns you when there is an unnecessary eager load.
 
 More details: https://github.com/flyerhzm/bullet
 

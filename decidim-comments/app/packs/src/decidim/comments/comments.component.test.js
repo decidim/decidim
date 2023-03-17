@@ -23,7 +23,7 @@ jest.useFakeTimers();
 import { createCharacterCounter } from "../../../../../../decidim-core/app/packs/src/decidim/input_character_counter";
 import Configuration from "../../../../../../decidim-core/app/packs/src/decidim/configuration";
 // Component is loaded with require because using import loads it before $ has been mocked
-// so tests aren't able to check the spied behaviours
+// so tests are not able to check the spied behaviours
 const CommentsComponent = require("./comments.component_for_testing.js");
 
 
@@ -132,7 +132,7 @@ describe("CommentsComponent", () => {
                 data-remaining-characters="#add-comment-${modelName}-${modelId}-remaining-characters"
                 name="comment[body]"
               ></textarea>
-              <span class="form-error">There's an error in this field.</span>
+              <span class="form-error">There is an error in this field.</span>
             </label>
           </div>
           <button type="submit" class="button button--sc" disabled="disabled">Send</button>

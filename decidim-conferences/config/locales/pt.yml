@@ -28,7 +28,6 @@ pt:
         show_statistics: Mostrar estatísticas
         sign_date: Data de assinatura
         signature: Assinatura
-        signature_name: nome da assinatura
         slogan: Slogan
         slug: Campo de dados dinâmicos de URL
         start_date: Data de início
@@ -37,13 +36,11 @@ pt:
         date: Datas
         link: Hiperligação
         title: Título
-        weight: Peso
       conference_partner:
         link: Hiperligação
         logo: Logótipo
         name: Nome
         partner_type: Tipo de parceiro
-        weight: Peso
       conference_registration_invite:
         email: E-Mail
         name: Nome
@@ -53,7 +50,6 @@ pt:
         description: Descrição
         price: Preço
         title: Título
-        weight: Peso
       conference_speaker:
         affiliation: Afiliação
         avatar: Avatar
@@ -131,8 +127,6 @@ pt:
         edit:
           title: Atualizar administrador da conferência.
           update: Atualizar
-        index:
-          conference_admins_title: administradores da conferência
         new:
           create: Criar
           title: Novo administrador da conferência.
@@ -402,18 +396,11 @@ pt:
           cancel: Cancelar
           confirm: Confirmar
         show:
-          free: Livre
           going: Participantes
           no_slots_available: Não há slots disponíveis
           registration: Registo
       conference_program:
-        program_meeting:
-          content: Conteúdo
-          location: Localização
-          speakers: Oradores
-          streaming: Transmissão
         show:
-          day: Dia
           program: Programa
       conference_registration_mailer:
         confirmation:
@@ -444,18 +431,12 @@ pt:
       conference_speaker_cell:
         personal_url:
           personal_website: Sítio pessoal
-        twitter_handle:
-          go_to_twitter: Vá para o Twitter
-      conference_speakers:
-        index:
-          speakers: Oradores
       conferences:
         partners:
           collaborators: Parceiros
           main_promotors: Organizadores
         show:
           login_as: Iniciou sessão como %{name} <%{email}>
-          make_conference_registration: 'Realize o seu registo na conferência:'
           register: Registar
       content_blocks:
         highlighted_conferences:
@@ -501,29 +482,12 @@ pt:
             active_conferences: Conferências ativas
             conferences_button_title: Ligação para a página de Conferências que mostra todas as conferências
             see_all_conferences: Ver todas as conferências
-      photo:
-        image:
-          attributes:
-            alt: Imagem multimédia
-        show:
-          close_modal: Fechar modal
-          photo: Imagem
-      photos_list:
-        show:
-          related_photos: Imagens
       registration_types:
         index:
           choose_an_option: 'Escolha a sua opção de registo:'
-          login_as: Iniciou sessão como %{name} <%{email}>
           no_registrations: Sem registos
           register: Registar
           title: Tipos de registo
-      shared:
-        conference_user_login:
-          already_account: Já tem uma conta em decidim?
-          new_user: Novo utilizador?
-          sign_in: Inicie sessão para se registar na conferência
-          sign_up: Crie uma conta em decidim para se inscrever na conferência
       show:
         details: Detalhes
         introduction: Introdução

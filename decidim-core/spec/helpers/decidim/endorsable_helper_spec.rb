@@ -65,14 +65,14 @@ module Decidim
       end
 
       context "when it's a user" do
-        context "and they haven't endorsed yet" do
-          it { is_expected.not_to include("selected") }
+        context "and they have not endorsed yet" do
+          it { is_expected.not_to include("is-selected") }
         end
 
         context "and they have already endorsed" do
           let!(:endorsement) { create(:endorsement, resource:, author: user) }
 
-          it { is_expected.to include("selected") }
+          it { is_expected.to include("is-selected") }
         end
       end
 
@@ -82,20 +82,20 @@ module Decidim
         let!(:membership) { create(:user_group_membership, user_group:, user:, role: "admin") }
         let!(:another_membership) { create(:user_group_membership, user_group:, user: another_user, role: "admin") }
 
-        context "and they haven't endorsed yet" do
-          it { is_expected.not_to include("selected") }
+        context "and they have not endorsed yet" do
+          it { is_expected.not_to include("is-selected") }
         end
 
         context "and they have already endorsed" do
           let!(:endorsement) { create(:endorsement, resource:, author: user, user_group:) }
 
-          it { is_expected.to include("selected") }
+          it { is_expected.to include("is-selected") }
         end
 
         context "and another admin of the group have already endorsed" do
           let!(:endorsement) { create(:endorsement, resource:, author: another_user, user_group:) }
 
-          it { is_expected.to include("selected") }
+          it { is_expected.to include("is-selected") }
         end
       end
     end

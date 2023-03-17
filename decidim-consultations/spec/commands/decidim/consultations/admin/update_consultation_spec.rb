@@ -52,7 +52,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't update the consultation" do
+          it "does not update the consultation" do
             command.call
             consultation.reload
 

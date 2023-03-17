@@ -14,19 +14,19 @@ en:
       templates:
         apply:
           error: There was a problem applying this template.
-          success: Template applied successfully
+          success: Template applied successfully.
         copy:
           error: There was a problem copying this template.
-          success: Template copied successfully
+          success: Template copied successfully.
         create:
           error: There was a problem creating this template.
-          success: Template created successfully
+          success: Template created successfully.
         destroy:
-          success: Template deleted successfully
+          success: Template deleted successfully.
         empty: There are no templates yet.
         update:
           error: There was a problem updating this template.
-          success: Template updated successfully
+          success: Template updated successfully.
       titles:
         template_types:
           questionnaires: Questionnaire templates
@@ -42,6 +42,15 @@ en:
         name: Template
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Save
+            template_title: Template information
+          index:
+            confirm_delete: Are you sure you want to delete this template?
+            title: Block user messages
+          template_chooser:
+            select_template: Select a template answer
         questionnaire_templates:
           choose:
             create_from_template: Create from template
@@ -51,7 +60,7 @@ en:
             skip_template: Skip
           edit:
             edit: Edit
-            empty: There are no questions yet
+            empty: There are no questions yet.
             questionnaire: Questionnaire
           form:
             save: Save
@@ -71,4 +80,5 @@ en:
           duplicate: "%{user_name} duplicated the %{resource_name} questionnaire template"
           update: "%{user_name} updated the %{resource_name} questionnaire template"
       template_types:
+        block_user: Block user messages
         questionnaires: Questionnaires

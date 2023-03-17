@@ -264,6 +264,8 @@ sv:
         title: Frågor från %{scope_name}
       index:
         title: Samråd
+      last_activity:
+        new_question: 'Ny fråga:'
       pages:
         home:
           highlighted_consultations:

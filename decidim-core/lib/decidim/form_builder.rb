@@ -374,13 +374,12 @@ module Decidim
       data[:startdate] = I18n.l(value, format: :decidim_short) if value.present? && value.is_a?(Date)
       datepicker_format = ruby_format_to_datepicker(I18n.t("date.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
+      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
 
       template = text_field(
         attribute,
         options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
-      template += error_and_help_text(attribute, options.merge(help_text:))
       template.html_safe
     end
 
@@ -399,13 +398,12 @@ module Decidim
       end
       datepicker_format = ruby_format_to_datepicker(I18n.t("time.formats.decidim_short"))
       data[:"date-format"] = datepicker_format
+      options[:help_text] ||= I18n.t("decidim.datepicker.help_text", datepicker_format:)
 
       template = text_field(
         attribute,
         options.merge(data:)
       )
-      help_text = I18n.t("decidim.datepicker.help_text", datepicker_format:)
-      template += content_tag(:span, help_text, class: "help-text")
       template.html_safe
     end
 
@@ -446,7 +444,7 @@ module Decidim
     #              * resouce_name: Name of the resource (e.g. user)
     #              * resource_class: Attribute's resource class (e.g. Decidim::User)
     #              * resouce_class: Class of the resource (e.g. user)
-    #              * optional: Whether the file can be optional or not.
+    #              * required: Whether the file is required or not (false by default).
     #              * titled: Whether the file can have title or not.
     #              * show_current: Whether the current file is displayed next to the button.
     #              * help: Array of help messages which are displayed inside of the upload modal.
@@ -467,7 +465,7 @@ module Decidim
         attribute:,
         resource_name: @object_name,
         resource_class: options[:resource_class]&.to_s || resource_class(attribute),
-        optional: true,
+        required: false,
         titled: false,
         show_current: true,
         max_file_size:,
@@ -716,6 +714,8 @@ module Decidim
                safe_join([yield, text.html_safe])
              elsif block_given?
                safe_join([text.html_safe, yield])
+             else
+               text
              end
 
       label(attribute, text, options || {})
@@ -723,7 +723,7 @@ module Decidim
     # rubocop:enable Metrics/PerceivedComplexity
     # rubocop:enable Metrics/CyclomaticComplexity
 
-    # Private: Builds a span to be shown when there's a validation error in a field.
+    # Private: Builds a span to be shown when there is a validation error in a field.
     # It looks for the text that will be the content in a similar way `human_attribute_name`
     # does it.
     #
@@ -859,7 +859,20 @@ module Decidim
     end
 
     def image_dimensions_help(dimensions_info)
-      dimensions_info.map do |_version, info|
+      sorted_info = dimensions_info.values.sort do |infoa, infob|
+        texta, textb = [infoa[:processor], infob[:processor]].map do |processor|
+          I18n.t("processors.#{processor}", scope: "decidim.forms.images", dimensions: "")
+        end
+        widtha, heighta = infoa[:dimensions]
+        widthb, heightb = infob[:dimensions]
+
+        [
+          texta <=> textb,
+          widtha <=> widthb,
+          heighta <=> heightb
+        ].find { |cmp| !cmp.zero? } || 0
+      end
+      sorted_info.map do |info|
         dimensions = I18n.t("dimensions", scope: "decidim.forms.images", width: info[:dimensions].first, height: info[:dimensions].last)
         I18n.t(
           "processors.#{info[:processor]}",

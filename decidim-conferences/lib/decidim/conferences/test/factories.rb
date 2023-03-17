@@ -12,6 +12,7 @@ FactoryBot.define do
   factory :conference, class: "Decidim::Conference" do
     title { generate_localized_title }
     slug { generate(:conference_slug) }
+    weight { 1 }
     slogan { generate_localized_title }
     short_description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
@@ -58,6 +59,7 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
@@ -73,6 +75,7 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
@@ -88,6 +91,7 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,
@@ -103,6 +107,7 @@ FactoryBot.define do
     end
 
     organization { conference.organization }
+    admin_terms_accepted_at { Time.current }
 
     after(:create) do |user, evaluator|
       create :conference_user_role,

@@ -72,7 +72,7 @@ describe "Initiatives", type: :system do
       context "when there is a unique initiative type" do
         let!(:unpublished_initiative) { nil }
 
-        it "doesn't display the initiative type filter" do
+        it "does not display the initiative type filter" do
           within ".new_filter[action$='/initiatives']" do
             expect(page).not_to have_content(/Type/i)
           end
@@ -138,6 +138,19 @@ describe "Initiatives", type: :system do
         within "#initiative_#{initiative.id}" do
           expect(page).to have_selector(".card__image")
         end
+      end
+    end
+  end
+
+  context "when there are more than 20 initiatives" do
+    before do
+      create_list(:initiative, 21, organization:)
+      visit decidim_initiatives.initiatives_path
+    end
+
+    it "shows the correct initiatives count" do
+      within "#initiatives-count" do
+        expect(page).to have_content("21")
       end
     end
   end

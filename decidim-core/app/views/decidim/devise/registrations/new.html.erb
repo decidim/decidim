@@ -32,7 +32,7 @@
   <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: registration_path(resource_name), html: { id: "register-form" }) do |f| %>
     <%= invisible_captcha %>
 
-    <div class="login__form">
+    <div class="form__wrapper">
       <%= f.text_field :name, help_text: t("decidim.devise.registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
 
       <%= f.text_field :nickname, help_text: t("decidim.devise.registrations.new.nickname_help", organization: current_organization.name), autocomplete: "nickname", placeholder: "johndoe" %>
@@ -44,7 +44,7 @@
       <%= f.password_field :password_confirmation, password_field_options_for(:user).except(:help_text) %>
     </div>
 
-    <div id="card__tos" class="login__form-block">
+    <div id="card__tos" class="form__wrapper-block">
       <h4 class="h4"><%= t("decidim.devise.registrations.new.tos_title") %></h4>
 
       <div class="tos-text">
@@ -53,15 +53,15 @@
         <% end %>
       </div>
 
-      <%= f.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), page_path("terms-and-conditions"), target: "_blank")), label_options: { class: "login__form-checkbox-label" } %>
+      <%= f.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), page_path("terms-and-conditions"))), label_options: { class: "form__wrapper-checkbox-label" } %>
     </div>
 
-    <div id="card__newsletter" class="login__form-block">
+    <div id="card__newsletter" class="form__wrapper-block">
       <h4 class="h4"><%= t("decidim.devise.registrations.new.newsletter_title") %></h4>
-      <%= f.check_box :newsletter, label: t("decidim.devise.registrations.new.newsletter"), checked: @form.newsletter, label_options: { class: "login__form-checkbox-label" } %>
+      <%= f.check_box :newsletter, label: t("decidim.devise.registrations.new.newsletter"), checked: @form.newsletter, label_options: { class: "form__wrapper-checkbox-label" } %>
     </div>
 
-    <div class="login__form-block">
+    <div class="form__wrapper-block">
       <button type="submit" class="button button__lg button__secondary">
         <%= t("decidim.devise.registrations.new.sign_up") %>
         <%= icon "arrow-right-line", class: "fill-current" %>

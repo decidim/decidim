@@ -12,17 +12,16 @@
   input[type="time"],
   input[type="url"],
   input[type="week"],
+  select,
   textarea{
     &:not(.reset-defaults){
       @apply inline-block px-4 py-2 border border-gray outline outline-1 outline-transparent rounded bg-background-2 text-black font-normal placeholder:text-gray focus:outline-2 focus:outline-secondary invalid:outline-2 invalid:outline-alert disabled:bg-background-3 disabled:text-gray-2 disabled:cursor-not-allowed;
 
       &.sm{
-        /* stylelint-disable-next-line number-leading-zero */
         @apply px-1 py-0.5 text-sm;
       }
 
       &.sm-icon{
-        /* stylelint-disable-next-line number-leading-zero */
         @apply pr-1 pl-6 py-0.5 text-sm;
       }
     }
@@ -35,10 +34,15 @@
       @apply inline-block mr-2;
     }
   }
-}
 
-.help-text{
-  @apply block text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline;
+  select{
+    @apply appearance-none;
+
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3e%3cpath fill='%233E4C5C' d='M5.99962 4.97656L10.1246 0.851562L11.303 2.0299L5.99962 7.33323L0.696289 2.0299L1.87462 0.851562L5.99962 4.97656Z'/%3e%3c/svg%3e");
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 0.75rem;
+  }
 }
 
 .form-error{
@@ -47,6 +51,38 @@
 
 *:invalid ~ .form-error{
   @apply block;
+}
+
+.help-text{
+  @apply block text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline;
+}
+
+.form__wrapper{
+  @apply flex flex-col py-10 gap-10;
+
+  &-block{
+    @apply py-10 border-t-2 border-background flex flex-col py-10 gap-4 only:[&_button]:ml-auto [&_p]:text-gray-2;
+  }
+
+  &-checkbox-label{
+    @apply text-md text-gray-2 font-normal prose-a:text-secondary prose-a:underline cursor-pointer;
+  }
+
+  & label:not(&-checkbox-label),
+  &-block label:not(&-checkbox-label){
+    @apply font-semibold text-lg;
+  }
+
+  .help-text{
+    @apply mt-4;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select{
+    @apply w-full block mt-4;
+  }
 }
 
 .input-character-counter{

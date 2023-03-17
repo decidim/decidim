@@ -84,6 +84,13 @@ module Decidim
       "#{handler_name.sub!(/_handler$/, "")}/form"
     end
 
+    def authorization_attributes
+      {
+        unique_id:,
+        metadata:
+      }
+    end
+
     # Any data that the developer would like to inject to the `metadata` field
     # of an authorization when it's created. Can be useful if some of the
     # params the user sent with the authorization form want to be persisted for

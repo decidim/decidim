@@ -33,6 +33,7 @@ module Decidim
       helper Decidim::MenuHelper
       helper Decidim::OmniauthHelper
       helper Decidim::CacheHelper
+      helper Decidim::SocialShareButtonHelper
 
       layout "layouts/decidim/application"
 

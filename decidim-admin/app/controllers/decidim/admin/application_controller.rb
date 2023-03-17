@@ -32,6 +32,7 @@ module Decidim
       helper Decidim::LanguageChooserHelper
       helper Decidim::ComponentPathHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::Templates::Admin::ApplicationHelper if Decidim::Admin.enable_templates
 
       default_form_builder Decidim::Admin::FormBuilder
 

@@ -1,0 +1,5 @@
+<div class="photo__container">
+  <% model.each_with_index do |photo, index| %>
+    <%= cell "decidim/photo", photo, index: index %>
+  <% end %>
+</div>

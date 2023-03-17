@@ -1,0 +1,28 @@
+<div data-dialog-container>
+  <%= icon "lock-line" %>
+  <h2 id="dialog-title-authorizationModal" tabindex="-1" data-dialog-title><%= title %></h2>
+  <div>
+    <div class="authorization-modal__verification-container">
+      <% verifications.each do |verification| %>
+        <div class="authorization-modal__verification">
+          <% verification[:messages].each do |msg| %>
+            <p><%= msg %></p>
+          <% end %>
+
+          <% if verification[:fields].present? %>
+            <ul>
+              <% verification[:fields].each do |field| %>
+                <li><%= field %></li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <%= content_tag verification[:cta][:type], class: "button button__lg button__secondary", href: verification[:cta][:url], data: verification[:cta][:data] do %>
+            <span><%= verification[:cta][:text] %></span>
+            <%= icon "arrow-right-line" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

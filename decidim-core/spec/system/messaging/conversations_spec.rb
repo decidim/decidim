@@ -287,7 +287,7 @@ describe "Conversations", type: :system do
       context "when someone direct messages disabled" do
         let!(:interlocutor2) { create(:user, :confirmed, organization:, direct_message_types: "followed-only") }
 
-        it "can't be selected on the mentioned list", :slow do
+        it "cannot be selected on the mentioned list", :slow do
           visit_inbox
           expect(page).to have_content("New conversation")
           click_button "New conversation"
@@ -497,7 +497,7 @@ describe "Conversations", type: :system do
       visit_inbox
 
       within ".conversation__container" do
-        expect(page).to have_selector(".conversation__item img[alt='Avatar: Participant deleted']")
+        expect(page).to have_selector(".conversation__item img[alt='Avatar: Deleted participant']")
         expect(page).to have_selector(".conversation__item", text: "who wants apples?")
       end
     end
@@ -506,7 +506,7 @@ describe "Conversations", type: :system do
       visit_inbox
       click_link "conversation-#{conversation.id}"
 
-      expect(page).to have_content("Conversation with\nParticipant deleted")
+      expect(page).to have_content("Conversation with\nDeleted participant")
       expect(page).to have_content("who wants apples?")
     end
   end

@@ -86,7 +86,7 @@ shared_examples "searchable results" do
           expect(page.find("#search-count .section-heading").text.to_i).not_to be_positive
         end
 
-        it "doesn't find content by hashtag" do
+        it "does not find content by hashtag" do
           if respond_to?(:hashtag)
             fill_in "term", with: hashtag
             find("input#term").native.send_keys :enter

@@ -58,7 +58,7 @@ We would like to have all branches following this namings:
 | When adding missing tests, refactoring tests, improving coverage, etc.
 
 | backport/
-| We only offer support for the last mayor version.
+| We only offer support for the last two mayor version. Learn more about xref:develop:backports.adoc[Backports].
 |===
 
 After the prefix we recommend to add some words that describe what the change is doing, like a summary of the Pull Request title. For instance, some good branch names are:
@@ -67,7 +67,7 @@ After the prefix we recommend to add some words that describe what the change is
 . feature/add-pagination-to-moderated-users
 . fix/free-text-choice-answer
 
-The rationale behind this is that we don't like to have the issue number (`fix/9123` or just `9123`) as that difficults working with `git`.
+The rationale behind this is that we do not like to have the issue number (`fix/9123` or just `9123`) as that difficults working with `git`.
 
 == Git commit messages and Pull Request titles
 

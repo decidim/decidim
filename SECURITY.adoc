@@ -2,7 +2,7 @@
 
 == Supported Versions
 
-Until we have the version 1.0 we support only the last minor and major version with security updates.
+Until we have the version 1.0 we support only the last two minor versions with security updates.
 
 |===
 | Version | Supported

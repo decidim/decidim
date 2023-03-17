@@ -111,6 +111,11 @@
   &__files{
     @apply mt-1 space-y-4;
 
+    &-container{
+      @apply space-y-10 [&_label]:block [&_label]:mb-4;
+    }
+
+    /* It does not use regular class names, because it could come from javascript also. Avoid binds among css and js */
     > *{
       @apply flex flex-col gap-2;
 

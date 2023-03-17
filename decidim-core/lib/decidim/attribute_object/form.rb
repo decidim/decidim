@@ -48,6 +48,15 @@ module Decidim
               value.attachment.try(:blob)
             when ActiveStorage::Attached::Many
               value.attachments.map(&:blob)
+            when ActiveRecord::Associations::CollectionProxy, ActiveRecord::Relation, Array
+              if attribute_types[key].type == :array
+                value
+              else
+                # This is a sub-form that needs to read the properties directly
+                # from the original model. We cannot pass an array here as it
+                # would be passed to the form constructor causing an error.
+                model
+              end
             else
               value
             end

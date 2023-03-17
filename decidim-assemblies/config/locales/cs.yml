@@ -3,7 +3,10 @@ cs:
     attributes:
       assemblies_setting:
         enable_organization_chart: Povolit schéma organizace
+      assemblies_type:
+        title: Název
       assembly:
+        announcement: Oznámení
         area_id: Oblast
         assembly_type: Typ shromáždění
         assembly_type_other: Typ shromáždění ostatní
@@ -22,12 +25,16 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         developer_group: Skupina promotérů
+        document: Dokument
         domain: Doména
         duration: Doba trvání
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
         hero_image: Obrázek na hlavní stránce
+        import_attachments: Importovat přílohy
+        import_categories: Importovat kategorie
+        import_components: Importovat komponenty
         included_at: Zahrnuty v
         instagram: Instagram
         internal_organisation: Vnitřní organizace
@@ -64,6 +71,7 @@ cs:
         non_user_avatar: Avatar
         position: Pozice
         user_id: Uživatel
+        weight: Pozice v řazení
       assembly_user_role:
         email: E-mail
         name: Název

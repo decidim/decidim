@@ -14,17 +14,24 @@ ja:
         description: 説明
         file: ファイル
         title: 添付ファイルまたは画像名
+        weight: 並び順の位置
       attachment_collection:
         description: 説明
         name: 名前
+        weight: 並び順の位置
       category:
         description: 説明
         name: 名前
         parent_id: 親
+        weight: 並び順の位置
       component:
         name: 名前
         published_at: 公開日時
         weight: 順番の位置
+      external_domain:
+        value: 値
+      help_section:
+        content: 内容
       id: ID
       import:
         user_group_id: インポートを作成
@@ -92,6 +99,9 @@ ja:
         welcome_notification_body: ウェルカム通知本文
         welcome_notification_subject: ウェルカム通知の件名
         youtube_handler: YouTube ハンドラー
+      participatory_space_private_user:
+        email: Eメールアドレス
+        name: 名前
       scope:
         code: コード
         name: 名前
@@ -113,6 +123,7 @@ ja:
         show_in_footer: フッターに表示
         slug: URL スラグ
         title: タイトル
+        topic_id: トピック
         weight: 順番の位置
       static_page_topic:
         description: 説明
@@ -192,6 +203,7 @@ ja:
           error: 管理者向け利用規約に同意中にエラーが発生しました。
           success: ありがとうございます、管理者向け利用規約に同意しました。
         actions:
+          accept: 利用規約に同意します
           are_you_sure: 管理者向け利用規約を削除してもよろしいですか？
           refuse: 同意しない
           title: 利用規約に同意する
@@ -349,6 +361,11 @@ ja:
         'true': 'はい'
         user_name: ユーザー
       dashboard:
+        pending_moderations:
+          anouncement:
+            other: '%{count} 件の保留中のモデレーションがあります'
+          goto_moderation: グローバルモデレーションへ移動
+          title: 保留中のモデレーション
         show:
           view_more_logs: もっとログを見る
           welcome: 管理画面へようこそ。
@@ -535,6 +552,7 @@ ja:
         area_types: エリア種別
         areas: エリア
         configuration: 設定
+        content: コンテンツ
         dashboard: ダッシュボード
         external_domain_whitelist: 許可された外部ドメイン
         help_sections: ヘルプセクション
@@ -543,7 +561,7 @@ ja:
         moderation: グローバルモデレーション
         newsletters: ニュースレター
         participants: 参加者
-        reported_users: 報告済みユーザー
+        reported_users: 報告された参加者
         scope_types: スコープ種別
         scopes: スコープ
         settings: 設定
@@ -628,6 +646,7 @@ ja:
             created_at: 作成日時
             document_number: ドキュメント番号
             name: 名前
+            nickname: ニックネーム
             phone: 電話番号
             state: 都道府県：
             users_count: 参加者数
@@ -642,7 +661,7 @@ ja:
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
-          title: 報告されたユーザー一覧
+          title: 参加者一覧
         report:
           reasons:
             does_not_belong: 所属していない
@@ -821,12 +840,21 @@ ja:
           add: ホワイトリストに追加
           title: 外部ドメインのホワイトリスト
       organization_homepage:
+        content_blocks:
+          create:
+            error: コンテンツブロックの作成中に問題が発生しました
+            success: コンテンツブロックを作成しました
+          destroy:
+            error: コンテンツブロックの削除中に問題が発生しました
+            success: コンテンツブロックを削除しました
+          edit:
+            update: 更新
         edit:
           active_content_blocks: アクティブなコンテンツブロック
+          add: コンテンツブロックを追加
+          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
           inactive_content_blocks: 非アクティブコンテンツブロック
-      organization_homepage_content_blocks:
-        edit:
-          update: 更新
+          title: ページコンテンツ
       participatory_space_private_users:
         create:
           error: この参加型スペースにプライベート参加者を追加する際に問題が発生しました。
@@ -942,6 +970,20 @@ ja:
       static_pages:
         actions:
           view: 公開ページを表示
+        content_blocks:
+          active_content_blocks: アクティブコンテンツブロック
+          add: コンテンツブロックを追加
+          create:
+            error: コンテンツブロックの作成中に問題が発生しました
+            success: コンテンツブロックを作成しました
+          destroy:
+            error: コンテンツブロックの削除中に問題が発生しました
+            success: コンテンツブロックを削除しました
+          destroy_confirmation: このコンテンツブロックを削除してもよろしいですか？
+          edit:
+            update: 更新
+          inactive_content_blocks: 非アクティブコンテンツブロック
+          title: ページ内容
         create:
           error: 新しいページの作成中に問題が発生しました。
           success: ページの作成に成功しました。
@@ -1070,15 +1112,15 @@ ja:
       models:
         moderation:
           fields:
-            created_at: 作成日
+            created_at: 報告日時
             deleted_resource: 削除されたリソース
             hidden_at: '非表示:'
             participatory_space: 参加型スペース
-            report_count: カウント
+            report_count: レポート数
             reportable_id: ID
             reportable_type: 種別
             reported_content_url: 報告されたコンテンツ URL
-            reports: レポート
+            reports: 理由
             visit_url: URL を参照
         report:
           fields:
@@ -1092,7 +1134,7 @@ ja:
     decidim:
       admin:
         global_moderations:
-          title: グローバルモデレーション
+          title: コンテンツモデレーション
         newsletters:
           title: ニュースレター
         settings:

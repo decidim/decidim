@@ -64,7 +64,7 @@ All members of the Decidim community agree with {uri-social-contract}[Decidim So
 * <<contribute,🙌 Contribute>>
 * <<modules,🧩 Modules>>
 ** <<identity-verifications-and-authorizations,🪪 Identity verifications and authorizations>>
-** <<authentication-options>>,🚪 Authentication options>>
+** <<authentication-options,🚪 Authentication options>>
 * <<license,📘 License>>
 * <<example-applications,🔎 Example applications>>
 * <<security,🔒 Security>>
@@ -100,7 +100,7 @@ Read more about contributions in our {uri-contributing}[contribution guidelines]
 
 == 🧩 Modules
 
-If you need to have some features that we don't have yet, we recommend that you make a module.
+If you need to have some features that we do not have yet, we recommend that you make a module.
 This is a Ruby on Rails engine with some APIs specific to Decidim (for registering with the menus, integration with spaces like Participatory Processes or Assemblies, with /admin or /api, etc).
 
 As a base you can use these modules, although check first that the version is compatible with your current Decidim version.

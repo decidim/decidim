@@ -15,7 +15,7 @@ module Decidim
       def show; end
 
       def preview
-        email = NewsletterMailer.newsletter(current_user, fake_newsletter)
+        email = NewsletterMailer.newsletter(current_user, fake_newsletter, preview: true)
         Premailer::Rails::Hook.perform(email)
         render html: email.html_part.body.decoded.html_safe
       end

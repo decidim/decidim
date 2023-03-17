@@ -5,7 +5,7 @@ export default function createSortableList(lists) {
   createSortList(lists, {
     handle: "li",
     forcePlaceholderSize: true,
-    connectWith: ".js-connect"
+    acceptFrom: ".js-connect"
   })
 }
 

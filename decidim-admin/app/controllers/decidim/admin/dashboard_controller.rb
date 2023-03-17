@@ -8,12 +8,17 @@ module Decidim
       helper_method :latest_action_logs
       helper_method :users_counter
       helper_method :metrics_presenter
+      helper_method :count_pending_moderations
 
       def show
         enforce_permission_to :read, :admin_dashboard
       end
 
       private
+
+      def count_pending_moderations
+        @count_pending_moderations ||= Decidim::Admin::ModerationStats.new(current_user).count_pending_moderations
+      end
 
       def latest_action_logs
         @latest_action_logs ||= Decidim::ActionLog

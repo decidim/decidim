@@ -20,8 +20,8 @@ module Decidim
         return broadcast(:invalid) unless form.valid?
 
         transaction do
-          block!
           register_justification!
+          block!
           notify_user!
         end
 
@@ -65,7 +65,7 @@ module Decidim
         ) do
           form.user.blocked = true
           form.user.blocked_at = Time.current
-          form.user.blocking = @current_blocking
+          form.user.block_id = @current_blocking.id
           form.user.extended_data["user_name"] = form.user.name
           form.user.name = "Blocked user"
           form.user.save!

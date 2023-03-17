@@ -3,7 +3,7 @@
 module Decidim
   module Admin
     class BlockUserController < Decidim::Admin::ApplicationController
-      layout "decidim/admin/users"
+      layout "decidim/admin/global_moderations"
 
       helper_method :user
 
@@ -44,7 +44,7 @@ module Decidim
           end
         end
 
-        redirect_to moderated_users_path(blocked: false), notice:
+        redirect_to moderated_users_path, notice:
       end
 
       private

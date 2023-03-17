@@ -22,6 +22,10 @@ env:
   NODE_VERSION: 16.9.1
   RAILS_ENV: development
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   main:
     name: Tests
@@ -45,24 +49,20 @@ jobs:
       DATABASE_HOST: localhost
       RUBYOPT: '-W:no-deprecated'
     steps:
-      - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
-        if: "github.ref != 'refs/heads/develop'"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      - uses: actions/checkout@v2.0.0
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
       - name: Get npm cache directory path
         id: npm-cache-dir-path
-        run: echo "::set-output name=dir::$(npm get cache)-${{ env.DECIDIM_MODULE }}"
-      - uses: actions/cache@v2
+        run: echo "dir=$(npm get cache)-${{ env.DECIDIM_MODULE }}" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
         id: npm-cache
         with:
           path: ${{ steps.npm-cache-dir-path.outputs.dir }}

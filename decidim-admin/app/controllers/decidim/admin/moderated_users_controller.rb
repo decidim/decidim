@@ -5,7 +5,7 @@ module Decidim
     class ModeratedUsersController < Decidim::Admin::ApplicationController
       include Decidim::ModeratedUsers::Admin::Filterable
 
-      layout "decidim/admin/users"
+      layout "decidim/admin/global_moderations"
 
       def index
         enforce_permission_to :read, :moderate_users
@@ -36,12 +36,15 @@ module Decidim
       end
 
       def base_query_finder
-        UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: current_organization.id })
+        Decidim::Admin::ModerationStats.new(current_user).user_reports
       end
 
       def collection
-        target_scope = params[:blocked] && params[:blocked] == "true" ? :blocked : :unblocked
-        base_query_finder.send(target_scope)
+        @collection ||= if params[:blocked]
+                          base_query_finder.blocked
+                        else
+                          base_query_finder.unblocked
+                        end
       end
     end
   end

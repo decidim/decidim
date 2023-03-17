@@ -25,7 +25,7 @@ shared_examples "an order" do |*options|
     end
 
     if options.include?(:with_maximum_budget)
-      it "can't exceed a maximum order value" do
+      it "cannot exceed a maximum order value" do
         project1 = create(:project, budget:, budget_amount: 100)
         project2 = create(:project, budget:, budget_amount: 20)
 
@@ -82,7 +82,7 @@ module Decidim::Budgets
 
       it_behaves_like "an order", :with_maximum_budget
 
-      it "can't be lower than a minimum order value when checked out" do
+      it "cannot be lower than a minimum order value when checked out" do
         project1 = create(:project, budget:, budget_amount: 20)
 
         subject.projects << project1
@@ -101,7 +101,7 @@ module Decidim::Budgets
 
       it_behaves_like "an order", :with_maximum_budget
 
-      it "can't be lower than a minimum projects number when checked out" do
+      it "cannot be lower than a minimum projects number when checked out" do
         project1 = create(:project, budget:, budget_amount: 100)
 
         subject.projects << project1
@@ -138,7 +138,7 @@ module Decidim::Budgets
 
       it_behaves_like "an order"
 
-      it "can't be higher than a maximum projects number when checked out" do
+      it "cannot be higher than a maximum projects number when checked out" do
         projects = create_list(:project, 7, budget:, budget_amount: 100)
 
         subject.projects << projects
@@ -185,7 +185,7 @@ module Decidim::Budgets
 
       it_behaves_like "an order"
 
-      it "can't be higher than a maximum projects number when checked out" do
+      it "cannot be higher than a maximum projects number when checked out" do
         projects = create_list(:project, 7, budget:, budget_amount: 100)
 
         subject.projects << projects
@@ -195,7 +195,7 @@ module Decidim::Budgets
         expect(subject).to be_invalid
       end
 
-      it "can't be lower than a minimum projects number when checked out" do
+      it "cannot be lower than a minimum projects number when checked out" do
         project1 = create(:project, budget: subject.budget, budget_amount: 100)
 
         subject.projects << project1

@@ -1,8 +1,5 @@
 sl:
   activemodel:
-    attributes:
-      agenda:
-        description: Opis
     models:
       decidim/meetings/create_meeting_event: Sestanek
   decidim:

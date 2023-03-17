@@ -105,7 +105,7 @@ module Decidim
         end
 
         context "and includes the attributes" do
-          let!(:an_answer) { create(:answer, questionnaire:, question: questions.sample, user:) }
+          let(:an_answer) { answers.first }
 
           it "the id of the answer" do
             key = I18n.t(:id, scope: "decidim.forms.user_answers_serializer")

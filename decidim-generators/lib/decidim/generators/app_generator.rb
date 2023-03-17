@@ -55,11 +55,11 @@ module Decidim
 
       class_option :skip_bundle, type: :boolean,
                                  default: true, # this is to avoid installing gems in this step yet (done by InstallGenerator)
-                                 desc: "Don't run bundle install"
+                                 desc: "Do not run bundle install"
 
       class_option :skip_gemfile, type: :boolean,
                                   default: false,
-                                  desc: "Don't generate a Gemfile for the application"
+                                  desc: "Do not generate a Gemfile for the application"
 
       class_option :demo, type: :boolean,
                           default: false,
@@ -71,7 +71,7 @@ module Decidim
 
       class_option :force_ssl, type: :string,
                                default: "true",
-                               desc: "Doesn't force to use ssl"
+                               desc: "Does not force to use ssl"
 
       class_option :locales, type: :string,
                              default: "",
@@ -87,11 +87,11 @@ module Decidim
 
       class_option :skip_webpack_install, type: :boolean,
                                           default: true,
-                                          desc: "Don't run Webpack install"
+                                          desc: "Do not run Webpack install"
 
       class_option :dev_ssl, type: :boolean,
                              default: false,
-                             desc: "Don't add Puma development SSL configuration options"
+                             desc: "Do not add Puma development SSL configuration options"
 
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
@@ -120,6 +120,10 @@ module Decidim
 
       def license
         template "LICENSE-AGPLv3.txt", "LICENSE-AGPLv3.txt"
+      end
+
+      def rubocop
+        copy_file ".rubocop.yml", ".rubocop.yml"
       end
 
       def gemfile
@@ -274,6 +278,10 @@ module Decidim
       def remove_default_error_pages
         remove_file "public/404.html"
         remove_file "public/500.html"
+      end
+
+      def remove_default_favicon
+        remove_file "public/favicon.ico"
       end
 
       def decidim_initializer

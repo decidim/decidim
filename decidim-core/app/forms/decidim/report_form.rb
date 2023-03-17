@@ -7,6 +7,7 @@ module Decidim
 
     attribute :reason, String
     attribute :details, String
+    attribute :hide, Boolean, default: false
 
     validates :reason, inclusion: { in: Report::REASONS }
   end
