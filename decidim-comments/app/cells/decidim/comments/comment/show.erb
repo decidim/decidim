@@ -26,7 +26,7 @@
           <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4">
             <% unless reloaded? %>
               <li>
-                <%= cell("decidim/report_button", model, only_button: true, button_classes: "dropdown__item flex-row-reverse" ) %>
+                <%= cell("decidim/report_button", model, only_button: true, button_classes: "dropdown__item flex-row-reverse", modal_id: "flagModalComment#{model.id}") %>
               </li>
             <% end %>
             <li>
@@ -80,9 +80,9 @@
   </div>
 
   <% if current_user.present? %>
-    <%= cell("decidim/report_button", model).flag_modal %>
-    <%#= cell("decidim/flag_modal", model, modal_id: "flagModalComment#{model.id}") %>
+    <%= cell("decidim/report_button", model, modal_id: "flagModalComment#{model.id}").flag_modal %>
   <% end %>
+
   <% if model.authored_by?(current_user) %>
     <%= cell("decidim/comments/edit_comment_modal_form", model) %>
   <% end %>
