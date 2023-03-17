@@ -118,6 +118,9 @@ fr-CA:
             'true': Non signé
         validated_eq:
           label: Validé
+          values:
+            'false': Non validé
+            'true': Validé
     components:
       elections:
         actions:
@@ -910,6 +913,7 @@ fr-CA:
             location_help: 'Lieu : message adressé aux électeurs informant du lieu exact du bureau de vote'
             location_hints_help: 'Indices de localisation : informations complémentaires. Par exemple : l''étage du bâtiment où se trouve le bureau de vote.'
             polling_station_managers_help: 'Directeur du scrutin : les personnes qui seront gestionnaires des bureaux de vote. Assurez-vous que les responsables du scrutin ont déjà été créés dans les bureaux de vote et qu''ils ne sont pas déjà affectés à un autre bureau de vote'
+            polling_station_president_help: "Polling station president: the officer that will act as polling station president. Make sure the officer has already been created in Polling Officers and that (s)he is not already assigned to another polling station\n\nPrésident du bureau de vote : Agent qui agit en tant que président du bureau de vote. \nAssurez-vous que l'agent soit créé dans \"Bureau de vote\" et qu'il ne soit pas déjà assigné à un autre bureau de vote"
             select_president: Sélectionnez un responsable de scrutin en tant que président du bureau de vote
           index:
             title: Bureaux de vote
