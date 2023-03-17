@@ -479,9 +479,6 @@ id:
       destroy:
         button: Berhenti mengikuti
         error: Terjadi kesalahan saat berhenti mengikuti sumber daya ini.
-    forms:
-      errors:
-        error: Ada kesalahan di bidang ini.
     gamification:
       all_badges_link: Lihat semua lencana yang tersedia.
       badges:
