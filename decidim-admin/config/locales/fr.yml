@@ -200,7 +200,6 @@ fr:
         verify: Vérifier
       admin_terms_of_use:
         accept:
-          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation
