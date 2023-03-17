@@ -728,7 +728,6 @@ hu:
         decidim/user:
           password: A jelszó túl rövid.
           password_confirmation: A jelszó megerősítés meg kell egyezzen a jelszóval.
-        error: Hiba van ebben a mezőben.
       file_help:
         file:
           message_1: Képnek vagy dokumentumnak kell lennie.
