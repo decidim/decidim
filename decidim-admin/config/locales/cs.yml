@@ -39,6 +39,7 @@ cs:
         body: Tělo
         subject: Předmět
       organization:
+        admin_terms_of_use_body: Tělo podmínek
         alert_color: Upozornění
         available_authorizations: Dostupná oprávnění
         badges_enabled: Povolit odznaky
@@ -133,6 +134,10 @@ cs:
         file: Soubor
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Vyberte alespoň jeden participační prostor.
         organization:
           attributes:
             official_img_footer:
@@ -147,6 +152,11 @@ cs:
           attributes:
             file:
               malformed: Chybný importní soubor, přečtěte si pozorně pokyny a ujistěte se, že soubor je kódovaný UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Neplatný soubor, zkontrolujte, zda je soubor správně naformátován.
+            invalid_mime_type: Neplatný typ MIME.
   activerecord:
     attributes:
       decidim/static_page:
