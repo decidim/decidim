@@ -10,10 +10,6 @@ module Decidim
 
     helper_method :user_group
 
-    def index
-      enforce_permission_to :manage, :user_group, user_group:
-    end
-
     # Removes a user from a user group
     def destroy
       enforce_permission_to :manage, :user_group, user_group: user_group
@@ -22,12 +18,12 @@ module Decidim
         on(:ok) do
           flash[:notice] = t("group_members.remove.success", scope: "decidim")
 
-          redirect_back fallback_location: group_manage_users_path(user_group.nickname)
+          redirect_back fallback_location: profile_group_members_path(user_group.nickname)
         end
 
         on(:invalid) do
           flash[:alert] = t("group_members.remove.error", scope: "decidim")
-          redirect_back fallback_location: group_manage_users_path(user_group.nickname)
+          redirect_back fallback_location: profile_group_members_path(user_group.nickname)
         end
       end
     end
@@ -39,12 +35,29 @@ module Decidim
         on(:ok) do
           flash[:notice] = t("group_members.promote.success", scope: "decidim")
 
-          redirect_back fallback_location: group_manage_users_path(user_group.nickname)
+          redirect_back fallback_location: profile_group_members_path(user_group.nickname)
         end
 
         on(:invalid) do
           flash[:alert] = t("group_members.promote.error", scope: "decidim")
-          redirect_back fallback_location: group_manage_users_path(user_group.nickname)
+          redirect_back fallback_location: profile_group_members_path(user_group.nickname)
+        end
+      end
+    end
+
+    def demote
+      enforce_permission_to :manage, :user_group, user_group: user_group
+
+      DemoteMembership.call(membership, user_group) do
+        on(:ok) do
+          flash[:notice] = t("group_admins.demote.success", scope: "decidim")
+
+          redirect_back fallback_location: profile_group_admins_path(user_group.nickname)
+        end
+
+        on(:invalid) do
+          flash[:alert] = t("group_admins.demote.error", scope: "decidim")
+          redirect_back fallback_location: profile_group_admins_path(user_group.nickname)
         end
       end
     end

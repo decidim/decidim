@@ -12,8 +12,8 @@ module Decidim
       create_user_group: { icon: "team-line", path: :profile_new_group_path },
       edit_user_group: { icon: "team-line", path: :edit_group_path },
       message: { icon: "mail-send-line", path: :new_conversation_path },
-      manage_user_group_users: { icon: "user-settings-line", path: :group_manage_users_path },
-      manage_user_group_admins: { icon: "user-star-line", path: :group_manage_admins_path },
+      manage_user_group_users: { icon: "user-settings-line", path: :profile_group_members_path },
+      manage_user_group_admins: { icon: "user-star-line", path: :profile_group_admins_path },
       invite_user: { icon: "user-add-line", path: :group_invites_path },
       join_user_group: { icon: "user-add-line", path: :group_join_requests_path, options: { method: :post } },
       leave_user_group: { icon: "logout-box-r-line", path: :leave_group_path, options: { method: :delete } }
