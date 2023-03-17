@@ -32,7 +32,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
 
         click_button "Send"
-        expect(page).to have_content("You've been successfully authorized")
+        expect(page).to have_content("You have been successfully authorized")
       end
 
       it "allows the user to skip it" do
@@ -73,7 +73,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
 
           click_button "Send"
-          expect(page).to have_content("You've been successfully authorized.")
+          expect(page).to have_content("You have been successfully authorized.")
           expect(page).not_to have_content("We have recovered the following participation data based on your authorization:")
         end
 
@@ -103,7 +103,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
             page.find(".datepicker-dropdown .day:not(.new)", text: "12").click
 
             click_button "Send"
-            expect(page).to have_content("You've been successfully authorized.")
+            expect(page).to have_content("You have been successfully authorized.")
             expect(page).to have_content("We have recovered the following participation data based on your authorization:")
             expect(page).to have_content("Comments: 10")
             expect(page).to have_content("Proposals: 5")
@@ -156,7 +156,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
         # page.find(".datepicker-dropdown .datepicker-days", text: "12").click
         click_button "Send"
 
-        expect(page).to have_content("You've been successfully authorized")
+        expect(page).to have_content("You have been successfully authorized")
 
         visit_authorizations
 
@@ -288,7 +288,7 @@ describe "Authorizations", type: :system, with_authorization_workflows: ["dummy_
           fill_in "Document number", with: "123456789X"
           click_button "Send"
 
-          expect(page).to have_content("You've been successfully authorized")
+          expect(page).to have_content("You have been successfully authorized")
         end
       end
     end

@@ -31,7 +31,7 @@ Just access your `/system` admin and create new organization with some subdomain
 
 You can combine this with the previously generated certificate (your browser is going to complaint but just tell it to proceed vising the site).
 
-Finally remember to add the port as `lvh.me` do not forwards anything, for instance (use `http` or `https` depending on how you've started Rails):
+Finally remember to add the port as `lvh.me` do not forwards anything, for instance (use `http` or `https` depending on how you have started Rails):
 
 `http://someorg.lvh.me:3000/`
 

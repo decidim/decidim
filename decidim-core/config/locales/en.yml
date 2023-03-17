@@ -36,7 +36,7 @@ en:
       decidim/component_published_event: Active component
       decidim/demoted_membership: No longer a group admin
       decidim/gamification/badge_earned_event: Badge earned
-      decidim/gamification/level_up_event: You've leveled up
+      decidim/gamification/level_up_event: You have leveled up
       decidim/invited_to_group_event: Invited to group
       decidim/join_request_accepted_event: Join request accepted
       decidim/join_request_rejected_event: Join request rejected
@@ -411,7 +411,7 @@ en:
           explanation: In order to perform this action, you need to be authorized with "%{authorization}".
           title: Authorization required
         ok:
-          title: You've been authorized while in this page. Please, reload the page to perform your action.
+          title: You have been authorized while in this page. Please, reload the page to perform your action.
         pending:
           explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress.
           resume: Check your "%{authorization}" authorization progress.
@@ -709,15 +709,15 @@ en:
         email_subject: An update to %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Congratulations! You've earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
+          email_intro: Congratulations! You have earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
           email_outro: You have received this notification because you made activity on our website.
           email_subject: 'You''ve earned a new badge: %{badge_name}!'
-          notification_title: Congratulations! You've earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
+          notification_title: Congratulations! You have earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
-          email_intro: Congratulations! You've reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
+          email_intro: Congratulations! You have reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: You've reached level %{current_level} on the %{badge_name} badge!
-          notification_title: Congratulations! You've reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
+          email_subject: You have reached level %{current_level} on the %{badge_name} badge!
+          notification_title: Congratulations! You have reached level %{current_level} on the <a href="%{resource_path}">%{badge_name} badge</a>!
       groups:
         demoted_membership:
           email_intro: An admin of the <a href="%{resource_url}">%{user_group_name}</a> group has removed your admin rights to that group.
@@ -894,7 +894,7 @@ en:
           name: Followers
           next_level_in: Get %{score} more people to follow you to reach the next level!
           unearned_another: This participant does not have any followers yet.
-          unearned_own: You've got no followers yet.
+          unearned_own: You have got no followers yet.
         index:
           badge_title: "%{name} badge"
           how: How can you earn it
@@ -902,7 +902,7 @@ en:
           title: Badges
       description: Badges are recognitions to participant actions and progress in the platform. As you start discovering, participating and interacting in the platform, you will earn different badges.
       level: Level %{level}
-      reached_top: You've reached the top level for this badge.
+      reached_top: You have reached the top level for this badge.
       title: What are the badges?
     group_admins:
       actions:
@@ -1643,13 +1643,13 @@ en:
         someone_invited_you_as_private_user: Someone has invited you as private participant of %{application}, you can accept it through the link below.
         subject: Invitation instructions
       invite_admin:
-        subject: You've been invited to manage %{organization}
+        subject: You have been invited to manage %{organization}
       invite_collaborator:
-        subject: You've been invited to collaborate on %{organization}
+        subject: You have been invited to collaborate on %{organization}
       invite_private_user:
-        subject: You've been invited to a private participatory process on %{organization}
+        subject: You have been invited to a private participatory process on %{organization}
       organization_admin_invitation_instructions:
-        subject: You've been invited to manage %{organization}
+        subject: You have been invited to manage %{organization}
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
