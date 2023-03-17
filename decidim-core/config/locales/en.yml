@@ -500,6 +500,8 @@ en:
             dummy_step_translatable_text: Dummy Step Translatable Text
     contact: Contact
     content_blocks:
+      announcement:
+        name: Announcement
       cta:
         name: Image, text and Call To Action button
       cta_settings_form:
@@ -517,6 +519,9 @@ en:
       highlighted_content_banner:
         name: Highlighted content banner
       highlighted_elements_settings_form:
+        components:
+          all: All
+          label: 'Select component:'
         orders:
           label: 'Sort elements by:'
           random: Random
@@ -528,10 +533,23 @@ en:
         name: HTML block
       last_activity:
         name: Last activity
+        see_all_activity: See all the activity
         title: Last activity
         view_all: View all
+      last_activity_settings_form:
+        max_last_activity_users: Maximum number of user avatars with recent activity to show
+      main_data:
+        name: Main data
+      metadata:
+        name: Metadata
       metrics:
         name: Organization metrics
+      participatory_space_main_data:
+        more_info: More info
+      participatory_space_metrics:
+        name: Metrics
+      participatory_space_stats:
+        name: Statistics
       static_page:
         section:
           name: Section
@@ -1293,7 +1311,7 @@ en:
       participatory_space:
         metrics:
           headline: Metrics
-          link: Show all metrics
+          link: Show all
       terms_and_conditions:
         accept:
           error: There was a problem accepting the terms and conditions.
@@ -1406,7 +1424,6 @@ en:
       term_input_placeholder: Search
     searches:
       filters:
-        back: Back to results
         jump_to: 'Jump to:'
         state:
           active: Active
@@ -1419,9 +1436,6 @@ en:
         filter_by: Filter by
         unfold: Unfold
       results:
-        results:
-          one: "%{count} result"
-          other: "%{count} results"
         view_all: View all (%{count})
     security:
       selfxss_warning:
@@ -1576,11 +1590,7 @@ en:
         back_to_resource: Go back
         changes_at_title: Changes at "%{title}"
         number_of_versions: Versions
-        show_all_versions: Show all versions
-        version_author: Version author
         version_created_at: Version created at
-        version_number: Version number
-        version_number_out_of_total: "%{current_version} out of %{total_count}"
     version_author:
       show:
         deleted: Deleted participant

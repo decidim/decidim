@@ -18,7 +18,7 @@ module Decidim
       private
 
       def step_title
-        translated_attribute process.active_step.title
+        translated_attribute process.active_step&.title
       end
 
       def hashtag
@@ -26,9 +26,9 @@ module Decidim
       end
 
       def nav_items
-        return super unless try(:process_nav_items)
+        return super if (nav_items = try(:process_nav_items, process)).blank?
 
-        process_nav_items
+        nav_items
       end
     end
   end

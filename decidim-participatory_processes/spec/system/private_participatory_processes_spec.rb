@@ -22,12 +22,12 @@ describe "Private Participatory Processes", type: :system do
 
       it "lists only the not private participatory process" do
         within "#processes-grid" do
-          within "#processes-grid h3" do
+          within "#processes-grid h2" do
             expect(page).to have_content("1")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
-          expect(page).to have_selector(".card", count: 1)
+          expect(page).to have_selector(".card__grid", count: 1)
 
           expect(page).to have_no_content(translated(private_participatory_process.title, locale: :en))
         end
@@ -43,12 +43,12 @@ describe "Private Participatory Processes", type: :system do
 
       it "lists only the not private participatory process" do
         within "#processes-grid" do
-          within "#processes-grid h3" do
+          within "#processes-grid h2" do
             expect(page).to have_content("1")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
-          expect(page).to have_selector(".card", count: 1)
+          expect(page).to have_selector(".card__grid", count: 1)
 
           expect(page).to have_no_content(translated(private_participatory_process.title, locale: :en))
         end
@@ -63,13 +63,13 @@ describe "Private Participatory Processes", type: :system do
 
         it "lists private participatory processes" do
           within "#processes-grid" do
-            within "#processes-grid h3" do
+            within "#processes-grid h2" do
               expect(page).to have_content("2")
             end
 
             expect(page).to have_content(translated(participatory_process.title, locale: :en))
             expect(page).to have_content(translated(private_participatory_process.title, locale: :en))
-            expect(page).to have_selector(".card", count: 2)
+            expect(page).to have_selector(".card__grid", count: 2)
           end
         end
 
@@ -91,18 +91,18 @@ describe "Private Participatory Processes", type: :system do
 
       it "lists private participatory processes" do
         within "#processes-grid" do
-          within "#processes-grid h3" do
+          within "#processes-grid h2" do
             expect(page).to have_content("2")
           end
 
           expect(page).to have_content(translated(participatory_process.title, locale: :en))
           expect(page).to have_content(translated(private_participatory_process.title, locale: :en))
-          expect(page).to have_selector(".card", count: 2)
+          expect(page).to have_selector(".card__grid", count: 2)
         end
       end
 
       it "links to the individual process page" do
-        first(".card__link", text: translated(private_participatory_process.title, locale: :en)).click
+        first(".card__grid-text", text: translated(private_participatory_process.title, locale: :en)).click
 
         expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(private_participatory_process)
         expect(page).to have_content "This is a private process"

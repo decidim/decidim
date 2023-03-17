@@ -1,5 +1,4 @@
-<%# REDESIGN_PENDING - Replace this layout with other not using drawers %>
-<%= render layout: "layouts/decidim/shared/drawer" , locals: { close_url: results_path } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: nav_paths do %>
   <%= cell("decidim/accountability/project", result) %>
 
   <div class="mt-8 accountability__project-actions">
@@ -19,7 +18,7 @@
     <%= cell "decidim/accountability/result_metadata", result, template: :show_footer %>
   </div>
 
-  <% content_for :drawer_aside do %>
+  <% content_for :aside do %>
     <div class="accountability__project-aside">
       <% if component_settings.display_progress_enabled? %>
         <%= cell(

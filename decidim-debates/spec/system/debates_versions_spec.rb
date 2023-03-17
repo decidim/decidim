@@ -47,7 +47,7 @@ describe "Explore versions", versioning: true, type: :system do
     # it_behaves_like "accessible page"
 
     it "allows going back to the debate" do
-      click_link "Go back to debate"
+      click_link "Back"
       expect(page).to have_current_path debate_path
     end
 

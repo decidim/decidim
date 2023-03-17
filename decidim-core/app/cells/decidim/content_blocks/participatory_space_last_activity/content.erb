@@ -1,0 +1,18 @@
+<div class="content-block__title">
+  <h2 class="h2 decorator"><%= t("activity", scope: "decidim.profiles.show") %></h2>
+  <div class="participatory-space__metadata-link-endorsers">
+    <%= render_recent_avatars %>
+  </div>
+  <div class="label text-lg"><%= participants_count %></div>
+  <%#= REDESIGN_PENDING: add link to last_activity %>
+  <%= link_to "#", class: "button button__sm button__text-secondary" do %>
+    <span><%= t("see_all_activity", scope: "decidim.content_blocks.last_activity") %></span>
+    <%= icon "arrow-right-line" %>
+  <% end %>
+</div>
+
+<span class="content-block__span"><%= t("name", scope: "decidim.content_blocks.last_activity") %></span>
+<%#= REDESIGN_PENDING: user_activity requires a proper modal to make it work %>
+<div class="space-y-4">
+  <%= cell "decidim/activities", activities_query.limit(6) %>
+</div>
