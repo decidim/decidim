@@ -167,6 +167,8 @@ ca:
         add: Afegir
         attachment:
           new: Nou arxiu adjunt
+        attachment_collection:
+          new: Nova col·lecció d'arxius adjunts
         browse: Explorar
         category:
           new: Nova categoria
