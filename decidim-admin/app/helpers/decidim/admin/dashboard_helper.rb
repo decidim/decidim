@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # This module includes helpers to be used in the admin dashboard, including helper methods to show the Admin Terms of Use.
+    # This module includes helpers to be used in the admin dashboard, including helper methods to show the admin terms of use.
     module DashboardHelper
       def admin_terms_announcement_args
         {

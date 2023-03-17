@@ -2,7 +2,7 @@
 
 module Decidim
   module Consultations
-    # This module, when injected into a controller, ensures there's a
+    # This module, when injected into a controller, ensures there is a
     # consultation available and deducts it from the context.
     module NeedsConsultation
       def self.enhance_controller(instance_or_module)

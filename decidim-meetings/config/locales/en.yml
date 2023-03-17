@@ -56,16 +56,16 @@ en:
         meeting:
           attributes:
             iframe_embed_type:
-              not_embeddable: This URL cannot be embedded in meeting or live event page
+              not_embeddable: This URL cannot be embedded in meeting or live event page.
         meeting_agenda:
           attributes:
             base:
-              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes
-              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes
+              too_many_minutes: The duration of the items exceed the meeting duration by %{count} minutes.
+              too_many_minutes_child: The duration of the item childs exceed the agenda item "%{parent_title}" parent duration by %{count} minutes.
         meeting_registration_invite:
           attributes:
             email:
-              already_invited: This email account has already been invited
+              already_invited: This email account has already been invited.
     models:
       decidim/meetings/close_meeting_event: Meeting closed
       decidim/meetings/create_meeting_event: Meeting
@@ -241,8 +241,8 @@ en:
             remove: Remove
             up: Up
           create:
-            invalid: There was a problem creating this agenda
-            success: Agenda successfully created
+            invalid: There was a problem creating this agenda.
+            success: Agenda successfully created.
           edit:
             title: Edit agenda
             update: Update
@@ -255,8 +255,8 @@ en:
             create: Create
             title: New agenda
           update:
-            invalid: There was a problem updating this agenda
-            success: Agenda successfully updated
+            invalid: There was a problem updating this agenda.
+            success: Agenda successfully updated.
         exports:
           answers: Answers
           meeting_comments: Comments
@@ -295,16 +295,16 @@ en:
             title: Close meeting
         meetings:
           close:
-            invalid: There was a problem closing this meeting
-            success: Meeting successfully closed
+            invalid: There was a problem closing this meeting.
+            success: Meeting successfully closed.
           create:
-            invalid: There was a problem creating this meeting
+            invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
           destroy:
             invalid:
               proposals_count:
-                one: The meeting cannot be destroyed because it has %{count} proposal associated to it
-                other: The meeting cannot be destroyed because it has %{count} proposals associated to it
+                one: The meeting cannot be destroyed because it has %{count} proposal associated to it.
+                other: The meeting cannot be destroyed because it has %{count} proposals associated to it.
             success: Meeting successfully deleted
           edit:
             title: Edit meeting
@@ -326,8 +326,8 @@ en:
             create: Create
             title: Create meeting
           publish:
-            invalid: There was a problem publishing this meeting
-            success: Meeting successfully published
+            invalid: There was a problem publishing this meeting.
+            success: Meeting successfully published.
           service:
             description: Description
             down: Down
@@ -339,17 +339,17 @@ en:
             add_service: Add service
             services: Services
           unpublish:
-            invalid: There was a problem unpublishing this meeting
-            success: Meeting successfully unpublished
+            invalid: There was a problem unpublishing this meeting.
+            success: Meeting successfully unpublished.
           update:
-            invalid: There was a problem updating this meeting
-            success: Meeting successfully updated
+            invalid: There was a problem updating this meeting.
+            success: Meeting successfully updated.
         meetings_poll:
           form:
             title: Edit poll questionnaire for %{questionnaire_for}
           update:
-            invalid: There was a problem updating this meeting poll
-            success: Meeting poll successfully updated
+            invalid: There was a problem updating this meeting poll.
+            success: Meeting poll successfully updated.
         models:
           meeting:
             name: Meeting
@@ -367,7 +367,7 @@ en:
             registrations_count:
               one: There has been %{count} registration.
               other: There has been %{count} registrations.
-            reserved_slots_help: Leave it to 0 if you do not have reserved slots
+            reserved_slots_help: Leave it to 0 if you do not have reserved slots.
             reserved_slots_less_than: Must be less than or equal to %{count}
             title: Registrations
           update:
@@ -451,7 +451,7 @@ en:
           confirmation:
             subject: Your meeting's registration has been confirmed
       meeting:
-        not_allowed: You are not allowed to view this meeting
+        not_allowed: You are not allowed to view this meeting.
       meeting_closes:
         edit:
           back: Back
@@ -649,8 +649,8 @@ en:
       versions:
         back_to_resource: Go back to meeting
       withdraw:
-        error: An error ocurred while withdrawing the meeting
-        success: The meeting has been withdrawn successfully
+        error: An error ocurred while withdrawing the meeting.
+        success: The meeting has been withdrawn successfully.
     metrics:
       meetings:
         description: Number of meetings created
