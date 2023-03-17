@@ -384,9 +384,6 @@ ru:
       destroy:
         button: Перестать следить
         error: При попытке перестать следить за этим ресурсом произошла ошибка.
-    forms:
-      errors:
-        error: В этом поле есть ошибка.
     gamification:
       badges:
         index:
