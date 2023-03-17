@@ -724,8 +724,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè ets una de les administradores de la plataforma.
           email_subject: Un grup d'usuàries ha actualitzat el seu perfil
           notification_title: El grup d'usuàries %{user_group_name} ha actualitzat el seu perfil perdent-ne la verificació. Pots tornar a verificar-lo a través del <a href="%{groups_admin_path}"> taulell d'administració</a>.
-      nickname_event:
-        notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no distingueix les majúscules de les minúscules. <br/> El teu àlies es va crear més tard que un altre d'igual, així que se t'ha renombrat automàticament. Pot modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       reports:
