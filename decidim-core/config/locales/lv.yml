@@ -574,7 +574,6 @@ lv:
         decidim/user:
           password: Parole ir pārāk īsa.
           password_confirmation: Apstiprinājuma parolei jāsakrīt ar paroli.
-        error: Šajā laukā ir kļūda.
     gamification:
       all_badges_link: Skatīt visus pieejamos žetonus.
       badges:
