@@ -210,7 +210,7 @@ describe "Explore meetings", :slow, type: :system do
       it "allows searching by text", :slow do
         visit_component
         within ".filters" do
-          # It seems that there's another field with the same name in another form on page.
+          # It seems that there is another field with the same name in another form on page.
           # Because of that we try to select the correct field to set the value and submit the right form
           find(:css, "#content form.new_filter [name='filter[search_text_cont]']").set(translated(meetings.first.title))
 

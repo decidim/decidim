@@ -201,7 +201,7 @@ en:
         verify: Verify
       admin_terms_of_use:
         accept:
-          error: There's been an error while accepting the admin terms of use.
+          error: There is been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
           accept: I agree with the terms

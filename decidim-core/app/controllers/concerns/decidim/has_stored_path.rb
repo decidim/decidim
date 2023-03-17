@@ -13,7 +13,7 @@ module Decidim
 
     # Stores the url where the user will be redirected after login.
     #
-    # Uses the `redirect_url` param or the current url if there's no param.
+    # Uses the `redirect_url` param or the current url if there is no param.
     # In Devise controllers we only store the URL if it is from the params, we do not
     # want to overwrite the stored URL for a Devise one.
     def store_current_location

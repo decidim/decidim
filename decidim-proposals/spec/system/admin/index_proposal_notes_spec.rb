@@ -63,7 +63,7 @@ describe "Index Proposal Notes", type: :system do
         find("*[type=submit]").click
       end
 
-      expect(page).to have_content("There's an error in this field.")
+      expect(page).to have_content("There is an error in this field.")
     end
   end
 end
