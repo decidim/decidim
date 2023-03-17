@@ -773,8 +773,6 @@ ar:
           email_outro: تلقيت هذا الإشعار لأنك مدير في هذه المنصة.
           email_subject: قامت مجموعة من المستخدمين بتحديث ملفاتها الشخصية
           notification_title: قامت مجموعة المستخدمين %{user_group_name} بتحديث الملف الشخصي الخاص بها، تاركة ذلك غير مؤكد. يمكنك الآن تأكيدها في لوحة <a href="%{groups_admin_path}">المشرف</a>.
-      nickname_event:
-        notification_body: لقد قمنا بتصحيح الطريقة التي تستخدم بها الأسماء المستعارة بحيث لا يوجد تكرار، ولهذا السبب قمنا بإزالة القاعدة الحساسة للحالة. <br/> تم إنشاء اسمك المستعار بعد اسم آخر بنفس الاسم، لذلك قمنا بإعادة تسميته تلقائيا. يمكنك تغييره من <a href="%{link_to_account_settings}">إعدادات حسابك</a>.
       notification_event:
         notification_title: حدث حدث ل <a href="%{resource_path}">%{resource_title}</a>.
       reports:
