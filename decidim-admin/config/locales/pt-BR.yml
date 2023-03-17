@@ -166,7 +166,6 @@ pt-BR:
         verify: Verificar
       admin_terms_of_use:
         accept:
-          error: Ocorreu um erro ao aceitar os termos de uso do administrador.
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
           refuse: Recusar os termos do admin
