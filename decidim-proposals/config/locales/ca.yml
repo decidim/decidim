@@ -605,6 +605,7 @@ ca:
           publish:
             error: S'ha produït un error en publicar l'esborrany col·laboratiu.
             irreversible_action_modal:
+              body: Després de publicar l'esborrany com a proposta, deixarà de ser editable. La proposta no acceptarà noves autores ni contribucions.
               cancel: Cancel·lar
               ok: Publica com a proposta
               title: La següent acció és irreversible
@@ -613,6 +614,7 @@ ca:
           withdraw:
             error: S'ha produït un error en tancar l'esborrany col·laboratiu.
             irreversible_action_modal:
+              body: Després de tancar l'esborrany, ja no serà editable. L'esborrany no acceptarà noves autores ni contribucions.
               cancel: Cancel·lar
               ok: Retira l'esborrany col·laboratiu
               title: La següent acció és irreversible
