@@ -167,7 +167,6 @@ it:
         verify: Verifica
       admin_terms_of_use:
         accept:
-          error: Si è verificato un errore durante l'accettazione dei termini di utilizzo da parte dell'amministratore.
           success: Ottimo! Hai accettato i termini d'uso dell'amministratrice/tore.
         actions:
           are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo dell'amministratore?
