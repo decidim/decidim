@@ -1,5 +1,5 @@
 <%= decidim_modal id: "flagModal", class: "flag-modal" do %>
-  <%= form_for report_form, builder:, url: decidim.report_path(sgid: model.to_sgid.to_s), method: :post do |f| %>
+  <%= form_for report_form, builder:, url: report_path, method: :post do |f| %>
     <div data-dialog-container>
       <%= icon "flag-line" %>
       <h2 id="dialog-title-flagModal" tabindex="-1" data-dialog-title><%= t("decidim.shared.flag_modal.title") %></h2>
