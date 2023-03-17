@@ -496,6 +496,7 @@ ca:
           summary_content: Contingut
         two_pane_section:
           left_column: Columna esquerra
+          name: Secció de dues columnes
           right_column: Columna dreta
       stats:
         name: Estadístiques de l'organització
