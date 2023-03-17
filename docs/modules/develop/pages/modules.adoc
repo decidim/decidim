@@ -90,7 +90,7 @@ These are some opinions on how to improve the quality of the software, but they 
   . steps to run the tests locally
   . how do you want to accept contributions
 * To follow our same rules regarding https://github.com/decidim/decidim/blob/develop/.rubocop.yml[code styling]
-* To have a license file that's compatible with Decidim license (GPL Affero 3)
+* To have a license file that is compatible with Decidim license (GPL Affero 3)
 * To have a valid .gemspec file
 * To follow the Decidim Social Contract
 * To have a description and other metadata (ie tags) on GitHub or another platform, so it's more discoverable
