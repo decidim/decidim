@@ -800,7 +800,6 @@ ca:
         decidim/user:
           password: La contrasenya és massa curta.
           password_confirmation: La confirmació de la contrasenya no coincideix amb la contrasenya.
-        error: Hi ha un error en aquest camp.
       file_help:
         file:
           explanation: 'Instruccions per a l''arxiu:'
