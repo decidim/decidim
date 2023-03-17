@@ -616,6 +616,7 @@ cs:
           publish:
             error: Při publikování konceptu spolupráce došlo k chybám.
             irreversible_action_modal:
+              body: Po zveřejnění konceptu jako návrhu již nebude možné koncept upravovat. Návrh nebude přijímat nové autory nebo příspěvky.
               cancel: Zrušit
               ok: Publikovat jako návrh
               title: Následující akce je nevratná
@@ -624,6 +625,7 @@ cs:
           withdraw:
             error: Došlo k chybě při uzavření návrhu spolupráce.
             irreversible_action_modal:
+              body: Po zavření konceptu již nebude možné koncept upravovat. Koncept nebude přijímat nové autory nebo příspěvky.
               cancel: Zrušit
               ok: Vyjměte návrh spolupráce
               title: Následující akce je nevratná
