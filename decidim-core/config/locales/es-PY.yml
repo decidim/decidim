@@ -727,8 +727,6 @@ es-PY:
           email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
           email_subject: Un grupo de usuarias ha actualizado su perfil
           notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
-      nickname_event:
-        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas. <br/> Tu alias fue creado después de otro igual, así que lo hemos renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
