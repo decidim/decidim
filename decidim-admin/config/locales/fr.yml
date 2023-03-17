@@ -39,6 +39,7 @@ fr:
         body: Corps de texte
         subject: Objet
       organization:
+        admin_terms_of_use_body: Accepter les conditions générales
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -133,6 +134,10 @@ fr:
         file: Fichier
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Sélectionnez au moins un espace participatif.
         organization:
           attributes:
             official_img_footer:
@@ -147,6 +152,11 @@ fr:
           attributes:
             file:
               malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Fichier fourni invalide , veuillez vérifier que le fichier est correctement formaté.
+            invalid_mime_type: Type de MIME invalide.
   activerecord:
     attributes:
       decidim/static_page:
@@ -168,7 +178,7 @@ fr:
         attachment:
           new: Nouvelle pièce jointe
         attachment_collection:
-          new: Nouveau dossier de pièces jointes
+          new: Nouveau dossier
         browse: Parcourir
         category:
           new: Nouvelle catégorie
@@ -196,8 +206,12 @@ fr:
           accept: J'accepte les conditions d'utilisation
           are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur ?
           refuse: Refuser les conditions d'utilisation administrateur
+          title: Accepter les conditions d’utilisation
         required_review:
+          alert: 'Obligatoire : Consultez nos conditions générales d''administration'
+          callout: Veuillez prendre un moment pour examiner les conditions d'utilisation de l'administrateur. Sinon, vous ne serez pas en mesure de gérer la plateforme.
           cta: Consultez les maintenant.
+        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
