@@ -711,7 +711,6 @@ ro:
         decidim/user:
           password: Parola este prea scurtă.
           password_confirmation: Confirmarea parolei trebuie să coincidă cu parola.
-        error: A apărut o eroare în acest câmp.
       file_help:
         file:
           explanation: 'Orientări pentru fișier:'
