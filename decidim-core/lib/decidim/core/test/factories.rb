@@ -392,7 +392,8 @@ FactoryBot.define do
     published_at { Time.current }
     settings do
       {
-        dummy_global_translatable_text: generate_localized_title
+        dummy_global_translatable_text: generate_localized_title,
+        comments_max_length: organization.comments_max_length
       }
     end
 
