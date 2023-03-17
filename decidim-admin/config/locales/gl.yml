@@ -168,7 +168,6 @@ gl:
         verify: Verifique
       admin_terms_of_use:
         accept:
-          error: Produciuse un erro ao aceptar os termos de uso do panel de administración.
           success: Xenial! Aceptaches os termos de uso do panel de administración.
         actions:
           refuse: Rexeitar os termos de uso
