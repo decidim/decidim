@@ -46,6 +46,12 @@ ja:
         decidim_consultations_response_id:
           not_found: 応答が見つかりません。
   activerecord:
+    errors:
+      models:
+        decidim/consultations/vote:
+          attributes:
+            question:
+              invalid_num_votes: 投票数が無効です。
     models:
       decidim/consultation:
         other: 議案
@@ -140,6 +146,7 @@ ja:
           name:
             other: 回答
       question_configuration:
+        disable_external_voting: 詳細設定の外部投票を無効にしてください。
         form:
           help: 参加者が選択できる回答の最大数を増やすことで、複数の選択問題を設定します。 デフォルトの最大値は1で、1つの応答しか投票できません。
           title: 高度な構成
@@ -283,6 +290,7 @@ ja:
             votes: 投票
       question_votes:
         create:
+          error: 質問への投票中に問題がありました。
           success: 議案が終了するまで変更できます。最後の投票のみが承認されます。
           title_error: 投票エラー！
           title_success: 投票が正常に登録されました
