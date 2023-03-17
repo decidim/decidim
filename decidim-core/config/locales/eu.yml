@@ -723,7 +723,6 @@ eu:
         decidim/user:
           password: Pasahitza laburregia da.
           password_confirmation: Pasahitzaren egiaztapena zure pasahitzarekin bat etorri behar da.
-        error: Errorea bat dago eremu honetan.
       file_help:
         file:
           explanation: 'Jarraibideak artxiborako:'
