@@ -13,6 +13,7 @@ module Decidim
       render :show
     end
 
+    # deprecated
     def membership_cell_name
       return "decidim/user_group_admin_membership_profile" if options[:from_admin].presence
 
@@ -28,6 +29,10 @@ module Decidim
                        else
                          Decidim::UserGroups::AcceptedMemberships.for(model).page(params[:page]).per(20)
                        end
+    end
+
+    def validation_messages
+      [t("decidim.members.no_members")] if memberships.blank?
     end
   end
 end

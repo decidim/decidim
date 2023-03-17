@@ -1,0 +1,9 @@
+<div class="text-center py-10">
+  <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
+    <%= t("manage_admins", scope: "decidim.group_admins.index") %>
+  </h1>
+</div>
+
+<p class="mb-8"><%= t("current_admins", scope: "decidim.group_admins.index") %></p>
+
+<%= cell "decidim/members", model, role: "admin", from_admin: true %>

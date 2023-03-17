@@ -1,0 +1,27 @@
+<div class="text-center py-10">
+  <h1 class="h3 md:h1 decorator inline-block text-left mb-12">
+    <%= t("manage_admins", scope: "decidim.group_admins.index") %>
+  </h1>
+</div>
+
+<p class="mb-8"><%= t("current_admins", scope: "decidim.group_admins.index") %></p>
+
+<% if validation_messages.present? %>
+  <% validation_messages.each do |validation| %>
+    <%= cell("decidim/announcement", validation) %>
+  <% end %>
+<% else %>
+  <% memberships.each do |membership| %>
+    <div class="profile__group-pending__list">
+      <%= card_for membership %>
+
+      <%= link_to(
+        t("decidim.group_admins.actions.demote_admin"),
+        decidim.demote_group_manage_admin_path(model.user_group.nickname, model),
+        method: :post,
+        data: { confirm: t("decidim.group_admins.actions.are_you_sure") },
+        class: "button button__sm button__transparent-secondary"
+      ) %>
+    </div>
+  <% end %>
+<% end %>

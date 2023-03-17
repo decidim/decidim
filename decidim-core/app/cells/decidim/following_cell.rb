@@ -18,5 +18,12 @@ module Decidim
     def non_public_followings?
       public_followings.count < model.following_count
     end
+
+    def validation_messages
+      [].tap do |keys|
+        keys << t("decidim.following.no_followings") if public_followings.blank?
+        keys << t("decidim.following.non_public_followings") if non_public_followings?
+      end
+    end
   end
 end

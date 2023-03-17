@@ -57,6 +57,30 @@ module Decidim
       render :show
     end
 
+    def group_admins
+      enforce_user_groups_enabled
+
+      @content_cell = "decidim/group_admins"
+      @title_key = "group_admins"
+      render :show
+    end
+
+    def group_members
+      enforce_user_groups_enabled
+
+      @content_cell = "decidim/group_members"
+      @title_key = "group_members"
+      render :show
+    end
+
+    def group_invites
+      enforce_user_groups_enabled
+
+      @content_cell = "decidim/group_invites"
+      @title_key = "group_invites"
+      render :show
+    end
+
     def activity
       @content_cell = "decidim/user_activity"
       @title_key = "activity"
