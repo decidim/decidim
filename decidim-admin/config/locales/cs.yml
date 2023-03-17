@@ -188,7 +188,6 @@ cs:
         verify: Ověřit
       admin_terms_of_use:
         accept:
-          error: Při přijímání správcovských podmínek použití došlo k chybě.
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s podmínkami
