@@ -190,7 +190,6 @@ es:
         verify: Verificar
       admin_terms_of_use:
         accept:
-          error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
           accept: Estoy de acuerdo con los términos
