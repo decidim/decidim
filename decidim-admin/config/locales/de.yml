@@ -39,6 +39,7 @@ de:
         body: Haupttext
         subject: Betreff
       organization:
+        admin_terms_of_use_body: Inhalt für die Allgemeinen Geschäftsbedingungen
         alert_color: Benachrichtigung
         available_authorizations: Verfügbare Autorisierungen
         badges_enabled: Abzeichen aktivieren
@@ -133,12 +134,21 @@ de:
         file: Datei
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Wählen Sie mindestens einen partizipativen Bereich aus.
         organization:
           attributes:
             official_img_footer:
               allowed_file_content_types: Ungültige Bilddatei
             official_img_header:
               allowed_file_content_types: Ungültige Bilddatei
+      new_import:
+        attributes:
+          file:
+            invalid_file: Ungültige Datei, bitte überprüfen Sie, ob die Datei korrekt formatiert ist.
+            invalid_mime_type: Ungültiger MIME-Typ.
   activerecord:
     attributes:
       decidim/static_page:
@@ -185,12 +195,18 @@ de:
         actions:
           are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
           refuse: Die Admin-Nutzungsbedingungen ablehnen
+          title: Den Nutzungsbedingungen zustimmen
         required_review:
+          alert: 'Erforderlich: Überprüfen Sie unsere Geschäftsbedingungen für Administratoren'
+          callout: Bitte nehmen Sie sich einen Moment Zeit, um die Admin-Nutzungsbedingungen zu lesen. Ansonsten können Sie die Plattform nicht verwalten.
           cta: Lesen Sie sie jetzt.
+        title: Admin-Nutzungsbedingungen
       area_types:
         create:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
           success: Bereichstyp wurde erfolgreich erstellt.
+        destroy:
+          success: Der Bereichstyp wurde erfolgreich zerstört.
         edit:
           title: Bereichstyp bearbeiten
           update: Aktualisieren
@@ -199,12 +215,14 @@ de:
           title: Neuer Bereichstyp
         update:
           error: Beim Aktualisieren dieses Bereichstyps ist ein Fehler aufgetreten.
+          success: Bereichstyp wurde erfolgreich aktualisiert.
       areas:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich wurde erfolgreich erstellt.
         destroy:
           has_spaces: Dieser Bereich hat abhängige partizipative Räume. Bitte stellen Sie sicher, dass kein partizipativer Raum mehr diesen Bereich referenziert, bevor sie ihn löschen.
+          success: Bereich wurde erfolgreich zerstört.
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
@@ -214,6 +232,7 @@ de:
         no_areas: Keine Bereiche
         update:
           error: Beim Aktualisieren dieses Bereichs ist ein Fehler aufgetreten.
+          success: Bereich wurde erfolgreich aktualisiert.
       attachment_collections:
         create:
           error: Beim Erstellen eines neuen Ordners ist ein Fehler aufgetreten.
@@ -253,6 +272,7 @@ de:
         message: Seien Sie vorsichtig, wenn Sie mit Anhängen in einem privaten Raum arbeiten. Jeder Teilnehmer kann dieses Dokument mit anderen teilen.
       autocomplete:
         no_results: keine Ergebnisse gefunden
+        search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen.
       block_user:
         new:
           action: Konto sperren und Begründung senden
@@ -336,6 +356,9 @@ de:
       domain_whitelist:
         form:
           domain_too_short: Domain zu kurz
+        update:
+          error: Fehler beim Aktualisieren der Domain-Whitelist.
+          success: Domain-Whitelist erfolgreich aktualisiert.
       exports:
         export_as: "%{name} als %{export_format}"
         formats:
@@ -418,8 +441,10 @@ de:
             message_1: CSV, JSON und Excel (.xlsx) Dateien werden unterstützt
             message_2: Bei CSV-Dateien muss das Trennzeichen zwischen den Spalten ein Semikolon sein (";")
       help_sections:
+        error: Beim Aktualisieren der Hilfeabschnitte ist ein Fehler aufgetreten.
         form:
           save: Speichern
+        success: Hilfeabschnitte wurden erfolgreich aktualisiert.
       impersonatable_users:
         index:
           filter:
@@ -699,6 +724,8 @@ de:
           send_to_participants: An Teilnehmer senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
+        send:
+          no_recipients: Keine Empfänger für diese Auswahl.
         show:
           preview: Vorschau
           select_recipients_to_deliver: Empfänger auswählen
@@ -707,6 +734,13 @@ de:
           error: Beim Aktualisieren dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
       officializations:
+        block:
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
+          success: Teilnehmer erfolgreich blockiert.
+        create:
+          success: Benutzer wurde offiziell anerkannt.
+        destroy:
+          success: Der Benutzer wurde erfolgreich inoffizialisiert.
         index:
           actions: Aktionen
           badge: Abzeichen
@@ -735,6 +769,9 @@ de:
           hidden: versteckt
           show: Anzeigen
           title: E-Mail-Adresse des Teilnehmers anzeigen
+        unblock:
+          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
+          success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben.
       organization:
         edit:
           title: Organisation bearbeiten
@@ -779,6 +816,13 @@ de:
           add: Zur Whitelist hinzufügen
           title: Externe Domain-Whitelist
       organization_homepage:
+        content_blocks:
+          create:
+            error: Es gab ein Problem beim Versuch, diesen Inhaltsblock zu erstellen.
+            success: Inhaltsblock erfolgreich erstellt.
+          destroy:
+            error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
+            success: Inhaltsblock erfolgreich gelöscht.
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
           inactive_content_blocks: Inaktive Inhaltsblöcke
@@ -845,6 +889,8 @@ de:
         create:
           error: Beim Erstellen eines neuen Bereichs ist ein Fehler aufgetreten.
           success: Bereich erfolgreich erstellt
+        destroy:
+          success: Scope erfolgreich gelöscht.
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
@@ -864,6 +910,7 @@ de:
           error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
           success: Token wurde erfolgreich gelöscht.
         share_tokens:
+          empty: Es gibt keine aktiven Token.
           help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
           title: Token teilen
       shared:
@@ -876,6 +923,8 @@ de:
         create:
           error: Beim Erstellen eines neuen Themas ist ein Fehler aufgetreten.
           success: Thema erfolgreich erstellt.
+        destroy:
+          success: Thema erfolgreich gelöscht.
         edit:
           title: Thema bearbeiten
           update: Thema aktualisieren
@@ -890,6 +939,8 @@ de:
           view: Öffentliche Seite anzeigen
         content_blocks:
           active_content_blocks: Aktive Inhaltsblöcke
+          create:
+            error: Es gab ein Problem beim Versuch, diesen Inhaltsblock zu erstellen.
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
