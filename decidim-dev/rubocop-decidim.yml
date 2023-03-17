@@ -8,4 +8,6 @@
 inherit_from:
   - config/rubocop/ruby.yml
   - config/rubocop/rails.yml
+  - config/rubocop/rspec.yml
+  - config/rubocop/faker.yml
   - config/rubocop/disabled.yml
