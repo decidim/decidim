@@ -10,6 +10,7 @@ AllCops:
     - "**/*.rake"
     - "**/*.gemspec"
     - "**/*.ru"
+    - "**/Capfile"
     - "**/Gemfile"
     - "**/Rakefile"
   Exclude:
