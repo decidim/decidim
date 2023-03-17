@@ -713,7 +713,6 @@ sv:
         decidim/user:
           password: Lösenordet är för kort.
           password_confirmation: Lösenordsbekräftelsen måste överensstämma med lösenordet.
-        error: Det finns ett fel i det här fältet.
       file_help:
         file:
           explanation: 'Vägledning för fil:'
