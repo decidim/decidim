@@ -66,7 +66,7 @@ describe "Edit proposals", type: :system do
           visit current_path
 
           # REDESIGN_PENDING: the documents partial now comes with no title,
-          # that's is something will be added in the proposal view
+          # that is is something will be added in the proposal view
           # expect(page).to have_content("Related documents")
           expect(page).to have_content("RELATED IMAGES")
           click_link "Edit proposal"
