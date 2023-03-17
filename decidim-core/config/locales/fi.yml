@@ -833,7 +833,6 @@ fi:
         decidim/user:
           password: Salasana on liian lyhyt.
           password_confirmation: Salasanan vahvistuksen on oltava sama kuin salasanan.
-        error: Tässä kentässä on virhe.
       file_help:
         file:
           explanation: 'Tiedoston ohjeistus:'
