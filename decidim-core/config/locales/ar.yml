@@ -854,7 +854,6 @@ ar:
         decidim/user:
           password: الكلمة السرية قصيرة جدا.
           password_confirmation: يجب أن يكون تأكيد كلمة المرور مطابق للكلمة السرية.
-        error: يوجد خطأ في هذا المجال.
       file_help:
         file:
           explanation: 'إرشادات الملف:'
