@@ -95,7 +95,7 @@ module Decidim
 
         private
 
-        # This method will add an error to the `attachment` field only if there is
+        # This method will add an error to the `attachment` field only if there's
         # any error in any other field. This is needed because when the form has
         # an error, the attachment is lost, so we need a way to inform the user of
         # this problem.
