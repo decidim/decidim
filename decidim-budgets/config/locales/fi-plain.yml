@@ -120,13 +120,13 @@ fi-pl:
             success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
           update_selected:
             invalid:
-              selected: 'Nämä projektit oli jo valittu toteutukseen: %{projects}.'
-              unselected: 'Näitä projekteja ei oltu valittu toteutukseen: %{projects}.'
+              selected: 'Nämä hankkeet oli jo valittu toteutukseen: %{projects}.'
+              unselected: 'Näitä hankkeita ei oltu valittu toteutukseen: %{projects}.'
             select_a_project: Valitse hanke.
             select_a_selection: Valitse toteutuksen tila.
             success:
-              selected: 'Näiden projektien valinta toteutukseen onnistui: %{projects}.'
-              unselected: 'Näiden projektien toteutukseen valinnan poistaminen onnistui: %{projects}.'
+              selected: 'Näiden hankkeiden valinta toteutukseen onnistui: %{projects}.'
+              unselected: 'Näiden hankkeiden toteutukseen valinnan poistaminen onnistui: %{projects}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuominen hankkeiksi epäonnistui.
@@ -208,10 +208,10 @@ fi-pl:
           title: Vahvista ääni
         budget_excess:
           budget_excess:
-            description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
+            description: Tämä hanke ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen hankkeen äänestäsi tai äänestää nykyisten valintojen mukaisesti.
             title: Maksimibudjetti ylitetty
           close: Sulje
-          description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
+          description: Tämä hanke ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen hankkeen äänestäsi tai äänestää nykyisten valintojen mukaisesti.
           ok: OK
           projects_excess:
             description: Tämä projekti ylittää valittavien projektien maksimimäärän, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
@@ -265,7 +265,7 @@ fi-pl:
           filter_by: Suodata
           unfold: Avaa
         index:
-          view_project: Näytä projekti
+          view_project: Näytä hanke
         order_progress:
           vote: Äänestä
         order_selected_projects:
