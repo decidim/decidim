@@ -43,6 +43,7 @@ ja:
           body:
             label: コメント
             placeholder: これについてどう思いますか?
+          form_error: テキストは必須で、 %{length} 文字を超えることはできません。
           submit: 送信
           user_group_id:
             label: 'コメント:'
