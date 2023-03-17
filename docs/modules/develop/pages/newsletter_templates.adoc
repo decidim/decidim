@@ -36,7 +36,7 @@ end
 
 You'll need to add this into an initializer. Note that if you're adding this from a module, then you need to add it from the `engine.rb` file (check the docs for content blocks for more info).
 
-This is the simplest template. It has a single attribute, in this case a translatable chunk of text. Let's go line by line.
+This is the simplest template. It has a single attribute, in this case a translatable chunk of text. We will analyze the example line by line.
 
 Inside the block, first we define the path of the cell we'll use to render the email publicly. This cell will receive the `Decidim::ContentBlock` object, which will contain the attributes and any image we have (one in this example). In order to render cells, please note that emails have a very picky HTML syntax, so we suggest using some specialized tools to design the template, export the layout to HTML and render that through the cell. We suggest you make this cell inherit from `Decidim::NewsletterTemplates::BaseCell` for convenience.
 

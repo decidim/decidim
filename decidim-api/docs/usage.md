@@ -125,7 +125,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > Each filter has its own properties, you should check any object in particular for details. The way they work with multi-languages fields, however, is the same:
 >
-> Let's say we have some searchable object with a multi-language field called *title*, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to a specific language?
+> We can say we have some searchable object with a multi-language field called *title*, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to a specific language?
 >
 > In our case, we've decided to search only one particular language of a multi-language field but we let you choose which language to search.
 > If no language is specified, the configured as default in the organization will be used. The keyword to specify the language is `locale`, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).
