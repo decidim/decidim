@@ -188,7 +188,6 @@ eu:
         verify: Egiaztatu
       admin_terms_of_use:
         accept:
-          error: Errorea gertatu da Administrazioaren Gaiak eta Baldintzak onartzean.
           success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
           accept: Ados nago
