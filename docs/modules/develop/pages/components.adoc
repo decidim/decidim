@@ -1,6 +1,6 @@
 = Components
 
-Components are the core contract between external xref:develop:modules.adoc[modules] and the core. They're used to define pieces of functionality that are pluggable to participatory spaces and can be enabled or disabled by the administrator.
+Components are the core contract between external xref:develop:modules.adoc[modules] and the core. They are used to define pieces of functionality that are pluggable to participatory spaces and can be enabled or disabled by the administrator.
 
 == Creating a new component
 
