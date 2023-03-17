@@ -22,7 +22,7 @@ If you want to replace a whole file existin in Decidim you can do it by creating
 
 == Head extra file
 
-There is an special partial file for adding inline content in every public page. You just need to create a file called `app/views/layouts/decidim/_head_extra.html.erb`:
+There's an special partial file for adding inline content in every public page. You just need to create a file called `app/views/layouts/decidim/_head_extra.html.erb`:
 
 [source,javascript]
 ----

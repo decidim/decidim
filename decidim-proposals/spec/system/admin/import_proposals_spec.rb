@@ -24,7 +24,7 @@ describe "Import proposals", type: :system do
 
     it "returns error without a file" do
       click_button "Import"
-      expect(page).to have_content("There is an error in this field")
+      expect(page).to have_content("There's an error in this field")
     end
 
     it "does not change proposal amount if one imported row fails" do

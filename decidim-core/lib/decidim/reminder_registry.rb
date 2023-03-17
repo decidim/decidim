@@ -32,7 +32,7 @@ module Decidim
       if reminder_exists?(reminder_name)
         raise(
           ReminderAlreadyRegistered,
-          "There is a reminder already registered with the name `:#{reminder_name}`, must be unique"
+          "There's a reminder already registered with the name `:#{reminder_name}`, must be unique"
         )
       end
 

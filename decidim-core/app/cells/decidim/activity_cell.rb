@@ -19,7 +19,7 @@ module Decidim
     end
 
     # Since activity logs could be linked to resource no longer available
-    # this method is added in order to skip rendering a cell if there is
+    # this method is added in order to skip rendering a cell if there's
     # not enough data.
     def renderable?
       resource.present? && participatory_space.present? && published?
@@ -32,7 +32,7 @@ module Decidim
 
     # The title to show at the card.
     #
-    # The card will also be displayed OK if there is no title.
+    # The card will also be displayed OK if there's no title.
     def title
       resource_title = resource.try(:resource_title) || resource.try(:title)
       return if resource_title.blank?
@@ -47,7 +47,7 @@ module Decidim
 
     # The description to show at the card.
     #
-    # The card will also be displayed OK if there is no description.
+    # The card will also be displayed OK if there's no description.
     def description
       resource_description = resource.try(:resource_description) || resource.try(:description)
       return if resource_description.blank?

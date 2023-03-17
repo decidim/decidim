@@ -29,7 +29,7 @@ USE eager loading detected
 Call stack
 ----
 
-It also warns you when there is an unnecessary eager load.
+It also warns you when there's an unnecessary eager load.
 
 More details: https://github.com/flyerhzm/bullet
 

@@ -23,7 +23,7 @@ Upload the component to GitHub with the naming *decidim-module-engine_name*, so 
 
 Components are defined in a manifest, along with its engine and admin engine counterpart.
 
-There is a DSL available to describe all this:
+There's a DSL available to describe all this:
 
 [source,ruby]
 ----

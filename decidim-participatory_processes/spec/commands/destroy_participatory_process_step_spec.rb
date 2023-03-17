@@ -14,7 +14,7 @@ module Decidim::ParticipatoryProcesses
     end
     let(:step) { active_step }
 
-    context "when there is more than one step" do
+    context "when there's more than one step" do
       let!(:inactive_step) do
         create(:participatory_process_step, participatory_process:, active: false)
       end

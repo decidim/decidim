@@ -262,7 +262,7 @@ a .card__title{
 .card__author{
   margin-bottom: .5rem;
 
-  // Hack when there is a toggler list
+  // Hack when there's a toggler list
   [data-toggler]{
     margin-bottom: -.5rem;
   }

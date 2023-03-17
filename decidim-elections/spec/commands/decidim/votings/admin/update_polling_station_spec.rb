@@ -104,7 +104,7 @@ module Decidim
               end
             end
 
-            context "when there is a new president" do
+            context "when there's a new president" do
               it "assigns the new president" do
                 expect { subject.call }.to broadcast(:ok)
                 expect(updated_president.reload.presided_polling_station).to eq polling_station

@@ -493,7 +493,7 @@ The response:
 
 #### What's going on?
 
-Until the `... on Proposals` line, there is nothing new. We are requesting the *Assembly* participatory space identified by the `id=3`, then listing all its components with the type "Proposals". All the components share the *id* and *name* properties, so we can just add them at the query.
+Until the `... on Proposals` line, there's nothing new. We are requesting the *Assembly* participatory space identified by the `id=3`, then listing all its components with the type "Proposals". All the components share the *id* and *name* properties, so we can just add them at the query.
 
 After that, we want content specific from the *Proposals* type. In order to do that we must tell the server that the content we will request shall only be executed if the types matches *Proposals*. We do that by wrapping the rest of the query in the `... on Proposals` clause.
 

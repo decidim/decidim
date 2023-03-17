@@ -112,7 +112,7 @@ module Decidim
     end
 
     # Push the branch to a git remote repository
-    # Checks that there is actually something to push first, if not then it exits.
+    # Checks that there's actually something to push first, if not then it exits.
     #
     # @return [void]
     def push_backport_branch!

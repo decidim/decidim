@@ -51,7 +51,7 @@ module Decidim
     # on meetings.
     #
     # A Component can expose as many actions as it wants and the admin panel will
-    # generate a UI to handle them. There is a set of controller helpers available
+    # generate a UI to handle them. There's a set of controller helpers available
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
 

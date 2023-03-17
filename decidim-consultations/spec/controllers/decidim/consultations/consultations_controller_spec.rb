@@ -22,7 +22,7 @@ describe Decidim::Consultations::ConsultationsController, type: :controller do
     end
   end
 
-  context "when there is not a consultation" do
+  context "when there's not a consultation" do
     it "returns 404" do
       expect { get :show, params: { slug: "invalid-consultation" } }
         .to raise_error(ActiveRecord::RecordNotFound)

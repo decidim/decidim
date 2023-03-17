@@ -92,7 +92,7 @@ describe Decidim::ActionLog do
       it { is_expected.to be_falsey }
     end
 
-    context "when there is no resource" do
+    context "when there's no resource" do
       before do
         action_log.resource.delete
       end
@@ -100,7 +100,7 @@ describe Decidim::ActionLog do
       it { is_expected.to be_falsey }
     end
 
-    context "when there is no particiaptory space" do
+    context "when there's no particiaptory space" do
       before do
         action_log.participatory_space.delete
       end

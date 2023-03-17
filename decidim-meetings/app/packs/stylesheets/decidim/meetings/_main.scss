@@ -30,7 +30,7 @@
         flex: 0 0 80%;
       }
 
-      // shrink iframe when there is two panels
+      // shrink iframe when there's two panels
       & + & + div{
         flex: 0 0 60%;
       }

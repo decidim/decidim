@@ -34,7 +34,7 @@ module Decidim
         end
       end
 
-      context "when there is errors on base" do
+      context "when there's errors on base" do
         it "adds an error callout" do
           form = Form.new
           form.errors.add(:base, "Arbitrary error")

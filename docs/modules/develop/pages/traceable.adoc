@@ -23,7 +23,7 @@ The default presenter does not fulfill your needs? You might want to create your
 
 Let's go ahead and see how to create your own resource presenter.
 
-Custom presenters should be named as `Decidim::<your module name>::<log name>::<your model name>Presenter`. There is currently only one log, `AdminLog`. This means that if your model is `Decidim::Accountability::Result`, then your admin log presenter is must be `Decidim::Accountability::AdminLog::ResultPresenter`. You can inherit from `Decidim::Log::BasePresenter` for simplicity:
+Custom presenters should be named as `Decidim::<your module name>::<log name>::<your model name>Presenter`. There's currently only one log, `AdminLog`. This means that if your model is `Decidim::Accountability::Result`, then your admin log presenter is must be `Decidim::Accountability::AdminLog::ResultPresenter`. You can inherit from `Decidim::Log::BasePresenter` for simplicity:
 
 [source,ruby]
 ----

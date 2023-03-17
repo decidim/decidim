@@ -566,7 +566,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when there is a promoter committee" do
+      context "when there's a promoter committee" do
         let(:initiative) { build(:initiative, organization:, scoped_type: initiative_type_scope) }
 
         before do

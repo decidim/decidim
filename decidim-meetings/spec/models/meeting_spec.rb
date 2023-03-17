@@ -313,7 +313,7 @@ module Decidim::Meetings
         allow(meeting).to receive(:pad).and_return(pad)
       end
 
-      context "when there is no pad" do
+      context "when there's no pad" do
         let(:pad) { nil }
 
         it "returns false" do

@@ -27,7 +27,7 @@ describe "Homepage votings content blocks", type: :system do
     end
   end
 
-  context "when there is only one voting" do
+  context "when there's only one voting" do
     it "redirects to the voting page" do
       visit decidim.root_path
       click_link "Votings"

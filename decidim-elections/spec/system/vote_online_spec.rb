@@ -40,7 +40,7 @@ describe "Vote online in an election", type: :system do
       uses_the_voting_booth
     end
 
-    context "when there is description in a question" do
+    context "when there's description in a question" do
       before do
         # rubocop:disable Rails/SkipsModelValidations
         Decidim::Elections::Answer.update_all(description: { en: "Some text" })
@@ -55,7 +55,7 @@ describe "Vote online in an election", type: :system do
       end
     end
 
-    context "when there is no description in a question" do
+    context "when there's no description in a question" do
       before do
         # rubocop:disable Rails/SkipsModelValidations
         Decidim::Elections::Answer.update_all(description: {})

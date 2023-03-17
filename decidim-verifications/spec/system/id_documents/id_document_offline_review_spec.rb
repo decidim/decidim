@@ -44,7 +44,7 @@ describe "Identity document offline review", type: :system do
     expect(page).to have_content("Participant successfully verified")
   end
 
-  it "shows an error when there is no authorization for the given email" do
+  it "shows an error when there's no authorization for the given email" do
     submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXX", user_email: "this@doesnot.exist")
 
     expect(page).to have_content("Verification does not match")

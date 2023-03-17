@@ -13,7 +13,7 @@ describe Decidim::Consultations::QuestionsController, type: :controller do
     request.env["decidim.current_organization"] = organization
   end
 
-  context "when there is a question" do
+  context "when there's a question" do
     it "can access it" do
       get :show, params: { slug: question.slug }
 

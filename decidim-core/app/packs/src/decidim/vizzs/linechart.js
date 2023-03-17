@@ -240,7 +240,7 @@ export default function renderLineCharts() {
     }
 
     // MANDATORY: HTML must contain which metric should it display
-    // If there is no data, fetch it
+    // If there's no data, fetch it
     if (!DATACHARTS || !DATACHARTS[container.dataset.metric]) {
       fetchDatacharts()
     }

@@ -13,7 +13,7 @@ describe Decidim::Votings::VotingsController, type: :controller do
   end
 
   describe "GET show" do
-    context "when there is a voting" do
+    context "when there's a voting" do
       it "can access it" do
         get :show, params: { slug: voting.slug }
         expect(subject).to render_template(:show)
@@ -31,7 +31,7 @@ describe Decidim::Votings::VotingsController, type: :controller do
   end
 
   describe "GET elections_log" do
-    context "when there is a voting" do
+    context "when there's a voting" do
       it "can access it" do
         get :elections_log, params: { voting_slug: voting.slug }
         expect(subject).to render_template(:elections_log)

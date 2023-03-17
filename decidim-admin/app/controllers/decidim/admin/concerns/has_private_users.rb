@@ -94,7 +94,7 @@ module Decidim
           end
 
           def collection
-            # there is an unidentified corner case where Decidim::User
+            # there's an unidentified corner case where Decidim::User
             # may have been destroyed, but the related ParticipatorySpacePrivateUser
             # remains in the database. That's why filtering by not null users
             @collection ||= privatable_to

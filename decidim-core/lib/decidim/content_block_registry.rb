@@ -47,7 +47,7 @@ module Decidim
     # name - a symbol representing the name of the content block
     # &block - The content block definition.
     #
-    # Returns nothing. Raises an error if there is already a content block
+    # Returns nothing. Raises an error if there's already a content block
     # registered with that name.
     def register(scope, name)
       scope = scope.to_s
@@ -56,7 +56,7 @@ module Decidim
       if block_exists
         raise(
           ContentBlockAlreadyRegistered,
-          "There is a content block already registered with the name `:#{name}` for the scope `:#{scope}, must be unique"
+          "There's a content block already registered with the name `:#{name}` for the scope `:#{scope}, must be unique"
         )
       end
 

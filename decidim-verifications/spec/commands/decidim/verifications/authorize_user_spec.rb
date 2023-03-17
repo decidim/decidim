@@ -49,13 +49,13 @@ module Decidim::Verifications
     describe "uniqueness" do
       let(:unique_id) { "foo" }
 
-      context "when there is no other authorizations" do
-        it "is valid if there is no authorization with the same id" do
+      context "when there's no other authorizations" do
+        it "is valid if there's no authorization with the same id" do
           expect { subject.call }.to change(authorizations, :count).by(1)
         end
       end
 
-      context "when there is other authorizations" do
+      context "when there's other authorizations" do
         let!(:other_user) { create(:user, organization: user.organization) }
 
         before do
@@ -65,7 +65,7 @@ module Decidim::Verifications
                  name: handler.handler_name)
         end
 
-        it "is invalid if there is another authorization with the same id" do
+        it "is invalid if there's another authorization with the same id" do
           expect { subject.call }.not_to change(authorizations, :count)
         end
       end
@@ -75,7 +75,7 @@ module Decidim::Verifications
       let!(:duplicate_authorization) { create(:authorization, :granted, user: other_user, unique_id: document_number, name: handler.handler_name) }
       let!(:other_user) { create(:user, organization: user.organization) }
 
-      context "when there is other authorization for an existing user" do
+      context "when there's other authorization for an existing user" do
         it "is not valid" do
           expect { subject.call }.to broadcast(:invalid)
         end
@@ -92,7 +92,7 @@ module Decidim::Verifications
         end
       end
 
-      context "when there is other authorization for a deleted user" do
+      context "when there's other authorization for a deleted user" do
         let!(:other_user) { create(:user, :deleted, organization: user.organization) }
 
         it "broadcasts :transferred" do

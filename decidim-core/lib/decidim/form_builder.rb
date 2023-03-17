@@ -723,7 +723,7 @@ module Decidim
     # rubocop:enable Metrics/PerceivedComplexity
     # rubocop:enable Metrics/CyclomaticComplexity
 
-    # Private: Builds a span to be shown when there is a validation error in a field.
+    # Private: Builds a span to be shown when there's a validation error in a field.
     # It looks for the text that will be the content in a similar way `human_attribute_name`
     # does it.
     #

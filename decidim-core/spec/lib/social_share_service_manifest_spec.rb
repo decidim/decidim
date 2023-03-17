@@ -68,7 +68,7 @@ module Decidim
         expect(subject.formatted_share_uri("Bar", { url: "https://other.example.org" })).to eq(expected_url)
       end
 
-      context "when there is a title" do
+      context "when there's a title" do
         before do
           subject.share_uri = "https://example.com/share?title=%{title}&url=%{url}"
         end

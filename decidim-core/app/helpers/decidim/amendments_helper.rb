@@ -85,7 +85,7 @@ module Decidim
       current_component.settings.amendments_enabled
     end
 
-    # Checks if there is a user that can react to an emendation
+    # Checks if there's a user that can react to an emendation
     def can_react_to_emendation?(emendation)
       return unless current_user && emendation.emendation?
 

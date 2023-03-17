@@ -91,7 +91,7 @@ describe "Meeting live event poll administration", type: :system do
     end
   end
 
-  context "when there is a published question with answers" do
+  context "when there's a published question with answers" do
     let!(:question_multiple_option) { create(:meetings_poll_question, :published, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
 
     let!(:answer_user1) { create(:meetings_poll_answer, question: question_multiple_option, user:, questionnaire:) }

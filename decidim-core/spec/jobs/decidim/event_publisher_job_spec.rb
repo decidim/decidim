@@ -66,7 +66,7 @@ describe Decidim::EventPublisherJob do
       end
     end
 
-    context "when there is a component" do
+    context "when there's a component" do
       let(:resource) { build(:dummy_resource) }
 
       context "when it is published" do
@@ -98,7 +98,7 @@ describe Decidim::EventPublisherJob do
       end
     end
 
-    context "when there is a participatory space" do
+    context "when there's a participatory space" do
       let(:resource) { build(:dummy_resource) }
 
       context "when it is published" do

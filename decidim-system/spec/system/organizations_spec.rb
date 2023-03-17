@@ -50,7 +50,7 @@ describe "Organizations", type: :system do
           fill_in "Name", with: "Bad"
           click_button "Create organization & invite admin"
 
-          expect(page).to have_content("There is an error in this field")
+          expect(page).to have_content("There's an error in this field")
         end
       end
     end
