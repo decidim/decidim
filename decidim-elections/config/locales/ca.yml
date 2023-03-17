@@ -118,6 +118,9 @@ ca:
             'true': Sense signar
         validated_eq:
           label: Validat
+          values:
+            'false': Sense validar
+            'true': Validada
     components:
       elections:
         actions:
@@ -910,6 +913,7 @@ ca:
             location_help: 'Ubicació: missatge dirigit als votants amb el lloc exacte del punt de votació'
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici on està situat el punt de votació.'
             polling_station_managers_help: 'Gestors de mesa: els tècnics que actuaran com a responsables del punt de votació. Assegura''t que han estat creats en Gestors de mesa i que no estan ja assignats a un altre punt de votació'
+            polling_station_president_help: 'Presidència de mesa: oficials que faran les funcions de presidència al punt de votació. Assegura''t que estan habilitades com a gestores de mesa i que no estan ja assignades a un altre punt de votació.'
             select_president: Selecciona un gestor com a president del punt de votació
           index:
             title: Punts de votació
