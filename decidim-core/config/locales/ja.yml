@@ -771,7 +771,6 @@ ja:
         decidim/user:
           password: パスワードが短すぎます。
           password_confirmation: パスワードの確認はパスワードと一致する必要があります。
-        error: このフィールドにはエラーがあります。
       file_help:
         file:
           explanation: 'ファイルのガイダンス:'
