@@ -644,7 +644,7 @@ en:
                 invalid_key: The identification keys in the uploaded file cannot be loaded.
                 invalid_public_key: The identification keys in the uploaded file does not match the public identification key stored.
               upload_legend: The server has your public identification keys, but your browser still does not have it. You need to import the file with your identification keys to your computer from the backup you created after generating them.
-            not_supported_browser_description: It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you're using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
+            not_supported_browser_description: It looks like you are using a web browser that cannot be used to act as a Trustee. Make sure you are using the most recent version of your browser, or try using any of the most popular browsers to be able to complete your Trustee tasks.
             not_supported_browser_title: Upgrade browser to act as a Trustee
             trustee_role_description: You have been assigned to act as a Trustee in some of the elections celebrated in this platform.
           update:

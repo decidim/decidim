@@ -8,7 +8,7 @@ The idea of a backport is to bring a given fix from the last development version
 
 The process for making backports is the following:
 
-. Check in the git commit history what was the latest backports on the branch that you're working with. https://github.com/decidim/decidim/commits/release/0.27-stable[Example for v0.27]. Copy the number of the last PR backported.
+. Check in the git commit history what was the latest backports on the branch that you are working with. https://github.com/decidim/decidim/commits/release/0.27-stable[Example for v0.27]. Copy the number of the last PR backported.
 . Search in GitHub for the this PR in the list of merged PRs of the `type: fix`. https://github.com/decidim/decidim/pulls?page=1&q=is%3Apr+sort%3Aupdated-desc+label%3A%22type%3A+fix%22+is%3Amerged[Example URL].
 . Check the PRs merged just before and after this one. You need to find the last ones that were not backported already to start with the backport process. A fast way for checking this out is to open the PRs and see the mentions from the backports in the GitHub references.
 . Once you have the list of the PRs that you want to backport, you can start with the process by using the https://github.com/decidim/decidim/blob/develop/bin/backporter[backporter script]. This script mostly handles the branch creation, cherrypicking, labeling and pushing of the fix. For using it you'll need to have a GitHub Personal Access Token.

@@ -110,7 +110,7 @@ If that JS file is replacing a Decidim file, there's no need to add it to `decid
 
 === Update Rails helpers
 
-`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`. This only needs to be done if you're modifying the `application.html` file or partial in your layout.
+`javascript_include_tag` and `stylesheet_link_tag` have been replaced by `javascript_pack_tag` and `stylesheet_pack_tag`. This only needs to be done if you are modifying the `application.html` file or partial in your layout.
 
 For images, if they are in `app/packs/images` you need to replace `ìmage_tag` with `image_pack_tag`.
 
@@ -233,7 +233,7 @@ npm ERR! ERESOLVE unable to resolve dependency tree
 npm ERR!
 ----
 
-Then you need to check again that you're using the correct Node.js and NPM versions.
+Then you need to check again that you are using the correct Node.js and NPM versions.
 
 In some case it might be that some packages are not well resolved when installing NPM modules. If you get messages like:
 

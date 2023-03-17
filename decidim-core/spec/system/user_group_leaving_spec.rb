@@ -19,7 +19,7 @@ describe "User group leaving", type: :system do
       it "cannot leave group" do
         accept_confirm { click_link "Leave group" }
 
-        expect(page).to have_content("You cannot remove yourself from this group as you're the last administrator")
+        expect(page).to have_content("You cannot remove yourself from this group as you are the last administrator")
       end
 
       context "when there is another admin in the group" do
