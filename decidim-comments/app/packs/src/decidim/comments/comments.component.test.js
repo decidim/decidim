@@ -132,7 +132,7 @@ describe("CommentsComponent", () => {
                 data-remaining-characters="#add-comment-${modelName}-${modelId}-remaining-characters"
                 name="comment[body]"
               ></textarea>
-              <span class="form-error">There's an error in this field.</span>
+              <span class="form-error">There is an error in this field.</span>
             </label>
           </div>
           <button type="submit" class="button button--sc" disabled="disabled">Send</button>

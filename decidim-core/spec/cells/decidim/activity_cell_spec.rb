@@ -60,7 +60,7 @@ describe Decidim::ActivityCell, type: :cell do
       it { is_expected.not_to be_renderable }
     end
 
-    context "when there's no resource" do
+    context "when there is no resource" do
       before do
         resource.delete
       end
@@ -68,7 +68,7 @@ describe Decidim::ActivityCell, type: :cell do
       it { is_expected.not_to be_renderable }
     end
 
-    context "when there's no participatory space" do
+    context "when there is no participatory space" do
       before do
         component.participatory_space.delete
       end
