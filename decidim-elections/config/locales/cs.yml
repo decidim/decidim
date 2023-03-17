@@ -130,6 +130,9 @@ cs:
             'true': Nepodepsáno
         validated_eq:
           label: Ověřeno
+          values:
+            'false': Neschváleno
+            'true': Schváleno
     components:
       elections:
         actions:
@@ -917,6 +920,7 @@ cs:
             location_help: 'Umístění: zpráva určená voličům s uvedením přesného místa volební místnosti'
             location_hints_help: 'Tipy k umístění: další informace. Příklad: patro budovy, kde se nachází volební místnost.'
             polling_station_managers_help: 'Manažeři volební místnosti: úředníci, kteří budou působit jako správci volebních místností. Ujistěte se, že úředníci již byli vytvořeni pro volební místnosti a zda již nejsou přiděleni do jiné volební místnosti'
+            polling_station_president_help: 'Komisař volební místnosti: úředník, který bude předsedat volební místnosti. Ujistěte se, že úředník již byl vytvořen ve volební místnosti a zda již není přiřazen(a) k jiné volební místnosti'
             select_president: Vyberte volebního komisaře jako předsedu volební místnosti
           index:
             title: Volební místnosti
