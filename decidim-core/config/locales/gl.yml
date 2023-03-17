@@ -530,8 +530,6 @@ gl:
         button: Deixar de seguir
         error: Houbo un erro ao seguir este recurso.
     forms:
-      errors:
-        error: Hai un erro neste campo.
       upload:
         labels:
           add_attachment: Engadir ficheiro anexo
