@@ -835,7 +835,6 @@ cs:
         decidim/user:
           password: Heslo je příliš krátké.
           password_confirmation: Potvrzení hesla se musí shodovat s heslem.
-        error: V tomto poli je chyba.
       file_help:
         file:
           explanation: 'Pokyny pro soubor:'
