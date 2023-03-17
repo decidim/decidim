@@ -14,7 +14,7 @@ module Decidim
     include_examples "publicable"
     include_examples "resourceable"
 
-    context "when there's an assembly with the same slug in the same organization" do
+    context "when there is an assembly with the same slug in the same organization" do
       let!(:external_assembly) { create :assembly, organization: assembly.organization, slug: "my-slug" }
 
       it "is not valid" do
@@ -23,7 +23,7 @@ module Decidim
       end
     end
 
-    context "when there's an assembly with the same slug in another organization" do
+    context "when there is an assembly with the same slug in another organization" do
       let!(:external_assembly) { create :assembly, slug: "my-slug" }
 
       it { is_expected.to be_valid }

@@ -28,7 +28,7 @@ class CheckLegacyTables < ActiveRecord::Migration[5.2]
         puts "Migrate or backup your data and then remove the following raise statement to continue with the migrations (that will remove surveys legacy tables)"
         puts "For migrating your data you can do that with the command:"
         puts "bundle exec rake decidim_surveys:migrate_data_to_decidim_forms"
-        raise "ERROR:  there's the risk to loose legacy information from old surveys!"
+        raise "ERROR:  there is the risk to loose legacy information from old surveys!"
       end
     end
   end
