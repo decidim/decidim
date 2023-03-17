@@ -653,7 +653,6 @@ pt-BR:
         decidim/user:
           password: Senha muito curta.
           password_confirmation: A confirmação de senha deve ser igual à senha.
-        error: Há um erro neste campo.
       file_help:
         file:
           explanation: 'Orientação para o arquivo:'
