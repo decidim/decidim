@@ -142,7 +142,6 @@ tr:
         verify: DOĞRULAYIN
       admin_terms_of_use:
         accept:
-          error: Yönetici kullanım şartlarını kabul ederken bir hata oluştu.
           success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
         actions:
           refuse: Yönetici şartlarını reddedin
