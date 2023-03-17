@@ -1352,7 +1352,6 @@ en:
         members: Members
         officialized: Official participant
         send_private_message: Send private message
-        view_full_profile: View full profile
       sidebar:
         badges:
           info: Badges are earned by performing specific activity in the platform.
