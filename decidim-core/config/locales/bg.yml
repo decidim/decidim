@@ -578,7 +578,6 @@ bg:
         decidim/user:
           password: Паролата е твърде къса.
           password_confirmation: Паролата и потвърждението на паролата трябва да съвпадат.
-        error: В това поле има грешка.
     gamification:
       all_badges_link: Виж всички достъпни значки.
       badges:
