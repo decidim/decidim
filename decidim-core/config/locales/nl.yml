@@ -667,7 +667,6 @@ nl:
         decidim/user:
           password: Het wachtwoord is te kort.
           password_confirmation: Wachtwoordbevestiging moet overeenkomen met het wachtwoord.
-        error: Er is een fout in dit veld.
       file_help:
         file:
           explanation: 'Eigenschappen bestand:'
