@@ -644,7 +644,6 @@ tr:
         decidim/user:
           password: Bu şifre çok kısa.
           password_confirmation: Şifre onayı şifre ile uyuşmuyor.
-        error: Bu alanda bir hata var.
       file_help:
         file:
           explanation: 'Dosya kılavuzu:'
