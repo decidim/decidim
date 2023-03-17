@@ -684,7 +684,6 @@
         decidim/user:
           password: Dette passordet er for kort.
           password_confirmation: Passordbekreftelse må samsvare med passordet.
-        error: Det er en feil i dette feltet.
       file_help:
         file:
           explanation: 'Veiledning for fil:'
