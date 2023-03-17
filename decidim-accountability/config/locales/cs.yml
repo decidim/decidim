@@ -160,6 +160,7 @@ cs:
             title: Nová položka
           update:
             invalid: Při aktualizaci této položky došlo k problému.
+            success: Záznam byl úspěšně aktualizován.
       admin_log:
         result:
           create: "%{user_name} vytvořen výsledek %{resource_name} v %{space_name}"
@@ -184,6 +185,7 @@ cs:
       import_mailer:
         import:
           errors: Chyby
+          errors_present: Při importu došlo k chybě.
           row_number: Řádek
           subject: Úspěšný import výsledků
           success: Úspěšný import výsledků. Výsledky můžete zkontrolovat v rozhraní administrace.
