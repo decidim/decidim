@@ -23,7 +23,7 @@ module Decidim
     # The parent component manifest
     attribute :component_manifest, Decidim::ComponentManifest
 
-    # The ActiveRecord class name of the model we're exposing
+    # The ActiveRecord class name of the model we are exposing
     attribute :model_class_name, String
 
     # The name of the named Rails route to create the url to the resource.
