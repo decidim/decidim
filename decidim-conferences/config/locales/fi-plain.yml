@@ -467,7 +467,7 @@ fi-pl:
           confirmation:
             subject: Ilmoittautumisesi konferenssiin on vahvistettu.
           pending_validation:
-            subject: Konferenssi-ilmoittautumisesi odottaa vahvistusta.
+            subject: Ilmoittautumisesi konferenssiin odottaa vahvistusta.
         invite_join_conference_mailer:
           invite:
             subject: Kutsu konferenssiin
