@@ -22,8 +22,6 @@ ja:
             choices:
               missing: は完全ではありません
               too_many: 多すぎます
-        questionnaire:
-          request_invalid: リクエストの処理中にエラーが発生しました。もう一度やり直してください。
   decidim:
     forms:
       admin:
@@ -126,6 +124,9 @@ ja:
       admin_log:
         questionnaire:
           update: "%{user_name} が %{resource_name} アンケートを更新しました"
+      errors:
+        answer:
+          body: 本文は空白にできません
       images:
         dimensions: "%{width} x %{height} px"
         processors:
