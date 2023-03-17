@@ -800,7 +800,6 @@ es:
         decidim/user:
           password: La contraseña es demasiado corta.
           password_confirmation: La confirmación de la contraseña debe coincidir con tu contraseña.
-        error: Hay un error en este campo.
       file_help:
         file:
           explanation: 'Instrucciones para el archivo:'
