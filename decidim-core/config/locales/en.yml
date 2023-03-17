@@ -402,7 +402,7 @@ en:
           title: Authorization has expired
         incomplete:
           cancel: Cancel
-          explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          explanation: 'Even though you are currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
           invalid_field: "%{field}"
           reauthorize: Reauthorize
           title: Please reauthorize
