@@ -48,7 +48,7 @@ module Decidim
         template "github/ci.yml.erb", "#{component_folder}/.github/workflows/ci_#{component_name}.yml"
         template ".ruby-version", "#{component_folder}/.ruby-version"
         template ".node-version", "#{component_folder}/.node-version"
-        template ".rubocop.yml.erb", "#{component_folder}/.rubocop.yml"
+        copy_file ".rubocop.yml", "#{component_folder}/.rubocop.yml"
 
         app_folder = "#{component_folder}/app"
         template "app/packs/js/entrypoint.js", "#{app_folder}/packs/entrypoints/decidim_#{component_name}.js"
