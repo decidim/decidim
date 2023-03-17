@@ -188,7 +188,7 @@ And the response will be:
 }
 ```
 
-#### What's different?
+#### What is different?
 
 First, note that we are querying, in singular, the type `participatoryProcess`, with a different parameter, `slug`\*, (a String). We can use the `id` instead if we know it.
 
@@ -491,7 +491,7 @@ The response:
 }
 ```
 
-#### What's going on?
+#### What is going on?
 
 Until the `... on Proposals` line, there's nothing new. We are requesting the *Assembly* participatory space identified by the `id=3`, then listing all its components with the type "Proposals". All the components share the *id* and *name* properties, so we can just add them at the query.
 
