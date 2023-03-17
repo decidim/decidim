@@ -499,6 +499,7 @@ es-PY:
           summary_content: Contenido
         two_pane_section:
           left_column: Columna izquierda
+          name: Sección de dos columnas
           right_column: Columna derecha
       stats:
         name: Estadísticas de la organización
@@ -802,7 +803,6 @@ es-PY:
         decidim/user:
           password: La contraseña es demasiado corta.
           password_confirmation: La confirmación de la contraseña debe coincidir con tu contraseña.
-        error: Hay un error en este campo.
       file_help:
         file:
           explanation: 'Instrucciones para el archivo:'
