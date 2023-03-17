@@ -167,6 +167,8 @@ fr:
         add: Ajouter
         attachment:
           new: Nouvelle pièce jointe
+        attachment_collection:
+          new: Nouveau dossier de pièces jointes
         browse: Parcourir
         category:
           new: Nouvelle catégorie
