@@ -496,6 +496,7 @@ es:
           summary_content: Contenido
         two_pane_section:
           left_column: Columna izquierda
+          name: Sección de dos columnas
           right_column: Columna derecha
       stats:
         name: Estadísticas de la organización
