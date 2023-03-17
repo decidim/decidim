@@ -605,6 +605,7 @@ es:
           publish:
             error: Se ha producido un error al publicar el borrador colaborativo.
             irreversible_action_modal:
+              body: Después de publicar el borrador como una propuesta, dejará de ser editable. La propuesta no aceptará nuevas autoras o contribuciones.
               cancel: Cancelar
               ok: Publicar como una propuesta
               title: La siguiente acción es irreversible
@@ -613,6 +614,7 @@ es:
           withdraw:
             error: Se ha producido un error al cerrar el borrador colaborativo.
             irreversible_action_modal:
+              body: Después de cerrar el borrador, ya no será editable. El borrador no aceptará nuevas autoras ni contribuciones.
               cancel: Cancelar
               ok: Retirar el borrador colaborativo
               title: La siguiente acción es irreversible
