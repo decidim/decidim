@@ -205,9 +205,6 @@ is-IS:
         button: Fylgja
       destroy:
         button: Hættu að fylgja
-    forms:
-      errors:
-        error: Það er villa í þessu sviði.
     log:
       base_presenter:
         create: "%{user_name} búið til %{resource_name}"
