@@ -499,6 +499,7 @@ fr:
           summary_content: Contenu
         two_pane_section:
           left_column: Colonne de gauche
+          name: Section à deux colonnes
           right_column: Colonne de droite
       stats:
         name: Statistiques de l'organisation
