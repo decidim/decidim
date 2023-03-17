@@ -11,8 +11,7 @@ module Decidim
       # extend this hash
       SCOPE_ASSOCIATIONS = {
         homepage: "Decidim::Organization",
-        participatory_process_group_homepage: "Decidim::ParticipatoryProcessGroup",
-        participatory_process_homepage: "Decidim::ParticipatoryProcess"
+        participatory_process_group_homepage: "Decidim::ParticipatoryProcessGroup"
       }.with_indifferent_access.freeze
 
       def resource
@@ -22,7 +21,17 @@ module Decidim
       private
 
       def base_model
-        @base_model ||= options[:base_model] || SCOPE_ASSOCIATIONS[model.scope_name]&.safe_constantize
+        @base_model ||= options[:base_model] || base_model_name&.safe_constantize
+      end
+
+      def participatory_space_manifest
+        @participatory_space_manifest ||= Decidim.participatory_space_manifests.find { |manifest| manifest.content_blocks_scope_name == model.scope_name }
+      end
+
+      def base_model_name
+        return participatory_space_manifest.model_class_name if participatory_space_manifest.present?
+
+        SCOPE_ASSOCIATIONS[model.scope_name]
       end
 
       def section_class

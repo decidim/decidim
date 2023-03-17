@@ -18,7 +18,7 @@ module Decidim
           return if content_block.blank?
 
           manifest_name = content_block.component_manifest_name
-          scope_class = Decidim::ContentBlocks::BaseCell::SCOPE_ASSOCIATIONS[content_block.scope_name]&.safe_constantize
+          scope_class = base_model_name(content_block.scope_name)&.safe_constantize
 
           participatory_space = if scope_class.respond_to?(:participatory_space_manifest)
                                   scope_class.participatory_space_manifest.participatory_spaces.call(content_block.organization).find(content_block.scoped_resource_id)
@@ -31,6 +31,13 @@ module Decidim
           else
             Decidim::PublicComponents.for(content_block.organization, manifest_name:)
           end
+        end
+
+        def base_model_name(scope_name)
+          scope_manifest = Decidim.participatory_space_manifests.find { |manifest| manifest.content_blocks_scope_name == scope_name }
+          return scope_manifest.model_class_name if scope_manifest.present?
+
+          Decidim::ContentBlocks::BaseCell::SCOPE_ASSOCIATIONS[scope_name]
         end
       end
     end
