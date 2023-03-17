@@ -200,7 +200,6 @@ fi:
         verify: Vahvista
       admin_terms_of_use:
         accept:
-          error: Hallintakäyttäjän ehtojen hyväksyminen epäonnistui.
           success: Hienoa! Olet hyväksynyt hallintakäyttäjän ehdot.
         actions:
           accept: Hyväksyn ehdot
