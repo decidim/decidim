@@ -39,6 +39,7 @@ fr-CA:
         body: Corps de texte
         subject: Objet
       organization:
+        admin_terms_of_use_body: Accepter les conditions générales
         alert_color: Alerte
         available_authorizations: Autorisations disponibles
         badges_enabled: Activer les badges
@@ -133,6 +134,10 @@ fr-CA:
         file: Fichier
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Sélectionnez au moins un espace participatif.
         organization:
           attributes:
             official_img_footer:
@@ -147,6 +152,11 @@ fr-CA:
           attributes:
             file:
               malformed: Fichier d'importation mal formé, veuillez lire attentivement les instructions et assurez-vous que le fichier est encodé en UTF-8.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Fichier fourni invalide , veuillez vérifier que le fichier est correctement formaté.
+            invalid_mime_type: Type de MIME invalide.
   activerecord:
     attributes:
       decidim/static_page:
@@ -167,6 +177,8 @@ fr-CA:
         add: Ajouter
         attachment:
           new: Nouvelle pièce jointe
+        attachment_collection:
+          new: Nouveau dossier
         browse: Parcourir
         category:
           new: Nouvelle catégorie
@@ -188,18 +200,23 @@ fr-CA:
         verify: Vérifier
       admin_terms_of_use:
         accept:
-          error: Une erreur s'est produite lorsque vous avez accepté les conditions d'utilisation administrateur.
           success: Super! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation
           are_you_sure: Êtes-vous sûr de vouloir refuser les conditions d'utilisation de l'administrateur?
           refuse: Refuser les conditions d'utilisation administrateur
+          title: Accepter les conditions d’utilisation
         required_review:
+          alert: 'Obligatoire : Consultez nos conditions générales d''administration'
+          callout: Veuillez prendre un moment pour examiner les conditions d'utilisation de l'administrateur. Sinon, vous ne serez pas en mesure de gérer la plateforme.
           cta: Consulter les maintenant.
+        title: Conditions d'utilisation administrateur
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d'assemblée.
           success: Le type de périmètre d'assemblée a été créé avec succès.
+        destroy:
+          success: Le type de secteur a été supprimé avec succès.
         edit:
           title: Modifier le type de périmètre d'assemblée
           update: Mettre à jour
@@ -208,12 +225,14 @@ fr-CA:
           title: Nouveau type de périmètre d'assemblée
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de périmètre d'assemblée.
+          success: "Area type updated successfully.\nLe type de la zone a été mis à jour avec succès."
       areas:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
           success: Zone d'application créée avec succès.
         destroy:
           has_spaces: Cette zone a des espaces dépendants. Veuillez vous assurer qu'aucun espace participatif ne référence cette zone avant de la supprimer.
+          success: "Area successfully destroyed.\nLe périmètre a été supprimé avec succès."
         edit:
           title: Modifier la zone d'application
           update: Mettre à jour
@@ -223,6 +242,7 @@ fr-CA:
         no_areas: Aucune zone d'application
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
+          success: Périmètre d'assemblée mise à jour avec succès.
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
@@ -262,6 +282,7 @@ fr-CA:
         message: Soyez prudent lorsque vous travaillez avec des pièces jointes dans un espace privé. Tout participant pourrait partager ce document à d'autres.
       autocomplete:
         no_results: Aucun résultat trouvé
+        search_prompt: Renseignez au moins trois caractères pour lancer la recherche.
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
@@ -351,6 +372,9 @@ fr-CA:
       domain_whitelist:
         form:
           domain_too_short: Le nom de domaine est trop court
+        update:
+          error: Échec lors de la mise à jour de la liste blanche du domaine.
+          success: Liste blanche du domaine mise à jour avec succès.
       exports:
         export_as: "%{name} en format %{export_format}"
         formats:
@@ -433,8 +457,10 @@ fr-CA:
             message_1: Les fichiers CSV, JSON et Excel (.xlsx) sont supportés
             message_2: Pour les fichiers CSV, le séparateur entre les colonnes doit être un point-virgule (";")
       help_sections:
+        error: Un problème est survenu lors de la mise à jour des sections d’aide.
         form:
           save: sauvegarder
+        success: Les sections d'aide ont été mises à jour avec succès.
       impersonatable_users:
         index:
           filter:
@@ -726,6 +752,8 @@ fr-CA:
           send_to_participants: Envoyer aux participants
           title: Sélectionner les destinataires
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
+        send:
+          no_recipients: "No recipients for this selection.\nVous n'avez aucun destinataire pour cette sélection."
         show:
           preview: Aperçu
           select_recipients_to_deliver: Sélectionner les destinataires
@@ -734,6 +762,13 @@ fr-CA:
           error: Erreur lors de la mise à jour de la newsletter.
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
       officializations:
+        block:
+          error: Une erreur s'est produite lors du blocage du participant.
+          success: Participant bloqué avec succès.
+        create:
+          success: Utilisateur validé avec succès.
+        destroy:
+          success: Validation de l'utilisateur supprimée avec succès.
         index:
           actions: Actions
           badge: Badge
@@ -762,6 +797,9 @@ fr-CA:
           hidden: masqués
           show: Afficher
           title: Afficher l'adresse e-mail du participant
+        unblock:
+          error: Une erreur s'est produite lors du déblocage du participant.
+          success: Participant débloqué avec succès.
       organization:
         edit:
           title: Modifier l'organisation
@@ -807,6 +845,12 @@ fr-CA:
           title: Liste blanche du domaine externe
       organization_homepage:
         content_blocks:
+          create:
+            error: Un problème est survenu lors de la création de ce bloc de contenu.
+            success: Le contenu a été créé avec succès.
+          destroy:
+            error: "There was a problem trying to delete this content block.\nUne erreur est survenue lors de la suppression de ce contenu."
+            success: Le bloc de contenu a été supprimé avec succès.
           edit:
             update: Mettre à jour
         edit:
@@ -883,6 +927,8 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau périmètre d’application.
           success: Périmètre d'application créé avec succès.
+        destroy:
+          success: Le périmètre d’application a été supprimé avec succès.
         edit:
           title: Modifier le périmètre d'application
           update: Mettre à jour
@@ -902,6 +948,7 @@ fr-CA:
           error: Une erreur s'est produite lors de la destruction du jeton.
           success: Jeton détruit avec succès.
         share_tokens:
+          empty: Il n'y a pas de jeton actif.
           help: Ces jetons sont utilisés pour partager cette ressource non publiée à n'importe quel utilisateur. Ils seront cachés dès que la ressource sera publiée. Cliquez sur l'icône du jeton pour visiter l'URL partageable.
           title: Partager les jetons
       shared:
@@ -914,6 +961,8 @@ fr-CA:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau sujet.
           success: Sujet créé avec succès.
+        destroy:
+          success: "Topic successfully destroyed.\nLe sujet a été détruit avec succès."
         edit:
           title: Modifier le sujet
           update: Mettre à jour le sujet
@@ -929,6 +978,8 @@ fr-CA:
         content_blocks:
           active_content_blocks: Blocs de contenu actifs
           add: Ajouter un bloc de contenu
+          create:
+            error: Un problème est survenu lors de la création de ce bloc de contenu.
           destroy_confirmation: Êtes-vous sûr(e) de vouloir supprimer ce bloc de contenu ?
           edit:
             update: Mettre à jour
