@@ -118,6 +118,9 @@ es-MX:
             'true': Sin firmar
         validated_eq:
           label: Validada
+          values:
+            'false': Sin validar
+            'true': Validada
     components:
       elections:
         actions:
@@ -910,6 +913,7 @@ es-MX:
             location_help: 'Ubicación: mensaje dirigido a los votantes con el lugar exacto del punto de votación'
             location_hints_help: 'Sugerencias de ubicación: información adicional. Ejemplo: el piso del edificio donde se encuentra el punto de votación.'
             polling_station_managers_help: 'Administradores de mesa: los oficiales que actuarán como administradores de los puntos de votación. Asegúrate de que los oficiales ya han sido creados en Gestores de mesa y que no están ya asignados a otro punto de votación'
+            polling_station_president_help: 'Presidencia de mesa: oficiales que realizarán las funciones de presidencia en el punto de votación. Asegúrate de que están habilitadas como gestoras de mesa y que ya no están asignadas a otro punto de votación.'
             select_president: Selecciona un gestor de mesa como presidente del punto de votación
           index:
             title: Puntos de votación
