@@ -169,7 +169,6 @@ lt:
         verify: Patikrinti
       admin_terms_of_use:
         accept:
-          error: Sutinkant su administratoriaus naudojimosi sąlygomis įvyko klaida.
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
           are_you_sure: Ar tikrai norite nesutikti su administratoriaus naudojimosi sąlygomis?
