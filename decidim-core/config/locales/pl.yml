@@ -758,7 +758,6 @@ pl:
         decidim/user:
           password: Hasło jest za krótkie.
           password_confirmation: Oba hasła muszą być zgodne.
-        error: W tym polu wystąpił błąd.
       file_help:
         file:
           explanation: 'Wytyczne dotyczące pliku:'
