@@ -15,11 +15,9 @@ AllCops:
   Exclude:
     - "**/node_modules/**/*"
     - "**/vendor/**/*"
-    - "development_app/**/*"
-    - "decidim_app-design/node_modules/**/*"
+    - "development_app*/**/*"
     - "spec/decidim_dummy_app/**/*"
     - "node_modules/**/*"
-    - "decidim-initiatives/lib/gem_overrides/origami/date.rb"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -460,10 +458,10 @@ Layout/ExtraSpacing:
 
 Naming/FileName:
   Exclude:
+    - "**/Capfile"
     - "**/Gemfile"
     - "**/Rakefile"
     - "**/*.gemspec"
-    - "decidim-dev/lib/decidim-dev.rb"
   # When true, requires that each source file should define a class or module
   # with a name which matches the file name (converted to ... case).
   # It further expects it to be nested inside modules which match the names
@@ -1114,7 +1112,6 @@ Metrics/CyclomaticComplexity:
   Max: 9
   Exclude:
     - "bin/bundle"
-    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
 
@@ -1126,13 +1123,10 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Max: 5
   CountKeywordArgs: true
-  Exclude:
-    - "decidim-core/lib/decidim/filter_form_builder.rb"
 
 Metrics/PerceivedComplexity:
   Max: 10
   Exclude:
-    - "decidim-admin/app/queries/decidim/admin/newsletter_recipients.rb"
     - "**/*/dummy_authorization_handler.rb"
     - "**/*/permissions.rb"
 
@@ -1235,12 +1229,7 @@ RSpec/DescribeClass:
     - spec/spellcheck_spec.rb
     - spec/i18n_spec.rb
     - "**/*/spec/**/*_badge_spec.rb"
-    - decidim-core/spec/lib/global_engines_spec.rb
     - "**/tasks/**/*"
-
-RSpec/EmptyExampleGroup:
-  Exclude:
-    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
 
 RSpec/ExampleLength:
   Max: 49
@@ -1262,8 +1251,6 @@ RSpec/MultipleExpectations:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 35
-  Exclude:
-    - decidim-assemblies/spec/forms/assembly_form_spec.rb
 
 RSpec/NestedGroups:
   Max: 7
@@ -1766,4 +1753,3 @@ Faker/DeprecatedArguments:
       questions:
         - number
         - supplemental
-
