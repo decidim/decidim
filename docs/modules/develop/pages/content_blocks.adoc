@@ -25,7 +25,7 @@ Decidim.content_blocks.register(:homepage, :stats) do |content_block|
 end
 ----
 
-Let's analyze the example. In the first line, we register a content block named `:stats` for the `:homepage` scope. Then we define the name of the `cell` that will be used to render the content block, and we define the i18n key that holds the name for the content block. These are the only required fields to register a content block.
+In the first line, we register a content block named `:stats` for the `:homepage` scope. Then we define the name of the `cell` that will be used to render the content block, and we define the i18n key that holds the name for the content block. These are the only required fields to register a content block.
 
 Note that content blocks need to be registered from an initializer. If you are adding a content block from a module, use this in the `engine.rb` file of your module:
 
