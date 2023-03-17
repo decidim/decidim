@@ -577,7 +577,6 @@ zh-CN:
         decidim/user:
           password: 密码太短。
           password_confirmation: 密码确认必须匹配密码。
-        error: 此字段有错误。
       file_help:
         file:
           explanation: '文件指南：'
