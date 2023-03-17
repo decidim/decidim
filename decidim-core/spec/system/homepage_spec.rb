@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Homepage", type: :system do
-  context "when there's no organization" do
+  context "when there is no organization" do
     before do
       visit decidim.root_path
     end
@@ -14,7 +14,7 @@ describe "Homepage", type: :system do
     end
   end
 
-  context "when there's an organization" do
+  context "when there is an organization" do
     let(:official_url) { "http://mytesturl.me" }
     let(:organization) do
       create(:organization, official_url:,
