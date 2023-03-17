@@ -167,6 +167,8 @@ es:
         add: Añadir
         attachment:
           new: Nuevo archivo adjunto
+        attachment_collection:
+          new: Nueva colección de archivos adjuntos
         browse: Explorar
         category:
           new: Nueva categoría
