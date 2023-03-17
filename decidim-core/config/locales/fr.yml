@@ -796,6 +796,7 @@ fr:
         decidim/user:
           password: Le mot de passe est trop court.
           password_confirmation: La confirmation du mot de passe doit correspondre au mot de passe.
+        error: Ce champ contient une erreur.
       file_help:
         file:
           explanation: 'Orientation pour le fichier :'
