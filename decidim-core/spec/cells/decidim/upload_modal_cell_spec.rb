@@ -198,6 +198,10 @@ describe Decidim::UploadModalCell, type: :cell do
         it "renders the title" do
           expect(subject).to have_content("An image alert(\"ALERT\")")
         end
+
+        it "escapes the title" do
+          expect(my_cell.send(:title_for, attachment)).to eq("An image alert(&quot;ALERT&quot;)")
+        end
       end
     end
   end
