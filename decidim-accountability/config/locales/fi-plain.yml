@@ -39,7 +39,7 @@ fi-pl:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
-        import: Tuo projekteja tuloksiin
+        import: Tuo hankkeita tuloksiin
         import_csv: Tuo CSV
         new: Uusi %{name}
         preview: Esikatsele
@@ -87,26 +87,26 @@ fi-pl:
             name: Aikajanan merkintä
         projects_import:
           create:
-            invalid: Projektien tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut projekteja toteutukseen.
+            invalid: Hankkeiden tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
           new:
             create: Tuo
-            import_all_selected_projects: Tuo kaikki toteutukseen valitut projektit
+            import_all_selected_projects: Tuo kaikki toteutukseen valitut hankkeet
             new_items:
-              one: 1 toteutukseen valittu projekti tuodaan
-              other: "%{count} toteutukseen valittua projektia tuodaan"
-            no_components: Tässä osallisuustilassa ei ole yhtään budjetointikomponenttia, josta projektit voitaisiin tuoda tuloksiksi.
+              one: 1 toteutukseen valittu hanke tuodaan
+              other: "%{count} toteutukseen valittua hanketta tuodaan"
+            no_components: Tässä osallistumistilassa ei ole yhtään budjetointikomponenttia, josta hankkeet voitaisiin tuoda tuloksiksi.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
             success:
-              one: 1 projekti on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
-              other: "%{count} projektia on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
-            title: Tuo projekteja vastuullisuuskomponenttiin
+              one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
+              other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
+            title: Tuo hankkeita vastuullisuuskomponenttiin
         results:
           create:
-            invalid: Tuloksen luominen epäonnistui.
+            invalid: Tuloksen luonti epäonnistui.
             success: Tuloksen luonti onnistui.
           destroy:
-            success: Tuloksen poistaminen onnistui.
+            success: Tuloksen poisto onnistui.
           edit:
             title: Muokkaa tulosta
             update: Päivitä tulos
@@ -116,8 +116,8 @@ fi-pl:
             create: Luo tulos
             title: Uusi tulos
           update:
-            invalid: Tuloksen päivittäminen epäonnistui.
-            success: Tuloksen päivittäminen onnistui.
+            invalid: Tuloksen päivitys epäonnistui.
+            success: Tuloksen päivitys onnistui.
         shared:
           subnav:
             statuses: Tilat
@@ -126,7 +126,7 @@ fi-pl:
             invalid: Tilan luonti epäonnistui.
             success: Tilan luonti onnistui.
           destroy:
-            success: Tilan poistaminen onnistui.
+            success: Tilan poisto onnistui.
           edit:
             title: Muokkaa tilaa
             update: Päivitä tila
@@ -136,14 +136,14 @@ fi-pl:
             create: Luo tila
             title: Uusi tila
           update:
-            invalid: Statuksen päivittäminen epäonnistui.
+            invalid: Tilan päivitys epäonnistui.
             success: Tilan päivitys onnistui.
         timeline_entries:
           create:
             invalid: Merkinnän luonti epäonnistui.
             success: Merkinnän luonti onnistui.
           destroy:
-            success: Merkinnän poistaminen onnistui.
+            success: Merkinnän poisto onnistui.
           edit:
             title: Muokkaa merkintää
             update: Päivitä merkintä
@@ -186,10 +186,10 @@ fi-pl:
       import_projects_mailer:
         import:
           added_projects:
-            one: Yksi tulos tuotiin projekteista.
-            other: "%{count} tulosta tuotiin projekteista."
+            one: Yksi tulos tuotiin hankkeista.
+            other: "%{count} tulosta tuotiin hankkeista."
           subject: Tulosten tuonti onnistui
-          success: Projektien tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
+          success: Hankkeiden tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
       last_activity:
         new_result: 'Uusi tulos:'
       models:
