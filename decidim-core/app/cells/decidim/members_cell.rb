@@ -21,7 +21,7 @@ module Decidim
     end
 
     def memberships
-      @memberships ||= case options[:role].to_s
+      @memberships ||= case role
                        when "member"
                          Decidim::UserGroups::MemberMemberships.for(model).page(params[:page]).per(20)
                        when "admin"
@@ -29,6 +29,10 @@ module Decidim
                        else
                          Decidim::UserGroups::AcceptedMemberships.for(model).page(params[:page]).per(20)
                        end
+    end
+
+    def role
+      options[:role].to_s
     end
 
     def validation_messages
