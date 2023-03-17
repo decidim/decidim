@@ -747,7 +747,6 @@ de:
         decidim/user:
           password: Das Passwort ist zu kurz.
           password_confirmation: Die Bestätigung muss mit dem Passwort übereinstimmen.
-        error: In diesem Feld ist ein Fehler aufgetreten.
       file_help:
         file:
           explanation: 'Anleitung für Datei:'
