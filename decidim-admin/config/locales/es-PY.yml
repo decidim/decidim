@@ -167,6 +167,8 @@ es-PY:
         add: Añadir
         attachment:
           new: Nuevo archivo adjunto
+        attachment_collection:
+          new: Nueva colección de archivos adjuntos
         browse: Explorar
         category:
           new: Nueva categoría
@@ -188,7 +190,6 @@ es-PY:
         verify: Verificar
       admin_terms_of_use:
         accept:
-          error: Ha habido un error al aceptar los Términos y Condiciones de Administración.
           success: '¡Genial! Has aceptado los Términos y Condiciones de Administración.'
         actions:
           accept: Estoy de acuerdo con los términos
