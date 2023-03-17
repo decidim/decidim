@@ -118,6 +118,9 @@ fr:
             'true': Non signé
         validated_eq:
           label: Validé
+          values:
+            'false': Non validé
+            'true': Validé
     components:
       elections:
         actions:
