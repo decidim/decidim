@@ -133,6 +133,7 @@ ca:
           label: Validat
           values:
             'false': Validat
+            'true': Sense validar
     components:
       elections:
         actions:
