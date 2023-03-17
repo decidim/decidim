@@ -146,7 +146,7 @@ git log v0.20.0..v0.20.1 --grep " (#[0-9]\+)" --oneline
 git log <SHA>..HEAD --grep " (#[0-9]\+)" --oneline
 ----
 
-Once you've checked the list of changes, itit isime to actually generating the changelog.
+Once you've checked the list of changes, it is time to actually generating the changelog.
 
 [source,bash]
 ----
