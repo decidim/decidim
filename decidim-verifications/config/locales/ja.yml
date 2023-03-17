@@ -33,7 +33,7 @@ ja:
     admin:
       menu:
         authorization_revocation:
-          before_date_info: 参加型プロセスがすでに開始されており、前のプロセスの権限を取り消したい場合に便利です。
+          before_date_info: 参加型プロセスがすでに開始されており、以前のプロセスでの許可を取り消したい場合に便利です。
           button: すべて取り消し
           button_before: 指定日以前の認証を失効させる
           destroy:
@@ -116,6 +116,7 @@ ja:
         renew_modal:
           cancel: キャンセル
           continue: 続ける
+          info_renew: データを更新したい場合は、更新を続行します。
           title: 確認を更新
         skip_verification: しばらくの間はスキップできますし、 %{link}
         start_exploring: 探索を始めましょう
@@ -189,6 +190,9 @@ ja:
           new:
             send: リクエスト確認
             title: 身分証明書をアップロード
+          update:
+            error: ドキュメントの再アップロード中に問題が発生しました。
+            success: ドキュメントを再アップロードしました。
         dni: 免許証
         nie: マイナンバーカード
         passport: パスポート
@@ -209,6 +213,9 @@ ja:
           new:
             send: 郵便物を送る
             title: 確認コードをリクエストする
+          update:
+            error: あなたの認証コードが私たちのものと一致しません。私たちがあなたに送ったものを再確認してください。
+            success: おめでとうございます。認証に成功しました。
       sms:
         authorizations:
           destroy:
@@ -222,6 +229,7 @@ ja:
             send: SMSを送信
             title: 確認コードをリクエストする
           update:
+            error: あなたの認証コードが私たちのものと一致しません。お送りしたSMSを再確認してください。
             success: おめでとうございます。認証に成功しました。
   errors:
     messages:
