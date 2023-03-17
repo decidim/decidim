@@ -129,7 +129,6 @@ sk:
         verify: Overiť
       admin_terms_of_use:
         accept:
-          error: Pri odsúhlasení podmienok použitia nastala chyba.
           success: Skvele! Odsúhlasili ste podmienky použitia pre administrátorov.
         actions:
           refuse: "Odmietnuť podmienky použitia pre administrátorov.\n"
