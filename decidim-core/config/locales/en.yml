@@ -711,7 +711,7 @@ en:
         badge_earned:
           email_intro: Congratulations! You have earned the <a href="%{resource_url}">%{badge_name} badge</a> (level %{current_level}).
           email_outro: You have received this notification because you made activity on our website.
-          email_subject: 'You''ve earned a new badge: %{badge_name}!'
+          email_subject: 'You have earned a new badge: %{badge_name}!'
           notification_title: Congratulations! You have earned the <a href="%{resource_path}">%{badge_name} badge</a> (level %{current_level}).
         level_up:
           email_intro: Congratulations! You have reached level %{current_level} on the <a href="%{resource_url}">%{badge_name} badge</a>!
