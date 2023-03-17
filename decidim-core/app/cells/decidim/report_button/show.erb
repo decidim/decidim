@@ -1,0 +1,2 @@
+<%= render :button %>
+<%= render model.reported_by?(current_user) ? :already_reported_modal : :flag_modal %>

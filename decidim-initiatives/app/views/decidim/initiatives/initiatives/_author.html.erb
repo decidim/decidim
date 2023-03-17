@@ -29,7 +29,7 @@
     <% end %>
 
     <div class="publish-date">
-      <%= l initiative.published_at || initiative.created_at, format: "%d/%m/%Y" %>
+      <%= l initiative.published_at || initiative.created_at, format: :decidim_short %>
     </div>
   </div>
 </div>

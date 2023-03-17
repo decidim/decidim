@@ -6,11 +6,20 @@ require "decidim/dev"
 FactoryBot.define do
   factory :template, class: "Decidim::Templates::Template" do
     organization
-    templatable { build(:dummy_resource) }
     name { Decidim::Faker::Localized.sentence }
+    description { Decidim::Faker::Localized.sentence }
+    target { "generic-template" }
+    templatable { build(:dummy_resource) }
+
+    trait :user_block do
+      templatable { organization }
+      target { :user_block }
+    end
 
     ## Questionnaire templates
     factory :questionnaire_template do
+      target { "questionnaire" }
+
       trait :with_questions do
         after(:create) do |template|
           template.templatable = create(:questionnaire, :with_questions, questionnaire_for: template)

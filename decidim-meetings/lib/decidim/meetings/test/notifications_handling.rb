@@ -28,7 +28,7 @@ shared_examples_for "emits an upcoming notificaton" do
       meeting.start_time = past_start_date
     end
 
-    it "doesn't schedule an upcoming meeting notification" do
+    it "does not schedule an upcoming meeting notification" do
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob).not_to receive(:generate_checksum)
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob).not_to receive(:set)
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob).not_to receive(:perform_later)

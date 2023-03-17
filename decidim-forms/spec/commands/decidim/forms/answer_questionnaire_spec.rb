@@ -77,7 +77,7 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create questionnaire answers" do
+        it "does not create questionnaire answers" do
           expect do
             command.call
           end.not_to change(Answer, :count)
@@ -184,13 +184,67 @@ module Decidim
           context "when the user has answered the survey" do
             let!(:answer) { create(:answer, questionnaire:, question: question1, user: current_user) }
 
-            it "doesn't create questionnaire answers" do
+            it "does not create questionnaire answers" do
               expect { command.call }.not_to change(Answer, :count)
             end
 
             it "broadcasts invalid" do
               expect { command.call }.to broadcast(:invalid)
             end
+          end
+        end
+
+        context "when display_conditions are not mandatory on the same question but are fulfilled" do
+          let(:questionnaire_conditionned) { create(:questionnaire, questionnaire_for: participatory_process) }
+          let!(:option1) { create :answer_option, question: condition_question }
+          let!(:option2) { create :answer_option, question: condition_question }
+          let!(:option3) { create :answer_option, question: condition_question }
+          let!(:condition_question) do
+            create(
+              :questionnaire_question,
+              questionnaire: questionnaire_conditionned,
+              mandatory: false,
+              question_type: "single_option"
+            )
+          end
+          let!(:question) { create(:questionnaire_question, questionnaire: questionnaire_conditionned, question_type: "short_answer") }
+          let!(:display_condition) { create(:display_condition, question:, condition_question:, condition_type: :equal, answer_option: option1, mandatory: false) }
+          let!(:display_condition2) { create(:display_condition, question:, condition_question:, condition_type: :equal, answer_option: option3, mandatory: false) }
+          let(:form_params) do
+            {
+              "responses" => [
+                {
+                  "choices" => [
+                    { "body" => option1.body, "answer_option_id" => option1.id }
+                  ],
+                  "question_id" => condition_question.id
+                },
+                {
+                  "body" => "answer_test",
+                  "question_id" => question.id
+                }
+              ],
+              "tos_agreement" => "1"
+            }
+          end
+          let(:command) { described_class.new(form, current_user, questionnaire_conditionned) }
+
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
+          it "creates a questionnaire answer for each question answered" do
+            expect do
+              command.call
+            end.to change(Answer, :count).by(2)
+            expect(Answer.all.map(&:questionnaire)).to eq([questionnaire_conditionned, questionnaire_conditionned])
+          end
+
+          it "creates answers with the correct information" do
+            command.call
+
+            expect(Answer.first.choices.first.answer_option).to eq(option1)
+            expect(Answer.second.body).to eq("answer_test")
           end
         end
       end
@@ -218,7 +272,7 @@ module Decidim
         context "and visitor has answered the survey" do
           let!(:answer) { create(:answer, questionnaire:, question: question1, session_token: tokenize(session_id)) }
 
-          it "doesn't create questionnaire answers" do
+          it "does not create questionnaire answers" do
             expect { command.call }.not_to change(Answer, :count)
           end
 
@@ -234,7 +288,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create questionnaire answers" do
+          it "does not create questionnaire answers" do
             expect do
               command.call
             end.not_to change(Answer, :count)

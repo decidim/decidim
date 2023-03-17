@@ -1,28 +1,13 @@
 <div class="card with-overflow">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t(".title") %>
-    </h2>
 
-    <h2 class="card-title">
-      <div class="inline-block" style="float: right; text-align: right">
-        <table>
-          <tbody>
-          <tr>
-            <td>
-              <%= link_to moderated_users_path(blocked: false), class: "btn btn-small" do %>
-                <%= t("decidim.admin.moderated_users.tabs.unblocked") %>
-              <% end %>
-            </td>
-            <td>|</td>
-            <td>
-              <%= link_to moderated_users_path(blocked: true), class: "btn btn-small" do %>
-                <%= t("decidim.admin.moderated_users.tabs.blocked") %>
-              <% end %>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+      <%= t(".title") %>
+
+      <div class="card__filter">
+        <%= link_to t("decidim.admin.moderated_users.tabs.unblocked"), moderated_users_path %>
+        |
+        <%= link_to  t("decidim.admin.moderated_users.tabs.blocked"), moderated_users_path(blocked: true) %>
       </div>
     </h2>
   </div>
@@ -37,6 +22,7 @@
           <th><%= t(".name") %></th>
           <th><%= t(".nickname") %></th>
           <th><%= t(".reason") %></th>
+          <th><%= sort_link(query, :created_at, t("models.moderation.fields.created_at", scope: "decidim.moderations")) %></th>
           <th><%= sort_link(query, :report_count, t(".reports"), default_order: :desc) %></th>
           <th class="actions"><%= t(".actions.title") %></th>
         </tr>
@@ -56,11 +42,14 @@
               <%= safe_join(reports, ",") %>
             </td>
             <td>
+              <%= l moderation.created_at, format: :decidim_short %>
+            </td>
+            <td>
               <%= moderation.report_count %>
             </td>
 
             <td class="actions">
-              <% if allowed_to?(:unreport, :moderate_users) %>
+              <% if !moderation.user.blocked? && allowed_to?(:unreport, :moderate_users) %>
                 <%= icon_link_to "action-undo", ignore_moderated_user_path(id: moderation), t(".actions.unreport"), class: "action-icon--unreport", method: :put %>
               <% end %>
               <% if allowed_to?(:block, :moderate_users) %>

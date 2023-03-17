@@ -96,7 +96,7 @@ module Decidim
         end
       end
 
-      context "when the resource doesn't have an author" do
+      context "when the resource does not have an author" do
         let(:resource) { OpenStruct.new }
 
         it "ignores it" do

@@ -21,7 +21,7 @@ module Decidim
           # We're overriding the attribute setter method so that we can reuse the
           # machine translations. This is to fix a bug encoutered when updating
           # the resource from a FormObject. The FormObject on the `#create`
-          # action in the controller doesn't have the machine translations loaded,
+          # action in the controller does not have the machine translations loaded,
           # so they're effectively lost whenever a resource is updated.
           #
           # This overriding allows us to keep the old machine translations, so

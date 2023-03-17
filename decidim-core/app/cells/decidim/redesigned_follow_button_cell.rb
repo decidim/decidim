@@ -32,7 +32,7 @@ module Decidim
     end
 
     def icon_name
-      current_user_follows? ? "notification-3-fill" : "notification-3-line"
+      current_user_follows? ? resource_type_icon_key("unfollow") : resource_type_icon_key("follow")
     end
 
     def remote

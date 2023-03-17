@@ -14,7 +14,7 @@ module Webpacker
       let(:runtime_config_path) do
         Rails.application.root.join("tmp/webpacker_runtime.yml")
       end
-      let(:runtime_config) { YAML.load_file(runtime_config_path) }
+      let(:runtime_config) { YAML.load_file(runtime_config_path, aliases: true) }
 
       it "generates the runtime configuration" do
         create_instance
@@ -48,7 +48,6 @@ module Webpacker
         expect(runtime_config["default"]["stylesheet_imports"]["imports"]["app"]).to include(
           "stylesheets/decidim/budgets/budgets",
           "stylesheets/decidim/proposals/proposals",
-          "stylesheets/decidim/conferences/conferences",
           "stylesheets/decidim/consultations/consultations",
           "stylesheets/decidim/elections/elections",
           "stylesheets/decidim/votings/votings",

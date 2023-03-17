@@ -23,7 +23,7 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:invalid)
         end
 
-        it "doesn't create a page" do
+        it "does not create a page" do
           expect do
             command.call
           end.not_to change(Decidim::StaticPage, :count)

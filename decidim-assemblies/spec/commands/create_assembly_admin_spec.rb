@@ -55,7 +55,7 @@ module Decidim::Assemblies
         subject.call
       end
 
-      it "doesn't add admin privileges to the user" do
+      it "does not add admin privileges to the user" do
         subject.call
         user.reload
 
@@ -80,7 +80,7 @@ module Decidim::Assemblies
         expect(action_log.version).to be_present
       end
 
-      it "doesn't invite the user again" do
+      it "does not invite the user again" do
         subject.call
         user.reload
 
@@ -106,7 +106,7 @@ module Decidim::Assemblies
           subject.call
         end
 
-        it "doesn't get created twice" do
+        it "does not get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
           roles = Decidim::AssemblyUserRole.where(user:)
@@ -116,7 +116,7 @@ module Decidim::Assemblies
         end
       end
 
-      context "when the user hasn't accepted the invitation" do
+      context "when the user has not accepted the invitation" do
         before do
           user.invite!
         end

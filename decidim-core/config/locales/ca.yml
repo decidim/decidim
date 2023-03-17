@@ -245,7 +245,9 @@ ca:
         unblock: "%{user_name} ha desbloquejat a la usuària %{resource_name}"
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
+        block: "%{user_name} ha bloquejat al grup d'usuàries %{resource_name}"
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
+        unblock: "%{user_name} ha desbloquejat al grup d'usuàries %{resource_name}"
         verify: "%{user_name} ha verificat el grup %{resource_name}"
         verify_via_csv: "%{user_name} ha verificat el grup %{resource_name} a través d'un fitxer CSV"
       user_moderation:
@@ -279,7 +281,7 @@ ca:
         success: L'esborrany d'esmena s'ha eliminat correctament.
       edit_draft:
         discard: Descarta aquest esborrany
-        discard_confirmation: Estàs segur de que vols descartar l'esborrany d'aquesta esmena?
+        discard_confirmation: Segur que vols descartar l'esborrany d'aquesta esmena?
         send: Vista prèvia
         title: Edita l'esborrany d'esmena
       emendation:
@@ -332,16 +334,15 @@ ca:
           '4': Publica la teva esmena
     anonymous_user: Anònim
     application:
-      collection:
-        documents:
-          one: Document
-          other: Documents
       document:
         download: Descarregar fitxer
       documents:
         related_documents: Documents relacionats
       geocoding:
         geocoded_address: Adreça
+      photo:
+        alt: Imatge pels mitjans
+        title: Imatge
       photos:
         related_photos: Imatges relacionades
     author:
@@ -382,13 +383,13 @@ ca:
           foo: Foo
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
-      renew: Renovar la verificació
       sms:
         explanation: Introdueix el teu número de telèfon mòbil per poder verificar la teva identitat.
         name: Codi per SMS
       started_at: Iniciat el %{timestamp}
     authorization_modals:
       content:
+        close_modal: Tancar la finestra
         expired:
           authorize: Torna a autoritzar amb "%{authorization}"
           explanation: La teva autorització ha caducat. Per realitzar aquesta acció, has de tornar a autoritzar-vos amb "%{authorization}".
@@ -419,8 +420,6 @@ ca:
           explanation_html: Per realitzar aquesta acció cal que estiguis autoritzada, abans de fer-ho, has de confirmar el teu correu electrònic <strong>%{email}</strong>.
           request_confirmation_instructions: Sol·licita instruccions de confirmació
           title: Confirma el teu correu electrònic
-      show:
-        close_modal: Tancar el modal
     block_user_mailer:
       notify:
         body_1: El teu compte ha estat bloquejat.
@@ -509,6 +508,17 @@ ca:
         view_all: Veure-ho tot
       metrics:
         name: Mètriques de l'organització
+      static_page:
+        section:
+          name: Secció
+          section_content: Contingut
+        summary:
+          name: Resum
+          summary_content: Contingut
+        two_pane_section:
+          left_column: Columna esquerra
+          name: Secció de dos panells
+          right_column: Columna dreta
       stats:
         name: Estadístiques de l'organització
       sub_hero:
@@ -559,9 +569,9 @@ ca:
             close_modal: Tanca modal
             uncheck: Deixa desmarcada
           notice: |-
-            <p>Hola, estàs segura que no vols rebre un butlletí?<br>
-            Si us plau, torna a marcar la casella de selecció de butlletí a continuació.<br>
-            Per a nosaltres és molt important que rebeu correus electrònics ocasionals per fer avisos importants, sempre podeu canviar-lo a la pàgina de configuració de les notificacions.</p>
+            <p>Hola, segur que no vols rebre un butlletí?<br>
+            Si us plau, pren en consideració marcar la casella de selecció de butlletí a continuació.<br>
+            Per a nosaltres és molt important que rebis correus electrònics ocasionals per fer avisos importants, sempre pots canviar-ho a la pàgina de configuració de les notificacions.</p>
             <p>Si no marques la casella, pot ser que et falti informació rellevant sobre noves oportunitats de participació dins de la plataforma.<br>
             Si encara vols evitar rebre butlletins, entenem perfectament la teva decisió.</p>
             <p>Gràcies per llegir això.</p>
@@ -599,14 +609,13 @@ ca:
       endorsements: Adhesions
       endorsements_count: Número d'adhesions
     endorsement_buttons_cell:
-      already_endorsed: Adherit
-      endorse: Adherir-se
+      already_endorsed: No m'agrada
+      endorse: M'agrada
     endorsements:
       identities:
         done: Fet
         select_identity: Selecciona identitat
     endorsers_list:
-      close: Tancar
       endorsed_by: Li agrada a…
     errors:
       internal_server_error:
@@ -753,7 +762,7 @@ ca:
         resource_hidden:
           email_intro: Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}.
           email_outro: Has rebut aquesta notificació perquè ets autora d'un contingut eliminat.
-          email_subject: S'ha eliminat el teu %{resource_type}
+          email_subject: S'ha eliminat el/la teu/teva %{resource_type}
           notification_title: |-
             Una administradora ha eliminat el teu %{resource_type} degut a que has estat reportada com a %{report_reasons}..</br>
             <i>%{resource_content}</i>
@@ -817,8 +826,6 @@ ca:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
     forms:
-      current_image: Imatge actual
-      default_image: Imatge predeterminada
       errors:
         decidim/user:
           password: La contrasenya és massa curta.
@@ -852,6 +859,7 @@ ca:
           edit_image: Editar imatge
           error: Error!
           file_size_too_large: 'L''arxiu és massa gran! Pes d''arxiu màxim: %{megabytes}MB'
+          filename: Nom del fitxer
           remove: Eliminar
           replace: Reemplaçar
           save: Desar
@@ -860,8 +868,9 @@ ca:
           uploaded: Pujat
           validating: Validant...
           validation_error: Error de validació!
+        select_file: Selecciona un fitxer
       upload_help:
-        dropzone: Arrossegar-hi arxius o fer clic per a pujar-los
+        dropzone: Arrossega-hi els arxius o fes clic per a pujar-los
         explanation: Guia per a %{attribute}
     gamification:
       all_badges_link: Veure totes les insígnies disponibles.
@@ -887,7 +896,7 @@ ca:
       title: Què són les ensenyes?
     group_admins:
       actions:
-        are_you_sure: Segura? Això no eliminarà la participant del grup.
+        are_you_sure: Segur? Això no eliminarà la participant del grup.
         demote_admin: Elimina l'administradora
       demote:
         error: S'ha produït un error en eliminar aquesta participant de la llista d'administradores
@@ -916,7 +925,7 @@ ca:
         error: S'ha produït un error en acceptar aquesta sol·licitud d'incorporació al grup
         success: Sol·licitud acceptada correctament
       actions:
-        are_you_sure: Estàs segur?
+        are_you_sure: Segur?
         promote_to_admin: Fer administrador
         remove_from_group: Eliminar participant
       index:
@@ -933,7 +942,7 @@ ca:
         success: La participant s'ha eliminat correctament del grup
     groups:
       actions:
-        are_you_sure: Estàs segur?
+        are_you_sure: Segur?
       create:
         error: S'ha produït un errot en crear el grup
         success: Grup creat correctament
@@ -990,7 +999,6 @@ ca:
         body_1: Estàs a punt de visitar un enllaç extern i et recomanem que siguis prudent pel que fa als continguts en pàgines externes.
         body_2: Assegura't que l'enllaç que visitaràs és d'un lloc segur abans de seguir.
         cancel: Cancel·lar
-        close_modal: Tancar finestra
         proceed: Continuar
         title: Obrir enllaç extern
     log:
@@ -999,8 +1007,10 @@ ca:
         create_with_space: "%{user_name} ha creat %{resource_name} a %{space_name}"
         delete: "%{user_name} ha eliminat %{resource_name}"
         delete_with_space: "%{user_name} ha eliminat %{resource_name} en %{space_name}"
+        publish_with_space: "%{user_name} ha publicat %{resource_name} en %{space_name}"
         unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
         unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
+        unpublish_with_space: "%{user_name} ha despublicat %{resource_name} en %{space_name}"
         update: "%{user_name} ha actualitzat %{resource_name}"
         update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
         update_with_space: "%{user_name} ha actualitzat %{resource_name} a %{space_name}"
@@ -1114,9 +1124,9 @@ ca:
         title: Participants
     newsletter_mailer:
       newsletter:
-        no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
+        no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de correu de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
         note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
-        see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <a href="%{link}" target="_blank"> versió web</a>.
+        see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <<a href="%{link}" target="_blank" class="see-on-website">versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
     newsletter_templates:
       basic_only_text:
@@ -1304,10 +1314,10 @@ ca:
           create_user_group: Crear un grup
           edit_profile: Editar el perfil
           edit_user_group: Editar el perfil del grup
-          invite_user: Convidar a una participant
+          invite_user: Convidar participant
           join_user_group: Sol·licitar unir-se al grup
-          manage_user_group_admins: Gestionar les administradores
-          manage_user_group_users: Gestionar les membres
+          manage_user_group_admins: Gestionar administradores
+          manage_user_group_users: Gestionar membres
           message: Missatge
         confirmation_instructions_sent: Instruccions de confirmació de correu electrònic enviades
         create_user_group: Crea un grup
@@ -1406,11 +1416,14 @@ ca:
         close: Tancar
         description: Aquest contingut no és apropiat?
         does_not_belong: Conté activitat il·legal, amenaces de suïcidi, informació personal, o qualsevol altra cosa que creguis que no pertany a %{organization_name}.
+        hide: Amagar
+        hide_content: Amagar aquest contingut
         offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort o de suïcidi o qualsevol forma de discurs d'odi.
         reason: Motiu
         report: Denunciar
         spam: Conté "clickbait", publicitat o estafes.
         title: Reportar contingut inapropiat
+        visit_profile: Si també vols bloquejar a la participant i la resta dels seus continguts, ves a la pàgina de perfil de %{user_link}.
       flag_user_modal:
         already_reported: Aquest contingut ja ha estat reportat i serà revisat per una administradora.
         close: Tancar
@@ -1437,6 +1450,9 @@ ca:
           select_an_area: Selecciona una àrea
       public_participation:
         public_participation: Mostra públicament la meva assistència
+      redesigned_login_modal:
+        please_sign_in: Si us plau, inicia la sessió
+        sign_up: Registrar-se
       reference:
         reference: 'Referència: %{reference}'
       represent_user_group:
@@ -1723,7 +1739,7 @@ ca:
       not_found: No s'han trobat resultats
   errors:
     messages:
-      allowed_file_content_types: 'Només s''accepten arxius amb les següents extensions: %{types}'
+      allowed_file_content_types: 'només s''accepten arxius amb les següents extensions: %{types}'
       already_confirmed: ja s'ha confirmat, si us plau intenta iniciar la sessió
       confirmation_period_expired: s'ha de confirmar dins de %{period}, si us plau sol·licita'n un de nou
       content_type_allowlist_error: el tipus de fitxer no és vàlid
@@ -1741,7 +1757,7 @@ ca:
         other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
-      too_short: És massa curt (menys %{count} caràcters)
+      too_short: és massa curt (menys %{count} caràcters)
   forms:
     correct_errors: Hi ha errors al formulari, si us plau corregeix-los per continuar.
     length_validator:
@@ -1925,6 +1941,7 @@ ca:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y %H:%M"
       long_dashed: "%A-%m-%d %H:%M:%S"
+      long_with_particles: "%d %B, de %Y a les %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   versions:

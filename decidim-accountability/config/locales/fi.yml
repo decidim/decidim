@@ -54,8 +54,9 @@ fi:
             download_export: Lataa vientitiedosto CSV-muodossa
             import: Tuo
             info: |
-              <p>Suorittelemme tekemään toimenpiteet seuraavassa järjestyksessä:</p>
-              <ol><li><a href='%{link_new_status}' target='_blank'>Luo tilat tuloksille</a></li>
+              <p>Suorittelemme tekemään seuraavat toimenpiteet suorittaaksesi tuonnin onnistuneesti:</p>
+              <ol>
+              <li><a href='%{link_new_status}' target='_blank'>Luo tilat tuloksille</a></li>
               <li><a href='%{link_new_result}' target='_blank'>Luo vähintään yksi tulos käsin</a> hallintapaneelin kautta ennen tuontia, jotta ymmärrät paremmin, miltä tuontitiedoston tulee näyttää.</li>
               <li>%{link_export_csv}</li>
               <li>Tee tiedostoon muutoksia tietokoneellasi. Voit muuttaa ainoastaan seuraavia sarakkeita CSV-tiedostossa:

@@ -37,10 +37,7 @@ module Decidim
         name: handler.handler_name
       )
 
-      authorization.attributes = {
-        unique_id: handler.unique_id,
-        metadata: handler.metadata
-      }
+      authorization.attributes = handler.authorization_attributes
 
       authorization.grant!
     end

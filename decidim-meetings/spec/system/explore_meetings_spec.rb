@@ -48,7 +48,7 @@ describe "Explore meetings", :slow, type: :system do
         expect(page).to have_content(translated(upcoming_meeting.title))
       end
 
-      it "doesn't show past meetings" do
+      it "does not show past meetings" do
         visit_component
         within "#meetings" do
           expect(page).not_to have_content(translated(past_meeting.title))
@@ -66,7 +66,7 @@ describe "Explore meetings", :slow, type: :system do
         end
 
         it "shows an empty page with a message" do
-          expect(page).to have_content("No meetings match your search criteria or there isn't any meeting scheduled.")
+          expect(page).to have_content("No meetings match your search criteria or there is not any meeting scheduled.")
           within ".callout.warning", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
@@ -125,6 +125,25 @@ describe "Explore meetings", :slow, type: :system do
     end
 
     context "when filtering" do
+      context "when filtering by text" do
+        it "updates the current URL" do
+          create(:meeting, :published, component:, title: { en: "Foobar meeting" })
+          create(:meeting, :published, component:, title: { en: "Another meeting" })
+          visit_component
+
+          within "form.new_filter" do
+            fill_in("filter[search_text_cont]", with: "foobar")
+            click_button "Search"
+          end
+
+          expect(page).not_to have_content("Another meeting")
+          expect(page).to have_content("Foobar meeting")
+
+          filter_params = CGI.parse(URI.parse(page.current_url).query)
+          expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+        end
+      end
+
       context "when filtering by origin" do
         let!(:component) do
           create(:meeting_component,

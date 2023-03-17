@@ -47,7 +47,7 @@ module Decidim
           )
         end
 
-        # If a trustee exists for this participatory space, it won't get created again
+        # If a trustee exists for this participatory space, it will not get created again
         def existing_trustee_participatory_spaces?
           trustees_space = TrusteesParticipatorySpace.where(participatory_space:).includes(:trustee)
           @existing_trustee_participatory_spaces ||= Decidim::Elections::Trustee.joins(:trustees_participatory_spaces)

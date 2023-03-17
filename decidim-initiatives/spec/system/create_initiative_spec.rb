@@ -47,7 +47,7 @@ describe "Initiative", type: :system do
       let!(:other_initiative_type_scope) { nil }
 
       context "when the user is logged in" do
-        context "and they don't need to be verified" do
+        context "and they do not need to be verified" do
           it "they are taken to the initiative form" do
             click_link "New initiative"
             expect(page).to have_content("What does the initiative consist of")
@@ -67,7 +67,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they need to verify" do
@@ -118,7 +118,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when they aren't logged in" do
+      context "when they are not logged in" do
         let(:login) { false }
 
         it "they need to login in" do
@@ -126,7 +126,7 @@ describe "Initiative", type: :system do
           expect(page).to have_content("Please sign in")
         end
 
-        context "when they don't need to be verified" do
+        context "when they do not need to be verified" do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
@@ -153,7 +153,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they are shown an error" do
@@ -197,7 +197,7 @@ describe "Initiative", type: :system do
 
     context "when there are multiples initiative type" do
       context "when the user is logged in" do
-        context "and they don't need to be verified" do
+        context "and they do not need to be verified" do
           it "they are taken to the initiative form" do
             click_link "New initiative"
             expect(page).to have_content("Which initiative do you want to launch")
@@ -216,7 +216,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they need to verify" do
@@ -270,7 +270,7 @@ describe "Initiative", type: :system do
         end
       end
 
-      context "when they aren't logged in" do
+      context "when they are not logged in" do
         let(:login) { false }
 
         it "they need to login in" do
@@ -278,7 +278,7 @@ describe "Initiative", type: :system do
           expect(page).to have_content("Please sign in")
         end
 
-        context "when they don't need to be verified" do
+        context "when they do not need to be verified" do
           it "they are redirected to the initiative form after log in" do
             click_button "New initiative"
             fill_in "Email", with: authorized_user.email
@@ -305,7 +305,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "and they aren't verified" do
+          context "and they are not verified" do
             let(:authorization) { nil }
 
             it "they are shown an error" do
@@ -350,6 +350,16 @@ describe "Initiative", type: :system do
     end
   end
 
+  context "when rich text editor is enabled for participants" do
+    before do
+      organization.update(rich_text_editor_in_public_views: true)
+      click_link "New initiative"
+      find_button("I want to promote this initiative").click
+    end
+
+    it_behaves_like "having a rich text editor", "new_initiative_previous_form", "full"
+  end
+
   describe "creating an initiative" do
     context "without validation" do
       before do
@@ -390,7 +400,7 @@ describe "Initiative", type: :system do
 
         it "have fields for title and description" do
           expect(page).to have_xpath("//input[@id='initiative_title']")
-          expect(page).to have_xpath("//input[@id='initiative_description']", visible: :all)
+          expect(page).to have_xpath("//textarea[@id='initiative_description']", visible: :all)
         end
 
         it "offers contextual help" do
@@ -404,11 +414,11 @@ describe "Initiative", type: :system do
         let!(:other_initiative_type) { nil }
         let!(:other_initiative_type_scope) { nil }
 
-        it "doesn't displays initiative types" do
+        it "does not displays initiative types" do
           expect(page).not_to have_current_path(decidim_initiatives.create_initiative_path(id: :select_initiative_type))
         end
 
-        it "doesn't display the 'choose' step" do
+        it "does not display the 'choose' step" do
           within ".wizard__steps" do
             expect(page).not_to have_content("Choose")
           end
@@ -421,7 +431,7 @@ describe "Initiative", type: :system do
 
         it "have fields for title and description" do
           expect(page).to have_xpath("//input[@id='initiative_title']")
-          expect(page).to have_xpath("//input[@id='initiative_description']", visible: :all)
+          expect(page).to have_xpath("//textarea[@id='initiative_description']", visible: :all)
         end
 
         it "offers contextual help" do
@@ -437,7 +447,7 @@ describe "Initiative", type: :system do
         before do
           find_button("I want to promote this initiative").click
           fill_in "Title", with: translated(initiative.title, locale: :en)
-          fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
+          fill_in "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
         end
 
@@ -469,7 +479,7 @@ describe "Initiative", type: :system do
 
           before do
             fill_in "Title", with: translated(initiative.title, locale: :en)
-            fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
+            fill_in "initiative_description", with: translated(initiative.description, locale: :en)
             find_button("Continue").click
           end
 
@@ -483,7 +493,7 @@ describe "Initiative", type: :system do
           before do
             find_button("I want to promote this initiative").click
             fill_in "Title", with: translated(initiative.title, locale: :en)
-            fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
+            fill_in "initiative_description", with: translated(initiative.description, locale: :en)
             find_button("Continue").click
           end
 
@@ -502,7 +512,7 @@ describe "Initiative", type: :system do
           it "shows information collected in previous steps already filled" do
             expect(find(:xpath, "//input[@id='initiative_type_id']", visible: :all).value).to eq(initiative_type.id.to_s)
             expect(find(:xpath, "//input[@id='initiative_title']").value).to eq(translated(initiative.title, locale: :en))
-            expect(find(:xpath, "//input[@id='initiative_description']", visible: :all).value).to eq(translated(initiative.description, locale: :en))
+            expect(find(:xpath, "//textarea[@id='initiative_description']", visible: :all).value).to eq(translated(initiative.description, locale: :en))
           end
 
           context "when only one signature collection and scope are available" do
@@ -517,7 +527,7 @@ describe "Initiative", type: :system do
             end
           end
 
-          context "when the scope isn't selected" do
+          context "when the scope is not selected" do
             it "shows an error" do
               select("Online", from: "Signature collection type")
               find_button("Continue").click
@@ -563,7 +573,7 @@ describe "Initiative", type: :system do
           find_button("I want to promote this initiative").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
-          fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
+          fill_in "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
 
           select("Online", from: "Signature collection type")
@@ -617,7 +627,7 @@ describe "Initiative", type: :system do
           find_button("I want to promote this initiative").click
 
           fill_in "Title", with: translated(initiative.title, locale: :en)
-          fill_in_editor "initiative_description", with: translated(initiative.description, locale: :en)
+          fill_in "initiative_description", with: translated(initiative.description, locale: :en)
           find_button("Continue").click
 
           select(translated(initiative_type_scope.scope.name, locale: :en), from: "Scope")

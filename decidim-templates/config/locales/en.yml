@@ -42,6 +42,15 @@ en:
         name: Template
     templates:
       admin:
+        block_user_templates:
+          form:
+            save: Save
+            template_title: Template information
+          index:
+            confirm_delete: Are you sure you want to delete this template?
+            title: Block user messages
+          template_chooser:
+            select_template: Select a template answer
         questionnaire_templates:
           choose:
             create_from_template: Create from template
@@ -71,4 +80,5 @@ en:
           duplicate: "%{user_name} duplicated the %{resource_name} questionnaire template"
           update: "%{user_name} updated the %{resource_name} questionnaire template"
       template_types:
+        block_user: Block user messages
         questionnaires: Questionnaires

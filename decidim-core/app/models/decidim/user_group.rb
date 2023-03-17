@@ -21,7 +21,7 @@ module Decidim
              foreign_key: :decidim_user_id,
              source: :user
 
-    validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
+    validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }, unless: -> { blocked? }
 
     validate :correct_state
     validate :unique_document_number, if: :has_document_number?
@@ -202,13 +202,13 @@ module Decidim
       document_number.present?
     end
 
-    # Overwites method in `Decidim::Validatable`, as user groups don't have a
+    # Overwites method in `Decidim::Validatable`, as user groups do not have a
     # password.
     def password_required?
       false
     end
 
-    # Overwites method in `Decidim::Validatable`, as user groups don't have a
+    # Overwites method in `Decidim::Validatable`, as user groups do not have a
     # password.
     def password
       nil

@@ -3,7 +3,10 @@ en:
   activemodel:
     attributes:
       post:
+        body: Body
+        decidim_author_id: Author
         published_at: Publish time
+        title: Title
     models:
       decidim/blogs/create_post_event: New blog post
   activerecord:
@@ -22,8 +25,6 @@ en:
         title: Actions
       admin:
         models:
-          components:
-            body: Body
           post:
             name: Post
         posts:
@@ -58,16 +59,17 @@ en:
             body: Body
             official_blog_post: Official post
             published_at: Publish time
-            title: title
+            title: Title
       posts:
         show:
-          comments: Comments
           view: View
     components:
       blogs:
         actions:
+          comment: Comment
           create: Create
           destroy: Delete
+          endorse: Endorse
           update: Update
         name: Blog
         settings:

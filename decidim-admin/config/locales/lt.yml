@@ -547,7 +547,6 @@ lt:
         moderation: Globalūs moderavimai
         newsletters: Naujienlaiškiai
         participants: Dalyviai
-        reported_users: Raportuoti Naudotojai
         scope_types: Apimties tipai
         scopes: Apimtys
         settings: Nustatymai
@@ -646,7 +645,6 @@ lt:
           nickname: Slapyvardis
           reason: Priežastis
           reports: Raportavimų skaičius
-          title: Raportuotų dalyvių sąrašas
         report:
           reasons:
             does_not_belong: Nepriklauso
@@ -828,9 +826,6 @@ lt:
         edit:
           active_content_blocks: Aktyvūs turinio blokai
           inactive_content_blocks: Neaktyvūs turinio blokai
-      organization_homepage_content_blocks:
-        edit:
-          update: Atnaujinti
       participatory_space_private_users:
         create:
           error: Pridedant privatų dalyvį į šia dalyvaujamają erdvę kilo problema.
@@ -1067,14 +1062,11 @@ lt:
       models:
         moderation:
           fields:
-            created_at: Sukūrimo data
             hidden_at: Paslėpta
             participatory_space: Dalyvaujamoji erdvė
-            report_count: Kiekis
             reportable_id: ID
             reportable_type: Tipas
             reported_content_url: Turinio, apie kurį pranešta, URL
-            reports: Pranešimai
             visit_url: Apsilankykite URL
         report:
           fields:
@@ -1087,8 +1079,6 @@ lt:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globalūs moderavimai
         newsletters:
           title: Naujienlaiškiai
         settings:

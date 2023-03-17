@@ -11,7 +11,7 @@ Decidim.register_component(:elections) do |component|
   component.query_type = "Decidim::Elections::ElectionsType"
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Elections::Election.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Elections::Election.where(component: instance).any?
   end
 
   # These actions permissions can be configured in the admin panel

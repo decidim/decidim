@@ -12,7 +12,7 @@ module Decidim
       property :profile_path
 
       def show
-        render
+        render :show
       end
 
       def speakers_list
@@ -66,7 +66,7 @@ module Decidim
       def twitter_handle
         return unless model.twitter_handle.presence
 
-        link_to t(".go_to_twitter"), "https://twitter.com/#{model.twitter_handle}", target: "_blank", rel: "noopener"
+        link_to "@#{model.twitter_handle}", "https://twitter.com/#{model.twitter_handle}", target: "_blank", rel: "noopener"
       end
 
       def personal_url

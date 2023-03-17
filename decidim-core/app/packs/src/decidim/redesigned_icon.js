@@ -13,7 +13,7 @@ const DEFAULT_ATTRIBUTES = {
  */
 export default function icon(iconKey, attributes = {}) {
   const iconAttributes = { ...DEFAULT_ATTRIBUTES, ...attributes };
-  const htmlAttributes = {};
+  const htmlAttributes = { width: "0.75em", height: "0.75em" };
 
   Object.keys(iconAttributes).forEach((key) => {
     // Convert the key to dash-format.

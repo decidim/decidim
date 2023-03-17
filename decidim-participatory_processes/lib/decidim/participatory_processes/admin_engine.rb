@@ -17,7 +17,7 @@ module Decidim
       routes do
         resources :participatory_process_groups do
           resource :landing_page, only: [:edit, :update], controller: "participatory_process_group_landing_page" do
-            resources :content_blocks, only: [:edit, :update], controller: "participatory_process_group_landing_page_content_blocks"
+            resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "participatory_process_group_landing_page_content_blocks"
           end
         end
         resources :participatory_process_types

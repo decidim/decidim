@@ -40,6 +40,23 @@ describe "Explore projects", :slow, type: :system do
         end
       end
 
+      it "updates the current URL with the text filter" do
+        create(:project, budget:, title: { en: "Foobar project" })
+        create(:project, budget:, title: { en: "Another project" })
+        visit_budget
+
+        within "form.new_filter" do
+          fill_in("filter[search_text_cont]", with: "foobar")
+          click_button "Search"
+        end
+
+        expect(page).not_to have_content("Another project")
+        expect(page).to have_content("Foobar project")
+
+        filter_params = CGI.parse(URI.parse(page.current_url).query)
+        expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
+      end
+
       it "allows filtering by scope" do
         scope = create(:scope, organization:)
         project.scope = scope

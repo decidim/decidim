@@ -12,11 +12,11 @@ module Decidim::Assemblies
       let(:model) { { stat_title: :participants_count, stat_number: 123 } }
 
       it "renders the stat wrapper" do
-        expect(subject).to have_css(".statistic__data")
+        expect(subject).to have_css("[data-statistic]")
       end
 
       it "renders the stat title" do
-        expect(subject).to have_css("h4.statistic__title", text: "Participants")
+        expect(subject).to have_css("h3.statistic__title", text: "Participants")
       end
 
       it "renders the stat value" do
@@ -28,7 +28,7 @@ module Decidim::Assemblies
       let(:model) { { stat_title: :comments_count, stat_number: 25 } }
 
       it "renders the stat wrapper" do
-        expect(subject).to have_css(".statistic__data")
+        expect(subject).to have_css("[data-statistic]")
       end
 
       it "renders the stat title for comments" do

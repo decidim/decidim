@@ -3,9 +3,13 @@ en:
   activemodel:
     attributes:
       initiative:
+        answer: Answer
+        answer_url: Answer URL
         area_id: Area
+        decidim_scope_id: Scope
         decidim_user_group_id: Author
         description: Description
+        hashtag: Hashtag
         offline_votes: In-person signatures
         offline_votes_for_scope: In-person signatures for %{scope_name}
         scope_id: Scope
@@ -18,6 +22,7 @@ en:
           online: Online
         state: Status
         title: Title
+        type_id: Type
       initiatives_committee_member:
         user: Committee member
       initiatives_settings:
@@ -41,6 +46,9 @@ en:
         title: Title
         undo_online_signatures_enabled: Enable participants to undo their online signatures
         validate_sms_code_on_votes: Add SMS code validation step to signature process
+      initiatives_type_scope:
+        decidim_scopes_id: Scopes
+        supports_required: Supports required
       initiatives_vote:
         date_of_birth: Date of birth
         document_number: Document number
@@ -57,12 +65,12 @@ en:
             attachment:
               file: File is invalid
               needs_to_be_reattached: Needs to be reattached
-              title: Title shouldn't be empty
+              title: Title should not be empty
   activerecord:
     models:
       decidim/initiative:
-        one: Initative
-        other: Initatives
+        one: Initiative
+        other: Initiatives
       decidim/initiative_comittee:
         one: Comittee
         other: Comittees
@@ -185,7 +193,7 @@ en:
           description_own: You've got %{score} initiatives published.
           name: Published initiatives
           next_level_in: Get %{score} more initiatives published to reach the next level!
-          unearned_another: This participant hasn't gotten any initiatives published yet.
+          unearned_another: This participant has not gotten any initiatives published yet.
           unearned_own: You got no initiatives published yet.
     help:
       participatory_spaces:
@@ -462,7 +470,7 @@ en:
         personal_data:
           invalid: Personal data is not consistent with data provided for authorization.
         sms_code:
-          invalid: Your verification code doesn't match ours. Please double-check the SMS we sent you.
+          invalid: Your verification code does not match ours. Please double-check the SMS we sent you.
         sms_phone:
           invalid: The phone number is invalid or pending of authorization. Please, check your authorizations.
       initiatives:

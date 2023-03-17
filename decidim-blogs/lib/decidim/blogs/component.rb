@@ -11,7 +11,7 @@ Decidim.register_component(:blogs) do |component|
   component.query_type = "Decidim::Blogs::BlogsType"
 
   component.on(:before_destroy) do |instance|
-    raise StandardError, "Can't remove this component" if Decidim::Blogs::Post.where(component: instance).any?
+    raise StandardError, "Cannot remove this component" if Decidim::Blogs::Post.where(component: instance).any?
   end
 
   component.register_stat :posts_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, _start_at, _end_at|
@@ -36,7 +36,7 @@ Decidim.register_component(:blogs) do |component|
   component.register_resource(:blogpost) do |resource|
     resource.model_class_name = "Decidim::Blogs::Post"
     resource.card = "decidim/blogs/post"
-    resource.actions = %w(endorse vote amend comment)
+    resource.actions = %w(endorse comment)
     resource.searchable = true
   end
 

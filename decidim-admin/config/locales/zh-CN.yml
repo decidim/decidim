@@ -588,9 +588,6 @@ zh-CN:
         edit:
           active_content_blocks: 活动内容块
           inactive_content_blocks: 非活动内容块
-      organization_homepage_content_blocks:
-        edit:
-          update: 更新
       participatory_space_private_users:
         create:
           error: 在这种参与空间中添加私人参与者时出现了问题。
@@ -792,9 +789,7 @@ zh-CN:
         moderation:
           fields:
             hidden_at: 隐藏于
-            report_count: 计数
             reported_content_url: 报告的内容 URL
-            reports: 报告
             visit_url: 访问 URL
   errors:
     messages:

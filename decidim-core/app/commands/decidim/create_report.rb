@@ -17,7 +17,7 @@ module Decidim
     # Executes the command. Broadcasts these events:
     #
     # - :ok when everything is valid, together with the report.
-    # - :invalid if the form wasn't valid and we couldn't proceed.
+    # - :invalid if the form was not valid and we could not proceed.
     #
     # Returns nothing.
     def call
@@ -78,8 +78,12 @@ module Decidim
       end
     end
 
+    def hidden_by_admin?
+      form.hide == true && form.context[:can_hide] == true
+    end
+
     def hideable?
-      !@reportable.hidden? && @moderation.report_count >= Decidim.max_reports_before_hiding
+      hidden_by_admin? || (!@reportable.hidden? && @moderation.report_count >= Decidim.max_reports_before_hiding)
     end
 
     def hide!

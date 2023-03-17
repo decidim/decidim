@@ -1,0 +1,19 @@
+.content-block{
+  @apply flex flex-col gap-8 items-stretch py-8 md:py-16 first:pt-0 last:pb-0;
+
+  &__title{
+    @apply flex justify-start items-center gap-4 last:[&>a]:ml-auto;
+  }
+
+  &__description{
+    @apply text-lg prose max-w-2xl;
+  }
+
+  &__span{
+    @apply text-gray-2 font-semibold uppercase;
+  }
+
+  & ~ &{
+    @apply border-t-2 border-background;
+  }
+}

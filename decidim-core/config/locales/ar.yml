@@ -29,20 +29,29 @@ ar:
         password_confirmation: أكد كلمتك السرية
         personal_url: العنوان الشبكي الشخصي
         remove_avatar: إزالة الصورة الرمزية
+        tos_agreement: شروط وأحكام اتفاقية الاستخدام
     models:
       decidim/attachment_created_event: المرفق
       decidim/component_published_event: العنصر النشط
       decidim/demoted_membership: لم يعد مشرف المجموعة
       decidim/gamification/badge_earned_event: شارة المكتسبة
       decidim/gamification/level_up_event: لقد استعدت
+      decidim/invited_to_group_event: تمت دعوتك لمجموعة
       decidim/join_request_accepted_event: انضمام طلب مقبول
       decidim/join_request_rejected_event: طلب الانضمام مرفوض
       decidim/profile_updated_event: تحديث الملف الشخصي
       decidim/promote_to_admin: تمت ترقيته إلى مسؤول المجموعة
+      decidim/promoted_to_admin_event: تمت ترقيتك لمدير مجموعة
       decidim/removed_from_group: تمت إزالته من المجموعة
       decidim/resource_endorsed_event: المورد المدعُوم
+      decidim/resource_hidden_event: تم إخفاء المورد
+      decidim/user_group_created_event: تم إنشاء مجموعة المستخدم
+      decidim/welcome_notification_event: رسالة ترحيب
   activerecord:
     attributes:
+      decidim/action_log:
+        created_at: الوقت
+        with_participatory_space: المساحة التشاركية
       decidim/user:
         current_password: كلمة المرور الحالي
         email: البريد الإلكتروني
@@ -75,6 +84,11 @@ ar:
   booleans:
     'false': 'لا'
     'true': 'نعم'
+  carrierwave:
+    errors:
+      file_resolution_too_large: دقة الملف أكبر من المسموح به
+      file_size_too_large: حجم الملف أكبر من المسموح به
+      not_inside_organization: لم يتم إرفاق الملف بأي منظمة
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -82,6 +96,9 @@ ar:
       decidim_with_day_and_month_name: "%A %d %b %Y"
       decidim_with_month_name: "%d %B %Y"
       decidim_with_month_name_short: "%d %b"
+  datetime:
+    distance_in_words:
+      half_a_minute: نصف دقيقة
   decidim:
     accessibility:
       external_link: الرابط الخارجي
@@ -89,7 +106,9 @@ ar:
       logo: "شعار %{organization} الرسمي"
       skip_button: تخطي إلى المحتوى الرئيسي
     account:
+      blocked: تم حظر هذا الحساب بسبب مخالفة الشروط والأحكام
       delete:
+        alert: لا يمكن إبطال أو التراجع عن هذا الإجراء. إذا قمت بحذف حسابك فلن تتمكن من تسجيل الدخول باستخدام بيانات الاعتماد الخاصة بك. سيؤدي حذف حسابك إلى إخفاء هوية مساهماتك. سوف تظل قادراً على إنشاء حساب جديد، ولكن هذه المساهمات لن تكون مرتبطة به.
         confirm:
           close: أغلق النافذة
           ok: نعم ، أريد حذف حسابي
@@ -240,14 +259,6 @@ ar:
           '4': انشر تعديلك
     anonymous_user: مجهول
     application:
-      collection:
-        documents:
-          zero: مستندات
-          one: وثيقة
-          two: مستندات
-          few: مستندات
-          many: مستندات
-          other: مستندات
       document:
         download: نزّل الملف
       documents:
@@ -607,8 +618,6 @@ ar:
         button: إيقاف المتابَعة
         error: حدثت مشكلة في إلغاء متابعة هذا المورد.
     forms:
-      current_image: الصورة الحالية
-      default_image: الصورة الافتراضية
       errors:
         decidim/user:
           password: الكلمة السرية قصيرة جدا.
@@ -825,7 +834,6 @@ ar:
     newsletter_mailer:
       newsletter:
         note: لقد تلقيت هذه الرسالة الإلكترونية لأنك مشترك في الرسائل الإخبارية على %{organization_name}. يمكنك تغيير الإعدادات الخاصة بك على هاتفك <a href="%{link}">الصفحة إخطارات</a>.
-        see_on_website: لا يمكن عرض هذا البريد الإلكتروني بشكل صحيح؟ اطلع عليه على <a href="%{link}" target="_blank">الموقع</a>.
         unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
     newsletter_templates:
       image_text_cta_settings_form:
@@ -967,7 +975,9 @@ ar:
       report:
         content_original_language: لغة المحتوى الأصلية
         hello: مرحبا %{name}،
+        reason: السبب
         report_html: <p>تم الإبلاغ عن المحتوى <a href="%{url}">التالي</a> .</p>
+        see_report: معاينة التقرير
         subject: تم الإبلاغ عن مورد
     reports:
       create:
@@ -1024,6 +1034,8 @@ ar:
         close: قريب
         description: هل هذا المحتوى غير مناسب؟
         does_not_belong: يحتوي على نشاط غير قانوني أو تهديدات انتحارية أو معلومات شخصية أو أي شيء آخر تعتقد أنه لا ينتمي إلى %{organization_name}.
+        hide: إخفاء
+        hide_content: إخفاء هذا المحتوى
         offensive: يحتوي على العنصرية والتمييز الجنسي والتشهير والهجمات الشخصية والتهديدات بالقتل أو طلبات الانتحار أو أي شكل من أشكال خطاب الكراهية.
         report: أبلغ عن
         spam: يحتوي على clickbait أو الإعلان أو الخدع أو روبوت البرامج النصية.

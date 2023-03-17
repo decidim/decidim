@@ -23,6 +23,13 @@ bin/rails db:migrate
 
 ### 1.3. Follow the steps and commands detailed in these notes
 
+#### 1.3.1 Config Parameter change
+
+Prior to 0.28, Decidim offered the possibility of configuring the a list of disallowed domains used to restrict user access using either `Decidim.password_blacklist` or environment variable `DECIDIM_PASSWORD_BLACKLIST`. While upgrading to 0.28, those methods have been renamed as follows:
+
+`Decidim.password_blacklist` becomes `Decidim.denied_passwords`
+`DECIDIM_PASSWORD_BLACKLIST` becomes `DECIDIM_DENIED_PASSWORDS`
+
 ## 2. General notes
 
 ## 3. One time actions
@@ -36,6 +43,26 @@ Decidim redesign has introduced Tailwind CSS framework to compile CSS. It integr
 You'll need to add `tailwind.config.js` to your app `.gitignore`. If you generate a new Decidim app from scratch, that entry will already be included in the `.gitignore`.
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
+
+### 3.2. Added Procfile support
+
+In [\#10519](https://github.com/decidim/decidim/pull/10519) we have added Procfile support to ease up the development of Decidim instances. In order to install `foreman` and the `Procfile.dev`, you need to run the following command:
+
+```console
+bundle exec rake decidim:procfile:install
+```
+
+After this command has been ran, a new command will be available in your `bin/`, so in order to boot up your application you will just need to run
+
+```console
+bin/dev
+```
+
+Additional notes on Procfile:
+
+In some cases, when running in a containerized environment, you may need to manually edit the `config/webpacker.yml` to edit the host parameter from `host: localhost` to `host: 0.0.0.0`
+
+In some other cases when you run your application on a custom port (other than 3000), you will need to edit the `Procfile`, and add the parameter. `web: bin/rails server -b 0.0.0.0 -p 3000`
 
 ## 4. Scheduled tasks
 
@@ -60,7 +87,7 @@ You can read more about this change on PR [\#9026](https://github.com/decidim/de
 
 ### 4.2. Social Share Button change
 
-As the gem that we were using for sharing to Social Network don't support Webpacker, we have implemented the same functionality in `decidim-core`.
+As the gem that we were using for sharing to Social Network do not support Webpacker, we have implemented the same functionality in `decidim-core`.
 
 If you want to have the default social share services enabled (Twitter, Facebook, WhatsApp and Telegram), then you can just remove the initializer in your application:
 
@@ -93,6 +120,22 @@ And define your own services in the environment variable `DECIDIM_SOCIAL_SHARE_S
 
 With this change you can also define your own services. See [documentation for social share services customization](https://docs.decidim.org/en/customize/social_shares/).
 
+### 4.3. Password validator configuration
+
+Decidim implements several password strength checks that ensure the platforms participants and admins are not using weak passwords. One of these validation rules includes checking the user's password against the domain parts of the website, such as `foo.example.org`. The validation ensures that in this case the user's password does not contain the words `foo` or `example`.
+
+This check turned out to be problematic for short subdomains, such as the one in the presented example. Because of this, a new configuration was added to configure the minimum length of a domain part to match against the user's password. The default configuration for this is four characters meaning any domain part shorter than this limit will not be included in this validation rule.
+
+The default value is 4 characters, to change this value you can change the configuration:
+
+```ruby
+# In config/initializers/decidim.org
+
+Decidim.configure do |config|
+  config.password_similarity_length = 4
+end
+```
+
 ## 5. Changes in APIs
 
 ### 5.1. Tailwind CSS instead of Foundation
@@ -101,7 +144,7 @@ In this version we are introducing Tailwind CSS as the underlying layer to build
 
 This means that in case you have done any changes in the Decidim user interface or developed any modules with participant facing user interfaces, you need to do changes in all your views, partials and view components (aka cells).
 
-Tailwind is quite different from Foundation and it cannot
+Tailwind is quite different from Foundation and it does not support the old classes and markup that we used to use with Foundation. You will need to update all your views according to the new user interface conventions. You should always aim to follow the styling in the core and utilize the same components that the core provides in order to provide a consistent user experience.
 
 You can read more about this change on PR [\#9480](https://github.com/decidim/decidim/pull/9480).
 
@@ -111,7 +154,7 @@ You can read more about Tailwind from the [Tailwind documentation](https://tailw
 
 In previous Decidim versions authorization conflicts (i.e. authorizing the user with the same unique data as a previous user) needed to be always handled manually. Now these are automatically handled for cases where the original user had authorized their account, then deleted their account and finally authorized the new account with the same details as the previous account.
 
-This means that some participation data bound to the previous deleted user account is now automatically transferred over to the new account during the authorization process to prevent e.g. duplicate votes in budgeting votings. This includes any data that may or may not require an authorization through the component permissions because in Decidim we cannot be always perfectly sure when an authorization is required for the action or not. As an example, budget voting can start without an authorization and if the admin decides to configure an authorization for the component one day after the voting started, we need to assume that the all votes in that component required an authorization. Otherwise we would potentially allow multiple votes from the users that voted before the authorization was configured if they decided to create a new account to vote for a second time or deleted their original account and did that.
+This means that some participation data bound to the previous deleted user account is now automatically transferred over to the new account during the authorization process to prevent e.g. duplicate votes in budgeting votings (note that duplicate votes have never been possible but this PR improves the participant experience for any person trying to do that). This includes any data that may or may not require an authorization through the component permissions because in Decidim we cannot be always perfectly sure when an authorization is required for the action or not. As an example, budget voting can start without an authorization and if the admin decides to configure an authorization for the component one day after the voting started, we need to assume that the all votes in that component required an authorization. Otherwise we would potentially allow multiple votes from the users that voted before the authorization was configured if they decided to create a new account to vote for a second time or deleted their original account and did that.
 
 The transferred data can differ between the different modules but the official modules handle the following data automatically:
 

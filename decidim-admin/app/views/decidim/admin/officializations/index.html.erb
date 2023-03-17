@@ -20,20 +20,15 @@
         <tbody>
           <% @users.each do |user| %>
             <tr data-user-id="<%= user.id %>">
-              <% if user.nickname.present? %>
-                <td><%= link_to user.name, decidim.profile_path(user.nickname) %></td>
-                <td><%= link_to user.nickname, decidim.profile_path(user.nickname) %></td>
-              <% else %>
-                <td><%= user.name %></td>
-                <td><%= user.nickname %></td>
-              <% end %>
+              <td><%= link_to_if user.nickname.present?, user.name, decidim.profile_path(user.nickname) %></td>
+              <td><%= link_to_if user.nickname.present?, user.nickname, decidim.profile_path(user.nickname) %></td>
               <td><%= l user.created_at, format: :short %></td>
               <td><%= user.officialized? ? t(".officialized") : t(".not_officialized") %></td>
               <td><%= translated_attribute(user.officialized_as) %></td>
               <td><%= user.report_count %></td>
 
               <td class="table-list__actions">
-                <% if allowed_to?(:block, :admin_user) %>
+                <% if allowed_to?(:block, :admin_user, user: user) %>
                   <% if user.blocked? %>
                     <%= icon_link_to "ban", user_block_path(user_id: user.id), t(".unblock"), class: "action-icon action-icon--disabled", method: :delete %>
                   <% else %>
@@ -43,15 +38,19 @@
                 <% if allowed_to? :show_email, :user, user: user %>
                   <%= icon_link_to "envelope-open", show_email_officialization_path(user_id: user.id), t(".show_email"), class: "action-icon action-icon--show-email", data: { full_name: user.name, toggle: "show-email-modal" } %>
                 <% end %>
-                <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
-                <% if user.officialized? %>
-                  <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".officialize") %>
-                  <%= icon_link_to "pencil", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
-                  <%= icon_link_to "circle-x", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
-                <% else %>
-                  <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
-                  <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>
-                  <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".unofficialize") %>
+                <% unless user.blocked? %>
+                  <% unless current_user == user %>
+                    <%= icon_link_to "envelope-closed", current_or_new_conversation_path_with(user), t("decidim.contact"), class:"action-icon--new" %>
+                  <% end %>
+                  <% if user.officialized? %>
+                    <%= icon "circle-check", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".officialize") %>
+                    <%= icon_link_to "pencil", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
+                    <%= icon_link_to "circle-x", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
+                  <% else %>
+                    <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
+                    <%= icon "pencil", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".reofficialize") %>
+                    <%= icon "circle-x", class: "action-icon action-icon--disabled", role: "img", aria_label: t(".unofficialize") %>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

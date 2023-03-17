@@ -20,7 +20,7 @@ module Decidim
         # Executes the command. Broadcasts these events:
         #
         # - :ok when everything is valid.
-        # - :invalid if the form wasn't valid and we couldn't proceed.
+        # - :invalid if the form was not valid and we could not proceed.
         #
         # Returns nothing.
         def call
@@ -76,6 +76,7 @@ module Decidim
             title: form.title,
             slogan: form.slogan,
             slug: form.slug,
+            weight: form.weight,
             hashtag: form.hashtag,
             description: form.description,
             short_description: form.short_description,

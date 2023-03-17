@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t(".template_title") %></h2>
+    <%= form.submit t(".save"), class: "button tiny button--title" %>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.translated :text_field, :name %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_area, :description, rows: 3 %>
+    </div>
+  </div>
+</div>

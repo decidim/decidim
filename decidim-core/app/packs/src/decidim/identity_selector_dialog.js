@@ -1,4 +1,6 @@
 /**
+ * @deprecated since feature/redesign
+ *
  * Makes the #select-identity-button to open a popup for the user to
  * select with which identity they want to perform an action.
  *
@@ -20,8 +22,9 @@ $(() => {
   }
 });
 
-
 /**
+ * @deprecated since feature/redesign
+ *
  * Manage the identity selector for endorsements.
  *
  */

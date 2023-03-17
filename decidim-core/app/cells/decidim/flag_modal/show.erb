@@ -20,7 +20,27 @@
           <label><%= builder.radio_button(id: nil) + builder.text %></label>
         <% end %>
       </fieldset>
+
+      <% if frontend_administrable? %>
+        <div class="callout secondary"><%= t("decidim.shared.flag_modal.visit_profile", user_link: link_to(author&.nickname, link_to_profile)) %></div>
+      <% end %>
       <%= f.text_area :details, rows: 4, id: "#{modal_id}_details", label_options: { for: "#{modal_id}_details" } %>
+
+      <% if frontend_administrable? %>
+        <fieldset>
+          <div class="modal__report-container__radio">
+            <%= f.check_box :hide, label: false , data: {
+              label_hide: t("decidim.shared.flag_modal.hide"),
+              label_report: t("decidim.shared.flag_modal.report"),
+              hide: "true"
+            }, id: hide_checkbox_id %>
+            <label for="<%= hide_checkbox_id %>">
+              <%= t("decidim.shared.flag_modal.hide_content") %>
+            </label>
+          </div>
+        </fieldset>
+      <% end %>
+
       <%= f.submit t("decidim.shared.flag_modal.report") %>
     <% end %>
   <% end %>

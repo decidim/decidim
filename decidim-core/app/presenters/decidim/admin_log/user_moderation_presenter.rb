@@ -5,7 +5,7 @@ module Decidim
     # This class holds the logic to present a `Decidim::UserModeration`
     # for the `AdminLog` log.
     #
-    # Usage should be automatic and you shouldn't need to call this class
+    # Usage should be automatic and you should not need to call this class
     # directly, but here's an example:
     #
     #    action_log = Decidim::ActionLog.last
@@ -52,7 +52,7 @@ module Decidim
       end
 
       def unreported_user
-        @unreported_user ||= Decidim::User.find_by(id: action_log.extra.dig("extra", "user_id"))
+        @unreported_user ||= Decidim::UserBaseEntity.find_by(id: action_log.extra.dig("extra", "user_id"))
       end
 
       def has_diff?

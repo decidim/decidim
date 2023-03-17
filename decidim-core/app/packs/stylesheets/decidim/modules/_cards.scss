@@ -934,7 +934,7 @@ a .card__title{
   @include modifiers(
     color,
     (
-      muted: tint($muted, 50),
+      muted: tint($muted, 50%),
     )
   ){
     margin-top: -$global-margin * .95;

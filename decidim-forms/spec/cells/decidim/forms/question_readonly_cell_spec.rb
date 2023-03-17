@@ -16,7 +16,7 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
   context "when using a separator" do
     let(:model) { separator }
 
-    it "doesn't render anything" do
+    it "does not render anything" do
       expect(subject.show.to_s).to be_empty
     end
   end
@@ -33,7 +33,7 @@ describe Decidim::Forms::QuestionReadonlyCell, type: :cell do
       expect(subject.call).to have_content(translated_question_type)
     end
 
-    it "doesn't render the element with the answer idx attribute" do
+    it "does not render the element with the answer idx attribute" do
       expect(subject.call).to have_no_css("[data-answer-idx]")
     end
   end

@@ -3,7 +3,7 @@
 module Decidim
   module Verifications
     # This controller allows users to create and destroy their authorizations. It
-    # shouldn't be necessary to expand it to add new authorization schemes.
+    # should not be necessary to expand it to add new authorization schemes.
     class AuthorizationsController < Verifications::ApplicationController
       helper_method :handler, :unauthorized_methods, :authorization_method, :authorization
       before_action :valid_handler, only: [:new, :create]
@@ -16,13 +16,15 @@ module Decidim
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper
 
-      layout "layouts/decidim/user_profile", only: [:index]
+      layout "layouts/decidim/authorizations", except: :index
 
       def new; end
 
       def index
         @granted_authorizations = granted_authorizations
         @pending_authorizations = pending_authorizations
+
+        render layout: redesigned_layout("layouts/decidim/user_profile")
       end
 
       def first_login
@@ -88,8 +90,8 @@ module Decidim
         return true if handler
 
         msg = <<-MSG
-        Invalid authorization handler given: #{handler_name} doesn't
-        exist or you haven't added it to `Decidim.authorization_handlers.
+        Invalid authorization handler given: #{handler_name} does not
+        exist or you have not added it to `Decidim.authorization_handlers.
 
         Make sure this name matches with your registrations:\n\n
         Decidim::Verifications.register_workflow(:#{handler_name}) do

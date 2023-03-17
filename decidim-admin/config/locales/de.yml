@@ -14,17 +14,24 @@ de:
         description: Beschreibung
         file: Datei
         title: Anhang oder Bildname
+        weight: Reihenfolge
       attachment_collection:
         description: Beschreibung
         name: Name
+        weight: Reihenfolge
       category:
         description: Beschreibung
         name: Name
         parent_id: Übergeordnete Kategorie
+        weight: Reihenfolge
       component:
         name: Name
         published_at: Veröffentlicht unter
-        weight: Bestellposition
+        weight: Reihenfolge
+      external_domain:
+        value: Wert
+      help_section:
+        content: Inhalt
       id: ID
       import:
         user_group_id: Importierte Inhalte erstellen als
@@ -92,6 +99,9 @@ de:
         welcome_notification_body: Text der Willkommens-Benachrichtigung
         welcome_notification_subject: Betreff der Willkommens-Benachrichtigung
         youtube_handler: YouTube-Handler
+      participatory_space_private_user:
+        email: E-Mail
+        name: Name
       scope:
         code: Code
         name: Name
@@ -113,12 +123,13 @@ de:
         show_in_footer: In der Fußzeile anzeigen
         slug: URL-Block
         title: Titel
-        weight: Bestellposition
+        topic_id: Thema
+        weight: Reihenfolge
       static_page_topic:
         description: Beschreibung
         show_in_footer: In der Fußzeile anzeigen
         title: Titel
-        weight: Bestellposition
+        weight: Reihenfolge
       user_group_csv_verification:
         file: Datei
     errors:
@@ -531,7 +542,6 @@ de:
         moderation: Globale Moderationen
         newsletters: Newsletter
         participants: Teilnehmer
-        reported_users: Gemeldete Nutzer
         scope_types: Bereichstypen
         scopes: Bereiche
         settings: die Einstellungen
@@ -630,7 +640,6 @@ de:
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
-          title: Liste der gemeldeten Benutzer
         report:
           reasons:
             does_not_belong: Gehört nicht zu
@@ -812,9 +821,6 @@ de:
         edit:
           active_content_blocks: Aktive Inhaltsblöcke
           inactive_content_blocks: Inaktive Inhaltsblöcke
-      organization_homepage_content_blocks:
-        edit:
-          update: Aktualisieren
       participatory_space_private_users:
         create:
           error: Beim Hinzufügen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
@@ -927,6 +933,8 @@ de:
       static_pages:
         actions:
           view: Öffentliche Seite anzeigen
+        content_blocks:
+          active_content_blocks: Aktive Inhaltsblöcke
         create:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
@@ -1051,14 +1059,11 @@ de:
       models:
         moderation:
           fields:
-            created_at: Erstellungsdatum
             hidden_at: Versteckt bei
             participatory_space: Beteiligungsbereich
-            report_count: Anzahl
             reportable_id: ID
             reportable_type: Typ
             reported_content_url: URL des gemeldeten Inhalts
-            reports: Berichte
             visit_url: Besuchs-URL
         report:
           fields:
@@ -1071,8 +1076,6 @@ de:
   layouts:
     decidim:
       admin:
-        global_moderations:
-          title: Globale Moderationen
         newsletters:
           title: Newsletter
         settings:

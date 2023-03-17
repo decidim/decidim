@@ -14,14 +14,18 @@
   }
 
   [data-dialog-closable]{
-    @apply absolute top-4 right-4 text-2xl text-secondary outline-none;
+    @apply absolute top-4 right-4 text-2xl text-secondary;
   }
 
   [data-dialog-container]{
-    @apply flex items-start gap-2 last:[&>*]:grow last:[&>*]:pr-6;
+    @apply grid grid-cols-[auto_1fr] items-center gap-2;
 
     > svg{
       @apply w-6 h-6 text-gray fill-current flex-none;
+    }
+
+    > :last-child{
+      @apply col-span-2 md:col-span-1 md:col-start-2;
     }
   }
 
@@ -30,6 +34,6 @@
   }
 
   [data-dialog-actions]{
-    @apply flex justify-between items-center only:[&>*]:ml-auto;
+    @apply flex justify-between items-center mt-10 only:[&>*]:ml-auto;
   }
 }

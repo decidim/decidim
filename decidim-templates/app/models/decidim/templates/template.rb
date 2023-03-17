@@ -19,16 +19,10 @@ module Decidim
 
       belongs_to :templatable, foreign_type: "templatable_type", polymorphic: true, optional: true
 
-      before_destroy :destroy_templatable
-
       validates :name, presence: true
 
       def resource_name
         [templatable_type.demodulize.tableize.singularize, "templates"].join("_")
-      end
-
-      def destroy_templatable
-        templatable.destroy
       end
 
       def self.log_presenter_class_for(_log)
