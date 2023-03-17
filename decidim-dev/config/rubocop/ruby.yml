@@ -13,6 +13,7 @@ AllCops:
     - "**/Gemfile"
     - "**/Rakefile"
   Exclude:
+    - db/schema.rb
     - "**/node_modules/**/*"
     - "**/vendor/**/*"
     - "development_app*/**/*"
