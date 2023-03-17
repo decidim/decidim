@@ -652,7 +652,6 @@ pt:
         decidim/user:
           password: A palavra-passe é demasiado curta.
           password_confirmation: A confirmação da palavra-passe deverá corresponder à palavra-passe.
-        error: Há um erro neste campo.
       file_help:
         file:
           explanation: 'Orientação para o ficheiro:'
