@@ -27,14 +27,14 @@ runs:
       with:
         ruby-version: ${{ inputs.ruby_version }}
         bundler-cache: true
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node_version }}
     - name: Get npm cache directory path
       id: npm-cache-dir-path
-      run: echo "::set-output name=dir::$(npm get cache)-${{ inputs.name }}"
+      run: echo "dir=$(npm get cache)-${{ inputs.name }}" >> $GITHUB_OUTPUT
       shell: "bash"
-    - uses: actions/cache@v2
+    - uses: actions/cache@v3
       id: npm-cache
       with:
         path: ${{ steps.npm-cache-dir-path.outputs.dir }}

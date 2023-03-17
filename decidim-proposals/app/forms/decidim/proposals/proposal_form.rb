@@ -115,7 +115,7 @@ module Decidim
       private
 
       # This method will add an error to the `add_photos` and/or "add_documents" fields
-      # only if there's any error in any other field. This is needed because when the
+      # only if there is any error in any other field. This is needed because when the
       # form has an error, the attachment is lost, so we need a way to inform the user of
       # this problem.
       def notify_missing_attachment_if_errored

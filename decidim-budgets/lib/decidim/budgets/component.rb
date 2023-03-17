@@ -89,7 +89,7 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :vote_selected_projects_minimum, type: :integer, default: 0
     settings.attribute :vote_selected_projects_maximum, type: :integer, default: 1
     settings.attribute :comments_enabled, type: :boolean, default: true
-    settings.attribute :comments_max_length, type: :integer, default: 1000, required: true
+    settings.attribute :comments_max_length, type: :integer, default: 2000, required: true
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true

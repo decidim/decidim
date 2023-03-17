@@ -49,7 +49,7 @@ module Decidim
           let(:user) { create :user, :deleted }
 
           it "does not include the user name" do
-            expect(helper.conversation_label_for(participants)).to eq "Conversation with Participant deleted"
+            expect(helper.conversation_label_for(participants)).to eq "Conversation with Deleted participant"
           end
         end
       end
@@ -70,7 +70,7 @@ module Decidim
           let(:user) { create :user, :deleted }
 
           it "does not include the user name" do
-            expect(helper.username_list(participants)).to eq "Participant deleted"
+            expect(helper.username_list(participants)).to eq "Deleted participant"
           end
         end
       end
@@ -92,7 +92,7 @@ module Decidim
           let(:user) { create :user, :deleted }
 
           it "does not include the user name" do
-            expect(helper.conversation_name_for(participants)).to eq "<span class=\"label label--small label--basic\">Participant deleted</span>"
+            expect(helper.conversation_name_for(participants)).to eq "<span class=\"label label--small label--basic\">Deleted participant</span>"
           end
         end
       end

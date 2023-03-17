@@ -131,7 +131,7 @@ module Decidim
     # Currently, groups always accept conversations from anyone.
     # This may change in the future in case the desired behaviour
     # is to check if all (or any) of the administrators accepts conversations
-    # or there's simply and option for this in the group preferences.
+    # or there is simply and option for this in the group preferences.
     def accepts_conversation?(_user)
       true
     end
