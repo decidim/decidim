@@ -605,6 +605,7 @@ fr:
           publish:
             error: Il y a eu des erreurs lors de la publication du brouillon collaboratif.
             irreversible_action_modal:
+              body: Après avoir publié le brouillon en tant que proposition, celui-ci ne sera plus éditable. La proposition n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Publier en tant que proposition
               title: L'action suivante est irréversible
@@ -613,6 +614,7 @@ fr:
           withdraw:
             error: Il y a eu des erreurs en fermant le brouillon collaboratif.
             irreversible_action_modal:
+              body: Après avoir fermé le brouillon, celui-ci ne sera plus éditable. Le brouillon n'acceptera pas de nouveaux auteurs ou contributions.
               cancel: Annuler
               ok: Retirer le projet collaboratif
               title: L'action suivante est irréversible
