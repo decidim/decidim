@@ -12,7 +12,7 @@ This works for any Organization inside of a Muiltitenant.
 
 == Head extra file
 
-There's an special partial file for adding inline content in every public page. You just need to create a file called `app/views/layouts/decidim/_head_extra.html.erb`:
+There is an special partial file for adding inline content in every public page. You just need to create a file called `app/views/layouts/decidim/_head_extra.html.erb`:
 
 [source,stylesheet]
 ----
