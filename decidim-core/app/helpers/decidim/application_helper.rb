@@ -15,7 +15,7 @@ module Decidim
     # text    - The String text to be truncated.
     # options - A Hash with the options to truncate the text (default: {}):
     #           :length - An Integer number with the max length of the text.
-    #           :separator - A String to append to the text when it's being
+    #           :separator - A String to append to the text when it is being
     #           truncated.
     #
     # Returns a String.

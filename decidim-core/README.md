@@ -26,7 +26,7 @@ User authentication is set up with [`Devise`](https://github.com/plataformatec/d
 
 ## Amendments
 
-Core implements an Amendment feature that can be activated in the components. As of now, it's only implemented in the proposal component.
+Core implements an Amendment feature that can be activated in the components. As of now, it is only implemented in the proposal component.
 
 This feature makes it possible for anyone to edit the text of an amendable resource and create a child resource as an amendment. This child resource may receive support and the author of the amendable resource may accept or reject the amendment (or child proposal). In case of rejection, the author of the rejected emendation may raise the child resource to an independent resource.
 

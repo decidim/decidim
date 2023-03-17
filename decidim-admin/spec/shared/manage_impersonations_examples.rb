@@ -194,7 +194,7 @@ shared_examples "manage impersonations examples" do
         impersonate(impersonated_user, reason:)
       end
 
-      context "and it's a managed user" do
+      context "and it is a managed user" do
         let(:managed) { true }
 
         it_behaves_like "impersonating a user"

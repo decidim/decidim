@@ -211,7 +211,7 @@ for additional technical details.
 ## How Handlers work
 
 For a workflow to be visible in the user's profile, the organization must have
-it in it's `available_authorizations` and the given handler must exist.
+it in it is `available_authorizations` and the given handler must exist.
 The name of the handler must match the authorization name plus the "Hander"
 suffix. It also has to be in the `Decidim::Verifications` namespace.
 

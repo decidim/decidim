@@ -34,7 +34,7 @@ environment ENV.fetch("RAILS_ENV", "development")
 #
 # preload_app!
 
-# If you are preloading your application and using Active Record, it's
+# If you are preloading your application and using Active Record, it is
 # recommended that you close any connections to the database before workers
 # are forked to prevent connection leakage.
 #

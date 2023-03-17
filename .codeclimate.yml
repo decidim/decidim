@@ -110,7 +110,7 @@ plugins:
     # > Error: Could not find "@decidim/stylelint-config". Do you need a `configBasedir`?
     # > See our documentation at https://docs.codeclimate.com/docs/stylelint for more information.
     #
-    # Disabling it for the moment, we should enable it as it's useful.
+    # Disabling it for the moment, we should enable it as it is useful.
     #
     enabled: false
     exclude_patterns:

@@ -20,7 +20,7 @@ class EmptyTokenError < RuntimeError
       The <GITHUB PERSONAL ACCESS TOKEN> can be obtained from https://github.com/settings/tokens/new
       You'll need to create one with `public_repo` access.
 
-      The <SHA> is the git commit SHA from which to consider the changes. It's
+      The <SHA> is the git commit SHA from which to consider the changes. It is
       usually the last commit that modified the `.decidim_version` file.
 
       ## Explanation

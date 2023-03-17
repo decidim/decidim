@@ -14,7 +14,7 @@ describe Decidim::Proposals::Admin::ProposalNoteCreatedEvent do
   it_behaves_like "a simple event"
 
   describe "email_subject" do
-    let(:resource) { create :proposal, title: { en: "It's my proposal" } }
+    let(:resource) { create :proposal, title: { en: "It is my proposal" } }
 
     it "is generated correctly" do
       expect(subject.email_subject).to eq("Someone left a note on proposal #{resource_title}.")

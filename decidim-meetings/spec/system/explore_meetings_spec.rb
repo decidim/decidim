@@ -215,7 +215,7 @@ describe "Explore meetings", :slow, type: :system do
           find(:css, "#content form.new_filter [name='filter[search_text_cont]']").set(translated(meetings.first.title))
 
           # The form should be auto-submitted when filter box is filled up, but
-          # somehow it's not happening. So we workaround that be explicitly
+          # somehow it is not happening. So we workaround that be explicitly
           # clicking on "Search" until we find out why.
           find("#content form.new_filter .icon--magnifying-glass").click
         end

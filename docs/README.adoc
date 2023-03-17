@@ -10,7 +10,7 @@ Some of the sections are available on https://github.com/decidim/documentation[D
 
 This is made with https://antora.org/[Antora].
 It uses https://asciidoc.org/[AsciiDoc] mark-up document format.
-It's pretty similar to Markdown, although is more standarized and can do more complex things.
+It is pretty similar to Markdown, although is more standarized and can do more complex things.
 Read more about https://asciidoctor.org/docs/asciidoc-vs-markdown/[Markdown vs AsciiDoc].
 
 If you want to convert from Markdown to AsciiDoc:
