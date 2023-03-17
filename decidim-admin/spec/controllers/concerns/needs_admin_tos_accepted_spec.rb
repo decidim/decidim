@@ -44,7 +44,7 @@ module Decidim
         sign_in user, scope: :user
       end
 
-      context "when the user hasn't accepted the ToS" do
+      context "when the user has not accepted the ToS" do
         let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
 
         it "allows entering the root page" do
@@ -59,7 +59,7 @@ module Decidim
           expect(response.body).to have_text("Admin ToS page")
         end
 
-        it "doesn't allow entering another page" do
+        it "does not allow entering another page" do
           get :another
 
           expect(response).to redirect_to("/admin_tos")

@@ -5,7 +5,7 @@ require "spec_helper"
 describe "AdminTosAcceptance", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, admin_terms_accepted_at: nil, organization:) }
-  let(:review_message) { "Please take a moment to review Admin Terms of Use. Otherwise you won't be able to manage the platform" }
+  let(:review_message) { "Please take a moment to review Admin Terms of Use. Otherwise you will not be able to manage the platform" }
 
   before do
     switch_to_host(organization.host)
