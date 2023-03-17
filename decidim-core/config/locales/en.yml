@@ -1421,7 +1421,6 @@ en:
       term_input_placeholder: Search
     searches:
       filters:
-        back: Back to results
         jump_to: 'Jump to:'
         state:
           active: Active
@@ -1434,9 +1433,6 @@ en:
         filter_by: Filter by
         unfold: Unfold
       results:
-        results:
-          one: "%{count} result"
-          other: "%{count} results"
         view_all: View all (%{count})
     security:
       selfxss_warning:
@@ -1591,11 +1587,7 @@ en:
         back_to_resource: Go back
         changes_at_title: Changes at "%{title}"
         number_of_versions: Versions
-        show_all_versions: Show all versions
-        version_author: Version author
         version_created_at: Version created at
-        version_number: Version number
-        version_number_out_of_total: "%{current_version} out of %{total_count}"
     version_author:
       show:
         deleted: Deleted participant

@@ -77,7 +77,7 @@ describe "Explore versions", versioning: true, type: :system do
     # it_behaves_like "accessible page"
 
     it "allows going back to the initiative" do
-      click_link "Go back to initiative"
+      click_link "Back"
       expect(page).to have_current_path initiative_path, ignore_query: true
     end
 

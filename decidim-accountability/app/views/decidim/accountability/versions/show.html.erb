@@ -1,17 +1,13 @@
-<% content_for :js_content do %>
-  <%= javascript_pack_tag "decidim_accountability" %>
-<% end %>
-<%# REDESIGN_PENDING - Replace this drawer layout with layout_item. All these changes are in the corresponding branch %>
-<% content_for :drawer_aside do %>
+<% content_for :aside do %>
   <%= cell(
     "decidim/versions_list",
     versioned_resource,
     version_path: proc { |version_index| url_for(action: :show, id: version_index) },
-    i18n_scope: "decidim.accountability.versions"
+    i18n_scope: "decidim.meetings.versions"
   ) %>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/drawer", locals: { close_url: result_path(versioned_resource) } do %>
+<%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: result_path(versioned_resource) } do %>
   <%= cell(
     "decidim/version",
     current_version,
@@ -19,6 +15,6 @@
     versioned_resource: versioned_resource,
     path: proc { |extra_params| url_for(action: :show, id: params[:id], **extra_params) },
     versions_path: proc { url_for(action: :index) },
-    i18n_scope: "decidim.accountability.results.show.stats"
+    i18n_scope: "decidim.meetings.versions"
   ) %>
 <% end %>

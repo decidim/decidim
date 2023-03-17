@@ -49,7 +49,7 @@ describe "Explore versions", versioning: true, type: :system do
     end
 
     it "allows going back to the result" do
-      click_link "Go back to result"
+      click_link "Back"
       expect(page).to have_current_path result_path
     end
 
