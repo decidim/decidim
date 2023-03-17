@@ -39,7 +39,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Get npm cache directory path
         id: npm-cache-dir-path
-        run: echo "::set-output name=dir::$(npm get cache)-javascript"
+        run: echo "dir=$(npm get cache)-javascript" >> $GITHUB_OUTPUT
       - uses: actions/cache@v3
         id: npm-cache
         with:
