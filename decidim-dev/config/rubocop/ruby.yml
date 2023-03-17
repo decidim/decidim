@@ -426,6 +426,10 @@ Layout/EmptyLineBetweenDefs:
   # need an empty line between them.
   AllowAdjacentOneLineDefs: false
 
+Layout/EmptyLineAfterMagicComment:
+  Exclude:
+    - db/migrate/*.rb
+
 Layout/EmptyLinesAroundBlockBody:
   EnforcedStyle: no_empty_lines
   SupportedStyles:
