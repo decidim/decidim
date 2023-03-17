@@ -699,8 +699,6 @@ ja:
           email_outro: あなたはプラットフォームの管理者であるため、この通知を受け取りました。
           email_subject: ユーザーグループがプロファイルを更新しました
           notification_title: '%{user_group_name} ユーザーグループがプロファイルを更新し、未検証のままにしました。 <a href="%{groups_admin_path}">管理画面</a> で確認できるようになりました。'
-      nickname_event:
-        notification_body: ニックネームの使用方法を修正し、重複がないようにしたため、大文字と小文字の区別のルールをなくしました。<br/> あなたのニックネームは、同じ名前の別のニックネームの後に作成されたため、自動的に名前が変更されました。<a href="%{link_to_account_settings}">アカウント設定</a>から変更することができます。
       notification_event:
         notification_title: <a href="%{resource_path}">%{resource_title}</a> にイベントが発生しました。
       reports:
