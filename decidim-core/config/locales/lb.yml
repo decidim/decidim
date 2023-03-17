@@ -649,7 +649,6 @@ lb:
         decidim/user:
           password: D'Passwuert ass ze kuerz.
           password_confirmation: D'Bestätegung vum Passwuert muss mam Passwuert iwwerteneestëmmen.
-        error: In diesem Feld ist ein Fehler aufgetreten.
       file_help:
         file:
           explanation: 'Uleedung fir dës Datei:'
