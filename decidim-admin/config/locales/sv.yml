@@ -188,7 +188,6 @@ sv:
         verify: Kontrollera
       admin_terms_of_use:
         accept:
-          error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
           success: Du har godkänt användarvillkoren för administratörer.
         actions:
           accept: Jag godkänner villkoren
