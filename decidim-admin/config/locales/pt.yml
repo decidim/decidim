@@ -743,8 +743,6 @@ pt:
           create: Criar
           title: Novo participante privado do Espaço Participativo.
       participatory_space_private_users_csv_imports:
-        create:
-          success: Ficheiro CSV carregado com sucesso, estamos a enviar um e-mail de convite aos participantes. Isto poderá demorar algum tempo.
         new:
           title: Carregar o seu ficheiro CSV
           upload: Carregar
@@ -861,7 +859,6 @@ pt:
       user_group:
         csv_verify:
           invalid: Ocorreu um problema ao ler o ficheiro CSV.
-          success: O ficheiro CSV foi enviado com sucesso, estamos a verificar os grupos que correspondem aos critérios. Isto pode demorar um pouco.
         reject:
           invalid: Ocorreu um problema ao rejeitar este grupo.
         verify:
