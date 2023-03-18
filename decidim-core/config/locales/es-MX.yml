@@ -139,7 +139,6 @@ es-MX:
         file_no_exists: El archivo no existe
         notice: Tus datos están actualmente en progreso. Recibirás un correo electrónico cuando se complete.
       email_change:
-        body1: Hemos enviado un correo electrónico a %{unconfirmed_email} para verificar tu nueva dirección de correo electrónico.
         body2: '¿Necesitas que te reenviemos el correo de verificación? %{resend_link} o %{cancel_link}.'
         cancel: cancelar
         cancel_error: No se ha podido cancelar el cambio de correo electrónico.
@@ -1206,7 +1205,6 @@ es-MX:
           modal_close: Cerrar modal
           modal_title: '¿Confirmas que no aceptas los Términos y Condiciones actualizados?'
         required_review:
-          alert: Hemos actualizado nuestros Términos de Servicio, por favor revísalos.
           body: Por favor dedica un momento a revisar la actualización de nuestros Términos de Servicio. De lo contrario, no podrás usar la plataforma.
           title: 'Obligatorio: revisa las actualizaciones de nuestros Términos de Servicio'
     participatory_space_private_users:
