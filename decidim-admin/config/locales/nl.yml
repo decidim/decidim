@@ -792,8 +792,6 @@ nl:
           create: creëren
           title: Nieuwe privé deelnemer burgerinspraak.
       participatory_space_private_users_csv_imports:
-        create:
-          success: Het CSV-bestand is succesvol geüploaded. We sturen een uitnodigingsmail naar de deelnemers. Dit kan even duren.
         new:
           destroy:
             button: Verwijder alle privé deelnemers
@@ -925,7 +923,6 @@ nl:
       user_group:
         csv_verify:
           invalid: Er is een fout opgetreden bij het lezen van het CSV-bestand.
-          success: CSV-bestand is geüpload, we verifiëren de groepen die aan de criteria voldoen. Dit kan even duren.
         reject:
           invalid: Er was een probleem met het afwijzen van deze groep.
         verify:
