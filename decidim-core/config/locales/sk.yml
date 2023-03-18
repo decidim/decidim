@@ -843,7 +843,6 @@ sk:
           modal_close: Zatvoriť modálne
           modal_title: Naozaj odmietate aktualizované zmluvné podmienky?
         required_review:
-          alert: Aktualizovali sme Zmluvné podmienky, prečítajte si ich.
           title: 'Vyžaduje: Skontrolujte aktualizácie našich zmluvných podmienok'
     participatory_space_private_users:
       not_allowed: Nemáte povolenie na zobrazenie tohto obsahu
