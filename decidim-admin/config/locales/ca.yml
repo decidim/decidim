@@ -189,8 +189,6 @@ ca:
           new: Nova administradora
         verify: Verificar
       admin_terms_of_use:
-        accept:
-          success: Genial! Has acceptat els Termes i Condicions del panell d'administració.
         actions:
           accept: Estic d'acord amb els termes
           are_you_sure: Segur que vols rebutjar els termes i condicions del panell d'administració?
