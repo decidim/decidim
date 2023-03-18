@@ -187,8 +187,6 @@ sv:
           new: Ny admin
         verify: Kontrollera
       admin_terms_of_use:
-        accept:
-          success: Du har godkänt användarvillkoren för administratörer.
         actions:
           accept: Jag godkänner villkoren
           are_you_sure: Är du säker på att du vill avvisa administratörsvillkoren?
