@@ -800,8 +800,6 @@ lt:
           create: Sukurti
           title: Naujas dalyvaujamosios erdvės privatus dalyvis.
       participatory_space_private_users_csv_imports:
-        create:
-          success: CSV dokumentas įkeltas sėkmingai, dalyviai kviečiami e. laišku - tai gali užtrukti.
         new:
           destroy:
             button: Ištrinti visus privačius dalyvius
@@ -935,7 +933,6 @@ lt:
       user_group:
         csv_verify:
           invalid: Skaitant CSV rinkmeną iškilo problema.
-          success: CSV rinkmena įkelta, tikriname, kurios grupės atitinka kriterijus. Tai gali užtrukti.
         reject:
           invalid: Atmetant šią grupę iškilo problema.
         verify:
