@@ -378,7 +378,6 @@ ca:
           title: L'autorització ha caducat
         incomplete:
           cancel: Cancel·lar
-          explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
           invalid_field: "%{field}"
           reauthorize: Reautoritzar-se
           title: Si us plau, reautoritza't
@@ -601,7 +600,6 @@ ca:
       not_found:
         back_home: Torna a l'inici
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
-        title: No s'ha trobat la pàgina que busques
     events:
       amendments:
         amendment_accepted:
@@ -893,7 +891,6 @@ ca:
       join:
         success: La sol·licitud per a formar-ne part s'ha enviat correctament. Una administradora revisarà la teva sol·licitud abans d'acceptar-te al grup.
       leave:
-        last_admin: No et pots esborrar tu mateixa d'aquest grup perquè n'ets la darrera administradora. Fes a una altra membre administradora per a poder abandonar aquest grup.
         success: El grup s'ha abandonat correctament.
       members:
         accept_or_reject_join_requests: 'Les següents participants han sol·licitat unir-se a aquest grup. Accepta o rebutja les seves sol·licituds:'
@@ -1041,7 +1038,6 @@ ca:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Aquest correu electrònic s'ha enviat des d'una adreça de correu de notificació que no accepta entrada de correus. Si us plau, no responguis a aquest missatge. Si us plau, no responguis a aquest missatge.
-        note: Has rebut aquest correu electrònic perquè estàs subscrita a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
         see_on_website: No pots veure correctament aquest correu electrònic? Veu la seva <<a href="%{link}" target="_blank" class="see-on-website">versió web</a>.
         unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">dona't de baixa</a>.
     newsletter_templates:
@@ -1109,7 +1105,6 @@ ca:
       show:
         administrators: Administradores
         allow_public_contact: Permetre que qualsevol participant m'enviï missatges directes, encara que no la segueixi.
-        allow_push_notifications: Mostrar notificacions emergents per a saber que passa mentre no estàs a la plataforma. Pots deshabilitar-les en qualsevol moment.
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
         everything_followed: Tot el que segueixo
@@ -1133,7 +1128,6 @@ ca:
         success: La configuració de les notificacions s'ha actualitzat correctament.
     offline:
       show:
-        message: Sembla que estàs desconnectada. Torna a intentar-ho més tard, si us plau.
         retry: Torna-ho a provar
     open_data:
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
@@ -1429,7 +1423,6 @@ ca:
       show:
         my_interests: Els meus interessos
         no_scopes: Aquesta organització encara no té cap àmbit!
-        select_your_interests: Selecciona els temes que t'interessen per rebre'n esdeveniments relacionats a la pestanya Timeline del teu perfil.
         update_my_interests: Actualitza els meus interessos
       update:
         error: S'ha produït un error en actualitzar els teus interessos.
@@ -1741,8 +1734,6 @@ ca:
       notifications_dashboard:
         mark_all_as_read: Marcar tot com a llegit
         mark_as_read: Marcar com a llegit
-      offline_banner:
-        cache_version_page: Ostres! La teva xarxa està desconnectada. El que estàs veient és una versió prèvia de la pàgina desada a la memòria cau i que podria no estar actualitzada.
       social_media_links:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"
