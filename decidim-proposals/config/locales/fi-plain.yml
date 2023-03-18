@@ -758,8 +758,6 @@ fi-pl:
             valuator: Arvioija
             valuators: Arvioijat
             votes: Äänet
-      new:
-        limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
       participatory_text_proposal:
         alternative_title: Ei osallistuvia tekstejä tällä hetkellä
         buttons:
@@ -912,7 +910,6 @@ fi-pl:
             description: Jokainen ehdotus voi kerätä yli %{limit} kannatusta
           minimum_votes_per_user:
             description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille.
-            given_enough_votes: Olet tukenut tarpeeksi monta ehdotusta.
             supports_remaining: Sinun on äänestettävä %{remaining_votes} ehdotusta lisää, jotta äänesi otetaan huomioon.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
