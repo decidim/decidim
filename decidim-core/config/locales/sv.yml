@@ -34,7 +34,6 @@ sv:
       decidim/component_published_event: Aktiv komponent
       decidim/demoted_membership: Inte längre en gruppadministratör
       decidim/gamification/badge_earned_event: Intjänat märke
-      decidim/gamification/level_up_event: Du har gått upp i nivå
       decidim/join_request_accepted_event: Förfrågan att gå med har godkänts
       decidim/join_request_rejected_event: Förfrågan att gå med har avvisats
       decidim/profile_updated_event: Profilen har uppdaterats
@@ -592,15 +591,9 @@ sv:
         email_subject: En uppdatering till %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Bra jobbat! Du har uppnått <a href="%{resource_url}">märket %{badge_name}</a> (nivå %{current_level}).
           email_outro: Du har fått det här meddelandet eftersom du har varit aktiv på vår webbplats.
-          email_subject: 'Du har uppnått ett nytt märke: %{badge_name}!'
-          notification_title: Bra jobbat! Du har uppnått <a href="%{resource_path}">märket %{badge_name}</a> (nivå %{current_level}).
         level_up:
-          email_intro: Bra jobbat! Du har uppnått nivå %{current_level} på <a href="%{resource_url}">märket %{badge_name}</a>!
           email_outro: Du har fått det här meddelandet eftersom du har varit aktiv på vår webbplats.
-          email_subject: Du har uppnått nivå %{current_level} på märket %{badge_name}!
-          notification_title: Bra jobbat! Du har uppnått nivå %{current_level} på <a href="%{resource_path}">märket %{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: En administratör för gruppen <a href="%{resource_url}">%{user_group_name}</a> har tagit bort dina administratörsrättigheter för den gruppen.
@@ -753,7 +746,6 @@ sv:
           description_own: "%{score} personer följer dig."
           name: Följare
           next_level_in: Nå nästa nivå genom att få %{score} fler personer användare att följa dig!
-          unearned_own: Du har inga följare än.
         index:
           badge_title: "%{name} märke"
           how: Hur kan du få det
@@ -761,7 +753,6 @@ sv:
           title: Märken
       description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken.
       level: Nivå %{level}
-      reached_top: Du har nått den högsta nivån för detta märke.
     group_admins:
       actions:
         demote_admin: Ta bort administratör
@@ -1391,14 +1382,6 @@ sv:
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_private_user: Någon har bjudit in dig som privatperson till %{application}, du kan godkänna detta via länken nedan.
         subject: Anvisningar om inbjudningar
-      invite_admin:
-        subject: Du har blivit inbjuden att hantera %{organization}
-      invite_collaborator:
-        subject: Du har blivit inbjuden att samarbeta med %{organization}
-      invite_private_user:
-        subject: Du har blivit inbjuden till en privat dialog med %{organization}
-      organization_admin_invitation_instructions:
-        subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
         greeting: Hej %{recipient}!
         subject: Lösenord ändrat
