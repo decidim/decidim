@@ -19,7 +19,6 @@ id:
       decidim/component_published_event: Komponen aktif
       decidim/demoted_membership: Bukan lagi admin grup
       decidim/gamification/badge_earned_event: Lencana diperoleh
-      decidim/gamification/level_up_event: Anda sudah naik level
       decidim/join_request_accepted_event: Permintaan bergabung diterima
       decidim/join_request_rejected_event: Permintaan bergabung ditolak
       decidim/profile_updated_event: Profil diperbarui
@@ -395,15 +394,9 @@ id:
         email_subject: Pembaruan ke %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Kerja bagus! Anda memperoleh lencana <a href="%{resource_url}">%{badge_name}</a> (tingkat %{current_level}).
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
-          email_subject: 'Anda telah memperoleh lencana baru: %{badge_name}!'
-          notification_title: Kerja bagus! Anda memperoleh lencana <a href="%{resource_path}">%{badge_name}</a> (tingkat %{current_level}).
         level_up:
-          email_intro: Kerja bagus! Anda telah mencapai level %{current_level} pada lencana <a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Anda telah menerima pemberitahuan ini karena Anda melakukan aktivitas di situs web kami.
-          email_subject: Anda telah mencapai level %{current_level} pada %{badge_name} lencana!
-          notification_title: Kerja bagus! Anda telah mencapai level %{current_level} pada lencana <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Admin grup <a href="%{resource_url}">%{user_group_name}</a> telah menghapus hak admin Anda ke grup itu.
@@ -490,7 +483,6 @@ id:
           description_own: "%{score} pengguna mengikuti Anda."
           name: Pengikut
           next_level_in: Dapatkan %{score} lebih banyak pengguna untuk mengikuti Anda untuk mencapai level berikutnya!
-          unearned_own: Anda belum punya pengikut.
         index:
           badge_title: "%{name} lencana"
           how: Bagaimana Anda bisa mendapatkannya
@@ -498,7 +490,6 @@ id:
           title: Lencana
       description: Lencana adalah pengakuan untuk tindakan dan kemajuan peserta dalam platform. Ketika Anda mulai menemukan, berpartisipasi, dan berinteraksi di platform, Anda akan mendapatkan lencana yang berbeda.
       level: Level %{level}
-      reached_top: Anda telah mencapai level teratas untuk lencana ini.
     group_admins:
       actions:
         demote_admin: Hapus admin
@@ -891,14 +882,6 @@ id:
         someone_invited_you_as_admin: Seseorang telah mengundang Anda sebagai admin %{application}, Anda dapat menerimanya melalui tautan di bawah.
         someone_invited_you_as_private_user: Seseorang telah mengundang Anda sebagai pengguna pribadi %{application}, Anda dapat menerimanya melalui tautan di bawah ini.
         subject: Instruksi undangan
-      invite_admin:
-        subject: Anda telah diundang untuk mengelola %{organization}
-      invite_collaborator:
-        subject: Anda telah diundang untuk berkolaborasi pada %{organization}
-      invite_private_user:
-        subject: Anda telah diundang ke proses partisipasi pribadi di %{organization}
-      organization_admin_invitation_instructions:
-        subject: Anda telah diundang untuk mengelola %{organization}
       password_change:
         greeting: Halo %{recipient}!
         subject: Kata sandi diubah
