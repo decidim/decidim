@@ -335,7 +335,6 @@ eu:
           title: Baimena iraungi da
         incomplete:
           cancel: Utzi
-          explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
           invalid_field: "%{field}"
           reauthorize: Berriz eskuratu baimena
           title: Mesedez, eskura ezazu berriz baimena
@@ -942,7 +941,6 @@ eu:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Posta elektroniko hori jakinarazpen-helbide batetik bidali zen, eta ezin du posta elektronikorik sartu. Mesedez, ez erantzun mezu honi.
-        note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
         unsubscribe: Mezu mota hau jasotzeko ez onartzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
     newsletter_templates:
       basic_only_text:
@@ -1293,7 +1291,6 @@ eu:
     user_interests:
       show:
         my_interests: Nire interesak
-        select_your_interests: Aukeratu interesatzen zaizkizun gaiak zure profileko denbora lerroan.
         update_my_interests: Eguneratu nire interesak
       update:
         error: Errore bat gertatu da zure interesak eguneratzean.
