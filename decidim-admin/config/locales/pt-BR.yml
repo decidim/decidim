@@ -728,8 +728,6 @@ pt-BR:
           create: Criar
           title: Novo usuário particular do Espaço Participativo.
       participatory_space_private_users_csv_imports:
-        create:
-          success: Arquivo CSV enviado com sucesso, estamos enviando um e-mail de convite para os participantes. Isso pode demorar um pouco.
         new:
           title: Envie seu arquivo CSV
           upload: Upload
@@ -846,7 +844,6 @@ pt-BR:
       user_group:
         csv_verify:
           invalid: Ocorreu um erro ao ler o arquivo CSV.
-          success: O arquivo CSV foi enviado com sucesso, estamos verificando os grupos de usuários que correspondem aos critérios. Isso pode demorar um pouco.
         reject:
           invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.
         verify:
