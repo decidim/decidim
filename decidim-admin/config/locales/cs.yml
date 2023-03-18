@@ -199,8 +199,6 @@ cs:
           new: Nový administrátor
         verify: Ověřit
       admin_terms_of_use:
-        accept:
-          success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s podmínkami
           are_you_sure: Opravdu chcete odmítnout Podmínky použití pro správce?
