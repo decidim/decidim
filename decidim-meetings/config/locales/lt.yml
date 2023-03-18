@@ -266,7 +266,6 @@ lt:
             update: Atnaujinti
           form:
             address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
-            disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą, %{organization} nėra atsakinga už dalyvių duomenų tvarkymą.'
             location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
             location_hints_help: 'Vietos priedėliai: papildoma informacija kaip pvz. buto numeris, iš kurios pusės įeiti ir t. t.'
             online_meeting_url_help: 'Nuoroda: leisti dalyviams tiesiai prisijungti prie susirinkimo'
@@ -350,7 +349,6 @@ lt:
         copy_calendar_url_clarification: Kopijuoti kalendoriaus URL į iškarpinę
         copy_calendar_url_copied: Nukopijuota!
         copy_calendar_url_description: Kalendoriaus programėlėje galite matyti visus paskelbtus susitikimus. Nukopijuokite ir įklijuokite šį URL į savo kalendorių naudodami parinktį „Pridėti naują kalendorių iš URL“.
-        copy_calendar_url_explanation: Atkreipkite dėmesį, kad eksportuojate pasirinktus susirinkimus (nes yra aktyvių filtrų). Jei norėtumėt eksportuoti viską, pirmiausiai panaikinkite filtrus.
         copy_calendar_url_message: Nuoroda sėkmingai nukopijuota į iškarpinę.
         export_calendar: Eksportuoti kalendorių
       close_meeting_reminder_mailer:
@@ -453,7 +451,6 @@ lt:
           address_help: 'Adresas: jį naudoja „Geocoder“, kad rastų vietą'
           available_slots_help: Jei nėra ribojimų įrašykite 0
           create_as: Sukurti posėdį kaip
-          disclaimer: 'Perspėjimas: Naudodami išorinę registracijos sistemą jūs suprantate, kad %{organization} organizatoriai nėra atsakingi už naudotojų išorinei paslaugai pateiktus duomenis.'
           location_help: 'Vieta: naudotojams skirtas pranešimas, kuriame nurodoma susitikimo vieta'
           location_hints_help: 'Vietos užuominos: papildoma informacija. Pavyzdžiui: pastato aukštas, jei tai yra susitikimas gyvai, arba susitikimo slaptažodis, jei tai virtualus susitikimas su ribota prieiga.'
           online_meeting_url_help: 'Nuoroda: leiskite dalyviams tiesiai prisijungti prie susitikimo'
