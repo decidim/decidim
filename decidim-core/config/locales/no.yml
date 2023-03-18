@@ -33,7 +33,6 @@
       decidim/component_published_event: Aktive komponent
       decidim/demoted_membership: Ikke lenger en admin for gruppen
       decidim/gamification/badge_earned_event: Merke oppnådd
-      decidim/gamification/level_up_event: Du gikk opp i nivå
       decidim/join_request_accepted_event: Forespørsel godtatt
       decidim/join_request_rejected_event: Forespørsel avslått
       decidim/profile_updated_event: Profilen er oppdatert
@@ -565,15 +564,9 @@
         email_subject: En oppdatering til %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Gratulerer! Du har tjent <a href="%{resource_url}">%{badge_name} merket</a> (Level%{current_level}).
           email_outro: Du har mottatt denne varslingen fordi du gjorde aktivitet på nettstedet vårt.
-          email_subject: 'Du har fått et nytt merke: %{badge_name}!'
-          notification_title: Gratulerer! Du har tjent <a href="%{resource_path}">%{badge_name} merket</a> (Level%{current_level}).
         level_up:
-          email_intro: Gratulerer! Du har nådd nivå %{current_level} på <a href="%{resource_url}">%{badge_name} merket</a>!
           email_outro: Du har mottatt denne varslingen fordi du gjorde aktivitet på nettstedet vårt.
-          email_subject: Du har nådd nivå %{current_level} på %{badge_name} merket!
-          notification_title: Gratulerer! Du har nådd nivå %{current_level} på <a href="%{resource_path}">%{badge_name} merket</a>!
       groups:
         demoted_membership:
           email_intro: En admin av <a href="%{resource_url}">%{user_group_name}</a> gruppen har fjernet admin rettighetene dine fra gruppen.
@@ -706,7 +699,6 @@
           description_own: "%{score} folk følger deg."
           name: Følgere
           next_level_in: Få %{score} flere folk til å følge deg for å nå neste nivå!
-          unearned_own: Du har ingen følgere ennå.
         index:
           badge_title: "%{name} merke"
           how: Hvordan kan du tjene det
@@ -714,7 +706,6 @@
           title: Merker
       description: Merker er anerkjennelser for deltaker handlinger og fremdrift i plattformen. Når du begynner å oppdage, delta og samhandle i plattformen, vil du tjene forskjellige merker.
       level: Nivå %{level}
-      reached_top: Du har nådd det høyeste nivået for dette merket.
     group_admins:
       actions:
         demote_admin: Fjern admin
@@ -1324,14 +1315,6 @@
         someone_invited_you_as_admin: Noen har invitert deg som en administrator av %{application}, du kan godta det via lenken nedenfor.
         someone_invited_you_as_private_user: Noen har invitert deg som privat deltaker av %{application}, du kan godta det via lenken nedenfor.
         subject: Invitasjonsinstruksjoner
-      invite_admin:
-        subject: Du har blitt invitert til å administrere %{organization}
-      invite_collaborator:
-        subject: Du har blitt invitert til å samarbeide om %{organization}
-      invite_private_user:
-        subject: Du har blitt invitert til en privat deltaker prosess på %{organization}
-      organization_admin_invitation_instructions:
-        subject: Du har blitt invitert til å administrere %{organization}
       password_change:
         greeting: Hei %{recipient}!
         subject: Passord endret
