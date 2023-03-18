@@ -858,7 +858,6 @@ cs:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
-          success: CSV soubor byl úspěšně nahrán, posíláme e-maily na účastníky. To může trvat nějakou dobu.
         new:
           destroy:
             button: Odstranit všechny soukromé účastníky
@@ -1006,7 +1005,6 @@ cs:
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
-          success: Soubor CSV byl úspěšně nahrán, ověřujeme skupiny, které odpovídají kritériím. To může chvíli trvat.
         reject:
           invalid: Při odmítnutí této skupiny došlo k chybě.
         verify:
