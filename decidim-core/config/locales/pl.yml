@@ -34,7 +34,6 @@ pl:
       decidim/component_published_event: Aktywny komponent
       decidim/demoted_membership: Nie jest już administratorem grupy
       decidim/gamification/badge_earned_event: Zdobyta odznaka
-      decidim/gamification/level_up_event: Awansowałeś
       decidim/invited_to_group_event: Zaproszono do grupy
       decidim/join_request_accepted_event: Zaakceptowano prośbę o dołączenie
       decidim/join_request_rejected_event: Odrzucono prośbę o dołączenie
@@ -638,15 +637,9 @@ pl:
         email_subject: Aktualizacja %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Dobra robota! Zdobyłeś odznakę <a href="%{resource_url}">%{badge_name}</a> (poziom %{current_level}).
           email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś aktywny na naszej stronie.
-          email_subject: 'Otrzymałeś nową odznakę: %{badge_name}!'
-          notification_title: Dobra robota! Zdobyłeś odznakę <a href="%{resource_path}">%{badge_name}</a> (poziom %{current_level}).
         level_up:
-          email_intro: Dobra robota! Osiągnąłeś poziom %{current_level} odznaki <a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Otrzymałeś to powiadomienie, ponieważ byłeś aktywny na naszej stronie.
-          email_subject: Osiągnąłeś poziom %{current_level} odznaki %{badge_name}!
-          notification_title: Dobra robota! Osiągnąłeś poziom %{current_level} odznaki <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Administrator grupy <a href="%{resource_url}">%{user_group_name}</a> cofnął Twoje prawa administratora do tej grupy.
@@ -779,7 +772,6 @@ pl:
           description_own: "%{score} użytkowników obserwuje Ciebie."
           name: Obserwujący
           next_level_in: Uzyskaj jeszcze %{score} użytkowników, którzy Cię obserwują, aby zdobyć kolejny poziom!
-          unearned_own: Nie masz jeszcze żadnych obserwujących.
         index:
           badge_title: "Odznaka %{name}"
           how: Jak ją zdobyć
@@ -787,7 +779,6 @@ pl:
           title: Odznaki
       description: Odznaki są wyrazem uznania dla działań użytkowników i ich rozwoju na platformie. Gdy zaczniesz odkrywać, uczestniczyć i wchodzić w interakcje na platformie, otrzymasz różne odznaki.
       level: Poziom %{level}
-      reached_top: Osiągnąłeś najwyższy poziom tej odznaki.
     group_admins:
       actions:
         demote_admin: Usuń administratora
@@ -1385,14 +1376,6 @@ pl:
         someone_invited_you_as_admin: Ktoś zaprosił Cię jako administratora %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         someone_invited_you_as_private_user: Ktoś zaprosił Cię jako prywatnego użytkownika %{application}, możesz zaakceptować zaproszenie za pomocą poniższego linku.
         subject: Instrukcje dotyczące zaproszenia
-      invite_admin:
-        subject: Zaproszono Cię do zarządzania w %{organization}
-      invite_collaborator:
-        subject: Zaproszono Cię do współpracy w %{organization}
-      invite_private_user:
-        subject: Zostałeś zaproszony do prywatnego procesu partycypacyjnego w %{organization}
-      organization_admin_invitation_instructions:
-        subject: Zaproszono Cię do zarządzania w %{organization}
       password_change:
         greeting: Witaj %{recipient}!
         subject: Hasło zostało zmienione
