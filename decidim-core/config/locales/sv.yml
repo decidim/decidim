@@ -334,7 +334,6 @@ sv:
           title: Auktoriseringen har förfallit
         incomplete:
           cancel: Avbryt
-          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", måste du auktorisera dig igen eftersom vi saknar följande data:'
           invalid_field: "%{field}"
           reauthorize: Auktorisera igen
           title: Auktorisera igen
@@ -932,7 +931,6 @@ sv:
         title: Deltagare
     newsletter_mailer:
       newsletter:
-        note: Du har fått det här e-brevet eftersom du prenumererar på nyhetsbrev från %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">meddelandesidan</a>.
         unsubscribe: Välj att <a href="%{link}" target="_blank" class="unsubscribe">Avprenumerera</a> om du inte vill få denna typ av brev.
     newsletter_templates:
       basic_only_text:
@@ -1004,7 +1002,6 @@ sv:
         success: Dina meddelandeinställningar har uppdaterats.
     offline:
       show:
-        message: Det verkar som om du är offline. Försök igen senare.
         retry: Försök igen
     open_data:
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
@@ -1281,7 +1278,6 @@ sv:
     user_interests:
       show:
         my_interests: Mina intressen
-        select_your_interests: Välj de ämnen som du är intresserad, och händelser som är relaterade till dessa visas fliken Tidslinje i din profil.
         update_my_interests: Uppdatera mina intressen
       update:
         error: Det gick inte att uppdatera dina intressen.
@@ -1533,8 +1529,6 @@ sv:
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
         mark_as_read: Markera som läst
-      offline_banner:
-        cache_version_page: Hoppsan! Du är inte kopplat till Internet längre. Detta är en tidigare cachad version av sidan du besöker, innehållet kan ha ändrats.
       social_media_links:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
