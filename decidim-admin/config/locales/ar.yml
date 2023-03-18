@@ -162,8 +162,6 @@ ar:
           new: مدير جديد
         verify: التحقق
       admin_terms_of_use:
-        accept:
-          success: رائع! لقد قمت بالموافقة على شروط الإستخدام للمدير.
         actions:
           refuse: ارفض شروط المدير
         required_review:
