@@ -96,7 +96,6 @@ pl:
         create:
           error: Wystąpił błąd podczas tworzenia nowej konsultacji.
           success: Konsultacja została pomyślnie utworzona.
-        deprecation_warning: Moduł konsultacji zostanie wycofany w najbliższej przyszłości. Pracujemy nad następną kryptograficznie bezpieczną wersją nazywaną Głosowania.
         edit:
           update: Aktualizuj
         form:
