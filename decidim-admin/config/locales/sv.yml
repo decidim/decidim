@@ -814,7 +814,6 @@ sv:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Det gick inte att läsa CSV-filen. Kontrollera att du har följt instruktionerna.
-          success: CSV-filen har skickats in och vi skickar inbjudningar via e-brev till deltagarna. Det kan ta en stund.
         new:
           destroy:
             button: Radera alla privata deltagare
@@ -955,7 +954,6 @@ sv:
       user_group:
         csv_verify:
           invalid: Det gick inte att läsa CSV-filen.
-          success: CSV-filen har tagits mot, och vi verifierar de grupper som överensstämmer med kriterierna. Det kan ta en stund.
         reject:
           invalid: Det gick inte att avvisa gruppen.
         verify:
