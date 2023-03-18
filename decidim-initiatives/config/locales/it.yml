@@ -167,7 +167,6 @@ it:
             - Segui i passaggi per creare una nuova iniziativa
           description: Questo badge viene concesso quando si lanciano nuove iniziative, collaborando con gli altri per realizzarle.
           description_another: Questo utente ha ottenuto %{score} iniziative pubblicate.
-          description_own: Hai pubblicato %{score} iniziative.
           name: Iniziative pubblicate
           next_level_in: Ottieni %{score} altre iniziative pubblicate per raggiungere il livello successivo!
           unearned_own: Non hai ancora pubblicato nessuna iniziativa.
