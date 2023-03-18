@@ -88,7 +88,6 @@ eu:
         create:
           error: Errore bat gertatu da kontsulta berri bat sortzean.
           success: Kontsulta sortu da.
-        deprecation_warning: Kontsulten modulua laster zaharkituta egongo da. Lantzen ari gara kriptografikoki segurua izango den hurrengo bertsioa, Bozketak izenekoa.
         edit:
           update: eguneratzearen
         form:
