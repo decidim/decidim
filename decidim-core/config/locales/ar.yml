@@ -435,7 +435,6 @@ ar:
           title: انتهت مدة صلاحية الترخيص
         incomplete:
           cancel: إلغاء
-          explanation: 'على الرغم من أنك مخول حاليًا ب "%{authorization}"، نحن بحاجة إلى إعادة عملية التفويض لأننا نفتقر إلى البيانات التالية:'
           invalid_field: "%{field}"
           reauthorize: تجديد التفويض
           title: الرجاء إعادة التفويض
@@ -1088,7 +1087,6 @@ ar:
     newsletter_mailer:
       newsletter:
         no_reply_notice: تم إرسال هذا البريد الإلكتروني من عنوان بريد إلكتروني للإشعارات لا يستقبل لا بريد إلكتروني وارد. يرجى عدم الرد على هذه الرسالة.
-        note: لقد تلقيت هذه الرسالة الإلكترونية لأنك مشترك في الرسائل الإخبارية على %{organization_name}. يمكنك تغيير الإعدادات الخاصة بك على هاتفك <a href="%{link}">الصفحة إخطارات</a>.
         see_on_website: هل لا تستطيع رؤية هذا البريد الإلكتروني بشكل صحيح؟ اطلع عليه على <a href="%{link}" target="_blank">موقع</a>.
         unsubscribe: لإلغاء الاشتراك في تلقي هذا النوع من البريد الإلكتروني ، <a href="%{link}" target="_blank" class="unsubscribe">إلغاء الاشتراك</a>.
     newsletter_templates:
@@ -1155,7 +1153,6 @@ ar:
     notifications_settings:
       show:
         administrators: المدراء
-        allow_push_notifications: احصل على إشعارات الدفع لمعرفة ما يحدث عندما لا تكون على المنصة. يمكنك إيقاف تشغيلها في أي وقت.
         direct_messages: تلقي رسائل مباشرة من أي شخص
         email_on_moderations: أريد أن أتلقى رسالة بريد إلكتروني كلما يتم فيها الإبلاغ عن شيء أو عن شخص ما للإشراف.
         everything_followed: كل شيء أتابعه
@@ -1179,7 +1176,6 @@ ar:
         success: تم تحديث إعدادات الإشعارات بنجاح.
     offline:
       show:
-        message: يبدو أنك غير متصل حالياً. الرجاء المحاولة مرة أخرى لاحقاً.
         retry: إعادة المحاولة
     open_data:
       not_available_yet: ملفات Open Data ليست متاحة بعد ، يرجى المحاولة مرة أخرى بعد بضع دقائق.
@@ -1470,7 +1466,6 @@ ar:
     user_interests:
       show:
         my_interests: اهتماماتي
-        select_your_interests: حدد الموضوعات التي تهتم بها لتلقي الأحداث المتعلقة بها في علامة التبويب الجدول الزمني لملف التعريف الخاص بك.
         update_my_interests: تحديث اهتماماتي
       update:
         error: حدثت مشكلة أثناء تحديث اهتماماتك.
@@ -1780,8 +1775,6 @@ ar:
       notifications_dashboard:
         mark_all_as_read: اشر عليها بانها قرات
         mark_as_read: تحديد كمقروء
-      offline_banner:
-        cache_version_page: عفواً! الشبكة الخاصة بك غير متصلة. هذه نسخة مخبأة سابقاً من الصفحة التي تزورها، قد يكون المحتوى غير محدث.
       social_media_links:
         facebook: "%{organization} على الفيسبوك"
         github: "%{organization} في GitHub"
