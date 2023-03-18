@@ -34,7 +34,6 @@ de:
       decidim/component_published_event: Aktive Komponente
       decidim/demoted_membership: Kein Gruppenadministrator mehr
       decidim/gamification/badge_earned_event: Abzeichen verdient
-      decidim/gamification/level_up_event: Sie sind um ein Level aufgestiegen
       decidim/invited_to_group_event: Zur Gruppe eingeladen
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
@@ -622,15 +621,9 @@ de:
         email_subject: Eine Aktualisierung auf %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Gratulation! Sie haben das Abzeichen <a href="%{resource_url}">%{badge_name}</a> (Level %{current_level}) verdient.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
-          email_subject: 'Sie haben ein neues Abzeichen erhalten: %{badge_name}!'
-          notification_title: Gratulation! Sie haben das Abzeichen <a href="%{resource_path}">%{badge_name}</a> (Level %{current_level}) verdient.
         level_up:
-          email_intro: Gratulation! Sie haben Level %{current_level} auf dem Abzeichen <a href="%{resource_url}">%{badge_name}</a> erreicht!
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie auf unserer Website aktiv waren.
-          email_subject: Sie haben Level %{current_level} auf dem Abzeichen %{badge_name} erreicht!
-          notification_title: Gratulation! Sie haben Level %{current_level} auf dem Abzeichen <a href="%{resource_path}">%{badge_name}</a> erreicht!
       groups:
         demoted_membership:
           email_intro: Ein Administrator der Gruppe <a href="%{resource_url}">%{user_group_name}</a> hat Ihre Administratorrechte für diese Gruppe entfernt.
@@ -796,7 +789,6 @@ de:
           description_own: "%{score} Benutzer*innen folgen dir."
           name: Follower
           next_level_in: Erhalten Sie %{score} weitere Nutzer, die Ihnen folgen, um das nächste Level zu erreichen!
-          unearned_own: Sie haben noch keine Follower.
         index:
           badge_title: "%{name} Abzeichen"
           how: Wie kannst du es verdienen?
@@ -804,7 +796,6 @@ de:
           title: Abzeichen
       description: Badges sind Anerkennungen für Aktionen der Teilnehmer und Fortschritt in der Plattform. Wenn Sie auf der Plattform entdecken, teilnehmen und interagieren, verdienen Sie verschiedene Abzeichen.
       level: Level %{level}
-      reached_top: Du hast die höchste Stufe für dieses Abzeichen erreicht.
     group_admins:
       actions:
         demote_admin: Entferne Admin
@@ -1448,14 +1439,6 @@ de:
         someone_invited_you_as_admin: Jemand hat dich als Admin von %{application}eingeladen, du kannst es über den untenstehenden Link akzeptieren.
         someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
         subject: Anweisungen zur Einladung
-      invite_admin:
-        subject: Du wurdest eingeladen, %{organization} zu verwalten
-      invite_collaborator:
-        subject: Du wurdest eingeladen, an %{organization}
-      invite_private_user:
-        subject: Du wurdest zu einem privaten Partizipationsprozess auf %{organization} eingeladen
-      organization_admin_invitation_instructions:
-        subject: Du wurdest eingeladen, %{organization} zu verwalten
       password_change:
         greeting: Hallo %{recipient}!
         subject: Passwort geändert
