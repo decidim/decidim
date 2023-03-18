@@ -1235,7 +1235,6 @@ tr:
         subject: Onaylama talimatları
       email_changed:
         greeting: Merhaba %{recipient}!
-        message: E-postanızın %{email}olarak değiştirildiğini bildirmek için sizinle iletişim kurarız.
         subject: E-posta Değişti
       invitation_instructions:
         accept: Daveti kabul etmek
@@ -1258,7 +1257,6 @@ tr:
         subject: '%{organization}yönetmeye davet edildiniz'
       password_change:
         greeting: Merhaba %{recipient}!
-        message: Şifrenizin değiştirildiğini size bildirmek için sizinle iletişim kuruyoruz.
         subject: şifre değişti
       reset_password_instructions:
         action: Şifremi Değiştir
