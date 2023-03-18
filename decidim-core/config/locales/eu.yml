@@ -1391,7 +1391,6 @@ eu:
         subject: Berrespen-argibideak
       email_changed:
         greeting: Kaixo %{recipient}!
-        message: Zurekin harremanetan ari gara zure posta elektronikoaren ari den aldatzen den jakinarazi nahi %{email}.
         subject: Helnbide elektronikoa aldatu da
       invitation_instructions:
         accept: Onartu gonbita
@@ -1414,7 +1413,6 @@ eu:
         subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
       password_change:
         greeting: Kaixo %{recipient}!
-        message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.
         subject: Pasahitza aldatu da
       reset_password_instructions:
         action: Aldatu nire pasahitza
