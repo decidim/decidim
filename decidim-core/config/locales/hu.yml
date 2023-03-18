@@ -34,7 +34,6 @@ hu:
       decidim/component_published_event: Aktív elem
       decidim/demoted_membership: Már nem egy csoport admin
       decidim/gamification/badge_earned_event: Jelvény megszerezve
-      decidim/gamification/level_up_event: Szintet léptél
       decidim/invited_to_group_event: Meghívva a csoportba
       decidim/join_request_accepted_event: Csatlakozási kérelem elfogadva
       decidim/join_request_rejected_event: Csatlakozási kérelem elutasítva
@@ -624,15 +623,9 @@ hu:
         email_subject: 'Frissítés ehhez: %{resource_title}'
       gamification:
         badge_earned:
-          email_intro: 'Szép munka! Megszerezte a(z) <a href="%{resource_url}">%{badge_name} jelvényt</a> (szint: %{current_level}).'
           email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
-          email_subject: 'Új jelvényt szerzett: %{badge_name}!'
-          notification_title: Gratulálunk! Megszerezte a <a href="%{resource_path}">%{badge_name} jelvényt</a> (szint %{current_level}).
         level_up:
-          email_intro: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_url}">%{badge_name} jelvényhez</a>!
           email_outro: Ezt az értesítést azért kaptad, mert aktív voltál a weboldalunkon.
-          email_subject: Elérted a(z) %{current_level} szintet a %{badge_name} jelvényhez!
-          notification_title: Szép munka! Elérted a(z) %{current_level} szintet a <a href="%{resource_path}">%{badge_name} jelvényhez</a>!
       groups:
         demoted_membership:
           email_intro: A <a href="%{resource_url}">%{user_group_name}</a> csoport adminisztrátora eltávolította az adminisztrátori jogokat a csoporthoz.
@@ -762,7 +755,6 @@ hu:
           description_own: "%{score} felhasználó követi Önt."
           name: Követő
           next_level_in: Szerezzen %{score} további embert, hogy kövesse Önt, így érheti el a következő szintet!
-          unearned_own: Még nincsenek követői.
         index:
           badge_title: "%{name} jelvény"
           how: Így lehet megszerezni
@@ -770,7 +762,6 @@ hu:
           title: Jelvények
       description: A jelvények a résztvevők tevékenységét és előmenetelét hívatottak jelezni. Amint elkezded felfedezni a platformot és kapcsolatba kerülsz másokkal, különböző jelvényeket kapsz.
       level: '%{level} szint'
-      reached_top: Elérted a jelvény legmagasabb szintjét.
     group_admins:
       actions:
         demote_admin: Admin eltávolítása
@@ -1352,14 +1343,6 @@ hu:
         someone_invited_you_as_admin: 'Valaki meghívott, mint admint, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         someone_invited_you_as_private_user: 'Valaki meghívott, mint privát felhasználót, hogy csatlakozz ehhez: %{application}. Jelezz vissza az alábbi linken.'
         subject: Meghívó utasítások
-      invite_admin:
-        subject: 'Meghívást kaptál, hogy ezt kezeld: %{organization}'
-      invite_collaborator:
-        subject: 'Meghívás együttműködésre ebben: %{organization}'
-      invite_private_user:
-        subject: Meghívtak egy privát részvételi folyamatban részvételre (%{organization})
-      organization_admin_invitation_instructions:
-        subject: 'Meghívást kaptál, hogy ezt kezeld: %{organization}'
       password_change:
         greeting: Helló %{recipient}!
         subject: Jelszó módosítva
