@@ -173,7 +173,6 @@ ro:
             - Urmează pașii necesari pentru a crea o nouă inițiativă
           description: Această insignă este acordată atunci când lansezi noi inițiative, colaborând cu alții pentru a o realiza.
           description_another: Acest participant a publicat %{score} inițiative.
-          description_own: Ai %{score} inițiative publicate.
           name: Inițiative publicate
           next_level_in: Obține încă %{score} inițiative publicate pentru a atinge următorul nivel!
           unearned_own: Nu ai nicio inițiativă publicată încă.
