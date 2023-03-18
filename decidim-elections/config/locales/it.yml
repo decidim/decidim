@@ -372,7 +372,6 @@ it:
       feedback:
         answer:
           invalid: Si è verificato un errore durante l'invio del tuo feedback.
-          spam_detected: C'è stato un problema nelle risposte ai quesiti. Forse sei stato troppo veloce, puoi riprovare?
           success: Feedback inviato con successo.
       models:
         answer:
@@ -574,18 +573,15 @@ it:
         trustees:
           new_election:
             email_intro: Sei stato aggiunto come Garante per le elezioni %{resource_title}.
-            email_outro: Hai ricevuto questa notifica perché ti è stato assegnato il ruolo di Garante per le elezioni %{resource_title}.
             email_subject: Sei Garante delle elezioni %{resource_title}..
             notification_title: Sei Garante delle elezioni <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un amministratore ti ha aggiunto come Garante di %{resource_name}. Dovresti creare la tua chiave pubblica <a href='%{trustee_zone_url}'>nella tua zona garanti </a>
-            email_outro: Hai ricevuto questa notifica perché sei stata aggiunta come Garante "%{resource_name}.
             email_subject: Sei Garante di %{resource_name}.
             notification_title: Sei Garante di <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Il tuo voto è stato accettato! Usando il tuo token di voto: %{encrypted_vote_hash}, puoi verificare il tuo voto <a href="%{verify_url}">qui</a>.'
-            email_outro: Hai ricevuto questa notifica perché hai votato per l'elezione %{resource_name}.
             email_subject: Il tuo voto per %{resource_name} è stato accettato.
             notification_title: 'Il tuo voto è stato accettato. Verifica il tuo voto <a href="%{verify_url}">qui</a> usando il tuo token di voto: %{encrypted_vote_hash}'
       votings:
