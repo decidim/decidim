@@ -1014,7 +1014,6 @@
           modal_close: Lukk modal
           modal_title: Nekter du virkelig de oppdaterte vilkårene?
         required_review:
-          alert: Vi har oppdatert våre vilkår for bruk, vennligst se gjennom dem.
           title: 'Påkrevd: Se gjennom oppdateringer til våre vilkår for bruk'
     participatory_space_private_users:
       not_allowed: Du er ikke tillatt å se dette innholdet
