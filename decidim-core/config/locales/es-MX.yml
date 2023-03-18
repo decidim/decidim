@@ -381,7 +381,6 @@ es-MX:
           title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
-          explanation: 'A pesar de que actualmente estás autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque nos faltan los datos siguientes:'
           invalid_field: "%{field}"
           reauthorize: Reautorizarse
           title: Por favor, reautorízate
@@ -604,7 +603,6 @@ es-MX:
       not_found:
         back_home: Volver al inicio
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
-        title: No se ha encontrado la página que buscas
     events:
       amendments:
         amendment_accepted:
@@ -896,7 +894,6 @@ es-MX:
       join:
         success: Solicitud enviada correctamente. Un administrador la revisará antes de aceptarte en el grupo.
       leave:
-        last_admin: No puedes abandonar este grupo porque eres la última administradora. Haz administradora a otra persona miembro para poder hacerlo.
         success: Has dejado el grupo correctamente.
       members:
         accept_or_reject_join_requests: 'Los siguientes usuarios han solicitado unirse a este grupo. Acepta o rechaza sus solicitudes:'
@@ -1044,7 +1041,6 @@ es-MX:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Este correo electrónico se ha enviado desde una dirección de correo de notificación que no acepta entrada de correos. Por favor, no respondas a este mensaje.
-        note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
         see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank" class="see-on-website">versión web</a>.'
         unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
     newsletter_templates:
@@ -1112,7 +1108,6 @@ es-MX:
       show:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquier participante me envíe un mensaje directo, incluso si no la sigo.
-        allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
@@ -1136,7 +1131,6 @@ es-MX:
         success: La configuración de las notificaciones se han actualizado correctamente.
     offline:
       show:
-        message: Parece que estás desconectada. Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
@@ -1432,7 +1426,6 @@ es-MX:
       show:
         my_interests: Mis intereses
         no_scopes: '¡Esta organización aún no tiene ningún ámbito!'
-        select_your_interests: Seleccione los temas que le interesan para recibir eventos relacionados con ellos en la pestaña Línea de tiempo de su perfil.
         update_my_interests: Actualizar mis intereses
       update:
         error: Hubo un error al actualizar tus intereses.
@@ -1744,8 +1737,6 @@ es-MX:
       notifications_dashboard:
         mark_all_as_read: Marcar todo como leído
         mark_as_read: Marcar como leído
-      offline_banner:
-        cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión en caché de la página que estás visitando, quizás el contenido no está actualizado.'
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
