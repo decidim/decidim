@@ -86,12 +86,10 @@ es-MX:
           no_data_stored: No hay datos almacenados.
         create:
           error: Hubo un error al crear la autorización.
-          success: Has sido autorizado/a correctamente.
           transferred: 'Se han recuperado los siguientes datos de participación a partir de tu autorización:'
           unconfirmed: Necesitas confirmar tu correo electrónico para autorizarte.
         destroy:
           error: Se ha producido un error al borrar la autorización.
-          success: Ha eliminado correctamente la autorización.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
@@ -228,7 +226,6 @@ es-MX:
             title: Solicita tu código de verificación
           update:
             error: El código de verificación no coincide con el nuestro. Por favor, vuelve a revisar el SMS que te enviamos.
-            success: Felicidades. Has sido verificado con éxito.
   errors:
     messages:
       uppercase_only_letters_numbers: debe ser todo en mayúsculas y contener solo letras y/o números
