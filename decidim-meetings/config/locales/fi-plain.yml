@@ -310,7 +310,6 @@ fi-pl:
             update: Päivitä
           form:
             address_help: 'Osoite: käytetään sijainnin löytämiseksi geokoodaukseen'
-            disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
             location_help: 'Sijainti: viesti osallistujille tapaamispaikan sijainnin löytämiseksi'
             location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
             online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
@@ -405,7 +404,6 @@ fi-pl:
         copy_calendar_url_clarification: Kopioi kalenterin URL-osoite leikepöydälle
         copy_calendar_url_copied: Kopioitu!
         copy_calendar_url_description: Näet kaikki julkaistut tapaamiset oman palveluntarjoajasi kalenteriohjelmassa. Kopioi ja liitä tämä URL-osoite kalenteriisi käyttämällä "Lisää uusi kalenteri URL-osoitteesta" -toimintoa.
-        copy_calendar_url_explanation: Huomioithan, että olet viemässä vain osan tapaamisista, koska tapaamisia on suodatettu näkymässä. Jos haluat viedä kaikki tapaamiset, tyhjennä ensin kaikki suodattimet.
         copy_calendar_url_message: URL-osoitteen kopiointi leikepöydälle onnistui.
         export_calendar: Vie kalenterin tiedot
       close_meeting_reminder_mailer:
@@ -508,7 +506,6 @@ fi-pl:
           address_help: 'Osoite: käytetään karttapisteen etsimiseen geokoodauksen avulla'
           available_slots_help: Määritä tähän kenttään arvo 0, jos tapahtuman paikkamäärää ei ole rajoitettu
           create_as: Luo tapahtuma käyttäjänä
-          disclaimer: 'Vastuuvapauslauseke: Käyttämällä ulkoista ilmoittautumisjärjestelmää olet tietoinen siitä, että organisaatio %{organization} ei ole vastuussa tiedoista, jotka käyttäjät ovat antaneet ulkoiselle palvelulle.'
           location_help: 'Paikka: kuvaus tapahtumapaikan tarkemmasta sijainnista osallistujille'
           location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
