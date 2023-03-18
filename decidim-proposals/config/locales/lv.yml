@@ -723,7 +723,6 @@ lv:
             description: Katrs priekšlikums var uzkrāt vairāk nekā %{limit} atbalstu
           minimum_votes_per_user:
             description: Starp dažādiem priekšlikumiem jums ir jāsadala vismaz %{votes} balsis.
-            given_enough_votes: Jūs esat sniedzis pietiekami daudz atbalstu.
             supports_remaining: Jums ir jāatbalsta vēl %{remaining_votes} vairāk priekšlikumi, lai jūsu atbalsts tiktu ņemts vērā.
           proposal_limit:
             description: Jūs varat izveidot līdz %{limit} priekšlikumiem.
