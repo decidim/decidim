@@ -608,7 +608,6 @@ id:
             description: Setiap proposal dapat mengumpulkan lebih dari %{limit} dukungan
           minimum_votes_per_user:
             description: Anda harus mendistribusikan minimal %{votes} suara di antara proposal yang berbeda.
-            given_enough_votes: Anda telah memberikan dukungan yang cukup.
             supports_remaining: Anda harus memilih %{remaining_votes} proposal lagi agar suara Anda dipertimbangkan.
           proposal_limit:
             description: Anda dapat membuat hingga %{limit} proposal.
