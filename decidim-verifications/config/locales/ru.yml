@@ -43,7 +43,6 @@ ru:
       authorizations:
         create:
           error: При попытке создать это подтверждение личности произошла ошибка.
-          success: Вы успешно подтвердили свою личность.
         first_login:
           actions:
             another_dummy_authorization_handler: Проведите подтверждение, сравнив с другим примером подтверждения личности
