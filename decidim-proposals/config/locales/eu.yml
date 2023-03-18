@@ -879,7 +879,6 @@ eu:
             description: Proposamen bakoitza %{limit} euskarri baino gehiagotan pilatu daiteke
           minimum_votes_per_user:
             description: Gutxienez %{votes} bozka eman behar dituzu proposamen desberdinen artean.
-            given_enough_votes: Onartutako euskarri guztiak eman dituzu.
             supports_remaining: '%{remaining_votes} boto gehiago proposatu behar dituzu zure botoak kontuan hartzeko.'
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
