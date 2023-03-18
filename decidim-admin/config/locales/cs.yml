@@ -852,6 +852,11 @@ cs:
           title: Seznam externích povolených domén
       organization_homepage:
         content_blocks:
+          create:
+            error: Při pokusu o vytvoření tohoto bloku obsahu se vyskytl problém.
+            success: Blok obsahu byl úspěšně vytvořen.
+          destroy:
+            error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
           edit:
             update: Aktualizovat
         edit:
