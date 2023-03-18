@@ -62,11 +62,9 @@ tr:
           no_data_stored: Veri depolanmadı.
         create:
           error: Yetkilendirme oluşturulurken bir sorun oluştu.
-          success: Başarılı bir şekilde yetkilendirildiniz.
           unconfirmed: Kendinizi yetkilendirmek için e-postanızı onaylamanız gerekiyor.
         destroy:
           error: Yetkilendirme silinirken bir sorun oluştu.
-          success: Yetkilendirmeyi başarıyla sildiniz.
         first_login:
           actions:
             another_dummy_authorization_handler: Başka bir yetkilendirme işleyicisi örneğiyle doğrulayın
@@ -188,8 +186,6 @@ tr:
           new:
             send: Bana bir SMS gönder
             title: Doğrulama kodunuzu isteyin
-          update:
-            success: Tebrikler. Başarıyla doğrulandınız.
   errors:
     messages:
       uppercase_only_letters_numbers: tümü büyük harf olmalı ve yalnızca harf ve / veya rakam içermelidir
