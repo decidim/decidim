@@ -201,7 +201,6 @@ hu:
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslat elfogadva. További részletek a következő oldalon:'
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
-            email_subject: A követett javaslatot elfogadták
             notification_title: A <a href="%{resource_path}">%{resource_title}</a> című javaslatot elfogadták.
         proposal_evaluating:
           affected_user:
@@ -212,7 +211,6 @@ hu:
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslatot éppen értékelik. További részletek a következő oldalon:'
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
-            email_subject: A követett javaslat értékelése folyamatban van
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> javaslat értékelése folyamatban.
         proposal_mentioned:
           email_intro: A(z) "%{mentioned_proposal_title}" című javaslatodat említette valaki <a href="%{resource_url}">egy megjegyzésben</a>.
@@ -236,7 +234,6 @@ hu:
           follower:
             email_intro: 'A(z) "%{resource_title}" című javaslat elutasítva. További részletek a következő oldalon:'
             email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{resource_title}". Leiratkozás az előző link segítségével.'
-            email_subject: A követett javaslatot elutasították
             notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslatot elutasították.
         proposal_update_category:
           email_intro: 'Az admin frissítette a(z) "%{resource_title}" című javaslatod kategóriáját, ellenőrizd:'
