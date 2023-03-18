@@ -180,8 +180,6 @@ fr:
           feedback_form_answers: Feedbacks des répondants
         mailers:
           trustee_mailer:
-            body: "<p>Bonjour %{user_name},</p><p>Vous avez été ajouté en tant que garant à %{resource_name}.</p>"
-            subject: Vous avez été ajouté en tant que garant à %{resource_name}
             trustee_zone: Emmenez-moi dans la zone des garants
         menu:
           trustees: Garants
@@ -447,7 +445,6 @@ fr:
       feedback:
         answer:
           invalid: Un problème est survenu lors de l'envoi de votre retour utilisateur.
-          spam_detected: Une erreur s'est produite lors de la complétion du formulaire. Peut-être êtes-vous allés trop vite, pouvez-vous réessayer?
           success: Votre avis a bien été envoyé.
       models:
         answer:
@@ -675,18 +672,15 @@ fr:
         trustees:
           new_election:
             email_intro: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
-            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_title}.
             notification_title: Vous êtes garant de l'élection <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrateur vous a ajouté en tant que garant de %{resource_name}. Vous devriez créer votre clé publique <a href='%{trustee_zone_url}'>dans votre espace de garant</a>
-            email_outro: Vous avez reçu cette notification parce que vous avez été ajouté comme garant de l'élection "%{resource_name}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Vous avez été ajouté en tant que garant pour l'élection %{resource_name}.
             notification_title: Vous êtes garant de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Votre vote a été accepté ! En utilisant votre jeton de vote : %{encrypted_vote_hash}, vous pouvez vérifier votre vote <a href="%{verify_url}">ici</a>.'
-            email_outro: Vous avez reçu cette notification parce que vous avez voté pour l'élection %{resource_name}. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Votre vote pour %{resource_name} a été accepté.
             notification_title: 'Votre vote a été accepté. Vérifiez votre vote <a href="%{verify_url}">ici</a> en utilisant votre jeton de vote : %{encrypted_vote_hash}'
       votings:
