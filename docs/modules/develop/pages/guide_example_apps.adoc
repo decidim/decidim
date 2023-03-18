@@ -2,7 +2,7 @@
 
 If you have worked in the past with Ruby on Rails, you'll notice quickly that Decidim is *not* your typical Ruby on Rails Vanilla App.
 
-We've tried using http://decide.es[Consul] but we found some problems on reutilization, adaptation, modularization and configuration. You can read more about that on https://alabs.gitbooks.io/propuesta-de-cambios-en-la-arquitectura-de-consul/content/[Propuesta de Cambios de Arquitectura de Consul (in spanish only)]. As a summary, we decided to try with a model based in https://guides.rubyonrails.org/engines.html[RoR Engines]. A good resource regarding this approach is https://cbra.info/[Component Based Rails Applications].
+We have tried using http://decide.es[Consul] but we found some problems on reutilization, adaptation, modularization and configuration. You can read more about that on https://alabs.gitbooks.io/propuesta-de-cambios-en-la-arquitectura-de-consul/content/[Propuesta de Cambios de Arquitectura de Consul (in spanish only)]. As a summary, we decided to try with a model based in https://guides.rubyonrails.org/engines.html[RoR Engines]. A good resource regarding this approach is https://cbra.info/[Component Based Rails Applications].
 
 == What this means
 

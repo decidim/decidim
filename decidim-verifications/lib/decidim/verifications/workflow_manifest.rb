@@ -21,7 +21,7 @@ module Decidim
     #
     # Note that whereas direct methods can be used for "on the fly"
     # verification, deferred methods require the authorization status to be
-    # persisted into DB. That's the reason why only direct methods can be used
+    # persisted into DB. That is the reason why only direct methods can be used
     # for user impersonation, for example, since they require continuous "on the
     # fly" verification by the impersonating user.
     #

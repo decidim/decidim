@@ -96,7 +96,7 @@ The keys to be used will have the translation scope corresponding to the event n
 The following are the parts of the notification email:
 
 * _email_subject_, to be customized
-* email_greeting, with a good default, usually there's no need to cusomize it
+* email_greeting, with a good default, usually there is no need to cusomize it
 * _email_intro_, to be customized
 * _resource_text_ (optional), rendered `html_safe` if present
 * _resource_url_, a link to the involved resource if resource_url and resource_title are present

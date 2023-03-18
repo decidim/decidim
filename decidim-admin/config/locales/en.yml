@@ -201,7 +201,7 @@ en:
         verify: Verify
       admin_terms_of_use:
         accept:
-          error: There's been an error while accepting the admin terms of use.
+          error: There is been an error while accepting the admin terms of use.
           success: Great! You've accepted the admin terms of use.
         actions:
           accept: I agree with the terms
@@ -877,7 +877,7 @@ en:
       participatory_space_private_users_csv_imports:
         create:
           invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
-          success: CSV file uploaded successfully, we're sending an invitation email to participants. This might take a while.
+          success: CSV file uploaded successfully, we are sending an invitation email to participants. This might take a while.
         new:
           destroy:
             button: Delete all private participants
@@ -1036,7 +1036,7 @@ en:
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.
-          success: CSV file uploaded successfully, we're verifying the groups matching the criteria. This might take a while.
+          success: CSV file uploaded successfully, we are verifying the groups matching the criteria. This might take a while.
         reject:
           invalid: There was a problem rejecting this group.
           success: Group successfully rejected.
