@@ -95,9 +95,7 @@ pl:
         cancel_order:
           more_than_one: usuń swój głos na %{name} i zacznij od nowa
           only_one: usuń głos i zacznij od nowa.
-        finished_message: Zakończyłeś proces głosowania. Dziękujemy za udział!
         highlighted_cta: Głosuj na %{name}
-        if_change_opinion: Jeśli zmieniłeś zdanie, możesz
         my_budgets: Moje budżety
         progress: Zakończ głosowanie
         show: Zobacz projekty
@@ -137,7 +135,6 @@ pl:
           assigned: 'Przypisano:'
           cancel_order: usuń głos i zacznij od nowa
           checked_out:
-            description: Już głosowałeś na budżet. Jeśli zmieniłeś zdanie, możesz %{cancel_link}.
             title: Ukończono głosowanie dot. budżetu
           minimum_projects_rule:
             description: Na jakie projekty Twoim zdaniem powinniśmy przeznaczyć budżet? Wybierz co najmniej %{minimum_number} projektów i głosuj zgodnie ze swoimi preferencjami aby zdefiniować budżet.
