@@ -79,7 +79,6 @@ hu:
           assigned: 'Hozzárendelve:'
           cancel_order: töröld a szavazatod és kezdd újra
           checked_out:
-            description: 'Már szavaztál a költségvetésre. Ha meggondoltad magad, kattints ide: %{cancel_link}.'
             title: Költségvetési szavazás befejeződött
           title: Dönts a költségvetéstről
         count:
