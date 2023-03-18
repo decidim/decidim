@@ -132,9 +132,7 @@ lt:
         cancel_order:
           more_than_one: ištrinkite balsą %{name} ir pradėkite iš naujo
           only_one: ištrinti balsą ir pradėti iš naujo.
-        finished_message: Jūs baigėte balsuoti. Dėkojame už dalyvavimą!
         highlighted_cta: Balsuoti dėl %{name}
-        if_change_opinion: Jeigu persigalvojote, galite
         my_budgets: Mano biudžetai
         progress: Baigti balsavimą
         show: Peržiūrėti projektus
@@ -181,7 +179,6 @@ lt:
           assigned: 'Priskirta:'
           cancel_order: pašalinti balsą ir pradėti iš naujo
           checked_out:
-            description: Jūs jau balsavote už biudžetą. Jeigu persigalvojote, galite %{cancel_link}.
             title: Balsavimas dėl biudžeto baigtas
           minimum_projects_rule:
             description: Kokiems projektams, jūsų nuomone, turėtume skirti biudžetą? Pasirinkite ne mažiau kaip %{minimum_number} projektus, kuriuos norite paremti ir atitinkamai išreiškite savo prioritetus.
