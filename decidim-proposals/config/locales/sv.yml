@@ -838,7 +838,6 @@ sv:
             description: Varje förslag kan samla mer än %{limit} stöd
           minimum_votes_per_user:
             description: Du måste fördela minst %{votes} stöd mellan olika förslag.
-            given_enough_votes: Du har gett tillräckligt med stöd.
             supports_remaining: Du måste stödja ytterligare %{remaining_votes} förslag för att dina stöd ska beaktas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
