@@ -998,7 +998,6 @@ nl:
           modal_close: Modal sluiten
           modal_title: Weig je de bijgewerkte Algemene voorwaarden echt af?
         required_review:
-          alert: We hebben onze Servicevoorwaarden bijgewerkt. Bekijk ze alstublieft.
           title: 'Vereist: bekijk updates van onze servicevoorwaarden'
     participatory_space_private_users:
       not_allowed: Je hebt geen toestemming om deze inhoud te bekijken
