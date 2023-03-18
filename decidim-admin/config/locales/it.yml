@@ -166,8 +166,6 @@ it:
         share: Condividi
         verify: Verifica
       admin_terms_of_use:
-        accept:
-          success: Ottimo! Hai accettato i termini d'uso dell'amministratrice/tore.
         actions:
           are_you_sure: Sei sicuro di voler rifiutare i termini di utilizzo dell'amministratore?
           refuse: Rifiuta i termini di amministrazione
