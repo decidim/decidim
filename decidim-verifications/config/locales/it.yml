@@ -70,11 +70,9 @@ it:
           no_data_stored: Nessun dato memorizzato.
         create:
           error: Si è verificato un errore durante la creazione dell'autorizzazione.
-          success: Sei stato autorizzato con successo.
           unconfirmed: Devi confermare la tua e-mail per autorizzarti.
         destroy:
           error: Si è verificato un errore durante l'eliminazione dell'autorizzazione.
-          success: Autorizzazione eliminata con successo.
         first_login:
           actions:
             another_dummy_authorization_handler: Verificare contro un altro esempio di gestore di autorizzazioni
@@ -200,8 +198,6 @@ it:
           new:
             send: Mandami un sms
             title: Richiedi il tuo codice di verifica
-          update:
-            success: Congratulazioni. Sei stato verificato con successo.
   errors:
     messages:
       uppercase_only_letters_numbers: deve essere tutto in maiuscolo e contenere solo lettere e / o numeri
