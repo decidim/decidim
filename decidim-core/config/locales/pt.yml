@@ -972,7 +972,6 @@ pt:
           modal_close: Fechar modal
           modal_title: Recusa realmente os Termos e Condições atualizados?
         required_review:
-          alert: Atualizámos os nossos Termos de Serviço, por favor reveja-os.
           title: 'Obrigatório: reveja as atualizações dos nossos termos de serviço'
     participatory_space_private_users:
       not_allowed: Não tem permissão para visualizar este conteúdo
