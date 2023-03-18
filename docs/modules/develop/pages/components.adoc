@@ -23,7 +23,7 @@ Upload the component to GitHub with the naming *decidim-module-engine_name*, so 
 
 Components are defined in a manifest, along with its engine and admin engine counterpart.
 
-There's a DSL available to describe all this:
+There is a DSL available to describe all this:
 
 [source,ruby]
 ----
@@ -187,7 +187,7 @@ While the component is being developed, it'll be simpler and faster to update We
 
 Also, components might have one or many entrypoints (for CSSs and javascripts) and images. These entrypoints need to be manually added to `config/webpack/custom.js`. **Any change in both files** requires to restart `webpack-dev-server` process.
 
-Take into account that generating a new development application **overwrites** Webpacker configuration so these changes might be overwriten. That's why it's necessary, once the changes are stable enough, to update the generators files.
+Take into account that generating a new development application **overwrites** Webpacker configuration so these changes might be overwriten. That is why it's necessary, once the changes are stable enough, to update the generators files.
 
 === Updating Webpacker configuration for the generators
 

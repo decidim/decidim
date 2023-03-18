@@ -689,7 +689,7 @@ module Decidim
     # Private: Override method from FoundationRailsHelper to render the text of the
     # label before the input, instead of after.
     #
-    # attribute - The String name of the attribute we're build the label.
+    # attribute - The String name of the attribute we are build the label.
     # text      - The String text to use as label.
     # options   - A Hash to build the label.
     #
@@ -723,7 +723,7 @@ module Decidim
     # rubocop:enable Metrics/PerceivedComplexity
     # rubocop:enable Metrics/CyclomaticComplexity
 
-    # Private: Builds a span to be shown when there's a validation error in a field.
+    # Private: Builds a span to be shown when there is a validation error in a field.
     # It looks for the text that will be the content in a similar way `human_attribute_name`
     # does it.
     #

@@ -2,7 +2,7 @@
 
 module Decidim
   module Conferences
-    # This class infers the current conference we're scoped to by
+    # This class infers the current conference we are scoped to by
     # looking at the request parameters and the organization in the request
     # environment, and injects it into the environment.
     class CurrentConference

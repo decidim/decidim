@@ -208,7 +208,7 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  # NOTE: this will not be used as we're using our own PasswordValidator
+  # NOTE: this will not be used as we are using our own PasswordValidator
   # config.password_length = 6..128
 
   # Email regex used to validate email formats. It simply asserts that
@@ -303,7 +303,7 @@ Devise.setup do |config|
   end
 
   # ==> Mountable engine configurations
-  # When using Devise inside an engine, let's call it `MyEngine`, and this engine
+  # When using Devise inside an engine, we can call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.
   # The following options are available, assuming the engine is mounted as:
   #
