@@ -5,11 +5,11 @@ In order to make your component compatible with the activity log, you need to fo
 . Make your model include the `Decidim::Traceable` module. This will let Decidim create versions every time your model records are changed. It uses https://github.com/airblade/paper_trail[`paper_trail`] to generate the versions.
 . Make your commands use `Decidim.traceability` to create and update records. Documentation can be found in `Decidim::Traceability`. This should set the author of the change in your record properly.
 
-That's all you need to do to get it working, really. We have a default way to present logs that Just Works™. Keep reading if you want to customize how the logs for your resources look!
+That is all you need to do to get it working, really. We have a default way to present logs that Just Works™. Keep reading if you want to customize how the logs for your resources look!
 
 == The default renderer
 
-The default renderer does not know many things. It knows the author, what action was done, the resource affected and the space where the resource resides. When the resource is updated it shows the diff of all the fields that have been changed, with the old and new values for each field. values are not formatted in any specific way, so you might see some weirdly formatted values on the log diff: that's how it's rendered from the database.
+The default renderer does not know many things. It knows the author, what action was done, the resource affected and the space where the resource resides. When the resource is updated it shows the diff of all the fields that have been changed, with the old and new values for each field. values are not formatted in any specific way, so you might see some weirdly formatted values on the log diff: that is how it's rendered from the database.
 
 == Customizing the logs for your resources
 
@@ -21,9 +21,9 @@ The default presenter does not fulfill your needs? You might want to create your
 * You want to change the order of the factors in the log sentence
 * You want to change the format of the values in the diff
 
-Let's go ahead and see how to create your own resource presenter.
+Next, you will learn how to create your own resource presenter.
 
-Custom presenters should be named as `Decidim::<your module name>::<log name>::<your model name>Presenter`. There's currently only one log, `AdminLog`. This means that if your model is `Decidim::Accountability::Result`, then your admin log presenter is must be `Decidim::Accountability::AdminLog::ResultPresenter`. You can inherit from `Decidim::Log::BasePresenter` for simplicity:
+Custom presenters should be named as `Decidim::<your module name>::<log name>::<your model name>Presenter`. There is currently only one log, `AdminLog`. This means that if your model is `Decidim::Accountability::Result`, then your admin log presenter is must be `Decidim::Accountability::AdminLog::ResultPresenter`. You can inherit from `Decidim::Log::BasePresenter` for simplicity:
 
 [source,ruby]
 ----
