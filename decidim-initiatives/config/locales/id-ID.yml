@@ -113,7 +113,6 @@ id:
             - Ikuti langkah-langkah untuk membuat inisiatif baru
           description: Lencana ini diberikan ketika Anda meluncurkan inisiatif baru, bermitra dengan orang lain untuk melaksanakannya.
           description_another: Pengguna ini telah mendapatkan %{score} inisiatif yang dipublikasikan.
-          description_own: Anda punya %{score} inisiatif yang dipublikasikan.
           name: Inisiatif yang diterbitkan
           next_level_in: Dapatkan %{score} lebih banyak inisiatif yang diterbitkan untuk mencapai level berikutnya!
           unearned_own: Anda belum ada inisiatif yang dipublikasikan.
