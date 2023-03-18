@@ -974,7 +974,6 @@ it:
             info_text: Chiusura elettorale del sondaggio.
           sign:
             cancel: Annulla
-            check_box: Ho recensito questo ed è lo stesso del certificato di chiusura elettorale fisico
             close_modal: Chiudi
             confirm: Ok, continua
             error: Si è verificato un errore, riprova.
