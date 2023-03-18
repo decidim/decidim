@@ -182,7 +182,6 @@ bg:
           follower:
             email_intro: 'Предложението "%{resource_title}" е одобрено. Прочетете отговора на страницата:'
             email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
-            email_subject: Предложение, което следвате е одобрено
             notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> беше одобрено.
         proposal_evaluating:
           affected_user:
@@ -193,7 +192,6 @@ bg:
           follower:
             email_intro: 'Предложението "%{resource_title}" се разглежда в момента. Прочетете отговора на страницата:'
             email_outro: Получавате това известие, защото следвате "%{resource_title}". Може да премахнете следването чрез предната връзка.
-            email_subject: Предложение, което следвате се разглежда
             notification_title: Предложението <a href="%{resource_path}">%{resource_title}</a> се разглежда.
         proposal_mentioned:
           email_intro: Вашето предложение "%{mentioned_proposal_title}" беше споменато в коментарите <a href="%{resource_url}">на това пространство</a>.
