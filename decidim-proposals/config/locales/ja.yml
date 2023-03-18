@@ -266,7 +266,6 @@ ja:
           follower:
             email_intro: '提案「%{resource_title}」が承認されました。このページで回答を読むことができます:'
             email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
-            email_subject: あなたがフォローしている提案が受け入れられました
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が承認されました。
         proposal_evaluating:
           affected_user:
@@ -277,7 +276,6 @@ ja:
           follower:
             email_intro: '提案 "%{resource_title}" は現在評価されています。このページで回答を確認できます：'
             email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
-            email_subject: あなたがフォローしている提案が評価されています
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案が評価されています。
         proposal_mentioned:
           email_intro: あなたの提案 "%{mentioned_proposal_title}" が <a href="%{resource_url}">のコメント欄で</a> に言及されました。
@@ -302,7 +300,6 @@ ja:
           follower:
             email_intro: '提案 "%{resource_title}" は拒否されました。このページで回答を読むことができます:'
             email_outro: '「%{resource_title}」をフォローしているため、この通知を受け取りました。前のリンクからこの通知をアンフォローすることができます。'
-            email_subject: あなたがフォローしている提案が拒否されました
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案は拒否されました。
         proposal_update_category:
           email_intro: '管理者があなたの提案 "%{resource_title}" のカテゴリを更新しました。このページでチェックしてください：'
