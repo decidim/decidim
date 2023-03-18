@@ -88,7 +88,6 @@ pt-BR:
         create:
           error: Ocorreu um erro ao criar uma nova consulta.
           success: Consulta criada com sucesso.
-        deprecation_warning: O módulo de consultas será obsoleto em breve. Estamos trabalhando na próxima versão criptográficamente segura chamada Votações.
         edit:
           update: Atualizar
         form:
