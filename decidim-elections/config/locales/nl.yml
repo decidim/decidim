@@ -492,18 +492,15 @@ nl:
         trustees:
           new_election:
             email_intro: Je bent toegevoegd als trustee voor de %{resource_title} stemronde.
-            email_outro: Je hebt deze melding ontvangen omdat je bent toegevoegd als trustee van %{resource_title}.
             email_subject: Je bent trustee voor de %{resource_title} stemronde..
             notification_title: Je bent trustee voor <a href="%{resource_path}">%{resource_title}</a> stemronde.
           new_trustee:
             email_intro: Een beheerder heeft u toegevoegd als Trustee voor %{resource_name}. Je moet jouw openbare sleutel maken <a href='%{trustee_zone_url}'>in je Trustee zone</a>
-            email_outro: Je hebt deze melding ontvangen omdat je bent toegevoegd als trustee van %{resource_name}.
             email_subject: Je bent een trustee van %{resource_name}.
             notification_title: Je bent een trustee van <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Je stem is geaccepteerd! Met je stem token %{encrypted_vote_hash}, controleer je je stem <a href="%{verify_url}">hier</a>.'
-            email_outro: Je hebt deze melding ontvangen omdat je hebt gestemd in de %{resource_name} verkiezing.
             email_subject: Je stem voor %{resource_name} werd geaccepteerd.
             notification_title: 'Je stem is geaccepteerd. Controleer je stem <a href="%{verify_url}">hier</a> met behulp van je stem token: %{encrypted_vote_hash}'
       votings:
