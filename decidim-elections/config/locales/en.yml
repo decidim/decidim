@@ -1241,7 +1241,7 @@ en:
             info_text: Polling station electoral closure.
           sign:
             cancel: Cancel
-            check_box: I've reviewed this and is the same as the physical electoral closure certificate
+            check_box: I have reviewed this and is the same as the physical electoral closure certificate
             close_modal: Close
             confirm: Ok, continue
             error: An error occurred, please try again.
