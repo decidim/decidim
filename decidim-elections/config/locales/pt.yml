@@ -991,7 +991,6 @@ pt:
             available_answers: 'Respostas disponíveis:'
             complete_voting: Completar votação
             identify_another: Identificar outro participante
-            questions_title: 'Ela tem o direito de votar nas seguintes questões:'
             voted: O participante já votou
           create:
             error: O voto não foi registado. Por favor tente de novo.
