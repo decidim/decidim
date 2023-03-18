@@ -159,7 +159,6 @@ lt:
         file_no_exists: Failas neegzistuoja
         notice: Parsisiunčiami jūsų duomenys. Kai procesas bus baigtas, gausite e. laišką.
       email_change:
-        body1: Išsiuntėme laišką į %{unconfirmed_email} el. pašto patvirtinimui.
         body2: Ar reikėtų naujo el. pašto patvirtinimo laiško? %{resend_link} arba %{cancel_link}.
         cancel: atšaukti
         cancel_error: El. pašto pakeitimo nepavyko atšaukti.
@@ -1179,7 +1178,6 @@ lt:
           modal_close: Uždaryti modalinį langą
           modal_title: Ar iš tikrųjų nesutinkate su atnaujintomis naudojimo sąlygomis?
         required_review:
-          alert: Mes atnaujinome naudojimo sąlygas, kviečiame jas peržiūrėti.
           title: 'Būtina: Peržiūrėkite naudojimo sąlygų atnaujinimus'
     participatory_space_private_users:
       not_allowed: Jūs negalite peržiūrėti šio turinio
