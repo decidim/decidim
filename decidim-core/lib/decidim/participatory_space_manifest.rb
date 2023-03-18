@@ -48,7 +48,7 @@ module Decidim
     attribute :stylesheet, String, default: nil
 
     # A callback that will be executed when an account is destroyed.
-    # The Proc will receive the `user` that's being destroyed.
+    # The Proc will receive the `user` that is being destroyed.
     attribute :on_destroy_account, Proc, default: nil
 
     validates :name, presence: true
