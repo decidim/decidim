@@ -219,7 +219,6 @@ gl:
           follower:
             email_intro: 'A proposta "%{resource_title}" foi aceptada. Podes ler a resposta nesta páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
-            email_subject: Aceptouse unha proposta que estás seguindo
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceptada.
         proposal_evaluating:
           affected_user:
@@ -230,7 +229,6 @@ gl:
           follower:
             email_intro: 'A proposta "%{resource_title}" está a ser avaliada. Podes consultar unha resposta nesta páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
-            email_subject: Estase evaluando unha proposta que estás seguindo
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está a ser avaliada.
         proposal_mentioned:
           email_outro: Recibiches esta notificación porque es un autor de "%{resource_title}".
@@ -253,7 +251,6 @@ gl:
           follower:
             email_intro: 'A proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
             email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
-            email_subject: A proposta que segues foi rexeitada
             notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
         proposal_update_category:
           email_intro: 'Un administrador actualizou a categoría da túa proposta "%{resource_title}", comproba isto:'
