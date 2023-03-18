@@ -162,6 +162,7 @@ cs:
         file_no_exists: Soubor neexistuje
         notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
       email_change:
+        body1: Poslali jsme e-mail na %{unconfirmed_email} k ověření Vaší nové e-mailové adresy.
         body2: Potřebujete poslat znovu ověřovací e-mail? %{resend_link} nebo %{cancel_link}.
         cancel: zrušit
         cancel_error: Nelze zrušit změnu e-mailu.
@@ -1230,6 +1231,7 @@ cs:
           modal_close: Zavřít modální
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
+          alert: Aktualizovali jsme naše smluvní podmínky, prosím zkontrolujte je.
           title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
@@ -1553,6 +1555,7 @@ cs:
         subject: Pokyny pro potvrzení
       email_changed:
         greeting: Dobrý den %{recipient}!
+        message: Kontaktujeme vás, abyste vás upozornili, že váš e-mail se mění na %{email}.
         subject: E-mail byl změněn
       invitation_instructions:
         accept: Přijmout pozvání
@@ -1575,6 +1578,7 @@ cs:
         subject: Byl jste pozván na správu %{organization}
       password_change:
         greeting: Dobrý den %{recipient}!
+        message: Tímto vás informujeme, že vaše heslo bylo změněno.
         subject: Heslo změněno
       reset_password_instructions:
         action: Změňte heslo
