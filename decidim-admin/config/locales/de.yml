@@ -189,8 +189,6 @@ de:
           new: Neuer Administrator
         verify: Überprüfen
       admin_terms_of_use:
-        accept:
-          success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           are_you_sure: Sind Sie sicher, dass Sie die Admin-Nutzungsbedingungen ablehnen möchten?
           refuse: Die Admin-Nutzungsbedingungen ablehnen
