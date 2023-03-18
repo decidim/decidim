@@ -92,7 +92,6 @@ ro:
         create:
           error: A apărut o problemă la crearea unei noi consultări.
           success: Consultarea a fost creată.
-        deprecation_warning: Modulul de consultări va fi învechit în viitorul apropiat. Lucrăm la următoarea versiune securizată criptografic numită Votări.
         edit:
           update: Actualizare
         form:
