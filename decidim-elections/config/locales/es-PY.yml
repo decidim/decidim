@@ -569,7 +569,6 @@ es-PY:
                 invalid_key: Las claves de identificación en el archivo subido no se pueden cargar.
                 invalid_public_key: Las claves de identificación en el archivo subido no coinciden con la clave pública de identificación almacenada.
               upload_legend: En el servidor constan tus claves públicas de identificación, pero tu navegador todavía no las tiene. Necesitas importar el archivo con tus claves de identificación a tu ordenador desde la copia de seguridad que creaste después de generarlas.
-            not_supported_browser_description: Parece que estás usando un navegador que no puede ser utilizado para actuar como garante. Asegúrate de que estás usando la versión más reciente de tu navegador, o intenta utilizar cualquier otro de los navegadores más populares para poder completar tus tareas como garante.
             not_supported_browser_title: Actualiza el navegador para actuar como garante
             trustee_role_description: Se le ha asignado como garante en algunas de las elecciones celebradas en esta plataforma.
           update:
@@ -1121,7 +1120,6 @@ es-PY:
             census_verified_with_online_vote: Esta participante ya ha votado en línea. Si vota en persona, los votos anteriores serán invalidados y este será su voto definitivo.
             complete_voting: Completar votación
             identify_another: Identificar a otra participante
-            questions_title: 'Tiene derecho a votar en las siguientes preguntas:'
             questions_title_voted: 'Esta participante ya ha votado en línea y tiene derecho a votar en las siguientes preguntas:'
             voted: La participante ha votado
           create:
