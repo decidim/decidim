@@ -258,7 +258,6 @@ hu:
             update: Frissítés
           form:
             address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
-            disclaimer: 'Jogi nyilatkozat: Egy külső regisztrációs rendszer használatával Ön tudatában van annak, hogy a %{organization} szervezői nem felelősek a felhasználók által a külső szolgáltatásnak megadott adatokért.'
             location_help: 'Helyszín: üzenet az adott felhasználóknak a találkozó helyéről'
             location_hints_help: 'Helyszíni tippek: további információk. Példa: az épület emelete ha személyes találkozóról van szó, vagy a találkozó jelszava, ha korlátozott hozzáféréssel rendelkező online találkozóról van szó.'
             online_meeting_url_help: 'Link: a résztvevők engedélyezése a találkozóhoz való közvetlen kapcsolódáshoz'
@@ -340,7 +339,6 @@ hu:
         copy_calendar_url_clarification: Naptár URL másolása a vágólapra
         copy_calendar_url_copied: Lemásolva!
         copy_calendar_url_description: Az összes közzétett találkozót láthatja a naptáralkalmazásában vagy naptárszolgáltatónál (pl Google Calendar). Másolja ki és illessze be ezt az URL-címet a naptárába az "Új naptár hozzáadása URL-címről" opcióval.
-        copy_calendar_url_explanation: Kérjük, vegye figyelembe, hogy a kiválasztott találkozókat exportálja. Ha az összeset exportálni szeretné, először állítsa vissza az összes szűrőt.
         copy_calendar_url_message: A hivatkozás vágólapra másolása sikeres.
         export_calendar: Naptár exportálása
       close_meeting_reminder_mailer:
