@@ -571,7 +571,6 @@ id:
       user_group:
         csv_verify:
           invalid: Ada kesalahan saat membaca file CSV.
-          success: File CSV berhasil diunggah, kami memverifikasi grup pengguna yang cocok dengan kriteria. Ini mungkin membutuhkan waktu beberapa saat.
         reject:
           invalid: Ada kesalahan saat menolak grup pengguna ini.
         verify:
