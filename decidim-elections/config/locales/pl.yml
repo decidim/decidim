@@ -986,7 +986,6 @@ pl:
             available_answers: 'Możliwe odpowiedzi:'
             complete_voting: Zakończ głosowanie
             identify_another: Zidentyfikuj innego uczestnika
-            questions_title: 'Ma prawo do głosowania w następujących kwestiach:'
             voted: Uczestnik zagłosował
           create:
             error: Głos nie został zarejestrowany. Spróbuj ponownie.
