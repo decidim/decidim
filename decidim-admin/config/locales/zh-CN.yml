@@ -136,8 +136,6 @@ zh-CN:
         share: 分享
         verify: 验证
       admin_terms_of_use:
-        accept:
-          success: 太棒了！您已经接受了管理员使用条款。
         actions:
           refuse: 拒绝管理条款
         required_review:
