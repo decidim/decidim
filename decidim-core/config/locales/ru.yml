@@ -660,7 +660,6 @@ ru:
         subject: Инструкции по подтверждению
       email_changed:
         greeting: Здравствуйте, %{recipient}!
-        message: Мы связываемся с вами, чтобы уведомить о том, что ваш адрес электронной почты изменен на %{email}.
         subject: Адрес электронной почты изменен
       invitation_instructions:
         accept: Принять приглашение
@@ -683,7 +682,6 @@ ru:
         subject: Вам было предложено распоряжаться %{organization}
       password_change:
         greeting: Здравствуйте, %{recipient}!
-        message: Мы пишем вам, чтобы уведомить вас о том, что ваш пароль был изменен.
         subject: Пароль изменен
     passwords:
       edit:
