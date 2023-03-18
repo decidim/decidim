@@ -128,9 +128,7 @@ nl:
         cancel_order:
           more_than_one: verwijder je stem op %{name} en begin opnieuw
           only_one: verwijder je stem en begin opnieuw.
-        finished_message: Je hebt het stemproces voltooid. Bedankt voor je deelname!
         highlighted_cta: Stem op %{name}
-        if_change_opinion: Als je van gedachten veranderd bent, kun je
         my_budgets: Mijn budgetten
         progress: Beëindig stemmen
         show: Bekijk projecten
@@ -175,7 +173,6 @@ nl:
           assigned: 'Toegewezen:'
           cancel_order: Verwijder uw stem en begin opnieuw
           checked_out:
-            description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
           minimum_projects_rule:
             description: Aan welke projecten moeten volgens jou middelen worden toegewezen? Selecteer minstens %{minimum_number} project(en) en geef zo je voorkeur voor het budget door.
