@@ -1133,7 +1133,6 @@ el:
         subject: Οδηγίες επιβεβαίωσης
       email_changed:
         greeting: Γεια σας %{recipient}!
-        message: Επικοινωνούμε μαζί σας για να σας ενημερώσουμε ότι η διεύθυνση email σας αλλάζει σε %{email}.
         subject: Η διεύθυνση email άλλαξε
       invitation_instructions:
         accept: Αποδοχή πρόσκλησης
@@ -1156,7 +1155,6 @@ el:
         subject: Έχετε προσκληθεί να διαχειριστείτε τον οργανισμό %{organization}
       password_change:
         greeting: Γεια σας %{recipient}!
-        message: Επικοινωνούμε μαζί σας για να σας ενημερώσουμε ότι ο κωδικός πρόσβασής σας άλλαξε.
         subject: Ο κωδικός πρόσβασης άλλαξε
       reset_password_instructions:
         action: Αλλαγή του κωδικού πρόσβασής μου
