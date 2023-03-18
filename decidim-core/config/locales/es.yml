@@ -35,7 +35,6 @@ es:
       decidim/component_published_event: Componente activo
       decidim/demoted_membership: Ya no eres una administradora de grupo
       decidim/gamification/badge_earned_event: Insignia obtenida
-      decidim/gamification/level_up_event: Has subido de nivel
       decidim/invited_to_group_event: Invitada al grupo
       decidim/join_request_accepted_event: Solicitud de incorporación aceptada
       decidim/join_request_rejected_event: Solicitud de incorporación rechazada
@@ -668,15 +667,9 @@ es:
         email_subject: Se ha producido una actualización para %{resource_title}
       gamification:
         badge_earned:
-          email_intro: '¡Enhorabuena! Has obtenido la insignia "<a href="%{resource_url}">%{badge_name}</a>" (nivel %{current_level}).'
           email_outro: Has recibido esta notificación porque has realizado actividad en nuestro sitio web.
-          email_subject: '¡Has obtenido una nueva insignia: %{badge_name}!'
-          notification_title: '¡Enhorabuena! Has obtenido la insignia <a href="%{resource_path}">%{badge_name}</a> (nivel %{current_level}).'
         level_up:
-          email_intro: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en la insignia "<a href="%{resource_url}">%{badge_name}</a>"!'
           email_outro: Has recibido esta notificación porque has generado actividad en nuestro sitio web.
-          email_subject: '¡Has conseguido el nivel %{current_level} en la insignia %{badge_name}!'
-          notification_title: '¡Enhorabuena! ¡Has alcanzado el nivel %{current_level} en la insignia <a href="%{resource_path}">%{badge_name}</a>!'
       groups:
         demoted_membership:
           email_intro: Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha eliminado tus permisos de administración para ese grupo.
@@ -850,7 +843,6 @@ es:
           name: Seguidores
           next_level_in: '¡Consigue que te sigan %{score} personas más para alcanzar el siguiente nivel!'
           unearned_another: Esta participante todavía no tiene seguidoras.
-          unearned_own: Aún no tienes seguidores.
         index:
           badge_title: "Insignia %{name}"
           how: Como puedes conseguirla
@@ -858,7 +850,6 @@ es:
           title: Insignias
       description: Las insignias son reconocimientos de las acciones de las participantes y el progreso en la plataforma. A medida que comienzas a descubrir, participar e interactuar en la plataforma, ganarás diferentes insignias.
       level: Nivel %{level}
-      reached_top: Has alcanzado el nivel superior para esta insignia.
       title: '¿Qué son las insignias?'
     group_admins:
       actions:
@@ -1542,14 +1533,6 @@ es:
         someone_invited_you_as_admin: Alguien te ha invitado como administradora de %{application}, puedes aceptar a través del siguiente enlace.
         someone_invited_you_as_private_user: Alguien te ha invitado como participante privada de %{application}, puedes aceptar a través del siguiente enlace.
         subject: Instrucciones de invitación
-      invite_admin:
-        subject: Has sido invitada a gestionar %{organization}
-      invite_collaborator:
-        subject: Has sido invitada a colaborar en %{organization}
-      invite_private_user:
-        subject: Has sido invitada a un proceso privado de participación en %{organization}
-      organization_admin_invitation_instructions:
-        subject: Has sido invitada a gestionar %{organization}
       password_change:
         greeting: '¡Hola %{recipient}!'
         subject: Contraseña modificada
