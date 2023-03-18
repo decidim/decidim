@@ -156,7 +156,6 @@ pl:
         file_no_exists: Plik nie istnieje
         notice: Twoje dane są obecnie w trakcie procesowania w celu pobrania. Otrzymasz e-mail po zakończeniu.
       email_change:
-        body1: Wysłaliśmy wiadomość e-mail do %{unconfirmed_email}, aby zweryfikować Twój nowy adres e-mail.
         body2: Wysłać e-mail weryfikacyjny ponownie? %{resend_link} lub %{cancel_link}.
         cancel: anuluj
         cancel_error: Nie można anulować zmiany adresu e-mail.
@@ -1078,7 +1077,6 @@ pl:
           modal_close: Zamknij okno
           modal_title: Czy rzeczywiście odmawiasz zaakceptowania zaktualizowanego regulaminu?
         required_review:
-          alert: Zaktualizowaliśmy nasze Warunki korzystania z usługi, zapoznaj się z nimi.
           title: 'Wymagane: sprawdź aktualizacje naszych warunków korzystania z platformy'
     participatory_space_private_users:
       not_allowed: Nie możesz wyświetlać tych treści
