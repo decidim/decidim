@@ -321,7 +321,6 @@ ro:
           title: Autorizarea a expirat
         incomplete:
           cancel: Anulează
-          explanation: 'Chiar dacă ești autorizat cu "%{authorization}", trebuie să te reautorizezi pentru că ne lipsesc următoarele date:'
           invalid_field: "%{field}"
           reauthorize: Reautorizează
           title: Te rugăm să reautorizezi
@@ -933,7 +932,6 @@ ro:
         title: Participanți
     newsletter_mailer:
       newsletter:
-        note: Ați primit acest e-mail deoarece sunteți abonat la buletinele informative de pe %{organization_name}. Puteți modifica setările de pe pagina <a href="%{link}">de notificări</a>.
         unsubscribe: Pentru a renunța la primirea acestui tip de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Dezabonați-vă</a>.
     newsletter_templates:
       basic_only_text:
@@ -1013,7 +1011,6 @@ ro:
         success: Setările de notificări au fost actualizate cu succes.
     offline:
       show:
-        message: Se pare că ești deconectat. Te rugăm să încerci din nou mai târziu.
         retry: Încearcă din nou
     open_data:
       not_available_yet: Fişierele de date deschise nu sunt încă disponibile, vă rugăm să încercaţi din nou în câteva minute.
@@ -1293,7 +1290,6 @@ ro:
     user_interests:
       show:
         my_interests: Interesele mele
-        select_your_interests: Selectează subiectele pentru care vrei să primești evenimente asociate în cronologia profilului tău.
         update_my_interests: Actualizează-mi interesele
       update:
         error: A apărut o eroare la actualizarea intereselor tale.
