@@ -492,12 +492,10 @@ ro:
         trustees:
           new_election:
             email_intro: Ai fost adăugat drept împuternicit pentru alegerile %{resource_title}.
-            email_outro: Ai primit această notificare deoarece ai fost adăugat drept împuternicit pentru alegerile %{resource_title}.
             email_subject: Ești împuternicit pentru alegerile %{resource_title}.
             notification_title: Ești împuternicit pentru alegerile <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Un administrator te-a adăugat drept împuternicit pentru %{resource_name}. Ar trebui să își generei cheia de verificare publică <a href='%{trustee_zone_url}'>în zona ta dedicată rolului de împuternicit</a>
-            email_outro: Ai primit această notificare deoarece ai fost adăugat drept împuternicit pentru alegerile %{resource_name}.
             email_subject: Ești împuternicit pentru %{resource_name}.
             notification_title: Ești împuternicit pentru <a href="%{participatory_space_url}">%{resource_name}</a>.
     statistics:
