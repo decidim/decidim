@@ -1436,7 +1436,6 @@ de:
         subject: Bestätigungsanweisungen
       email_changed:
         greeting: Hallo %{recipient}!
-        message: Wir setzen uns mit Ihnen in Verbindung, um Sie darüber zu informieren, dass Ihre E-Mail-Adresse auf %{email}geändert wird.
         subject: E-Mail geändert
       invitation_instructions:
         accept: Die Einladung annehmen
@@ -1459,7 +1458,6 @@ de:
         subject: Du wurdest eingeladen, %{organization} zu verwalten
       password_change:
         greeting: Hallo %{recipient}!
-        message: Wir kontaktieren Sie, um Sie darüber zu informieren, dass Ihr Passwort geändert wurde.
         subject: Passwort geändert
       reset_password_instructions:
         action: Ändere mein Passwort
