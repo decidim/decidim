@@ -1108,7 +1108,6 @@ cs:
             info_text: Uzavření hlasovací stanice voleb.
           sign:
             cancel: Zrušit
-            check_box: Přezkoumal jsem to a je to stejné jako fyzický certifikát o ukončení voleb
             close_modal: Zavřít
             confirm: Ok, pokračovat
             error: Došlo k chybě. Prosím zkuste to znovu.
