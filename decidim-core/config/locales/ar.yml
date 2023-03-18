@@ -35,7 +35,6 @@ ar:
       decidim/component_published_event: العنصر النشط
       decidim/demoted_membership: لم يعد مشرف المجموعة
       decidim/gamification/badge_earned_event: شارة المكتسبة
-      decidim/gamification/level_up_event: لقد استعدت
       decidim/invited_to_group_event: تمت دعوتك لمجموعة
       decidim/join_request_accepted_event: انضمام طلب مقبول
       decidim/join_request_rejected_event: طلب الانضمام مرفوض
@@ -717,15 +716,9 @@ ar:
         email_subject: تحديث إلى %{resource_title}
       gamification:
         badge_earned:
-          email_intro: تهانينا! لقد حصل على <a href="%{resource_url}">%{badge_name} شارة</a> (مستوى %{current_level}).
           email_outro: لقد تلقيت هذا الإشعار لأنك قمت بنشاط على موقعنا.
-          email_subject: 'لقد ربحت شارة جديدة: %{badge_name}!'
-          notification_title: تهانينا! لقد حصل على <a href="%{resource_path}">%{badge_name} شارة</a> (مستوى %{current_level}).
         level_up:
-          email_intro: تهانينا! لقد وصلت إلى المستوى %{current_level} على الشارة <a href="%{resource_url}">%{badge_name}</a>!
           email_outro: لقد تلقيت هذا الإشعار لأنك قمت بنشاط على موقعنا.
-          email_subject: لقد وصلت إلى المستوى %{current_level} في الشارة %{badge_name}!
-          notification_title: تهانينا! لقد وصلت إلى المستوى %{current_level} على الشارة <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: أزال مشرف المجموعة <a href="%{resource_url}">%{user_group_name}</a> حقوق المسؤول الخاصة بك إلى هذه المجموعة.
@@ -903,7 +896,6 @@ ar:
           description_own: "%{score} أشخاص يتابعونك."
           name: متابعون
           next_level_in: احصل على %{score} شخص آخر لمتابعتك للوصول إلى المستوى التالي!
-          unearned_own: ليس لديك متابعين بعد.
         index:
           badge_title: "%{name} شارة"
           how: كيف يمكنك كسب ذلك
@@ -911,7 +903,6 @@ ar:
           title: شارات
       description: الشارات عبارة عن اعتراف بإجراءات المشارك والتقدم في المنصة. عند البدء في الاكتشاف والمشاركة والتفاعل في المنصة ، ستربح شارات مختلفة.
       level: المستوى %{level}
-      reached_top: لقد وصلت إلى المستوى الأعلى لهذه الشارة.
       title: ماهي الشارات؟
     group_admins:
       actions:
@@ -1581,14 +1572,6 @@ ar:
         someone_invited_you_as_admin: قام شخص ما بدعوتك كمسؤول لـ %{application}، يمكنك قبولها من خلال الرابط أدناه.
         someone_invited_you_as_private_user: قام شخص ما بدعوتك كمشارك خاص بقيمة %{application}، ويمكنك قبولها من خلال الرابط أدناه.
         subject: تعليمات الدعوة
-      invite_admin:
-        subject: لقد تمت دعوتك لإدارة %{organization}
-      invite_collaborator:
-        subject: لقد تمت دعوتك للتعاون في %{organization}
-      invite_private_user:
-        subject: تمت دعوتك للمشاركة في عملية مشاركة خاصة على %{organization}
-      organization_admin_invitation_instructions:
-        subject: لقد تمت دعوتك لإدارة %{organization}
       password_change:
         greeting: مرحبا %{recipient}!
         subject: تم تغيير كلمة السر
