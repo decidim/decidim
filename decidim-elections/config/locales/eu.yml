@@ -147,9 +147,6 @@ eu:
         exports:
           elections: Bozketak
           feedback_form_answers: Erantzunen feedbacka
-        mailers:
-          trustee_mailer:
-            body: "< p>Kaixo %{user_name}, </p><p> %{resource_name}-an sartu zaituzte, konfiantzazko gisa.< p>"
         menu:
           trustees: Bermatzaileak
         models:
@@ -377,7 +374,6 @@ eu:
       feedback:
         answer:
           invalid: Errore bat izan da zure feedbacka bidaltzean.
-          spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Feedbacka zuzen bidali da.
       models:
         answer:
@@ -579,18 +575,15 @@ eu:
         trustees:
           new_election:
             email_intro: Bazaude gehituta bermatzaile gisa %{resource_title} aukerarako.
-            email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_title} aukerarako.
             email_subject: Bermatzailea zara %{resource_title} aukerarako..
             notification_title: Bermatzailea zara <a href="%{resource_path}">%{resource_title}</a> aukerarako.
           new_trustee:
             email_intro: 'Administratzaile batek gehitu zaitu bermatzaile gisa honetarako: %{resource_name}. Zure gako publikoa sortu behar duzu =<''%{trustee_zone_url}''>bermatzaileen zure gunean</a>'
-            email_outro: Jakinarazpen hau jaso duzu bermatzaile gisa gehitu zaituztelako %{resource_name} aukerarako.
             email_subject: '%{resource_name} ren bermatzailea zara.'
             notification_title: <a href="%{participatory_space_url}">%{resource_name}</a> ren bermatzailea zara.
         votes:
           accepted_votes:
             email_intro: 'Zure botoa onartu egin da! Zure botoaren tokena erabiliz: %{encrypted_vote_hash}, zure botoa egiaztatu ahal duzu<a href="%{verify_url}">hemen</a>.'
-            email_outro: Jakinarazpen hau jaso duzu %{resource_name} aukeran botoa eman duzulako.
             email_subject: Zure botoa %{resource_name} aukerarako onartu egin da.
             notification_title: 'Zure botoa onartu egin da. Egiaztatu zure botoa <a href="%{verify_url}">hemen</a> zure botoaren tokena erabiliz: %{encrypted_vote_hash}'
       votings:
