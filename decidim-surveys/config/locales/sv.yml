@@ -62,5 +62,4 @@ sv:
       surveys:
         answer:
           invalid: Det gick inte att besvara enkäten.
-          spam_detected: Det gick inte att svara på formuläret. Du hade kanske för bråttom, kan du försöka igen?
           success: Enkäten har besvarats.
