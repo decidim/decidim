@@ -141,8 +141,6 @@ tr:
         share: Paylaş
         verify: DOĞRULAYIN
       admin_terms_of_use:
-        accept:
-          success: Harika! Yönetici kullanım şartlarını kabul ettiniz.
         actions:
           refuse: Yönetici şartlarını reddedin
         required_review:
