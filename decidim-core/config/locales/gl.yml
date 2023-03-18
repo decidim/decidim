@@ -19,7 +19,6 @@ gl:
       decidim/component_published_event: Compoñente activo
       decidim/demoted_membership: Xa non é un administrador de grupo
       decidim/gamification/badge_earned_event: Insignia obtida
-      decidim/gamification/level_up_event: Has nivelado
       decidim/join_request_accepted_event: Solicitude de adhesión aceptada
       decidim/join_request_rejected_event: Solicitude de adhesión rexeitada
       decidim/profile_updated_event: Perfil actualizado
@@ -438,15 +437,9 @@ gl:
         email_subject: Unha actualización a %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Gran traballo! Gañaches o <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).
           email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
-          email_subject: 'Xa obtivo unha insignia nova: %{badge_name}.'
-          notification_title: Gran traballo! Gañaches o <a href="%{resource_path}">%{badge_name} insignia</a> (nivel %{current_level}).
         level_up:
-          email_intro: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
           email_outro: Recibiches esta notificación porque realizaches actividade no noso sitio web.
-          email_subject: Chegou ao nivel %{current_level} na insignia %{badge_name}.
-          notification_title: Gran traballo! Chegaches ao nivel %{current_level} na <a href="%{resource_path}">%{badge_name} insignia</a>!
       groups:
         demoted_membership:
           email_intro: Un administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> eliminou os dereitos de administrador dese grupo.
@@ -559,7 +552,6 @@ gl:
           description_own: "%{score} seguidores están seguindo."
           name: Seguidores
           next_level_in: Obteña máis de %{score} usuarios que che sigan para chegar ao seguinte nivel.
-          unearned_own: Aínda non tes followers.
         index:
           badge_title: "%{name} insignia"
           how: Como podes gañalo
@@ -567,7 +559,6 @@ gl:
           title: Insignias
       description: As insignias son recoñecementos ás accións participantes e ao progreso na plataforma. Ao comezar a descubrir, participar e interactuar na plataforma, gañará distintas insignias.
       level: Nivel %{level}
-      reached_top: Alcanzou o nivel superior desta placa.
     group_admins:
       actions:
         demote_admin: Eliminar administrador
@@ -1002,14 +993,6 @@ gl:
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_private_user: Alguén te convidou como usuario privado de %{application}, podes aceptalo a través da seguinte ligazón.
         subject: Instrucións de invitación
-      invite_admin:
-        subject: Invitaboute a xestionar %{organization}
-      invite_collaborator:
-        subject: Invitoute a colaborar en %{organization}
-      invite_private_user:
-        subject: Invitouse a un proceso participativo privado en %{organization}
-      organization_admin_invitation_instructions:
-        subject: Invitaboute a xestionar %{organization}
       password_change:
         greeting: Ola %{recipient}!
         subject: Contrasinal modificado
