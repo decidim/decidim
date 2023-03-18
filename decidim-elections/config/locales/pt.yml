@@ -377,7 +377,6 @@ pt:
       feedback:
         answer:
           invalid: Houve um problema ao enviar o seu retorno.
-          spam_detected: Houve um problema ao responder ao formulário. Talvez tenha sido rápido demais, pode tentar outra vez?
           success: Retorno enviado com sucesso.
       models:
         answer:
@@ -579,18 +578,15 @@ pt:
         trustees:
           new_election:
             email_intro: Foi adicionado como curador para a eleição %{resource_title}.
-            email_outro: Recebeu esta notificação porque foi adicionado como curador para a eleição %{resource_title}.
             email_subject: É curador para a eleição %{resource_title}..
             notification_title: É curador para a eleição <a href= “%{resource_path}”>%{resource_title}</a>.
           new_trustee:
             email_intro: Um administrador adicionou-o como curador para%{resource_name}. Deve criar a sua chave pública <a href='%{trustee_zone_url}'> na sua área de curador</a>
-            email_outro: Recebeu esta notificação porque foi adicionado como curador para a eleição %{resource_name}.
             email_subject: É curador para a eleição %{resource_name}.
             notification_title: É curador para a eleição <a href= “%{participatory_space_url}”>%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'O seu voto foi aceite! Utilizando o seu identificador: %{encrypted_vote_hash}, pode verificar o seu voto <a href="%{verify_url}">aqui</a>.'
-            email_outro: Recebeu esta notificação porque votou para a eleição %{resource_name}.
             email_subject: O seu voto para %{resource_name} foi aceite.
             notification_title: 'O seu voto foi aceite. Verifique o seu voto <a href="%{verify_url}">aqui</a> utilizando o seu identificador: %{encrypted_vote_hash}'
       votings:
