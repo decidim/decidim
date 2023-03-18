@@ -53,6 +53,12 @@ cs:
         title: Akce
       admin:
         budgets:
+          create:
+            invalid: Při vytváření tohoto rozpočtu došlo k chybě.
+            success: Rozpočet byl úspěšně vytvořen.
+          destroy:
+            invalid: Při mazání tohoto rozpočtu došlo k chybě.
+            success: Rozpočet byl úspěšně odstraněn.
           edit:
             title: Upravit rozpočet
             update: Aktualizovat rozpočet
@@ -65,6 +71,9 @@ cs:
           new:
             create: Vytvořit rozpočet
             title: Nový rozpočet
+          update:
+            invalid: Při aktualizaci tohoto rozpočtu došlo k chybě.
+            success: Rozpočet byl úspěšně aktualizován.
         exports:
           projects: Projekty
         models:
@@ -73,6 +82,11 @@ cs:
           project:
             name: Projekt
         projects:
+          create:
+            invalid: Při vytváření tohoto projektu došlo k chybě.
+            success: Projekt byl úspěšně vytvořen.
+          destroy:
+            success: Projekt byl úspěšně smazán.
           edit:
             title: Upravit projekt
             update: Aktualizace
@@ -93,8 +107,12 @@ cs:
           new:
             create: Vytvořit
             title: Nový projekt
+          update:
+            invalid: Při aktualizaci tohoto projektu došlo k chybě.
+            success: Projekt byl úspěšně aktualizován.
           update_category:
             invalid: 'Tyto projekty již mají kategorii %{subject_name}: %{projects}.'
+            select_a_category: Vyberte prosím kategorii.
             success: 'Projekty byly úspěšně aktualizovány do kategorie %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'Tyto projekty již mají rozsah %{subject_name}: %{projects}.'
