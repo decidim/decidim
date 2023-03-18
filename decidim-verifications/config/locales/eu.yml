@@ -83,12 +83,10 @@ eu:
           no_data_stored: Ez dago datu gorderik.
         create:
           error: Errore bat gertatu da baimena sortzean.
-          success: Ongi baimendu duzu.
           transferred: 'Zure baimenetan oinarrituta, honako datu hauek berreskuratu ditugu:'
           unconfirmed: Zure posta elektronikoa baieztatzeko, baimena eman behar duzu.
         destroy:
           error: Arazo bat izan da baimena ezabatzean.
-          success: Baimena zuzen ezabatu duzu.
         first_login:
           actions:
             another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
@@ -214,8 +212,6 @@ eu:
           new:
             send: Bidal iezadazu SMS bat
             title: Eskatu egiaztapen-kodea
-          update:
-            success: Zorionak. Ongi egiaztatu duzu.
   errors:
     messages:
       uppercase_only_letters_numbers: guztiak maiuskulaz eta letrak eta / edo zenbakiak bakarrik izan behar ditu
