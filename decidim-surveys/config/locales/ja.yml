@@ -62,5 +62,4 @@ ja:
       surveys:
         answer:
           invalid: アンケートの回答に問題がありました。
-          spam_detected: フォームに応答する際に問題が発生しました。もう一度試してみてください。
           success: アンケートは正常に回答しました。
