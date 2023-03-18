@@ -168,8 +168,6 @@ pl:
           new: Nowy administrator
         verify: Zweryfikuj
       admin_terms_of_use:
-        accept:
-          success: Świetnie! Zaakceptowano warunki użytkowania dla administratorów.
         actions:
           are_you_sure: Czy na pewno nie wyrażasz zgody na warunki użytkowania dla administratorów?
           refuse: Nie akceptuję warunków dla administratorów
