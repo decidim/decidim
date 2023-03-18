@@ -167,7 +167,6 @@ sv:
             - Följ stegen för att skapa ett nytt initiativ
           description: Detta märke beviljas när du startar nya initiativ och samarbetar med andra för att genomföra dem.
           description_another: Användaren har publicerat %{score} initiativ.
-          description_own: Du har publicerat %{score} initiativ.
           name: Publicerade initiativ
           next_level_in: Nå nästa nivå genom att publicera %{score} till initiativ!
           unearned_own: Du har ännu inte publicerat några initiativ.
