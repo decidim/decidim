@@ -988,7 +988,6 @@ it:
             available_answers: 'Risposte disponibili:'
             complete_voting: Completa la votazione
             identify_another: Identificare un altro utente
-            questions_title: 'Ha diritto di voto nelle seguenti domande:'
             voted: L'utente ha votato
           create:
             error: La votazione non è stata registrata. Per favore riprova.
