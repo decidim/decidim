@@ -35,7 +35,6 @@ fi-pl:
       decidim/component_published_event: Aktiivinen komponentti
       decidim/demoted_membership: Ei enää ryhmän ylläpitäjä
       decidim/gamification/badge_earned_event: Kunniamerkki ansaittu
-      decidim/gamification/level_up_event: Olet päässyt seuraavalle tasolle
       decidim/invited_to_group_event: Kutsuttu ryhmään
       decidim/join_request_accepted_event: Liittymispyyntö on hyväksytty
       decidim/join_request_rejected_event: Liittymispyyntö on hylätty
@@ -407,8 +406,6 @@ fi-pl:
           authorize: Varmenna varmennustavalla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
-        ok:
-          title: Sinut on vahvistettu sen aikana, kun olet ollut tällä sivulla. Lataa sivu uudelleen suorittaaksesi toiminnon, jota yritit suorittaa.
         pending:
           explanation: Tämän toiminnon suorittamiseksi sinun vahvistettava itsesi palvelulla "%{authorization}", mutta vahvistuksesi on edelleen kesken.
           resume: Tarkista "%{authorization}" vahvistuksen eteneminen.
@@ -702,15 +699,9 @@ fi-pl:
         email_subject: Kohteen %{resource_title} päivitys
       gamification:
         badge_earned:
-          email_intro: Hyvää työtä! Olet ansainnut <a href="%{resource_url}">%{badge_name} -kunniamerkin</a> (taso %{current_level}).
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
-          email_subject: 'Olet ansainnut uuden kunniamerkin: %{badge_name}!'
-          notification_title: Hyvää työtä! Olet ansainnut <a href="%{resource_path}">%{badge_name} -kunniamerkin</a> (taso %{current_level}).
         level_up:
-          email_intro: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_url}">%{badge_name} -kunniamerkille</a>!
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistunut toimintaan verkkosivustollamme.
-          email_subject: Olet saavuttanut tason %{current_level} %{badge_name} -kunniamerkkille!
-          notification_title: Hyvää työtä! Olet saavuttanut tason %{current_level} <a href="%{resource_path}">%{badge_name} -kunniamerkille</a>!
       groups:
         demoted_membership:
           email_intro: Ryhmän <a href="%{resource_url}">%{user_group_name}</a> ylläpitäjä on poistanut ylläpitäjän oikeutesi kyseiselle ryhmälle.
@@ -886,7 +877,6 @@ fi-pl:
           name: Seuraajat
           next_level_in: Hanki %{score} seuraajaa lisää päätäksesi seuraavalle tasolle!
           unearned_another: Tällä osallistujalla ei ole vielä seuraajia.
-          unearned_own: Sinulla ei ole vielä seuraajia.
         index:
           badge_title: "%{name} kunniamerkki"
           how: Kuinka voit ansaita tämän
@@ -894,7 +884,6 @@ fi-pl:
           title: Kunniamerkit
       description: Kunniamerkit ovat tunnistuksia osallistumisestasi ja toimistasi tällä alustalla. Ansaitset niitä aloittamalla tutustumaan, osallistumaan ja vuorovaikuttamaan tällä alustalla.
       level: Taso %{level}
-      reached_top: Olet saavuttanut tämän kunniamerkin korkeimman tason.
       title: Mitä kunniamerkit ovat?
     group_admins:
       actions:
@@ -1632,14 +1621,6 @@ fi-pl:
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
         someone_invited_you_as_private_user: Joku on kutsunut sinut yksityiseksi käyttäjäksi %{application} -nimiseen palveluun. Voit hyväksyä kutsun alla olevan linkin kautta.
         subject: Kutsuohjeet
-      invite_admin:
-        subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
-      invite_collaborator:
-        subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
-      invite_private_user:
-        subject: Sinut on kutsuttu yksityiseen osallisuusprosessiin organisaatiossa %{organization}
-      organization_admin_invitation_instructions:
-        subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:
         greeting: Hei %{recipient}!
         subject: Salasana vaihdettu
