@@ -2,7 +2,7 @@
 
 We only offer support for the last two mayor version.
 
-For instance, if we're on the version `0.28.0.dev`, we make backports for `v0.26.x` and `v0.27.x`. We only backport fixes and not features, as we want to respect xref:develop:guide_conventions.adoc[Semantic Versioning].
+For instance, if we are on the version `0.28.0.dev`, we make backports for `v0.26.x` and `v0.27.x`. We only backport fixes and not features, as we want to respect xref:develop:guide_conventions.adoc[Semantic Versioning].
 
 The idea of a backport is to bring a given fix from the last development version to an older release.
 

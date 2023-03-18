@@ -1,6 +1,6 @@
 = How to contribute to Decidim
 
-We're really glad you're reading this, because we need volunteer contributors to help this project come to fruition.
+We are really glad you're reading this, because we need volunteer contributors to help this project come to fruition.
 
 Please note that by making a Pull Request in this repository you're agreeing with https://decidim.org/contract[Decidim's Social Contract].
 

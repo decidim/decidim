@@ -10,7 +10,7 @@ This approach has several benefits:
 
 * `Decidim::LayoutHelper` and others can be reused in `decidim_app-design` for extra consistency.
 
-* Gems that provide extra assets can also be used, ensuring we're always consistent with the prototypes.
+* Gems that provide extra assets can also be used, ensuring we are always consistent with the prototypes.
 
 * Since it's a rails application, we can keep the assets and specific code need for prototyping separate from the actual `decidim-*` modules, preventing polluting the codebase.
 

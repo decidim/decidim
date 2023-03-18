@@ -57,7 +57,7 @@ openssl req -x509 -out localhost.crt -keyout localhost.key \
    printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth")
 ----
 
-This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we'll suppose we have them in the folder `certs` in our root user home:
+This will generate two files: `localhost.crt` and `localhost.key`, you can store them anywhere you want to use them later. In this example we will suppose we have them in the folder `certs` in our root user home:
 
 [source,bash]
 ----

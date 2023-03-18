@@ -141,7 +141,7 @@ en:
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You will receive an email when it's complete.
       email_change:
-        body1: We've sent an email to %{unconfirmed_email} to verify your new email address.
+        body1: We have sent an email to %{unconfirmed_email} to verify your new email address.
         body2: Need us to send the verification email again? %{resend_link} or %{cancel_link}.
         cancel: cancel
         cancel_error: Could not cancel the email change.
@@ -1288,7 +1288,7 @@ en:
           modal_close: Close modal
           modal_title: Do you really refuse the updated Terms and Conditions?
         required_review:
-          alert: We've updated our Terms of Service, please review them.
+          alert: We have updated our Terms of Service, please review them.
           body: Please take a moment to review updates to our Terms of Services. Otherwise you will not be able to use the platform.
           title: 'Required: Review updates to our terms of service'
     participatory_space_private_users:
@@ -1626,7 +1626,7 @@ en:
         subject: Confirmation instructions
       email_changed:
         greeting: Hello %{recipient}!
-        message: We're contacting you to notify you that your email is being changed to %{email}.
+        message: We are contacting you to notify you that your email is being changed to %{email}.
         subject: Email Changed
       invitation_instructions:
         accept: Accept invitation
@@ -1652,7 +1652,7 @@ en:
         subject: You've been invited to manage %{organization}
       password_change:
         greeting: Hello %{recipient}!
-        message: We're contacting you to notify you that your password has been changed.
+        message: We are contacting you to notify you that your password has been changed.
         subject: Password changed
       reset_password_instructions:
         action: Change my password
