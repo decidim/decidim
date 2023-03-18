@@ -147,7 +147,7 @@ export default function lineBreakButtonHandler(quill) {
     quill.insertEmbed(range.index, "break", true, "user");
   }
 
-  // Now that we've inserted a line break, move the cursor forward
+  // Now that we have inserted a line break, move the cursor forward
   quill.setSelection(range.index + 1, Quill.sources.SILENT);
 }
 

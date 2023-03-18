@@ -211,7 +211,7 @@ shared_examples "manage impersonations examples" do
 
         context "and a reason is provided" do
           let(:reason) do
-            "We're on a meeting and want to do a collaborative session in the pope's name."
+            "We are on a meeting and want to do a collaborative session in the pope's name."
           end
 
           it_behaves_like "impersonating a user"
@@ -221,7 +221,7 @@ shared_examples "manage impersonations examples" do
             expect(page).to have_content("successfully")
 
             check_impersonation_logs
-            expect(page).to have_content("We're on a meeting and want to do a collaborative session in the pope's name.")
+            expect(page).to have_content("We are on a meeting and want to do a collaborative session in the pope's name.")
           end
         end
       end

@@ -10,7 +10,7 @@ When checking for permission to perform an action, we check this chain:
 . The participatory space permissions
 . The core permissions
 
-This way we're going from more specific to more general.
+This way we are going from more specific to more general.
 
 == Explanation
 
@@ -26,7 +26,7 @@ Permission actions have a scope. It is usually either `:public` or `:admin`, and
 
 === Proposals example
 
-We're going to reproduce the steps to add an action (endorse) for a proposal step by step.
+We are going to reproduce the steps to add an action (endorse) for a proposal step by step.
 
 ==== Configuring a new 'endorse' action
 

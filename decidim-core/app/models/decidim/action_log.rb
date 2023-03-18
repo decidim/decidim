@@ -223,7 +223,7 @@ module Decidim
     # Returns a Batchloader for a given class to avoid N+1 queries.
     #
     # Since ActionLogs are related to many different resources, loading a collection
-    # of them would trigger a lot of N+1 queries. We're using BatchLoader to
+    # of them would trigger a lot of N+1 queries. We are using BatchLoader to
     # accumulate and group all the resource by their class and only loading them
     # when it is necessary.
     def self.lazy_relation(id_method, klass_name, cache)
