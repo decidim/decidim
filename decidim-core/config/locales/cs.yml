@@ -1002,29 +1002,35 @@ cs:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
           greeting: Dobrý den, %{recipient}!
           intro: "%{manager} zahájil novou konverzaci s názvem %{group}. Klikněte zde pro její zobrazení:"
+          outro: Užijte si Decidim!
           subject: "%{manager} zahájil novou konverzaci jako %{group}"
         comanagers_new_message:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
           greeting: Dobrý den, %{recipient}!
           intro: "%{manager} zveřejnil nové zprávy v konverzaci s názvem %{group}. Klikněte zde pro jejich zobrazení:"
+          outro: Užijte si Decidim!
           subject: "%{manager} odeslal nové zprávy jako %{group}"
         new_conversation:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} zahájil novou konverzaci s vámi. Klikněte sem pro zobrazení:"
+          outro: Užijte si Decidim!
           subject: "%{sender} začal s vámi konverzovat"
         new_group_conversation:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
           greeting: Dobrý den, %{recipient}!
           intro: "%{sender} zahájil novou konverzaci se skupinou %{group}. Klikněte zde pro její zobrazení:"
+          outro: Užijte si Decidim!
           subject: "%{sender} zahájil konverzaci s %{group}"
         new_group_message:
           admin_in_group: Obdrželi jste to, protože jste administrátor v %{group}.
           greeting: Dobrý den, %{recipient}!
           intro: "%{sender} přidal nové zprávy do konverzace se skupinou %{group}. Klikněte zde pro jejich zobrazení:"
+          outro: Užijte si Decidim!
           subject: "%{group} má nové zprávy od %{sender}"
         new_message:
           greeting: Ahoj, %{recipient}!
           intro: "%{sender} poslala nové zprávy ve vaší konverzaci. Klikněte sem pro jejich zobrazení:"
+          outro: Užijte si Decidim!
           subject: Máte nové zprávy od %{sender}
       conversations:
         add_conversation_users:
@@ -1032,6 +1038,7 @@ cs:
           add_users_placeholder: Hledat...
           modal_title: Nová konverzace
           no_results: Žádné výsledky
+          participant_with_disabled_message_reception: Tento uživatel nechce přijímat soukromé zprávy.
         error_modal:
           close: Zavřít okno
           correct_errors: Opravte chyby a zkuste to znovu.
