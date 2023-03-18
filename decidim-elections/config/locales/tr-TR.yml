@@ -172,7 +172,6 @@ tr:
             upcoming: Oylama %{start_time} tarihinde başlıyor
       feedback:
         answer:
-          spam_detected: Formu yanıtlarken bir sorun oluştu. Belki çok hızlı davrandın, tekrar deneyebilir misin?
           success: Geri bildirim başarıyla gönderildi.
       models:
         answer:
@@ -275,12 +274,10 @@ tr:
         trustees:
           new_election:
             email_intro: '%{resource_title} seçimi için vekil olarak eklendiniz.'
-            email_outro: Bu bildirimi, %{resource_title} seçiminde vekil kişi olarak eklendiğiniz için aldınız.
             email_subject: '%{resource_title} seçimi için vekil olarak eklendiniz..'
             notification_title: <a href="%{resource_path}">%{resource_title} </a> seçimi için bir vekilsiniz.
           new_trustee:
             email_intro: Bir yönetici sizi %{resource_name} için güvenilen kişi olarak ekledi. Genel anahtarınızı <a href='%{trustee_zone_url}'> güvenilen bölgenizde </a> oluşturmalısınız
-            email_outro: Bu bildirimi, %{resource_name} için vekil kişi olarak eklendiğiniz için aldınız.
             email_subject: '%{resource_name} için vekil birisiniz.'
             notification_title: <a href="%{participatory_space_url}">%{resource_name} </a> için vekil birisiniz.
   layouts:
