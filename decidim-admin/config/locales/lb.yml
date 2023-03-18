@@ -741,8 +741,6 @@ lb:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
       participatory_space_private_users_csv_imports:
-        create:
-          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
           title: CSV-Datei hochladen
           upload: Hochladen
@@ -859,7 +857,6 @@ lb:
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
-          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, ob die Benutzergruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
         verify:
