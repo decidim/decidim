@@ -168,8 +168,6 @@
           new: Ny admin
         verify: Verifiser
       admin_terms_of_use:
-        accept:
-          success: Flott! Du har godtatt administratorenes vilkår for bruk.
         actions:
           are_you_sure: Er du sikker på at du vil avslå administratorvilkårene for bruk?
           refuse: Avslå administratorvilkårene
