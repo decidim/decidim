@@ -267,7 +267,6 @@ ro:
             update: Actualizare
           form:
             address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
-            disclaimer: 'Declinare: Prin utilizarea unui sistem extern de înregistrare, acceptați faptul că organizatorii %{organization} nu sunt responsabili pentru datele furnizate de utilizatorii serviciului extern.'
             location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
             location_hints_help: 'Sugestii privind locaţia: informaţii suplimentare. Exemplu: parterul clădirii dacă este o întâlnire în personaă, sau parola pentru intrare dacă este vorba de o întâlnire online cu acces restrâns.'
             online_meeting_url_help: 'Link: permite participanților să se conecteze direct la întâlnirea ta'
@@ -346,7 +345,6 @@ ro:
         copy_calendar_url: Copiază
         copy_calendar_url_clarification: Copiază URL-ul calendarului în clipboard
         copy_calendar_url_copied: Copiat!
-        copy_calendar_url_explanation: Vă rugăm să rețineți că exportați o selecție de întâlniri, pentru că există filtre active. Dacă doriți să le exportați, resetați toate filtrele mai întâi.
         copy_calendar_url_message: URL-ul a fost copiat cu succes în clipboard.
         export_calendar: Exportă calendarul
       close_meeting_reminder_mailer:
@@ -445,7 +443,6 @@ ro:
           address_help: 'Adresă: utilizată de Geocoder pentru a găsi locaţia'
           available_slots_help: Lasă această opțiune la 0 dacă ai sloturi disponibile nelimitate
           create_as: Creeaza o întâlnire ca
-          disclaimer: 'Declinare: Prin utilizarea unui sistem extern de înregistrare, luați la cunoștiință că organizatorii %{organization} nu sunt responsabili pentru datele furnizate de utilizatori serviciului extern.'
           location_help: 'Locație: mesaj direcționat către utilizatori care implică locul la care să se întâlnească'
           location_hints_help: 'Sugestii privind locaţia: informaţii suplimentare. Exemplu: parterul clădirii dacă este o întâlnire în persoană, sau parola dacă este vorba de o întâlnire online cu acces restrâns.'
           online_meeting_url_help: 'Link: permite participanților să se conecteze direct la întâlnirea ta'
