@@ -61,5 +61,4 @@ pt-BR:
       surveys:
         answer:
           invalid: Houve erros ao responder a pesquisa.
-          spam_detected: Houve algum problema ao responder ao formulário. Talvez você tenha sido rápido demais, pode tentar novamente?
           success: Pesquisa respondida com sucesso.
