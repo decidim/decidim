@@ -977,7 +977,6 @@ pt:
             info_text: Encerramento eleitoral da secção de voto
           sign:
             cancel: Cancelar
-            check_box: Confirmo que este é o mesmo que o certificado de encerramento eleitoral físico
             close_modal: Fechar
             confirm: Ok, continuar
             error: Ocorreu um erro, por favor tente de novo.
