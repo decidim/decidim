@@ -35,7 +35,6 @@ ja:
       decidim/component_published_event: アクティブなコンポーネント
       decidim/demoted_membership: グループ管理者ではありません
       decidim/gamification/badge_earned_event: バッジを獲得
-      decidim/gamification/level_up_event: レベルアップしました
       decidim/invited_to_group_event: グループに招待しました
       decidim/join_request_accepted_event: 参加リクエストが承認されました
       decidim/join_request_rejected_event: 参加リクエストが拒否されました
@@ -643,15 +642,9 @@ ja:
         email_subject: '%{resource_title} への更新'
       gamification:
         badge_earned:
-          email_intro: おめでとうございます！ <a href="%{resource_url}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
           email_outro: サイトでの活動によって、この通知を受け取りました。
-          email_subject: '新しいバッジ： %{badge_name} を獲得しました！'
-          notification_title: おめでとうございます！ <a href="%{resource_path}">%{badge_name} のバッジ</a> （レベル %{current_level}）を獲得しました。
         level_up:
-          email_intro: おめでとうございます！ あなたは <a href="%{resource_url}">%{badge_name} バッジ</a> のレベル %{current_level} に到達しました！
           email_outro: サイトでの活動によって、この通知を受け取りました。
-          email_subject: '%{badge_name} のバッジがレベル %{current_level} に達しました！'
-          notification_title: おめでとうございます！ あなたは <a href="%{resource_path}">%{badge_name} バッジ</a> のレベル %{current_level} に到達しました！
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> グループの管理者が、そのグループの管理者権限を削除しました。
@@ -820,7 +813,6 @@ ja:
           description_own: "%{score} 人があなたをフォローしています。"
           name: フォロワー
           next_level_in: '%{score} 人があなたをフォローして次のレベルに到達しましょう！'
-          unearned_own: フォロワーはまだいません。
         index:
           badge_title: "%{name} バッジ"
           how: どうやって稼ぐことができますか？
@@ -828,7 +820,6 @@ ja:
           title: バッジ
       description: バッジは、プラットフォームの参加者の行動と進行状況を認識します。 プラットフォームで発見し、参加し、交流し始めると、異なるバッジを獲得できます。
       level: レベル %{level}
-      reached_top: このバッジの最高レベルに達しました。
       title: バッジとは？
     group_admins:
       actions:
@@ -1496,14 +1487,6 @@ ja:
         someone_invited_you_as_admin: 誰かが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。
         someone_invited_you_as_private_user: '%{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。'
         subject: 招待の説明
-      invite_admin:
-        subject: '%{organization} の管理に招待されました'
-      invite_collaborator:
-        subject: あなたは %{organization} でコラボレーションするよう招待されています
-      invite_private_user:
-        subject: '%{organization} のプライベート参加プロセスに招待されました'
-      organization_admin_invitation_instructions:
-        subject: '%{organization} の管理に招待されました'
       password_change:
         greeting: こんにちは、 %{recipient} さん!
         subject: パスワードの変更
