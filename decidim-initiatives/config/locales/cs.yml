@@ -191,7 +191,6 @@ cs:
             - Postupujte podle kroků k vytvoření nové iniciativy
           description: Tento odznak se uděluje, když zahájíte nové iniciativy, spolupracujete s ostatními a provádíte je.
           description_another: Tento uživatel zveřejnil %{score} iniciativ.
-          description_own: Máte k dispozici %{score} iniciativ.
           name: Publikované iniciativy
           next_level_in: Získejte %{score} dalších publikovaných iniciativ, abyste dosáhli další úrovně!
           unearned_own: Dosud jste nezveřejnili žádné iniciativy.
