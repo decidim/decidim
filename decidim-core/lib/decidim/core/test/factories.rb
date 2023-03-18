@@ -393,7 +393,7 @@ FactoryBot.define do
     settings do
       {
         dummy_global_translatable_text: generate_localized_title,
-        comments_max_length: organization.comments_max_length
+        comments_max_length: participatory_space.organization.comments_max_length || organization.comments_max_length
       }
     end
 
