@@ -203,7 +203,6 @@ id:
           title: Otorisasi telah kedaluwarsa
         incomplete:
           cancel: Membatalkan
-          explanation: 'Meskipun saat ini Anda diotorisasi dengan "%{authorization}", kami meminta Anda untuk mengotorisasi ulang karena kami tidak memiliki data berikut:'
           invalid_field: "%{field}"
           reauthorize: Otorisasi ulang
           title: Harap beri otorisasi ulang
@@ -612,7 +611,6 @@ id:
         title: Pengguna
     newsletter_mailer:
       newsletter:
-        note: Anda menerima email ini karena Anda berlangganan nawala pada %{organization_name}. Anda dapat mengubah pengaturan Anda pada <a href="%{link}">halaman pemberitahuan</a>.
         unsubscribe: Untuk memilih tidak menerima jenis email ini, <a href="%{link}" target="_blank" class="unsubscribe">Berhenti Berlangganan</a>.
     newsletters:
       unsubscribe:
@@ -820,7 +818,6 @@ id:
     user_interests:
       show:
         my_interests: Minat saya
-        select_your_interests: Pilih topik yang Anda minati untuk menerima acara yang terkait dengan mereka di tab Kronologi profil Anda.
         update_my_interests: Perbarui minat saya
       update:
         error: Terjadi kesalahan saat memperbarui minat Anda.
