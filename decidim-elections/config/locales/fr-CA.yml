@@ -1104,7 +1104,6 @@ fr-CA:
             info_text: Fermeture électorale du bureau de vote.
           sign:
             cancel: Annuler
-            check_box: J'ai passé en revue ce certificat, il est identique à celui de fermeture des élections physiques
             close_modal: Clore
             confirm: Ok, continuer
             error: Une erreur est survenue, veuillez réessayer.
