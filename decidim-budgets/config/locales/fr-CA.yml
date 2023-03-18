@@ -139,9 +139,7 @@ fr-CA:
         cancel_order:
           more_than_one: supprimer votre vote sur %{name} et recommencer
           only_one: supprimer votre vote et recommencez.
-        finished_message: Vous avez terminé le processus de vote. Merci de votre participation !
         highlighted_cta: Voter pour %{name}
-        if_change_opinion: Si vous avez changé d'avis, vous pouvez
         my_budgets: Mes Budgets
         progress: Terminer le vote
         show: Voir les projets
@@ -191,7 +189,6 @@ fr-CA:
           assigned: 'Affecté à :'
           cancel_order: supprimer votre vote et recommencer
           checked_out:
-            description: Vous avez déjà voté pour le budget. Si vous avez changé d'avis, vous pouvez %{cancel_link}.
             title: Vote du budget terminé
           minimum_projects_rule:
             description: A quels projets pensez-vous que nous devrions allouer un budget ? Sélectionnez au moins %{minimum_number} projets que vous soutenez et votez selon vos préférences pour définir le budget.
