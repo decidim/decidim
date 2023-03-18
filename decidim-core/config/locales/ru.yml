@@ -27,7 +27,6 @@ ru:
       decidim/component_published_event: Действующая составляющая
       decidim/demoted_membership: Больше не администратор группы
       decidim/gamification/badge_earned_event: Значок получен
-      decidim/gamification/level_up_event: Вы повысили свой уровень
       decidim/join_request_accepted_event: Запрос на присоединение принят
       decidim/join_request_rejected_event: Запрос на присоединение отклонен
       decidim/profile_updated_event: Профиль обновлен
@@ -672,14 +671,6 @@ ru:
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это приглашение по ссылке ниже.
         someone_invited_you_as_private_user: Кто-то пригласил вас в качестве частного участника %{application}, вы можете принять это приглашение по ссылке ниже.
         subject: Инструкция по приглашению
-      invite_admin:
-        subject: Вам было предложено распоряжаться %{organization}
-      invite_collaborator:
-        subject: Вы пригласили к сотрудничеству в %{organization}
-      invite_private_user:
-        subject: Вас пригласили в частное движение соучастия от %{organization}
-      organization_admin_invitation_instructions:
-        subject: Вам было предложено распоряжаться %{organization}
       password_change:
         greeting: Здравствуйте, %{recipient}!
         subject: Пароль изменен
