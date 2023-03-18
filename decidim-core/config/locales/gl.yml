@@ -990,7 +990,6 @@ gl:
         subject: Instrucións de confirmación
       email_changed:
         greeting: Ola %{recipient}
-        message: Estamos a contactar con vostede para notificarlle que o seu correo electrónico está a ser modificado a %{email}.
         subject: Cambiouse o correo electrónico
       invitation_instructions:
         accept: Aceptar invitación
@@ -1013,7 +1012,6 @@ gl:
         subject: Invitaboute a xestionar %{organization}
       password_change:
         greeting: Ola %{recipient}!
-        message: Estamos a contactar con vostede para notificarlle que se cambiou o seu contrasinal.
         subject: Contrasinal modificado
       reset_password_instructions:
         action: Cambiar o meu contrasinal
