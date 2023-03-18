@@ -70,11 +70,9 @@ hu:
           no_data_stored: Nincs tárolt adat.
         create:
           error: Hiba történt az engedélyezés létrehozása során.
-          success: Az engedélyezésed sikeres volt.
           unconfirmed: Meg kell erősítened az e-mailedet, hogy engedélyezd magad.
         destroy:
           error: Hiba történt a hitelesítés törlése során.
-          success: Sikeresen törölted a hitelesítést.
         first_login:
           actions:
             another_dummy_authorization_handler: Ellenőrizd az engedélykezelő másik példáját
@@ -197,8 +195,6 @@ hu:
           new:
             send: Küldj nekem SMS-t
             title: Kérjen ellenőrző kódot
-          update:
-            success: Gratulálunk. Sikeresen ellenőrizte.
   errors:
     messages:
       uppercase_only_letters_numbers: kizárólag nagybetűt és/vagy számokat használhatsz
