@@ -27,7 +27,6 @@ eo:
       decidim/component_published_event: Aktiva komponanto
       decidim/demoted_membership: Ne plu grupa administranto
       decidim/gamification/badge_earned_event: Insigno gajnis
-      decidim/gamification/level_up_event: Vi nivelis
       decidim/join_request_accepted_event: Aliĝu al peto akceptita
       decidim/join_request_rejected_event: Aliĝi peto rifuzita
       decidim/profile_updated_event: Profilo ĝisdatigita
