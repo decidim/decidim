@@ -168,8 +168,6 @@ hu:
           new: Új adminisztrátor
         verify: Ellenőrzés
       admin_terms_of_use:
-        accept:
-          success: Nagyszerű! Elfogadtad az admin felhasználási feltételeket.
         actions:
           are_you_sure: Biztosan visszautasítod az adminokra vonatkozó feltételek elfogadását?
           refuse: Admin feltételek elutasítása
