@@ -1379,7 +1379,6 @@ sv:
         subject: Bekräftelsesanvisningar
       email_changed:
         greeting: Hej %{recipient}!
-        message: Vi kontaktar dig eftersom din e-postadress ändras till %{email}.
         subject: E-post ändrad
       invitation_instructions:
         accept: Godkänn inbjudan
@@ -1402,7 +1401,6 @@ sv:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
         greeting: Hej %{recipient}!
-        message: Detta är ett meddelande om att ditt lösenord har ändrats.
         subject: Lösenord ändrat
       reset_password_instructions:
         action: Ändra mitt lösenord
