@@ -70,11 +70,9 @@
           no_data_stored: Ingen data lagret.
         create:
           error: Det oppstod et problem med å opprette autoriseringen.
-          success: Du er blitt autorisert.
           unconfirmed: Du må bekrefte e-posten din for å autorisere deg.
         destroy:
           error: Det oppsto et problem med å slette autorisasjonen.
-          success: Du har slettet autorisasjonen.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifiser mot et annet eksempel på autorisasjons behandler
@@ -200,8 +198,6 @@
           new:
             send: Send meg en meldig
             title: Be om din verifiseringskode
-          update:
-            success: Gratulerer. Du har blitt verifisert.
   errors:
     messages:
       uppercase_only_letters_numbers: må bare være store bokstaver og inneholder bare bokstaver og/eller tall
