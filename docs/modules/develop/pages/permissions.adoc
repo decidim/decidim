@@ -14,7 +14,7 @@ This way we are going from more specific to more general.
 
 == Explanation
 
-We wrap the permission and its context in a `PermissionsAction` object. It also holds the state of the permission (whether it is been allowed or not).
+We wrap the permission and its context in a `PermissionsAction` object. It also holds the state of the permission (whether it has been allowed or not).
 
 Each component and space must define a `Permissions` class, inheriting from `Decidim::DefaultPermissions`. The `Permissions` class must define a `permissions` instance method. this class will receive the permission action, and the `permissions` method must return the permission action. The `Permissions` class can set the action as allowed or disallowed.
 
