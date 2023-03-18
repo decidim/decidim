@@ -1081,7 +1081,6 @@ ro:
           modal_close: Închide fereastra
           modal_title: Chiar refuzați termenii și condițiile actualizate?
         required_review:
-          alert: Am actualizat termenii și condițiile noastre de utilizare, te rugăm să le revizuiești.
           title: 'Necesar: Revizuiește actualizările termenilor noștri de serviciu'
     participatory_space_private_users:
       not_allowed: Nu aveţi permisiunea să vizualizaţi acest conţinut
