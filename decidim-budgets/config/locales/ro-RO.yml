@@ -117,9 +117,7 @@ ro:
         cancel_order:
           more_than_one: șterge votul tău pentru %{name} și reia procesul
           only_one: șterge votul și reia procesul.
-        finished_message: Ai terminat procesul de vot. Mulțumim pentru participare!
         highlighted_cta: Votează pentru %{name}
-        if_change_opinion: Dacă te-ai răzgândit, poți
         my_budgets: Bugetele mele
         progress: Finalizează votul
         show: Vezi proiectele
@@ -163,7 +161,6 @@ ro:
           assigned: 'Atribuit:'
           cancel_order: șterge votul și reia procesul
           checked_out:
-            description: Ai votat deja pentru acest buget. Dacă te-ai răzgândit, poți %{cancel_link}.
             title: Votul pentru buget a fost finalizat
           minimum_projects_rule:
             description: Pentru ce proiecte consideri că ar trebui să alocăm bugetul? Selectează cel puțin %{minimum_number} proiecte pe care le susții și votează apoi conform preferințelor tale pentru a defini bugetul.
