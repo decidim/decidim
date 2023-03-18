@@ -64,5 +64,4 @@ fi-pl:
       surveys:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
-          spam_detected: Kyselyn vastaamisessa tapahtui virhe. Ehkä olit liian nopea, voisitko yrittää uudestaan?
           success: Kyselyyn vastattu onnistuneesti.
