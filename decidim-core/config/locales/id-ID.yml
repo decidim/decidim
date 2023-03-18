@@ -712,7 +712,6 @@ id:
           modal_close: Tutup modal
           modal_title: Apakah Anda benar-benar menolak Syarat dan Ketentuan yang diperbarui?
         required_review:
-          alert: Kami telah memperbarui Persyaratan Layanan, harap tinjau.
           title: 'Diperlukan: Tinjau pembaruan untuk persyaratan layanan kami'
     participatory_space_private_users:
       not_allowed: Anda tidak diizinkan untuk melihat konten ini
