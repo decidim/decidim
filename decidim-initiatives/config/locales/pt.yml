@@ -167,7 +167,6 @@ pt:
             - Siga os passos para criar uma nova iniciativa
           description: Este distintivo é concedido quando lança novas iniciativas, estabelecendo parcerias com outras pessoas para realizá-las.
           description_another: Este participante teve %{score} iniciativas publicadas.
-          description_own: Tem %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: Obtenha mais %{score} iniciativas publicadas para alcançar o próximo nível!
           unearned_own: Ainda não tem iniciativas publicadas.
