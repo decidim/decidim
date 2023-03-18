@@ -1527,7 +1527,6 @@ fr-CA:
         subject: Instructions de confirmation
       email_changed:
         greeting: Bonjour %{recipient}!
-        message: Nous vous contactons pour vous informer que votre adresse e-mail a été modifiée à %{email}.
         subject: Courriel modifié
       invitation_instructions:
         accept: Accepter l'invitation
@@ -1552,7 +1551,6 @@ fr-CA:
         subject: Vous avez été invité à gérer %{organization}
       password_change:
         greeting: Bonjour %{recipient} !
-        message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
         subject: Mot de passe modifié
       reset_password_instructions:
         action: Changer mon mot de passe
