@@ -1484,7 +1484,6 @@ ja:
         subject: 登録のご案内（メールアドレスの確認）
       email_changed:
         greeting: こんにちは、 %{recipient} さん!
-        message: メールアドレスが %{email}に変更されていることをお知らせするためにご連絡しています。
         subject: メールアドレスを変更しました
       invitation_instructions:
         accept: 招待を承認する
@@ -1507,7 +1506,6 @@ ja:
         subject: '%{organization} の管理に招待されました'
       password_change:
         greeting: こんにちは、 %{recipient} さん!
-        message: パスワードが変更されたことをお知らせするために連絡しています。
         subject: パスワードの変更
       reset_password_instructions:
         action: パスワードを変更する
