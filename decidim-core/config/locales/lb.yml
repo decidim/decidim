@@ -289,7 +289,6 @@ lb:
           title: Deng Berechtegung ass ofgelaf
         incomplete:
           cancel: Ofbriechen
-          explanation: 'Du bass elo iwwer "%{authorization}" berechtegt, mee du muss eng nei Berechtegung ufron well, well ons hunn dës Donnéeën gefeelt:'
           invalid_field: "%{field}"
           reauthorize: Op en Neits berechtegen
           title: Bitte erneut autorisieren
@@ -846,7 +845,6 @@ lb:
         title: Teilnehmer
     newsletter_mailer:
       newsletter:
-        note: Du hues dës email kritt, well s'du den Newsletter vun %{organization_name} abonnéiert hues. Du kanns d'Astellungen op denger <a href="%{link}">Benachrichtigungen Seite</a> änneren.
         unsubscribe: Fir dës Zort Email ofzebestellen, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
       basic_only_text:
@@ -1170,7 +1168,6 @@ lb:
     user_interests:
       show:
         my_interests: Meng Interessen
-        select_your_interests: Wiel Themen, déi dech interesséieren fir entspriechend Evenementer op denger Profil-Timeline ze kréien.
         update_my_interests: Interessen aktualiséieren
       update:
         error: Et gouf e Problem beim Aktualiséieren vun den Interessen.
