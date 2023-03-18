@@ -1569,7 +1569,6 @@ ar:
         subject: تعليمات التأكيد
       email_changed:
         greeting: مرحبا %{recipient}!
-        message: نحن نتصل بك لإعلامك بأنه يتم تغيير بريدك الإلكتروني إلى %{email}.
         subject: تم تغيير البريد الإلكتروني
       invitation_instructions:
         accept: قبول دعوة
@@ -1592,7 +1591,6 @@ ar:
         subject: لقد تمت دعوتك لإدارة %{organization}
       password_change:
         greeting: مرحبا %{recipient}!
-        message: نحن نتصل بك لإعلامك بأنه قد تم تغيير كلمة المرور الخاصة بك.
         subject: تم تغيير كلمة السر
       reset_password_instructions:
         action: تغيير كلمة المرور الخاصة بي
