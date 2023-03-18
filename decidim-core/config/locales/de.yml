@@ -364,7 +364,6 @@ de:
           title: Die Autorisierung ist abgelaufen
         incomplete:
           cancel: Stornieren
-          explanation: 'Obwohl Sie derzeit mit "%{authorization}" autorisiert sind, müssen Sie erneut autorisieren, da uns folgende Daten fehlen:'
           invalid_field: "%{field}"
           reauthorize: Erneut autorisieren
           title: Bitte erneut autorisieren
@@ -974,7 +973,6 @@ de:
         title: Benutzer
     newsletter_mailer:
       newsletter:
-        note: Sie haben diese E-Mail erhalten, weil Sie Newsletter auf %{organization_name}abonniert haben. Sie können Ihre Einstellungen auf Ihrer ändern <a href="%{link}">Benachrichtigungen Seite</a>.
         see_on_website: Kann diese E-Mail nicht korrekt angezeigt werden? Klicken Sie bitte hier <a href="%{link}" target="_blank" class="see-on-website">Website</a>.
         unsubscribe: Um den Empfang dieser Art von E-Mail zu deaktivieren, <a href="%{link}" target="_blank" class="unsubscribe">Abbestellen</a>.
     newsletter_templates:
@@ -1035,7 +1033,6 @@ de:
     notifications_settings:
       show:
         administrators: Administratoren
-        allow_push_notifications: Erhalten Sie Push-Benachrichtigungen, um herauszufinden, was vor sich geht, wenn Sie nicht auf der Plattform sind. Sie können diese jederzeit ausschalten.
         direct_messages: Direktnachrichten von allen erhalten
         email_on_moderations: Ich möchte jedes Mal, wenn etwas oder jemand zur Moderation gemeldet wird, eine E-Mail erhalten.
         everything_followed: Alles was ich folge
@@ -1057,7 +1054,6 @@ de:
         success: Ihre Benachrichtigungseinstellungen wurden erfolgreich aktualisiert.
     offline:
       show:
-        message: Es sieht so aus, als ob du momentan offline bist. Bitte versuche es später erneut.
         retry: Wiederholen
     open_data:
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
@@ -1338,7 +1334,6 @@ de:
     user_interests:
       show:
         my_interests: Meine Interessen
-        select_your_interests: Wählen Sie die Themen aus, an denen Sie interessiert sind, um Ereignisse, die sich auf sie beziehen, auf der Registerkarte "Zeitleiste" Ihres Profils zu erhalten.
         update_my_interests: Aktualisieren Sie meine Interessen
       update:
         error: Beim Aktualisieren Ihrer Interessen ist ein Fehler aufgetreten.
@@ -1629,8 +1624,6 @@ de:
       notifications_dashboard:
         mark_all_as_read: Alles als gelesen markieren
         mark_as_read: Als gelesen markieren
-      offline_banner:
-        cache_version_page: Hoppla! Ihr Netzwerk ist offline. Dies ist eine zuvor gecachte Version der Seite, die Sie besuchen, möglicherweise ist der Inhalt nicht aktuell.
       social_media_links:
         facebook: "%{organization} auf Facebook"
         github: "%{organization} auf GitHub"
