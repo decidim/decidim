@@ -92,9 +92,7 @@ it:
         cancel_order:
           more_than_one: elimina il tuo voto su %{name} e ricomincia
           only_one: cancella il tuo voto e ricomincia.
-        finished_message: Hai terminato il processo di votazione. Grazie per aver partecipato!
         highlighted_cta: Vota su %{name}
-        if_change_opinion: Se hai cambiato idea, puoi
         my_budgets: I miei budget
         progress: Chiusura voto
         show: Vedi progetti
@@ -135,7 +133,6 @@ it:
           assigned: 'Assegnato:'
           cancel_order: Cancella il tuo voto e ricomincia.
           checked_out:
-            description: Hai già votato per il budget. Se hai cambiato idea puoi %{cancel_link}.
             title: Voto di budget completato.
           minimum_projects_rule:
             description: A quali progetti pensi che dovremmo destinare un budget? Seleziona almeno %{minimum_number} progetti che desideri e vota in base alle tue preferenze per definirne il budget.
