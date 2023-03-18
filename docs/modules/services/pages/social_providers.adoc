@@ -68,7 +68,7 @@ If you are using `omniauth-decidim` the value should be `YOUR_APPLICATION_HOST/u
 * Organization URL: The URL of the organization that owns the client application.
 * Organization logo: An image of the logo of the organization that owns the client application.
 
-All the organization data will be used during the authorization process so the users know to who they're giving their data.
+All the organization data will be used during the authorization process so the users know to who they are giving their data.
 
 Once you have created your application you'll get the settings to setup your clients.
 
