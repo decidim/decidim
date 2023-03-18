@@ -34,7 +34,7 @@ Decidim.content_blocks.register(:newsletter_template, :my_template) do |content_
 end
 ----
 
-You'll need to add this into an initializer. Note that if you're adding this from a module, then you need to add it from the `engine.rb` file (check the docs for content blocks for more info).
+You'll need to add this into an initializer. Note that if you are adding this from a module, then you need to add it from the `engine.rb` file (check the docs for content blocks for more info).
 
 This is the simplest template. It has a single attribute, in this case a translatable chunk of text. We will analyze the example line by line.
 
