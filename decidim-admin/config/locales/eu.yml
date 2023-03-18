@@ -796,7 +796,6 @@ eu:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Arazo bat sortu da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
-          success: CSV fitxategia zuzen igo da, eta parte-hartzaileei gonbidapen-mezu elektroniko bat bidaltzen ari gara. Horrek denbora behar du.
         new:
           example_file: 'Fitxategi eredua:'
           explanation: 'Igo zure CSV fitxategia. Bizutabe izan behar ditu. Lehenengo zutabean posta elektronikoa jarri behar da, eta azken zutabean parte-hartze prozesura gehitu nahi dutuzun erabiltzaileen izena, goibururik gabe. Ez erabili holako karaktererik erabiltzaileen izenetan: `<>?%&^*#@()[]=+:;"{}\|`.'
@@ -918,7 +917,6 @@ eu:
       user_group:
         csv_verify:
           invalid: Errore bat gertatu da CSV fitxategia irakurtzean.
-          success: CSV fitxategiak behar bezala kargatu da, irizpideekin bat datozen erabiltzaile-taldeak egiaztatzen ari gara. Denbora pixka bat izan liteke.
         reject:
           invalid: Errore bat gertatu da erabiltzaile talde hau arbuiatzerakoan.
         verify:
