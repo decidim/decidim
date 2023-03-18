@@ -64,5 +64,4 @@ fr-CA:
       surveys:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
-          spam_detected: Il y a eu un problème lors de la réponse au questionnaire. Peut-être avez-vous été trop rapide, pouvez-vous réessayer ?
           success: Votre réponse à l'enquête a bien été enregistrée.
