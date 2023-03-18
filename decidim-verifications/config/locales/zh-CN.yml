@@ -62,11 +62,9 @@ zh-CN:
           no_data_stored: 没有存储数据。
         create:
           error: 创建授权时出现问题。
-          success: 您已成功授权。
           unconfirmed: 您需要确认您的电子邮件才能授权自己。
         destroy:
           error: 删除授权时出错。
-          success: 您已成功删除授权。
         first_login:
           actions:
             another_dummy_authorization_handler: 验证另一个验证处理程序
@@ -184,8 +182,6 @@ zh-CN:
           new:
             send: 给我发送短信
             title: 请求您的验证码
-          update:
-            success: 恭喜您。您已成功验证。
   errors:
     messages:
       uppercase_only_letters_numbers: 必须是所有大写并只包含字母和/或数字
