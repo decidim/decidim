@@ -8,7 +8,7 @@ involved directly:
 
 But the presenters for the classes including `ActsAsAuthor` should also behave
 in a certain maneer. This has been resolved using the duck typing strategy
-(remember, if it quaks as as duck, then it is a duck). Thus, there's not any
+(remember, if it quaks as as duck, then it is a duck). Thus, there is not any
 interface declaring which are the methods to be implemented by the presenter
 of an author. Anyway one of the ``OfficialAuthorPresenter``s may be used as a
 reference.
