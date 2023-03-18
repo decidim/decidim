@@ -63,5 +63,4 @@ eu:
       surveys:
         answer:
           invalid: Inkesta erantzutean erroreak gertatu dira.
-          spam_detected: Arazo bat izan da galdetegia erantzutean. Agian azkarregi joan zara, berriro egin dezakezu?
           success: Inkesta ondo bete da.
