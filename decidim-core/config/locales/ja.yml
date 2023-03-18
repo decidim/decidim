@@ -125,7 +125,6 @@ ja:
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了するとメールが届きます。
       email_change:
-        body1: 新しいメールアドレスを確認するため、 %{unconfirmed_email} にメールを送信しました。
         body2: 確認メールをもう一度送信する必要がありますか？ %{resend_link} または %{cancel_link}
         cancel: キャンセル
         cancel_error: メールの変更をキャンセルできませんでした。
@@ -1165,7 +1164,6 @@ ja:
           modal_close: モーダルを閉じる
           modal_title: 更新された利用規約を本当に拒否しますか?
         required_review:
-          alert: サービス利用規約を更新しました。ご確認ください。
           title: '必須：サービス利用規約の更新を確認する'
     participatory_space_private_users:
       not_allowed: このコンテンツを表示する権限がありません
