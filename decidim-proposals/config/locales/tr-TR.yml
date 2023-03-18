@@ -765,7 +765,6 @@ tr:
             description: Her teklif, %{limit} fazla destek biriktirebilir
           minimum_votes_per_user:
             description: Farklı teklifler arasında en az %{votes} oy kullanmalısınız.
-            given_enough_votes: Yeterince destek verdin.
             supports_remaining: Oylarınızın dikkate alınması için %{remaining_votes} daha fazla teklif vermeniz gerekiyor.
           proposal_limit:
             description: En fazla %{limit} teklif oluşturabilirsin.
