@@ -139,7 +139,6 @@ fi-pl:
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       email_change:
-        body1: Olemme lähettäneet viestin osoitteeseen %{unconfirmed_email} vahvistaaksemme uuden sähköpostiosoitteesi.
         body2: Haluatko tilata vahvistussähköpostin uudestaan? %{resend_link} tai %{cancel_link}.
         cancel: peruuta
         cancel_error: Sähköpostin muutosta ei voitu peruuttaa.
@@ -758,6 +757,8 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet palvelun hallintakäyttäjä.
           email_subject: Ryhmä on päivittänyt profiiliaan
           notification_title: Ryhmä nimeltä %{user_group_name} on päivittänyt profiiliaan, jättäen ryhmän varmentamattomaksi. Voit varmentaa ryhmän <a href="%{groups_admin_path}">hallintapaneelin kautta</a>.
+      nickname_event:
+        notification_body: Olemme muuttaneet nimimerkkien sääntöjä varmistaaksemme, että alustalla ei ole useampaa tiliä samalla nimimerkillä eri tavalla kirjoitettuna. <br/> Tilisi on luotu toisen samaa nimimerkkiä käyttäneen henkilön jälkeen, joten olemme vaihtaneet nimimerkkiäsi automaattisesti. Halutessasi voit vaihtaa nimimerkkiäsi <a href="%{link_to_account_settings}">tilisi asetuksista</a>.
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       reports:
@@ -831,6 +832,7 @@ fi-pl:
         decidim/user:
           password: Salasana on liian lyhyt.
           password_confirmation: Salasanan vahvistuksen on oltava sama kuin salasanan.
+        error: Tässä kentässä on virhe.
       file_help:
         file:
           explanation: 'Tiedoston ohjeistus:'
@@ -1278,7 +1280,6 @@ fi-pl:
           modal_close: Sulje ikkuna
           modal_title: Kieltäydytkö tosiaan hyväksymästä päivitettyjä käyttöehtoja?
         required_review:
-          alert: Olemme päivittäneet käyttöehtojamme. Ole hyvä ja tutustu päivitettyihin ehtoihin.
           body: Ole hyvä ja tutustu päivitetyihin käyttöehtoihimme. Jatkaaksesi palvelun käyttöä sinun on tutustuttava päivitettyihin ehtoihin.
           title: 'Pakollinen: Tarkista päivitetyt käyttöehtomme'
     participatory_space_private_users:
