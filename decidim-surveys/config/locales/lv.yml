@@ -54,5 +54,4 @@ lv:
       surveys:
         answer:
           invalid: Atbildot uz aptauju, radās problēma.
-          spam_detected: Atbildot uz aptaujas jautājumiem, radās problēma. Varbūt jūs esat rīkojies pārāk ātri, vai varat mēģināt vēlreiz?
           success: Uz aptaujas jautājumiem ir veiksmīgi atbildēts.
