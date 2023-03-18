@@ -33,7 +33,6 @@ pt:
       decidim/component_published_event: Componente ativo
       decidim/demoted_membership: Já não é um administrador de grupo
       decidim/gamification/badge_earned_event: Distintivo ganho
-      decidim/gamification/level_up_event: Subiu de nível
       decidim/join_request_accepted_event: Pedido de adesão aceite
       decidim/join_request_rejected_event: Pedido de adesão rejeitado
       decidim/profile_updated_event: Perfil atualizado
@@ -535,15 +534,9 @@ pt:
         email_subject: Uma atualização a %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Parabéns! Ganhou o <a href="%{resource_url}">distintivo %{badge_name}</a> (nível %{current_level}).
           email_outro: Recebeu esta notificação porque realizou uma atividade no nosso sítio.
-          email_subject: 'Ganhou um novo distintivo: %{badge_name}!'
-          notification_title: Parabéns! Ganhou o <a href="%{resource_path}">distintivo %{badge_name}</a> (nível %{current_level}).
         level_up:
-          email_intro: Parabéns! Atingiu o nível %{current_level} no <a href="%{resource_url}">distintivo %{badge_name}</a>!
           email_outro: Recebeu esta notificação porque realizou uma atividade no nosso sítio.
-          email_subject: Atingiu o nível %{current_level} no distintivo %{badge_name}!
-          notification_title: Parabéns! Atingiu o nível %{current_level} no <a href="%{resource_path}">distintivo %{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Um administrador do grupo <a href="%{resource_url}">%{user_group_name}</a> removeu os seus direitos de administrador desse grupo.
@@ -674,7 +667,6 @@ pt:
           description_own: "%{score} pessoas seguem-no(a)."
           name: Seguidores
           next_level_in: Obtenha mais %{score} pessoas para segui-lo(a) para alcançar o próximo nível!
-          unearned_own: Ainda não tem seguidores.
         index:
           badge_title: "Distintivo %{name}"
           how: Como pode ganhar
@@ -682,7 +674,6 @@ pt:
           title: Distintivos
       description: Distintivos são reconhecimentos para ações dos participantes e progresso na plataforma. Ao começar a descobrir, participar e interagir na plataforma, ganhará distintivos diferentes.
       level: Nível %{level}
-      reached_top: Atingiu o nível superior para este distintivo.
     group_admins:
       actions:
         demote_admin: Remover administrador
@@ -1282,14 +1273,6 @@ pt:
         someone_invited_you_as_admin: Alguém convidou-o(a) como administrador(a) de %{application}, pode aceitar através da hiperligação abaixo.
         someone_invited_you_as_private_user: Alguém convidou-o(a) como participante privado de %{application}, pode aceitar através da hiperligação abaixo.
         subject: Instruções de convite
-      invite_admin:
-        subject: Foi convidado(a) a gerir %{organization}
-      invite_collaborator:
-        subject: Foi convidado(a) a colaborar em %{organization}
-      invite_private_user:
-        subject: Foi convidado(a) para um processo participativo privado em %{organization}
-      organization_admin_invitation_instructions:
-        subject: Foi convidado(a) a gerir %{organization}
       password_change:
         greeting: Olá %{recipient}!
         subject: Palavra-passe modificada
