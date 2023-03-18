@@ -29,7 +29,6 @@ zh-CN:
       decidim/component_published_event: 活动组件
       decidim/demoted_membership: 不再是组管理员
       decidim/gamification/badge_earned_event: 获得的徽章
-      decidim/gamification/level_up_event: 您已经升级了
       decidim/join_request_accepted_event: 加入请求已接受
       decidim/join_request_rejected_event: 加入请求被拒绝
       decidim/profile_updated_event: 个人资料已更新
@@ -471,15 +470,9 @@ zh-CN:
         email_subject: 更新到 %{resource_title}
       gamification:
         badge_earned:
-          email_intro: 恭喜！您已获得 <a href="%{resource_url}">%{badge_name} 徽章</a> (等级 %{current_level})。
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-          email_subject: '你赢得了一个新徽章： %{badge_name}！'
-          notification_title: 恭喜！您已获得 <a href="%{resource_path}">%{badge_name} 徽章</a> (等级 %{current_level})。
         level_up:
-          email_intro: 恭喜！您已经在 <a href="%{resource_url}">%{badge_name} 徽章</a> 上达到了等级 %{current_level}！
           email_outro: 您收到此通知是因为您在我们的网站上进行了活动。
-          email_subject: 您已经在 %{badge_name} 徽章上达到了等级 %{current_level}！
-          notification_title: 恭喜！您已经在 <a href="%{resource_path}">%{badge_name} 徽章</a> 上达到了等级 %{current_level}！
       groups:
         demoted_membership:
           email_intro: <a href="%{resource_url}">%{user_group_name}</a> 组的管理员已经删除了您对该组的管理员权限。
@@ -599,7 +592,6 @@ zh-CN:
           description_own: "%{score} 个人正在关注你。"
           name: 关注者
           next_level_in: 获得更多 %{score} 人跟随您进入下一个关卡！
-          unearned_own: 你还没有跟随者。
         index:
           badge_title: "%{name} 徽章"
           how: 你如何赚钱
@@ -607,7 +599,6 @@ zh-CN:
           title: 徽章
       description: 徽章是对参与者行动和平台进展的承认。 当您开始发现、参与和互动平台时，您将获得不同的徽章。
       level: 等级 %{level}
-      reached_top: 你已经达到了这个徽章的顶级了。
     group_admins:
       actions:
         demote_admin: 删除管理员
@@ -1158,14 +1149,6 @@ zh-CN:
         someone_invited_you_as_admin: 有人邀请您作为 %{application}的管理员，您可以通过下面的链接接受它。
         someone_invited_you_as_private_user: 有人邀请您作为私有参与者 %{application}，您可以通过下面的链接接受它。
         subject: 邀请说明
-      invite_admin:
-        subject: 您已被邀请管理 %{organization}
-      invite_collaborator:
-        subject: 您已被邀请在 %{organization} 上进行协作
-      invite_private_user:
-        subject: 您已被邀请在 %{organization} 的私人参与进程
-      organization_admin_invitation_instructions:
-        subject: 您已被邀请管理 %{organization}
       password_change:
         greeting: 你好 %{recipient}！
         subject: 密码已更改
