@@ -236,7 +236,6 @@ pl:
           follower:
             email_intro: 'Propozycja "%{resource_title}" została zaakceptowana. Możesz przeczytać odpowiedź na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie propozycji kliknij w przycisk obserwowania.
-            email_subject: Propozycja, którą obserwujesz, została zaakceptowana
             notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
         proposal_evaluating:
           affected_user:
@@ -247,7 +246,6 @@ pl:
           follower:
             email_intro: 'Propozycja "%{resource_title}" jest obecnie oceniana. Możesz sprawdzić odpowiedź na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie propozycji kliknij w przycisk obserwowania.
-            email_subject: Propozycja, którą obserwujesz, jest oceniana
             notification_title: Trwa ocenianie propozycji <a href="%{resource_path}">%{resource_title}</a>.
         proposal_mentioned:
           email_intro: Twoja propozycja „%{mentioned_proposal_title}” została wspomniana <a href="%{resource_url}"> w tej przestrzeni</a> w komentarzach.
@@ -271,7 +269,6 @@ pl:
           follower:
             email_intro: 'Propozycja "%{resource_title}" została odrzucona. Możesz przeczytać odpowiedź na tej stronie:'
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia kliknij w powyższy link, a następnie na stronie propozycji kliknij w przycisk obserwowania.
-            email_subject: Propozycja, którą obserwujesz, została odrzucona
             notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została odrzucona.
         proposal_update_category:
           email_intro: 'Administrator zaktualizował kategorię Twojej propozycji "%{resource_title}", sprawdź to:'
