@@ -123,7 +123,6 @@ eu:
         file_no_exists: Fitxategia ez dago
         notice: Zure datuak une honetan egiten ari dira. Mezu elektroniko bat jasoko duzu beteta dagoenean.
       email_change:
-        body1: Mezu elektroniko bat bidali dugu %{unconfirmed_email} postara zure helbide elektroniko berria egiaztatzeko.
         cancel: utzi
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
@@ -1082,7 +1081,6 @@ eu:
           modal_close: Itxi leihoa
           modal_title: Baldintza eta baldintza eguneratuak uko dituzu benetan?
         required_review:
-          alert: Zerbitzu-baldintzak eguneratu ditugu, mesedez, berrikusi.
           title: 'Beharrezkoa: berrikusi gure zerbitzu-baldintzen eguneratzeak'
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
