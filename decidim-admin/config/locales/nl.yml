@@ -168,8 +168,6 @@ nl:
           new: Nieuwe admin
         verify: Verifiëren
       admin_terms_of_use:
-        accept:
-          success: Geweldig! Je hebt de admin gebruiksvoorwaarden geaccepteerd.
         actions:
           are_you_sure: Weet je zeker dat je de Admin gebruiksvoorwaarden wil resetten?
           refuse: Weiger de admin gebruiksvoorwaarden
