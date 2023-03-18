@@ -390,7 +390,6 @@ pl:
       feedback:
         answer:
           invalid: Wystąpił błąd podczas wysyłania Twojej opinii.
-          spam_detected: Wystąpił błąd podczas wypełniania formularza. Być może zostało to zrobione zbyt szybko, czy możesz spróbować ponownie?
           success: Opinia została wysłana.
       models:
         answer:
@@ -592,18 +591,15 @@ pl:
         trustees:
           new_election:
             email_intro: Zostałeś powołany do pełnienia funkcji męża (osoby) zaufania do głosowania %{resource_title}.
-            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w głosowaniu %{resource_title}”.
             email_subject: Jesteś mężem (osobą) zaufania w głosowaniu %{resource_title}..
             notification_title: Jesteś mężem (osobą) zaufania w głosowaniu <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Administrator ustanowił Cię mężem (osobą) zaufania w %{resource_name}. Powinieneś utworzyć klucz publiczny <a href='%{trustee_zone_url}'>w strefie osób zaufania</a>
-            email_outro: Otrzymujesz to powiadomienie ponieważ zostałeś powołany do pełnienia funkcji męża (osoby) zaufania w %{resource_name}”.
             email_subject: Jesteś mężem (osobą) zaufania w %{resource_name}.
             notification_title: Jesteś mężem (osobą) zaufania w <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Twój głos został zaakceptowany! Używając tokenu głosowania: %{encrypted_vote_hash}, możesz zweryfikować swój głos <a href="%{verify_url}">tutaj</a>.'
-            email_outro: Otrzymujesz to powiadomienie ponieważ głosowałeś w wyborach %{resource_name}”.
             email_subject: Twój głos na %{resource_name} został zaakceptowany.
             notification_title: 'Twój głos został zaakceptowany. Zweryfikuj swój głos <a href="%{verify_url}">tutaj</a> używając swojego tokenu głosu: %{encrypted_vote_hash}'
       votings:
