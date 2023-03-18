@@ -64,5 +64,4 @@ ca:
       surveys:
         answer:
           invalid: S'ha produït un error en respondre l'enquesta.
-          spam_detected: Hi ha hagut un problema contestant el formulari. Potser has estat massa ràpid, ho pots tornar a intentar?
           success: Enquesta resposta correctament.
