@@ -388,7 +388,6 @@ pl:
           title: Upoważnienie wygasło
         incomplete:
           cancel: Anuluj
-          explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie dokonać autoryzacji, ponieważ brakuje nam następujących danych:'
           invalid_field: "%{field}"
           reauthorize: Ponów autoryzację
           title: Proszę ponowić autoryzację
@@ -950,7 +949,6 @@ pl:
         title: Użytkownicy
     newsletter_mailer:
       newsletter:
-        note: Otrzymujesz ten e-mail, ponieważ subskrybujesz newslettery %{organization_name}. Możesz zmienić swoje ustawienia na <a href="%{link}">stronie powiadomień</a>.
         unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">cofnij subskrypcję</a>.
     newsletter_templates:
       basic_only_text:
@@ -1276,7 +1274,6 @@ pl:
     user_interests:
       show:
         my_interests: Moje zainteresowania
-        select_your_interests: Wybierz tematy, które Cię interesują, aby otrzymywać związane z nimi wydarzenia na swojej stronie profilowej w zakładce Oś czasu.
         update_my_interests: Zaktualizuj moje zainteresowania
       update:
         error: Wystąpił błąd podczas aktualizowania Twoich zainteresowań.
