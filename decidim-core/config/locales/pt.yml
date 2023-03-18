@@ -288,7 +288,6 @@ pt:
           title: A autorização expirou
         incomplete:
           cancel: Cancelar
-          explanation: 'Embora esteja atualmente autorizado com "%{authorization}", precisamos que reautorize porque nos faltam os seguintes dados:'
           invalid_field: "%{field}"
           reauthorize: Reautorizar
           title: Por favor reautorize
@@ -849,7 +848,6 @@ pt:
         title: Participantes
     newsletter_mailer:
       newsletter:
-        note: Recebeu este e-mail porque está inscrito em boletins informativos de %{organization_name}. Pode alterar as suas configurações na sua <a href="%{link}">página de notificações</a>.
         unsubscribe: Para optar por não receber este tipo de e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Cancele a subscrição</a>.
     newsletter_templates:
       basic_only_text:
@@ -1173,7 +1171,6 @@ pt:
     user_interests:
       show:
         my_interests: Os meus interesses
-        select_your_interests: Selecione os tópicos em que está interessado para receber eventos relacionados com eles no separador Cronograma do seu perfil.
         update_my_interests: Atualizar os meus interesses
       update:
         error: Ocorreu um problema ao atualizar os seus interesses.
