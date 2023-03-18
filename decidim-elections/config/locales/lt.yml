@@ -1075,7 +1075,6 @@ lt:
             info_text: Balsavimo punkto rinkimų užbaigimas.
           sign:
             cancel: Atšaukti
-            check_box: Peržiūrėjau, ir tai yra tas pats, kaip ir fizinis rinkimų užbaigimo sertifikatas
             close_modal: Uždaryti
             confirm: Gerai, testi
             error: Įvyko klaida, pamėginkite dar kartą.
