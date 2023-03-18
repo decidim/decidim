@@ -118,9 +118,7 @@ sv:
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
           only_one: dra tillbaka din röst och börja om.
-        finished_message: Du har avslutat omröstningen. Tack för ditt deltagande!
         highlighted_cta: Rösta på %{name}
-        if_change_opinion: Om du ångrar dig kan du
         my_budgets: Mina budgetar
         progress: Avsluta röstning
         show: Visa projekt
@@ -165,7 +163,6 @@ sv:
           assigned: 'Tilldelad:'
           cancel_order: dra tillbaka din röst och börja om
           checked_out:
-            description: Du har redan röstat för budgeten. Om du har ändrat dig kan du %{cancel_link}.
             title: Budgetomröstning slutförd
           minimum_projects_rule:
             description: Vilka projekt tycker du att vi ska anslå budgetmedel för? Välj minst %{minimum_number} projekt som du vill ha och rösta enligt dina egna preferenser för att definiera budgeten.
