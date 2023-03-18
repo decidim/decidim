@@ -1081,7 +1081,6 @@ lv:
         subject: Apstiprināšanas norādījumi
       email_changed:
         greeting: Sveiki, %{recipient}!
-        message: Mēs sazināmies ar jums, lai paziņotu, ka jūsu e-pasts tiek mainīts uz %{email}.
         subject: E-pasts nomainīts
       invitation_instructions:
         accept: Pieņemt ielūgumu
@@ -1104,7 +1103,6 @@ lv:
         subject: Jums ir uzaicinājums pārvaldīt %{organization}
       password_change:
         greeting: Sveiki, %{recipient}!
-        message: Mēs sazināmies ar jums, lai paziņotu, ka jūsu parole ir nomainīta.
         subject: Parole ir mainīta
       reset_password_instructions:
         action: Nomainīt manu paroli
