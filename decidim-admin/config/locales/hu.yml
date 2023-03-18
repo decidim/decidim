@@ -789,8 +789,6 @@ hu:
           create: Létrehozás
           title: Új részvételi tér privát felhasználója.
       participatory_space_private_users_csv_imports:
-        create:
-          success: A CSV-fájl sikeresen feltöltődött, meghívó e-mailt küldünk a résztvevőknek. Ez eltarthat egy ideig.
         new:
           destroy:
             button: Az összes privát felhasználó törlése
@@ -922,7 +920,6 @@ hu:
       user_group:
         csv_verify:
           invalid: Hiba történt a CSV fájl olvasásában.
-          success: A CSV-fájl sikeresen fel lett töltve, ellenőrizzük a kritériumoknak megfelelő felhasználói csoportokat. Ez eltarthat egy ideig.
         reject:
           invalid: Hiba történt a felhasználói csoport elutasításakor.
         verify:
