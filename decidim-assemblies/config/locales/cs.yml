@@ -76,6 +76,12 @@ cs:
         email: E-mail
         name: Název
         role: Role
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Neplatný typ dokumentu. Jsou povoleny pouze soubory s následujícími příponami: %{types}.'
   activerecord:
     models:
       decidim/assembly:
