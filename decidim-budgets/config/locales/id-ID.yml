@@ -67,7 +67,6 @@ id:
           assigned: 'Ditugaskan:'
           cancel_order: hapus suara Anda dan mulai lagi dari awal
           checked_out:
-            description: Anda telah memberikan suara untuk anggaran. Jika Anda berubah pikiran, Anda dapat %{cancel_link}.
             title: Suara anggaran selesai
           title: Anda yang memutuskan anggaran
         count:
