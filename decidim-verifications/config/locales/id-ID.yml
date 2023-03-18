@@ -52,7 +52,6 @@ id:
       authorizations:
         create:
           error: Ada kesalahan saat membuat otorisasi.
-          success: Anda telah berhasil diotorisasi.
           unconfirmed: Anda perlu mengkonfirmasi email Anda untuk mengotorisasi diri Anda sendiri.
         first_login:
           actions:
@@ -164,8 +163,6 @@ id:
           new:
             send: Kirimi saya SMS
             title: Minta kode verifikasi Anda
-          update:
-            success: Selamat. Anda telah berhasil diverifikasi.
   errors:
     messages:
       uppercase_only_letters_numbers: harus semuanya huruf besar dan hanya berisi huruf dan / atau angka
