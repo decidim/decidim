@@ -791,8 +791,6 @@ pl:
           create: Utwórz
           title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       participatory_space_private_users_csv_imports:
-        create:
-          success: Plik CSV został pomyślnie wgrany, wysyłamy e-mail z zaproszeniem do uczestników. To może zająć chwilę.
         new:
           destroy:
             button: Usuń wszystkich prywatnych uczestników
@@ -925,7 +923,6 @@ pl:
       user_group:
         csv_verify:
           invalid: Wystąpił błąd podczas odczytu pliku CSV.
-          success: Plik CSV przesłany pomyślnie, weryfikujemy grupy użytkowników pasujące do kryteriów. To może zająć chwilę.
         reject:
           invalid: Podczas odrzucania tej grupy użytkowników wystąpił błąd.
         verify:
