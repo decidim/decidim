@@ -650,8 +650,6 @@ tr:
           create: yaratmak
           title: Yeni Katılımcı Uzay özel kullanıcısı.
       participatory_space_private_users_csv_imports:
-        create:
-          success: CSV dosyası başarıyla yüklendi, katılımcılara bir davetiye e-postası gönderiyoruz. Bu biraz zaman alabilir.
         new:
           title: CSV dosyası yükle
           upload: Yükle
@@ -773,7 +771,6 @@ tr:
       user_group:
         csv_verify:
           invalid: CSV dosyasını okurken bir hata oluştu.
-          success: CSV dosyası başarıyla yüklendi, kriterleri karşılayan kullanıcı gruplarını doğrularız. Bu biraz zaman alabilir.
         reject:
           invalid: Bu kullanıcı grubunu reddederken bir hata oluştu.
         verify:
