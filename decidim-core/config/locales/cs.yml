@@ -409,7 +409,6 @@ cs:
           title: Platnost oprávnění vypršela
         incomplete:
           cancel: Zrušit
-          explanation: 'Ačkoli jste v současné době autorizováni s "%{authorization}", potřebujeme, abyste se znovu autorizovali, protože chybí následující údaje:'
           invalid_field: "%{field}"
           reauthorize: Znovu autorizovat
           title: Znovu autorizujte
@@ -1078,7 +1077,6 @@ cs:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Tento e-mail byl odeslán z e-mailové adresy, která nemůže přijmout příchozí email. Prosím, neodpovídejte na tuto zprávu.
-        note: Tento e-mail jste obdrželi, protože jste odběrateli zpravodajů na %{organization_name}. Můžete změnit nastavení na <a href="%{link}">oznámení straně</a>.
         see_on_website: E-mail se nezobrazuje správně? Zobrazit na <a href="%{link}" target="_blank">internetové stránce</a>.
         unsubscribe: Chcete-li se odhlásit z příjmu tohoto typu e-mailu, <a href="%{link}" target="_blank" class="unsubscribe">Odhlásit se</a>.
     newsletter_templates:
@@ -1146,7 +1144,6 @@ cs:
       show:
         administrators: Správci
         allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
-        allow_push_notifications: Získejte oznámení a zjistěte, co se děje, když nejste na platformě. Kdykoli je můžete vypnout.
         direct_messages: Přijímat přímé zprávy od kohokoli
         email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno k moderování.
         everything_followed: Všechno, co sleduji
@@ -1170,7 +1167,6 @@ cs:
         success: Nastavení oznámení bylo úspěšně aktualizováno.
     offline:
       show:
-        message: Vypadá to, že jste v režimu offline. Zkuste to prosím později.
         retry: Zkusit znovu
     open_data:
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
@@ -1463,7 +1459,6 @@ cs:
     user_interests:
       show:
         my_interests: Mé zájmy
-        select_your_interests: Zvolte témata, která vás zajímají, abyste mohli přijímat události, které s nimi souvisejí, na kartě Časová osa profilu.
         update_my_interests: Aktualizujte své zájmy
       update:
         error: Během aktualizace vašich zájmů došlo k chybě.
@@ -1773,8 +1768,6 @@ cs:
       notifications_dashboard:
         mark_all_as_read: Označit vše jako přečtené
         mark_as_read: Označit jako přečtené
-      offline_banner:
-        cache_version_page: Jejda! Vaše síť je offline. Toto je dříve uložená verze stránky, kterou navštívíte, možná není aktualizovaná.
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"
