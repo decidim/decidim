@@ -162,8 +162,6 @@ ja:
           feedback_form_answers: フィードバックフォームの回答
         mailers:
           trustee_mailer:
-            body: "<p>こんにちは %{user_name}、</p><p>あなたは %{resource_name} に受託者として追加されました。</p>"
-            subject: あなたは %{resource_name} に受託者として追加されました
             trustee_zone: 私を受託者ゾーンに連れて行ってください
         menu:
           trustees: 受託者
@@ -424,7 +422,6 @@ ja:
       feedback:
         answer:
           invalid: フィードバックの送信中に問題が発生しました。
-          spam_detected: フォームに回答する際に問題が発生しました。もう一度お試しください。
           success: フィードバックは正常に送信されました
       models:
         answer:
@@ -643,18 +640,15 @@ ja:
         trustees:
           new_election:
             email_intro: '%{resource_title} 選挙の受託者として追加されました。'
-            email_outro: '%{resource_title} 選挙の受託者に追加されたため、この通知が届きました。'
             email_subject: あなたは %{resource_title} 選挙の受託者です..
             notification_title: あなたは <a href="%{resource_path}">%{resource_title}</a> 選挙の受託者です。
           new_trustee:
             email_intro: 管理者が %{resource_name} の受託者としてあなたを追加しました。受託者ゾーンで <a href='%{trustee_zone_url}'>公開鍵を作成する必要があります。</a>
-            email_outro: '%{resource_name} の受信者として追加されたため、この通知を受信しました。'
             email_subject: あなたは %{resource_name} の受託者です。
             notification_title: あなたは <a href="%{participatory_space_url}">%{resource_name}</a> の受託者です。
         votes:
           accepted_votes:
             email_intro: '投票が承認されました！投票トークン: %{encrypted_vote_hash} を使用して、投票を <a href="%{verify_url}">ここ</a> で確認できます。'
-            email_outro: '%{resource_name} 選挙に投票したため、この通知を受け取りました。'
             email_subject: '%{resource_name} への投票が承認されました。'
             notification_title: 'あなたの投票が承認されました。 <a href="%{verify_url}">ここ</a>であなたの投票トークン: %{encrypted_vote_hash} を使って投票を確認してください。'
       votings:
