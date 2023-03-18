@@ -741,7 +741,6 @@ sk:
             description: Každý návrh môže akumulovať viac ako%{limit} pomoci
           minimum_votes_per_user:
             description: Musíte rozdeliť minimálne %{votes} hlasov medzi rôzne návrhy.
-            given_enough_votes: Dali ste dostatok podpory.
             supports_remaining: Musíte hlasovať o ďalších %{remaining_votes} návrhoch, aby sa vaše hlasy zohľadnili.
           proposal_limit:
             description: Môžete vytvoriť až %{limit} návrhov.
