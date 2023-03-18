@@ -1091,7 +1091,6 @@ lt:
             census_verified_with_online_vote: Šis dalyvis jau balsavo internetu. Jeigu dalyvis nuspręs balsuoti fiziškai, prieš tai pateiktas balsas bus anuliuotas ir šis taps galutiniu balsu.
             complete_voting: Užbaigti balsavimą
             identify_another: Identifikuoti kitą dalyvį
-            questions_title: 'Jie turi teisę balsuoti šiais klausimais:'
             questions_title_voted: 'Šis dalyvis jau balsavo internetu ir turi galimybė balsuoti šiais klausimais:'
             voted: Dalyvis prabalsavo
           create:
