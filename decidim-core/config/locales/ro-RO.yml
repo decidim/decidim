@@ -33,7 +33,6 @@ ro:
       decidim/component_published_event: Componentă activă
       decidim/demoted_membership: Nu mai este un administrator de grup
       decidim/gamification/badge_earned_event: Insignă câștigată
-      decidim/gamification/level_up_event: Ai crescut în nivel
       decidim/join_request_accepted_event: Cerere de înscriere acceptată
       decidim/join_request_rejected_event: Cerere de înscriere respinsă
       decidim/profile_updated_event: Profil actualizat
@@ -591,15 +590,9 @@ ro:
         email_subject: O actualizare la %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Felicitări! Ai câștigat <a href="%{resource_url}">%{badge_name} insignă</a> (nivelul %{current_level}).
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
-          email_subject: 'Ai câștigat o insignă nouă: %{badge_name}!'
-          notification_title: Felicitări! Ai câștigat <a href="%{resource_path}">%{badge_name} insignă</a> (nivelul %{current_level}).
         level_up:
-          email_intro: Felicitări! Ai atins nivelul %{current_level} pe insigna <a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Ai primit această notificare deoarece ai creat o activitate pe site-ul nostru.
-          email_subject: Ai ajuns la nivelul %{current_level} pe insigna %{badge_name}!
-          notification_title: Felicitări! Ai atins nivelul %{current_level} pe insigna <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Un administrator al grupului <a href="%{resource_url}">%{user_group_name}</a> a eliminat drepturile tale de administrator din acel grup.
@@ -752,7 +745,6 @@ ro:
           description_own: "%{score} persoane te urmăresc."
           name: Urmăritori
           next_level_in: Obțineți încă %{score} urmăritori pentru a atinge următorul nivel!
-          unearned_own: Încă nu ai urmăritori.
         index:
           badge_title: "%{name} insignă"
           how: Cum poți să o câștigi
@@ -760,7 +752,6 @@ ro:
           title: Insigne
       description: Insignele sunt recunoașterea acțiunilor participanților și progresele înregistrate în cadrul platformei. Pe măsură ce începi să descoperi, să participi și să interacționezi în platformă, vei câștiga diferite insigne.
       level: Nivelul %{level}
-      reached_top: Ai atins nivelul maxim pentru această insignă.
       title: Ce sunt insignele?
     group_admins:
       actions:
@@ -1402,14 +1393,6 @@ ro:
         someone_invited_you_as_admin: Cineva te-a invitat ca administrator al %{application}, îl poți accepta prin link-ul de mai jos.
         someone_invited_you_as_private_user: Cineva te-a invitat ca participant privat la %{application}, îl poți accepta prin link-ul de mai jos.
         subject: Instrucţiuni de invitaţie
-      invite_admin:
-        subject: Ai fost invitat să gestionezi %{organization}
-      invite_collaborator:
-        subject: Ați fost invitat să colaborați la %{organization}
-      invite_private_user:
-        subject: Ai fost invitat la un proces participativ privat pe %{organization}
-      organization_admin_invitation_instructions:
-        subject: Ai fost invitat să gestionezi %{organization}
       password_change:
         greeting: Bună ziua %{recipient}!
         subject: Parolă schimbată
