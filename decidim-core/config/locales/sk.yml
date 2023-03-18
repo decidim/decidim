@@ -1024,7 +1024,6 @@ sk:
         subject: Pokyny pre potvrdenie
       email_changed:
         greeting: Dobrý deň%{recipient}!
-        message: Kontaktujeme vás, aby ste vás upozornili, že váš email je zmenený na%{email}.
         subject: E-mail bol zmenený
       invitation_instructions:
         accept: Prijať pozvanie
@@ -1047,7 +1046,6 @@ sk:
         subject: Bol ste pozvaný na spravovanie %{organization}
       password_change:
         greeting: Dobrý deň, %{recipient}!
-        message: Kontaktujeme vás, aby ste vás upozornili, že vaše heslo bolo zmenené.
         subject: heslo zmenené
       reset_password_instructions:
         action: Zmeňte heslo
