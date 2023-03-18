@@ -876,7 +876,6 @@ fi:
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
-          success: CSV-tiedosto ladattu onnistuneesti. Lähetämme kutsusähköpostin osallistujille. Tämä voi kestää hetken.
         new:
           destroy:
             button: Poista kaikki yksityiset osallistujat
@@ -1035,7 +1034,6 @@ fi:
       user_group:
         csv_verify:
           invalid: CSV-tiedoston käsittely epäonnistui.
-          success: CSV-tiedoston lataaminen onnistui. Vahvistamme kriteerien mukaiset käyttäjäryhmät. Tämä voi kestää jonkin aikaa.
         reject:
           invalid: Käyttäjäryhmän hylkäys epäonnistui.
           success: Käyttäjäryhmän hylkäys onnistui.
