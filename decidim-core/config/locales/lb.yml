@@ -33,7 +33,6 @@ lb:
       decidim/component_published_event: Aktiv Komponent
       decidim/demoted_membership: Keen Gruppen-Admin méi
       decidim/gamification/badge_earned_event: Ofzeechen verdengt
-      decidim/gamification/level_up_event: Du bass e Level geklomme
       decidim/join_request_accepted_event: Beitrittsanfrage akzeptiert
       decidim/join_request_rejected_event: Beitrittsanfrage abgelehnt
       decidim/profile_updated_event: Profil aktualiséiert
@@ -536,15 +535,9 @@ lb:
         email_subject: Eng Aktualiséierung op %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Gratulatioun! Du hues dir <a href="%{resource_url}">%{badge_name} Ofzeechen</a> (Level %{current_level}) verdéngt.
           email_outro: Du hues dës Noriicht kritt well s'du op eiser Websäit aktiv wos.
-          email_subject: 'Du hues en neit Ofzeechen kritt: %{badge_name}!'
-          notification_title: Gratulatioun! Du hues dir <a href="%{resource_path}">%{badge_name} Ofzeechen</a> (Level %{current_level}) verdéngt.
         level_up:
-          email_intro: Gratulatioun! Du hues den Level %{current_level} am <a href="%{resource_url}">%{badge_name} Ofzeechen</a> erreecht!
           email_outro: Du hues dës Noriicht kritt well s'du op eiser Websäit aktiv wos.
-          email_subject: Du hues den Level %{current_level} um %{badge_name} Ofzeechen erreecht!
-          notification_title: Gratulatioun! Du hues den Level %{current_level} am <a href="%{resource_path}">%{badge_name} Ofzeechen</a> erreecht!
       groups:
         demoted_membership:
           email_intro: En Admin vum Grupp <a href="%{resource_url}">%{user_group_name}</a> huet dir d'Rechter fir d'Administratioun vum Grupp entzunn.
@@ -671,7 +664,6 @@ lb:
           description_own: "%{score} Benotzer ginn dir no."
           name: Unhänger
           next_level_in: Kréi méi %{score} Benotzer dozou dir nozegoen, fir den nächsten Level ze erreechen!
-          unearned_own: Du hues bis elo nach keng Follower.
         index:
           badge_title: "%{name} Ofzeechen"
           how: Wéi kanns de der et verdéngen
@@ -679,7 +671,6 @@ lb:
           title: Ofzeechen
       description: Ofzeechen sinn Unerkennungen fir d'Aktiounen an d'Fortschrëtter vun Teilnehmer op der Plattform. Wann se op der Plattform entdecken, matmaachen an interagéieren, verdéngen se verschidden Ofzeechen.
       level: Level %{level}
-      reached_top: Du hues den héchsten Level bei dësem Ofzeechen erreecht.
     group_admins:
       actions:
         demote_admin: Admin läschen
@@ -1279,14 +1270,6 @@ lb:
         someone_invited_you_as_admin: Et huet een dech als Admin op %{application} agelueden, du kanns dat iwwer den Link ënnen unhuelen.
         someone_invited_you_as_private_user: Jemand hat dich als private_user von %{application}eingeladen, du kannst es über den folgenden Link akzeptieren.
         subject: Instruktiounen fir d'Invitatioun
-      invite_admin:
-        subject: Du gouf s'agelueden, %{organization} ze verwalten
-      invite_collaborator:
-        subject: Du goufs agelueden, bei %{organization} matzeschaffen
-      invite_private_user:
-        subject: Du goufs agelueden un engem privaten Participatiouns-Prozess op %{organization} deelzehuelen
-      organization_admin_invitation_instructions:
-        subject: Du goufs agelueden, %{organization} ze verwalten
       password_change:
         greeting: Moien %{recipient}!
         subject: Passwuert geännert
