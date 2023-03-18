@@ -166,8 +166,6 @@ pt:
         share: Partilhar
         verify: Verificar
       admin_terms_of_use:
-        accept:
-          success: Excelente! Aceitou os termos de utilização de administrador.
         actions:
           are_you_sure: Tem a certeza que quer rejeitar os termos de utilização de administrador?
           refuse: Recusar os termos de administrador
