@@ -871,7 +871,6 @@ nl:
             info_text: Stembureau sluiting van de verkiezing.
           sign:
             cancel: Annuleer
-            check_box: Ik heb dit nagekeken en is hetzelfde als het fysieke verkiezingssluitingscertificaat
             close_modal: Sluiten
             confirm: Ok, verdergaan
             error: Er is een fout opgetreden, probeer het opnieuw.
