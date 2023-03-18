@@ -287,7 +287,6 @@ cs:
             update: Aktualizace
           form:
             address_help: 'Adresa: použita Geocoderem k nalezení polohy'
-            disclaimer: 'Prohlášení o zřeknutí: Použitím externího registračního systému jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
             location_help: 'Poloha: zpráva určená uživatelům, kteří předávají místo, aby se setkali'
             location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
             online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
@@ -371,7 +370,6 @@ cs:
         copy_calendar_url_clarification: Kopírovat URL kalendáře do schránky
         copy_calendar_url_copied: Zkopírováno!
         copy_calendar_url_description: Všechny zveřejněné schůzky můžete vidět v aplikaci nebo poskytovateli kalendáře. Zkopírujte a vložte tuto URL do kalendáře pomocí možnosti "Přidat nový kalendář z URL".
-        copy_calendar_url_explanation: Vezměte prosím na vědomí, že exportujete výběr schůzek, protože existují aktivní filtry. Pokud si přejete exportovat všechny, resetujte nejprve všechny filtry.
         copy_calendar_url_message: URL byla úspěšně zkopírována do schránky.
         export_calendar: Exportovat kalendář
       close_meeting_reminder_mailer:
@@ -474,7 +472,6 @@ cs:
           address_help: 'Adresa: použita Geocoderem k nalezení polohy'
           available_slots_help: Ponechte 0, pokud máte k dispozici neomezený počet slotů
           create_as: Vytvořit schůzku jako
-          disclaimer: 'Prohlášení o zřeknutí: Použitím externího registračního systému jste si vědomi toho, že organizátoři %{organization} nejsou odpovědní za data poskytovaná uživateli externí službě.'
           location_help: 'Poloha: zpráva určená uživatelům, kteří navrhují místo ke schůzce na'
           location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
           online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
