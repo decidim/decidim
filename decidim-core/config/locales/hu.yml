@@ -1340,7 +1340,6 @@ hu:
         subject: Megerősítési utasítások
       email_changed:
         greeting: Hello %{recipient}!
-        message: Értesítjük Önt, hogy értesíti Önt, hogy az e-mail címét %{email}változott.
         subject: E-mail megváltozott
       invitation_instructions:
         accept: Meghívó elfogadása
@@ -1363,7 +1362,6 @@ hu:
         subject: 'Meghívást kaptál, hogy ezt kezeld: %{organization}'
       password_change:
         greeting: Helló %{recipient}!
-        message: Azért kaptad ezt az üzenetet, mert megváltozott a jelszavad.
         subject: Jelszó módosítva
       reset_password_instructions:
         action: A jelszó megváltoztatása
