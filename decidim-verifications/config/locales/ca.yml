@@ -86,12 +86,10 @@ ca:
           no_data_stored: No hi ha dades emmagatzemades.
         create:
           error: S'ha produït un error en crear l'autorització.
-          success: Has estat autoritzada amb correctament.
           transferred: 'S''han recuperat les següents dades de participació a partir de la teva autorització:'
           unconfirmed: Cal que confirmis el teu correu electrònic per a poder autoritzar-te.
         destroy:
           error: S'ha produït un error en esborrar la verificació.
-          success: Has esborrat correctament la verificació.
         first_login:
           actions:
             another_dummy_authorization_handler: Verifica't un altre exemple de controlador d'autorització
@@ -228,7 +226,6 @@ ca:
             title: Sol·licita el teu codi de verificació
           update:
             error: El codi de verificació que has introduït no coincideix amb el nostre. Si us plau, torna a revisar l'SMS que t'hem enviat.
-            success: Felicitats. T'has verificat correctament.
   errors:
     messages:
       uppercase_only_letters_numbers: ha d'estar en majúscules i contenir lletres i/o nombres
