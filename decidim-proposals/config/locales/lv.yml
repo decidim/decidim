@@ -186,7 +186,6 @@ lv:
           follower:
             email_intro: 'Priekšlikums "%{resource_title}" ir pieņemts. Jūs varat izlasīt atbildi šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-            email_subject: Priekšlikums, kam jūs sekojat, ir pieņemts.
             notification_title: <a href="%{resource_path}">%{resource_title}</a> priekšlikums ir pieņemts.
         proposal_evaluating:
           affected_user:
@@ -197,7 +196,6 @@ lv:
           follower:
             email_intro: 'Pašlaik tiek vērtēts jūsu priekšlikums "%{resource_title}". Atbilde būs pieejama šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-            email_subject: Priekšlikums, kam jūs sekojat, tiek vērtēts
             notification_title: Priekšlikums <a href="%{resource_path}">%{resource_title}</a> tiek vērtēts.
         proposal_mentioned:
           email_intro: Jūsu priekšlikums "%{mentioned_proposal_title}" ir pieminēts <a href="%{resource_url}"> šajā telpā </a> komentāros.
@@ -221,7 +219,6 @@ lv:
           follower:
             email_intro: 'Priekšlikums "%{resource_title}" tika noraidīts. Jūs varat izlasīt atbildi šajā lapā:'
             email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{resource_title}". Jūs varat atsekot tai no iepriekšējās saites.
-            email_subject: Priekšlikums, kam jūs sekojat, tika noraidīts
             notification_title: <a href="%{resource_path}">%{resource_title}</a> priekšlikums tika noraidīts.
         proposal_update_category:
           email_intro: 'Administrators ir atjauninājis jūsu priekšlikuma kategoriju "%{resource_title}", aplūkojiet to šajā lapā:'
