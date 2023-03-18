@@ -734,8 +734,6 @@ ca:
             valuator: Avaluadora
             valuators: Avaluadores
             votes: Suports
-      new:
-        limit_reached: No pots crear noves propostes perquè has superat el límit.
       participatory_text_proposal:
         alternative_title: Ara mateix no hi ha cap text participatiu
         buttons:
@@ -885,7 +883,6 @@ ca:
             description: Cada proposta pot acumular més de %{limit} suports
           minimum_votes_per_user:
             description: Has de distribuir un mínim de %{votes} suports entre diferents propostes.
-            given_enough_votes: Has donat suficients suports.
             supports_remaining: Has de donar %{remaining_votes} suport/s més a propostes per a que els teus suports siguin tinguts en compte.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
