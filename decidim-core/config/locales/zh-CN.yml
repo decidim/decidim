@@ -1146,7 +1146,6 @@ zh-CN:
         subject: 确认说明
       email_changed:
         greeting: 你好 %{recipient}！
-        message: 我们正在联系您通知您，您的电子邮件正被更改为 %{email}。
         subject: 电子邮件已更改
       invitation_instructions:
         accept: 接受邀请
@@ -1169,7 +1168,6 @@ zh-CN:
         subject: 您已被邀请管理 %{organization}
       password_change:
         greeting: 你好 %{recipient}！
-        message: 我们正在联系您，通知您您您密码已更改。
         subject: 密码已更改
       reset_password_instructions:
         action: 更改我的密码
