@@ -17,4 +17,4 @@ If it is embeddable, you'll see `embed <\>` option there.
 
 Then you can click there, and following that, a new window will pop up showing you the necessary code to embed that space's info into where you want through the html given code in form of a card view.
 
-That's all!
+That is all!
