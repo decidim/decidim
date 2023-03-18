@@ -137,9 +137,7 @@ ja:
         cancel_order:
           more_than_one: '%{name} への投票を削除してからやり直してください'
           only_one: 投票を削除してやり直してください
-        finished_message: 投票プロセスが終了しました。ご参加ありがとうございます！
         highlighted_cta: '%{name} に投票'
-        if_change_opinion: 気が変わった場合は、
         my_budgets: 私の予算
         progress: 投票を終了
         show: プロジェクトを表示
@@ -186,7 +184,6 @@ ja:
           assigned: 'アサイン済み:'
           cancel_order: 投票を削除してやり直してください
           checked_out:
-            description: すでに予算に投票しています。気が変わった場合は、 %{cancel_link} することができます。
             title: 予算投票が完了しました
           minimum_projects_rule:
             description: どのプロジェクトに予算を割り当てるべきだと思いますか？ 希望するプロジェクトを %{minimum_number} 件以上選択し、好ましいと思う予算を決めて投票します。
