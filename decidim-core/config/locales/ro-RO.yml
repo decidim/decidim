@@ -1390,7 +1390,6 @@ ro:
         subject: Instrucţiuni de confirmare
       email_changed:
         greeting: Bună ziua %{recipient}!
-        message: Te contactăm pentru a te anunța că adresa ta de e-mail este schimbată în %{email}.
         subject: E-mail modificat
       invitation_instructions:
         accept: Acceptă invitația
@@ -1413,7 +1412,6 @@ ro:
         subject: Ai fost invitat să gestionezi %{organization}
       password_change:
         greeting: Bună ziua %{recipient}!
-        message: Vă contactăm pentru a vă notifica că parola a fost schimbată.
         subject: Parolă schimbată
       reset_password_instructions:
         action: Schimbă-mi parola
