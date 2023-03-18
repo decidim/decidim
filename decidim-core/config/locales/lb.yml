@@ -1267,7 +1267,6 @@ lb:
         subject: Instruktiounen fir d'Bestätegung ufroen
       email_changed:
         greeting: Moien %{recipient}!
-        message: Mir soen der heimat Bescheed, dass deng Email-Adress op %{email} geännert gëtt.
         subject: Email geännert
       invitation_instructions:
         accept: Invitatioun unhuelen
@@ -1290,7 +1289,6 @@ lb:
         subject: Du goufs agelueden, %{organization} ze verwalten
       password_change:
         greeting: Moien %{recipient}!
-        message: Mir soen der heimat Bescheed, dass dPasswuert geännert gouf.
         subject: Passwuert geännert
       reset_password_instructions:
         action: Mäin Passwuert änneren
