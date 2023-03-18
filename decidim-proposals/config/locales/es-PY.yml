@@ -734,8 +734,6 @@ es-PY:
             valuator: Evaluadora
             valuators: Evaluadoras
             votes: Votos
-      new:
-        limit_reached: No puedes crear nuevas propuestas porque has superado el límite.
       participatory_text_proposal:
         alternative_title: No hay textos participativos por el momento
         buttons:
@@ -885,7 +883,6 @@ es-PY:
             description: Cada propuesta puede acumular más de %{limit} apoyos
           minimum_votes_per_user:
             description: Debes distribuir un mínimo de %{votes} votos entre las diferentes propuestas.
-            given_enough_votes: Has dado suficientes apoyos.
             supports_remaining: Tienes que votar %{remaining_votes} propuestas más para que tus votos sean tomados en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
