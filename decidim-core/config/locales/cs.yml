@@ -162,7 +162,6 @@ cs:
         file_no_exists: Soubor neexistuje
         notice: Vaše data jsou momentálně v provozu. Po dokončení e-mailu obdržíte e-mail.
       email_change:
-        body1: Poslali jsme e-mail na %{unconfirmed_email} k ověření Vaší nové e-mailové adresy.
         body2: Potřebujete poslat znovu ověřovací e-mail? %{resend_link} nebo %{cancel_link}.
         cancel: zrušit
         cancel_error: Nelze zrušit změnu e-mailu.
@@ -1231,7 +1230,6 @@ cs:
           modal_close: Zavřít modální
           modal_title: Opravdu odmítáte aktualizované smluvní podmínky?
         required_review:
-          alert: Aktualizovali jsme Smluvní podmínky, přečtěte si je.
           title: 'Požadováno: Zkontrolujte aktualizace našich smluvních podmínek'
     participatory_space_private_users:
       not_allowed: Nemáte oprávnění k zobrazení tohoto obsahu
