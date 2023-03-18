@@ -761,7 +761,7 @@ en:
             valuators: Valuators
             votes: Votes
       new:
-        limit_reached: You cannot create new proposals since you've exceeded the limit.
+        limit_reached: You cannot create new proposals since you have exceeded the limit.
       participatory_text_proposal:
         alternative_title: There are no participatory texts at the moment
         buttons:
@@ -914,7 +914,7 @@ en:
             description: Each proposal can accumulate more than %{limit} supports
           minimum_votes_per_user:
             description: You must distribute a minimum of %{votes} supports among different proposals.
-            given_enough_votes: You've given enough supports.
+            given_enough_votes: You have given enough supports.
             supports_remaining: You have to support %{remaining_votes} more proposals for your supports to be taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.

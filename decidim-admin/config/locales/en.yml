@@ -202,7 +202,7 @@ en:
       admin_terms_of_use:
         accept:
           error: There is been an error while accepting the admin terms of use.
-          success: Great! You've accepted the admin terms of use.
+          success: Great! You have accepted the admin terms of use.
         actions:
           accept: I agree with the terms
           are_you_sure: Are you sure you want to refuse the admin terms of use?
