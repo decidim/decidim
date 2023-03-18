@@ -938,7 +938,6 @@ pt-BR:
             info_text: Encerramento eleitoral da estação de voto.
           sign:
             cancel: Cancelar
-            check_box: Eu revisei isso e é o mesmo que o certificado de fechamento eleitoral físico
             close_modal: Fechar
             confirm: Ok, continuar
             error: Ocorreu um erro. Por favor, tente novamente.
