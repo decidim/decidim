@@ -70,7 +70,7 @@ If you're using `omniauth-decidim` the value should be `YOUR_APPLICATION_HOST/us
 
 All the organization data will be used during the authorization process so the users know to who they're giving their data.
 
-Once you've created your application you'll get the settings to setup your clients.
+Once you have created your application you'll get the settings to setup your clients.
 
 Instructions in how to configure the client applications can be found in the module's https://github.com/decidim/omniauth-decidim#usage[usage section].
 
