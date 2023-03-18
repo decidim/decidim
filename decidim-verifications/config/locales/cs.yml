@@ -83,12 +83,10 @@ cs:
           no_data_stored: Žádná data nebyla uložena.
         create:
           error: Při vytváření oprávnění došlo k chybě.
-          success: Byl jste úspěšně autorizován.
           transferred: 'Na základě Vašeho povolení jsme získali následující údaje o účasti:'
           unconfirmed: Potřebujete potvrdit svůj e-mail, abyste se autorizovali.
         destroy:
           error: Při odstraňování autorizace došlo k chybě.
-          success: Autorizace byla úspěšně odstraněna.
         first_login:
           actions:
             another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
@@ -228,7 +226,6 @@ cs:
             title: Požádejte o ověřovací kód
           update:
             error: Váš ověřovací kód se neshoduje s naším. Zkontrolujte prosím SMS, kterou jsme vám poslali.
-            success: Gratulujeme. Byl jste úspěšně ověřen.
   errors:
     messages:
       uppercase_only_letters_numbers: musí být všechny velké a obsahují pouze písmena a / nebo čísla
