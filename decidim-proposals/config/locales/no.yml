@@ -785,7 +785,6 @@
             description: Hvert forslag kan samle mer enn %{limit} støtter
           minimum_votes_per_user:
             description: Du må gi ut minimum %{votes} støtter mellom forskjellige forslag.
-            given_enough_votes: Du har gitt nok støtter.
             supports_remaining: Du må støtte %{remaining_votes} flere forslag for at støttene dine som skal tas i betraktning.
           proposal_limit:
             description: Du kan lage opptil %{limit} forslag.
