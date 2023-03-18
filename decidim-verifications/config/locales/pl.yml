@@ -70,11 +70,9 @@ pl:
           no_data_stored: Brak danych.
         create:
           error: Wystąpił błąd podczas tworzenia autoryzacji.
-          success: Pomyślnie autoryzowano.
           unconfirmed: Aby się autoryzować, musisz potwierdzić swój adres e-mail.
         destroy:
           error: Wystąpił błąd podczas usuwania uprawnień.
-          success: Udało się usunąć uprawnienia.
         first_login:
           actions:
             another_dummy_authorization_handler: Sprawdź na przykładzie innego przykładu procedury obsługi autoryzacji
@@ -204,8 +202,6 @@ pl:
           new:
             send: Wyślij mi SMS-a
             title: Poproś o kod weryfikacyjny
-          update:
-            success: Gratulacje. Twoja weryfikacja została pomyślnie zakończona.
   errors:
     messages:
       uppercase_only_letters_numbers: musi być wpisany wielkimi literami i zawierać wyłącznie litery i / lub cyfry
