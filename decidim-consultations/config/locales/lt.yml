@@ -96,7 +96,6 @@ lt:
         create:
           error: Kuriant naują konsultaciją iškilo problema.
           success: Konsultacija sukurta.
-        deprecation_warning: Konsultacijų modulis greitu metu bus išimtas. Šiuo metu dirbame prie kitos, kriptografiškai saugios versijos pavadinimu Balsavimai.
         edit:
           update: Atnaujinti
         form:
