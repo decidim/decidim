@@ -1103,7 +1103,6 @@ es:
             info_text: Cierre electoral del punto de votación.
           sign:
             cancel: Cancelar
-            check_box: Lo he revisado y es idéntico al certificado físico de cierre electoral
             close_modal: Cerrar
             confirm: Ok, continuar
             error: Se ha producido un error, por favor inténtalo de nuevo.
