@@ -8,7 +8,7 @@ We have disabled the feature request's issue creation on this repository. If you
 
 * [Feature Request](https://meta.decidim.org/processes/roadmap)
 
-We're doing this because we're trying to eat our own dog food. Once your proposal is collaboratively reviewed and accepted by the Product Comitee, we'll create the new issue on GitHub and notify you through Metadecidim.
+We're doing this because we're trying to eat our own dog food. Once your proposal is collaboratively reviewed and accepted by the Product Comitee, we will create the new issue on GitHub and notify you through Metadecidim.
 
 Thanks for contributing to Decidim!
 
