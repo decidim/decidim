@@ -396,7 +396,6 @@ lt:
           title: Autorizacija išėjo iš galiojimo
         incomplete:
           cancel: Atšaukti
-          explanation: 'Nors jums šiuo metu suteiktas leidimas „%{authorization}“, turite būti iš naujo gauti leidimą, nes neturime šių duomenų:'
           invalid_field: "%{field}"
           reauthorize: Autorizuoti iš naujo
           title: Prašau autorizuokitės dar kartą
@@ -1020,7 +1019,6 @@ lt:
     newsletter_mailer:
       newsletter:
         no_reply_notice: Šis el. laiškas išsiųstas iš pranešimų el. pašto adreso, kuris negali priimti gaunamų el. laiškų. Prašome neatsakyti į šį pranešimą.
-        note: Šį el. laišką gavote, nes užsiprenumeravote %{organization_name} naujienlaiškius. Galite pakeisti nuostatas savo <a href="%{link}">pranešimų puslapyje</a>.
         unsubscribe: Jei nenorite gauti tokio tipo el. laiško, <a href="%{link}" target="_blank" class="unsubscribe">Atsisakykite prenumeratos</a>.
     newsletter_templates:
       basic_only_text:
@@ -1086,7 +1084,6 @@ lt:
     notifications_settings:
       show:
         administrators: Administratoriai
-        allow_push_notifications: Gaukite tiesioginius pranešimus, kad sužinotumėte, kas vyksta, kai nesate platformoje. Galite bet kada juos išjungti.
         direct_messages: Gauti tiesioginius pranešimus iš bet kurio asmens
         email_on_moderations: Noriu gauti el. laišką kiekvieną kartą kai kažkas (turinys ar naudotojas) raportuojami.
         everything_followed: Viskas, ką seku
@@ -1110,7 +1107,6 @@ lt:
         success: Jūsų pranešimų nuostatos atnaujintos.
     offline:
       show:
-        message: Panašu, kad šiuo metu esate neprisijungę. Pabandykite dar kartą vėliau.
         retry: Bandykite dar kartą
     open_data:
       not_available_yet: Atvirųjų duomenų rinkmenomis dabar negalima naudotis. Bandykite dar kartą po kelių minučių.
@@ -1392,7 +1388,6 @@ lt:
     user_interests:
       show:
         my_interests: Mano interesai
-        select_your_interests: Pasirinkite jus dominančias temas, kad savo profilio kortelėje „Laiko juosta“ gautumėte su jomis susijusių renginių nuorodų.
         update_my_interests: Atnaujinti mane dominančias temas
       update:
         error: Atnaujinant jūs dominančias temas iškilo problema.
@@ -1670,8 +1665,6 @@ lt:
       notifications_dashboard:
         mark_all_as_read: Visus žymėti kaip skaitytus
         mark_as_read: Žymėti kaip skaitytą
-      offline_banner:
-        cache_version_page: Regis nebeturite prieigos prie interneto! Šis puslapis - anksčiau išsaugotas vaizdas, tad gali būti, kad jame nėra naujausių atnaujinimų.
       social_media_links:
         facebook: "%{organization} – „Facebook“"
         github: "%{organization} – „GitHub“"
