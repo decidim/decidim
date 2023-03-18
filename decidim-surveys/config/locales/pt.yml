@@ -61,5 +61,4 @@ pt:
       surveys:
         answer:
           invalid: Ocorreu um problema ao responder ao inquérito.
-          spam_detected: Ocorreu um problema ao responder ao formulário. Talvez tenha sido demasiado rápido, pode tentar novamente?
           success: Inquérito respondido corretamente.
