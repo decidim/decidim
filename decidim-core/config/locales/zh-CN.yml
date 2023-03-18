@@ -251,7 +251,6 @@ zh-CN:
           title: 授权已过期
         incomplete:
           cancel: 取消
-          explanation: '即使您目前授权使用 "%{authorization}"，我们也需要您重新授权，因为我们缺少以下数据：'
           invalid_field: "%{field}"
           reauthorize: 重新授权
           title: 请重新授权
@@ -763,7 +762,6 @@ zh-CN:
         title: 参加者
     newsletter_mailer:
       newsletter:
-        note: 您收到这封邮件是因为您订阅了 %{organization_name}的新闻通讯。您可以在您的 <a href="%{link}">通知页面</a> 更改您的设置。
         unsubscribe: 选择不接收这种类型的电子邮件， <a href="%{link}" target="_blank" class="unsubscribe">取消订阅</a>。
     newsletter_templates:
       basic_only_text:
@@ -1057,7 +1055,6 @@ zh-CN:
     user_interests:
       show:
         my_interests: 我的利益
-        select_your_interests: 选择您感兴趣的主题，在您的配置文件时间线选项卡中接收与此相关的事件。
         update_my_interests: 更新我的兴趣
       update:
         error: 更新您的兴趣时出现问题。
