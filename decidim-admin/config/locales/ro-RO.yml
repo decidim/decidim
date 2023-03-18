@@ -187,8 +187,6 @@ ro:
           new: Administrator nou
         verify: Verifică
       admin_terms_of_use:
-        accept:
-          success: Super! Ai acceptat termenii de utilizare ai administratorului.
         actions:
           accept: Sunt de acord cu acești termeni și condiţii
           are_you_sure: Sigur dorești să refuzi termenii de utilizare ai adiminstratorului?
