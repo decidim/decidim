@@ -87,9 +87,7 @@ tr:
         cancel_order:
           more_than_one: '%{name} üzerindeki oyunuzu silin ve baştan başlayın'
           only_one: oyunuzu silin ve baştan başlayın.
-        finished_message: Oylama sürecini bitirdiniz. Katıldığınız için teşekkürler!
         highlighted_cta: '%{name} için oy verin'
-        if_change_opinion: Fikrini değiştirdiysen, yapabilirsin
         my_budgets: Bütçelerim
       limit_announcement:
         limit_reached: '%{links} alanında aktif oylarınız var. Bu bütçeye oy vermek için <a href="%{landing_path}"> oyunuzu silmeli ve baştan başlamalısınız </a>.'
@@ -127,7 +125,6 @@ tr:
           assigned: 'atanan:'
           cancel_order: oyunuzu silin ve baştan başlayın
           checked_out:
-            description: Bütçeye zaten oy verdiniz. Fikrinizi değiştirdiyseniz, %{cancel_link}yapabilirsiniz.
             title: Bütçe oyu tamamlandı
           minimum_projects_rule:
             description: Sizce hangi projeler için bütçe ayırmalıyız? Bütçeyi belirlemek için istediğiniz en az %{minimum_number} proje seçin ve tercihlerinize göre oy verin.
