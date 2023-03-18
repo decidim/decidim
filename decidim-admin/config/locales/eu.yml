@@ -187,8 +187,6 @@ eu:
           new: Administratzaile berria
         verify: Egiaztatu
       admin_terms_of_use:
-        accept:
-          success: Ederto! Onartu dituzu Administrazioaren Gaiak eta Baldintzak.
         actions:
           accept: Ados nago
           are_you_sure: Ziur zaude ez dituzula onartu nahi administratzaileentzako erabilera-irizpideak?
