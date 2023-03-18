@@ -270,7 +270,6 @@ sv:
             update: Uppdatera
           form:
             address_help: 'Adress: anger en plats för Geocoder'
-            disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
             location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
             online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
@@ -439,7 +438,6 @@ sv:
           address_help: 'Adress: som används av Geocoder för att hitta platsen'
           available_slots_help: Lämna det till 0 om du har obegränsade platser
           create_as: Skapa möte som
-          disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
           location_help: 'Plats: meddelande riktat till de användare som antyder platsen att träffas på'
           location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
           online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
