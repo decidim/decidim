@@ -27,7 +27,6 @@ bg:
       decidim/component_published_event: Активен компонент
       decidim/demoted_membership: Вече не сте администратор в групата
       decidim/gamification/badge_earned_event: Получихте значка
-      decidim/gamification/level_up_event: Повишихте нивото си
       decidim/join_request_accepted_event: Заявката за присъединяване е приета
       decidim/join_request_rejected_event: Заявката за присъединяване е отхвърлена
       decidim/profile_updated_event: Профилът е обновен
@@ -474,15 +473,9 @@ bg:
         email_subject: Обновление в %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Поздравления! Вие заслужихте значка <a href="%{resource_url}">%{badge_name} </a> (ниво %{current_level}).
           email_outro: Получавате това известие, защото сте проявили активност на нашия сайт.
-          email_subject: 'Заслужихте нова значка: %{badge_name}!'
-          notification_title: Поздравления! Вие заслужихте значка <a href="%{resource_path}">%{badge_name} </a> (ниво %{current_level}).
         level_up:
-          email_intro: Поздравления! Достигнахте ниво %{current_level} на значката <a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Получавате това известие, защото сте проявили активност на нашия сайт.
-          email_subject: Достигнахте ниво %{current_level} на значката %{badge_name}!
-          notification_title: Поздравления! Достигнахте ниво %{current_level} на значката <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Администратора на групата <a href="%{resource_url}">%{user_group_name}</a> отне администраторските Ви права за тази група.
@@ -589,7 +582,6 @@ bg:
           description_own: "Следват Ви %{score} човека."
           name: Последователи
           next_level_in: Остават %{score} човека до достигане на следващото ниво!
-          unearned_own: Нямате последователи все още.
         index:
           badge_title: "%{name} значка"
           how: Как може да я заслужите
@@ -597,7 +589,6 @@ bg:
           title: Значки
       description: Значките са признания за действия на участниците и напредък в платформата. Когато започнете да откривате, участвате и взаимодействате в платформата, ще спечелите различни значки.
       level: Ниво %{level}
-      reached_top: Достигнахте максималното ниво на значката.
     group_admins:
       actions:
         demote_admin: Премахни администратор
@@ -1100,14 +1091,6 @@ bg:
         someone_invited_you_as_admin: Някой ви покани за администратор на %{application}, можете да приемете чрез връзката по-долу.
         someone_invited_you_as_private_user: Някой ви покани частен участник в %{application}, можете да приемете чрез връзката по-долу.
         subject: Инструкции за покана
-      invite_admin:
-        subject: Поканени сте да управлявате %{organization}
-      invite_collaborator:
-        subject: Поканени сте да сътрудничите в %{organization}
-      invite_private_user:
-        subject: Поканени сте в частен процес на сътрудничество в %{organization}
-      organization_admin_invitation_instructions:
-        subject: Поканени сте да управлявате %{organization}
       password_change:
         greeting: Здравейте %{recipient}!
         subject: Паролата е променена
