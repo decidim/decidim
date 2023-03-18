@@ -139,7 +139,6 @@ ca:
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       email_change:
-        body1: Hem enviat un correu a %{unconfirmed_email} per a verificar la teva nova adreça de correu electrònic.
         body2: Cal que et reenviem el correu de verificació? %{resend_link} o %{cancel_link}.
         cancel: cancel·lar
         cancel_error: No s'ha pogut cancel·lar el canvi de correu electrònic.
@@ -1203,7 +1202,6 @@ ca:
           modal_close: Tanca el modal
           modal_title: Confirmes que no acceptes els Termes i Condicions actualitzats?
         required_review:
-          alert: Hem actualitzat els nostres Termes de Servei, si us plau revisa'ls.
           body: Si us plau, dedica un moment a revisar l'actualització dels nostres Termes de Servei. En cas contrari, no podràs utilitzar la plataforma.
           title: 'Obligatori: revisa l''actualització dels nostres Termes de Servei'
     participatory_space_private_users:
