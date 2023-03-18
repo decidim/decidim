@@ -29,7 +29,6 @@ el:
       decidim/component_published_event: Ενεργό στοιχείο
       decidim/demoted_membership: Δεν είναι πλέον διαχειριστής ομάδας
       decidim/gamification/badge_earned_event: Κερδίσατε έμβλημα
-      decidim/gamification/level_up_event: Ανεβήκατε επίπεδο
       decidim/join_request_accepted_event: Το αίτημα συμμετοχής έγινε αποδεκτό
       decidim/join_request_rejected_event: Το αίτημα συμμετοχής απορρίφθηκε
       decidim/profile_updated_event: Το προφίλ ενημερώθηκε
@@ -478,15 +477,9 @@ el:
         email_subject: Μια ενημέρωση στο στοιχείο %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Συγχαρητήρια! Κερδίσατε το έμβλημα <a href="%{resource_url}">%{badge_name}</a> (επίπεδο %{current_level}).
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
-          email_subject: 'Έχετε κερδίσει ένα νέο έμβλημα: %{badge_name}!'
-          notification_title: Συγχαρητήρια! Κερδίσατε το έμβλημα <a href="%{resource_path}">%{badge_name}</a> (επίπεδο %{current_level}).
         level_up:
-          email_intro: Συγχαρητήρια! Φτάσατε το επίπεδο %{current_level} στο έμβλημα <a href="%{resource_url}">%{badge_name}</a>!
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή κάνατε μια δραστηριότητα στον ιστότοπό μας.
-          email_subject: Φτάσατε το επίπεδο %{current_level} στο έμβλημα %{badge_name}!
-          notification_title: Συγχαρητήρια! Φτάσατε το επίπεδο %{current_level} στο έμβλημα <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Ένας διαχειριστής της ομάδας <a href="%{resource_url}">%{user_group_name}</a> κατάργησε τα δικαιώματα διαχειριστή σας σε αυτήν την ομάδα.
@@ -607,7 +600,6 @@ el:
           description_own: "%{score} άτομα σας ακολουθούν."
           name: Ακόλουθοι
           next_level_in: Πρέπει να σας ακολουθήσουν %{score} ακόμη άτομα για να φτάσετε στο επόμενο επίπεδο!
-          unearned_own: Δεν έχετε ακόμα ακολούθους.
         index:
           badge_title: "Έμβλημα %{name}"
           how: Πώς μπορείτε να το κερδίσετε
@@ -615,7 +607,6 @@ el:
           title: Εμβλήματα
       description: Τα εμβλήματα αποτελούν αναγνώριση ενεργειών των συμμετεχόντων και της προόδου στην πλατφόρμα. Καθώς αρχίζετε να ανακαλύπτετε, να συμμετέχετε και να αλληλεπιδράτε στην πλατφόρμα, θα κερδίσετε διάφορα εμβλήματα.
       level: Επίπεδο %{level}
-      reached_top: Φτάσατε στο ανώτατο επίπεδο για αυτό το έμβλημα.
     group_admins:
       actions:
         demote_admin: Κατάργηση διαχειριστή
@@ -1145,14 +1136,6 @@ el:
         someone_invited_you_as_admin: Κάποιος σάς προσκάλεσε ως διαχειριστή της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
         someone_invited_you_as_private_user: Κάποιος σάς προσκάλεσε ως ιδιωτικό συμμετέχοντα της εφαρμογής %{application}. Μπορείτε να την αποδεχτείτε μέσω του παρακάτω συνδέσμου.
         subject: Οδηγίες πρόσκλησης
-      invite_admin:
-        subject: Έχετε προσκληθεί να διαχειριστείτε τον οργανισμό %{organization}
-      invite_collaborator:
-        subject: Έχετε προσκληθεί να συνεργαστείτε με τον οργανισμό %{organization}
-      invite_private_user:
-        subject: Έχετε προσκληθεί σε μια ιδιωτική διαδικασία συμμετοχής του οργανισμού %{organization}
-      organization_admin_invitation_instructions:
-        subject: Έχετε προσκληθεί να διαχειριστείτε τον οργανισμό %{organization}
       password_change:
         greeting: Γεια σας %{recipient}!
         subject: Ο κωδικός πρόσβασης άλλαξε
