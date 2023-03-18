@@ -972,7 +972,6 @@ pl:
             info_text: Zamknięcie lokalu wyborczego.
           sign:
             cancel: Anuluj
-            check_box: Sprawdziłem to. Należy to rozumieć tak samo fizyczny certyfikat zamknięcia wyborów
             close_modal: Zamknij
             confirm: Ok, kontynuuj
             error: Wystąpił błąd, spróbuj ponownie.
