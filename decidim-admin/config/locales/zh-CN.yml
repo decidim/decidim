@@ -582,8 +582,6 @@ zh-CN:
           create: 创建
           title: 新的参与性空间活动私人参与者。
       participatory_space_private_users_csv_imports:
-        create:
-          success: CSV 文件上传成功，我们正在向参与者发送邀请邮件。这可能需要一段时间。
         new:
           title: 上传您的 CSV 文件
           upload: 上传
@@ -699,7 +697,6 @@ zh-CN:
       user_group:
         csv_verify:
           invalid: 读取CSV文件时出现问题。
-          success: CSV 文件上传成功，我们正在验证符合条件的组。这可能需要一段时间。
         reject:
           invalid: 拒绝这个组时出现问题。
         verify:
