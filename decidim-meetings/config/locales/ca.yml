@@ -281,7 +281,6 @@ ca:
             update: Actualitzar
           form:
             address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
-            disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que els organitzadors de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
             location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
             location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
             online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
@@ -363,7 +362,6 @@ ca:
         copy_calendar_url_clarification: Copiar l'URL del calendari al porta-retalls
         copy_calendar_url_copied: Copiat!
         copy_calendar_url_description: Pots veure totes les reunions publicades a la teva aplicació o preveïdor de calendari. Copia i enganxa aquesta URL al teu calendari fent servir l'opció "Afegir nou calendari des d'una URL".
-        copy_calendar_url_explanation: Tingues en compte que estàs exportant una selecció de reunions, ja que hi ha filtres activats. Si vols exportar-les totes, primer elimina tots els filtres.
         copy_calendar_url_message: S'ha copiat l'enllaç al porta-retalls correctament.
         export_calendar: Exporta el calendari
       close_meeting_reminder_mailer:
@@ -464,7 +462,6 @@ ca:
           address_help: 'Adreça: que farà servir per Geocoder per a trobar la localització'
           available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades
           create_as: Crear trobada com a
-          disclaimer: 'Descàrrec de responsabilitat: en utilitzar un sistema d''inscripcions extern, ets conscient que els organitzadors de %{organization} no són responsables de les dades proporcionades per les usuàries al servei extern.'
           location_help: 'Localització: missatge dirigit a les participants indicant el lloc on trobar-se'
           location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
           online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
