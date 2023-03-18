@@ -35,7 +35,6 @@ cs:
       decidim/component_published_event: Aktivní součást
       decidim/demoted_membership: Již není správcem skupiny
       decidim/gamification/badge_earned_event: Získaný odznak
-      decidim/gamification/level_up_event: Vy jste vyrovnali
       decidim/invited_to_group_event: Pozván do skupiny
       decidim/join_request_accepted_event: Připojit žádost přijatou
       decidim/join_request_rejected_event: Připojit žádost zamítnuta
@@ -703,15 +702,9 @@ cs:
         email_subject: Aktualizace na %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Dobrá práce! Získali jste <a href="%{resource_url}">%{badge_name} odznak</a> (úroveň %{current_level}).
           email_outro: Toto oznámení jste obdrželi, protože jste aktivovali činnost na našich webových stránkách.
-          email_subject: 'Získali jste nový odznak: %{badge_name}!'
-          notification_title: Dobrá práce! Získali jste <a href="%{resource_path}">%{badge_name} odznak</a> (úroveň %{current_level}).
         level_up:
-          email_intro: Dobrá práce! Dosáhli jste úrovně %{current_level} na <a href="%{resource_url}">%{badge_name} odznaku</a>!
           email_outro: Toto oznámení jste obdrželi, protože jste aktivovali činnost na našich webových stránkách.
-          email_subject: Dosáhli jste úrovně %{current_level} na %{badge_name} odznaku!
-          notification_title: Dobrá práce! Dosáhli jste úrovně %{current_level} na <a href="%{resource_path}">%{badge_name} odznaku</a>!
       groups:
         demoted_membership:
           email_intro: Administrátor skupiny <a href="%{resource_url}">%{user_group_name}</a> odebral vaše práva administrátora do této skupiny.
@@ -886,7 +879,6 @@ cs:
           description_own: "Uživatelé vás sledují %{score} uživatelů."
           name: Sledující
           next_level_in: Získejte %{score} dalších uživatelů, kteří vás budou následovat, abyste se dostali na další úroveň!
-          unearned_own: Už nemáte žádné následovníky.
         index:
           badge_title: "%{name} odznak"
           how: Jak ho můžete získat
@@ -894,7 +886,6 @@ cs:
           title: Odznaky
       description: Odznaky jsou uznání akcí účastníků a pokrok v platformě. Jakmile začnete objevovat, účastnit se a spolupracovat v platformě, získáte různé odznaky.
       level: Úroveň %{level}
-      reached_top: Dosáhli jste nejvyšší úrovně tohoto odznaku.
       title: Jaké jsou odznaky?
     group_admins:
       actions:
@@ -1568,14 +1559,6 @@ cs:
         someone_invited_you_as_admin: Někdo Vás pozval jako administrátora %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
         someone_invited_you_as_private_user: Někdo vás pozval jako private_user %{application}, můžete jej přijmout pomocí níže uvedeného odkazu.
         subject: Pokyny k pozvánkám
-      invite_admin:
-        subject: Byl jste pozván na správu %{organization}
-      invite_collaborator:
-        subject: Byl jste pozván na spolupráci na %{organization}
-      invite_private_user:
-        subject: Byli jste pozváni do soukromého procesu participace na %{organization}
-      organization_admin_invitation_instructions:
-        subject: Byl jste pozván na správu %{organization}
       password_change:
         greeting: Dobrý den %{recipient}!
         message: Tímto vás informujeme, že vaše heslo bylo změněno.
