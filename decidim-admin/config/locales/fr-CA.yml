@@ -876,7 +876,6 @@ fr-CA:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
-          success: Fichier CSV a été transféré avec succès, nous envoyons un courriel d'invitation aux participants. Cela peut prendre un certain temps.
         new:
           destroy:
             button: Supprimer tous les utilisateurs privés
@@ -1029,7 +1028,6 @@ fr-CA:
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
-          success: Le fichier CSV a été chargé avec succès, nous vérifions les groupes d'utilisateurs correspondant aux critères. Cela pourrait prendre un moment.
         reject:
           invalid: Une erreur s'est produite lors du refus de ce groupe d'utilisateurs.
         verify:
