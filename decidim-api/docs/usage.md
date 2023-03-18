@@ -127,7 +127,7 @@ Finally, note that the returned object is an array, each item of which is a repr
 >
 > We can say we have some searchable object with a multi-language field called *title*, and we have a filter that allows us to search through this field. How should it work? Should we look up content for every language in the field? or should we stick to a specific language?
 >
-> In our case, we've decided to search only one particular language of a multi-language field but we let you choose which language to search.
+> In our case, we have decided to search only one particular language of a multi-language field but we let you choose which language to search.
 > If no language is specified, the configured as default in the organization will be used. The keyword to specify the language is `locale`, and it should be provided in the 2 letters ISO 639-1 format (en = English, es = Spanish, ...).
 >
 > Example (this is not a real Decidim query):
@@ -361,7 +361,7 @@ Another example are the case of linked resources, these are properties that may 
 
 In a very simplified way (to know more please refer to the official guide), GraphQL polymorphism is handled through the operator `... on`. You'll know when a field is polymorphic because the property `__typename`, which tells you the type of that particular object, will change accordingly.
 
-In the previous examples we've queried for this property:
+In the previous examples we have queried for this property:
 
 Response fragment:
 
