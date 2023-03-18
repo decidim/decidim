@@ -185,7 +185,6 @@ es-MX:
             - Sigue los pasos para crear una nueva iniciativa.
           description: Este distintivo se otorga cuando lanzas nuevas iniciativas, asociándote con otros para llevarlas a cabo.
           description_another: Este usuario ha publicado %{score} iniciativas.
-          description_own: Tienes %{score} iniciativas publicadas.
           name: Iniciativas publicadas
           next_level_in: '¡Publica %{score} iniciativas más para llegar al siguiente nivel!'
           unearned_another: Esta participante aún no ha publicado ninguna iniciativa.
