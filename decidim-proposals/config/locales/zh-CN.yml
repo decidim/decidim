@@ -735,7 +735,6 @@ zh-CN:
             description: 每个建议都可以积累超过 %{limit} 个支持
           minimum_votes_per_user:
             description: 您必须在不同的建议中至少分配 %{votes} 支持。
-            given_enough_votes: 您已经提供了足够的支持。
             supports_remaining: 您必须支持 %{remaining_votes} 个更多的建议以便您的支持被考虑。
           proposal_limit:
             description: 您最多可以创建 %{limit} 个建议。
