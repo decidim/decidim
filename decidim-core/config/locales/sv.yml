@@ -132,7 +132,6 @@ sv:
         file_no_exists: Filen finns inte
         notice: Dina uppgifter hämtas för närvarande. Du får ett e-postmeddelande när det är klart.
       email_change:
-        body1: Vi har skickat ett e-postmeddelande till %{unconfirmed_email} för att bekräfta din nya e-postadress.
         body2: Vill du att vi ska skicka verifieringsmailet igen? %{resend_link} eller %{cancel_link}.
         cancel: avbryt
         cancel_error: Kunde inte avbryta ändringen av e-postadressen.
@@ -1073,7 +1072,6 @@ sv:
           modal_close: Stäng fönstret
           modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
-          alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
           title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
