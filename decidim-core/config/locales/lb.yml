@@ -969,7 +969,6 @@ lb:
           modal_close: Modal zou maachen
           modal_title: Bass du wierklech wëlles d'Konditiounen vum Benotzen net unzehuelen?
         required_review:
-          alert: Mir hunn eis Konditiounen vum Benotzen aktualiséiert, iwwerpréif se w. e. g.
           title: 'Erfuerderlech: Iwwerpréif Aktualiséierungen vun eisen Konditiounen vum Benotzen'
     participatory_space_private_users:
       not_allowed: Dir ass et net erlaabt dësen Inhalt ze gesinn
