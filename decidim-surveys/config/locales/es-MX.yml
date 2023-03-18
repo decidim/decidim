@@ -64,5 +64,4 @@ es-MX:
       surveys:
         answer:
           invalid: Se han producido errores al responder a la encuesta.
-          spam_detected: Hubo un problema al responder al formulario. Tal vez hayas ido demasiado rápido, ¿puedes intentarlo de nuevo?
           success: La encuesta ha sido respondida con éxito.
