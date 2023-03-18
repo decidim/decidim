@@ -870,7 +870,6 @@ ja:
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
-          success: CSVファイルが正常にアップロードされました。出席者に招待メールを送信します。時間がかかる場合があります。
         new:
           destroy:
             button: すべてのプライベート参加者を削除
@@ -1028,7 +1027,6 @@ ja:
       user_group:
         csv_verify:
           invalid: CSVファイルの読み込みに問題が発生しました。
-          success: CSVファイルが正常にアップロードされました。条件に一致するグループを検証しています。しばらく時間がかかる場合があります。
         reject:
           invalid: このグループを拒否する際に問題が発生しました。
           success: グループを却下しました。
