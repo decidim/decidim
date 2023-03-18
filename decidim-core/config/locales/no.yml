@@ -313,7 +313,6 @@
           title: Autorisasjon har utgått
         incomplete:
           cancel: Avbryt
-          explanation: 'Selv om du er autorisert med "%{authorization}", trenger du å gjen autorisere fordi vi mangler følgene data:'
           invalid_field: "%{field}"
           reauthorize: Gjenautoriser
           title: Vennligst gjenautoriser
@@ -881,7 +880,6 @@
         title: Deltakere
     newsletter_mailer:
       newsletter:
-        note: Du mottok denne e-posten fordi du abonnerer på nyhetsbrev for %{organization_name}. Du kan endre innstillingene dine på <a href="%{link}">varslings siden din</a>.
         unsubscribe: For å velge bort å motta denne typen e-mailer, <a href="%{link}" target="_blank" class="unsubscribe">Avslutt abonnementet</a>.
     newsletter_templates:
       basic_only_text:
@@ -946,7 +944,6 @@
         success: Varslings innstillingene dine ble oppdatert.
     offline:
       show:
-        message: Det ser ut til at du er frakoblet. Vær så snill, prøv igjen senere.
         retry: Prøv igjen
     open_data:
       not_available_yet: Open Data-filene er ikke tilgjengelige ennå, prøv igjen om noen minutter.
@@ -1215,7 +1212,6 @@
     user_interests:
       show:
         my_interests: Mine interesser
-        select_your_interests: Velg emnene du er interessert i for å motta hendelser relatert til dem i fanen Profilens tidslinje.
         update_my_interests: Oppdater interessene mine
       update:
         error: Det oppstod et problem med å oppdatere interessene dine.
@@ -1433,8 +1429,6 @@
       notifications_dashboard:
         mark_all_as_read: Merk alt som lest
         mark_as_read: Merk som lest
-      offline_banner:
-        cache_version_page: Oooops! Nettverket ditt er frakoblet. Dette er en tidligere bufret versjon av siden du besøker, kanskje er innholdet ikke oppdatert.
       social_media_links:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
