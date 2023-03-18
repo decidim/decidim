@@ -791,7 +791,6 @@ it:
             description: Ogni proposta può accumulare più di %{limit} supporti
           minimum_votes_per_user:
             description: Devi distribuire un minimo di %{votes} voti tra diverse proposte.
-            given_enough_votes: Hai dato abbastanza supporti.
             supports_remaining: Devi votare %{remaining_votes} altre proposte per i tuoi voti da prendere in considerazione.
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
