@@ -312,7 +312,7 @@ describe "Support Proposal", type: :system, slow: true do
         login_as user, scope: :user
       end
 
-      it "does not allow users to vote to a proposal that's reached the limit" do
+      it "does not allow users to vote to a proposal that is reached the limit" do
         create(:proposal_vote, proposal:)
         visit_component
 
