@@ -73,7 +73,6 @@ lv:
           assigned: 'Piešķirts:'
           cancel_order: izdzēsiet savu balsojumu un sāciet no jauna
           checked_out:
-            description: Jūs jau esat nobalsojis par budžetu. Ja esat mainījis savas domas, varat %{cancel_link}.
             title: Balsojums par budžetu pabeigts
           title: Jūs lemjat par budžetu
         count:
