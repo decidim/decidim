@@ -841,7 +841,6 @@ de:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
-          success: CSV-Datei wurde erfolgreich hochgeladen, wir senden eine Einladungs-E-Mail an die Teilnehmer. Dies kann eine Weile dauern.
         new:
           destroy:
             button: Alle private Teilnehmende auswählen
@@ -983,7 +982,6 @@ de:
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
-          success: CSV-Datei wurde erfolgreich hochgeladen. Wir überprüfen, ob die Benutzergruppen den Kriterien entsprechen. Das kann eine Weile dauern.
         reject:
           invalid: Beim Ablehnen dieser Benutzergruppe ist ein Fehler aufgetreten.
         verify:
