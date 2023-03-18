@@ -33,7 +33,6 @@ nl:
       decidim/component_published_event: Actieve component
       decidim/demoted_membership: Niet langer een groepsbeheerder
       decidim/gamification/badge_earned_event: Badge verdiend
-      decidim/gamification/level_up_event: Je bereikte een hoger niveau
       decidim/join_request_accepted_event: Deelnameverzoek geaccepteerd
       decidim/join_request_rejected_event: Deelnameverzoek afgewezen
       decidim/profile_updated_event: Profiel bijgewerkt
@@ -556,15 +555,9 @@ nl:
         email_subject: Een update voor %{resource_title}
       gamification:
         badge_earned:
-          email_intro: Goed werk! Je hebt de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
-          email_subject: 'U heeft een nieuwe badge verdiend: %{badge_name}!'
-          notification_title: Gefeliciteerd! U heeft de <a href="%{resource_path}">%{badge_name} badge</a> (niveau %{current_level}) verdiend.
         level_up:
-          email_intro: Gefeliciteerd! U heeft niveau %{current_level} bereikt op de <a href="%{resource_url}">%{badge_name} badge</a>!
           email_outro: U heeft deze melding ontvangen omdat u activiteiten op onze website heeft uitgevoerd.
-          email_subject: Je hebt level %{current_level} bereikt op de %{badge_name} badge!
-          notification_title: Gefeliciteerd! Je hebt niveau %{current_level} bereikt op badge <a href="%{resource_path}">%{badge_name}</a>!
       groups:
         demoted_membership:
           email_intro: Een beheerder van de <a href="%{resource_url}">%{user_group_name}</a> groep heeft uw beheerdersrechten voor die groep verwijderd.
@@ -689,7 +682,6 @@ nl:
           description_own: "%{score} gebruikers volgen jou."
           name: Volgers
           next_level_in: Ontvang nog %{score} mensen om je te volgen en het volgende niveau te bereiken!
-          unearned_own: Je hebt nog geen volgers.
         index:
           badge_title: "%{name} badge"
           how: Hoe kun je het verdienen?
@@ -697,7 +689,6 @@ nl:
           title: Badges
       description: Badges zijn erkenningen voor acties van deelnemers en voortgang op het platform. Naarmate je begint met ontdekken, deelnemen en communiceren op het platform, verdien je verschillende badges.
       level: Niveau %{level}
-      reached_top: U hebt het hoogste niveau bereikt voor deze badge.
     group_admins:
       actions:
         demote_admin: Verwijder admin
@@ -1287,14 +1278,6 @@ nl:
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
         someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-deelnemer van %{application}, je kunt het accepteren via de onderstaande link.
         subject: Instructies voor de uitnodiging
-      invite_admin:
-        subject: U bent uitgenodigd om %{organization} te beheren
-      invite_collaborator:
-        subject: U bent uitgenodigd om samen te werken bij %{organization}
-      invite_private_user:
-        subject: Je bent uitgenodigd voor een privé burgerinspraak thema op %{organization}
-      organization_admin_invitation_instructions:
-        subject: U bent uitgenodigd om %{organization} te beheren
       password_change:
         greeting: Hallo %{recipient}!
         subject: Wachtwoord is veranderd
