@@ -134,7 +134,6 @@ de:
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       email_change:
-        body1: Wir haben eine E-Mail an %{unconfirmed_email} gesendet, um Ihre neue E-Mail-Adresse zu verifizieren.
         body2: Möchten Sie die Verifizierungs-E-Mail erneut senden? %{resend_link} oder %{cancel_link}.
         cancel: stornieren
         cancel_error: Die Änderung der E-Mail-Adresse konnte nicht storniert werden.
@@ -1126,7 +1125,6 @@ de:
           modal_close: Modal schließen
           modal_title: Lehnen Sie die aktualisierten Geschäftsbedingungen wirklich ab?
         required_review:
-          alert: Wir haben unsere Nutzungsbedingungen aktualisiert. Bitte überprüfen Sie sie.
           title: 'Erforderlich: Überprüfen Sie die Aktualisierungen unserer Nutzungsbedingungen'
     participatory_space_private_users:
       not_allowed: Sie dürfen diesen Inhalt nicht sehen
