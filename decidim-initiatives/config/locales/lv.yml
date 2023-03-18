@@ -138,7 +138,6 @@ lv:
             - Sekojiet soļiem, lai izveidotu jaunu iniciatīvu
           description: Šis žetons tiek piešķirts, kad jūs sākat jaunas iniciatīvas, sadarbojoties ar citiem, lai tās īstenotu.
           description_another: Šis dalībnieks ir publicējis %{score} iniciatīvas.
-          description_own: Jūs esat publicējis %{score} iniciatīvas.
           name: Publicētās iniciatīvas
           next_level_in: Publicējiet vēl vairākas %{score} iniciatīvas, lai sasniegtu nākamo līmeni!
           unearned_own: Jums vēl nav nevienas publicētas iniciatīvas.
